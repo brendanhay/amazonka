@@ -186,7 +186,8 @@ instance Core.AWSRequest CreateFlow where
 
 instance Prelude.Hashable CreateFlow where
   hashWithSalt _salt CreateFlow' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` entitlements
       `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` mediaStreams

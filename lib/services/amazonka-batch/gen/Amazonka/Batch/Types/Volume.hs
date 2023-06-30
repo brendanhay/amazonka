@@ -122,7 +122,8 @@ instance Data.FromJSON Volume where
 
 instance Prelude.Hashable Volume where
   hashWithSalt _salt Volume' {..} =
-    _salt `Prelude.hashWithSalt` efsVolumeConfiguration
+    _salt
+      `Prelude.hashWithSalt` efsVolumeConfiguration
       `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` name
 

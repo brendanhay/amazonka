@@ -98,7 +98,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CancelReservedInstancesListingResponse'
-            Prelude.<$> ( x Data..@? "reservedInstancesListingsSet"
+            Prelude.<$> ( x
+                            Data..@? "reservedInstancesListingsSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )

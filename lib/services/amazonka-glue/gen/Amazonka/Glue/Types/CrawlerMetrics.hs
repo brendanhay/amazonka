@@ -137,7 +137,8 @@ instance Data.FromJSON CrawlerMetrics where
 
 instance Prelude.Hashable CrawlerMetrics where
   hashWithSalt _salt CrawlerMetrics' {..} =
-    _salt `Prelude.hashWithSalt` crawlerName
+    _salt
+      `Prelude.hashWithSalt` crawlerName
       `Prelude.hashWithSalt` lastRuntimeSeconds
       `Prelude.hashWithSalt` medianRuntimeSeconds
       `Prelude.hashWithSalt` stillEstimating

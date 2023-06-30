@@ -141,7 +141,8 @@ instance Core.AWSRequest DescribeGatewayRoute where
 
 instance Prelude.Hashable DescribeGatewayRoute where
   hashWithSalt _salt DescribeGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` gatewayRouteName
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualGatewayName

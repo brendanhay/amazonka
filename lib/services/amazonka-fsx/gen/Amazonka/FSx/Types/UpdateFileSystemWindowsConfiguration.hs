@@ -162,7 +162,8 @@ instance
   hashWithSalt
     _salt
     UpdateFileSystemWindowsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` auditLogConfiguration
+      _salt
+        `Prelude.hashWithSalt` auditLogConfiguration
         `Prelude.hashWithSalt` automaticBackupRetentionDays
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
         `Prelude.hashWithSalt` selfManagedActiveDirectoryConfiguration

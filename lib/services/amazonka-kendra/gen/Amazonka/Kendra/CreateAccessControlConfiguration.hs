@@ -211,7 +211,8 @@ instance
   hashWithSalt
     _salt
     CreateAccessControlConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` accessControlList
+      _salt
+        `Prelude.hashWithSalt` accessControlList
         `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` hierarchicalAccessControlList

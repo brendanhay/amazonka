@@ -74,7 +74,8 @@ instance Data.FromJSON AvailabilityZone where
 
 instance Prelude.Hashable AvailabilityZone where
   hashWithSalt _salt AvailabilityZone' {..} =
-    _salt `Prelude.hashWithSalt` subnetId
+    _salt
+      `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` zoneName
 
 instance Prelude.NFData AvailabilityZone where

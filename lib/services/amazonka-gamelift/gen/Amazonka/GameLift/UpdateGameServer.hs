@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateGameServer where
 
 instance Prelude.Hashable UpdateGameServer where
   hashWithSalt _salt UpdateGameServer' {..} =
-    _salt `Prelude.hashWithSalt` gameServerData
+    _salt
+      `Prelude.hashWithSalt` gameServerData
       `Prelude.hashWithSalt` healthCheck
       `Prelude.hashWithSalt` utilizationStatus
       `Prelude.hashWithSalt` gameServerGroupName

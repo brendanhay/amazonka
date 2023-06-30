@@ -211,7 +211,8 @@ instance Data.FromJSON MobileDeviceAccessRule where
 
 instance Prelude.Hashable MobileDeviceAccessRule where
   hashWithSalt _salt MobileDeviceAccessRule' {..} =
-    _salt `Prelude.hashWithSalt` dateCreated
+    _salt
+      `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateModified
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceModels

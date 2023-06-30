@@ -186,7 +186,8 @@ instance Core.AWSRequest StartEntitiesDetectionV2Job where
 
 instance Prelude.Hashable StartEntitiesDetectionV2Job where
   hashWithSalt _salt StartEntitiesDetectionV2Job' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` inputDataConfig

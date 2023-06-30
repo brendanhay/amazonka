@@ -74,7 +74,8 @@ instance Data.FromJSON Output where
 
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` valueString
 
 instance Prelude.NFData Output where

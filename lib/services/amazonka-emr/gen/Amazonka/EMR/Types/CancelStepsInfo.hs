@@ -89,7 +89,8 @@ instance Data.FromJSON CancelStepsInfo where
 
 instance Prelude.Hashable CancelStepsInfo where
   hashWithSalt _salt CancelStepsInfo' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` stepId
 

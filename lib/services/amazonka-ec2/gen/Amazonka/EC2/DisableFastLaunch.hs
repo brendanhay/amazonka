@@ -151,7 +151,8 @@ instance Core.AWSRequest DisableFastLaunch where
 
 instance Prelude.Hashable DisableFastLaunch where
   hashWithSalt _salt DisableFastLaunch' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` imageId
 

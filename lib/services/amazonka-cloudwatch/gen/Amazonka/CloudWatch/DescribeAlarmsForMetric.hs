@@ -168,7 +168,9 @@ instance Core.AWSRequest DescribeAlarmsForMetric where
       "DescribeAlarmsForMetricResult"
       ( \s h x ->
           DescribeAlarmsForMetricResponse'
-            Prelude.<$> ( x Data..@? "MetricAlarms" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "MetricAlarms"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -176,7 +178,8 @@ instance Core.AWSRequest DescribeAlarmsForMetric where
 
 instance Prelude.Hashable DescribeAlarmsForMetric where
   hashWithSalt _salt DescribeAlarmsForMetric' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` extendedStatistic
       `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` statistic

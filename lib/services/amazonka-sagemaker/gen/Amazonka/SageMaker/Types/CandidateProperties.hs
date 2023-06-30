@@ -72,7 +72,8 @@ instance Data.FromJSON CandidateProperties where
       ( \x ->
           CandidateProperties'
             Prelude.<$> (x Data..:? "CandidateArtifactLocations")
-            Prelude.<*> ( x Data..:? "CandidateMetrics"
+            Prelude.<*> ( x
+                            Data..:? "CandidateMetrics"
                             Data..!= Prelude.mempty
                         )
       )

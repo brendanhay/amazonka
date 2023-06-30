@@ -112,7 +112,8 @@ instance Core.AWSRequest ListImports where
     Response.receiveJSON
       ( \s h x ->
           ListImportsResponse'
-            Prelude.<$> ( x Data..?> "ImportSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "ImportSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -121,7 +122,8 @@ instance Core.AWSRequest ListImports where
 
 instance Prelude.Hashable ListImports where
   hashWithSalt _salt ListImports' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` tableArn
 

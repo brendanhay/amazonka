@@ -87,7 +87,8 @@ instance Data.FromJSON FormDataTypeConfig where
 
 instance Prelude.Hashable FormDataTypeConfig where
   hashWithSalt _salt FormDataTypeConfig' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceType
+    _salt
+      `Prelude.hashWithSalt` dataSourceType
       `Prelude.hashWithSalt` dataTypeName
 
 instance Prelude.NFData FormDataTypeConfig where

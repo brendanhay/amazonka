@@ -86,7 +86,8 @@ instance Data.FromXML InvalidationSummary where
 
 instance Prelude.Hashable InvalidationSummary where
   hashWithSalt _salt InvalidationSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` status
 

@@ -101,7 +101,8 @@ instance Data.FromJSON OrganizationStatus where
       "OrganizationStatus"
       ( \x ->
           OrganizationStatus'
-            Prelude.<$> ( x Data..:? "AccountStatusList"
+            Prelude.<$> ( x
+                            Data..:? "AccountStatusList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OrganizationAwsServiceAccessStatus")
@@ -111,7 +112,8 @@ instance Data.FromJSON OrganizationStatus where
 
 instance Prelude.Hashable OrganizationStatus where
   hashWithSalt _salt OrganizationStatus' {..} =
-    _salt `Prelude.hashWithSalt` accountStatusList
+    _salt
+      `Prelude.hashWithSalt` accountStatusList
       `Prelude.hashWithSalt` organizationAwsServiceAccessStatus
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` sLRDeploymentStatus

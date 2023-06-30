@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateContactFlowMetadata where
 
 instance Prelude.Hashable UpdateContactFlowMetadata where
   hashWithSalt _salt UpdateContactFlowMetadata' {..} =
-    _salt `Prelude.hashWithSalt` contactFlowState
+    _salt
+      `Prelude.hashWithSalt` contactFlowState
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId

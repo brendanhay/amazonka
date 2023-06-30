@@ -74,7 +74,8 @@ instance Data.FromJSON TagOptionSummary where
 
 instance Prelude.Hashable TagOptionSummary where
   hashWithSalt _salt TagOptionSummary' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData TagOptionSummary where

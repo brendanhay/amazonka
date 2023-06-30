@@ -93,7 +93,7 @@ instance
       ( \s h x ->
           SetVoiceMessageSpendLimitOverrideResponse'
             Prelude.<$> (x Data..?> "MonthlyLimit")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

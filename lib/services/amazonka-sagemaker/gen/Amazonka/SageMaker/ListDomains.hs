@@ -94,20 +94,23 @@ instance Core.AWSPager ListDomains where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listDomainsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_domains Prelude.. Lens._Just
+            Lens.^? listDomainsResponse_domains
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDomains_nextToken
           Lens..~ rs
-          Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDomainsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
@@ -124,7 +127,8 @@ instance Core.AWSRequest ListDomains where
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDomains where

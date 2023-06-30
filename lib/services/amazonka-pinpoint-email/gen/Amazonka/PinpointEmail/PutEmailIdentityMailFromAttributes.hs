@@ -174,7 +174,8 @@ instance
   hashWithSalt
     _salt
     PutEmailIdentityMailFromAttributes' {..} =
-      _salt `Prelude.hashWithSalt` behaviorOnMxFailure
+      _salt
+        `Prelude.hashWithSalt` behaviorOnMxFailure
         `Prelude.hashWithSalt` mailFromDomain
         `Prelude.hashWithSalt` emailIdentity
 

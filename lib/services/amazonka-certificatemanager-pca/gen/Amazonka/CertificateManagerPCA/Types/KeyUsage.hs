@@ -145,7 +145,8 @@ instance Data.FromJSON KeyUsage where
 
 instance Prelude.Hashable KeyUsage where
   hashWithSalt _salt KeyUsage' {..} =
-    _salt `Prelude.hashWithSalt` cRLSign
+    _salt
+      `Prelude.hashWithSalt` cRLSign
       `Prelude.hashWithSalt` dataEncipherment
       `Prelude.hashWithSalt` decipherOnly
       `Prelude.hashWithSalt` digitalSignature

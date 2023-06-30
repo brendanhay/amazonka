@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     PutDedicatedIpWarmupAttributes' {..} =
-      _salt `Prelude.hashWithSalt` ip
+      _salt
+        `Prelude.hashWithSalt` ip
         `Prelude.hashWithSalt` warmupPercentage
 
 instance

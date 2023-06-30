@@ -190,7 +190,8 @@ instance Data.FromJSON WebhookDefinition where
 
 instance Prelude.Hashable WebhookDefinition where
   hashWithSalt _salt WebhookDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` targetPipeline
       `Prelude.hashWithSalt` targetAction
       `Prelude.hashWithSalt` filters

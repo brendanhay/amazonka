@@ -90,7 +90,8 @@ instance Data.FromJSON MySqlParameters where
 
 instance Prelude.Hashable MySqlParameters where
   hashWithSalt _salt MySqlParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` database
 

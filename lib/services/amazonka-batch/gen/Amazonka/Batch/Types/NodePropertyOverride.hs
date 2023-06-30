@@ -81,7 +81,8 @@ nodePropertyOverride_targetNodes = Lens.lens (\NodePropertyOverride' {targetNode
 
 instance Prelude.Hashable NodePropertyOverride where
   hashWithSalt _salt NodePropertyOverride' {..} =
-    _salt `Prelude.hashWithSalt` containerOverrides
+    _salt
+      `Prelude.hashWithSalt` containerOverrides
       `Prelude.hashWithSalt` targetNodes
 
 instance Prelude.NFData NodePropertyOverride where

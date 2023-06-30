@@ -79,7 +79,8 @@ instance Data.FromJSON StringFilter where
 
 instance Prelude.Hashable StringFilter where
   hashWithSalt _salt StringFilter' {..} =
-    _salt `Prelude.hashWithSalt` comparison
+    _salt
+      `Prelude.hashWithSalt` comparison
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData StringFilter where

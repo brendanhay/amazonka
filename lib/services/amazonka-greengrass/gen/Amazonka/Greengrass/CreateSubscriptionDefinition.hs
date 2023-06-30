@@ -138,7 +138,8 @@ instance
     CreateSubscriptionDefinition
   where
   hashWithSalt _salt CreateSubscriptionDefinition' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` initialVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

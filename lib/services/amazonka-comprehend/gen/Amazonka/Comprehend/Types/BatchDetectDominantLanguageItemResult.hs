@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     BatchDetectDominantLanguageItemResult' {..} =
-      _salt `Prelude.hashWithSalt` index
+      _salt
+        `Prelude.hashWithSalt` index
         `Prelude.hashWithSalt` languages
 
 instance

@@ -210,7 +210,8 @@ instance Core.AWSRequest DeleteStack where
 
 instance Prelude.Hashable DeleteStack where
   hashWithSalt _salt DeleteStack' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` retainResources
       `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` stackName

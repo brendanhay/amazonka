@@ -136,7 +136,8 @@ instance
     GetEnvironmentTemplateVersion
   where
   hashWithSalt _salt GetEnvironmentTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` majorVersion
+    _salt
+      `Prelude.hashWithSalt` majorVersion
       `Prelude.hashWithSalt` minorVersion
       `Prelude.hashWithSalt` templateName
 

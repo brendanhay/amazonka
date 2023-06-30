@@ -111,7 +111,8 @@ instance Data.FromJSON PrincipalResourcePermissions where
           PrincipalResourcePermissions'
             Prelude.<$> (x Data..:? "AdditionalDetails")
             Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "PermissionsWithGrantOption"
+            Prelude.<*> ( x
+                            Data..:? "PermissionsWithGrantOption"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Principal")
@@ -123,7 +124,8 @@ instance
     PrincipalResourcePermissions
   where
   hashWithSalt _salt PrincipalResourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` additionalDetails
+    _salt
+      `Prelude.hashWithSalt` additionalDetails
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` permissionsWithGrantOption
       `Prelude.hashWithSalt` principal

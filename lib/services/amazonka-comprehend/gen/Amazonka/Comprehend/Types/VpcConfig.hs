@@ -115,7 +115,8 @@ instance Data.FromJSON VpcConfig where
 
 instance Prelude.Hashable VpcConfig where
   hashWithSalt _salt VpcConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData VpcConfig where

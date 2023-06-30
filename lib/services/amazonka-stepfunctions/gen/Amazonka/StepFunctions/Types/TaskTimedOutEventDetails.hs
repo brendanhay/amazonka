@@ -99,7 +99,8 @@ instance Data.FromJSON TaskTimedOutEventDetails where
 
 instance Prelude.Hashable TaskTimedOutEventDetails where
   hashWithSalt _salt TaskTimedOutEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` cause
+    _salt
+      `Prelude.hashWithSalt` cause
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource

@@ -151,7 +151,8 @@ instance Core.AWSRequest PutAccountSettingDefault where
 
 instance Prelude.Hashable PutAccountSettingDefault where
   hashWithSalt _salt PutAccountSettingDefault' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PutAccountSettingDefault where

@@ -147,7 +147,8 @@ instance Core.AWSRequest ExportEarthObservationJob where
 
 instance Prelude.Hashable ExportEarthObservationJob where
   hashWithSalt _salt ExportEarthObservationJob' {..} =
-    _salt `Prelude.hashWithSalt` exportSourceImages
+    _salt
+      `Prelude.hashWithSalt` exportSourceImages
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` outputConfig

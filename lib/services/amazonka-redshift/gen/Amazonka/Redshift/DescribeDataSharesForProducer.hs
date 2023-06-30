@@ -150,22 +150,22 @@ instance Core.AWSPager DescribeDataSharesForProducer where
     | Core.stop
         ( rs
             Lens.^? describeDataSharesForProducerResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDataSharesForProducerResponse_dataShares
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDataSharesForProducer_marker
           Lens..~ rs
           Lens.^? describeDataSharesForProducerResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -181,7 +181,9 @@ instance
       "DescribeDataSharesForProducerResult"
       ( \s h x ->
           DescribeDataSharesForProducerResponse'
-            Prelude.<$> ( x Data..@? "DataShares" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "DataShares"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -193,7 +195,8 @@ instance
     DescribeDataSharesForProducer
   where
   hashWithSalt _salt DescribeDataSharesForProducer' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` producerArn
       `Prelude.hashWithSalt` status

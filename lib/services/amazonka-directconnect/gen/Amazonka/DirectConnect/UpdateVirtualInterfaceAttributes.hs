@@ -164,7 +164,8 @@ instance
   hashWithSalt
     _salt
     UpdateVirtualInterfaceAttributes' {..} =
-      _salt `Prelude.hashWithSalt` enableSiteLink
+      _salt
+        `Prelude.hashWithSalt` enableSiteLink
         `Prelude.hashWithSalt` mtu
         `Prelude.hashWithSalt` virtualInterfaceName
         `Prelude.hashWithSalt` virtualInterfaceId

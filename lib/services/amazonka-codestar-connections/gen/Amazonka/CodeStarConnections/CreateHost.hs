@@ -167,7 +167,8 @@ instance Core.AWSRequest CreateHost where
 
 instance Prelude.Hashable CreateHost where
   hashWithSalt _salt CreateHost' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcConfiguration
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` providerType

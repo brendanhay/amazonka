@@ -81,7 +81,8 @@ instance
     CloudWatchLogDeliveryOptions
   where
   hashWithSalt _salt CloudWatchLogDeliveryOptions' {..} =
-    _salt `Prelude.hashWithSalt` logGroupName
+    _salt
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logType
 
 instance Prelude.NFData CloudWatchLogDeliveryOptions where

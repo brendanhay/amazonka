@@ -92,7 +92,8 @@ instance Data.FromXML MFADevice where
 
 instance Prelude.Hashable MFADevice where
   hashWithSalt _salt MFADevice' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` serialNumber
       `Prelude.hashWithSalt` enableDate
 

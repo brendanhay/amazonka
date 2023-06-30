@@ -77,7 +77,8 @@ instance Data.FromJSON ThrottleSettings where
 
 instance Prelude.Hashable ThrottleSettings where
   hashWithSalt _salt ThrottleSettings' {..} =
-    _salt `Prelude.hashWithSalt` burstLimit
+    _salt
+      `Prelude.hashWithSalt` burstLimit
       `Prelude.hashWithSalt` rateLimit
 
 instance Prelude.NFData ThrottleSettings where

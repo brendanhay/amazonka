@@ -70,14 +70,16 @@ instance Data.FromJSON PhoneNumberCountry where
       ( \x ->
           PhoneNumberCountry'
             Prelude.<$> (x Data..:? "CountryCode")
-            Prelude.<*> ( x Data..:? "SupportedPhoneNumberTypes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedPhoneNumberTypes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PhoneNumberCountry where
   hashWithSalt _salt PhoneNumberCountry' {..} =
-    _salt `Prelude.hashWithSalt` countryCode
+    _salt
+      `Prelude.hashWithSalt` countryCode
       `Prelude.hashWithSalt` supportedPhoneNumberTypes
 
 instance Prelude.NFData PhoneNumberCountry where

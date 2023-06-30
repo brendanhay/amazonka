@@ -112,7 +112,8 @@ instance Data.FromXML EncryptionEntity where
 
 instance Prelude.Hashable EncryptionEntity where
   hashWithSalt _salt EncryptionEntity' {..} =
-    _salt `Prelude.hashWithSalt` publicKeyId
+    _salt
+      `Prelude.hashWithSalt` publicKeyId
       `Prelude.hashWithSalt` providerId
       `Prelude.hashWithSalt` fieldPatterns
 

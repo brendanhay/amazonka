@@ -71,7 +71,8 @@ workerConfiguration_workerConfigurationArn = Lens.lens (\WorkerConfiguration' {w
 
 instance Prelude.Hashable WorkerConfiguration where
   hashWithSalt _salt WorkerConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` revision
+    _salt
+      `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` workerConfigurationArn
 
 instance Prelude.NFData WorkerConfiguration where

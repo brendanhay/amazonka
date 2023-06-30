@@ -244,7 +244,8 @@ instance Core.AWSRequest PutEventSelectors where
     Response.receiveJSON
       ( \s h x ->
           PutEventSelectorsResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EventSelectors" Core..!@ Prelude.mempty)
@@ -254,7 +255,8 @@ instance Core.AWSRequest PutEventSelectors where
 
 instance Prelude.Hashable PutEventSelectors where
   hashWithSalt _salt PutEventSelectors' {..} =
-    _salt `Prelude.hashWithSalt` advancedEventSelectors
+    _salt
+      `Prelude.hashWithSalt` advancedEventSelectors
       `Prelude.hashWithSalt` eventSelectors
       `Prelude.hashWithSalt` trailName
 

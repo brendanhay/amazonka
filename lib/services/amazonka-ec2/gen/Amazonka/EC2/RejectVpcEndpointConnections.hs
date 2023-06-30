@@ -117,7 +117,9 @@ instance Core.AWSRequest RejectVpcEndpointConnections where
     Response.receiveXML
       ( \s h x ->
           RejectVpcEndpointConnectionsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -128,7 +130,8 @@ instance
     RejectVpcEndpointConnections
   where
   hashWithSalt _salt RejectVpcEndpointConnections' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` serviceId
       `Prelude.hashWithSalt` vpcEndpointIds
 

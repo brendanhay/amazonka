@@ -74,7 +74,8 @@ instance Data.FromXML EnvironmentLink where
 
 instance Prelude.Hashable EnvironmentLink where
   hashWithSalt _salt EnvironmentLink' {..} =
-    _salt `Prelude.hashWithSalt` environmentName
+    _salt
+      `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` linkName
 
 instance Prelude.NFData EnvironmentLink where

@@ -316,14 +316,16 @@ instance Core.AWSRequest GetSavingsPlansCoverage where
           GetSavingsPlansCoverageResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "SavingsPlansCoverages"
+            Prelude.<*> ( x
+                            Data..?> "SavingsPlansCoverages"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetSavingsPlansCoverage where
   hashWithSalt _salt GetSavingsPlansCoverage' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` granularity
       `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` maxResults

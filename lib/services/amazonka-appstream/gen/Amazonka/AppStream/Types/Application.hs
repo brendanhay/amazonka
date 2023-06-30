@@ -198,7 +198,8 @@ instance Data.FromJSON Application where
             Prelude.<*> (x Data..:? "Enabled")
             Prelude.<*> (x Data..:? "IconS3Location")
             Prelude.<*> (x Data..:? "IconURL")
-            Prelude.<*> ( x Data..:? "InstanceFamilies"
+            Prelude.<*> ( x
+                            Data..:? "InstanceFamilies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LaunchParameters")
@@ -211,7 +212,8 @@ instance Data.FromJSON Application where
 
 instance Prelude.Hashable Application where
   hashWithSalt _salt Application' {..} =
-    _salt `Prelude.hashWithSalt` appBlockArn
+    _salt
+      `Prelude.hashWithSalt` appBlockArn
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description

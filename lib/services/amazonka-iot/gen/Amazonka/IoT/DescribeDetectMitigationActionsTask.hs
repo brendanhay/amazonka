@@ -95,7 +95,7 @@ instance
       ( \s h x ->
           DescribeDetectMitigationActionsTaskResponse'
             Prelude.<$> (x Data..?> "taskSummary")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

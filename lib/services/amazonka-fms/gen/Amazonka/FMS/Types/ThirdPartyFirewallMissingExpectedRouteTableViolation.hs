@@ -119,10 +119,10 @@ instance
       ( \x ->
           ThirdPartyFirewallMissingExpectedRouteTableViolation'
             Prelude.<$> (x Data..:? "AvailabilityZone")
-              Prelude.<*> (x Data..:? "CurrentRouteTable")
-              Prelude.<*> (x Data..:? "ExpectedRouteTable")
-              Prelude.<*> (x Data..:? "VPC")
-              Prelude.<*> (x Data..:? "ViolationTarget")
+            Prelude.<*> (x Data..:? "CurrentRouteTable")
+            Prelude.<*> (x Data..:? "ExpectedRouteTable")
+            Prelude.<*> (x Data..:? "VPC")
+            Prelude.<*> (x Data..:? "ViolationTarget")
       )
 
 instance
@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     ThirdPartyFirewallMissingExpectedRouteTableViolation' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` currentRouteTable
         `Prelude.hashWithSalt` expectedRouteTable
         `Prelude.hashWithSalt` vpc

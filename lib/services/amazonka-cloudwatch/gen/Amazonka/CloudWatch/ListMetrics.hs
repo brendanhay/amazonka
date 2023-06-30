@@ -218,26 +218,29 @@ instance Core.AWSPager ListMetrics where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listMetricsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listMetricsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listMetricsResponse_metrics Prelude.. Lens._Just
+            Lens.^? listMetricsResponse_metrics
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listMetricsResponse_owningAccounts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMetrics_nextToken
           Lens..~ rs
-          Lens.^? listMetricsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listMetricsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMetrics where
   type AWSResponse ListMetrics = ListMetricsResponse
@@ -248,11 +251,15 @@ instance Core.AWSRequest ListMetrics where
       "ListMetricsResult"
       ( \s h x ->
           ListMetricsResponse'
-            Prelude.<$> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Metrics"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "OwningAccounts" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "OwningAccounts"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -260,7 +267,8 @@ instance Core.AWSRequest ListMetrics where
 
 instance Prelude.Hashable ListMetrics where
   hashWithSalt _salt ListMetrics' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` includeLinkedAccounts
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` namespace

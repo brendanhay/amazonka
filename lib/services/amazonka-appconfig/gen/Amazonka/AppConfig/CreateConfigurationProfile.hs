@@ -266,7 +266,8 @@ instance Core.AWSRequest CreateConfigurationProfile where
 
 instance Prelude.Hashable CreateConfigurationProfile where
   hashWithSalt _salt CreateConfigurationProfile' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` retrievalRoleArn
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'

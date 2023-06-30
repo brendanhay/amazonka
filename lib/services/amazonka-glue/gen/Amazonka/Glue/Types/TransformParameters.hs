@@ -89,7 +89,8 @@ instance Data.FromJSON TransformParameters where
 
 instance Prelude.Hashable TransformParameters where
   hashWithSalt _salt TransformParameters' {..} =
-    _salt `Prelude.hashWithSalt` findMatchesParameters
+    _salt
+      `Prelude.hashWithSalt` findMatchesParameters
       `Prelude.hashWithSalt` transformType
 
 instance Prelude.NFData TransformParameters where

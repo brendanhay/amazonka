@@ -198,7 +198,8 @@ instance Core.AWSRequest PutAccountSetting where
 
 instance Prelude.Hashable PutAccountSetting where
   hashWithSalt _salt PutAccountSetting' {..} =
-    _salt `Prelude.hashWithSalt` principalArn
+    _salt
+      `Prelude.hashWithSalt` principalArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

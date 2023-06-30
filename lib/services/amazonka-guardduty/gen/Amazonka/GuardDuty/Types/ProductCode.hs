@@ -74,7 +74,8 @@ instance Data.FromJSON ProductCode where
 
 instance Prelude.Hashable ProductCode where
   hashWithSalt _salt ProductCode' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` productType
 
 instance Prelude.NFData ProductCode where

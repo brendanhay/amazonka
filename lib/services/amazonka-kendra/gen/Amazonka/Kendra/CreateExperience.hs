@@ -177,7 +177,8 @@ instance Core.AWSRequest CreateExperience where
 
 instance Prelude.Hashable CreateExperience where
   hashWithSalt _salt CreateExperience' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` roleArn

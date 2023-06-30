@@ -158,13 +158,15 @@ instance Data.FromJSON TaskOverride where
       "TaskOverride"
       ( \x ->
           TaskOverride'
-            Prelude.<$> ( x Data..:? "containerOverrides"
+            Prelude.<$> ( x
+                            Data..:? "containerOverrides"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cpu")
             Prelude.<*> (x Data..:? "ephemeralStorage")
             Prelude.<*> (x Data..:? "executionRoleArn")
-            Prelude.<*> ( x Data..:? "inferenceAcceleratorOverrides"
+            Prelude.<*> ( x
+                            Data..:? "inferenceAcceleratorOverrides"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "memory")
@@ -173,7 +175,8 @@ instance Data.FromJSON TaskOverride where
 
 instance Prelude.Hashable TaskOverride where
   hashWithSalt _salt TaskOverride' {..} =
-    _salt `Prelude.hashWithSalt` containerOverrides
+    _salt
+      `Prelude.hashWithSalt` containerOverrides
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` executionRoleArn

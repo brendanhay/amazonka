@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     ConditionalFormattingSolidColor' {..} =
-      _salt `Prelude.hashWithSalt` color
+      _salt
+        `Prelude.hashWithSalt` color
         `Prelude.hashWithSalt` expression
 
 instance

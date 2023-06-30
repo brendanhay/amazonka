@@ -103,12 +103,14 @@ instance Data.FromJSON FrequencyBandwidth where
       "FrequencyBandwidth"
       ( \x ->
           FrequencyBandwidth'
-            Prelude.<$> (x Data..: "units") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "units")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable FrequencyBandwidth where
   hashWithSalt _salt FrequencyBandwidth' {..} =
-    _salt `Prelude.hashWithSalt` units
+    _salt
+      `Prelude.hashWithSalt` units
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData FrequencyBandwidth where

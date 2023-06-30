@@ -132,7 +132,8 @@ instance Core.AWSRequest SetDefaultPolicyVersion where
 
 instance Prelude.Hashable SetDefaultPolicyVersion where
   hashWithSalt _salt SetDefaultPolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` policyArn
+    _salt
+      `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData SetDefaultPolicyVersion where

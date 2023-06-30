@@ -118,7 +118,8 @@ instance
   hashWithSalt
     _salt
     PutAppInstanceRetentionSettings' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceArn
         `Prelude.hashWithSalt` appInstanceRetentionSettings
 
 instance

@@ -88,7 +88,8 @@ instance Data.FromJSON ConsumptionConfiguration where
 
 instance Prelude.Hashable ConsumptionConfiguration where
   hashWithSalt _salt ConsumptionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` borrowConfiguration
+    _salt
+      `Prelude.hashWithSalt` borrowConfiguration
       `Prelude.hashWithSalt` provisionalConfiguration
       `Prelude.hashWithSalt` renewType
 

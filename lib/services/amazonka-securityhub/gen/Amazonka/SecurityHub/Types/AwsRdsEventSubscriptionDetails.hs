@@ -172,7 +172,8 @@ instance Data.FromJSON AwsRdsEventSubscriptionDetails where
             Prelude.<$> (x Data..:? "CustSubscriptionId")
             Prelude.<*> (x Data..:? "CustomerAwsId")
             Prelude.<*> (x Data..:? "Enabled")
-            Prelude.<*> ( x Data..:? "EventCategoriesList"
+            Prelude.<*> ( x
+                            Data..:? "EventCategoriesList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EventSubscriptionArn")
@@ -190,7 +191,8 @@ instance
   hashWithSalt
     _salt
     AwsRdsEventSubscriptionDetails' {..} =
-      _salt `Prelude.hashWithSalt` custSubscriptionId
+      _salt
+        `Prelude.hashWithSalt` custSubscriptionId
         `Prelude.hashWithSalt` customerAwsId
         `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` eventCategoriesList

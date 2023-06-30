@@ -114,7 +114,8 @@ containerStateChange_status = Lens.lens (\ContainerStateChange' {status} -> stat
 
 instance Prelude.Hashable ContainerStateChange where
   hashWithSalt _salt ContainerStateChange' {..} =
-    _salt `Prelude.hashWithSalt` containerName
+    _salt
+      `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` networkBindings

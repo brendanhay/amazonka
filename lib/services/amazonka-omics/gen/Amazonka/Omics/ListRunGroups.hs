@@ -104,20 +104,23 @@ instance Core.AWSPager ListRunGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRunGroupsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listRunGroupsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listRunGroupsResponse_items Prelude.. Lens._Just
+            Lens.^? listRunGroupsResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRunGroups_startingToken
           Lens..~ rs
-          Lens.^? listRunGroupsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listRunGroupsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRunGroups where
   type
@@ -136,7 +139,8 @@ instance Core.AWSRequest ListRunGroups where
 
 instance Prelude.Hashable ListRunGroups where
   hashWithSalt _salt ListRunGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` startingToken
 

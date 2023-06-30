@@ -184,7 +184,8 @@ instance Core.AWSRequest StartSession where
 
 instance Prelude.Hashable StartSession where
   hashWithSalt _salt StartSession' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` notebookVersion
       `Prelude.hashWithSalt` sessionIdleTimeoutInMinutes

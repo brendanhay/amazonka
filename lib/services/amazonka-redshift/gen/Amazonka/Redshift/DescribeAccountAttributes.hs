@@ -86,7 +86,8 @@ instance Core.AWSRequest DescribeAccountAttributes where
       "DescribeAccountAttributesResult"
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> ( x Data..@? "AccountAttributes"
+            Prelude.<$> ( x
+                            Data..@? "AccountAttributes"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "AccountAttribute")
                         )

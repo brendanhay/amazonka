@@ -696,7 +696,6 @@ cluster_clusterVersion = Lens.lens (\Cluster' {clusterVersion} -> clusterVersion
 cluster_dbName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_dbName = Lens.lens (\Cluster' {dbName} -> dbName) (\s@Cluster' {} a -> s {dbName = a} :: Cluster)
 
--- |
 cluster_dataTransferProgress :: Lens.Lens' Cluster (Prelude.Maybe DataTransferProgress)
 cluster_dataTransferProgress = Lens.lens (\Cluster' {dataTransferProgress} -> dataTransferProgress) (\s@Cluster' {} a -> s {dataTransferProgress = a} :: Cluster)
 
@@ -882,16 +881,20 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "ClusterCreateTime")
       Prelude.<*> (x Data..@? "ClusterIdentifier")
       Prelude.<*> (x Data..@? "ClusterNamespaceArn")
-      Prelude.<*> ( x Data..@? "ClusterNodes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ClusterNodes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "ClusterParameterGroups"
+      Prelude.<*> ( x
+                      Data..@? "ClusterParameterGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterParameterGroup")
                   )
       Prelude.<*> (x Data..@? "ClusterPublicKey")
       Prelude.<*> (x Data..@? "ClusterRevisionNumber")
-      Prelude.<*> ( x Data..@? "ClusterSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "ClusterSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterSecurityGroup")
                   )
@@ -902,7 +905,8 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "DBName")
       Prelude.<*> (x Data..@? "DataTransferProgress")
       Prelude.<*> (x Data..@? "DefaultIamRoleArn")
-      Prelude.<*> ( x Data..@? "DeferredMaintenanceWindows"
+      Prelude.<*> ( x
+                      Data..@? "DeferredMaintenanceWindows"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "DeferredMaintenanceWindow")
@@ -915,7 +919,9 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "ExpectedNextSnapshotScheduleTime")
       Prelude.<*> (x Data..@? "ExpectedNextSnapshotScheduleTimeStatus")
       Prelude.<*> (x Data..@? "HsmStatus")
-      Prelude.<*> ( x Data..@? "IamRoles" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "IamRoles"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterIamRole")
                   )
       Prelude.<*> (x Data..@? "KmsKeyId")
@@ -926,7 +932,9 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "NextMaintenanceWindowStartTime")
       Prelude.<*> (x Data..@? "NodeType")
       Prelude.<*> (x Data..@? "NumberOfNodes")
-      Prelude.<*> ( x Data..@? "PendingActions" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "PendingActions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "PendingModifiedValues")
@@ -937,19 +945,23 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "RestoreStatus")
       Prelude.<*> (x Data..@? "SnapshotScheduleIdentifier")
       Prelude.<*> (x Data..@? "SnapshotScheduleState")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "TotalStorageCapacityInMegaBytes")
       Prelude.<*> (x Data..@? "VpcId")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "VpcSecurityGroup")
                   )
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` allowVersionUpgrade
+    _salt
+      `Prelude.hashWithSalt` allowVersionUpgrade
       `Prelude.hashWithSalt` aquaConfiguration
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
       `Prelude.hashWithSalt` availabilityZone

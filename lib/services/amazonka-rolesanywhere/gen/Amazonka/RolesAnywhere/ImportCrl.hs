@@ -145,7 +145,8 @@ instance Core.AWSRequest ImportCrl where
 
 instance Prelude.Hashable ImportCrl where
   hashWithSalt _salt ImportCrl' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` crlData
       `Prelude.hashWithSalt` name

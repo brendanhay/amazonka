@@ -91,7 +91,8 @@ instance Data.FromJSON DialogAction where
 
 instance Prelude.Hashable DialogAction where
   hashWithSalt _salt DialogAction' {..} =
-    _salt `Prelude.hashWithSalt` slotToElicit
+    _salt
+      `Prelude.hashWithSalt` slotToElicit
       `Prelude.hashWithSalt` suppressNextMessage
       `Prelude.hashWithSalt` type'
 

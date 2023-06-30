@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     CreateReplicationGroupMemberAction' {..} =
-      _salt `Prelude.hashWithSalt` globalSecondaryIndexes
+      _salt
+        `Prelude.hashWithSalt` globalSecondaryIndexes
         `Prelude.hashWithSalt` kmsMasterKeyId
         `Prelude.hashWithSalt` provisionedThroughputOverride
         `Prelude.hashWithSalt` tableClassOverride

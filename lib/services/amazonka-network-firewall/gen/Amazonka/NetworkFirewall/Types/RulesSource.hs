@@ -132,7 +132,8 @@ instance Data.FromJSON RulesSource where
 
 instance Prelude.Hashable RulesSource where
   hashWithSalt _salt RulesSource' {..} =
-    _salt `Prelude.hashWithSalt` rulesSourceList
+    _salt
+      `Prelude.hashWithSalt` rulesSourceList
       `Prelude.hashWithSalt` rulesString
       `Prelude.hashWithSalt` statefulRules
       `Prelude.hashWithSalt` statelessRulesAndCustomActions

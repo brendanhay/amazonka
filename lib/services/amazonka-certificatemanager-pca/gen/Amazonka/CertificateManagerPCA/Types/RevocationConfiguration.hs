@@ -108,7 +108,8 @@ instance Data.FromJSON RevocationConfiguration where
 
 instance Prelude.Hashable RevocationConfiguration where
   hashWithSalt _salt RevocationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` crlConfiguration
+    _salt
+      `Prelude.hashWithSalt` crlConfiguration
       `Prelude.hashWithSalt` ocspConfiguration
 
 instance Prelude.NFData RevocationConfiguration where

@@ -114,7 +114,8 @@ instance Core.AWSRequest StartBlueprintRun where
 
 instance Prelude.Hashable StartBlueprintRun where
   hashWithSalt _salt StartBlueprintRun' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` blueprintName
       `Prelude.hashWithSalt` roleArn
 

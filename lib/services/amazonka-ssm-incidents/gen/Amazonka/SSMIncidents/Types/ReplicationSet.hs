@@ -168,7 +168,8 @@ instance Data.FromJSON ReplicationSet where
 
 instance Prelude.Hashable ReplicationSet where
   hashWithSalt _salt ReplicationSet' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` deletionProtected

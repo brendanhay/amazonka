@@ -236,7 +236,8 @@ instance Data.FromXML TrafficPolicyInstance where
 
 instance Prelude.Hashable TrafficPolicyInstance where
   hashWithSalt _salt TrafficPolicyInstance' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ttl

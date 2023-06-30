@@ -168,7 +168,8 @@ instance Core.AWSRequest UpdateNamespace where
 
 instance Prelude.Hashable UpdateNamespace where
   hashWithSalt _salt UpdateNamespace' {..} =
-    _salt `Prelude.hashWithSalt` adminUserPassword
+    _salt
+      `Prelude.hashWithSalt` adminUserPassword
       `Prelude.hashWithSalt` adminUsername
       `Prelude.hashWithSalt` defaultIamRoleArn
       `Prelude.hashWithSalt` iamRoles

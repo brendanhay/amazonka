@@ -183,7 +183,8 @@ instance Data.FromJSON InstanceDetails where
             Prelude.<*> (x Data..:? "instanceState")
             Prelude.<*> (x Data..:? "instanceType")
             Prelude.<*> (x Data..:? "launchTime")
-            Prelude.<*> ( x Data..:? "networkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "outpostArn")
@@ -194,7 +195,8 @@ instance Data.FromJSON InstanceDetails where
 
 instance Prelude.Hashable InstanceDetails where
   hashWithSalt _salt InstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` iamInstanceProfile
       `Prelude.hashWithSalt` imageDescription
       `Prelude.hashWithSalt` imageId

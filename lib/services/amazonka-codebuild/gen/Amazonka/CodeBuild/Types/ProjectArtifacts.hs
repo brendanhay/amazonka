@@ -463,7 +463,8 @@ instance Data.FromJSON ProjectArtifacts where
 
 instance Prelude.Hashable ProjectArtifacts where
   hashWithSalt _salt ProjectArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` artifactIdentifier
+    _salt
+      `Prelude.hashWithSalt` artifactIdentifier
       `Prelude.hashWithSalt` bucketOwnerAccess
       `Prelude.hashWithSalt` encryptionDisabled
       `Prelude.hashWithSalt` location

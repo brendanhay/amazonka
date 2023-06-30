@@ -122,7 +122,8 @@ instance Core.AWSRequest ListApplicationInstances where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationInstancesResponse'
-            Prelude.<$> ( x Data..?> "ApplicationInstances"
+            Prelude.<$> ( x
+                            Data..?> "ApplicationInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -131,7 +132,8 @@ instance Core.AWSRequest ListApplicationInstances where
 
 instance Prelude.Hashable ListApplicationInstances where
   hashWithSalt _salt ListApplicationInstances' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
+    _salt
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` statusFilter

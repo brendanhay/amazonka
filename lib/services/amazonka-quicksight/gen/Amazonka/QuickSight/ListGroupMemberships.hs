@@ -141,7 +141,8 @@ instance Core.AWSRequest ListGroupMemberships where
     Response.receiveJSON
       ( \s h x ->
           ListGroupMembershipsResponse'
-            Prelude.<$> ( x Data..?> "GroupMemberList"
+            Prelude.<$> ( x
+                            Data..?> "GroupMemberList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -151,7 +152,8 @@ instance Core.AWSRequest ListGroupMemberships where
 
 instance Prelude.Hashable ListGroupMemberships where
   hashWithSalt _salt ListGroupMemberships' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` awsAccountId

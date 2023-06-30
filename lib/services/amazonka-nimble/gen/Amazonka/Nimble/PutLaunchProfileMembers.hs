@@ -153,7 +153,8 @@ instance Core.AWSRequest PutLaunchProfileMembers where
 
 instance Prelude.Hashable PutLaunchProfileMembers where
   hashWithSalt _salt PutLaunchProfileMembers' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` members

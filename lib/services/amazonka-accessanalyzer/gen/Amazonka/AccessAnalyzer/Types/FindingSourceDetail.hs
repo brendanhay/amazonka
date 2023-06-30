@@ -85,7 +85,8 @@ instance Data.FromJSON FindingSourceDetail where
 
 instance Prelude.Hashable FindingSourceDetail where
   hashWithSalt _salt FindingSourceDetail' {..} =
-    _salt `Prelude.hashWithSalt` accessPointAccount
+    _salt
+      `Prelude.hashWithSalt` accessPointAccount
       `Prelude.hashWithSalt` accessPointArn
 
 instance Prelude.NFData FindingSourceDetail where

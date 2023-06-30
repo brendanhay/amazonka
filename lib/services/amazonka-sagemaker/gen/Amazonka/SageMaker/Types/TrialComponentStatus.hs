@@ -75,7 +75,8 @@ instance Data.FromJSON TrialComponentStatus where
 
 instance Prelude.Hashable TrialComponentStatus where
   hashWithSalt _salt TrialComponentStatus' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` primaryStatus
 
 instance Prelude.NFData TrialComponentStatus where

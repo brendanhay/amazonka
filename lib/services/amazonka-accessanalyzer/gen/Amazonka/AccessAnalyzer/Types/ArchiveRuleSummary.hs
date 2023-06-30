@@ -104,7 +104,8 @@ instance Data.FromJSON ArchiveRuleSummary where
 
 instance Prelude.Hashable ArchiveRuleSummary where
   hashWithSalt _salt ArchiveRuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` ruleName
+    _salt
+      `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` updatedAt

@@ -89,7 +89,8 @@ instance Data.FromXML Ipv6Range where
 
 instance Prelude.Hashable Ipv6Range where
   hashWithSalt _salt Ipv6Range' {..} =
-    _salt `Prelude.hashWithSalt` cidrIpv6
+    _salt
+      `Prelude.hashWithSalt` cidrIpv6
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData Ipv6Range where

@@ -107,7 +107,8 @@ instance Data.FromJSON DeploymentPolicies where
 
 instance Prelude.Hashable DeploymentPolicies where
   hashWithSalt _salt DeploymentPolicies' {..} =
-    _salt `Prelude.hashWithSalt` componentUpdatePolicy
+    _salt
+      `Prelude.hashWithSalt` componentUpdatePolicy
       `Prelude.hashWithSalt` configurationValidationPolicy
       `Prelude.hashWithSalt` failureHandlingPolicy
 

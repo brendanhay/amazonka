@@ -454,22 +454,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReservedInstancesOfferingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReservedInstancesOfferingsResponse_reservedInstancesOfferings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReservedInstancesOfferings_nextToken
           Lens..~ rs
           Lens.^? describeReservedInstancesOfferingsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -485,11 +485,12 @@ instance
       ( \s h x ->
           DescribeReservedInstancesOfferingsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "reservedInstancesOfferingsSet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "reservedInstancesOfferingsSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -499,7 +500,8 @@ instance
   hashWithSalt
     _salt
     DescribeReservedInstancesOfferings' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` includeMarketplace

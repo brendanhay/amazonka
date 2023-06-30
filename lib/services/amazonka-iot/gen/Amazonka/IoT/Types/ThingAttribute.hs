@@ -108,7 +108,8 @@ instance Data.FromJSON ThingAttribute where
 
 instance Prelude.Hashable ThingAttribute where
   hashWithSalt _salt ThingAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` thingArn
       `Prelude.hashWithSalt` thingName
       `Prelude.hashWithSalt` thingTypeName

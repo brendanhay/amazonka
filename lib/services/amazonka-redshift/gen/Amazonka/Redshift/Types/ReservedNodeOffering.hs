@@ -134,7 +134,6 @@ reservedNodeOffering_recurringCharges = Lens.lens (\ReservedNodeOffering' {recur
 reservedNodeOffering_reservedNodeOfferingId :: Lens.Lens' ReservedNodeOffering (Prelude.Maybe Prelude.Text)
 reservedNodeOffering_reservedNodeOfferingId = Lens.lens (\ReservedNodeOffering' {reservedNodeOfferingId} -> reservedNodeOfferingId) (\s@ReservedNodeOffering' {} a -> s {reservedNodeOfferingId = a} :: ReservedNodeOffering)
 
--- |
 reservedNodeOffering_reservedNodeOfferingType :: Lens.Lens' ReservedNodeOffering (Prelude.Maybe ReservedNodeOfferingType)
 reservedNodeOffering_reservedNodeOfferingType = Lens.lens (\ReservedNodeOffering' {reservedNodeOfferingType} -> reservedNodeOfferingType) (\s@ReservedNodeOffering' {} a -> s {reservedNodeOfferingType = a} :: ReservedNodeOffering)
 
@@ -151,7 +150,8 @@ instance Data.FromXML ReservedNodeOffering where
       Prelude.<*> (x Data..@? "FixedPrice")
       Prelude.<*> (x Data..@? "NodeType")
       Prelude.<*> (x Data..@? "OfferingType")
-      Prelude.<*> ( x Data..@? "RecurringCharges"
+      Prelude.<*> ( x
+                      Data..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "RecurringCharge")
                   )
@@ -161,7 +161,8 @@ instance Data.FromXML ReservedNodeOffering where
 
 instance Prelude.Hashable ReservedNodeOffering where
   hashWithSalt _salt ReservedNodeOffering' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
+    _salt
+      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` fixedPrice
       `Prelude.hashWithSalt` nodeType

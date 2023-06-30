@@ -92,7 +92,8 @@ instance Core.AWSRequest TagMeeting where
 
 instance Prelude.Hashable TagMeeting where
   hashWithSalt _salt TagMeeting' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagMeeting where

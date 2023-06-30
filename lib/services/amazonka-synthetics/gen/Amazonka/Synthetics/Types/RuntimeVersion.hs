@@ -105,7 +105,8 @@ instance Data.FromJSON RuntimeVersion where
 
 instance Prelude.Hashable RuntimeVersion where
   hashWithSalt _salt RuntimeVersion' {..} =
-    _salt `Prelude.hashWithSalt` deprecationDate
+    _salt
+      `Prelude.hashWithSalt` deprecationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` releaseDate
       `Prelude.hashWithSalt` versionName

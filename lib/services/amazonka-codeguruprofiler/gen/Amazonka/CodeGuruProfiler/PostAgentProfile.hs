@@ -153,7 +153,8 @@ instance Core.AWSRequest PostAgentProfile where
 
 instance Prelude.Hashable PostAgentProfile where
   hashWithSalt _salt PostAgentProfile' {..} =
-    _salt `Prelude.hashWithSalt` profileToken
+    _salt
+      `Prelude.hashWithSalt` profileToken
       `Prelude.hashWithSalt` agentProfile
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` profilingGroupName

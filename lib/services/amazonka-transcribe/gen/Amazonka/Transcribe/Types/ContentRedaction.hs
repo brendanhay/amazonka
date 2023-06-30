@@ -127,7 +127,8 @@ instance Data.FromJSON ContentRedaction where
 
 instance Prelude.Hashable ContentRedaction where
   hashWithSalt _salt ContentRedaction' {..} =
-    _salt `Prelude.hashWithSalt` piiEntityTypes
+    _salt
+      `Prelude.hashWithSalt` piiEntityTypes
       `Prelude.hashWithSalt` redactionType
       `Prelude.hashWithSalt` redactionOutput
 

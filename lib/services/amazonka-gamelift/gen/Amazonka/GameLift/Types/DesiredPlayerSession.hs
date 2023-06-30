@@ -68,7 +68,8 @@ desiredPlayerSession_playerId = Lens.lens (\DesiredPlayerSession' {playerId} -> 
 
 instance Prelude.Hashable DesiredPlayerSession where
   hashWithSalt _salt DesiredPlayerSession' {..} =
-    _salt `Prelude.hashWithSalt` playerData
+    _salt
+      `Prelude.hashWithSalt` playerData
       `Prelude.hashWithSalt` playerId
 
 instance Prelude.NFData DesiredPlayerSession where

@@ -151,7 +151,8 @@ instance Data.FromJSON EndpointSetting where
 
 instance Prelude.Hashable EndpointSetting where
   hashWithSalt _salt EndpointSetting' {..} =
-    _salt `Prelude.hashWithSalt` applicability
+    _salt
+      `Prelude.hashWithSalt` applicability
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` enumValues
       `Prelude.hashWithSalt` intValueMax

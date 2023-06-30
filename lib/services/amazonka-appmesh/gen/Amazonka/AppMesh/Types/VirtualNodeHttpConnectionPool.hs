@@ -86,7 +86,8 @@ instance
     VirtualNodeHttpConnectionPool
   where
   hashWithSalt _salt VirtualNodeHttpConnectionPool' {..} =
-    _salt `Prelude.hashWithSalt` maxPendingRequests
+    _salt
+      `Prelude.hashWithSalt` maxPendingRequests
       `Prelude.hashWithSalt` maxConnections
 
 instance Prelude.NFData VirtualNodeHttpConnectionPool where

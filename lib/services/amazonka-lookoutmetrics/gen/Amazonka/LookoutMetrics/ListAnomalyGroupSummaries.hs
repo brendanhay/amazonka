@@ -127,7 +127,8 @@ instance Core.AWSRequest ListAnomalyGroupSummaries where
       ( \s h x ->
           ListAnomalyGroupSummariesResponse'
             Prelude.<$> (x Data..?> "AnomalyGroupStatistics")
-            Prelude.<*> ( x Data..?> "AnomalyGroupSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "AnomalyGroupSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -136,7 +137,8 @@ instance Core.AWSRequest ListAnomalyGroupSummaries where
 
 instance Prelude.Hashable ListAnomalyGroupSummaries where
   hashWithSalt _salt ListAnomalyGroupSummaries' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` sensitivityThreshold

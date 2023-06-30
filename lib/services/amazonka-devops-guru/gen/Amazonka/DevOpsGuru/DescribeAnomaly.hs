@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeAnomaly where
 
 instance Prelude.Hashable DescribeAnomaly where
   hashWithSalt _salt DescribeAnomaly' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribeAnomaly where

@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketWebsiteConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` errorDocument
+      _salt
+        `Prelude.hashWithSalt` errorDocument
         `Prelude.hashWithSalt` indexDocumentSuffix
         `Prelude.hashWithSalt` redirectAllRequestsTo
         `Prelude.hashWithSalt` routingRules

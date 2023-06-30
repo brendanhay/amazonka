@@ -359,67 +359,67 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The certificate authority certificate you are importing does not comply
 -- with conditions specified in the certificate that signed it.
-_CertificateMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateMismatchException =
   Core._MatchServiceError
     defaultService
     "CertificateMismatchException"
 
 -- | A previous update to your private CA is still ongoing.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | One or more of the specified arguments was not valid.
-_InvalidArgsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidArgsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidArgsException =
   Core._MatchServiceError
     defaultService
@@ -427,7 +427,7 @@ _InvalidArgsException =
 
 -- | The requested Amazon Resource Name (ARN) does not refer to an existing
 -- resource.
-_InvalidArnException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidArnException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidArnException =
   Core._MatchServiceError
     defaultService
@@ -436,7 +436,7 @@ _InvalidArnException =
 -- | The token specified in the @NextToken@ argument is not valid. Use the
 -- token returned from your previous call to
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -445,21 +445,21 @@ _InvalidNextTokenException =
 -- | The resource policy is invalid or is missing a required statement. For
 -- general information about IAM policy and statement structure, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json Overview of JSON Policies>.
-_InvalidPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPolicyException =
   Core._MatchServiceError
     defaultService
     "InvalidPolicyException"
 
 -- | The request action cannot be performed or is prohibited.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The state of the private CA does not allow this action to occur.
-_InvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -467,7 +467,7 @@ _InvalidStateException =
 
 -- | The tag associated with the CA is not valid. The invalid argument is
 -- contained in the message field.
-_InvalidTagException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTagException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTagException =
   Core._MatchServiceError
     defaultService
@@ -475,7 +475,7 @@ _InvalidTagException =
 
 -- | An Amazon Web Services Private CA quota has been exceeded. See the
 -- exception message returned to determine the quota that was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -484,49 +484,49 @@ _LimitExceededException =
 -- | The current action was prevented because it would lock the caller out
 -- from performing subsequent actions. Verify that the specified parameters
 -- would not result in the caller being denied access to the resource.
-_LockoutPreventedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LockoutPreventedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LockoutPreventedException =
   Core._MatchServiceError
     defaultService
     "LockoutPreventedException"
 
 -- | The certificate signing request is invalid.
-_MalformedCSRException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MalformedCSRException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MalformedCSRException =
   Core._MatchServiceError
     defaultService
     "MalformedCSRException"
 
 -- | One or more fields in the certificate are invalid.
-_MalformedCertificateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MalformedCertificateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MalformedCertificateException =
   Core._MatchServiceError
     defaultService
     "MalformedCertificateException"
 
 -- | The designated permission has already been given to the user.
-_PermissionAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PermissionAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PermissionAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "PermissionAlreadyExistsException"
 
 -- | Your request has already been completed.
-_RequestAlreadyProcessedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestAlreadyProcessedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestAlreadyProcessedException =
   Core._MatchServiceError
     defaultService
     "RequestAlreadyProcessedException"
 
 -- | The request has failed for an unspecified reason.
-_RequestFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestFailedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestFailedException =
   Core._MatchServiceError
     defaultService
     "RequestFailedException"
 
 -- | Your request is already in progress.
-_RequestInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestInProgressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestInProgressException =
   Core._MatchServiceError
     defaultService
@@ -534,7 +534,7 @@ _RequestInProgressException =
 
 -- | A resource such as a private CA, S3 bucket, certificate, audit report,
 -- or policy cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -542,7 +542,7 @@ _ResourceNotFoundException =
 
 -- | You can associate up to 50 tags with a private CA. Exception information
 -- is contained in the exception message field.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

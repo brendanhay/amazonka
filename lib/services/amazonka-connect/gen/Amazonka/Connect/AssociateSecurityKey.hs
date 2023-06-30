@@ -110,7 +110,8 @@ instance Core.AWSRequest AssociateSecurityKey where
 
 instance Prelude.Hashable AssociateSecurityKey where
   hashWithSalt _salt AssociateSecurityKey' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData AssociateSecurityKey where

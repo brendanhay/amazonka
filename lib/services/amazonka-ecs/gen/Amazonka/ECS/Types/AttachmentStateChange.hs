@@ -69,7 +69,8 @@ attachmentStateChange_status = Lens.lens (\AttachmentStateChange' {status} -> st
 
 instance Prelude.Hashable AttachmentStateChange where
   hashWithSalt _salt AttachmentStateChange' {..} =
-    _salt `Prelude.hashWithSalt` attachmentArn
+    _salt
+      `Prelude.hashWithSalt` attachmentArn
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AttachmentStateChange where

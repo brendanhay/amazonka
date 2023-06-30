@@ -168,7 +168,8 @@ instance Core.AWSRequest CreatePlatformVersion where
 
 instance Prelude.Hashable CreatePlatformVersion where
   hashWithSalt _salt CreatePlatformVersion' {..} =
-    _salt `Prelude.hashWithSalt` environmentName
+    _salt
+      `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` optionSettings
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` platformName

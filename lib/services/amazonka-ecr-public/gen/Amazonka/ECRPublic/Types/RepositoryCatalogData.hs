@@ -143,7 +143,8 @@ instance Data.FromJSON RepositoryCatalogData where
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "logoUrl")
             Prelude.<*> (x Data..:? "marketplaceCertified")
-            Prelude.<*> ( x Data..:? "operatingSystems"
+            Prelude.<*> ( x
+                            Data..:? "operatingSystems"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "usageText")
@@ -151,7 +152,8 @@ instance Data.FromJSON RepositoryCatalogData where
 
 instance Prelude.Hashable RepositoryCatalogData where
   hashWithSalt _salt RepositoryCatalogData' {..} =
-    _salt `Prelude.hashWithSalt` aboutText
+    _salt
+      `Prelude.hashWithSalt` aboutText
       `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` logoUrl

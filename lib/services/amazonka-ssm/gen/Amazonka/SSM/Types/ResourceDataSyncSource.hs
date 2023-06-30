@@ -132,7 +132,8 @@ resourceDataSyncSource_sourceRegions = Lens.lens (\ResourceDataSyncSource' {sour
 
 instance Prelude.Hashable ResourceDataSyncSource where
   hashWithSalt _salt ResourceDataSyncSource' {..} =
-    _salt `Prelude.hashWithSalt` awsOrganizationsSource
+    _salt
+      `Prelude.hashWithSalt` awsOrganizationsSource
       `Prelude.hashWithSalt` enableAllOpsDataSources
       `Prelude.hashWithSalt` includeFutureRegions
       `Prelude.hashWithSalt` sourceType

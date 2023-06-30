@@ -113,7 +113,8 @@ instance Core.AWSRequest DeactivatePipeline where
 
 instance Prelude.Hashable DeactivatePipeline where
   hashWithSalt _salt DeactivatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` cancelActive
+    _salt
+      `Prelude.hashWithSalt` cancelActive
       `Prelude.hashWithSalt` pipelineId
 
 instance Prelude.NFData DeactivatePipeline where

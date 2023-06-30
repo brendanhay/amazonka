@@ -97,7 +97,8 @@ instance Data.FromJSON ComputeResponse where
 
 instance Prelude.Hashable ComputeResponse where
   hashWithSalt _salt ComputeResponse' {..} =
-    _salt `Prelude.hashWithSalt` computeType
+    _salt
+      `Prelude.hashWithSalt` computeType
       `Prelude.hashWithSalt` gpuUnitLimit
       `Prelude.hashWithSalt` simulationUnitLimit
 

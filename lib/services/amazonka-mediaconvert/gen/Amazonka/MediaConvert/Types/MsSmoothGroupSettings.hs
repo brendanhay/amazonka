@@ -197,7 +197,8 @@ instance Data.FromJSON MsSmoothGroupSettings where
       "MsSmoothGroupSettings"
       ( \x ->
           MsSmoothGroupSettings'
-            Prelude.<$> ( x Data..:? "additionalManifests"
+            Prelude.<$> ( x
+                            Data..:? "additionalManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "audioDeduplication")
@@ -211,7 +212,8 @@ instance Data.FromJSON MsSmoothGroupSettings where
 
 instance Prelude.Hashable MsSmoothGroupSettings where
   hashWithSalt _salt MsSmoothGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` additionalManifests
+    _salt
+      `Prelude.hashWithSalt` additionalManifests
       `Prelude.hashWithSalt` audioDeduplication
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationSettings

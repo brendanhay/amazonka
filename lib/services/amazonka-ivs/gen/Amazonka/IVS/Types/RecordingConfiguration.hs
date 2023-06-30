@@ -170,7 +170,8 @@ instance Data.FromJSON RecordingConfiguration where
 
 instance Prelude.Hashable RecordingConfiguration where
   hashWithSalt _salt RecordingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recordingReconnectWindowSeconds
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` thumbnailConfiguration

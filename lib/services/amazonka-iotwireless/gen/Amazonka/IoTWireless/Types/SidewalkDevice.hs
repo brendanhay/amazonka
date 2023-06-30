@@ -87,7 +87,8 @@ instance Data.FromJSON SidewalkDevice where
       ( \x ->
           SidewalkDevice'
             Prelude.<$> (x Data..:? "AmazonId")
-            Prelude.<*> ( x Data..:? "DeviceCertificates"
+            Prelude.<*> ( x
+                            Data..:? "DeviceCertificates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SidewalkId")
@@ -96,7 +97,8 @@ instance Data.FromJSON SidewalkDevice where
 
 instance Prelude.Hashable SidewalkDevice where
   hashWithSalt _salt SidewalkDevice' {..} =
-    _salt `Prelude.hashWithSalt` amazonId
+    _salt
+      `Prelude.hashWithSalt` amazonId
       `Prelude.hashWithSalt` deviceCertificates
       `Prelude.hashWithSalt` sidewalkId
       `Prelude.hashWithSalt` sidewalkManufacturingSn

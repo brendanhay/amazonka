@@ -169,7 +169,8 @@ instance Core.AWSRequest CreateResourceSet where
 
 instance Prelude.Hashable CreateResourceSet where
   hashWithSalt _salt CreateResourceSet' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceSetType
       `Prelude.hashWithSalt` resourceSetName
       `Prelude.hashWithSalt` resources

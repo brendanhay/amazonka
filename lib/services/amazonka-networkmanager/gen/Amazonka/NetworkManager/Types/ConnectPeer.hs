@@ -137,7 +137,8 @@ instance Data.FromJSON ConnectPeer where
 
 instance Prelude.Hashable ConnectPeer where
   hashWithSalt _salt ConnectPeer' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` connectAttachmentId
       `Prelude.hashWithSalt` connectPeerId
       `Prelude.hashWithSalt` coreNetworkId

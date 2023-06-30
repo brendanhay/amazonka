@@ -674,7 +674,8 @@ instance Data.FromXML DistributionConfig where
 
 instance Prelude.Hashable DistributionConfig where
   hashWithSalt _salt DistributionConfig' {..} =
-    _salt `Prelude.hashWithSalt` aliases
+    _salt
+      `Prelude.hashWithSalt` aliases
       `Prelude.hashWithSalt` cacheBehaviors
       `Prelude.hashWithSalt` continuousDeploymentPolicyId
       `Prelude.hashWithSalt` customErrorResponses

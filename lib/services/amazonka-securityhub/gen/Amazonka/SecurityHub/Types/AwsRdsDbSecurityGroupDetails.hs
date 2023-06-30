@@ -122,7 +122,8 @@ instance Data.FromJSON AwsRdsDbSecurityGroupDetails where
             Prelude.<$> (x Data..:? "DbSecurityGroupArn")
             Prelude.<*> (x Data..:? "DbSecurityGroupDescription")
             Prelude.<*> (x Data..:? "DbSecurityGroupName")
-            Prelude.<*> ( x Data..:? "Ec2SecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "Ec2SecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IpRanges" Data..!= Prelude.mempty)
@@ -135,7 +136,8 @@ instance
     AwsRdsDbSecurityGroupDetails
   where
   hashWithSalt _salt AwsRdsDbSecurityGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` dbSecurityGroupArn
+    _salt
+      `Prelude.hashWithSalt` dbSecurityGroupArn
       `Prelude.hashWithSalt` dbSecurityGroupDescription
       `Prelude.hashWithSalt` dbSecurityGroupName
       `Prelude.hashWithSalt` ec2SecurityGroups

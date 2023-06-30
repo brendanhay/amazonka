@@ -152,7 +152,8 @@ instance Core.AWSRequest ListReceivedGrants where
 
 instance Prelude.Hashable ListReceivedGrants where
   hashWithSalt _salt ListReceivedGrants' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` grantArns
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

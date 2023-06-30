@@ -159,7 +159,8 @@ instance Core.AWSRequest AddApplicationInput where
 
 instance Prelude.Hashable AddApplicationInput where
   hashWithSalt _salt AddApplicationInput' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` currentApplicationVersionId
       `Prelude.hashWithSalt` input
 

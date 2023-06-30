@@ -141,21 +141,22 @@ instance Core.AWSPager DescribeEndpoints where
     | Core.stop
         ( rs
             Lens.^? describeEndpointsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEndpointsResponse_endpoints
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEndpoints_marker
           Lens..~ rs
-          Lens.^? describeEndpointsResponse_marker Prelude.. Lens._Just
+          Lens.^? describeEndpointsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEndpoints where
   type
@@ -174,7 +175,8 @@ instance Core.AWSRequest DescribeEndpoints where
 
 instance Prelude.Hashable DescribeEndpoints where
   hashWithSalt _salt DescribeEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
 

@@ -74,27 +74,21 @@ newProperty =
       viewSunElevation = Prelude.Nothing
     }
 
--- |
 property_eoCloudCover :: Lens.Lens' Property (Prelude.Maybe EoCloudCoverInput)
 property_eoCloudCover = Lens.lens (\Property' {eoCloudCover} -> eoCloudCover) (\s@Property' {} a -> s {eoCloudCover = a} :: Property)
 
--- |
 property_landsatCloudCoverLand :: Lens.Lens' Property (Prelude.Maybe LandsatCloudCoverLandInput)
 property_landsatCloudCoverLand = Lens.lens (\Property' {landsatCloudCoverLand} -> landsatCloudCoverLand) (\s@Property' {} a -> s {landsatCloudCoverLand = a} :: Property)
 
--- |
 property_platform :: Lens.Lens' Property (Prelude.Maybe PlatformInput)
 property_platform = Lens.lens (\Property' {platform} -> platform) (\s@Property' {} a -> s {platform = a} :: Property)
 
--- |
 property_viewOffNadir :: Lens.Lens' Property (Prelude.Maybe ViewOffNadirInput)
 property_viewOffNadir = Lens.lens (\Property' {viewOffNadir} -> viewOffNadir) (\s@Property' {} a -> s {viewOffNadir = a} :: Property)
 
--- |
 property_viewSunAzimuth :: Lens.Lens' Property (Prelude.Maybe ViewSunAzimuthInput)
 property_viewSunAzimuth = Lens.lens (\Property' {viewSunAzimuth} -> viewSunAzimuth) (\s@Property' {} a -> s {viewSunAzimuth = a} :: Property)
 
--- |
 property_viewSunElevation :: Lens.Lens' Property (Prelude.Maybe ViewSunElevationInput)
 property_viewSunElevation = Lens.lens (\Property' {viewSunElevation} -> viewSunElevation) (\s@Property' {} a -> s {viewSunElevation = a} :: Property)
 
@@ -114,7 +108,8 @@ instance Data.FromJSON Property where
 
 instance Prelude.Hashable Property where
   hashWithSalt _salt Property' {..} =
-    _salt `Prelude.hashWithSalt` eoCloudCover
+    _salt
+      `Prelude.hashWithSalt` eoCloudCover
       `Prelude.hashWithSalt` landsatCloudCoverLand
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` viewOffNadir

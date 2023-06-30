@@ -88,7 +88,8 @@ instance Data.FromJSON CartesianCoordinates where
 
 instance Prelude.Hashable CartesianCoordinates where
   hashWithSalt _salt CartesianCoordinates' {..} =
-    _salt `Prelude.hashWithSalt` z
+    _salt
+      `Prelude.hashWithSalt` z
       `Prelude.hashWithSalt` x
       `Prelude.hashWithSalt` y
 

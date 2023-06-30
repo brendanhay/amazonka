@@ -121,7 +121,8 @@ instance Data.FromJSON RevealConfiguration where
 
 instance Prelude.Hashable RevealConfiguration where
   hashWithSalt _salt RevealConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData RevealConfiguration where

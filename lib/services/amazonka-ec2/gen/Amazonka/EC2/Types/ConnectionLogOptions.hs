@@ -82,7 +82,8 @@ connectionLogOptions_enabled = Lens.lens (\ConnectionLogOptions' {enabled} -> en
 
 instance Prelude.Hashable ConnectionLogOptions where
   hashWithSalt _salt ConnectionLogOptions' {..} =
-    _salt `Prelude.hashWithSalt` cloudwatchLogGroup
+    _salt
+      `Prelude.hashWithSalt` cloudwatchLogGroup
       `Prelude.hashWithSalt` cloudwatchLogStream
       `Prelude.hashWithSalt` enabled
 

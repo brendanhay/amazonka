@@ -104,13 +104,16 @@ instance Data.FromXML GlobalClusterMember where
       Prelude.<$> (x Data..@? "DBClusterArn")
       Prelude.<*> (x Data..@? "GlobalWriteForwardingStatus")
       Prelude.<*> (x Data..@? "IsWriter")
-      Prelude.<*> ( x Data..@? "Readers" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Readers"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable GlobalClusterMember where
   hashWithSalt _salt GlobalClusterMember' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterArn
+    _salt
+      `Prelude.hashWithSalt` dbClusterArn
       `Prelude.hashWithSalt` globalWriteForwardingStatus
       `Prelude.hashWithSalt` isWriter
       `Prelude.hashWithSalt` readers

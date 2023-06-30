@@ -85,7 +85,8 @@ instance Data.FromJSON LogSetup where
 
 instance Prelude.Hashable LogSetup where
   hashWithSalt _salt LogSetup' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` types
 
 instance Prelude.NFData LogSetup where

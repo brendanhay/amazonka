@@ -158,7 +158,8 @@ instance Core.AWSRequest UpdateDashboardPermissions where
 
 instance Prelude.Hashable UpdateDashboardPermissions where
   hashWithSalt _salt UpdateDashboardPermissions' {..} =
-    _salt `Prelude.hashWithSalt` grantLinkPermissions
+    _salt
+      `Prelude.hashWithSalt` grantLinkPermissions
       `Prelude.hashWithSalt` grantPermissions
       `Prelude.hashWithSalt` revokeLinkPermissions
       `Prelude.hashWithSalt` revokePermissions

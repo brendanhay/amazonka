@@ -123,7 +123,8 @@ instance Core.AWSRequest EvaluateExpression where
 
 instance Prelude.Hashable EvaluateExpression where
   hashWithSalt _salt EvaluateExpression' {..} =
-    _salt `Prelude.hashWithSalt` pipelineId
+    _salt
+      `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` objectId
       `Prelude.hashWithSalt` expression
 

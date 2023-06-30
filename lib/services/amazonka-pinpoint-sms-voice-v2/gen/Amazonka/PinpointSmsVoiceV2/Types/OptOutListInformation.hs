@@ -98,7 +98,8 @@ instance Data.FromJSON OptOutListInformation where
 
 instance Prelude.Hashable OptOutListInformation where
   hashWithSalt _salt OptOutListInformation' {..} =
-    _salt `Prelude.hashWithSalt` optOutListArn
+    _salt
+      `Prelude.hashWithSalt` optOutListArn
       `Prelude.hashWithSalt` optOutListName
       `Prelude.hashWithSalt` createdTimestamp
 

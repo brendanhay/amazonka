@@ -121,7 +121,9 @@ identityDkimAttributes_dkimVerificationStatus = Lens.lens (\IdentityDkimAttribut
 instance Data.FromXML IdentityDkimAttributes where
   parseXML x =
     IdentityDkimAttributes'
-      Prelude.<$> ( x Data..@? "DkimTokens" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "DkimTokens"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "DkimEnabled")
@@ -129,7 +131,8 @@ instance Data.FromXML IdentityDkimAttributes where
 
 instance Prelude.Hashable IdentityDkimAttributes where
   hashWithSalt _salt IdentityDkimAttributes' {..} =
-    _salt `Prelude.hashWithSalt` dkimTokens
+    _salt
+      `Prelude.hashWithSalt` dkimTokens
       `Prelude.hashWithSalt` dkimEnabled
       `Prelude.hashWithSalt` dkimVerificationStatus
 

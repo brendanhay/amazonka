@@ -117,7 +117,8 @@ instance Core.AWSRequest PutWorkflowRunProperties where
 
 instance Prelude.Hashable PutWorkflowRunProperties where
   hashWithSalt _salt PutWorkflowRunProperties' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` runId
       `Prelude.hashWithSalt` runProperties
 

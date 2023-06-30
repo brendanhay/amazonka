@@ -137,7 +137,8 @@ instance Data.FromJSON DocumentMetadata where
 
 instance Prelude.Hashable DocumentMetadata where
   hashWithSalt _salt DocumentMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` creatorId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` labels

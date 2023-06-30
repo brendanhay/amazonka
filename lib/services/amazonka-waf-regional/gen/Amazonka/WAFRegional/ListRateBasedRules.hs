@@ -135,7 +135,8 @@ instance Core.AWSRequest ListRateBasedRules where
 
 instance Prelude.Hashable ListRateBasedRules where
   hashWithSalt _salt ListRateBasedRules' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListRateBasedRules where

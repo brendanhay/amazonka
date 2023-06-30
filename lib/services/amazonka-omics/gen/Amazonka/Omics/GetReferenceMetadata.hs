@@ -122,7 +122,8 @@ instance Core.AWSRequest GetReferenceMetadata where
 
 instance Prelude.Hashable GetReferenceMetadata where
   hashWithSalt _salt GetReferenceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` referenceStoreId
 
 instance Prelude.NFData GetReferenceMetadata where

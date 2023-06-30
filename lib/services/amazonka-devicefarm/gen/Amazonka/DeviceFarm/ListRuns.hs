@@ -101,20 +101,23 @@ instance Core.AWSPager ListRuns where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRunsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listRunsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listRunsResponse_runs Prelude.. Lens._Just
+            Lens.^? listRunsResponse_runs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRuns_nextToken
           Lens..~ rs
-          Lens.^? listRunsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listRunsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRuns where
   type AWSResponse ListRuns = ListRunsResponse
@@ -131,7 +134,8 @@ instance Core.AWSRequest ListRuns where
 
 instance Prelude.Hashable ListRuns where
   hashWithSalt _salt ListRuns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListRuns where

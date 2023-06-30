@@ -146,8 +146,8 @@ instance
       ( \s h x ->
           AttachVerifiedAccessTrustProviderResponse'
             Prelude.<$> (x Data..@? "verifiedAccessInstance")
-              Prelude.<*> (x Data..@? "verifiedAccessTrustProvider")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "verifiedAccessTrustProvider")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -157,7 +157,8 @@ instance
   hashWithSalt
     _salt
     AttachVerifiedAccessTrustProvider' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` verifiedAccessInstanceId
         `Prelude.hashWithSalt` verifiedAccessTrustProviderId

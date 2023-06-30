@@ -135,7 +135,8 @@ instance Data.FromXML ClientVpnRoute where
 
 instance Prelude.Hashable ClientVpnRoute where
   hashWithSalt _salt ClientVpnRoute' {..} =
-    _salt `Prelude.hashWithSalt` clientVpnEndpointId
+    _salt
+      `Prelude.hashWithSalt` clientVpnEndpointId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationCidr
       `Prelude.hashWithSalt` origin

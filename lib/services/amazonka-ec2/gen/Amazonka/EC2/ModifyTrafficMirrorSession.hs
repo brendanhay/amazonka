@@ -220,7 +220,8 @@ instance Core.AWSRequest ModifyTrafficMirrorSession where
 
 instance Prelude.Hashable ModifyTrafficMirrorSession where
   hashWithSalt _salt ModifyTrafficMirrorSession' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` packetLength
       `Prelude.hashWithSalt` removeFields

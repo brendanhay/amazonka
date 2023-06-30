@@ -120,10 +120,10 @@ instance
       ( \x ->
           AwsS3BucketWebsiteConfigurationRoutingRuleRedirect'
             Prelude.<$> (x Data..:? "Hostname")
-              Prelude.<*> (x Data..:? "HttpRedirectCode")
-              Prelude.<*> (x Data..:? "Protocol")
-              Prelude.<*> (x Data..:? "ReplaceKeyPrefixWith")
-              Prelude.<*> (x Data..:? "ReplaceKeyWith")
+            Prelude.<*> (x Data..:? "HttpRedirectCode")
+            Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "ReplaceKeyPrefixWith")
+            Prelude.<*> (x Data..:? "ReplaceKeyWith")
       )
 
 instance
@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketWebsiteConfigurationRoutingRuleRedirect' {..} =
-      _salt `Prelude.hashWithSalt` hostname
+      _salt
+        `Prelude.hashWithSalt` hostname
         `Prelude.hashWithSalt` httpRedirectCode
         `Prelude.hashWithSalt` protocol
         `Prelude.hashWithSalt` replaceKeyPrefixWith

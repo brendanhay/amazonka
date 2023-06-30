@@ -166,7 +166,8 @@ instance
     ListResourceSharePermissions
   where
   hashWithSalt _salt ListResourceSharePermissions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceShareArn
 

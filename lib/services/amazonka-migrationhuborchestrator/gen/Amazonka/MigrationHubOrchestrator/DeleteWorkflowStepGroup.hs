@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteWorkflowStepGroup where
 
 instance Prelude.Hashable DeleteWorkflowStepGroup where
   hashWithSalt _salt DeleteWorkflowStepGroup' {..} =
-    _salt `Prelude.hashWithSalt` workflowId
+    _salt
+      `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteWorkflowStepGroup where

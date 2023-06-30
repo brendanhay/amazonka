@@ -165,7 +165,8 @@ instance Core.AWSRequest UpdatePricingRule where
 
 instance Prelude.Hashable UpdatePricingRule where
   hashWithSalt _salt UpdatePricingRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modifierPercentage
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tiering

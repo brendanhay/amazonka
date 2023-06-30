@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateGameConfiguration where
 
 instance Prelude.Hashable UpdateGameConfiguration where
   hashWithSalt _salt UpdateGameConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` gameName
+    _salt
+      `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` modifications
 
 instance Prelude.NFData UpdateGameConfiguration where

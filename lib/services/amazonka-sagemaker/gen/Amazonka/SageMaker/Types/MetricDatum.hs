@@ -109,7 +109,8 @@ instance Data.FromJSON MetricDatum where
 
 instance Prelude.Hashable MetricDatum where
   hashWithSalt _salt MetricDatum' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` set
       `Prelude.hashWithSalt` standardMetricName
       `Prelude.hashWithSalt` value

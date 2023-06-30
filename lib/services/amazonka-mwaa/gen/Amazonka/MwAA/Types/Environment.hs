@@ -495,7 +495,8 @@ instance Data.FromJSON Environment where
       "Environment"
       ( \x ->
           Environment'
-            Prelude.<$> ( x Data..:? "AirflowConfigurationOptions"
+            Prelude.<$> ( x
+                            Data..:? "AirflowConfigurationOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AirflowVersion")

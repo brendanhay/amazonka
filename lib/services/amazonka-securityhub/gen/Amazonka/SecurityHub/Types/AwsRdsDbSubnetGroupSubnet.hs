@@ -89,7 +89,8 @@ instance Data.FromJSON AwsRdsDbSubnetGroupSubnet where
 
 instance Prelude.Hashable AwsRdsDbSubnetGroupSubnet where
   hashWithSalt _salt AwsRdsDbSubnetGroupSubnet' {..} =
-    _salt `Prelude.hashWithSalt` subnetAvailabilityZone
+    _salt
+      `Prelude.hashWithSalt` subnetAvailabilityZone
       `Prelude.hashWithSalt` subnetIdentifier
       `Prelude.hashWithSalt` subnetStatus
 

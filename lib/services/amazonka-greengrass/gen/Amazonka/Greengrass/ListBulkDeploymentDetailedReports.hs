@@ -113,22 +113,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listBulkDeploymentDetailedReportsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBulkDeploymentDetailedReportsResponse_deployments
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBulkDeploymentDetailedReports_nextToken
           Lens..~ rs
           Lens.^? listBulkDeploymentDetailedReportsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -144,8 +144,8 @@ instance
       ( \s h x ->
           ListBulkDeploymentDetailedReportsResponse'
             Prelude.<$> (x Data..?> "Deployments" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     ListBulkDeploymentDetailedReports' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` bulkDeploymentId
 

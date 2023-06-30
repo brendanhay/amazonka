@@ -114,7 +114,8 @@ instance Data.FromJSON S3StorageConfig where
 
 instance Prelude.Hashable S3StorageConfig where
   hashWithSalt _salt S3StorageConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` resolvedOutputS3Uri
       `Prelude.hashWithSalt` s3Uri
 

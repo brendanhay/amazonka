@@ -75,7 +75,8 @@ instance Data.FromJSON EstimatedResourceSize where
 
 instance Prelude.Hashable EstimatedResourceSize where
   hashWithSalt _salt EstimatedResourceSize' {..} =
-    _salt `Prelude.hashWithSalt` estimatedOn
+    _salt
+      `Prelude.hashWithSalt` estimatedOn
       `Prelude.hashWithSalt` estimatedSizeInBytes
 
 instance Prelude.NFData EstimatedResourceSize where

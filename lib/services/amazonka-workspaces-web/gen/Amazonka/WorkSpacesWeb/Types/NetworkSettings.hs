@@ -109,7 +109,8 @@ instance Data.FromJSON NetworkSettings where
       "NetworkSettings"
       ( \x ->
           NetworkSettings'
-            Prelude.<$> ( x Data..:? "associatedPortalArns"
+            Prelude.<$> ( x
+                            Data..:? "associatedPortalArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "securityGroupIds")
@@ -120,7 +121,8 @@ instance Data.FromJSON NetworkSettings where
 
 instance Prelude.Hashable NetworkSettings where
   hashWithSalt _salt NetworkSettings' {..} =
-    _salt `Prelude.hashWithSalt` associatedPortalArns
+    _salt
+      `Prelude.hashWithSalt` associatedPortalArns
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vpcId

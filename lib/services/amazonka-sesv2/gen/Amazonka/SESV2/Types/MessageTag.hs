@@ -102,7 +102,8 @@ messageTag_value = Lens.lens (\MessageTag' {value} -> value) (\s@MessageTag' {} 
 
 instance Prelude.Hashable MessageTag where
   hashWithSalt _salt MessageTag' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MessageTag where

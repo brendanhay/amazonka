@@ -107,7 +107,8 @@ instance Core.AWSRequest PutSchemaFromJson where
 
 instance Prelude.Hashable PutSchemaFromJson where
   hashWithSalt _salt PutSchemaFromJson' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` document
 
 instance Prelude.NFData PutSchemaFromJson where

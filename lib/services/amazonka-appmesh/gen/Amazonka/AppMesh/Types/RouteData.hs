@@ -135,7 +135,8 @@ instance Data.FromJSON RouteData where
 
 instance Prelude.Hashable RouteData where
   hashWithSalt _salt RouteData' {..} =
-    _salt `Prelude.hashWithSalt` meshName
+    _salt
+      `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` routeName
       `Prelude.hashWithSalt` spec

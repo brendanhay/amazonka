@@ -76,7 +76,8 @@ instance Data.FromJSON FailuresResponse where
 
 instance Prelude.Hashable FailuresResponse where
   hashWithSalt _salt FailuresResponse' {..} =
-    _salt `Prelude.hashWithSalt` failures
+    _salt
+      `Prelude.hashWithSalt` failures
       `Prelude.hashWithSalt` region
 
 instance Prelude.NFData FailuresResponse where

@@ -132,7 +132,8 @@ instance Core.AWSRequest CreateAccessor where
 
 instance Prelude.Hashable CreateAccessor where
   hashWithSalt _salt CreateAccessor' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` accessorType
 
 instance Prelude.NFData CreateAccessor where

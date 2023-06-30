@@ -125,7 +125,8 @@ instance Data.FromJSON GroupOrderingIdSummary where
 
 instance Prelude.Hashable GroupOrderingIdSummary where
   hashWithSalt _salt GroupOrderingIdSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` orderingId
       `Prelude.hashWithSalt` receivedAt

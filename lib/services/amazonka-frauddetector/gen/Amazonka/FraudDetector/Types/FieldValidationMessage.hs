@@ -104,7 +104,8 @@ instance Data.FromJSON FieldValidationMessage where
 
 instance Prelude.Hashable FieldValidationMessage where
   hashWithSalt _salt FieldValidationMessage' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` fieldName
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` title

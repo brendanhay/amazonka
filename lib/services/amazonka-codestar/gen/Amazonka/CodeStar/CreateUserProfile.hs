@@ -158,7 +158,8 @@ instance Core.AWSRequest CreateUserProfile where
 
 instance Prelude.Hashable CreateUserProfile where
   hashWithSalt _salt CreateUserProfile' {..} =
-    _salt `Prelude.hashWithSalt` sshPublicKey
+    _salt
+      `Prelude.hashWithSalt` sshPublicKey
       `Prelude.hashWithSalt` userArn
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` emailAddress

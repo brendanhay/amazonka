@@ -143,22 +143,22 @@ instance Core.AWSPager DescribeReservedNodes where
     | Core.stop
         ( rs
             Lens.^? describeReservedNodesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReservedNodesResponse_reservedNodes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReservedNodes_marker
           Lens..~ rs
           Lens.^? describeReservedNodesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReservedNodes where
   type
@@ -172,7 +172,9 @@ instance Core.AWSRequest DescribeReservedNodes where
       ( \s h x ->
           DescribeReservedNodesResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "ReservedNodes" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "ReservedNodes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ReservedNode")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -180,7 +182,8 @@ instance Core.AWSRequest DescribeReservedNodes where
 
 instance Prelude.Hashable DescribeReservedNodes where
   hashWithSalt _salt DescribeReservedNodes' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` reservedNodeId
 

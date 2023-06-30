@@ -96,7 +96,8 @@ instance Data.FromXML LifecycleExpiration where
 
 instance Prelude.Hashable LifecycleExpiration where
   hashWithSalt _salt LifecycleExpiration' {..} =
-    _salt `Prelude.hashWithSalt` date
+    _salt
+      `Prelude.hashWithSalt` date
       `Prelude.hashWithSalt` days
       `Prelude.hashWithSalt` expiredObjectDeleteMarker
 

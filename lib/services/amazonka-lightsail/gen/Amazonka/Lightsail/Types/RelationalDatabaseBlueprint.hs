@@ -126,7 +126,8 @@ instance Data.FromJSON RelationalDatabaseBlueprint where
 
 instance Prelude.Hashable RelationalDatabaseBlueprint where
   hashWithSalt _salt RelationalDatabaseBlueprint' {..} =
-    _salt `Prelude.hashWithSalt` blueprintId
+    _salt
+      `Prelude.hashWithSalt` blueprintId
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineDescription
       `Prelude.hashWithSalt` engineVersion

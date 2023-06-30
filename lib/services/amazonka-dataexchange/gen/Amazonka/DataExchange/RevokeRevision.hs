@@ -142,7 +142,8 @@ instance Core.AWSRequest RevokeRevision where
 
 instance Prelude.Hashable RevokeRevision where
   hashWithSalt _salt RevokeRevision' {..} =
-    _salt `Prelude.hashWithSalt` dataSetId
+    _salt
+      `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` revocationComment
 

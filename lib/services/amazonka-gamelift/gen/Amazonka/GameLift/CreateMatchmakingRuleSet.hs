@@ -161,7 +161,8 @@ instance Core.AWSRequest CreateMatchmakingRuleSet where
 
 instance Prelude.Hashable CreateMatchmakingRuleSet where
   hashWithSalt _salt CreateMatchmakingRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleSetBody
 

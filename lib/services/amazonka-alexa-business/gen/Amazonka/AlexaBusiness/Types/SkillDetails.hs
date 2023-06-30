@@ -153,11 +153,13 @@ instance Data.FromJSON SkillDetails where
             Prelude.<$> (x Data..:? "BulletPoints" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "DeveloperInfo")
             Prelude.<*> (x Data..:? "EndUserLicenseAgreement")
-            Prelude.<*> ( x Data..:? "GenericKeywords"
+            Prelude.<*> ( x
+                            Data..:? "GenericKeywords"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "InvocationPhrase")
-            Prelude.<*> ( x Data..:? "NewInThisVersionBulletPoints"
+            Prelude.<*> ( x
+                            Data..:? "NewInThisVersionBulletPoints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProductDescription")
@@ -168,7 +170,8 @@ instance Data.FromJSON SkillDetails where
 
 instance Prelude.Hashable SkillDetails where
   hashWithSalt _salt SkillDetails' {..} =
-    _salt `Prelude.hashWithSalt` bulletPoints
+    _salt
+      `Prelude.hashWithSalt` bulletPoints
       `Prelude.hashWithSalt` developerInfo
       `Prelude.hashWithSalt` endUserLicenseAgreement
       `Prelude.hashWithSalt` genericKeywords

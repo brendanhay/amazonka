@@ -94,7 +94,8 @@ instance Data.FromJSON Permission where
 
 instance Prelude.Hashable Permission where
   hashWithSalt _salt Permission' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` profileVersion
       `Prelude.hashWithSalt` statementId

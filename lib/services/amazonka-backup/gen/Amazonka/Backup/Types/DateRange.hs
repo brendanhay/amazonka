@@ -103,7 +103,8 @@ instance Data.FromJSON DateRange where
 
 instance Prelude.Hashable DateRange where
   hashWithSalt _salt DateRange' {..} =
-    _salt `Prelude.hashWithSalt` fromDate
+    _salt
+      `Prelude.hashWithSalt` fromDate
       `Prelude.hashWithSalt` toDate
 
 instance Prelude.NFData DateRange where

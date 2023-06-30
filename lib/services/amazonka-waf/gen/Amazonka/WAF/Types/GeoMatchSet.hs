@@ -118,14 +118,16 @@ instance Data.FromJSON GeoMatchSet where
           GeoMatchSet'
             Prelude.<$> (x Data..:? "Name")
             Prelude.<*> (x Data..: "GeoMatchSetId")
-            Prelude.<*> ( x Data..:? "GeoMatchConstraints"
+            Prelude.<*> ( x
+                            Data..:? "GeoMatchConstraints"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GeoMatchSet where
   hashWithSalt _salt GeoMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` geoMatchSetId
       `Prelude.hashWithSalt` geoMatchConstraints
 

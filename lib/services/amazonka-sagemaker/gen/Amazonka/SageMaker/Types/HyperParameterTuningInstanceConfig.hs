@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterTuningInstanceConfig' {..} =
-      _salt `Prelude.hashWithSalt` instanceType
+      _salt
+        `Prelude.hashWithSalt` instanceType
         `Prelude.hashWithSalt` instanceCount
         `Prelude.hashWithSalt` volumeSizeInGB
 

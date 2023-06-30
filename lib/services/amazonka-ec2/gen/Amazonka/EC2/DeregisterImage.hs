@@ -121,7 +121,8 @@ instance Core.AWSRequest DeregisterImage where
 
 instance Prelude.Hashable DeregisterImage where
   hashWithSalt _salt DeregisterImage' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` imageId
 
 instance Prelude.NFData DeregisterImage where

@@ -209,7 +209,8 @@ instance Core.AWSRequest UpdateDatasetEntries where
 
 instance Prelude.Hashable UpdateDatasetEntries where
   hashWithSalt _salt UpdateDatasetEntries' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` datasetType
       `Prelude.hashWithSalt` changes

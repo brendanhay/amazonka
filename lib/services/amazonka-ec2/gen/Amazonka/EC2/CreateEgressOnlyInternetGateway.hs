@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     CreateEgressOnlyInternetGateway' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` vpcId

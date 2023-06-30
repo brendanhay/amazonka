@@ -102,7 +102,9 @@ instance Core.AWSRequest DescribeLifecycleHooks where
       "DescribeLifecycleHooksResult"
       ( \s h x ->
           DescribeLifecycleHooksResponse'
-            Prelude.<$> ( x Data..@? "LifecycleHooks" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "LifecycleHooks"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -110,7 +112,8 @@ instance Core.AWSRequest DescribeLifecycleHooks where
 
 instance Prelude.Hashable DescribeLifecycleHooks where
   hashWithSalt _salt DescribeLifecycleHooks' {..} =
-    _salt `Prelude.hashWithSalt` lifecycleHookNames
+    _salt
+      `Prelude.hashWithSalt` lifecycleHookNames
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData DescribeLifecycleHooks where

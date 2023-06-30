@@ -177,7 +177,8 @@ instance
   hashWithSalt
     _salt
     CustomLineItemVersionListElement' {..} =
-      _salt `Prelude.hashWithSalt` associationSize
+      _salt
+        `Prelude.hashWithSalt` associationSize
         `Prelude.hashWithSalt` billingGroupArn
         `Prelude.hashWithSalt` chargeDetails
         `Prelude.hashWithSalt` creationTime

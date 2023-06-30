@@ -88,7 +88,8 @@ instance Data.FromJSON RemoveAttributesActivity where
 
 instance Prelude.Hashable RemoveAttributesActivity where
   hashWithSalt _salt RemoveAttributesActivity' {..} =
-    _salt `Prelude.hashWithSalt` next
+    _salt
+      `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attributes
 

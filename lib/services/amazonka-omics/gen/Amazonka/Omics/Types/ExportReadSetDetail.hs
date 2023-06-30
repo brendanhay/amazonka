@@ -90,7 +90,8 @@ instance Data.FromJSON ExportReadSetDetail where
 
 instance Prelude.Hashable ExportReadSetDetail where
   hashWithSalt _salt ExportReadSetDetail' {..} =
-    _salt `Prelude.hashWithSalt` statusMessage
+    _salt
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
 

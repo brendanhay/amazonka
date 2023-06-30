@@ -95,7 +95,8 @@ instance Data.FromJSON NodePropertiesSummary where
 
 instance Prelude.Hashable NodePropertiesSummary where
   hashWithSalt _salt NodePropertiesSummary' {..} =
-    _salt `Prelude.hashWithSalt` isMainNode
+    _salt
+      `Prelude.hashWithSalt` isMainNode
       `Prelude.hashWithSalt` nodeIndex
       `Prelude.hashWithSalt` numNodes
 

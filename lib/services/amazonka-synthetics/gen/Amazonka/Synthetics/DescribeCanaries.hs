@@ -169,7 +169,8 @@ instance Core.AWSRequest DescribeCanaries where
 
 instance Prelude.Hashable DescribeCanaries where
   hashWithSalt _salt DescribeCanaries' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` nextToken
 

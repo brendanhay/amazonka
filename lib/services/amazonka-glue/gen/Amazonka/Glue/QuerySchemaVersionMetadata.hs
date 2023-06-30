@@ -146,7 +146,8 @@ instance Core.AWSRequest QuerySchemaVersionMetadata where
     Response.receiveJSON
       ( \s h x ->
           QuerySchemaVersionMetadataResponse'
-            Prelude.<$> ( x Data..?> "MetadataInfoMap"
+            Prelude.<$> ( x
+                            Data..?> "MetadataInfoMap"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -156,7 +157,8 @@ instance Core.AWSRequest QuerySchemaVersionMetadata where
 
 instance Prelude.Hashable QuerySchemaVersionMetadata where
   hashWithSalt _salt QuerySchemaVersionMetadata' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` metadataList
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` schemaId

@@ -556,7 +556,8 @@ instance Data.FromJSON OutputConfig where
 
 instance Prelude.Hashable OutputConfig where
   hashWithSalt _salt OutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` compilerOptions
+    _salt
+      `Prelude.hashWithSalt` compilerOptions
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` targetDevice
       `Prelude.hashWithSalt` targetPlatform

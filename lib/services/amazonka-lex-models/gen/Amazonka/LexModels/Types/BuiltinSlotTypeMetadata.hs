@@ -80,14 +80,16 @@ instance Data.FromJSON BuiltinSlotTypeMetadata where
       ( \x ->
           BuiltinSlotTypeMetadata'
             Prelude.<$> (x Data..:? "signature")
-            Prelude.<*> ( x Data..:? "supportedLocales"
+            Prelude.<*> ( x
+                            Data..:? "supportedLocales"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BuiltinSlotTypeMetadata where
   hashWithSalt _salt BuiltinSlotTypeMetadata' {..} =
-    _salt `Prelude.hashWithSalt` signature
+    _salt
+      `Prelude.hashWithSalt` signature
       `Prelude.hashWithSalt` supportedLocales
 
 instance Prelude.NFData BuiltinSlotTypeMetadata where

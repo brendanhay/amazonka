@@ -84,7 +84,8 @@ detectorStateDefinition_timers = Lens.lens (\DetectorStateDefinition' {timers} -
 
 instance Prelude.Hashable DetectorStateDefinition where
   hashWithSalt _salt DetectorStateDefinition' {..} =
-    _salt `Prelude.hashWithSalt` stateName
+    _salt
+      `Prelude.hashWithSalt` stateName
       `Prelude.hashWithSalt` variables
       `Prelude.hashWithSalt` timers
 

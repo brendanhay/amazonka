@@ -215,22 +215,22 @@ instance Core.AWSPager DescribeClassicLinkInstances where
     | Core.stop
         ( rs
             Lens.^? describeClassicLinkInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClassicLinkInstancesResponse_instances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClassicLinkInstances_nextToken
           Lens..~ rs
           Lens.^? describeClassicLinkInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClassicLinkInstances where
   type
@@ -242,7 +242,9 @@ instance Core.AWSRequest DescribeClassicLinkInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeClassicLinkInstancesResponse'
-            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instancesSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -254,7 +256,8 @@ instance
     DescribeClassicLinkInstances
   where
   hashWithSalt _salt DescribeClassicLinkInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` maxResults

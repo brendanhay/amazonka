@@ -143,7 +143,8 @@ instance
     IntegrationAssociationSummary
   where
   hashWithSalt _salt IntegrationAssociationSummary' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationArn
       `Prelude.hashWithSalt` integrationAssociationArn
       `Prelude.hashWithSalt` integrationAssociationId

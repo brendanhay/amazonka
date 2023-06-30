@@ -203,22 +203,22 @@ instance Core.AWSPager ListTaskDefinitions where
     | Core.stop
         ( rs
             Lens.^? listTaskDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTaskDefinitionsResponse_taskDefinitionArns
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTaskDefinitions_nextToken
           Lens..~ rs
           Lens.^? listTaskDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTaskDefinitions where
   type
@@ -231,7 +231,8 @@ instance Core.AWSRequest ListTaskDefinitions where
       ( \s h x ->
           ListTaskDefinitionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "taskDefinitionArns"
+            Prelude.<*> ( x
+                            Data..?> "taskDefinitionArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -239,7 +240,8 @@ instance Core.AWSRequest ListTaskDefinitions where
 
 instance Prelude.Hashable ListTaskDefinitions where
   hashWithSalt _salt ListTaskDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` familyPrefix
+    _salt
+      `Prelude.hashWithSalt` familyPrefix
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sort

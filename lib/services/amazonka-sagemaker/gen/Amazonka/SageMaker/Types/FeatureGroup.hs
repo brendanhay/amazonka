@@ -276,7 +276,8 @@ instance Data.FromJSON FeatureGroup where
 
 instance Prelude.Hashable FeatureGroup where
   hashWithSalt _salt FeatureGroup' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventTimeFeatureName
       `Prelude.hashWithSalt` failureReason

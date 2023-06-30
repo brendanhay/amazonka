@@ -120,7 +120,8 @@ instance Data.FromJSON GameServerInstance where
 
 instance Prelude.Hashable GameServerInstance where
   hashWithSalt _salt GameServerInstance' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupArn
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupArn
       `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` instanceStatus

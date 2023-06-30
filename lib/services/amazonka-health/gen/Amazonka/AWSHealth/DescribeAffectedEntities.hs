@@ -152,22 +152,22 @@ instance Core.AWSPager DescribeAffectedEntities where
     | Core.stop
         ( rs
             Lens.^? describeAffectedEntitiesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAffectedEntitiesResponse_entities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAffectedEntities_nextToken
           Lens..~ rs
           Lens.^? describeAffectedEntitiesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAffectedEntities where
   type
@@ -186,7 +186,8 @@ instance Core.AWSRequest DescribeAffectedEntities where
 
 instance Prelude.Hashable DescribeAffectedEntities where
   hashWithSalt _salt DescribeAffectedEntities' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filter'

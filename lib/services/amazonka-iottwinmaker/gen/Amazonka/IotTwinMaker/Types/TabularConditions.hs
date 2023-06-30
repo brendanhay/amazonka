@@ -78,7 +78,8 @@ tabularConditions_propertyFilters = Lens.lens (\TabularConditions' {propertyFilt
 
 instance Prelude.Hashable TabularConditions where
   hashWithSalt _salt TabularConditions' {..} =
-    _salt `Prelude.hashWithSalt` orderBy
+    _salt
+      `Prelude.hashWithSalt` orderBy
       `Prelude.hashWithSalt` propertyFilters
 
 instance Prelude.NFData TabularConditions where

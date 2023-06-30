@@ -215,7 +215,8 @@ instance Data.FromJSON ReactiveAnomaly where
       ( \x ->
           ReactiveAnomaly'
             Prelude.<$> (x Data..:? "AnomalyReportedTimeRange")
-            Prelude.<*> ( x Data..:? "AnomalyResources"
+            Prelude.<*> ( x
+                            Data..:? "AnomalyResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AnomalyTimeRange")

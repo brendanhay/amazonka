@@ -112,22 +112,22 @@ instance Core.AWSPager ListServiceQuotas where
     | Core.stop
         ( rs
             Lens.^? listServiceQuotasResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listServiceQuotasResponse_quotas
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listServiceQuotas_nextToken
           Lens..~ rs
           Lens.^? listServiceQuotasResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceQuotas where
   type
@@ -146,7 +146,8 @@ instance Core.AWSRequest ListServiceQuotas where
 
 instance Prelude.Hashable ListServiceQuotas where
   hashWithSalt _salt ListServiceQuotas' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceCode
 

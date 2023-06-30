@@ -195,14 +195,16 @@ instance Data.FromJSON InstalledComponent where
             Prelude.<*> (x Data..:? "lastStatusChangeTimestamp")
             Prelude.<*> (x Data..:? "lifecycleState")
             Prelude.<*> (x Data..:? "lifecycleStateDetails")
-            Prelude.<*> ( x Data..:? "lifecycleStatusCodes"
+            Prelude.<*> ( x
+                            Data..:? "lifecycleStatusCodes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable InstalledComponent where
   hashWithSalt _salt InstalledComponent' {..} =
-    _salt `Prelude.hashWithSalt` componentName
+    _salt
+      `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` isRoot
       `Prelude.hashWithSalt` lastInstallationSource

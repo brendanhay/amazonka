@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteAnnotationStore where
 
 instance Prelude.Hashable DeleteAnnotationStore where
   hashWithSalt _salt DeleteAnnotationStore' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteAnnotationStore where

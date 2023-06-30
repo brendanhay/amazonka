@@ -101,7 +101,8 @@ instance Data.FromJSON XssMatchStatement where
 
 instance Prelude.Hashable XssMatchStatement where
   hashWithSalt _salt XssMatchStatement' {..} =
-    _salt `Prelude.hashWithSalt` fieldToMatch
+    _salt
+      `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformations
 
 instance Prelude.NFData XssMatchStatement where

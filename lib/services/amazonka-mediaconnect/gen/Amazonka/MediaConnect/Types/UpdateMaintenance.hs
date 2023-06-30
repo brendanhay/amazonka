@@ -84,7 +84,8 @@ updateMaintenance_maintenanceStartHour = Lens.lens (\UpdateMaintenance' {mainten
 
 instance Prelude.Hashable UpdateMaintenance where
   hashWithSalt _salt UpdateMaintenance' {..} =
-    _salt `Prelude.hashWithSalt` maintenanceDay
+    _salt
+      `Prelude.hashWithSalt` maintenanceDay
       `Prelude.hashWithSalt` maintenanceScheduledDate
       `Prelude.hashWithSalt` maintenanceStartHour
 

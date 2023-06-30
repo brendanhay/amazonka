@@ -108,7 +108,8 @@ instance Core.AWSRequest BatchPutPropertyValues where
 
 instance Prelude.Hashable BatchPutPropertyValues where
   hashWithSalt _salt BatchPutPropertyValues' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData BatchPutPropertyValues where

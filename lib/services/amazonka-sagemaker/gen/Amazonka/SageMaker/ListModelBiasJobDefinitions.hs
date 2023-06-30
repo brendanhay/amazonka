@@ -171,21 +171,21 @@ instance Core.AWSPager ListModelBiasJobDefinitions where
     | Core.stop
         ( rs
             Lens.^? listModelBiasJobDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listModelBiasJobDefinitionsResponse_jobDefinitionSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listModelBiasJobDefinitions_nextToken
           Lens..~ rs
           Lens.^? listModelBiasJobDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelBiasJobDefinitions where
   type
@@ -199,14 +199,16 @@ instance Core.AWSRequest ListModelBiasJobDefinitions where
           ListModelBiasJobDefinitionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "JobDefinitionSummaries"
+            Prelude.<*> ( x
+                            Data..?> "JobDefinitionSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListModelBiasJobDefinitions where
   hashWithSalt _salt ListModelBiasJobDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` maxResults

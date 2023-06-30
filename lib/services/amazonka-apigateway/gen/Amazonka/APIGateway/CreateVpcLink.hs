@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateVpcLink where
 
 instance Prelude.Hashable CreateVpcLink where
   hashWithSalt _salt CreateVpcLink' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` targetArns

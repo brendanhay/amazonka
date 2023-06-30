@@ -184,7 +184,8 @@ instance Data.FromJSON AssociatedAssetsSummary where
 
 instance Prelude.Hashable AssociatedAssetsSummary where
   hashWithSalt _salt AssociatedAssetsSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name

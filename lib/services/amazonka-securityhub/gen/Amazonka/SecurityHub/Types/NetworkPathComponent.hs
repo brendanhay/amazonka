@@ -102,7 +102,8 @@ instance Data.FromJSON NetworkPathComponent where
 
 instance Prelude.Hashable NetworkPathComponent where
   hashWithSalt _salt NetworkPathComponent' {..} =
-    _salt `Prelude.hashWithSalt` componentId
+    _salt
+      `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` egress
       `Prelude.hashWithSalt` ingress

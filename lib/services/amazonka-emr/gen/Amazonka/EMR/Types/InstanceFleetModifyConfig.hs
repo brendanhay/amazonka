@@ -85,7 +85,8 @@ instanceFleetModifyConfig_instanceFleetId = Lens.lens (\InstanceFleetModifyConfi
 
 instance Prelude.Hashable InstanceFleetModifyConfig where
   hashWithSalt _salt InstanceFleetModifyConfig' {..} =
-    _salt `Prelude.hashWithSalt` targetOnDemandCapacity
+    _salt
+      `Prelude.hashWithSalt` targetOnDemandCapacity
       `Prelude.hashWithSalt` targetSpotCapacity
       `Prelude.hashWithSalt` instanceFleetId
 

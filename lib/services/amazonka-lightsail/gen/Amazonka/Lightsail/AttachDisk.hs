@@ -123,7 +123,8 @@ instance Core.AWSRequest AttachDisk where
 
 instance Prelude.Hashable AttachDisk where
   hashWithSalt _salt AttachDisk' {..} =
-    _salt `Prelude.hashWithSalt` diskName
+    _salt
+      `Prelude.hashWithSalt` diskName
       `Prelude.hashWithSalt` instanceName
       `Prelude.hashWithSalt` diskPath
 

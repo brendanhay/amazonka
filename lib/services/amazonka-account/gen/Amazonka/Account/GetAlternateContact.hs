@@ -185,7 +185,8 @@ instance Core.AWSRequest GetAlternateContact where
 
 instance Prelude.Hashable GetAlternateContact where
   hashWithSalt _salt GetAlternateContact' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` alternateContactType
 
 instance Prelude.NFData GetAlternateContact where

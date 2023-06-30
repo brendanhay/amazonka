@@ -76,7 +76,8 @@ instance Data.FromJSON MemberFabricAttributes where
 
 instance Prelude.Hashable MemberFabricAttributes where
   hashWithSalt _salt MemberFabricAttributes' {..} =
-    _salt `Prelude.hashWithSalt` adminUsername
+    _salt
+      `Prelude.hashWithSalt` adminUsername
       `Prelude.hashWithSalt` caEndpoint
 
 instance Prelude.NFData MemberFabricAttributes where

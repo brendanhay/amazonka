@@ -123,7 +123,8 @@ instance Core.AWSRequest RunPipelineActivity where
 
 instance Prelude.Hashable RunPipelineActivity where
   hashWithSalt _salt RunPipelineActivity' {..} =
-    _salt `Prelude.hashWithSalt` pipelineActivity
+    _salt
+      `Prelude.hashWithSalt` pipelineActivity
       `Prelude.hashWithSalt` payloads
 
 instance Prelude.NFData RunPipelineActivity where

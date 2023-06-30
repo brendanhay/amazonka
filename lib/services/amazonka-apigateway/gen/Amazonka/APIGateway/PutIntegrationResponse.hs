@@ -225,7 +225,8 @@ instance Core.AWSRequest PutIntegrationResponse where
 
 instance Prelude.Hashable PutIntegrationResponse where
   hashWithSalt _salt PutIntegrationResponse' {..} =
-    _salt `Prelude.hashWithSalt` contentHandling
+    _salt
+      `Prelude.hashWithSalt` contentHandling
       `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` responseTemplates
       `Prelude.hashWithSalt` selectionPattern

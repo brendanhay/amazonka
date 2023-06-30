@@ -116,7 +116,8 @@ instance Data.FromJSON ListedProfile where
 
 instance Prelude.Hashable ListedProfile where
   hashWithSalt _salt ListedProfile' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` as2Id
       `Prelude.hashWithSalt` profileId
       `Prelude.hashWithSalt` profileType

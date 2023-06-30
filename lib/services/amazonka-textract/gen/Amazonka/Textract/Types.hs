@@ -424,53 +424,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You aren\'t authorized to perform the action. Use the Amazon Resource
 -- Name (ARN) of an authorized user or IAM role to perform the operation.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -478,7 +478,7 @@ _AccessDeniedException =
 
 -- | Amazon Textract isn\'t able to read the document. For more information
 -- on the document limits in Amazon Textract, see limits.
-_BadDocumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadDocumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadDocumentException =
   Core._MatchServiceError
     defaultService
@@ -487,7 +487,7 @@ _BadDocumentException =
 -- | The document can\'t be processed because it\'s too large. The maximum
 -- document size for synchronous operations 10 MB. The maximum document
 -- size for asynchronous operations is 500 MB for PDF files.
-_DocumentTooLargeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DocumentTooLargeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DocumentTooLargeException =
   Core._MatchServiceError
     defaultService
@@ -495,7 +495,7 @@ _DocumentTooLargeException =
 
 -- | Indicates you have exceeded the maximum number of active human in the
 -- loop workflows available
-_HumanLoopQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_HumanLoopQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _HumanLoopQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -504,14 +504,14 @@ _HumanLoopQuotaExceededException =
 -- | A @ClientRequestToken@ input parameter was reused with an operation, but
 -- at least one of the other input parameters is different from the
 -- previous call to the operation.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IdempotentParameterMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
 
 -- | Amazon Textract experienced a service issue. Try your call again.
-_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -519,7 +519,7 @@ _InternalServerError =
 
 -- | An invalid job identifier was passed to an asynchronous analysis
 -- operation.
-_InvalidJobIdException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidJobIdException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidJobIdException =
   Core._MatchServiceError
     defaultService
@@ -527,7 +527,7 @@ _InvalidJobIdException =
 
 -- | Indicates you do not have decrypt permissions with the KMS key entered,
 -- or the KMS key was entered incorrectly.
-_InvalidKMSKeyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidKMSKeyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidKMSKeyException =
   Core._MatchServiceError
     defaultService
@@ -538,7 +538,7 @@ _InvalidKMSKeyException =
 -- of the @S3Object@ or @Bytes@ values are supplied in the @Document@
 -- request parameter. Validate your parameter before calling the API
 -- operation again.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -549,7 +549,7 @@ _InvalidParameterException =
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Configure Access to Amazon S3>
 -- For troubleshooting information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html Troubleshooting Amazon S3>
-_InvalidS3ObjectException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidS3ObjectException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidS3ObjectException =
   Core._MatchServiceError
     defaultService
@@ -561,7 +561,7 @@ _InvalidS3ObjectException =
 -- LimitExceededException exception (HTTP status code: 400) until the
 -- number of concurrently running jobs is below the Amazon Textract service
 -- limit.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -569,7 +569,7 @@ _LimitExceededException =
 
 -- | The number of requests exceeded your throughput limit. If you want to
 -- increase this limit, contact Amazon Textract.
-_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ProvisionedThroughputExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
@@ -577,7 +577,7 @@ _ProvisionedThroughputExceededException =
 
 -- | Amazon Textract is temporarily unable to process the request. Try your
 -- call again.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -585,7 +585,7 @@ _ThrottlingException =
 
 -- | The format of the input document isn\'t supported. Documents for
 -- operations can be in PNG, JPEG, PDF, or TIFF format.
-_UnsupportedDocumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedDocumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedDocumentException =
   Core._MatchServiceError
     defaultService

@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteWorkflow where
 
 instance Prelude.Hashable DeleteWorkflow where
   hashWithSalt _salt DeleteWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` workflowId
 
 instance Prelude.NFData DeleteWorkflow where

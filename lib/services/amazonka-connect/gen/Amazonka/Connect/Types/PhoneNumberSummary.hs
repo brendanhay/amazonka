@@ -106,7 +106,8 @@ instance Data.FromJSON PhoneNumberSummary where
 
 instance Prelude.Hashable PhoneNumberSummary where
   hashWithSalt _salt PhoneNumberSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` phoneNumberCountryCode

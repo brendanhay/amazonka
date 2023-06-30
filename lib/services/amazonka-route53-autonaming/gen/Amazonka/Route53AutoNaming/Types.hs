@@ -408,60 +408,60 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The health check for the instance that\'s specified by @ServiceId@ and
 -- @InstanceId@ isn\'t a custom health check.
-_CustomHealthNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CustomHealthNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CustomHealthNotFound =
   Core._MatchServiceError
     defaultService
     "CustomHealthNotFound"
 
 -- | The operation is already in progress.
-_DuplicateRequest :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateRequest :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateRequest =
   Core._MatchServiceError
     defaultService
@@ -469,7 +469,7 @@ _DuplicateRequest =
 
 -- | No instance exists with the specified ID, or the instance was recently
 -- registered, and information about the instance hasn\'t propagated yet.
-_InstanceNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InstanceNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InstanceNotFound =
   Core._MatchServiceError
     defaultService
@@ -478,28 +478,28 @@ _InstanceNotFound =
 -- | One or more specified values aren\'t valid. For example, a required
 -- value might be missing, a numeric value might be outside the allowed
 -- range, or a string value might exceed length constraints.
-_InvalidInput :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInput :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInput =
   Core._MatchServiceError
     defaultService
     "InvalidInput"
 
 -- | The namespace that you\'re trying to create already exists.
-_NamespaceAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NamespaceAlreadyExists :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NamespaceAlreadyExists =
   Core._MatchServiceError
     defaultService
     "NamespaceAlreadyExists"
 
 -- | No namespace exists with the specified ID.
-_NamespaceNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NamespaceNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NamespaceNotFound =
   Core._MatchServiceError
     defaultService
     "NamespaceNotFound"
 
 -- | No operation exists with the specified ID.
-_OperationNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationNotFound =
   Core._MatchServiceError
     defaultService
@@ -509,7 +509,7 @@ _OperationNotFound =
 -- the number of requests. For more information, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html Cloud Map API request throttling quota>
 -- in the /Cloud Map Developer Guide/.
-_RequestLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -518,7 +518,7 @@ _RequestLimitExceeded =
 -- | The specified resource can\'t be deleted because it contains other
 -- resources. For example, you can\'t delete a service that contains any
 -- instances.
-_ResourceInUse :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUse :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUse =
   Core._MatchServiceError
     defaultService
@@ -526,14 +526,14 @@ _ResourceInUse =
 
 -- | The resource can\'t be created because you\'ve reached the quota on the
 -- number of resources.
-_ResourceLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceeded =
   Core._MatchServiceError
     defaultService
     "ResourceLimitExceeded"
 
 -- | The operation can\'t be completed because the resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -541,14 +541,14 @@ _ResourceNotFoundException =
 
 -- | The service can\'t be created because a service with the same name
 -- already exists.
-_ServiceAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceAlreadyExists :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceAlreadyExists =
   Core._MatchServiceError
     defaultService
     "ServiceAlreadyExists"
 
 -- | No service exists with the specified ID.
-_ServiceNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceNotFound =
   Core._MatchServiceError
     defaultService
@@ -556,7 +556,7 @@ _ServiceNotFound =
 
 -- | The list of tags on the resource is over the quota. The maximum number
 -- of tags that can be applied to a resource is 50.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

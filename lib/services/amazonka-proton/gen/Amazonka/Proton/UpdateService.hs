@@ -142,7 +142,8 @@ instance Core.AWSRequest UpdateService where
 
 instance Prelude.Hashable UpdateService where
   hashWithSalt _salt UpdateService' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` name
 

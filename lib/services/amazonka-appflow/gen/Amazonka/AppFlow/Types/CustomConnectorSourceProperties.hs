@@ -78,7 +78,8 @@ instance
       "CustomConnectorSourceProperties"
       ( \x ->
           CustomConnectorSourceProperties'
-            Prelude.<$> ( x Data..:? "customProperties"
+            Prelude.<$> ( x
+                            Data..:? "customProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "entityName")
@@ -91,7 +92,8 @@ instance
   hashWithSalt
     _salt
     CustomConnectorSourceProperties' {..} =
-      _salt `Prelude.hashWithSalt` customProperties
+      _salt
+        `Prelude.hashWithSalt` customProperties
         `Prelude.hashWithSalt` entityName
 
 instance

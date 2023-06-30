@@ -84,7 +84,8 @@ instance Data.FromJSON RecordsIngested where
 
 instance Prelude.Hashable RecordsIngested where
   hashWithSalt _salt RecordsIngested' {..} =
-    _salt `Prelude.hashWithSalt` magneticStore
+    _salt
+      `Prelude.hashWithSalt` magneticStore
       `Prelude.hashWithSalt` memoryStore
       `Prelude.hashWithSalt` total
 

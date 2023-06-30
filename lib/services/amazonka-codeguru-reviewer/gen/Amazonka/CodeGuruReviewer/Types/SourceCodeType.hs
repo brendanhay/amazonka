@@ -156,7 +156,8 @@ instance Data.FromJSON SourceCodeType where
 
 instance Prelude.Hashable SourceCodeType where
   hashWithSalt _salt SourceCodeType' {..} =
-    _salt `Prelude.hashWithSalt` branchDiff
+    _salt
+      `Prelude.hashWithSalt` branchDiff
       `Prelude.hashWithSalt` commitDiff
       `Prelude.hashWithSalt` repositoryHead
       `Prelude.hashWithSalt` requestMetadata

@@ -98,7 +98,8 @@ instance Data.FromJSON RouteMatrixEntryError where
 
 instance Prelude.Hashable RouteMatrixEntryError where
   hashWithSalt _salt RouteMatrixEntryError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` code
 
 instance Prelude.NFData RouteMatrixEntryError where

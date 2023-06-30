@@ -96,22 +96,22 @@ instance Core.AWSPager ListFunctionDefinitions where
     | Core.stop
         ( rs
             Lens.^? listFunctionDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFunctionDefinitionsResponse_definitions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFunctionDefinitions_nextToken
           Lens..~ rs
           Lens.^? listFunctionDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFunctionDefinitions where
   type
@@ -130,7 +130,8 @@ instance Core.AWSRequest ListFunctionDefinitions where
 
 instance Prelude.Hashable ListFunctionDefinitions where
   hashWithSalt _salt ListFunctionDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFunctionDefinitions where

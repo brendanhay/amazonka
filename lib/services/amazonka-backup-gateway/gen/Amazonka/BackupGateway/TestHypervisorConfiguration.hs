@@ -127,7 +127,8 @@ instance Core.AWSRequest TestHypervisorConfiguration where
 
 instance Prelude.Hashable TestHypervisorConfiguration where
   hashWithSalt _salt TestHypervisorConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` password
+    _salt
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` gatewayArn
       `Prelude.hashWithSalt` host

@@ -377,7 +377,8 @@ gCMMessage_url = Lens.lens (\GCMMessage' {url} -> url) (\s@GCMMessage' {} a -> s
 
 instance Prelude.Hashable GCMMessage where
   hashWithSalt _salt GCMMessage' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` collapseKey
       `Prelude.hashWithSalt` data'

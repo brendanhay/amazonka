@@ -103,7 +103,8 @@ instance Core.AWSRequest StartQuery where
 
 instance Prelude.Hashable StartQuery where
   hashWithSalt _salt StartQuery' {..} =
-    _salt `Prelude.hashWithSalt` deliveryS3Uri
+    _salt
+      `Prelude.hashWithSalt` deliveryS3Uri
       `Prelude.hashWithSalt` queryStatement
 
 instance Prelude.NFData StartQuery where

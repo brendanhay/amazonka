@@ -156,20 +156,22 @@ instance Core.AWSPager ListAuditTasks where
     | Core.stop
         ( rs
             Lens.^? listAuditTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listAuditTasksResponse_tasks Prelude.. Lens._Just
+            Lens.^? listAuditTasksResponse_tasks
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAuditTasks_nextToken
           Lens..~ rs
-          Lens.^? listAuditTasksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAuditTasksResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAuditTasks where
   type
@@ -188,7 +190,8 @@ instance Core.AWSRequest ListAuditTasks where
 
 instance Prelude.Hashable ListAuditTasks where
   hashWithSalt _salt ListAuditTasks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` taskStatus
       `Prelude.hashWithSalt` taskType

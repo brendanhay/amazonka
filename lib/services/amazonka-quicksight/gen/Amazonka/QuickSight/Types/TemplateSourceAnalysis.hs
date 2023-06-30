@@ -73,7 +73,8 @@ templateSourceAnalysis_dataSetReferences = Lens.lens (\TemplateSourceAnalysis' {
 
 instance Prelude.Hashable TemplateSourceAnalysis where
   hashWithSalt _salt TemplateSourceAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataSetReferences
 
 instance Prelude.NFData TemplateSourceAnalysis where

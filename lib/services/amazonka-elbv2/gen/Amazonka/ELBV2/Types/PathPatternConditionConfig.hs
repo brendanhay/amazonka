@@ -81,7 +81,9 @@ pathPatternConditionConfig_values = Lens.lens (\PathPatternConditionConfig' {val
 instance Data.FromXML PathPatternConditionConfig where
   parseXML x =
     PathPatternConditionConfig'
-      Prelude.<$> ( x Data..@? "Values" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Values"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

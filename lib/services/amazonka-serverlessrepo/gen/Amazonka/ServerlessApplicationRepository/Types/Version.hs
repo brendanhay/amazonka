@@ -283,12 +283,14 @@ instance Data.FromJSON Version where
             Prelude.<$> (x Data..:? "sourceCodeArchiveUrl")
             Prelude.<*> (x Data..:? "sourceCodeUrl")
             Prelude.<*> (x Data..: "templateUrl")
-            Prelude.<*> ( x Data..:? "parameterDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "parameterDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "resourcesSupported")
             Prelude.<*> (x Data..: "creationTime")
-            Prelude.<*> ( x Data..:? "requiredCapabilities"
+            Prelude.<*> ( x
+                            Data..:? "requiredCapabilities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "applicationId")
@@ -297,7 +299,8 @@ instance Data.FromJSON Version where
 
 instance Prelude.Hashable Version where
   hashWithSalt _salt Version' {..} =
-    _salt `Prelude.hashWithSalt` sourceCodeArchiveUrl
+    _salt
+      `Prelude.hashWithSalt` sourceCodeArchiveUrl
       `Prelude.hashWithSalt` sourceCodeUrl
       `Prelude.hashWithSalt` templateUrl
       `Prelude.hashWithSalt` parameterDefinitions

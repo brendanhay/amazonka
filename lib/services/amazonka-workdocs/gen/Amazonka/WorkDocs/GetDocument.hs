@@ -115,7 +115,8 @@ instance Core.AWSRequest GetDocument where
 
 instance Prelude.Hashable GetDocument where
   hashWithSalt _salt GetDocument' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` includeCustomMetadata
       `Prelude.hashWithSalt` documentId
 

@@ -110,7 +110,8 @@ instance Core.AWSRequest GetDataSetImportTask where
 
 instance Prelude.Hashable GetDataSetImportTask where
   hashWithSalt _salt GetDataSetImportTask' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` taskId
 
 instance Prelude.NFData GetDataSetImportTask where

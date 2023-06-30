@@ -77,7 +77,8 @@ instance
   hashWithSalt
     _salt
     CreateAssessmentFrameworkControlSet' {..} =
-      _salt `Prelude.hashWithSalt` controls
+      _salt
+        `Prelude.hashWithSalt` controls
         `Prelude.hashWithSalt` name
 
 instance

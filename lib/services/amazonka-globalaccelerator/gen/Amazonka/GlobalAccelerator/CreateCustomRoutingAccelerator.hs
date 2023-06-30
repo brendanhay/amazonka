@@ -272,7 +272,8 @@ instance
   hashWithSalt
     _salt
     CreateCustomRoutingAccelerator' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` ipAddressType
         `Prelude.hashWithSalt` ipAddresses
         `Prelude.hashWithSalt` tags

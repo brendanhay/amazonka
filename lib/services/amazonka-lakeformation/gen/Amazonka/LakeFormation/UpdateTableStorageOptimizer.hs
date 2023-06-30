@@ -127,7 +127,8 @@ instance Core.AWSRequest UpdateTableStorageOptimizer where
 
 instance Prelude.Hashable UpdateTableStorageOptimizer where
   hashWithSalt _salt UpdateTableStorageOptimizer' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` storageOptimizerConfig

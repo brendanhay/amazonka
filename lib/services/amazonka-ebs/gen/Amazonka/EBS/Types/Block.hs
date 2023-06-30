@@ -74,7 +74,8 @@ instance Data.FromJSON Block where
 
 instance Prelude.Hashable Block where
   hashWithSalt _salt Block' {..} =
-    _salt `Prelude.hashWithSalt` blockIndex
+    _salt
+      `Prelude.hashWithSalt` blockIndex
       `Prelude.hashWithSalt` blockToken
 
 instance Prelude.NFData Block where

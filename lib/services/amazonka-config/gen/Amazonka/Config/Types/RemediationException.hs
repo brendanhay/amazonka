@@ -117,7 +117,8 @@ instance Data.FromJSON RemediationException where
 
 instance Prelude.Hashable RemediationException where
   hashWithSalt _salt RemediationException' {..} =
-    _salt `Prelude.hashWithSalt` expirationTime
+    _salt
+      `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` resourceType

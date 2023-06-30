@@ -83,7 +83,8 @@ instance Data.FromJSON ReviewReport where
 
 instance Prelude.Hashable ReviewReport where
   hashWithSalt _salt ReviewReport' {..} =
-    _salt `Prelude.hashWithSalt` reviewActions
+    _salt
+      `Prelude.hashWithSalt` reviewActions
       `Prelude.hashWithSalt` reviewResults
 
 instance Prelude.NFData ReviewReport where

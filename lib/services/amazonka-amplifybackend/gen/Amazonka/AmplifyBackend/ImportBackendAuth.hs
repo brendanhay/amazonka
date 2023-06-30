@@ -168,7 +168,8 @@ instance Core.AWSRequest ImportBackendAuth where
 
 instance Prelude.Hashable ImportBackendAuth where
   hashWithSalt _salt ImportBackendAuth' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
+    _salt
+      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` userPoolId

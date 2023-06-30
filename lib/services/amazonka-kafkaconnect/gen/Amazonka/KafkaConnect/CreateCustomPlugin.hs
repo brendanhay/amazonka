@@ -132,7 +132,8 @@ instance Core.AWSRequest CreateCustomPlugin where
 
 instance Prelude.Hashable CreateCustomPlugin where
   hashWithSalt _salt CreateCustomPlugin' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` name

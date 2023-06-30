@@ -227,7 +227,8 @@ instance Data.FromXML AutoScalingInstanceDetails where
 
 instance Prelude.Hashable AutoScalingInstanceDetails where
   hashWithSalt _salt AutoScalingInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` launchConfigurationName
       `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` weightedCapacity

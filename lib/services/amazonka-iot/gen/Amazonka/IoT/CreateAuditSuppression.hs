@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateAuditSuppression where
 
 instance Prelude.Hashable CreateAuditSuppression where
   hashWithSalt _salt CreateAuditSuppression' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` suppressIndefinitely
       `Prelude.hashWithSalt` checkName

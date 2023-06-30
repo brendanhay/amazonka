@@ -124,7 +124,8 @@ instance Core.AWSRequest CreateBlueprint where
 
 instance Prelude.Hashable CreateBlueprint where
   hashWithSalt _salt CreateBlueprint' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` blueprintLocation

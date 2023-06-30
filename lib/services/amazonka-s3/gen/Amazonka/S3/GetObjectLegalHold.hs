@@ -184,7 +184,8 @@ instance Core.AWSRequest GetObjectLegalHold where
 
 instance Prelude.Hashable GetObjectLegalHold where
   hashWithSalt _salt GetObjectLegalHold' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket

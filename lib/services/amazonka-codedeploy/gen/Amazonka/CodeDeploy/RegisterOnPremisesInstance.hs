@@ -110,7 +110,8 @@ instance Core.AWSRequest RegisterOnPremisesInstance where
 
 instance Prelude.Hashable RegisterOnPremisesInstance where
   hashWithSalt _salt RegisterOnPremisesInstance' {..} =
-    _salt `Prelude.hashWithSalt` iamSessionArn
+    _salt
+      `Prelude.hashWithSalt` iamSessionArn
       `Prelude.hashWithSalt` iamUserArn
       `Prelude.hashWithSalt` instanceName
 

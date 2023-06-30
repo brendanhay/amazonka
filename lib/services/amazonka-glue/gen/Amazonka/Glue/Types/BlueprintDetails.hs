@@ -74,7 +74,8 @@ instance Data.FromJSON BlueprintDetails where
 
 instance Prelude.Hashable BlueprintDetails where
   hashWithSalt _salt BlueprintDetails' {..} =
-    _salt `Prelude.hashWithSalt` blueprintName
+    _salt
+      `Prelude.hashWithSalt` blueprintName
       `Prelude.hashWithSalt` runId
 
 instance Prelude.NFData BlueprintDetails where

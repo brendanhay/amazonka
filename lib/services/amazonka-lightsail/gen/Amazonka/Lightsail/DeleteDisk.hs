@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteDisk where
 
 instance Prelude.Hashable DeleteDisk where
   hashWithSalt _salt DeleteDisk' {..} =
-    _salt `Prelude.hashWithSalt` forceDeleteAddOns
+    _salt
+      `Prelude.hashWithSalt` forceDeleteAddOns
       `Prelude.hashWithSalt` diskName
 
 instance Prelude.NFData DeleteDisk where

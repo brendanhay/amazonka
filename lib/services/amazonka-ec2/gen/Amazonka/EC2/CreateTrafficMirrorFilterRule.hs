@@ -267,7 +267,8 @@ instance
     CreateTrafficMirrorFilterRule
   where
   hashWithSalt _salt CreateTrafficMirrorFilterRule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationPortRange
       `Prelude.hashWithSalt` dryRun

@@ -94,7 +94,7 @@ instance
       ( \s h x ->
           ListVoiceConnectorTerminationCredentialsResponse'
             Prelude.<$> (x Data..?> "Usernames" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

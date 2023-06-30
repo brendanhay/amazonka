@@ -81,7 +81,8 @@ instance Data.FromXML CoipCidr where
 
 instance Prelude.Hashable CoipCidr where
   hashWithSalt _salt CoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` coipPoolId
       `Prelude.hashWithSalt` localGatewayRouteTableId
 

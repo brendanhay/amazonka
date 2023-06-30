@@ -133,7 +133,8 @@ instance Core.AWSRequest UpdateEventLabel where
 
 instance Prelude.Hashable UpdateEventLabel where
   hashWithSalt _salt UpdateEventLabel' {..} =
-    _salt `Prelude.hashWithSalt` eventId
+    _salt
+      `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTypeName
       `Prelude.hashWithSalt` assignedLabel
       `Prelude.hashWithSalt` labelTimestamp

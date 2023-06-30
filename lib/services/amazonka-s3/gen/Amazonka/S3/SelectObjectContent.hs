@@ -423,7 +423,8 @@ instance Core.AWSRequest SelectObjectContent where
 
 instance Prelude.Hashable SelectObjectContent where
   hashWithSalt _salt SelectObjectContent' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestProgress
       `Prelude.hashWithSalt` sSECustomerAlgorithm
       `Prelude.hashWithSalt` sSECustomerKey

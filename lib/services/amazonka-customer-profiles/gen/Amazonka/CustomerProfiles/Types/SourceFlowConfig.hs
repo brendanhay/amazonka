@@ -106,7 +106,8 @@ sourceFlowConfig_sourceConnectorProperties = Lens.lens (\SourceFlowConfig' {sour
 
 instance Prelude.Hashable SourceFlowConfig where
   hashWithSalt _salt SourceFlowConfig' {..} =
-    _salt `Prelude.hashWithSalt` connectorProfileName
+    _salt
+      `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` incrementalPullConfig
       `Prelude.hashWithSalt` connectorType
       `Prelude.hashWithSalt` sourceConnectorProperties

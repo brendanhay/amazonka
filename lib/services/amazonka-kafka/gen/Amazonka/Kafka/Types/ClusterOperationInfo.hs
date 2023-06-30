@@ -168,7 +168,8 @@ instance Data.FromJSON ClusterOperationInfo where
 
 instance Prelude.Hashable ClusterOperationInfo where
   hashWithSalt _salt ClusterOperationInfo' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestId
+    _salt
+      `Prelude.hashWithSalt` clientRequestId
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` endTime

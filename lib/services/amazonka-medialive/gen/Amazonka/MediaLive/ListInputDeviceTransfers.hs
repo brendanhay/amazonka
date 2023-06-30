@@ -106,22 +106,22 @@ instance Core.AWSPager ListInputDeviceTransfers where
     | Core.stop
         ( rs
             Lens.^? listInputDeviceTransfersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInputDeviceTransfersResponse_inputDeviceTransfers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInputDeviceTransfers_nextToken
           Lens..~ rs
           Lens.^? listInputDeviceTransfersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInputDeviceTransfers where
   type
@@ -133,7 +133,8 @@ instance Core.AWSRequest ListInputDeviceTransfers where
     Response.receiveJSON
       ( \s h x ->
           ListInputDeviceTransfersResponse'
-            Prelude.<$> ( x Data..?> "inputDeviceTransfers"
+            Prelude.<$> ( x
+                            Data..?> "inputDeviceTransfers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -142,7 +143,8 @@ instance Core.AWSRequest ListInputDeviceTransfers where
 
 instance Prelude.Hashable ListInputDeviceTransfers where
   hashWithSalt _salt ListInputDeviceTransfers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` transferType
 

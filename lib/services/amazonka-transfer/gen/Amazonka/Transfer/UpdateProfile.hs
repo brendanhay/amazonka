@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateProfile where
 
 instance Prelude.Hashable UpdateProfile where
   hashWithSalt _salt UpdateProfile' {..} =
-    _salt `Prelude.hashWithSalt` certificateIds
+    _salt
+      `Prelude.hashWithSalt` certificateIds
       `Prelude.hashWithSalt` profileId
 
 instance Prelude.NFData UpdateProfile where

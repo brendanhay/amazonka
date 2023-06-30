@@ -91,7 +91,8 @@ inputLambdaProcessorUpdate_roleARNUpdate = Lens.lens (\InputLambdaProcessorUpdat
 
 instance Prelude.Hashable InputLambdaProcessorUpdate where
   hashWithSalt _salt InputLambdaProcessorUpdate' {..} =
-    _salt `Prelude.hashWithSalt` resourceARNUpdate
+    _salt
+      `Prelude.hashWithSalt` resourceARNUpdate
       `Prelude.hashWithSalt` roleARNUpdate
 
 instance Prelude.NFData InputLambdaProcessorUpdate where

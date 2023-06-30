@@ -255,7 +255,8 @@ instance Core.AWSRequest UpdateServiceInstance where
 
 instance Prelude.Hashable UpdateServiceInstance where
   hashWithSalt _salt UpdateServiceInstance' {..} =
-    _salt `Prelude.hashWithSalt` spec
+    _salt
+      `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` templateMajorVersion
       `Prelude.hashWithSalt` templateMinorVersion
       `Prelude.hashWithSalt` deploymentType

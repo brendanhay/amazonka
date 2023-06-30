@@ -111,7 +111,8 @@ instance Core.AWSRequest DescribeReleaseLabel where
       ( \s h x ->
           DescribeReleaseLabelResponse'
             Prelude.<$> (x Data..?> "Applications" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "AvailableOSReleases"
+            Prelude.<*> ( x
+                            Data..?> "AvailableOSReleases"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -121,7 +122,8 @@ instance Core.AWSRequest DescribeReleaseLabel where
 
 instance Prelude.Hashable DescribeReleaseLabel where
   hashWithSalt _salt DescribeReleaseLabel' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` releaseLabel
 

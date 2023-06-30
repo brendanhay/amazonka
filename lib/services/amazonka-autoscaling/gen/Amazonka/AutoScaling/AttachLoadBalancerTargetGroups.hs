@@ -144,7 +144,8 @@ instance
   hashWithSalt
     _salt
     AttachLoadBalancerTargetGroups' {..} =
-      _salt `Prelude.hashWithSalt` autoScalingGroupName
+      _salt
+        `Prelude.hashWithSalt` autoScalingGroupName
         `Prelude.hashWithSalt` targetGroupARNs
 
 instance

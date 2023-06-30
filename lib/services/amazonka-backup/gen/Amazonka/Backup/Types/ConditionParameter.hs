@@ -81,7 +81,8 @@ instance Data.FromJSON ConditionParameter where
 
 instance Prelude.Hashable ConditionParameter where
   hashWithSalt _salt ConditionParameter' {..} =
-    _salt `Prelude.hashWithSalt` conditionKey
+    _salt
+      `Prelude.hashWithSalt` conditionKey
       `Prelude.hashWithSalt` conditionValue
 
 instance Prelude.NFData ConditionParameter where

@@ -303,7 +303,8 @@ instance
   hashWithSalt
     _salt
     NielsenNonLinearWatermarkSettings' {..} =
-      _salt `Prelude.hashWithSalt` activeWatermarkProcess
+      _salt
+        `Prelude.hashWithSalt` activeWatermarkProcess
         `Prelude.hashWithSalt` adiFilename
         `Prelude.hashWithSalt` assetId
         `Prelude.hashWithSalt` assetName

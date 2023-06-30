@@ -141,7 +141,8 @@ newAssertionRule_name = Lens.lens (\NewAssertionRule' {name} -> name) (\s@NewAss
 
 instance Prelude.Hashable NewAssertionRule where
   hashWithSalt _salt NewAssertionRule' {..} =
-    _salt `Prelude.hashWithSalt` controlPanelArn
+    _salt
+      `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` assertedControls
       `Prelude.hashWithSalt` ruleConfig
       `Prelude.hashWithSalt` waitPeriodMs

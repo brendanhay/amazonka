@@ -69,7 +69,8 @@ customPlugin_revision = Lens.lens (\CustomPlugin' {revision} -> revision) (\s@Cu
 
 instance Prelude.Hashable CustomPlugin where
   hashWithSalt _salt CustomPlugin' {..} =
-    _salt `Prelude.hashWithSalt` customPluginArn
+    _salt
+      `Prelude.hashWithSalt` customPluginArn
       `Prelude.hashWithSalt` revision
 
 instance Prelude.NFData CustomPlugin where

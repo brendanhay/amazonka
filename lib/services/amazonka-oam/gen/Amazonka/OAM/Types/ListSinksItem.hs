@@ -88,7 +88,8 @@ instance Data.FromJSON ListSinksItem where
 
 instance Prelude.Hashable ListSinksItem where
   hashWithSalt _salt ListSinksItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

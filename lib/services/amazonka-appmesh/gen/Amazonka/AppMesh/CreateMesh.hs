@@ -149,7 +149,8 @@ instance Core.AWSRequest CreateMesh where
 
 instance Prelude.Hashable CreateMesh where
   hashWithSalt _salt CreateMesh' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName

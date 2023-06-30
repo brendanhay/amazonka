@@ -106,7 +106,8 @@ instance Data.FromJSON ConnectPeerAssociation where
 
 instance Prelude.Hashable ConnectPeerAssociation where
   hashWithSalt _salt ConnectPeerAssociation' {..} =
-    _salt `Prelude.hashWithSalt` connectPeerId
+    _salt
+      `Prelude.hashWithSalt` connectPeerId
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` linkId

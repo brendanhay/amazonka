@@ -100,7 +100,8 @@ instance Data.FromJSON WorkspaceConnectionStatus where
 
 instance Prelude.Hashable WorkspaceConnectionStatus where
   hashWithSalt _salt WorkspaceConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` connectionState
+    _salt
+      `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` connectionStateCheckTimestamp
       `Prelude.hashWithSalt` lastKnownUserConnectionTimestamp
       `Prelude.hashWithSalt` workspaceId

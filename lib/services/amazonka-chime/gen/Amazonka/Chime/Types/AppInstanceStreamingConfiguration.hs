@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     AppInstanceStreamingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceDataType
+      _salt
+        `Prelude.hashWithSalt` appInstanceDataType
         `Prelude.hashWithSalt` resourceArn
 
 instance

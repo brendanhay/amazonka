@@ -191,7 +191,8 @@ instance Data.FromJSON ServiceConnectService where
 
 instance Prelude.Hashable ServiceConnectService where
   hashWithSalt _salt ServiceConnectService' {..} =
-    _salt `Prelude.hashWithSalt` clientAliases
+    _salt
+      `Prelude.hashWithSalt` clientAliases
       `Prelude.hashWithSalt` discoveryName
       `Prelude.hashWithSalt` ingressPortOverride
       `Prelude.hashWithSalt` portName

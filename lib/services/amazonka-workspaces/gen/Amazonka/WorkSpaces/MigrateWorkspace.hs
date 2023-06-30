@@ -120,7 +120,8 @@ instance Core.AWSRequest MigrateWorkspace where
 
 instance Prelude.Hashable MigrateWorkspace where
   hashWithSalt _salt MigrateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` sourceWorkspaceId
+    _salt
+      `Prelude.hashWithSalt` sourceWorkspaceId
       `Prelude.hashWithSalt` bundleId
 
 instance Prelude.NFData MigrateWorkspace where

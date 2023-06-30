@@ -472,7 +472,8 @@ instance
   hashWithSalt
     _salt
     GetRelationalDatabaseMetricData' {..} =
-      _salt `Prelude.hashWithSalt` relationalDatabaseName
+      _salt
+        `Prelude.hashWithSalt` relationalDatabaseName
         `Prelude.hashWithSalt` metricName
         `Prelude.hashWithSalt` period
         `Prelude.hashWithSalt` startTime

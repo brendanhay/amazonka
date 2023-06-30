@@ -78,7 +78,8 @@ instance Data.FromXML ExpressionStatus where
 
 instance Prelude.Hashable ExpressionStatus where
   hashWithSalt _salt ExpressionStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ExpressionStatus where

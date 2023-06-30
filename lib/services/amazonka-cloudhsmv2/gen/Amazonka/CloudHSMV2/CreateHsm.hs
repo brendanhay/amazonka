@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateHsm where
 
 instance Prelude.Hashable CreateHsm where
   hashWithSalt _salt CreateHsm' {..} =
-    _salt `Prelude.hashWithSalt` ipAddress
+    _salt
+      `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` availabilityZone
 

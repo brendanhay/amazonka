@@ -112,7 +112,8 @@ instance Data.FromJSON ScalingRule where
 
 instance Prelude.Hashable ScalingRule where
   hashWithSalt _salt ScalingRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` trigger

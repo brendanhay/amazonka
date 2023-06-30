@@ -324,20 +324,27 @@ instance Data.FromXML NetworkInterface where
       Prelude.<*> (x Data..@? "availabilityZone")
       Prelude.<*> (x Data..@? "denyAllIgwTraffic")
       Prelude.<*> (x Data..@? "description")
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "interfaceType")
-      Prelude.<*> ( x Data..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ipv4PrefixSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipv6Address")
-      Prelude.<*> ( x Data..@? "ipv6AddressesSet"
+      Prelude.<*> ( x
+                      Data..@? "ipv6AddressesSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipv6Native")
-      Prelude.<*> ( x Data..@? "ipv6PrefixSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ipv6PrefixSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "macAddress")
@@ -346,7 +353,8 @@ instance Data.FromXML NetworkInterface where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "privateDnsName")
       Prelude.<*> (x Data..@? "privateIpAddress")
-      Prelude.<*> ( x Data..@? "privateIpAddressesSet"
+      Prelude.<*> ( x
+                      Data..@? "privateIpAddressesSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -355,14 +363,17 @@ instance Data.FromXML NetworkInterface where
       Prelude.<*> (x Data..@? "sourceDestCheck")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` association
+    _salt
+      `Prelude.hashWithSalt` association
       `Prelude.hashWithSalt` attachment
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` denyAllIgwTraffic

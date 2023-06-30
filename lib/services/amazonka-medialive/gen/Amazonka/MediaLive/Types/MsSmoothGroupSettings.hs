@@ -347,7 +347,8 @@ instance Data.FromJSON MsSmoothGroupSettings where
 
 instance Prelude.Hashable MsSmoothGroupSettings where
   hashWithSalt _salt MsSmoothGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` acquisitionPointId
+    _salt
+      `Prelude.hashWithSalt` acquisitionPointId
       `Prelude.hashWithSalt` audioOnlyTimecodeControl
       `Prelude.hashWithSalt` certificateMode
       `Prelude.hashWithSalt` connectionRetryInterval

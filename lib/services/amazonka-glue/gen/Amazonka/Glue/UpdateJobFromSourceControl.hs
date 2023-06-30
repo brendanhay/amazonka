@@ -182,7 +182,8 @@ instance Core.AWSRequest UpdateJobFromSourceControl where
 
 instance Prelude.Hashable UpdateJobFromSourceControl where
   hashWithSalt _salt UpdateJobFromSourceControl' {..} =
-    _salt `Prelude.hashWithSalt` authStrategy
+    _salt
+      `Prelude.hashWithSalt` authStrategy
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` commitId

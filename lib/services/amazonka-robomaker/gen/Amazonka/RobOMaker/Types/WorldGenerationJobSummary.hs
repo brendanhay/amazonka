@@ -195,7 +195,8 @@ instance Data.FromJSON WorldGenerationJobSummary where
 
 instance Prelude.Hashable WorldGenerationJobSummary where
   hashWithSalt _salt WorldGenerationJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` failedWorldCount
       `Prelude.hashWithSalt` status

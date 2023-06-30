@@ -306,10 +306,12 @@ instance Data.FromJSON ConfluenceConfiguration where
             Prelude.<$> (x Data..:? "AttachmentConfiguration")
             Prelude.<*> (x Data..:? "AuthenticationType")
             Prelude.<*> (x Data..:? "BlogConfiguration")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PageConfiguration")

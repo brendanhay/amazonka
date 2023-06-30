@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteResiliencyPolicy where
 
 instance Prelude.Hashable DeleteResiliencyPolicy where
   hashWithSalt _salt DeleteResiliencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData DeleteResiliencyPolicy where

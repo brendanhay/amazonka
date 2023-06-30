@@ -135,10 +135,14 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
       "BatchModifyClusterSnapshotsResult"
       ( \s h x ->
           BatchModifyClusterSnapshotsResponse'
-            Prelude.<$> ( x Data..@? "Errors" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Errors"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "SnapshotErrorMessage")
                         )
-            Prelude.<*> ( x Data..@? "Resources" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Resources"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "String")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,7 +150,8 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
 
 instance Prelude.Hashable BatchModifyClusterSnapshots where
   hashWithSalt _salt BatchModifyClusterSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
       `Prelude.hashWithSalt` snapshotIdentifierList
 

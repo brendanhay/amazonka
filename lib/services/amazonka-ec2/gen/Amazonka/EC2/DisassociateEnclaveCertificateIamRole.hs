@@ -124,7 +124,7 @@ instance
       ( \s h x ->
           DisassociateEnclaveCertificateIamRoleResponse'
             Prelude.<$> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     DisassociateEnclaveCertificateIamRole' {..} =
-      _salt `Prelude.hashWithSalt` certificateArn
+      _salt
+        `Prelude.hashWithSalt` certificateArn
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` roleArn
 

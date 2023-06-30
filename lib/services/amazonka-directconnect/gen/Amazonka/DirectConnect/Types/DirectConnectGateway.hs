@@ -159,7 +159,8 @@ instance Data.FromJSON DirectConnectGateway where
 
 instance Prelude.Hashable DirectConnectGateway where
   hashWithSalt _salt DirectConnectGateway' {..} =
-    _salt `Prelude.hashWithSalt` amazonSideAsn
+    _salt
+      `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` directConnectGatewayId
       `Prelude.hashWithSalt` directConnectGatewayName
       `Prelude.hashWithSalt` directConnectGatewayState

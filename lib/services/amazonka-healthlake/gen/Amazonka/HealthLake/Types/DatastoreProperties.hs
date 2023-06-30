@@ -176,7 +176,8 @@ instance Data.FromJSON DatastoreProperties where
 
 instance Prelude.Hashable DatastoreProperties where
   hashWithSalt _salt DatastoreProperties' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` datastoreName
       `Prelude.hashWithSalt` preloadDataConfig
       `Prelude.hashWithSalt` sseConfiguration

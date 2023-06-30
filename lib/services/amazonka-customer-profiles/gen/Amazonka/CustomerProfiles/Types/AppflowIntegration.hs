@@ -67,7 +67,8 @@ appflowIntegration_flowDefinition = Lens.lens (\AppflowIntegration' {flowDefinit
 
 instance Prelude.Hashable AppflowIntegration where
   hashWithSalt _salt AppflowIntegration' {..} =
-    _salt `Prelude.hashWithSalt` batches
+    _salt
+      `Prelude.hashWithSalt` batches
       `Prelude.hashWithSalt` flowDefinition
 
 instance Prelude.NFData AppflowIntegration where

@@ -153,7 +153,8 @@ instance Core.AWSRequest BatchGetImage where
 
 instance Prelude.Hashable BatchGetImage where
   hashWithSalt _salt BatchGetImage' {..} =
-    _salt `Prelude.hashWithSalt` acceptedMediaTypes
+    _salt
+      `Prelude.hashWithSalt` acceptedMediaTypes
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageIds

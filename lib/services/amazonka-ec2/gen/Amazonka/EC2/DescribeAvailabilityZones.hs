@@ -264,7 +264,8 @@ instance Core.AWSRequest DescribeAvailabilityZones where
     Response.receiveXML
       ( \s h x ->
           DescribeAvailabilityZonesResponse'
-            Prelude.<$> ( x Data..@? "availabilityZoneInfo"
+            Prelude.<$> ( x
+                            Data..@? "availabilityZoneInfo"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -273,7 +274,8 @@ instance Core.AWSRequest DescribeAvailabilityZones where
 
 instance Prelude.Hashable DescribeAvailabilityZones where
   hashWithSalt _salt DescribeAvailabilityZones' {..} =
-    _salt `Prelude.hashWithSalt` allAvailabilityZones
+    _salt
+      `Prelude.hashWithSalt` allAvailabilityZones
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` zoneIds

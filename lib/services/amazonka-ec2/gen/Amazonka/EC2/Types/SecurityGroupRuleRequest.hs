@@ -165,7 +165,8 @@ securityGroupRuleRequest_toPort = Lens.lens (\SecurityGroupRuleRequest' {toPort}
 
 instance Prelude.Hashable SecurityGroupRuleRequest where
   hashWithSalt _salt SecurityGroupRuleRequest' {..} =
-    _salt `Prelude.hashWithSalt` cidrIpv4
+    _salt
+      `Prelude.hashWithSalt` cidrIpv4
       `Prelude.hashWithSalt` cidrIpv6
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fromPort

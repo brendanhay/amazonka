@@ -214,7 +214,8 @@ instance Core.AWSRequest CreateCapacityProvider where
 
 instance Prelude.Hashable CreateCapacityProvider where
   hashWithSalt _salt CreateCapacityProvider' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` autoScalingGroupProvider
 

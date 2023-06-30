@@ -84,7 +84,8 @@ aDMChannelRequest_clientId = Lens.lens (\ADMChannelRequest' {clientId} -> client
 
 instance Prelude.Hashable ADMChannelRequest where
   hashWithSalt _salt ADMChannelRequest' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` clientId
 

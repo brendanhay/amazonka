@@ -84,7 +84,8 @@ instance Core.AWSRequest GetAppValidationOutput where
     Response.receiveJSON
       ( \s h x ->
           GetAppValidationOutputResponse'
-            Prelude.<$> ( x Data..?> "validationOutputList"
+            Prelude.<$> ( x
+                            Data..?> "validationOutputList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

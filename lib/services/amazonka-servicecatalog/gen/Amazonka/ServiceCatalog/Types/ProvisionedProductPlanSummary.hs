@@ -119,7 +119,8 @@ instance
     ProvisionedProductPlanSummary
   where
   hashWithSalt _salt ProvisionedProductPlanSummary' {..} =
-    _salt `Prelude.hashWithSalt` planId
+    _salt
+      `Prelude.hashWithSalt` planId
       `Prelude.hashWithSalt` planName
       `Prelude.hashWithSalt` planType
       `Prelude.hashWithSalt` provisionProductId

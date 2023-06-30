@@ -90,7 +90,8 @@ instance Data.FromJSON ListGroupResourcesItem where
 
 instance Prelude.Hashable ListGroupResourcesItem where
   hashWithSalt _salt ListGroupResourcesItem' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ListGroupResourcesItem where

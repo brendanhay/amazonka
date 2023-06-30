@@ -202,7 +202,8 @@ instance Core.AWSRequest InitiateMultipartUpload where
 
 instance Prelude.Hashable InitiateMultipartUpload where
   hashWithSalt _salt InitiateMultipartUpload' {..} =
-    _salt `Prelude.hashWithSalt` archiveDescription
+    _salt
+      `Prelude.hashWithSalt` archiveDescription
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
       `Prelude.hashWithSalt` partSize

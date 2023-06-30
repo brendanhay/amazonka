@@ -72,7 +72,7 @@ data RevokeCertificate = RevokeCertificate'
   { -- | Amazon Resource Name (ARN) of the private CA that issued the certificate
     -- to be revoked. This must be of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
     certificateAuthorityArn :: Prelude.Text,
     -- | Serial number of the certificate to be revoked. This must be in
     -- hexadecimal format. You can retrieve the serial number by calling
@@ -83,7 +83,7 @@ data RevokeCertificate = RevokeCertificate'
     -- to list the certificate in text format and copy the hexadecimal serial
     -- number.
     --
-    -- @openssl x509 -in file_path -text -noout@
+    -- @openssl x509 -in @/@file_path@/@ -text -noout@
     --
     -- You can also copy the serial number from the console or use the
     -- <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate>
@@ -105,7 +105,7 @@ data RevokeCertificate = RevokeCertificate'
 -- 'certificateAuthorityArn', 'revokeCertificate_certificateAuthorityArn' - Amazon Resource Name (ARN) of the private CA that issued the certificate
 -- to be revoked. This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 --
 -- 'certificateSerial', 'revokeCertificate_certificateSerial' - Serial number of the certificate to be revoked. This must be in
 -- hexadecimal format. You can retrieve the serial number by calling
@@ -116,7 +116,7 @@ data RevokeCertificate = RevokeCertificate'
 -- to list the certificate in text format and copy the hexadecimal serial
 -- number.
 --
--- @openssl x509 -in file_path -text -noout@
+-- @openssl x509 -in @/@file_path@/@ -text -noout@
 --
 -- You can also copy the serial number from the console or use the
 -- <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate>
@@ -145,7 +145,7 @@ newRevokeCertificate
 -- | Amazon Resource Name (ARN) of the private CA that issued the certificate
 -- to be revoked. This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 revokeCertificate_certificateAuthorityArn :: Lens.Lens' RevokeCertificate Prelude.Text
 revokeCertificate_certificateAuthorityArn = Lens.lens (\RevokeCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@RevokeCertificate' {} a -> s {certificateAuthorityArn = a} :: RevokeCertificate)
 
@@ -158,7 +158,7 @@ revokeCertificate_certificateAuthorityArn = Lens.lens (\RevokeCertificate' {cert
 -- to list the certificate in text format and copy the hexadecimal serial
 -- number.
 --
--- @openssl x509 -in file_path -text -noout@
+-- @openssl x509 -in @/@file_path@/@ -text -noout@
 --
 -- You can also copy the serial number from the console or use the
 -- <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate>

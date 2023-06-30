@@ -75,7 +75,7 @@ data ListTags = ListTags'
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
     -- action. This must be of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
     certificateAuthorityArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,7 +102,7 @@ data ListTags = ListTags'
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
 -- action. This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 newListTags ::
   -- | 'certificateAuthorityArn'
   Prelude.Text ->
@@ -132,7 +132,7 @@ listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTag
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
 -- action. This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 listTags_certificateAuthorityArn :: Lens.Lens' ListTags Prelude.Text
 listTags_certificateAuthorityArn = Lens.lens (\ListTags' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@ListTags' {} a -> s {certificateAuthorityArn = a} :: ListTags)
 
@@ -140,21 +140,24 @@ instance Core.AWSPager ListTags where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTagsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTagsResponse_tags Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Lens.^? listTagsResponse_tags
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTags_nextToken
           Lens..~ rs
-          Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTagsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTags where
   type AWSResponse ListTags = ListTagsResponse
@@ -171,7 +174,8 @@ instance Core.AWSRequest ListTags where
 
 instance Prelude.Hashable ListTags where
   hashWithSalt _salt ListTags' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` certificateAuthorityArn
 

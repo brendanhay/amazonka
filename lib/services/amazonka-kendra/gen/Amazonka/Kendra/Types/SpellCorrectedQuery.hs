@@ -75,7 +75,8 @@ instance Data.FromJSON SpellCorrectedQuery where
 
 instance Prelude.Hashable SpellCorrectedQuery where
   hashWithSalt _salt SpellCorrectedQuery' {..} =
-    _salt `Prelude.hashWithSalt` corrections
+    _salt
+      `Prelude.hashWithSalt` corrections
       `Prelude.hashWithSalt` suggestedQueryText
 
 instance Prelude.NFData SpellCorrectedQuery where

@@ -113,7 +113,8 @@ instance Core.AWSRequest AcknowledgeJob where
 
 instance Prelude.Hashable AcknowledgeJob where
   hashWithSalt _salt AcknowledgeJob' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` nonce
 
 instance Prelude.NFData AcknowledgeJob where

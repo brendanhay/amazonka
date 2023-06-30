@@ -93,9 +93,9 @@ instance
   parseXML x =
     DeleteLaunchTemplateVersionsResponseErrorItem'
       Prelude.<$> (x Data..@? "launchTemplateId")
-        Prelude.<*> (x Data..@? "launchTemplateName")
-        Prelude.<*> (x Data..@? "responseError")
-        Prelude.<*> (x Data..@? "versionNumber")
+      Prelude.<*> (x Data..@? "launchTemplateName")
+      Prelude.<*> (x Data..@? "responseError")
+      Prelude.<*> (x Data..@? "versionNumber")
 
 instance
   Prelude.Hashable
@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     DeleteLaunchTemplateVersionsResponseErrorItem' {..} =
-      _salt `Prelude.hashWithSalt` launchTemplateId
+      _salt
+        `Prelude.hashWithSalt` launchTemplateId
         `Prelude.hashWithSalt` launchTemplateName
         `Prelude.hashWithSalt` responseError
         `Prelude.hashWithSalt` versionNumber

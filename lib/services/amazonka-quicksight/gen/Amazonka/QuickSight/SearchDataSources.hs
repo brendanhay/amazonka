@@ -118,22 +118,22 @@ instance Core.AWSPager SearchDataSources where
     | Core.stop
         ( rs
             Lens.^? searchDataSourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchDataSourcesResponse_dataSourceSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchDataSources_nextToken
           Lens..~ rs
           Lens.^? searchDataSourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchDataSources where
   type
@@ -145,7 +145,8 @@ instance Core.AWSRequest SearchDataSources where
     Response.receiveJSON
       ( \s h x ->
           SearchDataSourcesResponse'
-            Prelude.<$> ( x Data..?> "DataSourceSummaries"
+            Prelude.<$> ( x
+                            Data..?> "DataSourceSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -155,7 +156,8 @@ instance Core.AWSRequest SearchDataSources where
 
 instance Prelude.Hashable SearchDataSources where
   hashWithSalt _salt SearchDataSources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` filters

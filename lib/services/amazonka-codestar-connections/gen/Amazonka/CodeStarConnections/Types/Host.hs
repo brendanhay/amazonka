@@ -148,7 +148,8 @@ instance Data.FromJSON Host where
 
 instance Prelude.Hashable Host where
   hashWithSalt _salt Host' {..} =
-    _salt `Prelude.hashWithSalt` hostArn
+    _salt
+      `Prelude.hashWithSalt` hostArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` providerEndpoint
       `Prelude.hashWithSalt` providerType

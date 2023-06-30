@@ -106,7 +106,8 @@ instance Core.AWSRequest ListAppInstances where
 
 instance Prelude.Hashable ListAppInstances where
   hashWithSalt _salt ListAppInstances' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAppInstances where

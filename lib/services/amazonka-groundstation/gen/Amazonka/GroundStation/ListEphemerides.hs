@@ -153,23 +153,23 @@ instance Core.AWSPager ListEphemerides where
     | Core.stop
         ( rs
             Lens.^? listEphemeridesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listEphemeridesResponse_ephemerides
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEphemerides_nextToken
           Lens..~ rs
           Lens.^? listEphemeridesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEphemerides where
   type
@@ -188,7 +188,8 @@ instance Core.AWSRequest ListEphemerides where
 
 instance Prelude.Hashable ListEphemerides where
   hashWithSalt _salt ListEphemerides' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` statusList
       `Prelude.hashWithSalt` endTime

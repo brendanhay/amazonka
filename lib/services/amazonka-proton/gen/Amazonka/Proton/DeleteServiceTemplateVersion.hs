@@ -134,7 +134,8 @@ instance
     DeleteServiceTemplateVersion
   where
   hashWithSalt _salt DeleteServiceTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` majorVersion
+    _salt
+      `Prelude.hashWithSalt` majorVersion
       `Prelude.hashWithSalt` minorVersion
       `Prelude.hashWithSalt` templateName
 

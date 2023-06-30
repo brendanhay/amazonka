@@ -162,7 +162,8 @@ instance Core.AWSRequest PutEventType where
 
 instance Prelude.Hashable PutEventType where
   hashWithSalt _salt PutEventType' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventIngestion
       `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` tags

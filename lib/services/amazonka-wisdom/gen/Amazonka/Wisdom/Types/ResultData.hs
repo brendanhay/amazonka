@@ -89,7 +89,8 @@ instance Data.FromJSON ResultData where
 
 instance Prelude.Hashable ResultData where
   hashWithSalt _salt ResultData' {..} =
-    _salt `Prelude.hashWithSalt` relevanceScore
+    _salt
+      `Prelude.hashWithSalt` relevanceScore
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` resultId
 

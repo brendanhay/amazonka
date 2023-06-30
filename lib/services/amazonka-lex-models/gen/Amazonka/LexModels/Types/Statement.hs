@@ -90,7 +90,8 @@ instance Data.FromJSON Statement where
 
 instance Prelude.Hashable Statement where
   hashWithSalt _salt Statement' {..} =
-    _salt `Prelude.hashWithSalt` responseCard
+    _salt
+      `Prelude.hashWithSalt` responseCard
       `Prelude.hashWithSalt` messages
 
 instance Prelude.NFData Statement where

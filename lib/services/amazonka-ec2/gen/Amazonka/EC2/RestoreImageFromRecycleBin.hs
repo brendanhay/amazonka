@@ -114,7 +114,8 @@ instance Core.AWSRequest RestoreImageFromRecycleBin where
 
 instance Prelude.Hashable RestoreImageFromRecycleBin where
   hashWithSalt _salt RestoreImageFromRecycleBin' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` imageId
 
 instance Prelude.NFData RestoreImageFromRecycleBin where

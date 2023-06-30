@@ -101,7 +101,8 @@ instance Data.FromJSON StandbyWorkspace where
 
 instance Prelude.Hashable StandbyWorkspace where
   hashWithSalt _salt StandbyWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeEncryptionKey
       `Prelude.hashWithSalt` primaryWorkspaceId
       `Prelude.hashWithSalt` directoryId

@@ -101,19 +101,19 @@ instance Core.AWSPager ListEnvironmentOutputs where
     | Core.stop
         ( rs
             Lens.^? listEnvironmentOutputsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listEnvironmentOutputsResponse_outputs) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEnvironmentOutputs_nextToken
           Lens..~ rs
           Lens.^? listEnvironmentOutputsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEnvironmentOutputs where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest ListEnvironmentOutputs where
 
 instance Prelude.Hashable ListEnvironmentOutputs where
   hashWithSalt _salt ListEnvironmentOutputs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData ListEnvironmentOutputs where

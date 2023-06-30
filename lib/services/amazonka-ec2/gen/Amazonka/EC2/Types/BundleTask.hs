@@ -155,7 +155,8 @@ instance Data.FromXML BundleTask where
 
 instance Prelude.Hashable BundleTask where
   hashWithSalt _salt BundleTask' {..} =
-    _salt `Prelude.hashWithSalt` bundleTaskError
+    _salt
+      `Prelude.hashWithSalt` bundleTaskError
       `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` progress

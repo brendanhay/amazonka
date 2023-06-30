@@ -315,19 +315,23 @@ instance Data.FromXML InstanceTypeInfo where
       Prelude.<*> (x Data..@? "networkInfo")
       Prelude.<*> (x Data..@? "placementGroupInfo")
       Prelude.<*> (x Data..@? "processorInfo")
-      Prelude.<*> ( x Data..@? "supportedBootModes"
+      Prelude.<*> ( x
+                      Data..@? "supportedBootModes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "supportedRootDeviceTypes"
+      Prelude.<*> ( x
+                      Data..@? "supportedRootDeviceTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "supportedUsageClasses"
+      Prelude.<*> ( x
+                      Data..@? "supportedUsageClasses"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "supportedVirtualizationTypes"
+      Prelude.<*> ( x
+                      Data..@? "supportedVirtualizationTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -335,7 +339,8 @@ instance Data.FromXML InstanceTypeInfo where
 
 instance Prelude.Hashable InstanceTypeInfo where
   hashWithSalt _salt InstanceTypeInfo' {..} =
-    _salt `Prelude.hashWithSalt` autoRecoverySupported
+    _salt
+      `Prelude.hashWithSalt` autoRecoverySupported
       `Prelude.hashWithSalt` bareMetal
       `Prelude.hashWithSalt` burstablePerformanceSupported
       `Prelude.hashWithSalt` currentGeneration

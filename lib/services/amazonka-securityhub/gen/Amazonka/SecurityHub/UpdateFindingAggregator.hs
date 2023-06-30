@@ -217,7 +217,8 @@ instance Core.AWSRequest UpdateFindingAggregator where
 
 instance Prelude.Hashable UpdateFindingAggregator where
   hashWithSalt _salt UpdateFindingAggregator' {..} =
-    _salt `Prelude.hashWithSalt` regions
+    _salt
+      `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` findingAggregatorArn
       `Prelude.hashWithSalt` regionLinkingMode
 

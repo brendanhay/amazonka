@@ -94,7 +94,8 @@ instance Core.AWSRequest GetDataflowEndpointGroup where
           GetDataflowEndpointGroupResponse'
             Prelude.<$> (x Data..?> "dataflowEndpointGroupArn")
             Prelude.<*> (x Data..?> "dataflowEndpointGroupId")
-            Prelude.<*> ( x Data..?> "endpointsDetails"
+            Prelude.<*> ( x
+                            Data..?> "endpointsDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)

@@ -71,12 +71,14 @@ instance Data.FromJSON SseConfig where
       "SseConfig"
       ( \x ->
           SseConfig'
-            Prelude.<$> (x Data..:? "keyArn") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..:? "keyArn")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable SseConfig where
   hashWithSalt _salt SseConfig' {..} =
-    _salt `Prelude.hashWithSalt` keyArn
+    _salt
+      `Prelude.hashWithSalt` keyArn
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SseConfig where

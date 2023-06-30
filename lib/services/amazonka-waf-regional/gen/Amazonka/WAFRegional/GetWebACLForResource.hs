@@ -66,10 +66,10 @@ data GetWebACLForResource = GetWebACLForResource'
     -- The ARN should be in one of the following formats:
     --
     -- -   For an Application Load Balancer:
-    --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+    --     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
     --
     -- -   For an Amazon API Gateway stage:
-    --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+    --     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,10 +88,10 @@ data GetWebACLForResource = GetWebACLForResource'
 -- The ARN should be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway stage:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 newGetWebACLForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -105,10 +105,10 @@ newGetWebACLForResource pResourceArn_ =
 -- The ARN should be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway stage:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 getWebACLForResource_resourceArn :: Lens.Lens' GetWebACLForResource Prelude.Text
 getWebACLForResource_resourceArn = Lens.lens (\GetWebACLForResource' {resourceArn} -> resourceArn) (\s@GetWebACLForResource' {} a -> s {resourceArn = a} :: GetWebACLForResource)
 

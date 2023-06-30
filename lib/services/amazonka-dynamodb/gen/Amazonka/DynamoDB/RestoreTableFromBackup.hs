@@ -188,7 +188,8 @@ instance Core.AWSRequest RestoreTableFromBackup where
 
 instance Prelude.Hashable RestoreTableFromBackup where
   hashWithSalt _salt RestoreTableFromBackup' {..} =
-    _salt `Prelude.hashWithSalt` billingModeOverride
+    _salt
+      `Prelude.hashWithSalt` billingModeOverride
       `Prelude.hashWithSalt` globalSecondaryIndexOverride
       `Prelude.hashWithSalt` localSecondaryIndexOverride
       `Prelude.hashWithSalt` provisionedThroughputOverride

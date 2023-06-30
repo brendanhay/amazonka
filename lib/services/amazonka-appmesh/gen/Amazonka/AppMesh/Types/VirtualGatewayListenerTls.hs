@@ -117,7 +117,8 @@ instance Data.FromJSON VirtualGatewayListenerTls where
 
 instance Prelude.Hashable VirtualGatewayListenerTls where
   hashWithSalt _salt VirtualGatewayListenerTls' {..} =
-    _salt `Prelude.hashWithSalt` validation
+    _salt
+      `Prelude.hashWithSalt` validation
       `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` mode
 

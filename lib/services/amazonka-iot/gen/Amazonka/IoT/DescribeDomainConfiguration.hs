@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeDomainConfiguration where
             Prelude.<*> (x Data..?> "domainName")
             Prelude.<*> (x Data..?> "domainType")
             Prelude.<*> (x Data..?> "lastStatusChangeDate")
-            Prelude.<*> ( x Data..?> "serverCertificates"
+            Prelude.<*> ( x
+                            Data..?> "serverCertificates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "serviceType")

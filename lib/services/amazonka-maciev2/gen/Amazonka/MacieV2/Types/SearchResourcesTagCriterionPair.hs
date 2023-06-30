@@ -73,7 +73,8 @@ instance
   hashWithSalt
     _salt
     SearchResourcesTagCriterionPair' {..} =
-      _salt `Prelude.hashWithSalt` key
+      _salt
+        `Prelude.hashWithSalt` key
         `Prelude.hashWithSalt` value
 
 instance

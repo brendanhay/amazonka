@@ -76,7 +76,8 @@ instance Data.FromJSON Prediction where
 
 instance Prelude.Hashable Prediction where
   hashWithSalt _salt Prediction' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Prediction where

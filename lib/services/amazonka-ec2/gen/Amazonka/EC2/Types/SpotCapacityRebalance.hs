@@ -143,7 +143,8 @@ instance Data.FromXML SpotCapacityRebalance where
 
 instance Prelude.Hashable SpotCapacityRebalance where
   hashWithSalt _salt SpotCapacityRebalance' {..} =
-    _salt `Prelude.hashWithSalt` replacementStrategy
+    _salt
+      `Prelude.hashWithSalt` replacementStrategy
       `Prelude.hashWithSalt` terminationDelay
 
 instance Prelude.NFData SpotCapacityRebalance where

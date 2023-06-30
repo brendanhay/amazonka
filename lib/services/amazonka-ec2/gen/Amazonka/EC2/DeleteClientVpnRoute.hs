@@ -139,7 +139,8 @@ instance Core.AWSRequest DeleteClientVpnRoute where
 
 instance Prelude.Hashable DeleteClientVpnRoute where
   hashWithSalt _salt DeleteClientVpnRoute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` targetVpcSubnetId
       `Prelude.hashWithSalt` clientVpnEndpointId
       `Prelude.hashWithSalt` destinationCidrBlock

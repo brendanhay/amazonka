@@ -79,7 +79,8 @@ instance Data.FromJSON RSessionAppSettings where
 
 instance Prelude.Hashable RSessionAppSettings where
   hashWithSalt _salt RSessionAppSettings' {..} =
-    _salt `Prelude.hashWithSalt` customImages
+    _salt
+      `Prelude.hashWithSalt` customImages
       `Prelude.hashWithSalt` defaultResourceSpec
 
 instance Prelude.NFData RSessionAppSettings where

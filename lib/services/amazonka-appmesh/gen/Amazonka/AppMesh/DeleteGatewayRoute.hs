@@ -138,7 +138,8 @@ instance Core.AWSRequest DeleteGatewayRoute where
 
 instance Prelude.Hashable DeleteGatewayRoute where
   hashWithSalt _salt DeleteGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` gatewayRouteName
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualGatewayName

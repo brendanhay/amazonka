@@ -220,7 +220,8 @@ instance Core.AWSRequest StartZonalShift where
 
 instance Prelude.Hashable StartZonalShift where
   hashWithSalt _salt StartZonalShift' {..} =
-    _salt `Prelude.hashWithSalt` awayFrom
+    _salt
+      `Prelude.hashWithSalt` awayFrom
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` expiresIn
       `Prelude.hashWithSalt` resourceIdentifier

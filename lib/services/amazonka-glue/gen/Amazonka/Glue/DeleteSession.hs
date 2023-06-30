@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteSession where
 
 instance Prelude.Hashable DeleteSession where
   hashWithSalt _salt DeleteSession' {..} =
-    _salt `Prelude.hashWithSalt` requestOrigin
+    _salt
+      `Prelude.hashWithSalt` requestOrigin
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteSession where

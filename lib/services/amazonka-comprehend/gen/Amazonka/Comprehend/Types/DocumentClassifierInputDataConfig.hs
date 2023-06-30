@@ -222,7 +222,8 @@ instance
       "DocumentClassifierInputDataConfig"
       ( \x ->
           DocumentClassifierInputDataConfig'
-            Prelude.<$> ( x Data..:? "AugmentedManifests"
+            Prelude.<$> ( x
+                            Data..:? "AugmentedManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DataFormat")
@@ -238,7 +239,8 @@ instance
   hashWithSalt
     _salt
     DocumentClassifierInputDataConfig' {..} =
-      _salt `Prelude.hashWithSalt` augmentedManifests
+      _salt
+        `Prelude.hashWithSalt` augmentedManifests
         `Prelude.hashWithSalt` dataFormat
         `Prelude.hashWithSalt` labelDelimiter
         `Prelude.hashWithSalt` s3Uri

@@ -114,23 +114,23 @@ instance Core.AWSPager ListAssociationVersions where
     | Core.stop
         ( rs
             Lens.^? listAssociationVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAssociationVersionsResponse_associationVersions
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssociationVersions_nextToken
           Lens..~ rs
           Lens.^? listAssociationVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssociationVersions where
   type
@@ -149,7 +149,8 @@ instance Core.AWSRequest ListAssociationVersions where
 
 instance Prelude.Hashable ListAssociationVersions where
   hashWithSalt _salt ListAssociationVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` associationId
 

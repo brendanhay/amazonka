@@ -179,7 +179,8 @@ instance Data.FromJSON MonitoringExecutionSummary where
 
 instance Prelude.Hashable MonitoringExecutionSummary where
   hashWithSalt _salt MonitoringExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` endpointName
+    _salt
+      `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` monitoringJobDefinitionName
       `Prelude.hashWithSalt` monitoringType

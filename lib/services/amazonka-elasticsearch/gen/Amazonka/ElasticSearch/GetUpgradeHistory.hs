@@ -53,7 +53,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for request parameters to @ GetUpgradeHistory @ operation.
+-- | Container for request parameters to @ @@GetUpgradeHistory@@ @ operation.
 --
 -- /See:/ 'newGetUpgradeHistory' smart constructor.
 data GetUpgradeHistory = GetUpgradeHistory'
@@ -104,22 +104,22 @@ instance Core.AWSPager GetUpgradeHistory where
     | Core.stop
         ( rs
             Lens.^? getUpgradeHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getUpgradeHistoryResponse_upgradeHistories
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getUpgradeHistory_nextToken
           Lens..~ rs
           Lens.^? getUpgradeHistoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUpgradeHistory where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest GetUpgradeHistory where
       ( \s h x ->
           GetUpgradeHistoryResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "UpgradeHistories"
+            Prelude.<*> ( x
+                            Data..?> "UpgradeHistories"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,7 +141,8 @@ instance Core.AWSRequest GetUpgradeHistory where
 
 instance Prelude.Hashable GetUpgradeHistory where
   hashWithSalt _salt GetUpgradeHistory' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 
@@ -168,16 +170,16 @@ instance Data.ToQuery GetUpgradeHistory where
         "nextToken" Data.=: nextToken
       ]
 
--- | Container for response returned by @ GetUpgradeHistory @ operation.
+-- | Container for response returned by @ @@GetUpgradeHistory@@ @ operation.
 --
 -- /See:/ 'newGetUpgradeHistoryResponse' smart constructor.
 data GetUpgradeHistoryResponse = GetUpgradeHistoryResponse'
   { -- | Pagination token that needs to be supplied to the next call to get the
     -- next page of results
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ UpgradeHistory @ objects corresponding to each Upgrade or
-    -- Upgrade Eligibility Check performed on a domain returned as part of
-    -- @ GetUpgradeHistoryResponse @ object.
+    -- | A list of @ @@UpgradeHistory@@ @ objects corresponding to each Upgrade
+    -- or Upgrade Eligibility Check performed on a domain returned as part of
+    -- @ @@GetUpgradeHistoryResponse@@ @ object.
     upgradeHistories :: Prelude.Maybe [UpgradeHistory],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -195,9 +197,9 @@ data GetUpgradeHistoryResponse = GetUpgradeHistoryResponse'
 -- 'nextToken', 'getUpgradeHistoryResponse_nextToken' - Pagination token that needs to be supplied to the next call to get the
 -- next page of results
 --
--- 'upgradeHistories', 'getUpgradeHistoryResponse_upgradeHistories' - A list of @ UpgradeHistory @ objects corresponding to each Upgrade or
--- Upgrade Eligibility Check performed on a domain returned as part of
--- @ GetUpgradeHistoryResponse @ object.
+-- 'upgradeHistories', 'getUpgradeHistoryResponse_upgradeHistories' - A list of @ @@UpgradeHistory@@ @ objects corresponding to each Upgrade
+-- or Upgrade Eligibility Check performed on a domain returned as part of
+-- @ @@GetUpgradeHistoryResponse@@ @ object.
 --
 -- 'httpStatus', 'getUpgradeHistoryResponse_httpStatus' - The response's http status code.
 newGetUpgradeHistoryResponse ::
@@ -217,9 +219,9 @@ newGetUpgradeHistoryResponse pHttpStatus_ =
 getUpgradeHistoryResponse_nextToken :: Lens.Lens' GetUpgradeHistoryResponse (Prelude.Maybe Prelude.Text)
 getUpgradeHistoryResponse_nextToken = Lens.lens (\GetUpgradeHistoryResponse' {nextToken} -> nextToken) (\s@GetUpgradeHistoryResponse' {} a -> s {nextToken = a} :: GetUpgradeHistoryResponse)
 
--- | A list of @ UpgradeHistory @ objects corresponding to each Upgrade or
--- Upgrade Eligibility Check performed on a domain returned as part of
--- @ GetUpgradeHistoryResponse @ object.
+-- | A list of @ @@UpgradeHistory@@ @ objects corresponding to each Upgrade
+-- or Upgrade Eligibility Check performed on a domain returned as part of
+-- @ @@GetUpgradeHistoryResponse@@ @ object.
 getUpgradeHistoryResponse_upgradeHistories :: Lens.Lens' GetUpgradeHistoryResponse (Prelude.Maybe [UpgradeHistory])
 getUpgradeHistoryResponse_upgradeHistories = Lens.lens (\GetUpgradeHistoryResponse' {upgradeHistories} -> upgradeHistories) (\s@GetUpgradeHistoryResponse' {} a -> s {upgradeHistories = a} :: GetUpgradeHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 

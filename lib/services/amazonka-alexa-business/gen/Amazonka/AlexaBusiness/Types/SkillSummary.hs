@@ -109,7 +109,8 @@ instance Data.FromJSON SkillSummary where
 
 instance Prelude.Hashable SkillSummary where
   hashWithSalt _salt SkillSummary' {..} =
-    _salt `Prelude.hashWithSalt` enablementType
+    _salt
+      `Prelude.hashWithSalt` enablementType
       `Prelude.hashWithSalt` skillId
       `Prelude.hashWithSalt` skillName
       `Prelude.hashWithSalt` skillType

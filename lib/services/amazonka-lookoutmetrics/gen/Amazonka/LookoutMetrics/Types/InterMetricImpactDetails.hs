@@ -106,7 +106,8 @@ instance Data.FromJSON InterMetricImpactDetails where
 
 instance Prelude.Hashable InterMetricImpactDetails where
   hashWithSalt _salt InterMetricImpactDetails' {..} =
-    _salt `Prelude.hashWithSalt` anomalyGroupId
+    _salt
+      `Prelude.hashWithSalt` anomalyGroupId
       `Prelude.hashWithSalt` contributionPercentage
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` relationshipType

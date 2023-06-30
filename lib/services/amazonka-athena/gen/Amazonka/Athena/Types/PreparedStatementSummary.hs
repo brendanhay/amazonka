@@ -75,7 +75,8 @@ instance Data.FromJSON PreparedStatementSummary where
 
 instance Prelude.Hashable PreparedStatementSummary where
   hashWithSalt _salt PreparedStatementSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
+    _salt
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` statementName
 
 instance Prelude.NFData PreparedStatementSummary where

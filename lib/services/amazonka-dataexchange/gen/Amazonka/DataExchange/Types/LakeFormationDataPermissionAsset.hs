@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     LakeFormationDataPermissionAsset' {..} =
-      _salt `Prelude.hashWithSalt` roleArn
+      _salt
+        `Prelude.hashWithSalt` roleArn
         `Prelude.hashWithSalt` lakeFormationDataPermissionDetails
         `Prelude.hashWithSalt` lakeFormationDataPermissionType
         `Prelude.hashWithSalt` permissions

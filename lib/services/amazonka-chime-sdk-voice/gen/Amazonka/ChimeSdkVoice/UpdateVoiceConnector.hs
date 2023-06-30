@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateVoiceConnector where
 
 instance Prelude.Hashable UpdateVoiceConnector where
   hashWithSalt _salt UpdateVoiceConnector' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` requireEncryption
 

@@ -75,7 +75,8 @@ instance Data.FromJSON CollectorShortInfoResponse where
 
 instance Prelude.Hashable CollectorShortInfoResponse where
   hashWithSalt _salt CollectorShortInfoResponse' {..} =
-    _salt `Prelude.hashWithSalt` collectorName
+    _salt
+      `Prelude.hashWithSalt` collectorName
       `Prelude.hashWithSalt` collectorReferencedId
 
 instance Prelude.NFData CollectorShortInfoResponse where

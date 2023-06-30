@@ -186,7 +186,8 @@ instance Data.FromJSON MetricTransformation where
 
 instance Prelude.Hashable MetricTransformation where
   hashWithSalt _salt MetricTransformation' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` metricName

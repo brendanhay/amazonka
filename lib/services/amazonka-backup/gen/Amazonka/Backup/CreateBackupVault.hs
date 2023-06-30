@@ -165,7 +165,8 @@ instance Core.AWSRequest CreateBackupVault where
 
 instance Prelude.Hashable CreateBackupVault where
   hashWithSalt _salt CreateBackupVault' {..} =
-    _salt `Prelude.hashWithSalt` backupVaultTags
+    _salt
+      `Prelude.hashWithSalt` backupVaultTags
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` encryptionKeyArn
       `Prelude.hashWithSalt` backupVaultName

@@ -238,7 +238,8 @@ instance Data.FromJSON TransformOutput where
 
 instance Prelude.Hashable TransformOutput where
   hashWithSalt _salt TransformOutput' {..} =
-    _salt `Prelude.hashWithSalt` accept
+    _salt
+      `Prelude.hashWithSalt` accept
       `Prelude.hashWithSalt` assembleWith
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3OutputPath

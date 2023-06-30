@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteVpcEndpoint where
 
 instance Prelude.Hashable DeleteVpcEndpoint where
   hashWithSalt _salt DeleteVpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteVpcEndpoint where

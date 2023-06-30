@@ -145,7 +145,8 @@ instance Core.AWSRequest PutDomainPermissionsPolicy where
 
 instance Prelude.Hashable PutDomainPermissionsPolicy where
   hashWithSalt _salt PutDomainPermissionsPolicy' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` policyRevision
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` policyDocument

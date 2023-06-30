@@ -75,10 +75,13 @@ instance
   where
   parseXML x =
     ValidDBInstanceModificationsMessage'
-      Prelude.<$> ( x Data..@? "Storage" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Storage"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ValidStorageOptions")
                   )
-      Prelude.<*> ( x Data..@? "ValidProcessorFeatures"
+      Prelude.<*> ( x
+                      Data..@? "ValidProcessorFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "AvailableProcessorFeature")
@@ -91,7 +94,8 @@ instance
   hashWithSalt
     _salt
     ValidDBInstanceModificationsMessage' {..} =
-      _salt `Prelude.hashWithSalt` storage
+      _salt
+        `Prelude.hashWithSalt` storage
         `Prelude.hashWithSalt` validProcessorFeatures
 
 instance

@@ -154,7 +154,8 @@ instance Core.AWSRequest ImportInstance where
 
 instance Prelude.Hashable ImportInstance where
   hashWithSalt _salt ImportInstance' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` diskImages
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchSpecification

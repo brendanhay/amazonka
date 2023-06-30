@@ -212,7 +212,8 @@ instance Core.AWSRequest CreateSolutionVersion where
 
 instance Prelude.Hashable CreateSolutionVersion where
   hashWithSalt _salt CreateSolutionVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` trainingMode
       `Prelude.hashWithSalt` solutionArn

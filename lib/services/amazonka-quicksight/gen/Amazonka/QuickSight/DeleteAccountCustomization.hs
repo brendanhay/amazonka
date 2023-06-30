@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteAccountCustomization where
 
 instance Prelude.Hashable DeleteAccountCustomization where
   hashWithSalt _salt DeleteAccountCustomization' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData DeleteAccountCustomization where

@@ -143,7 +143,8 @@ instance Core.AWSRequest UpdateSubscriber where
 
 instance Prelude.Hashable UpdateSubscriber where
   hashWithSalt _salt UpdateSubscriber' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` subscriberDescription
       `Prelude.hashWithSalt` subscriberName
       `Prelude.hashWithSalt` id

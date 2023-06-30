@@ -70,7 +70,8 @@ instance Data.FromXML PlatformFramework where
 
 instance Prelude.Hashable PlatformFramework where
   hashWithSalt _salt PlatformFramework' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData PlatformFramework where

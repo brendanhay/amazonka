@@ -142,22 +142,22 @@ instance Core.AWSPager GetBuiltinIntents where
     | Core.stop
         ( rs
             Lens.^? getBuiltinIntentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getBuiltinIntentsResponse_intents
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getBuiltinIntents_nextToken
           Lens..~ rs
           Lens.^? getBuiltinIntentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBuiltinIntents where
   type
@@ -176,7 +176,8 @@ instance Core.AWSRequest GetBuiltinIntents where
 
 instance Prelude.Hashable GetBuiltinIntents where
   hashWithSalt _salt GetBuiltinIntents' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` signatureContains

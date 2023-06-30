@@ -93,7 +93,8 @@ instance Data.FromXML Tiering where
 
 instance Prelude.Hashable Tiering where
   hashWithSalt _salt Tiering' {..} =
-    _salt `Prelude.hashWithSalt` days
+    _salt
+      `Prelude.hashWithSalt` days
       `Prelude.hashWithSalt` accessTier
 
 instance Prelude.NFData Tiering where

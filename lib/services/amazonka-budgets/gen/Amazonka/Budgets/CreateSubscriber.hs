@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateSubscriber where
 
 instance Prelude.Hashable CreateSubscriber where
   hashWithSalt _salt CreateSubscriber' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` notification
       `Prelude.hashWithSalt` subscriber

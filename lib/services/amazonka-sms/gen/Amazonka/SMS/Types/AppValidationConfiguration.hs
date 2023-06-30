@@ -97,7 +97,8 @@ instance Data.FromJSON AppValidationConfiguration where
 
 instance Prelude.Hashable AppValidationConfiguration where
   hashWithSalt _salt AppValidationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` appValidationStrategy
+    _salt
+      `Prelude.hashWithSalt` appValidationStrategy
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ssmValidationParameters
       `Prelude.hashWithSalt` validationId

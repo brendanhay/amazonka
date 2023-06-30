@@ -131,20 +131,23 @@ instance Core.AWSPager DescribeGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeGroupsResponse_marker Prelude.. Lens._Just
+            Lens.^? describeGroupsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeGroupsResponse_groups Prelude.. Lens._Just
+            Lens.^? describeGroupsResponse_groups
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeGroups_marker
           Lens..~ rs
-          Lens.^? describeGroupsResponse_marker Prelude.. Lens._Just
+          Lens.^? describeGroupsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGroups where
   type
@@ -163,7 +166,8 @@ instance Core.AWSRequest DescribeGroups where
 
 instance Prelude.Hashable DescribeGroups where
   hashWithSalt _salt DescribeGroups' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` organizationId

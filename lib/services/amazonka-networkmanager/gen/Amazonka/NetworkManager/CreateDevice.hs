@@ -209,7 +209,8 @@ instance Core.AWSRequest CreateDevice where
 
 instance Prelude.Hashable CreateDevice where
   hashWithSalt _salt CreateDevice' {..} =
-    _salt `Prelude.hashWithSalt` aWSLocation
+    _salt
+      `Prelude.hashWithSalt` aWSLocation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` model

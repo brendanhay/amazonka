@@ -134,7 +134,8 @@ instance Core.AWSRequest PostCommentReply where
 
 instance Prelude.Hashable PostCommentReply where
   hashWithSalt _salt PostCommentReply' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` inReplyTo
       `Prelude.hashWithSalt` content
 

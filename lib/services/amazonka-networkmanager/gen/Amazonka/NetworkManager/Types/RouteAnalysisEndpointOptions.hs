@@ -88,7 +88,8 @@ instance
     RouteAnalysisEndpointOptions
   where
   hashWithSalt _salt RouteAnalysisEndpointOptions' {..} =
-    _salt `Prelude.hashWithSalt` ipAddress
+    _salt
+      `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` transitGatewayArn
       `Prelude.hashWithSalt` transitGatewayAttachmentArn
 

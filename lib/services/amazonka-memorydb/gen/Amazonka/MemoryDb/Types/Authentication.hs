@@ -76,7 +76,8 @@ instance Data.FromJSON Authentication where
 
 instance Prelude.Hashable Authentication where
   hashWithSalt _salt Authentication' {..} =
-    _salt `Prelude.hashWithSalt` passwordCount
+    _salt
+      `Prelude.hashWithSalt` passwordCount
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Authentication where

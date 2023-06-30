@@ -95,11 +95,13 @@ instance Data.FromJSON AwsEc2VpcDetails where
       "AwsEc2VpcDetails"
       ( \x ->
           AwsEc2VpcDetails'
-            Prelude.<$> ( x Data..:? "CidrBlockAssociationSet"
+            Prelude.<$> ( x
+                            Data..:? "CidrBlockAssociationSet"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DhcpOptionsId")
-            Prelude.<*> ( x Data..:? "Ipv6CidrBlockAssociationSet"
+            Prelude.<*> ( x
+                            Data..:? "Ipv6CidrBlockAssociationSet"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "State")

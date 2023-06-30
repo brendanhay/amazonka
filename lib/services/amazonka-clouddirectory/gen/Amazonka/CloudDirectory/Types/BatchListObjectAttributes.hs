@@ -93,7 +93,8 @@ batchListObjectAttributes_objectReference = Lens.lens (\BatchListObjectAttribute
 
 instance Prelude.Hashable BatchListObjectAttributes where
   hashWithSalt _salt BatchListObjectAttributes' {..} =
-    _salt `Prelude.hashWithSalt` facetFilter
+    _salt
+      `Prelude.hashWithSalt` facetFilter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` objectReference

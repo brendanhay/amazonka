@@ -84,7 +84,8 @@ instance Data.FromJSON GatewayGroupSummary where
 
 instance Prelude.Hashable GatewayGroupSummary where
   hashWithSalt _salt GatewayGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 

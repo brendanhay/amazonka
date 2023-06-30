@@ -112,7 +112,8 @@ instance Data.FromJSON LambdaActivity where
 
 instance Prelude.Hashable LambdaActivity where
   hashWithSalt _salt LambdaActivity' {..} =
-    _salt `Prelude.hashWithSalt` next
+    _salt
+      `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` lambdaName
       `Prelude.hashWithSalt` batchSize

@@ -117,7 +117,8 @@ instance Core.AWSRequest SyncResource where
 
 instance Prelude.Hashable SyncResource where
   hashWithSalt _salt SyncResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData SyncResource where

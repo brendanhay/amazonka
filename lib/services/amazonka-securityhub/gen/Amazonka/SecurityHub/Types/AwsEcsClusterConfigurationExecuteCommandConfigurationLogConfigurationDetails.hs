@@ -104,10 +104,10 @@ instance
       ( \x ->
           AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails'
             Prelude.<$> (x Data..:? "CloudWatchEncryptionEnabled")
-              Prelude.<*> (x Data..:? "CloudWatchLogGroupName")
-              Prelude.<*> (x Data..:? "S3BucketName")
-              Prelude.<*> (x Data..:? "S3EncryptionEnabled")
-              Prelude.<*> (x Data..:? "S3KeyPrefix")
+            Prelude.<*> (x Data..:? "CloudWatchLogGroupName")
+            Prelude.<*> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "S3EncryptionEnabled")
+            Prelude.<*> (x Data..:? "S3KeyPrefix")
       )
 
 instance

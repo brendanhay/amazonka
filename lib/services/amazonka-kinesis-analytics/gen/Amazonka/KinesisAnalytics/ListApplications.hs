@@ -128,7 +128,8 @@ instance Core.AWSRequest ListApplications where
       ( \s h x ->
           ListApplicationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ApplicationSummaries"
+            Prelude.<*> ( x
+                            Data..?> "ApplicationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "HasMoreApplications")

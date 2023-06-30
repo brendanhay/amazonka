@@ -90,7 +90,8 @@ newBatchDetectTargetedSentiment
   pLanguageCode_ =
     BatchDetectTargetedSentiment'
       { textList =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pTextList_,
         languageCode = pLanguageCode_
       }
@@ -126,7 +127,8 @@ instance
     BatchDetectTargetedSentiment
   where
   hashWithSalt _salt BatchDetectTargetedSentiment' {..} =
-    _salt `Prelude.hashWithSalt` textList
+    _salt
+      `Prelude.hashWithSalt` textList
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData BatchDetectTargetedSentiment where

@@ -130,7 +130,8 @@ instance Core.AWSRequest GetDataEndpoint where
 
 instance Prelude.Hashable GetDataEndpoint where
   hashWithSalt _salt GetDataEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` aPIName
 

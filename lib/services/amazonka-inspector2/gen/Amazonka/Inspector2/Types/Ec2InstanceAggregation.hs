@@ -113,7 +113,8 @@ ec2InstanceAggregation_sortOrder = Lens.lens (\Ec2InstanceAggregation' {sortOrde
 
 instance Prelude.Hashable Ec2InstanceAggregation where
   hashWithSalt _salt Ec2InstanceAggregation' {..} =
-    _salt `Prelude.hashWithSalt` amis
+    _salt
+      `Prelude.hashWithSalt` amis
       `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` instanceTags
       `Prelude.hashWithSalt` operatingSystems

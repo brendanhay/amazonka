@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     ModuleLoggingConfigurationInput' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` logLevel
 
 instance

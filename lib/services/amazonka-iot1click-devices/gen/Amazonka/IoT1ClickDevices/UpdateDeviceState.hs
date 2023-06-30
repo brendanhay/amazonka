@@ -101,7 +101,8 @@ instance Core.AWSRequest UpdateDeviceState where
 
 instance Prelude.Hashable UpdateDeviceState where
   hashWithSalt _salt UpdateDeviceState' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` deviceId
 
 instance Prelude.NFData UpdateDeviceState where

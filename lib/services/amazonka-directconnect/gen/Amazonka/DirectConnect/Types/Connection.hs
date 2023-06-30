@@ -383,7 +383,8 @@ instance Data.FromJSON Connection where
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` awsDevice
+    _salt
+      `Prelude.hashWithSalt` awsDevice
       `Prelude.hashWithSalt` awsDeviceV2
       `Prelude.hashWithSalt` awsLogicalDeviceId
       `Prelude.hashWithSalt` bandwidth

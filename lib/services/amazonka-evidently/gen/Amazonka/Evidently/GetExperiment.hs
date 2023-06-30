@@ -106,7 +106,8 @@ instance Core.AWSRequest GetExperiment where
 
 instance Prelude.Hashable GetExperiment where
   hashWithSalt _salt GetExperiment' {..} =
-    _salt `Prelude.hashWithSalt` experiment
+    _salt
+      `Prelude.hashWithSalt` experiment
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData GetExperiment where

@@ -119,7 +119,8 @@ instance Core.AWSRequest CreateLFTag where
 
 instance Prelude.Hashable CreateLFTag where
   hashWithSalt _salt CreateLFTag' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` tagValues
 

@@ -301,7 +301,8 @@ instance Core.AWSRequest CreateSession where
 
 instance Prelude.Hashable CreateSession where
   hashWithSalt _salt CreateSession' {..} =
-    _salt `Prelude.hashWithSalt` connections
+    _salt
+      `Prelude.hashWithSalt` connections
       `Prelude.hashWithSalt` defaultArguments
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` glueVersion

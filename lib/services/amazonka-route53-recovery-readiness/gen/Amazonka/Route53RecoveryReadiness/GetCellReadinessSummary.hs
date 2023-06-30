@@ -107,22 +107,22 @@ instance Core.AWSPager GetCellReadinessSummary where
     | Core.stop
         ( rs
             Lens.^? getCellReadinessSummaryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getCellReadinessSummaryResponse_readinessChecks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getCellReadinessSummary_nextToken
           Lens..~ rs
           Lens.^? getCellReadinessSummaryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCellReadinessSummary where
   type
@@ -136,7 +136,8 @@ instance Core.AWSRequest GetCellReadinessSummary where
           GetCellReadinessSummaryResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "readiness")
-            Prelude.<*> ( x Data..?> "readinessChecks"
+            Prelude.<*> ( x
+                            Data..?> "readinessChecks"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,7 +145,8 @@ instance Core.AWSRequest GetCellReadinessSummary where
 
 instance Prelude.Hashable GetCellReadinessSummary where
   hashWithSalt _salt GetCellReadinessSummary' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` cellName
 

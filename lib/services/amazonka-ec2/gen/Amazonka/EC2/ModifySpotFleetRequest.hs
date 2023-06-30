@@ -191,7 +191,8 @@ instance Core.AWSRequest ModifySpotFleetRequest where
 
 instance Prelude.Hashable ModifySpotFleetRequest where
   hashWithSalt _salt ModifySpotFleetRequest' {..} =
-    _salt `Prelude.hashWithSalt` context
+    _salt
+      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` excessCapacityTerminationPolicy
       `Prelude.hashWithSalt` launchTemplateConfigs
       `Prelude.hashWithSalt` onDemandTargetCapacity

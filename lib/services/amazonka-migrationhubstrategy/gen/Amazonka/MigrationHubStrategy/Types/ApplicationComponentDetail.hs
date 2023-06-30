@@ -289,7 +289,8 @@ instance Data.FromJSON ApplicationComponentDetail where
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "inclusionStatus")
             Prelude.<*> (x Data..:? "lastAnalyzedTimestamp")
-            Prelude.<*> ( x Data..:? "listAntipatternSeveritySummary"
+            Prelude.<*> ( x
+                            Data..:? "listAntipatternSeveritySummary"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "moreServerAssociationExists")
@@ -300,7 +301,8 @@ instance Data.FromJSON ApplicationComponentDetail where
             Prelude.<*> (x Data..:? "resourceSubType")
             Prelude.<*> (x Data..:? "runtimeStatus")
             Prelude.<*> (x Data..:? "runtimeStatusMessage")
-            Prelude.<*> ( x Data..:? "sourceCodeRepositories"
+            Prelude.<*> ( x
+                            Data..:? "sourceCodeRepositories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "statusMessage")
@@ -308,7 +310,8 @@ instance Data.FromJSON ApplicationComponentDetail where
 
 instance Prelude.Hashable ApplicationComponentDetail where
   hashWithSalt _salt ApplicationComponentDetail' {..} =
-    _salt `Prelude.hashWithSalt` analysisStatus
+    _salt
+      `Prelude.hashWithSalt` analysisStatus
       `Prelude.hashWithSalt` antipatternReportS3Object
       `Prelude.hashWithSalt` antipatternReportStatus
       `Prelude.hashWithSalt` antipatternReportStatusMessage

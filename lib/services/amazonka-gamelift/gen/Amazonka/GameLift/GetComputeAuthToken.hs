@@ -121,7 +121,8 @@ instance Core.AWSRequest GetComputeAuthToken where
 
 instance Prelude.Hashable GetComputeAuthToken where
   hashWithSalt _salt GetComputeAuthToken' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` computeName
 
 instance Prelude.NFData GetComputeAuthToken where

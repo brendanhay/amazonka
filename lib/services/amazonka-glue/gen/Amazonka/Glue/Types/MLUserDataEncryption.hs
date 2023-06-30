@@ -94,7 +94,8 @@ instance Data.FromJSON MLUserDataEncryption where
 
 instance Prelude.Hashable MLUserDataEncryption where
   hashWithSalt _salt MLUserDataEncryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` mlUserDataEncryptionMode
 
 instance Prelude.NFData MLUserDataEncryption where

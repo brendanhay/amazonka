@@ -673,7 +673,8 @@ instance Core.AWSRequest UpdateStack where
 
 instance Prelude.Hashable UpdateStack where
   hashWithSalt _salt UpdateStack' {..} =
-    _salt `Prelude.hashWithSalt` agentVersion
+    _salt
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` chefConfiguration
       `Prelude.hashWithSalt` configurationManager

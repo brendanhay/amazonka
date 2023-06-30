@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteAllowList where
 
 instance Prelude.Hashable DeleteAllowList where
   hashWithSalt _salt DeleteAllowList' {..} =
-    _salt `Prelude.hashWithSalt` ignoreJobChecks
+    _salt
+      `Prelude.hashWithSalt` ignoreJobChecks
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteAllowList where

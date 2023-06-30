@@ -107,7 +107,8 @@ instance Core.AWSRequest GetAssessmentReportUrl where
 
 instance Prelude.Hashable GetAssessmentReportUrl where
   hashWithSalt _salt GetAssessmentReportUrl' {..} =
-    _salt `Prelude.hashWithSalt` assessmentReportId
+    _salt
+      `Prelude.hashWithSalt` assessmentReportId
       `Prelude.hashWithSalt` assessmentId
 
 instance Prelude.NFData GetAssessmentReportUrl where

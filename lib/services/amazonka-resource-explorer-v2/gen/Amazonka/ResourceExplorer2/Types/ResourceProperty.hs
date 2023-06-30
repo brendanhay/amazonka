@@ -91,7 +91,8 @@ instance Data.FromJSON ResourceProperty where
 
 instance Prelude.Hashable ResourceProperty where
   hashWithSalt _salt ResourceProperty' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` lastReportedAt
       `Prelude.hashWithSalt` name
 

@@ -66,11 +66,13 @@ portRange_to = Lens.lens (\PortRange' {to} -> to) (\s@PortRange' {} a -> s {to =
 instance Data.FromXML PortRange where
   parseXML x =
     PortRange'
-      Prelude.<$> (x Data..@? "from") Prelude.<*> (x Data..@? "to")
+      Prelude.<$> (x Data..@? "from")
+      Prelude.<*> (x Data..@? "to")
 
 instance Prelude.Hashable PortRange where
   hashWithSalt _salt PortRange' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` to
 
 instance Prelude.NFData PortRange where

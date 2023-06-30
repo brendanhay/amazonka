@@ -279,7 +279,8 @@ instance Data.FromJSON RuleGroupResponse where
 
 instance Prelude.Hashable RuleGroupResponse where
   hashWithSalt _salt RuleGroupResponse' {..} =
-    _salt `Prelude.hashWithSalt` capacity
+    _salt
+      `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` consumedCapacity
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionConfiguration

@@ -187,11 +187,13 @@ instance Core.AWSRequest GetSubnetCidrReservations where
       ( \s h x ->
           GetSubnetCidrReservationsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "subnetIpv4CidrReservationSet"
+            Prelude.<*> ( x
+                            Data..@? "subnetIpv4CidrReservationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "subnetIpv6CidrReservationSet"
+            Prelude.<*> ( x
+                            Data..@? "subnetIpv6CidrReservationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -200,7 +202,8 @@ instance Core.AWSRequest GetSubnetCidrReservations where
 
 instance Prelude.Hashable GetSubnetCidrReservations where
   hashWithSalt _salt GetSubnetCidrReservations' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

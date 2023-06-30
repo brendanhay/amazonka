@@ -142,22 +142,22 @@ instance Core.AWSPager DescribeApplicationVersions where
     | Core.stop
         ( rs
             Lens.^? describeApplicationVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeApplicationVersionsResponse_applicationVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeApplicationVersions_nextToken
           Lens..~ rs
           Lens.^? describeApplicationVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeApplicationVersions where
   type
@@ -170,7 +170,8 @@ instance Core.AWSRequest DescribeApplicationVersions where
       "DescribeApplicationVersionsResult"
       ( \s h x ->
           DescribeApplicationVersionsResponse'
-            Prelude.<$> ( x Data..@? "ApplicationVersions"
+            Prelude.<$> ( x
+                            Data..@? "ApplicationVersions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -180,7 +181,8 @@ instance Core.AWSRequest DescribeApplicationVersions where
 
 instance Prelude.Hashable DescribeApplicationVersions where
   hashWithSalt _salt DescribeApplicationVersions' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` versionLabels

@@ -147,7 +147,8 @@ instance Core.AWSRequest UpdateInputDevice' where
 
 instance Prelude.Hashable UpdateInputDevice' where
   hashWithSalt _salt UpdateInputDevice'' {..} =
-    _salt `Prelude.hashWithSalt` hdDeviceSettings
+    _salt
+      `Prelude.hashWithSalt` hdDeviceSettings
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` uhdDeviceSettings
       `Prelude.hashWithSalt` inputDeviceId

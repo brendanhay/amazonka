@@ -149,7 +149,8 @@ instance Core.AWSRequest ListSuppressedDestinations where
       ( \s h x ->
           ListSuppressedDestinationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SuppressedDestinationSummaries"
+            Prelude.<*> ( x
+                            Data..?> "SuppressedDestinationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -157,7 +158,8 @@ instance Core.AWSRequest ListSuppressedDestinations where
 
 instance Prelude.Hashable ListSuppressedDestinations where
   hashWithSalt _salt ListSuppressedDestinations' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` reasons

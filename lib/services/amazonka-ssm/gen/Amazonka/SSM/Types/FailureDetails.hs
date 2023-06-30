@@ -93,7 +93,8 @@ instance Data.FromJSON FailureDetails where
 
 instance Prelude.Hashable FailureDetails where
   hashWithSalt _salt FailureDetails' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` failureStage
       `Prelude.hashWithSalt` failureType
 

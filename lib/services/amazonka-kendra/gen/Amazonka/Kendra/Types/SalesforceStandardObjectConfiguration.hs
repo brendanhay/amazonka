@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     SalesforceStandardObjectConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` documentTitleFieldName
+      _salt
+        `Prelude.hashWithSalt` documentTitleFieldName
         `Prelude.hashWithSalt` fieldMappings
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` documentDataFieldName

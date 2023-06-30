@@ -100,7 +100,8 @@ instance Data.FromJSON ResponseAction where
 
 instance Prelude.Hashable ResponseAction where
   hashWithSalt _salt ResponseAction' {..} =
-    _salt `Prelude.hashWithSalt` block
+    _salt
+      `Prelude.hashWithSalt` block
       `Prelude.hashWithSalt` count
 
 instance Prelude.NFData ResponseAction where

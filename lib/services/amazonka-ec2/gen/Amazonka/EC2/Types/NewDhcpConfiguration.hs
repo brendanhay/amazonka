@@ -61,7 +61,8 @@ newDhcpConfiguration_values = Lens.lens (\NewDhcpConfiguration' {values} -> valu
 
 instance Prelude.Hashable NewDhcpConfiguration where
   hashWithSalt _salt NewDhcpConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData NewDhcpConfiguration where

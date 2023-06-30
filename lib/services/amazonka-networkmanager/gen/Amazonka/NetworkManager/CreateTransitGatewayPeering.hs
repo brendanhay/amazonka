@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateTransitGatewayPeering where
 
 instance Prelude.Hashable CreateTransitGatewayPeering where
   hashWithSalt _salt CreateTransitGatewayPeering' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` transitGatewayArn

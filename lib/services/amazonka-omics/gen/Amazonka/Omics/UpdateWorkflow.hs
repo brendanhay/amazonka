@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateWorkflow where
 
 instance Prelude.Hashable UpdateWorkflow where
   hashWithSalt _salt UpdateWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
 

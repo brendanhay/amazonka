@@ -88,7 +88,8 @@ instance Data.FromXML AttachedPermissionsBoundary where
 
 instance Prelude.Hashable AttachedPermissionsBoundary where
   hashWithSalt _salt AttachedPermissionsBoundary' {..} =
-    _salt `Prelude.hashWithSalt` permissionsBoundaryArn
+    _salt
+      `Prelude.hashWithSalt` permissionsBoundaryArn
       `Prelude.hashWithSalt` permissionsBoundaryType
 
 instance Prelude.NFData AttachedPermissionsBoundary where

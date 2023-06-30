@@ -215,7 +215,8 @@ instance Data.FromJSON ServiceInfo where
       ( \x ->
           ServiceInfo'
             Prelude.<$> (x Data..:? "AccountId")
-            Prelude.<*> ( x Data..:? "DurationHistogram"
+            Prelude.<*> ( x
+                            Data..:? "DurationHistogram"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Edges" Data..!= Prelude.mempty)
@@ -223,7 +224,8 @@ instance Data.FromJSON ServiceInfo where
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ReferenceId")
-            Prelude.<*> ( x Data..:? "ResponseTimeHistogram"
+            Prelude.<*> ( x
+                            Data..:? "ResponseTimeHistogram"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Root")
@@ -235,7 +237,8 @@ instance Data.FromJSON ServiceInfo where
 
 instance Prelude.Hashable ServiceInfo where
   hashWithSalt _salt ServiceInfo' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` durationHistogram
       `Prelude.hashWithSalt` edges
       `Prelude.hashWithSalt` endTime

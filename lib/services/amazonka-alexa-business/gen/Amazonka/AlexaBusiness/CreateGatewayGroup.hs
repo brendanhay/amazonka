@@ -130,7 +130,8 @@ instance Core.AWSRequest CreateGatewayGroup where
 
 instance Prelude.Hashable CreateGatewayGroup where
   hashWithSalt _salt CreateGatewayGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken

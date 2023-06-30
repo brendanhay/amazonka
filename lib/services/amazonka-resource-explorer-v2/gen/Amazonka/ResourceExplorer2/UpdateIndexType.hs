@@ -177,7 +177,8 @@ instance Core.AWSRequest UpdateIndexType where
 
 instance Prelude.Hashable UpdateIndexType where
   hashWithSalt _salt UpdateIndexType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData UpdateIndexType where

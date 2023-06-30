@@ -136,7 +136,8 @@ instance Core.AWSRequest ListEntityPersonas where
 
 instance Prelude.Hashable ListEntityPersonas where
   hashWithSalt _salt ListEntityPersonas' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId

@@ -40,11 +40,11 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
     -- | The behavior if the user is not authenticated. The following are
     -- possible values:
     --
-    -- -   deny@@ - Return an HTTP 401 Unauthorized error.
+    -- -   deny - Return an HTTP 401 Unauthorized error.
     --
-    -- -   allow@@ - Allow the request to be forwarded to the target.
+    -- -   allow - Allow the request to be forwarded to the target.
     --
-    -- -   authenticate@@ - Redirect the request to the IdP authorization
+    -- -   authenticate - Redirect the request to the IdP authorization
     --     endpoint. This is the default value.
     onUnauthenticatedRequest :: Prelude.Maybe AuthenticateOidcActionConditionalBehaviorEnum,
     -- | The set of user claims to be requested from the IdP. The default is
@@ -98,11 +98,11 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
 -- 'onUnauthenticatedRequest', 'authenticateOidcActionConfig_onUnauthenticatedRequest' - The behavior if the user is not authenticated. The following are
 -- possible values:
 --
--- -   deny@@ - Return an HTTP 401 Unauthorized error.
+-- -   deny - Return an HTTP 401 Unauthorized error.
 --
--- -   allow@@ - Allow the request to be forwarded to the target.
+-- -   allow - Allow the request to be forwarded to the target.
 --
--- -   authenticate@@ - Redirect the request to the IdP authorization
+-- -   authenticate - Redirect the request to the IdP authorization
 --     endpoint. This is the default value.
 --
 -- 'scope', 'authenticateOidcActionConfig_scope' - The set of user claims to be requested from the IdP. The default is
@@ -183,11 +183,11 @@ authenticateOidcActionConfig_clientSecret = Lens.lens (\AuthenticateOidcActionCo
 -- | The behavior if the user is not authenticated. The following are
 -- possible values:
 --
--- -   deny@@ - Return an HTTP 401 Unauthorized error.
+-- -   deny - Return an HTTP 401 Unauthorized error.
 --
--- -   allow@@ - Allow the request to be forwarded to the target.
+-- -   allow - Allow the request to be forwarded to the target.
 --
--- -   authenticate@@ - Redirect the request to the IdP authorization
+-- -   authenticate - Redirect the request to the IdP authorization
 --     endpoint. This is the default value.
 authenticateOidcActionConfig_onUnauthenticatedRequest :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe AuthenticateOidcActionConditionalBehaviorEnum)
 authenticateOidcActionConfig_onUnauthenticatedRequest = Lens.lens (\AuthenticateOidcActionConfig' {onUnauthenticatedRequest} -> onUnauthenticatedRequest) (\s@AuthenticateOidcActionConfig' {} a -> s {onUnauthenticatedRequest = a} :: AuthenticateOidcActionConfig)
@@ -243,7 +243,8 @@ authenticateOidcActionConfig_clientId = Lens.lens (\AuthenticateOidcActionConfig
 instance Data.FromXML AuthenticateOidcActionConfig where
   parseXML x =
     AuthenticateOidcActionConfig'
-      Prelude.<$> ( x Data..@? "AuthenticationRequestExtraParams"
+      Prelude.<$> ( x
+                      Data..@? "AuthenticationRequestExtraParams"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )

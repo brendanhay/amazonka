@@ -211,7 +211,8 @@ instance Data.FromJSON ResultConfiguration where
 
 instance Prelude.Hashable ResultConfiguration where
   hashWithSalt _salt ResultConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` aclConfiguration
+    _salt
+      `Prelude.hashWithSalt` aclConfiguration
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` outputLocation

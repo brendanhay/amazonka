@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     DisassociateQualificationFromWorker' {..} =
-      _salt `Prelude.hashWithSalt` reason
+      _salt
+        `Prelude.hashWithSalt` reason
         `Prelude.hashWithSalt` workerId
         `Prelude.hashWithSalt` qualificationTypeId
 

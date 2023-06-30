@@ -155,7 +155,8 @@ instance Data.FromJSON RunListItem where
 
 instance Prelude.Hashable RunListItem where
   hashWithSalt _salt RunListItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

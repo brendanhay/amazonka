@@ -76,7 +76,8 @@ instance Data.FromJSON PathToObjectIdentifiers where
       "PathToObjectIdentifiers"
       ( \x ->
           PathToObjectIdentifiers'
-            Prelude.<$> ( x Data..:? "ObjectIdentifiers"
+            Prelude.<$> ( x
+                            Data..:? "ObjectIdentifiers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Path")
@@ -84,7 +85,8 @@ instance Data.FromJSON PathToObjectIdentifiers where
 
 instance Prelude.Hashable PathToObjectIdentifiers where
   hashWithSalt _salt PathToObjectIdentifiers' {..} =
-    _salt `Prelude.hashWithSalt` objectIdentifiers
+    _salt
+      `Prelude.hashWithSalt` objectIdentifiers
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData PathToObjectIdentifiers where

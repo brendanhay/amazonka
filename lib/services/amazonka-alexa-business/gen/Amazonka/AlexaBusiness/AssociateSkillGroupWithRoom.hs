@@ -100,7 +100,8 @@ instance Core.AWSRequest AssociateSkillGroupWithRoom where
 
 instance Prelude.Hashable AssociateSkillGroupWithRoom where
   hashWithSalt _salt AssociateSkillGroupWithRoom' {..} =
-    _salt `Prelude.hashWithSalt` roomArn
+    _salt
+      `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` skillGroupArn
 
 instance Prelude.NFData AssociateSkillGroupWithRoom where

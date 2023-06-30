@@ -261,7 +261,8 @@ instance Data.FromJSON IntentSummary where
 
 instance Prelude.Hashable IntentSummary where
   hashWithSalt _salt IntentSummary' {..} =
-    _salt `Prelude.hashWithSalt` checkpointLabel
+    _salt
+      `Prelude.hashWithSalt` checkpointLabel
       `Prelude.hashWithSalt` confirmationStatus
       `Prelude.hashWithSalt` fulfillmentState
       `Prelude.hashWithSalt` intentName

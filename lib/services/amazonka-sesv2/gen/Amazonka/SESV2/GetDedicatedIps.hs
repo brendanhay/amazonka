@@ -130,7 +130,8 @@ instance Core.AWSRequest GetDedicatedIps where
 
 instance Prelude.Hashable GetDedicatedIps where
   hashWithSalt _salt GetDedicatedIps' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` poolName
 

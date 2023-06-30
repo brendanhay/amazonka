@@ -69,7 +69,6 @@ inputConfigOutput_dataSourceConfig = Lens.lens (\InputConfigOutput' {dataSourceC
 inputConfigOutput_previousEarthObservationJobArn :: Lens.Lens' InputConfigOutput (Prelude.Maybe Prelude.Text)
 inputConfigOutput_previousEarthObservationJobArn = Lens.lens (\InputConfigOutput' {previousEarthObservationJobArn} -> previousEarthObservationJobArn) (\s@InputConfigOutput' {} a -> s {previousEarthObservationJobArn = a} :: InputConfigOutput)
 
--- |
 inputConfigOutput_rasterDataCollectionQuery :: Lens.Lens' InputConfigOutput (Prelude.Maybe RasterDataCollectionQueryOutput)
 inputConfigOutput_rasterDataCollectionQuery = Lens.lens (\InputConfigOutput' {rasterDataCollectionQuery} -> rasterDataCollectionQuery) (\s@InputConfigOutput' {} a -> s {rasterDataCollectionQuery = a} :: InputConfigOutput)
 
@@ -86,7 +85,8 @@ instance Data.FromJSON InputConfigOutput where
 
 instance Prelude.Hashable InputConfigOutput where
   hashWithSalt _salt InputConfigOutput' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceConfig
+    _salt
+      `Prelude.hashWithSalt` dataSourceConfig
       `Prelude.hashWithSalt` previousEarthObservationJobArn
       `Prelude.hashWithSalt` rasterDataCollectionQuery
 

@@ -111,7 +111,8 @@ instance Core.AWSRequest PutRetentionPolicy where
 
 instance Prelude.Hashable PutRetentionPolicy where
   hashWithSalt _salt PutRetentionPolicy' {..} =
-    _salt `Prelude.hashWithSalt` logGroupName
+    _salt
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` retentionInDays
 
 instance Prelude.NFData PutRetentionPolicy where

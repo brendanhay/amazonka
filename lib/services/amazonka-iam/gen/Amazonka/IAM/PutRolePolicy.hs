@@ -216,7 +216,8 @@ instance Core.AWSRequest PutRolePolicy where
 
 instance Prelude.Hashable PutRolePolicy where
   hashWithSalt _salt PutRolePolicy' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
 

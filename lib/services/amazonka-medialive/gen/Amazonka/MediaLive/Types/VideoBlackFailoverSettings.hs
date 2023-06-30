@@ -105,7 +105,8 @@ instance Data.FromJSON VideoBlackFailoverSettings where
 
 instance Prelude.Hashable VideoBlackFailoverSettings where
   hashWithSalt _salt VideoBlackFailoverSettings' {..} =
-    _salt `Prelude.hashWithSalt` blackDetectThreshold
+    _salt
+      `Prelude.hashWithSalt` blackDetectThreshold
       `Prelude.hashWithSalt` videoBlackThresholdMsec
 
 instance Prelude.NFData VideoBlackFailoverSettings where

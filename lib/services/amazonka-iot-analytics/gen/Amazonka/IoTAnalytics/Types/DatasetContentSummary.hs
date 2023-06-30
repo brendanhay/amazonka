@@ -106,7 +106,8 @@ instance Data.FromJSON DatasetContentSummary where
 
 instance Prelude.Hashable DatasetContentSummary where
   hashWithSalt _salt DatasetContentSummary' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` scheduleTime
       `Prelude.hashWithSalt` status

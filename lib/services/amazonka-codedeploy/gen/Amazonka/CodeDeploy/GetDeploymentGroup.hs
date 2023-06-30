@@ -112,7 +112,8 @@ instance Core.AWSRequest GetDeploymentGroup where
 
 instance Prelude.Hashable GetDeploymentGroup where
   hashWithSalt _salt GetDeploymentGroup' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` deploymentGroupName
 
 instance Prelude.NFData GetDeploymentGroup where

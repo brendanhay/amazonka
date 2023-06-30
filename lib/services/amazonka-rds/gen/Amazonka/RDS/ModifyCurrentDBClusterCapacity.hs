@@ -245,7 +245,8 @@ instance
   hashWithSalt
     _salt
     ModifyCurrentDBClusterCapacity' {..} =
-      _salt `Prelude.hashWithSalt` capacity
+      _salt
+        `Prelude.hashWithSalt` capacity
         `Prelude.hashWithSalt` secondsBeforeTimeout
         `Prelude.hashWithSalt` timeoutAction
         `Prelude.hashWithSalt` dbClusterIdentifier

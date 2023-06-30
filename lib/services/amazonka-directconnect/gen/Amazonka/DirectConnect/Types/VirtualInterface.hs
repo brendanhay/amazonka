@@ -444,7 +444,8 @@ instance Data.FromJSON VirtualInterface where
             Prelude.<*> (x Data..:? "mtu")
             Prelude.<*> (x Data..:? "ownerAccount")
             Prelude.<*> (x Data..:? "region")
-            Prelude.<*> ( x Data..:? "routeFilterPrefixes"
+            Prelude.<*> ( x
+                            Data..:? "routeFilterPrefixes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "siteLinkEnabled")
@@ -459,7 +460,8 @@ instance Data.FromJSON VirtualInterface where
 
 instance Prelude.Hashable VirtualInterface where
   hashWithSalt _salt VirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` asn

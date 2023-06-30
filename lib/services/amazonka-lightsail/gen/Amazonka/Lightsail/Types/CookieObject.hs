@@ -80,7 +80,8 @@ instance Data.FromJSON CookieObject where
       "CookieObject"
       ( \x ->
           CookieObject'
-            Prelude.<$> ( x Data..:? "cookiesAllowList"
+            Prelude.<$> ( x
+                            Data..:? "cookiesAllowList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "option")
@@ -88,7 +89,8 @@ instance Data.FromJSON CookieObject where
 
 instance Prelude.Hashable CookieObject where
   hashWithSalt _salt CookieObject' {..} =
-    _salt `Prelude.hashWithSalt` cookiesAllowList
+    _salt
+      `Prelude.hashWithSalt` cookiesAllowList
       `Prelude.hashWithSalt` option
 
 instance Prelude.NFData CookieObject where

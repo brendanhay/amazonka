@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateFolderMembership where
 
 instance Prelude.Hashable CreateFolderMembership where
   hashWithSalt _salt CreateFolderMembership' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` folderId
       `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` memberType

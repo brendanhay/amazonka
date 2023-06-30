@@ -83,7 +83,8 @@ instance Data.FromJSON HttpEndpointCommonAttribute where
 
 instance Prelude.Hashable HttpEndpointCommonAttribute where
   hashWithSalt _salt HttpEndpointCommonAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` attributeValue
 
 instance Prelude.NFData HttpEndpointCommonAttribute where

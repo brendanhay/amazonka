@@ -794,7 +794,8 @@ instance Data.FromJSON Options where
 
 instance Prelude.Hashable Options where
   hashWithSalt _salt Options' {..} =
-    _salt `Prelude.hashWithSalt` atime
+    _salt
+      `Prelude.hashWithSalt` atime
       `Prelude.hashWithSalt` bytesPerSecond
       `Prelude.hashWithSalt` gid
       `Prelude.hashWithSalt` logLevel

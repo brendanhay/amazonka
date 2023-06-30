@@ -85,7 +85,8 @@ instance Data.FromJSON Anomaly where
 
 instance Prelude.Hashable Anomaly where
   hashWithSalt _salt Anomaly' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` pixelAnomaly
 
 instance Prelude.NFData Anomaly where

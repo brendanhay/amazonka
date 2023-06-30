@@ -71,7 +71,8 @@ instance Data.FromXML PeeringAttachmentStatus where
 
 instance Prelude.Hashable PeeringAttachmentStatus where
   hashWithSalt _salt PeeringAttachmentStatus' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData PeeringAttachmentStatus where

@@ -227,7 +227,8 @@ instance Data.FromJSON Route where
           Route'
             Prelude.<$> (x Data..:? "apiGatewayManaged")
             Prelude.<*> (x Data..:? "apiKeyRequired")
-            Prelude.<*> ( x Data..:? "authorizationScopes"
+            Prelude.<*> ( x
+                            Data..:? "authorizationScopes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "authorizationType")
@@ -235,7 +236,8 @@ instance Data.FromJSON Route where
             Prelude.<*> (x Data..:? "modelSelectionExpression")
             Prelude.<*> (x Data..:? "operationName")
             Prelude.<*> (x Data..:? "requestModels" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "requestParameters"
+            Prelude.<*> ( x
+                            Data..:? "requestParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "routeId")
@@ -246,7 +248,8 @@ instance Data.FromJSON Route where
 
 instance Prelude.Hashable Route where
   hashWithSalt _salt Route' {..} =
-    _salt `Prelude.hashWithSalt` apiGatewayManaged
+    _salt
+      `Prelude.hashWithSalt` apiGatewayManaged
       `Prelude.hashWithSalt` apiKeyRequired
       `Prelude.hashWithSalt` authorizationScopes
       `Prelude.hashWithSalt` authorizationType

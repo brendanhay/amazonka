@@ -150,7 +150,8 @@ instance Core.AWSRequest CreateWirelessGateway where
 
 instance Prelude.Hashable CreateWirelessGateway where
   hashWithSalt _salt CreateWirelessGateway' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

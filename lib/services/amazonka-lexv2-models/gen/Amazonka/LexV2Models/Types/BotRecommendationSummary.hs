@@ -118,7 +118,8 @@ instance Data.FromJSON BotRecommendationSummary where
 
 instance Prelude.Hashable BotRecommendationSummary where
   hashWithSalt _salt BotRecommendationSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` botRecommendationStatus
       `Prelude.hashWithSalt` botRecommendationId

@@ -118,7 +118,8 @@ instance Core.AWSRequest DeleteSnapshot where
 
 instance Prelude.Hashable DeleteSnapshot where
   hashWithSalt _salt DeleteSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` snapshotId
 
 instance Prelude.NFData DeleteSnapshot where

@@ -532,15 +532,20 @@ instance Data.FromXML Explanation where
       Prelude.<$> (x Data..@? "acl")
       Prelude.<*> (x Data..@? "aclRule")
       Prelude.<*> (x Data..@? "address")
-      Prelude.<*> ( x Data..@? "addressSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
-      Prelude.<*> (x Data..@? "attachedTo")
-      Prelude.<*> ( x Data..@? "availabilityZoneSet"
+      Prelude.<*> ( x
+                      Data..@? "addressSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "cidrSet" Core..!@ Prelude.mempty
+      Prelude.<*> (x Data..@? "attachedTo")
+      Prelude.<*> ( x
+                      Data..@? "availabilityZoneSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "cidrSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "classicLoadBalancerListener")
@@ -559,7 +564,8 @@ instance Data.FromXML Explanation where
       Prelude.<*> (x Data..@? "loadBalancerListenerPort")
       Prelude.<*> (x Data..@? "loadBalancerTarget")
       Prelude.<*> (x Data..@? "loadBalancerTargetGroup")
-      Prelude.<*> ( x Data..@? "loadBalancerTargetGroupSet"
+      Prelude.<*> ( x
+                      Data..@? "loadBalancerTargetGroupSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -569,18 +575,23 @@ instance Data.FromXML Explanation where
       Prelude.<*> (x Data..@? "networkInterface")
       Prelude.<*> (x Data..@? "packetField")
       Prelude.<*> (x Data..@? "port")
-      Prelude.<*> ( x Data..@? "portRangeSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "portRangeSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "prefixList")
-      Prelude.<*> ( x Data..@? "protocolSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "protocolSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "routeTable")
       Prelude.<*> (x Data..@? "routeTableRoute")
       Prelude.<*> (x Data..@? "securityGroup")
       Prelude.<*> (x Data..@? "securityGroupRule")
-      Prelude.<*> ( x Data..@? "securityGroupSet"
+      Prelude.<*> ( x
+                      Data..@? "securityGroupSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -600,7 +611,8 @@ instance Data.FromXML Explanation where
 
 instance Prelude.Hashable Explanation where
   hashWithSalt _salt Explanation' {..} =
-    _salt `Prelude.hashWithSalt` acl
+    _salt
+      `Prelude.hashWithSalt` acl
       `Prelude.hashWithSalt` aclRule
       `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` addresses

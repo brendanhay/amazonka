@@ -83,7 +83,8 @@ filters_routingProfiles = Lens.lens (\Filters' {routingProfiles} -> routingProfi
 
 instance Prelude.Hashable Filters where
   hashWithSalt _salt Filters' {..} =
-    _salt `Prelude.hashWithSalt` channels
+    _salt
+      `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` queues
       `Prelude.hashWithSalt` routingProfiles
 

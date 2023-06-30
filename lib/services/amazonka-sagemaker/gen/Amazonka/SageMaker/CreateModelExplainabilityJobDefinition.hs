@@ -217,7 +217,7 @@ instance
       ( \s h x ->
           CreateModelExplainabilityJobDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "JobDefinitionArn")
+            Prelude.<*> (x Data..:> "JobDefinitionArn")
       )
 
 instance

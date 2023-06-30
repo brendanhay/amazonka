@@ -167,7 +167,8 @@ instance
   hashWithSalt
     _salt
     DeleteRecommendationPreferences' {..} =
-      _salt `Prelude.hashWithSalt` scope
+      _salt
+        `Prelude.hashWithSalt` scope
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` recommendationPreferenceNames
 

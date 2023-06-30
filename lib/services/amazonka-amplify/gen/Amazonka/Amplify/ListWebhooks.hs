@@ -120,7 +120,8 @@ instance Core.AWSRequest ListWebhooks where
 
 instance Prelude.Hashable ListWebhooks where
   hashWithSalt _salt ListWebhooks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
 

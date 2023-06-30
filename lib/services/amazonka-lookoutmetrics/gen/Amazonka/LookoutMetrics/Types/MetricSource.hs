@@ -119,7 +119,8 @@ instance Data.FromJSON MetricSource where
 
 instance Prelude.Hashable MetricSource where
   hashWithSalt _salt MetricSource' {..} =
-    _salt `Prelude.hashWithSalt` appFlowConfig
+    _salt
+      `Prelude.hashWithSalt` appFlowConfig
       `Prelude.hashWithSalt` athenaSourceConfig
       `Prelude.hashWithSalt` cloudWatchConfig
       `Prelude.hashWithSalt` rDSSourceConfig

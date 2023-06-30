@@ -72,7 +72,8 @@ instance Data.FromJSON DatasourcePackageIngestDetail where
       ( \x ->
           DatasourcePackageIngestDetail'
             Prelude.<$> (x Data..:? "DatasourcePackageIngestState")
-            Prelude.<*> ( x Data..:? "LastIngestStateChange"
+            Prelude.<*> ( x
+                            Data..:? "LastIngestStateChange"
                             Data..!= Prelude.mempty
                         )
       )

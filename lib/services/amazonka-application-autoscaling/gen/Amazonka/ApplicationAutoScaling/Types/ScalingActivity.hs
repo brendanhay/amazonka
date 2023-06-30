@@ -593,7 +593,8 @@ instance Data.FromJSON ScalingActivity where
           ScalingActivity'
             Prelude.<$> (x Data..:? "Details")
             Prelude.<*> (x Data..:? "EndTime")
-            Prelude.<*> ( x Data..:? "NotScaledReasons"
+            Prelude.<*> ( x
+                            Data..:? "NotScaledReasons"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StatusMessage")
@@ -609,7 +610,8 @@ instance Data.FromJSON ScalingActivity where
 
 instance Prelude.Hashable ScalingActivity where
   hashWithSalt _salt ScalingActivity' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` notScaledReasons
       `Prelude.hashWithSalt` statusMessage

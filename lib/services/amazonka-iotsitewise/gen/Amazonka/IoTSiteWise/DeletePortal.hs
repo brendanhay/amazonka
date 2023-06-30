@@ -106,7 +106,8 @@ instance Core.AWSRequest DeletePortal where
 
 instance Prelude.Hashable DeletePortal where
   hashWithSalt _salt DeletePortal' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` portalId
 
 instance Prelude.NFData DeletePortal where

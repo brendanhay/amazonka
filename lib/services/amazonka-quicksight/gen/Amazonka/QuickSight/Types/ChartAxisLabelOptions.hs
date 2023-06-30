@@ -95,7 +95,8 @@ instance Data.FromJSON ChartAxisLabelOptions where
       "ChartAxisLabelOptions"
       ( \x ->
           ChartAxisLabelOptions'
-            Prelude.<$> ( x Data..:? "AxisLabelOptions"
+            Prelude.<$> ( x
+                            Data..:? "AxisLabelOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SortIconVisibility")
@@ -104,7 +105,8 @@ instance Data.FromJSON ChartAxisLabelOptions where
 
 instance Prelude.Hashable ChartAxisLabelOptions where
   hashWithSalt _salt ChartAxisLabelOptions' {..} =
-    _salt `Prelude.hashWithSalt` axisLabelOptions
+    _salt
+      `Prelude.hashWithSalt` axisLabelOptions
       `Prelude.hashWithSalt` sortIconVisibility
       `Prelude.hashWithSalt` visibility
 

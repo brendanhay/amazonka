@@ -118,13 +118,16 @@ instance Data.FromXML LaunchTemplate where
       Prelude.<*> (x Data..@? "latestVersionNumber")
       Prelude.<*> (x Data..@? "launchTemplateId")
       Prelude.<*> (x Data..@? "launchTemplateName")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable LaunchTemplate where
   hashWithSalt _salt LaunchTemplate' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` defaultVersionNumber
       `Prelude.hashWithSalt` latestVersionNumber

@@ -114,7 +114,8 @@ instance Core.AWSRequest DescribeTrialComponent where
             Prelude.<*> (x Data..?> "LineageGroupArn")
             Prelude.<*> (x Data..?> "MetadataProperties")
             Prelude.<*> (x Data..?> "Metrics" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "OutputArtifacts"
+            Prelude.<*> ( x
+                            Data..?> "OutputArtifacts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)

@@ -891,7 +891,8 @@ instance Data.FromJSON Task where
             Prelude.<*> (x Data..:? "executionStoppedAt")
             Prelude.<*> (x Data..:? "group")
             Prelude.<*> (x Data..:? "healthStatus")
-            Prelude.<*> ( x Data..:? "inferenceAccelerators"
+            Prelude.<*> ( x
+                            Data..:? "inferenceAccelerators"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "lastStatus")
@@ -916,7 +917,8 @@ instance Data.FromJSON Task where
 
 instance Prelude.Hashable Task where
   hashWithSalt _salt Task' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` capacityProviderName

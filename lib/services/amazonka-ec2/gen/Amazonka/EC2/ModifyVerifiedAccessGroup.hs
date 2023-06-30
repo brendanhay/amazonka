@@ -148,7 +148,8 @@ instance Core.AWSRequest ModifyVerifiedAccessGroup where
 
 instance Prelude.Hashable ModifyVerifiedAccessGroup where
   hashWithSalt _salt ModifyVerifiedAccessGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessInstanceId

@@ -199,7 +199,8 @@ instance Core.AWSRequest StartSegmentDetection where
 
 instance Prelude.Hashable StartSegmentDetection where
   hashWithSalt _salt StartSegmentDetection' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` notificationChannel

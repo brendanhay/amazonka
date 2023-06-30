@@ -233,7 +233,8 @@ instance Data.FromJSON Project where
 
 instance Prelude.Hashable Project where
   hashWithSalt _salt Project' {..} =
-    _salt `Prelude.hashWithSalt` activeExperimentCount
+    _salt
+      `Prelude.hashWithSalt` activeExperimentCount
       `Prelude.hashWithSalt` activeLaunchCount
       `Prelude.hashWithSalt` appConfigResource
       `Prelude.hashWithSalt` dataDelivery

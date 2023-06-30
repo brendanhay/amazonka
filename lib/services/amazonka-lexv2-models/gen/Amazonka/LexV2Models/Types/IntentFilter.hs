@@ -90,7 +90,8 @@ intentFilter_operator = Lens.lens (\IntentFilter' {operator} -> operator) (\s@In
 
 instance Prelude.Hashable IntentFilter where
   hashWithSalt _salt IntentFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

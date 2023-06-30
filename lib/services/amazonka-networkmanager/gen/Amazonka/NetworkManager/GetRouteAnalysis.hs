@@ -107,7 +107,8 @@ instance Core.AWSRequest GetRouteAnalysis where
 
 instance Prelude.Hashable GetRouteAnalysis where
   hashWithSalt _salt GetRouteAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` routeAnalysisId
 
 instance Prelude.NFData GetRouteAnalysis where

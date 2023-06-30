@@ -250,7 +250,8 @@ instance Data.FromJSON Target where
 
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` deadLetterConfig
+    _salt
+      `Prelude.hashWithSalt` deadLetterConfig
       `Prelude.hashWithSalt` ecsParameters
       `Prelude.hashWithSalt` eventBridgeParameters
       `Prelude.hashWithSalt` input

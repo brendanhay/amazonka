@@ -212,7 +212,8 @@ instance Data.FromJSON GatingRule where
 
 instance Prelude.Hashable GatingRule where
   hashWithSalt _salt GatingRule' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` targetControls
       `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` safetyRuleArn

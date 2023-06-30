@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteFaces where
 
 instance Prelude.Hashable DeleteFaces where
   hashWithSalt _salt DeleteFaces' {..} =
-    _salt `Prelude.hashWithSalt` collectionId
+    _salt
+      `Prelude.hashWithSalt` collectionId
       `Prelude.hashWithSalt` faceIds
 
 instance Prelude.NFData DeleteFaces where

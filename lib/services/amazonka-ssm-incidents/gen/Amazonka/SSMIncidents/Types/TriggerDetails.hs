@@ -102,7 +102,8 @@ triggerDetails_timestamp = Lens.lens (\TriggerDetails' {timestamp} -> timestamp)
 
 instance Prelude.Hashable TriggerDetails where
   hashWithSalt _salt TriggerDetails' {..} =
-    _salt `Prelude.hashWithSalt` rawData
+    _salt
+      `Prelude.hashWithSalt` rawData
       `Prelude.hashWithSalt` triggerArn
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` timestamp

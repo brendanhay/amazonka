@@ -84,7 +84,8 @@ instance Data.FromJSON HierarchyLevel where
 
 instance Prelude.Hashable HierarchyLevel where
   hashWithSalt _salt HierarchyLevel' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

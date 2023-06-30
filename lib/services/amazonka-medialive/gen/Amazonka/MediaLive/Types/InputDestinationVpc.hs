@@ -75,7 +75,8 @@ instance Data.FromJSON InputDestinationVpc where
 
 instance Prelude.Hashable InputDestinationVpc where
   hashWithSalt _salt InputDestinationVpc' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` networkInterfaceId
 
 instance Prelude.NFData InputDestinationVpc where

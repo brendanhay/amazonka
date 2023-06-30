@@ -96,7 +96,8 @@ instance Data.FromJSON QueryRuntimeStatisticsRows where
 
 instance Prelude.Hashable QueryRuntimeStatisticsRows where
   hashWithSalt _salt QueryRuntimeStatisticsRows' {..} =
-    _salt `Prelude.hashWithSalt` inputBytes
+    _salt
+      `Prelude.hashWithSalt` inputBytes
       `Prelude.hashWithSalt` inputRows
       `Prelude.hashWithSalt` outputBytes
       `Prelude.hashWithSalt` outputRows

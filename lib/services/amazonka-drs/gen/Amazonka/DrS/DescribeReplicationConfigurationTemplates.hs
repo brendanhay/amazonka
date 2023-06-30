@@ -111,22 +111,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReplicationConfigurationTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReplicationConfigurationTemplatesResponse_items
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReplicationConfigurationTemplates_nextToken
           Lens..~ rs
-            Lens.^? describeReplicationConfigurationTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeReplicationConfigurationTemplatesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -143,8 +143,8 @@ instance
       ( \s h x ->
           DescribeReplicationConfigurationTemplatesResponse'
             Prelude.<$> (x Data..?> "items" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     DescribeReplicationConfigurationTemplates' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` replicationConfigurationTemplateIDs
 

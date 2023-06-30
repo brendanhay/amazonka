@@ -218,7 +218,8 @@ instance Data.FromJSON JobSummary where
 
 instance Prelude.Hashable JobSummary where
   hashWithSalt _salt JobSummary' {..} =
-    _salt `Prelude.hashWithSalt` arrayProperties
+    _salt
+      `Prelude.hashWithSalt` arrayProperties
       `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` jobArn

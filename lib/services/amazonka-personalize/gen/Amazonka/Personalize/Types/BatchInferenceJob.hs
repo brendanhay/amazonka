@@ -233,7 +233,8 @@ instance Data.FromJSON BatchInferenceJob where
 
 instance Prelude.Hashable BatchInferenceJob where
   hashWithSalt _salt BatchInferenceJob' {..} =
-    _salt `Prelude.hashWithSalt` batchInferenceJobArn
+    _salt
+      `Prelude.hashWithSalt` batchInferenceJobArn
       `Prelude.hashWithSalt` batchInferenceJobConfig
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` failureReason

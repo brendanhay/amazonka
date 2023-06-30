@@ -137,22 +137,22 @@ instance Core.AWSPager ListSigningPlatforms where
     | Core.stop
         ( rs
             Lens.^? listSigningPlatformsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSigningPlatformsResponse_platforms
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSigningPlatforms_nextToken
           Lens..~ rs
           Lens.^? listSigningPlatformsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSigningPlatforms where
   type
@@ -171,7 +171,8 @@ instance Core.AWSRequest ListSigningPlatforms where
 
 instance Prelude.Hashable ListSigningPlatforms where
   hashWithSalt _salt ListSigningPlatforms' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` partner

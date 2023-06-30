@@ -150,7 +150,8 @@ instance Data.FromJSON Mapping where
 
 instance Prelude.Hashable Mapping where
   hashWithSalt _salt Mapping' {..} =
-    _salt `Prelude.hashWithSalt` children
+    _salt
+      `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` dropped
       `Prelude.hashWithSalt` fromPath
       `Prelude.hashWithSalt` fromType

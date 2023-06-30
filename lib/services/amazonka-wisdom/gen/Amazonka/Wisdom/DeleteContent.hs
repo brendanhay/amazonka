@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteContent where
 
 instance Prelude.Hashable DeleteContent where
   hashWithSalt _salt DeleteContent' {..} =
-    _salt `Prelude.hashWithSalt` contentId
+    _salt
+      `Prelude.hashWithSalt` contentId
       `Prelude.hashWithSalt` knowledgeBaseId
 
 instance Prelude.NFData DeleteContent where

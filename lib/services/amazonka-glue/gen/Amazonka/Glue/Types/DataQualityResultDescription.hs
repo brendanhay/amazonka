@@ -109,7 +109,8 @@ instance
     DataQualityResultDescription
   where
   hashWithSalt _salt DataQualityResultDescription' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobRunId
       `Prelude.hashWithSalt` resultId

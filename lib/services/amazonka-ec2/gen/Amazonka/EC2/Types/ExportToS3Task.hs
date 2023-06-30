@@ -111,7 +111,8 @@ instance Data.FromXML ExportToS3Task where
 
 instance Prelude.Hashable ExportToS3Task where
   hashWithSalt _salt ExportToS3Task' {..} =
-    _salt `Prelude.hashWithSalt` containerFormat
+    _salt
+      `Prelude.hashWithSalt` containerFormat
       `Prelude.hashWithSalt` diskImageFormat
       `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Key

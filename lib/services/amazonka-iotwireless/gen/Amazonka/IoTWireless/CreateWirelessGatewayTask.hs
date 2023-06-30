@@ -109,7 +109,8 @@ instance Core.AWSRequest CreateWirelessGatewayTask where
 
 instance Prelude.Hashable CreateWirelessGatewayTask where
   hashWithSalt _salt CreateWirelessGatewayTask' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` wirelessGatewayTaskDefinitionId
 
 instance Prelude.NFData CreateWirelessGatewayTask where

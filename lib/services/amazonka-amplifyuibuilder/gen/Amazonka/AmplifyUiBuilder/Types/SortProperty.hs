@@ -79,7 +79,8 @@ instance Data.FromJSON SortProperty where
 
 instance Prelude.Hashable SortProperty where
   hashWithSalt _salt SortProperty' {..} =
-    _salt `Prelude.hashWithSalt` direction
+    _salt
+      `Prelude.hashWithSalt` direction
       `Prelude.hashWithSalt` field
 
 instance Prelude.NFData SortProperty where

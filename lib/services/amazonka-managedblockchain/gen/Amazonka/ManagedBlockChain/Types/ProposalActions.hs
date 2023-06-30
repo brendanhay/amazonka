@@ -87,7 +87,8 @@ instance Data.FromJSON ProposalActions where
 
 instance Prelude.Hashable ProposalActions where
   hashWithSalt _salt ProposalActions' {..} =
-    _salt `Prelude.hashWithSalt` invitations
+    _salt
+      `Prelude.hashWithSalt` invitations
       `Prelude.hashWithSalt` removals
 
 instance Prelude.NFData ProposalActions where

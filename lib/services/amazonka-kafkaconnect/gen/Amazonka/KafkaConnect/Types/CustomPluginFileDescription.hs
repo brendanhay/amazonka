@@ -81,7 +81,8 @@ instance Data.FromJSON CustomPluginFileDescription where
 
 instance Prelude.Hashable CustomPluginFileDescription where
   hashWithSalt _salt CustomPluginFileDescription' {..} =
-    _salt `Prelude.hashWithSalt` fileMd5
+    _salt
+      `Prelude.hashWithSalt` fileMd5
       `Prelude.hashWithSalt` fileSize
 
 instance Prelude.NFData CustomPluginFileDescription where

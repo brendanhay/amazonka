@@ -119,7 +119,8 @@ instance Data.FromJSON UriPathRouteInput where
 
 instance Prelude.Hashable UriPathRouteInput where
   hashWithSalt _salt UriPathRouteInput' {..} =
-    _salt `Prelude.hashWithSalt` includeChildPaths
+    _salt
+      `Prelude.hashWithSalt` includeChildPaths
       `Prelude.hashWithSalt` methods
       `Prelude.hashWithSalt` activationState
       `Prelude.hashWithSalt` sourcePath

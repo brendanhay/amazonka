@@ -169,7 +169,8 @@ instance Core.AWSRequest CreateLegalHold where
 
 instance Prelude.Hashable CreateLegalHold where
   hashWithSalt _salt CreateLegalHold' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
+    _salt
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` recoveryPointSelection
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` title

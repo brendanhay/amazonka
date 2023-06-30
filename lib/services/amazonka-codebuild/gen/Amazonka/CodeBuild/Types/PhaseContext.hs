@@ -78,7 +78,8 @@ instance Data.FromJSON PhaseContext where
 
 instance Prelude.Hashable PhaseContext where
   hashWithSalt _salt PhaseContext' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData PhaseContext where

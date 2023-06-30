@@ -110,7 +110,8 @@ instance Core.AWSRequest GetJobBookmark where
 
 instance Prelude.Hashable GetJobBookmark where
   hashWithSalt _salt GetJobBookmark' {..} =
-    _salt `Prelude.hashWithSalt` runId
+    _salt
+      `Prelude.hashWithSalt` runId
       `Prelude.hashWithSalt` jobName
 
 instance Prelude.NFData GetJobBookmark where

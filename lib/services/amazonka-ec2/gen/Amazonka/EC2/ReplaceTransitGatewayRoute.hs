@@ -151,7 +151,8 @@ instance Core.AWSRequest ReplaceTransitGatewayRoute where
 
 instance Prelude.Hashable ReplaceTransitGatewayRoute where
   hashWithSalt _salt ReplaceTransitGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` blackhole
+    _salt
+      `Prelude.hashWithSalt` blackhole
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` transitGatewayAttachmentId
       `Prelude.hashWithSalt` destinationCidrBlock

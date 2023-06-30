@@ -98,7 +98,8 @@ instance Core.AWSRequest GetEndpoint where
 
 instance Prelude.Hashable GetEndpoint where
   hashWithSalt _salt GetEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` thingArn
 
 instance Prelude.NFData GetEndpoint where

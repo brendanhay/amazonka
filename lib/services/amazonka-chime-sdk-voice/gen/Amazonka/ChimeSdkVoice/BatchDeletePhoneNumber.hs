@@ -86,7 +86,8 @@ instance Core.AWSRequest BatchDeletePhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           BatchDeletePhoneNumberResponse'
-            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
+            Prelude.<$> ( x
+                            Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

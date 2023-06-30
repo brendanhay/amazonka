@@ -169,7 +169,8 @@ instance Core.AWSRequest DeleteGameServerGroup where
 
 instance Prelude.Hashable DeleteGameServerGroup where
   hashWithSalt _salt DeleteGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` deleteOption
+    _salt
+      `Prelude.hashWithSalt` deleteOption
       `Prelude.hashWithSalt` gameServerGroupName
 
 instance Prelude.NFData DeleteGameServerGroup where

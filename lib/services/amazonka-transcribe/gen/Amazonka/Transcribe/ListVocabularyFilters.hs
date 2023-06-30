@@ -136,7 +136,8 @@ instance Core.AWSRequest ListVocabularyFilters where
       ( \s h x ->
           ListVocabularyFiltersResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "VocabularyFilters"
+            Prelude.<*> ( x
+                            Data..?> "VocabularyFilters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,7 +145,8 @@ instance Core.AWSRequest ListVocabularyFilters where
 
 instance Prelude.Hashable ListVocabularyFilters where
   hashWithSalt _salt ListVocabularyFilters' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` nextToken
 

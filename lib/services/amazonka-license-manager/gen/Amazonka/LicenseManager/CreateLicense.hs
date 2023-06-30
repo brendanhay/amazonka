@@ -234,7 +234,8 @@ instance Core.AWSRequest CreateLicense where
 
 instance Prelude.Hashable CreateLicense where
   hashWithSalt _salt CreateLicense' {..} =
-    _salt `Prelude.hashWithSalt` licenseMetadata
+    _salt
+      `Prelude.hashWithSalt` licenseMetadata
       `Prelude.hashWithSalt` licenseName
       `Prelude.hashWithSalt` productName
       `Prelude.hashWithSalt` productSKU

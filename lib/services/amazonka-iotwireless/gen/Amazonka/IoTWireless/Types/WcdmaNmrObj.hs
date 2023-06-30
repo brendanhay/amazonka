@@ -100,7 +100,8 @@ wcdmaNmrObj_utranCid = Lens.lens (\WcdmaNmrObj' {utranCid} -> utranCid) (\s@Wcdm
 
 instance Prelude.Hashable WcdmaNmrObj where
   hashWithSalt _salt WcdmaNmrObj' {..} =
-    _salt `Prelude.hashWithSalt` pathLoss
+    _salt
+      `Prelude.hashWithSalt` pathLoss
       `Prelude.hashWithSalt` rscp
       `Prelude.hashWithSalt` uarfcndl
       `Prelude.hashWithSalt` psc

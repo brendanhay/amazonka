@@ -84,7 +84,8 @@ instance Data.FromJSON S3Object where
 
 instance Prelude.Hashable S3Object where
   hashWithSalt _salt S3Object' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` version
 

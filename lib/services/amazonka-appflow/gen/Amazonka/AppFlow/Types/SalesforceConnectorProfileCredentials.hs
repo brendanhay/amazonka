@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     SalesforceConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` accessToken
+      _salt
+        `Prelude.hashWithSalt` accessToken
         `Prelude.hashWithSalt` clientCredentialsArn
         `Prelude.hashWithSalt` oAuthRequest
         `Prelude.hashWithSalt` refreshToken

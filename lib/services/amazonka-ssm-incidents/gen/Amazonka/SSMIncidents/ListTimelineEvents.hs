@@ -188,21 +188,21 @@ instance Core.AWSPager ListTimelineEvents where
     | Core.stop
         ( rs
             Lens.^? listTimelineEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listTimelineEventsResponse_eventSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTimelineEvents_nextToken
           Lens..~ rs
           Lens.^? listTimelineEventsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTimelineEvents where
   type
@@ -216,14 +216,16 @@ instance Core.AWSRequest ListTimelineEvents where
           ListTimelineEventsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "eventSummaries"
+            Prelude.<*> ( x
+                            Data..?> "eventSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListTimelineEvents where
   hashWithSalt _salt ListTimelineEvents' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

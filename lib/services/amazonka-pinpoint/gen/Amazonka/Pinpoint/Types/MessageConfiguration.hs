@@ -191,7 +191,8 @@ instance Data.FromJSON MessageConfiguration where
 
 instance Prelude.Hashable MessageConfiguration where
   hashWithSalt _salt MessageConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` aDMMessage
+    _salt
+      `Prelude.hashWithSalt` aDMMessage
       `Prelude.hashWithSalt` aPNSMessage
       `Prelude.hashWithSalt` baiduMessage
       `Prelude.hashWithSalt` customMessage

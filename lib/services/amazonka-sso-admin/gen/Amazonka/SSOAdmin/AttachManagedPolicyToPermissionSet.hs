@@ -23,9 +23,9 @@
 -- Attaches an AWS managed policy ARN to a permission set.
 --
 -- If the permission set is already referenced by one or more account
--- assignments, you will need to call @ ProvisionPermissionSet @ after this
--- operation. Calling @ProvisionPermissionSet@ applies the corresponding
--- IAM policy updates to all assigned accounts.
+-- assignments, you will need to call @ @@ProvisionPermissionSet@@ @ after
+-- this operation. Calling @ProvisionPermissionSet@ applies the
+-- corresponding IAM policy updates to all assigned accounts.
 module Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet
   ( -- * Creating a Request
     AttachManagedPolicyToPermissionSet (..),
@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     AttachManagedPolicyToPermissionSet' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` permissionSetArn
         `Prelude.hashWithSalt` managedPolicyArn
 

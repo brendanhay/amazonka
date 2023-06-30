@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateConnection where
 
 instance Prelude.Hashable CreateConnection where
   hashWithSalt _salt CreateConnection' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` authorizationType
       `Prelude.hashWithSalt` authParameters

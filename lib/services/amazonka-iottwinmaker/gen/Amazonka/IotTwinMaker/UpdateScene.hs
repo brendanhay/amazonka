@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateScene where
 
 instance Prelude.Hashable UpdateScene where
   hashWithSalt _salt UpdateScene' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` contentLocation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` workspaceId

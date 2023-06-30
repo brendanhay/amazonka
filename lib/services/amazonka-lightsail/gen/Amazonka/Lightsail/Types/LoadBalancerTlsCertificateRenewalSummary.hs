@@ -174,7 +174,8 @@ instance
       "LoadBalancerTlsCertificateRenewalSummary"
       ( \x ->
           LoadBalancerTlsCertificateRenewalSummary'
-            Prelude.<$> ( x Data..:? "domainValidationOptions"
+            Prelude.<$> ( x
+                            Data..:? "domainValidationOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "renewalStatus")

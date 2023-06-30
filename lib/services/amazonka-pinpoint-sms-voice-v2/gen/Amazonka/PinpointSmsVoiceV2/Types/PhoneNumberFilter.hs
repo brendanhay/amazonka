@@ -69,7 +69,8 @@ phoneNumberFilter_values = Lens.lens (\PhoneNumberFilter' {values} -> values) (\
 
 instance Prelude.Hashable PhoneNumberFilter where
   hashWithSalt _salt PhoneNumberFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData PhoneNumberFilter where

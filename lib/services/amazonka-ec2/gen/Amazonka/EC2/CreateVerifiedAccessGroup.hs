@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateVerifiedAccessGroup where
 
 instance Prelude.Hashable CreateVerifiedAccessGroup where
   hashWithSalt _salt CreateVerifiedAccessGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` policyDocument

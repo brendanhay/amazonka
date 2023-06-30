@@ -179,7 +179,8 @@ instance Core.AWSRequest DeleteFileSystem where
 
 instance Prelude.Hashable DeleteFileSystem where
   hashWithSalt _salt DeleteFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` lustreConfiguration
       `Prelude.hashWithSalt` openZFSConfiguration
       `Prelude.hashWithSalt` windowsConfiguration

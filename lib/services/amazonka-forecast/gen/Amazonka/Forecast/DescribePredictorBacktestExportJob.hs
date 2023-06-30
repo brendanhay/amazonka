@@ -113,15 +113,15 @@ instance
       ( \s h x ->
           DescribePredictorBacktestExportJobResponse'
             Prelude.<$> (x Data..?> "CreationTime")
-              Prelude.<*> (x Data..?> "Destination")
-              Prelude.<*> (x Data..?> "Format")
-              Prelude.<*> (x Data..?> "LastModificationTime")
-              Prelude.<*> (x Data..?> "Message")
-              Prelude.<*> (x Data..?> "PredictorArn")
-              Prelude.<*> (x Data..?> "PredictorBacktestExportJobArn")
-              Prelude.<*> (x Data..?> "PredictorBacktestExportJobName")
-              Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Destination")
+            Prelude.<*> (x Data..?> "Format")
+            Prelude.<*> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "PredictorArn")
+            Prelude.<*> (x Data..?> "PredictorBacktestExportJobArn")
+            Prelude.<*> (x Data..?> "PredictorBacktestExportJobName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

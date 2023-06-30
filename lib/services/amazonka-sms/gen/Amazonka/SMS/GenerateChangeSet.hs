@@ -101,7 +101,8 @@ instance Core.AWSRequest GenerateChangeSet where
 
 instance Prelude.Hashable GenerateChangeSet where
   hashWithSalt _salt GenerateChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` changesetFormat
 
 instance Prelude.NFData GenerateChangeSet where

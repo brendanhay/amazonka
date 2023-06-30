@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateUsagePlan where
 
 instance Prelude.Hashable UpdateUsagePlan where
   hashWithSalt _salt UpdateUsagePlan' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` usagePlanId
 
 instance Prelude.NFData UpdateUsagePlan where

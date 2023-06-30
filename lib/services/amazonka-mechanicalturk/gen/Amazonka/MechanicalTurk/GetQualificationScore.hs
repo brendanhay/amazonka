@@ -115,7 +115,8 @@ instance Core.AWSRequest GetQualificationScore where
 
 instance Prelude.Hashable GetQualificationScore where
   hashWithSalt _salt GetQualificationScore' {..} =
-    _salt `Prelude.hashWithSalt` qualificationTypeId
+    _salt
+      `Prelude.hashWithSalt` qualificationTypeId
       `Prelude.hashWithSalt` workerId
 
 instance Prelude.NFData GetQualificationScore where

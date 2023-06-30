@@ -69,12 +69,14 @@ instance Data.FromJSON JsonFormatRef where
       "JsonFormatRef"
       ( \x ->
           JsonFormatRef'
-            Prelude.<$> (x Data..: "key") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "key")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable JsonFormatRef where
   hashWithSalt _salt JsonFormatRef' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData JsonFormatRef where

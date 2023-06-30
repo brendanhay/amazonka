@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     SidewalkAccountInfoWithFingerprint' {..} =
-      _salt `Prelude.hashWithSalt` amazonId
+      _salt
+        `Prelude.hashWithSalt` amazonId
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` fingerprint
 

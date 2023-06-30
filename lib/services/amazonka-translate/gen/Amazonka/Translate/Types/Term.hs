@@ -74,7 +74,8 @@ instance Data.FromJSON Term where
 
 instance Prelude.Hashable Term where
   hashWithSalt _salt Term' {..} =
-    _salt `Prelude.hashWithSalt` sourceText
+    _salt
+      `Prelude.hashWithSalt` sourceText
       `Prelude.hashWithSalt` targetText
 
 instance Prelude.NFData Term where

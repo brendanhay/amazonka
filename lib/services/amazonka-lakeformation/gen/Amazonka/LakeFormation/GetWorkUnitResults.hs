@@ -130,7 +130,8 @@ instance Core.AWSRequest GetWorkUnitResults where
 
 instance Prelude.Hashable GetWorkUnitResults where
   hashWithSalt _salt GetWorkUnitResults' {..} =
-    _salt `Prelude.hashWithSalt` queryId
+    _salt
+      `Prelude.hashWithSalt` queryId
       `Prelude.hashWithSalt` workUnitId
       `Prelude.hashWithSalt` workUnitToken
 

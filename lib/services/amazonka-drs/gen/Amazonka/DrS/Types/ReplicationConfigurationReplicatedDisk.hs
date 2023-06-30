@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     ReplicationConfigurationReplicatedDisk' {..} =
-      _salt `Prelude.hashWithSalt` deviceName
+      _salt
+        `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` iops
         `Prelude.hashWithSalt` isBootDisk
         `Prelude.hashWithSalt` optimizedStagingDiskType

@@ -173,7 +173,8 @@ instance Data.FromJSON Preset where
 
 instance Prelude.Hashable Preset where
   hashWithSalt _salt Preset' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` audio
       `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` description

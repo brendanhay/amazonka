@@ -105,7 +105,8 @@ instance Data.FromJSON AnomalyGroupSummary where
 
 instance Prelude.Hashable AnomalyGroupSummary where
   hashWithSalt _salt AnomalyGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` anomalyGroupId
+    _salt
+      `Prelude.hashWithSalt` anomalyGroupId
       `Prelude.hashWithSalt` anomalyGroupScore
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` primaryMetricName

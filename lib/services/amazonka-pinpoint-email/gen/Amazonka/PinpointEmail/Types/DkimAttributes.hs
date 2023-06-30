@@ -170,7 +170,8 @@ instance Data.FromJSON DkimAttributes where
 
 instance Prelude.Hashable DkimAttributes where
   hashWithSalt _salt DkimAttributes' {..} =
-    _salt `Prelude.hashWithSalt` signingEnabled
+    _salt
+      `Prelude.hashWithSalt` signingEnabled
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tokens
 

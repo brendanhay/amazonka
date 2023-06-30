@@ -103,7 +103,8 @@ instance Data.FromJSON PrefetchConsumption where
       "PrefetchConsumption"
       ( \x ->
           PrefetchConsumption'
-            Prelude.<$> ( x Data..:? "AvailMatchingCriteria"
+            Prelude.<$> ( x
+                            Data..:? "AvailMatchingCriteria"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StartTime")
@@ -112,7 +113,8 @@ instance Data.FromJSON PrefetchConsumption where
 
 instance Prelude.Hashable PrefetchConsumption where
   hashWithSalt _salt PrefetchConsumption' {..} =
-    _salt `Prelude.hashWithSalt` availMatchingCriteria
+    _salt
+      `Prelude.hashWithSalt` availMatchingCriteria
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 

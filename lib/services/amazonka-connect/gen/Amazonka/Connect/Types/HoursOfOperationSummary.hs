@@ -85,7 +85,8 @@ instance Data.FromJSON HoursOfOperationSummary where
 
 instance Prelude.Hashable HoursOfOperationSummary where
   hashWithSalt _salt HoursOfOperationSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

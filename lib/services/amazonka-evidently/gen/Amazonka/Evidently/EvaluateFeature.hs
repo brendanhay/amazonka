@@ -165,7 +165,8 @@ instance Core.AWSRequest EvaluateFeature where
 
 instance Prelude.Hashable EvaluateFeature where
   hashWithSalt _salt EvaluateFeature' {..} =
-    _salt `Prelude.hashWithSalt` evaluationContext
+    _salt
+      `Prelude.hashWithSalt` evaluationContext
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` feature
       `Prelude.hashWithSalt` project

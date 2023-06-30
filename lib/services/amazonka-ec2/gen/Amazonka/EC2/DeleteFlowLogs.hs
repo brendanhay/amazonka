@@ -109,7 +109,9 @@ instance Core.AWSRequest DeleteFlowLogs where
     Response.receiveXML
       ( \s h x ->
           DeleteFlowLogsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -117,7 +119,8 @@ instance Core.AWSRequest DeleteFlowLogs where
 
 instance Prelude.Hashable DeleteFlowLogs where
   hashWithSalt _salt DeleteFlowLogs' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` flowLogIds
 
 instance Prelude.NFData DeleteFlowLogs where

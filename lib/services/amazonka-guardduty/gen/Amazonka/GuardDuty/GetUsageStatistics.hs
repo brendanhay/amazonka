@@ -171,7 +171,8 @@ instance Core.AWSRequest GetUsageStatistics where
 
 instance Prelude.Hashable GetUsageStatistics where
   hashWithSalt _salt GetUsageStatistics' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` detectorId

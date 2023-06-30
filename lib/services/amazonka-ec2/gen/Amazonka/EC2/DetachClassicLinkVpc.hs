@@ -131,7 +131,8 @@ instance Core.AWSRequest DetachClassicLinkVpc where
 
 instance Prelude.Hashable DetachClassicLinkVpc where
   hashWithSalt _salt DetachClassicLinkVpc' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` vpcId
 

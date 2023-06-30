@@ -155,7 +155,8 @@ instance Core.AWSRequest CreateAppInstanceUser where
 
 instance Prelude.Hashable CreateAppInstanceUser where
   hashWithSalt _salt CreateAppInstanceUser' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` appInstanceUserId

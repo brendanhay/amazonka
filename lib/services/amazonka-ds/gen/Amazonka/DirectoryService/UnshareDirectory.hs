@@ -111,7 +111,8 @@ instance Core.AWSRequest UnshareDirectory where
 
 instance Prelude.Hashable UnshareDirectory where
   hashWithSalt _salt UnshareDirectory' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` unshareTarget
 
 instance Prelude.NFData UnshareDirectory where

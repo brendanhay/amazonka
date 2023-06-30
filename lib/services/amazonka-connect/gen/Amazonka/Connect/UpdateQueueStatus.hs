@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateQueueStatus where
 
 instance Prelude.Hashable UpdateQueueStatus where
   hashWithSalt _salt UpdateQueueStatus' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId
       `Prelude.hashWithSalt` status
 

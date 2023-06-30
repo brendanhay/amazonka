@@ -107,7 +107,8 @@ channelMessageCallback_messageId = Lens.lens (\ChannelMessageCallback' {messageI
 
 instance Prelude.Hashable ChannelMessageCallback where
   hashWithSalt _salt ChannelMessageCallback' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` pushNotification

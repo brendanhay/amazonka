@@ -116,7 +116,8 @@ instance Data.FromXML PartnerIntegrationInfo where
 
 instance Prelude.Hashable PartnerIntegrationInfo where
   hashWithSalt _salt PartnerIntegrationInfo' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` partnerName
       `Prelude.hashWithSalt` status

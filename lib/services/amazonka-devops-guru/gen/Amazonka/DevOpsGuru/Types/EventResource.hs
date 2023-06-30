@@ -87,7 +87,8 @@ instance Data.FromJSON EventResource where
 
 instance Prelude.Hashable EventResource where
   hashWithSalt _salt EventResource' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 

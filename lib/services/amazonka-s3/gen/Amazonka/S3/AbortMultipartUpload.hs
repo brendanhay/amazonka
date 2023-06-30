@@ -99,7 +99,7 @@ data AbortMultipartUpload = AbortMultipartUpload'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
     -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -141,7 +141,7 @@ data AbortMultipartUpload = AbortMultipartUpload'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
 -- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -193,7 +193,7 @@ abortMultipartUpload_requestPayer = Lens.lens (\AbortMultipartUpload' {requestPa
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
 -- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -227,7 +227,8 @@ instance Core.AWSRequest AbortMultipartUpload where
 
 instance Prelude.Hashable AbortMultipartUpload where
   hashWithSalt _salt AbortMultipartUpload' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key

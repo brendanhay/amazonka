@@ -171,7 +171,8 @@ instance Core.AWSRequest UpdateFlow where
 
 instance Prelude.Hashable UpdateFlow where
   hashWithSalt _salt UpdateFlow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` metadataCatalogConfig
       `Prelude.hashWithSalt` flowName
       `Prelude.hashWithSalt` triggerConfig

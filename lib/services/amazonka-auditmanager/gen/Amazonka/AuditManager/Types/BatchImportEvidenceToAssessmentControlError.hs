@@ -92,8 +92,8 @@ instance
       ( \x ->
           BatchImportEvidenceToAssessmentControlError'
             Prelude.<$> (x Data..:? "errorCode")
-              Prelude.<*> (x Data..:? "errorMessage")
-              Prelude.<*> (x Data..:? "manualEvidence")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "manualEvidence")
       )
 
 instance
@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     BatchImportEvidenceToAssessmentControlError' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` manualEvidence
 

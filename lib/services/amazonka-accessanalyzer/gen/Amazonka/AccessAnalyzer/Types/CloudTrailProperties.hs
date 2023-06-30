@@ -98,7 +98,8 @@ instance Data.FromJSON CloudTrailProperties where
       "CloudTrailProperties"
       ( \x ->
           CloudTrailProperties'
-            Prelude.<$> ( x Data..:? "trailProperties"
+            Prelude.<$> ( x
+                            Data..:? "trailProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "startTime")
@@ -107,7 +108,8 @@ instance Data.FromJSON CloudTrailProperties where
 
 instance Prelude.Hashable CloudTrailProperties where
   hashWithSalt _salt CloudTrailProperties' {..} =
-    _salt `Prelude.hashWithSalt` trailProperties
+    _salt
+      `Prelude.hashWithSalt` trailProperties
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 

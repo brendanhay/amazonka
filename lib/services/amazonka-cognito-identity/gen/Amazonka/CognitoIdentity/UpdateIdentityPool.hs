@@ -218,7 +218,8 @@ instance Core.AWSRequest UpdateIdentityPool where
 
 instance Prelude.Hashable UpdateIdentityPool where
   hashWithSalt _salt UpdateIdentityPool' {..} =
-    _salt `Prelude.hashWithSalt` allowClassicFlow
+    _salt
+      `Prelude.hashWithSalt` allowClassicFlow
       `Prelude.hashWithSalt` cognitoIdentityProviders
       `Prelude.hashWithSalt` developerProviderName
       `Prelude.hashWithSalt` identityPoolTags

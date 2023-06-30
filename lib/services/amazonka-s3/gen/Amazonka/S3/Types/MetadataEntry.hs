@@ -65,7 +65,8 @@ metadataEntry_value = Lens.lens (\MetadataEntry' {value} -> value) (\s@MetadataE
 
 instance Prelude.Hashable MetadataEntry where
   hashWithSalt _salt MetadataEntry' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MetadataEntry where

@@ -80,7 +80,8 @@ instance Data.FromJSON RetryCriteria where
 
 instance Prelude.Hashable RetryCriteria where
   hashWithSalt _salt RetryCriteria' {..} =
-    _salt `Prelude.hashWithSalt` failureType
+    _salt
+      `Prelude.hashWithSalt` failureType
       `Prelude.hashWithSalt` numberOfRetries
 
 instance Prelude.NFData RetryCriteria where

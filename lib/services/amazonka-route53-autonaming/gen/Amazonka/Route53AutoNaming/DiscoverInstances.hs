@@ -228,7 +228,8 @@ instance Core.AWSRequest DiscoverInstances where
 
 instance Prelude.Hashable DiscoverInstances where
   hashWithSalt _salt DiscoverInstances' {..} =
-    _salt `Prelude.hashWithSalt` healthStatus
+    _salt
+      `Prelude.hashWithSalt` healthStatus
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` optionalParameters
       `Prelude.hashWithSalt` queryParameters

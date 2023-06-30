@@ -262,8 +262,8 @@ instance
       ( \s h x ->
           ExportLambdaFunctionRecommendationsResponse'
             Prelude.<$> (x Data..?> "jobId")
-              Prelude.<*> (x Data..?> "s3Destination")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "s3Destination")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -273,7 +273,8 @@ instance
   hashWithSalt
     _salt
     ExportLambdaFunctionRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` accountIds
+      _salt
+        `Prelude.hashWithSalt` accountIds
         `Prelude.hashWithSalt` fieldsToExport
         `Prelude.hashWithSalt` fileFormat
         `Prelude.hashWithSalt` filters

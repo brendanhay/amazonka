@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateGroupQuery where
 
 instance Prelude.Hashable UpdateGroupQuery where
   hashWithSalt _salt UpdateGroupQuery' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` resourceQuery
 

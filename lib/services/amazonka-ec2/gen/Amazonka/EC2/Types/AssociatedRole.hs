@@ -104,7 +104,8 @@ instance Data.FromXML AssociatedRole where
 
 instance Prelude.Hashable AssociatedRole where
   hashWithSalt _salt AssociatedRole' {..} =
-    _salt `Prelude.hashWithSalt` associatedRoleArn
+    _salt
+      `Prelude.hashWithSalt` associatedRoleArn
       `Prelude.hashWithSalt` certificateS3BucketName
       `Prelude.hashWithSalt` certificateS3ObjectKey
       `Prelude.hashWithSalt` encryptionKmsKeyId

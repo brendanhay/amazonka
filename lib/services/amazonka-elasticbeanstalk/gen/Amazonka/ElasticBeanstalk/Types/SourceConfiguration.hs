@@ -65,7 +65,8 @@ sourceConfiguration_templateName = Lens.lens (\SourceConfiguration' {templateNam
 
 instance Prelude.Hashable SourceConfiguration where
   hashWithSalt _salt SourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData SourceConfiguration where

@@ -126,7 +126,8 @@ instance Core.AWSRequest DeleteStudioComponent where
 
 instance Prelude.Hashable DeleteStudioComponent where
   hashWithSalt _salt DeleteStudioComponent' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` studioComponentId
       `Prelude.hashWithSalt` studioId
 

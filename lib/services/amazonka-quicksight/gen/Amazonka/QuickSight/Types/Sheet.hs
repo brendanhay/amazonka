@@ -82,7 +82,8 @@ instance Data.FromJSON Sheet where
 
 instance Prelude.Hashable Sheet where
   hashWithSalt _salt Sheet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sheetId
 
 instance Prelude.NFData Sheet where

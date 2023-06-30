@@ -324,7 +324,8 @@ instance Data.FromJSON EksContainer where
 
 instance Prelude.Hashable EksContainer where
   hashWithSalt _salt EksContainer' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt
+      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` env
       `Prelude.hashWithSalt` imagePullPolicy

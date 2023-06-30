@@ -194,7 +194,8 @@ instance Core.AWSRequest GetShardIterator where
 
 instance Prelude.Hashable GetShardIterator where
   hashWithSalt _salt GetShardIterator' {..} =
-    _salt `Prelude.hashWithSalt` sequenceNumber
+    _salt
+      `Prelude.hashWithSalt` sequenceNumber
       `Prelude.hashWithSalt` streamArn
       `Prelude.hashWithSalt` shardId
       `Prelude.hashWithSalt` shardIteratorType

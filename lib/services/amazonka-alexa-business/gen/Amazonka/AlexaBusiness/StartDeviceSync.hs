@@ -127,7 +127,8 @@ instance Core.AWSRequest StartDeviceSync where
 
 instance Prelude.Hashable StartDeviceSync where
   hashWithSalt _salt StartDeviceSync' {..} =
-    _salt `Prelude.hashWithSalt` deviceArn
+    _salt
+      `Prelude.hashWithSalt` deviceArn
       `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` features
 

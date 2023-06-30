@@ -131,7 +131,8 @@ instance Core.AWSRequest CreateDefaultSubnet where
 
 instance Prelude.Hashable CreateDefaultSubnet where
   hashWithSalt _salt CreateDefaultSubnet' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipv6Native
       `Prelude.hashWithSalt` availabilityZone
 

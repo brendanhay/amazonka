@@ -120,7 +120,8 @@ instance Core.AWSRequest SetDataRetrievalPolicy where
 
 instance Prelude.Hashable SetDataRetrievalPolicy where
   hashWithSalt _salt SetDataRetrievalPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policy
+    _salt
+      `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData SetDataRetrievalPolicy where

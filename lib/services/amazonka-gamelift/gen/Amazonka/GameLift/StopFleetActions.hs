@@ -146,7 +146,8 @@ instance Core.AWSRequest StopFleetActions where
 
 instance Prelude.Hashable StopFleetActions where
   hashWithSalt _salt StopFleetActions' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` actions
 

@@ -106,7 +106,8 @@ instance Data.FromJSON ModerationLabel where
 
 instance Prelude.Hashable ModerationLabel where
   hashWithSalt _salt ModerationLabel' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentName
 

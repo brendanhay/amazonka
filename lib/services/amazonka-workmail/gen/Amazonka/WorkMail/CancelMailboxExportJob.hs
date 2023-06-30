@@ -121,7 +121,8 @@ instance Core.AWSRequest CancelMailboxExportJob where
 
 instance Prelude.Hashable CancelMailboxExportJob where
   hashWithSalt _salt CancelMailboxExportJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` organizationId
 

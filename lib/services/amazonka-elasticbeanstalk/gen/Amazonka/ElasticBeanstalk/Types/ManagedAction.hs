@@ -108,7 +108,8 @@ instance Data.FromXML ManagedAction where
 
 instance Prelude.Hashable ManagedAction where
   hashWithSalt _salt ManagedAction' {..} =
-    _salt `Prelude.hashWithSalt` actionDescription
+    _salt
+      `Prelude.hashWithSalt` actionDescription
       `Prelude.hashWithSalt` actionId
       `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` status

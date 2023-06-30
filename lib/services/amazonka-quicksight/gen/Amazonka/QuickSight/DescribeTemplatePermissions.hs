@@ -116,7 +116,8 @@ instance Core.AWSRequest DescribeTemplatePermissions where
 
 instance Prelude.Hashable DescribeTemplatePermissions where
   hashWithSalt _salt DescribeTemplatePermissions' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId
 
 instance Prelude.NFData DescribeTemplatePermissions where

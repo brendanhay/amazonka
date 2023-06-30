@@ -129,7 +129,8 @@ instance Data.FromJSON VideoSelector where
 
 instance Prelude.Hashable VideoSelector where
   hashWithSalt _salt VideoSelector' {..} =
-    _salt `Prelude.hashWithSalt` colorSpace
+    _salt
+      `Prelude.hashWithSalt` colorSpace
       `Prelude.hashWithSalt` colorSpaceSettings
       `Prelude.hashWithSalt` colorSpaceUsage
       `Prelude.hashWithSalt` selectorSettings

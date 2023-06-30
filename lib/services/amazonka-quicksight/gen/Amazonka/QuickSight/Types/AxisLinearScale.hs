@@ -77,7 +77,8 @@ instance Data.FromJSON AxisLinearScale where
 
 instance Prelude.Hashable AxisLinearScale where
   hashWithSalt _salt AxisLinearScale' {..} =
-    _salt `Prelude.hashWithSalt` stepCount
+    _salt
+      `Prelude.hashWithSalt` stepCount
       `Prelude.hashWithSalt` stepSize
 
 instance Prelude.NFData AxisLinearScale where

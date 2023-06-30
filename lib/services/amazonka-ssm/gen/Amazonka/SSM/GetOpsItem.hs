@@ -111,7 +111,8 @@ instance Core.AWSRequest GetOpsItem where
 
 instance Prelude.Hashable GetOpsItem where
   hashWithSalt _salt GetOpsItem' {..} =
-    _salt `Prelude.hashWithSalt` opsItemArn
+    _salt
+      `Prelude.hashWithSalt` opsItemArn
       `Prelude.hashWithSalt` opsItemId
 
 instance Prelude.NFData GetOpsItem where

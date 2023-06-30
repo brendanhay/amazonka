@@ -93,7 +93,8 @@ instance Data.FromJSON ValidationConfiguration where
 
 instance Prelude.Hashable ValidationConfiguration where
   hashWithSalt _salt ValidationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` validationMode
+    _salt
+      `Prelude.hashWithSalt` validationMode
       `Prelude.hashWithSalt` rulesetArn
 
 instance Prelude.NFData ValidationConfiguration where

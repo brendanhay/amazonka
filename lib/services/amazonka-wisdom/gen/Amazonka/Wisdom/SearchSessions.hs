@@ -125,18 +125,19 @@ instance Core.AWSPager SearchSessions where
     | Core.stop
         ( rs
             Lens.^? searchSessionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. searchSessionsResponse_sessionSummaries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchSessions_nextToken
           Lens..~ rs
-          Lens.^? searchSessionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? searchSessionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchSessions where
   type
@@ -150,14 +151,16 @@ instance Core.AWSRequest SearchSessions where
           SearchSessionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "sessionSummaries"
+            Prelude.<*> ( x
+                            Data..?> "sessionSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SearchSessions where
   hashWithSalt _salt SearchSessions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` searchExpression

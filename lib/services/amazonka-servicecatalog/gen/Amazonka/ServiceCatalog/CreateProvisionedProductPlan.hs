@@ -288,7 +288,8 @@ instance
     CreateProvisionedProductPlan
   where
   hashWithSalt _salt CreateProvisionedProductPlan' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` notificationArns
       `Prelude.hashWithSalt` pathId
       `Prelude.hashWithSalt` provisioningParameters

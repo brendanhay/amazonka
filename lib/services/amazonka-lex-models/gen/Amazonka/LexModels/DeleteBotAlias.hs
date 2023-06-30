@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteBotAlias where
 
 instance Prelude.Hashable DeleteBotAlias where
   hashWithSalt _salt DeleteBotAlias' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` botName
 
 instance Prelude.NFData DeleteBotAlias where

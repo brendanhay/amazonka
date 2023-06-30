@@ -146,7 +146,8 @@ instance Core.AWSRequest ListEntities where
     Response.receiveJSON
       ( \s h x ->
           ListEntitiesResponse'
-            Prelude.<$> ( x Data..?> "EntitySummaryList"
+            Prelude.<$> ( x
+                            Data..?> "EntitySummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -155,7 +156,8 @@ instance Core.AWSRequest ListEntities where
 
 instance Prelude.Hashable ListEntities where
   hashWithSalt _salt ListEntities' {..} =
-    _salt `Prelude.hashWithSalt` filterList
+    _salt
+      `Prelude.hashWithSalt` filterList
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sort

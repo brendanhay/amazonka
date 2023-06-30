@@ -129,7 +129,8 @@ instance Core.AWSRequest UpdateWirelessGateway where
 
 instance Prelude.Hashable UpdateWirelessGateway where
   hashWithSalt _salt UpdateWirelessGateway' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` joinEuiFilters
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` netIdFilters

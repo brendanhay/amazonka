@@ -112,7 +112,8 @@ instance Core.AWSRequest CancelMLTaskRun where
 
 instance Prelude.Hashable CancelMLTaskRun where
   hashWithSalt _salt CancelMLTaskRun' {..} =
-    _salt `Prelude.hashWithSalt` transformId
+    _salt
+      `Prelude.hashWithSalt` transformId
       `Prelude.hashWithSalt` taskRunId
 
 instance Prelude.NFData CancelMLTaskRun where

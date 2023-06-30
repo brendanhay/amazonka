@@ -355,7 +355,8 @@ instance Data.FromJSON MySQLSettings where
 
 instance Prelude.Hashable MySQLSettings where
   hashWithSalt _salt MySQLSettings' {..} =
-    _salt `Prelude.hashWithSalt` afterConnectScript
+    _salt
+      `Prelude.hashWithSalt` afterConnectScript
       `Prelude.hashWithSalt` cleanSourceMetadataOnMismatch
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` eventsPollInterval

@@ -154,7 +154,8 @@ instance Core.AWSRequest EstimateTemplateCost where
 
 instance Prelude.Hashable EstimateTemplateCost where
   hashWithSalt _salt EstimateTemplateCost' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` templateBody
       `Prelude.hashWithSalt` templateURL
 

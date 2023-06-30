@@ -67,7 +67,8 @@ listContactsFilter_topicFilter = Lens.lens (\ListContactsFilter' {topicFilter} -
 
 instance Prelude.Hashable ListContactsFilter where
   hashWithSalt _salt ListContactsFilter' {..} =
-    _salt `Prelude.hashWithSalt` filteredStatus
+    _salt
+      `Prelude.hashWithSalt` filteredStatus
       `Prelude.hashWithSalt` topicFilter
 
 instance Prelude.NFData ListContactsFilter where

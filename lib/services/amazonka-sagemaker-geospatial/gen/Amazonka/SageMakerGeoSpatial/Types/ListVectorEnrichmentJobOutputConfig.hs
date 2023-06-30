@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     ListVectorEnrichmentJobOutputConfig' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` durationInSeconds

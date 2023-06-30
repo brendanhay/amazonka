@@ -134,7 +134,8 @@ instance Data.FromJSON CaptionSelector where
 
 instance Prelude.Hashable CaptionSelector where
   hashWithSalt _salt CaptionSelector' {..} =
-    _salt `Prelude.hashWithSalt` customLanguageCode
+    _salt
+      `Prelude.hashWithSalt` customLanguageCode
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` sourceSettings
 

@@ -73,12 +73,14 @@ instance Data.FromJSON RuleGroupMetadata where
       "RuleGroupMetadata"
       ( \x ->
           RuleGroupMetadata'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable RuleGroupMetadata where
   hashWithSalt _salt RuleGroupMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RuleGroupMetadata where

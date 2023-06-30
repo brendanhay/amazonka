@@ -105,7 +105,8 @@ instance Data.FromJSON SchemaDefinition where
 
 instance Prelude.Hashable SchemaDefinition where
   hashWithSalt _salt SchemaDefinition' {..} =
-    _salt `Prelude.hashWithSalt` clusteringKeys
+    _salt
+      `Prelude.hashWithSalt` clusteringKeys
       `Prelude.hashWithSalt` staticColumns
       `Prelude.hashWithSalt` allColumns
       `Prelude.hashWithSalt` partitionKeys

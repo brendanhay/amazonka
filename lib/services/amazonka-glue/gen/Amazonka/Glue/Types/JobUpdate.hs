@@ -487,7 +487,8 @@ jobUpdate_workerType = Lens.lens (\JobUpdate' {workerType} -> workerType) (\s@Jo
 
 instance Prelude.Hashable JobUpdate where
   hashWithSalt _salt JobUpdate' {..} =
-    _salt `Prelude.hashWithSalt` allocatedCapacity
+    _salt
+      `Prelude.hashWithSalt` allocatedCapacity
       `Prelude.hashWithSalt` codeGenConfigurationNodes
       `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` connections

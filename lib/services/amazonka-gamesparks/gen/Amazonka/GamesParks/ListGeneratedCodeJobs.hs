@@ -138,22 +138,22 @@ instance Core.AWSPager ListGeneratedCodeJobs where
     | Core.stop
         ( rs
             Lens.^? listGeneratedCodeJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGeneratedCodeJobsResponse_generatedCodeJobs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGeneratedCodeJobs_nextToken
           Lens..~ rs
           Lens.^? listGeneratedCodeJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGeneratedCodeJobs where
   type
@@ -165,7 +165,8 @@ instance Core.AWSRequest ListGeneratedCodeJobs where
     Response.receiveJSON
       ( \s h x ->
           ListGeneratedCodeJobsResponse'
-            Prelude.<$> ( x Data..?> "GeneratedCodeJobs"
+            Prelude.<$> ( x
+                            Data..?> "GeneratedCodeJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -174,7 +175,8 @@ instance Core.AWSRequest ListGeneratedCodeJobs where
 
 instance Prelude.Hashable ListGeneratedCodeJobs where
   hashWithSalt _salt ListGeneratedCodeJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` snapshotId

@@ -158,7 +158,8 @@ instance Data.FromJSON MonitoringAlertSummary where
 
 instance Prelude.Hashable MonitoringAlertSummary where
   hashWithSalt _salt MonitoringAlertSummary' {..} =
-    _salt `Prelude.hashWithSalt` monitoringAlertName
+    _salt
+      `Prelude.hashWithSalt` monitoringAlertName
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` alertStatus

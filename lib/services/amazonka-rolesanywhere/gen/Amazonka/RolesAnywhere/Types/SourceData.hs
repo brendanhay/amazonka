@@ -86,7 +86,8 @@ instance Data.FromJSON SourceData where
 
 instance Prelude.Hashable SourceData where
   hashWithSalt _salt SourceData' {..} =
-    _salt `Prelude.hashWithSalt` acmPcaArn
+    _salt
+      `Prelude.hashWithSalt` acmPcaArn
       `Prelude.hashWithSalt` x509CertificateData
 
 instance Prelude.NFData SourceData where

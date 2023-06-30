@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteResponseHeadersPolicy where
 
 instance Prelude.Hashable DeleteResponseHeadersPolicy where
   hashWithSalt _salt DeleteResponseHeadersPolicy' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteResponseHeadersPolicy where

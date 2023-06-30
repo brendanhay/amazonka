@@ -137,7 +137,8 @@ instance Data.FromJSON WebACLSummary where
 
 instance Prelude.Hashable WebACLSummary where
   hashWithSalt _salt WebACLSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lockToken

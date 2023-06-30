@@ -381,7 +381,8 @@ instance Core.AWSRequest CreateFileSystemFromBackup where
 
 instance Prelude.Hashable CreateFileSystemFromBackup where
   hashWithSalt _salt CreateFileSystemFromBackup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileSystemTypeVersion
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` lustreConfiguration

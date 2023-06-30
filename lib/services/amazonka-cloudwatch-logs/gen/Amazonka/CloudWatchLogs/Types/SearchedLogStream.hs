@@ -74,7 +74,8 @@ instance Data.FromJSON SearchedLogStream where
 
 instance Prelude.Hashable SearchedLogStream where
   hashWithSalt _salt SearchedLogStream' {..} =
-    _salt `Prelude.hashWithSalt` logStreamName
+    _salt
+      `Prelude.hashWithSalt` logStreamName
       `Prelude.hashWithSalt` searchedCompletely
 
 instance Prelude.NFData SearchedLogStream where

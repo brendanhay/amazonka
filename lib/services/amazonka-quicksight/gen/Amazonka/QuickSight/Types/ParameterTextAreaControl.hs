@@ -115,7 +115,8 @@ instance Data.FromJSON ParameterTextAreaControl where
 
 instance Prelude.Hashable ParameterTextAreaControl where
   hashWithSalt _salt ParameterTextAreaControl' {..} =
-    _salt `Prelude.hashWithSalt` delimiter
+    _salt
+      `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` displayOptions
       `Prelude.hashWithSalt` parameterControlId
       `Prelude.hashWithSalt` title

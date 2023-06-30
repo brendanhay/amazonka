@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteDeployment where
 
 instance Prelude.Hashable DeleteDeployment where
   hashWithSalt _salt DeleteDeployment' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` deploymentId
 
 instance Prelude.NFData DeleteDeployment where

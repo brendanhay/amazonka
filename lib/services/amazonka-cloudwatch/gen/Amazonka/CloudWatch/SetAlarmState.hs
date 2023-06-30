@@ -157,7 +157,8 @@ instance Core.AWSRequest SetAlarmState where
 
 instance Prelude.Hashable SetAlarmState where
   hashWithSalt _salt SetAlarmState' {..} =
-    _salt `Prelude.hashWithSalt` stateReasonData
+    _salt
+      `Prelude.hashWithSalt` stateReasonData
       `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` stateValue
       `Prelude.hashWithSalt` stateReason

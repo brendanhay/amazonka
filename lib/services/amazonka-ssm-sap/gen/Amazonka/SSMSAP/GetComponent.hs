@@ -79,11 +79,9 @@ newGetComponent pApplicationId_ pComponentId_ =
       componentId = pComponentId_
     }
 
--- |
 getComponent_applicationId :: Lens.Lens' GetComponent Prelude.Text
 getComponent_applicationId = Lens.lens (\GetComponent' {applicationId} -> applicationId) (\s@GetComponent' {} a -> s {applicationId = a} :: GetComponent)
 
--- |
 getComponent_componentId :: Lens.Lens' GetComponent Prelude.Text
 getComponent_componentId = Lens.lens (\GetComponent' {componentId} -> componentId) (\s@GetComponent' {} a -> s {componentId = a} :: GetComponent)
 
@@ -101,7 +99,8 @@ instance Core.AWSRequest GetComponent where
 
 instance Prelude.Hashable GetComponent where
   hashWithSalt _salt GetComponent' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
 
 instance Prelude.NFData GetComponent where
@@ -165,7 +164,6 @@ newGetComponentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getComponentResponse_component :: Lens.Lens' GetComponentResponse (Prelude.Maybe Component)
 getComponentResponse_component = Lens.lens (\GetComponentResponse' {component} -> component) (\s@GetComponentResponse' {} a -> s {component = a} :: GetComponentResponse)
 

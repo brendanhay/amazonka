@@ -74,7 +74,8 @@ instance Data.FromJSON VideoDetail where
 
 instance Prelude.Hashable VideoDetail where
   hashWithSalt _salt VideoDetail' {..} =
-    _salt `Prelude.hashWithSalt` heightInPx
+    _salt
+      `Prelude.hashWithSalt` heightInPx
       `Prelude.hashWithSalt` widthInPx
 
 instance Prelude.NFData VideoDetail where

@@ -111,10 +111,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetComplianceSummaryByResourceTypeResponse'
-            Prelude.<$> ( x Data..?> "ComplianceSummariesByResourceType"
+            Prelude.<$> ( x
+                            Data..?> "ComplianceSummariesByResourceType"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

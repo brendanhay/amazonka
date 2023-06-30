@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     ListCustomRoutingEndpointGroups' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` listenerArn
 

@@ -236,7 +236,8 @@ instance Core.AWSRequest CreateMap where
 
 instance Prelude.Hashable CreateMap where
   hashWithSalt _salt CreateMap' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` configuration

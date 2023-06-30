@@ -83,7 +83,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails'
             Prelude.<$> (x Data..:? "Name")
-              Prelude.<*> (x Data..:? "ValueFrom")
+            Prelude.<*> (x Data..:? "ValueFrom")
       )
 
 instance
@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` valueFrom
 
 instance

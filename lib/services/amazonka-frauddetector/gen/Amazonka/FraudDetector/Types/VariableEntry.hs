@@ -113,7 +113,8 @@ variableEntry_variableType = Lens.lens (\VariableEntry' {variableType} -> variab
 
 instance Prelude.Hashable VariableEntry where
   hashWithSalt _salt VariableEntry' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description

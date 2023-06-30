@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteDataset where
 
 instance Prelude.Hashable DeleteDataset where
   hashWithSalt _salt DeleteDataset' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` datasetId
 
 instance Prelude.NFData DeleteDataset where

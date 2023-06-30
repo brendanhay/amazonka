@@ -116,22 +116,22 @@ instance Core.AWSPager ListAnnotationImportJobs where
     | Core.stop
         ( rs
             Lens.^? listAnnotationImportJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAnnotationImportJobsResponse_annotationImportJobs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAnnotationImportJobs_nextToken
           Lens..~ rs
           Lens.^? listAnnotationImportJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnnotationImportJobs where
   type
@@ -143,7 +143,8 @@ instance Core.AWSRequest ListAnnotationImportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListAnnotationImportJobsResponse'
-            Prelude.<$> ( x Data..?> "annotationImportJobs"
+            Prelude.<$> ( x
+                            Data..?> "annotationImportJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -152,7 +153,8 @@ instance Core.AWSRequest ListAnnotationImportJobs where
 
 instance Prelude.Hashable ListAnnotationImportJobs where
   hashWithSalt _salt ListAnnotationImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` ids
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

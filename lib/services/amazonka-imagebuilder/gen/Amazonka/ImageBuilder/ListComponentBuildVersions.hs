@@ -126,7 +126,8 @@ instance Core.AWSRequest ListComponentBuildVersions where
     Response.receiveJSON
       ( \s h x ->
           ListComponentBuildVersionsResponse'
-            Prelude.<$> ( x Data..?> "componentSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "componentSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -136,7 +137,8 @@ instance Core.AWSRequest ListComponentBuildVersions where
 
 instance Prelude.Hashable ListComponentBuildVersions where
   hashWithSalt _salt ListComponentBuildVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` componentVersionArn
 

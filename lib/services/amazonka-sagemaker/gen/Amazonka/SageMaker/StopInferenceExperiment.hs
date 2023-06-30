@@ -178,7 +178,8 @@ instance Core.AWSRequest StopInferenceExperiment where
 
 instance Prelude.Hashable StopInferenceExperiment where
   hashWithSalt _salt StopInferenceExperiment' {..} =
-    _salt `Prelude.hashWithSalt` desiredModelVariants
+    _salt
+      `Prelude.hashWithSalt` desiredModelVariants
       `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` name

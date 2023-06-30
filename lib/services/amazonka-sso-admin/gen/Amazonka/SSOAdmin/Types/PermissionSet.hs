@@ -126,7 +126,8 @@ instance Data.FromJSON PermissionSet where
 
 instance Prelude.Hashable PermissionSet where
   hashWithSalt _salt PermissionSet' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissionSetArn

@@ -239,7 +239,8 @@ instance Data.FromJSON ExportJobResponse where
 
 instance Prelude.Hashable ExportJobResponse where
   hashWithSalt _salt ExportJobResponse' {..} =
-    _salt `Prelude.hashWithSalt` completedPieces
+    _salt
+      `Prelude.hashWithSalt` completedPieces
       `Prelude.hashWithSalt` completionDate
       `Prelude.hashWithSalt` failedPieces
       `Prelude.hashWithSalt` failures

@@ -101,7 +101,8 @@ tdscdmaNmrObj_cellParams = Lens.lens (\TdscdmaNmrObj' {cellParams} -> cellParams
 
 instance Prelude.Hashable TdscdmaNmrObj where
   hashWithSalt _salt TdscdmaNmrObj' {..} =
-    _salt `Prelude.hashWithSalt` pathLoss
+    _salt
+      `Prelude.hashWithSalt` pathLoss
       `Prelude.hashWithSalt` rscp
       `Prelude.hashWithSalt` utranCid
       `Prelude.hashWithSalt` uarfcn

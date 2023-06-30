@@ -170,7 +170,8 @@ instance Data.FromJSON LongTermPricingListEntry where
 
 instance Prelude.Hashable LongTermPricingListEntry where
   hashWithSalt _salt LongTermPricingListEntry' {..} =
-    _salt `Prelude.hashWithSalt` currentActiveJob
+    _salt
+      `Prelude.hashWithSalt` currentActiveJob
       `Prelude.hashWithSalt` isLongTermPricingAutoRenew
       `Prelude.hashWithSalt` jobIds
       `Prelude.hashWithSalt` longTermPricingEndDate

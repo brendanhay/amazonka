@@ -98,7 +98,8 @@ instance Data.FromJSON DeviceSelectionConfig where
 
 instance Prelude.Hashable DeviceSelectionConfig where
   hashWithSalt _salt DeviceSelectionConfig' {..} =
-    _salt `Prelude.hashWithSalt` deviceNameContains
+    _salt
+      `Prelude.hashWithSalt` deviceNameContains
       `Prelude.hashWithSalt` deviceNames
       `Prelude.hashWithSalt` percentage
       `Prelude.hashWithSalt` deviceSubsetType

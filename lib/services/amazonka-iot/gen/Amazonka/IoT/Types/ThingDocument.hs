@@ -148,7 +148,8 @@ instance Data.FromJSON ThingDocument where
             Prelude.<*> (x Data..:? "connectivity")
             Prelude.<*> (x Data..:? "deviceDefender")
             Prelude.<*> (x Data..:? "shadow")
-            Prelude.<*> ( x Data..:? "thingGroupNames"
+            Prelude.<*> ( x
+                            Data..:? "thingGroupNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "thingId")
@@ -158,7 +159,8 @@ instance Data.FromJSON ThingDocument where
 
 instance Prelude.Hashable ThingDocument where
   hashWithSalt _salt ThingDocument' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` connectivity
       `Prelude.hashWithSalt` deviceDefender
       `Prelude.hashWithSalt` shadow

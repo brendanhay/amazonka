@@ -151,7 +151,8 @@ instance Core.AWSRequest GetObjectTorrent where
 
 instance Prelude.Hashable GetObjectTorrent where
   hashWithSalt _salt GetObjectTorrent' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key

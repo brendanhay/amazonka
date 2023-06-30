@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     FirewallSubnetIsOutOfScopeViolation' {..} =
-      _salt `Prelude.hashWithSalt` firewallSubnetId
+      _salt
+        `Prelude.hashWithSalt` firewallSubnetId
         `Prelude.hashWithSalt` subnetAvailabilityZone
         `Prelude.hashWithSalt` subnetAvailabilityZoneId
         `Prelude.hashWithSalt` vpcEndpointId

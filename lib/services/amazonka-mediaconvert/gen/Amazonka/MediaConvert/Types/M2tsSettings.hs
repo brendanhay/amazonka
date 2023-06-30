@@ -803,7 +803,8 @@ instance Data.FromJSON M2tsSettings where
 
 instance Prelude.Hashable M2tsSettings where
   hashWithSalt _salt M2tsSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioBufferModel
+    _salt
+      `Prelude.hashWithSalt` audioBufferModel
       `Prelude.hashWithSalt` audioDuration
       `Prelude.hashWithSalt` audioFramesPerPes
       `Prelude.hashWithSalt` audioPids

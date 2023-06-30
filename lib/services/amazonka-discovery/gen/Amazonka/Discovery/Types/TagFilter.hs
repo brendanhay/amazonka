@@ -64,7 +64,8 @@ tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} 
 
 instance Prelude.Hashable TagFilter where
   hashWithSalt _salt TagFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData TagFilter where

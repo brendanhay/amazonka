@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     LastReportGenerationExecutionError' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
 
 instance

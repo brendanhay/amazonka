@@ -114,20 +114,22 @@ instance Core.AWSPager GetBundles where
     | Core.stop
         ( rs
             Lens.^? getBundlesResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getBundlesResponse_bundles Prelude.. Lens._Just
+            Lens.^? getBundlesResponse_bundles
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getBundles_pageToken
           Lens..~ rs
-          Lens.^? getBundlesResponse_nextPageToken Prelude.. Lens._Just
+          Lens.^? getBundlesResponse_nextPageToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBundles where
   type AWSResponse GetBundles = GetBundlesResponse
@@ -144,7 +146,8 @@ instance Core.AWSRequest GetBundles where
 
 instance Prelude.Hashable GetBundles where
   hashWithSalt _salt GetBundles' {..} =
-    _salt `Prelude.hashWithSalt` includeInactive
+    _salt
+      `Prelude.hashWithSalt` includeInactive
       `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData GetBundles where

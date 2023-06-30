@@ -572,7 +572,8 @@ instance Data.FromJSON AudioParameters where
 
 instance Prelude.Hashable AudioParameters where
   hashWithSalt _salt AudioParameters' {..} =
-    _salt `Prelude.hashWithSalt` audioPackingMode
+    _salt
+      `Prelude.hashWithSalt` audioPackingMode
       `Prelude.hashWithSalt` bitRate
       `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` codec

@@ -113,7 +113,8 @@ instance Core.AWSRequest RejectQualificationRequest where
 
 instance Prelude.Hashable RejectQualificationRequest where
   hashWithSalt _salt RejectQualificationRequest' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` qualificationRequestId
 
 instance Prelude.NFData RejectQualificationRequest where

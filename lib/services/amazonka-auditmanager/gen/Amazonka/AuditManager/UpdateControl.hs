@@ -161,7 +161,8 @@ instance Core.AWSRequest UpdateControl where
 
 instance Prelude.Hashable UpdateControl where
   hashWithSalt _salt UpdateControl' {..} =
-    _salt `Prelude.hashWithSalt` actionPlanInstructions
+    _salt
+      `Prelude.hashWithSalt` actionPlanInstructions
       `Prelude.hashWithSalt` actionPlanTitle
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` testingInformation

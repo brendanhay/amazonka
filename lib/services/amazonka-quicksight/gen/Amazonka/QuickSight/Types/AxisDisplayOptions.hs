@@ -122,7 +122,8 @@ instance Data.FromJSON AxisDisplayOptions where
 
 instance Prelude.Hashable AxisDisplayOptions where
   hashWithSalt _salt AxisDisplayOptions' {..} =
-    _salt `Prelude.hashWithSalt` axisLineVisibility
+    _salt
+      `Prelude.hashWithSalt` axisLineVisibility
       `Prelude.hashWithSalt` axisOffset
       `Prelude.hashWithSalt` dataOptions
       `Prelude.hashWithSalt` gridLineVisibility

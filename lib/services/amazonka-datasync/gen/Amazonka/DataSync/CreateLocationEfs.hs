@@ -213,7 +213,8 @@ instance Core.AWSRequest CreateLocationEfs where
 
 instance Prelude.Hashable CreateLocationEfs where
   hashWithSalt _salt CreateLocationEfs' {..} =
-    _salt `Prelude.hashWithSalt` accessPointArn
+    _salt
+      `Prelude.hashWithSalt` accessPointArn
       `Prelude.hashWithSalt` fileSystemAccessRoleArn
       `Prelude.hashWithSalt` inTransitEncryption
       `Prelude.hashWithSalt` subdirectory

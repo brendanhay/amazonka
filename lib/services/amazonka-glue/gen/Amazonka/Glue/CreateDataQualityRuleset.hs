@@ -158,7 +158,8 @@ instance Core.AWSRequest CreateDataQualityRuleset where
 
 instance Prelude.Hashable CreateDataQualityRuleset where
   hashWithSalt _salt CreateDataQualityRuleset' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targetTable

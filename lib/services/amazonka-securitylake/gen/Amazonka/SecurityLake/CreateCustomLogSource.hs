@@ -178,7 +178,8 @@ instance Core.AWSRequest CreateCustomLogSource where
 
 instance Prelude.Hashable CreateCustomLogSource where
   hashWithSalt _salt CreateCustomLogSource' {..} =
-    _salt `Prelude.hashWithSalt` customSourceName
+    _salt
+      `Prelude.hashWithSalt` customSourceName
       `Prelude.hashWithSalt` eventClass
       `Prelude.hashWithSalt` glueInvocationRoleArn
       `Prelude.hashWithSalt` logProviderAccountId

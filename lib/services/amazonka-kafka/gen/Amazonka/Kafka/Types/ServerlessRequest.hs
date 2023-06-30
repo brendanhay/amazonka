@@ -67,7 +67,8 @@ serverlessRequest_vpcConfigs = Lens.lens (\ServerlessRequest' {vpcConfigs} -> vp
 
 instance Prelude.Hashable ServerlessRequest where
   hashWithSalt _salt ServerlessRequest' {..} =
-    _salt `Prelude.hashWithSalt` clientAuthentication
+    _salt
+      `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` vpcConfigs
 
 instance Prelude.NFData ServerlessRequest where

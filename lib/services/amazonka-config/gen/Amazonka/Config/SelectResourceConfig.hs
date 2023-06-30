@@ -114,22 +114,22 @@ instance Core.AWSPager SelectResourceConfig where
     | Core.stop
         ( rs
             Lens.^? selectResourceConfigResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? selectResourceConfigResponse_results
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& selectResourceConfig_nextToken
           Lens..~ rs
           Lens.^? selectResourceConfigResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SelectResourceConfig where
   type
@@ -149,7 +149,8 @@ instance Core.AWSRequest SelectResourceConfig where
 
 instance Prelude.Hashable SelectResourceConfig where
   hashWithSalt _salt SelectResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` expression
 

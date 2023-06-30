@@ -197,7 +197,8 @@ instance
   hashWithSalt
     _salt
     ProductionVariantCoreDumpConfig' {..} =
-      _salt `Prelude.hashWithSalt` kmsKeyId
+      _salt
+        `Prelude.hashWithSalt` kmsKeyId
         `Prelude.hashWithSalt` destinationS3Uri
 
 instance

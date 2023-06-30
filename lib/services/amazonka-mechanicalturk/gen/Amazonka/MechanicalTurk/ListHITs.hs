@@ -93,20 +93,23 @@ instance Core.AWSPager ListHITs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listHITsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listHITsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listHITsResponse_hITs Prelude.. Lens._Just
+            Lens.^? listHITsResponse_hITs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listHITs_nextToken
           Lens..~ rs
-          Lens.^? listHITsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listHITsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHITs where
   type AWSResponse ListHITs = ListHITsResponse
@@ -124,7 +127,8 @@ instance Core.AWSRequest ListHITs where
 
 instance Prelude.Hashable ListHITs where
   hashWithSalt _salt ListHITs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListHITs where

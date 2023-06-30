@@ -90,7 +90,8 @@ instance Data.FromJSON ColumnSort where
 
 instance Prelude.Hashable ColumnSort where
   hashWithSalt _salt ColumnSort' {..} =
-    _salt `Prelude.hashWithSalt` aggregationFunction
+    _salt
+      `Prelude.hashWithSalt` aggregationFunction
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` direction
 

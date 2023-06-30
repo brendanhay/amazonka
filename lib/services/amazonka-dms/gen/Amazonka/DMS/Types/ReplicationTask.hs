@@ -680,7 +680,8 @@ instance Data.FromJSON ReplicationTask where
 
 instance Prelude.Hashable ReplicationTask where
   hashWithSalt _salt ReplicationTask' {..} =
-    _salt `Prelude.hashWithSalt` cdcStartPosition
+    _salt
+      `Prelude.hashWithSalt` cdcStartPosition
       `Prelude.hashWithSalt` cdcStopPosition
       `Prelude.hashWithSalt` lastFailureMessage
       `Prelude.hashWithSalt` migrationType

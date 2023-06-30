@@ -85,7 +85,8 @@ instance Data.FromJSON InstanceGroupTimeline where
 
 instance Prelude.Hashable InstanceGroupTimeline where
   hashWithSalt _salt InstanceGroupTimeline' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` readyDateTime
 

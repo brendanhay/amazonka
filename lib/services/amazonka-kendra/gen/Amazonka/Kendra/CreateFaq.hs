@@ -231,7 +231,8 @@ instance Core.AWSRequest CreateFaq where
 
 instance Prelude.Hashable CreateFaq where
   hashWithSalt _salt CreateFaq' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fileFormat
       `Prelude.hashWithSalt` languageCode

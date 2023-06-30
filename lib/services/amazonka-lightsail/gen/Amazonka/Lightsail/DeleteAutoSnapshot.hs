@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteAutoSnapshot where
 
 instance Prelude.Hashable DeleteAutoSnapshot where
   hashWithSalt _salt DeleteAutoSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` resourceName
+    _salt
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` date
 
 instance Prelude.NFData DeleteAutoSnapshot where

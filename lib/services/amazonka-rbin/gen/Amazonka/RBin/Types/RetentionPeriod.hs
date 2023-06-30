@@ -92,7 +92,8 @@ instance Data.FromJSON RetentionPeriod where
 
 instance Prelude.Hashable RetentionPeriod where
   hashWithSalt _salt RetentionPeriod' {..} =
-    _salt `Prelude.hashWithSalt` retentionPeriodValue
+    _salt
+      `Prelude.hashWithSalt` retentionPeriodValue
       `Prelude.hashWithSalt` retentionPeriodUnit
 
 instance Prelude.NFData RetentionPeriod where

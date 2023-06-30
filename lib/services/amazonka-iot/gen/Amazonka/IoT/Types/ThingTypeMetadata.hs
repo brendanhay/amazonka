@@ -89,7 +89,8 @@ instance Data.FromJSON ThingTypeMetadata where
 
 instance Prelude.Hashable ThingTypeMetadata where
   hashWithSalt _salt ThingTypeMetadata' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` deprecated
       `Prelude.hashWithSalt` deprecationDate
 

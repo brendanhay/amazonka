@@ -195,7 +195,8 @@ instance Core.AWSRequest AllocateHostedConnection where
 
 instance Prelude.Hashable AllocateHostedConnection where
   hashWithSalt _salt AllocateHostedConnection' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` bandwidth

@@ -150,8 +150,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateWirelessGatewayTaskDefinitionResponse'
-            Prelude.<$> (x Data..?> "Arn") Prelude.<*> (x Data..?> "Id")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -161,7 +162,8 @@ instance
   hashWithSalt
     _salt
     CreateWirelessGatewayTaskDefinition' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` update

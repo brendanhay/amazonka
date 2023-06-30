@@ -222,7 +222,8 @@ instance Core.AWSRequest UpdateCluster where
 
 instance Prelude.Hashable UpdateCluster where
   hashWithSalt _salt UpdateCluster' {..} =
-    _salt `Prelude.hashWithSalt` adminUserPassword
+    _salt
+      `Prelude.hashWithSalt` adminUserPassword
       `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` preferredMaintenanceWindow

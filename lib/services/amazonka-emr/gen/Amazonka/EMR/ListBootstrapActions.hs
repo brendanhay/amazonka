@@ -97,22 +97,22 @@ instance Core.AWSPager ListBootstrapActions where
     | Core.stop
         ( rs
             Lens.^? listBootstrapActionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBootstrapActionsResponse_bootstrapActions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBootstrapActions_marker
           Lens..~ rs
           Lens.^? listBootstrapActionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBootstrapActions where
   type
@@ -124,7 +124,8 @@ instance Core.AWSRequest ListBootstrapActions where
     Response.receiveJSON
       ( \s h x ->
           ListBootstrapActionsResponse'
-            Prelude.<$> ( x Data..?> "BootstrapActions"
+            Prelude.<$> ( x
+                            Data..?> "BootstrapActions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Marker")
@@ -133,7 +134,8 @@ instance Core.AWSRequest ListBootstrapActions where
 
 instance Prelude.Hashable ListBootstrapActions where
   hashWithSalt _salt ListBootstrapActions' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData ListBootstrapActions where

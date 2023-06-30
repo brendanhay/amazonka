@@ -134,18 +134,18 @@ instance
       ( \s h x ->
           GetMaintenanceWindowExecutionTaskInvocationResponse'
             Prelude.<$> (x Data..?> "EndTime")
-              Prelude.<*> (x Data..?> "ExecutionId")
-              Prelude.<*> (x Data..?> "InvocationId")
-              Prelude.<*> (x Data..?> "OwnerInformation")
-              Prelude.<*> (x Data..?> "Parameters")
-              Prelude.<*> (x Data..?> "StartTime")
-              Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (x Data..?> "StatusDetails")
-              Prelude.<*> (x Data..?> "TaskExecutionId")
-              Prelude.<*> (x Data..?> "TaskType")
-              Prelude.<*> (x Data..?> "WindowExecutionId")
-              Prelude.<*> (x Data..?> "WindowTargetId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ExecutionId")
+            Prelude.<*> (x Data..?> "InvocationId")
+            Prelude.<*> (x Data..?> "OwnerInformation")
+            Prelude.<*> (x Data..?> "Parameters")
+            Prelude.<*> (x Data..?> "StartTime")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "StatusDetails")
+            Prelude.<*> (x Data..?> "TaskExecutionId")
+            Prelude.<*> (x Data..?> "TaskType")
+            Prelude.<*> (x Data..?> "WindowExecutionId")
+            Prelude.<*> (x Data..?> "WindowTargetId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     GetMaintenanceWindowExecutionTaskInvocation' {..} =
-      _salt `Prelude.hashWithSalt` windowExecutionId
+      _salt
+        `Prelude.hashWithSalt` windowExecutionId
         `Prelude.hashWithSalt` taskId
         `Prelude.hashWithSalt` invocationId
 

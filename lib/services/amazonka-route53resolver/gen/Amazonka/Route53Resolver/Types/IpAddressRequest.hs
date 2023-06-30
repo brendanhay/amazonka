@@ -71,7 +71,8 @@ ipAddressRequest_subnetId = Lens.lens (\IpAddressRequest' {subnetId} -> subnetId
 
 instance Prelude.Hashable IpAddressRequest where
   hashWithSalt _salt IpAddressRequest' {..} =
-    _salt `Prelude.hashWithSalt` ip
+    _salt
+      `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData IpAddressRequest where

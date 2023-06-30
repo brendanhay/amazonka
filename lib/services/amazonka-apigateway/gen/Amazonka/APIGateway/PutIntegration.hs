@@ -427,7 +427,8 @@ instance Core.AWSRequest PutIntegration where
 
 instance Prelude.Hashable PutIntegration where
   hashWithSalt _salt PutIntegration' {..} =
-    _salt `Prelude.hashWithSalt` cacheKeyParameters
+    _salt
+      `Prelude.hashWithSalt` cacheKeyParameters
       `Prelude.hashWithSalt` cacheNamespace
       `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` connectionType

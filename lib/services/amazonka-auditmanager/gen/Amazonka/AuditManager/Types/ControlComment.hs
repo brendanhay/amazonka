@@ -85,7 +85,8 @@ instance Data.FromJSON ControlComment where
 
 instance Prelude.Hashable ControlComment where
   hashWithSalt _salt ControlComment' {..} =
-    _salt `Prelude.hashWithSalt` authorName
+    _salt
+      `Prelude.hashWithSalt` authorName
       `Prelude.hashWithSalt` commentBody
       `Prelude.hashWithSalt` postedDate
 

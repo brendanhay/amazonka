@@ -264,7 +264,8 @@ instance Data.FromJSON ReservationAggregates where
 
 instance Prelude.Hashable ReservationAggregates where
   hashWithSalt _salt ReservationAggregates' {..} =
-    _salt `Prelude.hashWithSalt` amortizedRecurringFee
+    _salt
+      `Prelude.hashWithSalt` amortizedRecurringFee
       `Prelude.hashWithSalt` amortizedUpfrontFee
       `Prelude.hashWithSalt` netRISavings
       `Prelude.hashWithSalt` onDemandCostOfRIHoursUsed

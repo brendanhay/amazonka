@@ -117,7 +117,8 @@ executionConfiguration_videoCapture = Lens.lens (\ExecutionConfiguration' {video
 
 instance Prelude.Hashable ExecutionConfiguration where
   hashWithSalt _salt ExecutionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accountsCleanup
+    _salt
+      `Prelude.hashWithSalt` accountsCleanup
       `Prelude.hashWithSalt` appPackagesCleanup
       `Prelude.hashWithSalt` jobTimeoutMinutes
       `Prelude.hashWithSalt` skipAppResign

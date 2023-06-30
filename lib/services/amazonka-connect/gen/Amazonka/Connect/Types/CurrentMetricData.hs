@@ -75,7 +75,8 @@ instance Data.FromJSON CurrentMetricData where
 
 instance Prelude.Hashable CurrentMetricData where
   hashWithSalt _salt CurrentMetricData' {..} =
-    _salt `Prelude.hashWithSalt` metric
+    _salt
+      `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CurrentMetricData where

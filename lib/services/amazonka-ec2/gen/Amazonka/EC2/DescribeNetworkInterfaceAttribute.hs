@@ -129,13 +129,15 @@ instance
       ( \s h x ->
           DescribeNetworkInterfaceAttributeResponse'
             Prelude.<$> (x Data..@? "attachment")
-              Prelude.<*> (x Data..@? "description")
-              Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
-              Prelude.<*> (x Data..@? "networkInterfaceId")
-              Prelude.<*> (x Data..@? "sourceDestCheck")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "description")
+            Prelude.<*> ( x
+                            Data..@? "groupSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (x Data..@? "networkInterfaceId")
+            Prelude.<*> (x Data..@? "sourceDestCheck")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -145,7 +147,8 @@ instance
   hashWithSalt
     _salt
     DescribeNetworkInterfaceAttribute' {..} =
-      _salt `Prelude.hashWithSalt` attribute
+      _salt
+        `Prelude.hashWithSalt` attribute
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` networkInterfaceId
 

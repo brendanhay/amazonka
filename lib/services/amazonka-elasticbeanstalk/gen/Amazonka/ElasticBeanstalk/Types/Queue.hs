@@ -65,11 +65,13 @@ queue_url = Lens.lens (\Queue' {url} -> url) (\s@Queue' {} a -> s {url = a} :: Q
 instance Data.FromXML Queue where
   parseXML x =
     Queue'
-      Prelude.<$> (x Data..@? "Name") Prelude.<*> (x Data..@? "URL")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "URL")
 
 instance Prelude.Hashable Queue where
   hashWithSalt _salt Queue' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Queue where

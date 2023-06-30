@@ -118,22 +118,22 @@ instance Core.AWSPager DescribeClusterTracks where
     | Core.stop
         ( rs
             Lens.^? describeClusterTracksResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterTracksResponse_maintenanceTracks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClusterTracks_marker
           Lens..~ rs
           Lens.^? describeClusterTracksResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterTracks where
   type
@@ -146,7 +146,8 @@ instance Core.AWSRequest DescribeClusterTracks where
       "DescribeClusterTracksResult"
       ( \s h x ->
           DescribeClusterTracksResponse'
-            Prelude.<$> ( x Data..@? "MaintenanceTracks"
+            Prelude.<$> ( x
+                            Data..@? "MaintenanceTracks"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "MaintenanceTrack")
                         )
@@ -156,7 +157,8 @@ instance Core.AWSRequest DescribeClusterTracks where
 
 instance Prelude.Hashable DescribeClusterTracks where
   hashWithSalt _salt DescribeClusterTracks' {..} =
-    _salt `Prelude.hashWithSalt` maintenanceTrackName
+    _salt
+      `Prelude.hashWithSalt` maintenanceTrackName
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
 

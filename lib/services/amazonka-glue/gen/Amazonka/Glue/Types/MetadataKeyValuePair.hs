@@ -65,7 +65,8 @@ metadataKeyValuePair_metadataValue = Lens.lens (\MetadataKeyValuePair' {metadata
 
 instance Prelude.Hashable MetadataKeyValuePair where
   hashWithSalt _salt MetadataKeyValuePair' {..} =
-    _salt `Prelude.hashWithSalt` metadataKey
+    _salt
+      `Prelude.hashWithSalt` metadataKey
       `Prelude.hashWithSalt` metadataValue
 
 instance Prelude.NFData MetadataKeyValuePair where

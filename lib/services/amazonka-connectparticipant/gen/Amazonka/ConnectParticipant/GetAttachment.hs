@@ -113,7 +113,8 @@ instance Core.AWSRequest GetAttachment where
 
 instance Prelude.Hashable GetAttachment where
   hashWithSalt _salt GetAttachment' {..} =
-    _salt `Prelude.hashWithSalt` attachmentId
+    _salt
+      `Prelude.hashWithSalt` attachmentId
       `Prelude.hashWithSalt` connectionToken
 
 instance Prelude.NFData GetAttachment where

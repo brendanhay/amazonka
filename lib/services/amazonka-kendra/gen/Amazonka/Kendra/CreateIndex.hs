@@ -294,7 +294,8 @@ instance Core.AWSRequest CreateIndex where
 
 instance Prelude.Hashable CreateIndex where
   hashWithSalt _salt CreateIndex' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration

@@ -241,7 +241,8 @@ instance Data.FromJSON BatchWriteOperationResponse where
 
 instance Prelude.Hashable BatchWriteOperationResponse where
   hashWithSalt _salt BatchWriteOperationResponse' {..} =
-    _salt `Prelude.hashWithSalt` addFacetToObject
+    _salt
+      `Prelude.hashWithSalt` addFacetToObject
       `Prelude.hashWithSalt` attachObject
       `Prelude.hashWithSalt` attachPolicy
       `Prelude.hashWithSalt` attachToIndex

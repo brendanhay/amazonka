@@ -68,7 +68,8 @@ oEMEphemeris_s3Object = Lens.lens (\OEMEphemeris' {s3Object} -> s3Object) (\s@OE
 
 instance Prelude.Hashable OEMEphemeris where
   hashWithSalt _salt OEMEphemeris' {..} =
-    _salt `Prelude.hashWithSalt` oemData
+    _salt
+      `Prelude.hashWithSalt` oemData
       `Prelude.hashWithSalt` s3Object
 
 instance Prelude.NFData OEMEphemeris where

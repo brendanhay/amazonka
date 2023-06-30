@@ -99,7 +99,8 @@ instance Core.AWSRequest ListParallelData where
       ( \s h x ->
           ListParallelDataResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ParallelDataPropertiesList"
+            Prelude.<*> ( x
+                            Data..?> "ParallelDataPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -107,7 +108,8 @@ instance Core.AWSRequest ListParallelData where
 
 instance Prelude.Hashable ListParallelData where
   hashWithSalt _salt ListParallelData' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListParallelData where

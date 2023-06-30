@@ -121,7 +121,8 @@ instance Data.FromXML AuthorizationRule where
 
 instance Prelude.Hashable AuthorizationRule where
   hashWithSalt _salt AuthorizationRule' {..} =
-    _salt `Prelude.hashWithSalt` accessAll
+    _salt
+      `Prelude.hashWithSalt` accessAll
       `Prelude.hashWithSalt` clientVpnEndpointId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationCidr

@@ -75,7 +75,8 @@ instance Data.FromJSON Mustache where
 
 instance Prelude.Hashable Mustache where
   hashWithSalt _salt Mustache' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Mustache where

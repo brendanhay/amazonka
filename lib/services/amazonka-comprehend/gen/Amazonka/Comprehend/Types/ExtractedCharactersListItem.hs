@@ -69,12 +69,14 @@ instance Data.FromJSON ExtractedCharactersListItem where
       "ExtractedCharactersListItem"
       ( \x ->
           ExtractedCharactersListItem'
-            Prelude.<$> (x Data..:? "Count") Prelude.<*> (x Data..:? "Page")
+            Prelude.<$> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Page")
       )
 
 instance Prelude.Hashable ExtractedCharactersListItem where
   hashWithSalt _salt ExtractedCharactersListItem' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` page
 
 instance Prelude.NFData ExtractedCharactersListItem where

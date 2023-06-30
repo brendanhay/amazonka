@@ -150,7 +150,8 @@ instance Data.FromJSON AgentInfo where
       ( \x ->
           AgentInfo'
             Prelude.<$> (x Data..:? "agentId")
-            Prelude.<*> ( x Data..:? "agentNetworkInfoList"
+            Prelude.<*> ( x
+                            Data..:? "agentNetworkInfoList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "agentType")
@@ -165,7 +166,8 @@ instance Data.FromJSON AgentInfo where
 
 instance Prelude.Hashable AgentInfo where
   hashWithSalt _salt AgentInfo' {..} =
-    _salt `Prelude.hashWithSalt` agentId
+    _salt
+      `Prelude.hashWithSalt` agentId
       `Prelude.hashWithSalt` agentNetworkInfoList
       `Prelude.hashWithSalt` agentType
       `Prelude.hashWithSalt` collectionStatus

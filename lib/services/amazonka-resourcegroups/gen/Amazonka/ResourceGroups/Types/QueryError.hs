@@ -96,7 +96,8 @@ instance Data.FromJSON QueryError where
 
 instance Prelude.Hashable QueryError where
   hashWithSalt _salt QueryError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData QueryError where

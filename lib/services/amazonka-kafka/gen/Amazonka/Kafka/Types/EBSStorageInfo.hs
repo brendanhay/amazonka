@@ -80,7 +80,8 @@ instance Data.FromJSON EBSStorageInfo where
 
 instance Prelude.Hashable EBSStorageInfo where
   hashWithSalt _salt EBSStorageInfo' {..} =
-    _salt `Prelude.hashWithSalt` provisionedThroughput
+    _salt
+      `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` volumeSize
 
 instance Prelude.NFData EBSStorageInfo where

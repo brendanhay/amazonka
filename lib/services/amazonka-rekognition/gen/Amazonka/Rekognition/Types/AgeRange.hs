@@ -73,12 +73,14 @@ instance Data.FromJSON AgeRange where
       "AgeRange"
       ( \x ->
           AgeRange'
-            Prelude.<$> (x Data..:? "High") Prelude.<*> (x Data..:? "Low")
+            Prelude.<$> (x Data..:? "High")
+            Prelude.<*> (x Data..:? "Low")
       )
 
 instance Prelude.Hashable AgeRange where
   hashWithSalt _salt AgeRange' {..} =
-    _salt `Prelude.hashWithSalt` high
+    _salt
+      `Prelude.hashWithSalt` high
       `Prelude.hashWithSalt` low
 
 instance Prelude.NFData AgeRange where

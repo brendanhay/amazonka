@@ -217,7 +217,8 @@ instance Data.FromJSON Address where
 
 instance Prelude.Hashable Address where
   hashWithSalt _salt Address' {..} =
-    _salt `Prelude.hashWithSalt` addressId
+    _salt
+      `Prelude.hashWithSalt` addressId
       `Prelude.hashWithSalt` city
       `Prelude.hashWithSalt` company
       `Prelude.hashWithSalt` country

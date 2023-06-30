@@ -87,7 +87,8 @@ instance Data.FromJSON ExecutionTrigger where
 
 instance Prelude.Hashable ExecutionTrigger where
   hashWithSalt _salt ExecutionTrigger' {..} =
-    _salt `Prelude.hashWithSalt` triggerDetail
+    _salt
+      `Prelude.hashWithSalt` triggerDetail
       `Prelude.hashWithSalt` triggerType
 
 instance Prelude.NFData ExecutionTrigger where

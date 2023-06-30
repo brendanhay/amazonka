@@ -264,7 +264,8 @@ instance Data.FromJSON HealthCheck where
 
 instance Prelude.Hashable HealthCheck where
   hashWithSalt _salt HealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` interval
+    _salt
+      `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` retries
       `Prelude.hashWithSalt` startPeriod
       `Prelude.hashWithSalt` timeout

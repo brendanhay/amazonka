@@ -96,7 +96,8 @@ instance Data.FromJSON UnsupportedResource where
 
 instance Prelude.Hashable UnsupportedResource where
   hashWithSalt _salt UnsupportedResource' {..} =
-    _salt `Prelude.hashWithSalt` logicalResourceId
+    _salt
+      `Prelude.hashWithSalt` logicalResourceId
       `Prelude.hashWithSalt` physicalResourceId
       `Prelude.hashWithSalt` resourceType
 

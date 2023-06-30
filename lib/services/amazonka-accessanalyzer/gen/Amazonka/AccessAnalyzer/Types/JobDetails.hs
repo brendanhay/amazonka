@@ -121,7 +121,8 @@ instance Data.FromJSON JobDetails where
 
 instance Prelude.Hashable JobDetails where
   hashWithSalt _salt JobDetails' {..} =
-    _salt `Prelude.hashWithSalt` completedOn
+    _salt
+      `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` jobError
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` status

@@ -78,12 +78,14 @@ instance Data.FromJSON SqlParameter where
       "SqlParameter"
       ( \x ->
           SqlParameter'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable SqlParameter where
   hashWithSalt _salt SqlParameter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SqlParameter where

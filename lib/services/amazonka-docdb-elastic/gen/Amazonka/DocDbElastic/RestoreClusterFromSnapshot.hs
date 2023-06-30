@@ -186,7 +186,8 @@ instance Core.AWSRequest RestoreClusterFromSnapshot where
 
 instance Prelude.Hashable RestoreClusterFromSnapshot where
   hashWithSalt _salt RestoreClusterFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcSecurityGroupIds

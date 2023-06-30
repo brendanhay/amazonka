@@ -262,7 +262,8 @@ instance Data.FromJSON MqttHeaders where
 
 instance Prelude.Hashable MqttHeaders where
   hashWithSalt _salt MqttHeaders' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` correlationData
       `Prelude.hashWithSalt` messageExpiry
       `Prelude.hashWithSalt` payloadFormatIndicator

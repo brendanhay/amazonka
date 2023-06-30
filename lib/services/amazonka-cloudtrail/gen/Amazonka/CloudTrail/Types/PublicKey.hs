@@ -102,7 +102,8 @@ instance Data.FromJSON PublicKey where
 
 instance Prelude.Hashable PublicKey where
   hashWithSalt _salt PublicKey' {..} =
-    _salt `Prelude.hashWithSalt` fingerprint
+    _salt
+      `Prelude.hashWithSalt` fingerprint
       `Prelude.hashWithSalt` validityEndTime
       `Prelude.hashWithSalt` validityStartTime
       `Prelude.hashWithSalt` value

@@ -246,10 +246,12 @@ instance Data.FromJSON Container where
             Prelude.<*> (x Data..:? "memory")
             Prelude.<*> (x Data..:? "memoryReservation")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> ( x Data..:? "networkBindings"
+            Prelude.<*> ( x
+                            Data..:? "networkBindings"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "networkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "reason")
@@ -259,7 +261,8 @@ instance Data.FromJSON Container where
 
 instance Prelude.Hashable Container where
   hashWithSalt _salt Container' {..} =
-    _salt `Prelude.hashWithSalt` containerArn
+    _salt
+      `Prelude.hashWithSalt` containerArn
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` gpuIds

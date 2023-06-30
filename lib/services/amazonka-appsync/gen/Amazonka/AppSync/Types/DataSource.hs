@@ -234,7 +234,8 @@ instance Data.FromJSON DataSource where
 
 instance Prelude.Hashable DataSource where
   hashWithSalt _salt DataSource' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceArn
+    _salt
+      `Prelude.hashWithSalt` dataSourceArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dynamodbConfig
       `Prelude.hashWithSalt` elasticsearchConfig

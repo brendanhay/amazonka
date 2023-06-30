@@ -113,7 +113,8 @@ instance Data.FromJSON DecimalParameterDeclaration where
 
 instance Prelude.Hashable DecimalParameterDeclaration where
   hashWithSalt _salt DecimalParameterDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` defaultValues
+    _salt
+      `Prelude.hashWithSalt` defaultValues
       `Prelude.hashWithSalt` valueWhenUnset
       `Prelude.hashWithSalt` parameterValueType
       `Prelude.hashWithSalt` name

@@ -182,7 +182,8 @@ instance Data.FromJSON ResourceMapping where
 
 instance Prelude.Hashable ResourceMapping where
   hashWithSalt _salt ResourceMapping' {..} =
-    _salt `Prelude.hashWithSalt` appRegistryAppName
+    _salt
+      `Prelude.hashWithSalt` appRegistryAppName
       `Prelude.hashWithSalt` logicalStackName
       `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` resourceName

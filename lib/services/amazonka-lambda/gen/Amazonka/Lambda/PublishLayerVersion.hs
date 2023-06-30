@@ -186,10 +186,12 @@ instance Core.AWSRequest PublishLayerVersion where
     Response.receiveJSON
       ( \s h x ->
           PublishLayerVersionResponse'
-            Prelude.<$> ( x Data..?> "CompatibleArchitectures"
+            Prelude.<$> ( x
+                            Data..?> "CompatibleArchitectures"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "CompatibleRuntimes"
+            Prelude.<*> ( x
+                            Data..?> "CompatibleRuntimes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Content")

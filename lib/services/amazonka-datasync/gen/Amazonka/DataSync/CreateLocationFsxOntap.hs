@@ -203,7 +203,8 @@ instance Core.AWSRequest CreateLocationFsxOntap where
 
 instance Prelude.Hashable CreateLocationFsxOntap where
   hashWithSalt _salt CreateLocationFsxOntap' {..} =
-    _salt `Prelude.hashWithSalt` subdirectory
+    _salt
+      `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` securityGroupArns

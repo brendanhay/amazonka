@@ -97,7 +97,8 @@ instance Data.FromJSON JobExecutionState where
 
 instance Prelude.Hashable JobExecutionState where
   hashWithSalt _salt JobExecutionState' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusDetails
       `Prelude.hashWithSalt` versionNumber
 

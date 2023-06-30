@@ -159,20 +159,23 @@ instance Core.AWSPager GetTables where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getTablesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getTablesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getTablesResponse_tableList Prelude.. Lens._Just
+            Lens.^? getTablesResponse_tableList
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getTables_nextToken
           Lens..~ rs
-          Lens.^? getTablesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getTablesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTables where
   type AWSResponse GetTables = GetTablesResponse
@@ -189,7 +192,8 @@ instance Core.AWSRequest GetTables where
 
 instance Prelude.Hashable GetTables where
   hashWithSalt _salt GetTables' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

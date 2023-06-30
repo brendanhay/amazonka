@@ -169,7 +169,8 @@ instance Core.AWSRequest CreateApiDestination where
 
 instance Prelude.Hashable CreateApiDestination where
   hashWithSalt _salt CreateApiDestination' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` invocationRateLimitPerSecond
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectionArn

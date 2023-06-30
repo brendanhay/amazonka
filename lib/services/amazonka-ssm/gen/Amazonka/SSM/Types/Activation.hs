@@ -168,7 +168,8 @@ instance Data.FromJSON Activation where
 
 instance Prelude.Hashable Activation where
   hashWithSalt _salt Activation' {..} =
-    _salt `Prelude.hashWithSalt` activationId
+    _salt
+      `Prelude.hashWithSalt` activationId
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` defaultInstanceName
       `Prelude.hashWithSalt` description

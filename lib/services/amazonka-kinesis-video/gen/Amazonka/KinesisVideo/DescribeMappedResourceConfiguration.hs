@@ -123,22 +123,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeMappedResourceConfigurationResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeMappedResourceConfigurationResponse_mappedResourceConfigurationList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeMappedResourceConfiguration_nextToken
           Lens..~ rs
           Lens.^? describeMappedResourceConfigurationResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -153,11 +153,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMappedResourceConfigurationResponse'
-            Prelude.<$> ( x Data..?> "MappedResourceConfigurationList"
+            Prelude.<$> ( x
+                            Data..?> "MappedResourceConfigurationList"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -167,7 +168,8 @@ instance
   hashWithSalt
     _salt
     DescribeMappedResourceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` streamARN
         `Prelude.hashWithSalt` streamName

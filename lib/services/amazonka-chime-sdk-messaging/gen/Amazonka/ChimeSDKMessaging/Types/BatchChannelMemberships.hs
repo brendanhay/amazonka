@@ -108,7 +108,8 @@ instance Data.FromJSON BatchChannelMemberships where
 
 instance Prelude.Hashable BatchChannelMemberships where
   hashWithSalt _salt BatchChannelMemberships' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` invitedBy
       `Prelude.hashWithSalt` members
       `Prelude.hashWithSalt` subChannelId

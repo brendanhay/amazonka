@@ -116,7 +116,8 @@ instance Data.FromJSON MeetingRoomConfiguration where
 
 instance Prelude.Hashable MeetingRoomConfiguration where
   hashWithSalt _salt MeetingRoomConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` endOfMeetingReminder
+    _salt
+      `Prelude.hashWithSalt` endOfMeetingReminder
       `Prelude.hashWithSalt` instantBooking
       `Prelude.hashWithSalt` requireCheckIn
       `Prelude.hashWithSalt` roomUtilizationMetricsEnabled

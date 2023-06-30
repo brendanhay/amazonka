@@ -90,7 +90,8 @@ instance Data.FromJSON CodeDeliveryDetailsType where
 
 instance Prelude.Hashable CodeDeliveryDetailsType where
   hashWithSalt _salt CodeDeliveryDetailsType' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` deliveryMedium
       `Prelude.hashWithSalt` destination
 

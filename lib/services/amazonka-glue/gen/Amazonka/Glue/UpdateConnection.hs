@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateConnection where
 
 instance Prelude.Hashable UpdateConnection where
   hashWithSalt _salt UpdateConnection' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectionInput
 

@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdateActionTarget where
 
 instance Prelude.Hashable UpdateActionTarget where
   hashWithSalt _salt UpdateActionTarget' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` actionTargetArn
 

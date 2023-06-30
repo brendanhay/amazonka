@@ -131,7 +131,8 @@ instance Data.FromJSON TableVisual where
 
 instance Prelude.Hashable TableVisual where
   hashWithSalt _salt TableVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chartConfiguration
       `Prelude.hashWithSalt` conditionalFormatting
       `Prelude.hashWithSalt` subtitle

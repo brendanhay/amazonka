@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteType where
 
 instance Prelude.Hashable DeleteType where
   hashWithSalt _salt DeleteType' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` typeName
 
 instance Prelude.NFData DeleteType where

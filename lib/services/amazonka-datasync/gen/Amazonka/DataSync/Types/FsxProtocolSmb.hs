@@ -185,7 +185,8 @@ instance Data.FromJSON FsxProtocolSmb where
 
 instance Prelude.Hashable FsxProtocolSmb where
   hashWithSalt _salt FsxProtocolSmb' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` mountOptions
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` user

@@ -114,7 +114,8 @@ instance Data.FromJSON ScheduleConfig where
 
 instance Prelude.Hashable ScheduleConfig where
   hashWithSalt _salt ScheduleConfig' {..} =
-    _salt `Prelude.hashWithSalt` scheduleExpression
+    _salt
+      `Prelude.hashWithSalt` scheduleExpression
       `Prelude.hashWithSalt` durationInSeconds
 
 instance Prelude.NFData ScheduleConfig where

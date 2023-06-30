@@ -113,7 +113,8 @@ instance Data.FromJSON StringParameterDeclaration where
 
 instance Prelude.Hashable StringParameterDeclaration where
   hashWithSalt _salt StringParameterDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` defaultValues
+    _salt
+      `Prelude.hashWithSalt` defaultValues
       `Prelude.hashWithSalt` valueWhenUnset
       `Prelude.hashWithSalt` parameterValueType
       `Prelude.hashWithSalt` name

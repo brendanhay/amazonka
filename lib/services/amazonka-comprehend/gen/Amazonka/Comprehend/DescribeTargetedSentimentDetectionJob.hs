@@ -98,7 +98,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "TargetedSentimentDetectionJobProperties"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

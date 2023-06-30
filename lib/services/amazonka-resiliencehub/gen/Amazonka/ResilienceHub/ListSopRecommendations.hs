@@ -132,14 +132,16 @@ instance Core.AWSRequest ListSopRecommendations where
           ListSopRecommendationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "sopRecommendations"
+            Prelude.<*> ( x
+                            Data..?> "sopRecommendations"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListSopRecommendations where
   hashWithSalt _salt ListSopRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentArn
 

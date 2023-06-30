@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableRestoreSummary' {..} =
-      _salt `Prelude.hashWithSalt` restoreDateTime
+      _salt
+        `Prelude.hashWithSalt` restoreDateTime
         `Prelude.hashWithSalt` restoreInProgress
         `Prelude.hashWithSalt` sourceBackupArn
         `Prelude.hashWithSalt` sourceTableArn

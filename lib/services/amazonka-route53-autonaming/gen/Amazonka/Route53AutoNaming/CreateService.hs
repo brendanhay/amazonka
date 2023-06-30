@@ -351,7 +351,8 @@ instance Core.AWSRequest CreateService where
 
 instance Prelude.Hashable CreateService where
   hashWithSalt _salt CreateService' {..} =
-    _salt `Prelude.hashWithSalt` creatorRequestId
+    _salt
+      `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dnsConfig
       `Prelude.hashWithSalt` healthCheckConfig

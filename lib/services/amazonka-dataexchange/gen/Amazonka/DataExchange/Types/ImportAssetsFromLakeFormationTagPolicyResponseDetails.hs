@@ -130,11 +130,11 @@ instance
       ( \x ->
           ImportAssetsFromLakeFormationTagPolicyResponseDetails'
             Prelude.<$> (x Data..:? "Database")
-              Prelude.<*> (x Data..:? "Table")
-              Prelude.<*> (x Data..: "CatalogId")
-              Prelude.<*> (x Data..: "RoleArn")
-              Prelude.<*> (x Data..: "DataSetId")
-              Prelude.<*> (x Data..: "RevisionId")
+            Prelude.<*> (x Data..:? "Table")
+            Prelude.<*> (x Data..: "CatalogId")
+            Prelude.<*> (x Data..: "RoleArn")
+            Prelude.<*> (x Data..: "DataSetId")
+            Prelude.<*> (x Data..: "RevisionId")
       )
 
 instance
@@ -144,7 +144,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetsFromLakeFormationTagPolicyResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` database
+      _salt
+        `Prelude.hashWithSalt` database
         `Prelude.hashWithSalt` table
         `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` roleArn

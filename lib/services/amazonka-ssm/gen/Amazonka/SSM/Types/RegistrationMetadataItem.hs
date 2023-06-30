@@ -68,7 +68,8 @@ registrationMetadataItem_value = Lens.lens (\RegistrationMetadataItem' {value} -
 
 instance Prelude.Hashable RegistrationMetadataItem where
   hashWithSalt _salt RegistrationMetadataItem' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData RegistrationMetadataItem where

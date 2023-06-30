@@ -144,7 +144,8 @@ instance
     StartNextPendingJobExecution
   where
   hashWithSalt _salt StartNextPendingJobExecution' {..} =
-    _salt `Prelude.hashWithSalt` statusDetails
+    _salt
+      `Prelude.hashWithSalt` statusDetails
       `Prelude.hashWithSalt` stepTimeoutInMinutes
       `Prelude.hashWithSalt` thingName
 

@@ -91,7 +91,8 @@ instance Data.FromJSON PortOverride where
 
 instance Prelude.Hashable PortOverride where
   hashWithSalt _salt PortOverride' {..} =
-    _salt `Prelude.hashWithSalt` endpointPort
+    _salt
+      `Prelude.hashWithSalt` endpointPort
       `Prelude.hashWithSalt` listenerPort
 
 instance Prelude.NFData PortOverride where

@@ -123,7 +123,8 @@ instance Core.AWSRequest CreateMonitor where
 
 instance Prelude.Hashable CreateMonitor where
   hashWithSalt _salt CreateMonitor' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` monitorName
       `Prelude.hashWithSalt` resourceArn
 

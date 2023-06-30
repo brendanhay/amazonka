@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     DecisionTaskCompletedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` executionContext
+      _salt
+        `Prelude.hashWithSalt` executionContext
         `Prelude.hashWithSalt` scheduledEventId
         `Prelude.hashWithSalt` startedEventId
 

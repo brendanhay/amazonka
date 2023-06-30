@@ -95,7 +95,8 @@ instance Data.FromJSON CanaryRunStatus where
 
 instance Prelude.Hashable CanaryRunStatus where
   hashWithSalt _salt CanaryRunStatus' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateReason
       `Prelude.hashWithSalt` stateReasonCode
 

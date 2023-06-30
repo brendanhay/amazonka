@@ -113,7 +113,8 @@ instance Data.FromJSON RedshiftSource where
 
 instance Prelude.Hashable RedshiftSource where
   hashWithSalt _salt RedshiftSource' {..} =
-    _salt `Prelude.hashWithSalt` redshiftTmpDir
+    _salt
+      `Prelude.hashWithSalt` redshiftTmpDir
       `Prelude.hashWithSalt` tmpDirIAMRole
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database

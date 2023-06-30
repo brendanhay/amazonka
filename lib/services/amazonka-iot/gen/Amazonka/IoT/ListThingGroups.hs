@@ -138,22 +138,22 @@ instance Core.AWSPager ListThingGroups where
     | Core.stop
         ( rs
             Lens.^? listThingGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listThingGroupsResponse_thingGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listThingGroups_nextToken
           Lens..~ rs
           Lens.^? listThingGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThingGroups where
   type
@@ -172,7 +172,8 @@ instance Core.AWSRequest ListThingGroups where
 
 instance Prelude.Hashable ListThingGroups where
   hashWithSalt _salt ListThingGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namePrefixFilter
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` parentGroup

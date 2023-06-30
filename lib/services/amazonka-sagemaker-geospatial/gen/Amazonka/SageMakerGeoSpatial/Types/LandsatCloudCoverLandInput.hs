@@ -59,11 +59,9 @@ newLandsatCloudCoverLandInput
         upperBound = pUpperBound_
       }
 
--- |
 landsatCloudCoverLandInput_lowerBound :: Lens.Lens' LandsatCloudCoverLandInput Prelude.Double
 landsatCloudCoverLandInput_lowerBound = Lens.lens (\LandsatCloudCoverLandInput' {lowerBound} -> lowerBound) (\s@LandsatCloudCoverLandInput' {} a -> s {lowerBound = a} :: LandsatCloudCoverLandInput)
 
--- |
 landsatCloudCoverLandInput_upperBound :: Lens.Lens' LandsatCloudCoverLandInput Prelude.Double
 landsatCloudCoverLandInput_upperBound = Lens.lens (\LandsatCloudCoverLandInput' {upperBound} -> upperBound) (\s@LandsatCloudCoverLandInput' {} a -> s {upperBound = a} :: LandsatCloudCoverLandInput)
 
@@ -79,7 +77,8 @@ instance Data.FromJSON LandsatCloudCoverLandInput where
 
 instance Prelude.Hashable LandsatCloudCoverLandInput where
   hashWithSalt _salt LandsatCloudCoverLandInput' {..} =
-    _salt `Prelude.hashWithSalt` lowerBound
+    _salt
+      `Prelude.hashWithSalt` lowerBound
       `Prelude.hashWithSalt` upperBound
 
 instance Prelude.NFData LandsatCloudCoverLandInput where

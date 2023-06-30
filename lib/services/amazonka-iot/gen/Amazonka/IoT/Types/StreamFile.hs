@@ -75,7 +75,8 @@ instance Data.FromJSON StreamFile where
 
 instance Prelude.Hashable StreamFile where
   hashWithSalt _salt StreamFile' {..} =
-    _salt `Prelude.hashWithSalt` fileId
+    _salt
+      `Prelude.hashWithSalt` fileId
       `Prelude.hashWithSalt` s3Location
 
 instance Prelude.NFData StreamFile where

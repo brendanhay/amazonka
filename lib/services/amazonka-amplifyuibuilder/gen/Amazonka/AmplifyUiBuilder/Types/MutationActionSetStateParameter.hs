@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     MutationActionSetStateParameter' {..} =
-      _salt `Prelude.hashWithSalt` componentName
+      _salt
+        `Prelude.hashWithSalt` componentName
         `Prelude.hashWithSalt` property
         `Prelude.hashWithSalt` set
 

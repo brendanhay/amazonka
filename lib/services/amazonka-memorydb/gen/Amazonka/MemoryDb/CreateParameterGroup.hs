@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateParameterGroup where
 
 instance Prelude.Hashable CreateParameterGroup where
   hashWithSalt _salt CreateParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` parameterGroupName
       `Prelude.hashWithSalt` family

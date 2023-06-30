@@ -163,21 +163,23 @@ instance Core.AWSPager ListContacts where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listContactsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listContactsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listContactsResponse_contactList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listContacts_nextToken
           Lens..~ rs
-          Lens.^? listContactsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listContactsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContacts where
   type AWSResponse ListContacts = ListContactsResponse
@@ -194,7 +196,8 @@ instance Core.AWSRequest ListContacts where
 
 instance Prelude.Hashable ListContacts where
   hashWithSalt _salt ListContacts' {..} =
-    _salt `Prelude.hashWithSalt` groundStation
+    _salt
+      `Prelude.hashWithSalt` groundStation
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` missionProfileArn
       `Prelude.hashWithSalt` nextToken

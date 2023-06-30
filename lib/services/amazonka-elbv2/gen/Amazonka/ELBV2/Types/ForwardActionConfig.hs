@@ -72,7 +72,9 @@ instance Data.FromXML ForwardActionConfig where
   parseXML x =
     ForwardActionConfig'
       Prelude.<$> (x Data..@? "TargetGroupStickinessConfig")
-      Prelude.<*> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "TargetGroups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

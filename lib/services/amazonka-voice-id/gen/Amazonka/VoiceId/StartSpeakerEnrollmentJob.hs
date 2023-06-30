@@ -196,7 +196,8 @@ instance Core.AWSRequest StartSpeakerEnrollmentJob where
 
 instance Prelude.Hashable StartSpeakerEnrollmentJob where
   hashWithSalt _salt StartSpeakerEnrollmentJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` enrollmentConfig
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` dataAccessRoleArn

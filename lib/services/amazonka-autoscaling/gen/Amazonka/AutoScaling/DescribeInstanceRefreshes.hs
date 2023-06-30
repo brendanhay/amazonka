@@ -155,7 +155,8 @@ instance Core.AWSRequest DescribeInstanceRefreshes where
       "DescribeInstanceRefreshesResult"
       ( \s h x ->
           DescribeInstanceRefreshesResponse'
-            Prelude.<$> ( x Data..@? "InstanceRefreshes"
+            Prelude.<$> ( x
+                            Data..@? "InstanceRefreshes"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -165,7 +166,8 @@ instance Core.AWSRequest DescribeInstanceRefreshes where
 
 instance Prelude.Hashable DescribeInstanceRefreshes where
   hashWithSalt _salt DescribeInstanceRefreshes' {..} =
-    _salt `Prelude.hashWithSalt` instanceRefreshIds
+    _salt
+      `Prelude.hashWithSalt` instanceRefreshIds
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` autoScalingGroupName

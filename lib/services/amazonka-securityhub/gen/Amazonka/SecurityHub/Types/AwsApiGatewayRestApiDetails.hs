@@ -183,7 +183,8 @@ instance Data.FromJSON AwsApiGatewayRestApiDetails where
       ( \x ->
           AwsApiGatewayRestApiDetails'
             Prelude.<$> (x Data..:? "ApiKeySource")
-            Prelude.<*> ( x Data..:? "BinaryMediaTypes"
+            Prelude.<*> ( x
+                            Data..:? "BinaryMediaTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedDate")
@@ -197,7 +198,8 @@ instance Data.FromJSON AwsApiGatewayRestApiDetails where
 
 instance Prelude.Hashable AwsApiGatewayRestApiDetails where
   hashWithSalt _salt AwsApiGatewayRestApiDetails' {..} =
-    _salt `Prelude.hashWithSalt` apiKeySource
+    _salt
+      `Prelude.hashWithSalt` apiKeySource
       `Prelude.hashWithSalt` binaryMediaTypes
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description

@@ -103,7 +103,8 @@ instance Data.FromJSON CompositeModelProperty where
 
 instance Prelude.Hashable CompositeModelProperty where
   hashWithSalt _salt CompositeModelProperty' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` assetProperty

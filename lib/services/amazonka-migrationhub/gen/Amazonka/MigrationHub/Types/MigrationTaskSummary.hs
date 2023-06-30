@@ -126,7 +126,8 @@ instance Data.FromJSON MigrationTaskSummary where
 
 instance Prelude.Hashable MigrationTaskSummary where
   hashWithSalt _salt MigrationTaskSummary' {..} =
-    _salt `Prelude.hashWithSalt` migrationTaskName
+    _salt
+      `Prelude.hashWithSalt` migrationTaskName
       `Prelude.hashWithSalt` progressPercent
       `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` status

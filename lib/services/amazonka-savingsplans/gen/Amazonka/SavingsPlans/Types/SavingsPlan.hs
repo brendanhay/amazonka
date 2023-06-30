@@ -239,7 +239,8 @@ instance Data.FromJSON SavingsPlan where
 
 instance Prelude.Hashable SavingsPlan where
   hashWithSalt _salt SavingsPlan' {..} =
-    _salt `Prelude.hashWithSalt` commitment
+    _salt
+      `Prelude.hashWithSalt` commitment
       `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ec2InstanceFamily

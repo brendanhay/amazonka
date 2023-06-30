@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     PutPermissionsBoundaryToPermissionSet' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` permissionSetArn
         `Prelude.hashWithSalt` permissionsBoundary
 

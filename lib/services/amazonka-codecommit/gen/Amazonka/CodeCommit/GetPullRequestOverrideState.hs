@@ -118,7 +118,8 @@ instance Core.AWSRequest GetPullRequestOverrideState where
 
 instance Prelude.Hashable GetPullRequestOverrideState where
   hashWithSalt _salt GetPullRequestOverrideState' {..} =
-    _salt `Prelude.hashWithSalt` pullRequestId
+    _salt
+      `Prelude.hashWithSalt` pullRequestId
       `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData GetPullRequestOverrideState where

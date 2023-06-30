@@ -199,14 +199,17 @@ instance Data.FromXML SecurityGroupRule where
       Prelude.<*> (x Data..@? "prefixListId")
       Prelude.<*> (x Data..@? "referencedGroupInfo")
       Prelude.<*> (x Data..@? "securityGroupRuleId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "toPort")
 
 instance Prelude.Hashable SecurityGroupRule where
   hashWithSalt _salt SecurityGroupRule' {..} =
-    _salt `Prelude.hashWithSalt` cidrIpv4
+    _salt
+      `Prelude.hashWithSalt` cidrIpv4
       `Prelude.hashWithSalt` cidrIpv6
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fromPort

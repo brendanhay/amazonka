@@ -217,7 +217,8 @@ instance Core.AWSRequest CreateDataSource where
 
 instance Prelude.Hashable CreateDataSource where
   hashWithSalt _salt CreateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dynamodbConfig
       `Prelude.hashWithSalt` elasticsearchConfig
       `Prelude.hashWithSalt` httpConfig

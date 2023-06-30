@@ -213,7 +213,8 @@ instance Data.FromJSON App where
 
 instance Prelude.Hashable App where
   hashWithSalt _salt App' {..} =
-    _salt `Prelude.hashWithSalt` assessmentSchedule
+    _salt
+      `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastAppComplianceEvaluationTime

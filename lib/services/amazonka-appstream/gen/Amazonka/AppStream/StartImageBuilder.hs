@@ -106,7 +106,8 @@ instance Core.AWSRequest StartImageBuilder where
 
 instance Prelude.Hashable StartImageBuilder where
   hashWithSalt _salt StartImageBuilder' {..} =
-    _salt `Prelude.hashWithSalt` appstreamAgentVersion
+    _salt
+      `Prelude.hashWithSalt` appstreamAgentVersion
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData StartImageBuilder where

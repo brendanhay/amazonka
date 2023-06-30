@@ -115,7 +115,8 @@ instance Data.FromJSON DashboardVersionSummary where
 
 instance Prelude.Hashable DashboardVersionSummary where
   hashWithSalt _salt DashboardVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` sourceEntityArn

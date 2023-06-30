@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     DeleteFirewallManagerRuleGroups' {..} =
-      _salt `Prelude.hashWithSalt` webACLArn
+      _salt
+        `Prelude.hashWithSalt` webACLArn
         `Prelude.hashWithSalt` webACLLockToken
 
 instance

@@ -64,7 +64,8 @@ loRaWANMulticast_rfRegion = Lens.lens (\LoRaWANMulticast' {rfRegion} -> rfRegion
 
 instance Prelude.Hashable LoRaWANMulticast where
   hashWithSalt _salt LoRaWANMulticast' {..} =
-    _salt `Prelude.hashWithSalt` dlClass
+    _salt
+      `Prelude.hashWithSalt` dlClass
       `Prelude.hashWithSalt` rfRegion
 
 instance Prelude.NFData LoRaWANMulticast where

@@ -211,8 +211,8 @@ instance
       ( \s h x ->
           CreateVpcEndpointServiceConfigurationResponse'
             Prelude.<$> (x Data..@? "clientToken")
-              Prelude.<*> (x Data..@? "serviceConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "serviceConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -222,7 +222,8 @@ instance
   hashWithSalt
     _salt
     CreateVpcEndpointServiceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` acceptanceRequired
+      _salt
+        `Prelude.hashWithSalt` acceptanceRequired
         `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` gatewayLoadBalancerArns

@@ -107,7 +107,8 @@ instance Data.FromJSON MetricAttribute where
 
 instance Prelude.Hashable MetricAttribute where
   hashWithSalt _salt MetricAttribute' {..} =
-    _salt `Prelude.hashWithSalt` eventType
+    _salt
+      `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` expression
 

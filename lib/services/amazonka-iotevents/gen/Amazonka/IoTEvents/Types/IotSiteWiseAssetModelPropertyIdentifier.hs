@@ -77,7 +77,8 @@ instance
   hashWithSalt
     _salt
     IotSiteWiseAssetModelPropertyIdentifier' {..} =
-      _salt `Prelude.hashWithSalt` assetModelId
+      _salt
+        `Prelude.hashWithSalt` assetModelId
         `Prelude.hashWithSalt` propertyId
 
 instance

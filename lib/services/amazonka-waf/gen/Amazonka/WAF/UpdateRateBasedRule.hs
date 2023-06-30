@@ -196,7 +196,8 @@ instance Core.AWSRequest UpdateRateBasedRule where
 
 instance Prelude.Hashable UpdateRateBasedRule where
   hashWithSalt _salt UpdateRateBasedRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleId
+    _salt
+      `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` changeToken
       `Prelude.hashWithSalt` updates
       `Prelude.hashWithSalt` rateLimit

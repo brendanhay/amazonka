@@ -245,7 +245,8 @@ instance Data.FromJSON RelationalDatabaseSnapshot where
 
 instance Prelude.Hashable RelationalDatabaseSnapshot where
   hashWithSalt _salt RelationalDatabaseSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

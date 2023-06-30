@@ -153,7 +153,8 @@ instance Data.FromJSON Deployment where
 
 instance Prelude.Hashable Deployment where
   hashWithSalt _salt Deployment' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` deploymentName
       `Prelude.hashWithSalt` deploymentStatus

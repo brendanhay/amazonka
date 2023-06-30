@@ -115,7 +115,8 @@ instance Core.AWSRequest ListDevicesJobs where
 
 instance Prelude.Hashable ListDevicesJobs where
   hashWithSalt _salt ListDevicesJobs' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
+    _salt
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

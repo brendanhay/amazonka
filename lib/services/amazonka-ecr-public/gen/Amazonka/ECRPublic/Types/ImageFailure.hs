@@ -86,7 +86,8 @@ instance Data.FromJSON ImageFailure where
 
 instance Prelude.Hashable ImageFailure where
   hashWithSalt _salt ImageFailure' {..} =
-    _salt `Prelude.hashWithSalt` failureCode
+    _salt
+      `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` imageId
 

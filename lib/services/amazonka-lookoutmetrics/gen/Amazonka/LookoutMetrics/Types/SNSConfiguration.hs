@@ -120,7 +120,8 @@ instance Data.FromJSON SNSConfiguration where
 
 instance Prelude.Hashable SNSConfiguration where
   hashWithSalt _salt SNSConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` snsFormat
+    _salt
+      `Prelude.hashWithSalt` snsFormat
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` snsTopicArn
 

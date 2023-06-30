@@ -90,7 +90,8 @@ instance Data.FromJSON OverallVolume where
       "OverallVolume"
       ( \x ->
           OverallVolume'
-            Prelude.<$> ( x Data..:? "DomainIspPlacements"
+            Prelude.<$> ( x
+                            Data..:? "DomainIspPlacements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReadRatePercent")
@@ -99,7 +100,8 @@ instance Data.FromJSON OverallVolume where
 
 instance Prelude.Hashable OverallVolume where
   hashWithSalt _salt OverallVolume' {..} =
-    _salt `Prelude.hashWithSalt` domainIspPlacements
+    _salt
+      `Prelude.hashWithSalt` domainIspPlacements
       `Prelude.hashWithSalt` readRatePercent
       `Prelude.hashWithSalt` volumeStatistics
 

@@ -121,7 +121,8 @@ instance Data.FromJSON RelativeAggregationDuration where
 
 instance Prelude.Hashable RelativeAggregationDuration where
   hashWithSalt _salt RelativeAggregationDuration' {..} =
-    _salt `Prelude.hashWithSalt` timeDimension
+    _salt
+      `Prelude.hashWithSalt` timeDimension
       `Prelude.hashWithSalt` timeValue
 
 instance Prelude.NFData RelativeAggregationDuration where

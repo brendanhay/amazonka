@@ -271,7 +271,8 @@ instance Core.AWSRequest CreateStack where
 
 instance Prelude.Hashable CreateStack where
   hashWithSalt _salt CreateStack' {..} =
-    _salt `Prelude.hashWithSalt` accessEndpoints
+    _salt
+      `Prelude.hashWithSalt` accessEndpoints
       `Prelude.hashWithSalt` applicationSettings
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName

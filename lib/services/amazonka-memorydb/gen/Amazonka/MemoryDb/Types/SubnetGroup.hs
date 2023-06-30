@@ -116,7 +116,8 @@ instance Data.FromJSON SubnetGroup where
 
 instance Prelude.Hashable SubnetGroup where
   hashWithSalt _salt SubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` subnets

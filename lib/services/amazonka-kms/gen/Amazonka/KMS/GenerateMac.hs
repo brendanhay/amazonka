@@ -176,7 +176,8 @@ newGenerateMac pMessage_ pKeyId_ pMacAlgorithm_ =
   GenerateMac'
     { grantTokens = Prelude.Nothing,
       message =
-        Data._Sensitive Prelude.. Data._Base64
+        Data._Sensitive
+          Prelude.. Data._Base64
           Lens.# pMessage_,
       keyId = pKeyId_,
       macAlgorithm = pMacAlgorithm_
@@ -240,7 +241,8 @@ instance Core.AWSRequest GenerateMac where
 
 instance Prelude.Hashable GenerateMac where
   hashWithSalt _salt GenerateMac' {..} =
-    _salt `Prelude.hashWithSalt` grantTokens
+    _salt
+      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` macAlgorithm

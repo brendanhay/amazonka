@@ -116,7 +116,8 @@ instance Core.AWSRequest ListProposals where
 
 instance Prelude.Hashable ListProposals where
   hashWithSalt _salt ListProposals' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` networkId
 

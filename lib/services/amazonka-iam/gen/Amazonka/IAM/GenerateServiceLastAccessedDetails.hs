@@ -181,7 +181,7 @@ instance
       ( \s h x ->
           GenerateServiceLastAccessedDetailsResponse'
             Prelude.<$> (x Data..@? "JobId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -191,7 +191,8 @@ instance
   hashWithSalt
     _salt
     GenerateServiceLastAccessedDetails' {..} =
-      _salt `Prelude.hashWithSalt` granularity
+      _salt
+        `Prelude.hashWithSalt` granularity
         `Prelude.hashWithSalt` arn
 
 instance

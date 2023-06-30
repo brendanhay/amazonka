@@ -140,20 +140,21 @@ instance Core.AWSPager ListTimeSeries where
     | Core.stop
         ( rs
             Lens.^? listTimeSeriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listTimeSeriesResponse_timeSeriesSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTimeSeries_nextToken
           Lens..~ rs
-          Lens.^? listTimeSeriesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTimeSeriesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTimeSeries where
   type
@@ -167,14 +168,16 @@ instance Core.AWSRequest ListTimeSeries where
           ListTimeSeriesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "TimeSeriesSummaries"
+            Prelude.<*> ( x
+                            Data..?> "TimeSeriesSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListTimeSeries where
   hashWithSalt _salt ListTimeSeries' {..} =
-    _salt `Prelude.hashWithSalt` aliasPrefix
+    _salt
+      `Prelude.hashWithSalt` aliasPrefix
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

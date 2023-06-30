@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeContactFlow where
 
 instance Prelude.Hashable DescribeContactFlow where
   hashWithSalt _salt DescribeContactFlow' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowId
 
 instance Prelude.NFData DescribeContactFlow where

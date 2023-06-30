@@ -137,7 +137,8 @@ instance
     TransitGatewayRouteTableRoute
   where
   hashWithSalt _salt TransitGatewayRouteTableRoute' {..} =
-    _salt `Prelude.hashWithSalt` attachmentId
+    _salt
+      `Prelude.hashWithSalt` attachmentId
       `Prelude.hashWithSalt` destinationCidr
       `Prelude.hashWithSalt` prefixListId
       `Prelude.hashWithSalt` resourceId

@@ -106,7 +106,8 @@ instance Core.AWSRequest DeletePlacementGroup where
 
 instance Prelude.Hashable DeletePlacementGroup where
   hashWithSalt _salt DeletePlacementGroup' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData DeletePlacementGroup where

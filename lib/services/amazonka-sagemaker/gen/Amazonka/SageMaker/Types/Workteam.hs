@@ -182,7 +182,8 @@ instance Data.FromJSON Workteam where
             Prelude.<$> (x Data..:? "CreateDate")
             Prelude.<*> (x Data..:? "LastUpdatedDate")
             Prelude.<*> (x Data..:? "NotificationConfiguration")
-            Prelude.<*> ( x Data..:? "ProductListingIds"
+            Prelude.<*> ( x
+                            Data..:? "ProductListingIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubDomain")
@@ -195,7 +196,8 @@ instance Data.FromJSON Workteam where
 
 instance Prelude.Hashable Workteam where
   hashWithSalt _salt Workteam' {..} =
-    _salt `Prelude.hashWithSalt` createDate
+    _salt
+      `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` lastUpdatedDate
       `Prelude.hashWithSalt` notificationConfiguration
       `Prelude.hashWithSalt` productListingIds

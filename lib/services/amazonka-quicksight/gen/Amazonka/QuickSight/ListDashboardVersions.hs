@@ -125,22 +125,22 @@ instance Core.AWSPager ListDashboardVersions where
     | Core.stop
         ( rs
             Lens.^? listDashboardVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDashboardVersionsResponse_dashboardVersionSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDashboardVersions_nextToken
           Lens..~ rs
           Lens.^? listDashboardVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDashboardVersions where
   type
@@ -152,7 +152,8 @@ instance Core.AWSRequest ListDashboardVersions where
     Response.receiveJSON
       ( \s h x ->
           ListDashboardVersionsResponse'
-            Prelude.<$> ( x Data..?> "DashboardVersionSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "DashboardVersionSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -162,7 +163,8 @@ instance Core.AWSRequest ListDashboardVersions where
 
 instance Prelude.Hashable ListDashboardVersions where
   hashWithSalt _salt ListDashboardVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId

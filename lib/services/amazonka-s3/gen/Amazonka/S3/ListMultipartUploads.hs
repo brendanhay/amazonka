@@ -161,7 +161,7 @@ data ListMultipartUploads = ListMultipartUploads'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
     -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -235,7 +235,7 @@ data ListMultipartUploads = ListMultipartUploads'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
 -- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -327,7 +327,7 @@ listMultipartUploads_uploadIdMarker = Lens.lens (\ListMultipartUploads' {uploadI
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
 -- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -341,31 +341,31 @@ instance Core.AWSPager ListMultipartUploads where
     | Core.stop
         ( rs
             Lens.^? listMultipartUploadsResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listMultipartUploadsResponse_nextKeyMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         )
         Prelude.&& Prelude.isNothing
           ( rs
               Lens.^? listMultipartUploadsResponse_nextUploadIdMarker
-                Prelude.. Lens._Just
+              Prelude.. Lens._Just
           ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMultipartUploads_keyMarker
           Lens..~ rs
           Lens.^? listMultipartUploadsResponse_nextKeyMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
           Prelude.& listMultipartUploads_uploadIdMarker
           Lens..~ rs
           Lens.^? listMultipartUploadsResponse_nextUploadIdMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMultipartUploads where
   type
@@ -395,7 +395,8 @@ instance Core.AWSRequest ListMultipartUploads where
 
 instance Prelude.Hashable ListMultipartUploads where
   hashWithSalt _salt ListMultipartUploads' {..} =
-    _salt `Prelude.hashWithSalt` delimiter
+    _salt
+      `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` encodingType
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` keyMarker

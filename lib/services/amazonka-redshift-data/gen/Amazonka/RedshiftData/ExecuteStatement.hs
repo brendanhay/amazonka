@@ -247,7 +247,8 @@ instance Core.AWSRequest ExecuteStatement where
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` parameters

@@ -76,7 +76,8 @@ instance Data.FromJSON AwsIamPermissionsBoundary where
 
 instance Prelude.Hashable AwsIamPermissionsBoundary where
   hashWithSalt _salt AwsIamPermissionsBoundary' {..} =
-    _salt `Prelude.hashWithSalt` permissionsBoundaryArn
+    _salt
+      `Prelude.hashWithSalt` permissionsBoundaryArn
       `Prelude.hashWithSalt` permissionsBoundaryType
 
 instance Prelude.NFData AwsIamPermissionsBoundary where

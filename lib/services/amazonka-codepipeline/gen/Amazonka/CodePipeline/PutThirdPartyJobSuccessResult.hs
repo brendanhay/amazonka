@@ -165,7 +165,8 @@ instance
     PutThirdPartyJobSuccessResult
   where
   hashWithSalt _salt PutThirdPartyJobSuccessResult' {..} =
-    _salt `Prelude.hashWithSalt` continuationToken
+    _salt
+      `Prelude.hashWithSalt` continuationToken
       `Prelude.hashWithSalt` currentRevision
       `Prelude.hashWithSalt` executionDetails
       `Prelude.hashWithSalt` jobId

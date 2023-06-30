@@ -88,7 +88,8 @@ instance Data.FromJSON BasePathMapping where
 
 instance Prelude.Hashable BasePathMapping where
   hashWithSalt _salt BasePathMapping' {..} =
-    _salt `Prelude.hashWithSalt` basePath
+    _salt
+      `Prelude.hashWithSalt` basePath
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` stage
 

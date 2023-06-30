@@ -118,7 +118,8 @@ instance Data.FromJSON BotMetadata where
 
 instance Prelude.Hashable BotMetadata where
   hashWithSalt _salt BotMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedDate
       `Prelude.hashWithSalt` name

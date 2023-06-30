@@ -143,7 +143,8 @@ instance Core.AWSRequest ListLensReviewImprovements where
     Response.receiveJSON
       ( \s h x ->
           ListLensReviewImprovementsResponse'
-            Prelude.<$> ( x Data..?> "ImprovementSummaries"
+            Prelude.<$> ( x
+                            Data..?> "ImprovementSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "LensAlias")
@@ -156,7 +157,8 @@ instance Core.AWSRequest ListLensReviewImprovements where
 
 instance Prelude.Hashable ListLensReviewImprovements where
   hashWithSalt _salt ListLensReviewImprovements' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` milestoneNumber
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pillarId

@@ -115,7 +115,8 @@ instance Data.FromXML VgwTelemetry where
 
 instance Prelude.Hashable VgwTelemetry where
   hashWithSalt _salt VgwTelemetry' {..} =
-    _salt `Prelude.hashWithSalt` acceptedRouteCount
+    _salt
+      `Prelude.hashWithSalt` acceptedRouteCount
       `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` lastStatusChange
       `Prelude.hashWithSalt` outsideIpAddress

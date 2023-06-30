@@ -41,9 +41,7 @@ data HttpInstanceSummary = HttpInstanceSummary'
     -- | The ID of an instance that matches the values that you specified in the
     -- request.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | @@ @@ @@
-    --
-    -- The @HttpName@ name of the namespace. It\'s found in the
+    -- | The @HttpName@ name of the namespace. It\'s found in the
     -- @HttpProperties@ member of the @Properties@ member of the namespace.
     namespaceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the service that you specified when you registered the
@@ -69,9 +67,7 @@ data HttpInstanceSummary = HttpInstanceSummary'
 -- 'instanceId', 'httpInstanceSummary_instanceId' - The ID of an instance that matches the values that you specified in the
 -- request.
 --
--- 'namespaceName', 'httpInstanceSummary_namespaceName' - @@ @@ @@
---
--- The @HttpName@ name of the namespace. It\'s found in the
+-- 'namespaceName', 'httpInstanceSummary_namespaceName' - The @HttpName@ name of the namespace. It\'s found in the
 -- @HttpProperties@ member of the @Properties@ member of the namespace.
 --
 -- 'serviceName', 'httpInstanceSummary_serviceName' - The name of the service that you specified when you registered the
@@ -102,9 +98,7 @@ httpInstanceSummary_healthStatus = Lens.lens (\HttpInstanceSummary' {healthStatu
 httpInstanceSummary_instanceId :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
 httpInstanceSummary_instanceId = Lens.lens (\HttpInstanceSummary' {instanceId} -> instanceId) (\s@HttpInstanceSummary' {} a -> s {instanceId = a} :: HttpInstanceSummary)
 
--- | @@ @@ @@
---
--- The @HttpName@ name of the namespace. It\'s found in the
+-- | The @HttpName@ name of the namespace. It\'s found in the
 -- @HttpProperties@ member of the @Properties@ member of the namespace.
 httpInstanceSummary_namespaceName :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
 httpInstanceSummary_namespaceName = Lens.lens (\HttpInstanceSummary' {namespaceName} -> namespaceName) (\s@HttpInstanceSummary' {} a -> s {namespaceName = a} :: HttpInstanceSummary)
@@ -129,7 +123,8 @@ instance Data.FromJSON HttpInstanceSummary where
 
 instance Prelude.Hashable HttpInstanceSummary where
   hashWithSalt _salt HttpInstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` healthStatus
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` namespaceName

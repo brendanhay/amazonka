@@ -225,7 +225,8 @@ instance Core.AWSRequest CreateProposal where
 
 instance Prelude.Hashable CreateProposal where
   hashWithSalt _salt CreateProposal' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` networkId

@@ -205,7 +205,8 @@ instance Core.AWSRequest CreateWorkgroup where
 
 instance Prelude.Hashable CreateWorkgroup where
   hashWithSalt _salt CreateWorkgroup' {..} =
-    _salt `Prelude.hashWithSalt` baseCapacity
+    _salt
+      `Prelude.hashWithSalt` baseCapacity
       `Prelude.hashWithSalt` configParameters
       `Prelude.hashWithSalt` enhancedVpcRouting
       `Prelude.hashWithSalt` port

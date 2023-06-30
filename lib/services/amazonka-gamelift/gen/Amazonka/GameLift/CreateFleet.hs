@@ -639,7 +639,8 @@ instance Core.AWSRequest CreateFleet where
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =
-    _salt `Prelude.hashWithSalt` anywhereConfiguration
+    _salt
+      `Prelude.hashWithSalt` anywhereConfiguration
       `Prelude.hashWithSalt` buildId
       `Prelude.hashWithSalt` certificateConfiguration
       `Prelude.hashWithSalt` computeType

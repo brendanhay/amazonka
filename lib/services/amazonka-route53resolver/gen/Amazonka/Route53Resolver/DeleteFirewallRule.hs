@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteFirewallRule where
 
 instance Prelude.Hashable DeleteFirewallRule where
   hashWithSalt _salt DeleteFirewallRule' {..} =
-    _salt `Prelude.hashWithSalt` firewallRuleGroupId
+    _salt
+      `Prelude.hashWithSalt` firewallRuleGroupId
       `Prelude.hashWithSalt` firewallDomainListId
 
 instance Prelude.NFData DeleteFirewallRule where

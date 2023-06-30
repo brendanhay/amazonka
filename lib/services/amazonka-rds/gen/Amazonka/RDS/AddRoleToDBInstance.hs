@@ -126,7 +126,8 @@ instance Core.AWSRequest AddRoleToDBInstance where
 
 instance Prelude.Hashable AddRoleToDBInstance where
   hashWithSalt _salt AddRoleToDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` featureName
 

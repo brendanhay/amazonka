@@ -82,7 +82,8 @@ instance Data.FromJSON AccessDescription where
 
 instance Prelude.Hashable AccessDescription where
   hashWithSalt _salt AccessDescription' {..} =
-    _salt `Prelude.hashWithSalt` accessMethod
+    _salt
+      `Prelude.hashWithSalt` accessMethod
       `Prelude.hashWithSalt` accessLocation
 
 instance Prelude.NFData AccessDescription where

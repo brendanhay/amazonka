@@ -85,7 +85,8 @@ instance Data.FromJSON RuleSummary where
 
 instance Prelude.Hashable RuleSummary where
   hashWithSalt _salt RuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RuleSummary where

@@ -107,7 +107,8 @@ instance Core.AWSRequest GetRoute where
           GetRouteResponse''
             Prelude.<$> (x Data..?> "apiGatewayManaged")
             Prelude.<*> (x Data..?> "apiKeyRequired")
-            Prelude.<*> ( x Data..?> "authorizationScopes"
+            Prelude.<*> ( x
+                            Data..?> "authorizationScopes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "authorizationType")
@@ -115,7 +116,8 @@ instance Core.AWSRequest GetRoute where
             Prelude.<*> (x Data..?> "modelSelectionExpression")
             Prelude.<*> (x Data..?> "operationName")
             Prelude.<*> (x Data..?> "requestModels" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "requestParameters"
+            Prelude.<*> ( x
+                            Data..?> "requestParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "routeId")
@@ -127,7 +129,8 @@ instance Core.AWSRequest GetRoute where
 
 instance Prelude.Hashable GetRoute where
   hashWithSalt _salt GetRoute' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` routeId
 
 instance Prelude.NFData GetRoute where

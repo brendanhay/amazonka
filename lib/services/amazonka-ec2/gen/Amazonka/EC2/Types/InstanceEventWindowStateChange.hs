@@ -78,7 +78,8 @@ instance
   hashWithSalt
     _salt
     InstanceEventWindowStateChange' {..} =
-      _salt `Prelude.hashWithSalt` instanceEventWindowId
+      _salt
+        `Prelude.hashWithSalt` instanceEventWindowId
         `Prelude.hashWithSalt` state
 
 instance

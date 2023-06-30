@@ -73,7 +73,7 @@ instance
       ( \x ->
           RuleGroupSourceStatefulRulesOptionsDetails'
             Prelude.<$> (x Data..:? "Keyword")
-              Prelude.<*> (x Data..:? "Settings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Settings" Data..!= Prelude.mempty)
       )
 
 instance
@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatefulRulesOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` keyword
+      _salt
+        `Prelude.hashWithSalt` keyword
         `Prelude.hashWithSalt` settings
 
 instance

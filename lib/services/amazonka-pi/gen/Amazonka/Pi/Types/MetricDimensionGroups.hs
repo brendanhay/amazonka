@@ -75,7 +75,8 @@ instance Data.FromJSON MetricDimensionGroups where
 
 instance Prelude.Hashable MetricDimensionGroups where
   hashWithSalt _salt MetricDimensionGroups' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` metric
 
 instance Prelude.NFData MetricDimensionGroups where

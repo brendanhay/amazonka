@@ -230,10 +230,12 @@ instance Data.FromJSON Ec2InstanceAttributes where
       "Ec2InstanceAttributes"
       ( \x ->
           Ec2InstanceAttributes'
-            Prelude.<$> ( x Data..:? "AdditionalMasterSecurityGroups"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalMasterSecurityGroups"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "AdditionalSlaveSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "AdditionalSlaveSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Ec2AvailabilityZone")
@@ -242,10 +244,12 @@ instance Data.FromJSON Ec2InstanceAttributes where
             Prelude.<*> (x Data..:? "EmrManagedMasterSecurityGroup")
             Prelude.<*> (x Data..:? "EmrManagedSlaveSecurityGroup")
             Prelude.<*> (x Data..:? "IamInstanceProfile")
-            Prelude.<*> ( x Data..:? "RequestedEc2AvailabilityZones"
+            Prelude.<*> ( x
+                            Data..:? "RequestedEc2AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "RequestedEc2SubnetIds"
+            Prelude.<*> ( x
+                            Data..:? "RequestedEc2SubnetIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ServiceAccessSecurityGroup")

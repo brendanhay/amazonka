@@ -76,7 +76,6 @@ newMapMatchingConfig
         yAttributeName = pYAttributeName_
       }
 
--- |
 mapMatchingConfig_idAttributeName :: Lens.Lens' MapMatchingConfig Prelude.Text
 mapMatchingConfig_idAttributeName = Lens.lens (\MapMatchingConfig' {idAttributeName} -> idAttributeName) (\s@MapMatchingConfig' {} a -> s {idAttributeName = a} :: MapMatchingConfig)
 
@@ -106,7 +105,8 @@ instance Data.FromJSON MapMatchingConfig where
 
 instance Prelude.Hashable MapMatchingConfig where
   hashWithSalt _salt MapMatchingConfig' {..} =
-    _salt `Prelude.hashWithSalt` idAttributeName
+    _salt
+      `Prelude.hashWithSalt` idAttributeName
       `Prelude.hashWithSalt` timestampAttributeName
       `Prelude.hashWithSalt` xAttributeName
       `Prelude.hashWithSalt` yAttributeName

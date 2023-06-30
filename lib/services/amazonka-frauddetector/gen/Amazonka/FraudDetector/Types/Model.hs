@@ -125,7 +125,8 @@ instance Data.FromJSON Model where
 
 instance Prelude.Hashable Model where
   hashWithSalt _salt Model' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventTypeName

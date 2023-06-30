@@ -151,7 +151,8 @@ instance Core.AWSRequest PutRumEvents where
 
 instance Prelude.Hashable PutRumEvents where
   hashWithSalt _salt PutRumEvents' {..} =
-    _salt `Prelude.hashWithSalt` appMonitorDetails
+    _salt
+      `Prelude.hashWithSalt` appMonitorDetails
       `Prelude.hashWithSalt` batchId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` rumEvents

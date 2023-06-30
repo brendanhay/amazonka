@@ -81,7 +81,8 @@ executeStatementRequest_statement = Lens.lens (\ExecuteStatementRequest' {statem
 
 instance Prelude.Hashable ExecuteStatementRequest where
   hashWithSalt _salt ExecuteStatementRequest' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` statement
 

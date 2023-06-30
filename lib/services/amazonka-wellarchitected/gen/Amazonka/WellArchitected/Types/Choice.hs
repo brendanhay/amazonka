@@ -109,7 +109,8 @@ instance Data.FromJSON Choice where
       "Choice"
       ( \x ->
           Choice'
-            Prelude.<$> ( x Data..:? "AdditionalResources"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ChoiceId")
@@ -121,7 +122,8 @@ instance Data.FromJSON Choice where
 
 instance Prelude.Hashable Choice where
   hashWithSalt _salt Choice' {..} =
-    _salt `Prelude.hashWithSalt` additionalResources
+    _salt
+      `Prelude.hashWithSalt` additionalResources
       `Prelude.hashWithSalt` choiceId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` helpfulResource

@@ -256,10 +256,12 @@ instance Data.FromJSON AwsElbLoadBalancerDetails where
       "AwsElbLoadBalancerDetails"
       ( \x ->
           AwsElbLoadBalancerDetails'
-            Prelude.<$> ( x Data..:? "AvailabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "BackendServerDescriptions"
+            Prelude.<*> ( x
+                            Data..:? "BackendServerDescriptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CanonicalHostedZoneName")
@@ -268,7 +270,8 @@ instance Data.FromJSON AwsElbLoadBalancerDetails where
             Prelude.<*> (x Data..:? "DnsName")
             Prelude.<*> (x Data..:? "HealthCheck")
             Prelude.<*> (x Data..:? "Instances" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ListenerDescriptions"
+            Prelude.<*> ( x
+                            Data..:? "ListenerDescriptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LoadBalancerAttributes")
@@ -283,7 +286,8 @@ instance Data.FromJSON AwsElbLoadBalancerDetails where
 
 instance Prelude.Hashable AwsElbLoadBalancerDetails where
   hashWithSalt _salt AwsElbLoadBalancerDetails' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` backendServerDescriptions
       `Prelude.hashWithSalt` canonicalHostedZoneName
       `Prelude.hashWithSalt` canonicalHostedZoneNameID

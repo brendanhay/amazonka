@@ -82,7 +82,8 @@ listNotificationRulesFilter_value = Lens.lens (\ListNotificationRulesFilter' {va
 
 instance Prelude.Hashable ListNotificationRulesFilter where
   hashWithSalt _salt ListNotificationRulesFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ListNotificationRulesFilter where

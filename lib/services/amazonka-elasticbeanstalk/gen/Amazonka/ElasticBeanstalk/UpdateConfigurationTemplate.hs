@@ -184,7 +184,8 @@ instance Core.AWSRequest UpdateConfigurationTemplate where
 
 instance Prelude.Hashable UpdateConfigurationTemplate where
   hashWithSalt _salt UpdateConfigurationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` optionSettings
       `Prelude.hashWithSalt` optionsToRemove
       `Prelude.hashWithSalt` applicationName

@@ -199,7 +199,8 @@ instance Data.FromJSON RequestedServiceQuotaChange where
 
 instance Prelude.Hashable RequestedServiceQuotaChange where
   hashWithSalt _salt RequestedServiceQuotaChange' {..} =
-    _salt `Prelude.hashWithSalt` caseId
+    _salt
+      `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` desiredValue
       `Prelude.hashWithSalt` globalQuota

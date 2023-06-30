@@ -245,7 +245,8 @@ instance
   hashWithSalt
     _salt
     ListPackageVersionDependencies' {..} =
-      _salt `Prelude.hashWithSalt` domainOwner
+      _salt
+        `Prelude.hashWithSalt` domainOwner
         `Prelude.hashWithSalt` namespace
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` domain

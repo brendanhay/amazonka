@@ -144,9 +144,9 @@ instance
       ( \x ->
           WorkflowExecutionTerminatedEventAttributes'
             Prelude.<$> (x Data..:? "cause")
-              Prelude.<*> (x Data..:? "details")
-              Prelude.<*> (x Data..:? "reason")
-              Prelude.<*> (x Data..: "childPolicy")
+            Prelude.<*> (x Data..:? "details")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..: "childPolicy")
       )
 
 instance
@@ -156,7 +156,8 @@ instance
   hashWithSalt
     _salt
     WorkflowExecutionTerminatedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` cause
+      _salt
+        `Prelude.hashWithSalt` cause
         `Prelude.hashWithSalt` details
         `Prelude.hashWithSalt` reason
         `Prelude.hashWithSalt` childPolicy

@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteBucketEncryption where
 
 instance Prelude.Hashable DeleteBucketEncryption where
   hashWithSalt _salt DeleteBucketEncryption' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucketEncryption where

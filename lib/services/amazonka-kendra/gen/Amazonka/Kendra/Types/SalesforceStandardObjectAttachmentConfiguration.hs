@@ -79,7 +79,7 @@ instance
       ( \x ->
           SalesforceStandardObjectAttachmentConfiguration'
             Prelude.<$> (x Data..:? "DocumentTitleFieldName")
-              Prelude.<*> (x Data..:? "FieldMappings")
+            Prelude.<*> (x Data..:? "FieldMappings")
       )
 
 instance
@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     SalesforceStandardObjectAttachmentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` documentTitleFieldName
+      _salt
+        `Prelude.hashWithSalt` documentTitleFieldName
         `Prelude.hashWithSalt` fieldMappings
 
 instance

@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     DeleteDataRepositoryAssociation' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` deleteDataInFileSystem
         `Prelude.hashWithSalt` associationId
 

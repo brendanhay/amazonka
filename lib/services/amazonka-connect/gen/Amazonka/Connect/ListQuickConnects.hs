@@ -133,22 +133,22 @@ instance Core.AWSPager ListQuickConnects where
     | Core.stop
         ( rs
             Lens.^? listQuickConnectsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listQuickConnectsResponse_quickConnectSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listQuickConnects_nextToken
           Lens..~ rs
           Lens.^? listQuickConnectsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQuickConnects where
   type
@@ -161,7 +161,8 @@ instance Core.AWSRequest ListQuickConnects where
       ( \s h x ->
           ListQuickConnectsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "QuickConnectSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "QuickConnectSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -169,7 +170,8 @@ instance Core.AWSRequest ListQuickConnects where
 
 instance Prelude.Hashable ListQuickConnects where
   hashWithSalt _salt ListQuickConnects' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` quickConnectTypes
       `Prelude.hashWithSalt` instanceId

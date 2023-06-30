@@ -120,7 +120,8 @@ instance Data.FromJSON AccountLimit where
 
 instance Prelude.Hashable AccountLimit where
   hashWithSalt _salt AccountLimit' {..} =
-    _salt `Prelude.hashWithSalt` codeSizeUnzipped
+    _salt
+      `Prelude.hashWithSalt` codeSizeUnzipped
       `Prelude.hashWithSalt` codeSizeZipped
       `Prelude.hashWithSalt` concurrentExecutions
       `Prelude.hashWithSalt` totalCodeSize

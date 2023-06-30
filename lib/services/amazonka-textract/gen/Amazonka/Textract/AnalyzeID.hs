@@ -93,7 +93,8 @@ instance Core.AWSRequest AnalyzeID where
           AnalyzeIDResponse'
             Prelude.<$> (x Data..?> "AnalyzeIDModelVersion")
             Prelude.<*> (x Data..?> "DocumentMetadata")
-            Prelude.<*> ( x Data..?> "IdentityDocuments"
+            Prelude.<*> ( x
+                            Data..?> "IdentityDocuments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

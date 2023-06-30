@@ -160,22 +160,22 @@ instance Core.AWSPager ListPhoneNumbersV2 where
     | Core.stop
         ( rs
             Lens.^? listPhoneNumbersV2Response_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPhoneNumbersV2Response_listPhoneNumbersSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPhoneNumbersV2_nextToken
           Lens..~ rs
           Lens.^? listPhoneNumbersV2Response_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPhoneNumbersV2 where
   type
@@ -187,7 +187,8 @@ instance Core.AWSRequest ListPhoneNumbersV2 where
     Response.receiveJSON
       ( \s h x ->
           ListPhoneNumbersV2Response'
-            Prelude.<$> ( x Data..?> "ListPhoneNumbersSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "ListPhoneNumbersSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -196,7 +197,8 @@ instance Core.AWSRequest ListPhoneNumbersV2 where
 
 instance Prelude.Hashable ListPhoneNumbersV2 where
   hashWithSalt _salt ListPhoneNumbersV2' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` phoneNumberCountryCodes
       `Prelude.hashWithSalt` phoneNumberPrefix

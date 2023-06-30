@@ -85,7 +85,8 @@ instance Data.FromJSON RequestImpactStatistics where
 
 instance Prelude.Hashable RequestImpactStatistics where
   hashWithSalt _salt RequestImpactStatistics' {..} =
-    _salt `Prelude.hashWithSalt` faultCount
+    _salt
+      `Prelude.hashWithSalt` faultCount
       `Prelude.hashWithSalt` okCount
       `Prelude.hashWithSalt` totalCount
 

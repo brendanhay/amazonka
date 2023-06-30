@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateChannel where
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` id
 

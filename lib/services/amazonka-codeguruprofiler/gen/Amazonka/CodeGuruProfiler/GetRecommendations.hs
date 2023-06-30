@@ -227,14 +227,16 @@ instance Core.AWSRequest GetRecommendations where
             Prelude.<*> (x Data..:> "profileEndTime")
             Prelude.<*> (x Data..:> "profileStartTime")
             Prelude.<*> (x Data..:> "profilingGroupName")
-            Prelude.<*> ( x Data..?> "recommendations"
+            Prelude.<*> ( x
+                            Data..?> "recommendations"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetRecommendations where
   hashWithSalt _salt GetRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` profilingGroupName
       `Prelude.hashWithSalt` startTime

@@ -94,14 +94,16 @@ instance Data.FromJSON NodeProperties where
           NodeProperties'
             Prelude.<$> (x Data..: "numNodes")
             Prelude.<*> (x Data..: "mainNode")
-            Prelude.<*> ( x Data..:? "nodeRangeProperties"
+            Prelude.<*> ( x
+                            Data..:? "nodeRangeProperties"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable NodeProperties where
   hashWithSalt _salt NodeProperties' {..} =
-    _salt `Prelude.hashWithSalt` numNodes
+    _salt
+      `Prelude.hashWithSalt` numNodes
       `Prelude.hashWithSalt` mainNode
       `Prelude.hashWithSalt` nodeRangeProperties
 

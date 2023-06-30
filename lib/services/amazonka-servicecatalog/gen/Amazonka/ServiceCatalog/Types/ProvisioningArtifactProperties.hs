@@ -162,7 +162,8 @@ instance
   hashWithSalt
     _salt
     ProvisioningArtifactProperties' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` disableTemplateValidation
         `Prelude.hashWithSalt` info
         `Prelude.hashWithSalt` name

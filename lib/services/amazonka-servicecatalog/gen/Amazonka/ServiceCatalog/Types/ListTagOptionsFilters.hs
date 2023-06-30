@@ -73,7 +73,8 @@ listTagOptionsFilters_value = Lens.lens (\ListTagOptionsFilters' {value} -> valu
 
 instance Prelude.Hashable ListTagOptionsFilters where
   hashWithSalt _salt ListTagOptionsFilters' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 

@@ -163,7 +163,8 @@ instance Data.FromJSON ApplicationInfo where
 
 instance Prelude.Hashable ApplicationInfo where
   hashWithSalt _salt ApplicationInfo' {..} =
-    _salt `Prelude.hashWithSalt` autoConfigEnabled
+    _salt
+      `Prelude.hashWithSalt` autoConfigEnabled
       `Prelude.hashWithSalt` cWEMonitorEnabled
       `Prelude.hashWithSalt` discoveryType
       `Prelude.hashWithSalt` lifeCycle

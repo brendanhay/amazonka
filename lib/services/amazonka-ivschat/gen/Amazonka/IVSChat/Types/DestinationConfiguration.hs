@@ -100,7 +100,8 @@ instance Data.FromJSON DestinationConfiguration where
 
 instance Prelude.Hashable DestinationConfiguration where
   hashWithSalt _salt DestinationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` firehose
       `Prelude.hashWithSalt` s3
 

@@ -220,7 +220,8 @@ instance Data.FromJSON TransformS3DataSource where
 
 instance Prelude.Hashable TransformS3DataSource where
   hashWithSalt _salt TransformS3DataSource' {..} =
-    _salt `Prelude.hashWithSalt` s3DataType
+    _salt
+      `Prelude.hashWithSalt` s3DataType
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData TransformS3DataSource where

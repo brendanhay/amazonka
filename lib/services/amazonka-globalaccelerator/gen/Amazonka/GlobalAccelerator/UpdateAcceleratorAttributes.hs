@@ -171,7 +171,8 @@ instance Core.AWSRequest UpdateAcceleratorAttributes where
 
 instance Prelude.Hashable UpdateAcceleratorAttributes where
   hashWithSalt _salt UpdateAcceleratorAttributes' {..} =
-    _salt `Prelude.hashWithSalt` flowLogsEnabled
+    _salt
+      `Prelude.hashWithSalt` flowLogsEnabled
       `Prelude.hashWithSalt` flowLogsS3Bucket
       `Prelude.hashWithSalt` flowLogsS3Prefix
       `Prelude.hashWithSalt` acceleratorArn

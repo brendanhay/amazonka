@@ -210,7 +210,8 @@ instance Core.AWSRequest DeleteWebACL where
 
 instance Prelude.Hashable DeleteWebACL where
   hashWithSalt _salt DeleteWebACL' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lockToken

@@ -95,7 +95,8 @@ subtitles_outputStartIndex = Lens.lens (\Subtitles' {outputStartIndex} -> output
 
 instance Prelude.Hashable Subtitles where
   hashWithSalt _salt Subtitles' {..} =
-    _salt `Prelude.hashWithSalt` formats
+    _salt
+      `Prelude.hashWithSalt` formats
       `Prelude.hashWithSalt` outputStartIndex
 
 instance Prelude.NFData Subtitles where

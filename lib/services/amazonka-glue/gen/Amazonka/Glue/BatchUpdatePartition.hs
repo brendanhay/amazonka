@@ -138,7 +138,8 @@ instance Core.AWSRequest BatchUpdatePartition where
 
 instance Prelude.Hashable BatchUpdatePartition where
   hashWithSalt _salt BatchUpdatePartition' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` entries

@@ -88,7 +88,8 @@ instance Data.FromJSON LoggingFilter where
 
 instance Prelude.Hashable LoggingFilter where
   hashWithSalt _salt LoggingFilter' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` defaultBehavior
 
 instance Prelude.NFData LoggingFilter where

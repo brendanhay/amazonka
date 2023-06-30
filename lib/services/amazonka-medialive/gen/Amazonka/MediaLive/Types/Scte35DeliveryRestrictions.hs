@@ -116,7 +116,8 @@ instance Data.FromJSON Scte35DeliveryRestrictions where
 
 instance Prelude.Hashable Scte35DeliveryRestrictions where
   hashWithSalt _salt Scte35DeliveryRestrictions' {..} =
-    _salt `Prelude.hashWithSalt` deviceRestrictions
+    _salt
+      `Prelude.hashWithSalt` deviceRestrictions
       `Prelude.hashWithSalt` archiveAllowedFlag
       `Prelude.hashWithSalt` webDeliveryAllowedFlag
       `Prelude.hashWithSalt` noRegionalBlackoutFlag

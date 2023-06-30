@@ -100,7 +100,8 @@ sentimentDetectionJobFilter_submitTimeBefore = Lens.lens (\SentimentDetectionJob
 
 instance Prelude.Hashable SentimentDetectionJobFilter where
   hashWithSalt _salt SentimentDetectionJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submitTimeAfter
       `Prelude.hashWithSalt` submitTimeBefore

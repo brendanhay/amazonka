@@ -138,7 +138,8 @@ instance Core.AWSRequest GetMobileDeviceAccessEffect where
 
 instance Prelude.Hashable GetMobileDeviceAccessEffect where
   hashWithSalt _salt GetMobileDeviceAccessEffect' {..} =
-    _salt `Prelude.hashWithSalt` deviceModel
+    _salt
+      `Prelude.hashWithSalt` deviceModel
       `Prelude.hashWithSalt` deviceOperatingSystem
       `Prelude.hashWithSalt` deviceType
       `Prelude.hashWithSalt` deviceUserAgent

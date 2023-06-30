@@ -111,7 +111,7 @@ instance
       ( \x ->
           OutboundCrossClusterSearchConnectionStatus'
             Prelude.<$> (x Data..:? "Message")
-              Prelude.<*> (x Data..:? "StatusCode")
+            Prelude.<*> (x Data..:? "StatusCode")
       )
 
 instance
@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     OutboundCrossClusterSearchConnectionStatus' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` statusCode
 
 instance

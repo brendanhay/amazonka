@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     AssociatePhoneNumberContactFlow' {..} =
-      _salt `Prelude.hashWithSalt` phoneNumberId
+      _salt
+        `Prelude.hashWithSalt` phoneNumberId
         `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` contactFlowId
 

@@ -95,7 +95,8 @@ instance Core.AWSRequest DeregisterDevices where
 
 instance Prelude.Hashable DeregisterDevices where
   hashWithSalt _salt DeregisterDevices' {..} =
-    _salt `Prelude.hashWithSalt` deviceFleetName
+    _salt
+      `Prelude.hashWithSalt` deviceFleetName
       `Prelude.hashWithSalt` deviceNames
 
 instance Prelude.NFData DeregisterDevices where

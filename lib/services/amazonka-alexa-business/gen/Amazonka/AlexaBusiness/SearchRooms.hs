@@ -134,20 +134,23 @@ instance Core.AWSPager SearchRooms where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? searchRoomsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? searchRoomsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? searchRoomsResponse_rooms Prelude.. Lens._Just
+            Lens.^? searchRoomsResponse_rooms
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchRooms_nextToken
           Lens..~ rs
-          Lens.^? searchRoomsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? searchRoomsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchRooms where
   type AWSResponse SearchRooms = SearchRoomsResponse
@@ -165,7 +168,8 @@ instance Core.AWSRequest SearchRooms where
 
 instance Prelude.Hashable SearchRooms where
   hashWithSalt _salt SearchRooms' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortCriteria

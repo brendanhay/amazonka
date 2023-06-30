@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     WorkerConfigurationRevisionSummary' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
+      _salt
+        `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` revision
 

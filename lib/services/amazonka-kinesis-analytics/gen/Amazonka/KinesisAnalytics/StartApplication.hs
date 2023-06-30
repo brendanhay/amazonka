@@ -135,7 +135,8 @@ instance Core.AWSRequest StartApplication where
 
 instance Prelude.Hashable StartApplication where
   hashWithSalt _salt StartApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` inputConfigurations
 
 instance Prelude.NFData StartApplication where

@@ -122,7 +122,8 @@ instance Data.FromXML LifecycleRuleFilter where
 
 instance Prelude.Hashable LifecycleRuleFilter where
   hashWithSalt _salt LifecycleRuleFilter' {..} =
-    _salt `Prelude.hashWithSalt` and
+    _salt
+      `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` objectSizeGreaterThan
       `Prelude.hashWithSalt` objectSizeLessThan
       `Prelude.hashWithSalt` prefix

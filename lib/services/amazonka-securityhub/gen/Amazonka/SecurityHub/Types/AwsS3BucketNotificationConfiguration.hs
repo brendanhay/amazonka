@@ -64,7 +64,8 @@ instance
       "AwsS3BucketNotificationConfiguration"
       ( \x ->
           AwsS3BucketNotificationConfiguration'
-            Prelude.<$> ( x Data..:? "Configurations"
+            Prelude.<$> ( x
+                            Data..:? "Configurations"
                             Data..!= Prelude.mempty
                         )
       )

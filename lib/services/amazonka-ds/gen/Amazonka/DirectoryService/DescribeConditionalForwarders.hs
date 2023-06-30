@@ -114,7 +114,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConditionalForwardersResponse'
-            Prelude.<$> ( x Data..?> "ConditionalForwarders"
+            Prelude.<$> ( x
+                            Data..?> "ConditionalForwarders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,7 +126,8 @@ instance
     DescribeConditionalForwarders
   where
   hashWithSalt _salt DescribeConditionalForwarders' {..} =
-    _salt `Prelude.hashWithSalt` remoteDomainNames
+    _salt
+      `Prelude.hashWithSalt` remoteDomainNames
       `Prelude.hashWithSalt` directoryId
 
 instance Prelude.NFData DescribeConditionalForwarders where

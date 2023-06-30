@@ -116,7 +116,8 @@ instance Data.FromJSON DiscovererSummary where
 
 instance Prelude.Hashable DiscovererSummary where
   hashWithSalt _salt DiscovererSummary' {..} =
-    _salt `Prelude.hashWithSalt` crossAccount
+    _salt
+      `Prelude.hashWithSalt` crossAccount
       `Prelude.hashWithSalt` discovererArn
       `Prelude.hashWithSalt` discovererId
       `Prelude.hashWithSalt` sourceArn

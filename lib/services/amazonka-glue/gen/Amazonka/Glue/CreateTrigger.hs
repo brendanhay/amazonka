@@ -220,7 +220,8 @@ instance Core.AWSRequest CreateTrigger where
 
 instance Prelude.Hashable CreateTrigger where
   hashWithSalt _salt CreateTrigger' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBatchingCondition
       `Prelude.hashWithSalt` predicate
       `Prelude.hashWithSalt` schedule

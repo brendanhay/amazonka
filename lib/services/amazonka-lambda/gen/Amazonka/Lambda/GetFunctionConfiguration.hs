@@ -181,7 +181,8 @@ instance Core.AWSRequest GetFunctionConfiguration where
 
 instance Prelude.Hashable GetFunctionConfiguration where
   hashWithSalt _salt GetFunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` qualifier
+    _salt
+      `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData GetFunctionConfiguration where

@@ -195,7 +195,8 @@ instance Data.FromJSON ClusterConfig where
 
 instance Prelude.Hashable ClusterConfig where
   hashWithSalt _salt ClusterConfig' {..} =
-    _salt `Prelude.hashWithSalt` coldStorageOptions
+    _salt
+      `Prelude.hashWithSalt` coldStorageOptions
       `Prelude.hashWithSalt` dedicatedMasterCount
       `Prelude.hashWithSalt` dedicatedMasterEnabled
       `Prelude.hashWithSalt` dedicatedMasterType

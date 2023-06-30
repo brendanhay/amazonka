@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     SAPODataConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` logonLanguage
+      _salt
+        `Prelude.hashWithSalt` logonLanguage
         `Prelude.hashWithSalt` oAuthProperties
         `Prelude.hashWithSalt` privateLinkServiceName
         `Prelude.hashWithSalt` applicationHostUrl

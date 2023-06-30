@@ -104,7 +104,8 @@ instance Core.AWSRequest GetFindings where
 
 instance Prelude.Hashable GetFindings where
   hashWithSalt _salt GetFindings' {..} =
-    _salt `Prelude.hashWithSalt` sortCriteria
+    _salt
+      `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` findingIds
 
 instance Prelude.NFData GetFindings where

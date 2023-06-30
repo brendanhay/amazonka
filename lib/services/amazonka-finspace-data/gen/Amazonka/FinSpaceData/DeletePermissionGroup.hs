@@ -103,7 +103,8 @@ instance Core.AWSRequest DeletePermissionGroup where
 
 instance Prelude.Hashable DeletePermissionGroup where
   hashWithSalt _salt DeletePermissionGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` permissionGroupId
 
 instance Prelude.NFData DeletePermissionGroup where

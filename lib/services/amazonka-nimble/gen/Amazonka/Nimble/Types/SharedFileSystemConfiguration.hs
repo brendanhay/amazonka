@@ -118,7 +118,8 @@ instance
     SharedFileSystemConfiguration
   where
   hashWithSalt _salt SharedFileSystemConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` linuxMountPoint
       `Prelude.hashWithSalt` shareName

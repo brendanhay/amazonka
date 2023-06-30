@@ -106,7 +106,8 @@ instance Core.AWSRequest CreateExtendedSourceServer where
 
 instance Prelude.Hashable CreateExtendedSourceServer where
   hashWithSalt _salt CreateExtendedSourceServer' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceServerArn
 
 instance Prelude.NFData CreateExtendedSourceServer where

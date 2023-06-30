@@ -210,22 +210,22 @@ instance Core.AWSPager DescribeCacheEngineVersions where
     | Core.stop
         ( rs
             Lens.^? describeCacheEngineVersionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCacheEngineVersionsResponse_cacheEngineVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCacheEngineVersions_marker
           Lens..~ rs
           Lens.^? describeCacheEngineVersionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheEngineVersions where
   type
@@ -238,7 +238,8 @@ instance Core.AWSRequest DescribeCacheEngineVersions where
       "DescribeCacheEngineVersionsResult"
       ( \s h x ->
           DescribeCacheEngineVersionsResponse'
-            Prelude.<$> ( x Data..@? "CacheEngineVersions"
+            Prelude.<$> ( x
+                            Data..@? "CacheEngineVersions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "CacheEngineVersion")
                         )

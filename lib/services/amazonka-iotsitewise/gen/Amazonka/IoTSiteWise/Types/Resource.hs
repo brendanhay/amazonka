@@ -76,7 +76,8 @@ instance Data.FromJSON Resource where
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` portal
+    _salt
+      `Prelude.hashWithSalt` portal
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData Resource where

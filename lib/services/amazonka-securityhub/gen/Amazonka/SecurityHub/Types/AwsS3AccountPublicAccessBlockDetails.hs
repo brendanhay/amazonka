@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     AwsS3AccountPublicAccessBlockDetails' {..} =
-      _salt `Prelude.hashWithSalt` blockPublicAcls
+      _salt
+        `Prelude.hashWithSalt` blockPublicAcls
         `Prelude.hashWithSalt` blockPublicPolicy
         `Prelude.hashWithSalt` ignorePublicAcls
         `Prelude.hashWithSalt` restrictPublicBuckets

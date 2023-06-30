@@ -154,7 +154,8 @@ input_inputSchema = Lens.lens (\Input' {inputSchema} -> inputSchema) (\s@Input' 
 
 instance Prelude.Hashable Input where
   hashWithSalt _salt Input' {..} =
-    _salt `Prelude.hashWithSalt` inputParallelism
+    _salt
+      `Prelude.hashWithSalt` inputParallelism
       `Prelude.hashWithSalt` inputProcessingConfiguration
       `Prelude.hashWithSalt` kinesisFirehoseInput
       `Prelude.hashWithSalt` kinesisStreamsInput

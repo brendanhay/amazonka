@@ -77,12 +77,14 @@ instance Data.FromJSON RunCommandTarget where
       "RunCommandTarget"
       ( \x ->
           RunCommandTarget'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Values")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Values")
       )
 
 instance Prelude.Hashable RunCommandTarget where
   hashWithSalt _salt RunCommandTarget' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData RunCommandTarget where

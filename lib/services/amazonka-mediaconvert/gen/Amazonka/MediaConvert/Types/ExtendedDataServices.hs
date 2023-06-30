@@ -93,7 +93,8 @@ instance Data.FromJSON ExtendedDataServices where
 
 instance Prelude.Hashable ExtendedDataServices where
   hashWithSalt _salt ExtendedDataServices' {..} =
-    _salt `Prelude.hashWithSalt` copyProtectionAction
+    _salt
+      `Prelude.hashWithSalt` copyProtectionAction
       `Prelude.hashWithSalt` vchipAction
 
 instance Prelude.NFData ExtendedDataServices where

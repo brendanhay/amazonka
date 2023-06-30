@@ -3289,52 +3289,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Placeholder documentation for BadGatewayException
-_BadGatewayException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadGatewayException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadGatewayException =
   Core._MatchServiceError
     defaultService
@@ -3342,7 +3342,7 @@ _BadGatewayException =
     Prelude.. Core.hasStatus 502
 
 -- | Placeholder documentation for BadRequestException
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -3350,7 +3350,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Placeholder documentation for ConflictException
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -3358,7 +3358,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Placeholder documentation for ForbiddenException
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -3366,7 +3366,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | Placeholder documentation for GatewayTimeoutException
-_GatewayTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GatewayTimeoutException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GatewayTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -3374,7 +3374,7 @@ _GatewayTimeoutException =
     Prelude.. Core.hasStatus 504
 
 -- | Placeholder documentation for InternalServerErrorException
-_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -3382,7 +3382,7 @@ _InternalServerErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | Placeholder documentation for NotFoundException
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -3390,7 +3390,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Placeholder documentation for TooManyRequestsException
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -3398,7 +3398,7 @@ _TooManyRequestsException =
     Prelude.. Core.hasStatus 429
 
 -- | Placeholder documentation for UnprocessableEntityException
-_UnprocessableEntityException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnprocessableEntityException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnprocessableEntityException =
   Core._MatchServiceError
     defaultService

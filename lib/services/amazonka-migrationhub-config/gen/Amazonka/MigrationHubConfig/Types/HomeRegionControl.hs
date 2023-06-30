@@ -115,7 +115,8 @@ instance Data.FromJSON HomeRegionControl where
 
 instance Prelude.Hashable HomeRegionControl where
   hashWithSalt _salt HomeRegionControl' {..} =
-    _salt `Prelude.hashWithSalt` controlId
+    _salt
+      `Prelude.hashWithSalt` controlId
       `Prelude.hashWithSalt` homeRegion
       `Prelude.hashWithSalt` requestedTime
       `Prelude.hashWithSalt` target

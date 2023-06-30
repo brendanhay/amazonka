@@ -305,7 +305,8 @@ attributeValueUpdate_value = Lens.lens (\AttributeValueUpdate' {value} -> value)
 
 instance Prelude.Hashable AttributeValueUpdate where
   hashWithSalt _salt AttributeValueUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AttributeValueUpdate where

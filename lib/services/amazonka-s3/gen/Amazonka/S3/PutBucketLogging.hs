@@ -237,7 +237,8 @@ instance Core.AWSRequest PutBucketLogging where
 
 instance Prelude.Hashable PutBucketLogging where
   hashWithSalt _salt PutBucketLogging' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

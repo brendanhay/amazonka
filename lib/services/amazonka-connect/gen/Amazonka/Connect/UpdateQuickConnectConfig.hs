@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateQuickConnectConfig where
 
 instance Prelude.Hashable UpdateQuickConnectConfig where
   hashWithSalt _salt UpdateQuickConnectConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` quickConnectId
       `Prelude.hashWithSalt` quickConnectConfig
 

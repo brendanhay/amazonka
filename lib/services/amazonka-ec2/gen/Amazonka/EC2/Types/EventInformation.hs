@@ -343,7 +343,8 @@ instance Data.FromXML EventInformation where
 
 instance Prelude.Hashable EventInformation where
   hashWithSalt _salt EventInformation' {..} =
-    _salt `Prelude.hashWithSalt` eventDescription
+    _salt
+      `Prelude.hashWithSalt` eventDescription
       `Prelude.hashWithSalt` eventSubType
       `Prelude.hashWithSalt` instanceId
 

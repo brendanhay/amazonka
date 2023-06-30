@@ -161,7 +161,8 @@ instance Data.FromJSON DevicePool where
 
 instance Prelude.Hashable DevicePool where
   hashWithSalt _salt DevicePool' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxDevices
       `Prelude.hashWithSalt` name

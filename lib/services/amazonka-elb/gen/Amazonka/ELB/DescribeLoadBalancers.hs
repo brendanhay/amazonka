@@ -112,22 +112,22 @@ instance Core.AWSPager DescribeLoadBalancers where
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_loadBalancerDescriptions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLoadBalancers_marker
           Lens..~ rs
           Lens.^? describeLoadBalancersResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLoadBalancers where
   type
@@ -140,7 +140,8 @@ instance Core.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Prelude.<$> ( x Data..@? "LoadBalancerDescriptions"
+            Prelude.<$> ( x
+                            Data..@? "LoadBalancerDescriptions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -150,7 +151,8 @@ instance Core.AWSRequest DescribeLoadBalancers where
 
 instance Prelude.Hashable DescribeLoadBalancers where
   hashWithSalt _salt DescribeLoadBalancers' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerNames
+    _salt
+      `Prelude.hashWithSalt` loadBalancerNames
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize
 

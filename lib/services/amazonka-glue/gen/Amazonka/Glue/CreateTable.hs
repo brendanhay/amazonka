@@ -142,7 +142,8 @@ instance Core.AWSRequest CreateTable where
 
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` partitionIndexes
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName

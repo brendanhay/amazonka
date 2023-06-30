@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateApiKey where
 
 instance Prelude.Hashable UpdateApiKey where
   hashWithSalt _salt UpdateApiKey' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` apiKey
 
 instance Prelude.NFData UpdateApiKey where

@@ -938,7 +938,8 @@ instance Core.AWSRequest CreateDBInstance where
 
 instance Prelude.Hashable CreateDBInstance where
   hashWithSalt _salt CreateDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` backupRetentionPeriod

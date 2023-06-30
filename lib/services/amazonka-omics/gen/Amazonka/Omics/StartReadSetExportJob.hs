@@ -154,7 +154,8 @@ instance Core.AWSRequest StartReadSetExportJob where
 
 instance Prelude.Hashable StartReadSetExportJob where
   hashWithSalt _salt StartReadSetExportJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` sequenceStoreId

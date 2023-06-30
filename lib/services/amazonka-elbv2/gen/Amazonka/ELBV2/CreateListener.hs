@@ -263,7 +263,9 @@ instance Core.AWSRequest CreateListener where
       "CreateListenerResult"
       ( \s h x ->
           CreateListenerResponse'
-            Prelude.<$> ( x Data..@? "Listeners" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Listeners"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -271,7 +273,8 @@ instance Core.AWSRequest CreateListener where
 
 instance Prelude.Hashable CreateListener where
   hashWithSalt _salt CreateListener' {..} =
-    _salt `Prelude.hashWithSalt` alpnPolicy
+    _salt
+      `Prelude.hashWithSalt` alpnPolicy
       `Prelude.hashWithSalt` certificates
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` protocol

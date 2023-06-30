@@ -71,7 +71,8 @@ instance
     InstanceMarketOptionsRequest
   where
   hashWithSalt _salt InstanceMarketOptionsRequest' {..} =
-    _salt `Prelude.hashWithSalt` marketType
+    _salt
+      `Prelude.hashWithSalt` marketType
       `Prelude.hashWithSalt` spotOptions
 
 instance Prelude.NFData InstanceMarketOptionsRequest where

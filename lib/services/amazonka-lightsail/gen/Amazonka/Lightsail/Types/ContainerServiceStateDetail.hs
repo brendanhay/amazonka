@@ -190,7 +190,8 @@ instance Data.FromJSON ContainerServiceStateDetail where
 
 instance Prelude.Hashable ContainerServiceStateDetail where
   hashWithSalt _salt ContainerServiceStateDetail' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ContainerServiceStateDetail where

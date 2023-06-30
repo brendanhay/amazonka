@@ -120,20 +120,23 @@ instance Core.AWSPager ListFaces where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listFacesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listFacesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listFacesResponse_faces Prelude.. Lens._Just
+            Lens.^? listFacesResponse_faces
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFaces_nextToken
           Lens..~ rs
-          Lens.^? listFacesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listFacesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFaces where
   type AWSResponse ListFaces = ListFacesResponse
@@ -151,7 +154,8 @@ instance Core.AWSRequest ListFaces where
 
 instance Prelude.Hashable ListFaces where
   hashWithSalt _salt ListFaces' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` collectionId
 

@@ -212,7 +212,8 @@ instance Data.FromJSON FieldStats where
 
 instance Prelude.Hashable FieldStats where
   hashWithSalt _salt FieldStats' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` mean
       `Prelude.hashWithSalt` min

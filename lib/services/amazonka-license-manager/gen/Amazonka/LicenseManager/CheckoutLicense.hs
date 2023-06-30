@@ -170,7 +170,8 @@ instance Core.AWSRequest CheckoutLicense where
       ( \s h x ->
           CheckoutLicenseResponse'
             Prelude.<$> (x Data..?> "CheckoutType")
-            Prelude.<*> ( x Data..?> "EntitlementsAllowed"
+            Prelude.<*> ( x
+                            Data..?> "EntitlementsAllowed"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Expiration")
@@ -184,7 +185,8 @@ instance Core.AWSRequest CheckoutLicense where
 
 instance Prelude.Hashable CheckoutLicense where
   hashWithSalt _salt CheckoutLicense' {..} =
-    _salt `Prelude.hashWithSalt` beneficiary
+    _salt
+      `Prelude.hashWithSalt` beneficiary
       `Prelude.hashWithSalt` nodeId
       `Prelude.hashWithSalt` productSKU
       `Prelude.hashWithSalt` checkoutType

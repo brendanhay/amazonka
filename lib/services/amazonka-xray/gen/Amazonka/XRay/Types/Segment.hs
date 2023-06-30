@@ -82,7 +82,8 @@ instance Data.FromJSON Segment where
 
 instance Prelude.Hashable Segment where
   hashWithSalt _salt Segment' {..} =
-    _salt `Prelude.hashWithSalt` document
+    _salt
+      `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Segment where

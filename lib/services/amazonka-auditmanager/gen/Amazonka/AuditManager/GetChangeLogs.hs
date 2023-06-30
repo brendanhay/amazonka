@@ -137,7 +137,8 @@ instance Core.AWSRequest GetChangeLogs where
 
 instance Prelude.Hashable GetChangeLogs where
   hashWithSalt _salt GetChangeLogs' {..} =
-    _salt `Prelude.hashWithSalt` controlId
+    _salt
+      `Prelude.hashWithSalt` controlId
       `Prelude.hashWithSalt` controlSetId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

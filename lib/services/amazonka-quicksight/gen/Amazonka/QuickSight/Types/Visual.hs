@@ -551,7 +551,8 @@ instance Data.FromJSON Visual where
 
 instance Prelude.Hashable Visual where
   hashWithSalt _salt Visual' {..} =
-    _salt `Prelude.hashWithSalt` barChartVisual
+    _salt
+      `Prelude.hashWithSalt` barChartVisual
       `Prelude.hashWithSalt` boxPlotVisual
       `Prelude.hashWithSalt` comboChartVisual
       `Prelude.hashWithSalt` customContentVisual

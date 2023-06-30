@@ -114,7 +114,8 @@ instance Data.FromXML NetworkInterfacePermission where
 
 instance Prelude.Hashable NetworkInterfacePermission where
   hashWithSalt _salt NetworkInterfacePermission' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` awsService
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` networkInterfacePermissionId

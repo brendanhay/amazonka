@@ -145,21 +145,22 @@ instance Core.AWSPager DescribeDBProxies where
     | Core.stop
         ( rs
             Lens.^? describeDBProxiesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBProxiesResponse_dbProxies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBProxies_marker
           Lens..~ rs
-          Lens.^? describeDBProxiesResponse_marker Prelude.. Lens._Just
+          Lens.^? describeDBProxiesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBProxies where
   type
@@ -172,7 +173,9 @@ instance Core.AWSRequest DescribeDBProxies where
       "DescribeDBProxiesResult"
       ( \s h x ->
           DescribeDBProxiesResponse'
-            Prelude.<$> ( x Data..@? "DBProxies" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "DBProxies"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -181,7 +184,8 @@ instance Core.AWSRequest DescribeDBProxies where
 
 instance Prelude.Hashable DescribeDBProxies where
   hashWithSalt _salt DescribeDBProxies' {..} =
-    _salt `Prelude.hashWithSalt` dbProxyName
+    _salt
+      `Prelude.hashWithSalt` dbProxyName
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords

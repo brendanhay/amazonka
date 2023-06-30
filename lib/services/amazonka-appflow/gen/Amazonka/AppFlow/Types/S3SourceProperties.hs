@@ -90,7 +90,8 @@ instance Data.FromJSON S3SourceProperties where
 
 instance Prelude.Hashable S3SourceProperties where
   hashWithSalt _salt S3SourceProperties' {..} =
-    _salt `Prelude.hashWithSalt` bucketPrefix
+    _salt
+      `Prelude.hashWithSalt` bucketPrefix
       `Prelude.hashWithSalt` s3InputFormatConfig
       `Prelude.hashWithSalt` bucketName
 

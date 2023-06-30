@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpnConnectionOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` staticRoutesOnly
+      _salt
+        `Prelude.hashWithSalt` staticRoutesOnly
         `Prelude.hashWithSalt` tunnelOptions
 
 instance

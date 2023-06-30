@@ -84,7 +84,8 @@ instance Data.FromJSON BatchSuccessfulResultModel where
 
 instance Prelude.Hashable BatchSuccessfulResultModel where
   hashWithSalt _salt BatchSuccessfulResultModel' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` state
 

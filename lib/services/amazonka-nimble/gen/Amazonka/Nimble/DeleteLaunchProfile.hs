@@ -126,7 +126,8 @@ instance Core.AWSRequest DeleteLaunchProfile where
 
 instance Prelude.Hashable DeleteLaunchProfile where
   hashWithSalt _salt DeleteLaunchProfile' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` studioId
 

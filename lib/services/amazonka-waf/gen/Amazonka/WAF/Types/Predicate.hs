@@ -146,7 +146,8 @@ instance Data.FromJSON Predicate where
 
 instance Prelude.Hashable Predicate where
   hashWithSalt _salt Predicate' {..} =
-    _salt `Prelude.hashWithSalt` negated
+    _salt
+      `Prelude.hashWithSalt` negated
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` dataId
 

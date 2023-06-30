@@ -98,7 +98,8 @@ userSearchCriteria_stringCondition = Lens.lens (\UserSearchCriteria' {stringCond
 
 instance Prelude.Hashable UserSearchCriteria where
   hashWithSalt _salt UserSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` andConditions
+    _salt
+      `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` hierarchyGroupCondition
       `Prelude.hashWithSalt` orConditions
       `Prelude.hashWithSalt` stringCondition

@@ -110,7 +110,8 @@ instance Data.FromJSON VeevaSourceProperties where
 
 instance Prelude.Hashable VeevaSourceProperties where
   hashWithSalt _salt VeevaSourceProperties' {..} =
-    _salt `Prelude.hashWithSalt` documentType
+    _salt
+      `Prelude.hashWithSalt` documentType
       `Prelude.hashWithSalt` includeAllVersions
       `Prelude.hashWithSalt` includeRenditions
       `Prelude.hashWithSalt` includeSourceFiles

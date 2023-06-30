@@ -151,7 +151,8 @@ instance Data.FromJSON SentimentFilter where
 
 instance Prelude.Hashable SentimentFilter where
   hashWithSalt _salt SentimentFilter' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTimeRange
+    _salt
+      `Prelude.hashWithSalt` absoluteTimeRange
       `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` participantRole
       `Prelude.hashWithSalt` relativeTimeRange

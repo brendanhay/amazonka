@@ -124,7 +124,8 @@ instance Core.AWSRequest UpdateUserIdentityInfo where
 
 instance Prelude.Hashable UpdateUserIdentityInfo where
   hashWithSalt _salt UpdateUserIdentityInfo' {..} =
-    _salt `Prelude.hashWithSalt` identityInfo
+    _salt
+      `Prelude.hashWithSalt` identityInfo
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
 

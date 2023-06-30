@@ -194,7 +194,8 @@ instance Core.AWSRequest GetPersonTracking where
 
 instance Prelude.Hashable GetPersonTracking where
   hashWithSalt _salt GetPersonTracking' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` jobId

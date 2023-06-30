@@ -74,10 +74,14 @@ instance
       "DescribeMetricCollectionTypesResult"
       ( \s h x ->
           DescribeMetricCollectionTypesResponse'
-            Prelude.<$> ( x Data..@? "Granularities" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Granularities"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Metrics"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     UpdateBackendAuthVerificationMessageConfig' {..} =
-      _salt `Prelude.hashWithSalt` emailSettings
+      _salt
+        `Prelude.hashWithSalt` emailSettings
         `Prelude.hashWithSalt` smsSettings
         `Prelude.hashWithSalt` deliveryMethod
 

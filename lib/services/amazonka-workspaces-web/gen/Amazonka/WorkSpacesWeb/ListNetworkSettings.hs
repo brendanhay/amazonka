@@ -98,7 +98,8 @@ instance Core.AWSRequest ListNetworkSettings where
     Response.receiveJSON
       ( \s h x ->
           ListNetworkSettingsResponse'
-            Prelude.<$> ( x Data..?> "networkSettings"
+            Prelude.<$> ( x
+                            Data..?> "networkSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -107,7 +108,8 @@ instance Core.AWSRequest ListNetworkSettings where
 
 instance Prelude.Hashable ListNetworkSettings where
   hashWithSalt _salt ListNetworkSettings' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListNetworkSettings where

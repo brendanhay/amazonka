@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     DateTimePickerControlDisplayOptions' {..} =
-      _salt `Prelude.hashWithSalt` dateTimeFormat
+      _salt
+        `Prelude.hashWithSalt` dateTimeFormat
         `Prelude.hashWithSalt` titleOptions
 
 instance

@@ -103,12 +103,14 @@ instance Data.FromJSON OverrideAction where
       "OverrideAction"
       ( \x ->
           OverrideAction'
-            Prelude.<$> (x Data..:? "Count") Prelude.<*> (x Data..:? "None")
+            Prelude.<$> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "None")
       )
 
 instance Prelude.Hashable OverrideAction where
   hashWithSalt _salt OverrideAction' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` none
 
 instance Prelude.NFData OverrideAction where

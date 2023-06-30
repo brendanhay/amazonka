@@ -81,7 +81,8 @@ instance Data.FromJSON InstanceNetworking where
 
 instance Prelude.Hashable InstanceNetworking where
   hashWithSalt _salt InstanceNetworking' {..} =
-    _salt `Prelude.hashWithSalt` monthlyTransfer
+    _salt
+      `Prelude.hashWithSalt` monthlyTransfer
       `Prelude.hashWithSalt` ports
 
 instance Prelude.NFData InstanceNetworking where

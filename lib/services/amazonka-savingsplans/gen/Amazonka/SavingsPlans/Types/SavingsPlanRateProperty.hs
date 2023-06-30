@@ -69,12 +69,14 @@ instance Data.FromJSON SavingsPlanRateProperty where
       "SavingsPlanRateProperty"
       ( \x ->
           SavingsPlanRateProperty'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable SavingsPlanRateProperty where
   hashWithSalt _salt SavingsPlanRateProperty' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SavingsPlanRateProperty where

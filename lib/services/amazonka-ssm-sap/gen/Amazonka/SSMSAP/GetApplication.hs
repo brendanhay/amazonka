@@ -76,11 +76,9 @@ newGetApplication =
       applicationId = Prelude.Nothing
     }
 
--- |
 getApplication_applicationArn :: Lens.Lens' GetApplication (Prelude.Maybe Prelude.Text)
 getApplication_applicationArn = Lens.lens (\GetApplication' {applicationArn} -> applicationArn) (\s@GetApplication' {} a -> s {applicationArn = a} :: GetApplication)
 
--- |
 getApplication_applicationId :: Lens.Lens' GetApplication (Prelude.Maybe Prelude.Text)
 getApplication_applicationId = Lens.lens (\GetApplication' {applicationId} -> applicationId) (\s@GetApplication' {} a -> s {applicationId = a} :: GetApplication)
 
@@ -101,7 +99,8 @@ instance Core.AWSRequest GetApplication where
 
 instance Prelude.Hashable GetApplication where
   hashWithSalt _salt GetApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationArn
+    _salt
+      `Prelude.hashWithSalt` applicationArn
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData GetApplication where
@@ -170,11 +169,9 @@ newGetApplicationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getApplicationResponse_application :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Application)
 getApplicationResponse_application = Lens.lens (\GetApplicationResponse' {application} -> application) (\s@GetApplicationResponse' {} a -> s {application = a} :: GetApplicationResponse)
 
--- |
 getApplicationResponse_tags :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getApplicationResponse_tags = Lens.lens (\GetApplicationResponse' {tags} -> tags) (\s@GetApplicationResponse' {} a -> s {tags = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 

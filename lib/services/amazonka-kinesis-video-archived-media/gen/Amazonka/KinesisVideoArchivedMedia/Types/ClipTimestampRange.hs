@@ -117,7 +117,8 @@ clipTimestampRange_endTimestamp = Lens.lens (\ClipTimestampRange' {endTimestamp}
 
 instance Prelude.Hashable ClipTimestampRange where
   hashWithSalt _salt ClipTimestampRange' {..} =
-    _salt `Prelude.hashWithSalt` startTimestamp
+    _salt
+      `Prelude.hashWithSalt` startTimestamp
       `Prelude.hashWithSalt` endTimestamp
 
 instance Prelude.NFData ClipTimestampRange where

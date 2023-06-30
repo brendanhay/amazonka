@@ -145,7 +145,8 @@ instance Data.FromJSON Block where
 
 instance Prelude.Hashable Block where
   hashWithSalt _salt Block' {..} =
-    _salt `Prelude.hashWithSalt` blockType
+    _salt
+      `Prelude.hashWithSalt` blockType
       `Prelude.hashWithSalt` geometry
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` page

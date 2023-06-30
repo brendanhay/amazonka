@@ -78,7 +78,8 @@ instance Data.FromJSON SSOIdentity where
 
 instance Prelude.Hashable SSOIdentity where
   hashWithSalt _salt SSOIdentity' {..} =
-    _salt `Prelude.hashWithSalt` userId
+    _salt
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` identityStoreId
 
 instance Prelude.NFData SSOIdentity where

@@ -107,7 +107,8 @@ instance Data.FromJSON DistributionBundle where
 
 instance Prelude.Hashable DistributionBundle where
   hashWithSalt _salt DistributionBundle' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` isActive
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` price

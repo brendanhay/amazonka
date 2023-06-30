@@ -80,7 +80,8 @@ instance Data.FromJSON EnvironmentLanguage where
 
 instance Prelude.Hashable EnvironmentLanguage where
   hashWithSalt _salt EnvironmentLanguage' {..} =
-    _salt `Prelude.hashWithSalt` images
+    _salt
+      `Prelude.hashWithSalt` images
       `Prelude.hashWithSalt` language
 
 instance Prelude.NFData EnvironmentLanguage where

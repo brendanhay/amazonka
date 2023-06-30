@@ -85,7 +85,8 @@ instance Data.FromJSON DeviceEvent where
 
 instance Prelude.Hashable DeviceEvent where
   hashWithSalt _salt DeviceEvent' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 

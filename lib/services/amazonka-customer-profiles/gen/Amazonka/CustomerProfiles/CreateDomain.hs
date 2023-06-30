@@ -220,7 +220,8 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt `Prelude.hashWithSalt` deadLetterQueueUrl
+    _salt
+      `Prelude.hashWithSalt` deadLetterQueueUrl
       `Prelude.hashWithSalt` defaultEncryptionKey
       `Prelude.hashWithSalt` matching
       `Prelude.hashWithSalt` tags

@@ -137,7 +137,8 @@ instance Data.FromJSON MetadataCatalogDetail where
 
 instance Prelude.Hashable MetadataCatalogDetail where
   hashWithSalt _salt MetadataCatalogDetail' {..} =
-    _salt `Prelude.hashWithSalt` catalogType
+    _salt
+      `Prelude.hashWithSalt` catalogType
       `Prelude.hashWithSalt` partitionRegistrationOutput
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` tableRegistrationOutput

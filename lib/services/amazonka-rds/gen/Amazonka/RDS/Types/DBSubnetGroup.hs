@@ -157,10 +157,13 @@ instance Data.FromXML DBSubnetGroup where
       Prelude.<*> (x Data..@? "DBSubnetGroupDescription")
       Prelude.<*> (x Data..@? "DBSubnetGroupName")
       Prelude.<*> (x Data..@? "SubnetGroupStatus")
-      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Subnets"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
-      Prelude.<*> ( x Data..@? "SupportedNetworkTypes"
+      Prelude.<*> ( x
+                      Data..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -168,7 +171,8 @@ instance Data.FromXML DBSubnetGroup where
 
 instance Prelude.Hashable DBSubnetGroup where
   hashWithSalt _salt DBSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` dbSubnetGroupArn
+    _salt
+      `Prelude.hashWithSalt` dbSubnetGroupArn
       `Prelude.hashWithSalt` dbSubnetGroupDescription
       `Prelude.hashWithSalt` dbSubnetGroupName
       `Prelude.hashWithSalt` subnetGroupStatus

@@ -90,7 +90,8 @@ instance Data.FromJSON WorkflowDetail where
 
 instance Prelude.Hashable WorkflowDetail where
   hashWithSalt _salt WorkflowDetail' {..} =
-    _salt `Prelude.hashWithSalt` workflowId
+    _salt
+      `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` executionRole
 
 instance Prelude.NFData WorkflowDetail where

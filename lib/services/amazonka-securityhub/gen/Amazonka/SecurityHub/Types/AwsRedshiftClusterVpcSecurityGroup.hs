@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsRedshiftClusterVpcSecurityGroup' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` vpcSecurityGroupId
 
 instance

@@ -89,7 +89,8 @@ instance Data.FromJSON ImportJobsResponse where
 
 instance Prelude.Hashable ImportJobsResponse where
   hashWithSalt _salt ImportJobsResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` item
 
 instance Prelude.NFData ImportJobsResponse where

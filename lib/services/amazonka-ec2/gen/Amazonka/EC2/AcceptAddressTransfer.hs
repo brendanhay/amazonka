@@ -135,7 +135,8 @@ instance Core.AWSRequest AcceptAddressTransfer where
 
 instance Prelude.Hashable AcceptAddressTransfer where
   hashWithSalt _salt AcceptAddressTransfer' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` address
 

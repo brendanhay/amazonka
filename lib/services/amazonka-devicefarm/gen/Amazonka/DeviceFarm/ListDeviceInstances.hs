@@ -102,22 +102,22 @@ instance Core.AWSPager ListDeviceInstances where
     | Core.stop
         ( rs
             Lens.^? listDeviceInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDeviceInstancesResponse_deviceInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDeviceInstances_nextToken
           Lens..~ rs
           Lens.^? listDeviceInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeviceInstances where
   type
@@ -129,7 +129,8 @@ instance Core.AWSRequest ListDeviceInstances where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceInstancesResponse'
-            Prelude.<$> ( x Data..?> "deviceInstances"
+            Prelude.<$> ( x
+                            Data..?> "deviceInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -138,7 +139,8 @@ instance Core.AWSRequest ListDeviceInstances where
 
 instance Prelude.Hashable ListDeviceInstances where
   hashWithSalt _salt ListDeviceInstances' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDeviceInstances where

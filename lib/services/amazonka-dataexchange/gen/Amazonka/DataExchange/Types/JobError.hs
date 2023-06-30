@@ -132,7 +132,8 @@ instance Data.FromJSON JobError where
 
 instance Prelude.Hashable JobError where
   hashWithSalt _salt JobError' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` limitName
       `Prelude.hashWithSalt` limitValue
       `Prelude.hashWithSalt` resourceId

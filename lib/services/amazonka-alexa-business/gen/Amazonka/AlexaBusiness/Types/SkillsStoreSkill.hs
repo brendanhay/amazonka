@@ -115,7 +115,8 @@ instance Data.FromJSON SkillsStoreSkill where
       ( \x ->
           SkillsStoreSkill'
             Prelude.<$> (x Data..:? "IconUrl")
-            Prelude.<*> ( x Data..:? "SampleUtterances"
+            Prelude.<*> ( x
+                            Data..:? "SampleUtterances"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ShortDescription")
@@ -127,7 +128,8 @@ instance Data.FromJSON SkillsStoreSkill where
 
 instance Prelude.Hashable SkillsStoreSkill where
   hashWithSalt _salt SkillsStoreSkill' {..} =
-    _salt `Prelude.hashWithSalt` iconUrl
+    _salt
+      `Prelude.hashWithSalt` iconUrl
       `Prelude.hashWithSalt` sampleUtterances
       `Prelude.hashWithSalt` shortDescription
       `Prelude.hashWithSalt` skillDetails

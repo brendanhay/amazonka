@@ -88,7 +88,8 @@ instance
     ContinuousHyperParameterRange
   where
   hashWithSalt _salt ContinuousHyperParameterRange' {..} =
-    _salt `Prelude.hashWithSalt` maxValue
+    _salt
+      `Prelude.hashWithSalt` maxValue
       `Prelude.hashWithSalt` minValue
       `Prelude.hashWithSalt` name
 

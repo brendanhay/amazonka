@@ -148,7 +148,8 @@ instance Data.FromJSON EvaluationResult where
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =
-    _salt `Prelude.hashWithSalt` annotation
+    _salt
+      `Prelude.hashWithSalt` annotation
       `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` configRuleInvokedTime
       `Prelude.hashWithSalt` evaluationResultIdentifier

@@ -147,7 +147,8 @@ instance Core.AWSRequest CreateSnapshot where
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` tags

@@ -84,7 +84,8 @@ instance Data.FromJSON ResourceInfo where
 
 instance Prelude.Hashable ResourceInfo where
   hashWithSalt _salt ResourceInfo' {..} =
-    _salt `Prelude.hashWithSalt` lastModified
+    _salt
+      `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` roleArn
 

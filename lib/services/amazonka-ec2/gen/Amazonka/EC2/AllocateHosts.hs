@@ -260,7 +260,9 @@ instance Core.AWSRequest AllocateHosts where
     Response.receiveXML
       ( \s h x ->
           AllocateHostsResponse'
-            Prelude.<$> ( x Data..@? "hostIdSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "hostIdSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -268,7 +270,8 @@ instance Core.AWSRequest AllocateHosts where
 
 instance Prelude.Hashable AllocateHosts where
   hashWithSalt _salt AllocateHosts' {..} =
-    _salt `Prelude.hashWithSalt` autoPlacement
+    _salt
+      `Prelude.hashWithSalt` autoPlacement
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` hostRecovery
       `Prelude.hashWithSalt` instanceFamily

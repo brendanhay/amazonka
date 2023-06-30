@@ -78,7 +78,8 @@ instance Data.FromJSON Order where
 
 instance Prelude.Hashable Order where
   hashWithSalt _salt Order' {..} =
-    _salt `Prelude.hashWithSalt` column
+    _salt
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData Order where

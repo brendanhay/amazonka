@@ -192,7 +192,8 @@ instance Data.FromJSON MapRunItemCounts where
 
 instance Prelude.Hashable MapRunItemCounts where
   hashWithSalt _salt MapRunItemCounts' {..} =
-    _salt `Prelude.hashWithSalt` pending
+    _salt
+      `Prelude.hashWithSalt` pending
       `Prelude.hashWithSalt` running
       `Prelude.hashWithSalt` succeeded
       `Prelude.hashWithSalt` failed

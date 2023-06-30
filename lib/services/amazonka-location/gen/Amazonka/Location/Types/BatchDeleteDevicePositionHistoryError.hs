@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     BatchDeleteDevicePositionHistoryError' {..} =
-      _salt `Prelude.hashWithSalt` deviceId
+      _salt
+        `Prelude.hashWithSalt` deviceId
         `Prelude.hashWithSalt` error
 
 instance

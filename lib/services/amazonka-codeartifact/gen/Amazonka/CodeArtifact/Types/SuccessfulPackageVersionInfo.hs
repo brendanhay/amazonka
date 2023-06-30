@@ -79,7 +79,8 @@ instance
     SuccessfulPackageVersionInfo
   where
   hashWithSalt _salt SuccessfulPackageVersionInfo' {..} =
-    _salt `Prelude.hashWithSalt` revision
+    _salt
+      `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SuccessfulPackageVersionInfo where

@@ -64,7 +64,8 @@ lineItemRequest_quantity = Lens.lens (\LineItemRequest' {quantity} -> quantity) 
 
 instance Prelude.Hashable LineItemRequest where
   hashWithSalt _salt LineItemRequest' {..} =
-    _salt `Prelude.hashWithSalt` catalogItemId
+    _salt
+      `Prelude.hashWithSalt` catalogItemId
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData LineItemRequest where

@@ -272,7 +272,8 @@ instance Core.AWSRequest UpdateFirewallRule where
 
 instance Prelude.Hashable UpdateFirewallRule where
   hashWithSalt _salt UpdateFirewallRule' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` blockOverrideDnsType
       `Prelude.hashWithSalt` blockOverrideDomain
       `Prelude.hashWithSalt` blockOverrideTtl

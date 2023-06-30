@@ -340,7 +340,8 @@ instance Data.FromJSON Rule where
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` captchaConfig
       `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` overrideAction

@@ -95,7 +95,8 @@ instance Data.FromJSON ModelBiasAppSpecification where
 
 instance Prelude.Hashable ModelBiasAppSpecification where
   hashWithSalt _salt ModelBiasAppSpecification' {..} =
-    _salt `Prelude.hashWithSalt` environment
+    _salt
+      `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` imageUri
       `Prelude.hashWithSalt` configUri
 

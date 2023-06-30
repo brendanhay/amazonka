@@ -71,14 +71,16 @@ instance Data.FromJSON LendingSummary where
       ( \x ->
           LendingSummary'
             Prelude.<$> (x Data..:? "DocumentGroups" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "UndetectedDocumentTypes"
+            Prelude.<*> ( x
+                            Data..:? "UndetectedDocumentTypes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LendingSummary where
   hashWithSalt _salt LendingSummary' {..} =
-    _salt `Prelude.hashWithSalt` documentGroups
+    _salt
+      `Prelude.hashWithSalt` documentGroups
       `Prelude.hashWithSalt` undetectedDocumentTypes
 
 instance Prelude.NFData LendingSummary where

@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateTrustStore where
 
 instance Prelude.Hashable CreateTrustStore where
   hashWithSalt _salt CreateTrustStore' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` certificateList
 

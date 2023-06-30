@@ -149,7 +149,8 @@ instance Data.FromJSON CustomRule where
 
 instance Prelude.Hashable CustomRule where
   hashWithSalt _salt CustomRule' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` target

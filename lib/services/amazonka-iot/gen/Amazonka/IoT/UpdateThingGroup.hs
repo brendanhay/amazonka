@@ -124,7 +124,8 @@ instance Core.AWSRequest UpdateThingGroup where
 
 instance Prelude.Hashable UpdateThingGroup where
   hashWithSalt _salt UpdateThingGroup' {..} =
-    _salt `Prelude.hashWithSalt` expectedVersion
+    _salt
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` thingGroupName
       `Prelude.hashWithSalt` thingGroupProperties
 

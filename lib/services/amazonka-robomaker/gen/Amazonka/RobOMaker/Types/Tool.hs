@@ -130,7 +130,8 @@ instance Data.FromJSON Tool where
 
 instance Prelude.Hashable Tool where
   hashWithSalt _salt Tool' {..} =
-    _salt `Prelude.hashWithSalt` exitBehavior
+    _salt
+      `Prelude.hashWithSalt` exitBehavior
       `Prelude.hashWithSalt` streamOutputToCloudWatch
       `Prelude.hashWithSalt` streamUI
       `Prelude.hashWithSalt` name

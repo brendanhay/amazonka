@@ -109,7 +109,8 @@ instance
     ParticipantTimerConfiguration
   where
   hashWithSalt _salt ParticipantTimerConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` participantRole
+    _salt
+      `Prelude.hashWithSalt` participantRole
       `Prelude.hashWithSalt` timerType
       `Prelude.hashWithSalt` timerValue
 

@@ -156,22 +156,22 @@ instance Core.AWSPager DescribeGameServerInstances where
     | Core.stop
         ( rs
             Lens.^? describeGameServerInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeGameServerInstancesResponse_gameServerInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeGameServerInstances_nextToken
           Lens..~ rs
           Lens.^? describeGameServerInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGameServerInstances where
   type
@@ -183,7 +183,8 @@ instance Core.AWSRequest DescribeGameServerInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameServerInstancesResponse'
-            Prelude.<$> ( x Data..?> "GameServerInstances"
+            Prelude.<$> ( x
+                            Data..?> "GameServerInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -192,7 +193,8 @@ instance Core.AWSRequest DescribeGameServerInstances where
 
 instance Prelude.Hashable DescribeGameServerInstances where
   hashWithSalt _salt DescribeGameServerInstances' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` gameServerGroupName

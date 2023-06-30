@@ -156,7 +156,8 @@ instance Data.FromJSON FleetUtilization where
 
 instance Prelude.Hashable FleetUtilization where
   hashWithSalt _salt FleetUtilization' {..} =
-    _salt `Prelude.hashWithSalt` activeGameSessionCount
+    _salt
+      `Prelude.hashWithSalt` activeGameSessionCount
       `Prelude.hashWithSalt` activeServerProcessCount
       `Prelude.hashWithSalt` currentPlayerSessionCount
       `Prelude.hashWithSalt` fleetArn

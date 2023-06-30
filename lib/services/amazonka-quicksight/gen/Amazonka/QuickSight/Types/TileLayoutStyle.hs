@@ -76,7 +76,8 @@ instance Data.FromJSON TileLayoutStyle where
 
 instance Prelude.Hashable TileLayoutStyle where
   hashWithSalt _salt TileLayoutStyle' {..} =
-    _salt `Prelude.hashWithSalt` gutter
+    _salt
+      `Prelude.hashWithSalt` gutter
       `Prelude.hashWithSalt` margin
 
 instance Prelude.NFData TileLayoutStyle where

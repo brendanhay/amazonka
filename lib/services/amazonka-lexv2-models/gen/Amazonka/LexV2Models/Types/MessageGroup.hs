@@ -83,7 +83,8 @@ instance Data.FromJSON MessageGroup where
 
 instance Prelude.Hashable MessageGroup where
   hashWithSalt _salt MessageGroup' {..} =
-    _salt `Prelude.hashWithSalt` variations
+    _salt
+      `Prelude.hashWithSalt` variations
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData MessageGroup where

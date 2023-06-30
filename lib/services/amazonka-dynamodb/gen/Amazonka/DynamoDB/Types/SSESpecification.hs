@@ -123,7 +123,8 @@ instance Data.FromJSON SSESpecification where
 
 instance Prelude.Hashable SSESpecification where
   hashWithSalt _salt SSESpecification' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` kmsMasterKeyId
       `Prelude.hashWithSalt` sSEType
 

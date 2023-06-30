@@ -76,7 +76,8 @@ instance Data.FromJSON ArtifactDetail where
 
 instance Prelude.Hashable ArtifactDetail where
   hashWithSalt _salt ArtifactDetail' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` s3location
 
 instance Prelude.NFData ArtifactDetail where

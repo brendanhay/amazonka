@@ -765,7 +765,8 @@ instance Core.AWSRequest RunJobFlow where
 
 instance Prelude.Hashable RunJobFlow where
   hashWithSalt _salt RunJobFlow' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` amiVersion
       `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` autoScalingRole

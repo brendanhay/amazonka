@@ -77,7 +77,8 @@ instance Data.FromXML Initiator where
 
 instance Prelude.Hashable Initiator where
   hashWithSalt _salt Initiator' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Initiator where

@@ -149,7 +149,8 @@ instance Core.AWSRequest StopPipelineExecution where
 
 instance Prelude.Hashable StopPipelineExecution where
   hashWithSalt _salt StopPipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` abandon
+    _salt
+      `Prelude.hashWithSalt` abandon
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` pipelineExecutionId

@@ -246,7 +246,8 @@ writeCampaignRequest_tags = Lens.lens (\WriteCampaignRequest' {tags} -> tags) (\
 
 instance Prelude.Hashable WriteCampaignRequest where
   hashWithSalt _salt WriteCampaignRequest' {..} =
-    _salt `Prelude.hashWithSalt` additionalTreatments
+    _salt
+      `Prelude.hashWithSalt` additionalTreatments
       `Prelude.hashWithSalt` customDeliveryConfiguration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` holdoutPercent

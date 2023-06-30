@@ -87,7 +87,8 @@ instance Data.FromJSON ContainerConfiguration where
 
 instance Prelude.Hashable ContainerConfiguration where
   hashWithSalt _salt ContainerConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` containerName
+    _salt
+      `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` memorySizeConfiguration
 

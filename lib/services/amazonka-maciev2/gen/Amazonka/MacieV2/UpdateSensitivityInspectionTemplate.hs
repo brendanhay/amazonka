@@ -157,7 +157,8 @@ instance
   hashWithSalt
     _salt
     UpdateSensitivityInspectionTemplate' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` excludes
         `Prelude.hashWithSalt` includes
         `Prelude.hashWithSalt` id

@@ -121,7 +121,8 @@ instance Data.FromJSON SequenceStoreDetail where
 
 instance Prelude.Hashable SequenceStoreDetail where
   hashWithSalt _salt SequenceStoreDetail' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sseConfig
       `Prelude.hashWithSalt` arn

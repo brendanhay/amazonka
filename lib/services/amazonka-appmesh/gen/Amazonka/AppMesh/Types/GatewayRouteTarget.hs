@@ -77,7 +77,8 @@ instance Data.FromJSON GatewayRouteTarget where
 
 instance Prelude.Hashable GatewayRouteTarget where
   hashWithSalt _salt GatewayRouteTarget' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` virtualService
 
 instance Prelude.NFData GatewayRouteTarget where

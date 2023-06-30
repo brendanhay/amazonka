@@ -103,7 +103,9 @@ continuousDeploymentPolicyList_quantity = Lens.lens (\ContinuousDeploymentPolicy
 instance Data.FromXML ContinuousDeploymentPolicyList where
   parseXML x =
     ContinuousDeploymentPolicyList'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
                             "ContinuousDeploymentPolicySummary"
@@ -120,7 +122,8 @@ instance
   hashWithSalt
     _salt
     ContinuousDeploymentPolicyList' {..} =
-      _salt `Prelude.hashWithSalt` items
+      _salt
+        `Prelude.hashWithSalt` items
         `Prelude.hashWithSalt` nextMarker
         `Prelude.hashWithSalt` maxItems
         `Prelude.hashWithSalt` quantity

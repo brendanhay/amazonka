@@ -120,7 +120,8 @@ instance Data.FromJSON AnomalyInstance where
 
 instance Prelude.Hashable AnomalyInstance where
   hashWithSalt _salt AnomalyInstance' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` userFeedback
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` startTime

@@ -85,7 +85,8 @@ instance Data.FromJSON AbpV1_0_x where
 
 instance Prelude.Hashable AbpV1_0_x where
   hashWithSalt _salt AbpV1_0_x' {..} =
-    _salt `Prelude.hashWithSalt` devAddr
+    _salt
+      `Prelude.hashWithSalt` devAddr
       `Prelude.hashWithSalt` fCntStart
       `Prelude.hashWithSalt` sessionKeys
 

@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteRepositoryPolicy where
 
 instance Prelude.Hashable DeleteRepositoryPolicy where
   hashWithSalt _salt DeleteRepositoryPolicy' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData DeleteRepositoryPolicy where

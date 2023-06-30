@@ -96,7 +96,8 @@ hadoopJarStepConfig_jar = Lens.lens (\HadoopJarStepConfig' {jar} -> jar) (\s@Had
 
 instance Prelude.Hashable HadoopJarStepConfig where
   hashWithSalt _salt HadoopJarStepConfig' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt
+      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` mainClass
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` jar

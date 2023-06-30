@@ -75,7 +75,8 @@ instance
       "AwsEc2NetworkInterfaceViolation"
       ( \x ->
           AwsEc2NetworkInterfaceViolation'
-            Prelude.<$> ( x Data..:? "ViolatingSecurityGroups"
+            Prelude.<$> ( x
+                            Data..:? "ViolatingSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ViolationTarget")

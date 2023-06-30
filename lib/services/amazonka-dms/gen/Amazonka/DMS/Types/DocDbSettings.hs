@@ -255,7 +255,8 @@ instance Data.FromJSON DocDbSettings where
 
 instance Prelude.Hashable DocDbSettings where
   hashWithSalt _salt DocDbSettings' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` docsToInvestigate
       `Prelude.hashWithSalt` extractDocId
       `Prelude.hashWithSalt` kmsKeyId

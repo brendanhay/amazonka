@@ -257,7 +257,8 @@ instance Data.FromJSON Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` fleetId

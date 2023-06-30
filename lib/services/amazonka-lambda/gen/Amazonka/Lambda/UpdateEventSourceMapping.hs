@@ -476,7 +476,8 @@ instance Core.AWSRequest UpdateEventSourceMapping where
 
 instance Prelude.Hashable UpdateEventSourceMapping where
   hashWithSalt _salt UpdateEventSourceMapping' {..} =
-    _salt `Prelude.hashWithSalt` batchSize
+    _salt
+      `Prelude.hashWithSalt` batchSize
       `Prelude.hashWithSalt` bisectBatchOnFunctionError
       `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` enabled

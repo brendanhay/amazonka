@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateDataSourcePermissions where
 
 instance Prelude.Hashable UpdateDataSourcePermissions where
   hashWithSalt _salt UpdateDataSourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` grantPermissions
+    _salt
+      `Prelude.hashWithSalt` grantPermissions
       `Prelude.hashWithSalt` revokePermissions
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSourceId

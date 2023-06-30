@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeQueue where
 
 instance Prelude.Hashable DescribeQueue where
   hashWithSalt _salt DescribeQueue' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId
 
 instance Prelude.NFData DescribeQueue where

@@ -459,7 +459,8 @@ instance Data.FromJSON Policy where
             Prelude.<*> (x Data..:? "PolicyUpdateToken")
             Prelude.<*> (x Data..:? "ResourceSetIds" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ResourceTags" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ResourceTypeList"
+            Prelude.<*> ( x
+                            Data..:? "ResourceTypeList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "PolicyName")

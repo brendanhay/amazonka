@@ -165,7 +165,8 @@ instance Data.FromXML TransitGatewayOptions where
       Prelude.<*> (x Data..@? "dnsSupport")
       Prelude.<*> (x Data..@? "multicastSupport")
       Prelude.<*> (x Data..@? "propagationDefaultRouteTableId")
-      Prelude.<*> ( x Data..@? "transitGatewayCidrBlocks"
+      Prelude.<*> ( x
+                      Data..@? "transitGatewayCidrBlocks"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -173,7 +174,8 @@ instance Data.FromXML TransitGatewayOptions where
 
 instance Prelude.Hashable TransitGatewayOptions where
   hashWithSalt _salt TransitGatewayOptions' {..} =
-    _salt `Prelude.hashWithSalt` amazonSideAsn
+    _salt
+      `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` associationDefaultRouteTableId
       `Prelude.hashWithSalt` autoAcceptSharedAttachments
       `Prelude.hashWithSalt` defaultRouteTableAssociation

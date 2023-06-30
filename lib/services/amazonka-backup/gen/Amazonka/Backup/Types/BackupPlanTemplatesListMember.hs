@@ -78,7 +78,8 @@ instance
     BackupPlanTemplatesListMember
   where
   hashWithSalt _salt BackupPlanTemplatesListMember' {..} =
-    _salt `Prelude.hashWithSalt` backupPlanTemplateId
+    _salt
+      `Prelude.hashWithSalt` backupPlanTemplateId
       `Prelude.hashWithSalt` backupPlanTemplateName
 
 instance Prelude.NFData BackupPlanTemplatesListMember where

@@ -116,7 +116,8 @@ instance Data.FromJSON EbsVolumeScanDetails where
 
 instance Prelude.Hashable EbsVolumeScanDetails where
   hashWithSalt _salt EbsVolumeScanDetails' {..} =
-    _salt `Prelude.hashWithSalt` scanCompletedAt
+    _salt
+      `Prelude.hashWithSalt` scanCompletedAt
       `Prelude.hashWithSalt` scanDetections
       `Prelude.hashWithSalt` scanId
       `Prelude.hashWithSalt` scanStartedAt

@@ -94,7 +94,8 @@ instance Core.AWSRequest GetConnectivityInfo where
     Response.receiveJSON
       ( \s h x ->
           GetConnectivityInfoResponse'
-            Prelude.<$> ( x Data..?> "ConnectivityInfo"
+            Prelude.<$> ( x
+                            Data..?> "ConnectivityInfo"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Message")

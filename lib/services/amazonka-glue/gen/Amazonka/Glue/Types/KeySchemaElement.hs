@@ -69,12 +69,14 @@ instance Data.FromJSON KeySchemaElement where
       "KeySchemaElement"
       ( \x ->
           KeySchemaElement'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable KeySchemaElement where
   hashWithSalt _salt KeySchemaElement' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData KeySchemaElement where

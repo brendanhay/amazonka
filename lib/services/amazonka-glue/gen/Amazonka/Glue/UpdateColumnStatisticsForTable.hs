@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     UpdateColumnStatisticsForTable' {..} =
-      _salt `Prelude.hashWithSalt` catalogId
+      _salt
+        `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` databaseName
         `Prelude.hashWithSalt` tableName
         `Prelude.hashWithSalt` columnStatisticsList

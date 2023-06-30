@@ -80,7 +80,7 @@ instance
       ( \x ->
           ApplicationMaintenanceConfigurationDescription'
             Prelude.<$> (x Data..: "ApplicationMaintenanceWindowStartTime")
-              Prelude.<*> (x Data..: "ApplicationMaintenanceWindowEndTime")
+            Prelude.<*> (x Data..: "ApplicationMaintenanceWindowEndTime")
       )
 
 instance

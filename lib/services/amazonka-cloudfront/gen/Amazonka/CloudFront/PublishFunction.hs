@@ -118,7 +118,8 @@ instance Core.AWSRequest PublishFunction where
 
 instance Prelude.Hashable PublishFunction where
   hashWithSalt _salt PublishFunction' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ifMatch
 
 instance Prelude.NFData PublishFunction where

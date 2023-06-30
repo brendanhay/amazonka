@@ -172,7 +172,8 @@ instance
     ResourceSharePermissionDetail
   where
   hashWithSalt _salt ResourceSharePermissionDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` defaultVersion
       `Prelude.hashWithSalt` isResourceTypeDefault

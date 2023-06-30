@@ -174,7 +174,8 @@ instance Core.AWSRequest DetachVolume where
 
 instance Prelude.Hashable DetachVolume where
   hashWithSalt _salt DetachVolume' {..} =
-    _salt `Prelude.hashWithSalt` device
+    _salt
+      `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` instanceId

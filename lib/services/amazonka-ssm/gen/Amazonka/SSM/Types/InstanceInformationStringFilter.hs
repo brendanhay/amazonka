@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     InstanceInformationStringFilter' {..} =
-      _salt `Prelude.hashWithSalt` key
+      _salt
+        `Prelude.hashWithSalt` key
         `Prelude.hashWithSalt` values
 
 instance

@@ -129,14 +129,16 @@ instance Core.AWSRequest GetCommentReactions where
           GetCommentReactionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "reactionsForComment"
+            Prelude.<*> ( x
+                            Data..?> "reactionsForComment"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetCommentReactions where
   hashWithSalt _salt GetCommentReactions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` reactionUserArn
       `Prelude.hashWithSalt` commentId

@@ -531,7 +531,8 @@ instance Core.AWSRequest PutAlarm where
 
 instance Prelude.Hashable PutAlarm where
   hashWithSalt _salt PutAlarm' {..} =
-    _salt `Prelude.hashWithSalt` contactProtocols
+    _salt
+      `Prelude.hashWithSalt` contactProtocols
       `Prelude.hashWithSalt` datapointsToAlarm
       `Prelude.hashWithSalt` notificationEnabled
       `Prelude.hashWithSalt` notificationTriggers

@@ -127,7 +127,7 @@ instance
       ( \s h x ->
           DeleteTransitGatewayPrefixListReferenceResponse'
             Prelude.<$> (x Data..@? "transitGatewayPrefixListReference")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -137,7 +137,8 @@ instance
   hashWithSalt
     _salt
     DeleteTransitGatewayPrefixListReference' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` transitGatewayRouteTableId
         `Prelude.hashWithSalt` prefixListId
 

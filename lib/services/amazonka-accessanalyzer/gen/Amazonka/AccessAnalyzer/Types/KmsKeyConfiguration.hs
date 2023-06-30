@@ -100,7 +100,8 @@ instance Data.FromJSON KmsKeyConfiguration where
 
 instance Prelude.Hashable KmsKeyConfiguration where
   hashWithSalt _salt KmsKeyConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` grants
+    _salt
+      `Prelude.hashWithSalt` grants
       `Prelude.hashWithSalt` keyPolicies
 
 instance Prelude.NFData KmsKeyConfiguration where

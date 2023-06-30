@@ -145,22 +145,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancerTargetGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLoadBalancerTargetGroups_nextToken
           Lens..~ rs
           Lens.^? describeLoadBalancerTargetGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -176,7 +176,8 @@ instance
       "DescribeLoadBalancerTargetGroupsResult"
       ( \s h x ->
           DescribeLoadBalancerTargetGroupsResponse'
-            Prelude.<$> ( x Data..@? "LoadBalancerTargetGroups"
+            Prelude.<$> ( x
+                            Data..@? "LoadBalancerTargetGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -191,7 +192,8 @@ instance
   hashWithSalt
     _salt
     DescribeLoadBalancerTargetGroups' {..} =
-      _salt `Prelude.hashWithSalt` maxRecords
+      _salt
+        `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` autoScalingGroupName
 

@@ -245,7 +245,8 @@ instance Data.FromXML StackSetSummary where
 
 instance Prelude.Hashable StackSetSummary where
   hashWithSalt _salt StackSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` autoDeployment
+    _salt
+      `Prelude.hashWithSalt` autoDeployment
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` driftStatus
       `Prelude.hashWithSalt` lastDriftCheckTimestamp

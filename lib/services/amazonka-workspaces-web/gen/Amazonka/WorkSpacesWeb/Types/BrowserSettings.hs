@@ -86,7 +86,8 @@ instance Data.FromJSON BrowserSettings where
       "BrowserSettings"
       ( \x ->
           BrowserSettings'
-            Prelude.<$> ( x Data..:? "associatedPortalArns"
+            Prelude.<$> ( x
+                            Data..:? "associatedPortalArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "browserPolicy")
@@ -95,7 +96,8 @@ instance Data.FromJSON BrowserSettings where
 
 instance Prelude.Hashable BrowserSettings where
   hashWithSalt _salt BrowserSettings' {..} =
-    _salt `Prelude.hashWithSalt` associatedPortalArns
+    _salt
+      `Prelude.hashWithSalt` associatedPortalArns
       `Prelude.hashWithSalt` browserPolicy
       `Prelude.hashWithSalt` browserSettingsArn
 

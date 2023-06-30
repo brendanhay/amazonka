@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpnConnectionVgwTelemetryDetails' {..} =
-      _salt `Prelude.hashWithSalt` acceptedRouteCount
+      _salt
+        `Prelude.hashWithSalt` acceptedRouteCount
         `Prelude.hashWithSalt` certificateArn
         `Prelude.hashWithSalt` lastStatusChange
         `Prelude.hashWithSalt` outsideIpAddress

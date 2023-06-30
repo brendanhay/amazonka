@@ -74,7 +74,7 @@ instance
       ( \x ->
           ChannelMembershipForAppInstanceUserSummary'
             Prelude.<$> (x Data..:? "AppInstanceUserMembershipSummary")
-              Prelude.<*> (x Data..:? "ChannelSummary")
+            Prelude.<*> (x Data..:? "ChannelSummary")
       )
 
 instance

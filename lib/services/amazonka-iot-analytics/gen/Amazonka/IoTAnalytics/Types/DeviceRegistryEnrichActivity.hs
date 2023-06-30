@@ -126,7 +126,8 @@ instance
     DeviceRegistryEnrichActivity
   where
   hashWithSalt _salt DeviceRegistryEnrichActivity' {..} =
-    _salt `Prelude.hashWithSalt` next
+    _salt
+      `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` thingName

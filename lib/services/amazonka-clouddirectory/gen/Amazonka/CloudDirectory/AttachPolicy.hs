@@ -122,7 +122,8 @@ instance Core.AWSRequest AttachPolicy where
 
 instance Prelude.Hashable AttachPolicy where
   hashWithSalt _salt AttachPolicy' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` policyReference
       `Prelude.hashWithSalt` objectReference
 

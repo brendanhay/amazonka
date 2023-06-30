@@ -114,7 +114,8 @@ instance Core.AWSRequest GetComponent where
 
 instance Prelude.Hashable GetComponent where
   hashWithSalt _salt GetComponent' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
 

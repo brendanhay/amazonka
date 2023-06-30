@@ -125,7 +125,8 @@ instance Data.FromJSON AssetModelProperty where
 
 instance Prelude.Hashable AssetModelProperty where
   hashWithSalt _salt AssetModelProperty' {..} =
-    _salt `Prelude.hashWithSalt` dataTypeSpec
+    _salt
+      `Prelude.hashWithSalt` dataTypeSpec
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` name

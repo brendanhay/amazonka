@@ -203,7 +203,9 @@ instance Core.AWSRequest ExportImage where
             Prelude.<*> (x Data..@? "s3ExportLocation")
             Prelude.<*> (x Data..@? "status")
             Prelude.<*> (x Data..@? "statusMessage")
-            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -211,7 +213,8 @@ instance Core.AWSRequest ExportImage where
 
 instance Prelude.Hashable ExportImage where
   hashWithSalt _salt ExportImage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` roleName

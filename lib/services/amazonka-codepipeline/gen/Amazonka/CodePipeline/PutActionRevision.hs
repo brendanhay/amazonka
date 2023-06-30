@@ -143,7 +143,8 @@ instance Core.AWSRequest PutActionRevision where
 
 instance Prelude.Hashable PutActionRevision where
   hashWithSalt _salt PutActionRevision' {..} =
-    _salt `Prelude.hashWithSalt` pipelineName
+    _salt
+      `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` actionRevision

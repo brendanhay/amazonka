@@ -294,21 +294,23 @@ instance Core.AWSPager DescribeTags where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeTagsResponse_marker Prelude.. Lens._Just
+            Lens.^? describeTagsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTagsResponse_taggedResources
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTags_marker
           Lens..~ rs
-          Lens.^? describeTagsResponse_marker Prelude.. Lens._Just
+          Lens.^? describeTagsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
@@ -320,7 +322,9 @@ instance Core.AWSRequest DescribeTags where
       ( \s h x ->
           DescribeTagsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "TaggedResources" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "TaggedResources"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "TaggedResource")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -328,7 +332,8 @@ instance Core.AWSRequest DescribeTags where
 
 instance Prelude.Hashable DescribeTags where
   hashWithSalt _salt DescribeTags' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType

@@ -79,7 +79,8 @@ instance
     TaskTemplateDefaultFieldValue
   where
   hashWithSalt _salt TaskTemplateDefaultFieldValue' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData TaskTemplateDefaultFieldValue where

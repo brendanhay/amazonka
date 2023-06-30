@@ -87,7 +87,8 @@ instance Data.FromJSON S3Location where
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` bucketOwner
+    _salt
+      `Prelude.hashWithSalt` bucketOwner
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` bucket
 

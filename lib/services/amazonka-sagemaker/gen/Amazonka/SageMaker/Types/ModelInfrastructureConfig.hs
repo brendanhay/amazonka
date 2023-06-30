@@ -97,7 +97,8 @@ instance Data.FromJSON ModelInfrastructureConfig where
 
 instance Prelude.Hashable ModelInfrastructureConfig where
   hashWithSalt _salt ModelInfrastructureConfig' {..} =
-    _salt `Prelude.hashWithSalt` infrastructureType
+    _salt
+      `Prelude.hashWithSalt` infrastructureType
       `Prelude.hashWithSalt` realTimeInferenceConfig
 
 instance Prelude.NFData ModelInfrastructureConfig where

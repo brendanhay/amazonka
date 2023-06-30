@@ -142,7 +142,8 @@ instance Core.AWSRequest UpdateVolume where
 
 instance Prelude.Hashable UpdateVolume where
   hashWithSalt _salt UpdateVolume' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ontapConfiguration
       `Prelude.hashWithSalt` openZFSConfiguration

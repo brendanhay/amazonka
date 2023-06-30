@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatelessRulesDetails' {..} =
-      _salt `Prelude.hashWithSalt` priority
+      _salt
+        `Prelude.hashWithSalt` priority
         `Prelude.hashWithSalt` ruleDefinition
 
 instance

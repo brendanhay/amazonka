@@ -342,7 +342,8 @@ instance Core.AWSRequest CreateDiskFromSnapshot where
 
 instance Prelude.Hashable CreateDiskFromSnapshot where
   hashWithSalt _salt CreateDiskFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` addOns
+    _salt
+      `Prelude.hashWithSalt` addOns
       `Prelude.hashWithSalt` diskSnapshotName
       `Prelude.hashWithSalt` restoreDate
       `Prelude.hashWithSalt` sourceDiskName

@@ -69,12 +69,14 @@ instance Data.FromJSON Variable where
       "Variable"
       ( \x ->
           Variable'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Variable where
   hashWithSalt _salt Variable' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Variable where

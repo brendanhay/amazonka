@@ -246,7 +246,8 @@ instance Data.FromJSON InstanceSnapshot where
           InstanceSnapshot'
             Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "createdAt")
-            Prelude.<*> ( x Data..:? "fromAttachedDisks"
+            Prelude.<*> ( x
+                            Data..:? "fromAttachedDisks"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "fromBlueprintId")
@@ -266,7 +267,8 @@ instance Data.FromJSON InstanceSnapshot where
 
 instance Prelude.Hashable InstanceSnapshot where
   hashWithSalt _salt InstanceSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` fromAttachedDisks
       `Prelude.hashWithSalt` fromBlueprintId

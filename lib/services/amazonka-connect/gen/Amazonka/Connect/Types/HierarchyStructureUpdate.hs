@@ -93,7 +93,8 @@ hierarchyStructureUpdate_levelTwo = Lens.lens (\HierarchyStructureUpdate' {level
 
 instance Prelude.Hashable HierarchyStructureUpdate where
   hashWithSalt _salt HierarchyStructureUpdate' {..} =
-    _salt `Prelude.hashWithSalt` levelFive
+    _salt
+      `Prelude.hashWithSalt` levelFive
       `Prelude.hashWithSalt` levelFour
       `Prelude.hashWithSalt` levelOne
       `Prelude.hashWithSalt` levelThree

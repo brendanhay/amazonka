@@ -475,52 +475,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified ALPN policy is not supported.
-_ALPNPolicyNotSupportedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ALPNPolicyNotSupportedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ALPNPolicyNotSupportedException =
   Core._MatchServiceError
     defaultService
@@ -528,7 +528,7 @@ _ALPNPolicyNotSupportedException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified allocation ID does not exist.
-_AllocationIdNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AllocationIdNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AllocationIdNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -536,7 +536,7 @@ _AllocationIdNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified Availability Zone is not supported.
-_AvailabilityZoneNotSupportedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AvailabilityZoneNotSupportedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AvailabilityZoneNotSupportedException =
   Core._MatchServiceError
     defaultService
@@ -544,7 +544,7 @@ _AvailabilityZoneNotSupportedException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified certificate does not exist.
-_CertificateNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -552,7 +552,7 @@ _CertificateNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | A listener with the specified port already exists.
-_DuplicateListenerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateListenerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateListenerException =
   Core._MatchServiceError
     defaultService
@@ -560,7 +560,7 @@ _DuplicateListenerException =
     Prelude.. Core.hasStatus 400
 
 -- | A load balancer with the specified name already exists.
-_DuplicateLoadBalancerNameException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateLoadBalancerNameException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateLoadBalancerNameException =
   Core._MatchServiceError
     defaultService
@@ -568,7 +568,7 @@ _DuplicateLoadBalancerNameException =
     Prelude.. Core.hasStatus 400
 
 -- | A tag key was specified more than once.
-_DuplicateTagKeysException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateTagKeysException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateTagKeysException =
   Core._MatchServiceError
     defaultService
@@ -576,7 +576,7 @@ _DuplicateTagKeysException =
     Prelude.. Core.hasStatus 400
 
 -- | A target group with the specified name already exists.
-_DuplicateTargetGroupNameException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateTargetGroupNameException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateTargetGroupNameException =
   Core._MatchServiceError
     defaultService
@@ -585,7 +585,7 @@ _DuplicateTargetGroupNameException =
 
 -- | The health of the specified targets could not be retrieved due to an
 -- internal error.
-_HealthUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_HealthUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _HealthUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -593,7 +593,7 @@ _HealthUnavailableException =
     Prelude.. Core.hasStatus 500
 
 -- | The specified configuration is not valid with this protocol.
-_IncompatibleProtocolsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IncompatibleProtocolsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IncompatibleProtocolsException =
   Core._MatchServiceError
     defaultService
@@ -601,7 +601,7 @@ _IncompatibleProtocolsException =
     Prelude.. Core.hasStatus 400
 
 -- | The requested configuration is not valid.
-_InvalidConfigurationRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidConfigurationRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidConfigurationRequestException =
   Core._MatchServiceError
     defaultService
@@ -609,7 +609,7 @@ _InvalidConfigurationRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The requested action is not valid.
-_InvalidLoadBalancerActionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidLoadBalancerActionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidLoadBalancerActionException =
   Core._MatchServiceError
     defaultService
@@ -617,7 +617,7 @@ _InvalidLoadBalancerActionException =
     Prelude.. Core.hasStatus 400
 
 -- | The requested scheme is not valid.
-_InvalidSchemeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSchemeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSchemeException =
   Core._MatchServiceError
     defaultService
@@ -625,7 +625,7 @@ _InvalidSchemeException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified security group does not exist.
-_InvalidSecurityGroupException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSecurityGroupException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSecurityGroupException =
   Core._MatchServiceError
     defaultService
@@ -633,7 +633,7 @@ _InvalidSecurityGroupException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified subnet is out of available addresses.
-_InvalidSubnetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSubnetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSubnetException =
   Core._MatchServiceError
     defaultService
@@ -642,7 +642,7 @@ _InvalidSubnetException =
 
 -- | The specified target does not exist, is not in the same VPC as the
 -- target group, or has an unsupported instance type.
-_InvalidTargetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTargetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTargetException =
   Core._MatchServiceError
     defaultService
@@ -650,7 +650,7 @@ _InvalidTargetException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified listener does not exist.
-_ListenerNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ListenerNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ListenerNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -658,7 +658,7 @@ _ListenerNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified load balancer does not exist.
-_LoadBalancerNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LoadBalancerNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LoadBalancerNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -666,7 +666,7 @@ _LoadBalancerNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | This operation is not allowed.
-_OperationNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationNotPermittedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
@@ -674,7 +674,7 @@ _OperationNotPermittedException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified priority is in use.
-_PriorityInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PriorityInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PriorityInUseException =
   Core._MatchServiceError
     defaultService
@@ -682,7 +682,7 @@ _PriorityInUseException =
     Prelude.. Core.hasStatus 400
 
 -- | A specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -690,7 +690,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified rule does not exist.
-_RuleNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RuleNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RuleNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -698,7 +698,7 @@ _RuleNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified SSL policy does not exist.
-_SSLPolicyNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SSLPolicyNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SSLPolicyNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -706,7 +706,7 @@ _SSLPolicyNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified subnet does not exist.
-_SubnetNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -715,7 +715,7 @@ _SubnetNotFoundException =
 
 -- | You\'ve reached the limit on the number of load balancers per target
 -- group.
-_TargetGroupAssociationLimitException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TargetGroupAssociationLimitException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TargetGroupAssociationLimitException =
   Core._MatchServiceError
     defaultService
@@ -723,7 +723,7 @@ _TargetGroupAssociationLimitException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified target group does not exist.
-_TargetGroupNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TargetGroupNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TargetGroupNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -731,7 +731,7 @@ _TargetGroupNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of actions per rule.
-_TooManyActionsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyActionsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyActionsException =
   Core._MatchServiceError
     defaultService
@@ -740,7 +740,7 @@ _TooManyActionsException =
 
 -- | You\'ve reached the limit on the number of certificates per load
 -- balancer.
-_TooManyCertificatesException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyCertificatesException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyCertificatesException =
   Core._MatchServiceError
     defaultService
@@ -748,7 +748,7 @@ _TooManyCertificatesException =
     Prelude.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of listeners per load balancer.
-_TooManyListenersException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyListenersException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyListenersException =
   Core._MatchServiceError
     defaultService
@@ -757,7 +757,7 @@ _TooManyListenersException =
 
 -- | You\'ve reached the limit on the number of load balancers for your
 -- Amazon Web Services account.
-_TooManyLoadBalancersException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyLoadBalancersException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyLoadBalancersException =
   Core._MatchServiceError
     defaultService
@@ -766,7 +766,7 @@ _TooManyLoadBalancersException =
 
 -- | You\'ve reached the limit on the number of times a target can be
 -- registered with a load balancer.
-_TooManyRegistrationsForTargetIdException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRegistrationsForTargetIdException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRegistrationsForTargetIdException =
   Core._MatchServiceError
     defaultService
@@ -774,7 +774,7 @@ _TooManyRegistrationsForTargetIdException =
     Prelude.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of rules per load balancer.
-_TooManyRulesException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRulesException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRulesException =
   Core._MatchServiceError
     defaultService
@@ -782,7 +782,7 @@ _TooManyRulesException =
     Prelude.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of tags per load balancer.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
@@ -791,7 +791,7 @@ _TooManyTagsException =
 
 -- | You\'ve reached the limit on the number of target groups for your Amazon
 -- Web Services account.
-_TooManyTargetGroupsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTargetGroupsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTargetGroupsException =
   Core._MatchServiceError
     defaultService
@@ -799,7 +799,7 @@ _TooManyTargetGroupsException =
     Prelude.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of targets.
-_TooManyTargetsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTargetsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTargetsException =
   Core._MatchServiceError
     defaultService
@@ -809,7 +809,7 @@ _TooManyTargetsException =
 -- | You\'ve reached the limit on the number of unique target groups per load
 -- balancer across all listeners. If a target group is used by multiple
 -- actions for a load balancer, it is counted as only one use.
-_TooManyUniqueTargetGroupsPerLoadBalancerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyUniqueTargetGroupsPerLoadBalancerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyUniqueTargetGroupsPerLoadBalancerException =
   Core._MatchServiceError
     defaultService
@@ -817,7 +817,7 @@ _TooManyUniqueTargetGroupsPerLoadBalancerException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified protocol is not supported.
-_UnsupportedProtocolException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedProtocolException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedProtocolException =
   Core._MatchServiceError
     defaultService

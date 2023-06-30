@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteTaskTemplate where
 
 instance Prelude.Hashable DeleteTaskTemplate where
   hashWithSalt _salt DeleteTaskTemplate' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` taskTemplateId
 
 instance Prelude.NFData DeleteTaskTemplate where

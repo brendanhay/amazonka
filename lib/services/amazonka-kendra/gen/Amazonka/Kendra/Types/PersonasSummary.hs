@@ -116,7 +116,8 @@ instance Data.FromJSON PersonasSummary where
 
 instance Prelude.Hashable PersonasSummary where
   hashWithSalt _salt PersonasSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` persona
       `Prelude.hashWithSalt` updatedAt

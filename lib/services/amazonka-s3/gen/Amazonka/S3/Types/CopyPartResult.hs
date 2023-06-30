@@ -171,7 +171,8 @@ instance Data.FromXML CopyPartResult where
 
 instance Prelude.Hashable CopyPartResult where
   hashWithSalt _salt CopyPartResult' {..} =
-    _salt `Prelude.hashWithSalt` checksumCRC32
+    _salt
+      `Prelude.hashWithSalt` checksumCRC32
       `Prelude.hashWithSalt` checksumCRC32C
       `Prelude.hashWithSalt` checksumSHA1
       `Prelude.hashWithSalt` checksumSHA256

@@ -168,7 +168,8 @@ instance Data.FromJSON FolderMetadata where
 
 instance Prelude.Hashable FolderMetadata where
   hashWithSalt _salt FolderMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` creatorId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` labels

@@ -160,22 +160,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listDetectMitigationActionsExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDetectMitigationActionsExecutionsResponse_actionsExecutions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDetectMitigationActionsExecutions_nextToken
           Lens..~ rs
-            Lens.^? listDetectMitigationActionsExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? listDetectMitigationActionsExecutionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -191,11 +191,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDetectMitigationActionsExecutionsResponse'
-            Prelude.<$> ( x Data..?> "actionsExecutions"
+            Prelude.<$> ( x
+                            Data..?> "actionsExecutions"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -205,7 +206,8 @@ instance
   hashWithSalt
     _salt
     ListDetectMitigationActionsExecutions' {..} =
-      _salt `Prelude.hashWithSalt` endTime
+      _salt
+        `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` startTime

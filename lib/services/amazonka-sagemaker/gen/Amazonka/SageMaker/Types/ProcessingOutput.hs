@@ -111,7 +111,8 @@ instance Data.FromJSON ProcessingOutput where
 
 instance Prelude.Hashable ProcessingOutput where
   hashWithSalt _salt ProcessingOutput' {..} =
-    _salt `Prelude.hashWithSalt` appManaged
+    _salt
+      `Prelude.hashWithSalt` appManaged
       `Prelude.hashWithSalt` featureStoreOutput
       `Prelude.hashWithSalt` s3Output
       `Prelude.hashWithSalt` outputName

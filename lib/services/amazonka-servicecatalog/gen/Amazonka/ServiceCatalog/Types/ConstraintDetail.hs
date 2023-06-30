@@ -150,7 +150,8 @@ instance Data.FromJSON ConstraintDetail where
 
 instance Prelude.Hashable ConstraintDetail where
   hashWithSalt _salt ConstraintDetail' {..} =
-    _salt `Prelude.hashWithSalt` constraintId
+    _salt
+      `Prelude.hashWithSalt` constraintId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` portfolioId

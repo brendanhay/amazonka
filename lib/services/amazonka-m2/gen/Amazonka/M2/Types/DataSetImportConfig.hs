@@ -66,7 +66,8 @@ dataSetImportConfig_s3Location = Lens.lens (\DataSetImportConfig' {s3Location} -
 
 instance Prelude.Hashable DataSetImportConfig where
   hashWithSalt _salt DataSetImportConfig' {..} =
-    _salt `Prelude.hashWithSalt` dataSets
+    _salt
+      `Prelude.hashWithSalt` dataSets
       `Prelude.hashWithSalt` s3Location
 
 instance Prelude.NFData DataSetImportConfig where

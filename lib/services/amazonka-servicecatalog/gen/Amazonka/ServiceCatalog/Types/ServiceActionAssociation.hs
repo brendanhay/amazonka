@@ -87,7 +87,8 @@ serviceActionAssociation_provisioningArtifactId = Lens.lens (\ServiceActionAssoc
 
 instance Prelude.Hashable ServiceActionAssociation where
   hashWithSalt _salt ServiceActionAssociation' {..} =
-    _salt `Prelude.hashWithSalt` serviceActionId
+    _salt
+      `Prelude.hashWithSalt` serviceActionId
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` provisioningArtifactId
 

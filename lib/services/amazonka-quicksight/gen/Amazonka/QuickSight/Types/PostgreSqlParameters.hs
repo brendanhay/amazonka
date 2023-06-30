@@ -90,7 +90,8 @@ instance Data.FromJSON PostgreSqlParameters where
 
 instance Prelude.Hashable PostgreSqlParameters where
   hashWithSalt _salt PostgreSqlParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` database
 

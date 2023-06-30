@@ -214,22 +214,22 @@ instance Core.AWSPager ListDatasetEntries where
     | Core.stop
         ( rs
             Lens.^? listDatasetEntriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDatasetEntriesResponse_datasetEntries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDatasetEntries_nextToken
           Lens..~ rs
           Lens.^? listDatasetEntriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatasetEntries where
   type
@@ -248,7 +248,8 @@ instance Core.AWSRequest ListDatasetEntries where
 
 instance Prelude.Hashable ListDatasetEntries where
   hashWithSalt _salt ListDatasetEntries' {..} =
-    _salt `Prelude.hashWithSalt` afterCreationDate
+    _salt
+      `Prelude.hashWithSalt` afterCreationDate
       `Prelude.hashWithSalt` anomalyClass
       `Prelude.hashWithSalt` beforeCreationDate
       `Prelude.hashWithSalt` labeled

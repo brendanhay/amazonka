@@ -148,7 +148,8 @@ instance Data.FromJSON ResolverConfig where
 
 instance Prelude.Hashable ResolverConfig where
   hashWithSalt _salt ResolverConfig' {..} =
-    _salt `Prelude.hashWithSalt` autodefinedReverse
+    _salt
+      `Prelude.hashWithSalt` autodefinedReverse
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` resourceId

@@ -75,7 +75,8 @@ instance Data.FromJSON ExportTaskStatus where
 
 instance Prelude.Hashable ExportTaskStatus where
   hashWithSalt _salt ExportTaskStatus' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ExportTaskStatus where

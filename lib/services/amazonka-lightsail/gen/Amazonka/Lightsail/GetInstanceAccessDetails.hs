@@ -109,7 +109,8 @@ instance Core.AWSRequest GetInstanceAccessDetails where
 
 instance Prelude.Hashable GetInstanceAccessDetails where
   hashWithSalt _salt GetInstanceAccessDetails' {..} =
-    _salt `Prelude.hashWithSalt` protocol
+    _salt
+      `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` instanceName
 
 instance Prelude.NFData GetInstanceAccessDetails where

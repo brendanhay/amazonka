@@ -200,7 +200,8 @@ instance
   hashWithSalt
     _salt
     ModifyNetworkInterfaceAttribute' {..} =
-      _salt `Prelude.hashWithSalt` attachment
+      _salt
+        `Prelude.hashWithSalt` attachment
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` enaSrdSpecification

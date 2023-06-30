@@ -167,7 +167,8 @@ instance
     LustreLogCreateConfiguration
   where
   hashWithSalt _salt LustreLogCreateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` level
 
 instance Prelude.NFData LustreLogCreateConfiguration where

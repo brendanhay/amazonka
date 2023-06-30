@@ -201,7 +201,8 @@ instance Core.AWSRequest CreateGroup where
 
 instance Prelude.Hashable CreateGroup where
   hashWithSalt _salt CreateGroup' {..} =
-    _salt `Prelude.hashWithSalt` filterExpression
+    _salt
+      `Prelude.hashWithSalt` filterExpression
       `Prelude.hashWithSalt` insightsConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` groupName

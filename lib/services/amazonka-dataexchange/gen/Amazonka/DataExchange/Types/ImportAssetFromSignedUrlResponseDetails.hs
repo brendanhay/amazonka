@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetFromSignedUrlResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` md5Hash
+      _salt
+        `Prelude.hashWithSalt` md5Hash
         `Prelude.hashWithSalt` signedUrl
         `Prelude.hashWithSalt` signedUrlExpiresAt
         `Prelude.hashWithSalt` assetName

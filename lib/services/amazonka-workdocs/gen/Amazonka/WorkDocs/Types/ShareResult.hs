@@ -116,7 +116,8 @@ instance Data.FromJSON ShareResult where
 
 instance Prelude.Hashable ShareResult where
   hashWithSalt _salt ShareResult' {..} =
-    _salt `Prelude.hashWithSalt` inviteePrincipalId
+    _salt
+      `Prelude.hashWithSalt` inviteePrincipalId
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` shareId

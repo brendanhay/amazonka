@@ -80,7 +80,8 @@ instance Data.FromJSON InventoryItemAttribute where
 
 instance Prelude.Hashable InventoryItemAttribute where
   hashWithSalt _salt InventoryItemAttribute' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` dataType
 
 instance Prelude.NFData InventoryItemAttribute where

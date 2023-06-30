@@ -123,7 +123,8 @@ instance Core.AWSRequest SetStackPolicy where
 
 instance Prelude.Hashable SetStackPolicy where
   hashWithSalt _salt SetStackPolicy' {..} =
-    _salt `Prelude.hashWithSalt` stackPolicyBody
+    _salt
+      `Prelude.hashWithSalt` stackPolicyBody
       `Prelude.hashWithSalt` stackPolicyURL
       `Prelude.hashWithSalt` stackName
 

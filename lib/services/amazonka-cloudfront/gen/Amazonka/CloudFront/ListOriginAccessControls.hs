@@ -123,7 +123,8 @@ instance Core.AWSRequest ListOriginAccessControls where
 
 instance Prelude.Hashable ListOriginAccessControls where
   hashWithSalt _salt ListOriginAccessControls' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListOriginAccessControls where

@@ -113,7 +113,8 @@ instance Core.AWSRequest Enable where
 
 instance Prelude.Hashable Enable where
   hashWithSalt _salt Enable' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` resourceTypes
 

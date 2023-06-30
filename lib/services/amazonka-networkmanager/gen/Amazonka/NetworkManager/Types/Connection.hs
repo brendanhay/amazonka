@@ -166,7 +166,8 @@ instance Data.FromJSON Connection where
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` connectedDeviceId
+    _salt
+      `Prelude.hashWithSalt` connectedDeviceId
       `Prelude.hashWithSalt` connectedLinkId
       `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` connectionId

@@ -100,7 +100,8 @@ instance Data.FromXML Subscription where
 
 instance Prelude.Hashable Subscription where
   hashWithSalt _salt Subscription' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` subscriptionArn

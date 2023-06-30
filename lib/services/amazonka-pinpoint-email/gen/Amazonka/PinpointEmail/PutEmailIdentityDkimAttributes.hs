@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     PutEmailIdentityDkimAttributes' {..} =
-      _salt `Prelude.hashWithSalt` signingEnabled
+      _salt
+        `Prelude.hashWithSalt` signingEnabled
         `Prelude.hashWithSalt` emailIdentity
 
 instance

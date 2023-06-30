@@ -92,7 +92,8 @@ instance Data.FromJSON LedgerSummary where
 
 instance Prelude.Hashable LedgerSummary where
   hashWithSalt _salt LedgerSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
 

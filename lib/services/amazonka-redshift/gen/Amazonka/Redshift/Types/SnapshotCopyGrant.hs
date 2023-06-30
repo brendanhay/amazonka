@@ -87,13 +87,16 @@ instance Data.FromXML SnapshotCopyGrant where
     SnapshotCopyGrant'
       Prelude.<$> (x Data..@? "KmsKeyId")
       Prelude.<*> (x Data..@? "SnapshotCopyGrantName")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
 instance Prelude.Hashable SnapshotCopyGrant where
   hashWithSalt _salt SnapshotCopyGrant' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` snapshotCopyGrantName
       `Prelude.hashWithSalt` tags
 

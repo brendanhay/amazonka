@@ -121,7 +121,8 @@ instance Core.AWSRequest ModifyClusterDbRevision where
 
 instance Prelude.Hashable ModifyClusterDbRevision where
   hashWithSalt _salt ModifyClusterDbRevision' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` revisionTarget
 
 instance Prelude.NFData ModifyClusterDbRevision where

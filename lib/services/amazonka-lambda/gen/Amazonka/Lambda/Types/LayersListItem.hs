@@ -87,7 +87,8 @@ instance Data.FromJSON LayersListItem where
 
 instance Prelude.Hashable LayersListItem where
   hashWithSalt _salt LayersListItem' {..} =
-    _salt `Prelude.hashWithSalt` latestMatchingVersion
+    _salt
+      `Prelude.hashWithSalt` latestMatchingVersion
       `Prelude.hashWithSalt` layerArn
       `Prelude.hashWithSalt` layerName
 

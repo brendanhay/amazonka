@@ -101,7 +101,8 @@ instance Data.FromXML SendDataPoint where
 
 instance Prelude.Hashable SendDataPoint where
   hashWithSalt _salt SendDataPoint' {..} =
-    _salt `Prelude.hashWithSalt` bounces
+    _salt
+      `Prelude.hashWithSalt` bounces
       `Prelude.hashWithSalt` complaints
       `Prelude.hashWithSalt` deliveryAttempts
       `Prelude.hashWithSalt` rejects

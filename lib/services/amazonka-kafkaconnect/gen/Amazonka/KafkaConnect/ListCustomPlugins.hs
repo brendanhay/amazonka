@@ -98,22 +98,22 @@ instance Core.AWSPager ListCustomPlugins where
     | Core.stop
         ( rs
             Lens.^? listCustomPluginsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCustomPluginsResponse_customPlugins
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCustomPlugins_nextToken
           Lens..~ rs
           Lens.^? listCustomPluginsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCustomPlugins where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest ListCustomPlugins where
 
 instance Prelude.Hashable ListCustomPlugins where
   hashWithSalt _salt ListCustomPlugins' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCustomPlugins where

@@ -77,7 +77,8 @@ instance
   hashWithSalt
     _salt
     ExchangeCodeForTokenRequestBody' {..} =
-      _salt `Prelude.hashWithSalt` code
+      _salt
+        `Prelude.hashWithSalt` code
         `Prelude.hashWithSalt` redirectUri
 
 instance

@@ -77,7 +77,8 @@ instance
     BudgetNotificationsForAccount
   where
   hashWithSalt _salt BudgetNotificationsForAccount' {..} =
-    _salt `Prelude.hashWithSalt` budgetName
+    _salt
+      `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` notifications
 
 instance Prelude.NFData BudgetNotificationsForAccount where

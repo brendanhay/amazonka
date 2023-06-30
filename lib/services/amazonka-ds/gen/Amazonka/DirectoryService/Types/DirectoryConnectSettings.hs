@@ -119,7 +119,8 @@ directoryConnectSettings_customerUserName = Lens.lens (\DirectoryConnectSettings
 
 instance Prelude.Hashable DirectoryConnectSettings where
   hashWithSalt _salt DirectoryConnectSettings' {..} =
-    _salt `Prelude.hashWithSalt` vpcId
+    _salt
+      `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` customerDnsIps
       `Prelude.hashWithSalt` customerUserName

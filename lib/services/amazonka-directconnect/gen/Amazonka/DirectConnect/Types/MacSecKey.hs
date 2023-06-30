@@ -139,7 +139,8 @@ instance Data.FromJSON MacSecKey where
 
 instance Prelude.Hashable MacSecKey where
   hashWithSalt _salt MacSecKey' {..} =
-    _salt `Prelude.hashWithSalt` ckn
+    _salt
+      `Prelude.hashWithSalt` ckn
       `Prelude.hashWithSalt` secretARN
       `Prelude.hashWithSalt` startOn
       `Prelude.hashWithSalt` state

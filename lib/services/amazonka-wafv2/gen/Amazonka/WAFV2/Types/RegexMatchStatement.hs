@@ -112,7 +112,8 @@ instance Data.FromJSON RegexMatchStatement where
 
 instance Prelude.Hashable RegexMatchStatement where
   hashWithSalt _salt RegexMatchStatement' {..} =
-    _salt `Prelude.hashWithSalt` regexString
+    _salt
+      `Prelude.hashWithSalt` regexString
       `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformations
 

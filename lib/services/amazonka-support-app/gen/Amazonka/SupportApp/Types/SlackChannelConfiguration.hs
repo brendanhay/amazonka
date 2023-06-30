@@ -169,7 +169,8 @@ instance Data.FromJSON SlackChannelConfiguration where
 
 instance Prelude.Hashable SlackChannelConfiguration where
   hashWithSalt _salt SlackChannelConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` channelName
+    _salt
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` channelRoleArn
       `Prelude.hashWithSalt` notifyOnAddCorrespondenceToCase
       `Prelude.hashWithSalt` notifyOnCaseSeverity

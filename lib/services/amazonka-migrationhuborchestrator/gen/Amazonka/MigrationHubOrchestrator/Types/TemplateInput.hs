@@ -85,7 +85,8 @@ instance Data.FromJSON TemplateInput where
 
 instance Prelude.Hashable TemplateInput where
   hashWithSalt _salt TemplateInput' {..} =
-    _salt `Prelude.hashWithSalt` dataType
+    _salt
+      `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` inputName
       `Prelude.hashWithSalt` required
 

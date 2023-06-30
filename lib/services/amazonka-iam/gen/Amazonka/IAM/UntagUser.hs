@@ -111,7 +111,8 @@ instance Core.AWSRequest UntagUser where
 
 instance Prelude.Hashable UntagUser where
   hashWithSalt _salt UntagUser' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagUser where

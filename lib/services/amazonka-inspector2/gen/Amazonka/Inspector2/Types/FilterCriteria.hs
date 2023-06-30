@@ -482,7 +482,8 @@ instance Data.FromJSON FilterCriteria where
 
 instance Prelude.Hashable FilterCriteria where
   hashWithSalt _salt FilterCriteria' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` ec2InstanceImageId

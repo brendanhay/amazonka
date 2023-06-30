@@ -209,7 +209,8 @@ instance Core.AWSRequest UpdatePortfolioShare where
 
 instance Prelude.Hashable UpdatePortfolioShare where
   hashWithSalt _salt UpdatePortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` organizationNode
       `Prelude.hashWithSalt` sharePrincipals

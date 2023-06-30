@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     BatchGetObjectInformationResponse' {..} =
-      _salt `Prelude.hashWithSalt` objectIdentifier
+      _salt
+        `Prelude.hashWithSalt` objectIdentifier
         `Prelude.hashWithSalt` schemaFacets
 
 instance

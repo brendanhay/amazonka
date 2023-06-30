@@ -274,7 +274,8 @@ instance Core.AWSRequest DeleteDBInstance where
 
 instance Prelude.Hashable DeleteDBInstance where
   hashWithSalt _salt DeleteDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` deleteAutomatedBackups
+    _salt
+      `Prelude.hashWithSalt` deleteAutomatedBackups
       `Prelude.hashWithSalt` finalDBSnapshotIdentifier
       `Prelude.hashWithSalt` skipFinalSnapshot
       `Prelude.hashWithSalt` dbInstanceIdentifier

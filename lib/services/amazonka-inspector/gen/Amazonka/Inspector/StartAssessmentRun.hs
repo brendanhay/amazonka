@@ -114,7 +114,8 @@ instance Core.AWSRequest StartAssessmentRun where
 
 instance Prelude.Hashable StartAssessmentRun where
   hashWithSalt _salt StartAssessmentRun' {..} =
-    _salt `Prelude.hashWithSalt` assessmentRunName
+    _salt
+      `Prelude.hashWithSalt` assessmentRunName
       `Prelude.hashWithSalt` assessmentTemplateArn
 
 instance Prelude.NFData StartAssessmentRun where

@@ -183,7 +183,8 @@ instance Data.FromJSON Step where
 
 instance Prelude.Hashable Step where
   hashWithSalt _salt Step' {..} =
-    _salt `Prelude.hashWithSalt` actionOnFailure
+    _salt
+      `Prelude.hashWithSalt` actionOnFailure
       `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` id

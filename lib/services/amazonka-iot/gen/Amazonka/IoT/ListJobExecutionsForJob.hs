@@ -119,22 +119,22 @@ instance Core.AWSPager ListJobExecutionsForJob where
     | Core.stop
         ( rs
             Lens.^? listJobExecutionsForJobResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listJobExecutionsForJobResponse_executionSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listJobExecutionsForJob_nextToken
           Lens..~ rs
           Lens.^? listJobExecutionsForJobResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobExecutionsForJob where
   type
@@ -146,7 +146,8 @@ instance Core.AWSRequest ListJobExecutionsForJob where
     Response.receiveJSON
       ( \s h x ->
           ListJobExecutionsForJobResponse'
-            Prelude.<$> ( x Data..?> "executionSummaries"
+            Prelude.<$> ( x
+                            Data..?> "executionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -155,7 +156,8 @@ instance Core.AWSRequest ListJobExecutionsForJob where
 
 instance Prelude.Hashable ListJobExecutionsForJob where
   hashWithSalt _salt ListJobExecutionsForJob' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` jobId

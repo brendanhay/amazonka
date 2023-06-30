@@ -68,7 +68,8 @@ processorInfo_sustainedClockSpeedInGhz = Lens.lens (\ProcessorInfo' {sustainedCl
 instance Data.FromXML ProcessorInfo where
   parseXML x =
     ProcessorInfo'
-      Prelude.<$> ( x Data..@? "supportedArchitectures"
+      Prelude.<$> ( x
+                      Data..@? "supportedArchitectures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -76,7 +77,8 @@ instance Data.FromXML ProcessorInfo where
 
 instance Prelude.Hashable ProcessorInfo where
   hashWithSalt _salt ProcessorInfo' {..} =
-    _salt `Prelude.hashWithSalt` supportedArchitectures
+    _salt
+      `Prelude.hashWithSalt` supportedArchitectures
       `Prelude.hashWithSalt` sustainedClockSpeedInGhz
 
 instance Prelude.NFData ProcessorInfo where

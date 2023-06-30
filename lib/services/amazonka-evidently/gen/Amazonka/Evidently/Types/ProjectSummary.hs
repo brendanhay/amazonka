@@ -196,7 +196,8 @@ instance Data.FromJSON ProjectSummary where
 
 instance Prelude.Hashable ProjectSummary where
   hashWithSalt _salt ProjectSummary' {..} =
-    _salt `Prelude.hashWithSalt` activeExperimentCount
+    _salt
+      `Prelude.hashWithSalt` activeExperimentCount
       `Prelude.hashWithSalt` activeLaunchCount
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` experimentCount

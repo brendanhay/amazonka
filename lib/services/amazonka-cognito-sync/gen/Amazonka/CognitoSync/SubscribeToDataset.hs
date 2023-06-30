@@ -143,7 +143,8 @@ instance Core.AWSRequest SubscribeToDataset where
 
 instance Prelude.Hashable SubscribeToDataset where
   hashWithSalt _salt SubscribeToDataset' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
+    _salt
+      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` deviceId

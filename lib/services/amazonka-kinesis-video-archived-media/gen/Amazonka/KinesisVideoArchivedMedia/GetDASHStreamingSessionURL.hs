@@ -197,11 +197,11 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
     -- timestamps.
     --
     -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
-    -- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
-    -- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
-    -- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
-    -- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
-    -- be set.
+    -- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is @LIVE@. If
+    -- @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but the
+    -- @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or
+    -- @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must be
+    -- set.
     dASHFragmentSelector :: Prelude.Maybe DASHFragmentSelector,
     -- | Fragments are identified in the manifest file based on their sequence
     -- number in the session. If DisplayFragmentNumber is set to @ALWAYS@, the
@@ -335,11 +335,11 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
 -- timestamps.
 --
 -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
--- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
--- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
--- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
--- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
--- be set.
+-- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is @LIVE@. If
+-- @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but the
+-- @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or
+-- @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must be
+-- set.
 --
 -- 'displayFragmentNumber', 'getDASHStreamingSessionURL_displayFragmentNumber' - Fragments are identified in the manifest file based on their sequence
 -- number in the session. If DisplayFragmentNumber is set to @ALWAYS@, the
@@ -476,11 +476,11 @@ newGetDASHStreamingSessionURL =
 -- timestamps.
 --
 -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
--- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
--- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
--- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
--- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
--- be set.
+-- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is @LIVE@. If
+-- @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but the
+-- @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or
+-- @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must be
+-- set.
 getDASHStreamingSessionURL_dASHFragmentSelector :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe DASHFragmentSelector)
 getDASHStreamingSessionURL_dASHFragmentSelector = Lens.lens (\GetDASHStreamingSessionURL' {dASHFragmentSelector} -> dASHFragmentSelector) (\s@GetDASHStreamingSessionURL' {} a -> s {dASHFragmentSelector = a} :: GetDASHStreamingSessionURL)
 
@@ -631,7 +631,8 @@ instance Core.AWSRequest GetDASHStreamingSessionURL where
 
 instance Prelude.Hashable GetDASHStreamingSessionURL where
   hashWithSalt _salt GetDASHStreamingSessionURL' {..} =
-    _salt `Prelude.hashWithSalt` dASHFragmentSelector
+    _salt
+      `Prelude.hashWithSalt` dASHFragmentSelector
       `Prelude.hashWithSalt` displayFragmentNumber
       `Prelude.hashWithSalt` displayFragmentTimestamp
       `Prelude.hashWithSalt` expires

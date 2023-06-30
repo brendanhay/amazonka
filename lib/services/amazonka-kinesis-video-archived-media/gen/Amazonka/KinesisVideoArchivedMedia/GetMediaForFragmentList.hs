@@ -156,7 +156,8 @@ instance Core.AWSRequest GetMediaForFragmentList where
 
 instance Prelude.Hashable GetMediaForFragmentList where
   hashWithSalt _salt GetMediaForFragmentList' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` fragments
 

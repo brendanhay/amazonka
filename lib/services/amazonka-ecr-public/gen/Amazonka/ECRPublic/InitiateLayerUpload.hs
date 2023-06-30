@@ -119,7 +119,8 @@ instance Core.AWSRequest InitiateLayerUpload where
 
 instance Prelude.Hashable InitiateLayerUpload where
   hashWithSalt _salt InitiateLayerUpload' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData InitiateLayerUpload where

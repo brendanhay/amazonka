@@ -74,10 +74,12 @@ instance Core.AWSRequest GetLogLevelsByResourceTypes where
       ( \s h x ->
           GetLogLevelsByResourceTypesResponse'
             Prelude.<$> (x Data..?> "DefaultLogLevel")
-            Prelude.<*> ( x Data..?> "WirelessDeviceLogOptions"
+            Prelude.<*> ( x
+                            Data..?> "WirelessDeviceLogOptions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "WirelessGatewayLogOptions"
+            Prelude.<*> ( x
+                            Data..?> "WirelessGatewayLogOptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

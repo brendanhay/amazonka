@@ -103,7 +103,8 @@ instance Core.AWSRequest DescribeTask where
             Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "CurrentTaskExecutionArn")
             Prelude.<*> (x Data..?> "DestinationLocationArn")
-            Prelude.<*> ( x Data..?> "DestinationNetworkInterfaceArns"
+            Prelude.<*> ( x
+                            Data..?> "DestinationNetworkInterfaceArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ErrorCode")
@@ -114,7 +115,8 @@ instance Core.AWSRequest DescribeTask where
             Prelude.<*> (x Data..?> "Options")
             Prelude.<*> (x Data..?> "Schedule")
             Prelude.<*> (x Data..?> "SourceLocationArn")
-            Prelude.<*> ( x Data..?> "SourceNetworkInterfaceArns"
+            Prelude.<*> ( x
+                            Data..?> "SourceNetworkInterfaceArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Status")

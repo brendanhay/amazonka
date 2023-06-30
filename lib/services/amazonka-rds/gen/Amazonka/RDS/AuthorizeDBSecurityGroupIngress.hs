@@ -204,7 +204,8 @@ instance
   hashWithSalt
     _salt
     AuthorizeDBSecurityGroupIngress' {..} =
-      _salt `Prelude.hashWithSalt` cidrip
+      _salt
+        `Prelude.hashWithSalt` cidrip
         `Prelude.hashWithSalt` eC2SecurityGroupId
         `Prelude.hashWithSalt` eC2SecurityGroupName
         `Prelude.hashWithSalt` eC2SecurityGroupOwnerId

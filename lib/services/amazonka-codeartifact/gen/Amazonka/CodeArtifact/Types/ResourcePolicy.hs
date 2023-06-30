@@ -85,7 +85,8 @@ instance Data.FromJSON ResourcePolicy where
 
 instance Prelude.Hashable ResourcePolicy where
   hashWithSalt _salt ResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` document
+    _salt
+      `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` revision
 

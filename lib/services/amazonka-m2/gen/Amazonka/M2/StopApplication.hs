@@ -109,7 +109,8 @@ instance Core.AWSRequest StopApplication where
 
 instance Prelude.Hashable StopApplication where
   hashWithSalt _salt StopApplication' {..} =
-    _salt `Prelude.hashWithSalt` forceStop
+    _salt
+      `Prelude.hashWithSalt` forceStop
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData StopApplication where

@@ -97,7 +97,8 @@ instance Data.FromJSON ContactContent where
 
 instance Prelude.Hashable ContactContent where
   hashWithSalt _salt ContactContent' {..} =
-    _salt `Prelude.hashWithSalt` channel
+    _salt
+      `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` connectedToSystemTime
       `Prelude.hashWithSalt` contactArn
 

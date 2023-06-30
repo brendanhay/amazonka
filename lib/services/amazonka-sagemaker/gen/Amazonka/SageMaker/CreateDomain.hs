@@ -336,7 +336,8 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt `Prelude.hashWithSalt` appNetworkAccessType
+    _salt
+      `Prelude.hashWithSalt` appNetworkAccessType
       `Prelude.hashWithSalt` appSecurityGroupManagement
       `Prelude.hashWithSalt` defaultSpaceSettings
       `Prelude.hashWithSalt` domainSettings

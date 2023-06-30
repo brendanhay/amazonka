@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeQuickConnect where
 
 instance Prelude.Hashable DescribeQuickConnect where
   hashWithSalt _salt DescribeQuickConnect' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` quickConnectId
 
 instance Prelude.NFData DescribeQuickConnect where

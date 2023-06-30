@@ -130,22 +130,22 @@ instance Core.AWSPager ListModelPackagingJobs where
     | Core.stop
         ( rs
             Lens.^? listModelPackagingJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listModelPackagingJobsResponse_modelPackagingJobs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listModelPackagingJobs_nextToken
           Lens..~ rs
           Lens.^? listModelPackagingJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelPackagingJobs where
   type
@@ -157,7 +157,8 @@ instance Core.AWSRequest ListModelPackagingJobs where
     Response.receiveJSON
       ( \s h x ->
           ListModelPackagingJobsResponse'
-            Prelude.<$> ( x Data..?> "ModelPackagingJobs"
+            Prelude.<$> ( x
+                            Data..?> "ModelPackagingJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -166,7 +167,8 @@ instance Core.AWSRequest ListModelPackagingJobs where
 
 instance Prelude.Hashable ListModelPackagingJobs where
   hashWithSalt _salt ListModelPackagingJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectName
 

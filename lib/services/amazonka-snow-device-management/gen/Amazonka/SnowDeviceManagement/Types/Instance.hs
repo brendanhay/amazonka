@@ -175,7 +175,8 @@ instance Data.FromJSON Instance where
       ( \x ->
           Instance'
             Prelude.<$> (x Data..:? "amiLaunchIndex")
-            Prelude.<*> ( x Data..:? "blockDeviceMappings"
+            Prelude.<*> ( x
+                            Data..:? "blockDeviceMappings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cpuOptions")
@@ -193,7 +194,8 @@ instance Data.FromJSON Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` amiLaunchIndex
+    _salt
+      `Prelude.hashWithSalt` amiLaunchIndex
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` cpuOptions
       `Prelude.hashWithSalt` createdAt

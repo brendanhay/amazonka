@@ -295,7 +295,8 @@ instance Data.FromJSON OpenZFSVolumeConfiguration where
             Prelude.<*> (x Data..:? "RestoreToSnapshot")
             Prelude.<*> (x Data..:? "StorageCapacityQuotaGiB")
             Prelude.<*> (x Data..:? "StorageCapacityReservationGiB")
-            Prelude.<*> ( x Data..:? "UserAndGroupQuotas"
+            Prelude.<*> ( x
+                            Data..:? "UserAndGroupQuotas"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VolumePath")
@@ -303,7 +304,8 @@ instance Data.FromJSON OpenZFSVolumeConfiguration where
 
 instance Prelude.Hashable OpenZFSVolumeConfiguration where
   hashWithSalt _salt OpenZFSVolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` copyTagsToSnapshots
+    _salt
+      `Prelude.hashWithSalt` copyTagsToSnapshots
       `Prelude.hashWithSalt` dataCompressionType
       `Prelude.hashWithSalt` deleteClonedVolumes
       `Prelude.hashWithSalt` deleteIntermediateSnaphots

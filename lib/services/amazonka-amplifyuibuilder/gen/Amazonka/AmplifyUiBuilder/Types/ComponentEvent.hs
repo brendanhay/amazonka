@@ -90,7 +90,8 @@ instance Data.FromJSON ComponentEvent where
 
 instance Prelude.Hashable ComponentEvent where
   hashWithSalt _salt ComponentEvent' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` bindingEvent
       `Prelude.hashWithSalt` parameters
 

@@ -104,7 +104,8 @@ instance Data.FromJSON TemporaryCredential where
 
 instance Prelude.Hashable TemporaryCredential where
   hashWithSalt _salt TemporaryCredential' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` validForInMinutes

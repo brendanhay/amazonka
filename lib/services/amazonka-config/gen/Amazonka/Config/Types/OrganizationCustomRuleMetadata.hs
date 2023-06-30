@@ -212,13 +212,15 @@ instance Data.FromJSON OrganizationCustomRuleMetadata where
             Prelude.<*> (x Data..:? "InputParameters")
             Prelude.<*> (x Data..:? "MaximumExecutionFrequency")
             Prelude.<*> (x Data..:? "ResourceIdScope")
-            Prelude.<*> ( x Data..:? "ResourceTypesScope"
+            Prelude.<*> ( x
+                            Data..:? "ResourceTypesScope"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TagKeyScope")
             Prelude.<*> (x Data..:? "TagValueScope")
             Prelude.<*> (x Data..: "LambdaFunctionArn")
-            Prelude.<*> ( x Data..:? "OrganizationConfigRuleTriggerTypes"
+            Prelude.<*> ( x
+                            Data..:? "OrganizationConfigRuleTriggerTypes"
                             Data..!= Prelude.mempty
                         )
       )
@@ -230,7 +232,8 @@ instance
   hashWithSalt
     _salt
     OrganizationCustomRuleMetadata' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` inputParameters
         `Prelude.hashWithSalt` maximumExecutionFrequency
         `Prelude.hashWithSalt` resourceIdScope

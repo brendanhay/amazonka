@@ -182,7 +182,8 @@ instance Core.AWSRequest PollForActivityTask where
 
 instance Prelude.Hashable PollForActivityTask where
   hashWithSalt _salt PollForActivityTask' {..} =
-    _salt `Prelude.hashWithSalt` identity
+    _salt
+      `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` taskList
 

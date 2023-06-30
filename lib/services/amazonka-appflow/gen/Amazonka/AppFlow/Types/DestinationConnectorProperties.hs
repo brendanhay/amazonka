@@ -204,7 +204,8 @@ instance
   hashWithSalt
     _salt
     DestinationConnectorProperties' {..} =
-      _salt `Prelude.hashWithSalt` customConnector
+      _salt
+        `Prelude.hashWithSalt` customConnector
         `Prelude.hashWithSalt` customerProfiles
         `Prelude.hashWithSalt` eventBridge
         `Prelude.hashWithSalt` honeycode

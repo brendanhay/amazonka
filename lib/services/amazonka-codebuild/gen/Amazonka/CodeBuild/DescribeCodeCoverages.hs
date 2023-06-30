@@ -169,22 +169,22 @@ instance Core.AWSPager DescribeCodeCoverages where
     | Core.stop
         ( rs
             Lens.^? describeCodeCoveragesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCodeCoveragesResponse_codeCoverages
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCodeCoverages_nextToken
           Lens..~ rs
           Lens.^? describeCodeCoveragesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCodeCoverages where
   type

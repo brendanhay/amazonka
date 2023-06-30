@@ -153,7 +153,8 @@ instance Data.FromJSON PullRequestTarget where
 
 instance Prelude.Hashable PullRequestTarget where
   hashWithSalt _salt PullRequestTarget' {..} =
-    _salt `Prelude.hashWithSalt` destinationCommit
+    _salt
+      `Prelude.hashWithSalt` destinationCommit
       `Prelude.hashWithSalt` destinationReference
       `Prelude.hashWithSalt` mergeBase
       `Prelude.hashWithSalt` mergeMetadata

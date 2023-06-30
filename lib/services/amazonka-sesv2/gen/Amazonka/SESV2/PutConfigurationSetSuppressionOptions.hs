@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     PutConfigurationSetSuppressionOptions' {..} =
-      _salt `Prelude.hashWithSalt` suppressedReasons
+      _salt
+        `Prelude.hashWithSalt` suppressedReasons
         `Prelude.hashWithSalt` configurationSetName
 
 instance

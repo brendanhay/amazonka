@@ -342,7 +342,8 @@ instance Data.FromJSON DataRepositoryTask where
 
 instance Prelude.Hashable DataRepositoryTask where
   hashWithSalt _salt DataRepositoryTask' {..} =
-    _salt `Prelude.hashWithSalt` capacityToRelease
+    _salt
+      `Prelude.hashWithSalt` capacityToRelease
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` failureDetails
       `Prelude.hashWithSalt` fileCacheId

@@ -107,12 +107,14 @@ instance Data.FromJSON AvailSuppression where
       "AvailSuppression"
       ( \x ->
           AvailSuppression'
-            Prelude.<$> (x Data..:? "Mode") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable AvailSuppression where
   hashWithSalt _salt AvailSuppression' {..} =
-    _salt `Prelude.hashWithSalt` mode
+    _salt
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AvailSuppression where

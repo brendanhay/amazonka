@@ -108,12 +108,14 @@ instance Data.FromJSON PatchFilter where
       "PatchFilter"
       ( \x ->
           PatchFilter'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Values")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Values")
       )
 
 instance Prelude.Hashable PatchFilter where
   hashWithSalt _salt PatchFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData PatchFilter where

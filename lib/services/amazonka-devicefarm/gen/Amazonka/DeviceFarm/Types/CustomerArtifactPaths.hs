@@ -95,7 +95,8 @@ instance Data.FromJSON CustomerArtifactPaths where
       ( \x ->
           CustomerArtifactPaths'
             Prelude.<$> (x Data..:? "androidPaths" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "deviceHostPaths"
+            Prelude.<*> ( x
+                            Data..:? "deviceHostPaths"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "iosPaths" Data..!= Prelude.mempty)
@@ -103,7 +104,8 @@ instance Data.FromJSON CustomerArtifactPaths where
 
 instance Prelude.Hashable CustomerArtifactPaths where
   hashWithSalt _salt CustomerArtifactPaths' {..} =
-    _salt `Prelude.hashWithSalt` androidPaths
+    _salt
+      `Prelude.hashWithSalt` androidPaths
       `Prelude.hashWithSalt` deviceHostPaths
       `Prelude.hashWithSalt` iosPaths
 

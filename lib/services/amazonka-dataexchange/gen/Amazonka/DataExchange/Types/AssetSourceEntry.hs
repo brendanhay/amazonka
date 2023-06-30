@@ -69,12 +69,14 @@ instance Data.FromJSON AssetSourceEntry where
       "AssetSourceEntry"
       ( \x ->
           AssetSourceEntry'
-            Prelude.<$> (x Data..: "Bucket") Prelude.<*> (x Data..: "Key")
+            Prelude.<$> (x Data..: "Bucket")
+            Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable AssetSourceEntry where
   hashWithSalt _salt AssetSourceEntry' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData AssetSourceEntry where

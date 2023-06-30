@@ -141,7 +141,8 @@ instance Core.AWSRequest StartReadSetImportJob where
 
 instance Prelude.Hashable StartReadSetImportJob where
   hashWithSalt _salt StartReadSetImportJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` sequenceStoreId
       `Prelude.hashWithSalt` sources

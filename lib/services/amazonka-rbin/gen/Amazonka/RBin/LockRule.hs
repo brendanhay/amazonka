@@ -117,7 +117,8 @@ instance Core.AWSRequest LockRule where
 
 instance Prelude.Hashable LockRule where
   hashWithSalt _salt LockRule' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` lockConfiguration
 
 instance Prelude.NFData LockRule where

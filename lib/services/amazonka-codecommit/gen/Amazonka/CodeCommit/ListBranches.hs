@@ -95,20 +95,23 @@ instance Core.AWSPager ListBranches where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listBranchesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listBranchesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBranchesResponse_branches Prelude.. Lens._Just
+            Lens.^? listBranchesResponse_branches
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBranches_nextToken
           Lens..~ rs
-          Lens.^? listBranchesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listBranchesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBranches where
   type AWSResponse ListBranches = ListBranchesResponse
@@ -125,7 +128,8 @@ instance Core.AWSRequest ListBranches where
 
 instance Prelude.Hashable ListBranches where
   hashWithSalt _salt ListBranches' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData ListBranches where

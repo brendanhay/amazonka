@@ -126,7 +126,8 @@ instance Core.AWSRequest UpdateDeployment where
 
 instance Prelude.Hashable UpdateDeployment where
   hashWithSalt _salt UpdateDeployment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` deploymentId
 

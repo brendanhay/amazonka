@@ -98,52 +98,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The certificate is invalid.
-_CertificateValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateValidationException =
   Core._MatchServiceError
     defaultService
@@ -153,7 +153,7 @@ _CertificateValidationException =
 -- | The contents of the request were invalid. For example, this code is
 -- returned when an UpdateJobExecution request contains invalid status
 -- details. The message contains details about the error.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -165,7 +165,7 @@ _InvalidRequestException =
 -- attempt to change a request in state SUCCESS to state IN_PROGRESS). In
 -- this case, the body of the error message also contains the
 -- executionState field.
-_InvalidStateTransitionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidStateTransitionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidStateTransitionException =
   Core._MatchServiceError
     defaultService
@@ -173,7 +173,7 @@ _InvalidStateTransitionException =
     Prelude.. Core.hasStatus 409
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -181,7 +181,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -189,7 +189,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The job is in a terminal state.
-_TerminalStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TerminalStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TerminalStateException =
   Core._MatchServiceError
     defaultService
@@ -197,7 +197,7 @@ _TerminalStateException =
     Prelude.. Core.hasStatus 410
 
 -- | The rate exceeds the limit.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

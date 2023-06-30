@@ -81,14 +81,16 @@ instance Data.FromJSON PossibleRemediationAction where
           PossibleRemediationAction'
             Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "IsDefaultAction")
-            Prelude.<*> ( x Data..:? "OrderedRemediationActions"
+            Prelude.<*> ( x
+                            Data..:? "OrderedRemediationActions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PossibleRemediationAction where
   hashWithSalt _salt PossibleRemediationAction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isDefaultAction
       `Prelude.hashWithSalt` orderedRemediationActions
 

@@ -95,7 +95,8 @@ instance Data.FromJSON ChannelModerator where
 
 instance Prelude.Hashable ChannelModerator where
   hashWithSalt _salt ChannelModerator' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` moderator

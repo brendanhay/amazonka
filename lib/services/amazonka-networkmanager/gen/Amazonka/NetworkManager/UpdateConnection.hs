@@ -142,7 +142,8 @@ instance Core.AWSRequest UpdateConnection where
 
 instance Prelude.Hashable UpdateConnection where
   hashWithSalt _salt UpdateConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectedLinkId
+    _salt
+      `Prelude.hashWithSalt` connectedLinkId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` linkId
       `Prelude.hashWithSalt` globalNetworkId

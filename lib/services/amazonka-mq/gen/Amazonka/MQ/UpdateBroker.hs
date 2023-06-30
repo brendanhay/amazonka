@@ -228,7 +228,8 @@ instance Core.AWSRequest UpdateBroker where
 
 instance Prelude.Hashable UpdateBroker where
   hashWithSalt _salt UpdateBroker' {..} =
-    _salt `Prelude.hashWithSalt` authenticationStrategy
+    _salt
+      `Prelude.hashWithSalt` authenticationStrategy
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` engineVersion

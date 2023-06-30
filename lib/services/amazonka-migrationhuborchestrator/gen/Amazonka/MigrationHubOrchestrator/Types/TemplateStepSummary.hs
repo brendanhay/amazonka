@@ -153,7 +153,8 @@ instance Data.FromJSON TemplateStepSummary where
 
 instance Prelude.Hashable TemplateStepSummary where
   hashWithSalt _salt TemplateStepSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` owner

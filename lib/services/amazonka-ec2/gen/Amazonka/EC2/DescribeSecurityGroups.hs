@@ -426,22 +426,22 @@ instance Core.AWSPager DescribeSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? describeSecurityGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSecurityGroupsResponse_securityGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSecurityGroups_nextToken
           Lens..~ rs
           Lens.^? describeSecurityGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSecurityGroups where
   type
@@ -454,7 +454,8 @@ instance Core.AWSRequest DescribeSecurityGroups where
       ( \s h x ->
           DescribeSecurityGroupsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "securityGroupInfo"
+            Prelude.<*> ( x
+                            Data..@? "securityGroupInfo"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -463,7 +464,8 @@ instance Core.AWSRequest DescribeSecurityGroups where
 
 instance Prelude.Hashable DescribeSecurityGroups where
   hashWithSalt _salt DescribeSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` groupIds
       `Prelude.hashWithSalt` groupNames

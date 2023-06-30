@@ -440,7 +440,8 @@ instance Data.FromJSON TextTransformation where
 
 instance Prelude.Hashable TextTransformation where
   hashWithSalt _salt TextTransformation' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData TextTransformation where

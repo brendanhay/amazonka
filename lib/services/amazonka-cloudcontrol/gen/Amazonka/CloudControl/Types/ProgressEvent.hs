@@ -241,7 +241,8 @@ instance Data.FromJSON ProgressEvent where
 
 instance Prelude.Hashable ProgressEvent where
   hashWithSalt _salt ProgressEvent' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` operation

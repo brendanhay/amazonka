@@ -105,22 +105,22 @@ instance Core.AWSPager ListStreamProcessors where
     | Core.stop
         ( rs
             Lens.^? listStreamProcessorsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStreamProcessorsResponse_streamProcessors
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStreamProcessors_nextToken
           Lens..~ rs
           Lens.^? listStreamProcessorsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamProcessors where
   type
@@ -133,7 +133,8 @@ instance Core.AWSRequest ListStreamProcessors where
       ( \s h x ->
           ListStreamProcessorsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "StreamProcessors"
+            Prelude.<*> ( x
+                            Data..?> "StreamProcessors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,7 +142,8 @@ instance Core.AWSRequest ListStreamProcessors where
 
 instance Prelude.Hashable ListStreamProcessors where
   hashWithSalt _salt ListStreamProcessors' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStreamProcessors where

@@ -240,7 +240,8 @@ instance Core.AWSRequest PutBucketTagging where
 
 instance Prelude.Hashable PutBucketTagging where
   hashWithSalt _salt PutBucketTagging' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

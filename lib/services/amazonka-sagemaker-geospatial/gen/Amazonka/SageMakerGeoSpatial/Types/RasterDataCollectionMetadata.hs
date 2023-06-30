@@ -113,7 +113,6 @@ rasterDataCollectionMetadata_description = Lens.lens (\RasterDataCollectionMetad
 rasterDataCollectionMetadata_name :: Lens.Lens' RasterDataCollectionMetadata Prelude.Text
 rasterDataCollectionMetadata_name = Lens.lens (\RasterDataCollectionMetadata' {name} -> name) (\s@RasterDataCollectionMetadata' {} a -> s {name = a} :: RasterDataCollectionMetadata)
 
--- |
 rasterDataCollectionMetadata_supportedFilters :: Lens.Lens' RasterDataCollectionMetadata [Filter]
 rasterDataCollectionMetadata_supportedFilters = Lens.lens (\RasterDataCollectionMetadata' {supportedFilters} -> supportedFilters) (\s@RasterDataCollectionMetadata' {} a -> s {supportedFilters = a} :: RasterDataCollectionMetadata) Prelude.. Lens.coerced
 
@@ -132,7 +131,8 @@ instance Data.FromJSON RasterDataCollectionMetadata where
             Prelude.<*> (x Data..: "Arn")
             Prelude.<*> (x Data..: "Description")
             Prelude.<*> (x Data..: "Name")
-            Prelude.<*> ( x Data..:? "SupportedFilters"
+            Prelude.<*> ( x
+                            Data..:? "SupportedFilters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "Type")
@@ -143,7 +143,8 @@ instance
     RasterDataCollectionMetadata
   where
   hashWithSalt _salt RasterDataCollectionMetadata' {..} =
-    _salt `Prelude.hashWithSalt` descriptionPageUrl
+    _salt
+      `Prelude.hashWithSalt` descriptionPageUrl
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description

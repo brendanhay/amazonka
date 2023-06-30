@@ -218,7 +218,8 @@ instance Core.AWSRequest ImportWorkspaceImage where
 
 instance Prelude.Hashable ImportWorkspaceImage where
   hashWithSalt _salt ImportWorkspaceImage' {..} =
-    _salt `Prelude.hashWithSalt` applications
+    _salt
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ec2ImageId
       `Prelude.hashWithSalt` ingestionProcess

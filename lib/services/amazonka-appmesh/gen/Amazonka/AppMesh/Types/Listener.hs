@@ -125,7 +125,8 @@ instance Data.FromJSON Listener where
 
 instance Prelude.Hashable Listener where
   hashWithSalt _salt Listener' {..} =
-    _salt `Prelude.hashWithSalt` connectionPool
+    _salt
+      `Prelude.hashWithSalt` connectionPool
       `Prelude.hashWithSalt` healthCheck
       `Prelude.hashWithSalt` outlierDetection
       `Prelude.hashWithSalt` timeout

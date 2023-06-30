@@ -203,10 +203,11 @@ data CreateStack = CreateStack'
     -- or @Custom::MyCustomInstance@. Use the following syntax to describe
     -- template resource types: @AWS::*@ (for all Amazon Web Services
     -- resources), @Custom::*@ (for all custom resources),
-    -- @Custom::logical_ID @ (for a specific custom resource),
-    -- @AWS::service_name::*@ (for all resources of a particular Amazon Web
-    -- Services service), and @AWS::service_name::resource_logical_ID @ (for a
-    -- specific Amazon Web Services resource).
+    -- @Custom::@/@logical_ID@/@ @ (for a specific custom resource),
+    -- @AWS::@/@service_name@/@::*@ (for all resources of a particular Amazon
+    -- Web Services service), and
+    -- @AWS::@/@service_name@/@::@/@resource_logical_ID@/@ @ (for a specific
+    -- Amazon Web Services resource).
     --
     -- If the list of resource types doesn\'t include a resource that you\'re
     -- creating, the stack creation fails. By default, CloudFormation grants
@@ -419,10 +420,11 @@ data CreateStack = CreateStack'
 -- or @Custom::MyCustomInstance@. Use the following syntax to describe
 -- template resource types: @AWS::*@ (for all Amazon Web Services
 -- resources), @Custom::*@ (for all custom resources),
--- @Custom::logical_ID @ (for a specific custom resource),
--- @AWS::service_name::*@ (for all resources of a particular Amazon Web
--- Services service), and @AWS::service_name::resource_logical_ID @ (for a
--- specific Amazon Web Services resource).
+-- @Custom::@/@logical_ID@/@ @ (for a specific custom resource),
+-- @AWS::@/@service_name@/@::*@ (for all resources of a particular Amazon
+-- Web Services service), and
+-- @AWS::@/@service_name@/@::@/@resource_logical_ID@/@ @ (for a specific
+-- Amazon Web Services resource).
 --
 -- If the list of resource types doesn\'t include a resource that you\'re
 -- creating, the stack creation fails. By default, CloudFormation grants
@@ -662,10 +664,11 @@ createStack_parameters = Lens.lens (\CreateStack' {parameters} -> parameters) (\
 -- or @Custom::MyCustomInstance@. Use the following syntax to describe
 -- template resource types: @AWS::*@ (for all Amazon Web Services
 -- resources), @Custom::*@ (for all custom resources),
--- @Custom::logical_ID @ (for a specific custom resource),
--- @AWS::service_name::*@ (for all resources of a particular Amazon Web
--- Services service), and @AWS::service_name::resource_logical_ID @ (for a
--- specific Amazon Web Services resource).
+-- @Custom::@/@logical_ID@/@ @ (for a specific custom resource),
+-- @AWS::@/@service_name@/@::*@ (for all resources of a particular Amazon
+-- Web Services service), and
+-- @AWS::@/@service_name@/@::@/@resource_logical_ID@/@ @ (for a specific
+-- Amazon Web Services resource).
 --
 -- If the list of resource types doesn\'t include a resource that you\'re
 -- creating, the stack creation fails. By default, CloudFormation grants
@@ -768,7 +771,8 @@ instance Core.AWSRequest CreateStack where
 
 instance Prelude.Hashable CreateStack where
   hashWithSalt _salt CreateStack' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` disableRollback
       `Prelude.hashWithSalt` enableTerminationProtection

@@ -158,7 +158,8 @@ instance Data.FromJSON ServiceConnectClientAlias where
 
 instance Prelude.Hashable ServiceConnectClientAlias where
   hashWithSalt _salt ServiceConnectClientAlias' {..} =
-    _salt `Prelude.hashWithSalt` dnsName
+    _salt
+      `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData ServiceConnectClientAlias where

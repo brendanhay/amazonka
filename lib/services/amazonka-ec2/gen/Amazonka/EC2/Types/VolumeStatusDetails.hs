@@ -67,11 +67,13 @@ volumeStatusDetails_status = Lens.lens (\VolumeStatusDetails' {status} -> status
 instance Data.FromXML VolumeStatusDetails where
   parseXML x =
     VolumeStatusDetails'
-      Prelude.<$> (x Data..@? "name") Prelude.<*> (x Data..@? "status")
+      Prelude.<$> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "status")
 
 instance Prelude.Hashable VolumeStatusDetails where
   hashWithSalt _salt VolumeStatusDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData VolumeStatusDetails where

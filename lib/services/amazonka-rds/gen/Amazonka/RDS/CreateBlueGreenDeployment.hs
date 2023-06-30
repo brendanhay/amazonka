@@ -232,7 +232,8 @@ instance Core.AWSRequest CreateBlueGreenDeployment where
 
 instance Prelude.Hashable CreateBlueGreenDeployment where
   hashWithSalt _salt CreateBlueGreenDeployment' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targetDBClusterParameterGroupName
       `Prelude.hashWithSalt` targetDBParameterGroupName
       `Prelude.hashWithSalt` targetEngineVersion

@@ -136,7 +136,8 @@ instance Data.FromJSON SupportedEndpointType where
 
 instance Prelude.Hashable SupportedEndpointType where
   hashWithSalt _salt SupportedEndpointType' {..} =
-    _salt `Prelude.hashWithSalt` endpointType
+    _salt
+      `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` engineDisplayName
       `Prelude.hashWithSalt` engineName
       `Prelude.hashWithSalt` replicationInstanceEngineMinimumVersion

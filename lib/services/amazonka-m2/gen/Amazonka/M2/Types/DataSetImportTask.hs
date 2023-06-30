@@ -92,7 +92,8 @@ instance Data.FromJSON DataSetImportTask where
 
 instance Prelude.Hashable DataSetImportTask where
   hashWithSalt _salt DataSetImportTask' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` summary
       `Prelude.hashWithSalt` taskId
 

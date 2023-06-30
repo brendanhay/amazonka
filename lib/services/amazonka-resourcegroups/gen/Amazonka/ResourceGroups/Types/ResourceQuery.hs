@@ -90,13 +90,17 @@ data ResourceQuery = ResourceQuery'
     -- -   /@TAG_FILTERS_1_0:@/ Specifies that the @Query@ parameter contains a
     --     JSON string that represents a collection of simple tag filters for
     --     resource types and tags. The JSON string uses a syntax similar to
-    --     the @ GetResources @ operation, but uses only the
-    --     @  ResourceTypeFilters @ and @ TagFilters @ fields. If you specify
-    --     more than one tag key, only resources that match all tag keys, and
-    --     at least one value of each specified tag key, are returned in your
-    --     query. If you specify more than one value for a tag key, a resource
-    --     matches the filter if it has a tag key value that matches /any/ of
-    --     the specified values.
+    --     the
+    --     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html GetResources>@ @
+    --     operation, but uses only the
+    --     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters ResourceTypeFilters>@ @
+    --     and
+    --     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters TagFilters>@ @
+    --     fields. If you specify more than one tag key, only resources that
+    --     match all tag keys, and at least one value of each specified tag
+    --     key, are returned in your query. If you specify more than one value
+    --     for a tag key, a resource matches the filter if it has a tag key
+    --     value that matches /any/ of the specified values.
     --
     --     For example, consider the following sample query for resources that
     --     have two tags, @Stage@ and @Version@, with two values each:
@@ -148,13 +152,17 @@ data ResourceQuery = ResourceQuery'
 -- -   /@TAG_FILTERS_1_0:@/ Specifies that the @Query@ parameter contains a
 --     JSON string that represents a collection of simple tag filters for
 --     resource types and tags. The JSON string uses a syntax similar to
---     the @ GetResources @ operation, but uses only the
---     @  ResourceTypeFilters @ and @ TagFilters @ fields. If you specify
---     more than one tag key, only resources that match all tag keys, and
---     at least one value of each specified tag key, are returned in your
---     query. If you specify more than one value for a tag key, a resource
---     matches the filter if it has a tag key value that matches /any/ of
---     the specified values.
+--     the
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html GetResources>@ @
+--     operation, but uses only the
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters ResourceTypeFilters>@ @
+--     and
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters TagFilters>@ @
+--     fields. If you specify more than one tag key, only resources that
+--     match all tag keys, and at least one value of each specified tag
+--     key, are returned in your query. If you specify more than one value
+--     for a tag key, a resource matches the filter if it has a tag key
+--     value that matches /any/ of the specified values.
 --
 --     For example, consider the following sample query for resources that
 --     have two tags, @Stage@ and @Version@, with two values each:
@@ -206,13 +214,17 @@ newResourceQuery pType_ pSearchQuery_ =
 -- -   /@TAG_FILTERS_1_0:@/ Specifies that the @Query@ parameter contains a
 --     JSON string that represents a collection of simple tag filters for
 --     resource types and tags. The JSON string uses a syntax similar to
---     the @ GetResources @ operation, but uses only the
---     @  ResourceTypeFilters @ and @ TagFilters @ fields. If you specify
---     more than one tag key, only resources that match all tag keys, and
---     at least one value of each specified tag key, are returned in your
---     query. If you specify more than one value for a tag key, a resource
---     matches the filter if it has a tag key value that matches /any/ of
---     the specified values.
+--     the
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html GetResources>@ @
+--     operation, but uses only the
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters ResourceTypeFilters>@ @
+--     and
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters TagFilters>@ @
+--     fields. If you specify more than one tag key, only resources that
+--     match all tag keys, and at least one value of each specified tag
+--     key, are returned in your query. If you specify more than one value
+--     for a tag key, a resource matches the filter if it has a tag key
+--     value that matches /any/ of the specified values.
 --
 --     For example, consider the following sample query for resources that
 --     have two tags, @Stage@ and @Version@, with two values each:
@@ -255,12 +267,14 @@ instance Data.FromJSON ResourceQuery where
       "ResourceQuery"
       ( \x ->
           ResourceQuery'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Query")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Query")
       )
 
 instance Prelude.Hashable ResourceQuery where
   hashWithSalt _salt ResourceQuery' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` query
 
 instance Prelude.NFData ResourceQuery where

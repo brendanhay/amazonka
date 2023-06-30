@@ -34,7 +34,7 @@ data DelegatedService = DelegatedService'
     delegationEnabledDate :: Prelude.Maybe Data.POSIX,
     -- | The name of an Amazon Web Services service that can request an operation
     -- for the specified service. This is typically in the form of a URL, such
-    -- as: @ servicename.amazonaws.com@.
+    -- as: @ @/@servicename@/@.amazonaws.com@.
     servicePrincipal :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,7 +52,7 @@ data DelegatedService = DelegatedService'
 --
 -- 'servicePrincipal', 'delegatedService_servicePrincipal' - The name of an Amazon Web Services service that can request an operation
 -- for the specified service. This is typically in the form of a URL, such
--- as: @ servicename.amazonaws.com@.
+-- as: @ @/@servicename@/@.amazonaws.com@.
 newDelegatedService ::
   DelegatedService
 newDelegatedService =
@@ -69,7 +69,7 @@ delegatedService_delegationEnabledDate = Lens.lens (\DelegatedService' {delegati
 
 -- | The name of an Amazon Web Services service that can request an operation
 -- for the specified service. This is typically in the form of a URL, such
--- as: @ servicename.amazonaws.com@.
+-- as: @ @/@servicename@/@.amazonaws.com@.
 delegatedService_servicePrincipal :: Lens.Lens' DelegatedService (Prelude.Maybe Prelude.Text)
 delegatedService_servicePrincipal = Lens.lens (\DelegatedService' {servicePrincipal} -> servicePrincipal) (\s@DelegatedService' {} a -> s {servicePrincipal = a} :: DelegatedService)
 
@@ -85,7 +85,8 @@ instance Data.FromJSON DelegatedService where
 
 instance Prelude.Hashable DelegatedService where
   hashWithSalt _salt DelegatedService' {..} =
-    _salt `Prelude.hashWithSalt` delegationEnabledDate
+    _salt
+      `Prelude.hashWithSalt` delegationEnabledDate
       `Prelude.hashWithSalt` servicePrincipal
 
 instance Prelude.NFData DelegatedService where

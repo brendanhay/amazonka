@@ -259,22 +259,22 @@ instance Core.AWSPager DescribeSpotPriceHistory where
     | Core.stop
         ( rs
             Lens.^? describeSpotPriceHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSpotPriceHistoryResponse_spotPriceHistory
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSpotPriceHistory_nextToken
           Lens..~ rs
           Lens.^? describeSpotPriceHistoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSpotPriceHistory where
   type
@@ -287,7 +287,8 @@ instance Core.AWSRequest DescribeSpotPriceHistory where
       ( \s h x ->
           DescribeSpotPriceHistoryResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "spotPriceHistorySet"
+            Prelude.<*> ( x
+                            Data..@? "spotPriceHistorySet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -296,7 +297,8 @@ instance Core.AWSRequest DescribeSpotPriceHistory where
 
 instance Prelude.Hashable DescribeSpotPriceHistory where
   hashWithSalt _salt DescribeSpotPriceHistory' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` filters

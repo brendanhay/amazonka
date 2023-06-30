@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateToken where
 
 instance Prelude.Hashable CreateToken where
   hashWithSalt _salt CreateToken' {..} =
-    _salt `Prelude.hashWithSalt` expirationInDays
+    _salt
+      `Prelude.hashWithSalt` expirationInDays
       `Prelude.hashWithSalt` roleArns
       `Prelude.hashWithSalt` tokenProperties
       `Prelude.hashWithSalt` licenseArn

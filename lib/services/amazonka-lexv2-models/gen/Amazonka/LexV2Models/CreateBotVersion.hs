@@ -132,7 +132,8 @@ instance Core.AWSRequest CreateBotVersion where
             Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (x Data..?> "botVersion")
-            Prelude.<*> ( x Data..?> "botVersionLocaleSpecification"
+            Prelude.<*> ( x
+                            Data..?> "botVersionLocaleSpecification"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "creationDateTime")
@@ -142,7 +143,8 @@ instance Core.AWSRequest CreateBotVersion where
 
 instance Prelude.Hashable CreateBotVersion where
   hashWithSalt _salt CreateBotVersion' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersionLocaleSpecification
 

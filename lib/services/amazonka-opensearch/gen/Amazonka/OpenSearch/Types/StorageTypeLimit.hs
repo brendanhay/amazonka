@@ -138,7 +138,8 @@ instance Data.FromJSON StorageTypeLimit where
 
 instance Prelude.Hashable StorageTypeLimit where
   hashWithSalt _salt StorageTypeLimit' {..} =
-    _salt `Prelude.hashWithSalt` limitName
+    _salt
+      `Prelude.hashWithSalt` limitName
       `Prelude.hashWithSalt` limitValues
 
 instance Prelude.NFData StorageTypeLimit where

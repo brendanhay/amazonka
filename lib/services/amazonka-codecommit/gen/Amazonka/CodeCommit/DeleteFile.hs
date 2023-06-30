@@ -226,7 +226,8 @@ instance Core.AWSRequest DeleteFile where
 
 instance Prelude.Hashable DeleteFile where
   hashWithSalt _salt DeleteFile' {..} =
-    _salt `Prelude.hashWithSalt` commitMessage
+    _salt
+      `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` keepEmptyFolders
       `Prelude.hashWithSalt` name

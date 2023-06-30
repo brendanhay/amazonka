@@ -79,7 +79,8 @@ instance Data.FromJSON CatalogSchemaChangePolicy where
 
 instance Prelude.Hashable CatalogSchemaChangePolicy where
   hashWithSalt _salt CatalogSchemaChangePolicy' {..} =
-    _salt `Prelude.hashWithSalt` enableUpdateCatalog
+    _salt
+      `Prelude.hashWithSalt` enableUpdateCatalog
       `Prelude.hashWithSalt` updateBehavior
 
 instance Prelude.NFData CatalogSchemaChangePolicy where

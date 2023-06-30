@@ -203,7 +203,8 @@ instance Data.FromJSON ProactiveAnomaly where
       ( \x ->
           ProactiveAnomaly'
             Prelude.<$> (x Data..:? "AnomalyReportedTimeRange")
-            Prelude.<*> ( x Data..:? "AnomalyResources"
+            Prelude.<*> ( x
+                            Data..:? "AnomalyResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AnomalyTimeRange")

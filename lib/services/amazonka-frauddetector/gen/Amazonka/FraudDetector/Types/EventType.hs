@@ -165,7 +165,8 @@ instance Data.FromJSON EventType where
 
 instance Prelude.Hashable EventType where
   hashWithSalt _salt EventType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityTypes

@@ -115,7 +115,8 @@ instance Data.FromJSON Destinations where
 
 instance Prelude.Hashable Destinations where
   hashWithSalt _salt Destinations' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` expressionType

@@ -111,7 +111,8 @@ instance Core.AWSRequest ExecuteScheduledQuery where
 
 instance Prelude.Hashable ExecuteScheduledQuery where
   hashWithSalt _salt ExecuteScheduledQuery' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` scheduledQueryArn
       `Prelude.hashWithSalt` invocationTime
 

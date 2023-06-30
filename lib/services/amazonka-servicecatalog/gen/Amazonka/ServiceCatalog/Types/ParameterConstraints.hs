@@ -176,7 +176,8 @@ instance Data.FromJSON ParameterConstraints where
 
 instance Prelude.Hashable ParameterConstraints where
   hashWithSalt _salt ParameterConstraints' {..} =
-    _salt `Prelude.hashWithSalt` allowedPattern
+    _salt
+      `Prelude.hashWithSalt` allowedPattern
       `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` constraintDescription
       `Prelude.hashWithSalt` maxLength

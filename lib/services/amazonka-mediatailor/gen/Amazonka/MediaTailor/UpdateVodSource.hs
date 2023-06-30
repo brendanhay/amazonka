@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateVodSource where
           UpdateVodSourceResponse'
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "LastModifiedTime")

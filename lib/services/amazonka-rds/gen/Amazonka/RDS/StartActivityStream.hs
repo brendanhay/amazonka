@@ -178,7 +178,8 @@ instance Core.AWSRequest StartActivityStream where
 
 instance Prelude.Hashable StartActivityStream where
   hashWithSalt _salt StartActivityStream' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` engineNativeAuditFieldsIncluded
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` mode

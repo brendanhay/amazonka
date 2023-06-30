@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateEventTracker where
 
 instance Prelude.Hashable CreateEventTracker where
   hashWithSalt _salt CreateEventTracker' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn
 

@@ -111,7 +111,8 @@ instance Core.AWSRequest DefineExpression where
 
 instance Prelude.Hashable DefineExpression where
   hashWithSalt _salt DefineExpression' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` expression
 
 instance Prelude.NFData DefineExpression where

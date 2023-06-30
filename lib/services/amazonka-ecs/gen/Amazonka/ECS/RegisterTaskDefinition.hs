@@ -1001,7 +1001,8 @@ instance Core.AWSRequest RegisterTaskDefinition where
 
 instance Prelude.Hashable RegisterTaskDefinition where
   hashWithSalt _salt RegisterTaskDefinition' {..} =
-    _salt `Prelude.hashWithSalt` cpu
+    _salt
+      `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` inferenceAccelerators

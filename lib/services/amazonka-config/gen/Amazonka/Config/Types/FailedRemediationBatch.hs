@@ -79,7 +79,8 @@ instance Data.FromJSON FailedRemediationBatch where
 
 instance Prelude.Hashable FailedRemediationBatch where
   hashWithSalt _salt FailedRemediationBatch' {..} =
-    _salt `Prelude.hashWithSalt` failedItems
+    _salt
+      `Prelude.hashWithSalt` failedItems
       `Prelude.hashWithSalt` failureMessage
 
 instance Prelude.NFData FailedRemediationBatch where

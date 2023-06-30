@@ -129,7 +129,8 @@ instance Data.FromJSON AwsEfsAccessPointDetails where
 
 instance Prelude.Hashable AwsEfsAccessPointDetails where
   hashWithSalt _salt AwsEfsAccessPointDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessPointId
+    _salt
+      `Prelude.hashWithSalt` accessPointId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` fileSystemId

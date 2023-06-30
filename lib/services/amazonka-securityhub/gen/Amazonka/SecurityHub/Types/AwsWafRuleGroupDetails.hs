@@ -100,7 +100,8 @@ instance Data.FromJSON AwsWafRuleGroupDetails where
 
 instance Prelude.Hashable AwsWafRuleGroupDetails where
   hashWithSalt _salt AwsWafRuleGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleGroupId
       `Prelude.hashWithSalt` rules

@@ -164,7 +164,8 @@ instance Core.AWSRequest PutResourcePolicy where
 
 instance Prelude.Hashable PutResourcePolicy where
   hashWithSalt _salt PutResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyDocument
+    _salt
+      `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData PutResourcePolicy where

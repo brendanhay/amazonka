@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     DecimalValueWhenUnsetConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` customValue
+      _salt
+        `Prelude.hashWithSalt` customValue
         `Prelude.hashWithSalt` valueWhenUnsetOption
 
 instance

@@ -91,20 +91,23 @@ instance Core.AWSPager ListCells where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listCellsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listCellsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listCellsResponse_cells Prelude.. Lens._Just
+            Lens.^? listCellsResponse_cells
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCells_nextToken
           Lens..~ rs
-          Lens.^? listCellsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listCellsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCells where
   type AWSResponse ListCells = ListCellsResponse
@@ -121,7 +124,8 @@ instance Core.AWSRequest ListCells where
 
 instance Prelude.Hashable ListCells where
   hashWithSalt _salt ListCells' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCells where

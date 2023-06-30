@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateThesaurus where
 
 instance Prelude.Hashable UpdateThesaurus where
   hashWithSalt _salt UpdateThesaurus' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` sourceS3Path

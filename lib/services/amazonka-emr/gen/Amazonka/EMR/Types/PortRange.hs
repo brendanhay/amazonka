@@ -78,7 +78,8 @@ instance Data.FromJSON PortRange where
 
 instance Prelude.Hashable PortRange where
   hashWithSalt _salt PortRange' {..} =
-    _salt `Prelude.hashWithSalt` maxRange
+    _salt
+      `Prelude.hashWithSalt` maxRange
       `Prelude.hashWithSalt` minRange
 
 instance Prelude.NFData PortRange where

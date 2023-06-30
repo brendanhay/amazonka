@@ -98,7 +98,8 @@ instance Data.FromJSON SidewalkDeviceMetadata where
 
 instance Prelude.Hashable SidewalkDeviceMetadata where
   hashWithSalt _salt SidewalkDeviceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` batteryLevel
+    _salt
+      `Prelude.hashWithSalt` batteryLevel
       `Prelude.hashWithSalt` deviceState
       `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` rssi

@@ -325,7 +325,8 @@ instance Core.AWSRequest CreateConfigurationTemplate where
 
 instance Prelude.Hashable CreateConfigurationTemplate where
   hashWithSalt _salt CreateConfigurationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` optionSettings
       `Prelude.hashWithSalt` platformArn

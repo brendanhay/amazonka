@@ -149,7 +149,6 @@ newReplicationRule pStatus_ pDestination_ =
 replicationRule_deleteMarkerReplication :: Lens.Lens' ReplicationRule (Prelude.Maybe DeleteMarkerReplication)
 replicationRule_deleteMarkerReplication = Lens.lens (\ReplicationRule' {deleteMarkerReplication} -> deleteMarkerReplication) (\s@ReplicationRule' {} a -> s {deleteMarkerReplication = a} :: ReplicationRule)
 
--- |
 replicationRule_existingObjectReplication :: Lens.Lens' ReplicationRule (Prelude.Maybe ExistingObjectReplication)
 replicationRule_existingObjectReplication = Lens.lens (\ReplicationRule' {existingObjectReplication} -> existingObjectReplication) (\s@ReplicationRule' {} a -> s {existingObjectReplication = a} :: ReplicationRule)
 

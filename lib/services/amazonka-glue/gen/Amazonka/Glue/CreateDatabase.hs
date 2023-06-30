@@ -113,7 +113,8 @@ instance Core.AWSRequest CreateDatabase where
 
 instance Prelude.Hashable CreateDatabase where
   hashWithSalt _salt CreateDatabase' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` databaseInput
 

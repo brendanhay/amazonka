@@ -128,7 +128,8 @@ instance Core.AWSRequest SetTerminationProtection where
 
 instance Prelude.Hashable SetTerminationProtection where
   hashWithSalt _salt SetTerminationProtection' {..} =
-    _salt `Prelude.hashWithSalt` jobFlowIds
+    _salt
+      `Prelude.hashWithSalt` jobFlowIds
       `Prelude.hashWithSalt` terminationProtected
 
 instance Prelude.NFData SetTerminationProtection where

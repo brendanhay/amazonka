@@ -79,7 +79,8 @@ instance Data.FromJSON TimeRangeFilterInput where
 
 instance Prelude.Hashable TimeRangeFilterInput where
   hashWithSalt _salt TimeRangeFilterInput' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData TimeRangeFilterInput where

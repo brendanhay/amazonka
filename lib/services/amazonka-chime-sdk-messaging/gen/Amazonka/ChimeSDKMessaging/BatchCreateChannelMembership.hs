@@ -166,7 +166,8 @@ instance
     BatchCreateChannelMembership
   where
   hashWithSalt _salt BatchCreateChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArns

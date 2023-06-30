@@ -91,8 +91,8 @@ instance
       ( \x ->
           AwsEcsClusterConfigurationExecuteCommandConfigurationDetails'
             Prelude.<$> (x Data..:? "KmsKeyId")
-              Prelude.<*> (x Data..:? "LogConfiguration")
-              Prelude.<*> (x Data..:? "Logging")
+            Prelude.<*> (x Data..:? "LogConfiguration")
+            Prelude.<*> (x Data..:? "Logging")
       )
 
 instance
@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsClusterConfigurationExecuteCommandConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` kmsKeyId
+      _salt
+        `Prelude.hashWithSalt` kmsKeyId
         `Prelude.hashWithSalt` logConfiguration
         `Prelude.hashWithSalt` logging
 

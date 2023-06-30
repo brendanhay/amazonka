@@ -122,7 +122,8 @@ dashboardVisualId_visualId = Lens.lens (\DashboardVisualId' {visualId} -> visual
 
 instance Prelude.Hashable DashboardVisualId where
   hashWithSalt _salt DashboardVisualId' {..} =
-    _salt `Prelude.hashWithSalt` dashboardId
+    _salt
+      `Prelude.hashWithSalt` dashboardId
       `Prelude.hashWithSalt` sheetId
       `Prelude.hashWithSalt` visualId
 

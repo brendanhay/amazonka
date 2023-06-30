@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     TimeBasedAutoScalingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoScalingSchedule
+      _salt
+        `Prelude.hashWithSalt` autoScalingSchedule
         `Prelude.hashWithSalt` instanceId
 
 instance

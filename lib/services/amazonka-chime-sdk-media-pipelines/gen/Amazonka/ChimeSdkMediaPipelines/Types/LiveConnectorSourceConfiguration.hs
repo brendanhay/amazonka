@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     LiveConnectorSourceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` sourceType
+      _salt
+        `Prelude.hashWithSalt` sourceType
         `Prelude.hashWithSalt` chimeSdkMeetingLiveConnectorConfiguration
 
 instance

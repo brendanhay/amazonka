@@ -107,22 +107,22 @@ instance Core.AWSPager ListEulaAcceptances where
     | Core.stop
         ( rs
             Lens.^? listEulaAcceptancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listEulaAcceptancesResponse_eulaAcceptances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEulaAcceptances_nextToken
           Lens..~ rs
           Lens.^? listEulaAcceptancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEulaAcceptances where
   type
@@ -134,7 +134,8 @@ instance Core.AWSRequest ListEulaAcceptances where
     Response.receiveJSON
       ( \s h x ->
           ListEulaAcceptancesResponse'
-            Prelude.<$> ( x Data..?> "eulaAcceptances"
+            Prelude.<$> ( x
+                            Data..?> "eulaAcceptances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -143,7 +144,8 @@ instance Core.AWSRequest ListEulaAcceptances where
 
 instance Prelude.Hashable ListEulaAcceptances where
   hashWithSalt _salt ListEulaAcceptances' {..} =
-    _salt `Prelude.hashWithSalt` eulaIds
+    _salt
+      `Prelude.hashWithSalt` eulaIds
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` studioId
 

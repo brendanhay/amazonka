@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     SelfManagedActiveDirectoryAttributes' {..} =
-      _salt `Prelude.hashWithSalt` dnsIps
+      _salt
+        `Prelude.hashWithSalt` dnsIps
         `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` fileSystemAdministratorsGroup
         `Prelude.hashWithSalt` organizationalUnitDistinguishedName

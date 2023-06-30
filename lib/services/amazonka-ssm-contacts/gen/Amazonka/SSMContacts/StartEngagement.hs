@@ -189,7 +189,8 @@ instance Core.AWSRequest StartEngagement where
 
 instance Prelude.Hashable StartEngagement where
   hashWithSalt _salt StartEngagement' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
+    _salt
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` incidentId
       `Prelude.hashWithSalt` publicContent
       `Prelude.hashWithSalt` publicSubject

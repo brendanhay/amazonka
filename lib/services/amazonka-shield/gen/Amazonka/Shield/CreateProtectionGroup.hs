@@ -224,7 +224,8 @@ instance Core.AWSRequest CreateProtectionGroup where
 
 instance Prelude.Hashable CreateProtectionGroup where
   hashWithSalt _salt CreateProtectionGroup' {..} =
-    _salt `Prelude.hashWithSalt` members
+    _salt
+      `Prelude.hashWithSalt` members
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` protectionGroupId

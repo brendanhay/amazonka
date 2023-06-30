@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteDashboard where
 
 instance Prelude.Hashable DeleteDashboard where
   hashWithSalt _salt DeleteDashboard' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dashboardId
 
 instance Prelude.NFData DeleteDashboard where

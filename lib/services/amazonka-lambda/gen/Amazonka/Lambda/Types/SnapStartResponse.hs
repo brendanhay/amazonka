@@ -90,7 +90,8 @@ instance Data.FromJSON SnapStartResponse where
 
 instance Prelude.Hashable SnapStartResponse where
   hashWithSalt _salt SnapStartResponse' {..} =
-    _salt `Prelude.hashWithSalt` applyOn
+    _salt
+      `Prelude.hashWithSalt` applyOn
       `Prelude.hashWithSalt` optimizationStatus
 
 instance Prelude.NFData SnapStartResponse where

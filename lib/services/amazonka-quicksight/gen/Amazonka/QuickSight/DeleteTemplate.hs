@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteTemplate where
 
 instance Prelude.Hashable DeleteTemplate where
   hashWithSalt _salt DeleteTemplate' {..} =
-    _salt `Prelude.hashWithSalt` versionNumber
+    _salt
+      `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId
 

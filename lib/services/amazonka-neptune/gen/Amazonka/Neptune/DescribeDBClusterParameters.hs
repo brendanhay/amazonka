@@ -179,22 +179,22 @@ instance Core.AWSPager DescribeDBClusterParameters where
     | Core.stop
         ( rs
             Lens.^? describeDBClusterParametersResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClusterParametersResponse_parameters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBClusterParameters_marker
           Lens..~ rs
           Lens.^? describeDBClusterParametersResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterParameters where
   type
@@ -208,7 +208,9 @@ instance Core.AWSRequest DescribeDBClusterParameters where
       ( \s h x ->
           DescribeDBClusterParametersResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Parameters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -216,7 +218,8 @@ instance Core.AWSRequest DescribeDBClusterParameters where
 
 instance Prelude.Hashable DescribeDBClusterParameters where
   hashWithSalt _salt DescribeDBClusterParameters' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` source

@@ -74,7 +74,8 @@ instance
       ( \x ->
           BatchUpdatePartitionFailureEntry'
             Prelude.<$> (x Data..:? "ErrorDetail")
-            Prelude.<*> ( x Data..:? "PartitionValueList"
+            Prelude.<*> ( x
+                            Data..:? "PartitionValueList"
                             Data..!= Prelude.mempty
                         )
       )
@@ -86,7 +87,8 @@ instance
   hashWithSalt
     _salt
     BatchUpdatePartitionFailureEntry' {..} =
-      _salt `Prelude.hashWithSalt` errorDetail
+      _salt
+        `Prelude.hashWithSalt` errorDetail
         `Prelude.hashWithSalt` partitionValueList
 
 instance

@@ -313,7 +313,8 @@ instance Core.AWSRequest CreateStudio where
 
 instance Prelude.Hashable CreateStudio where
   hashWithSalt _salt CreateStudio' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` idpAuthUrl
       `Prelude.hashWithSalt` idpRelayStateParameterName
       `Prelude.hashWithSalt` tags

@@ -71,7 +71,8 @@ instance Data.FromXML PlatformProgrammingLanguage where
 
 instance Prelude.Hashable PlatformProgrammingLanguage where
   hashWithSalt _salt PlatformProgrammingLanguage' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData PlatformProgrammingLanguage where

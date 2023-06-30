@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteDynamicThingGroup where
 
 instance Prelude.Hashable DeleteDynamicThingGroup where
   hashWithSalt _salt DeleteDynamicThingGroup' {..} =
-    _salt `Prelude.hashWithSalt` expectedVersion
+    _salt
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` thingGroupName
 
 instance Prelude.NFData DeleteDynamicThingGroup where

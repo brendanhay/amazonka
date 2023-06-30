@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteAsset where
 
 instance Prelude.Hashable DeleteAsset where
   hashWithSalt _salt DeleteAsset' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` revisionId
 

@@ -112,7 +112,8 @@ instance Core.AWSRequest DescribeApplicationInstance where
             Prelude.<*> (x Data..?> "HealthStatus")
             Prelude.<*> (x Data..?> "LastUpdatedTime")
             Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> ( x Data..?> "RuntimeContextStates"
+            Prelude.<*> ( x
+                            Data..?> "RuntimeContextStates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "RuntimeRoleArn")

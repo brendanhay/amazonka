@@ -131,7 +131,8 @@ instance Data.FromJSON ContainerDatasetAction where
 
 instance Prelude.Hashable ContainerDatasetAction where
   hashWithSalt _salt ContainerDatasetAction' {..} =
-    _salt `Prelude.hashWithSalt` variables
+    _salt
+      `Prelude.hashWithSalt` variables
       `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` resourceConfiguration

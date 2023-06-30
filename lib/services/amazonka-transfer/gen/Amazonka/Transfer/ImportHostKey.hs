@@ -136,7 +136,8 @@ instance Core.AWSRequest ImportHostKey where
 
 instance Prelude.Hashable ImportHostKey where
   hashWithSalt _salt ImportHostKey' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` hostKeyBody

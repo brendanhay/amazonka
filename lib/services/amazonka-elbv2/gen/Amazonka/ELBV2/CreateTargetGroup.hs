@@ -482,7 +482,9 @@ instance Core.AWSRequest CreateTargetGroup where
       "CreateTargetGroupResult"
       ( \s h x ->
           CreateTargetGroupResponse'
-            Prelude.<$> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "TargetGroups"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -490,7 +492,8 @@ instance Core.AWSRequest CreateTargetGroup where
 
 instance Prelude.Hashable CreateTargetGroup where
   hashWithSalt _salt CreateTargetGroup' {..} =
-    _salt `Prelude.hashWithSalt` healthCheckEnabled
+    _salt
+      `Prelude.hashWithSalt` healthCheckEnabled
       `Prelude.hashWithSalt` healthCheckIntervalSeconds
       `Prelude.hashWithSalt` healthCheckPath
       `Prelude.hashWithSalt` healthCheckPort

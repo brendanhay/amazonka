@@ -112,7 +112,8 @@ instance Core.AWSRequest GetAnalyzedResource where
 
 instance Prelude.Hashable GetAnalyzedResource where
   hashWithSalt _salt GetAnalyzedResource' {..} =
-    _salt `Prelude.hashWithSalt` analyzerArn
+    _salt
+      `Prelude.hashWithSalt` analyzerArn
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData GetAnalyzedResource where

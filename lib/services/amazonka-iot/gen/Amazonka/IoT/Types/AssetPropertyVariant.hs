@@ -107,7 +107,8 @@ instance Data.FromJSON AssetPropertyVariant where
 
 instance Prelude.Hashable AssetPropertyVariant where
   hashWithSalt _salt AssetPropertyVariant' {..} =
-    _salt `Prelude.hashWithSalt` booleanValue
+    _salt
+      `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` stringValue

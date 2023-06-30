@@ -90,7 +90,8 @@ instance Data.FromJSON EvaluatedExternalModel where
           EvaluatedExternalModel'
             Prelude.<$> (x Data..:? "inputVariables" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "modelEndpoint")
-            Prelude.<*> ( x Data..:? "outputVariables"
+            Prelude.<*> ( x
+                            Data..:? "outputVariables"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "useEventVariables")
@@ -98,7 +99,8 @@ instance Data.FromJSON EvaluatedExternalModel where
 
 instance Prelude.Hashable EvaluatedExternalModel where
   hashWithSalt _salt EvaluatedExternalModel' {..} =
-    _salt `Prelude.hashWithSalt` inputVariables
+    _salt
+      `Prelude.hashWithSalt` inputVariables
       `Prelude.hashWithSalt` modelEndpoint
       `Prelude.hashWithSalt` outputVariables
       `Prelude.hashWithSalt` useEventVariables

@@ -121,7 +121,8 @@ instance Core.AWSRequest ModifyIpamScope where
 
 instance Prelude.Hashable ModifyIpamScope where
   hashWithSalt _salt ModifyIpamScope' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamScopeId
 

@@ -136,7 +136,8 @@ instance Data.FromJSON Notification where
 
 instance Prelude.Hashable Notification where
   hashWithSalt _salt Notification' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` controlSetId
       `Prelude.hashWithSalt` controlSetName

@@ -139,7 +139,8 @@ instance Data.FromJSON ReviewResultDetail where
 
 instance Prelude.Hashable ReviewResultDetail where
   hashWithSalt _salt ReviewResultDetail' {..} =
-    _salt `Prelude.hashWithSalt` actionId
+    _salt
+      `Prelude.hashWithSalt` actionId
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` questionId
       `Prelude.hashWithSalt` subjectId

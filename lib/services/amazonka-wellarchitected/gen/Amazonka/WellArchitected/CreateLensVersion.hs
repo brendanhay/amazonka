@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateLensVersion where
 
 instance Prelude.Hashable CreateLensVersion where
   hashWithSalt _salt CreateLensVersion' {..} =
-    _salt `Prelude.hashWithSalt` isMajorVersion
+    _salt
+      `Prelude.hashWithSalt` isMajorVersion
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensVersion
       `Prelude.hashWithSalt` clientRequestToken

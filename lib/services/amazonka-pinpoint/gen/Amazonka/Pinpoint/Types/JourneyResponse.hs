@@ -433,7 +433,8 @@ instance Data.FromJSON JourneyResponse where
 
 instance Prelude.Hashable JourneyResponse where
   hashWithSalt _salt JourneyResponse' {..} =
-    _salt `Prelude.hashWithSalt` activities
+    _salt
+      `Prelude.hashWithSalt` activities
       `Prelude.hashWithSalt` closedDays
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` journeyChannelSettings

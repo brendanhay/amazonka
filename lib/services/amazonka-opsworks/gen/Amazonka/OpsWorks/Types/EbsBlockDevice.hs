@@ -139,7 +139,8 @@ instance Data.FromJSON EbsBlockDevice where
 
 instance Prelude.Hashable EbsBlockDevice where
   hashWithSalt _salt EbsBlockDevice' {..} =
-    _salt `Prelude.hashWithSalt` deleteOnTermination
+    _salt
+      `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` volumeSize

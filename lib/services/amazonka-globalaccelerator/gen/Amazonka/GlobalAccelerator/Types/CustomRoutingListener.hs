@@ -88,7 +88,8 @@ instance Data.FromJSON CustomRoutingListener where
 
 instance Prelude.Hashable CustomRoutingListener where
   hashWithSalt _salt CustomRoutingListener' {..} =
-    _salt `Prelude.hashWithSalt` listenerArn
+    _salt
+      `Prelude.hashWithSalt` listenerArn
       `Prelude.hashWithSalt` portRanges
 
 instance Prelude.NFData CustomRoutingListener where

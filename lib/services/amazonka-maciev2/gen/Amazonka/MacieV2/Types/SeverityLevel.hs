@@ -101,7 +101,8 @@ instance Data.FromJSON SeverityLevel where
 
 instance Prelude.Hashable SeverityLevel where
   hashWithSalt _salt SeverityLevel' {..} =
-    _salt `Prelude.hashWithSalt` occurrencesThreshold
+    _salt
+      `Prelude.hashWithSalt` occurrencesThreshold
       `Prelude.hashWithSalt` severity
 
 instance Prelude.NFData SeverityLevel where

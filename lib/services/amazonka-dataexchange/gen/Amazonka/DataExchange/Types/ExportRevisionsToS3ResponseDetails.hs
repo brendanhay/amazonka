@@ -97,7 +97,8 @@ instance
             Prelude.<$> (x Data..:? "Encryption")
             Prelude.<*> (x Data..:? "EventActionArn")
             Prelude.<*> (x Data..: "DataSetId")
-            Prelude.<*> ( x Data..:? "RevisionDestinations"
+            Prelude.<*> ( x
+                            Data..:? "RevisionDestinations"
                             Data..!= Prelude.mempty
                         )
       )
@@ -109,7 +110,8 @@ instance
   hashWithSalt
     _salt
     ExportRevisionsToS3ResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` encryption
+      _salt
+        `Prelude.hashWithSalt` encryption
         `Prelude.hashWithSalt` eventActionArn
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionDestinations

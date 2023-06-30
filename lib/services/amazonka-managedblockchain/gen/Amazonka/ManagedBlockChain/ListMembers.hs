@@ -157,7 +157,8 @@ instance Core.AWSRequest ListMembers where
 
 instance Prelude.Hashable ListMembers where
   hashWithSalt _salt ListMembers' {..} =
-    _salt `Prelude.hashWithSalt` isOwned
+    _salt
+      `Prelude.hashWithSalt` isOwned
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken

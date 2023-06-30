@@ -215,7 +215,8 @@ instance Core.AWSRequest CreateLabel where
 
 instance Prelude.Hashable CreateLabel where
   hashWithSalt _salt CreateLabel' {..} =
-    _salt `Prelude.hashWithSalt` equipment
+    _salt
+      `Prelude.hashWithSalt` equipment
       `Prelude.hashWithSalt` faultCode
       `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` labelGroupName

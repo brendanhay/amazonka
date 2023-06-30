@@ -73,7 +73,8 @@ instance Data.FromXML PolicyDetail where
 
 instance Prelude.Hashable PolicyDetail where
   hashWithSalt _salt PolicyDetail' {..} =
-    _salt `Prelude.hashWithSalt` policyDocument
+    _salt
+      `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData PolicyDetail where

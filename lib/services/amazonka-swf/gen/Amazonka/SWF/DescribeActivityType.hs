@@ -141,7 +141,8 @@ instance Core.AWSRequest DescribeActivityType where
 
 instance Prelude.Hashable DescribeActivityType where
   hashWithSalt _salt DescribeActivityType' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` activityType
 
 instance Prelude.NFData DescribeActivityType where

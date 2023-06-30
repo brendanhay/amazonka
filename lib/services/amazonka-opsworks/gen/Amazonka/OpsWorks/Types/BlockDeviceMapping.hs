@@ -116,7 +116,8 @@ instance Data.FromJSON BlockDeviceMapping where
 
 instance Prelude.Hashable BlockDeviceMapping where
   hashWithSalt _salt BlockDeviceMapping' {..} =
-    _salt `Prelude.hashWithSalt` deviceName
+    _salt
+      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` ebs
       `Prelude.hashWithSalt` noDevice
       `Prelude.hashWithSalt` virtualName

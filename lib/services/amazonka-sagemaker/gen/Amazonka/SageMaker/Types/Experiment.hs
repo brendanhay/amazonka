@@ -161,7 +161,8 @@ instance Data.FromJSON Experiment where
 
 instance Prelude.Hashable Experiment where
   hashWithSalt _salt Experiment' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName

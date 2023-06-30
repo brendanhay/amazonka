@@ -86,7 +86,8 @@ instance Data.FromXML PolicyRole where
 
 instance Prelude.Hashable PolicyRole where
   hashWithSalt _salt PolicyRole' {..} =
-    _salt `Prelude.hashWithSalt` roleId
+    _salt
+      `Prelude.hashWithSalt` roleId
       `Prelude.hashWithSalt` roleName
 
 instance Prelude.NFData PolicyRole where

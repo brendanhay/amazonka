@@ -127,7 +127,9 @@ instance Data.FromXML InstanceStatus where
   parseXML x =
     InstanceStatus'
       Prelude.<$> (x Data..@? "availabilityZone")
-      Prelude.<*> ( x Data..@? "eventsSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "eventsSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "instanceId")
@@ -138,7 +140,8 @@ instance Data.FromXML InstanceStatus where
 
 instance Prelude.Hashable InstanceStatus where
   hashWithSalt _salt InstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` instanceState

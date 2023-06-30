@@ -328,7 +328,8 @@ instance Data.FromJSON SolutionVersion where
 
 instance Prelude.Hashable SolutionVersion where
   hashWithSalt _salt SolutionVersion' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` failureReason

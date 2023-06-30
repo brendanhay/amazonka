@@ -154,7 +154,8 @@ instance Core.AWSRequest CreateStoreImageTask where
 
 instance Prelude.Hashable CreateStoreImageTask where
   hashWithSalt _salt CreateStoreImageTask' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` s3ObjectTags
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` bucket

@@ -75,7 +75,8 @@ instance Data.FromJSON ArcAxisConfiguration where
 
 instance Prelude.Hashable ArcAxisConfiguration where
   hashWithSalt _salt ArcAxisConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` range
+    _salt
+      `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` reserveRange
 
 instance Prelude.NFData ArcAxisConfiguration where

@@ -238,7 +238,8 @@ instance Core.AWSRequest CreateAlarmModel where
 
 instance Prelude.Hashable CreateAlarmModel where
   hashWithSalt _salt CreateAlarmModel' {..} =
-    _salt `Prelude.hashWithSalt` alarmCapabilities
+    _salt
+      `Prelude.hashWithSalt` alarmCapabilities
       `Prelude.hashWithSalt` alarmEventActions
       `Prelude.hashWithSalt` alarmModelDescription
       `Prelude.hashWithSalt` alarmNotification

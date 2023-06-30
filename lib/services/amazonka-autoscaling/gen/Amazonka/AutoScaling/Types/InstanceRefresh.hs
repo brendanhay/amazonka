@@ -230,7 +230,8 @@ instance Data.FromXML InstanceRefresh where
 
 instance Prelude.Hashable InstanceRefresh where
   hashWithSalt _salt InstanceRefresh' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` desiredConfiguration
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` instanceRefreshId

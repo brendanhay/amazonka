@@ -165,7 +165,8 @@ instance Data.FromJSON Endpoint where
             Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "CustomerOwnedIpv4Pool")
             Prelude.<*> (x Data..:? "EndpointArn")
-            Prelude.<*> ( x Data..:? "NetworkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "NetworkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OutpostsId")
@@ -177,7 +178,8 @@ instance Data.FromJSON Endpoint where
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` accessType
+    _salt
+      `Prelude.hashWithSalt` accessType
       `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` customerOwnedIpv4Pool

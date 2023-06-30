@@ -79,7 +79,8 @@ enaSrdSpecification_enaSrdUdpSpecification = Lens.lens (\EnaSrdSpecification' {e
 
 instance Prelude.Hashable EnaSrdSpecification where
   hashWithSalt _salt EnaSrdSpecification' {..} =
-    _salt `Prelude.hashWithSalt` enaSrdEnabled
+    _salt
+      `Prelude.hashWithSalt` enaSrdEnabled
       `Prelude.hashWithSalt` enaSrdUdpSpecification
 
 instance Prelude.NFData EnaSrdSpecification where

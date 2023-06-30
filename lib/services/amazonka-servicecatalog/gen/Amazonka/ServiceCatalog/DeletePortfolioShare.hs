@@ -147,7 +147,8 @@ instance Core.AWSRequest DeletePortfolioShare where
 
 instance Prelude.Hashable DeletePortfolioShare where
   hashWithSalt _salt DeletePortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` organizationNode
       `Prelude.hashWithSalt` portfolioId

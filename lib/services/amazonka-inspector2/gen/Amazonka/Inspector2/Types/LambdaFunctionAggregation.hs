@@ -106,7 +106,8 @@ lambdaFunctionAggregation_sortOrder = Lens.lens (\LambdaFunctionAggregation' {so
 
 instance Prelude.Hashable LambdaFunctionAggregation where
   hashWithSalt _salt LambdaFunctionAggregation' {..} =
-    _salt `Prelude.hashWithSalt` functionNames
+    _salt
+      `Prelude.hashWithSalt` functionNames
       `Prelude.hashWithSalt` functionTags
       `Prelude.hashWithSalt` resourceIds
       `Prelude.hashWithSalt` runtimes

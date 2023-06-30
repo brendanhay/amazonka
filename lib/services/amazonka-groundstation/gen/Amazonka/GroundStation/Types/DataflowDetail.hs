@@ -84,7 +84,8 @@ instance Data.FromJSON DataflowDetail where
 
 instance Prelude.Hashable DataflowDetail where
   hashWithSalt _salt DataflowDetail' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` source
 

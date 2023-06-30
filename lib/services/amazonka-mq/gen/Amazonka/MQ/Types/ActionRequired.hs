@@ -97,7 +97,8 @@ instance Data.FromJSON ActionRequired where
 
 instance Prelude.Hashable ActionRequired where
   hashWithSalt _salt ActionRequired' {..} =
-    _salt `Prelude.hashWithSalt` actionRequiredCode
+    _salt
+      `Prelude.hashWithSalt` actionRequiredCode
       `Prelude.hashWithSalt` actionRequiredInfo
 
 instance Prelude.NFData ActionRequired where

@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateArtifact where
 
 instance Prelude.Hashable UpdateArtifact where
   hashWithSalt _salt UpdateArtifact' {..} =
-    _salt `Prelude.hashWithSalt` artifactName
+    _salt
+      `Prelude.hashWithSalt` artifactName
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` propertiesToRemove
       `Prelude.hashWithSalt` artifactArn

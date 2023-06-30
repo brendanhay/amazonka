@@ -97,7 +97,8 @@ instance Core.AWSRequest StopMultiplex where
       ( \s h x ->
           StopMultiplexResponse'
             Prelude.<$> (x Data..?> "arn")
-            Prelude.<*> ( x Data..?> "availabilityZones"
+            Prelude.<*> ( x
+                            Data..?> "availabilityZones"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)

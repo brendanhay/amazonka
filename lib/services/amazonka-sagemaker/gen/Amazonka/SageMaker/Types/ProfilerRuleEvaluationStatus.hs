@@ -109,7 +109,8 @@ instance
     ProfilerRuleEvaluationStatus
   where
   hashWithSalt _salt ProfilerRuleEvaluationStatus' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
+    _salt
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` ruleConfigurationName
       `Prelude.hashWithSalt` ruleEvaluationJobArn
       `Prelude.hashWithSalt` ruleEvaluationStatus

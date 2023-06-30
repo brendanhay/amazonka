@@ -73,7 +73,8 @@ instance Data.FromJSON AwsEc2InstanceViolation where
       "AwsEc2InstanceViolation"
       ( \x ->
           AwsEc2InstanceViolation'
-            Prelude.<$> ( x Data..:? "AwsEc2NetworkInterfaceViolations"
+            Prelude.<$> ( x
+                            Data..:? "AwsEc2NetworkInterfaceViolations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ViolationTarget")

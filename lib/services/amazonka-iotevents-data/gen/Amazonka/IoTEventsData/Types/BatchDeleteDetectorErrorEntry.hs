@@ -98,7 +98,8 @@ instance
     BatchDeleteDetectorErrorEntry
   where
   hashWithSalt _salt BatchDeleteDetectorErrorEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` messageId
 

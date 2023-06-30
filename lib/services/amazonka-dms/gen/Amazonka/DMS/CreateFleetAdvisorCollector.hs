@@ -147,7 +147,8 @@ instance Core.AWSRequest CreateFleetAdvisorCollector where
 
 instance Prelude.Hashable CreateFleetAdvisorCollector where
   hashWithSalt _salt CreateFleetAdvisorCollector' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` collectorName
       `Prelude.hashWithSalt` serviceAccessRoleArn
       `Prelude.hashWithSalt` s3BucketName

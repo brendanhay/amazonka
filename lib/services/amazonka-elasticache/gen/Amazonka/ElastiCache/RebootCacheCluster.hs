@@ -130,7 +130,8 @@ instance Core.AWSRequest RebootCacheCluster where
 
 instance Prelude.Hashable RebootCacheCluster where
   hashWithSalt _salt RebootCacheCluster' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` cacheNodeIdsToReboot
 
 instance Prelude.NFData RebootCacheCluster where

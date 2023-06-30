@@ -150,22 +150,22 @@ instance Core.AWSPager SearchVocabularies where
     | Core.stop
         ( rs
             Lens.^? searchVocabulariesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchVocabulariesResponse_vocabularySummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchVocabularies_nextToken
           Lens..~ rs
           Lens.^? searchVocabulariesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchVocabularies where
   type
@@ -178,7 +178,8 @@ instance Core.AWSRequest SearchVocabularies where
       ( \s h x ->
           SearchVocabulariesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "VocabularySummaryList"
+            Prelude.<*> ( x
+                            Data..?> "VocabularySummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -186,7 +187,8 @@ instance Core.AWSRequest SearchVocabularies where
 
 instance Prelude.Hashable SearchVocabularies where
   hashWithSalt _salt SearchVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameStartsWith
       `Prelude.hashWithSalt` nextToken

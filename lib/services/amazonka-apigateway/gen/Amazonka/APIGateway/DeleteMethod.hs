@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteMethod where
 
 instance Prelude.Hashable DeleteMethod where
   hashWithSalt _salt DeleteMethod' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` httpMethod
 

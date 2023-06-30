@@ -140,7 +140,7 @@ instance
       ( \s h x ->
           ListDistributionsByResponseHeadersPolicyIdResponse'
             Prelude.<$> (Data.parseXML x)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -150,7 +150,8 @@ instance
   hashWithSalt
     _salt
     ListDistributionsByResponseHeadersPolicyId' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxItems
         `Prelude.hashWithSalt` responseHeadersPolicyId
 

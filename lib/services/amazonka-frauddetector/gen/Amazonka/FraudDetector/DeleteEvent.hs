@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteEvent where
 
 instance Prelude.Hashable DeleteEvent where
   hashWithSalt _salt DeleteEvent' {..} =
-    _salt `Prelude.hashWithSalt` deleteAuditHistory
+    _salt
+      `Prelude.hashWithSalt` deleteAuditHistory
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTypeName
 

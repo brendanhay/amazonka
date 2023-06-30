@@ -89,7 +89,8 @@ instance Data.FromJSON MediaPipeline where
 
 instance Prelude.Hashable MediaPipeline where
   hashWithSalt _salt MediaPipeline' {..} =
-    _salt `Prelude.hashWithSalt` mediaCapturePipeline
+    _salt
+      `Prelude.hashWithSalt` mediaCapturePipeline
       `Prelude.hashWithSalt` mediaConcatenationPipeline
       `Prelude.hashWithSalt` mediaLiveConnectorPipeline
 

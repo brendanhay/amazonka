@@ -99,7 +99,8 @@ instance Data.FromJSON ParameterGroup where
 
 instance Prelude.Hashable ParameterGroup where
   hashWithSalt _salt ParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` family
       `Prelude.hashWithSalt` name

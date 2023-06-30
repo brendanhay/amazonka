@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeVirtualRouter where
 
 instance Prelude.Hashable DescribeVirtualRouter where
   hashWithSalt _salt DescribeVirtualRouter' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualRouterName
 

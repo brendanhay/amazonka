@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteUserDefinedFunction where
 
 instance Prelude.Hashable DeleteUserDefinedFunction where
   hashWithSalt _salt DeleteUserDefinedFunction' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` functionName
 

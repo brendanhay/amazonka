@@ -78,15 +78,19 @@ policies_otherPolicies = Lens.lens (\Policies' {otherPolicies} -> otherPolicies)
 instance Data.FromXML Policies where
   parseXML x =
     Policies'
-      Prelude.<$> ( x Data..@? "AppCookieStickinessPolicies"
+      Prelude.<$> ( x
+                      Data..@? "AppCookieStickinessPolicies"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "LBCookieStickinessPolicies"
+      Prelude.<*> ( x
+                      Data..@? "LBCookieStickinessPolicies"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "OtherPolicies" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "OtherPolicies"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

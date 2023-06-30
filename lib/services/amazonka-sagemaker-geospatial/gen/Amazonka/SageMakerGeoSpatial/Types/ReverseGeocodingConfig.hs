@@ -59,11 +59,9 @@ newReverseGeocodingConfig
         yAttributeName = pYAttributeName_
       }
 
--- |
 reverseGeocodingConfig_xAttributeName :: Lens.Lens' ReverseGeocodingConfig Prelude.Text
 reverseGeocodingConfig_xAttributeName = Lens.lens (\ReverseGeocodingConfig' {xAttributeName} -> xAttributeName) (\s@ReverseGeocodingConfig' {} a -> s {xAttributeName = a} :: ReverseGeocodingConfig)
 
--- |
 reverseGeocodingConfig_yAttributeName :: Lens.Lens' ReverseGeocodingConfig Prelude.Text
 reverseGeocodingConfig_yAttributeName = Lens.lens (\ReverseGeocodingConfig' {yAttributeName} -> yAttributeName) (\s@ReverseGeocodingConfig' {} a -> s {yAttributeName = a} :: ReverseGeocodingConfig)
 
@@ -79,7 +77,8 @@ instance Data.FromJSON ReverseGeocodingConfig where
 
 instance Prelude.Hashable ReverseGeocodingConfig where
   hashWithSalt _salt ReverseGeocodingConfig' {..} =
-    _salt `Prelude.hashWithSalt` xAttributeName
+    _salt
+      `Prelude.hashWithSalt` xAttributeName
       `Prelude.hashWithSalt` yAttributeName
 
 instance Prelude.NFData ReverseGeocodingConfig where

@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetsFromS3RequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` assetSources
+      _salt
+        `Prelude.hashWithSalt` assetSources
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
 

@@ -87,7 +87,8 @@ instance Data.FromXML VpnStaticRoute where
 
 instance Prelude.Hashable VpnStaticRoute where
   hashWithSalt _salt VpnStaticRoute' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidrBlock
+    _salt
+      `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` state
 

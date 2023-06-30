@@ -78,7 +78,8 @@ instance Data.FromJSON DataPathValue where
 
 instance Prelude.Hashable DataPathValue where
   hashWithSalt _salt DataPathValue' {..} =
-    _salt `Prelude.hashWithSalt` fieldId
+    _salt
+      `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` fieldValue
 
 instance Prelude.NFData DataPathValue where

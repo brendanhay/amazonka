@@ -118,7 +118,8 @@ instance Data.FromJSON PartnerEventSourceAccount where
 
 instance Prelude.Hashable PartnerEventSourceAccount where
   hashWithSalt _salt PartnerEventSourceAccount' {..} =
-    _salt `Prelude.hashWithSalt` account
+    _salt
+      `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` state

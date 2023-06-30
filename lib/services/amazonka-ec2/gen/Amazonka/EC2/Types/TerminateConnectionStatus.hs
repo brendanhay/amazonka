@@ -83,7 +83,8 @@ instance Data.FromXML TerminateConnectionStatus where
 
 instance Prelude.Hashable TerminateConnectionStatus where
   hashWithSalt _salt TerminateConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` currentStatus
       `Prelude.hashWithSalt` previousStatus
 

@@ -121,7 +121,8 @@ instance Core.AWSRequest DescribeServiceAction where
 
 instance Prelude.Hashable DescribeServiceAction where
   hashWithSalt _salt DescribeServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribeServiceAction where

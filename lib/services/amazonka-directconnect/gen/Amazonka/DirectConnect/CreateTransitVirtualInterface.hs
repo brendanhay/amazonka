@@ -131,7 +131,8 @@ instance
     CreateTransitVirtualInterface
   where
   hashWithSalt _salt CreateTransitVirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` newTransitVirtualInterface'
 
 instance Prelude.NFData CreateTransitVirtualInterface where

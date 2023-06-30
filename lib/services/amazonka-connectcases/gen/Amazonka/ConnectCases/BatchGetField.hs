@@ -107,7 +107,8 @@ instance Core.AWSRequest BatchGetField where
 
 instance Prelude.Hashable BatchGetField where
   hashWithSalt _salt BatchGetField' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fields
 
 instance Prelude.NFData BatchGetField where

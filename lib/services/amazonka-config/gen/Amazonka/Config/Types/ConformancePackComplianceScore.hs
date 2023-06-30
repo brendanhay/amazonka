@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     ConformancePackComplianceScore' {..} =
-      _salt `Prelude.hashWithSalt` conformancePackName
+      _salt
+        `Prelude.hashWithSalt` conformancePackName
         `Prelude.hashWithSalt` lastUpdatedTime
         `Prelude.hashWithSalt` score
 

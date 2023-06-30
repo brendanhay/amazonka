@@ -188,7 +188,8 @@ instance Data.FromXML AccessKeyLastUsed where
 
 instance Prelude.Hashable AccessKeyLastUsed where
   hashWithSalt _salt AccessKeyLastUsed' {..} =
-    _salt `Prelude.hashWithSalt` lastUsedDate
+    _salt
+      `Prelude.hashWithSalt` lastUsedDate
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` region
 

@@ -76,7 +76,8 @@ platformDevice_type = Lens.lens (\PlatformDevice' {type'} -> type') (\s@Platform
 
 instance Prelude.Hashable PlatformDevice where
   hashWithSalt _salt PlatformDevice' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PlatformDevice where

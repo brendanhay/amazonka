@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteManagedEndpoint where
 
 instance Prelude.Hashable DeleteManagedEndpoint where
   hashWithSalt _salt DeleteManagedEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` virtualClusterId
 
 instance Prelude.NFData DeleteManagedEndpoint where

@@ -136,7 +136,8 @@ instance Data.FromJSON CatalogKafkaSource where
 
 instance Prelude.Hashable CatalogKafkaSource where
   hashWithSalt _salt CatalogKafkaSource' {..} =
-    _salt `Prelude.hashWithSalt` dataPreviewOptions
+    _salt
+      `Prelude.hashWithSalt` dataPreviewOptions
       `Prelude.hashWithSalt` detectSchema
       `Prelude.hashWithSalt` streamingOptions
       `Prelude.hashWithSalt` windowSize

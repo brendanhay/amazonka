@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     WorkflowExecutionFailedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` details
+      _salt
+        `Prelude.hashWithSalt` details
         `Prelude.hashWithSalt` reason
         `Prelude.hashWithSalt` decisionTaskCompletedEventId
 

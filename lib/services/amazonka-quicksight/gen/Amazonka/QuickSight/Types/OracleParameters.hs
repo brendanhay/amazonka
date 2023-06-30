@@ -90,7 +90,8 @@ instance Data.FromJSON OracleParameters where
 
 instance Prelude.Hashable OracleParameters where
   hashWithSalt _salt OracleParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` database
 

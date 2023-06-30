@@ -89,11 +89,12 @@ data PutScheduledAction = PutScheduledAction'
     scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
     -- | The schedule for this action. The following formats are supported:
     --
-    -- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+    -- -   At expressions -
+    --     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
     --
-    -- -   Rate expressions - \"@rate(value unit)@\"
+    -- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
     --
-    -- -   Cron expressions - \"@cron(fields)@\"
+    -- -   Cron expressions - \"@cron(@/@fields@/@)@\"
     --
     -- At expressions are useful for one-time schedules. Cron expressions are
     -- useful for scheduled actions that run periodically at a specified date
@@ -284,11 +285,12 @@ data PutScheduledAction = PutScheduledAction'
 --
 -- 'schedule', 'putScheduledAction_schedule' - The schedule for this action. The following formats are supported:
 --
--- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+-- -   At expressions -
+--     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
 --
--- -   Rate expressions - \"@rate(value unit)@\"
+-- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
 --
--- -   Cron expressions - \"@cron(fields)@\"
+-- -   Cron expressions - \"@cron(@/@fields@/@)@\"
 --
 -- At expressions are useful for one-time schedules. Cron expressions are
 -- useful for scheduled actions that run periodically at a specified date
@@ -498,11 +500,12 @@ putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scala
 
 -- | The schedule for this action. The following formats are supported:
 --
--- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+-- -   At expressions -
+--     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
 --
--- -   Rate expressions - \"@rate(value unit)@\"
+-- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
 --
--- -   Cron expressions - \"@cron(fields)@\"
+-- -   Cron expressions - \"@cron(@/@fields@/@)@\"
 --
 -- At expressions are useful for one-time schedules. Cron expressions are
 -- useful for scheduled actions that run periodically at a specified date
@@ -701,7 +704,8 @@ instance Core.AWSRequest PutScheduledAction where
 
 instance Prelude.Hashable PutScheduledAction where
   hashWithSalt _salt PutScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` scalableTargetAction
       `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` startTime

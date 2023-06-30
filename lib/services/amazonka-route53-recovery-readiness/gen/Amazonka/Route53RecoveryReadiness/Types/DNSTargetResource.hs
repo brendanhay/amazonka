@@ -115,7 +115,8 @@ instance Data.FromJSON DNSTargetResource where
 
 instance Prelude.Hashable DNSTargetResource where
   hashWithSalt _salt DNSTargetResource' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` hostedZoneArn
       `Prelude.hashWithSalt` recordSetId
       `Prelude.hashWithSalt` recordType

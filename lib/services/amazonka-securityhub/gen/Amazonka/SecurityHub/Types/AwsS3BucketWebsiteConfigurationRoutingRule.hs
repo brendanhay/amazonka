@@ -81,7 +81,7 @@ instance
       ( \x ->
           AwsS3BucketWebsiteConfigurationRoutingRule'
             Prelude.<$> (x Data..:? "Condition")
-              Prelude.<*> (x Data..:? "Redirect")
+            Prelude.<*> (x Data..:? "Redirect")
       )
 
 instance
@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketWebsiteConfigurationRoutingRule' {..} =
-      _salt `Prelude.hashWithSalt` condition
+      _salt
+        `Prelude.hashWithSalt` condition
         `Prelude.hashWithSalt` redirect
 
 instance

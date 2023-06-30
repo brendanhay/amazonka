@@ -110,7 +110,8 @@ instance Core.AWSRequest GetRepositoryCatalogData where
 
 instance Prelude.Hashable GetRepositoryCatalogData where
   hashWithSalt _salt GetRepositoryCatalogData' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData GetRepositoryCatalogData where

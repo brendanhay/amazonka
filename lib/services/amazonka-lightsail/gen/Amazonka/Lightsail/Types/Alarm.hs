@@ -414,7 +414,8 @@ instance Data.FromJSON Alarm where
           Alarm'
             Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "comparisonOperator")
-            Prelude.<*> ( x Data..:? "contactProtocols"
+            Prelude.<*> ( x
+                            Data..:? "contactProtocols"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "createdAt")
@@ -425,7 +426,8 @@ instance Data.FromJSON Alarm where
             Prelude.<*> (x Data..:? "monitoredResourceInfo")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "notificationEnabled")
-            Prelude.<*> ( x Data..:? "notificationTriggers"
+            Prelude.<*> ( x
+                            Data..:? "notificationTriggers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "period")
@@ -440,7 +442,8 @@ instance Data.FromJSON Alarm where
 
 instance Prelude.Hashable Alarm where
   hashWithSalt _salt Alarm' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` contactProtocols
       `Prelude.hashWithSalt` createdAt

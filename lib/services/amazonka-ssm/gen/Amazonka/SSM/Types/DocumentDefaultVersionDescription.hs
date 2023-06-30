@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     DocumentDefaultVersionDescription' {..} =
-      _salt `Prelude.hashWithSalt` defaultVersion
+      _salt
+        `Prelude.hashWithSalt` defaultVersion
         `Prelude.hashWithSalt` defaultVersionName
         `Prelude.hashWithSalt` name
 

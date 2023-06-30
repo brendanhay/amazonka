@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     ServiceQuotaIncreaseRequestInTemplate' {..} =
-      _salt `Prelude.hashWithSalt` awsRegion
+      _salt
+        `Prelude.hashWithSalt` awsRegion
         `Prelude.hashWithSalt` desiredValue
         `Prelude.hashWithSalt` globalQuota
         `Prelude.hashWithSalt` quotaCode

@@ -78,7 +78,8 @@ workerLogDelivery_s3 = Lens.lens (\WorkerLogDelivery' {s3} -> s3) (\s@WorkerLogD
 
 instance Prelude.Hashable WorkerLogDelivery where
   hashWithSalt _salt WorkerLogDelivery' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` firehose
       `Prelude.hashWithSalt` s3
 

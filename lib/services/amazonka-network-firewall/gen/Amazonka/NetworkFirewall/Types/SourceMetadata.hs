@@ -90,7 +90,8 @@ instance Data.FromJSON SourceMetadata where
 
 instance Prelude.Hashable SourceMetadata where
   hashWithSalt _salt SourceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` sourceArn
+    _salt
+      `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` sourceUpdateToken
 
 instance Prelude.NFData SourceMetadata where

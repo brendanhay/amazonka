@@ -79,7 +79,8 @@ instance Data.FromJSON SlotPriority where
 
 instance Prelude.Hashable SlotPriority where
   hashWithSalt _salt SlotPriority' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` slotId
 
 instance Prelude.NFData SlotPriority where

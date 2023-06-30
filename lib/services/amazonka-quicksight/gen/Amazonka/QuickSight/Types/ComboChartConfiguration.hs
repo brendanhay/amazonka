@@ -279,7 +279,8 @@ instance Data.FromJSON ComboChartConfiguration where
 
 instance Prelude.Hashable ComboChartConfiguration where
   hashWithSalt _salt ComboChartConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` barDataLabels
+    _salt
+      `Prelude.hashWithSalt` barDataLabels
       `Prelude.hashWithSalt` barsArrangement
       `Prelude.hashWithSalt` categoryAxis
       `Prelude.hashWithSalt` categoryLabelOptions

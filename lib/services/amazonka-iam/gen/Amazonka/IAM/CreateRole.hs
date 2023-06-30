@@ -346,7 +346,8 @@ instance Core.AWSRequest CreateRole where
 
 instance Prelude.Hashable CreateRole where
   hashWithSalt _salt CreateRole' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxSessionDuration
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` permissionsBoundary

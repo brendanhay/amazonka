@@ -122,7 +122,8 @@ instance Data.FromJSON ResponseOutputItem where
 
 instance Prelude.Hashable ResponseOutputItem where
   hashWithSalt _salt ResponseOutputItem' {..} =
-    _salt `Prelude.hashWithSalt` dashPlaylistSettings
+    _salt
+      `Prelude.hashWithSalt` dashPlaylistSettings
       `Prelude.hashWithSalt` hlsPlaylistSettings
       `Prelude.hashWithSalt` manifestName
       `Prelude.hashWithSalt` playbackUrl

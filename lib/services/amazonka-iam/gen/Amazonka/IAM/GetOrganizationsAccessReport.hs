@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the service last accessed data report for Organizations that
--- was previously generated using the @ GenerateOrganizationsAccessReport @
--- operation. This operation retrieves the status of your report job and
--- the report contents.
+-- was previously generated using the
+-- @ @@GenerateOrganizationsAccessReport@@ @ operation. This operation
+-- retrieves the status of your report job and the report contents.
 --
 -- Depending on the parameters that you passed when you generated the
 -- report, the data returned could include different information. For
@@ -191,7 +191,9 @@ instance Core.AWSRequest GetOrganizationsAccessReport where
       "GetOrganizationsAccessReportResult"
       ( \s h x ->
           GetOrganizationsAccessReportResponse'
-            Prelude.<$> ( x Data..@? "AccessDetails" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "AccessDetails"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ErrorDetails")
@@ -210,7 +212,8 @@ instance
     GetOrganizationsAccessReport
   where
   hashWithSalt _salt GetOrganizationsAccessReport' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` sortKey
       `Prelude.hashWithSalt` jobId

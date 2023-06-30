@@ -127,7 +127,8 @@ instance Data.FromJSON GridLayoutElement where
 
 instance Prelude.Hashable GridLayoutElement where
   hashWithSalt _salt GridLayoutElement' {..} =
-    _salt `Prelude.hashWithSalt` columnIndex
+    _salt
+      `Prelude.hashWithSalt` columnIndex
       `Prelude.hashWithSalt` rowIndex
       `Prelude.hashWithSalt` elementId
       `Prelude.hashWithSalt` elementType

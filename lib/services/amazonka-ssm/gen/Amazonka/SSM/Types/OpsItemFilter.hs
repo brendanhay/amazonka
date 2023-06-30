@@ -79,7 +79,8 @@ opsItemFilter_operator = Lens.lens (\OpsItemFilter' {operator} -> operator) (\s@
 
 instance Prelude.Hashable OpsItemFilter where
   hashWithSalt _salt OpsItemFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

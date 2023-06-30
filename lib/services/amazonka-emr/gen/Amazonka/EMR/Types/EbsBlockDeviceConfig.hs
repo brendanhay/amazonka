@@ -78,7 +78,8 @@ ebsBlockDeviceConfig_volumeSpecification = Lens.lens (\EbsBlockDeviceConfig' {vo
 
 instance Prelude.Hashable EbsBlockDeviceConfig where
   hashWithSalt _salt EbsBlockDeviceConfig' {..} =
-    _salt `Prelude.hashWithSalt` volumesPerInstance
+    _salt
+      `Prelude.hashWithSalt` volumesPerInstance
       `Prelude.hashWithSalt` volumeSpecification
 
 instance Prelude.NFData EbsBlockDeviceConfig where

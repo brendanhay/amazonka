@@ -81,7 +81,8 @@ instance Data.FromJSON AutoStopConfig where
 
 instance Prelude.Hashable AutoStopConfig where
   hashWithSalt _salt AutoStopConfig' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` idleTimeoutMinutes
 
 instance Prelude.NFData AutoStopConfig where

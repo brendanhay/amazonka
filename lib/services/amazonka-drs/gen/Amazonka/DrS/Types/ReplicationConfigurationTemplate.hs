@@ -240,11 +240,13 @@ instance
             Prelude.<*> (x Data..:? "ebsEncryptionKeyArn")
             Prelude.<*> (x Data..:? "pitPolicy")
             Prelude.<*> (x Data..:? "replicationServerInstanceType")
-            Prelude.<*> ( x Data..:? "replicationServersSecurityGroupsIDs"
+            Prelude.<*> ( x
+                            Data..:? "replicationServersSecurityGroupsIDs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "stagingAreaSubnetId")
-            Prelude.<*> ( x Data..:? "stagingAreaTags"
+            Prelude.<*> ( x
+                            Data..:? "stagingAreaTags"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
@@ -259,7 +261,8 @@ instance
   hashWithSalt
     _salt
     ReplicationConfigurationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` associateDefaultSecurityGroup
         `Prelude.hashWithSalt` bandwidthThrottling
         `Prelude.hashWithSalt` createPublicIP

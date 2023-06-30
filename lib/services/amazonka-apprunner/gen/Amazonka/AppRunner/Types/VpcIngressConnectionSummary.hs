@@ -79,7 +79,8 @@ instance Data.FromJSON VpcIngressConnectionSummary where
 
 instance Prelude.Hashable VpcIngressConnectionSummary where
   hashWithSalt _salt VpcIngressConnectionSummary' {..} =
-    _salt `Prelude.hashWithSalt` serviceArn
+    _salt
+      `Prelude.hashWithSalt` serviceArn
       `Prelude.hashWithSalt` vpcIngressConnectionArn
 
 instance Prelude.NFData VpcIngressConnectionSummary where

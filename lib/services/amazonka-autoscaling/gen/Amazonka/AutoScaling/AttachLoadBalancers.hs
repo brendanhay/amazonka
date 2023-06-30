@@ -122,7 +122,8 @@ instance Core.AWSRequest AttachLoadBalancers where
 
 instance Prelude.Hashable AttachLoadBalancers where
   hashWithSalt _salt AttachLoadBalancers' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` loadBalancerNames
 
 instance Prelude.NFData AttachLoadBalancers where

@@ -140,7 +140,8 @@ instance Data.FromJSON EC2CreateRouteAction where
 
 instance Prelude.Hashable EC2CreateRouteAction where
   hashWithSalt _salt EC2CreateRouteAction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` destinationIpv6CidrBlock
       `Prelude.hashWithSalt` destinationPrefixListId

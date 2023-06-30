@@ -192,12 +192,13 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAutoScalingGroupRecommendationsResponse'
-            Prelude.<$> ( x Data..?> "autoScalingGroupRecommendations"
+            Prelude.<$> ( x
+                            Data..?> "autoScalingGroupRecommendations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -207,7 +208,8 @@ instance
   hashWithSalt
     _salt
     GetAutoScalingGroupRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` accountIds
+      _salt
+        `Prelude.hashWithSalt` accountIds
         `Prelude.hashWithSalt` autoScalingGroupArns
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults

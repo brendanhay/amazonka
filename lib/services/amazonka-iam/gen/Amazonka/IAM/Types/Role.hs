@@ -246,7 +246,9 @@ instance Data.FromXML Role where
       Prelude.<*> (x Data..@? "MaxSessionDuration")
       Prelude.<*> (x Data..@? "PermissionsBoundary")
       Prelude.<*> (x Data..@? "RoleLastUsed")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "Path")

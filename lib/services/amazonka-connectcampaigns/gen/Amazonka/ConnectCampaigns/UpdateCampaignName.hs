@@ -92,7 +92,8 @@ instance Core.AWSRequest UpdateCampaignName where
 
 instance Prelude.Hashable UpdateCampaignName where
   hashWithSalt _salt UpdateCampaignName' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateCampaignName where

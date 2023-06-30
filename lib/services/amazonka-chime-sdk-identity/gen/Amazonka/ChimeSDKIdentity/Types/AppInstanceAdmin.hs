@@ -85,7 +85,8 @@ instance Data.FromJSON AppInstanceAdmin where
 
 instance Prelude.Hashable AppInstanceAdmin where
   hashWithSalt _salt AppInstanceAdmin' {..} =
-    _salt `Prelude.hashWithSalt` admin
+    _salt
+      `Prelude.hashWithSalt` admin
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` createdTimestamp
 

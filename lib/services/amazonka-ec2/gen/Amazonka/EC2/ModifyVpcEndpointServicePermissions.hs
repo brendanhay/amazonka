@@ -147,12 +147,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointServicePermissionsResponse'
-            Prelude.<$> ( x Data..@? "addedPrincipalSet"
+            Prelude.<$> ( x
+                            Data..@? "addedPrincipalSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -162,7 +163,8 @@ instance
   hashWithSalt
     _salt
     ModifyVpcEndpointServicePermissions' {..} =
-      _salt `Prelude.hashWithSalt` addAllowedPrincipals
+      _salt
+        `Prelude.hashWithSalt` addAllowedPrincipals
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` removeAllowedPrincipals
         `Prelude.hashWithSalt` serviceId

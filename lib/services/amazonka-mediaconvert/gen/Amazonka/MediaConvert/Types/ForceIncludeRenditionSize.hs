@@ -92,7 +92,8 @@ instance Data.FromJSON ForceIncludeRenditionSize where
 
 instance Prelude.Hashable ForceIncludeRenditionSize where
   hashWithSalt _salt ForceIncludeRenditionSize' {..} =
-    _salt `Prelude.hashWithSalt` height
+    _salt
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` width
 
 instance Prelude.NFData ForceIncludeRenditionSize where

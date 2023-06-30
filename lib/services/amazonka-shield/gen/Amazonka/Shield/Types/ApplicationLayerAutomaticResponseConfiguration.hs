@@ -106,7 +106,7 @@ instance
       ( \x ->
           ApplicationLayerAutomaticResponseConfiguration'
             Prelude.<$> (x Data..: "Status")
-              Prelude.<*> (x Data..: "Action")
+            Prelude.<*> (x Data..: "Action")
       )
 
 instance
@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     ApplicationLayerAutomaticResponseConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` action
 
 instance

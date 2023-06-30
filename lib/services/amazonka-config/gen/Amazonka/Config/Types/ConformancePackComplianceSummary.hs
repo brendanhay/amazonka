@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     ConformancePackComplianceSummary' {..} =
-      _salt `Prelude.hashWithSalt` conformancePackName
+      _salt
+        `Prelude.hashWithSalt` conformancePackName
         `Prelude.hashWithSalt` conformancePackComplianceStatus
 
 instance

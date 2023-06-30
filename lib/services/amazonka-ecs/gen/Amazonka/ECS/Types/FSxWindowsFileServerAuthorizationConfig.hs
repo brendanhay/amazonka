@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     FSxWindowsFileServerAuthorizationConfig' {..} =
-      _salt `Prelude.hashWithSalt` credentialsParameter
+      _salt
+        `Prelude.hashWithSalt` credentialsParameter
         `Prelude.hashWithSalt` domain
 
 instance

@@ -139,7 +139,8 @@ instance Data.FromJSON BotAliasSummary where
 
 instance Prelude.Hashable BotAliasSummary where
   hashWithSalt _salt BotAliasSummary' {..} =
-    _salt `Prelude.hashWithSalt` botAliasId
+    _salt
+      `Prelude.hashWithSalt` botAliasId
       `Prelude.hashWithSalt` botAliasName
       `Prelude.hashWithSalt` botAliasStatus
       `Prelude.hashWithSalt` botVersion

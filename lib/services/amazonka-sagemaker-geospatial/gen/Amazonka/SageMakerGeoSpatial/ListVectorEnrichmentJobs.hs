@@ -129,21 +129,21 @@ instance Core.AWSPager ListVectorEnrichmentJobs where
     | Core.stop
         ( rs
             Lens.^? listVectorEnrichmentJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listVectorEnrichmentJobsResponse_vectorEnrichmentJobSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listVectorEnrichmentJobs_nextToken
           Lens..~ rs
           Lens.^? listVectorEnrichmentJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVectorEnrichmentJobs where
   type
@@ -157,14 +157,16 @@ instance Core.AWSRequest ListVectorEnrichmentJobs where
           ListVectorEnrichmentJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "VectorEnrichmentJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "VectorEnrichmentJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListVectorEnrichmentJobs where
   hashWithSalt _salt ListVectorEnrichmentJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder

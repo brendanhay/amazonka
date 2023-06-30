@@ -328,7 +328,8 @@ instance Core.AWSRequest CreateHITWithHITType where
 
 instance Prelude.Hashable CreateHITWithHITType where
   hashWithSalt _salt CreateHITWithHITType' {..} =
-    _salt `Prelude.hashWithSalt` assignmentReviewPolicy
+    _salt
+      `Prelude.hashWithSalt` assignmentReviewPolicy
       `Prelude.hashWithSalt` hITLayoutId
       `Prelude.hashWithSalt` hITLayoutParameters
       `Prelude.hashWithSalt` hITReviewPolicy

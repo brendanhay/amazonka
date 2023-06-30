@@ -136,7 +136,8 @@ instance Core.AWSRequest StartDeployment where
 
 instance Prelude.Hashable StartDeployment where
   hashWithSalt _salt StartDeployment' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` sourceUrl
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName

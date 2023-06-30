@@ -118,7 +118,8 @@ instance Core.AWSRequest DeletePullThroughCacheRule where
 
 instance Prelude.Hashable DeletePullThroughCacheRule where
   hashWithSalt _salt DeletePullThroughCacheRule' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` ecrRepositoryPrefix
 
 instance Prelude.NFData DeletePullThroughCacheRule where

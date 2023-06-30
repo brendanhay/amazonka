@@ -139,8 +139,8 @@ instance
       ( \s h x ->
           DisassociateClientVpnTargetNetworkResponse'
             Prelude.<$> (x Data..@? "associationId")
-              Prelude.<*> (x Data..@? "status")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -150,7 +150,8 @@ instance
   hashWithSalt
     _salt
     DisassociateClientVpnTargetNetwork' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` clientVpnEndpointId
         `Prelude.hashWithSalt` associationId
 

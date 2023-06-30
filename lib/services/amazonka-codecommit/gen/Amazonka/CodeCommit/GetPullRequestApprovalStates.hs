@@ -112,7 +112,8 @@ instance
     GetPullRequestApprovalStates
   where
   hashWithSalt _salt GetPullRequestApprovalStates' {..} =
-    _salt `Prelude.hashWithSalt` pullRequestId
+    _salt
+      `Prelude.hashWithSalt` pullRequestId
       `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData GetPullRequestApprovalStates where

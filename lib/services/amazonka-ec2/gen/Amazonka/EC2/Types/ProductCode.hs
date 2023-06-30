@@ -72,7 +72,8 @@ instance Data.FromXML ProductCode where
 
 instance Prelude.Hashable ProductCode where
   hashWithSalt _salt ProductCode' {..} =
-    _salt `Prelude.hashWithSalt` productCodeId
+    _salt
+      `Prelude.hashWithSalt` productCodeId
       `Prelude.hashWithSalt` productCodeType
 
 instance Prelude.NFData ProductCode where

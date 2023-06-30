@@ -179,7 +179,8 @@ instance Data.FromJSON Trial where
             Prelude.<*> (x Data..:? "Source")
             Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "TrialArn")
-            Prelude.<*> ( x Data..:? "TrialComponentSummaries"
+            Prelude.<*> ( x
+                            Data..:? "TrialComponentSummaries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TrialName")
@@ -187,7 +188,8 @@ instance Data.FromJSON Trial where
 
 instance Prelude.Hashable Trial where
   hashWithSalt _salt Trial' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` experimentName

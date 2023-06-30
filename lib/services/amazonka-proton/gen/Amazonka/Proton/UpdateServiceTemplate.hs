@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdateServiceTemplate where
 
 instance Prelude.Hashable UpdateServiceTemplate where
   hashWithSalt _salt UpdateServiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` name
 

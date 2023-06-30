@@ -107,7 +107,8 @@ instance Core.AWSRequest ArchiveFindings where
 
 instance Prelude.Hashable ArchiveFindings where
   hashWithSalt _salt ArchiveFindings' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` findingIds
 
 instance Prelude.NFData ArchiveFindings where

@@ -61,7 +61,8 @@ instance Data.FromJSON InAppMessagesResponse where
       "InAppMessagesResponse"
       ( \x ->
           InAppMessagesResponse'
-            Prelude.<$> ( x Data..:? "InAppMessageCampaigns"
+            Prelude.<$> ( x
+                            Data..:? "InAppMessageCampaigns"
                             Data..!= Prelude.mempty
                         )
       )

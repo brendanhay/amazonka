@@ -114,7 +114,8 @@ instance Core.AWSRequest TagQueue where
 
 instance Prelude.Hashable TagQueue where
   hashWithSalt _salt TagQueue' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagQueue where

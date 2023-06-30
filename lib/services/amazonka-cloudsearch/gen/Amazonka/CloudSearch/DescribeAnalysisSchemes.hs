@@ -125,14 +125,17 @@ instance Core.AWSRequest DescribeAnalysisSchemes where
       ( \s h x ->
           DescribeAnalysisSchemesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "AnalysisSchemes" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "AnalysisSchemes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable DescribeAnalysisSchemes where
   hashWithSalt _salt DescribeAnalysisSchemes' {..} =
-    _salt `Prelude.hashWithSalt` analysisSchemeNames
+    _salt
+      `Prelude.hashWithSalt` analysisSchemeNames
       `Prelude.hashWithSalt` deployed
       `Prelude.hashWithSalt` domainName
 

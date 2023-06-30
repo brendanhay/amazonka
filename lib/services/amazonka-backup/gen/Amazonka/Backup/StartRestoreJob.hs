@@ -330,7 +330,8 @@ instance Core.AWSRequest StartRestoreJob where
 
 instance Prelude.Hashable StartRestoreJob where
   hashWithSalt _salt StartRestoreJob' {..} =
-    _salt `Prelude.hashWithSalt` iamRoleArn
+    _salt
+      `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` recoveryPointArn

@@ -117,7 +117,8 @@ instance Data.FromJSON ProjectPolicy where
 
 instance Prelude.Hashable ProjectPolicy where
   hashWithSalt _salt ProjectPolicy' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` policyName

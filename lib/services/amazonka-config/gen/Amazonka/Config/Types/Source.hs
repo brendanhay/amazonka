@@ -189,7 +189,8 @@ instance Data.FromJSON Source where
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
-    _salt `Prelude.hashWithSalt` customPolicyDetails
+    _salt
+      `Prelude.hashWithSalt` customPolicyDetails
       `Prelude.hashWithSalt` sourceDetails
       `Prelude.hashWithSalt` sourceIdentifier
       `Prelude.hashWithSalt` owner

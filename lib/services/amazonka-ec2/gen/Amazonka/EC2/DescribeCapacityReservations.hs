@@ -392,22 +392,22 @@ instance Core.AWSPager DescribeCapacityReservations where
     | Core.stop
         ( rs
             Lens.^? describeCapacityReservationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCapacityReservationsResponse_capacityReservations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCapacityReservations_nextToken
           Lens..~ rs
           Lens.^? describeCapacityReservationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCapacityReservations where
   type
@@ -419,7 +419,8 @@ instance Core.AWSRequest DescribeCapacityReservations where
     Response.receiveXML
       ( \s h x ->
           DescribeCapacityReservationsResponse'
-            Prelude.<$> ( x Data..@? "capacityReservationSet"
+            Prelude.<$> ( x
+                            Data..@? "capacityReservationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -432,7 +433,8 @@ instance
     DescribeCapacityReservations
   where
   hashWithSalt _salt DescribeCapacityReservations' {..} =
-    _salt `Prelude.hashWithSalt` capacityReservationIds
+    _salt
+      `Prelude.hashWithSalt` capacityReservationIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults

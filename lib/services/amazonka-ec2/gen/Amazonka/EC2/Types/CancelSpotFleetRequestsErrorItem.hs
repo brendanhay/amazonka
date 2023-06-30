@@ -81,7 +81,8 @@ instance
   hashWithSalt
     _salt
     CancelSpotFleetRequestsErrorItem' {..} =
-      _salt `Prelude.hashWithSalt` error
+      _salt
+        `Prelude.hashWithSalt` error
         `Prelude.hashWithSalt` spotFleetRequestId
 
 instance

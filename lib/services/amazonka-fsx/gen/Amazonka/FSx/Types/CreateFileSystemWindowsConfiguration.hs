@@ -376,7 +376,8 @@ instance
   hashWithSalt
     _salt
     CreateFileSystemWindowsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` activeDirectoryId
+      _salt
+        `Prelude.hashWithSalt` activeDirectoryId
         `Prelude.hashWithSalt` aliases
         `Prelude.hashWithSalt` auditLogConfiguration
         `Prelude.hashWithSalt` automaticBackupRetentionDays

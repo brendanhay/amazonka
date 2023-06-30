@@ -122,13 +122,15 @@ instance Data.FromJSON AwsIamGroupDetails where
       "AwsIamGroupDetails"
       ( \x ->
           AwsIamGroupDetails'
-            Prelude.<$> ( x Data..:? "AttachedManagedPolicies"
+            Prelude.<$> ( x
+                            Data..:? "AttachedManagedPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreateDate")
             Prelude.<*> (x Data..:? "GroupId")
             Prelude.<*> (x Data..:? "GroupName")
-            Prelude.<*> ( x Data..:? "GroupPolicyList"
+            Prelude.<*> ( x
+                            Data..:? "GroupPolicyList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Path")

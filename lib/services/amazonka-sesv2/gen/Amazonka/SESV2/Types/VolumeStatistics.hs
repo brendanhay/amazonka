@@ -104,7 +104,8 @@ instance Data.FromJSON VolumeStatistics where
 
 instance Prelude.Hashable VolumeStatistics where
   hashWithSalt _salt VolumeStatistics' {..} =
-    _salt `Prelude.hashWithSalt` inboxRawCount
+    _salt
+      `Prelude.hashWithSalt` inboxRawCount
       `Prelude.hashWithSalt` projectedInbox
       `Prelude.hashWithSalt` projectedSpam
       `Prelude.hashWithSalt` spamRawCount

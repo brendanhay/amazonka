@@ -474,7 +474,8 @@ instance Data.FromXML DBEngineVersion where
       Prelude.<*> (x Data..@? "DefaultCharacterSet")
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EngineVersion")
-      Prelude.<*> ( x Data..@? "ExportableLogTypes"
+      Prelude.<*> ( x
+                      Data..@? "ExportableLogTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -482,27 +483,33 @@ instance Data.FromXML DBEngineVersion where
       Prelude.<*> (x Data..@? "KMSKeyId")
       Prelude.<*> (x Data..@? "MajorEngineVersion")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> ( x Data..@? "SupportedCACertificateIdentifiers"
+      Prelude.<*> ( x
+                      Data..@? "SupportedCACertificateIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "SupportedCharacterSets"
+      Prelude.<*> ( x
+                      Data..@? "SupportedCharacterSets"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CharacterSet")
                   )
-      Prelude.<*> ( x Data..@? "SupportedEngineModes"
+      Prelude.<*> ( x
+                      Data..@? "SupportedEngineModes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "SupportedFeatureNames"
+      Prelude.<*> ( x
+                      Data..@? "SupportedFeatureNames"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "SupportedNcharCharacterSets"
+      Prelude.<*> ( x
+                      Data..@? "SupportedNcharCharacterSets"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CharacterSet")
                   )
-      Prelude.<*> ( x Data..@? "SupportedTimezones"
+      Prelude.<*> ( x
+                      Data..@? "SupportedTimezones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Timezone")
                   )
@@ -514,17 +521,21 @@ instance Data.FromXML DBEngineVersion where
       Prelude.<*> (x Data..@? "SupportsLogExportsToCloudwatchLogs")
       Prelude.<*> (x Data..@? "SupportsParallelQuery")
       Prelude.<*> (x Data..@? "SupportsReadReplica")
-      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "TagList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> ( x Data..@? "ValidUpgradeTarget"
+      Prelude.<*> ( x
+                      Data..@? "ValidUpgradeTarget"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "UpgradeTarget")
                   )
 
 instance Prelude.Hashable DBEngineVersion where
   hashWithSalt _salt DBEngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` customDBEngineVersionManifest
       `Prelude.hashWithSalt` dbEngineDescription
       `Prelude.hashWithSalt` dbEngineMediaType

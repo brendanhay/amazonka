@@ -151,7 +151,8 @@ instance Data.FromJSON SeveritySummary where
 
 instance Prelude.Hashable SeveritySummary where
   hashWithSalt _salt SeveritySummary' {..} =
-    _salt `Prelude.hashWithSalt` criticalCount
+    _salt
+      `Prelude.hashWithSalt` criticalCount
       `Prelude.hashWithSalt` highCount
       `Prelude.hashWithSalt` informationalCount
       `Prelude.hashWithSalt` lowCount

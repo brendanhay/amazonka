@@ -226,7 +226,8 @@ instance Core.AWSRequest ModifyCustomDBEngineVersion where
 
 instance Prelude.Hashable ModifyCustomDBEngineVersion where
   hashWithSalt _salt ModifyCustomDBEngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

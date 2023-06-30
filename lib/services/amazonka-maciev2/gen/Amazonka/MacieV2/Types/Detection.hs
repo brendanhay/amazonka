@@ -153,7 +153,8 @@ instance Data.FromJSON Detection where
 
 instance Prelude.Hashable Detection where
   hashWithSalt _salt Detection' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

@@ -216,7 +216,8 @@ instance Core.AWSRequest StartMigration where
 
 instance Prelude.Hashable StartMigration where
   hashWithSalt _salt StartMigration' {..} =
-    _salt `Prelude.hashWithSalt` v1BotName
+    _salt
+      `Prelude.hashWithSalt` v1BotName
       `Prelude.hashWithSalt` v1BotVersion
       `Prelude.hashWithSalt` v2BotName
       `Prelude.hashWithSalt` v2BotRole

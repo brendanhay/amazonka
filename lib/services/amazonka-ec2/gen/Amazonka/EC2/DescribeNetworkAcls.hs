@@ -312,22 +312,22 @@ instance Core.AWSPager DescribeNetworkAcls where
     | Core.stop
         ( rs
             Lens.^? describeNetworkAclsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNetworkAclsResponse_networkAcls
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNetworkAcls_nextToken
           Lens..~ rs
           Lens.^? describeNetworkAclsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNetworkAcls where
   type
@@ -339,7 +339,9 @@ instance Core.AWSRequest DescribeNetworkAcls where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkAclsResponse'
-            Prelude.<$> ( x Data..@? "networkAclSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "networkAclSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -348,7 +350,8 @@ instance Core.AWSRequest DescribeNetworkAcls where
 
 instance Prelude.Hashable DescribeNetworkAcls where
   hashWithSalt _salt DescribeNetworkAcls' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` networkAclIds

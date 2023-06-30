@@ -94,7 +94,8 @@ instance Data.FromJSON InAppMessageBodyConfig where
 
 instance Prelude.Hashable InAppMessageBodyConfig where
   hashWithSalt _salt InAppMessageBodyConfig' {..} =
-    _salt `Prelude.hashWithSalt` alignment
+    _salt
+      `Prelude.hashWithSalt` alignment
       `Prelude.hashWithSalt` textColor
       `Prelude.hashWithSalt` body
 

@@ -92,7 +92,8 @@ instance Data.FromXML PciId where
 
 instance Prelude.Hashable PciId where
   hashWithSalt _salt PciId' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
+    _salt
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` subsystemId
       `Prelude.hashWithSalt` subsystemVendorId
       `Prelude.hashWithSalt` vendorId

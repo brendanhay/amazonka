@@ -134,7 +134,8 @@ instance Core.AWSRequest ListLoggingConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListLoggingConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "LoggingConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "LoggingConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -143,7 +144,8 @@ instance Core.AWSRequest ListLoggingConfigurations where
 
 instance Prelude.Hashable ListLoggingConfigurations where
   hashWithSalt _salt ListLoggingConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListLoggingConfigurations where

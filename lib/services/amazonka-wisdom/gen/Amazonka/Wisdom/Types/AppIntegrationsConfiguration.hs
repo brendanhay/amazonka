@@ -131,7 +131,8 @@ instance
     AppIntegrationsConfiguration
   where
   hashWithSalt _salt AppIntegrationsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` appIntegrationArn
+    _salt
+      `Prelude.hashWithSalt` appIntegrationArn
       `Prelude.hashWithSalt` objectFields
 
 instance Prelude.NFData AppIntegrationsConfiguration where

@@ -120,7 +120,8 @@ deploymentModel_statusReason = Lens.lens (\DeploymentModel' {statusReason} -> st
 
 instance Prelude.Hashable DeploymentModel where
   hashWithSalt _salt DeploymentModel' {..} =
-    _salt `Prelude.hashWithSalt` desiredState
+    _salt
+      `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` modelHandle
       `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` modelVersion

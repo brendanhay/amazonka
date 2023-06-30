@@ -119,7 +119,8 @@ instance Core.AWSRequest PutDedicatedIpInPool where
 
 instance Prelude.Hashable PutDedicatedIpInPool where
   hashWithSalt _salt PutDedicatedIpInPool' {..} =
-    _salt `Prelude.hashWithSalt` ip
+    _salt
+      `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` destinationPoolName
 
 instance Prelude.NFData PutDedicatedIpInPool where

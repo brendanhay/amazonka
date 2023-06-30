@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     ComponentPropertyGroupResponse' {..} =
-      _salt `Prelude.hashWithSalt` groupType
+      _salt
+        `Prelude.hashWithSalt` groupType
         `Prelude.hashWithSalt` propertyNames
         `Prelude.hashWithSalt` isInherited
 

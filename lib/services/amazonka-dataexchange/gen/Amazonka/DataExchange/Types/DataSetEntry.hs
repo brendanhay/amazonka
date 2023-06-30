@@ -196,7 +196,8 @@ instance Data.FromJSON DataSetEntry where
 
 instance Prelude.Hashable DataSetEntry where
   hashWithSalt _salt DataSetEntry' {..} =
-    _salt `Prelude.hashWithSalt` originDetails
+    _salt
+      `Prelude.hashWithSalt` originDetails
       `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` assetType

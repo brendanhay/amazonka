@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteFraudster where
 
 instance Prelude.Hashable DeleteFraudster where
   hashWithSalt _salt DeleteFraudster' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fraudsterId
 
 instance Prelude.NFData DeleteFraudster where

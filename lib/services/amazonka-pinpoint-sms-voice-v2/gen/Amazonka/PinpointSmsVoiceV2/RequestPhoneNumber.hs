@@ -261,7 +261,8 @@ instance Core.AWSRequest RequestPhoneNumber where
 
 instance Prelude.Hashable RequestPhoneNumber where
   hashWithSalt _salt RequestPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` deletionProtectionEnabled
       `Prelude.hashWithSalt` optOutListName
       `Prelude.hashWithSalt` poolId

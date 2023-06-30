@@ -319,7 +319,8 @@ instance
   hashWithSalt
     _salt
     CreateOntapVolumeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` copyTagsToBackups
+      _salt
+        `Prelude.hashWithSalt` copyTagsToBackups
         `Prelude.hashWithSalt` junctionPath
         `Prelude.hashWithSalt` ontapVolumeType
         `Prelude.hashWithSalt` securityStyle

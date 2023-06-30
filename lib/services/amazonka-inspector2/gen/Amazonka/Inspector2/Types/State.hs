@@ -99,7 +99,8 @@ instance Data.FromJSON State where
 
 instance Prelude.Hashable State where
   hashWithSalt _salt State' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` status
 

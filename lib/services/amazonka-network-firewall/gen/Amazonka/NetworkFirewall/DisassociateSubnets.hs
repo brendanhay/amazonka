@@ -191,7 +191,8 @@ instance Core.AWSRequest DisassociateSubnets where
 
 instance Prelude.Hashable DisassociateSubnets where
   hashWithSalt _salt DisassociateSubnets' {..} =
-    _salt `Prelude.hashWithSalt` firewallArn
+    _salt
+      `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` firewallName
       `Prelude.hashWithSalt` updateToken
       `Prelude.hashWithSalt` subnetIds

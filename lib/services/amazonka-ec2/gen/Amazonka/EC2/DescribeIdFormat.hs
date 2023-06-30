@@ -132,7 +132,9 @@ instance Core.AWSRequest DescribeIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribeIdFormatResponse'
-            Prelude.<$> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "statusSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

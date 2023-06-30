@@ -70,7 +70,8 @@ instance Data.FromJSON RowAlternateColorOptions where
       "RowAlternateColorOptions"
       ( \x ->
           RowAlternateColorOptions'
-            Prelude.<$> ( x Data..:? "RowAlternateColors"
+            Prelude.<$> ( x
+                            Data..:? "RowAlternateColors"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Status")
@@ -78,7 +79,8 @@ instance Data.FromJSON RowAlternateColorOptions where
 
 instance Prelude.Hashable RowAlternateColorOptions where
   hashWithSalt _salt RowAlternateColorOptions' {..} =
-    _salt `Prelude.hashWithSalt` rowAlternateColors
+    _salt
+      `Prelude.hashWithSalt` rowAlternateColors
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData RowAlternateColorOptions where

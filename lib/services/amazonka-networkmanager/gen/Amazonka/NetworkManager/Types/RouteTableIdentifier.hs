@@ -66,7 +66,8 @@ routeTableIdentifier_transitGatewayRouteTableArn = Lens.lens (\RouteTableIdentif
 
 instance Prelude.Hashable RouteTableIdentifier where
   hashWithSalt _salt RouteTableIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` coreNetworkSegmentEdge
+    _salt
+      `Prelude.hashWithSalt` coreNetworkSegmentEdge
       `Prelude.hashWithSalt` transitGatewayRouteTableArn
 
 instance Prelude.NFData RouteTableIdentifier where

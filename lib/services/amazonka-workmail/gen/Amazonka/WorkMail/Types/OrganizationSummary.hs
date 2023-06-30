@@ -110,7 +110,8 @@ instance Data.FromJSON OrganizationSummary where
 
 instance Prelude.Hashable OrganizationSummary where
   hashWithSalt _salt OrganizationSummary' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` defaultMailDomain
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` organizationId

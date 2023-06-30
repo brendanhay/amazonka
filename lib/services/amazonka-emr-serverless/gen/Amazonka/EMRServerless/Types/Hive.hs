@@ -86,7 +86,8 @@ instance Data.FromJSON Hive where
 
 instance Prelude.Hashable Hive where
   hashWithSalt _salt Hive' {..} =
-    _salt `Prelude.hashWithSalt` initQueryFile
+    _salt
+      `Prelude.hashWithSalt` initQueryFile
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` query
 

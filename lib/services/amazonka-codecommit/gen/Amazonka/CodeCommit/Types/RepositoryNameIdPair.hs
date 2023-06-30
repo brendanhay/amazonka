@@ -75,7 +75,8 @@ instance Data.FromJSON RepositoryNameIdPair where
 
 instance Prelude.Hashable RepositoryNameIdPair where
   hashWithSalt _salt RepositoryNameIdPair' {..} =
-    _salt `Prelude.hashWithSalt` repositoryId
+    _salt
+      `Prelude.hashWithSalt` repositoryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData RepositoryNameIdPair where

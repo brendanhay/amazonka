@@ -118,7 +118,8 @@ instance Core.AWSRequest GetThirdPartyJobDetails where
 
 instance Prelude.Hashable GetThirdPartyJobDetails where
   hashWithSalt _salt GetThirdPartyJobDetails' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData GetThirdPartyJobDetails where

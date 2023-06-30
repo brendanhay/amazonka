@@ -124,7 +124,8 @@ instance
           GetRecoveryPointRestoreMetadataResponse'
             Prelude.<$> (x Data..?> "BackupVaultArn")
             Prelude.<*> (x Data..?> "RecoveryPointArn")
-            Prelude.<*> ( x Data..?> "RestoreMetadata"
+            Prelude.<*> ( x
+                            Data..?> "RestoreMetadata"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -137,7 +138,8 @@ instance
   hashWithSalt
     _salt
     GetRecoveryPointRestoreMetadata' {..} =
-      _salt `Prelude.hashWithSalt` backupVaultName
+      _salt
+        `Prelude.hashWithSalt` backupVaultName
         `Prelude.hashWithSalt` recoveryPointArn
 
 instance

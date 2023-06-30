@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     EffectiveDeploymentStatusDetails' {..} =
-      _salt `Prelude.hashWithSalt` errorStack
+      _salt
+        `Prelude.hashWithSalt` errorStack
         `Prelude.hashWithSalt` errorTypes
 
 instance

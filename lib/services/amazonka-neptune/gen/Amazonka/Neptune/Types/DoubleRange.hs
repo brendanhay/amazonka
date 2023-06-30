@@ -65,11 +65,13 @@ doubleRange_to = Lens.lens (\DoubleRange' {to} -> to) (\s@DoubleRange' {} a -> s
 instance Data.FromXML DoubleRange where
   parseXML x =
     DoubleRange'
-      Prelude.<$> (x Data..@? "From") Prelude.<*> (x Data..@? "To")
+      Prelude.<$> (x Data..@? "From")
+      Prelude.<*> (x Data..@? "To")
 
 instance Prelude.Hashable DoubleRange where
   hashWithSalt _salt DoubleRange' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` to
 
 instance Prelude.NFData DoubleRange where

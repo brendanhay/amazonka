@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteScheduledAction where
 
 instance Prelude.Hashable DeleteScheduledAction where
   hashWithSalt _salt DeleteScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` scheduledActionName
 
 instance Prelude.NFData DeleteScheduledAction where

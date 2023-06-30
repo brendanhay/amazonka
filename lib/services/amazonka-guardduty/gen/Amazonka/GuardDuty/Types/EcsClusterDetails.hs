@@ -140,7 +140,8 @@ instance Data.FromJSON EcsClusterDetails where
 
 instance Prelude.Hashable EcsClusterDetails where
   hashWithSalt _salt EcsClusterDetails' {..} =
-    _salt `Prelude.hashWithSalt` activeServicesCount
+    _salt
+      `Prelude.hashWithSalt` activeServicesCount
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` registeredContainerInstancesCount

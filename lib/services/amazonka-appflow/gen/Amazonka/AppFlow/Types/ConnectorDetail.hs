@@ -166,7 +166,8 @@ instance Data.FromJSON ConnectorDetail where
 
 instance Prelude.Hashable ConnectorDetail where
   hashWithSalt _salt ConnectorDetail' {..} =
-    _salt `Prelude.hashWithSalt` applicationType
+    _salt
+      `Prelude.hashWithSalt` applicationType
       `Prelude.hashWithSalt` connectorDescription
       `Prelude.hashWithSalt` connectorLabel
       `Prelude.hashWithSalt` connectorModes

@@ -48,7 +48,7 @@ data EventType = EventType'
     -- @investigation@ value isn\'t supported at this time.
     category :: Prelude.Maybe EventTypeCategory,
     -- | The unique identifier for the event type. The format is
-    -- @AWS_SERVICE_DESCRIPTION @; for example,
+    -- @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
     code :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services service that is affected by the event. For
@@ -70,7 +70,7 @@ data EventType = EventType'
 -- @investigation@ value isn\'t supported at this time.
 --
 -- 'code', 'eventType_code' - The unique identifier for the event type. The format is
--- @AWS_SERVICE_DESCRIPTION @; for example,
+-- @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 --
 -- 'service', 'eventType_service' - The Amazon Web Services service that is affected by the event. For
@@ -91,7 +91,7 @@ eventType_category :: Lens.Lens' EventType (Prelude.Maybe EventTypeCategory)
 eventType_category = Lens.lens (\EventType' {category} -> category) (\s@EventType' {} a -> s {category = a} :: EventType)
 
 -- | The unique identifier for the event type. The format is
--- @AWS_SERVICE_DESCRIPTION @; for example,
+-- @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 eventType_code :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
 eventType_code = Lens.lens (\EventType' {code} -> code) (\s@EventType' {} a -> s {code = a} :: EventType)
@@ -114,7 +114,8 @@ instance Data.FromJSON EventType where
 
 instance Prelude.Hashable EventType where
   hashWithSalt _salt EventType' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` service
 

@@ -99,18 +99,20 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAuditMitigationActionsTaskResponse'
-            Prelude.<$> ( x Data..?> "actionsDefinition"
+            Prelude.<$> ( x
+                            Data..?> "actionsDefinition"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> ( x Data..?> "auditCheckToActionsMapping"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Data..?> "endTime")
-              Prelude.<*> (x Data..?> "startTime")
-              Prelude.<*> (x Data..?> "target")
-              Prelude.<*> (x Data..?> "taskStatistics" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "taskStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "auditCheckToActionsMapping"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "endTime")
+            Prelude.<*> (x Data..?> "startTime")
+            Prelude.<*> (x Data..?> "target")
+            Prelude.<*> (x Data..?> "taskStatistics" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "taskStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

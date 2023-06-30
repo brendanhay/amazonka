@@ -222,7 +222,8 @@ instance
   hashWithSalt
     _salt
     UpdateFunctionEventInvokeConfig' {..} =
-      _salt `Prelude.hashWithSalt` destinationConfig
+      _salt
+        `Prelude.hashWithSalt` destinationConfig
         `Prelude.hashWithSalt` maximumEventAgeInSeconds
         `Prelude.hashWithSalt` maximumRetryAttempts
         `Prelude.hashWithSalt` qualifier

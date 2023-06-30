@@ -214,7 +214,8 @@ instance Core.AWSRequest AssociateMacSecKey where
 
 instance Prelude.Hashable AssociateMacSecKey where
   hashWithSalt _salt AssociateMacSecKey' {..} =
-    _salt `Prelude.hashWithSalt` cak
+    _salt
+      `Prelude.hashWithSalt` cak
       `Prelude.hashWithSalt` ckn
       `Prelude.hashWithSalt` secretARN
       `Prelude.hashWithSalt` connectionId

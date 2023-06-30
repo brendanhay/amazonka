@@ -128,7 +128,8 @@ instance Core.AWSRequest DescribeInstancesHealth where
       "DescribeInstancesHealthResult"
       ( \s h x ->
           DescribeInstancesHealthResponse'
-            Prelude.<$> ( x Data..@? "InstanceHealthList"
+            Prelude.<$> ( x
+                            Data..@? "InstanceHealthList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -139,7 +140,8 @@ instance Core.AWSRequest DescribeInstancesHealth where
 
 instance Prelude.Hashable DescribeInstancesHealth where
   hashWithSalt _salt DescribeInstancesHealth' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` nextToken

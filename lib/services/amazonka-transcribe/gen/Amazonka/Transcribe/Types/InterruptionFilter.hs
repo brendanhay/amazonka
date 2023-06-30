@@ -147,7 +147,8 @@ instance Data.FromJSON InterruptionFilter where
 
 instance Prelude.Hashable InterruptionFilter where
   hashWithSalt _salt InterruptionFilter' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTimeRange
+    _salt
+      `Prelude.hashWithSalt` absoluteTimeRange
       `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` participantRole
       `Prelude.hashWithSalt` relativeTimeRange

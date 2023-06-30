@@ -190,7 +190,8 @@ instance
     CreateIntegrationAssociation
   where
   hashWithSalt _salt CreateIntegrationAssociation' {..} =
-    _salt `Prelude.hashWithSalt` sourceApplicationName
+    _salt
+      `Prelude.hashWithSalt` sourceApplicationName
       `Prelude.hashWithSalt` sourceApplicationUrl
       `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` tags

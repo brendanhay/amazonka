@@ -137,7 +137,8 @@ aPNSVoipChannelRequest_tokenKeyId = Lens.lens (\APNSVoipChannelRequest' {tokenKe
 
 instance Prelude.Hashable APNSVoipChannelRequest where
   hashWithSalt _salt APNSVoipChannelRequest' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` defaultAuthenticationMethod
       `Prelude.hashWithSalt` enabled

@@ -199,7 +199,8 @@ instance Data.FromJSON ClusterConfiguration where
 
 instance Prelude.Hashable ClusterConfiguration where
   hashWithSalt _salt ClusterConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` maintenanceWindow
       `Prelude.hashWithSalt` name

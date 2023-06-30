@@ -176,7 +176,8 @@ instance
     ListReviewPolicyResultsForHIT
   where
   hashWithSalt _salt ListReviewPolicyResultsForHIT' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` policyLevels
       `Prelude.hashWithSalt` retrieveActions

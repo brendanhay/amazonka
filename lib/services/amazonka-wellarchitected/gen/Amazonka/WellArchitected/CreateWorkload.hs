@@ -264,7 +264,8 @@ instance Core.AWSRequest CreateWorkload where
 
 instance Prelude.Hashable CreateWorkload where
   hashWithSalt _salt CreateWorkload' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` architecturalDesign
       `Prelude.hashWithSalt` awsRegions

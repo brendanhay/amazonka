@@ -261,7 +261,8 @@ instance Core.AWSRequest CreateLoadBalancer where
 
 instance Prelude.Hashable CreateLoadBalancer where
   hashWithSalt _salt CreateLoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` scheme
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` subnets

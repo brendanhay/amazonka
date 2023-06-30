@@ -180,7 +180,8 @@ validity_type = Lens.lens (\Validity' {type'} -> type') (\s@Validity' {} a -> s 
 
 instance Prelude.Hashable Validity where
   hashWithSalt _salt Validity' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Validity where

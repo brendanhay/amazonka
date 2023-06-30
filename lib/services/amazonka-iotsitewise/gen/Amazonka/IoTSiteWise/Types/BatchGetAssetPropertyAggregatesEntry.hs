@@ -202,7 +202,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyAggregatesEntry' {..} =
-      _salt `Prelude.hashWithSalt` assetId
+      _salt
+        `Prelude.hashWithSalt` assetId
         `Prelude.hashWithSalt` propertyAlias
         `Prelude.hashWithSalt` propertyId
         `Prelude.hashWithSalt` qualities

@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     CreateResourceDefinitionVersion' {..} =
-      _salt `Prelude.hashWithSalt` amznClientToken
+      _salt
+        `Prelude.hashWithSalt` amznClientToken
         `Prelude.hashWithSalt` resources
         `Prelude.hashWithSalt` resourceDefinitionId
 

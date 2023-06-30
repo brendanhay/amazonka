@@ -119,20 +119,23 @@ instance Core.AWSPager DescribeACLs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeACLsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describeACLsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeACLsResponse_aCLs Prelude.. Lens._Just
+            Lens.^? describeACLsResponse_aCLs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeACLs_nextToken
           Lens..~ rs
-          Lens.^? describeACLsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeACLsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeACLs where
   type AWSResponse DescribeACLs = DescribeACLsResponse
@@ -149,7 +152,8 @@ instance Core.AWSRequest DescribeACLs where
 
 instance Prelude.Hashable DescribeACLs where
   hashWithSalt _salt DescribeACLs' {..} =
-    _salt `Prelude.hashWithSalt` aCLName
+    _salt
+      `Prelude.hashWithSalt` aCLName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -263,7 +263,8 @@ instance Data.FromJSON Action where
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` clearTimer
+    _salt
+      `Prelude.hashWithSalt` clearTimer
       `Prelude.hashWithSalt` dynamoDB
       `Prelude.hashWithSalt` dynamoDBv2
       `Prelude.hashWithSalt` firehose

@@ -154,22 +154,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeRecommendationExportJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeRecommendationExportJobsResponse_recommendationExportJobs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeRecommendationExportJobs_nextToken
           Lens..~ rs
           Lens.^? describeRecommendationExportJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -185,7 +185,8 @@ instance
       ( \s h x ->
           DescribeRecommendationExportJobsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "recommendationExportJobs"
+            Prelude.<*> ( x
+                            Data..?> "recommendationExportJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -198,7 +199,8 @@ instance
   hashWithSalt
     _salt
     DescribeRecommendationExportJobs' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` jobIds
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

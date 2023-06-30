@@ -85,7 +85,8 @@ instance Data.FromJSON MssPackage where
 
 instance Prelude.Hashable MssPackage where
   hashWithSalt _salt MssPackage' {..} =
-    _salt `Prelude.hashWithSalt` encryption
+    _salt
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` segmentDurationSeconds
       `Prelude.hashWithSalt` mssManifests
 

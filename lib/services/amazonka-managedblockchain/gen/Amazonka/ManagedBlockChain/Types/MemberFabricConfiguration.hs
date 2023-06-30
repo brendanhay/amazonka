@@ -88,7 +88,8 @@ memberFabricConfiguration_adminPassword = Lens.lens (\MemberFabricConfiguration'
 
 instance Prelude.Hashable MemberFabricConfiguration where
   hashWithSalt _salt MemberFabricConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` adminUsername
+    _salt
+      `Prelude.hashWithSalt` adminUsername
       `Prelude.hashWithSalt` adminPassword
 
 instance Prelude.NFData MemberFabricConfiguration where

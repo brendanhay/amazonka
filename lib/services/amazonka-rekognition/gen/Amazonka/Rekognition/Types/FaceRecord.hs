@@ -81,7 +81,8 @@ instance Data.FromJSON FaceRecord where
 
 instance Prelude.Hashable FaceRecord where
   hashWithSalt _salt FaceRecord' {..} =
-    _salt `Prelude.hashWithSalt` face
+    _salt
+      `Prelude.hashWithSalt` face
       `Prelude.hashWithSalt` faceDetail
 
 instance Prelude.NFData FaceRecord where

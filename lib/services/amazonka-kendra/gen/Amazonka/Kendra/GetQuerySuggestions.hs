@@ -144,7 +144,8 @@ instance Core.AWSRequest GetQuerySuggestions where
 
 instance Prelude.Hashable GetQuerySuggestions where
   hashWithSalt _salt GetQuerySuggestions' {..} =
-    _salt `Prelude.hashWithSalt` maxSuggestionsCount
+    _salt
+      `Prelude.hashWithSalt` maxSuggestionsCount
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` queryText
 

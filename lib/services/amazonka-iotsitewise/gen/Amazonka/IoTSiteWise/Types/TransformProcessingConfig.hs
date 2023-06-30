@@ -81,7 +81,8 @@ instance Data.FromJSON TransformProcessingConfig where
 
 instance Prelude.Hashable TransformProcessingConfig where
   hashWithSalt _salt TransformProcessingConfig' {..} =
-    _salt `Prelude.hashWithSalt` forwardingConfig
+    _salt
+      `Prelude.hashWithSalt` forwardingConfig
       `Prelude.hashWithSalt` computeLocation
 
 instance Prelude.NFData TransformProcessingConfig where

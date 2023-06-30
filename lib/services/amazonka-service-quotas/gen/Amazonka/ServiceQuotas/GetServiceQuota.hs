@@ -106,7 +106,8 @@ instance Core.AWSRequest GetServiceQuota where
 
 instance Prelude.Hashable GetServiceQuota where
   hashWithSalt _salt GetServiceQuota' {..} =
-    _salt `Prelude.hashWithSalt` serviceCode
+    _salt
+      `Prelude.hashWithSalt` serviceCode
       `Prelude.hashWithSalt` quotaCode
 
 instance Prelude.NFData GetServiceQuota where

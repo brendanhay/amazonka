@@ -119,7 +119,8 @@ instance Data.FromJSON ModelMetadataSummary where
 
 instance Prelude.Hashable ModelMetadataSummary where
   hashWithSalt _salt ModelMetadataSummary' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` framework
       `Prelude.hashWithSalt` task
       `Prelude.hashWithSalt` model

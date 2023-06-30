@@ -115,10 +115,12 @@ instance
       ( \x ->
           SensitivityInspectionTemplateIncludes'
             Prelude.<$> (x Data..:? "allowListIds" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "customDataIdentifierIds"
+            Prelude.<*> ( x
+                            Data..:? "customDataIdentifierIds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "managedDataIdentifierIds"
+            Prelude.<*> ( x
+                            Data..:? "managedDataIdentifierIds"
                             Data..!= Prelude.mempty
                         )
       )
@@ -130,7 +132,8 @@ instance
   hashWithSalt
     _salt
     SensitivityInspectionTemplateIncludes' {..} =
-      _salt `Prelude.hashWithSalt` allowListIds
+      _salt
+        `Prelude.hashWithSalt` allowListIds
         `Prelude.hashWithSalt` customDataIdentifierIds
         `Prelude.hashWithSalt` managedDataIdentifierIds
 

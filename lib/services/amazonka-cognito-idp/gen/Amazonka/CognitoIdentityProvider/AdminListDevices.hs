@@ -130,7 +130,8 @@ instance Core.AWSRequest AdminListDevices where
 
 instance Prelude.Hashable AdminListDevices where
   hashWithSalt _salt AdminListDevices' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` paginationToken
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username

@@ -87,7 +87,8 @@ instance Data.FromJSON HPOObjective where
 
 instance Prelude.Hashable HPOObjective where
   hashWithSalt _salt HPOObjective' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` metricRegex
       `Prelude.hashWithSalt` type'
 

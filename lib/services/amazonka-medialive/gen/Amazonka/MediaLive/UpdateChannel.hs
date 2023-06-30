@@ -190,7 +190,8 @@ instance Core.AWSRequest UpdateChannel' where
 
 instance Prelude.Hashable UpdateChannel' where
   hashWithSalt _salt UpdateChannel'' {..} =
-    _salt `Prelude.hashWithSalt` cdiInputSpecification
+    _salt
+      `Prelude.hashWithSalt` cdiInputSpecification
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` encoderSettings
       `Prelude.hashWithSalt` inputAttachments

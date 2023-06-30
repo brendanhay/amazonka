@@ -175,7 +175,8 @@ instance Core.AWSRequest CreateGlobalCluster where
 
 instance Prelude.Hashable CreateGlobalCluster where
   hashWithSalt _salt CreateGlobalCluster' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

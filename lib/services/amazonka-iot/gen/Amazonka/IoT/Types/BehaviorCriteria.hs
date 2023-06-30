@@ -201,7 +201,8 @@ instance Data.FromJSON BehaviorCriteria where
 
 instance Prelude.Hashable BehaviorCriteria where
   hashWithSalt _salt BehaviorCriteria' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` consecutiveDatapointsToAlarm
       `Prelude.hashWithSalt` consecutiveDatapointsToClear
       `Prelude.hashWithSalt` durationSeconds

@@ -123,7 +123,8 @@ instance Data.FromJSON RdsDbSnapshotConfiguration where
 
 instance Prelude.Hashable RdsDbSnapshotConfiguration where
   hashWithSalt _salt RdsDbSnapshotConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData RdsDbSnapshotConfiguration where

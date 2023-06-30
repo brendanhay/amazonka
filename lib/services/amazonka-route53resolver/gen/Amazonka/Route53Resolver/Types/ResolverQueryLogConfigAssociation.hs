@@ -221,7 +221,8 @@ instance
   hashWithSalt
     _salt
     ResolverQueryLogConfigAssociation' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
+      _salt
+        `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` error
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` id

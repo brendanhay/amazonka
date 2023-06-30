@@ -110,7 +110,8 @@ instance Data.FromJSON CustomVocabularyItem where
 
 instance Prelude.Hashable CustomVocabularyItem where
   hashWithSalt _salt CustomVocabularyItem' {..} =
-    _salt `Prelude.hashWithSalt` displayAs
+    _salt
+      `Prelude.hashWithSalt` displayAs
       `Prelude.hashWithSalt` weight
       `Prelude.hashWithSalt` itemId
       `Prelude.hashWithSalt` phrase

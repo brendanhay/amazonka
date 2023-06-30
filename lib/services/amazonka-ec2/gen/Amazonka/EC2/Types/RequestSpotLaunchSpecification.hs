@@ -260,7 +260,8 @@ instance
   hashWithSalt
     _salt
     RequestSpotLaunchSpecification' {..} =
-      _salt `Prelude.hashWithSalt` addressingType
+      _salt
+        `Prelude.hashWithSalt` addressingType
         `Prelude.hashWithSalt` blockDeviceMappings
         `Prelude.hashWithSalt` ebsOptimized
         `Prelude.hashWithSalt` iamInstanceProfile

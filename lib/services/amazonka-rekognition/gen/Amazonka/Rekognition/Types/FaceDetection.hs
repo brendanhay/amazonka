@@ -82,7 +82,8 @@ instance Data.FromJSON FaceDetection where
 
 instance Prelude.Hashable FaceDetection where
   hashWithSalt _salt FaceDetection' {..} =
-    _salt `Prelude.hashWithSalt` face
+    _salt
+      `Prelude.hashWithSalt` face
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData FaceDetection where

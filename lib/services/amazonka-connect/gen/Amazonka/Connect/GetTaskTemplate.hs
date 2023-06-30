@@ -145,7 +145,8 @@ instance Core.AWSRequest GetTaskTemplate where
 
 instance Prelude.Hashable GetTaskTemplate where
   hashWithSalt _salt GetTaskTemplate' {..} =
-    _salt `Prelude.hashWithSalt` snapshotVersion
+    _salt
+      `Prelude.hashWithSalt` snapshotVersion
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` taskTemplateId
 

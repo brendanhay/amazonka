@@ -69,7 +69,8 @@ newLaunchProfileMember_principalId = Lens.lens (\NewLaunchProfileMember' {princi
 
 instance Prelude.Hashable NewLaunchProfileMember where
   hashWithSalt _salt NewLaunchProfileMember' {..} =
-    _salt `Prelude.hashWithSalt` persona
+    _salt
+      `Prelude.hashWithSalt` persona
       `Prelude.hashWithSalt` principalId
 
 instance Prelude.NFData NewLaunchProfileMember where

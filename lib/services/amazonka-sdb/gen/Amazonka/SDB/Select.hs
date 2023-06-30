@@ -130,20 +130,23 @@ instance Core.AWSPager Select where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? selectResponse_nextToken Prelude.. Lens._Just
+            Lens.^? selectResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? selectResponse_items Prelude.. Lens._Just
+            Lens.^? selectResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& select_nextToken
           Lens..~ rs
-          Lens.^? selectResponse_nextToken Prelude.. Lens._Just
+          Lens.^? selectResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest Select where
   type AWSResponse Select = SelectResponse
@@ -161,7 +164,8 @@ instance Core.AWSRequest Select where
 
 instance Prelude.Hashable Select where
   hashWithSalt _salt Select' {..} =
-    _salt `Prelude.hashWithSalt` consistentRead
+    _salt
+      `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` selectExpression
 

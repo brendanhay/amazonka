@@ -148,7 +148,8 @@ instance Core.AWSRequest GetRepositoryEndpoint where
 
 instance Prelude.Hashable GetRepositoryEndpoint where
   hashWithSalt _salt GetRepositoryEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` format

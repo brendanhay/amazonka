@@ -282,7 +282,8 @@ instance Core.AWSRequest UpdateBranch where
 
 instance Prelude.Hashable UpdateBranch where
   hashWithSalt _salt UpdateBranch' {..} =
-    _salt `Prelude.hashWithSalt` backendEnvironmentArn
+    _salt
+      `Prelude.hashWithSalt` backendEnvironmentArn
       `Prelude.hashWithSalt` basicAuthCredentials
       `Prelude.hashWithSalt` buildSpec
       `Prelude.hashWithSalt` description

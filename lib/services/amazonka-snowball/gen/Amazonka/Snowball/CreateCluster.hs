@@ -416,7 +416,8 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` forwardingAddressId
       `Prelude.hashWithSalt` kmsKeyARN
       `Prelude.hashWithSalt` notification

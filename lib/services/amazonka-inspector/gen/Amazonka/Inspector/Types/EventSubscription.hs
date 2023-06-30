@@ -82,7 +82,8 @@ instance Data.FromJSON EventSubscription where
 
 instance Prelude.Hashable EventSubscription where
   hashWithSalt _salt EventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` event
+    _salt
+      `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` subscribedAt
 
 instance Prelude.NFData EventSubscription where

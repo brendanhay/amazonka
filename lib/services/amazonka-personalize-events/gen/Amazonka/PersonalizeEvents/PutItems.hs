@@ -96,7 +96,8 @@ instance Core.AWSRequest PutItems where
 
 instance Prelude.Hashable PutItems where
   hashWithSalt _salt PutItems' {..} =
-    _salt `Prelude.hashWithSalt` datasetArn
+    _salt
+      `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` items
 
 instance Prelude.NFData PutItems where

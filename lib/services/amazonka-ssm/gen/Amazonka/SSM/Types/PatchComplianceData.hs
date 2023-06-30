@@ -168,7 +168,8 @@ instance Data.FromJSON PatchComplianceData where
 
 instance Prelude.Hashable PatchComplianceData where
   hashWithSalt _salt PatchComplianceData' {..} =
-    _salt `Prelude.hashWithSalt` cVEIds
+    _salt
+      `Prelude.hashWithSalt` cVEIds
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` kBId
       `Prelude.hashWithSalt` classification

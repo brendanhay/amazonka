@@ -361,7 +361,8 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` homeDirectory
+    _salt
+      `Prelude.hashWithSalt` homeDirectory
       `Prelude.hashWithSalt` homeDirectoryMappings
       `Prelude.hashWithSalt` homeDirectoryType
       `Prelude.hashWithSalt` policy

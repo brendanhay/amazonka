@@ -97,7 +97,8 @@ instance
     S3DataRepositoryConfiguration
   where
   hashWithSalt _salt S3DataRepositoryConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` autoExportPolicy
+    _salt
+      `Prelude.hashWithSalt` autoExportPolicy
       `Prelude.hashWithSalt` autoImportPolicy
 
 instance Prelude.NFData S3DataRepositoryConfiguration where

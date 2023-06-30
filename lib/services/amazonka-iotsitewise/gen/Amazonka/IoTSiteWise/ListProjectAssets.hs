@@ -111,19 +111,19 @@ instance Core.AWSPager ListProjectAssets where
     | Core.stop
         ( rs
             Lens.^? listProjectAssetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listProjectAssetsResponse_assetIds) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProjectAssets_nextToken
           Lens..~ rs
           Lens.^? listProjectAssetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProjectAssets where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest ListProjectAssets where
 
 instance Prelude.Hashable ListProjectAssets where
   hashWithSalt _salt ListProjectAssets' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectId
 

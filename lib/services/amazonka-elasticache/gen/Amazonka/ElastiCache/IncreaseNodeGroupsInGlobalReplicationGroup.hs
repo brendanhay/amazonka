@@ -142,7 +142,7 @@ instance
       ( \s h x ->
           IncreaseNodeGroupsInGlobalReplicationGroupResponse'
             Prelude.<$> (x Data..@? "GlobalReplicationGroup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     IncreaseNodeGroupsInGlobalReplicationGroup' {..} =
-      _salt `Prelude.hashWithSalt` regionalConfigurations
+      _salt
+        `Prelude.hashWithSalt` regionalConfigurations
         `Prelude.hashWithSalt` globalReplicationGroupId
         `Prelude.hashWithSalt` nodeGroupCount
         `Prelude.hashWithSalt` applyImmediately

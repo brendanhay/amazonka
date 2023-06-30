@@ -231,7 +231,7 @@ instance
       ( \s h x ->
           ModifyReplicationGroupShardConfigurationResponse'
             Prelude.<$> (x Data..@? "ReplicationGroup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -241,7 +241,8 @@ instance
   hashWithSalt
     _salt
     ModifyReplicationGroupShardConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` nodeGroupsToRemove
+      _salt
+        `Prelude.hashWithSalt` nodeGroupsToRemove
         `Prelude.hashWithSalt` nodeGroupsToRetain
         `Prelude.hashWithSalt` reshardingConfiguration
         `Prelude.hashWithSalt` replicationGroupId

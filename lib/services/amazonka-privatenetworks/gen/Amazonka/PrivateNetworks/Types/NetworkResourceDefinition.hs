@@ -91,7 +91,8 @@ instance Data.FromJSON NetworkResourceDefinition where
 
 instance Prelude.Hashable NetworkResourceDefinition where
   hashWithSalt _salt NetworkResourceDefinition' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` type'
 

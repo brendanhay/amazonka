@@ -106,7 +106,8 @@ instance Data.FromJSON OutputContext where
 
 instance Prelude.Hashable OutputContext where
   hashWithSalt _salt OutputContext' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timeToLiveInSeconds
       `Prelude.hashWithSalt` turnsToLive
 

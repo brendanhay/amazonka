@@ -105,7 +105,8 @@ instance Data.FromJSON SnapshotDetails where
 
 instance Prelude.Hashable SnapshotDetails where
   hashWithSalt _salt SnapshotDetails' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdated

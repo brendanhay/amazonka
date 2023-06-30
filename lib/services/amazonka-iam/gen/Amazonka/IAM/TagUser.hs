@@ -145,7 +145,8 @@ instance Core.AWSRequest TagUser where
 
 instance Prelude.Hashable TagUser where
   hashWithSalt _salt TagUser' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagUser where

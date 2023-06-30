@@ -117,7 +117,8 @@ instance Core.AWSRequest DeleteTrafficPolicy where
 
 instance Prelude.Hashable DeleteTrafficPolicy where
   hashWithSalt _salt DeleteTrafficPolicy' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData DeleteTrafficPolicy where

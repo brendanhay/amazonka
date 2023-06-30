@@ -183,7 +183,8 @@ instance
   hashWithSalt
     _salt
     UpdateNetworkAnalyzerConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` traceContent
         `Prelude.hashWithSalt` wirelessDevicesToAdd
         `Prelude.hashWithSalt` wirelessDevicesToRemove

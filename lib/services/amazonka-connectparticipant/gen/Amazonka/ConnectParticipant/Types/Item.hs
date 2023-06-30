@@ -170,7 +170,8 @@ instance Data.FromJSON Item where
 
 instance Prelude.Hashable Item where
   hashWithSalt _salt Item' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTime
+    _salt
+      `Prelude.hashWithSalt` absoluteTime
       `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` contentType

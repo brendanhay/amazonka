@@ -116,7 +116,8 @@ instance Core.AWSRequest AssociateGatewayToServer where
 
 instance Prelude.Hashable AssociateGatewayToServer where
   hashWithSalt _salt AssociateGatewayToServer' {..} =
-    _salt `Prelude.hashWithSalt` gatewayArn
+    _salt
+      `Prelude.hashWithSalt` gatewayArn
       `Prelude.hashWithSalt` serverArn
 
 instance Prelude.NFData AssociateGatewayToServer where

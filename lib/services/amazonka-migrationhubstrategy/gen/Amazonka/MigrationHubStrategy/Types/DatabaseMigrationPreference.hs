@@ -100,7 +100,8 @@ instance Data.FromJSON DatabaseMigrationPreference where
 
 instance Prelude.Hashable DatabaseMigrationPreference where
   hashWithSalt _salt DatabaseMigrationPreference' {..} =
-    _salt `Prelude.hashWithSalt` heterogeneous
+    _salt
+      `Prelude.hashWithSalt` heterogeneous
       `Prelude.hashWithSalt` homogeneous
       `Prelude.hashWithSalt` noPreference
 

@@ -105,7 +105,8 @@ instance Core.AWSRequest PutCaseEventConfiguration where
 
 instance Prelude.Hashable PutCaseEventConfiguration where
   hashWithSalt _salt PutCaseEventConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` eventBridge
 
 instance Prelude.NFData PutCaseEventConfiguration where

@@ -110,7 +110,8 @@ instance Data.FromJSON S3Action where
 
 instance Prelude.Hashable S3Action where
   hashWithSalt _salt S3Action' {..} =
-    _salt `Prelude.hashWithSalt` cannedAcl
+    _salt
+      `Prelude.hashWithSalt` cannedAcl
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` key

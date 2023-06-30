@@ -75,7 +75,8 @@ instance
     AnalysisLoadBalancerListener
   where
   hashWithSalt _salt AnalysisLoadBalancerListener' {..} =
-    _salt `Prelude.hashWithSalt` instancePort
+    _salt
+      `Prelude.hashWithSalt` instancePort
       `Prelude.hashWithSalt` loadBalancerPort
 
 instance Prelude.NFData AnalysisLoadBalancerListener where

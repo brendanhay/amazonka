@@ -87,7 +87,8 @@ instance Data.FromJSON ProcessingOutputConfig where
 
 instance Prelude.Hashable ProcessingOutputConfig where
   hashWithSalt _salt ProcessingOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` outputs
 
 instance Prelude.NFData ProcessingOutputConfig where

@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     AwsEcrContainerAggregationResponse' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` architecture
         `Prelude.hashWithSalt` imageSha
         `Prelude.hashWithSalt` imageTags

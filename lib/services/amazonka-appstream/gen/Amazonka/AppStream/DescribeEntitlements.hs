@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeEntitlements where
 
 instance Prelude.Hashable DescribeEntitlements where
   hashWithSalt _salt DescribeEntitlements' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName

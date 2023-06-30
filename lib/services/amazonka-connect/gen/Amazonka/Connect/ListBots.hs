@@ -129,20 +129,23 @@ instance Core.AWSPager ListBots where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listBotsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listBotsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBotsResponse_lexBots Prelude.. Lens._Just
+            Lens.^? listBotsResponse_lexBots
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBots_nextToken
           Lens..~ rs
-          Lens.^? listBotsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listBotsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBots where
   type AWSResponse ListBots = ListBotsResponse
@@ -159,7 +162,8 @@ instance Core.AWSRequest ListBots where
 
 instance Prelude.Hashable ListBots where
   hashWithSalt _salt ListBots' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` lexVersion

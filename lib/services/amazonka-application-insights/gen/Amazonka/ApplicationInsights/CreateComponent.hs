@@ -116,7 +116,8 @@ instance Core.AWSRequest CreateComponent where
 
 instance Prelude.Hashable CreateComponent where
   hashWithSalt _salt CreateComponent' {..} =
-    _salt `Prelude.hashWithSalt` resourceGroupName
+    _salt
+      `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` resourceList
 

@@ -75,7 +75,8 @@ instance Data.FromJSON DateTimeHierarchy where
       "DateTimeHierarchy"
       ( \x ->
           DateTimeHierarchy'
-            Prelude.<$> ( x Data..:? "DrillDownFilters"
+            Prelude.<$> ( x
+                            Data..:? "DrillDownFilters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "HierarchyId")
@@ -83,7 +84,8 @@ instance Data.FromJSON DateTimeHierarchy where
 
 instance Prelude.Hashable DateTimeHierarchy where
   hashWithSalt _salt DateTimeHierarchy' {..} =
-    _salt `Prelude.hashWithSalt` drillDownFilters
+    _salt
+      `Prelude.hashWithSalt` drillDownFilters
       `Prelude.hashWithSalt` hierarchyId
 
 instance Prelude.NFData DateTimeHierarchy where

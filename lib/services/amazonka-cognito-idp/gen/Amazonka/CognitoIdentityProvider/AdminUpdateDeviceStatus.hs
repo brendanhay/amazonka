@@ -132,7 +132,8 @@ instance Core.AWSRequest AdminUpdateDeviceStatus where
 
 instance Prelude.Hashable AdminUpdateDeviceStatus where
   hashWithSalt _salt AdminUpdateDeviceStatus' {..} =
-    _salt `Prelude.hashWithSalt` deviceRememberedStatus
+    _salt
+      `Prelude.hashWithSalt` deviceRememberedStatus
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` deviceKey

@@ -130,7 +130,8 @@ instance Core.AWSRequest CreateGroupMembership where
 
 instance Prelude.Hashable CreateGroupMembership where
   hashWithSalt _salt CreateGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` memberId
 

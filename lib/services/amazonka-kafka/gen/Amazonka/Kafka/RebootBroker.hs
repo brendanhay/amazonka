@@ -107,7 +107,8 @@ instance Core.AWSRequest RebootBroker where
 
 instance Prelude.Hashable RebootBroker where
   hashWithSalt _salt RebootBroker' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` brokerIds
 
 instance Prelude.NFData RebootBroker where

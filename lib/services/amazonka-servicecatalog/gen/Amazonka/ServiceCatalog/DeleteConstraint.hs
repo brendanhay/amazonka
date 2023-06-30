@@ -120,7 +120,8 @@ instance Core.AWSRequest DeleteConstraint where
 
 instance Prelude.Hashable DeleteConstraint where
   hashWithSalt _salt DeleteConstraint' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteConstraint where

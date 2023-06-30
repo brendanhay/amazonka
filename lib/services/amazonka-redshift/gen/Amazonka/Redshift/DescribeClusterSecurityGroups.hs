@@ -234,22 +234,22 @@ instance Core.AWSPager DescribeClusterSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? describeClusterSecurityGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterSecurityGroupsResponse_clusterSecurityGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClusterSecurityGroups_marker
           Lens..~ rs
           Lens.^? describeClusterSecurityGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -265,7 +265,8 @@ instance
       "DescribeClusterSecurityGroupsResult"
       ( \s h x ->
           DescribeClusterSecurityGroupsResponse'
-            Prelude.<$> ( x Data..@? "ClusterSecurityGroups"
+            Prelude.<$> ( x
+                            Data..@? "ClusterSecurityGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ClusterSecurityGroup")
                         )

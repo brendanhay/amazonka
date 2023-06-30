@@ -106,7 +106,8 @@ instance Core.AWSRequest ExecuteCoreNetworkChangeSet where
 
 instance Prelude.Hashable ExecuteCoreNetworkChangeSet where
   hashWithSalt _salt ExecuteCoreNetworkChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` coreNetworkId
+    _salt
+      `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` policyVersionId
 
 instance Prelude.NFData ExecuteCoreNetworkChangeSet where

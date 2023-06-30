@@ -87,7 +87,8 @@ instance Data.FromJSON UserInfo where
 
 instance Prelude.Hashable UserInfo where
   hashWithSalt _salt UserInfo' {..} =
-    _salt `Prelude.hashWithSalt` date
+    _salt
+      `Prelude.hashWithSalt` date
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` name
 

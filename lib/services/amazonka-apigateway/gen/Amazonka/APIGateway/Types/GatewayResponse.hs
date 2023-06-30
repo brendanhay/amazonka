@@ -113,10 +113,12 @@ instance Data.FromJSON GatewayResponse where
       ( \x ->
           GatewayResponse'
             Prelude.<$> (x Data..:? "defaultResponse")
-            Prelude.<*> ( x Data..:? "responseParameters"
+            Prelude.<*> ( x
+                            Data..:? "responseParameters"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "responseTemplates"
+            Prelude.<*> ( x
+                            Data..:? "responseTemplates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "responseType")
@@ -125,7 +127,8 @@ instance Data.FromJSON GatewayResponse where
 
 instance Prelude.Hashable GatewayResponse where
   hashWithSalt _salt GatewayResponse' {..} =
-    _salt `Prelude.hashWithSalt` defaultResponse
+    _salt
+      `Prelude.hashWithSalt` defaultResponse
       `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` responseTemplates
       `Prelude.hashWithSalt` responseType

@@ -327,7 +327,8 @@ instance Data.FromJSON S3DataSource where
       ( \x ->
           S3DataSource'
             Prelude.<$> (x Data..:? "AttributeNames" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "InstanceGroupNames"
+            Prelude.<*> ( x
+                            Data..:? "InstanceGroupNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "S3DataDistributionType")
@@ -337,7 +338,8 @@ instance Data.FromJSON S3DataSource where
 
 instance Prelude.Hashable S3DataSource where
   hashWithSalt _salt S3DataSource' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` instanceGroupNames
       `Prelude.hashWithSalt` s3DataDistributionType
       `Prelude.hashWithSalt` s3DataType

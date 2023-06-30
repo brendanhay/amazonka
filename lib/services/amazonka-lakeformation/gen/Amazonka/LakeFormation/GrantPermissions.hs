@@ -184,7 +184,8 @@ instance Core.AWSRequest GrantPermissions where
 
 instance Prelude.Hashable GrantPermissions where
   hashWithSalt _salt GrantPermissions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` permissionsWithGrantOption
       `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resource

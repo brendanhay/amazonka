@@ -156,7 +156,8 @@ instance Data.FromJSON H265QvbrSettings where
 
 instance Prelude.Hashable H265QvbrSettings where
   hashWithSalt _salt H265QvbrSettings' {..} =
-    _salt `Prelude.hashWithSalt` maxAverageBitrate
+    _salt
+      `Prelude.hashWithSalt` maxAverageBitrate
       `Prelude.hashWithSalt` qvbrQualityLevel
       `Prelude.hashWithSalt` qvbrQualityLevelFineTune
 

@@ -78,7 +78,8 @@ instance Data.FromJSON RuleGroupsNamespaceStatus where
 
 instance Prelude.Hashable RuleGroupsNamespaceStatus where
   hashWithSalt _salt RuleGroupsNamespaceStatus' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
+    _salt
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData RuleGroupsNamespaceStatus where

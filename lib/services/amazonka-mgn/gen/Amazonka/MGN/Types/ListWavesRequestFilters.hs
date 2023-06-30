@@ -65,7 +65,8 @@ listWavesRequestFilters_waveIDs = Lens.lens (\ListWavesRequestFilters' {waveIDs}
 
 instance Prelude.Hashable ListWavesRequestFilters where
   hashWithSalt _salt ListWavesRequestFilters' {..} =
-    _salt `Prelude.hashWithSalt` isArchived
+    _salt
+      `Prelude.hashWithSalt` isArchived
       `Prelude.hashWithSalt` waveIDs
 
 instance Prelude.NFData ListWavesRequestFilters where

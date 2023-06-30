@@ -121,7 +121,8 @@ instance Data.FromJSON Mp3Settings where
 
 instance Prelude.Hashable Mp3Settings where
   hashWithSalt _salt Mp3Settings' {..} =
-    _salt `Prelude.hashWithSalt` bitrate
+    _salt
+      `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` rateControlMode
       `Prelude.hashWithSalt` sampleRate

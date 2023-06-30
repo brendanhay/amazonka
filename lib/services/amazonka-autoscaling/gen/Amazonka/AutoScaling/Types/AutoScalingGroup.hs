@@ -436,16 +436,21 @@ instance Data.FromXML AutoScalingGroup where
       Prelude.<*> (x Data..@? "Context")
       Prelude.<*> (x Data..@? "DefaultInstanceWarmup")
       Prelude.<*> (x Data..@? "DesiredCapacityType")
-      Prelude.<*> ( x Data..@? "EnabledMetrics" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "EnabledMetrics"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "HealthCheckGracePeriod")
-      Prelude.<*> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Instances"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "LaunchConfigurationName")
       Prelude.<*> (x Data..@? "LaunchTemplate")
-      Prelude.<*> ( x Data..@? "LoadBalancerNames"
+      Prelude.<*> ( x
+                      Data..@? "LoadBalancerNames"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -456,21 +461,29 @@ instance Data.FromXML AutoScalingGroup where
       Prelude.<*> (x Data..@? "PredictedCapacity")
       Prelude.<*> (x Data..@? "ServiceLinkedRoleARN")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> ( x Data..@? "SuspendedProcesses"
+      Prelude.<*> ( x
+                      Data..@? "SuspendedProcesses"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Data..@? "TargetGroupARNs" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Data..@? "TerminationPolicies"
+      Prelude.<*> ( x
+                      Data..@? "Tags"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "TrafficSources" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "TargetGroupARNs"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "TerminationPolicies"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "TrafficSources"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "VPCZoneIdentifier")
@@ -481,7 +494,8 @@ instance Data.FromXML AutoScalingGroup where
       Prelude.<*> (x Data..@ "MaxSize")
       Prelude.<*> (x Data..@ "DesiredCapacity")
       Prelude.<*> (x Data..@ "DefaultCooldown")
-      Prelude.<*> ( x Data..@? "AvailabilityZones"
+      Prelude.<*> ( x
+                      Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
@@ -490,7 +504,8 @@ instance Data.FromXML AutoScalingGroup where
 
 instance Prelude.Hashable AutoScalingGroup where
   hashWithSalt _salt AutoScalingGroup' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupARN
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupARN
       `Prelude.hashWithSalt` capacityRebalance
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` defaultInstanceWarmup

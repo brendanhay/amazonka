@@ -123,7 +123,8 @@ instance Data.FromJSON LambdaTarget where
             Prelude.<$> (x Data..:? "deploymentId")
             Prelude.<*> (x Data..:? "lambdaFunctionInfo")
             Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> ( x Data..:? "lifecycleEvents"
+            Prelude.<*> ( x
+                            Data..:? "lifecycleEvents"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "status")
@@ -133,7 +134,8 @@ instance Data.FromJSON LambdaTarget where
 
 instance Prelude.Hashable LambdaTarget where
   hashWithSalt _salt LambdaTarget' {..} =
-    _salt `Prelude.hashWithSalt` deploymentId
+    _salt
+      `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` lambdaFunctionInfo
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` lifecycleEvents

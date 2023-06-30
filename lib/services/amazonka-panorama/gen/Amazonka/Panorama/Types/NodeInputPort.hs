@@ -105,7 +105,8 @@ instance Data.FromJSON NodeInputPort where
 
 instance Prelude.Hashable NodeInputPort where
   hashWithSalt _salt NodeInputPort' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxConnections
       `Prelude.hashWithSalt` name

@@ -84,7 +84,8 @@ instance Data.FromXML StatusReport where
 
 instance Prelude.Hashable StatusReport where
   hashWithSalt _salt StatusReport' {..} =
-    _salt `Prelude.hashWithSalt` checkedTime
+    _salt
+      `Prelude.hashWithSalt` checkedTime
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData StatusReport where

@@ -138,7 +138,8 @@ instance Core.AWSRequest CreateOptOutList where
 
 instance Prelude.Hashable CreateOptOutList where
   hashWithSalt _salt CreateOptOutList' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` optOutListName
 

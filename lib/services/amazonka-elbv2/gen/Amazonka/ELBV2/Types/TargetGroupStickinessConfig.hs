@@ -77,7 +77,8 @@ instance Data.FromXML TargetGroupStickinessConfig where
 
 instance Prelude.Hashable TargetGroupStickinessConfig where
   hashWithSalt _salt TargetGroupStickinessConfig' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData TargetGroupStickinessConfig where

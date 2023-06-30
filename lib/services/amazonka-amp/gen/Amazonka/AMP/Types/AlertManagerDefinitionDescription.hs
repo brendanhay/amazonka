@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     AlertManagerDefinitionDescription' {..} =
-      _salt `Prelude.hashWithSalt` createdAt
+      _salt
+        `Prelude.hashWithSalt` createdAt
         `Prelude.hashWithSalt` data'
         `Prelude.hashWithSalt` modifiedAt
         `Prelude.hashWithSalt` status

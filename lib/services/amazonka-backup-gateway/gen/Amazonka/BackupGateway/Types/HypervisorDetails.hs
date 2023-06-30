@@ -166,7 +166,8 @@ instance Data.FromJSON HypervisorDetails where
 
 instance Prelude.Hashable HypervisorDetails where
   hashWithSalt _salt HypervisorDetails' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` hypervisorArn
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` lastSuccessfulMetadataSyncTime

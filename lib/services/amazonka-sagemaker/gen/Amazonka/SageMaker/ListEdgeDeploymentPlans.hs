@@ -182,21 +182,21 @@ instance Core.AWSPager ListEdgeDeploymentPlans where
     | Core.stop
         ( rs
             Lens.^? listEdgeDeploymentPlansResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listEdgeDeploymentPlansResponse_edgeDeploymentPlanSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEdgeDeploymentPlans_nextToken
           Lens..~ rs
           Lens.^? listEdgeDeploymentPlansResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEdgeDeploymentPlans where
   type
@@ -210,14 +210,16 @@ instance Core.AWSRequest ListEdgeDeploymentPlans where
           ListEdgeDeploymentPlansResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "EdgeDeploymentPlanSummaries"
+            Prelude.<*> ( x
+                            Data..?> "EdgeDeploymentPlanSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListEdgeDeploymentPlans where
   hashWithSalt _salt ListEdgeDeploymentPlans' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` deviceFleetNameContains
       `Prelude.hashWithSalt` lastModifiedTimeAfter

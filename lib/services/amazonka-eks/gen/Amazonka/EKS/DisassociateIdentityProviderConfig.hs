@@ -122,7 +122,7 @@ instance
       ( \s h x ->
           DisassociateIdentityProviderConfigResponse'
             Prelude.<$> (x Data..?> "update")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     DisassociateIdentityProviderConfig' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` clusterName
         `Prelude.hashWithSalt` identityProviderConfig
 

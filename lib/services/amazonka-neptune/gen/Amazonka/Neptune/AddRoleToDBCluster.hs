@@ -118,7 +118,8 @@ instance Core.AWSRequest AddRoleToDBCluster where
 
 instance Prelude.Hashable AddRoleToDBCluster where
   hashWithSalt _salt AddRoleToDBCluster' {..} =
-    _salt `Prelude.hashWithSalt` featureName
+    _salt
+      `Prelude.hashWithSalt` featureName
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` roleArn
 

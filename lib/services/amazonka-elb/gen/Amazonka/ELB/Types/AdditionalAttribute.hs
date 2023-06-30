@@ -87,11 +87,13 @@ additionalAttribute_value = Lens.lens (\AdditionalAttribute' {value} -> value) (
 instance Data.FromXML AdditionalAttribute where
   parseXML x =
     AdditionalAttribute'
-      Prelude.<$> (x Data..@? "Key") Prelude.<*> (x Data..@? "Value")
+      Prelude.<$> (x Data..@? "Key")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable AdditionalAttribute where
   hashWithSalt _salt AdditionalAttribute' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AdditionalAttribute where

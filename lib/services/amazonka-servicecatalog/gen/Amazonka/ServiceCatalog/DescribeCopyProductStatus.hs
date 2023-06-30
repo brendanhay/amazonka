@@ -128,7 +128,8 @@ instance Core.AWSRequest DescribeCopyProductStatus where
 
 instance Prelude.Hashable DescribeCopyProductStatus where
   hashWithSalt _salt DescribeCopyProductStatus' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` copyProductToken
 
 instance Prelude.NFData DescribeCopyProductStatus where

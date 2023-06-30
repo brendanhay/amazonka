@@ -105,7 +105,8 @@ instance Data.FromJSON CostAllocationTag where
 
 instance Prelude.Hashable CostAllocationTag where
   hashWithSalt _salt CostAllocationTag' {..} =
-    _salt `Prelude.hashWithSalt` tagKey
+    _salt
+      `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` status
 

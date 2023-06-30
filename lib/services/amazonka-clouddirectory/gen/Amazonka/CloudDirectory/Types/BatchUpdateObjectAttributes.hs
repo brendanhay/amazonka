@@ -69,7 +69,8 @@ batchUpdateObjectAttributes_attributeUpdates = Lens.lens (\BatchUpdateObjectAttr
 
 instance Prelude.Hashable BatchUpdateObjectAttributes where
   hashWithSalt _salt BatchUpdateObjectAttributes' {..} =
-    _salt `Prelude.hashWithSalt` objectReference
+    _salt
+      `Prelude.hashWithSalt` objectReference
       `Prelude.hashWithSalt` attributeUpdates
 
 instance Prelude.NFData BatchUpdateObjectAttributes where

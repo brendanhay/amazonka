@@ -80,7 +80,8 @@ instance Data.FromJSON AnomalyGroupStatistics where
       ( \x ->
           AnomalyGroupStatistics'
             Prelude.<$> (x Data..:? "EvaluationStartDate")
-            Prelude.<*> ( x Data..:? "ItemizedMetricStatsList"
+            Prelude.<*> ( x
+                            Data..:? "ItemizedMetricStatsList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TotalCount")
@@ -88,7 +89,8 @@ instance Data.FromJSON AnomalyGroupStatistics where
 
 instance Prelude.Hashable AnomalyGroupStatistics where
   hashWithSalt _salt AnomalyGroupStatistics' {..} =
-    _salt `Prelude.hashWithSalt` evaluationStartDate
+    _salt
+      `Prelude.hashWithSalt` evaluationStartDate
       `Prelude.hashWithSalt` itemizedMetricStatsList
       `Prelude.hashWithSalt` totalCount
 

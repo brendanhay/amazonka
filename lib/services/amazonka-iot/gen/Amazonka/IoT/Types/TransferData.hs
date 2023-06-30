@@ -104,7 +104,8 @@ instance Data.FromJSON TransferData where
 
 instance Prelude.Hashable TransferData where
   hashWithSalt _salt TransferData' {..} =
-    _salt `Prelude.hashWithSalt` acceptDate
+    _salt
+      `Prelude.hashWithSalt` acceptDate
       `Prelude.hashWithSalt` rejectDate
       `Prelude.hashWithSalt` rejectReason
       `Prelude.hashWithSalt` transferDate

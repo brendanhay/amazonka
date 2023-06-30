@@ -130,7 +130,8 @@ instance Core.AWSRequest ListVpcConnectors where
 
 instance Prelude.Hashable ListVpcConnectors where
   hashWithSalt _salt ListVpcConnectors' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVpcConnectors where

@@ -148,7 +148,8 @@ instance
   hashWithSalt
     _salt
     CreateFunctionDefinitionVersion' {..} =
-      _salt `Prelude.hashWithSalt` amznClientToken
+      _salt
+        `Prelude.hashWithSalt` amznClientToken
         `Prelude.hashWithSalt` defaultConfig
         `Prelude.hashWithSalt` functions
         `Prelude.hashWithSalt` functionDefinitionId

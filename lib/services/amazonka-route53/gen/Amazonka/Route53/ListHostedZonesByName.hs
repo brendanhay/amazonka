@@ -231,7 +231,9 @@ instance Core.AWSRequest ListHostedZonesByName where
             Prelude.<*> (x Data..@? "NextDNSName")
             Prelude.<*> (x Data..@? "NextHostedZoneId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "HostedZones" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "HostedZones"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "HostedZone"
                         )
             Prelude.<*> (x Data..@ "IsTruncated")
@@ -240,7 +242,8 @@ instance Core.AWSRequest ListHostedZonesByName where
 
 instance Prelude.Hashable ListHostedZonesByName where
   hashWithSalt _salt ListHostedZonesByName' {..} =
-    _salt `Prelude.hashWithSalt` dNSName
+    _salt
+      `Prelude.hashWithSalt` dNSName
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` maxItems
 

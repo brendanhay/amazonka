@@ -119,22 +119,22 @@ instance Core.AWSPager DescribeTapeRecoveryPoints where
     | Core.stop
         ( rs
             Lens.^? describeTapeRecoveryPointsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTapeRecoveryPoints_marker
           Lens..~ rs
           Lens.^? describeTapeRecoveryPointsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTapeRecoveryPoints where
   type
@@ -148,7 +148,8 @@ instance Core.AWSRequest DescribeTapeRecoveryPoints where
           DescribeTapeRecoveryPointsResponse'
             Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (x Data..?> "Marker")
-            Prelude.<*> ( x Data..?> "TapeRecoveryPointInfos"
+            Prelude.<*> ( x
+                            Data..?> "TapeRecoveryPointInfos"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,7 +157,8 @@ instance Core.AWSRequest DescribeTapeRecoveryPoints where
 
 instance Prelude.Hashable DescribeTapeRecoveryPoints where
   hashWithSalt _salt DescribeTapeRecoveryPoints' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` gatewayARN
 

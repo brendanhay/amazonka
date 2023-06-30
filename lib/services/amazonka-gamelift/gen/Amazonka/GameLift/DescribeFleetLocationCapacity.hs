@@ -135,7 +135,8 @@ instance
     DescribeFleetLocationCapacity
   where
   hashWithSalt _salt DescribeFleetLocationCapacity' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData DescribeFleetLocationCapacity where

@@ -153,7 +153,8 @@ instance Core.AWSRequest ListTranscriptionJobs where
           ListTranscriptionJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> ( x Data..?> "TranscriptionJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "TranscriptionJobSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -161,7 +162,8 @@ instance Core.AWSRequest ListTranscriptionJobs where
 
 instance Prelude.Hashable ListTranscriptionJobs where
   hashWithSalt _salt ListTranscriptionJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobNameContains
+    _salt
+      `Prelude.hashWithSalt` jobNameContains
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status

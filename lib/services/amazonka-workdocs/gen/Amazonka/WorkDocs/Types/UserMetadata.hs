@@ -104,7 +104,8 @@ instance Data.FromJSON UserMetadata where
 
 instance Prelude.Hashable UserMetadata where
   hashWithSalt _salt UserMetadata' {..} =
-    _salt `Prelude.hashWithSalt` emailAddress
+    _salt
+      `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` givenName
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` surname

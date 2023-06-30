@@ -79,7 +79,8 @@ instance Data.FromJSON EdiPartyName where
 
 instance Prelude.Hashable EdiPartyName where
   hashWithSalt _salt EdiPartyName' {..} =
-    _salt `Prelude.hashWithSalt` nameAssigner
+    _salt
+      `Prelude.hashWithSalt` nameAssigner
       `Prelude.hashWithSalt` partyName
 
 instance Prelude.NFData EdiPartyName where

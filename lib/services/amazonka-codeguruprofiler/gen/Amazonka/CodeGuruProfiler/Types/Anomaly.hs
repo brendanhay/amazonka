@@ -104,7 +104,8 @@ instance Data.FromJSON Anomaly where
 
 instance Prelude.Hashable Anomaly where
   hashWithSalt _salt Anomaly' {..} =
-    _salt `Prelude.hashWithSalt` instances
+    _salt
+      `Prelude.hashWithSalt` instances
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` reason
 

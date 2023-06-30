@@ -77,7 +77,8 @@ instance Data.FromJSON AccountUsage where
 
 instance Prelude.Hashable AccountUsage where
   hashWithSalt _salt AccountUsage' {..} =
-    _salt `Prelude.hashWithSalt` functionCount
+    _salt
+      `Prelude.hashWithSalt` functionCount
       `Prelude.hashWithSalt` totalCodeSize
 
 instance Prelude.NFData AccountUsage where

@@ -168,8 +168,8 @@ instance
       ( \s h x ->
           PutEmailIdentityDkimSigningAttributesResponse'
             Prelude.<$> (x Data..?> "DkimStatus")
-              Prelude.<*> (x Data..?> "DkimTokens" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "DkimTokens" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -179,7 +179,8 @@ instance
   hashWithSalt
     _salt
     PutEmailIdentityDkimSigningAttributes' {..} =
-      _salt `Prelude.hashWithSalt` signingAttributes
+      _salt
+        `Prelude.hashWithSalt` signingAttributes
         `Prelude.hashWithSalt` emailIdentity
         `Prelude.hashWithSalt` signingAttributesOrigin
 

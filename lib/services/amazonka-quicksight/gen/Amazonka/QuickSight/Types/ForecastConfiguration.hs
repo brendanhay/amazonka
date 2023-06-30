@@ -78,7 +78,8 @@ instance Data.FromJSON ForecastConfiguration where
 
 instance Prelude.Hashable ForecastConfiguration where
   hashWithSalt _salt ForecastConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` forecastProperties
+    _salt
+      `Prelude.hashWithSalt` forecastProperties
       `Prelude.hashWithSalt` scenario
 
 instance Prelude.NFData ForecastConfiguration where

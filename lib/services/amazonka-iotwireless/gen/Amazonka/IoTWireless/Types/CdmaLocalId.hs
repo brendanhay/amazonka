@@ -72,7 +72,8 @@ cdmaLocalId_cdmaChannel = Lens.lens (\CdmaLocalId' {cdmaChannel} -> cdmaChannel)
 
 instance Prelude.Hashable CdmaLocalId where
   hashWithSalt _salt CdmaLocalId' {..} =
-    _salt `Prelude.hashWithSalt` pnOffset
+    _salt
+      `Prelude.hashWithSalt` pnOffset
       `Prelude.hashWithSalt` cdmaChannel
 
 instance Prelude.NFData CdmaLocalId where

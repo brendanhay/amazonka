@@ -118,7 +118,8 @@ instance Data.FromXML TransitGatewayPropagation where
 
 instance Prelude.Hashable TransitGatewayPropagation where
   hashWithSalt _salt TransitGatewayPropagation' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` transitGatewayAttachmentId

@@ -143,11 +143,13 @@ instanceState_code = Lens.lens (\InstanceState' {code} -> code) (\s@InstanceStat
 instance Data.FromXML InstanceState where
   parseXML x =
     InstanceState'
-      Prelude.<$> (x Data..@ "name") Prelude.<*> (x Data..@ "code")
+      Prelude.<$> (x Data..@ "name")
+      Prelude.<*> (x Data..@ "code")
 
 instance Prelude.Hashable InstanceState where
   hashWithSalt _salt InstanceState' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` code
 
 instance Prelude.NFData InstanceState where

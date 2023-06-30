@@ -172,7 +172,8 @@ instance Data.FromJSON BrokerNodeGroupInfo where
 
 instance Prelude.Hashable BrokerNodeGroupInfo where
   hashWithSalt _salt BrokerNodeGroupInfo' {..} =
-    _salt `Prelude.hashWithSalt` brokerAZDistribution
+    _salt
+      `Prelude.hashWithSalt` brokerAZDistribution
       `Prelude.hashWithSalt` connectivityInfo
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` storageInfo

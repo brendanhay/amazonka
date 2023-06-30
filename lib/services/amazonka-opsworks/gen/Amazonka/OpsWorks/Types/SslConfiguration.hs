@@ -87,7 +87,8 @@ instance Data.FromJSON SslConfiguration where
 
 instance Prelude.Hashable SslConfiguration where
   hashWithSalt _salt SslConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` certificate
+    _salt
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` chain
       `Prelude.hashWithSalt` privateKey
 

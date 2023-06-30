@@ -558,7 +558,8 @@ instance Core.AWSRequest CreateDBCluster where
 
 instance Prelude.Hashable CreateDBCluster where
   hashWithSalt _salt CreateDBCluster' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` dbClusterParameterGroupName
       `Prelude.hashWithSalt` dbSubnetGroupName

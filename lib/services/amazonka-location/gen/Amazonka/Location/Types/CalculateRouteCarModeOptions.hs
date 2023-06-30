@@ -93,7 +93,8 @@ instance
     CalculateRouteCarModeOptions
   where
   hashWithSalt _salt CalculateRouteCarModeOptions' {..} =
-    _salt `Prelude.hashWithSalt` avoidFerries
+    _salt
+      `Prelude.hashWithSalt` avoidFerries
       `Prelude.hashWithSalt` avoidTolls
 
 instance Prelude.NFData CalculateRouteCarModeOptions where

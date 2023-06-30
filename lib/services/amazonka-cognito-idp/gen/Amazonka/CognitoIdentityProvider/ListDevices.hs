@@ -118,7 +118,8 @@ instance Core.AWSRequest ListDevices where
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` paginationToken
       `Prelude.hashWithSalt` accessToken
 

@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     KinesisStreamSourceDescription' {..} =
-      _salt `Prelude.hashWithSalt` deliveryStartTimestamp
+      _salt
+        `Prelude.hashWithSalt` deliveryStartTimestamp
         `Prelude.hashWithSalt` kinesisStreamARN
         `Prelude.hashWithSalt` roleARN
 

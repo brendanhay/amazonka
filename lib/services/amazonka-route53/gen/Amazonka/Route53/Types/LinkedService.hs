@@ -89,7 +89,8 @@ instance Data.FromXML LinkedService where
 
 instance Prelude.Hashable LinkedService where
   hashWithSalt _salt LinkedService' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` servicePrincipal
 
 instance Prelude.NFData LinkedService where

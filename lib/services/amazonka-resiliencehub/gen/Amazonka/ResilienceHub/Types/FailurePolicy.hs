@@ -78,7 +78,8 @@ instance Data.FromJSON FailurePolicy where
 
 instance Prelude.Hashable FailurePolicy where
   hashWithSalt _salt FailurePolicy' {..} =
-    _salt `Prelude.hashWithSalt` rpoInSecs
+    _salt
+      `Prelude.hashWithSalt` rpoInSecs
       `Prelude.hashWithSalt` rtoInSecs
 
 instance Prelude.NFData FailurePolicy where

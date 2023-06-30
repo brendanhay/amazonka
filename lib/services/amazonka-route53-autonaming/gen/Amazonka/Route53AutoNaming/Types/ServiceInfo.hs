@@ -286,7 +286,8 @@ instance Data.FromJSON ServiceInfo where
 
 instance Prelude.Hashable ServiceInfo where
   hashWithSalt _salt ServiceInfo' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` description

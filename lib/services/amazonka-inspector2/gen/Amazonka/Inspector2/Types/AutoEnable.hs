@@ -98,7 +98,8 @@ instance Data.FromJSON AutoEnable where
 
 instance Prelude.Hashable AutoEnable where
   hashWithSalt _salt AutoEnable' {..} =
-    _salt `Prelude.hashWithSalt` lambda
+    _salt
+      `Prelude.hashWithSalt` lambda
       `Prelude.hashWithSalt` ec2
       `Prelude.hashWithSalt` ecr
 

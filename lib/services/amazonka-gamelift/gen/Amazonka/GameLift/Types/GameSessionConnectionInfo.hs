@@ -146,7 +146,8 @@ instance Data.FromJSON GameSessionConnectionInfo where
             Prelude.<$> (x Data..:? "DnsName")
             Prelude.<*> (x Data..:? "GameSessionArn")
             Prelude.<*> (x Data..:? "IpAddress")
-            Prelude.<*> ( x Data..:? "MatchedPlayerSessions"
+            Prelude.<*> ( x
+                            Data..:? "MatchedPlayerSessions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Port")
@@ -154,7 +155,8 @@ instance Data.FromJSON GameSessionConnectionInfo where
 
 instance Prelude.Hashable GameSessionConnectionInfo where
   hashWithSalt _salt GameSessionConnectionInfo' {..} =
-    _salt `Prelude.hashWithSalt` dnsName
+    _salt
+      `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` gameSessionArn
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` matchedPlayerSessions

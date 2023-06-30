@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     RecommendationDisruptionCompliance' {..} =
-      _salt `Prelude.hashWithSalt` expectedRpoDescription
+      _salt
+        `Prelude.hashWithSalt` expectedRpoDescription
         `Prelude.hashWithSalt` expectedRpoInSecs
         `Prelude.hashWithSalt` expectedRtoDescription
         `Prelude.hashWithSalt` expectedRtoInSecs

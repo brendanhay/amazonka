@@ -102,7 +102,8 @@ instance Core.AWSRequest AssociateLexBot where
 
 instance Prelude.Hashable AssociateLexBot where
   hashWithSalt _salt AssociateLexBot' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` lexBot
 
 instance Prelude.NFData AssociateLexBot where

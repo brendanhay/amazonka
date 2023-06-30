@@ -72,7 +72,8 @@ batchUpdateLinkAttributes_attributeUpdates = Lens.lens (\BatchUpdateLinkAttribut
 
 instance Prelude.Hashable BatchUpdateLinkAttributes where
   hashWithSalt _salt BatchUpdateLinkAttributes' {..} =
-    _salt `Prelude.hashWithSalt` typedLinkSpecifier
+    _salt
+      `Prelude.hashWithSalt` typedLinkSpecifier
       `Prelude.hashWithSalt` attributeUpdates
 
 instance Prelude.NFData BatchUpdateLinkAttributes where

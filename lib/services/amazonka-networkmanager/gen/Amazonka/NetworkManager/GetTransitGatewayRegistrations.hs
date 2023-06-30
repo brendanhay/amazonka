@@ -119,22 +119,22 @@ instance Core.AWSPager GetTransitGatewayRegistrations where
     | Core.stop
         ( rs
             Lens.^? getTransitGatewayRegistrationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getTransitGatewayRegistrationsResponse_transitGatewayRegistrations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getTransitGatewayRegistrations_nextToken
           Lens..~ rs
           Lens.^? getTransitGatewayRegistrationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -150,7 +150,8 @@ instance
       ( \s h x ->
           GetTransitGatewayRegistrationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "TransitGatewayRegistrations"
+            Prelude.<*> ( x
+                            Data..?> "TransitGatewayRegistrations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,7 +164,8 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayRegistrations' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` transitGatewayArns
         `Prelude.hashWithSalt` globalNetworkId

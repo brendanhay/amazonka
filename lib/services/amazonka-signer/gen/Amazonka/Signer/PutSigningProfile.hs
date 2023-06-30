@@ -176,7 +176,8 @@ instance Core.AWSRequest PutSigningProfile where
 
 instance Prelude.Hashable PutSigningProfile where
   hashWithSalt _salt PutSigningProfile' {..} =
-    _salt `Prelude.hashWithSalt` overrides
+    _salt
+      `Prelude.hashWithSalt` overrides
       `Prelude.hashWithSalt` signatureValidityPeriod
       `Prelude.hashWithSalt` signingMaterial
       `Prelude.hashWithSalt` signingParameters

@@ -100,7 +100,8 @@ instance Data.FromJSON CodeError where
 
 instance Prelude.Hashable CodeError where
   hashWithSalt _salt CodeError' {..} =
-    _salt `Prelude.hashWithSalt` errorType
+    _salt
+      `Prelude.hashWithSalt` errorType
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` value
 

@@ -590,7 +590,8 @@ instance Data.FromJSON DescribedServer where
 
 instance Prelude.Hashable DescribedServer where
   hashWithSalt _salt DescribedServer' {..} =
-    _salt `Prelude.hashWithSalt` certificate
+    _salt
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` endpointDetails
       `Prelude.hashWithSalt` endpointType

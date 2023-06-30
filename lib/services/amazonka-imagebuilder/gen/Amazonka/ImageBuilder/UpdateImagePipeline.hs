@@ -234,7 +234,8 @@ instance Core.AWSRequest UpdateImagePipeline where
 
 instance Prelude.Hashable UpdateImagePipeline where
   hashWithSalt _salt UpdateImagePipeline' {..} =
-    _salt `Prelude.hashWithSalt` containerRecipeArn
+    _salt
+      `Prelude.hashWithSalt` containerRecipeArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` distributionConfigurationArn
       `Prelude.hashWithSalt` enhancedImageMetadataEnabled

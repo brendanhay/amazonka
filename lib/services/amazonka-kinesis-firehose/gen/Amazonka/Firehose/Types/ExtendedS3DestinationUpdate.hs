@@ -226,7 +226,8 @@ extendedS3DestinationUpdate_s3BackupUpdate = Lens.lens (\ExtendedS3DestinationUp
 
 instance Prelude.Hashable ExtendedS3DestinationUpdate where
   hashWithSalt _salt ExtendedS3DestinationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` bucketARN
+    _salt
+      `Prelude.hashWithSalt` bucketARN
       `Prelude.hashWithSalt` bufferingHints
       `Prelude.hashWithSalt` cloudWatchLoggingOptions
       `Prelude.hashWithSalt` compressionFormat

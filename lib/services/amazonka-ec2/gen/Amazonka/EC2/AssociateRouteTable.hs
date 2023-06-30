@@ -142,7 +142,8 @@ instance Core.AWSRequest AssociateRouteTable where
 
 instance Prelude.Hashable AssociateRouteTable where
   hashWithSalt _salt AssociateRouteTable' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` routeTableId

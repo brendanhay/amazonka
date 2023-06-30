@@ -140,7 +140,8 @@ instance Core.AWSRequest DeleteResourceShare where
 
 instance Prelude.Hashable DeleteResourceShare where
   hashWithSalt _salt DeleteResourceShare' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` resourceShareArn
 
 instance Prelude.NFData DeleteResourceShare where

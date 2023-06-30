@@ -121,7 +121,8 @@ instance Core.AWSRequest GetDataSetDetails where
 
 instance Prelude.Hashable GetDataSetDetails where
   hashWithSalt _salt GetDataSetDetails' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` dataSetName
 
 instance Prelude.NFData GetDataSetDetails where

@@ -82,7 +82,8 @@ instance Data.FromJSON LensReviewReport where
 
 instance Prelude.Hashable LensReviewReport where
   hashWithSalt _salt LensReviewReport' {..} =
-    _salt `Prelude.hashWithSalt` base64String
+    _salt
+      `Prelude.hashWithSalt` base64String
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensArn
 

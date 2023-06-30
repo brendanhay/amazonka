@@ -400,7 +400,8 @@ instance Data.FromJSON Test where
 
 instance Prelude.Hashable Test where
   hashWithSalt _salt Test' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` counters
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` deviceMinutes

@@ -108,7 +108,8 @@ instance
       "DirectoryConnectSettingsDescription"
       ( \x ->
           DirectoryConnectSettingsDescription'
-            Prelude.<$> ( x Data..:? "AvailabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ConnectIps" Data..!= Prelude.mempty)
@@ -125,7 +126,8 @@ instance
   hashWithSalt
     _salt
     DirectoryConnectSettingsDescription' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZones
+      _salt
+        `Prelude.hashWithSalt` availabilityZones
         `Prelude.hashWithSalt` connectIps
         `Prelude.hashWithSalt` customerUserName
         `Prelude.hashWithSalt` securityGroupId

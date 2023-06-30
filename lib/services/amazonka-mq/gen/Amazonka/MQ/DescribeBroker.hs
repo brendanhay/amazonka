@@ -112,14 +112,16 @@ instance Core.AWSRequest DescribeBroker where
     Response.receiveJSON
       ( \s h x ->
           DescribeBrokerResponse'
-            Prelude.<$> ( x Data..?> "actionsRequired"
+            Prelude.<$> ( x
+                            Data..?> "actionsRequired"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "authenticationStrategy")
             Prelude.<*> (x Data..?> "autoMinorVersionUpgrade")
             Prelude.<*> (x Data..?> "brokerArn")
             Prelude.<*> (x Data..?> "brokerId")
-            Prelude.<*> ( x Data..?> "brokerInstances"
+            Prelude.<*> ( x
+                            Data..?> "brokerInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "brokerName")
@@ -138,7 +140,8 @@ instance Core.AWSRequest DescribeBroker where
             Prelude.<*> (x Data..?> "pendingEngineVersion")
             Prelude.<*> (x Data..?> "pendingHostInstanceType")
             Prelude.<*> (x Data..?> "pendingLdapServerMetadata")
-            Prelude.<*> ( x Data..?> "pendingSecurityGroups"
+            Prelude.<*> ( x
+                            Data..?> "pendingSecurityGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "publiclyAccessible")

@@ -100,7 +100,8 @@ instance Core.AWSRequest ListSuiteDefinitions where
       ( \s h x ->
           ListSuiteDefinitionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "suiteDefinitionInformationList"
+            Prelude.<*> ( x
+                            Data..?> "suiteDefinitionInformationList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -108,7 +109,8 @@ instance Core.AWSRequest ListSuiteDefinitions where
 
 instance Prelude.Hashable ListSuiteDefinitions where
   hashWithSalt _salt ListSuiteDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSuiteDefinitions where

@@ -104,7 +104,8 @@ instance Data.FromXML RoleLastUsed where
 
 instance Prelude.Hashable RoleLastUsed where
   hashWithSalt _salt RoleLastUsed' {..} =
-    _salt `Prelude.hashWithSalt` lastUsedDate
+    _salt
+      `Prelude.hashWithSalt` lastUsedDate
       `Prelude.hashWithSalt` region
 
 instance Prelude.NFData RoleLastUsed where

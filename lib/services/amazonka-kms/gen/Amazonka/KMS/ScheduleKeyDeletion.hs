@@ -228,7 +228,8 @@ instance Core.AWSRequest ScheduleKeyDeletion where
 
 instance Prelude.Hashable ScheduleKeyDeletion where
   hashWithSalt _salt ScheduleKeyDeletion' {..} =
-    _salt `Prelude.hashWithSalt` pendingWindowInDays
+    _salt
+      `Prelude.hashWithSalt` pendingWindowInDays
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData ScheduleKeyDeletion where

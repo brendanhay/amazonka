@@ -156,7 +156,8 @@ lteObj_eutranCid = Lens.lens (\LteObj' {eutranCid} -> eutranCid) (\s@LteObj' {} 
 
 instance Prelude.Hashable LteObj where
   hashWithSalt _salt LteObj' {..} =
-    _salt `Prelude.hashWithSalt` lteLocalId
+    _salt
+      `Prelude.hashWithSalt` lteLocalId
       `Prelude.hashWithSalt` lteNmr
       `Prelude.hashWithSalt` lteTimingAdvance
       `Prelude.hashWithSalt` nrCapable

@@ -118,7 +118,8 @@ instance Core.AWSRequest PutRetentionSettings where
 
 instance Prelude.Hashable PutRetentionSettings where
   hashWithSalt _salt PutRetentionSettings' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` retentionSettings
 
 instance Prelude.NFData PutRetentionSettings where

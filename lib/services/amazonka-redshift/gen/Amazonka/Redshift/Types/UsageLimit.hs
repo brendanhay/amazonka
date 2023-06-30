@@ -164,14 +164,17 @@ instance Data.FromXML UsageLimit where
       Prelude.<*> (x Data..@? "FeatureType")
       Prelude.<*> (x Data..@? "LimitType")
       Prelude.<*> (x Data..@? "Period")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "UsageLimitId")
 
 instance Prelude.Hashable UsageLimit where
   hashWithSalt _salt UsageLimit' {..} =
-    _salt `Prelude.hashWithSalt` amount
+    _salt
+      `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` breachAction
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` featureType

@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     ListInsightsClosedStatusFilter' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt
+        `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` endTimeRange
 
 instance

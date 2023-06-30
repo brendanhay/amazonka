@@ -122,7 +122,7 @@ instance
       ( \s h x ->
           StartMLLabelingSetGenerationTaskRunResponse'
             Prelude.<$> (x Data..?> "TaskRunId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     StartMLLabelingSetGenerationTaskRun' {..} =
-      _salt `Prelude.hashWithSalt` transformId
+      _salt
+        `Prelude.hashWithSalt` transformId
         `Prelude.hashWithSalt` outputS3Path
 
 instance

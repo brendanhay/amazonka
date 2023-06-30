@@ -117,22 +117,22 @@ instance Core.AWSPager DescribeRootFolders where
     | Core.stop
         ( rs
             Lens.^? describeRootFoldersResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeRootFoldersResponse_folders
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeRootFolders_marker
           Lens..~ rs
           Lens.^? describeRootFoldersResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRootFolders where
   type
@@ -151,7 +151,8 @@ instance Core.AWSRequest DescribeRootFolders where
 
 instance Prelude.Hashable DescribeRootFolders where
   hashWithSalt _salt DescribeRootFolders' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` authenticationToken
 

@@ -155,7 +155,8 @@ instance Core.AWSRequest RemoveTargets where
 
 instance Prelude.Hashable RemoveTargets where
   hashWithSalt _salt RemoveTargets' {..} =
-    _salt `Prelude.hashWithSalt` eventBusName
+    _salt
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` rule
       `Prelude.hashWithSalt` ids

@@ -126,7 +126,8 @@ instance Core.AWSRequest ListQueuedMessages where
     Response.receiveJSON
       ( \s h x ->
           ListQueuedMessagesResponse'
-            Prelude.<$> ( x Data..?> "DownlinkQueueMessagesList"
+            Prelude.<$> ( x
+                            Data..?> "DownlinkQueueMessagesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -135,7 +136,8 @@ instance Core.AWSRequest ListQueuedMessages where
 
 instance Prelude.Hashable ListQueuedMessages where
   hashWithSalt _salt ListQueuedMessages' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` wirelessDeviceType
       `Prelude.hashWithSalt` id

@@ -111,7 +111,8 @@ instance Data.FromJSON ServiceNameAndResourceType where
 
 instance Prelude.Hashable ServiceNameAndResourceType where
   hashWithSalt _salt ServiceNameAndResourceType' {..} =
-    _salt `Prelude.hashWithSalt` resourceRegionScope
+    _salt
+      `Prelude.hashWithSalt` resourceRegionScope
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` serviceName
 

@@ -99,7 +99,8 @@ instance Data.FromJSON MediaStreamSourceConfiguration where
       "MediaStreamSourceConfiguration"
       ( \x ->
           MediaStreamSourceConfiguration'
-            Prelude.<$> ( x Data..:? "inputConfigurations"
+            Prelude.<$> ( x
+                            Data..:? "inputConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "mediaStreamName")
@@ -113,7 +114,8 @@ instance
   hashWithSalt
     _salt
     MediaStreamSourceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` inputConfigurations
+      _salt
+        `Prelude.hashWithSalt` inputConfigurations
         `Prelude.hashWithSalt` mediaStreamName
         `Prelude.hashWithSalt` encodingName
 

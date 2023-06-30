@@ -131,7 +131,8 @@ instance Core.AWSRequest DescribeFleetPortSettings where
           DescribeFleetPortSettingsResponse'
             Prelude.<$> (x Data..?> "FleetArn")
             Prelude.<*> (x Data..?> "FleetId")
-            Prelude.<*> ( x Data..?> "InboundPermissions"
+            Prelude.<*> ( x
+                            Data..?> "InboundPermissions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Location")
@@ -141,7 +142,8 @@ instance Core.AWSRequest DescribeFleetPortSettings where
 
 instance Prelude.Hashable DescribeFleetPortSettings where
   hashWithSalt _salt DescribeFleetPortSettings' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData DescribeFleetPortSettings where

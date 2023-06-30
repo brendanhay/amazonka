@@ -110,22 +110,22 @@ instance Core.AWSPager GetBasePathMappings where
     | Core.stop
         ( rs
             Lens.^? getBasePathMappingsResponse_position
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getBasePathMappingsResponse_items
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getBasePathMappings_position
           Lens..~ rs
           Lens.^? getBasePathMappingsResponse_position
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBasePathMappings where
   type
@@ -144,7 +144,8 @@ instance Core.AWSRequest GetBasePathMappings where
 
 instance Prelude.Hashable GetBasePathMappings where
   hashWithSalt _salt GetBasePathMappings' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` domainName
 

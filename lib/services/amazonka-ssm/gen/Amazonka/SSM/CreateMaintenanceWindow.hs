@@ -354,7 +354,8 @@ instance Core.AWSRequest CreateMaintenanceWindow where
 
 instance Prelude.Hashable CreateMaintenanceWindow where
   hashWithSalt _salt CreateMaintenanceWindow' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` scheduleOffset

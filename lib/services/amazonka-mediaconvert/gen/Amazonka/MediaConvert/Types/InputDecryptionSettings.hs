@@ -129,7 +129,8 @@ instance Data.FromJSON InputDecryptionSettings where
 
 instance Prelude.Hashable InputDecryptionSettings where
   hashWithSalt _salt InputDecryptionSettings' {..} =
-    _salt `Prelude.hashWithSalt` decryptionMode
+    _salt
+      `Prelude.hashWithSalt` decryptionMode
       `Prelude.hashWithSalt` encryptedDecryptionKey
       `Prelude.hashWithSalt` initializationVector
       `Prelude.hashWithSalt` kmsKeyRegion

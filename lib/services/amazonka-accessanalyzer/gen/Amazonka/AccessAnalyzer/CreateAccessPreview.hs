@@ -131,7 +131,8 @@ instance Core.AWSRequest CreateAccessPreview where
 
 instance Prelude.Hashable CreateAccessPreview where
   hashWithSalt _salt CreateAccessPreview' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` analyzerArn
       `Prelude.hashWithSalt` configurations
 

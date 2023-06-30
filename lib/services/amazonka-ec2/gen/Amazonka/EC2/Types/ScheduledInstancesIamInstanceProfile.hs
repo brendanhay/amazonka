@@ -71,7 +71,8 @@ instance
   hashWithSalt
     _salt
     ScheduledInstancesIamInstanceProfile' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` name
 
 instance

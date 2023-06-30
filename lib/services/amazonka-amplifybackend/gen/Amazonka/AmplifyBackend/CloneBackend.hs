@@ -129,7 +129,8 @@ instance Core.AWSRequest CloneBackend where
 
 instance Prelude.Hashable CloneBackend where
   hashWithSalt _salt CloneBackend' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` targetEnvironmentName
 

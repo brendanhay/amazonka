@@ -124,7 +124,8 @@ instance Data.FromJSON Counters where
 
 instance Prelude.Hashable Counters where
   hashWithSalt _salt Counters' {..} =
-    _salt `Prelude.hashWithSalt` errored
+    _salt
+      `Prelude.hashWithSalt` errored
       `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` passed
       `Prelude.hashWithSalt` skipped

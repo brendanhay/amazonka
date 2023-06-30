@@ -64,16 +64,16 @@ data DisassociateWebACL = DisassociateWebACL'
     -- The ARN must be in one of the following formats:
     --
     -- -   For an Application Load Balancer:
-    --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+    --     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
     --
     -- -   For an Amazon API Gateway REST API:
-    --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+    --     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
     --
     -- -   For an AppSync GraphQL API:
-    --     @arn:aws:appsync:region:account-id:apis\/GraphQLApiId @
+    --     @arn:aws:appsync:@/@region@/@:@/@account-id@/@:apis\/@/@GraphQLApiId@/@ @
     --
     -- -   For an Amazon Cognito user pool:
-    --     @arn:aws:cognito-idp:region:account-id:userpool\/user-pool-id @
+    --     @arn:aws:cognito-idp:@/@region@/@:@/@account-id@/@:userpool\/@/@user-pool-id@/@ @
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,16 +92,16 @@ data DisassociateWebACL = DisassociateWebACL'
 -- The ARN must be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway REST API:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 --
 -- -   For an AppSync GraphQL API:
---     @arn:aws:appsync:region:account-id:apis\/GraphQLApiId @
+--     @arn:aws:appsync:@/@region@/@:@/@account-id@/@:apis\/@/@GraphQLApiId@/@ @
 --
 -- -   For an Amazon Cognito user pool:
---     @arn:aws:cognito-idp:region:account-id:userpool\/user-pool-id @
+--     @arn:aws:cognito-idp:@/@region@/@:@/@account-id@/@:userpool\/@/@user-pool-id@/@ @
 newDisassociateWebACL ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -115,16 +115,16 @@ newDisassociateWebACL pResourceArn_ =
 -- The ARN must be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway REST API:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 --
 -- -   For an AppSync GraphQL API:
---     @arn:aws:appsync:region:account-id:apis\/GraphQLApiId @
+--     @arn:aws:appsync:@/@region@/@:@/@account-id@/@:apis\/@/@GraphQLApiId@/@ @
 --
 -- -   For an Amazon Cognito user pool:
---     @arn:aws:cognito-idp:region:account-id:userpool\/user-pool-id @
+--     @arn:aws:cognito-idp:@/@region@/@:@/@account-id@/@:userpool\/@/@user-pool-id@/@ @
 disassociateWebACL_resourceArn :: Lens.Lens' DisassociateWebACL Prelude.Text
 disassociateWebACL_resourceArn = Lens.lens (\DisassociateWebACL' {resourceArn} -> resourceArn) (\s@DisassociateWebACL' {} a -> s {resourceArn = a} :: DisassociateWebACL)
 

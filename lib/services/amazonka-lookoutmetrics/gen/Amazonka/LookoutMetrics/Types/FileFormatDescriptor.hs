@@ -83,7 +83,8 @@ instance Data.FromJSON FileFormatDescriptor where
 
 instance Prelude.Hashable FileFormatDescriptor where
   hashWithSalt _salt FileFormatDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` csvFormatDescriptor
+    _salt
+      `Prelude.hashWithSalt` csvFormatDescriptor
       `Prelude.hashWithSalt` jsonFormatDescriptor
 
 instance Prelude.NFData FileFormatDescriptor where

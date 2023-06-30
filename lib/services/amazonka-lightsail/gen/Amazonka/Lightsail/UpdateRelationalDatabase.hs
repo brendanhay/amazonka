@@ -376,7 +376,8 @@ instance Core.AWSRequest UpdateRelationalDatabase where
 
 instance Prelude.Hashable UpdateRelationalDatabase where
   hashWithSalt _salt UpdateRelationalDatabase' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` caCertificateIdentifier
       `Prelude.hashWithSalt` disableBackupRetention
       `Prelude.hashWithSalt` enableBackupRetention

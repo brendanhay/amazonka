@@ -95,7 +95,8 @@ instance Data.FromJSON DomainSettings where
           DomainSettings'
             Prelude.<$> (x Data..:? "ExecutionRoleIdentityConfig")
             Prelude.<*> (x Data..:? "RStudioServerProDomainSettings")
-            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
       )

@@ -110,7 +110,8 @@ instance Core.AWSRequest PutCommentReaction where
 
 instance Prelude.Hashable PutCommentReaction where
   hashWithSalt _salt PutCommentReaction' {..} =
-    _salt `Prelude.hashWithSalt` commentId
+    _salt
+      `Prelude.hashWithSalt` commentId
       `Prelude.hashWithSalt` reactionValue
 
 instance Prelude.NFData PutCommentReaction where

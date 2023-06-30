@@ -124,7 +124,8 @@ instance Core.AWSRequest CreateSite where
 
 instance Prelude.Hashable CreateSite where
   hashWithSalt _salt CreateSite' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` countryCode

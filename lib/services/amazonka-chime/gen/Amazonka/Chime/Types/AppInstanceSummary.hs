@@ -85,7 +85,8 @@ instance Data.FromJSON AppInstanceSummary where
 
 instance Prelude.Hashable AppInstanceSummary where
   hashWithSalt _salt AppInstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` appInstanceArn
+    _salt
+      `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` name
 

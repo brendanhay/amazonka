@@ -133,7 +133,8 @@ instance Core.AWSRequest DeletePartitionIndex where
 
 instance Prelude.Hashable DeletePartitionIndex where
   hashWithSalt _salt DeletePartitionIndex' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` indexName

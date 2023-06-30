@@ -148,7 +148,8 @@ instance Core.AWSRequest CreateMember where
 
 instance Prelude.Hashable CreateMember where
   hashWithSalt _salt CreateMember' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` invitationId
       `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` memberConfiguration

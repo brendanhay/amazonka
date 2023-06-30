@@ -114,7 +114,8 @@ instance Core.AWSRequest GetForm where
 
 instance Prelude.Hashable GetForm where
   hashWithSalt _salt GetForm' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
 

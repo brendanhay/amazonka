@@ -72,7 +72,8 @@ instance Data.FromXML PrefixListAssociation where
 
 instance Prelude.Hashable PrefixListAssociation where
   hashWithSalt _salt PrefixListAssociation' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceOwner
 
 instance Prelude.NFData PrefixListAssociation where

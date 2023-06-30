@@ -79,7 +79,8 @@ instance Data.FromXML CidrRoutingConfig where
 
 instance Prelude.Hashable CidrRoutingConfig where
   hashWithSalt _salt CidrRoutingConfig' {..} =
-    _salt `Prelude.hashWithSalt` collectionId
+    _salt
+      `Prelude.hashWithSalt` collectionId
       `Prelude.hashWithSalt` locationName
 
 instance Prelude.NFData CidrRoutingConfig where

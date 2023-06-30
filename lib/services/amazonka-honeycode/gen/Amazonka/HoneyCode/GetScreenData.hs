@@ -188,7 +188,8 @@ instance Core.AWSRequest GetScreenData where
 
 instance Prelude.Hashable GetScreenData where
   hashWithSalt _salt GetScreenData' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` variables
       `Prelude.hashWithSalt` workbookId

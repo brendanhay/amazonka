@@ -181,7 +181,8 @@ instance Core.AWSRequest StartJob where
 
 instance Prelude.Hashable StartJob where
   hashWithSalt _salt StartJob' {..} =
-    _salt `Prelude.hashWithSalt` commitId
+    _salt
+      `Prelude.hashWithSalt` commitId
       `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` commitTime
       `Prelude.hashWithSalt` jobId

@@ -90,7 +90,8 @@ instance
     ClientConnectResponseOptions
   where
   hashWithSalt _salt ClientConnectResponseOptions' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` lambdaFunctionArn
       `Prelude.hashWithSalt` status
 

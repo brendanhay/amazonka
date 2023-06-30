@@ -88,7 +88,8 @@ instance Data.FromJSON Field where
 
 instance Prelude.Hashable Field where
   hashWithSalt _salt Field' {..} =
-    _salt `Prelude.hashWithSalt` refValue
+    _salt
+      `Prelude.hashWithSalt` refValue
       `Prelude.hashWithSalt` stringValue
       `Prelude.hashWithSalt` key
 

@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     VerifiedAccessTrustProviderCondensed' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` deviceTrustProviderType
         `Prelude.hashWithSalt` trustProviderType
         `Prelude.hashWithSalt` userTrustProviderType

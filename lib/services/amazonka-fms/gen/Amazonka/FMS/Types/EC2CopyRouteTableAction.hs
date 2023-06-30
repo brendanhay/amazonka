@@ -99,7 +99,8 @@ instance Data.FromJSON EC2CopyRouteTableAction where
 
 instance Prelude.Hashable EC2CopyRouteTableAction where
   hashWithSalt _salt EC2CopyRouteTableAction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` routeTableId
 

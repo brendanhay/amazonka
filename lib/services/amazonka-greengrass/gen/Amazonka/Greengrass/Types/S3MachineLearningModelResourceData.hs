@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     S3MachineLearningModelResourceData' {..} =
-      _salt `Prelude.hashWithSalt` destinationPath
+      _salt
+        `Prelude.hashWithSalt` destinationPath
         `Prelude.hashWithSalt` ownerSetting
         `Prelude.hashWithSalt` s3Uri
 

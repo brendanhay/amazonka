@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     ContainerDistributionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` containerTags
+      _salt
+        `Prelude.hashWithSalt` containerTags
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` targetRepository
 

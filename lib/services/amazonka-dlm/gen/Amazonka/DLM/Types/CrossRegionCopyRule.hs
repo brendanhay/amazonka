@@ -180,7 +180,8 @@ instance Data.FromJSON CrossRegionCopyRule where
 
 instance Prelude.Hashable CrossRegionCopyRule where
   hashWithSalt _salt CrossRegionCopyRule' {..} =
-    _salt `Prelude.hashWithSalt` cmkArn
+    _salt
+      `Prelude.hashWithSalt` cmkArn
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` deprecateRule
       `Prelude.hashWithSalt` retainRule

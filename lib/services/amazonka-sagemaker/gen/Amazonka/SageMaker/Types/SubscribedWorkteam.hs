@@ -109,7 +109,8 @@ instance Data.FromJSON SubscribedWorkteam where
 
 instance Prelude.Hashable SubscribedWorkteam where
   hashWithSalt _salt SubscribedWorkteam' {..} =
-    _salt `Prelude.hashWithSalt` listingId
+    _salt
+      `Prelude.hashWithSalt` listingId
       `Prelude.hashWithSalt` marketplaceDescription
       `Prelude.hashWithSalt` marketplaceTitle
       `Prelude.hashWithSalt` sellerName

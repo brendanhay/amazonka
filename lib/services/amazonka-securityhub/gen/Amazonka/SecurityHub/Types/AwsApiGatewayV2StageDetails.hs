@@ -251,14 +251,16 @@ instance Data.FromJSON AwsApiGatewayV2StageDetails where
             Prelude.<*> (x Data..:? "LastUpdatedDate")
             Prelude.<*> (x Data..:? "RouteSettings")
             Prelude.<*> (x Data..:? "StageName")
-            Prelude.<*> ( x Data..:? "StageVariables"
+            Prelude.<*> ( x
+                            Data..:? "StageVariables"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AwsApiGatewayV2StageDetails where
   hashWithSalt _salt AwsApiGatewayV2StageDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessLogSettings
+    _salt
+      `Prelude.hashWithSalt` accessLogSettings
       `Prelude.hashWithSalt` apiGatewayManaged
       `Prelude.hashWithSalt` autoDeploy
       `Prelude.hashWithSalt` clientCertificateId

@@ -70,7 +70,8 @@ batchGetLinkAttributes_attributeNames = Lens.lens (\BatchGetLinkAttributes' {att
 
 instance Prelude.Hashable BatchGetLinkAttributes where
   hashWithSalt _salt BatchGetLinkAttributes' {..} =
-    _salt `Prelude.hashWithSalt` typedLinkSpecifier
+    _salt
+      `Prelude.hashWithSalt` typedLinkSpecifier
       `Prelude.hashWithSalt` attributeNames
 
 instance Prelude.NFData BatchGetLinkAttributes where

@@ -96,7 +96,8 @@ serviceFilter_values = Lens.lens (\ServiceFilter' {values} -> values) (\s@Servic
 
 instance Prelude.Hashable ServiceFilter where
   hashWithSalt _salt ServiceFilter' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 

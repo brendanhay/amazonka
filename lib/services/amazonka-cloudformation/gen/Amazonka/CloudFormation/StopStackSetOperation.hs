@@ -163,7 +163,8 @@ instance Core.AWSRequest StopStackSetOperation where
 
 instance Prelude.Hashable StopStackSetOperation where
   hashWithSalt _salt StopStackSetOperation' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` operationId
 

@@ -178,7 +178,8 @@ directMessageConfiguration_voiceMessage = Lens.lens (\DirectMessageConfiguration
 
 instance Prelude.Hashable DirectMessageConfiguration where
   hashWithSalt _salt DirectMessageConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` aDMMessage
+    _salt
+      `Prelude.hashWithSalt` aDMMessage
       `Prelude.hashWithSalt` aPNSMessage
       `Prelude.hashWithSalt` baiduMessage
       `Prelude.hashWithSalt` defaultMessage

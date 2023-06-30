@@ -112,7 +112,8 @@ instance Core.AWSRequest DeregisterEventTopic where
 
 instance Prelude.Hashable DeregisterEventTopic where
   hashWithSalt _salt DeregisterEventTopic' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` topicName
 
 instance Prelude.NFData DeregisterEventTopic where

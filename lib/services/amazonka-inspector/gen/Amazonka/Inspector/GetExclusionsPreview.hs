@@ -158,7 +158,8 @@ instance Core.AWSRequest GetExclusionsPreview where
     Response.receiveJSON
       ( \s h x ->
           GetExclusionsPreviewResponse'
-            Prelude.<$> ( x Data..?> "exclusionPreviews"
+            Prelude.<$> ( x
+                            Data..?> "exclusionPreviews"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -168,7 +169,8 @@ instance Core.AWSRequest GetExclusionsPreview where
 
 instance Prelude.Hashable GetExclusionsPreview where
   hashWithSalt _salt GetExclusionsPreview' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentTemplateArn

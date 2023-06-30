@@ -164,7 +164,8 @@ instance Data.FromJSON PipelineDeclaration where
 
 instance Prelude.Hashable PipelineDeclaration where
   hashWithSalt _salt PipelineDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` artifactStore
+    _salt
+      `Prelude.hashWithSalt` artifactStore
       `Prelude.hashWithSalt` artifactStores
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name

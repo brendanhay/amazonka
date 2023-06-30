@@ -162,7 +162,8 @@ instance
   hashWithSalt
     _salt
     UpdateFileSystemOntapConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` addRouteTableIds
+      _salt
+        `Prelude.hashWithSalt` addRouteTableIds
         `Prelude.hashWithSalt` automaticBackupRetentionDays
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
         `Prelude.hashWithSalt` diskIopsConfiguration

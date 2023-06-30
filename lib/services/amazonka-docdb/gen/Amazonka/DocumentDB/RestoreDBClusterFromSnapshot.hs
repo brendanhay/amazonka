@@ -390,7 +390,8 @@ instance
     RestoreDBClusterFromSnapshot
   where
   hashWithSalt _salt RestoreDBClusterFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` dbSubnetGroupName
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` enableCloudwatchLogsExports

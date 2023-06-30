@@ -187,22 +187,22 @@ instance Core.AWSPager ListBackups where
     | Core.stop
         ( rs
             Lens.^? listBackupsResponse_lastEvaluatedBackupArn
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBackupsResponse_backupSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBackups_exclusiveStartBackupArn
           Lens..~ rs
           Lens.^? listBackupsResponse_lastEvaluatedBackupArn
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackups where
   type AWSResponse ListBackups = ListBackupsResponse
@@ -212,7 +212,8 @@ instance Core.AWSRequest ListBackups where
     Response.receiveJSON
       ( \s h x ->
           ListBackupsResponse'
-            Prelude.<$> ( x Data..?> "BackupSummaries"
+            Prelude.<$> ( x
+                            Data..?> "BackupSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "LastEvaluatedBackupArn")
@@ -221,7 +222,8 @@ instance Core.AWSRequest ListBackups where
 
 instance Prelude.Hashable ListBackups where
   hashWithSalt _salt ListBackups' {..} =
-    _salt `Prelude.hashWithSalt` backupType
+    _salt
+      `Prelude.hashWithSalt` backupType
       `Prelude.hashWithSalt` exclusiveStartBackupArn
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` tableName

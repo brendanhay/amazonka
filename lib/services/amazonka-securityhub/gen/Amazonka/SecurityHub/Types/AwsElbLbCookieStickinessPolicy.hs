@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     AwsElbLbCookieStickinessPolicy' {..} =
-      _salt `Prelude.hashWithSalt` cookieExpirationPeriod
+      _salt
+        `Prelude.hashWithSalt` cookieExpirationPeriod
         `Prelude.hashWithSalt` policyName
 
 instance

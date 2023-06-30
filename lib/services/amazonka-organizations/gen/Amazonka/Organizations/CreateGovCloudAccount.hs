@@ -499,7 +499,8 @@ instance Core.AWSRequest CreateGovCloudAccount where
 
 instance Prelude.Hashable CreateGovCloudAccount where
   hashWithSalt _salt CreateGovCloudAccount' {..} =
-    _salt `Prelude.hashWithSalt` iamUserAccessToBilling
+    _salt
+      `Prelude.hashWithSalt` iamUserAccessToBilling
       `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` email

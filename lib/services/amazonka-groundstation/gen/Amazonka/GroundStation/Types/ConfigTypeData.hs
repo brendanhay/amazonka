@@ -158,7 +158,8 @@ instance Data.FromJSON ConfigTypeData where
 
 instance Prelude.Hashable ConfigTypeData where
   hashWithSalt _salt ConfigTypeData' {..} =
-    _salt `Prelude.hashWithSalt` antennaDownlinkConfig
+    _salt
+      `Prelude.hashWithSalt` antennaDownlinkConfig
       `Prelude.hashWithSalt` antennaDownlinkDemodDecodeConfig
       `Prelude.hashWithSalt` antennaUplinkConfig
       `Prelude.hashWithSalt` dataflowEndpointConfig

@@ -113,7 +113,8 @@ instance Core.AWSRequest StopDeployment where
 
 instance Prelude.Hashable StopDeployment where
   hashWithSalt _salt StopDeployment' {..} =
-    _salt `Prelude.hashWithSalt` autoRollbackEnabled
+    _salt
+      `Prelude.hashWithSalt` autoRollbackEnabled
       `Prelude.hashWithSalt` deploymentId
 
 instance Prelude.NFData StopDeployment where

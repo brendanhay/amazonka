@@ -146,7 +146,8 @@ instance Core.AWSRequest CreateRuleset where
 
 instance Prelude.Hashable CreateRuleset where
   hashWithSalt _salt CreateRuleset' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` targetArn

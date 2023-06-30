@@ -112,7 +112,8 @@ instance Core.AWSRequest CreateBranch where
 
 instance Prelude.Hashable CreateBranch where
   hashWithSalt _salt CreateBranch' {..} =
-    _salt `Prelude.hashWithSalt` repositoryName
+    _salt
+      `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` commitId
 

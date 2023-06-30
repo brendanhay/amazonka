@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     PatchGroupPatchBaselineMapping' {..} =
-      _salt `Prelude.hashWithSalt` baselineIdentity
+      _salt
+        `Prelude.hashWithSalt` baselineIdentity
         `Prelude.hashWithSalt` patchGroup
 
 instance

@@ -116,7 +116,8 @@ instance Core.AWSRequest CreateSipMediaApplication where
 
 instance Prelude.Hashable CreateSipMediaApplication where
   hashWithSalt _salt CreateSipMediaApplication' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` endpoints
 

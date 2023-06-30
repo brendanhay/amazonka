@@ -172,22 +172,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listAuditMitigationActionsTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAuditMitigationActionsTasksResponse_tasks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAuditMitigationActionsTasks_nextToken
           Lens..~ rs
           Lens.^? listAuditMitigationActionsTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -214,7 +214,8 @@ instance
   hashWithSalt
     _salt
     ListAuditMitigationActionsTasks' {..} =
-      _salt `Prelude.hashWithSalt` auditTaskId
+      _salt
+        `Prelude.hashWithSalt` auditTaskId
         `Prelude.hashWithSalt` findingId
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

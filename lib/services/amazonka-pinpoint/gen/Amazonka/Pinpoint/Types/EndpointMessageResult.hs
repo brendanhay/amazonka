@@ -197,7 +197,8 @@ instance Data.FromJSON EndpointMessageResult where
 
 instance Prelude.Hashable EndpointMessageResult where
   hashWithSalt _salt EndpointMessageResult' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` updatedToken

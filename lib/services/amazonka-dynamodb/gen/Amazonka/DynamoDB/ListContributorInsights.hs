@@ -107,7 +107,8 @@ instance Core.AWSRequest ListContributorInsights where
     Response.receiveJSON
       ( \s h x ->
           ListContributorInsightsResponse'
-            Prelude.<$> ( x Data..?> "ContributorInsightsSummaries"
+            Prelude.<$> ( x
+                            Data..?> "ContributorInsightsSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -116,7 +117,8 @@ instance Core.AWSRequest ListContributorInsights where
 
 instance Prelude.Hashable ListContributorInsights where
   hashWithSalt _salt ListContributorInsights' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` tableName
 

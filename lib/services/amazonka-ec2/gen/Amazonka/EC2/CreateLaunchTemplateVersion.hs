@@ -220,7 +220,8 @@ instance Core.AWSRequest CreateLaunchTemplateVersion where
 
 instance Prelude.Hashable CreateLaunchTemplateVersion where
   hashWithSalt _salt CreateLaunchTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchTemplateId
       `Prelude.hashWithSalt` launchTemplateName

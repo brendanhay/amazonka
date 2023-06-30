@@ -74,7 +74,8 @@ instance Data.FromJSON MailDomainSummary where
 
 instance Prelude.Hashable MailDomainSummary where
   hashWithSalt _salt MailDomainSummary' {..} =
-    _salt `Prelude.hashWithSalt` defaultDomain
+    _salt
+      `Prelude.hashWithSalt` defaultDomain
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData MailDomainSummary where

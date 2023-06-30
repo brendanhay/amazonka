@@ -94,13 +94,16 @@ instance Data.FromXML LifecycleRuleAndOperator where
       Prelude.<$> (x Data..@? "ObjectSizeGreaterThan")
       Prelude.<*> (x Data..@? "ObjectSizeLessThan")
       Prelude.<*> (x Data..@? "Prefix")
-      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tag"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
 instance Prelude.Hashable LifecycleRuleAndOperator where
   hashWithSalt _salt LifecycleRuleAndOperator' {..} =
-    _salt `Prelude.hashWithSalt` objectSizeGreaterThan
+    _salt
+      `Prelude.hashWithSalt` objectSizeGreaterThan
       `Prelude.hashWithSalt` objectSizeLessThan
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` tags

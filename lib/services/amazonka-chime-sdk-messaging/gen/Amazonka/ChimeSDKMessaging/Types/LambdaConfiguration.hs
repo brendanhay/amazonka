@@ -79,7 +79,8 @@ instance Data.FromJSON LambdaConfiguration where
 
 instance Prelude.Hashable LambdaConfiguration where
   hashWithSalt _salt LambdaConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` invocationType
 
 instance Prelude.NFData LambdaConfiguration where

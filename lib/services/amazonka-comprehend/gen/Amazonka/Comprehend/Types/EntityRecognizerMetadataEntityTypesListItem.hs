@@ -94,8 +94,8 @@ instance
       ( \x ->
           EntityRecognizerMetadataEntityTypesListItem'
             Prelude.<$> (x Data..:? "EvaluationMetrics")
-              Prelude.<*> (x Data..:? "NumberOfTrainMentions")
-              Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "NumberOfTrainMentions")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     EntityRecognizerMetadataEntityTypesListItem' {..} =
-      _salt `Prelude.hashWithSalt` evaluationMetrics
+      _salt
+        `Prelude.hashWithSalt` evaluationMetrics
         `Prelude.hashWithSalt` numberOfTrainMentions
         `Prelude.hashWithSalt` type'
 

@@ -145,7 +145,8 @@ instance Core.AWSRequest GetFolderPath where
 
 instance Prelude.Hashable GetFolderPath where
   hashWithSalt _salt GetFolderPath' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker

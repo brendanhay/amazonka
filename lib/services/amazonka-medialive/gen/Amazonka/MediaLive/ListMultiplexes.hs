@@ -94,22 +94,22 @@ instance Core.AWSPager ListMultiplexes where
     | Core.stop
         ( rs
             Lens.^? listMultiplexesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listMultiplexesResponse_multiplexes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMultiplexes_nextToken
           Lens..~ rs
           Lens.^? listMultiplexesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMultiplexes where
   type
@@ -128,7 +128,8 @@ instance Core.AWSRequest ListMultiplexes where
 
 instance Prelude.Hashable ListMultiplexes where
   hashWithSalt _salt ListMultiplexes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMultiplexes where

@@ -98,22 +98,22 @@ instance Core.AWSPager ListAssociatedStacks where
     | Core.stop
         ( rs
             Lens.^? listAssociatedStacksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAssociatedStacksResponse_names
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssociatedStacks_nextToken
           Lens..~ rs
           Lens.^? listAssociatedStacksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssociatedStacks where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest ListAssociatedStacks where
 
 instance Prelude.Hashable ListAssociatedStacks where
   hashWithSalt _salt ListAssociatedStacks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` fleetName
 
 instance Prelude.NFData ListAssociatedStacks where

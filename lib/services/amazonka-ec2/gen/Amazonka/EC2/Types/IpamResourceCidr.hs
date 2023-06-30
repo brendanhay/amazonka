@@ -276,7 +276,9 @@ instance Data.FromXML IpamResourceCidr where
       Prelude.<*> (x Data..@? "resourceName")
       Prelude.<*> (x Data..@? "resourceOwnerId")
       Prelude.<*> (x Data..@? "resourceRegion")
-      Prelude.<*> ( x Data..@? "resourceTagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "resourceTagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "resourceType")
@@ -284,7 +286,8 @@ instance Data.FromXML IpamResourceCidr where
 
 instance Prelude.Hashable IpamResourceCidr where
   hashWithSalt _salt IpamResourceCidr' {..} =
-    _salt `Prelude.hashWithSalt` complianceStatus
+    _salt
+      `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` ipUsage
       `Prelude.hashWithSalt` ipamId
       `Prelude.hashWithSalt` ipamPoolId

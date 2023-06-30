@@ -80,7 +80,8 @@ instance Data.FromJSON PredictionTimeRange where
 
 instance Prelude.Hashable PredictionTimeRange where
   hashWithSalt _salt PredictionTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData PredictionTimeRange where

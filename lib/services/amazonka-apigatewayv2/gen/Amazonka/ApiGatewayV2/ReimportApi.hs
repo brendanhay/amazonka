@@ -172,7 +172,8 @@ instance Core.AWSRequest ReimportApi where
 
 instance Prelude.Hashable ReimportApi where
   hashWithSalt _salt ReimportApi' {..} =
-    _salt `Prelude.hashWithSalt` basepath
+    _salt
+      `Prelude.hashWithSalt` basepath
       `Prelude.hashWithSalt` failOnWarnings
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` body

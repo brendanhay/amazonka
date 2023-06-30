@@ -303,7 +303,8 @@ instance Data.FromJSON Authorizer where
 
 instance Prelude.Hashable Authorizer where
   hashWithSalt _salt Authorizer' {..} =
-    _salt `Prelude.hashWithSalt` authType
+    _salt
+      `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` authorizerCredentials
       `Prelude.hashWithSalt` authorizerResultTtlInSeconds
       `Prelude.hashWithSalt` authorizerUri

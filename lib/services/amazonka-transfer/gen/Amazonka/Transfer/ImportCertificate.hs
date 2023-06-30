@@ -171,7 +171,8 @@ instance Core.AWSRequest ImportCertificate where
 
 instance Prelude.Hashable ImportCertificate where
   hashWithSalt _salt ImportCertificate' {..} =
-    _salt `Prelude.hashWithSalt` activeDate
+    _salt
+      `Prelude.hashWithSalt` activeDate
       `Prelude.hashWithSalt` certificateChain
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` inactiveDate

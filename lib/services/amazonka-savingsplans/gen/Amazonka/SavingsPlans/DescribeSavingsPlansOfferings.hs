@@ -222,7 +222,8 @@ instance
     DescribeSavingsPlansOfferings
   where
   hashWithSalt _salt DescribeSavingsPlansOfferings' {..} =
-    _salt `Prelude.hashWithSalt` currencies
+    _salt
+      `Prelude.hashWithSalt` currencies
       `Prelude.hashWithSalt` descriptions
       `Prelude.hashWithSalt` durations
       `Prelude.hashWithSalt` filters

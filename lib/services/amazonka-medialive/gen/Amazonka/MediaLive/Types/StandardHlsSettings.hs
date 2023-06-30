@@ -83,7 +83,8 @@ instance Data.FromJSON StandardHlsSettings where
 
 instance Prelude.Hashable StandardHlsSettings where
   hashWithSalt _salt StandardHlsSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioRenditionSets
+    _salt
+      `Prelude.hashWithSalt` audioRenditionSets
       `Prelude.hashWithSalt` m3u8Settings
 
 instance Prelude.NFData StandardHlsSettings where

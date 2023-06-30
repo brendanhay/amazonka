@@ -117,7 +117,8 @@ instance
     UpdateUserHierarchyGroupName
   where
   hashWithSalt _salt UpdateUserHierarchyGroupName' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` instanceId
 

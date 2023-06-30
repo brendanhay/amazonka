@@ -132,7 +132,8 @@ instance Data.FromXML IpamPoolAllocation where
 
 instance Prelude.Hashable IpamPoolAllocation where
   hashWithSalt _salt IpamPoolAllocation' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ipamPoolAllocationId
       `Prelude.hashWithSalt` resourceId

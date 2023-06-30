@@ -96,7 +96,8 @@ instance Data.FromJSON ContentSourceConfiguration where
 
 instance Prelude.Hashable ContentSourceConfiguration where
   hashWithSalt _salt ContentSourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceIds
+    _salt
+      `Prelude.hashWithSalt` dataSourceIds
       `Prelude.hashWithSalt` directPutContent
       `Prelude.hashWithSalt` faqIds
 

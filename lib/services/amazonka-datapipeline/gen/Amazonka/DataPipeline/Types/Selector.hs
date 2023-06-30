@@ -74,7 +74,8 @@ selector_operator = Lens.lens (\Selector' {operator} -> operator) (\s@Selector' 
 
 instance Prelude.Hashable Selector where
   hashWithSalt _salt Selector' {..} =
-    _salt `Prelude.hashWithSalt` fieldName
+    _salt
+      `Prelude.hashWithSalt` fieldName
       `Prelude.hashWithSalt` operator
 
 instance Prelude.NFData Selector where

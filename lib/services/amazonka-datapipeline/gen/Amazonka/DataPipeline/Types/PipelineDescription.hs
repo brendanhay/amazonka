@@ -125,7 +125,8 @@ instance Data.FromJSON PipelineDescription where
 
 instance Prelude.Hashable PipelineDescription where
   hashWithSalt _salt PipelineDescription' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` name

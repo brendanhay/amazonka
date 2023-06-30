@@ -87,7 +87,8 @@ instance Data.FromJSON MonitoringDatasetFormat where
 
 instance Prelude.Hashable MonitoringDatasetFormat where
   hashWithSalt _salt MonitoringDatasetFormat' {..} =
-    _salt `Prelude.hashWithSalt` csv
+    _salt
+      `Prelude.hashWithSalt` csv
       `Prelude.hashWithSalt` json
       `Prelude.hashWithSalt` parquet
 

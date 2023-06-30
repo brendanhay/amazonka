@@ -119,7 +119,8 @@ instance Data.FromJSON OTAUpdateFile where
 
 instance Prelude.Hashable OTAUpdateFile where
   hashWithSalt _salt OTAUpdateFile' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` codeSigning
       `Prelude.hashWithSalt` fileLocation
       `Prelude.hashWithSalt` fileName

@@ -66,11 +66,13 @@ iamInstanceProfile_id = Lens.lens (\IamInstanceProfile' {id} -> id) (\s@IamInsta
 instance Data.FromXML IamInstanceProfile where
   parseXML x =
     IamInstanceProfile'
-      Prelude.<$> (x Data..@? "arn") Prelude.<*> (x Data..@? "id")
+      Prelude.<$> (x Data..@? "arn")
+      Prelude.<*> (x Data..@? "id")
 
 instance Prelude.Hashable IamInstanceProfile where
   hashWithSalt _salt IamInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData IamInstanceProfile where

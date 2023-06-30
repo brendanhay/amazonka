@@ -78,7 +78,8 @@ instance Data.FromJSON Filter where
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` dimensionValue
+    _salt
+      `Prelude.hashWithSalt` dimensionValue
       `Prelude.hashWithSalt` filterOperation
 
 instance Prelude.NFData Filter where

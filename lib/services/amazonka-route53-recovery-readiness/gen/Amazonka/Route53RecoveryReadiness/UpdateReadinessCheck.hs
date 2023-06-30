@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateReadinessCheck where
 
 instance Prelude.Hashable UpdateReadinessCheck where
   hashWithSalt _salt UpdateReadinessCheck' {..} =
-    _salt `Prelude.hashWithSalt` readinessCheckName
+    _salt
+      `Prelude.hashWithSalt` readinessCheckName
       `Prelude.hashWithSalt` resourceSetName
 
 instance Prelude.NFData UpdateReadinessCheck where

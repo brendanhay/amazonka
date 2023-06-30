@@ -189,7 +189,8 @@ record_version = Lens.lens (\Record' {version} -> version) (\s@Record' {} a -> s
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` measureName
       `Prelude.hashWithSalt` measureValue
       `Prelude.hashWithSalt` measureValueType

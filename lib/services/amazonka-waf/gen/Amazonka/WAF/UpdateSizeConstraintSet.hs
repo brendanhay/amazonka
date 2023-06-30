@@ -209,7 +209,8 @@ instance Core.AWSRequest UpdateSizeConstraintSet where
 
 instance Prelude.Hashable UpdateSizeConstraintSet where
   hashWithSalt _salt UpdateSizeConstraintSet' {..} =
-    _salt `Prelude.hashWithSalt` sizeConstraintSetId
+    _salt
+      `Prelude.hashWithSalt` sizeConstraintSetId
       `Prelude.hashWithSalt` changeToken
       `Prelude.hashWithSalt` updates
 

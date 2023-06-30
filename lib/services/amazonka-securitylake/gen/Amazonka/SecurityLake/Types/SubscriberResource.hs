@@ -256,7 +256,8 @@ instance Data.FromJSON SubscriberResource where
 
 instance Prelude.Hashable SubscriberResource where
   hashWithSalt _salt SubscriberResource' {..} =
-    _salt `Prelude.hashWithSalt` accessTypes
+    _salt
+      `Prelude.hashWithSalt` accessTypes
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` roleArn

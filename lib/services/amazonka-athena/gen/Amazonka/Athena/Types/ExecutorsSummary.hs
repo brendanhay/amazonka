@@ -169,7 +169,8 @@ instance Data.FromJSON ExecutorsSummary where
 
 instance Prelude.Hashable ExecutorsSummary where
   hashWithSalt _salt ExecutorsSummary' {..} =
-    _salt `Prelude.hashWithSalt` executorSize
+    _salt
+      `Prelude.hashWithSalt` executorSize
       `Prelude.hashWithSalt` executorState
       `Prelude.hashWithSalt` executorType
       `Prelude.hashWithSalt` startDateTime

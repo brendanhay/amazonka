@@ -146,14 +146,16 @@ instance Data.FromJSON TimestreamConfiguration where
             Prelude.<*> (x Data..: "DatabaseName")
             Prelude.<*> (x Data..: "TableName")
             Prelude.<*> (x Data..: "TimeColumn")
-            Prelude.<*> ( x Data..:? "DimensionMappings"
+            Prelude.<*> ( x
+                            Data..:? "DimensionMappings"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TimestreamConfiguration where
   hashWithSalt _salt TimestreamConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` measureNameColumn
+    _salt
+      `Prelude.hashWithSalt` measureNameColumn
       `Prelude.hashWithSalt` mixedMeasureMappings
       `Prelude.hashWithSalt` multiMeasureMappings
       `Prelude.hashWithSalt` databaseName

@@ -117,13 +117,15 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDisassociateResourcesFromCustomLineItemResponse'
-            Prelude.<$> ( x Data..?> "FailedDisassociatedResources"
+            Prelude.<$> ( x
+                            Data..?> "FailedDisassociatedResources"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> ( x Data..?> "SuccessfullyDisassociatedResources"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "SuccessfullyDisassociatedResources"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -133,7 +135,8 @@ instance
   hashWithSalt
     _salt
     BatchDisassociateResourcesFromCustomLineItem' {..} =
-      _salt `Prelude.hashWithSalt` billingPeriodRange
+      _salt
+        `Prelude.hashWithSalt` billingPeriodRange
         `Prelude.hashWithSalt` targetArn
         `Prelude.hashWithSalt` resourceArns
 

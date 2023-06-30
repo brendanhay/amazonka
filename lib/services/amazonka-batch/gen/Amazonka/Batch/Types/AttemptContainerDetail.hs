@@ -134,7 +134,8 @@ instance Data.FromJSON AttemptContainerDetail where
             Prelude.<$> (x Data..:? "containerInstanceArn")
             Prelude.<*> (x Data..:? "exitCode")
             Prelude.<*> (x Data..:? "logStreamName")
-            Prelude.<*> ( x Data..:? "networkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "reason")
@@ -143,7 +144,8 @@ instance Data.FromJSON AttemptContainerDetail where
 
 instance Prelude.Hashable AttemptContainerDetail where
   hashWithSalt _salt AttemptContainerDetail' {..} =
-    _salt `Prelude.hashWithSalt` containerInstanceArn
+    _salt
+      `Prelude.hashWithSalt` containerInstanceArn
       `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` logStreamName
       `Prelude.hashWithSalt` networkInterfaces

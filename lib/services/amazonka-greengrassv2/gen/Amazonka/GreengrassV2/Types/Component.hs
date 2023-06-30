@@ -91,7 +91,8 @@ instance Data.FromJSON Component where
 
 instance Prelude.Hashable Component where
   hashWithSalt _salt Component' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` latestVersion
 

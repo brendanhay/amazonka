@@ -125,7 +125,8 @@ instance Data.FromJSON SyntaxToken where
 
 instance Prelude.Hashable SyntaxToken where
   hashWithSalt _salt SyntaxToken' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` partOfSpeech
       `Prelude.hashWithSalt` text

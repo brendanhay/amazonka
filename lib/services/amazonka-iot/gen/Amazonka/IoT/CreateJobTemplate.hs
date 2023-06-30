@@ -76,7 +76,7 @@ data CreateJobTemplate = CreateJobTemplate'
     --
     -- The placeholder link is of the following form:
     --
-    -- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
+    -- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/@/@bucket@/@\/@/@key@/@}@
     --
     -- where /bucket/ is your bucket name and /key/ is the object in the bucket
     -- to which you are linking.
@@ -119,7 +119,7 @@ data CreateJobTemplate = CreateJobTemplate'
 --
 -- The placeholder link is of the following form:
 --
--- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
+-- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/@/@bucket@/@\/@/@key@/@}@
 --
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
@@ -178,7 +178,7 @@ createJobTemplate_document = Lens.lens (\CreateJobTemplate' {document} -> docume
 --
 -- The placeholder link is of the following form:
 --
--- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
+-- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/@/@bucket@/@\/@/@key@/@}@
 --
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
@@ -235,7 +235,8 @@ instance Core.AWSRequest CreateJobTemplate where
 
 instance Prelude.Hashable CreateJobTemplate where
   hashWithSalt _salt CreateJobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` abortConfig
+    _salt
+      `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` documentSource
       `Prelude.hashWithSalt` jobArn

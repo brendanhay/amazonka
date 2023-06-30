@@ -100,7 +100,8 @@ instance Data.FromXML CidrCollection where
 
 instance Prelude.Hashable CidrCollection where
   hashWithSalt _salt CidrCollection' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version

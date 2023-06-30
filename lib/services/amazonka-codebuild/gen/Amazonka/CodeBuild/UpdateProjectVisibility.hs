@@ -156,7 +156,8 @@ instance Core.AWSRequest UpdateProjectVisibility where
 
 instance Prelude.Hashable UpdateProjectVisibility where
   hashWithSalt _salt UpdateProjectVisibility' {..} =
-    _salt `Prelude.hashWithSalt` resourceAccessRole
+    _salt
+      `Prelude.hashWithSalt` resourceAccessRole
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` projectVisibility
 

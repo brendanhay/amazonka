@@ -96,7 +96,8 @@ instance Data.FromJSON PlaybackKeyPairSummary where
 
 instance Prelude.Hashable PlaybackKeyPairSummary where
   hashWithSalt _salt PlaybackKeyPairSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
 

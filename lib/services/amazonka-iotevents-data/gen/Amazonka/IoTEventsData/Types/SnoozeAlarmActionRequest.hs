@@ -110,7 +110,8 @@ snoozeAlarmActionRequest_snoozeDuration = Lens.lens (\SnoozeAlarmActionRequest' 
 
 instance Prelude.Hashable SnoozeAlarmActionRequest where
   hashWithSalt _salt SnoozeAlarmActionRequest' {..} =
-    _salt `Prelude.hashWithSalt` keyValue
+    _salt
+      `Prelude.hashWithSalt` keyValue
       `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` alarmModelName

@@ -124,7 +124,8 @@ instance Data.FromJSON MixedMeasureMapping where
 
 instance Prelude.Hashable MixedMeasureMapping where
   hashWithSalt _salt MixedMeasureMapping' {..} =
-    _salt `Prelude.hashWithSalt` measureName
+    _salt
+      `Prelude.hashWithSalt` measureName
       `Prelude.hashWithSalt` multiMeasureAttributeMappings
       `Prelude.hashWithSalt` sourceColumn
       `Prelude.hashWithSalt` targetMeasureName

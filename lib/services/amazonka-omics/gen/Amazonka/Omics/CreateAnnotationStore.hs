@@ -165,7 +165,8 @@ instance Core.AWSRequest CreateAnnotationStore where
 
 instance Prelude.Hashable CreateAnnotationStore where
   hashWithSalt _salt CreateAnnotationStore' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` reference
       `Prelude.hashWithSalt` sseConfig

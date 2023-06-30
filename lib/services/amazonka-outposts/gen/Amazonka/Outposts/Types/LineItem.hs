@@ -107,7 +107,8 @@ instance Data.FromJSON LineItem where
       "LineItem"
       ( \x ->
           LineItem'
-            Prelude.<$> ( x Data..:? "AssetInformationList"
+            Prelude.<$> ( x
+                            Data..:? "AssetInformationList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CatalogItemId")
@@ -119,7 +120,8 @@ instance Data.FromJSON LineItem where
 
 instance Prelude.Hashable LineItem where
   hashWithSalt _salt LineItem' {..} =
-    _salt `Prelude.hashWithSalt` assetInformationList
+    _salt
+      `Prelude.hashWithSalt` assetInformationList
       `Prelude.hashWithSalt` catalogItemId
       `Prelude.hashWithSalt` lineItemId
       `Prelude.hashWithSalt` quantity

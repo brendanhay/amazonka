@@ -124,7 +124,8 @@ instance Data.FromJSON ECSTarget where
           ECSTarget'
             Prelude.<$> (x Data..:? "deploymentId")
             Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> ( x Data..:? "lifecycleEvents"
+            Prelude.<*> ( x
+                            Data..:? "lifecycleEvents"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "status")
@@ -135,7 +136,8 @@ instance Data.FromJSON ECSTarget where
 
 instance Prelude.Hashable ECSTarget where
   hashWithSalt _salt ECSTarget' {..} =
-    _salt `Prelude.hashWithSalt` deploymentId
+    _salt
+      `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` lifecycleEvents
       `Prelude.hashWithSalt` status

@@ -87,7 +87,8 @@ instance Data.FromXML RevisionTarget where
 
 instance Prelude.Hashable RevisionTarget where
   hashWithSalt _salt RevisionTarget' {..} =
-    _salt `Prelude.hashWithSalt` databaseRevision
+    _salt
+      `Prelude.hashWithSalt` databaseRevision
       `Prelude.hashWithSalt` databaseRevisionReleaseDate
       `Prelude.hashWithSalt` description
 

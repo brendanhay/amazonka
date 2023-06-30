@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     CreateExperimentTemplateActionInput' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` parameters
         `Prelude.hashWithSalt` startAfter
         `Prelude.hashWithSalt` targets

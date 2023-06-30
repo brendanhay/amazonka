@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     StackResourceDriftInformationSummary' {..} =
-      _salt `Prelude.hashWithSalt` lastCheckTimestamp
+      _salt
+        `Prelude.hashWithSalt` lastCheckTimestamp
         `Prelude.hashWithSalt` stackResourceDriftStatus
 
 instance

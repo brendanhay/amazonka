@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateSchedulingPolicy where
 
 instance Prelude.Hashable CreateSchedulingPolicy where
   hashWithSalt _salt CreateSchedulingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` fairsharePolicy
+    _salt
+      `Prelude.hashWithSalt` fairsharePolicy
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
@@ -198,8 +199,8 @@ data CreateSchedulingPolicyResponse = CreateSchedulingPolicyResponse'
     -- | The name of the scheduling policy.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
-    -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
-    -- example,
+    -- @aws:@/@Partition@/@:batch:@/@Region@/@:@/@Account@/@:scheduling-policy\/@/@Name@/@ @.
+    -- For example,
     -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
     arn :: Prelude.Text
   }
@@ -218,8 +219,8 @@ data CreateSchedulingPolicyResponse = CreateSchedulingPolicyResponse'
 -- 'name', 'createSchedulingPolicyResponse_name' - The name of the scheduling policy.
 --
 -- 'arn', 'createSchedulingPolicyResponse_arn' - The Amazon Resource Name (ARN) of the scheduling policy. The format is
--- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
--- example,
+-- @aws:@/@Partition@/@:batch:@/@Region@/@:@/@Account@/@:scheduling-policy\/@/@Name@/@ @.
+-- For example,
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 newCreateSchedulingPolicyResponse ::
   -- | 'httpStatus'
@@ -249,8 +250,8 @@ createSchedulingPolicyResponse_name :: Lens.Lens' CreateSchedulingPolicyResponse
 createSchedulingPolicyResponse_name = Lens.lens (\CreateSchedulingPolicyResponse' {name} -> name) (\s@CreateSchedulingPolicyResponse' {} a -> s {name = a} :: CreateSchedulingPolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
--- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
--- example,
+-- @aws:@/@Partition@/@:batch:@/@Region@/@:@/@Account@/@:scheduling-policy\/@/@Name@/@ @.
+-- For example,
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 createSchedulingPolicyResponse_arn :: Lens.Lens' CreateSchedulingPolicyResponse Prelude.Text
 createSchedulingPolicyResponse_arn = Lens.lens (\CreateSchedulingPolicyResponse' {arn} -> arn) (\s@CreateSchedulingPolicyResponse' {} a -> s {arn = a} :: CreateSchedulingPolicyResponse)

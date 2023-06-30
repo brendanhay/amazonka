@@ -401,7 +401,8 @@ instance Data.FromXML IpamPool where
       Prelude.<*> (x Data..@? "allocationDefaultNetmaskLength")
       Prelude.<*> (x Data..@? "allocationMaxNetmaskLength")
       Prelude.<*> (x Data..@? "allocationMinNetmaskLength")
-      Prelude.<*> ( x Data..@? "allocationResourceTagSet"
+      Prelude.<*> ( x
+                      Data..@? "allocationResourceTagSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -421,13 +422,16 @@ instance Data.FromXML IpamPool where
       Prelude.<*> (x Data..@? "sourceIpamPoolId")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "stateMessage")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable IpamPool where
   hashWithSalt _salt IpamPool' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` allocationDefaultNetmaskLength
       `Prelude.hashWithSalt` allocationMaxNetmaskLength
       `Prelude.hashWithSalt` allocationMinNetmaskLength

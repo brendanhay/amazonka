@@ -140,7 +140,8 @@ instance Core.AWSRequest BatchPutAttributes where
 
 instance Prelude.Hashable BatchPutAttributes where
   hashWithSalt _salt BatchPutAttributes' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` items
 
 instance Prelude.NFData BatchPutAttributes where

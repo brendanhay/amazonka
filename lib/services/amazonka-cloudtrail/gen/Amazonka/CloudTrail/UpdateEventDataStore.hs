@@ -271,7 +271,8 @@ instance Core.AWSRequest UpdateEventDataStore where
     Response.receiveJSON
       ( \s h x ->
           UpdateEventDataStoreResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CreatedTimestamp")
@@ -289,7 +290,8 @@ instance Core.AWSRequest UpdateEventDataStore where
 
 instance Prelude.Hashable UpdateEventDataStore where
   hashWithSalt _salt UpdateEventDataStore' {..} =
-    _salt `Prelude.hashWithSalt` advancedEventSelectors
+    _salt
+      `Prelude.hashWithSalt` advancedEventSelectors
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` multiRegionEnabled
       `Prelude.hashWithSalt` name

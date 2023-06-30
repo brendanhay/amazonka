@@ -121,7 +121,8 @@ instance Data.FromJSON DataSourcesFreeTrial where
 
 instance Prelude.Hashable DataSourcesFreeTrial where
   hashWithSalt _salt DataSourcesFreeTrial' {..} =
-    _salt `Prelude.hashWithSalt` cloudTrail
+    _salt
+      `Prelude.hashWithSalt` cloudTrail
       `Prelude.hashWithSalt` dnsLogs
       `Prelude.hashWithSalt` flowLogs
       `Prelude.hashWithSalt` kubernetes

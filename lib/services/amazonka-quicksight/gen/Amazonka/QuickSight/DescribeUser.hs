@@ -122,7 +122,8 @@ instance Core.AWSRequest DescribeUser where
 
 instance Prelude.Hashable DescribeUser where
   hashWithSalt _salt DescribeUser' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace
 

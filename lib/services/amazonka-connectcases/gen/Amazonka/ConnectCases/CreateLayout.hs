@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateLayout where
 
 instance Prelude.Hashable CreateLayout where
   hashWithSalt _salt CreateLayout' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` name
 

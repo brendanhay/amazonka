@@ -127,7 +127,8 @@ instance Data.FromJSON IotAnalyticsAction where
 
 instance Prelude.Hashable IotAnalyticsAction where
   hashWithSalt _salt IotAnalyticsAction' {..} =
-    _salt `Prelude.hashWithSalt` batchMode
+    _salt
+      `Prelude.hashWithSalt` batchMode
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` roleArn

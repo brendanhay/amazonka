@@ -130,7 +130,8 @@ instance Data.FromJSON AwsWafv2RulesDetails where
 
 instance Prelude.Hashable AwsWafv2RulesDetails where
   hashWithSalt _salt AwsWafv2RulesDetails' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` overrideAction
       `Prelude.hashWithSalt` priority

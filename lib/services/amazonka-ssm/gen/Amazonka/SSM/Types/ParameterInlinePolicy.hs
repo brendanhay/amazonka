@@ -100,7 +100,8 @@ instance Data.FromJSON ParameterInlinePolicy where
 
 instance Prelude.Hashable ParameterInlinePolicy where
   hashWithSalt _salt ParameterInlinePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyStatus
+    _salt
+      `Prelude.hashWithSalt` policyStatus
       `Prelude.hashWithSalt` policyText
       `Prelude.hashWithSalt` policyType
 

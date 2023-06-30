@@ -402,7 +402,8 @@ instance Data.FromJSON Nodegroup where
 
 instance Prelude.Hashable Nodegroup where
   hashWithSalt _salt Nodegroup' {..} =
-    _salt `Prelude.hashWithSalt` amiType
+    _salt
+      `Prelude.hashWithSalt` amiType
       `Prelude.hashWithSalt` capacityType
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` createdAt

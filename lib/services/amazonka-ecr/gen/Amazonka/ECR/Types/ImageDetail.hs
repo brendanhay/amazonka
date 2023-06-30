@@ -227,7 +227,8 @@ instance Data.FromJSON ImageDetail where
 
 instance Prelude.Hashable ImageDetail where
   hashWithSalt _salt ImageDetail' {..} =
-    _salt `Prelude.hashWithSalt` artifactMediaType
+    _salt
+      `Prelude.hashWithSalt` artifactMediaType
       `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imageManifestMediaType
       `Prelude.hashWithSalt` imagePushedAt

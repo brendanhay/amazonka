@@ -78,7 +78,8 @@ instance Data.FromJSON EC2CreateRouteTableAction where
 
 instance Prelude.Hashable EC2CreateRouteTableAction where
   hashWithSalt _salt EC2CreateRouteTableAction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData EC2CreateRouteTableAction where

@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteReportGroup where
 
 instance Prelude.Hashable DeleteReportGroup where
   hashWithSalt _salt DeleteReportGroup' {..} =
-    _salt `Prelude.hashWithSalt` deleteReports
+    _salt
+      `Prelude.hashWithSalt` deleteReports
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData DeleteReportGroup where

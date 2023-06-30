@@ -85,7 +85,8 @@ instance Data.FromJSON GatewayListItem where
 
 instance Prelude.Hashable GatewayListItem where
   hashWithSalt _salt GatewayListItem' {..} =
-    _salt `Prelude.hashWithSalt` gatewayId
+    _salt
+      `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` downlinkFrequency
 
 instance Prelude.NFData GatewayListItem where

@@ -124,7 +124,8 @@ instance Core.AWSRequest GetRevision where
 
 instance Prelude.Hashable GetRevision where
   hashWithSalt _salt GetRevision' {..} =
-    _salt `Prelude.hashWithSalt` dataSetId
+    _salt
+      `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData GetRevision where

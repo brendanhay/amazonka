@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateQueueHoursOfOperation where
 
 instance Prelude.Hashable UpdateQueueHoursOfOperation where
   hashWithSalt _salt UpdateQueueHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId
       `Prelude.hashWithSalt` hoursOfOperationId
 

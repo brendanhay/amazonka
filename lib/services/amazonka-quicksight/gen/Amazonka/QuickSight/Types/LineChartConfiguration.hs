@@ -248,7 +248,8 @@ instance Data.FromJSON LineChartConfiguration where
             Prelude.<*> (x Data..:? "DataLabels")
             Prelude.<*> (x Data..:? "DefaultSeriesSettings")
             Prelude.<*> (x Data..:? "FieldWells")
-            Prelude.<*> ( x Data..:? "ForecastConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "ForecastConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Legend")

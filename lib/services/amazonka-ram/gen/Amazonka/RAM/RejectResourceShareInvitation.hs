@@ -147,7 +147,8 @@ instance
     RejectResourceShareInvitation
   where
   hashWithSalt _salt RejectResourceShareInvitation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` resourceShareInvitationArn
 
 instance Prelude.NFData RejectResourceShareInvitation where

@@ -159,7 +159,8 @@ instance Core.AWSRequest CopyDistribution where
 
 instance Prelude.Hashable CopyDistribution where
   hashWithSalt _salt CopyDistribution' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` staging
       `Prelude.hashWithSalt` primaryDistributionId
       `Prelude.hashWithSalt` callerReference

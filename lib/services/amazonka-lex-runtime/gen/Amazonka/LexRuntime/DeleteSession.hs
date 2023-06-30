@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteSession where
 
 instance Prelude.Hashable DeleteSession where
   hashWithSalt _salt DeleteSession' {..} =
-    _salt `Prelude.hashWithSalt` botName
+    _salt
+      `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` botAlias
       `Prelude.hashWithSalt` userId
 

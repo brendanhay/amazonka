@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     RepositoryTriggerExecutionFailure' {..} =
-      _salt `Prelude.hashWithSalt` failureMessage
+      _salt
+        `Prelude.hashWithSalt` failureMessage
         `Prelude.hashWithSalt` trigger
 
 instance

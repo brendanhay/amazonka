@@ -174,7 +174,8 @@ instance
   hashWithSalt
     _salt
     ApplicationDateRangeKpiResponse' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` kpiResult
         `Prelude.hashWithSalt` kpiName
         `Prelude.hashWithSalt` endTime

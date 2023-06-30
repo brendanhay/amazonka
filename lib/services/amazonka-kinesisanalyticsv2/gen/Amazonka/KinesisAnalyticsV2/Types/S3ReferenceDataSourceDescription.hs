@@ -118,7 +118,8 @@ instance
   hashWithSalt
     _salt
     S3ReferenceDataSourceDescription' {..} =
-      _salt `Prelude.hashWithSalt` referenceRoleARN
+      _salt
+        `Prelude.hashWithSalt` referenceRoleARN
         `Prelude.hashWithSalt` bucketARN
         `Prelude.hashWithSalt` fileKey
 

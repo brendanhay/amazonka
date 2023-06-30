@@ -122,7 +122,8 @@ instance Data.FromJSON InferenceEventSummary where
 
 instance Prelude.Hashable InferenceEventSummary where
   hashWithSalt _salt InferenceEventSummary' {..} =
-    _salt `Prelude.hashWithSalt` diagnostics
+    _salt
+      `Prelude.hashWithSalt` diagnostics
       `Prelude.hashWithSalt` eventDurationInSeconds
       `Prelude.hashWithSalt` eventEndTime
       `Prelude.hashWithSalt` eventStartTime

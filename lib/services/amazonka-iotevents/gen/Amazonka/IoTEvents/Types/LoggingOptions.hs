@@ -109,7 +109,8 @@ instance Data.FromJSON LoggingOptions where
 
 instance Prelude.Hashable LoggingOptions where
   hashWithSalt _salt LoggingOptions' {..} =
-    _salt `Prelude.hashWithSalt` detectorDebugOptions
+    _salt
+      `Prelude.hashWithSalt` detectorDebugOptions
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` level
       `Prelude.hashWithSalt` enabled

@@ -355,20 +355,23 @@ instance Core.AWSPager ListShards where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listShardsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listShardsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listShardsResponse_shards Prelude.. Lens._Just
+            Lens.^? listShardsResponse_shards
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listShards_nextToken
           Lens..~ rs
-          Lens.^? listShardsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listShardsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListShards where
   type AWSResponse ListShards = ListShardsResponse
@@ -385,7 +388,8 @@ instance Core.AWSRequest ListShards where
 
 instance Prelude.Hashable ListShards where
   hashWithSalt _salt ListShards' {..} =
-    _salt `Prelude.hashWithSalt` exclusiveStartShardId
+    _salt
+      `Prelude.hashWithSalt` exclusiveStartShardId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` shardFilter

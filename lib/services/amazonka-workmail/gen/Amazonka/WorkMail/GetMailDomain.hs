@@ -113,7 +113,8 @@ instance Core.AWSRequest GetMailDomain where
 
 instance Prelude.Hashable GetMailDomain where
   hashWithSalt _salt GetMailDomain' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData GetMailDomain where

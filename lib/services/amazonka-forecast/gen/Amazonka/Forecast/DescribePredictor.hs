@@ -132,12 +132,14 @@ instance Core.AWSRequest DescribePredictor where
       ( \s h x ->
           DescribePredictorResponse'
             Prelude.<$> (x Data..?> "AlgorithmArn")
-            Prelude.<*> ( x Data..?> "AutoMLAlgorithmArns"
+            Prelude.<*> ( x
+                            Data..?> "AutoMLAlgorithmArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "AutoMLOverrideStrategy")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> ( x Data..?> "DatasetImportJobArns"
+            Prelude.<*> ( x
+                            Data..?> "DatasetImportJobArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EncryptionConfig")
@@ -158,7 +160,8 @@ instance Core.AWSRequest DescribePredictor where
             Prelude.<*> (x Data..?> "PredictorExecutionDetails")
             Prelude.<*> (x Data..?> "PredictorName")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> ( x Data..?> "TrainingParameters"
+            Prelude.<*> ( x
+                            Data..?> "TrainingParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

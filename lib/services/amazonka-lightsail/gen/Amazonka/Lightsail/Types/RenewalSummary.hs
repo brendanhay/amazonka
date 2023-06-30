@@ -159,7 +159,8 @@ instance Data.FromJSON RenewalSummary where
       "RenewalSummary"
       ( \x ->
           RenewalSummary'
-            Prelude.<$> ( x Data..:? "domainValidationRecords"
+            Prelude.<$> ( x
+                            Data..:? "domainValidationRecords"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "renewalStatus")

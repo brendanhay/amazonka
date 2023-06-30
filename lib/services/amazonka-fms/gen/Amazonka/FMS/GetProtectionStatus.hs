@@ -195,7 +195,8 @@ instance Core.AWSRequest GetProtectionStatus where
 
 instance Prelude.Hashable GetProtectionStatus where
   hashWithSalt _salt GetProtectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` memberAccountId
       `Prelude.hashWithSalt` nextToken

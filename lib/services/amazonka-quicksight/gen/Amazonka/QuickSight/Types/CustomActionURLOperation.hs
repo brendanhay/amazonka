@@ -104,7 +104,8 @@ instance Data.FromJSON CustomActionURLOperation where
 
 instance Prelude.Hashable CustomActionURLOperation where
   hashWithSalt _salt CustomActionURLOperation' {..} =
-    _salt `Prelude.hashWithSalt` uRLTemplate
+    _salt
+      `Prelude.hashWithSalt` uRLTemplate
       `Prelude.hashWithSalt` uRLTarget
 
 instance Prelude.NFData CustomActionURLOperation where

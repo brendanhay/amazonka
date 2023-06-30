@@ -128,7 +128,8 @@ instance Core.AWSRequest PutLifecyclePolicy where
 
 instance Prelude.Hashable PutLifecyclePolicy where
   hashWithSalt _salt PutLifecyclePolicy' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` lifecyclePolicyText
 

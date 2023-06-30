@@ -157,7 +157,8 @@ instance Core.AWSRequest ReplicateInstance where
 
 instance Prelude.Hashable ReplicateInstance where
   hashWithSalt _salt ReplicateInstance' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` replicaRegion
       `Prelude.hashWithSalt` replicaAlias

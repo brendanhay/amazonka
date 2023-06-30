@@ -78,7 +78,7 @@ instance
       ( \x ->
           AwsDynamoDbTableReplicaGlobalSecondaryIndex'
             Prelude.<$> (x Data..:? "IndexName")
-              Prelude.<*> (x Data..:? "ProvisionedThroughputOverride")
+            Prelude.<*> (x Data..:? "ProvisionedThroughputOverride")
       )
 
 instance
@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableReplicaGlobalSecondaryIndex' {..} =
-      _salt `Prelude.hashWithSalt` indexName
+      _salt
+        `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` provisionedThroughputOverride
 
 instance

@@ -43,19 +43,19 @@ data LabelingJobAlgorithmsConfig = LabelingJobAlgorithmsConfig'
     --
     -- -   /Image classification/
     --
-    --     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/image-classification@
+    --     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/image-classification@
     --
     -- -   /Text classification/
     --
-    --     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/text-classification@
+    --     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/text-classification@
     --
     -- -   /Object detection/
     --
-    --     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/object-detection@
+    --     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/object-detection@
     --
     -- -   /Semantic Segmentation/
     --
-    --     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/semantic-segmentation@
+    --     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/semantic-segmentation@
     labelingJobAlgorithmSpecificationArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,19 +80,19 @@ data LabelingJobAlgorithmsConfig = LabelingJobAlgorithmsConfig'
 --
 -- -   /Image classification/
 --
---     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/image-classification@
+--     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/image-classification@
 --
 -- -   /Text classification/
 --
---     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/text-classification@
+--     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/text-classification@
 --
 -- -   /Object detection/
 --
---     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/object-detection@
+--     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/object-detection@
 --
 -- -   /Semantic Segmentation/
 --
---     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/semantic-segmentation@
+--     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/semantic-segmentation@
 newLabelingJobAlgorithmsConfig ::
   -- | 'labelingJobAlgorithmSpecificationArn'
   Prelude.Text ->
@@ -123,19 +123,19 @@ labelingJobAlgorithmsConfig_labelingJobResourceConfig = Lens.lens (\LabelingJobA
 --
 -- -   /Image classification/
 --
---     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/image-classification@
+--     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/image-classification@
 --
 -- -   /Text classification/
 --
---     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/text-classification@
+--     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/text-classification@
 --
 -- -   /Object detection/
 --
---     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/object-detection@
+--     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/object-detection@
 --
 -- -   /Semantic Segmentation/
 --
---     @arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification\/semantic-segmentation@
+--     @arn:aws:sagemaker:@/@region@/@:027400017018:labeling-job-algorithm-specification\/semantic-segmentation@
 labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn :: Lens.Lens' LabelingJobAlgorithmsConfig Prelude.Text
 labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn = Lens.lens (\LabelingJobAlgorithmsConfig' {labelingJobAlgorithmSpecificationArn} -> labelingJobAlgorithmSpecificationArn) (\s@LabelingJobAlgorithmsConfig' {} a -> s {labelingJobAlgorithmSpecificationArn = a} :: LabelingJobAlgorithmsConfig)
 

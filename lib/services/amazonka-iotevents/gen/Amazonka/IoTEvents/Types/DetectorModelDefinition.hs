@@ -82,7 +82,8 @@ instance Data.FromJSON DetectorModelDefinition where
 
 instance Prelude.Hashable DetectorModelDefinition where
   hashWithSalt _salt DetectorModelDefinition' {..} =
-    _salt `Prelude.hashWithSalt` states
+    _salt
+      `Prelude.hashWithSalt` states
       `Prelude.hashWithSalt` initialStateName
 
 instance Prelude.NFData DetectorModelDefinition where

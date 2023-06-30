@@ -121,7 +121,8 @@ instance Data.FromJSON SectionalElement where
 
 instance Prelude.Hashable SectionalElement where
   hashWithSalt _salt SectionalElement' {..} =
-    _salt `Prelude.hashWithSalt` level
+    _salt
+      `Prelude.hashWithSalt` level
       `Prelude.hashWithSalt` orientation
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` text

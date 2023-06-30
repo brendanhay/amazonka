@@ -81,7 +81,8 @@ instance Data.FromJSON HttpGatewayRouteAction where
 
 instance Prelude.Hashable HttpGatewayRouteAction where
   hashWithSalt _salt HttpGatewayRouteAction' {..} =
-    _salt `Prelude.hashWithSalt` rewrite
+    _salt
+      `Prelude.hashWithSalt` rewrite
       `Prelude.hashWithSalt` target
 
 instance Prelude.NFData HttpGatewayRouteAction where

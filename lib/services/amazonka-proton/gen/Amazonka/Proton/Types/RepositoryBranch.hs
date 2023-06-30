@@ -103,7 +103,8 @@ instance Data.FromJSON RepositoryBranch where
 
 instance Prelude.Hashable RepositoryBranch where
   hashWithSalt _salt RepositoryBranch' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` provider

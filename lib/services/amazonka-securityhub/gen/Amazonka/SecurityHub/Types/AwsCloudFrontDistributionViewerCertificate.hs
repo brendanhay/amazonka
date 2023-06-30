@@ -154,12 +154,12 @@ instance
       ( \x ->
           AwsCloudFrontDistributionViewerCertificate'
             Prelude.<$> (x Data..:? "AcmCertificateArn")
-              Prelude.<*> (x Data..:? "Certificate")
-              Prelude.<*> (x Data..:? "CertificateSource")
-              Prelude.<*> (x Data..:? "CloudFrontDefaultCertificate")
-              Prelude.<*> (x Data..:? "IamCertificateId")
-              Prelude.<*> (x Data..:? "MinimumProtocolVersion")
-              Prelude.<*> (x Data..:? "SslSupportMethod")
+            Prelude.<*> (x Data..:? "Certificate")
+            Prelude.<*> (x Data..:? "CertificateSource")
+            Prelude.<*> (x Data..:? "CloudFrontDefaultCertificate")
+            Prelude.<*> (x Data..:? "IamCertificateId")
+            Prelude.<*> (x Data..:? "MinimumProtocolVersion")
+            Prelude.<*> (x Data..:? "SslSupportMethod")
       )
 
 instance
@@ -169,7 +169,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionViewerCertificate' {..} =
-      _salt `Prelude.hashWithSalt` acmCertificateArn
+      _salt
+        `Prelude.hashWithSalt` acmCertificateArn
         `Prelude.hashWithSalt` certificate
         `Prelude.hashWithSalt` certificateSource
         `Prelude.hashWithSalt` cloudFrontDefaultCertificate

@@ -154,7 +154,8 @@ instance Data.FromJSON LabelSummary where
 
 instance Prelude.Hashable LabelSummary where
   hashWithSalt _salt LabelSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` equipment
       `Prelude.hashWithSalt` faultCode

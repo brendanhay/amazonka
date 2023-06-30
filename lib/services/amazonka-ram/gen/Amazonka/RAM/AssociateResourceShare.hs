@@ -249,7 +249,8 @@ instance Core.AWSRequest AssociateResourceShare where
       ( \s h x ->
           AssociateResourceShareResponse'
             Prelude.<$> (x Data..?> "clientToken")
-            Prelude.<*> ( x Data..?> "resourceShareAssociations"
+            Prelude.<*> ( x
+                            Data..?> "resourceShareAssociations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -257,7 +258,8 @@ instance Core.AWSRequest AssociateResourceShare where
 
 instance Prelude.Hashable AssociateResourceShare where
   hashWithSalt _salt AssociateResourceShare' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` resourceArns
       `Prelude.hashWithSalt` resourceShareArn

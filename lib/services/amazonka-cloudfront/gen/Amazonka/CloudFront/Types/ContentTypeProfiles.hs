@@ -68,14 +68,17 @@ contentTypeProfiles_quantity = Lens.lens (\ContentTypeProfiles' {quantity} -> qu
 instance Data.FromXML ContentTypeProfiles where
   parseXML x =
     ContentTypeProfiles'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ContentTypeProfile")
                   )
       Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable ContentTypeProfiles where
   hashWithSalt _salt ContentTypeProfiles' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData ContentTypeProfiles where

@@ -163,7 +163,8 @@ instance Data.FromJSON ContainerDependency where
 
 instance Prelude.Hashable ContainerDependency where
   hashWithSalt _salt ContainerDependency' {..} =
-    _salt `Prelude.hashWithSalt` containerName
+    _salt
+      `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` condition
 
 instance Prelude.NFData ContainerDependency where

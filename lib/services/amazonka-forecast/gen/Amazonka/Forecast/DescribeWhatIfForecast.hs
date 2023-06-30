@@ -120,7 +120,8 @@ instance Core.AWSRequest DescribeWhatIfForecast where
             Prelude.<*> (x Data..?> "Message")
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "TimeSeriesReplacementsDataSource")
-            Prelude.<*> ( x Data..?> "TimeSeriesTransformations"
+            Prelude.<*> ( x
+                            Data..?> "TimeSeriesTransformations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "WhatIfAnalysisArn")

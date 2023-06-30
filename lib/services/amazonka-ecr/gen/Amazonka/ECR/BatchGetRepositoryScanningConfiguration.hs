@@ -95,10 +95,11 @@ instance
       ( \s h x ->
           BatchGetRepositoryScanningConfigurationResponse'
             Prelude.<$> (x Data..?> "failures" Core..!@ Prelude.mempty)
-              Prelude.<*> ( x Data..?> "scanningConfigurations"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "scanningConfigurations"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -76,7 +76,8 @@ instance Data.FromJSON TargetResourceTypeParameter where
 
 instance Prelude.Hashable TargetResourceTypeParameter where
   hashWithSalt _salt TargetResourceTypeParameter' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` required
 
 instance Prelude.NFData TargetResourceTypeParameter where

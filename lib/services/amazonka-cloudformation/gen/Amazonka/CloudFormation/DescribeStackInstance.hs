@@ -185,7 +185,8 @@ instance Core.AWSRequest DescribeStackInstance where
 
 instance Prelude.Hashable DescribeStackInstance where
   hashWithSalt _salt DescribeStackInstance' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` stackInstanceAccount
       `Prelude.hashWithSalt` stackInstanceRegion

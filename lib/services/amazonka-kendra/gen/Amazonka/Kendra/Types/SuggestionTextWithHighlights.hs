@@ -83,7 +83,8 @@ instance
     SuggestionTextWithHighlights
   where
   hashWithSalt _salt SuggestionTextWithHighlights' {..} =
-    _salt `Prelude.hashWithSalt` highlights
+    _salt
+      `Prelude.hashWithSalt` highlights
       `Prelude.hashWithSalt` text
 
 instance Prelude.NFData SuggestionTextWithHighlights where

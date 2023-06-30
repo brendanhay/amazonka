@@ -120,7 +120,8 @@ instance Data.FromJSON Behavior where
 
 instance Prelude.Hashable Behavior where
   hashWithSalt _salt Behavior' {..} =
-    _salt `Prelude.hashWithSalt` criteria
+    _salt
+      `Prelude.hashWithSalt` criteria
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` metricDimension
       `Prelude.hashWithSalt` suppressAlerts

@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteProfile where
 
 instance Prelude.Hashable DeleteProfile where
   hashWithSalt _salt DeleteProfile' {..} =
-    _salt `Prelude.hashWithSalt` profileId
+    _salt
+      `Prelude.hashWithSalt` profileId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DeleteProfile where

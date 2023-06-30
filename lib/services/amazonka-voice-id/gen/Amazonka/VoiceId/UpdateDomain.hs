@@ -148,7 +148,8 @@ instance Core.AWSRequest UpdateDomain where
 
 instance Prelude.Hashable UpdateDomain where
   hashWithSalt _salt UpdateDomain' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration

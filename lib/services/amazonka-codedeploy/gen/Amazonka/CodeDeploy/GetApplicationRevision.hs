@@ -116,7 +116,8 @@ instance Core.AWSRequest GetApplicationRevision where
 
 instance Prelude.Hashable GetApplicationRevision where
   hashWithSalt _salt GetApplicationRevision' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` revision
 
 instance Prelude.NFData GetApplicationRevision where

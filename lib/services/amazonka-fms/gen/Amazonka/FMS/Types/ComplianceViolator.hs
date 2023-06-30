@@ -107,7 +107,8 @@ instance Data.FromJSON ComplianceViolator where
 
 instance Prelude.Hashable ComplianceViolator where
   hashWithSalt _salt ComplianceViolator' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` violationReason

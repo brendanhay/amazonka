@@ -159,7 +159,8 @@ instance Core.AWSRequest ModifyPrivateDnsNameOptions where
 
 instance Prelude.Hashable ModifyPrivateDnsNameOptions where
   hashWithSalt _salt ModifyPrivateDnsNameOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` enableResourceNameDnsAAAARecord
       `Prelude.hashWithSalt` enableResourceNameDnsARecord
       `Prelude.hashWithSalt` instanceId

@@ -141,7 +141,8 @@ instance Data.FromJSON AppBlock where
 
 instance Prelude.Hashable AppBlock where
   hashWithSalt _salt AppBlock' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` sourceS3Location

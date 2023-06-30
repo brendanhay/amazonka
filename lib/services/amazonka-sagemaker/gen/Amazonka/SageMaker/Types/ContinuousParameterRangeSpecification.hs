@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     ContinuousParameterRangeSpecification' {..} =
-      _salt `Prelude.hashWithSalt` minValue
+      _salt
+        `Prelude.hashWithSalt` minValue
         `Prelude.hashWithSalt` maxValue
 
 instance

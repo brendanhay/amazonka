@@ -98,7 +98,8 @@ instance Data.FromJSON Radios where
 
 instance Prelude.Hashable Radios where
   hashWithSalt _salt Radios' {..} =
-    _salt `Prelude.hashWithSalt` bluetooth
+    _salt
+      `Prelude.hashWithSalt` bluetooth
       `Prelude.hashWithSalt` gps
       `Prelude.hashWithSalt` nfc
       `Prelude.hashWithSalt` wifi

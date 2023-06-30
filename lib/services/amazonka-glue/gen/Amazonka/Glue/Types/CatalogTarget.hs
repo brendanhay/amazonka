@@ -117,7 +117,8 @@ instance Data.FromJSON CatalogTarget where
 
 instance Prelude.Hashable CatalogTarget where
   hashWithSalt _salt CatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
+    _salt
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` dlqEventQueueArn
       `Prelude.hashWithSalt` eventQueueArn
       `Prelude.hashWithSalt` databaseName

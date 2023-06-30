@@ -131,7 +131,8 @@ instance Core.AWSRequest DescribeAccountAttributes where
     Response.receiveXML
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> ( x Data..@? "accountAttributeSet"
+            Prelude.<$> ( x
+                            Data..@? "accountAttributeSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -140,7 +141,8 @@ instance Core.AWSRequest DescribeAccountAttributes where
 
 instance Prelude.Hashable DescribeAccountAttributes where
   hashWithSalt _salt DescribeAccountAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` dryRun
 
 instance Prelude.NFData DescribeAccountAttributes where

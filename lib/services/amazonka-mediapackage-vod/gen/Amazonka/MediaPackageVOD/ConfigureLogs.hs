@@ -113,7 +113,8 @@ instance Core.AWSRequest ConfigureLogs where
 
 instance Prelude.Hashable ConfigureLogs where
   hashWithSalt _salt ConfigureLogs' {..} =
-    _salt `Prelude.hashWithSalt` egressAccessLogs
+    _salt
+      `Prelude.hashWithSalt` egressAccessLogs
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ConfigureLogs where

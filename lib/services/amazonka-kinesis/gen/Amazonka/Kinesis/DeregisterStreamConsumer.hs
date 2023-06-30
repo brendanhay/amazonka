@@ -133,7 +133,8 @@ instance Core.AWSRequest DeregisterStreamConsumer where
 
 instance Prelude.Hashable DeregisterStreamConsumer where
   hashWithSalt _salt DeregisterStreamConsumer' {..} =
-    _salt `Prelude.hashWithSalt` consumerARN
+    _salt
+      `Prelude.hashWithSalt` consumerARN
       `Prelude.hashWithSalt` consumerName
       `Prelude.hashWithSalt` streamARN
 

@@ -157,7 +157,8 @@ instance Core.AWSRequest CompleteLayerUpload where
 
 instance Prelude.Hashable CompleteLayerUpload where
   hashWithSalt _salt CompleteLayerUpload' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` uploadId
       `Prelude.hashWithSalt` layerDigests

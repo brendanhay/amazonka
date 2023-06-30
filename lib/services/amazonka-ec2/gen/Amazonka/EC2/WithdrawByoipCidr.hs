@@ -118,7 +118,8 @@ instance Core.AWSRequest WithdrawByoipCidr where
 
 instance Prelude.Hashable WithdrawByoipCidr where
   hashWithSalt _salt WithdrawByoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` cidr
 
 instance Prelude.NFData WithdrawByoipCidr where

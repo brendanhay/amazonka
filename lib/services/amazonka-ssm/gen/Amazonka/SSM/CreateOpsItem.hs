@@ -462,7 +462,8 @@ instance Core.AWSRequest CreateOpsItem where
 
 instance Prelude.Hashable CreateOpsItem where
   hashWithSalt _salt CreateOpsItem' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` actualEndTime
       `Prelude.hashWithSalt` actualStartTime
       `Prelude.hashWithSalt` category

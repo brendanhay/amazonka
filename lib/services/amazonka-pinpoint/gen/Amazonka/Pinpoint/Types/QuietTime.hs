@@ -87,12 +87,14 @@ instance Data.FromJSON QuietTime where
       "QuietTime"
       ( \x ->
           QuietTime'
-            Prelude.<$> (x Data..:? "End") Prelude.<*> (x Data..:? "Start")
+            Prelude.<$> (x Data..:? "End")
+            Prelude.<*> (x Data..:? "Start")
       )
 
 instance Prelude.Hashable QuietTime where
   hashWithSalt _salt QuietTime' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` start
 
 instance Prelude.NFData QuietTime where

@@ -107,7 +107,8 @@ instance Data.FromJSON DryRunResults where
 
 instance Prelude.Hashable DryRunResults where
   hashWithSalt _salt DryRunResults' {..} =
-    _salt `Prelude.hashWithSalt` deploymentType
+    _salt
+      `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData DryRunResults where

@@ -125,7 +125,8 @@ instance Core.AWSRequest ExecuteQuery where
     Response.receiveJSON
       ( \s h x ->
           ExecuteQueryResponse'
-            Prelude.<$> ( x Data..?> "columnDescriptions"
+            Prelude.<$> ( x
+                            Data..?> "columnDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -135,7 +136,8 @@ instance Core.AWSRequest ExecuteQuery where
 
 instance Prelude.Hashable ExecuteQuery where
   hashWithSalt _salt ExecuteQuery' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` queryStatement

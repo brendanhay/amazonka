@@ -141,22 +141,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReplicationSubnetGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReplicationSubnetGroupsResponse_replicationSubnetGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReplicationSubnetGroups_marker
           Lens..~ rs
           Lens.^? describeReplicationSubnetGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -172,7 +172,8 @@ instance
       ( \s h x ->
           DescribeReplicationSubnetGroupsResponse'
             Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> ( x Data..?> "ReplicationSubnetGroups"
+            Prelude.<*> ( x
+                            Data..?> "ReplicationSubnetGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -185,7 +186,8 @@ instance
   hashWithSalt
     _salt
     DescribeReplicationSubnetGroups' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
 

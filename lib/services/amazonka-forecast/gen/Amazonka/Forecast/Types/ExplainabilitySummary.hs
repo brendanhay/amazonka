@@ -205,7 +205,8 @@ instance Data.FromJSON ExplainabilitySummary where
 
 instance Prelude.Hashable ExplainabilitySummary where
   hashWithSalt _salt ExplainabilitySummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` explainabilityArn
       `Prelude.hashWithSalt` explainabilityConfig
       `Prelude.hashWithSalt` explainabilityName

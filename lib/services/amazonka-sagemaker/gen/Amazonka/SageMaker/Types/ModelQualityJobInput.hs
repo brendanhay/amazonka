@@ -90,7 +90,8 @@ instance Data.FromJSON ModelQualityJobInput where
 
 instance Prelude.Hashable ModelQualityJobInput where
   hashWithSalt _salt ModelQualityJobInput' {..} =
-    _salt `Prelude.hashWithSalt` batchTransformInput
+    _salt
+      `Prelude.hashWithSalt` batchTransformInput
       `Prelude.hashWithSalt` endpointInput
       `Prelude.hashWithSalt` groundTruthS3Input
 

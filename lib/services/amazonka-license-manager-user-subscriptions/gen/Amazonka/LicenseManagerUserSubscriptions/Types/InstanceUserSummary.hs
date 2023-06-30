@@ -148,7 +148,8 @@ instance Data.FromJSON InstanceUserSummary where
 
 instance Prelude.Hashable InstanceUserSummary where
   hashWithSalt _salt InstanceUserSummary' {..} =
-    _salt `Prelude.hashWithSalt` associationDate
+    _salt
+      `Prelude.hashWithSalt` associationDate
       `Prelude.hashWithSalt` disassociationDate
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` statusMessage

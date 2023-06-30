@@ -124,7 +124,8 @@ instance
   hashWithSalt
     _salt
     GetVerifiedAccessEndpointPolicy' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` verifiedAccessEndpointId
 
 instance

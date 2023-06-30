@@ -121,7 +121,8 @@ instance Core.AWSRequest RestoreAddressToClassic where
 
 instance Prelude.Hashable RestoreAddressToClassic where
   hashWithSalt _salt RestoreAddressToClassic' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` publicIp
 
 instance Prelude.NFData RestoreAddressToClassic where

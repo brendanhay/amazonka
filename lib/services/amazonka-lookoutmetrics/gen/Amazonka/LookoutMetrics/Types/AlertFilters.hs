@@ -79,7 +79,8 @@ instance Data.FromJSON AlertFilters where
 
 instance Prelude.Hashable AlertFilters where
   hashWithSalt _salt AlertFilters' {..} =
-    _salt `Prelude.hashWithSalt` dimensionFilterList
+    _salt
+      `Prelude.hashWithSalt` dimensionFilterList
       `Prelude.hashWithSalt` metricList
 
 instance Prelude.NFData AlertFilters where

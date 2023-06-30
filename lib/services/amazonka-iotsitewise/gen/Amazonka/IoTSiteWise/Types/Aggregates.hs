@@ -114,7 +114,8 @@ instance Data.FromJSON Aggregates where
 
 instance Prelude.Hashable Aggregates where
   hashWithSalt _salt Aggregates' {..} =
-    _salt `Prelude.hashWithSalt` average
+    _salt
+      `Prelude.hashWithSalt` average
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` maximum
       `Prelude.hashWithSalt` minimum

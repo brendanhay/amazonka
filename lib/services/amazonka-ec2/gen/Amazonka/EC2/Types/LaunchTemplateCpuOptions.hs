@@ -72,7 +72,8 @@ instance Data.FromXML LaunchTemplateCpuOptions where
 
 instance Prelude.Hashable LaunchTemplateCpuOptions where
   hashWithSalt _salt LaunchTemplateCpuOptions' {..} =
-    _salt `Prelude.hashWithSalt` coreCount
+    _salt
+      `Prelude.hashWithSalt` coreCount
       `Prelude.hashWithSalt` threadsPerCore
 
 instance Prelude.NFData LaunchTemplateCpuOptions where

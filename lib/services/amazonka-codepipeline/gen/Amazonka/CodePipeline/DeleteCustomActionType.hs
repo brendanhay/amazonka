@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteCustomActionType where
 
 instance Prelude.Hashable DeleteCustomActionType where
   hashWithSalt _salt DeleteCustomActionType' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` version
 

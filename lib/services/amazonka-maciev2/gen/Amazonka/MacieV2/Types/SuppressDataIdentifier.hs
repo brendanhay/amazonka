@@ -79,7 +79,8 @@ suppressDataIdentifier_type = Lens.lens (\SuppressDataIdentifier' {type'} -> typ
 
 instance Prelude.Hashable SuppressDataIdentifier where
   hashWithSalt _salt SuppressDataIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SuppressDataIdentifier where

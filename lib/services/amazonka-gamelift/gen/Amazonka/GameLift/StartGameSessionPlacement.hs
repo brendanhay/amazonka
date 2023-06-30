@@ -260,7 +260,8 @@ instance Core.AWSRequest StartGameSessionPlacement where
 
 instance Prelude.Hashable StartGameSessionPlacement where
   hashWithSalt _salt StartGameSessionPlacement' {..} =
-    _salt `Prelude.hashWithSalt` desiredPlayerSessions
+    _salt
+      `Prelude.hashWithSalt` desiredPlayerSessions
       `Prelude.hashWithSalt` gameProperties
       `Prelude.hashWithSalt` gameSessionData
       `Prelude.hashWithSalt` gameSessionName

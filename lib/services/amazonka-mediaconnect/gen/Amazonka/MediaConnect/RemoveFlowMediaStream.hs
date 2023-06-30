@@ -107,7 +107,8 @@ instance Core.AWSRequest RemoveFlowMediaStream where
 
 instance Prelude.Hashable RemoveFlowMediaStream where
   hashWithSalt _salt RemoveFlowMediaStream' {..} =
-    _salt `Prelude.hashWithSalt` flowArn
+    _salt
+      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` mediaStreamName
 
 instance Prelude.NFData RemoveFlowMediaStream where

@@ -268,7 +268,8 @@ instance Core.AWSRequest CreateTrafficMirrorSession where
 
 instance Prelude.Hashable CreateTrafficMirrorSession where
   hashWithSalt _salt CreateTrafficMirrorSession' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` packetLength

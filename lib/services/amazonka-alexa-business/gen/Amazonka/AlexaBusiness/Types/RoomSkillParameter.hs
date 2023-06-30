@@ -81,7 +81,8 @@ instance Data.FromJSON RoomSkillParameter where
 
 instance Prelude.Hashable RoomSkillParameter where
   hashWithSalt _salt RoomSkillParameter' {..} =
-    _salt `Prelude.hashWithSalt` parameterKey
+    _salt
+      `Prelude.hashWithSalt` parameterKey
       `Prelude.hashWithSalt` parameterValue
 
 instance Prelude.NFData RoomSkillParameter where

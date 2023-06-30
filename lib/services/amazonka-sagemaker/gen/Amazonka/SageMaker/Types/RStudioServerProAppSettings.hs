@@ -89,7 +89,8 @@ instance Data.FromJSON RStudioServerProAppSettings where
 
 instance Prelude.Hashable RStudioServerProAppSettings where
   hashWithSalt _salt RStudioServerProAppSettings' {..} =
-    _salt `Prelude.hashWithSalt` accessStatus
+    _salt
+      `Prelude.hashWithSalt` accessStatus
       `Prelude.hashWithSalt` userGroup
 
 instance Prelude.NFData RStudioServerProAppSettings where

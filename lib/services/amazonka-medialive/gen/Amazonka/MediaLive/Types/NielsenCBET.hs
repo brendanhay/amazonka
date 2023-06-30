@@ -98,7 +98,8 @@ instance Data.FromJSON NielsenCBET where
 
 instance Prelude.Hashable NielsenCBET where
   hashWithSalt _salt NielsenCBET' {..} =
-    _salt `Prelude.hashWithSalt` cbetCheckDigitString
+    _salt
+      `Prelude.hashWithSalt` cbetCheckDigitString
       `Prelude.hashWithSalt` cbetStepaside
       `Prelude.hashWithSalt` csid
 

@@ -70,7 +70,8 @@ slotTypeSortBy_order = Lens.lens (\SlotTypeSortBy' {order} -> order) (\s@SlotTyp
 
 instance Prelude.Hashable SlotTypeSortBy where
   hashWithSalt _salt SlotTypeSortBy' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData SlotTypeSortBy where

@@ -95,7 +95,8 @@ instance Data.FromJSON TelephonySettings where
 
 instance Prelude.Hashable TelephonySettings where
   hashWithSalt _salt TelephonySettings' {..} =
-    _salt `Prelude.hashWithSalt` inboundCalling
+    _salt
+      `Prelude.hashWithSalt` inboundCalling
       `Prelude.hashWithSalt` outboundCalling
       `Prelude.hashWithSalt` sms
 

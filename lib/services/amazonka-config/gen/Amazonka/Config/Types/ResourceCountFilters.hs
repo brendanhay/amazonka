@@ -75,7 +75,8 @@ resourceCountFilters_resourceType = Lens.lens (\ResourceCountFilters' {resourceT
 
 instance Prelude.Hashable ResourceCountFilters where
   hashWithSalt _salt ResourceCountFilters' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` resourceType
 

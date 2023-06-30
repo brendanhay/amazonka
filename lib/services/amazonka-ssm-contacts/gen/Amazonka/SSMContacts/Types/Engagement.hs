@@ -124,7 +124,8 @@ instance Data.FromJSON Engagement where
 
 instance Prelude.Hashable Engagement where
   hashWithSalt _salt Engagement' {..} =
-    _salt `Prelude.hashWithSalt` incidentId
+    _salt
+      `Prelude.hashWithSalt` incidentId
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` stopTime
       `Prelude.hashWithSalt` engagementArn

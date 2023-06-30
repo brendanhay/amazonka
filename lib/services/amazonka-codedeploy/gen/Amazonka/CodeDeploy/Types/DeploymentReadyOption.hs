@@ -113,7 +113,8 @@ instance Data.FromJSON DeploymentReadyOption where
 
 instance Prelude.Hashable DeploymentReadyOption where
   hashWithSalt _salt DeploymentReadyOption' {..} =
-    _salt `Prelude.hashWithSalt` actionOnTimeout
+    _salt
+      `Prelude.hashWithSalt` actionOnTimeout
       `Prelude.hashWithSalt` waitTimeInMinutes
 
 instance Prelude.NFData DeploymentReadyOption where

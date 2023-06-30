@@ -187,7 +187,8 @@ instance Data.FromJSON BackupPlansListMember where
       "BackupPlansListMember"
       ( \x ->
           BackupPlansListMember'
-            Prelude.<$> ( x Data..:? "AdvancedBackupSettings"
+            Prelude.<$> ( x
+                            Data..:? "AdvancedBackupSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BackupPlanArn")
@@ -202,7 +203,8 @@ instance Data.FromJSON BackupPlansListMember where
 
 instance Prelude.Hashable BackupPlansListMember where
   hashWithSalt _salt BackupPlansListMember' {..} =
-    _salt `Prelude.hashWithSalt` advancedBackupSettings
+    _salt
+      `Prelude.hashWithSalt` advancedBackupSettings
       `Prelude.hashWithSalt` backupPlanArn
       `Prelude.hashWithSalt` backupPlanId
       `Prelude.hashWithSalt` backupPlanName

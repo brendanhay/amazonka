@@ -101,7 +101,8 @@ instance Data.FromJSON RecordColumn where
 
 instance Prelude.Hashable RecordColumn where
   hashWithSalt _salt RecordColumn' {..} =
-    _salt `Prelude.hashWithSalt` mapping
+    _salt
+      `Prelude.hashWithSalt` mapping
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sqlType
 

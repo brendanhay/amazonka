@@ -97,7 +97,8 @@ instance Data.FromJSON InstanceGroup where
 
 instance Prelude.Hashable InstanceGroup where
   hashWithSalt _salt InstanceGroup' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` instanceGroupName
 

@@ -81,7 +81,8 @@ instance
     CostCategoryProcessingStatus
   where
   hashWithSalt _salt CostCategoryProcessingStatus' {..} =
-    _salt `Prelude.hashWithSalt` component
+    _salt
+      `Prelude.hashWithSalt` component
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CostCategoryProcessingStatus where

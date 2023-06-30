@@ -145,7 +145,8 @@ instance
     RemoveRoleFromInstanceProfile
   where
   hashWithSalt _salt RemoveRoleFromInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` instanceProfileName
+    _salt
+      `Prelude.hashWithSalt` instanceProfileName
       `Prelude.hashWithSalt` roleName
 
 instance Prelude.NFData RemoveRoleFromInstanceProfile where

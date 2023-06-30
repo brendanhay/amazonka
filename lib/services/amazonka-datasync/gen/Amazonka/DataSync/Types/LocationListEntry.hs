@@ -140,7 +140,8 @@ instance Data.FromJSON LocationListEntry where
 
 instance Prelude.Hashable LocationListEntry where
   hashWithSalt _salt LocationListEntry' {..} =
-    _salt `Prelude.hashWithSalt` locationArn
+    _salt
+      `Prelude.hashWithSalt` locationArn
       `Prelude.hashWithSalt` locationUri
 
 instance Prelude.NFData LocationListEntry where

@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateAddressBook where
 
 instance Prelude.Hashable UpdateAddressBook where
   hashWithSalt _salt UpdateAddressBook' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` addressBookArn
 

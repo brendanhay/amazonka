@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateConferenceProvider where
 
 instance Prelude.Hashable CreateConferenceProvider where
   hashWithSalt _salt CreateConferenceProvider' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` iPDialIn
       `Prelude.hashWithSalt` pSTNDialIn
       `Prelude.hashWithSalt` tags

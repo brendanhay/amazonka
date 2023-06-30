@@ -86,7 +86,8 @@ instance Data.FromJSON PerObjectStatus where
 
 instance Prelude.Hashable PerObjectStatus where
   hashWithSalt _salt PerObjectStatus' {..} =
-    _salt `Prelude.hashWithSalt` syncStatus
+    _salt
+      `Prelude.hashWithSalt` syncStatus
       `Prelude.hashWithSalt` updateToken
 
 instance Prelude.NFData PerObjectStatus where

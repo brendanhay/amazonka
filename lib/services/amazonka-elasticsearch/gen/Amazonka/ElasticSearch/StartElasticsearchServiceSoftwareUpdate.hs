@@ -101,7 +101,7 @@ instance
       ( \s h x ->
           StartElasticsearchServiceSoftwareUpdateResponse'
             Prelude.<$> (x Data..?> "ServiceSoftwareOptions")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

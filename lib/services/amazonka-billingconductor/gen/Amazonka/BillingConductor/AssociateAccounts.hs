@@ -111,7 +111,8 @@ instance Core.AWSRequest AssociateAccounts where
 
 instance Prelude.Hashable AssociateAccounts where
   hashWithSalt _salt AssociateAccounts' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData AssociateAccounts where

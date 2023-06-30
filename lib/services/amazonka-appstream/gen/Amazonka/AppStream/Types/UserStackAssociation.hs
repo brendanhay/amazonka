@@ -114,7 +114,8 @@ instance Data.FromJSON UserStackAssociation where
 
 instance Prelude.Hashable UserStackAssociation where
   hashWithSalt _salt UserStackAssociation' {..} =
-    _salt `Prelude.hashWithSalt` sendEmailNotification
+    _salt
+      `Prelude.hashWithSalt` sendEmailNotification
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` authenticationType

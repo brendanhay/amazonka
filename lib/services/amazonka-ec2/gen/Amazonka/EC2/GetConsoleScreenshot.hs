@@ -129,7 +129,8 @@ instance Core.AWSRequest GetConsoleScreenshot where
 
 instance Prelude.Hashable GetConsoleScreenshot where
   hashWithSalt _salt GetConsoleScreenshot' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` wakeUp
       `Prelude.hashWithSalt` instanceId
 

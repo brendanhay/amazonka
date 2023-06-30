@@ -149,7 +149,8 @@ instance Core.AWSRequest DeleteArchive where
 
 instance Prelude.Hashable DeleteArchive where
   hashWithSalt _salt DeleteArchive' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
       `Prelude.hashWithSalt` archiveId
 

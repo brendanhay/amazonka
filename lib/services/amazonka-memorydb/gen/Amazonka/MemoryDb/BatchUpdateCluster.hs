@@ -98,10 +98,12 @@ instance Core.AWSRequest BatchUpdateCluster where
     Response.receiveJSON
       ( \s h x ->
           BatchUpdateClusterResponse'
-            Prelude.<$> ( x Data..?> "ProcessedClusters"
+            Prelude.<$> ( x
+                            Data..?> "ProcessedClusters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "UnprocessedClusters"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedClusters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -109,7 +111,8 @@ instance Core.AWSRequest BatchUpdateCluster where
 
 instance Prelude.Hashable BatchUpdateCluster where
   hashWithSalt _salt BatchUpdateCluster' {..} =
-    _salt `Prelude.hashWithSalt` serviceUpdate
+    _salt
+      `Prelude.hashWithSalt` serviceUpdate
       `Prelude.hashWithSalt` clusterNames
 
 instance Prelude.NFData BatchUpdateCluster where

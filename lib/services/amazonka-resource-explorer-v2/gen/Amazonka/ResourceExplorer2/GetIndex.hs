@@ -77,7 +77,8 @@ instance Core.AWSRequest GetIndex where
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (x Data..?> "LastUpdatedAt")
-            Prelude.<*> ( x Data..?> "ReplicatingFrom"
+            Prelude.<*> ( x
+                            Data..?> "ReplicatingFrom"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ReplicatingTo" Core..!@ Prelude.mempty)

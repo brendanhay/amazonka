@@ -218,7 +218,8 @@ instance Data.FromJSON RevisionEntry where
 
 instance Prelude.Hashable RevisionEntry where
   hashWithSalt _salt RevisionEntry' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` finalized
       `Prelude.hashWithSalt` revocationComment
       `Prelude.hashWithSalt` revoked

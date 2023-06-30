@@ -136,7 +136,8 @@ instance Core.AWSRequest UpdateFolderPermissions where
 
 instance Prelude.Hashable UpdateFolderPermissions where
   hashWithSalt _salt UpdateFolderPermissions' {..} =
-    _salt `Prelude.hashWithSalt` grantPermissions
+    _salt
+      `Prelude.hashWithSalt` grantPermissions
       `Prelude.hashWithSalt` revokePermissions
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` folderId

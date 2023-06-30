@@ -128,7 +128,8 @@ instance Core.AWSRequest PutUserStatus where
 
 instance Prelude.Hashable PutUserStatus where
   hashWithSalt _salt PutUserStatus' {..} =
-    _salt `Prelude.hashWithSalt` userId
+    _salt
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` agentStatusId
 

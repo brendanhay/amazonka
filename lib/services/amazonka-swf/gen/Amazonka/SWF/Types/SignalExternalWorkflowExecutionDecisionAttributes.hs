@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     SignalExternalWorkflowExecutionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` runId
         `Prelude.hashWithSalt` workflowId

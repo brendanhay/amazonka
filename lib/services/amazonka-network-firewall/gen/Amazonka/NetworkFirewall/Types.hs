@@ -516,53 +516,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Amazon Web Services doesn\'t currently have enough available capacity to
 -- fulfill your request. Try your request later.
-_InsufficientCapacityException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InsufficientCapacityException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InsufficientCapacityException =
   Core._MatchServiceError
     defaultService
@@ -570,7 +570,7 @@ _InsufficientCapacityException =
 
 -- | Your request is valid, but Network Firewall couldn’t perform the
 -- operation because of a system problem. Retry your request.
-_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -578,7 +578,7 @@ _InternalServerError =
 
 -- | The operation failed because it\'s not valid. For example, you might
 -- have tried to delete a rule group or firewall policy that\'s in use.
-_InvalidOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidOperationException =
   Core._MatchServiceError
     defaultService
@@ -594,21 +594,21 @@ _InvalidOperationException =
 --
 -- -   Your request references an ARN that is malformed, or corresponds to
 --     a resource that isn\'t valid in the context of the request.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The policy statement failed validation.
-_InvalidResourcePolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidResourcePolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidResourcePolicyException =
   Core._MatchServiceError
     defaultService
     "InvalidResourcePolicyException"
 
 -- | The token you provided is stale or isn\'t valid for the operation.
-_InvalidTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTokenException =
   Core._MatchServiceError
     defaultService
@@ -616,42 +616,42 @@ _InvalidTokenException =
 
 -- | Unable to perform the operation because doing so would violate a limit
 -- setting.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | Unable to send logs to a configured logging destination.
-_LogDestinationPermissionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LogDestinationPermissionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LogDestinationPermissionException =
   Core._MatchServiceError
     defaultService
     "LogDestinationPermissionException"
 
 -- | Unable to locate a resource using the parameters that you provided.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | Unable to change the resource because your account doesn\'t own it.
-_ResourceOwnerCheckException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceOwnerCheckException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceOwnerCheckException =
   Core._MatchServiceError
     defaultService
     "ResourceOwnerCheckException"
 
 -- | Unable to process the request due to throttling limitations.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
 
 -- | The operation you requested isn\'t supported by Network Firewall.
-_UnsupportedOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService

@@ -145,7 +145,8 @@ instance Core.AWSRequest ImportDocumentationParts where
 
 instance Prelude.Hashable ImportDocumentationParts where
   hashWithSalt _salt ImportDocumentationParts' {..} =
-    _salt `Prelude.hashWithSalt` failOnWarnings
+    _salt
+      `Prelude.hashWithSalt` failOnWarnings
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` body

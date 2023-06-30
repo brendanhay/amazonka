@@ -78,7 +78,8 @@ s3ContentLocationUpdate_objectVersionUpdate = Lens.lens (\S3ContentLocationUpdat
 
 instance Prelude.Hashable S3ContentLocationUpdate where
   hashWithSalt _salt S3ContentLocationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` bucketARNUpdate
+    _salt
+      `Prelude.hashWithSalt` bucketARNUpdate
       `Prelude.hashWithSalt` fileKeyUpdate
       `Prelude.hashWithSalt` objectVersionUpdate
 

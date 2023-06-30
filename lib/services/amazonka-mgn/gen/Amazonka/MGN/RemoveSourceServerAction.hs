@@ -104,7 +104,8 @@ instance Core.AWSRequest RemoveSourceServerAction where
 
 instance Prelude.Hashable RemoveSourceServerAction where
   hashWithSalt _salt RemoveSourceServerAction' {..} =
-    _salt `Prelude.hashWithSalt` actionID
+    _salt
+      `Prelude.hashWithSalt` actionID
       `Prelude.hashWithSalt` sourceServerID
 
 instance Prelude.NFData RemoveSourceServerAction where

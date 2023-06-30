@@ -115,7 +115,8 @@ instance Data.FromJSON IpRouteInfo where
 
 instance Prelude.Hashable IpRouteInfo where
   hashWithSalt _salt IpRouteInfo' {..} =
-    _salt `Prelude.hashWithSalt` addedDateTime
+    _salt
+      `Prelude.hashWithSalt` addedDateTime
       `Prelude.hashWithSalt` cidrIp
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` directoryId

@@ -99,7 +99,8 @@ selectParameters_outputSerialization = Lens.lens (\SelectParameters' {outputSeri
 
 instance Prelude.Hashable SelectParameters where
   hashWithSalt _salt SelectParameters' {..} =
-    _salt `Prelude.hashWithSalt` inputSerialization
+    _salt
+      `Prelude.hashWithSalt` inputSerialization
       `Prelude.hashWithSalt` expressionType
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` outputSerialization

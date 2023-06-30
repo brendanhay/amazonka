@@ -75,7 +75,8 @@ instance Data.FromJSON NotebookSessionSummary where
 
 instance Prelude.Hashable NotebookSessionSummary where
   hashWithSalt _salt NotebookSessionSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` sessionId
 
 instance Prelude.NFData NotebookSessionSummary where

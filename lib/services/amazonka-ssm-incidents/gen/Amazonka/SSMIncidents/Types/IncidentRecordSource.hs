@@ -107,7 +107,8 @@ instance Data.FromJSON IncidentRecordSource where
 
 instance Prelude.Hashable IncidentRecordSource where
   hashWithSalt _salt IncidentRecordSource' {..} =
-    _salt `Prelude.hashWithSalt` invokedBy
+    _salt
+      `Prelude.hashWithSalt` invokedBy
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` source

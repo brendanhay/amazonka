@@ -104,7 +104,8 @@ instance Data.FromJSON EndpointMetadata where
 
 instance Prelude.Hashable EndpointMetadata where
   hashWithSalt _salt EndpointMetadata' {..} =
-    _salt `Prelude.hashWithSalt` endpointConfigName
+    _salt
+      `Prelude.hashWithSalt` endpointConfigName
       `Prelude.hashWithSalt` endpointStatus
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` endpointName

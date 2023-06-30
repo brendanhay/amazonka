@@ -227,7 +227,8 @@ instance Core.AWSRequest DescribeType where
             Prelude.<*> (x Data..@? "ProvisioningType")
             Prelude.<*> (x Data..@? "PublicVersionNumber")
             Prelude.<*> (x Data..@? "PublisherId")
-            Prelude.<*> ( x Data..@? "RequiredActivatedTypes"
+            Prelude.<*> ( x
+                            Data..@? "RequiredActivatedTypes"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -244,7 +245,8 @@ instance Core.AWSRequest DescribeType where
 
 instance Prelude.Hashable DescribeType where
   hashWithSalt _salt DescribeType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` publicVersionNumber
       `Prelude.hashWithSalt` publisherId
       `Prelude.hashWithSalt` type'
@@ -311,7 +313,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
     --
     -- To set the default version of an extension, use
-    -- @ SetTypeDefaultVersion @.
+    -- @ @@SetTypeDefaultVersion@@ @.
     defaultVersionId :: Prelude.Maybe Prelude.Text,
     -- | The deprecation status of the extension version.
     --
@@ -534,7 +536,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- To set the default version of an extension, use
--- @ SetTypeDefaultVersion @.
+-- @ @@SetTypeDefaultVersion@@ @.
 --
 -- 'deprecatedStatus', 'describeTypeResponse_deprecatedStatus' - The deprecation status of the extension version.
 --
@@ -787,7 +789,7 @@ describeTypeResponse_configurationSchema = Lens.lens (\DescribeTypeResponse' {co
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- To set the default version of an extension, use
--- @ SetTypeDefaultVersion @.
+-- @ @@SetTypeDefaultVersion@@ @.
 describeTypeResponse_defaultVersionId :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_defaultVersionId = Lens.lens (\DescribeTypeResponse' {defaultVersionId} -> defaultVersionId) (\s@DescribeTypeResponse' {} a -> s {defaultVersionId = a} :: DescribeTypeResponse)
 

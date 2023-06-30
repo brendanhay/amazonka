@@ -161,7 +161,8 @@ newGatingRule_name = Lens.lens (\NewGatingRule' {name} -> name) (\s@NewGatingRul
 
 instance Prelude.Hashable NewGatingRule where
   hashWithSalt _salt NewGatingRule' {..} =
-    _salt `Prelude.hashWithSalt` targetControls
+    _salt
+      `Prelude.hashWithSalt` targetControls
       `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` gatingControls
       `Prelude.hashWithSalt` ruleConfig

@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateStage where
 
 instance Prelude.Hashable CreateStage where
   hashWithSalt _salt CreateStage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gameName

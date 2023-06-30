@@ -75,7 +75,8 @@ instance Data.FromJSON DeviceUnderTest where
 
 instance Prelude.Hashable DeviceUnderTest where
   hashWithSalt _salt DeviceUnderTest' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` thingArn
 
 instance Prelude.NFData DeviceUnderTest where

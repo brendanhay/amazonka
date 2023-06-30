@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     AggregateConformancePackComplianceFilters' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` awsRegion
         `Prelude.hashWithSalt` complianceType
         `Prelude.hashWithSalt` conformancePackName

@@ -1010,22 +1010,22 @@ instance Core.AWSPager DescribeInstances where
     | Core.stop
         ( rs
             Lens.^? describeInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstancesResponse_reservations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstances_nextToken
           Lens..~ rs
           Lens.^? describeInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstances where
   type
@@ -1038,7 +1038,9 @@ instance Core.AWSRequest DescribeInstances where
       ( \s h x ->
           DescribeInstancesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "reservationSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "reservationSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -1046,7 +1048,8 @@ instance Core.AWSRequest DescribeInstances where
 
 instance Prelude.Hashable DescribeInstances where
   hashWithSalt _salt DescribeInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` maxResults

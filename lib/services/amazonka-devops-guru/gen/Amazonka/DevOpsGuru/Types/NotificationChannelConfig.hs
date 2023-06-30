@@ -141,12 +141,14 @@ instance Data.FromJSON NotificationChannelConfig where
       "NotificationChannelConfig"
       ( \x ->
           NotificationChannelConfig'
-            Prelude.<$> (x Data..:? "Filters") Prelude.<*> (x Data..: "Sns")
+            Prelude.<$> (x Data..:? "Filters")
+            Prelude.<*> (x Data..: "Sns")
       )
 
 instance Prelude.Hashable NotificationChannelConfig where
   hashWithSalt _salt NotificationChannelConfig' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` sns
 
 instance Prelude.NFData NotificationChannelConfig where

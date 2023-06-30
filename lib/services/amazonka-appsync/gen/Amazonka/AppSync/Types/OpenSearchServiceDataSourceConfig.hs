@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     OpenSearchServiceDataSourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` endpoint
+      _salt
+        `Prelude.hashWithSalt` endpoint
         `Prelude.hashWithSalt` awsRegion
 
 instance

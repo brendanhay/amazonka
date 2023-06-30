@@ -74,14 +74,16 @@ instance Data.FromJSON OnInputLifecycle where
       ( \x ->
           OnInputLifecycle'
             Prelude.<$> (x Data..:? "events" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "transitionEvents"
+            Prelude.<*> ( x
+                            Data..:? "transitionEvents"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable OnInputLifecycle where
   hashWithSalt _salt OnInputLifecycle' {..} =
-    _salt `Prelude.hashWithSalt` events
+    _salt
+      `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` transitionEvents
 
 instance Prelude.NFData OnInputLifecycle where

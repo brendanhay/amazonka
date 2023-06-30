@@ -111,7 +111,8 @@ instance
     AggregationSortConfiguration
   where
   hashWithSalt _salt AggregationSortConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` column
+    _salt
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` sortDirection
       `Prelude.hashWithSalt` aggregationFunction
 

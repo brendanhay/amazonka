@@ -145,7 +145,8 @@ instance Core.AWSRequest ListImagePipelines where
     Response.receiveJSON
       ( \s h x ->
           ListImagePipelinesResponse'
-            Prelude.<$> ( x Data..?> "imagePipelineList"
+            Prelude.<$> ( x
+                            Data..?> "imagePipelineList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -155,7 +156,8 @@ instance Core.AWSRequest ListImagePipelines where
 
 instance Prelude.Hashable ListImagePipelines where
   hashWithSalt _salt ListImagePipelines' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

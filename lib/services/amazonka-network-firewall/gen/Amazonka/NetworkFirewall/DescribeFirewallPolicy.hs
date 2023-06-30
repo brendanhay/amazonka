@@ -120,7 +120,8 @@ instance Core.AWSRequest DescribeFirewallPolicy where
 
 instance Prelude.Hashable DescribeFirewallPolicy where
   hashWithSalt _salt DescribeFirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` firewallPolicyArn
+    _salt
+      `Prelude.hashWithSalt` firewallPolicyArn
       `Prelude.hashWithSalt` firewallPolicyName
 
 instance Prelude.NFData DescribeFirewallPolicy where

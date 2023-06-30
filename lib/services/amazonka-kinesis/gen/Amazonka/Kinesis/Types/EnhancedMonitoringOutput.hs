@@ -95,10 +95,12 @@ instance Data.FromJSON EnhancedMonitoringOutput where
       "EnhancedMonitoringOutput"
       ( \x ->
           EnhancedMonitoringOutput'
-            Prelude.<$> ( x Data..:? "CurrentShardLevelMetrics"
+            Prelude.<$> ( x
+                            Data..:? "CurrentShardLevelMetrics"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "DesiredShardLevelMetrics"
+            Prelude.<*> ( x
+                            Data..:? "DesiredShardLevelMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StreamARN")

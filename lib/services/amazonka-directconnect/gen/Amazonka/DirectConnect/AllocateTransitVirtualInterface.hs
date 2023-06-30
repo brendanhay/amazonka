@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     AllocateTransitVirtualInterface' {..} =
-      _salt `Prelude.hashWithSalt` connectionId
+      _salt
+        `Prelude.hashWithSalt` connectionId
         `Prelude.hashWithSalt` ownerAccount
         `Prelude.hashWithSalt` newTransitVirtualInterfaceAllocation'
 

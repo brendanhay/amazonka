@@ -101,7 +101,8 @@ instance Data.FromJSON Directory where
 
 instance Prelude.Hashable Directory where
   hashWithSalt _salt Directory' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state

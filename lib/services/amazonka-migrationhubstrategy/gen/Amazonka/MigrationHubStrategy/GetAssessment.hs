@@ -85,7 +85,8 @@ instance Core.AWSRequest GetAssessment where
     Response.receiveJSON
       ( \s h x ->
           GetAssessmentResponse'
-            Prelude.<$> ( x Data..?> "assessmentTargets"
+            Prelude.<$> ( x
+                            Data..?> "assessmentTargets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "dataCollectionDetails")

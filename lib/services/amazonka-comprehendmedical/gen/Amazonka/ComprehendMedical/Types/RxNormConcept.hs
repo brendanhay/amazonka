@@ -88,7 +88,8 @@ instance Data.FromJSON RxNormConcept where
 
 instance Prelude.Hashable RxNormConcept where
   hashWithSalt _salt RxNormConcept' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` score
 

@@ -118,7 +118,8 @@ instance Data.FromJSON FileSystemSize where
 
 instance Prelude.Hashable FileSystemSize where
   hashWithSalt _salt FileSystemSize' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` valueInIA
       `Prelude.hashWithSalt` valueInStandard
       `Prelude.hashWithSalt` value

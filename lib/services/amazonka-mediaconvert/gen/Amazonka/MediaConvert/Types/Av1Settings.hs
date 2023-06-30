@@ -389,7 +389,8 @@ instance Data.FromJSON Av1Settings where
 
 instance Prelude.Hashable Av1Settings where
   hashWithSalt _salt Av1Settings' {..} =
-    _salt `Prelude.hashWithSalt` adaptiveQuantization
+    _salt
+      `Prelude.hashWithSalt` adaptiveQuantization
       `Prelude.hashWithSalt` bitDepth
       `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` framerateConversionAlgorithm

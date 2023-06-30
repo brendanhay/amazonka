@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     PutVoiceConnectorTerminationCredentials' {..} =
-      _salt `Prelude.hashWithSalt` credentials
+      _salt
+        `Prelude.hashWithSalt` credentials
         `Prelude.hashWithSalt` voiceConnectorId
 
 instance

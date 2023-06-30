@@ -114,7 +114,8 @@ instance Data.FromJSON RulesPackage where
 
 instance Prelude.Hashable RulesPackage where
   hashWithSalt _salt RulesPackage' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version

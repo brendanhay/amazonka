@@ -156,7 +156,8 @@ instance Core.AWSRequest GetCapacityReservationUsage where
             Prelude.<$> (x Data..@? "availableInstanceCount")
             Prelude.<*> (x Data..@? "capacityReservationId")
             Prelude.<*> (x Data..@? "instanceType")
-            Prelude.<*> ( x Data..@? "instanceUsageSet"
+            Prelude.<*> ( x
+                            Data..@? "instanceUsageSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -168,7 +169,8 @@ instance Core.AWSRequest GetCapacityReservationUsage where
 
 instance Prelude.Hashable GetCapacityReservationUsage where
   hashWithSalt _salt GetCapacityReservationUsage' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` capacityReservationId

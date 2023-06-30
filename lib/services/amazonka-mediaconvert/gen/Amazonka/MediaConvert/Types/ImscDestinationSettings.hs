@@ -116,7 +116,8 @@ instance Data.FromJSON ImscDestinationSettings where
 
 instance Prelude.Hashable ImscDestinationSettings where
   hashWithSalt _salt ImscDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` accessibility
+    _salt
+      `Prelude.hashWithSalt` accessibility
       `Prelude.hashWithSalt` stylePassthrough
 
 instance Prelude.NFData ImscDestinationSettings where

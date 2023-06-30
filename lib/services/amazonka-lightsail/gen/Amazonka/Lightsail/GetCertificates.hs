@@ -157,7 +157,8 @@ instance Core.AWSRequest GetCertificates where
 
 instance Prelude.Hashable GetCertificates where
   hashWithSalt _salt GetCertificates' {..} =
-    _salt `Prelude.hashWithSalt` certificateName
+    _salt
+      `Prelude.hashWithSalt` certificateName
       `Prelude.hashWithSalt` certificateStatuses
       `Prelude.hashWithSalt` includeCertificateDetails
 

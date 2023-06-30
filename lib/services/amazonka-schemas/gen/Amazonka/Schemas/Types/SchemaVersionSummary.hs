@@ -93,7 +93,8 @@ instance Data.FromJSON SchemaVersionSummary where
 
 instance Prelude.Hashable SchemaVersionSummary where
   hashWithSalt _salt SchemaVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` type'

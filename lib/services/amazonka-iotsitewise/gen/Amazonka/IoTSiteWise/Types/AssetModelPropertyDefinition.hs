@@ -134,7 +134,8 @@ instance
     AssetModelPropertyDefinition
   where
   hashWithSalt _salt AssetModelPropertyDefinition' {..} =
-    _salt `Prelude.hashWithSalt` dataTypeSpec
+    _salt
+      `Prelude.hashWithSalt` dataTypeSpec
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` dataType

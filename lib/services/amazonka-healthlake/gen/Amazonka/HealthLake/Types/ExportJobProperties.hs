@@ -175,7 +175,8 @@ instance Data.FromJSON ExportJobProperties where
 
 instance Prelude.Hashable ExportJobProperties where
   hashWithSalt _salt ExportJobProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` message

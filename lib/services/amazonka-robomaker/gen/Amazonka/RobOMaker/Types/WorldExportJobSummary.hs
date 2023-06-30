@@ -162,7 +162,8 @@ instance Data.FromJSON WorldExportJobSummary where
 
 instance Prelude.Hashable WorldExportJobSummary where
   hashWithSalt _salt WorldExportJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` status

@@ -107,7 +107,8 @@ instance Core.AWSRequest ProvideAnomalyFeedback where
 
 instance Prelude.Hashable ProvideAnomalyFeedback where
   hashWithSalt _salt ProvideAnomalyFeedback' {..} =
-    _salt `Prelude.hashWithSalt` anomalyId
+    _salt
+      `Prelude.hashWithSalt` anomalyId
       `Prelude.hashWithSalt` feedback
 
 instance Prelude.NFData ProvideAnomalyFeedback where

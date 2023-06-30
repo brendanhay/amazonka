@@ -80,7 +80,8 @@ objectFilter_values = Lens.lens (\ObjectFilter' {values} -> values) (\s@ObjectFi
 
 instance Prelude.Hashable ObjectFilter where
   hashWithSalt _salt ObjectFilter' {..} =
-    _salt `Prelude.hashWithSalt` keyName
+    _salt
+      `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ObjectFilter where

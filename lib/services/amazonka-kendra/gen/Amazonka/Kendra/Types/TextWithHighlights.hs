@@ -75,7 +75,8 @@ instance Data.FromJSON TextWithHighlights where
 
 instance Prelude.Hashable TextWithHighlights where
   hashWithSalt _salt TextWithHighlights' {..} =
-    _salt `Prelude.hashWithSalt` highlights
+    _salt
+      `Prelude.hashWithSalt` highlights
       `Prelude.hashWithSalt` text
 
 instance Prelude.NFData TextWithHighlights where

@@ -206,7 +206,8 @@ instance Core.AWSRequest StartContentModeration where
 
 instance Prelude.Hashable StartContentModeration where
   hashWithSalt _salt StartContentModeration' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` notificationChannel

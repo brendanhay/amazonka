@@ -224,7 +224,8 @@ instance
   hashWithSalt
     _salt
     VpnConnectionOptionsSpecification' {..} =
-      _salt `Prelude.hashWithSalt` enableAcceleration
+      _salt
+        `Prelude.hashWithSalt` enableAcceleration
         `Prelude.hashWithSalt` localIpv4NetworkCidr
         `Prelude.hashWithSalt` localIpv6NetworkCidr
         `Prelude.hashWithSalt` outsideIpAddressType

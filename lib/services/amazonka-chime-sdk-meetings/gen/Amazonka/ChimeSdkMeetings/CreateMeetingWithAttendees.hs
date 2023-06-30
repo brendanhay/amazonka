@@ -247,7 +247,8 @@ instance Core.AWSRequest CreateMeetingWithAttendees where
 
 instance Prelude.Hashable CreateMeetingWithAttendees where
   hashWithSalt _salt CreateMeetingWithAttendees' {..} =
-    _salt `Prelude.hashWithSalt` meetingFeatures
+    _salt
+      `Prelude.hashWithSalt` meetingFeatures
       `Prelude.hashWithSalt` meetingHostId
       `Prelude.hashWithSalt` notificationsConfiguration
       `Prelude.hashWithSalt` primaryMeetingId

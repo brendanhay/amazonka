@@ -123,7 +123,8 @@ instance Data.FromJSON FeatureGroupSummary where
 
 instance Prelude.Hashable FeatureGroupSummary where
   hashWithSalt _salt FeatureGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` featureGroupStatus
+    _salt
+      `Prelude.hashWithSalt` featureGroupStatus
       `Prelude.hashWithSalt` offlineStoreStatus
       `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` featureGroupArn

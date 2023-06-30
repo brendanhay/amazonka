@@ -93,7 +93,8 @@ instance Data.FromJSON EncryptionConfig where
 
 instance Prelude.Hashable EncryptionConfig where
   hashWithSalt _salt EncryptionConfig' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` type'
 

@@ -207,7 +207,8 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayConnectPeer' {..} =
-      _salt `Prelude.hashWithSalt` bgpOptions
+      _salt
+        `Prelude.hashWithSalt` bgpOptions
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` transitGatewayAddress

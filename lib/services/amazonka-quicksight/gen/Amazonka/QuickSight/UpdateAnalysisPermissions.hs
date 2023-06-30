@@ -148,7 +148,8 @@ instance Core.AWSRequest UpdateAnalysisPermissions where
 
 instance Prelude.Hashable UpdateAnalysisPermissions where
   hashWithSalt _salt UpdateAnalysisPermissions' {..} =
-    _salt `Prelude.hashWithSalt` grantPermissions
+    _salt
+      `Prelude.hashWithSalt` grantPermissions
       `Prelude.hashWithSalt` revokePermissions
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` analysisId

@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdatePartnerAccount where
 
 instance Prelude.Hashable UpdatePartnerAccount where
   hashWithSalt _salt UpdatePartnerAccount' {..} =
-    _salt `Prelude.hashWithSalt` sidewalk
+    _salt
+      `Prelude.hashWithSalt` sidewalk
       `Prelude.hashWithSalt` partnerAccountId
       `Prelude.hashWithSalt` partnerType
 

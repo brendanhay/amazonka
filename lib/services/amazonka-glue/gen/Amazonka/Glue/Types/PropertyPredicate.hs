@@ -74,7 +74,8 @@ propertyPredicate_value = Lens.lens (\PropertyPredicate' {value} -> value) (\s@P
 
 instance Prelude.Hashable PropertyPredicate where
   hashWithSalt _salt PropertyPredicate' {..} =
-    _salt `Prelude.hashWithSalt` comparator
+    _salt
+      `Prelude.hashWithSalt` comparator
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 

@@ -189,7 +189,8 @@ vpcConfigRequest_subnetIds = Lens.lens (\VpcConfigRequest' {subnetIds} -> subnet
 
 instance Prelude.Hashable VpcConfigRequest where
   hashWithSalt _salt VpcConfigRequest' {..} =
-    _salt `Prelude.hashWithSalt` endpointPrivateAccess
+    _salt
+      `Prelude.hashWithSalt` endpointPrivateAccess
       `Prelude.hashWithSalt` endpointPublicAccess
       `Prelude.hashWithSalt` publicAccessCidrs
       `Prelude.hashWithSalt` securityGroupIds

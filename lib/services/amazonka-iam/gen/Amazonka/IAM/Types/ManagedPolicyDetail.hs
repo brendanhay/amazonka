@@ -261,7 +261,8 @@ instance Data.FromXML ManagedPolicyDetail where
       Prelude.<*> (x Data..@? "PermissionsBoundaryUsageCount")
       Prelude.<*> (x Data..@? "PolicyId")
       Prelude.<*> (x Data..@? "PolicyName")
-      Prelude.<*> ( x Data..@? "PolicyVersionList"
+      Prelude.<*> ( x
+                      Data..@? "PolicyVersionList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -269,7 +270,8 @@ instance Data.FromXML ManagedPolicyDetail where
 
 instance Prelude.Hashable ManagedPolicyDetail where
   hashWithSalt _salt ManagedPolicyDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attachmentCount
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` defaultVersionId

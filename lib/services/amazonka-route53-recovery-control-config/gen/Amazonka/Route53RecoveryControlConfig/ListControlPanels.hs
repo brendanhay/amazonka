@@ -102,22 +102,22 @@ instance Core.AWSPager ListControlPanels where
     | Core.stop
         ( rs
             Lens.^? listControlPanelsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listControlPanelsResponse_controlPanels
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listControlPanels_nextToken
           Lens..~ rs
           Lens.^? listControlPanelsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListControlPanels where
   type
@@ -136,7 +136,8 @@ instance Core.AWSRequest ListControlPanels where
 
 instance Prelude.Hashable ListControlPanels where
   hashWithSalt _salt ListControlPanels' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

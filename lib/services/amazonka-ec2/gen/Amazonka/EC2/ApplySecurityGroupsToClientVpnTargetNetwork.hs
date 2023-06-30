@@ -144,11 +144,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           ApplySecurityGroupsToClientVpnTargetNetworkResponse'
-            Prelude.<$> ( x Data..@? "securityGroupIds"
+            Prelude.<$> ( x
+                            Data..@? "securityGroupIds"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -158,7 +159,8 @@ instance
   hashWithSalt
     _salt
     ApplySecurityGroupsToClientVpnTargetNetwork' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` clientVpnEndpointId
         `Prelude.hashWithSalt` vpcId
         `Prelude.hashWithSalt` securityGroupIds

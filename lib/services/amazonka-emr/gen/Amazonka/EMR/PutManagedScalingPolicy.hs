@@ -111,7 +111,8 @@ instance Core.AWSRequest PutManagedScalingPolicy where
 
 instance Prelude.Hashable PutManagedScalingPolicy where
   hashWithSalt _salt PutManagedScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` managedScalingPolicy
 
 instance Prelude.NFData PutManagedScalingPolicy where

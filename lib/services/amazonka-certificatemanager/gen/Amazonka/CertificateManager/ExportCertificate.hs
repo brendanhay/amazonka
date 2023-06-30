@@ -119,7 +119,8 @@ newExportCertificate pCertificateArn_ pPassphrase_ =
     { certificateArn =
         pCertificateArn_,
       passphrase =
-        Data._Sensitive Prelude.. Data._Base64
+        Data._Sensitive
+          Prelude.. Data._Base64
           Lens.# pPassphrase_
     }
 
@@ -166,7 +167,8 @@ instance Core.AWSRequest ExportCertificate where
 
 instance Prelude.Hashable ExportCertificate where
   hashWithSalt _salt ExportCertificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` passphrase
 
 instance Prelude.NFData ExportCertificate where

@@ -339,7 +339,8 @@ instance Core.AWSRequest UpdateTable where
 
 instance Prelude.Hashable UpdateTable where
   hashWithSalt _salt UpdateTable' {..} =
-    _salt `Prelude.hashWithSalt` addColumns
+    _salt
+      `Prelude.hashWithSalt` addColumns
       `Prelude.hashWithSalt` capacitySpecification
       `Prelude.hashWithSalt` defaultTimeToLive
       `Prelude.hashWithSalt` encryptionSpecification

@@ -96,7 +96,8 @@ instance Data.FromJSON TelemetryMetadata where
 
 instance Prelude.Hashable TelemetryMetadata where
   hashWithSalt _salt TelemetryMetadata' {..} =
-    _salt `Prelude.hashWithSalt` dataSize
+    _salt
+      `Prelude.hashWithSalt` dataSize
       `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` count
 

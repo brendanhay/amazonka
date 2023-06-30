@@ -156,7 +156,8 @@ instance Core.AWSRequest DeleteSlotType where
 
 instance Prelude.Hashable DeleteSlotType where
   hashWithSalt _salt DeleteSlotType' {..} =
-    _salt `Prelude.hashWithSalt` skipResourceInUseCheck
+    _salt
+      `Prelude.hashWithSalt` skipResourceInUseCheck
       `Prelude.hashWithSalt` slotTypeId
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion

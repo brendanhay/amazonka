@@ -100,7 +100,8 @@ instance Data.FromJSON OpusSettings where
 
 instance Prelude.Hashable OpusSettings where
   hashWithSalt _salt OpusSettings' {..} =
-    _salt `Prelude.hashWithSalt` bitrate
+    _salt
+      `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` sampleRate
 

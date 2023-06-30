@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     AwsEcrRepositoryLifecyclePolicyDetails' {..} =
-      _salt `Prelude.hashWithSalt` lifecyclePolicyText
+      _salt
+        `Prelude.hashWithSalt` lifecyclePolicyText
         `Prelude.hashWithSalt` registryId
 
 instance

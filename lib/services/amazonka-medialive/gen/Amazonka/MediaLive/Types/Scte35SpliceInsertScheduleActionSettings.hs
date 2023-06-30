@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     Scte35SpliceInsertScheduleActionSettings' {..} =
-      _salt `Prelude.hashWithSalt` duration
+      _salt
+        `Prelude.hashWithSalt` duration
         `Prelude.hashWithSalt` spliceEventId
 
 instance

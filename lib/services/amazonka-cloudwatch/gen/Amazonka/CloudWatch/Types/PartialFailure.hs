@@ -92,7 +92,8 @@ instance Data.FromXML PartialFailure where
 
 instance Prelude.Hashable PartialFailure where
   hashWithSalt _salt PartialFailure' {..} =
-    _salt `Prelude.hashWithSalt` exceptionType
+    _salt
+      `Prelude.hashWithSalt` exceptionType
       `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` failureDescription
       `Prelude.hashWithSalt` failureResource

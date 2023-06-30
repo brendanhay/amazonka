@@ -93,20 +93,22 @@ instance Core.AWSPager ListPipelines where
     | Core.stop
         ( rs
             Lens.^? listPipelinesResponse_hasMoreResults
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listPipelinesResponse_marker Prelude.. Lens._Just
+            Lens.^? listPipelinesResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPipelines_marker
           Lens..~ rs
-          Lens.^? listPipelinesResponse_marker Prelude.. Lens._Just
+          Lens.^? listPipelinesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipelines where
   type
@@ -121,7 +123,8 @@ instance Core.AWSRequest ListPipelines where
             Prelude.<$> (x Data..?> "hasMoreResults")
             Prelude.<*> (x Data..?> "marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "pipelineIdList"
+            Prelude.<*> ( x
+                            Data..?> "pipelineIdList"
                             Core..!@ Prelude.mempty
                         )
       )

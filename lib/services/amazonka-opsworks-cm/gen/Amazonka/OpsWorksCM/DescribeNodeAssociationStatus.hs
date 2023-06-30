@@ -114,7 +114,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNodeAssociationStatusResponse'
-            Prelude.<$> ( x Data..?> "EngineAttributes"
+            Prelude.<$> ( x
+                            Data..?> "EngineAttributes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

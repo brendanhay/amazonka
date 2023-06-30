@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateLiveSource where
           CreateLiveSourceResponse'
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "LastModifiedTime")
@@ -149,7 +150,8 @@ instance Core.AWSRequest CreateLiveSource where
 
 instance Prelude.Hashable CreateLiveSource where
   hashWithSalt _salt CreateLiveSource' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` httpPackageConfigurations
       `Prelude.hashWithSalt` liveSourceName
       `Prelude.hashWithSalt` sourceLocationName

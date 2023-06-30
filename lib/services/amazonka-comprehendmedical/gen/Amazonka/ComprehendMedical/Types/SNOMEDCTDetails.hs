@@ -92,7 +92,8 @@ instance Data.FromJSON SNOMEDCTDetails where
 
 instance Prelude.Hashable SNOMEDCTDetails where
   hashWithSalt _salt SNOMEDCTDetails' {..} =
-    _salt `Prelude.hashWithSalt` edition
+    _salt
+      `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` versionDate
 

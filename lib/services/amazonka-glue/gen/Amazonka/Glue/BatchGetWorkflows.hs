@@ -114,7 +114,8 @@ instance Core.AWSRequest BatchGetWorkflows where
 
 instance Prelude.Hashable BatchGetWorkflows where
   hashWithSalt _salt BatchGetWorkflows' {..} =
-    _salt `Prelude.hashWithSalt` includeGraph
+    _salt
+      `Prelude.hashWithSalt` includeGraph
       `Prelude.hashWithSalt` names
 
 instance Prelude.NFData BatchGetWorkflows where

@@ -124,7 +124,8 @@ instance Data.FromJSON Rule where
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` assertion
+    _salt
+      `Prelude.hashWithSalt` assertion
       `Prelude.hashWithSalt` gating
 
 instance Prelude.NFData Rule where

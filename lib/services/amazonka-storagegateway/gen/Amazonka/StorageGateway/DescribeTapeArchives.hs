@@ -118,22 +118,22 @@ instance Core.AWSPager DescribeTapeArchives where
     | Core.stop
         ( rs
             Lens.^? describeTapeArchivesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTapeArchivesResponse_tapeArchives
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTapeArchives_marker
           Lens..~ rs
           Lens.^? describeTapeArchivesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTapeArchives where
   type
@@ -152,7 +152,8 @@ instance Core.AWSRequest DescribeTapeArchives where
 
 instance Prelude.Hashable DescribeTapeArchives where
   hashWithSalt _salt DescribeTapeArchives' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` tapeARNs
 

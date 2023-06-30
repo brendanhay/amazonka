@@ -103,7 +103,8 @@ instance Data.FromJSON NetworkReachabilityDetails where
 
 instance Prelude.Hashable NetworkReachabilityDetails where
   hashWithSalt _salt NetworkReachabilityDetails' {..} =
-    _salt `Prelude.hashWithSalt` networkPath
+    _salt
+      `Prelude.hashWithSalt` networkPath
       `Prelude.hashWithSalt` openPortRange
       `Prelude.hashWithSalt` protocol
 

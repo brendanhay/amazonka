@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     SavingsPlansUtilizationAggregates' {..} =
-      _salt `Prelude.hashWithSalt` amortizedCommitment
+      _salt
+        `Prelude.hashWithSalt` amortizedCommitment
         `Prelude.hashWithSalt` savings
         `Prelude.hashWithSalt` utilization
 

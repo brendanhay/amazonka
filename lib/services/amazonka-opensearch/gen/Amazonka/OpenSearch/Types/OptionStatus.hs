@@ -111,7 +111,8 @@ instance Data.FromJSON OptionStatus where
 
 instance Prelude.Hashable OptionStatus where
   hashWithSalt _salt OptionStatus' {..} =
-    _salt `Prelude.hashWithSalt` pendingDeletion
+    _salt
+      `Prelude.hashWithSalt` pendingDeletion
       `Prelude.hashWithSalt` updateVersion
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` updateDate

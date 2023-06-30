@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     ActivityTaskCanceledEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` details
+      _salt
+        `Prelude.hashWithSalt` details
         `Prelude.hashWithSalt` latestCancelRequestedEventId
         `Prelude.hashWithSalt` scheduledEventId
         `Prelude.hashWithSalt` startedEventId

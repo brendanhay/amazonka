@@ -66,8 +66,8 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A set of name-value pairs that define which endpoints to include in the
     -- output. The filters are specified as name-value pairs, in the format
-    -- @Name=endpoint_type,Values=endpoint_type1,endpoint_type2,...@. @Name@
-    -- can be one of: @db-cluster-endpoint-type@,
+    -- @Name=@/@endpoint_type@/@,Values=@/@endpoint_type1@/@,@/@endpoint_type2@/@,...@.
+    -- @Name@ can be one of: @db-cluster-endpoint-type@,
     -- @db-cluster-endpoint-custom-type@, @db-cluster-endpoint-id@,
     -- @db-cluster-endpoint-status@. @Values@ for the
     -- @ db-cluster-endpoint-type@ filter can be one or more of: @reader@,
@@ -109,8 +109,8 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
 --
 -- 'filters', 'describeDBClusterEndpoints_filters' - A set of name-value pairs that define which endpoints to include in the
 -- output. The filters are specified as name-value pairs, in the format
--- @Name=endpoint_type,Values=endpoint_type1,endpoint_type2,...@. @Name@
--- can be one of: @db-cluster-endpoint-type@,
+-- @Name=@/@endpoint_type@/@,Values=@/@endpoint_type1@/@,@/@endpoint_type2@/@,...@.
+-- @Name@ can be one of: @db-cluster-endpoint-type@,
 -- @db-cluster-endpoint-custom-type@, @db-cluster-endpoint-id@,
 -- @db-cluster-endpoint-status@. @Values@ for the
 -- @ db-cluster-endpoint-type@ filter can be one or more of: @reader@,
@@ -156,8 +156,8 @@ describeDBClusterEndpoints_dbClusterIdentifier = Lens.lens (\DescribeDBClusterEn
 
 -- | A set of name-value pairs that define which endpoints to include in the
 -- output. The filters are specified as name-value pairs, in the format
--- @Name=endpoint_type,Values=endpoint_type1,endpoint_type2,...@. @Name@
--- can be one of: @db-cluster-endpoint-type@,
+-- @Name=@/@endpoint_type@/@,Values=@/@endpoint_type1@/@,@/@endpoint_type2@/@,...@.
+-- @Name@ can be one of: @db-cluster-endpoint-type@,
 -- @db-cluster-endpoint-custom-type@, @db-cluster-endpoint-id@,
 -- @db-cluster-endpoint-status@. @Values@ for the
 -- @ db-cluster-endpoint-type@ filter can be one or more of: @reader@,
@@ -191,22 +191,22 @@ instance Core.AWSPager DescribeDBClusterEndpoints where
     | Core.stop
         ( rs
             Lens.^? describeDBClusterEndpointsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClusterEndpointsResponse_dbClusterEndpoints
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBClusterEndpoints_marker
           Lens..~ rs
           Lens.^? describeDBClusterEndpointsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterEndpoints where
   type
@@ -219,7 +219,8 @@ instance Core.AWSRequest DescribeDBClusterEndpoints where
       "DescribeDBClusterEndpointsResult"
       ( \s h x ->
           DescribeDBClusterEndpointsResponse'
-            Prelude.<$> ( x Data..@? "DBClusterEndpoints"
+            Prelude.<$> ( x
+                            Data..@? "DBClusterEndpoints"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBClusterEndpointList")
                         )

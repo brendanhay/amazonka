@@ -110,20 +110,23 @@ instance Core.AWSPager ListDatasets where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDatasetsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listDatasetsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDatasetsResponse_datasets Prelude.. Lens._Just
+            Lens.^? listDatasetsResponse_datasets
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDatasets_nextToken
           Lens..~ rs
-          Lens.^? listDatasetsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDatasetsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatasets where
   type AWSResponse ListDatasets = ListDatasetsResponse
@@ -140,7 +143,8 @@ instance Core.AWSRequest ListDatasets where
 
 instance Prelude.Hashable ListDatasets where
   hashWithSalt _salt ListDatasets' {..} =
-    _salt `Prelude.hashWithSalt` datasetGroupArn
+    _salt
+      `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

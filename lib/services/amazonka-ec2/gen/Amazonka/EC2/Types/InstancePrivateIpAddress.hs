@@ -99,7 +99,8 @@ instance Data.FromXML InstancePrivateIpAddress where
 
 instance Prelude.Hashable InstancePrivateIpAddress where
   hashWithSalt _salt InstancePrivateIpAddress' {..} =
-    _salt `Prelude.hashWithSalt` association
+    _salt
+      `Prelude.hashWithSalt` association
       `Prelude.hashWithSalt` primary
       `Prelude.hashWithSalt` privateDnsName
       `Prelude.hashWithSalt` privateIpAddress

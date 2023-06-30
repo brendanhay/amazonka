@@ -120,7 +120,8 @@ instance Core.AWSRequest DeleteChapCredentials where
 
 instance Prelude.Hashable DeleteChapCredentials where
   hashWithSalt _salt DeleteChapCredentials' {..} =
-    _salt `Prelude.hashWithSalt` targetARN
+    _salt
+      `Prelude.hashWithSalt` targetARN
       `Prelude.hashWithSalt` initiatorName
 
 instance Prelude.NFData DeleteChapCredentials where

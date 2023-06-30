@@ -99,7 +99,8 @@ image_s3Object = Lens.lens (\Image' {s3Object} -> s3Object) (\s@Image' {} a -> s
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` s3Object
 
 instance Prelude.NFData Image where

@@ -143,7 +143,8 @@ instance Core.AWSRequest GetDocumentVersion where
 
 instance Prelude.Hashable GetDocumentVersion where
   hashWithSalt _salt GetDocumentVersion' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` includeCustomMetadata
       `Prelude.hashWithSalt` documentId

@@ -182,7 +182,8 @@ instance Data.FromJSON WorkflowStep where
 
 instance Prelude.Hashable WorkflowStep where
   hashWithSalt _salt WorkflowStep' {..} =
-    _salt `Prelude.hashWithSalt` copyStepDetails
+    _salt
+      `Prelude.hashWithSalt` copyStepDetails
       `Prelude.hashWithSalt` customStepDetails
       `Prelude.hashWithSalt` decryptStepDetails
       `Prelude.hashWithSalt` deleteStepDetails

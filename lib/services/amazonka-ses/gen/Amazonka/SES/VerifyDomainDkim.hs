@@ -125,7 +125,9 @@ instance Core.AWSRequest VerifyDomainDkim where
       ( \s h x ->
           VerifyDomainDkimResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "DkimTokens" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "DkimTokens"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )

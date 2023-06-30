@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeExecution where
 
 instance Prelude.Hashable DescribeExecution where
   hashWithSalt _salt DescribeExecution' {..} =
-    _salt `Prelude.hashWithSalt` executionId
+    _salt
+      `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` workflowId
 
 instance Prelude.NFData DescribeExecution where

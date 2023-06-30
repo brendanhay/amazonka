@@ -68,12 +68,14 @@ instance Data.FromJSON TagListEntry where
       "TagListEntry"
       ( \x ->
           TagListEntry'
-            Prelude.<$> (x Data..:? "Value") Prelude.<*> (x Data..: "Key")
+            Prelude.<$> (x Data..:? "Value")
+            Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable TagListEntry where
   hashWithSalt _salt TagListEntry' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData TagListEntry where

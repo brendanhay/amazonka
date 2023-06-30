@@ -196,7 +196,8 @@ instance Data.FromJSON EndpointInput where
 
 instance Prelude.Hashable EndpointInput where
   hashWithSalt _salt EndpointInput' {..} =
-    _salt `Prelude.hashWithSalt` endTimeOffset
+    _salt
+      `Prelude.hashWithSalt` endTimeOffset
       `Prelude.hashWithSalt` featuresAttribute
       `Prelude.hashWithSalt` inferenceAttribute
       `Prelude.hashWithSalt` probabilityAttribute

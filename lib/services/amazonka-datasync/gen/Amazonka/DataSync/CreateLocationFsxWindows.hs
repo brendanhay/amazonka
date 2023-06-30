@@ -230,7 +230,8 @@ instance Core.AWSRequest CreateLocationFsxWindows where
 
 instance Prelude.Hashable CreateLocationFsxWindows where
   hashWithSalt _salt CreateLocationFsxWindows' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fsxFilesystemArn

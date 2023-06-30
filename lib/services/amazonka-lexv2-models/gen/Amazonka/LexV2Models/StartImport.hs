@@ -160,7 +160,8 @@ instance Core.AWSRequest StartImport where
 
 instance Prelude.Hashable StartImport where
   hashWithSalt _salt StartImport' {..} =
-    _salt `Prelude.hashWithSalt` filePassword
+    _salt
+      `Prelude.hashWithSalt` filePassword
       `Prelude.hashWithSalt` importId
       `Prelude.hashWithSalt` resourceSpecification
       `Prelude.hashWithSalt` mergeStrategy

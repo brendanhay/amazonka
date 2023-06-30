@@ -104,7 +104,8 @@ instance Data.FromJSON AcceleratorTypeOffering where
 
 instance Prelude.Hashable AcceleratorTypeOffering where
   hashWithSalt _salt AcceleratorTypeOffering' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorType
+    _salt
+      `Prelude.hashWithSalt` acceleratorType
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` locationType
 

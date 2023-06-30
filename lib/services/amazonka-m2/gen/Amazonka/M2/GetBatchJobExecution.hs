@@ -124,7 +124,8 @@ instance Core.AWSRequest GetBatchJobExecution where
 
 instance Prelude.Hashable GetBatchJobExecution where
   hashWithSalt _salt GetBatchJobExecution' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` executionId
 
 instance Prelude.NFData GetBatchJobExecution where

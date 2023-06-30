@@ -91,7 +91,8 @@ instance Core.AWSRequest BatchGetTriggers where
       ( \s h x ->
           BatchGetTriggersResponse'
             Prelude.<$> (x Data..?> "Triggers" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "TriggersNotFound"
+            Prelude.<*> ( x
+                            Data..?> "TriggersNotFound"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -92,12 +92,14 @@ instance Data.FromJSON FileAccessLog where
       "FileAccessLog"
       ( \x ->
           FileAccessLog'
-            Prelude.<$> (x Data..:? "format") Prelude.<*> (x Data..: "path")
+            Prelude.<$> (x Data..:? "format")
+            Prelude.<*> (x Data..: "path")
       )
 
 instance Prelude.Hashable FileAccessLog where
   hashWithSalt _salt FileAccessLog' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData FileAccessLog where

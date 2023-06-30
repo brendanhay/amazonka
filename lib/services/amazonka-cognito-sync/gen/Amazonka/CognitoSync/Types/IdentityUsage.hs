@@ -116,7 +116,8 @@ instance Data.FromJSON IdentityUsage where
 
 instance Prelude.Hashable IdentityUsage where
   hashWithSalt _salt IdentityUsage' {..} =
-    _salt `Prelude.hashWithSalt` dataStorage
+    _salt
+      `Prelude.hashWithSalt` dataStorage
       `Prelude.hashWithSalt` datasetCount
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` identityPoolId

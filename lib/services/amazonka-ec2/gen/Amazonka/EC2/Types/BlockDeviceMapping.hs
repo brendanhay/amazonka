@@ -140,7 +140,8 @@ instance Data.FromXML BlockDeviceMapping where
 
 instance Prelude.Hashable BlockDeviceMapping where
   hashWithSalt _salt BlockDeviceMapping' {..} =
-    _salt `Prelude.hashWithSalt` ebs
+    _salt
+      `Prelude.hashWithSalt` ebs
       `Prelude.hashWithSalt` noDevice
       `Prelude.hashWithSalt` virtualName
       `Prelude.hashWithSalt` deviceName

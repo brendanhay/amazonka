@@ -96,7 +96,8 @@ instance Data.FromJSON ReservationUtilizationGroup where
 
 instance Prelude.Hashable ReservationUtilizationGroup where
   hashWithSalt _salt ReservationUtilizationGroup' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` utilization
       `Prelude.hashWithSalt` value

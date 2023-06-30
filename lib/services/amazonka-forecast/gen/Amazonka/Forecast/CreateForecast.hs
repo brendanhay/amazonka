@@ -302,7 +302,8 @@ instance Core.AWSRequest CreateForecast where
 
 instance Prelude.Hashable CreateForecast where
   hashWithSalt _salt CreateForecast' {..} =
-    _salt `Prelude.hashWithSalt` forecastTypes
+    _salt
+      `Prelude.hashWithSalt` forecastTypes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeSeriesSelector
       `Prelude.hashWithSalt` forecastName

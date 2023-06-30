@@ -106,7 +106,8 @@ instance Data.FromJSON JobLogEventData where
 
 instance Prelude.Hashable JobLogEventData where
   hashWithSalt _salt JobLogEventData' {..} =
-    _salt `Prelude.hashWithSalt` conversionProperties
+    _salt
+      `Prelude.hashWithSalt` conversionProperties
       `Prelude.hashWithSalt` conversionServerID
       `Prelude.hashWithSalt` rawError
       `Prelude.hashWithSalt` sourceServerID

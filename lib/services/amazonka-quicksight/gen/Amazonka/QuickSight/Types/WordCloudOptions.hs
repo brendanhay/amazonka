@@ -131,7 +131,8 @@ instance Data.FromJSON WordCloudOptions where
 
 instance Prelude.Hashable WordCloudOptions where
   hashWithSalt _salt WordCloudOptions' {..} =
-    _salt `Prelude.hashWithSalt` cloudLayout
+    _salt
+      `Prelude.hashWithSalt` cloudLayout
       `Prelude.hashWithSalt` maximumStringLength
       `Prelude.hashWithSalt` wordCasing
       `Prelude.hashWithSalt` wordOrientation

@@ -102,7 +102,8 @@ instance Data.FromJSON ThemeSummary where
 
 instance Prelude.Hashable ThemeSummary where
   hashWithSalt _salt ThemeSummary' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

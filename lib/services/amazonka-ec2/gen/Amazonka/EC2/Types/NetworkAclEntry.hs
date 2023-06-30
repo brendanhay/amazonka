@@ -140,7 +140,8 @@ instance Data.FromXML NetworkAclEntry where
 
 instance Prelude.Hashable NetworkAclEntry where
   hashWithSalt _salt NetworkAclEntry' {..} =
-    _salt `Prelude.hashWithSalt` cidrBlock
+    _salt
+      `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` egress
       `Prelude.hashWithSalt` icmpTypeCode
       `Prelude.hashWithSalt` ipv6CidrBlock

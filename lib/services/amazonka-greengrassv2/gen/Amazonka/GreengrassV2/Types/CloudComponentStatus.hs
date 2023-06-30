@@ -168,7 +168,8 @@ instance Data.FromJSON CloudComponentStatus where
 
 instance Prelude.Hashable CloudComponentStatus where
   hashWithSalt _salt CloudComponentStatus' {..} =
-    _salt `Prelude.hashWithSalt` componentState
+    _salt
+      `Prelude.hashWithSalt` componentState
       `Prelude.hashWithSalt` errors
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` vendorGuidance

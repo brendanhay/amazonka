@@ -68,12 +68,14 @@ instance Data.FromJSON PortRangeFromTo where
       "PortRangeFromTo"
       ( \x ->
           PortRangeFromTo'
-            Prelude.<$> (x Data..:? "From") Prelude.<*> (x Data..:? "To")
+            Prelude.<$> (x Data..:? "From")
+            Prelude.<*> (x Data..:? "To")
       )
 
 instance Prelude.Hashable PortRangeFromTo where
   hashWithSalt _salt PortRangeFromTo' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` to
 
 instance Prelude.NFData PortRangeFromTo where

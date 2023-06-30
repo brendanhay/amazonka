@@ -127,14 +127,16 @@ instance Data.FromJSON BatchContainerOverrides where
             Prelude.<$> (x Data..:? "Command" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "InstanceType")
-            Prelude.<*> ( x Data..:? "ResourceRequirements"
+            Prelude.<*> ( x
+                            Data..:? "ResourceRequirements"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BatchContainerOverrides where
   hashWithSalt _salt BatchContainerOverrides' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` resourceRequirements

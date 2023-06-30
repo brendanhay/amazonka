@@ -93,7 +93,8 @@ instance Core.AWSRequest BatchEnableStandards where
     Response.receiveJSON
       ( \s h x ->
           BatchEnableStandardsResponse'
-            Prelude.<$> ( x Data..?> "StandardsSubscriptions"
+            Prelude.<$> ( x
+                            Data..?> "StandardsSubscriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

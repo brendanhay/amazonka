@@ -79,7 +79,8 @@ instance Data.FromJSON AxisDisplayRange where
 
 instance Prelude.Hashable AxisDisplayRange where
   hashWithSalt _salt AxisDisplayRange' {..} =
-    _salt `Prelude.hashWithSalt` dataDriven
+    _salt
+      `Prelude.hashWithSalt` dataDriven
       `Prelude.hashWithSalt` minMax
 
 instance Prelude.NFData AxisDisplayRange where

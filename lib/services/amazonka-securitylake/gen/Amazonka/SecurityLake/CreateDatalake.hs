@@ -162,7 +162,8 @@ instance Core.AWSRequest CreateDatalake where
 
 instance Prelude.Hashable CreateDatalake where
   hashWithSalt _salt CreateDatalake' {..} =
-    _salt `Prelude.hashWithSalt` configurations
+    _salt
+      `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` enableAll
       `Prelude.hashWithSalt` metaStoreManagerRoleArn
       `Prelude.hashWithSalt` regions

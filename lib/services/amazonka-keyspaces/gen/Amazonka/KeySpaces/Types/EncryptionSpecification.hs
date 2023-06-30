@@ -141,7 +141,8 @@ instance Data.FromJSON EncryptionSpecification where
 
 instance Prelude.Hashable EncryptionSpecification where
   hashWithSalt _salt EncryptionSpecification' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyIdentifier
+    _salt
+      `Prelude.hashWithSalt` kmsKeyIdentifier
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EncryptionSpecification where

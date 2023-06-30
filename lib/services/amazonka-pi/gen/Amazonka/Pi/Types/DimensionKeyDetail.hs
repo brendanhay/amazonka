@@ -151,7 +151,8 @@ instance Data.FromJSON DimensionKeyDetail where
 
 instance Prelude.Hashable DimensionKeyDetail where
   hashWithSalt _salt DimensionKeyDetail' {..} =
-    _salt `Prelude.hashWithSalt` dimension
+    _salt
+      `Prelude.hashWithSalt` dimension
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` value
 

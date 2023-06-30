@@ -99,7 +99,8 @@ instance Data.FromJSON GrpcGatewayRouteMatch where
 
 instance Prelude.Hashable GrpcGatewayRouteMatch where
   hashWithSalt _salt GrpcGatewayRouteMatch' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` serviceName

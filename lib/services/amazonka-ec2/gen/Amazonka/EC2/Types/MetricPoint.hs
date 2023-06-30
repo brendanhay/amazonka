@@ -101,7 +101,8 @@ instance Data.FromXML MetricPoint where
 
 instance Prelude.Hashable MetricPoint where
   hashWithSalt _salt MetricPoint' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` value

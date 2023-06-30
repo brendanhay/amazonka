@@ -88,7 +88,8 @@ instance Data.FromJSON FollowUpPrompt where
 
 instance Prelude.Hashable FollowUpPrompt where
   hashWithSalt _salt FollowUpPrompt' {..} =
-    _salt `Prelude.hashWithSalt` prompt
+    _salt
+      `Prelude.hashWithSalt` prompt
       `Prelude.hashWithSalt` rejectionStatement
 
 instance Prelude.NFData FollowUpPrompt where

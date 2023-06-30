@@ -250,7 +250,8 @@ instance Data.FromJSON Command where
 
 instance Prelude.Hashable Command where
   hashWithSalt _salt Command' {..} =
-    _salt `Prelude.hashWithSalt` acknowledgedAt
+    _salt
+      `Prelude.hashWithSalt` acknowledgedAt
       `Prelude.hashWithSalt` commandId
       `Prelude.hashWithSalt` completedAt
       `Prelude.hashWithSalt` createdAt

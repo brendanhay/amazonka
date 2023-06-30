@@ -118,11 +118,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           CancelCapacityReservationFleetsResponse'
-            Prelude.<$> ( x Data..@? "failedFleetCancellationSet"
+            Prelude.<$> ( x
+                            Data..@? "failedFleetCancellationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "successfulFleetCancellationSet"
+            Prelude.<*> ( x
+                            Data..@? "successfulFleetCancellationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -136,7 +138,8 @@ instance
   hashWithSalt
     _salt
     CancelCapacityReservationFleets' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` capacityReservationFleetIds
 
 instance

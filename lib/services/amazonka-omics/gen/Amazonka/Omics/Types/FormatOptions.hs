@@ -76,7 +76,8 @@ instance Data.FromJSON FormatOptions where
 
 instance Prelude.Hashable FormatOptions where
   hashWithSalt _salt FormatOptions' {..} =
-    _salt `Prelude.hashWithSalt` tsvOptions
+    _salt
+      `Prelude.hashWithSalt` tsvOptions
       `Prelude.hashWithSalt` vcfOptions
 
 instance Prelude.NFData FormatOptions where

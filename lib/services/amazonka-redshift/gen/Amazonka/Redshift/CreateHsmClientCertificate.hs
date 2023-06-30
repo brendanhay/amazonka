@@ -123,7 +123,8 @@ instance Core.AWSRequest CreateHsmClientCertificate where
 
 instance Prelude.Hashable CreateHsmClientCertificate where
   hashWithSalt _salt CreateHsmClientCertificate' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` hsmClientCertificateIdentifier
 
 instance Prelude.NFData CreateHsmClientCertificate where

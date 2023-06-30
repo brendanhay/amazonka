@@ -110,7 +110,8 @@ instance Data.FromJSON RegexMatchSetSummary where
 
 instance Prelude.Hashable RegexMatchSetSummary where
   hashWithSalt _salt RegexMatchSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` regexMatchSetId
+    _salt
+      `Prelude.hashWithSalt` regexMatchSetId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RegexMatchSetSummary where

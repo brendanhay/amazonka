@@ -78,7 +78,8 @@ instance Data.FromJSON CustomValuesConfiguration where
 
 instance Prelude.Hashable CustomValuesConfiguration where
   hashWithSalt _salt CustomValuesConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` includeNullValue
+    _salt
+      `Prelude.hashWithSalt` includeNullValue
       `Prelude.hashWithSalt` customValues
 
 instance Prelude.NFData CustomValuesConfiguration where

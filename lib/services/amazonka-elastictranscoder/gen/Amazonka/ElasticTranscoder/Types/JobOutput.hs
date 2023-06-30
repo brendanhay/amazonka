@@ -757,7 +757,8 @@ instance Data.FromJSON JobOutput where
 
 instance Prelude.Hashable JobOutput where
   hashWithSalt _salt JobOutput' {..} =
-    _salt `Prelude.hashWithSalt` albumArt
+    _salt
+      `Prelude.hashWithSalt` albumArt
       `Prelude.hashWithSalt` appliedColorSpaceConversion
       `Prelude.hashWithSalt` captions
       `Prelude.hashWithSalt` composition

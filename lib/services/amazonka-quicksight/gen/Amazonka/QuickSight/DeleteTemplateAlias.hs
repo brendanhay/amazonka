@@ -139,7 +139,8 @@ instance Core.AWSRequest DeleteTemplateAlias where
 
 instance Prelude.Hashable DeleteTemplateAlias where
   hashWithSalt _salt DeleteTemplateAlias' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId
       `Prelude.hashWithSalt` aliasName
 

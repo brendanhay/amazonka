@@ -81,7 +81,8 @@ instance Data.FromJSON ProvisioningArtifactView where
 
 instance Prelude.Hashable ProvisioningArtifactView where
   hashWithSalt _salt ProvisioningArtifactView' {..} =
-    _salt `Prelude.hashWithSalt` productViewSummary
+    _salt
+      `Prelude.hashWithSalt` productViewSummary
       `Prelude.hashWithSalt` provisioningArtifact
 
 instance Prelude.NFData ProvisioningArtifactView where

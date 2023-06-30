@@ -97,7 +97,8 @@ instance Data.FromJSON Hit where
 
 instance Prelude.Hashable Hit where
   hashWithSalt _salt Hit' {..} =
-    _salt `Prelude.hashWithSalt` exprs
+    _salt
+      `Prelude.hashWithSalt` exprs
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` highlights
       `Prelude.hashWithSalt` id

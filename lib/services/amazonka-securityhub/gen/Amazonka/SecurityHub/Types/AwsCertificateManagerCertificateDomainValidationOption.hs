@@ -130,13 +130,14 @@ instance
       ( \x ->
           AwsCertificateManagerCertificateDomainValidationOption'
             Prelude.<$> (x Data..:? "DomainName")
-              Prelude.<*> (x Data..:? "ResourceRecord")
-              Prelude.<*> (x Data..:? "ValidationDomain")
-              Prelude.<*> ( x Data..:? "ValidationEmails"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "ValidationMethod")
-              Prelude.<*> (x Data..:? "ValidationStatus")
+            Prelude.<*> (x Data..:? "ResourceRecord")
+            Prelude.<*> (x Data..:? "ValidationDomain")
+            Prelude.<*> ( x
+                            Data..:? "ValidationEmails"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "ValidationMethod")
+            Prelude.<*> (x Data..:? "ValidationStatus")
       )
 
 instance
@@ -146,7 +147,8 @@ instance
   hashWithSalt
     _salt
     AwsCertificateManagerCertificateDomainValidationOption' {..} =
-      _salt `Prelude.hashWithSalt` domainName
+      _salt
+        `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` resourceRecord
         `Prelude.hashWithSalt` validationDomain
         `Prelude.hashWithSalt` validationEmails

@@ -171,7 +171,8 @@ instance Data.FromJSON ProjectFileSystemLocation where
 
 instance Prelude.Hashable ProjectFileSystemLocation where
   hashWithSalt _salt ProjectFileSystemLocation' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` mountOptions
       `Prelude.hashWithSalt` mountPoint

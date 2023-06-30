@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     RotateIngestEndpointCredentials' {..} =
-      _salt `Prelude.hashWithSalt` ingestEndpointId
+      _salt
+        `Prelude.hashWithSalt` ingestEndpointId
         `Prelude.hashWithSalt` id
 
 instance

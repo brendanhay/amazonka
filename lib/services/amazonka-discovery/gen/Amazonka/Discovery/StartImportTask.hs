@@ -181,7 +181,8 @@ instance Core.AWSRequest StartImportTask where
 
 instance Prelude.Hashable StartImportTask where
   hashWithSalt _salt StartImportTask' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` importUrl
 

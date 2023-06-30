@@ -91,7 +91,8 @@ instance Data.FromJSON InputClippingSettings where
 
 instance Prelude.Hashable InputClippingSettings where
   hashWithSalt _salt InputClippingSettings' {..} =
-    _salt `Prelude.hashWithSalt` startTimecode
+    _salt
+      `Prelude.hashWithSalt` startTimecode
       `Prelude.hashWithSalt` stopTimecode
       `Prelude.hashWithSalt` inputTimecodeSource
 

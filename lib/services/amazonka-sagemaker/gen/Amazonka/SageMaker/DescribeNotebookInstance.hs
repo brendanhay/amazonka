@@ -108,10 +108,12 @@ instance Core.AWSRequest DescribeNotebookInstance where
     Response.receiveJSON
       ( \s h x ->
           DescribeNotebookInstanceResponse'
-            Prelude.<$> ( x Data..?> "AcceleratorTypes"
+            Prelude.<$> ( x
+                            Data..?> "AcceleratorTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "AdditionalCodeRepositories"
+            Prelude.<*> ( x
+                            Data..?> "AdditionalCodeRepositories"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CreationTime")

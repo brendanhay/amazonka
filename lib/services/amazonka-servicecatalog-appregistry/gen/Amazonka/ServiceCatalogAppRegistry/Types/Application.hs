@@ -138,7 +138,8 @@ instance Data.FromJSON Application where
 
 instance Prelude.Hashable Application where
   hashWithSalt _salt Application' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

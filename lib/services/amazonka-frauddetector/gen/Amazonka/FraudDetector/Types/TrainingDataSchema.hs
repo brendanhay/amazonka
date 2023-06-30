@@ -69,14 +69,16 @@ instance Data.FromJSON TrainingDataSchema where
       ( \x ->
           TrainingDataSchema'
             Prelude.<$> (x Data..:? "labelSchema")
-            Prelude.<*> ( x Data..:? "modelVariables"
+            Prelude.<*> ( x
+                            Data..:? "modelVariables"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TrainingDataSchema where
   hashWithSalt _salt TrainingDataSchema' {..} =
-    _salt `Prelude.hashWithSalt` labelSchema
+    _salt
+      `Prelude.hashWithSalt` labelSchema
       `Prelude.hashWithSalt` modelVariables
 
 instance Prelude.NFData TrainingDataSchema where

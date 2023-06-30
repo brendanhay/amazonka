@@ -252,7 +252,8 @@ newVerify
         messageType = Prelude.Nothing,
         keyId = pKeyId_,
         message =
-          Data._Sensitive Prelude.. Data._Base64
+          Data._Sensitive
+            Prelude.. Data._Base64
             Lens.# pMessage_,
         signature = Data._Base64 Lens.# pSignature_,
         signingAlgorithm = pSigningAlgorithm_
@@ -349,7 +350,8 @@ instance Core.AWSRequest Verify where
 
 instance Prelude.Hashable Verify where
   hashWithSalt _salt Verify' {..} =
-    _salt `Prelude.hashWithSalt` grantTokens
+    _salt
+      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` message

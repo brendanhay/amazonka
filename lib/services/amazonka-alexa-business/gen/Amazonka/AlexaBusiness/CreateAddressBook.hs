@@ -129,7 +129,8 @@ instance Core.AWSRequest CreateAddressBook where
 
 instance Prelude.Hashable CreateAddressBook where
   hashWithSalt _salt CreateAddressBook' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

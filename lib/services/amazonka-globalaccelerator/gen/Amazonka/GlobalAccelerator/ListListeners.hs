@@ -112,20 +112,23 @@ instance Core.AWSPager ListListeners where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listListenersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listListenersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listListenersResponse_listeners Prelude.. Lens._Just
+            Lens.^? listListenersResponse_listeners
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listListeners_nextToken
           Lens..~ rs
-          Lens.^? listListenersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listListenersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListListeners where
   type
@@ -144,7 +147,8 @@ instance Core.AWSRequest ListListeners where
 
 instance Prelude.Hashable ListListeners where
   hashWithSalt _salt ListListeners' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` acceleratorArn
 

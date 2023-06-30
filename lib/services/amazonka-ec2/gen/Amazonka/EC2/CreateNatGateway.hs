@@ -210,7 +210,8 @@ instance Core.AWSRequest CreateNatGateway where
 
 instance Prelude.Hashable CreateNatGateway where
   hashWithSalt _salt CreateNatGateway' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` connectivityType
       `Prelude.hashWithSalt` dryRun

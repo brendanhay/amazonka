@@ -94,9 +94,9 @@ instance
       ( \x ->
           FirewallSubnetMissingVPCEndpointViolation'
             Prelude.<$> (x Data..:? "FirewallSubnetId")
-              Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
-              Prelude.<*> (x Data..:? "SubnetAvailabilityZoneId")
-              Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZoneId")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance
@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     FirewallSubnetMissingVPCEndpointViolation' {..} =
-      _salt `Prelude.hashWithSalt` firewallSubnetId
+      _salt
+        `Prelude.hashWithSalt` firewallSubnetId
         `Prelude.hashWithSalt` subnetAvailabilityZone
         `Prelude.hashWithSalt` subnetAvailabilityZoneId
         `Prelude.hashWithSalt` vpcId

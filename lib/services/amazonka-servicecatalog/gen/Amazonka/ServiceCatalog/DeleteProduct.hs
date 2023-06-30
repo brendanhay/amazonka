@@ -123,7 +123,8 @@ instance Core.AWSRequest DeleteProduct where
 
 instance Prelude.Hashable DeleteProduct where
   hashWithSalt _salt DeleteProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteProduct where

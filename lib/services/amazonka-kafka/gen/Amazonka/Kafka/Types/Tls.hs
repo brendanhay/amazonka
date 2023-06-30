@@ -68,7 +68,8 @@ instance Data.FromJSON Tls where
       "Tls"
       ( \x ->
           Tls'
-            Prelude.<$> ( x Data..:? "certificateAuthorityArnList"
+            Prelude.<$> ( x
+                            Data..:? "certificateAuthorityArnList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "enabled")

@@ -89,7 +89,8 @@ instance Data.FromJSON DataConfig where
 
 instance Prelude.Hashable DataConfig where
   hashWithSalt _salt DataConfig' {..} =
-    _salt `Prelude.hashWithSalt` additionalDatasets
+    _salt
+      `Prelude.hashWithSalt` additionalDatasets
       `Prelude.hashWithSalt` attributeConfigs
       `Prelude.hashWithSalt` datasetGroupArn
 

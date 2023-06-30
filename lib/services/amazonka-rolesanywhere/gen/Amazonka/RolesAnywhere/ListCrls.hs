@@ -100,20 +100,23 @@ instance Core.AWSPager ListCrls where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listCrlsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listCrlsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listCrlsResponse_crls Prelude.. Lens._Just
+            Lens.^? listCrlsResponse_crls
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCrls_nextToken
           Lens..~ rs
-          Lens.^? listCrlsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listCrlsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCrls where
   type AWSResponse ListCrls = ListCrlsResponse
@@ -130,7 +133,8 @@ instance Core.AWSRequest ListCrls where
 
 instance Prelude.Hashable ListCrls where
   hashWithSalt _salt ListCrls' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListCrls where

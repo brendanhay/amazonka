@@ -107,7 +107,8 @@ instance Data.FromJSON TagOptionDetail where
 
 instance Prelude.Hashable TagOptionDetail where
   hashWithSalt _salt TagOptionDetail' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` owner

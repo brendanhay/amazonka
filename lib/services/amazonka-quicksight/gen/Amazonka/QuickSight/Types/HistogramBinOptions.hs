@@ -97,7 +97,8 @@ instance Data.FromJSON HistogramBinOptions where
 
 instance Prelude.Hashable HistogramBinOptions where
   hashWithSalt _salt HistogramBinOptions' {..} =
-    _salt `Prelude.hashWithSalt` binCount
+    _salt
+      `Prelude.hashWithSalt` binCount
       `Prelude.hashWithSalt` binWidth
       `Prelude.hashWithSalt` selectedBinType
       `Prelude.hashWithSalt` startValue

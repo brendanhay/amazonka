@@ -142,7 +142,8 @@ instance Core.AWSRequest AddThingToThingGroup where
 
 instance Prelude.Hashable AddThingToThingGroup where
   hashWithSalt _salt AddThingToThingGroup' {..} =
-    _salt `Prelude.hashWithSalt` overrideDynamicGroups
+    _salt
+      `Prelude.hashWithSalt` overrideDynamicGroups
       `Prelude.hashWithSalt` thingArn
       `Prelude.hashWithSalt` thingGroupArn
       `Prelude.hashWithSalt` thingGroupName

@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateRepositoryDescription where
 
 instance Prelude.Hashable UpdateRepositoryDescription where
   hashWithSalt _salt UpdateRepositoryDescription' {..} =
-    _salt `Prelude.hashWithSalt` repositoryDescription
+    _salt
+      `Prelude.hashWithSalt` repositoryDescription
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData UpdateRepositoryDescription where

@@ -78,7 +78,8 @@ instance Data.FromJSON BatchRestrictions where
       "BatchRestrictions"
       ( \x ->
           BatchRestrictions'
-            Prelude.<$> ( x Data..:? "computeTypesAllowed"
+            Prelude.<$> ( x
+                            Data..:? "computeTypesAllowed"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "maximumBuildsAllowed")
@@ -86,7 +87,8 @@ instance Data.FromJSON BatchRestrictions where
 
 instance Prelude.Hashable BatchRestrictions where
   hashWithSalt _salt BatchRestrictions' {..} =
-    _salt `Prelude.hashWithSalt` computeTypesAllowed
+    _salt
+      `Prelude.hashWithSalt` computeTypesAllowed
       `Prelude.hashWithSalt` maximumBuildsAllowed
 
 instance Prelude.NFData BatchRestrictions where

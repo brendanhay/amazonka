@@ -126,7 +126,8 @@ instance Core.AWSRequest DetectSentiment where
 
 instance Prelude.Hashable DetectSentiment where
   hashWithSalt _salt DetectSentiment' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData DetectSentiment where

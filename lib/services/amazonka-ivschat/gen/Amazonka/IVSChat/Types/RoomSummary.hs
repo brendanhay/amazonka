@@ -150,7 +150,8 @@ instance Data.FromJSON RoomSummary where
             Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "createTime")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> ( x Data..:? "loggingConfigurationIdentifiers"
+            Prelude.<*> ( x
+                            Data..:? "loggingConfigurationIdentifiers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "messageReviewHandler")
@@ -161,7 +162,8 @@ instance Data.FromJSON RoomSummary where
 
 instance Prelude.Hashable RoomSummary where
   hashWithSalt _salt RoomSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` loggingConfigurationIdentifiers

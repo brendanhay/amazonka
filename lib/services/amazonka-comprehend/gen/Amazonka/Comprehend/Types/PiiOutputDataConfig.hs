@@ -98,7 +98,8 @@ instance Data.FromJSON PiiOutputDataConfig where
 
 instance Prelude.Hashable PiiOutputDataConfig where
   hashWithSalt _salt PiiOutputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData PiiOutputDataConfig where

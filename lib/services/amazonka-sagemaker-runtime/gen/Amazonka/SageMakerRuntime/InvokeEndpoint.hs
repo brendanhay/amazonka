@@ -335,7 +335,8 @@ instance Core.AWSRequest InvokeEndpoint where
 
 instance Prelude.Hashable InvokeEndpoint where
   hashWithSalt _salt InvokeEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` accept
+    _salt
+      `Prelude.hashWithSalt` accept
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` customAttributes
       `Prelude.hashWithSalt` enableExplanations

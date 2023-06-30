@@ -109,7 +109,8 @@ instance Data.FromJSON EvaluationResult where
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =
-    _salt `Prelude.hashWithSalt` complianceStatus
+    _salt
+      `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` evaluationLimitExceeded
       `Prelude.hashWithSalt` violatorCount
 

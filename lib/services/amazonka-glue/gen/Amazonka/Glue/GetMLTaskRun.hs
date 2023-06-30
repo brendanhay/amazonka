@@ -124,7 +124,8 @@ instance Core.AWSRequest GetMLTaskRun where
 
 instance Prelude.Hashable GetMLTaskRun where
   hashWithSalt _salt GetMLTaskRun' {..} =
-    _salt `Prelude.hashWithSalt` transformId
+    _salt
+      `Prelude.hashWithSalt` transformId
       `Prelude.hashWithSalt` taskRunId
 
 instance Prelude.NFData GetMLTaskRun where

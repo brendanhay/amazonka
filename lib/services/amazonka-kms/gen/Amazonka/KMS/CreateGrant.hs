@@ -509,7 +509,8 @@ instance Core.AWSRequest CreateGrant where
 
 instance Prelude.Hashable CreateGrant where
   hashWithSalt _salt CreateGrant' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` retiringPrincipal

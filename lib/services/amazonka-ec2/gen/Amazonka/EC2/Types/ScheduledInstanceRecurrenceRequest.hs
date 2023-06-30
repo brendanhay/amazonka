@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     ScheduledInstanceRecurrenceRequest' {..} =
-      _salt `Prelude.hashWithSalt` frequency
+      _salt
+        `Prelude.hashWithSalt` frequency
         `Prelude.hashWithSalt` interval
         `Prelude.hashWithSalt` occurrenceDays
         `Prelude.hashWithSalt` occurrenceRelativeToEnd

@@ -109,7 +109,8 @@ instance Data.FromJSON SatelliteListItem where
 
 instance Prelude.Hashable SatelliteListItem where
   hashWithSalt _salt SatelliteListItem' {..} =
-    _salt `Prelude.hashWithSalt` currentEphemeris
+    _salt
+      `Prelude.hashWithSalt` currentEphemeris
       `Prelude.hashWithSalt` groundStations
       `Prelude.hashWithSalt` noradSatelliteID
       `Prelude.hashWithSalt` satelliteArn

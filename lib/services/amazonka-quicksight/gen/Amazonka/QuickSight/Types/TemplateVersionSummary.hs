@@ -105,7 +105,8 @@ instance Data.FromJSON TemplateVersionSummary where
 
 instance Prelude.Hashable TemplateVersionSummary where
   hashWithSalt _salt TemplateVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` status

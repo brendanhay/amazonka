@@ -133,7 +133,8 @@ instance Core.AWSRequest GenerateAccessLogs where
 
 instance Prelude.Hashable GenerateAccessLogs where
   hashWithSalt _salt GenerateAccessLogs' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` appId

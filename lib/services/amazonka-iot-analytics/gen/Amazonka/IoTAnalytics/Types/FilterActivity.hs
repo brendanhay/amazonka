@@ -94,7 +94,8 @@ instance Data.FromJSON FilterActivity where
 
 instance Prelude.Hashable FilterActivity where
   hashWithSalt _salt FilterActivity' {..} =
-    _salt `Prelude.hashWithSalt` next
+    _salt
+      `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` filter'
 

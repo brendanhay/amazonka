@@ -146,7 +146,8 @@ instance Core.AWSRequest GetAlarms where
 
 instance Prelude.Hashable GetAlarms where
   hashWithSalt _salt GetAlarms' {..} =
-    _salt `Prelude.hashWithSalt` alarmName
+    _salt
+      `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` monitoredResourceName
       `Prelude.hashWithSalt` pageToken
 

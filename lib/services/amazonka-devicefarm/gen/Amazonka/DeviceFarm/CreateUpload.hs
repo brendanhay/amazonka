@@ -345,7 +345,8 @@ instance Core.AWSRequest CreateUpload where
 
 instance Prelude.Hashable CreateUpload where
   hashWithSalt _salt CreateUpload' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

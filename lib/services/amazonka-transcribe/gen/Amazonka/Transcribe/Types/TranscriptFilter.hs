@@ -178,7 +178,8 @@ instance Data.FromJSON TranscriptFilter where
 
 instance Prelude.Hashable TranscriptFilter where
   hashWithSalt _salt TranscriptFilter' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTimeRange
+    _salt
+      `Prelude.hashWithSalt` absoluteTimeRange
       `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` participantRole
       `Prelude.hashWithSalt` relativeTimeRange

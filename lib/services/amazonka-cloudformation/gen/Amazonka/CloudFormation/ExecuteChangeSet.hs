@@ -168,7 +168,8 @@ instance Core.AWSRequest ExecuteChangeSet where
 
 instance Prelude.Hashable ExecuteChangeSet where
   hashWithSalt _salt ExecuteChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` disableRollback
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` changeSetName

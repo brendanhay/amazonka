@@ -135,7 +135,8 @@ instance Core.AWSRequest GetModelVersion where
 
 instance Prelude.Hashable GetModelVersion where
   hashWithSalt _salt GetModelVersion' {..} =
-    _salt `Prelude.hashWithSalt` modelId
+    _salt
+      `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` modelVersionNumber
 

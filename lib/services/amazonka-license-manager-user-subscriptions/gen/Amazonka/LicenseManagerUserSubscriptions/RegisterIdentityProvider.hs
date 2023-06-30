@@ -120,7 +120,8 @@ instance Core.AWSRequest RegisterIdentityProvider where
 
 instance Prelude.Hashable RegisterIdentityProvider where
   hashWithSalt _salt RegisterIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` settings
+    _salt
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` product
 

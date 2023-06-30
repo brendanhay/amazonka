@@ -99,7 +99,8 @@ instance Core.AWSRequest StopDataSourceSyncJob where
 
 instance Prelude.Hashable StopDataSourceSyncJob where
   hashWithSalt _salt StopDataSourceSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData StopDataSourceSyncJob where

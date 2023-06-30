@@ -243,7 +243,8 @@ instance Core.AWSRequest CreateResolverRule where
 
 instance Prelude.Hashable CreateResolverRule where
   hashWithSalt _salt CreateResolverRule' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resolverEndpointId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targetIps

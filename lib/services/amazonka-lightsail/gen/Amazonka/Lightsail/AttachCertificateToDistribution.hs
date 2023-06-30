@@ -173,7 +173,8 @@ instance
   hashWithSalt
     _salt
     AttachCertificateToDistribution' {..} =
-      _salt `Prelude.hashWithSalt` distributionName
+      _salt
+        `Prelude.hashWithSalt` distributionName
         `Prelude.hashWithSalt` certificateName
 
 instance

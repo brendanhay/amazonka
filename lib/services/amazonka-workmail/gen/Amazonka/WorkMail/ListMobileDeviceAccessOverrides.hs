@@ -174,7 +174,8 @@ instance
   hashWithSalt
     _salt
     ListMobileDeviceAccessOverrides' {..} =
-      _salt `Prelude.hashWithSalt` deviceId
+      _salt
+        `Prelude.hashWithSalt` deviceId
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` userId

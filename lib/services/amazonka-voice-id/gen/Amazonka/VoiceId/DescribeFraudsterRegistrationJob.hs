@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     DescribeFraudsterRegistrationJob' {..} =
-      _salt `Prelude.hashWithSalt` domainId
+      _salt
+        `Prelude.hashWithSalt` domainId
         `Prelude.hashWithSalt` jobId
 
 instance

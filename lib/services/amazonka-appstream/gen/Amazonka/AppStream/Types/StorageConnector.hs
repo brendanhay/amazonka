@@ -87,7 +87,8 @@ instance Data.FromJSON StorageConnector where
 
 instance Prelude.Hashable StorageConnector where
   hashWithSalt _salt StorageConnector' {..} =
-    _salt `Prelude.hashWithSalt` domains
+    _salt
+      `Prelude.hashWithSalt` domains
       `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` connectorType
 

@@ -238,7 +238,8 @@ instance Core.AWSRequest MergePullRequestBySquash where
 
 instance Prelude.Hashable MergePullRequestBySquash where
   hashWithSalt _salt MergePullRequestBySquash' {..} =
-    _salt `Prelude.hashWithSalt` authorName
+    _salt
+      `Prelude.hashWithSalt` authorName
       `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolution

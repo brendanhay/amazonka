@@ -75,7 +75,8 @@ instance Data.FromJSON MultiplexProgramSummary where
 
 instance Prelude.Hashable MultiplexProgramSummary where
   hashWithSalt _salt MultiplexProgramSummary' {..} =
-    _salt `Prelude.hashWithSalt` channelId
+    _salt
+      `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` programName
 
 instance Prelude.NFData MultiplexProgramSummary where

@@ -440,52 +440,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have required permissions to access the requested resource.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -493,7 +493,7 @@ _AccessDeniedException =
 
 -- | You started an assessment run, but one of the instances is already
 -- participating in another assessment run.
-_AgentsAlreadyRunningAssessmentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AgentsAlreadyRunningAssessmentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AgentsAlreadyRunningAssessmentException =
   Core._MatchServiceError
     defaultService
@@ -501,14 +501,14 @@ _AgentsAlreadyRunningAssessmentException =
 
 -- | You cannot perform a specified action if an assessment run is currently
 -- in progress.
-_AssessmentRunInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AssessmentRunInProgressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AssessmentRunInProgressException =
   Core._MatchServiceError
     defaultService
     "AssessmentRunInProgressException"
 
 -- | Internal server error.
-_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
@@ -516,7 +516,7 @@ _InternalException =
 
 -- | Amazon Inspector cannot assume the cross-account role that it needs to
 -- list your EC2 instances during the assessment run.
-_InvalidCrossAccountRoleException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidCrossAccountRoleException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidCrossAccountRoleException =
   Core._MatchServiceError
     defaultService
@@ -524,7 +524,7 @@ _InvalidCrossAccountRoleException =
 
 -- | The request was rejected because an invalid or out-of-range value was
 -- supplied for an input parameter.
-_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -533,7 +533,7 @@ _InvalidInputException =
 -- | The request was rejected because it attempted to create resources beyond
 -- the current AWS account limits. The error code describes the limit
 -- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -541,7 +541,7 @@ _LimitExceededException =
 
 -- | The request was rejected because it referenced an entity that does not
 -- exist. The error code describes the entity.
-_NoSuchEntityException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoSuchEntityException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoSuchEntityException =
   Core._MatchServiceError
     defaultService
@@ -549,14 +549,14 @@ _NoSuchEntityException =
 
 -- | The request is rejected. The specified assessment template is currently
 -- generating an exclusions preview.
-_PreviewGenerationInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PreviewGenerationInProgressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PreviewGenerationInProgressException =
   Core._MatchServiceError
     defaultService
     "PreviewGenerationInProgressException"
 
 -- | The serice is temporary unavailable.
-_ServiceTemporarilyUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceTemporarilyUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceTemporarilyUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -567,7 +567,7 @@ _ServiceTemporarilyUnavailableException =
 -- reporting was supported in Amazon Inspector. You can only generate
 -- reports for assessment runs that took place or will take place after
 -- generating reports in Amazon Inspector became available.
-_UnsupportedFeatureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedFeatureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedFeatureException =
   Core._MatchServiceError
     defaultService

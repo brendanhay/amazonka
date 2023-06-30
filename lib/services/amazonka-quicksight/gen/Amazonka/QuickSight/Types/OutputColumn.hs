@@ -85,7 +85,8 @@ instance Data.FromJSON OutputColumn where
 
 instance Prelude.Hashable OutputColumn where
   hashWithSalt _salt OutputColumn' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 

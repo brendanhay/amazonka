@@ -125,7 +125,8 @@ instance Data.FromJSON DetectLabelsImageProperties where
 
 instance Prelude.Hashable DetectLabelsImageProperties where
   hashWithSalt _salt DetectLabelsImageProperties' {..} =
-    _salt `Prelude.hashWithSalt` background
+    _salt
+      `Prelude.hashWithSalt` background
       `Prelude.hashWithSalt` dominantColors
       `Prelude.hashWithSalt` foreground
       `Prelude.hashWithSalt` quality

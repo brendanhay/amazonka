@@ -103,14 +103,16 @@ instance Data.FromJSON ModelDashboardModel where
             Prelude.<*> (x Data..:? "LastBatchTransformJob")
             Prelude.<*> (x Data..:? "Model")
             Prelude.<*> (x Data..:? "ModelCard")
-            Prelude.<*> ( x Data..:? "MonitoringSchedules"
+            Prelude.<*> ( x
+                            Data..:? "MonitoringSchedules"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ModelDashboardModel where
   hashWithSalt _salt ModelDashboardModel' {..} =
-    _salt `Prelude.hashWithSalt` endpoints
+    _salt
+      `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` lastBatchTransformJob
       `Prelude.hashWithSalt` model
       `Prelude.hashWithSalt` modelCard

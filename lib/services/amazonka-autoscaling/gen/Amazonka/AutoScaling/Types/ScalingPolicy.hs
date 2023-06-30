@@ -265,7 +265,9 @@ instance Data.FromXML ScalingPolicy where
   parseXML x =
     ScalingPolicy'
       Prelude.<$> (x Data..@? "AdjustmentType")
-      Prelude.<*> ( x Data..@? "Alarms" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Alarms"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "AutoScalingGroupName")
@@ -280,14 +282,17 @@ instance Data.FromXML ScalingPolicy where
       Prelude.<*> (x Data..@? "PolicyType")
       Prelude.<*> (x Data..@? "PredictiveScalingConfiguration")
       Prelude.<*> (x Data..@? "ScalingAdjustment")
-      Prelude.<*> ( x Data..@? "StepAdjustments" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "StepAdjustments"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "TargetTrackingConfiguration")
 
 instance Prelude.Hashable ScalingPolicy where
   hashWithSalt _salt ScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` adjustmentType
+    _salt
+      `Prelude.hashWithSalt` adjustmentType
       `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` cooldown

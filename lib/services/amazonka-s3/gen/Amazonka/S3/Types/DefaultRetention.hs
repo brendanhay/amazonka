@@ -101,7 +101,8 @@ instance Data.FromXML DefaultRetention where
 
 instance Prelude.Hashable DefaultRetention where
   hashWithSalt _salt DefaultRetention' {..} =
-    _salt `Prelude.hashWithSalt` days
+    _salt
+      `Prelude.hashWithSalt` days
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` years
 

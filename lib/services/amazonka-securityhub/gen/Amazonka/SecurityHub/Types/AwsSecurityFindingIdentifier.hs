@@ -93,7 +93,8 @@ instance
     AwsSecurityFindingIdentifier
   where
   hashWithSalt _salt AwsSecurityFindingIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` productArn
 
 instance Prelude.NFData AwsSecurityFindingIdentifier where

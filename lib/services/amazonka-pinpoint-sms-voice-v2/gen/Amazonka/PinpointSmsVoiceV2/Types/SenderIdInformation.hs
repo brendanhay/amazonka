@@ -129,7 +129,8 @@ instance Data.FromJSON SenderIdInformation where
 
 instance Prelude.Hashable SenderIdInformation where
   hashWithSalt _salt SenderIdInformation' {..} =
-    _salt `Prelude.hashWithSalt` senderIdArn
+    _salt
+      `Prelude.hashWithSalt` senderIdArn
       `Prelude.hashWithSalt` senderId
       `Prelude.hashWithSalt` isoCountryCode
       `Prelude.hashWithSalt` messageTypes

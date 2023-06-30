@@ -154,53 +154,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Secrets Manager can\'t decrypt the protected secret text using the
 -- provided KMS key.
-_DecryptionFailure :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DecryptionFailure :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DecryptionFailure =
   Core._MatchServiceError
     defaultService
@@ -210,28 +210,28 @@ _DecryptionFailure =
 -- provided KMS key. Check that the KMS key is available, enabled, and not
 -- in an invalid state. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>.
-_EncryptionFailure :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EncryptionFailure :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EncryptionFailure =
   Core._MatchServiceError
     defaultService
     "EncryptionFailure"
 
 -- | An error occurred on the server side.
-_InternalServiceError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceError =
   Core._MatchServiceError
     defaultService
     "InternalServiceError"
 
 -- | The @NextToken@ value is invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | The parameter name or value is invalid.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -250,7 +250,7 @@ _InvalidParameterException =
 -- -   The secret is managed by another service, and you must use that
 --     service to update it. For more information, see
 --     <https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html Secrets managed by other Amazon Web Services services>.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -258,14 +258,14 @@ _InvalidRequestException =
 
 -- | The request failed because it would exceed one of the Secrets Manager
 -- quotas.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The resource policy has syntax errors.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MalformedPolicyDocumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
     defaultService
@@ -273,7 +273,7 @@ _MalformedPolicyDocumentException =
 
 -- | The request failed because you did not complete all the prerequisite
 -- steps.
-_PreconditionNotMetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PreconditionNotMetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PreconditionNotMetException =
   Core._MatchServiceError
     defaultService
@@ -281,21 +281,21 @@ _PreconditionNotMetException =
 
 -- | The @BlockPublicPolicy@ parameter is set to true, and the resource
 -- policy did not prevent broad access to the secret.
-_PublicPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PublicPolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PublicPolicyException =
   Core._MatchServiceError
     defaultService
     "PublicPolicyException"
 
 -- | A resource with the ID you requested already exists.
-_ResourceExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceExistsException"
 
 -- | Secrets Manager can\'t find the resource that you asked for.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

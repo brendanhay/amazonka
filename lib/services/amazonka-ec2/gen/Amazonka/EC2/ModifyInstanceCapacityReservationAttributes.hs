@@ -129,7 +129,7 @@ instance
       ( \s h x ->
           ModifyInstanceCapacityReservationAttributesResponse'
             Prelude.<$> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     ModifyInstanceCapacityReservationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` capacityReservationSpecification
 

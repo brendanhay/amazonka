@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdateAnomalyMonitor where
 
 instance Prelude.Hashable UpdateAnomalyMonitor where
   hashWithSalt _salt UpdateAnomalyMonitor' {..} =
-    _salt `Prelude.hashWithSalt` monitorName
+    _salt
+      `Prelude.hashWithSalt` monitorName
       `Prelude.hashWithSalt` monitorArn
 
 instance Prelude.NFData UpdateAnomalyMonitor where

@@ -90,11 +90,13 @@ rollbackTrigger_type = Lens.lens (\RollbackTrigger' {type'} -> type') (\s@Rollba
 instance Data.FromXML RollbackTrigger where
   parseXML x =
     RollbackTrigger'
-      Prelude.<$> (x Data..@ "Arn") Prelude.<*> (x Data..@ "Type")
+      Prelude.<$> (x Data..@ "Arn")
+      Prelude.<*> (x Data..@ "Type")
 
 instance Prelude.Hashable RollbackTrigger where
   hashWithSalt _salt RollbackTrigger' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData RollbackTrigger where

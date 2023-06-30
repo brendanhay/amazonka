@@ -80,7 +80,8 @@ instance Data.FromJSON AlarmCapabilities where
 
 instance Prelude.Hashable AlarmCapabilities where
   hashWithSalt _salt AlarmCapabilities' {..} =
-    _salt `Prelude.hashWithSalt` acknowledgeFlow
+    _salt
+      `Prelude.hashWithSalt` acknowledgeFlow
       `Prelude.hashWithSalt` initializationConfiguration
 
 instance Prelude.NFData AlarmCapabilities where

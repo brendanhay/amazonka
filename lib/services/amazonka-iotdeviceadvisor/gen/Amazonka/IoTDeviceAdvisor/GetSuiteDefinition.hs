@@ -121,7 +121,8 @@ instance Core.AWSRequest GetSuiteDefinition where
 
 instance Prelude.Hashable GetSuiteDefinition where
   hashWithSalt _salt GetSuiteDefinition' {..} =
-    _salt `Prelude.hashWithSalt` suiteDefinitionVersion
+    _salt
+      `Prelude.hashWithSalt` suiteDefinitionVersion
       `Prelude.hashWithSalt` suiteDefinitionId
 
 instance Prelude.NFData GetSuiteDefinition where

@@ -139,7 +139,8 @@ instance Core.AWSRequest CreatePlayerSession where
 
 instance Prelude.Hashable CreatePlayerSession where
   hashWithSalt _salt CreatePlayerSession' {..} =
-    _salt `Prelude.hashWithSalt` playerData
+    _salt
+      `Prelude.hashWithSalt` playerData
       `Prelude.hashWithSalt` gameSessionId
       `Prelude.hashWithSalt` playerId
 

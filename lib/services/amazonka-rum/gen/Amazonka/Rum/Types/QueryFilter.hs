@@ -91,7 +91,8 @@ queryFilter_values = Lens.lens (\QueryFilter' {values} -> values) (\s@QueryFilte
 
 instance Prelude.Hashable QueryFilter where
   hashWithSalt _salt QueryFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData QueryFilter where

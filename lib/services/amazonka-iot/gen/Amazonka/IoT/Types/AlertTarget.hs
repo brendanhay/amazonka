@@ -84,7 +84,8 @@ instance Data.FromJSON AlertTarget where
 
 instance Prelude.Hashable AlertTarget where
   hashWithSalt _salt AlertTarget' {..} =
-    _salt `Prelude.hashWithSalt` alertTargetArn
+    _salt
+      `Prelude.hashWithSalt` alertTargetArn
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData AlertTarget where

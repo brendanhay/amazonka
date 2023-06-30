@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateVariantStore where
 
 instance Prelude.Hashable CreateVariantStore where
   hashWithSalt _salt CreateVariantStore' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sseConfig
       `Prelude.hashWithSalt` tags

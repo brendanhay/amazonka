@@ -109,7 +109,8 @@ instance Data.FromJSON GaugeChartOptions where
 
 instance Prelude.Hashable GaugeChartOptions where
   hashWithSalt _salt GaugeChartOptions' {..} =
-    _salt `Prelude.hashWithSalt` arc
+    _salt
+      `Prelude.hashWithSalt` arc
       `Prelude.hashWithSalt` arcAxis
       `Prelude.hashWithSalt` comparison
       `Prelude.hashWithSalt` primaryValueDisplayType

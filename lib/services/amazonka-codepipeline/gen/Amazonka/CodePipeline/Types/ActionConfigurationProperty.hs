@@ -180,7 +180,8 @@ instance Data.FromJSON ActionConfigurationProperty where
 
 instance Prelude.Hashable ActionConfigurationProperty where
   hashWithSalt _salt ActionConfigurationProperty' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` queryable
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name

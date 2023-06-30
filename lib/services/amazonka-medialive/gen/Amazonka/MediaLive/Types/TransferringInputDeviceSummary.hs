@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     TransferringInputDeviceSummary' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` targetCustomerId
         `Prelude.hashWithSalt` transferType

@@ -69,12 +69,14 @@ instance Data.FromJSON BaselineMetric where
       "BaselineMetric"
       ( \x ->
           BaselineMetric'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable BaselineMetric where
   hashWithSalt _salt BaselineMetric' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData BaselineMetric where

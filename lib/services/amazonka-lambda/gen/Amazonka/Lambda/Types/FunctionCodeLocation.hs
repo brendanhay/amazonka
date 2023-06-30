@@ -94,7 +94,8 @@ instance Data.FromJSON FunctionCodeLocation where
 
 instance Prelude.Hashable FunctionCodeLocation where
   hashWithSalt _salt FunctionCodeLocation' {..} =
-    _salt `Prelude.hashWithSalt` imageUri
+    _salt
+      `Prelude.hashWithSalt` imageUri
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` repositoryType
       `Prelude.hashWithSalt` resolvedImageUri

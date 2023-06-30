@@ -72,12 +72,14 @@ instance Data.FromJSON ConfigurationStatus where
       "ConfigurationStatus"
       ( \x ->
           ConfigurationStatus'
-            Prelude.<$> (x Data..:? "error") Prelude.<*> (x Data..: "state")
+            Prelude.<$> (x Data..:? "error")
+            Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable ConfigurationStatus where
   hashWithSalt _salt ConfigurationStatus' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ConfigurationStatus where

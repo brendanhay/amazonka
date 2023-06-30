@@ -96,22 +96,22 @@ instance Core.AWSPager ListReportDefinitions where
     | Core.stop
         ( rs
             Lens.^? listReportDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listReportDefinitionsResponse_reportDefinitions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listReportDefinitions_nextToken
           Lens..~ rs
           Lens.^? listReportDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReportDefinitions where
   type
@@ -124,7 +124,8 @@ instance Core.AWSRequest ListReportDefinitions where
       ( \s h x ->
           ListReportDefinitionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "reportDefinitions"
+            Prelude.<*> ( x
+                            Data..?> "reportDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,7 +133,8 @@ instance Core.AWSRequest ListReportDefinitions where
 
 instance Prelude.Hashable ListReportDefinitions where
   hashWithSalt _salt ListReportDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListReportDefinitions where

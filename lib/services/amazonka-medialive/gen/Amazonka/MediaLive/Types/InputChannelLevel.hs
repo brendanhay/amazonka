@@ -81,7 +81,8 @@ instance Data.FromJSON InputChannelLevel where
 
 instance Prelude.Hashable InputChannelLevel where
   hashWithSalt _salt InputChannelLevel' {..} =
-    _salt `Prelude.hashWithSalt` inputChannel
+    _salt
+      `Prelude.hashWithSalt` inputChannel
       `Prelude.hashWithSalt` gain
 
 instance Prelude.NFData InputChannelLevel where

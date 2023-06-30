@@ -118,7 +118,8 @@ instance Core.AWSRequest DescribeRepository where
 
 instance Prelude.Hashable DescribeRepository where
   hashWithSalt _salt DescribeRepository' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
 

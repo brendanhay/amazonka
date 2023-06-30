@@ -36,7 +36,7 @@ data EventAccountFilter = EventAccountFilter'
     -- affected entities.
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
     -- format.
     --
     -- For example, an event ARN might look like the following:
@@ -58,7 +58,7 @@ data EventAccountFilter = EventAccountFilter'
 -- affected entities.
 --
 -- 'eventArn', 'eventAccountFilter_eventArn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -80,7 +80,7 @@ eventAccountFilter_awsAccountId :: Lens.Lens' EventAccountFilter (Prelude.Maybe 
 eventAccountFilter_awsAccountId = Lens.lens (\EventAccountFilter' {awsAccountId} -> awsAccountId) (\s@EventAccountFilter' {} a -> s {awsAccountId = a} :: EventAccountFilter)
 
 -- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -91,7 +91,8 @@ eventAccountFilter_eventArn = Lens.lens (\EventAccountFilter' {eventArn} -> even
 
 instance Prelude.Hashable EventAccountFilter where
   hashWithSalt _salt EventAccountFilter' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` eventArn
 
 instance Prelude.NFData EventAccountFilter where

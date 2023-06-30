@@ -90,7 +90,8 @@ instance Data.FromJSON RuleActionOverride where
 
 instance Prelude.Hashable RuleActionOverride where
   hashWithSalt _salt RuleActionOverride' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` actionToUse
 
 instance Prelude.NFData RuleActionOverride where

@@ -141,22 +141,22 @@ instance Core.AWSPager DescribeVTLDevices where
     | Core.stop
         ( rs
             Lens.^? describeVTLDevicesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVTLDevicesResponse_vTLDevices
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVTLDevices_marker
           Lens..~ rs
           Lens.^? describeVTLDevicesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVTLDevices where
   type
@@ -176,7 +176,8 @@ instance Core.AWSRequest DescribeVTLDevices where
 
 instance Prelude.Hashable DescribeVTLDevices where
   hashWithSalt _salt DescribeVTLDevices' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` vTLDeviceARNs
       `Prelude.hashWithSalt` gatewayARN

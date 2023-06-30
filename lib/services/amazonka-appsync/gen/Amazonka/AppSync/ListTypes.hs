@@ -121,20 +121,23 @@ instance Core.AWSPager ListTypes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTypesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTypesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTypesResponse_types Prelude.. Lens._Just
+            Lens.^? listTypesResponse_types
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTypes_nextToken
           Lens..~ rs
-          Lens.^? listTypesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTypesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTypes where
   type AWSResponse ListTypes = ListTypesResponse
@@ -151,7 +154,8 @@ instance Core.AWSRequest ListTypes where
 
 instance Prelude.Hashable ListTypes where
   hashWithSalt _salt ListTypes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` format

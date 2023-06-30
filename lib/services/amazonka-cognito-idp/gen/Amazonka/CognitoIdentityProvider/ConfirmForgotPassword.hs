@@ -285,7 +285,8 @@ instance Core.AWSRequest ConfirmForgotPassword where
 
 instance Prelude.Hashable ConfirmForgotPassword where
   hashWithSalt _salt ConfirmForgotPassword' {..} =
-    _salt `Prelude.hashWithSalt` analyticsMetadata
+    _salt
+      `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` secretHash
       `Prelude.hashWithSalt` userContextData

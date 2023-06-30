@@ -89,7 +89,8 @@ instance Core.AWSRequest DeleteModel where
 
 instance Prelude.Hashable DeleteModel where
   hashWithSalt _salt DeleteModel' {..} =
-    _salt `Prelude.hashWithSalt` modelId
+    _salt
+      `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData DeleteModel where

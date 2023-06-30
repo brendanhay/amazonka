@@ -67,7 +67,7 @@ data TagCertificateAuthority = TagCertificateAuthority'
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
     certificateAuthorityArn :: Prelude.Text,
     -- | List of tags to be associated with the CA.
     tags :: Prelude.NonEmpty Tag
@@ -86,7 +86,7 @@ data TagCertificateAuthority = TagCertificateAuthority'
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 --
 -- 'tags', 'tagCertificateAuthority_tags' - List of tags to be associated with the CA.
 newTagCertificateAuthority ::
@@ -108,7 +108,7 @@ newTagCertificateAuthority
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 tagCertificateAuthority_certificateAuthorityArn :: Lens.Lens' TagCertificateAuthority Prelude.Text
 tagCertificateAuthority_certificateAuthorityArn = Lens.lens (\TagCertificateAuthority' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@TagCertificateAuthority' {} a -> s {certificateAuthorityArn = a} :: TagCertificateAuthority)
 

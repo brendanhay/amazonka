@@ -72,7 +72,8 @@ instance
   hashWithSalt
     _salt
     ModifyVerifiedAccessEndpointEniOptions' {..} =
-      _salt `Prelude.hashWithSalt` port
+      _salt
+        `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` protocol
 
 instance

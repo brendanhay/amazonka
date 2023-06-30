@@ -158,21 +158,22 @@ instance Core.AWSPager ListDomains where
     | Core.stop
         ( rs
             Lens.^? listDomainsResponse_nextPageMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_domains Prelude.. Lens._Just
+            Lens.^? listDomainsResponse_domains
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDomains_marker
           Lens..~ rs
           Lens.^? listDomainsResponse_nextPageMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
@@ -189,7 +190,8 @@ instance Core.AWSRequest ListDomains where
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` filterConditions
+    _salt
+      `Prelude.hashWithSalt` filterConditions
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` sortCondition

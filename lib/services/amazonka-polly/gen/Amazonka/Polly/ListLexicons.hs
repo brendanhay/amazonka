@@ -84,20 +84,23 @@ instance Core.AWSPager ListLexicons where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listLexiconsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listLexiconsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listLexiconsResponse_lexicons Prelude.. Lens._Just
+            Lens.^? listLexiconsResponse_lexicons
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLexicons_nextToken
           Lens..~ rs
-          Lens.^? listLexiconsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listLexiconsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLexicons where
   type AWSResponse ListLexicons = ListLexiconsResponse

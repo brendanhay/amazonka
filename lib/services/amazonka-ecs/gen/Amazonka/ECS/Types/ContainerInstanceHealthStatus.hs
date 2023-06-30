@@ -86,7 +86,8 @@ instance
     ContainerInstanceHealthStatus
   where
   hashWithSalt _salt ContainerInstanceHealthStatus' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` overallStatus
 
 instance Prelude.NFData ContainerInstanceHealthStatus where

@@ -150,22 +150,22 @@ instance Core.AWSPager DescribeClientVpnEndpoints where
     | Core.stop
         ( rs
             Lens.^? describeClientVpnEndpointsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClientVpnEndpointsResponse_clientVpnEndpoints
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClientVpnEndpoints_nextToken
           Lens..~ rs
           Lens.^? describeClientVpnEndpointsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClientVpnEndpoints where
   type
@@ -177,7 +177,8 @@ instance Core.AWSRequest DescribeClientVpnEndpoints where
     Response.receiveXML
       ( \s h x ->
           DescribeClientVpnEndpointsResponse'
-            Prelude.<$> ( x Data..@? "clientVpnEndpoint"
+            Prelude.<$> ( x
+                            Data..@? "clientVpnEndpoint"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -187,7 +188,8 @@ instance Core.AWSRequest DescribeClientVpnEndpoints where
 
 instance Prelude.Hashable DescribeClientVpnEndpoints where
   hashWithSalt _salt DescribeClientVpnEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` clientVpnEndpointIds
+    _salt
+      `Prelude.hashWithSalt` clientVpnEndpointIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults

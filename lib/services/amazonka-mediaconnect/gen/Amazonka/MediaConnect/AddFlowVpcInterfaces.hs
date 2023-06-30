@@ -106,7 +106,8 @@ instance Core.AWSRequest AddFlowVpcInterfaces where
 
 instance Prelude.Hashable AddFlowVpcInterfaces where
   hashWithSalt _salt AddFlowVpcInterfaces' {..} =
-    _salt `Prelude.hashWithSalt` flowArn
+    _salt
+      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` vpcInterfaces
 
 instance Prelude.NFData AddFlowVpcInterfaces where

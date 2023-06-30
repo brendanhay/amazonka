@@ -80,7 +80,8 @@ networkBandwidthGbpsRequest_min = Lens.lens (\NetworkBandwidthGbpsRequest' {min}
 
 instance Prelude.Hashable NetworkBandwidthGbpsRequest where
   hashWithSalt _salt NetworkBandwidthGbpsRequest' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData NetworkBandwidthGbpsRequest where

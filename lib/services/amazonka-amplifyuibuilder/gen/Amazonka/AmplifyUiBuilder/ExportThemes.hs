@@ -106,18 +106,20 @@ instance Core.AWSPager ExportThemes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? exportThemesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? exportThemesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. exportThemesResponse_entities) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& exportThemes_nextToken
           Lens..~ rs
-          Lens.^? exportThemesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? exportThemesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ExportThemes where
   type AWSResponse ExportThemes = ExportThemesResponse
@@ -134,7 +136,8 @@ instance Core.AWSRequest ExportThemes where
 
 instance Prelude.Hashable ExportThemes where
   hashWithSalt _salt ExportThemes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
 

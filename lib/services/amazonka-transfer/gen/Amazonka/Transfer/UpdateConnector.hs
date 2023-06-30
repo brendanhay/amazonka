@@ -173,7 +173,8 @@ instance Core.AWSRequest UpdateConnector where
 
 instance Prelude.Hashable UpdateConnector where
   hashWithSalt _salt UpdateConnector' {..} =
-    _salt `Prelude.hashWithSalt` accessRole
+    _salt
+      `Prelude.hashWithSalt` accessRole
       `Prelude.hashWithSalt` as2Config
       `Prelude.hashWithSalt` loggingRole
       `Prelude.hashWithSalt` url

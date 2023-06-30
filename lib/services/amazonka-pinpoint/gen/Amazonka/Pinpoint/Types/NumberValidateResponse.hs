@@ -233,7 +233,8 @@ instance Data.FromJSON NumberValidateResponse where
 
 instance Prelude.Hashable NumberValidateResponse where
   hashWithSalt _salt NumberValidateResponse' {..} =
-    _salt `Prelude.hashWithSalt` carrier
+    _salt
+      `Prelude.hashWithSalt` carrier
       `Prelude.hashWithSalt` city
       `Prelude.hashWithSalt` cleansedPhoneNumberE164
       `Prelude.hashWithSalt` cleansedPhoneNumberNational

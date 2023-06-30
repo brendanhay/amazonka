@@ -119,14 +119,16 @@ instance Data.FromJSON TopBottomFilter where
             Prelude.<*> (x Data..:? "TimeGranularity")
             Prelude.<*> (x Data..: "FilterId")
             Prelude.<*> (x Data..: "Column")
-            Prelude.<*> ( x Data..:? "AggregationSortConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "AggregationSortConfigurations"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TopBottomFilter where
   hashWithSalt _salt TopBottomFilter' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` parameterName
       `Prelude.hashWithSalt` timeGranularity
       `Prelude.hashWithSalt` filterId

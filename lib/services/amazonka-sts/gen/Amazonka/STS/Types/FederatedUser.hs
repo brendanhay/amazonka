@@ -90,7 +90,8 @@ instance Data.FromXML FederatedUser where
 
 instance Prelude.Hashable FederatedUser where
   hashWithSalt _salt FederatedUser' {..} =
-    _salt `Prelude.hashWithSalt` federatedUserId
+    _salt
+      `Prelude.hashWithSalt` federatedUserId
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData FederatedUser where

@@ -184,7 +184,8 @@ instance Data.FromJSON Bundle where
             Prelude.<*> (x Data..:? "power")
             Prelude.<*> (x Data..:? "price")
             Prelude.<*> (x Data..:? "ramSizeInGb")
-            Prelude.<*> ( x Data..:? "supportedPlatforms"
+            Prelude.<*> ( x
+                            Data..:? "supportedPlatforms"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "transferPerMonthInGb")
@@ -192,7 +193,8 @@ instance Data.FromJSON Bundle where
 
 instance Prelude.Hashable Bundle where
   hashWithSalt _salt Bundle' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` cpuCount
       `Prelude.hashWithSalt` diskSizeInGb
       `Prelude.hashWithSalt` instanceType

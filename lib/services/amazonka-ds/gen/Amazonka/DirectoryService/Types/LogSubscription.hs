@@ -88,7 +88,8 @@ instance Data.FromJSON LogSubscription where
 
 instance Prelude.Hashable LogSubscription where
   hashWithSalt _salt LogSubscription' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` subscriptionCreatedDateTime
 

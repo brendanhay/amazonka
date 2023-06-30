@@ -94,7 +94,8 @@ instance Data.FromXML EbsInstanceBlockDevice where
 
 instance Prelude.Hashable EbsInstanceBlockDevice where
   hashWithSalt _salt EbsInstanceBlockDevice' {..} =
-    _salt `Prelude.hashWithSalt` attachTime
+    _salt
+      `Prelude.hashWithSalt` attachTime
       `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` volumeId

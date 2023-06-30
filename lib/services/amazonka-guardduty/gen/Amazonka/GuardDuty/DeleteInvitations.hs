@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteInvitations where
       ( \s h x ->
           DeleteInvitationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )

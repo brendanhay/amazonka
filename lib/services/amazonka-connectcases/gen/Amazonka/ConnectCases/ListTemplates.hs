@@ -131,7 +131,8 @@ instance Core.AWSRequest ListTemplates where
 
 instance Prelude.Hashable ListTemplates where
   hashWithSalt _salt ListTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` domainId

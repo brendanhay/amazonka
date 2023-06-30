@@ -147,7 +147,8 @@ instance Core.AWSRequest PutMetricFilter where
 
 instance Prelude.Hashable PutMetricFilter where
   hashWithSalt _salt PutMetricFilter' {..} =
-    _salt `Prelude.hashWithSalt` logGroupName
+    _salt
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` filterName
       `Prelude.hashWithSalt` filterPattern
       `Prelude.hashWithSalt` metricTransformations

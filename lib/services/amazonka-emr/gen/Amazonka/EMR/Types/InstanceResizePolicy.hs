@@ -89,10 +89,12 @@ instance Data.FromJSON InstanceResizePolicy where
       ( \x ->
           InstanceResizePolicy'
             Prelude.<$> (x Data..:? "InstanceTerminationTimeout")
-            Prelude.<*> ( x Data..:? "InstancesToProtect"
+            Prelude.<*> ( x
+                            Data..:? "InstancesToProtect"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "InstancesToTerminate"
+            Prelude.<*> ( x
+                            Data..:? "InstancesToTerminate"
                             Data..!= Prelude.mempty
                         )
       )

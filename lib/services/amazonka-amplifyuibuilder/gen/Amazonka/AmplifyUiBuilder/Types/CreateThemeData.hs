@@ -88,7 +88,8 @@ createThemeData_values = Lens.lens (\CreateThemeData' {values} -> values) (\s@Cr
 
 instance Prelude.Hashable CreateThemeData where
   hashWithSalt _salt CreateThemeData' {..} =
-    _salt `Prelude.hashWithSalt` overrides
+    _salt
+      `Prelude.hashWithSalt` overrides
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values

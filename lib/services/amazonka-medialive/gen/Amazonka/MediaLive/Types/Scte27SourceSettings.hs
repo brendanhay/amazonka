@@ -100,7 +100,8 @@ instance Data.FromJSON Scte27SourceSettings where
 
 instance Prelude.Hashable Scte27SourceSettings where
   hashWithSalt _salt Scte27SourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` ocrLanguage
+    _salt
+      `Prelude.hashWithSalt` ocrLanguage
       `Prelude.hashWithSalt` pid
 
 instance Prelude.NFData Scte27SourceSettings where

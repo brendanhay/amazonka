@@ -110,7 +110,8 @@ instance Core.AWSRequest ResetUserPassword where
 
 instance Prelude.Hashable ResetUserPassword where
   hashWithSalt _salt ResetUserPassword' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData ResetUserPassword where

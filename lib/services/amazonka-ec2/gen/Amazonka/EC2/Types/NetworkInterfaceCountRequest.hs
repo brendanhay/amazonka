@@ -75,7 +75,8 @@ instance
     NetworkInterfaceCountRequest
   where
   hashWithSalt _salt NetworkInterfaceCountRequest' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData NetworkInterfaceCountRequest where

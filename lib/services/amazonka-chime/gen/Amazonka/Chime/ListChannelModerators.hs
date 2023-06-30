@@ -127,7 +127,8 @@ instance Core.AWSRequest ListChannelModerators where
       ( \s h x ->
           ListChannelModeratorsResponse'
             Prelude.<$> (x Data..?> "ChannelArn")
-            Prelude.<*> ( x Data..?> "ChannelModerators"
+            Prelude.<*> ( x
+                            Data..?> "ChannelModerators"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -136,7 +137,8 @@ instance Core.AWSRequest ListChannelModerators where
 
 instance Prelude.Hashable ListChannelModerators where
   hashWithSalt _salt ListChannelModerators' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn

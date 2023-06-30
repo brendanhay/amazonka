@@ -275,7 +275,8 @@ instance Core.AWSRequest StartChatContact where
 
 instance Prelude.Hashable StartChatContact where
   hashWithSalt _salt StartChatContact' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` chatDurationInMinutes
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` initialMessage

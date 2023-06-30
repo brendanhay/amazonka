@@ -132,7 +132,8 @@ instance Core.AWSRequest DescribePartners where
       "DescribePartnersResult"
       ( \s h x ->
           DescribePartnersResponse'
-            Prelude.<$> ( x Data..@? "PartnerIntegrationInfoList"
+            Prelude.<$> ( x
+                            Data..@? "PartnerIntegrationInfoList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Data.parseXMLList "PartnerIntegrationInfo")
@@ -142,7 +143,8 @@ instance Core.AWSRequest DescribePartners where
 
 instance Prelude.Hashable DescribePartners where
   hashWithSalt _salt DescribePartners' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` partnerName
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` clusterIdentifier

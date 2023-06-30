@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateMitigationAction where
 
 instance Prelude.Hashable UpdateMitigationAction where
   hashWithSalt _salt UpdateMitigationAction' {..} =
-    _salt `Prelude.hashWithSalt` actionParams
+    _salt
+      `Prelude.hashWithSalt` actionParams
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` actionName
 

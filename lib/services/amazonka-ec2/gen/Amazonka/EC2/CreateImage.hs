@@ -277,7 +277,8 @@ instance Core.AWSRequest CreateImage where
 
 instance Prelude.Hashable CreateImage where
   hashWithSalt _salt CreateImage' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
+    _salt
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` noReboot

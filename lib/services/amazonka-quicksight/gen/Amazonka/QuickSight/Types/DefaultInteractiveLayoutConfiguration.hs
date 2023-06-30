@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     DefaultInteractiveLayoutConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` freeForm
+      _salt
+        `Prelude.hashWithSalt` freeForm
         `Prelude.hashWithSalt` grid
 
 instance

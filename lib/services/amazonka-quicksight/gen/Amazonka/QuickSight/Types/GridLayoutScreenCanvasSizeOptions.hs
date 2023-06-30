@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     GridLayoutScreenCanvasSizeOptions' {..} =
-      _salt `Prelude.hashWithSalt` optimizedViewPortWidth
+      _salt
+        `Prelude.hashWithSalt` optimizedViewPortWidth
         `Prelude.hashWithSalt` resizeOption
 
 instance

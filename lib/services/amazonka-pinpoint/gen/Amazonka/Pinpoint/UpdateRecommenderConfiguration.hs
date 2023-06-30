@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     UpdateRecommenderConfiguration'' {..} =
-      _salt `Prelude.hashWithSalt` recommenderId
+      _salt
+        `Prelude.hashWithSalt` recommenderId
         `Prelude.hashWithSalt` updateRecommenderConfiguration
 
 instance

@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdatePhoneNumber where
 
 instance Prelude.Hashable UpdatePhoneNumber where
   hashWithSalt _salt UpdatePhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` callingName
+    _salt
+      `Prelude.hashWithSalt` callingName
       `Prelude.hashWithSalt` productType
       `Prelude.hashWithSalt` phoneNumberId
 

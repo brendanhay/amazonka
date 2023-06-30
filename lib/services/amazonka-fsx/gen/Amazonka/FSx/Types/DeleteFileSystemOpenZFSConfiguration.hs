@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemOpenZFSConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` finalBackupTags
+      _salt
+        `Prelude.hashWithSalt` finalBackupTags
         `Prelude.hashWithSalt` options
         `Prelude.hashWithSalt` skipFinalBackup
 

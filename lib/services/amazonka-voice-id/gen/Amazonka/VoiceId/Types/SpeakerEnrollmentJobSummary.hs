@@ -153,7 +153,8 @@ instance Data.FromJSON SpeakerEnrollmentJobSummary where
 
 instance Prelude.Hashable SpeakerEnrollmentJobSummary where
   hashWithSalt _salt SpeakerEnrollmentJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` endedAt
       `Prelude.hashWithSalt` failureDetails

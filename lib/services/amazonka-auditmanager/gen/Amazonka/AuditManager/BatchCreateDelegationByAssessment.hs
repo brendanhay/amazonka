@@ -107,8 +107,8 @@ instance
       ( \s h x ->
           BatchCreateDelegationByAssessmentResponse'
             Prelude.<$> (x Data..?> "delegations" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

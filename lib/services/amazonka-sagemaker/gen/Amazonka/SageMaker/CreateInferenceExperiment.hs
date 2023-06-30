@@ -410,7 +410,8 @@ instance Core.AWSRequest CreateInferenceExperiment where
 
 instance Prelude.Hashable CreateInferenceExperiment where
   hashWithSalt _salt CreateInferenceExperiment' {..} =
-    _salt `Prelude.hashWithSalt` dataStorageConfig
+    _salt
+      `Prelude.hashWithSalt` dataStorageConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` schedule

@@ -130,22 +130,22 @@ instance Core.AWSPager ListAccountAliases where
     | Core.stop
         ( rs
             Lens.^? listAccountAliasesResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listAccountAliasesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccountAliases_marker
           Lens..~ rs
           Lens.^? listAccountAliasesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountAliases where
   type
@@ -161,14 +161,17 @@ instance Core.AWSRequest ListAccountAliases where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "AccountAliases" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "AccountAliases"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListAccountAliases where
   hashWithSalt _salt ListAccountAliases' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListAccountAliases where

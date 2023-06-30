@@ -217,7 +217,8 @@ instance Data.FromJSON FraudsterRegistrationJob where
 
 instance Prelude.Hashable FraudsterRegistrationJob where
   hashWithSalt _salt FraudsterRegistrationJob' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` endedAt

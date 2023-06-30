@@ -752,7 +752,8 @@ instance Core.AWSRequest ModifyReplicationGroup where
 
 instance Prelude.Hashable ModifyReplicationGroup where
   hashWithSalt _salt ModifyReplicationGroup' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` authTokenUpdateStrategy
       `Prelude.hashWithSalt` autoMinorVersionUpgrade

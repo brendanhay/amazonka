@@ -131,7 +131,8 @@ instance Data.FromJSON EksAttemptDetail where
 
 instance Prelude.Hashable EksAttemptDetail where
   hashWithSalt _salt EksAttemptDetail' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` nodeName
       `Prelude.hashWithSalt` podName
       `Prelude.hashWithSalt` startedAt

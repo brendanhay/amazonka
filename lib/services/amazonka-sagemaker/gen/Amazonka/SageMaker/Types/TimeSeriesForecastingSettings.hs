@@ -106,7 +106,8 @@ instance
     TimeSeriesForecastingSettings
   where
   hashWithSalt _salt TimeSeriesForecastingSettings' {..} =
-    _salt `Prelude.hashWithSalt` amazonForecastRoleArn
+    _salt
+      `Prelude.hashWithSalt` amazonForecastRoleArn
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData TimeSeriesForecastingSettings where

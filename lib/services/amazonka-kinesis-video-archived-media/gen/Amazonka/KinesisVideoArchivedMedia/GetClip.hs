@@ -28,7 +28,7 @@
 -- API operation.
 --
 -- As a prerequisite to using GetCLip API, you must obtain an endpoint
--- using @GetDataEndpoint@, specifying GET_CLIP for@@ the @APIName@
+-- using @GetDataEndpoint@, specifying GET_CLIP for the @APIName@
 -- parameter.
 --
 -- An Amazon Kinesis video stream has the following requirements for
@@ -169,7 +169,8 @@ instance Core.AWSRequest GetClip where
 
 instance Prelude.Hashable GetClip where
   hashWithSalt _salt GetClip' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` clipFragmentSelector
 

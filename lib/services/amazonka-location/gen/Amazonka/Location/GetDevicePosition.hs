@@ -107,7 +107,8 @@ instance Core.AWSRequest GetDevicePosition where
           GetDevicePositionResponse'
             Prelude.<$> (x Data..?> "Accuracy")
             Prelude.<*> (x Data..?> "DeviceId")
-            Prelude.<*> ( x Data..?> "PositionProperties"
+            Prelude.<*> ( x
+                            Data..?> "PositionProperties"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -118,7 +119,8 @@ instance Core.AWSRequest GetDevicePosition where
 
 instance Prelude.Hashable GetDevicePosition where
   hashWithSalt _salt GetDevicePosition' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
+    _salt
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData GetDevicePosition where
@@ -220,7 +222,8 @@ newGetDevicePositionResponse
         positionProperties = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         position =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pPosition_,
         receivedTime = Data._Time Lens.# pReceivedTime_,
         sampleTime = Data._Time Lens.# pSampleTime_

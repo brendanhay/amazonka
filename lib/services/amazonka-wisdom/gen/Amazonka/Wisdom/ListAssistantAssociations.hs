@@ -114,21 +114,21 @@ instance Core.AWSPager ListAssistantAssociations where
     | Core.stop
         ( rs
             Lens.^? listAssistantAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listAssistantAssociationsResponse_assistantAssociationSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssistantAssociations_nextToken
           Lens..~ rs
           Lens.^? listAssistantAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssistantAssociations where
   type
@@ -142,14 +142,16 @@ instance Core.AWSRequest ListAssistantAssociations where
           ListAssistantAssociationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "assistantAssociationSummaries"
+            Prelude.<*> ( x
+                            Data..?> "assistantAssociationSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAssistantAssociations where
   hashWithSalt _salt ListAssistantAssociations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assistantId
 

@@ -204,7 +204,8 @@ instance Data.FromXML AnalysisRouteTableRoute where
 
 instance Prelude.Hashable AnalysisRouteTableRoute where
   hashWithSalt _salt AnalysisRouteTableRoute' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidr
+    _salt
+      `Prelude.hashWithSalt` destinationCidr
       `Prelude.hashWithSalt` destinationPrefixListId
       `Prelude.hashWithSalt` egressOnlyInternetGatewayId
       `Prelude.hashWithSalt` gatewayId

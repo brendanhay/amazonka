@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeAgentStatus where
 
 instance Prelude.Hashable DescribeAgentStatus where
   hashWithSalt _salt DescribeAgentStatus' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` agentStatusId
 
 instance Prelude.NFData DescribeAgentStatus where

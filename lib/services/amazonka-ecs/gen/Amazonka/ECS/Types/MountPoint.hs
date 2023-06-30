@@ -93,7 +93,8 @@ instance Data.FromJSON MountPoint where
 
 instance Prelude.Hashable MountPoint where
   hashWithSalt _salt MountPoint' {..} =
-    _salt `Prelude.hashWithSalt` containerPath
+    _salt
+      `Prelude.hashWithSalt` containerPath
       `Prelude.hashWithSalt` readOnly
       `Prelude.hashWithSalt` sourceVolume
 

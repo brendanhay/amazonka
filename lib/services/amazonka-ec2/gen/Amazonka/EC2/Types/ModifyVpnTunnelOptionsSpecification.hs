@@ -515,7 +515,8 @@ instance
   hashWithSalt
     _salt
     ModifyVpnTunnelOptionsSpecification' {..} =
-      _salt `Prelude.hashWithSalt` dPDTimeoutAction
+      _salt
+        `Prelude.hashWithSalt` dPDTimeoutAction
         `Prelude.hashWithSalt` dPDTimeoutSeconds
         `Prelude.hashWithSalt` iKEVersions
         `Prelude.hashWithSalt` logOptions

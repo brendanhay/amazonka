@@ -164,7 +164,8 @@ instance Core.AWSRequest StartFHIRImportJob where
 
 instance Prelude.Hashable StartFHIRImportJob where
   hashWithSalt _salt StartFHIRImportJob' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` jobOutputDataConfig
       `Prelude.hashWithSalt` datastoreId

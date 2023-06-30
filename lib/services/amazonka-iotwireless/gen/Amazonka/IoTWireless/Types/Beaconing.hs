@@ -74,7 +74,8 @@ instance Data.FromJSON Beaconing where
 
 instance Prelude.Hashable Beaconing where
   hashWithSalt _salt Beaconing' {..} =
-    _salt `Prelude.hashWithSalt` dataRate
+    _salt
+      `Prelude.hashWithSalt` dataRate
       `Prelude.hashWithSalt` frequencies
 
 instance Prelude.NFData Beaconing where

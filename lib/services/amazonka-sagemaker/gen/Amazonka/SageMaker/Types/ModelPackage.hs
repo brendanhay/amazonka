@@ -410,7 +410,8 @@ instance Data.FromJSON ModelPackage where
             Prelude.<*> (x Data..:? "CertifyForMarketplace")
             Prelude.<*> (x Data..:? "CreatedBy")
             Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> ( x Data..:? "CustomerMetadataProperties"
+            Prelude.<*> ( x
+                            Data..:? "CustomerMetadataProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Domain")

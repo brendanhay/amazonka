@@ -79,7 +79,8 @@ batchListAttachedIndices_targetReference = Lens.lens (\BatchListAttachedIndices'
 
 instance Prelude.Hashable BatchListAttachedIndices where
   hashWithSalt _salt BatchListAttachedIndices' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` targetReference
 

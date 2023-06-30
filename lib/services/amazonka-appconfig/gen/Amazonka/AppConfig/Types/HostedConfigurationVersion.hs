@@ -105,7 +105,8 @@ hostedConfigurationVersion_versionNumber = Lens.lens (\HostedConfigurationVersio
 
 instance Prelude.Hashable HostedConfigurationVersion where
   hashWithSalt _salt HostedConfigurationVersion' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` configurationProfileId
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` contentType

@@ -102,7 +102,8 @@ instance Data.FromJSON RuleConfig where
 
 instance Prelude.Hashable RuleConfig where
   hashWithSalt _salt RuleConfig' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` inverted
       `Prelude.hashWithSalt` threshold
 

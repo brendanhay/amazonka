@@ -122,7 +122,8 @@ instance Core.AWSRequest BatchAssociateProjectAssets where
 
 instance Prelude.Hashable BatchAssociateProjectAssets where
   hashWithSalt _salt BatchAssociateProjectAssets' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` projectId
       `Prelude.hashWithSalt` assetIds
 

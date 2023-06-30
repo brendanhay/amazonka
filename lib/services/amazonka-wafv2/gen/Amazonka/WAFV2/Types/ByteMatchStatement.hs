@@ -343,7 +343,8 @@ instance Data.FromJSON ByteMatchStatement where
 
 instance Prelude.Hashable ByteMatchStatement where
   hashWithSalt _salt ByteMatchStatement' {..} =
-    _salt `Prelude.hashWithSalt` searchString
+    _salt
+      `Prelude.hashWithSalt` searchString
       `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformations
       `Prelude.hashWithSalt` positionalConstraint

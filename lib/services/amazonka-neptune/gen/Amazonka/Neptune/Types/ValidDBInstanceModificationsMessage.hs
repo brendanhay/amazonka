@@ -64,7 +64,9 @@ instance
   where
   parseXML x =
     ValidDBInstanceModificationsMessage'
-      Prelude.<$> ( x Data..@? "Storage" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Storage"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ValidStorageOptions")
                   )
 

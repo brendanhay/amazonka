@@ -83,7 +83,8 @@ canDbcDefinition_canDbcFiles = Lens.lens (\CanDbcDefinition' {canDbcFiles} -> ca
 
 instance Prelude.Hashable CanDbcDefinition where
   hashWithSalt _salt CanDbcDefinition' {..} =
-    _salt `Prelude.hashWithSalt` signalsMap
+    _salt
+      `Prelude.hashWithSalt` signalsMap
       `Prelude.hashWithSalt` networkInterface
       `Prelude.hashWithSalt` canDbcFiles
 

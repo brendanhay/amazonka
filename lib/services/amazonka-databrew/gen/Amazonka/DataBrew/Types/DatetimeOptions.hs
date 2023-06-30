@@ -105,7 +105,8 @@ instance Data.FromJSON DatetimeOptions where
 
 instance Prelude.Hashable DatetimeOptions where
   hashWithSalt _salt DatetimeOptions' {..} =
-    _salt `Prelude.hashWithSalt` localeCode
+    _salt
+      `Prelude.hashWithSalt` localeCode
       `Prelude.hashWithSalt` timezoneOffset
       `Prelude.hashWithSalt` format
 

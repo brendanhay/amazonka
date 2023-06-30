@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeAssetModel where
     Response.receiveJSON
       ( \s h x ->
           DescribeAssetModelResponse'
-            Prelude.<$> ( x Data..?> "assetModelCompositeModels"
+            Prelude.<$> ( x
+                            Data..?> "assetModelCompositeModels"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,10 +115,12 @@ instance Core.AWSRequest DescribeAssetModel where
             Prelude.<*> (x Data..:> "assetModelArn")
             Prelude.<*> (x Data..:> "assetModelName")
             Prelude.<*> (x Data..:> "assetModelDescription")
-            Prelude.<*> ( x Data..?> "assetModelProperties"
+            Prelude.<*> ( x
+                            Data..?> "assetModelProperties"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "assetModelHierarchies"
+            Prelude.<*> ( x
+                            Data..?> "assetModelHierarchies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "assetModelCreationDate")
@@ -127,7 +130,8 @@ instance Core.AWSRequest DescribeAssetModel where
 
 instance Prelude.Hashable DescribeAssetModel where
   hashWithSalt _salt DescribeAssetModel' {..} =
-    _salt `Prelude.hashWithSalt` excludeProperties
+    _salt
+      `Prelude.hashWithSalt` excludeProperties
       `Prelude.hashWithSalt` assetModelId
 
 instance Prelude.NFData DescribeAssetModel where

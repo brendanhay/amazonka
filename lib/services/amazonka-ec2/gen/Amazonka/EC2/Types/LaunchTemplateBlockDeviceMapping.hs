@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateBlockDeviceMapping' {..} =
-      _salt `Prelude.hashWithSalt` deviceName
+      _salt
+        `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` ebs
         `Prelude.hashWithSalt` noDevice
         `Prelude.hashWithSalt` virtualName

@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     GetRepositoryPermissionsPolicy' {..} =
-      _salt `Prelude.hashWithSalt` domainOwner
+      _salt
+        `Prelude.hashWithSalt` domainOwner
         `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` repository
 

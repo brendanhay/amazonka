@@ -100,7 +100,8 @@ instance Core.AWSRequest UpdateCoreDefinition where
 
 instance Prelude.Hashable UpdateCoreDefinition where
   hashWithSalt _salt UpdateCoreDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` coreDefinitionId
 
 instance Prelude.NFData UpdateCoreDefinition where

@@ -93,8 +93,8 @@ instance
       ( \x ->
           CreateS3DataAccessFromS3BucketResponseDetails'
             Prelude.<$> (x Data..: "AssetSource")
-              Prelude.<*> (x Data..: "DataSetId")
-              Prelude.<*> (x Data..: "RevisionId")
+            Prelude.<*> (x Data..: "DataSetId")
+            Prelude.<*> (x Data..: "RevisionId")
       )
 
 instance
@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     CreateS3DataAccessFromS3BucketResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` assetSource
+      _salt
+        `Prelude.hashWithSalt` assetSource
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
 

@@ -94,7 +94,8 @@ instance Data.FromJSON ItemsLimitConfiguration where
 
 instance Prelude.Hashable ItemsLimitConfiguration where
   hashWithSalt _salt ItemsLimitConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` itemsLimit
+    _salt
+      `Prelude.hashWithSalt` itemsLimit
       `Prelude.hashWithSalt` otherCategories
 
 instance Prelude.NFData ItemsLimitConfiguration where

@@ -74,7 +74,8 @@ instance
       "SensitivityInspectionTemplateExcludes"
       ( \x ->
           SensitivityInspectionTemplateExcludes'
-            Prelude.<$> ( x Data..:? "managedDataIdentifierIds"
+            Prelude.<$> ( x
+                            Data..:? "managedDataIdentifierIds"
                             Data..!= Prelude.mempty
                         )
       )

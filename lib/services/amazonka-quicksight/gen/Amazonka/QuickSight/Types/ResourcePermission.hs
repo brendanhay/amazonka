@@ -114,7 +114,8 @@ instance Data.FromJSON ResourcePermission where
 
 instance Prelude.Hashable ResourcePermission where
   hashWithSalt _salt ResourcePermission' {..} =
-    _salt `Prelude.hashWithSalt` principal
+    _salt
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` actions
 
 instance Prelude.NFData ResourcePermission where

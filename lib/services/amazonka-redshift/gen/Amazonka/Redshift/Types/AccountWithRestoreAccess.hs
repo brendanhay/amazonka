@@ -82,7 +82,8 @@ instance Data.FromXML AccountWithRestoreAccess where
 
 instance Prelude.Hashable AccountWithRestoreAccess where
   hashWithSalt _salt AccountWithRestoreAccess' {..} =
-    _salt `Prelude.hashWithSalt` accountAlias
+    _salt
+      `Prelude.hashWithSalt` accountAlias
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData AccountWithRestoreAccess where

@@ -77,7 +77,8 @@ transformSortCriteria_sortDirection = Lens.lens (\TransformSortCriteria' {sortDi
 
 instance Prelude.Hashable TransformSortCriteria where
   hashWithSalt _salt TransformSortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` column
+    _salt
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` sortDirection
 
 instance Prelude.NFData TransformSortCriteria where

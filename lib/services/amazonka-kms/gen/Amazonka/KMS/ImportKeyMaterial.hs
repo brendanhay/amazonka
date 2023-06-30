@@ -362,7 +362,8 @@ instance Core.AWSRequest ImportKeyMaterial where
 
 instance Prelude.Hashable ImportKeyMaterial where
   hashWithSalt _salt ImportKeyMaterial' {..} =
-    _salt `Prelude.hashWithSalt` expirationModel
+    _salt
+      `Prelude.hashWithSalt` expirationModel
       `Prelude.hashWithSalt` validTo
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` importToken

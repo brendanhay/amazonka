@@ -40,7 +40,7 @@ data SchedulingPolicyDetail = SchedulingPolicyDetail'
     -- | The name of the scheduling policy.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the scheduling policy. An example is
-    -- @arn:aws:batch:us-east-1:123456789012:scheduling-policy\/HighPriority @.
+    -- @arn:@/@aws@/@:batch:@/@us-east-1@/@:@/@123456789012@/@:scheduling-policy\/@/@HighPriority@/@ @.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +64,7 @@ data SchedulingPolicyDetail = SchedulingPolicyDetail'
 -- 'name', 'schedulingPolicyDetail_name' - The name of the scheduling policy.
 --
 -- 'arn', 'schedulingPolicyDetail_arn' - The Amazon Resource Name (ARN) of the scheduling policy. An example is
--- @arn:aws:batch:us-east-1:123456789012:scheduling-policy\/HighPriority @.
+-- @arn:@/@aws@/@:batch:@/@us-east-1@/@:@/@123456789012@/@:scheduling-policy\/@/@HighPriority@/@ @.
 newSchedulingPolicyDetail ::
   -- | 'name'
   Prelude.Text ->
@@ -97,7 +97,7 @@ schedulingPolicyDetail_name :: Lens.Lens' SchedulingPolicyDetail Prelude.Text
 schedulingPolicyDetail_name = Lens.lens (\SchedulingPolicyDetail' {name} -> name) (\s@SchedulingPolicyDetail' {} a -> s {name = a} :: SchedulingPolicyDetail)
 
 -- | The Amazon Resource Name (ARN) of the scheduling policy. An example is
--- @arn:aws:batch:us-east-1:123456789012:scheduling-policy\/HighPriority @.
+-- @arn:@/@aws@/@:batch:@/@us-east-1@/@:@/@123456789012@/@:scheduling-policy\/@/@HighPriority@/@ @.
 schedulingPolicyDetail_arn :: Lens.Lens' SchedulingPolicyDetail Prelude.Text
 schedulingPolicyDetail_arn = Lens.lens (\SchedulingPolicyDetail' {arn} -> arn) (\s@SchedulingPolicyDetail' {} a -> s {arn = a} :: SchedulingPolicyDetail)
 
@@ -115,7 +115,8 @@ instance Data.FromJSON SchedulingPolicyDetail where
 
 instance Prelude.Hashable SchedulingPolicyDetail where
   hashWithSalt _salt SchedulingPolicyDetail' {..} =
-    _salt `Prelude.hashWithSalt` fairsharePolicy
+    _salt
+      `Prelude.hashWithSalt` fairsharePolicy
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` arn

@@ -136,7 +136,8 @@ instance Data.FromJSON BackendEnvironment where
 
 instance Prelude.Hashable BackendEnvironment where
   hashWithSalt _salt BackendEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` deploymentArtifacts
+    _salt
+      `Prelude.hashWithSalt` deploymentArtifacts
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` backendEnvironmentArn
       `Prelude.hashWithSalt` environmentName

@@ -114,7 +114,8 @@ instance Core.AWSRequest GetWorkflowRun where
 
 instance Prelude.Hashable GetWorkflowRun where
   hashWithSalt _salt GetWorkflowRun' {..} =
-    _salt `Prelude.hashWithSalt` includeGraph
+    _salt
+      `Prelude.hashWithSalt` includeGraph
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` runId
 

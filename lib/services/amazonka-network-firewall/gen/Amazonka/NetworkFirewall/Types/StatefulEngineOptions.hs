@@ -140,7 +140,8 @@ instance Data.FromJSON StatefulEngineOptions where
 
 instance Prelude.Hashable StatefulEngineOptions where
   hashWithSalt _salt StatefulEngineOptions' {..} =
-    _salt `Prelude.hashWithSalt` ruleOrder
+    _salt
+      `Prelude.hashWithSalt` ruleOrder
       `Prelude.hashWithSalt` streamExceptionPolicy
 
 instance Prelude.NFData StatefulEngineOptions where

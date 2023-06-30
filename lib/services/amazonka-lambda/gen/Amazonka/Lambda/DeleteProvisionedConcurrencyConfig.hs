@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     DeleteProvisionedConcurrencyConfig' {..} =
-      _salt `Prelude.hashWithSalt` functionName
+      _salt
+        `Prelude.hashWithSalt` functionName
         `Prelude.hashWithSalt` qualifier
 
 instance

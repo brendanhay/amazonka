@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdatePricingPlan where
 
 instance Prelude.Hashable UpdatePricingPlan where
   hashWithSalt _salt UpdatePricingPlan' {..} =
-    _salt `Prelude.hashWithSalt` bundleNames
+    _salt
+      `Prelude.hashWithSalt` bundleNames
       `Prelude.hashWithSalt` pricingMode
 
 instance Prelude.NFData UpdatePricingPlan where

@@ -248,7 +248,8 @@ instance Core.AWSRequest UpdateAddon where
 
 instance Prelude.Hashable UpdateAddon where
   hashWithSalt _salt UpdateAddon' {..} =
-    _salt `Prelude.hashWithSalt` addonVersion
+    _salt
+      `Prelude.hashWithSalt` addonVersion
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` configurationValues
       `Prelude.hashWithSalt` resolveConflicts

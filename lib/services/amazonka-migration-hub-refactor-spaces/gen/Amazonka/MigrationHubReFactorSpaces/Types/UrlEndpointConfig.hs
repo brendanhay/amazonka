@@ -74,7 +74,8 @@ instance Data.FromJSON UrlEndpointConfig where
 
 instance Prelude.Hashable UrlEndpointConfig where
   hashWithSalt _salt UrlEndpointConfig' {..} =
-    _salt `Prelude.hashWithSalt` healthUrl
+    _salt
+      `Prelude.hashWithSalt` healthUrl
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData UrlEndpointConfig where

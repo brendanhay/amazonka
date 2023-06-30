@@ -120,7 +120,8 @@ instance Core.AWSRequest CreateMilestone where
 
 instance Prelude.Hashable CreateMilestone where
   hashWithSalt _salt CreateMilestone' {..} =
-    _salt `Prelude.hashWithSalt` workloadId
+    _salt
+      `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` milestoneName
       `Prelude.hashWithSalt` clientRequestToken
 

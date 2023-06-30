@@ -265,7 +265,8 @@ instance Core.AWSRequest PutPrincipalMapping where
 
 instance Prelude.Hashable PutPrincipalMapping where
   hashWithSalt _salt PutPrincipalMapping' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceId
+    _salt
+      `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` orderingId
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` indexId

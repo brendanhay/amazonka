@@ -130,7 +130,8 @@ instance Data.FromJSON Action where
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` uri

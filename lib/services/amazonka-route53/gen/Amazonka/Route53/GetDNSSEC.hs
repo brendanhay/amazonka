@@ -86,7 +86,9 @@ instance Core.AWSRequest GetDNSSEC where
           GetDNSSECResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Status")
-            Prelude.<*> ( x Data..@? "KeySigningKeys" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "KeySigningKeys"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )

@@ -79,7 +79,8 @@ instance
     PipeSourceSqsQueueParameters
   where
   hashWithSalt _salt PipeSourceSqsQueueParameters' {..} =
-    _salt `Prelude.hashWithSalt` batchSize
+    _salt
+      `Prelude.hashWithSalt` batchSize
       `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
 
 instance Prelude.NFData PipeSourceSqsQueueParameters where

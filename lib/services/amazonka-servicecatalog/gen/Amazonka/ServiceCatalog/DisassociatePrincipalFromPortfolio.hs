@@ -169,7 +169,8 @@ instance
   hashWithSalt
     _salt
     DisassociatePrincipalFromPortfolio' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` principalType
         `Prelude.hashWithSalt` portfolioId
         `Prelude.hashWithSalt` principalARN

@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     UpdateConfigurationSetTrackingOptions' {..} =
-      _salt `Prelude.hashWithSalt` configurationSetName
+      _salt
+        `Prelude.hashWithSalt` configurationSetName
         `Prelude.hashWithSalt` trackingOptions
 
 instance

@@ -148,7 +148,8 @@ instance Data.FromJSON Eac3AtmosSettings where
 
 instance Prelude.Hashable Eac3AtmosSettings where
   hashWithSalt _salt Eac3AtmosSettings' {..} =
-    _salt `Prelude.hashWithSalt` bitrate
+    _salt
+      `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` codingMode
       `Prelude.hashWithSalt` dialnorm
       `Prelude.hashWithSalt` drcLine

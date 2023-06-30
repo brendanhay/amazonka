@@ -134,7 +134,8 @@ instance Core.AWSRequest DescribeDevice where
 
 instance Prelude.Hashable DescribeDevice where
   hashWithSalt _salt DescribeDevice' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceFleetName
 

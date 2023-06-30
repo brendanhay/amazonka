@@ -113,7 +113,8 @@ instance Core.AWSRequest AttachThingPrincipal where
 
 instance Prelude.Hashable AttachThingPrincipal where
   hashWithSalt _salt AttachThingPrincipal' {..} =
-    _salt `Prelude.hashWithSalt` thingName
+    _salt
+      `Prelude.hashWithSalt` thingName
       `Prelude.hashWithSalt` principal
 
 instance Prelude.NFData AttachThingPrincipal where

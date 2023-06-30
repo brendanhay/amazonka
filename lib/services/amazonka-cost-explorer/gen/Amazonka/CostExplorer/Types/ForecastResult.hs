@@ -95,7 +95,8 @@ instance Data.FromJSON ForecastResult where
 
 instance Prelude.Hashable ForecastResult where
   hashWithSalt _salt ForecastResult' {..} =
-    _salt `Prelude.hashWithSalt` meanValue
+    _salt
+      `Prelude.hashWithSalt` meanValue
       `Prelude.hashWithSalt` predictionIntervalLowerBound
       `Prelude.hashWithSalt` predictionIntervalUpperBound
       `Prelude.hashWithSalt` timePeriod

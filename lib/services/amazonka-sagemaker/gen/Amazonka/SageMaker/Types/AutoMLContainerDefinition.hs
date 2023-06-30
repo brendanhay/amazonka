@@ -96,7 +96,8 @@ instance Data.FromJSON AutoMLContainerDefinition where
 
 instance Prelude.Hashable AutoMLContainerDefinition where
   hashWithSalt _salt AutoMLContainerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` environment
+    _salt
+      `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` modelDataUrl
 

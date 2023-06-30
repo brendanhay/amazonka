@@ -115,7 +115,8 @@ instance Data.FromJSON OriginationIdentityMetadata where
 
 instance Prelude.Hashable OriginationIdentityMetadata where
   hashWithSalt _salt OriginationIdentityMetadata' {..} =
-    _salt `Prelude.hashWithSalt` originationIdentityArn
+    _salt
+      `Prelude.hashWithSalt` originationIdentityArn
       `Prelude.hashWithSalt` originationIdentity
       `Prelude.hashWithSalt` isoCountryCode
       `Prelude.hashWithSalt` numberCapabilities

@@ -78,7 +78,8 @@ instance
   hashWithSalt
     _salt
     ListCustomLineItemVersionsBillingPeriodRangeFilter' {..} =
-      _salt `Prelude.hashWithSalt` endBillingPeriod
+      _salt
+        `Prelude.hashWithSalt` endBillingPeriod
         `Prelude.hashWithSalt` startBillingPeriod
 
 instance

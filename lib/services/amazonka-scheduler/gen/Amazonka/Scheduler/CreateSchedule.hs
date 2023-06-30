@@ -329,7 +329,8 @@ instance Core.AWSRequest CreateSchedule where
 
 instance Prelude.Hashable CreateSchedule where
   hashWithSalt _salt CreateSchedule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` groupName

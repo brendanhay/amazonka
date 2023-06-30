@@ -76,7 +76,8 @@ instance Data.FromXML InstanceBlockDeviceMapping where
 
 instance Prelude.Hashable InstanceBlockDeviceMapping where
   hashWithSalt _salt InstanceBlockDeviceMapping' {..} =
-    _salt `Prelude.hashWithSalt` deviceName
+    _salt
+      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` ebs
 
 instance Prelude.NFData InstanceBlockDeviceMapping where

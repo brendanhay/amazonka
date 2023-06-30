@@ -135,7 +135,8 @@ instance Core.AWSRequest CreateConnectorDefinition where
 
 instance Prelude.Hashable CreateConnectorDefinition where
   hashWithSalt _salt CreateConnectorDefinition' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` initialVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

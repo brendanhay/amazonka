@@ -109,22 +109,22 @@ instance Core.AWSPager ListPiiEntitiesDetectionJobs where
     | Core.stop
         ( rs
             Lens.^? listPiiEntitiesDetectionJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPiiEntitiesDetectionJobsResponse_piiEntitiesDetectionJobPropertiesList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPiiEntitiesDetectionJobs_nextToken
           Lens..~ rs
           Lens.^? listPiiEntitiesDetectionJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPiiEntitiesDetectionJobs where
   type
@@ -137,7 +137,8 @@ instance Core.AWSRequest ListPiiEntitiesDetectionJobs where
       ( \s h x ->
           ListPiiEntitiesDetectionJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PiiEntitiesDetectionJobPropertiesList"
+            Prelude.<*> ( x
+                            Data..?> "PiiEntitiesDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,7 +149,8 @@ instance
     ListPiiEntitiesDetectionJobs
   where
   hashWithSalt _salt ListPiiEntitiesDetectionJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

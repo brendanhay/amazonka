@@ -124,18 +124,23 @@ instance Data.FromXML VpnGateway where
       Prelude.<$> (x Data..@? "amazonSideAsn")
       Prelude.<*> (x Data..@? "availabilityZone")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "type")
-      Prelude.<*> ( x Data..@? "attachments" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "attachments"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpnGatewayId")
 
 instance Prelude.Hashable VpnGateway where
   hashWithSalt _salt VpnGateway' {..} =
-    _salt `Prelude.hashWithSalt` amazonSideAsn
+    _salt
+      `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` tags

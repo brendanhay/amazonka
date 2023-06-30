@@ -94,9 +94,9 @@ instance
       ( \x ->
           SelfManagedKafkaAccessConfigurationCredentials'
             Prelude.<$> (x Data..:? "BasicAuth")
-              Prelude.<*> (x Data..:? "ClientCertificateTlsAuth")
-              Prelude.<*> (x Data..:? "SaslScram256Auth")
-              Prelude.<*> (x Data..:? "SaslScram512Auth")
+            Prelude.<*> (x Data..:? "ClientCertificateTlsAuth")
+            Prelude.<*> (x Data..:? "SaslScram256Auth")
+            Prelude.<*> (x Data..:? "SaslScram512Auth")
       )
 
 instance
@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     SelfManagedKafkaAccessConfigurationCredentials' {..} =
-      _salt `Prelude.hashWithSalt` basicAuth
+      _salt
+        `Prelude.hashWithSalt` basicAuth
         `Prelude.hashWithSalt` clientCertificateTlsAuth
         `Prelude.hashWithSalt` saslScram256Auth
         `Prelude.hashWithSalt` saslScram512Auth

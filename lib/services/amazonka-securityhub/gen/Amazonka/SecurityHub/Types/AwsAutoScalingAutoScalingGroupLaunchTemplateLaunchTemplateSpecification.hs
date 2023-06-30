@@ -93,8 +93,8 @@ instance
       ( \x ->
           AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification'
             Prelude.<$> (x Data..:? "LaunchTemplateId")
-              Prelude.<*> (x Data..:? "LaunchTemplateName")
-              Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "LaunchTemplateName")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance
@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification' {..} =
-      _salt `Prelude.hashWithSalt` launchTemplateId
+      _salt
+        `Prelude.hashWithSalt` launchTemplateId
         `Prelude.hashWithSalt` launchTemplateName
         `Prelude.hashWithSalt` version
 

@@ -148,7 +148,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetUnfilteredPartitionMetadataResponse'
-            Prelude.<$> ( x Data..?> "AuthorizedColumns"
+            Prelude.<$> ( x
+                            Data..?> "AuthorizedColumns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "IsRegisteredWithLakeFormation")
@@ -163,7 +164,8 @@ instance
   hashWithSalt
     _salt
     GetUnfilteredPartitionMetadata' {..} =
-      _salt `Prelude.hashWithSalt` auditContext
+      _salt
+        `Prelude.hashWithSalt` auditContext
         `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` databaseName
         `Prelude.hashWithSalt` tableName

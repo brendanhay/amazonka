@@ -84,7 +84,8 @@ instance Data.FromJSON FileValidationMessage where
 
 instance Prelude.Hashable FileValidationMessage where
   hashWithSalt _salt FileValidationMessage' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` type'
 

@@ -89,7 +89,8 @@ sampleDataS3SourceConfig_fileFormatDescriptor = Lens.lens (\SampleDataS3SourceCo
 
 instance Prelude.Hashable SampleDataS3SourceConfig where
   hashWithSalt _salt SampleDataS3SourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` historicalDataPathList
+    _salt
+      `Prelude.hashWithSalt` historicalDataPathList
       `Prelude.hashWithSalt` templatedPathList
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` fileFormatDescriptor

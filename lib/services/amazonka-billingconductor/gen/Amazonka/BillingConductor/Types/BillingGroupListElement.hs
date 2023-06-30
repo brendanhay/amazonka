@@ -158,7 +158,8 @@ instance Data.FromJSON BillingGroupListElement where
 
 instance Prelude.Hashable BillingGroupListElement where
   hashWithSalt _salt BillingGroupListElement' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` computationPreference
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description

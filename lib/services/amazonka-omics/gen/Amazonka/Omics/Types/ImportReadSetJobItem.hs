@@ -131,7 +131,8 @@ instance Data.FromJSON ImportReadSetJobItem where
 
 instance Prelude.Hashable ImportReadSetJobItem where
   hashWithSalt _salt ImportReadSetJobItem' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` roleArn

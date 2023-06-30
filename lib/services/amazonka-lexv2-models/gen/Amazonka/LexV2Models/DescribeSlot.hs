@@ -178,7 +178,8 @@ instance Core.AWSRequest DescribeSlot where
 
 instance Prelude.Hashable DescribeSlot where
   hashWithSalt _salt DescribeSlot' {..} =
-    _salt `Prelude.hashWithSalt` slotId
+    _salt
+      `Prelude.hashWithSalt` slotId
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId

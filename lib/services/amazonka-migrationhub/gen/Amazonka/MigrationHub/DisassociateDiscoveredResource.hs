@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     DisassociateDiscoveredResource' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` progressUpdateStream
         `Prelude.hashWithSalt` migrationTaskName
         `Prelude.hashWithSalt` configurationId

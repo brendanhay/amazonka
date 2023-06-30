@@ -143,7 +143,8 @@ instance Core.AWSRequest DeleteAssociation where
 
 instance Prelude.Hashable DeleteAssociation where
   hashWithSalt _salt DeleteAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
 

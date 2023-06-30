@@ -100,7 +100,8 @@ instance Core.AWSRequest BatchGetNamedQuery where
       ( \s h x ->
           BatchGetNamedQueryResponse'
             Prelude.<$> (x Data..?> "NamedQueries" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "UnprocessedNamedQueryIds"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedNamedQueryIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

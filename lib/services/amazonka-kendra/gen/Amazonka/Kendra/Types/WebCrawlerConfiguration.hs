@@ -342,10 +342,12 @@ instance Data.FromJSON WebCrawlerConfiguration where
             Prelude.<*> (x Data..:? "MaxLinksPerPage")
             Prelude.<*> (x Data..:? "MaxUrlsPerMinuteCrawlRate")
             Prelude.<*> (x Data..:? "ProxyConfiguration")
-            Prelude.<*> ( x Data..:? "UrlExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "UrlExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "UrlInclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "UrlInclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "Urls")

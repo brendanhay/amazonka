@@ -140,7 +140,8 @@ instance Data.FromJSON DistributionConfiguration where
 
 instance Prelude.Hashable DistributionConfiguration where
   hashWithSalt _salt DistributionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateUpdated
       `Prelude.hashWithSalt` description

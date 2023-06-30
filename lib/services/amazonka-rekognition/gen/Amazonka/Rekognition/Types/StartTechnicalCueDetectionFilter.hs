@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     StartTechnicalCueDetectionFilter' {..} =
-      _salt `Prelude.hashWithSalt` blackFrame
+      _salt
+        `Prelude.hashWithSalt` blackFrame
         `Prelude.hashWithSalt` minSegmentConfidence
 
 instance

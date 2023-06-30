@@ -132,7 +132,8 @@ instance
     SetIdentityPoolConfiguration
   where
   hashWithSalt _salt SetIdentityPoolConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` cognitoStreams
+    _salt
+      `Prelude.hashWithSalt` cognitoStreams
       `Prelude.hashWithSalt` pushSync
       `Prelude.hashWithSalt` identityPoolId
 

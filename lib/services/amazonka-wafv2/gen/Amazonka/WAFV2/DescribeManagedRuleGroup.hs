@@ -176,7 +176,8 @@ instance Core.AWSRequest DescribeManagedRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeManagedRuleGroupResponse'
-            Prelude.<$> ( x Data..?> "AvailableLabels"
+            Prelude.<$> ( x
+                            Data..?> "AvailableLabels"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Capacity")
@@ -190,7 +191,8 @@ instance Core.AWSRequest DescribeManagedRuleGroup where
 
 instance Prelude.Hashable DescribeManagedRuleGroup where
   hashWithSalt _salt DescribeManagedRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` versionName
+    _salt
+      `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` vendorName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
@@ -389,7 +391,6 @@ describeManagedRuleGroupResponse_consumedLabels = Lens.lens (\DescribeManagedRul
 describeManagedRuleGroupResponse_labelNamespace :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Text)
 describeManagedRuleGroupResponse_labelNamespace = Lens.lens (\DescribeManagedRuleGroupResponse' {labelNamespace} -> labelNamespace) (\s@DescribeManagedRuleGroupResponse' {} a -> s {labelNamespace = a} :: DescribeManagedRuleGroupResponse)
 
--- |
 describeManagedRuleGroupResponse_rules :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe [RuleSummary])
 describeManagedRuleGroupResponse_rules = Lens.lens (\DescribeManagedRuleGroupResponse' {rules} -> rules) (\s@DescribeManagedRuleGroupResponse' {} a -> s {rules = a} :: DescribeManagedRuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
 

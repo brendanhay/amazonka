@@ -224,7 +224,8 @@ instance Data.FromJSON RestApi where
       ( \x ->
           RestApi'
             Prelude.<$> (x Data..:? "apiKeySource")
-            Prelude.<*> ( x Data..:? "binaryMediaTypes"
+            Prelude.<*> ( x
+                            Data..:? "binaryMediaTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "createdDate")
@@ -242,7 +243,8 @@ instance Data.FromJSON RestApi where
 
 instance Prelude.Hashable RestApi where
   hashWithSalt _salt RestApi' {..} =
-    _salt `Prelude.hashWithSalt` apiKeySource
+    _salt
+      `Prelude.hashWithSalt` apiKeySource
       `Prelude.hashWithSalt` binaryMediaTypes
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description

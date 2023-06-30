@@ -187,7 +187,8 @@ instance Data.FromJSON ContinuousParameterRange where
 
 instance Prelude.Hashable ContinuousParameterRange where
   hashWithSalt _salt ContinuousParameterRange' {..} =
-    _salt `Prelude.hashWithSalt` scalingType
+    _salt
+      `Prelude.hashWithSalt` scalingType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` maxValue
       `Prelude.hashWithSalt` minValue

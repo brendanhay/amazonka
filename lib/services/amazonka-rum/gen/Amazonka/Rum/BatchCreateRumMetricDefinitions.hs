@@ -185,7 +185,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchCreateRumMetricDefinitionsResponse'
-            Prelude.<$> ( x Data..?> "MetricDefinitions"
+            Prelude.<$> ( x
+                            Data..?> "MetricDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,7 +200,8 @@ instance
   hashWithSalt
     _salt
     BatchCreateRumMetricDefinitions' {..} =
-      _salt `Prelude.hashWithSalt` destinationArn
+      _salt
+        `Prelude.hashWithSalt` destinationArn
         `Prelude.hashWithSalt` appMonitorName
         `Prelude.hashWithSalt` destination
         `Prelude.hashWithSalt` metricDefinitions

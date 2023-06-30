@@ -150,7 +150,8 @@ instance Data.FromJSON BrokerSummary where
 
 instance Prelude.Hashable BrokerSummary where
   hashWithSalt _salt BrokerSummary' {..} =
-    _salt `Prelude.hashWithSalt` brokerArn
+    _salt
+      `Prelude.hashWithSalt` brokerArn
       `Prelude.hashWithSalt` brokerId
       `Prelude.hashWithSalt` brokerName
       `Prelude.hashWithSalt` brokerState

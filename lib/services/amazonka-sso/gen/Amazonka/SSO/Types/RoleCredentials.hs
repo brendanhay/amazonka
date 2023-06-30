@@ -121,7 +121,8 @@ instance Data.FromJSON RoleCredentials where
 
 instance Prelude.Hashable RoleCredentials where
   hashWithSalt _salt RoleCredentials' {..} =
-    _salt `Prelude.hashWithSalt` expiration
+    _salt
+      `Prelude.hashWithSalt` expiration
       `Prelude.hashWithSalt` sessionToken
       `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` secretAccessKey

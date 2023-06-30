@@ -75,7 +75,8 @@ instance Data.FromJSON RowFilter where
 
 instance Prelude.Hashable RowFilter where
   hashWithSalt _salt RowFilter' {..} =
-    _salt `Prelude.hashWithSalt` allRowsWildcard
+    _salt
+      `Prelude.hashWithSalt` allRowsWildcard
       `Prelude.hashWithSalt` filterExpression
 
 instance Prelude.NFData RowFilter where

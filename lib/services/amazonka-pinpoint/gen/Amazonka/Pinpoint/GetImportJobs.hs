@@ -125,7 +125,8 @@ instance Core.AWSRequest GetImportJobs where
 
 instance Prelude.Hashable GetImportJobs where
   hashWithSalt _salt GetImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` pageSize
+    _salt
+      `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` applicationId
 

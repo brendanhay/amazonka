@@ -213,7 +213,8 @@ instance Core.AWSRequest UpdateFleetAttributes where
 
 instance Prelude.Hashable UpdateFleetAttributes where
   hashWithSalt _salt UpdateFleetAttributes' {..} =
-    _salt `Prelude.hashWithSalt` anywhereConfiguration
+    _salt
+      `Prelude.hashWithSalt` anywhereConfiguration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` metricGroups
       `Prelude.hashWithSalt` name

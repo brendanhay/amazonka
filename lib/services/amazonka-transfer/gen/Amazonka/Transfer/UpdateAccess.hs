@@ -131,7 +131,7 @@ data UpdateAccess = UpdateAccess'
     -- Transfer Family. If you know the group name, you can view the SID values
     -- by running the following command using Windows PowerShell.
     --
-    -- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
+    -- @Get-ADGroup -Filter {samAccountName -like \"@/@YourGroupName@/@*\"} -Properties * | Select SamAccountName,ObjectSid@
     --
     -- In that command, replace /YourGroupName/ with the name of your Active
     -- Directory group.
@@ -226,7 +226,7 @@ data UpdateAccess = UpdateAccess'
 -- Transfer Family. If you know the group name, you can view the SID values
 -- by running the following command using Windows PowerShell.
 --
--- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
+-- @Get-ADGroup -Filter {samAccountName -like \"@/@YourGroupName@/@*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
@@ -341,7 +341,7 @@ updateAccess_serverId = Lens.lens (\UpdateAccess' {serverId} -> serverId) (\s@Up
 -- Transfer Family. If you know the group name, you can view the SID values
 -- by running the following command using Windows PowerShell.
 --
--- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
+-- @Get-ADGroup -Filter {samAccountName -like \"@/@YourGroupName@/@*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
@@ -368,7 +368,8 @@ instance Core.AWSRequest UpdateAccess where
 
 instance Prelude.Hashable UpdateAccess where
   hashWithSalt _salt UpdateAccess' {..} =
-    _salt `Prelude.hashWithSalt` homeDirectory
+    _salt
+      `Prelude.hashWithSalt` homeDirectory
       `Prelude.hashWithSalt` homeDirectoryMappings
       `Prelude.hashWithSalt` homeDirectoryType
       `Prelude.hashWithSalt` policy

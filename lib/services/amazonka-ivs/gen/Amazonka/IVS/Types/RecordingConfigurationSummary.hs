@@ -141,7 +141,8 @@ instance
     RecordingConfigurationSummary
   where
   hashWithSalt _salt RecordingConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` destinationConfiguration

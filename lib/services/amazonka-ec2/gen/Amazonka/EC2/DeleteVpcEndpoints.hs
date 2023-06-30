@@ -126,7 +126,9 @@ instance Core.AWSRequest DeleteVpcEndpoints where
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -134,7 +136,8 @@ instance Core.AWSRequest DeleteVpcEndpoints where
 
 instance Prelude.Hashable DeleteVpcEndpoints where
   hashWithSalt _salt DeleteVpcEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpcEndpointIds
 
 instance Prelude.NFData DeleteVpcEndpoints where

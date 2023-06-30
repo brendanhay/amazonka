@@ -202,7 +202,8 @@ instance Data.FromJSON DatasetExportJob where
 
 instance Prelude.Hashable DatasetExportJob where
   hashWithSalt _salt DatasetExportJob' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` datasetExportJobArn
       `Prelude.hashWithSalt` failureReason

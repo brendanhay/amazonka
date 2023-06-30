@@ -87,14 +87,16 @@ instance Data.FromJSON CsrExtensions where
       ( \x ->
           CsrExtensions'
             Prelude.<$> (x Data..:? "KeyUsage")
-            Prelude.<*> ( x Data..:? "SubjectInformationAccess"
+            Prelude.<*> ( x
+                            Data..:? "SubjectInformationAccess"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CsrExtensions where
   hashWithSalt _salt CsrExtensions' {..} =
-    _salt `Prelude.hashWithSalt` keyUsage
+    _salt
+      `Prelude.hashWithSalt` keyUsage
       `Prelude.hashWithSalt` subjectInformationAccess
 
 instance Prelude.NFData CsrExtensions where

@@ -859,7 +859,8 @@ instance Core.AWSRequest CloneStack where
 
 instance Prelude.Hashable CloneStack where
   hashWithSalt _salt CloneStack' {..} =
-    _salt `Prelude.hashWithSalt` agentVersion
+    _salt
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` chefConfiguration
       `Prelude.hashWithSalt` cloneAppIds

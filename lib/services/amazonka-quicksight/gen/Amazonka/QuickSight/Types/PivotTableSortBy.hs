@@ -96,7 +96,8 @@ instance Data.FromJSON PivotTableSortBy where
 
 instance Prelude.Hashable PivotTableSortBy where
   hashWithSalt _salt PivotTableSortBy' {..} =
-    _salt `Prelude.hashWithSalt` column
+    _salt
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` dataPath
       `Prelude.hashWithSalt` field
 

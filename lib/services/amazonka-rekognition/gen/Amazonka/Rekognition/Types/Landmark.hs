@@ -103,7 +103,8 @@ instance Data.FromJSON Landmark where
 
 instance Prelude.Hashable Landmark where
   hashWithSalt _salt Landmark' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` x
       `Prelude.hashWithSalt` y
 

@@ -102,7 +102,8 @@ instance Data.FromJSON EmptyVisual where
 
 instance Prelude.Hashable EmptyVisual where
   hashWithSalt _salt EmptyVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` visualId
       `Prelude.hashWithSalt` dataSetIdentifier
 

@@ -183,7 +183,8 @@ instance
   hashWithSalt
     _salt
     DirectConnectGatewayAssociationProposal' {..} =
-      _salt `Prelude.hashWithSalt` associatedGateway
+      _salt
+        `Prelude.hashWithSalt` associatedGateway
         `Prelude.hashWithSalt` directConnectGatewayId
         `Prelude.hashWithSalt` directConnectGatewayOwnerAccount
         `Prelude.hashWithSalt` existingAllowedPrefixesToDirectConnectGateway

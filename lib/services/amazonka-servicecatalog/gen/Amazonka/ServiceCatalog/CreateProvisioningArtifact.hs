@@ -167,7 +167,8 @@ instance Core.AWSRequest CreateProvisioningArtifact where
 
 instance Prelude.Hashable CreateProvisioningArtifact where
   hashWithSalt _salt CreateProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` idempotencyToken

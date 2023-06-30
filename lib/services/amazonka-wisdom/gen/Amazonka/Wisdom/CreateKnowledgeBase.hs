@@ -183,7 +183,8 @@ instance Core.AWSRequest CreateKnowledgeBase where
 
 instance Prelude.Hashable CreateKnowledgeBase where
   hashWithSalt _salt CreateKnowledgeBase' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` renderingConfiguration
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration

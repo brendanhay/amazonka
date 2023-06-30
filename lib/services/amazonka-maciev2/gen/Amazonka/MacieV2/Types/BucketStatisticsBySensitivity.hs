@@ -114,7 +114,8 @@ instance
     BucketStatisticsBySensitivity
   where
   hashWithSalt _salt BucketStatisticsBySensitivity' {..} =
-    _salt `Prelude.hashWithSalt` classificationError
+    _salt
+      `Prelude.hashWithSalt` classificationError
       `Prelude.hashWithSalt` notClassified
       `Prelude.hashWithSalt` notSensitive
       `Prelude.hashWithSalt` sensitive

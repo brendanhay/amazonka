@@ -94,7 +94,8 @@ instance Data.FromJSON GeoMatchSetSummary where
 
 instance Prelude.Hashable GeoMatchSetSummary where
   hashWithSalt _salt GeoMatchSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` geoMatchSetId
+    _salt
+      `Prelude.hashWithSalt` geoMatchSetId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GeoMatchSetSummary where

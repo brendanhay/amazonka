@@ -69,7 +69,8 @@ parameterizedStatement_statement = Lens.lens (\ParameterizedStatement' {statemen
 
 instance Prelude.Hashable ParameterizedStatement where
   hashWithSalt _salt ParameterizedStatement' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` statement
 
 instance Prelude.NFData ParameterizedStatement where

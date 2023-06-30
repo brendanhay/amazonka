@@ -154,7 +154,8 @@ instance
     APNSVoipSandboxChannelRequest
   where
   hashWithSalt _salt APNSVoipSandboxChannelRequest' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` defaultAuthenticationMethod
       `Prelude.hashWithSalt` enabled

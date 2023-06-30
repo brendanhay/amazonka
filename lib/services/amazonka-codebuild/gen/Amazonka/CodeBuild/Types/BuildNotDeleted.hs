@@ -77,7 +77,8 @@ instance Data.FromJSON BuildNotDeleted where
 
 instance Prelude.Hashable BuildNotDeleted where
   hashWithSalt _salt BuildNotDeleted' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData BuildNotDeleted where

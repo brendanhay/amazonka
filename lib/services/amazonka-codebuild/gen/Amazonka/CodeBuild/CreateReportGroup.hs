@@ -138,7 +138,8 @@ instance Core.AWSRequest CreateReportGroup where
 
 instance Prelude.Hashable CreateReportGroup where
   hashWithSalt _salt CreateReportGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` exportConfig

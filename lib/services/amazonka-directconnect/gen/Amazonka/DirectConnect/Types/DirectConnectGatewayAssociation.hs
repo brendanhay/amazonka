@@ -207,7 +207,8 @@ instance
       "DirectConnectGatewayAssociation"
       ( \x ->
           DirectConnectGatewayAssociation'
-            Prelude.<$> ( x Data..:? "allowedPrefixesToDirectConnectGateway"
+            Prelude.<$> ( x
+                            Data..:? "allowedPrefixesToDirectConnectGateway"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "associatedGateway")

@@ -241,7 +241,8 @@ instance Data.FromJSON OriginEndpoint where
 
 instance Prelude.Hashable OriginEndpoint where
   hashWithSalt _salt OriginEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` authorization
       `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` cmafPackage

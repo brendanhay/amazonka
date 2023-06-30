@@ -281,7 +281,8 @@ instance
   hashWithSalt
     _salt
     PutBackupVaultLockConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` changeableForDays
+      _salt
+        `Prelude.hashWithSalt` changeableForDays
         `Prelude.hashWithSalt` maxRetentionDays
         `Prelude.hashWithSalt` minRetentionDays
         `Prelude.hashWithSalt` backupVaultName

@@ -56,11 +56,9 @@ newViewSunAzimuthInput pLowerBound_ pUpperBound_ =
       upperBound = pUpperBound_
     }
 
--- |
 viewSunAzimuthInput_lowerBound :: Lens.Lens' ViewSunAzimuthInput Prelude.Double
 viewSunAzimuthInput_lowerBound = Lens.lens (\ViewSunAzimuthInput' {lowerBound} -> lowerBound) (\s@ViewSunAzimuthInput' {} a -> s {lowerBound = a} :: ViewSunAzimuthInput)
 
--- |
 viewSunAzimuthInput_upperBound :: Lens.Lens' ViewSunAzimuthInput Prelude.Double
 viewSunAzimuthInput_upperBound = Lens.lens (\ViewSunAzimuthInput' {upperBound} -> upperBound) (\s@ViewSunAzimuthInput' {} a -> s {upperBound = a} :: ViewSunAzimuthInput)
 
@@ -76,7 +74,8 @@ instance Data.FromJSON ViewSunAzimuthInput where
 
 instance Prelude.Hashable ViewSunAzimuthInput where
   hashWithSalt _salt ViewSunAzimuthInput' {..} =
-    _salt `Prelude.hashWithSalt` lowerBound
+    _salt
+      `Prelude.hashWithSalt` lowerBound
       `Prelude.hashWithSalt` upperBound
 
 instance Prelude.NFData ViewSunAzimuthInput where

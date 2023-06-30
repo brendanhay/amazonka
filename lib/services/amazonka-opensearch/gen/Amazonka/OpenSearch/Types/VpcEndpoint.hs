@@ -123,7 +123,8 @@ instance Data.FromJSON VpcEndpoint where
 
 instance Prelude.Hashable VpcEndpoint where
   hashWithSalt _salt VpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` domainArn
+    _salt
+      `Prelude.hashWithSalt` domainArn
       `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` vpcEndpointId

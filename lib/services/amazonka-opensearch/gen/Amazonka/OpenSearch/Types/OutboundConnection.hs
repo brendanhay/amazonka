@@ -107,7 +107,8 @@ instance Data.FromJSON OutboundConnection where
 
 instance Prelude.Hashable OutboundConnection where
   hashWithSalt _salt OutboundConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectionAlias
+    _salt
+      `Prelude.hashWithSalt` connectionAlias
       `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` connectionStatus
       `Prelude.hashWithSalt` localDomainInfo

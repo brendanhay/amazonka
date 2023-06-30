@@ -110,7 +110,8 @@ instance
       ( \x ->
           LambdaFunctionMemoryRecommendationOption'
             Prelude.<$> (x Data..:? "memorySize")
-            Prelude.<*> ( x Data..:? "projectedUtilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "projectedUtilizationMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "rank")
@@ -124,7 +125,8 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionMemoryRecommendationOption' {..} =
-      _salt `Prelude.hashWithSalt` memorySize
+      _salt
+        `Prelude.hashWithSalt` memorySize
         `Prelude.hashWithSalt` projectedUtilizationMetrics
         `Prelude.hashWithSalt` rank
         `Prelude.hashWithSalt` savingsOpportunity

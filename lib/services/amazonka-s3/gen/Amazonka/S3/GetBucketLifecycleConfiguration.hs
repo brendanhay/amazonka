@@ -156,7 +156,8 @@ instance
   hashWithSalt
     _salt
     GetBucketLifecycleConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
 
 instance

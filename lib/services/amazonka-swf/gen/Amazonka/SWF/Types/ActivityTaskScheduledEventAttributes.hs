@@ -250,7 +250,8 @@ instance
   hashWithSalt
     _salt
     ActivityTaskScheduledEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` heartbeatTimeout
         `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` scheduleToCloseTimeout

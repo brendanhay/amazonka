@@ -110,7 +110,9 @@ instance Core.AWSRequest ModifyRule where
       "ModifyRuleResult"
       ( \s h x ->
           ModifyRuleResponse'
-            Prelude.<$> ( x Data..@? "Rules" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Rules"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -118,7 +120,8 @@ instance Core.AWSRequest ModifyRule where
 
 instance Prelude.Hashable ModifyRule where
   hashWithSalt _salt ModifyRule' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` conditions
       `Prelude.hashWithSalt` ruleArn
 

@@ -240,7 +240,8 @@ instance Data.FromJSON MemberAccountStatus where
 
 instance Prelude.Hashable MemberAccountStatus where
   hashWithSalt _salt MemberAccountStatus' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` accountId

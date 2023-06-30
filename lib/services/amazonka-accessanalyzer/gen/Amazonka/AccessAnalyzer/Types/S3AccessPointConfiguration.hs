@@ -114,7 +114,8 @@ instance Data.FromJSON S3AccessPointConfiguration where
 
 instance Prelude.Hashable S3AccessPointConfiguration where
   hashWithSalt _salt S3AccessPointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accessPointPolicy
+    _salt
+      `Prelude.hashWithSalt` accessPointPolicy
       `Prelude.hashWithSalt` networkOrigin
       `Prelude.hashWithSalt` publicAccessBlock
 

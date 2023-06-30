@@ -402,14 +402,16 @@ instance Core.AWSRequest GetReservationUtilization where
             Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (x Data..?> "Total")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "UtilizationsByTime"
+            Prelude.<*> ( x
+                            Data..?> "UtilizationsByTime"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetReservationUtilization where
   hashWithSalt _salt GetReservationUtilization' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` granularity
       `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` maxResults

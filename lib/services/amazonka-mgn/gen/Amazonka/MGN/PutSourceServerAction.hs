@@ -198,7 +198,8 @@ instance Core.AWSRequest PutSourceServerAction where
 
 instance Prelude.Hashable PutSourceServerAction where
   hashWithSalt _salt PutSourceServerAction' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` mustSucceedForCutover
       `Prelude.hashWithSalt` parameters

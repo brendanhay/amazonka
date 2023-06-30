@@ -136,7 +136,8 @@ instance Core.AWSRequest CreateConnection where
 
 instance Prelude.Hashable CreateConnection where
   hashWithSalt _salt CreateConnection' {..} =
-    _salt `Prelude.hashWithSalt` hostArn
+    _salt
+      `Prelude.hashWithSalt` hostArn
       `Prelude.hashWithSalt` providerType
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` connectionName

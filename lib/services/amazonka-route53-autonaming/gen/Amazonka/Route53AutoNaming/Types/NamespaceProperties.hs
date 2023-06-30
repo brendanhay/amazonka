@@ -81,7 +81,8 @@ instance Data.FromJSON NamespaceProperties where
 
 instance Prelude.Hashable NamespaceProperties where
   hashWithSalt _salt NamespaceProperties' {..} =
-    _salt `Prelude.hashWithSalt` dnsProperties
+    _salt
+      `Prelude.hashWithSalt` dnsProperties
       `Prelude.hashWithSalt` httpProperties
 
 instance Prelude.NFData NamespaceProperties where

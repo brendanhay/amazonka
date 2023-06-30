@@ -160,7 +160,8 @@ instance Core.AWSRequest UpdateFilter where
 
 instance Prelude.Hashable UpdateFilter where
   hashWithSalt _salt UpdateFilter' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` findingCriteria
       `Prelude.hashWithSalt` rank

@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateAssessmentStatus where
 
 instance Prelude.Hashable UpdateAssessmentStatus where
   hashWithSalt _salt UpdateAssessmentStatus' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData UpdateAssessmentStatus where

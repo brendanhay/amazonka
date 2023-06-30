@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     ConvertRecoveryPointToSnapshot' {..} =
-      _salt `Prelude.hashWithSalt` retentionPeriod
+      _salt
+        `Prelude.hashWithSalt` retentionPeriod
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` recoveryPointId
         `Prelude.hashWithSalt` snapshotName

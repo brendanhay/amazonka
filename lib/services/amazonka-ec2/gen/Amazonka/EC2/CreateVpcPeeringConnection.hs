@@ -188,7 +188,8 @@ instance Core.AWSRequest CreateVpcPeeringConnection where
 
 instance Prelude.Hashable CreateVpcPeeringConnection where
   hashWithSalt _salt CreateVpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` peerOwnerId
       `Prelude.hashWithSalt` peerRegion
       `Prelude.hashWithSalt` peerVpcId

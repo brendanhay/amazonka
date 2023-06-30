@@ -106,7 +106,8 @@ instance Core.AWSRequest UpdateClassificationScope where
 
 instance Prelude.Hashable UpdateClassificationScope where
   hashWithSalt _salt UpdateClassificationScope' {..} =
-    _salt `Prelude.hashWithSalt` s3
+    _salt
+      `Prelude.hashWithSalt` s3
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateClassificationScope where

@@ -72,7 +72,8 @@ eventTimeRange_toTime = Lens.lens (\EventTimeRange' {toTime} -> toTime) (\s@Even
 
 instance Prelude.Hashable EventTimeRange where
   hashWithSalt _salt EventTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` fromTime
+    _salt
+      `Prelude.hashWithSalt` fromTime
       `Prelude.hashWithSalt` toTime
 
 instance Prelude.NFData EventTimeRange where

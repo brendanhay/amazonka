@@ -529,7 +529,8 @@ instance Data.FromJSON DashIsoGroupSettings where
       "DashIsoGroupSettings"
       ( \x ->
           DashIsoGroupSettings'
-            Prelude.<$> ( x Data..:? "additionalManifests"
+            Prelude.<$> ( x
+                            Data..:? "additionalManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "audioChannelConfigSchemeIdUri")
@@ -555,7 +556,8 @@ instance Data.FromJSON DashIsoGroupSettings where
 
 instance Prelude.Hashable DashIsoGroupSettings where
   hashWithSalt _salt DashIsoGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` additionalManifests
+    _salt
+      `Prelude.hashWithSalt` additionalManifests
       `Prelude.hashWithSalt` audioChannelConfigSchemeIdUri
       `Prelude.hashWithSalt` baseUrl
       `Prelude.hashWithSalt` destination

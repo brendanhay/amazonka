@@ -146,7 +146,8 @@ instance Core.AWSRequest ListArtifacts where
 
 instance Prelude.Hashable ListArtifacts where
   hashWithSalt _salt ListArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName

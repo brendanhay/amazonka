@@ -74,7 +74,8 @@ instance Data.FromJSON MetricSetDataQualityMetric where
       "MetricSetDataQualityMetric"
       ( \x ->
           MetricSetDataQualityMetric'
-            Prelude.<$> ( x Data..:? "DataQualityMetricList"
+            Prelude.<$> ( x
+                            Data..:? "DataQualityMetricList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MetricSetArn")
@@ -82,7 +83,8 @@ instance Data.FromJSON MetricSetDataQualityMetric where
 
 instance Prelude.Hashable MetricSetDataQualityMetric where
   hashWithSalt _salt MetricSetDataQualityMetric' {..} =
-    _salt `Prelude.hashWithSalt` dataQualityMetricList
+    _salt
+      `Prelude.hashWithSalt` dataQualityMetricList
       `Prelude.hashWithSalt` metricSetArn
 
 instance Prelude.NFData MetricSetDataQualityMetric where

@@ -178,7 +178,8 @@ instance Core.AWSRequest CreateLoginProfile where
 
 instance Prelude.Hashable CreateLoginProfile where
   hashWithSalt _salt CreateLoginProfile' {..} =
-    _salt `Prelude.hashWithSalt` passwordResetRequired
+    _salt
+      `Prelude.hashWithSalt` passwordResetRequired
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` password
 

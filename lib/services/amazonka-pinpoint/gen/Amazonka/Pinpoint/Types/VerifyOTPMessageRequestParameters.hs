@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     VerifyOTPMessageRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` referenceId
+      _salt
+        `Prelude.hashWithSalt` referenceId
         `Prelude.hashWithSalt` otp
         `Prelude.hashWithSalt` destinationIdentity
 

@@ -67,7 +67,8 @@ diskMap_originalDiskPath = Lens.lens (\DiskMap' {originalDiskPath} -> originalDi
 
 instance Prelude.Hashable DiskMap where
   hashWithSalt _salt DiskMap' {..} =
-    _salt `Prelude.hashWithSalt` newDiskName'
+    _salt
+      `Prelude.hashWithSalt` newDiskName'
       `Prelude.hashWithSalt` originalDiskPath
 
 instance Prelude.NFData DiskMap where

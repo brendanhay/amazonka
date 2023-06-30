@@ -173,7 +173,8 @@ instance Data.FromJSON FargateProfile where
 
 instance Prelude.Hashable FargateProfile where
   hashWithSalt _salt FargateProfile' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` fargateProfileArn
       `Prelude.hashWithSalt` fargateProfileName

@@ -131,7 +131,8 @@ instance Core.AWSRequest UpdateKeyGroup where
 
 instance Prelude.Hashable UpdateKeyGroup where
   hashWithSalt _salt UpdateKeyGroup' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` keyGroupConfig
       `Prelude.hashWithSalt` id
 

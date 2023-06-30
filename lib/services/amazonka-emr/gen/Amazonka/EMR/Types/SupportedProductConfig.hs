@@ -66,7 +66,8 @@ supportedProductConfig_name = Lens.lens (\SupportedProductConfig' {name} -> name
 
 instance Prelude.Hashable SupportedProductConfig where
   hashWithSalt _salt SupportedProductConfig' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt
+      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SupportedProductConfig where

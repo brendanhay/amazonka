@@ -74,7 +74,8 @@ ipRoute_description = Lens.lens (\IpRoute' {description} -> description) (\s@IpR
 
 instance Prelude.Hashable IpRoute where
   hashWithSalt _salt IpRoute' {..} =
-    _salt `Prelude.hashWithSalt` cidrIp
+    _salt
+      `Prelude.hashWithSalt` cidrIp
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData IpRoute where

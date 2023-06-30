@@ -148,7 +148,8 @@ instance Core.AWSRequest PutDestinationPolicy where
 
 instance Prelude.Hashable PutDestinationPolicy where
   hashWithSalt _salt PutDestinationPolicy' {..} =
-    _salt `Prelude.hashWithSalt` forceUpdate
+    _salt
+      `Prelude.hashWithSalt` forceUpdate
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` accessPolicy
 

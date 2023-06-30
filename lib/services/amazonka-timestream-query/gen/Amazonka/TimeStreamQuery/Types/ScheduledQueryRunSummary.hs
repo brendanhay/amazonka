@@ -127,7 +127,8 @@ instance Data.FromJSON ScheduledQueryRunSummary where
 
 instance Prelude.Hashable ScheduledQueryRunSummary where
   hashWithSalt _salt ScheduledQueryRunSummary' {..} =
-    _salt `Prelude.hashWithSalt` errorReportLocation
+    _salt
+      `Prelude.hashWithSalt` errorReportLocation
       `Prelude.hashWithSalt` executionStats
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` invocationTime

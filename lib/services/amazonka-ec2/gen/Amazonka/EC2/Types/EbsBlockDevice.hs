@@ -353,7 +353,8 @@ instance Data.FromXML EbsBlockDevice where
 
 instance Prelude.Hashable EbsBlockDevice where
   hashWithSalt _salt EbsBlockDevice' {..} =
-    _salt `Prelude.hashWithSalt` deleteOnTermination
+    _salt
+      `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` kmsKeyId

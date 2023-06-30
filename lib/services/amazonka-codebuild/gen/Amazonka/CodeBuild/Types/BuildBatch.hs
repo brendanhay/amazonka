@@ -511,7 +511,8 @@ instance Data.FromJSON BuildBatch where
             Prelude.<*> (x Data..:? "encryptionKey")
             Prelude.<*> (x Data..:? "endTime")
             Prelude.<*> (x Data..:? "environment")
-            Prelude.<*> ( x Data..:? "fileSystemLocations"
+            Prelude.<*> ( x
+                            Data..:? "fileSystemLocations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "id")
@@ -521,13 +522,16 @@ instance Data.FromJSON BuildBatch where
             Prelude.<*> (x Data..:? "projectName")
             Prelude.<*> (x Data..:? "queuedTimeoutInMinutes")
             Prelude.<*> (x Data..:? "resolvedSourceVersion")
-            Prelude.<*> ( x Data..:? "secondaryArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "secondaryArtifacts"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "secondarySourceVersions"
+            Prelude.<*> ( x
+                            Data..:? "secondarySourceVersions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "secondarySources"
+            Prelude.<*> ( x
+                            Data..:? "secondarySources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "serviceRole")
@@ -539,7 +543,8 @@ instance Data.FromJSON BuildBatch where
 
 instance Prelude.Hashable BuildBatch where
   hashWithSalt _salt BuildBatch' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` artifacts
       `Prelude.hashWithSalt` buildBatchConfig
       `Prelude.hashWithSalt` buildBatchNumber

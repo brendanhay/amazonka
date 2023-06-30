@@ -205,7 +205,8 @@ instance Data.FromJSON TopicRuleDestination where
 
 instance Prelude.Hashable TopicRuleDestination where
   hashWithSalt _salt TopicRuleDestination' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` httpUrlProperties
       `Prelude.hashWithSalt` lastUpdatedAt

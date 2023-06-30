@@ -124,7 +124,8 @@ instance Core.AWSRequest CancelImageCreation where
 
 instance Prelude.Hashable CancelImageCreation where
   hashWithSalt _salt CancelImageCreation' {..} =
-    _salt `Prelude.hashWithSalt` imageBuildVersionArn
+    _salt
+      `Prelude.hashWithSalt` imageBuildVersionArn
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CancelImageCreation where

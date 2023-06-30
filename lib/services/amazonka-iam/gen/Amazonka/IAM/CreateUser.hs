@@ -204,7 +204,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` permissionsBoundary
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userName

@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     CustomerManagedDatastoreS3Storage' {..} =
-      _salt `Prelude.hashWithSalt` keyPrefix
+      _salt
+        `Prelude.hashWithSalt` keyPrefix
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` roleArn
 

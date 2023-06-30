@@ -83,7 +83,8 @@ instance Data.FromJSON LogsConfig where
 
 instance Prelude.Hashable LogsConfig where
   hashWithSalt _salt LogsConfig' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` s3Logs
 
 instance Prelude.NFData LogsConfig where

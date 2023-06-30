@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     SalesforceChatterFeedConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` documentTitleFieldName
+      _salt
+        `Prelude.hashWithSalt` documentTitleFieldName
         `Prelude.hashWithSalt` fieldMappings
         `Prelude.hashWithSalt` includeFilterTypes
         `Prelude.hashWithSalt` documentDataFieldName

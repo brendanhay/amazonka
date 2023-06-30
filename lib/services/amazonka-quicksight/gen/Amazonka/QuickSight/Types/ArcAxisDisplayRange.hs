@@ -68,12 +68,14 @@ instance Data.FromJSON ArcAxisDisplayRange where
       "ArcAxisDisplayRange"
       ( \x ->
           ArcAxisDisplayRange'
-            Prelude.<$> (x Data..:? "Max") Prelude.<*> (x Data..:? "Min")
+            Prelude.<$> (x Data..:? "Max")
+            Prelude.<*> (x Data..:? "Min")
       )
 
 instance Prelude.Hashable ArcAxisDisplayRange where
   hashWithSalt _salt ArcAxisDisplayRange' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData ArcAxisDisplayRange where

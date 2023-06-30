@@ -148,7 +148,9 @@ instance Core.AWSRequest DescribeIdentityIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribeIdentityIdFormatResponse'
-            Prelude.<$> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "statusSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,7 +158,8 @@ instance Core.AWSRequest DescribeIdentityIdFormat where
 
 instance Prelude.Hashable DescribeIdentityIdFormat where
   hashWithSalt _salt DescribeIdentityIdFormat' {..} =
-    _salt `Prelude.hashWithSalt` resource
+    _salt
+      `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` principalArn
 
 instance Prelude.NFData DescribeIdentityIdFormat where

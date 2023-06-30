@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteTags where
 
 instance Prelude.Hashable DeleteTags where
   hashWithSalt _salt DeleteTags' {..} =
-    _salt `Prelude.hashWithSalt` resourceName
+    _salt
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData DeleteTags where

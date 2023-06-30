@@ -101,7 +101,8 @@ instance Core.AWSRequest StartOnDemandAppReplication where
 
 instance Prelude.Hashable StartOnDemandAppReplication where
   hashWithSalt _salt StartOnDemandAppReplication' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData StartOnDemandAppReplication where

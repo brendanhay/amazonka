@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` placementTemplate
       `Prelude.hashWithSalt` projectName
 

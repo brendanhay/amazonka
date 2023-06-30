@@ -349,7 +349,8 @@ instance Core.AWSRequest UpdateWorkspace where
 
 instance Prelude.Hashable UpdateWorkspace where
   hashWithSalt _salt UpdateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` accountAccessType
+    _salt
+      `Prelude.hashWithSalt` accountAccessType
       `Prelude.hashWithSalt` organizationRoleName
       `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` removeVpcConfiguration

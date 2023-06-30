@@ -127,7 +127,8 @@ instance Data.FromJSON ResourceGroup where
 
 instance Prelude.Hashable ResourceGroup where
   hashWithSalt _salt ResourceGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` state
 

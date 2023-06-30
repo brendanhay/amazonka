@@ -65,7 +65,8 @@ savingsPlanFilter_values = Lens.lens (\SavingsPlanFilter' {values} -> values) (\
 
 instance Prelude.Hashable SavingsPlanFilter where
   hashWithSalt _salt SavingsPlanFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData SavingsPlanFilter where

@@ -110,13 +110,14 @@ instance
       ( \x ->
           ZeppelinApplicationConfigurationDescription'
             Prelude.<$> (x Data..:? "CatalogConfigurationDescription")
-              Prelude.<*> ( x Data..:? "CustomArtifactsConfigurationDescription"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x
-                              Data..:? "DeployAsApplicationConfigurationDescription"
-                          )
-              Prelude.<*> (x Data..: "MonitoringConfigurationDescription")
+            Prelude.<*> ( x
+                            Data..:? "CustomArtifactsConfigurationDescription"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "DeployAsApplicationConfigurationDescription"
+                        )
+            Prelude.<*> (x Data..: "MonitoringConfigurationDescription")
       )
 
 instance

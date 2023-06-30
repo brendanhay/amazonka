@@ -377,7 +377,8 @@ instance Core.AWSRequest CreateCanary where
 
 instance Prelude.Hashable CreateCanary where
   hashWithSalt _salt CreateCanary' {..} =
-    _salt `Prelude.hashWithSalt` artifactConfig
+    _salt
+      `Prelude.hashWithSalt` artifactConfig
       `Prelude.hashWithSalt` failureRetentionPeriodInDays
       `Prelude.hashWithSalt` runConfig
       `Prelude.hashWithSalt` successRetentionPeriodInDays

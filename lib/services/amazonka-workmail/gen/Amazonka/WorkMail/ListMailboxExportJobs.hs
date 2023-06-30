@@ -116,7 +116,8 @@ instance Core.AWSRequest ListMailboxExportJobs where
 
 instance Prelude.Hashable ListMailboxExportJobs where
   hashWithSalt _salt ListMailboxExportJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` organizationId
 

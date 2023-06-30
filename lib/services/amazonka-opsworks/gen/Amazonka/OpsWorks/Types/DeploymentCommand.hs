@@ -248,7 +248,8 @@ instance Data.FromJSON DeploymentCommand where
 
 instance Prelude.Hashable DeploymentCommand where
   hashWithSalt _salt DeploymentCommand' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt
+      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeploymentCommand where

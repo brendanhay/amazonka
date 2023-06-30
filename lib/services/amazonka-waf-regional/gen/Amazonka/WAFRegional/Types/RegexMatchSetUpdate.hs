@@ -96,7 +96,8 @@ regexMatchSetUpdate_regexMatchTuple = Lens.lens (\RegexMatchSetUpdate' {regexMat
 
 instance Prelude.Hashable RegexMatchSetUpdate where
   hashWithSalt _salt RegexMatchSetUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` regexMatchTuple
 
 instance Prelude.NFData RegexMatchSetUpdate where

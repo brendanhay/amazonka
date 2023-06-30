@@ -493,52 +493,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access to resource denied.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -546,42 +546,42 @@ _AccessDeniedException =
 
 -- | The Amazon Web Services user account does not have permission to perform
 -- the action. Check the IAM policy associated with this account.
-_AuthorizationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AuthorizationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AuthorizationException =
   Core._MatchServiceError
     defaultService
     "AuthorizationException"
 
 -- | There was a conflict processing the request. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | The entitlement is not allowed.
-_EntitlementNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EntitlementNotAllowedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntitlementNotAllowedException =
   Core._MatchServiceError
     defaultService
     "EntitlementNotAllowedException"
 
 -- | A dependency required to run the API is missing.
-_FailedDependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FailedDependencyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FailedDependencyException =
   Core._MatchServiceError
     defaultService
     "FailedDependencyException"
 
 -- | The request uses too many filters or too many filter values.
-_FilterLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FilterLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FilterLimitExceededException =
   Core._MatchServiceError
     defaultService
     "FilterLimitExceededException"
 
 -- | One or more parameter values are not valid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -592,7 +592,7 @@ _InvalidParameterValueException =
 --
 -- For example, you cannot allocate a license to an instance in the process
 -- of shutting down.
-_InvalidResourceStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidResourceStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidResourceStateException =
   Core._MatchServiceError
     defaultService
@@ -600,7 +600,7 @@ _InvalidResourceStateException =
 
 -- | You do not have enough licenses available to support a new resource
 -- launch.
-_LicenseUsageException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LicenseUsageException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LicenseUsageException =
   Core._MatchServiceError
     defaultService
@@ -608,56 +608,56 @@ _LicenseUsageException =
 
 -- | There are no entitlements found for this license, or the entitlement
 -- maximum count is reached.
-_NoEntitlementsAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoEntitlementsAllowedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoEntitlementsAllowedException =
   Core._MatchServiceError
     defaultService
     "NoEntitlementsAllowedException"
 
 -- | Too many requests have been submitted. Try again after a brief wait.
-_RateLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RateLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RateLimitExceededException =
   Core._MatchServiceError
     defaultService
     "RateLimitExceededException"
 
 -- | This is not the correct Region for the resource. Try again.
-_RedirectException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RedirectException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RedirectException =
   Core._MatchServiceError
     defaultService
     "RedirectException"
 
 -- | Your resource limits have been exceeded.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceLimitExceededException"
 
 -- | The resource cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The server experienced an internal error. Try again.
-_ServerInternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServerInternalException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServerInternalException =
   Core._MatchServiceError
     defaultService
     "ServerInternalException"
 
 -- | The digital signature method is unsupported. Try your request again.
-_UnsupportedDigitalSignatureMethodException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedDigitalSignatureMethodException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedDigitalSignatureMethodException =
   Core._MatchServiceError
     defaultService
     "UnsupportedDigitalSignatureMethodException"
 
 -- | The provided input is not valid. Try your request again.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

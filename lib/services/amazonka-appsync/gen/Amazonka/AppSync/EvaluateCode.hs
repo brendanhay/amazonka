@@ -146,7 +146,8 @@ instance Core.AWSRequest EvaluateCode where
 
 instance Prelude.Hashable EvaluateCode where
   hashWithSalt _salt EvaluateCode' {..} =
-    _salt `Prelude.hashWithSalt` function
+    _salt
+      `Prelude.hashWithSalt` function
       `Prelude.hashWithSalt` runtime
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` context

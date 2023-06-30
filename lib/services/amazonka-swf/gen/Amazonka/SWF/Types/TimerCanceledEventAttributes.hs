@@ -112,7 +112,8 @@ instance
     TimerCanceledEventAttributes
   where
   hashWithSalt _salt TimerCanceledEventAttributes' {..} =
-    _salt `Prelude.hashWithSalt` timerId
+    _salt
+      `Prelude.hashWithSalt` timerId
       `Prelude.hashWithSalt` startedEventId
       `Prelude.hashWithSalt` decisionTaskCompletedEventId
 

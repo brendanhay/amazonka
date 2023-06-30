@@ -157,7 +157,8 @@ instance Core.AWSRequest CreateRepository where
 
 instance Prelude.Hashable CreateRepository where
   hashWithSalt _salt CreateRepository' {..} =
-    _salt `Prelude.hashWithSalt` repositoryDescription
+    _salt
+      `Prelude.hashWithSalt` repositoryDescription
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` repositoryName
 

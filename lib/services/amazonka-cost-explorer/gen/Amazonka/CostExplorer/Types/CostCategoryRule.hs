@@ -167,7 +167,8 @@ instance Data.FromJSON CostCategoryRule where
 
 instance Prelude.Hashable CostCategoryRule where
   hashWithSalt _salt CostCategoryRule' {..} =
-    _salt `Prelude.hashWithSalt` inheritedValue
+    _salt
+      `Prelude.hashWithSalt` inheritedValue
       `Prelude.hashWithSalt` rule
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value

@@ -195,7 +195,8 @@ instance
   hashWithSalt
     _salt
     PutBucketAnalyticsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` analyticsConfiguration

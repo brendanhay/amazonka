@@ -74,7 +74,7 @@ instance
       ( \x ->
           AwsElasticsearchDomainLogPublishingOptionsLogConfig'
             Prelude.<$> (x Data..:? "CloudWatchLogsLogGroupArn")
-              Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "Enabled")
       )
 
 instance

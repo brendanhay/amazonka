@@ -149,7 +149,8 @@ instance Core.AWSRequest GetImpersonationRoleEffect where
 
 instance Prelude.Hashable GetImpersonationRoleEffect where
   hashWithSalt _salt GetImpersonationRoleEffect' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` impersonationRoleId
       `Prelude.hashWithSalt` targetUser
 
@@ -194,8 +195,8 @@ instance Data.ToQuery GetImpersonationRoleEffect where
 
 -- | /See:/ 'newGetImpersonationRoleEffectResponse' smart constructor.
 data GetImpersonationRoleEffectResponse = GetImpersonationRoleEffectResponse'
-  { -- | @@Effect of the impersonation role on the target user based on its
-    -- rules. Available effects are @ALLOW@ or @DENY@.
+  { -- | Effect of the impersonation role on the target user based on its rules.
+    -- Available effects are @ALLOW@ or @DENY@.
     effect :: Prelude.Maybe AccessEffect,
     -- | A list of the rules that match the input and produce the configured
     -- effect.
@@ -215,8 +216,8 @@ data GetImpersonationRoleEffectResponse = GetImpersonationRoleEffectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'effect', 'getImpersonationRoleEffectResponse_effect' - @@Effect of the impersonation role on the target user based on its
--- rules. Available effects are @ALLOW@ or @DENY@.
+-- 'effect', 'getImpersonationRoleEffectResponse_effect' - Effect of the impersonation role on the target user based on its rules.
+-- Available effects are @ALLOW@ or @DENY@.
 --
 -- 'matchedRules', 'getImpersonationRoleEffectResponse_matchedRules' - A list of the rules that match the input and produce the configured
 -- effect.
@@ -237,8 +238,8 @@ newGetImpersonationRoleEffectResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | @@Effect of the impersonation role on the target user based on its
--- rules. Available effects are @ALLOW@ or @DENY@.
+-- | Effect of the impersonation role on the target user based on its rules.
+-- Available effects are @ALLOW@ or @DENY@.
 getImpersonationRoleEffectResponse_effect :: Lens.Lens' GetImpersonationRoleEffectResponse (Prelude.Maybe AccessEffect)
 getImpersonationRoleEffectResponse_effect = Lens.lens (\GetImpersonationRoleEffectResponse' {effect} -> effect) (\s@GetImpersonationRoleEffectResponse' {} a -> s {effect = a} :: GetImpersonationRoleEffectResponse)
 

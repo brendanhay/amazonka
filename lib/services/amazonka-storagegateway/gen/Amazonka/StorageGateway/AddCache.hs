@@ -112,7 +112,8 @@ instance Core.AWSRequest AddCache where
 
 instance Prelude.Hashable AddCache where
   hashWithSalt _salt AddCache' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` diskIds
 
 instance Prelude.NFData AddCache where

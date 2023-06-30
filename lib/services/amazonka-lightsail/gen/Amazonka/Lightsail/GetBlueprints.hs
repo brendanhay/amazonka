@@ -117,22 +117,22 @@ instance Core.AWSPager GetBlueprints where
     | Core.stop
         ( rs
             Lens.^? getBlueprintsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getBlueprintsResponse_blueprints
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getBlueprints_pageToken
           Lens..~ rs
           Lens.^? getBlueprintsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBlueprints where
   type
@@ -151,7 +151,8 @@ instance Core.AWSRequest GetBlueprints where
 
 instance Prelude.Hashable GetBlueprints where
   hashWithSalt _salt GetBlueprints' {..} =
-    _salt `Prelude.hashWithSalt` includeInactive
+    _salt
+      `Prelude.hashWithSalt` includeInactive
       `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData GetBlueprints where

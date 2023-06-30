@@ -78,7 +78,8 @@ instance Data.FromJSON RdsParameters where
 
 instance Prelude.Hashable RdsParameters where
   hashWithSalt _salt RdsParameters' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData RdsParameters where

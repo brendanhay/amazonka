@@ -135,7 +135,8 @@ instance Core.AWSRequest StartStreamingSession where
 
 instance Prelude.Hashable StartStreamingSession where
   hashWithSalt _salt StartStreamingSession' {..} =
-    _salt `Prelude.hashWithSalt` backupId
+    _salt
+      `Prelude.hashWithSalt` backupId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` studioId

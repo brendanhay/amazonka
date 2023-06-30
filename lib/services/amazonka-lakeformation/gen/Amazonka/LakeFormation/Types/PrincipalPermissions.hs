@@ -77,7 +77,8 @@ instance Data.FromJSON PrincipalPermissions where
 
 instance Prelude.Hashable PrincipalPermissions where
   hashWithSalt _salt PrincipalPermissions' {..} =
-    _salt `Prelude.hashWithSalt` permissions
+    _salt
+      `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` principal
 
 instance Prelude.NFData PrincipalPermissions where

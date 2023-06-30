@@ -195,7 +195,8 @@ instance
     CreateDBClusterParameterGroup
   where
   hashWithSalt _salt CreateDBClusterParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dbClusterParameterGroupName
       `Prelude.hashWithSalt` dbParameterGroupFamily
       `Prelude.hashWithSalt` description

@@ -120,7 +120,8 @@ instance Data.FromJSON TableResource where
 
 instance Prelude.Hashable TableResource where
   hashWithSalt _salt TableResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tableWildcard
       `Prelude.hashWithSalt` databaseName

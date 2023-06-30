@@ -147,7 +147,8 @@ instance Core.AWSRequest GetMLTaskRuns where
 
 instance Prelude.Hashable GetMLTaskRuns where
   hashWithSalt _salt GetMLTaskRuns' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sort

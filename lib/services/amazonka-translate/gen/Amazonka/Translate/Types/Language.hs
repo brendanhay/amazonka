@@ -78,7 +78,8 @@ instance Data.FromJSON Language where
 
 instance Prelude.Hashable Language where
   hashWithSalt _salt Language' {..} =
-    _salt `Prelude.hashWithSalt` languageName
+    _salt
+      `Prelude.hashWithSalt` languageName
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData Language where

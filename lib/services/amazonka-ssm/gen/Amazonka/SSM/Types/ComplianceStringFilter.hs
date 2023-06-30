@@ -78,7 +78,8 @@ complianceStringFilter_values = Lens.lens (\ComplianceStringFilter' {values} -> 
 
 instance Prelude.Hashable ComplianceStringFilter where
   hashWithSalt _salt ComplianceStringFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` values
 

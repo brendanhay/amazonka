@@ -159,7 +159,8 @@ instance Core.AWSRequest ListTestGridSessions where
       ( \s h x ->
           ListTestGridSessionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "testGridSessions"
+            Prelude.<*> ( x
+                            Data..?> "testGridSessions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,7 +168,8 @@ instance Core.AWSRequest ListTestGridSessions where
 
 instance Prelude.Hashable ListTestGridSessions where
   hashWithSalt _salt ListTestGridSessions' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` endTimeAfter
       `Prelude.hashWithSalt` endTimeBefore

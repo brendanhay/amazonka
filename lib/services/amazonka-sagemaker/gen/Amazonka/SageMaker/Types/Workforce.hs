@@ -203,7 +203,8 @@ instance Data.FromJSON Workforce where
 
 instance Prelude.Hashable Workforce where
   hashWithSalt _salt Workforce' {..} =
-    _salt `Prelude.hashWithSalt` cognitoConfig
+    _salt
+      `Prelude.hashWithSalt` cognitoConfig
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastUpdatedDate

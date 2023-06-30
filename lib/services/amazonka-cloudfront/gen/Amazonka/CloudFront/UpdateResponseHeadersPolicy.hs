@@ -143,7 +143,8 @@ instance Core.AWSRequest UpdateResponseHeadersPolicy where
 
 instance Prelude.Hashable UpdateResponseHeadersPolicy where
   hashWithSalt _salt UpdateResponseHeadersPolicy' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` responseHeadersPolicyConfig
       `Prelude.hashWithSalt` id
 

@@ -193,7 +193,8 @@ instance
             Prelude.<*> (x Data..:? "Ipv6Ranges" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "PrefixListIds" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ToPort")
-            Prelude.<*> ( x Data..:? "UserIdGroupPairs"
+            Prelude.<*> ( x
+                            Data..:? "UserIdGroupPairs"
                             Data..!= Prelude.mempty
                         )
       )
@@ -205,7 +206,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2SecurityGroupIpPermission' {..} =
-      _salt `Prelude.hashWithSalt` fromPort
+      _salt
+        `Prelude.hashWithSalt` fromPort
         `Prelude.hashWithSalt` ipProtocol
         `Prelude.hashWithSalt` ipRanges
         `Prelude.hashWithSalt` ipv6Ranges

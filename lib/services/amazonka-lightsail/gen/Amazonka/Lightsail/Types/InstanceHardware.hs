@@ -85,7 +85,8 @@ instance Data.FromJSON InstanceHardware where
 
 instance Prelude.Hashable InstanceHardware where
   hashWithSalt _salt InstanceHardware' {..} =
-    _salt `Prelude.hashWithSalt` cpuCount
+    _salt
+      `Prelude.hashWithSalt` cpuCount
       `Prelude.hashWithSalt` disks
       `Prelude.hashWithSalt` ramSizeInGb
 

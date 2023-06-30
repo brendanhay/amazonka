@@ -321,7 +321,8 @@ instance Core.AWSRequest CreateContainerRecipe where
 
 instance Prelude.Hashable CreateContainerRecipe where
   hashWithSalt _salt CreateContainerRecipe' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dockerfileTemplateData
       `Prelude.hashWithSalt` dockerfileTemplateUri
       `Prelude.hashWithSalt` imageOsVersionOverride

@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteBot where
 
 instance Prelude.Hashable DeleteBot where
   hashWithSalt _salt DeleteBot' {..} =
-    _salt `Prelude.hashWithSalt` skipResourceInUseCheck
+    _salt
+      `Prelude.hashWithSalt` skipResourceInUseCheck
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData DeleteBot where

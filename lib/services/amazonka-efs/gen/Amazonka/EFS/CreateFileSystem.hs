@@ -469,7 +469,8 @@ instance Core.AWSRequest CreateFileSystem where
 
 instance Prelude.Hashable CreateFileSystem where
   hashWithSalt _salt CreateFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneName
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneName
       `Prelude.hashWithSalt` backup
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyId

@@ -97,7 +97,8 @@ instance Data.FromJSON ImportFindingsError where
 
 instance Prelude.Hashable ImportFindingsError where
   hashWithSalt _salt ImportFindingsError' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
 

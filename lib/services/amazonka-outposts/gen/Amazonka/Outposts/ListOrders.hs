@@ -108,7 +108,8 @@ instance Core.AWSRequest ListOrders where
 
 instance Prelude.Hashable ListOrders where
   hashWithSalt _salt ListOrders' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` outpostIdentifierFilter
 

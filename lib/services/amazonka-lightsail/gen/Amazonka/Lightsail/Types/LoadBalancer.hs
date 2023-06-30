@@ -297,14 +297,16 @@ instance Data.FromJSON LoadBalancer where
       ( \x ->
           LoadBalancer'
             Prelude.<$> (x Data..:? "arn")
-            Prelude.<*> ( x Data..:? "configurationOptions"
+            Prelude.<*> ( x
+                            Data..:? "configurationOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "dnsName")
             Prelude.<*> (x Data..:? "healthCheckPath")
             Prelude.<*> (x Data..:? "httpsRedirectionEnabled")
-            Prelude.<*> ( x Data..:? "instanceHealthSummary"
+            Prelude.<*> ( x
+                            Data..:? "instanceHealthSummary"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "instancePort")
@@ -317,7 +319,8 @@ instance Data.FromJSON LoadBalancer where
             Prelude.<*> (x Data..:? "state")
             Prelude.<*> (x Data..:? "supportCode")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "tlsCertificateSummaries"
+            Prelude.<*> ( x
+                            Data..:? "tlsCertificateSummaries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "tlsPolicyName")
@@ -325,7 +328,8 @@ instance Data.FromJSON LoadBalancer where
 
 instance Prelude.Hashable LoadBalancer where
   hashWithSalt _salt LoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` configurationOptions
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dnsName

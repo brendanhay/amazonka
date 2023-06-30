@@ -112,7 +112,8 @@ instance Core.AWSRequest AdminAddUserToGroup where
 
 instance Prelude.Hashable AdminAddUserToGroup where
   hashWithSalt _salt AdminAddUserToGroup' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` groupName
 

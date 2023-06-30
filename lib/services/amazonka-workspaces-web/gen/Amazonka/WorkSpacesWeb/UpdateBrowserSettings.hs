@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateBrowserSettings where
 
 instance Prelude.Hashable UpdateBrowserSettings where
   hashWithSalt _salt UpdateBrowserSettings' {..} =
-    _salt `Prelude.hashWithSalt` browserPolicy
+    _salt
+      `Prelude.hashWithSalt` browserPolicy
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` browserSettingsArn
 

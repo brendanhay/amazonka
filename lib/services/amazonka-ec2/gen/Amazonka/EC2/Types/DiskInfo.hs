@@ -82,7 +82,8 @@ instance Data.FromXML DiskInfo where
 
 instance Prelude.Hashable DiskInfo where
   hashWithSalt _salt DiskInfo' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` sizeInGB
       `Prelude.hashWithSalt` type'
 

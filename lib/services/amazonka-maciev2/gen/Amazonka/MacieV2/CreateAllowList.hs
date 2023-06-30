@@ -171,7 +171,8 @@ instance Core.AWSRequest CreateAllowList where
 
 instance Prelude.Hashable CreateAllowList where
   hashWithSalt _salt CreateAllowList' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` criteria
       `Prelude.hashWithSalt` clientToken

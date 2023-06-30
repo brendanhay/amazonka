@@ -66,7 +66,8 @@ solutionStackDescription_solutionStackName = Lens.lens (\SolutionStackDescriptio
 instance Data.FromXML SolutionStackDescription where
   parseXML x =
     SolutionStackDescription'
-      Prelude.<$> ( x Data..@? "PermittedFileTypes"
+      Prelude.<$> ( x
+                      Data..@? "PermittedFileTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -74,7 +75,8 @@ instance Data.FromXML SolutionStackDescription where
 
 instance Prelude.Hashable SolutionStackDescription where
   hashWithSalt _salt SolutionStackDescription' {..} =
-    _salt `Prelude.hashWithSalt` permittedFileTypes
+    _salt
+      `Prelude.hashWithSalt` permittedFileTypes
       `Prelude.hashWithSalt` solutionStackName
 
 instance Prelude.NFData SolutionStackDescription where

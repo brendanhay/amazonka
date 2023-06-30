@@ -108,7 +108,8 @@ instance Core.AWSRequest GetPartnerAccount where
 
 instance Prelude.Hashable GetPartnerAccount where
   hashWithSalt _salt GetPartnerAccount' {..} =
-    _salt `Prelude.hashWithSalt` partnerAccountId
+    _salt
+      `Prelude.hashWithSalt` partnerAccountId
       `Prelude.hashWithSalt` partnerType
 
 instance Prelude.NFData GetPartnerAccount where

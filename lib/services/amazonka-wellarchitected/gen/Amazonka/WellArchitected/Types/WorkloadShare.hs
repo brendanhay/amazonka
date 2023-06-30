@@ -119,7 +119,8 @@ instance Data.FromJSON WorkloadShare where
 
 instance Prelude.Hashable WorkloadShare where
   hashWithSalt _salt WorkloadShare' {..} =
-    _salt `Prelude.hashWithSalt` permissionType
+    _salt
+      `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` shareId
       `Prelude.hashWithSalt` sharedBy
       `Prelude.hashWithSalt` sharedWith

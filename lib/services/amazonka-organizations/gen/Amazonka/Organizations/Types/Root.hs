@@ -149,7 +149,8 @@ instance Data.FromJSON Root where
 
 instance Prelude.Hashable Root where
   hashWithSalt _salt Root' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` policyTypes

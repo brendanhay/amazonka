@@ -91,7 +91,8 @@ instance Data.FromJSON MavenReference where
 
 instance Prelude.Hashable MavenReference where
   hashWithSalt _salt MavenReference' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` artifactId
       `Prelude.hashWithSalt` version
 

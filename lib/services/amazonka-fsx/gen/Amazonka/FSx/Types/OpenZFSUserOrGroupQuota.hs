@@ -96,7 +96,8 @@ instance Data.FromJSON OpenZFSUserOrGroupQuota where
 
 instance Prelude.Hashable OpenZFSUserOrGroupQuota where
   hashWithSalt _salt OpenZFSUserOrGroupQuota' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` storageCapacityQuotaGiB
 

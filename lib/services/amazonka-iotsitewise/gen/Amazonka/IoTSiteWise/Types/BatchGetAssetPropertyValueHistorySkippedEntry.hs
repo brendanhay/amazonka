@@ -100,8 +100,8 @@ instance
       ( \x ->
           BatchGetAssetPropertyValueHistorySkippedEntry'
             Prelude.<$> (x Data..:? "errorInfo")
-              Prelude.<*> (x Data..: "entryId")
-              Prelude.<*> (x Data..: "completionStatus")
+            Prelude.<*> (x Data..: "entryId")
+            Prelude.<*> (x Data..: "completionStatus")
       )
 
 instance
@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueHistorySkippedEntry' {..} =
-      _salt `Prelude.hashWithSalt` errorInfo
+      _salt
+        `Prelude.hashWithSalt` errorInfo
         `Prelude.hashWithSalt` entryId
         `Prelude.hashWithSalt` completionStatus
 

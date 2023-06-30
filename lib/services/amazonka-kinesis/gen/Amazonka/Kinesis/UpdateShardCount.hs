@@ -216,7 +216,8 @@ instance Core.AWSRequest UpdateShardCount where
 
 instance Prelude.Hashable UpdateShardCount where
   hashWithSalt _salt UpdateShardCount' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` targetShardCount
       `Prelude.hashWithSalt` scalingType

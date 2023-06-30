@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateDomainName where
           UpdateDomainNameResponse'
             Prelude.<$> (x Data..?> "apiMappingSelectionExpression")
             Prelude.<*> (x Data..?> "domainName")
-            Prelude.<*> ( x Data..?> "domainNameConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "domainNameConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "mutualTlsAuthentication")

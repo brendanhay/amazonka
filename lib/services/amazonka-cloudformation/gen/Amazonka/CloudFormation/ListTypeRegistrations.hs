@@ -186,7 +186,8 @@ instance Core.AWSRequest ListTypeRegistrations where
       ( \s h x ->
           ListTypeRegistrationsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "RegistrationTokenList"
+            Prelude.<*> ( x
+                            Data..@? "RegistrationTokenList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -195,7 +196,8 @@ instance Core.AWSRequest ListTypeRegistrations where
 
 instance Prelude.Hashable ListTypeRegistrations where
   hashWithSalt _salt ListTypeRegistrations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registrationStatusFilter
       `Prelude.hashWithSalt` type'
@@ -243,8 +245,8 @@ data ListTypeRegistrationsResponse = ListTypeRegistrationsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of extension registration tokens.
     --
-    -- Use @ DescribeTypeRegistration @ to return detailed information about a
-    -- type registration request.
+    -- Use @ @@DescribeTypeRegistration@@ @ to return detailed information
+    -- about a type registration request.
     registrationTokenList :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -267,8 +269,8 @@ data ListTypeRegistrationsResponse = ListTypeRegistrationsResponse'
 --
 -- 'registrationTokenList', 'listTypeRegistrationsResponse_registrationTokenList' - A list of extension registration tokens.
 --
--- Use @ DescribeTypeRegistration @ to return detailed information about a
--- type registration request.
+-- Use @ @@DescribeTypeRegistration@@ @ to return detailed information
+-- about a type registration request.
 --
 -- 'httpStatus', 'listTypeRegistrationsResponse_httpStatus' - The response's http status code.
 newListTypeRegistrationsResponse ::
@@ -293,8 +295,8 @@ listTypeRegistrationsResponse_nextToken = Lens.lens (\ListTypeRegistrationsRespo
 
 -- | A list of extension registration tokens.
 --
--- Use @ DescribeTypeRegistration @ to return detailed information about a
--- type registration request.
+-- Use @ @@DescribeTypeRegistration@@ @ to return detailed information
+-- about a type registration request.
 listTypeRegistrationsResponse_registrationTokenList :: Lens.Lens' ListTypeRegistrationsResponse (Prelude.Maybe [Prelude.Text])
 listTypeRegistrationsResponse_registrationTokenList = Lens.lens (\ListTypeRegistrationsResponse' {registrationTokenList} -> registrationTokenList) (\s@ListTypeRegistrationsResponse' {} a -> s {registrationTokenList = a} :: ListTypeRegistrationsResponse) Prelude.. Lens.mapping Lens.coerced
 

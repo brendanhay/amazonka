@@ -144,7 +144,8 @@ instance Core.AWSRequest GetLoggerDefinitionVersion where
 
 instance Prelude.Hashable GetLoggerDefinitionVersion where
   hashWithSalt _salt GetLoggerDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` loggerDefinitionVersionId
       `Prelude.hashWithSalt` loggerDefinitionId
 

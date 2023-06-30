@@ -90,7 +90,8 @@ instance Data.FromXML Output where
 
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` exportName
       `Prelude.hashWithSalt` outputKey
       `Prelude.hashWithSalt` outputValue

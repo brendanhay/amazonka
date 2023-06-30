@@ -242,7 +242,8 @@ instance Data.FromJSON Deployment where
       ( \x ->
           Deployment'
             Prelude.<$> (x Data..:? "ApplicationId")
-            Prelude.<*> ( x Data..:? "AppliedExtensions"
+            Prelude.<*> ( x
+                            Data..:? "AppliedExtensions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CompletedAt")
@@ -266,7 +267,8 @@ instance Data.FromJSON Deployment where
 
 instance Prelude.Hashable Deployment where
   hashWithSalt _salt Deployment' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` appliedExtensions
       `Prelude.hashWithSalt` completedAt
       `Prelude.hashWithSalt` configurationLocationUri

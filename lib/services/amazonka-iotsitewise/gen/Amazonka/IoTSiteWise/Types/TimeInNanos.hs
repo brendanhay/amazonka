@@ -79,7 +79,8 @@ instance Data.FromJSON TimeInNanos where
 
 instance Prelude.Hashable TimeInNanos where
   hashWithSalt _salt TimeInNanos' {..} =
-    _salt `Prelude.hashWithSalt` offsetInNanos
+    _salt
+      `Prelude.hashWithSalt` offsetInNanos
       `Prelude.hashWithSalt` timeInSeconds
 
 instance Prelude.NFData TimeInNanos where

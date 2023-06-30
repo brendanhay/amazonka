@@ -97,18 +97,20 @@ instance Core.AWSPager ListWorkflows where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listWorkflowsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listWorkflowsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listWorkflowsResponse_workflows) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWorkflows_nextToken
           Lens..~ rs
-          Lens.^? listWorkflowsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listWorkflowsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkflows where
   type
@@ -127,7 +129,8 @@ instance Core.AWSRequest ListWorkflows where
 
 instance Prelude.Hashable ListWorkflows where
   hashWithSalt _salt ListWorkflows' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkflows where

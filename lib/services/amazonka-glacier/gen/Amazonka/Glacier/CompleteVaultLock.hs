@@ -144,7 +144,8 @@ instance Core.AWSRequest CompleteVaultLock where
 
 instance Prelude.Hashable CompleteVaultLock where
   hashWithSalt _salt CompleteVaultLock' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
       `Prelude.hashWithSalt` lockId
 

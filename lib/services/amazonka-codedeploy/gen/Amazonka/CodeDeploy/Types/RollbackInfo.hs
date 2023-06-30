@@ -94,7 +94,8 @@ instance Data.FromJSON RollbackInfo where
 
 instance Prelude.Hashable RollbackInfo where
   hashWithSalt _salt RollbackInfo' {..} =
-    _salt `Prelude.hashWithSalt` rollbackDeploymentId
+    _salt
+      `Prelude.hashWithSalt` rollbackDeploymentId
       `Prelude.hashWithSalt` rollbackMessage
       `Prelude.hashWithSalt` rollbackTriggeringDeploymentId
 

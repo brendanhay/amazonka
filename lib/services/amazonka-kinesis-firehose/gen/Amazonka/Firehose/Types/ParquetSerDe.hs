@@ -148,7 +148,8 @@ instance Data.FromJSON ParquetSerDe where
 
 instance Prelude.Hashable ParquetSerDe where
   hashWithSalt _salt ParquetSerDe' {..} =
-    _salt `Prelude.hashWithSalt` blockSizeBytes
+    _salt
+      `Prelude.hashWithSalt` blockSizeBytes
       `Prelude.hashWithSalt` compression
       `Prelude.hashWithSalt` enableDictionaryCompression
       `Prelude.hashWithSalt` maxPaddingBytes

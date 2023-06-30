@@ -110,7 +110,8 @@ instance Data.FromJSON RefreshSchemasStatus where
 
 instance Prelude.Hashable RefreshSchemasStatus where
   hashWithSalt _salt RefreshSchemasStatus' {..} =
-    _salt `Prelude.hashWithSalt` endpointArn
+    _salt
+      `Prelude.hashWithSalt` endpointArn
       `Prelude.hashWithSalt` lastFailureMessage
       `Prelude.hashWithSalt` lastRefreshDate
       `Prelude.hashWithSalt` replicationInstanceArn

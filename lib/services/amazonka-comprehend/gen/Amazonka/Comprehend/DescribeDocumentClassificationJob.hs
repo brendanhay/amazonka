@@ -92,7 +92,7 @@ instance
       ( \s h x ->
           DescribeDocumentClassificationJobResponse'
             Prelude.<$> (x Data..?> "DocumentClassificationJobProperties")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

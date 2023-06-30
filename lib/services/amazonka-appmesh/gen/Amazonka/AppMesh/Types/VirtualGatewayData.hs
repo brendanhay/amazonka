@@ -122,7 +122,8 @@ instance Data.FromJSON VirtualGatewayData where
 
 instance Prelude.Hashable VirtualGatewayData where
   hashWithSalt _salt VirtualGatewayData' {..} =
-    _salt `Prelude.hashWithSalt` meshName
+    _salt
+      `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` status

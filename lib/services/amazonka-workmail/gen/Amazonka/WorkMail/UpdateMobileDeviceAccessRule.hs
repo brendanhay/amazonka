@@ -241,7 +241,8 @@ instance
     UpdateMobileDeviceAccessRule
   where
   hashWithSalt _salt UpdateMobileDeviceAccessRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceModels
       `Prelude.hashWithSalt` deviceOperatingSystems
       `Prelude.hashWithSalt` deviceTypes

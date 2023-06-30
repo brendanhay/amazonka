@@ -360,7 +360,8 @@ instance Core.AWSRequest PutMetricStream where
 
 instance Prelude.Hashable PutMetricStream where
   hashWithSalt _salt PutMetricStream' {..} =
-    _salt `Prelude.hashWithSalt` excludeFilters
+    _salt
+      `Prelude.hashWithSalt` excludeFilters
       `Prelude.hashWithSalt` includeFilters
       `Prelude.hashWithSalt` statisticsConfigurations
       `Prelude.hashWithSalt` tags

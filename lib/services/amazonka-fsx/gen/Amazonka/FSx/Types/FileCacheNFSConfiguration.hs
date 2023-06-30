@@ -87,7 +87,8 @@ fileCacheNFSConfiguration_version = Lens.lens (\FileCacheNFSConfiguration' {vers
 
 instance Prelude.Hashable FileCacheNFSConfiguration where
   hashWithSalt _salt FileCacheNFSConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dnsIps
+    _salt
+      `Prelude.hashWithSalt` dnsIps
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData FileCacheNFSConfiguration where

@@ -93,7 +93,8 @@ detectionFilter_minConfidence = Lens.lens (\DetectionFilter' {minConfidence} -> 
 
 instance Prelude.Hashable DetectionFilter where
   hashWithSalt _salt DetectionFilter' {..} =
-    _salt `Prelude.hashWithSalt` minBoundingBoxHeight
+    _salt
+      `Prelude.hashWithSalt` minBoundingBoxHeight
       `Prelude.hashWithSalt` minBoundingBoxWidth
       `Prelude.hashWithSalt` minConfidence
 

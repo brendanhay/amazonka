@@ -108,18 +108,22 @@ instance Core.AWSRequest DescribeHapg where
           DescribeHapgResponse'
             Prelude.<$> (x Data..?> "HapgArn")
             Prelude.<*> (x Data..?> "HapgSerial")
-            Prelude.<*> ( x Data..?> "HsmsLastActionFailed"
+            Prelude.<*> ( x
+                            Data..?> "HsmsLastActionFailed"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "HsmsPendingDeletion"
+            Prelude.<*> ( x
+                            Data..?> "HsmsPendingDeletion"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "HsmsPendingRegistration"
+            Prelude.<*> ( x
+                            Data..?> "HsmsPendingRegistration"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Label")
             Prelude.<*> (x Data..?> "LastModifiedTimestamp")
-            Prelude.<*> ( x Data..?> "PartitionSerialList"
+            Prelude.<*> ( x
+                            Data..?> "PartitionSerialList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "State")
@@ -242,15 +246,12 @@ describeHapgResponse_hapgArn = Lens.lens (\DescribeHapgResponse' {hapgArn} -> ha
 describeHapgResponse_hapgSerial :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe Prelude.Text)
 describeHapgResponse_hapgSerial = Lens.lens (\DescribeHapgResponse' {hapgSerial} -> hapgSerial) (\s@DescribeHapgResponse' {} a -> s {hapgSerial = a} :: DescribeHapgResponse)
 
--- |
 describeHapgResponse_hsmsLastActionFailed :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe [Prelude.Text])
 describeHapgResponse_hsmsLastActionFailed = Lens.lens (\DescribeHapgResponse' {hsmsLastActionFailed} -> hsmsLastActionFailed) (\s@DescribeHapgResponse' {} a -> s {hsmsLastActionFailed = a} :: DescribeHapgResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
 describeHapgResponse_hsmsPendingDeletion :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe [Prelude.Text])
 describeHapgResponse_hsmsPendingDeletion = Lens.lens (\DescribeHapgResponse' {hsmsPendingDeletion} -> hsmsPendingDeletion) (\s@DescribeHapgResponse' {} a -> s {hsmsPendingDeletion = a} :: DescribeHapgResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
 describeHapgResponse_hsmsPendingRegistration :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe [Prelude.Text])
 describeHapgResponse_hsmsPendingRegistration = Lens.lens (\DescribeHapgResponse' {hsmsPendingRegistration} -> hsmsPendingRegistration) (\s@DescribeHapgResponse' {} a -> s {hsmsPendingRegistration = a} :: DescribeHapgResponse) Prelude.. Lens.mapping Lens.coerced
 

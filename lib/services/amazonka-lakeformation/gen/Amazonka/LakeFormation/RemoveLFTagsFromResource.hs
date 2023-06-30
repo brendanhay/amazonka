@@ -129,7 +129,8 @@ instance Core.AWSRequest RemoveLFTagsFromResource where
 
 instance Prelude.Hashable RemoveLFTagsFromResource where
   hashWithSalt _salt RemoveLFTagsFromResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` lFTags
 

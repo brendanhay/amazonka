@@ -137,7 +137,8 @@ instance Data.FromJSON VocabularyInfo where
 
 instance Prelude.Hashable VocabularyInfo where
   hashWithSalt _salt VocabularyInfo' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` vocabularyState

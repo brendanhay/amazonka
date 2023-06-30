@@ -148,7 +148,8 @@ instance Core.AWSRequest UpdateCustomLineItem where
 
 instance Prelude.Hashable UpdateCustomLineItem where
   hashWithSalt _salt UpdateCustomLineItem' {..} =
-    _salt `Prelude.hashWithSalt` billingPeriodRange
+    _salt
+      `Prelude.hashWithSalt` billingPeriodRange
       `Prelude.hashWithSalt` chargeDetails
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

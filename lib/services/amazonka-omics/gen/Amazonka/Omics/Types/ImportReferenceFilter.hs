@@ -75,7 +75,8 @@ importReferenceFilter_status = Lens.lens (\ImportReferenceFilter' {status} -> st
 
 instance Prelude.Hashable ImportReferenceFilter where
   hashWithSalt _salt ImportReferenceFilter' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` status
 

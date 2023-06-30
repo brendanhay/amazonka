@@ -5553,48 +5553,48 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have access to this item. The provided credentials couldn\'t
@@ -5602,7 +5602,7 @@ defaultService =
 -- sure that your account is authorized to use the Amazon QuickSight
 -- service, that your policies have the correct permissions, and that you
 -- are using the correct access keys.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -5611,7 +5611,7 @@ _AccessDeniedException =
 
 -- | A resource is already in a state that indicates an operation is
 -- happening that must complete before a new update can be applied.
-_ConcurrentUpdatingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentUpdatingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentUpdatingException =
   Core._MatchServiceError
     defaultService
@@ -5619,7 +5619,7 @@ _ConcurrentUpdatingException =
     Prelude.. Core.hasStatus 500
 
 -- | Updating or deleting a resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -5629,7 +5629,7 @@ _ConflictException =
 -- | The domain specified isn\'t on the allow list. All domains for embedded
 -- dashboards must be added to the approved list by an Amazon QuickSight
 -- admin.
-_DomainNotWhitelistedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DomainNotWhitelistedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DomainNotWhitelistedException =
   Core._MatchServiceError
     defaultService
@@ -5638,7 +5638,7 @@ _DomainNotWhitelistedException =
 
 -- | The identity type specified isn\'t supported. Supported identity types
 -- include @IAM@ and @QUICKSIGHT@.
-_IdentityTypeNotSupportedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IdentityTypeNotSupportedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdentityTypeNotSupportedException =
   Core._MatchServiceError
     defaultService
@@ -5646,7 +5646,7 @@ _IdentityTypeNotSupportedException =
     Prelude.. Core.hasStatus 403
 
 -- | An internal failure occurred.
-_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -5654,7 +5654,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The @NextToken@ value isn\'t valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -5662,7 +5662,7 @@ _InvalidNextTokenException =
     Prelude.. Core.hasStatus 400
 
 -- | One or more parameters has a value that isn\'t valid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -5671,7 +5671,7 @@ _InvalidParameterValueException =
 
 -- | You don\'t have this feature activated for your account. To fix this
 -- issue, contact Amazon Web Services support.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -5679,7 +5679,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | A limit is exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -5687,7 +5687,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 409
 
 -- | One or more preconditions aren\'t met.
-_PreconditionNotMetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PreconditionNotMetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PreconditionNotMetException =
   Core._MatchServiceError
     defaultService
@@ -5697,7 +5697,7 @@ _PreconditionNotMetException =
 -- | The user with the provided name isn\'t found. This error can happen in
 -- any operation that requires finding a user based on a provided user
 -- name, such as @DeleteUser@, @DescribeUser@, and so on.
-_QuickSightUserNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_QuickSightUserNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _QuickSightUserNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -5705,7 +5705,7 @@ _QuickSightUserNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The resource specified already exists.
-_ResourceExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceExistsException =
   Core._MatchServiceError
     defaultService
@@ -5713,7 +5713,7 @@ _ResourceExistsException =
     Prelude.. Core.hasStatus 409
 
 -- | One or more resources can\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -5721,7 +5721,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | This resource is currently unavailable.
-_ResourceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -5730,7 +5730,7 @@ _ResourceUnavailableException =
 
 -- | The number of minutes specified for the lifetime of a session isn\'t
 -- valid. The session lifetime must be 15-600 minutes.
-_SessionLifetimeInMinutesInvalidException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SessionLifetimeInMinutesInvalidException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SessionLifetimeInMinutesInvalidException =
   Core._MatchServiceError
     defaultService
@@ -5738,7 +5738,7 @@ _SessionLifetimeInMinutesInvalidException =
     Prelude.. Core.hasStatus 400
 
 -- | Access is throttled.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -5752,9 +5752,9 @@ _ThrottlingException =
 -- QuickSight. You can do this on the __Manage Amazon QuickSight__ page.
 --
 -- After capacity pricing is added, you can use the
--- @ GetDashboardEmbedUrl @ API operation with the
--- @--identity-type ANONYMOUS@ option.
-_UnsupportedPricingPlanException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html GetDashboardEmbedUrl>@ @
+-- API operation with the @--identity-type ANONYMOUS@ option.
+_UnsupportedPricingPlanException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedPricingPlanException =
   Core._MatchServiceError
     defaultService
@@ -5766,7 +5766,7 @@ _UnsupportedPricingPlanException =
 -- that operation. Amazon Amazon QuickSight currently has Standard Edition
 -- and Enterprise Edition. Not every operation and capability is available
 -- in every edition.
-_UnsupportedUserEditionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedUserEditionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedUserEditionException =
   Core._MatchServiceError
     defaultService

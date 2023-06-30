@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateSpotMarketOptionsRequest' {..} =
-      _salt `Prelude.hashWithSalt` blockDurationMinutes
+      _salt
+        `Prelude.hashWithSalt` blockDurationMinutes
         `Prelude.hashWithSalt` instanceInterruptionBehavior
         `Prelude.hashWithSalt` maxPrice
         `Prelude.hashWithSalt` spotInstanceType

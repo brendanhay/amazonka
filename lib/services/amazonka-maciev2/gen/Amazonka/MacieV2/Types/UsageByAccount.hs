@@ -119,7 +119,8 @@ instance Data.FromJSON UsageByAccount where
 
 instance Prelude.Hashable UsageByAccount where
   hashWithSalt _salt UsageByAccount' {..} =
-    _salt `Prelude.hashWithSalt` currency
+    _salt
+      `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` estimatedCost
       `Prelude.hashWithSalt` serviceLimit
       `Prelude.hashWithSalt` type'

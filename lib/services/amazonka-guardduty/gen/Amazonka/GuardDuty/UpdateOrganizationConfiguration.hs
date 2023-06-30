@@ -126,7 +126,8 @@ instance
   hashWithSalt
     _salt
     UpdateOrganizationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dataSources
+      _salt
+        `Prelude.hashWithSalt` dataSources
         `Prelude.hashWithSalt` detectorId
         `Prelude.hashWithSalt` autoEnable
 

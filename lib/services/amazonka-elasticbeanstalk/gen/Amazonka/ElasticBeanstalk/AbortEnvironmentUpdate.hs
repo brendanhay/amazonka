@@ -102,7 +102,8 @@ instance Core.AWSRequest AbortEnvironmentUpdate where
 
 instance Prelude.Hashable AbortEnvironmentUpdate where
   hashWithSalt _salt AbortEnvironmentUpdate' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData AbortEnvironmentUpdate where

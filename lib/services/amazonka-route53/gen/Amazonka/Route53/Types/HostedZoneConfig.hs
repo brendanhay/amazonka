@@ -73,7 +73,8 @@ instance Data.FromXML HostedZoneConfig where
 
 instance Prelude.Hashable HostedZoneConfig where
   hashWithSalt _salt HostedZoneConfig' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` privateZone
 
 instance Prelude.NFData HostedZoneConfig where

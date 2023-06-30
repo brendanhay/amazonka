@@ -140,7 +140,8 @@ instance Core.AWSRequest DeleteBackendStorage where
 
 instance Prelude.Hashable DeleteBackendStorage where
   hashWithSalt _salt DeleteBackendStorage' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` resourceName

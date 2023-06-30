@@ -204,10 +204,10 @@ instance
       ( \s h x ->
           UpdateFirewallPolicyChangeProtectionResponse'
             Prelude.<$> (x Data..?> "FirewallArn")
-              Prelude.<*> (x Data..?> "FirewallName")
-              Prelude.<*> (x Data..?> "FirewallPolicyChangeProtection")
-              Prelude.<*> (x Data..?> "UpdateToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "FirewallName")
+            Prelude.<*> (x Data..?> "FirewallPolicyChangeProtection")
+            Prelude.<*> (x Data..?> "UpdateToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -217,7 +217,8 @@ instance
   hashWithSalt
     _salt
     UpdateFirewallPolicyChangeProtection' {..} =
-      _salt `Prelude.hashWithSalt` firewallArn
+      _salt
+        `Prelude.hashWithSalt` firewallArn
         `Prelude.hashWithSalt` firewallName
         `Prelude.hashWithSalt` updateToken
         `Prelude.hashWithSalt` firewallPolicyChangeProtection

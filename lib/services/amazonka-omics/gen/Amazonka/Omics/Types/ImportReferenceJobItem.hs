@@ -131,7 +131,8 @@ instance Data.FromJSON ImportReferenceJobItem where
 
 instance Prelude.Hashable ImportReferenceJobItem where
   hashWithSalt _salt ImportReferenceJobItem' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` referenceStoreId

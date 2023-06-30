@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteEventsConfiguration where
 
 instance Prelude.Hashable DeleteEventsConfiguration where
   hashWithSalt _salt DeleteEventsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData DeleteEventsConfiguration where

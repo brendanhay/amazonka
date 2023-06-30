@@ -683,7 +683,8 @@ instance Core.AWSRequest CreateRelationalDatabase where
 
 instance Prelude.Hashable CreateRelationalDatabase where
   hashWithSalt _salt CreateRelationalDatabase' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` masterUserPassword
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` preferredMaintenanceWindow

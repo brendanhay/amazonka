@@ -133,7 +133,8 @@ instance Core.AWSRequest PutProfileObject where
 
 instance Prelude.Hashable PutProfileObject where
   hashWithSalt _salt PutProfileObject' {..} =
-    _salt `Prelude.hashWithSalt` objectTypeName
+    _salt
+      `Prelude.hashWithSalt` objectTypeName
       `Prelude.hashWithSalt` object'
       `Prelude.hashWithSalt` domainName
 

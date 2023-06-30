@@ -108,14 +108,16 @@ instance Core.AWSRequest BatchGetAssetPropertyValue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "skippedEntries"
+            Prelude.<*> ( x
+                            Data..?> "skippedEntries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BatchGetAssetPropertyValue where
   hashWithSalt _salt BatchGetAssetPropertyValue' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData BatchGetAssetPropertyValue where

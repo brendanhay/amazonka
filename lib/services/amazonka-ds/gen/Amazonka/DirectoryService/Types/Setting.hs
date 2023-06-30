@@ -77,7 +77,8 @@ setting_value = Lens.lens (\Setting' {value} -> value) (\s@Setting' {} a -> s {v
 
 instance Prelude.Hashable Setting where
   hashWithSalt _salt Setting' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Setting where

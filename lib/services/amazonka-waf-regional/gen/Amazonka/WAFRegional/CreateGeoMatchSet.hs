@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateGeoMatchSet where
 
 instance Prelude.Hashable CreateGeoMatchSet where
   hashWithSalt _salt CreateGeoMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData CreateGeoMatchSet where

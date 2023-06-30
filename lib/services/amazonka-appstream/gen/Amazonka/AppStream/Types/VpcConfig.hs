@@ -74,7 +74,8 @@ instance Data.FromJSON VpcConfig where
       "VpcConfig"
       ( \x ->
           VpcConfig'
-            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+            Prelude.<$> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
@@ -82,7 +83,8 @@ instance Data.FromJSON VpcConfig where
 
 instance Prelude.Hashable VpcConfig where
   hashWithSalt _salt VpcConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData VpcConfig where

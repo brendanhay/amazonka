@@ -80,7 +80,9 @@ data ListResources = ListResources'
     -- (IAM) role for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
     -- this operation. The necessary permissions for each event handler are
-    -- defined in the @ handlers @ section of the
+    -- defined in the
+    -- @ @<https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers handlers>@ @
+    -- section of the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema>.
     --
     -- If you do not specify a role, Cloud Control API uses a temporary session
@@ -122,7 +124,9 @@ data ListResources = ListResources'
 -- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
--- defined in the @ handlers @ section of the
+-- defined in the
+-- @ @<https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers handlers>@ @
+-- section of the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema>.
 --
 -- If you do not specify a role, Cloud Control API uses a temporary session
@@ -172,7 +176,9 @@ listResources_resourceModel = Lens.lens (\ListResources' {resourceModel} -> reso
 -- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
--- defined in the @ handlers @ section of the
+-- defined in the
+-- @ @<https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers handlers>@ @
+-- section of the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema>.
 --
 -- If you do not specify a role, Cloud Control API uses a temporary session
@@ -198,21 +204,23 @@ instance Core.AWSPager ListResources where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listResourcesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listResourcesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResourcesResponse_resourceDescriptions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResources_nextToken
           Lens..~ rs
-          Lens.^? listResourcesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listResourcesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResources where
   type
@@ -225,7 +233,8 @@ instance Core.AWSRequest ListResources where
       ( \s h x ->
           ListResourcesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ResourceDescriptions"
+            Prelude.<*> ( x
+                            Data..?> "ResourceDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "TypeName")
@@ -234,7 +243,8 @@ instance Core.AWSRequest ListResources where
 
 instance Prelude.Hashable ListResources where
   hashWithSalt _salt ListResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceModel
       `Prelude.hashWithSalt` roleArn

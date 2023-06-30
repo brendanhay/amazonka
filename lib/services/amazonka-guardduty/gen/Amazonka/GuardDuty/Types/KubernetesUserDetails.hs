@@ -84,7 +84,8 @@ instance Data.FromJSON KubernetesUserDetails where
 
 instance Prelude.Hashable KubernetesUserDetails where
   hashWithSalt _salt KubernetesUserDetails' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` uid
       `Prelude.hashWithSalt` username
 

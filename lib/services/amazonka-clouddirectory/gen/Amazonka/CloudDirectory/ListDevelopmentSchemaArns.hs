@@ -94,22 +94,22 @@ instance Core.AWSPager ListDevelopmentSchemaArns where
     | Core.stop
         ( rs
             Lens.^? listDevelopmentSchemaArnsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDevelopmentSchemaArnsResponse_schemaArns
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDevelopmentSchemaArns_nextToken
           Lens..~ rs
           Lens.^? listDevelopmentSchemaArnsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDevelopmentSchemaArns where
   type
@@ -128,7 +128,8 @@ instance Core.AWSRequest ListDevelopmentSchemaArns where
 
 instance Prelude.Hashable ListDevelopmentSchemaArns where
   hashWithSalt _salt ListDevelopmentSchemaArns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDevelopmentSchemaArns where

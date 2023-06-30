@@ -83,7 +83,8 @@ inputOrigin_regionName = Lens.lens (\InputOrigin' {regionName} -> regionName) (\
 
 instance Prelude.Hashable InputOrigin where
   hashWithSalt _salt InputOrigin' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` protocolPolicy
       `Prelude.hashWithSalt` regionName
 

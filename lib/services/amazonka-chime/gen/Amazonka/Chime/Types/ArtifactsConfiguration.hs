@@ -93,7 +93,8 @@ instance Data.FromJSON ArtifactsConfiguration where
 
 instance Prelude.Hashable ArtifactsConfiguration where
   hashWithSalt _salt ArtifactsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` audio
+    _salt
+      `Prelude.hashWithSalt` audio
       `Prelude.hashWithSalt` video
       `Prelude.hashWithSalt` content
 

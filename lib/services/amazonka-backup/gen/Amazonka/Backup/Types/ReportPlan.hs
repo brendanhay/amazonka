@@ -224,7 +224,8 @@ instance Data.FromJSON ReportPlan where
 
 instance Prelude.Hashable ReportPlan where
   hashWithSalt _salt ReportPlan' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` deploymentStatus
       `Prelude.hashWithSalt` lastAttemptedExecutionTime
       `Prelude.hashWithSalt` lastSuccessfulExecutionTime

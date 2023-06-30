@@ -107,7 +107,8 @@ instance Core.AWSRequest DisassociateCustomerGateway where
 
 instance Prelude.Hashable DisassociateCustomerGateway where
   hashWithSalt _salt DisassociateCustomerGateway' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` customerGatewayArn
 
 instance Prelude.NFData DisassociateCustomerGateway where

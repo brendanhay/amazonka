@@ -211,7 +211,8 @@ instance Data.FromJSON ZonalShiftInResource where
 
 instance Prelude.Hashable ZonalShiftInResource where
   hashWithSalt _salt ZonalShiftInResource' {..} =
-    _salt `Prelude.hashWithSalt` appliedStatus
+    _salt
+      `Prelude.hashWithSalt` appliedStatus
       `Prelude.hashWithSalt` awayFrom
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` expiryTime

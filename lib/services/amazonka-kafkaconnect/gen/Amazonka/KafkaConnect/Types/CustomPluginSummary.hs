@@ -117,7 +117,8 @@ instance Data.FromJSON CustomPluginSummary where
 
 instance Prelude.Hashable CustomPluginSummary where
   hashWithSalt _salt CustomPluginSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` customPluginArn
       `Prelude.hashWithSalt` customPluginState
       `Prelude.hashWithSalt` description

@@ -140,7 +140,8 @@ instance Core.AWSRequest GetSchemaByDefinition where
 
 instance Prelude.Hashable GetSchemaByDefinition where
   hashWithSalt _salt GetSchemaByDefinition' {..} =
-    _salt `Prelude.hashWithSalt` schemaId
+    _salt
+      `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` schemaDefinition
 
 instance Prelude.NFData GetSchemaByDefinition where

@@ -150,7 +150,8 @@ instance Core.AWSRequest UpdateKeyDescription where
 
 instance Prelude.Hashable UpdateKeyDescription where
   hashWithSalt _salt UpdateKeyDescription' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData UpdateKeyDescription where

@@ -126,7 +126,8 @@ instance Data.FromJSON AggregatedProfileTime where
 
 instance Prelude.Hashable AggregatedProfileTime where
   hashWithSalt _salt AggregatedProfileTime' {..} =
-    _salt `Prelude.hashWithSalt` period
+    _salt
+      `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` start
 
 instance Prelude.NFData AggregatedProfileTime where

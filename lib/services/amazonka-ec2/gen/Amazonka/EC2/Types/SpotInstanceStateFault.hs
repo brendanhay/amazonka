@@ -71,7 +71,8 @@ instance Data.FromXML SpotInstanceStateFault where
 
 instance Prelude.Hashable SpotInstanceStateFault where
   hashWithSalt _salt SpotInstanceStateFault' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData SpotInstanceStateFault where

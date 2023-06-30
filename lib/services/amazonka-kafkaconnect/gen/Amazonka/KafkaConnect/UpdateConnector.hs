@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateConnector where
 
 instance Prelude.Hashable UpdateConnector where
   hashWithSalt _salt UpdateConnector' {..} =
-    _salt `Prelude.hashWithSalt` capacity
+    _salt
+      `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` connectorArn
       `Prelude.hashWithSalt` currentVersion
 

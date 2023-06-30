@@ -176,7 +176,8 @@ instance Data.FromJSON MonitorSummary where
 
 instance Prelude.Hashable MonitorSummary where
   hashWithSalt _salt MonitorSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModificationTime
       `Prelude.hashWithSalt` monitorArn
       `Prelude.hashWithSalt` monitorName

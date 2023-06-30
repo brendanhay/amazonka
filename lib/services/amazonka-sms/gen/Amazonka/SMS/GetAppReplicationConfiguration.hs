@@ -89,7 +89,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAppReplicationConfigurationResponse'
-            Prelude.<$> ( x Data..?> "serverGroupReplicationConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "serverGroupReplicationConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

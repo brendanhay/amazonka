@@ -144,7 +144,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListIAMPolicyAssignmentsForUserResponse'
-            Prelude.<$> ( x Data..?> "ActiveAssignments"
+            Prelude.<$> ( x
+                            Data..?> "ActiveAssignments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -159,7 +160,8 @@ instance
   hashWithSalt
     _salt
     ListIAMPolicyAssignmentsForUser' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` userName

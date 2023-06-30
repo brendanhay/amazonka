@@ -101,7 +101,8 @@ instance Core.AWSRequest RemovePermission where
 
 instance Prelude.Hashable RemovePermission where
   hashWithSalt _salt RemovePermission' {..} =
-    _salt `Prelude.hashWithSalt` topicArn
+    _salt
+      `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` label
 
 instance Prelude.NFData RemovePermission where

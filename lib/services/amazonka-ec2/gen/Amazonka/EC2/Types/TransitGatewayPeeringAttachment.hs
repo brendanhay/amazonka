@@ -147,7 +147,9 @@ instance Data.FromXML TransitGatewayPeeringAttachment where
       Prelude.<*> (x Data..@? "requesterTgwInfo")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "status")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
@@ -159,7 +161,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayPeeringAttachment' {..} =
-      _salt `Prelude.hashWithSalt` accepterTgwInfo
+      _salt
+        `Prelude.hashWithSalt` accepterTgwInfo
         `Prelude.hashWithSalt` accepterTransitGatewayAttachmentId
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` options

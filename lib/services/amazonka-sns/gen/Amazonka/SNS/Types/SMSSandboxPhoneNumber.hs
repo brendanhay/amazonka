@@ -83,7 +83,8 @@ instance Data.FromXML SMSSandboxPhoneNumber where
 
 instance Prelude.Hashable SMSSandboxPhoneNumber where
   hashWithSalt _salt SMSSandboxPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumber
+    _salt
+      `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SMSSandboxPhoneNumber where

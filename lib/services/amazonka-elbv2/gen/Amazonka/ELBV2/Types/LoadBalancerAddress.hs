@@ -97,7 +97,8 @@ instance Data.FromXML LoadBalancerAddress where
 
 instance Prelude.Hashable LoadBalancerAddress where
   hashWithSalt _salt LoadBalancerAddress' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` iPv6Address
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` privateIPv4Address

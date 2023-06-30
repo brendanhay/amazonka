@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterTuningJobObjective' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt
+        `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` metricName
 
 instance

@@ -408,7 +408,8 @@ instance Core.AWSRequest RequestSpotInstances where
     Response.receiveXML
       ( \s h x ->
           RequestSpotInstancesResponse'
-            Prelude.<$> ( x Data..@? "spotInstanceRequestSet"
+            Prelude.<$> ( x
+                            Data..@? "spotInstanceRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -417,7 +418,8 @@ instance Core.AWSRequest RequestSpotInstances where
 
 instance Prelude.Hashable RequestSpotInstances where
   hashWithSalt _salt RequestSpotInstances' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneGroup
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneGroup
       `Prelude.hashWithSalt` blockDurationMinutes
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun

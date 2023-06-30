@@ -169,7 +169,8 @@ instance Data.FromJSON Webhook where
 
 instance Prelude.Hashable Webhook where
   hashWithSalt _salt Webhook' {..} =
-    _salt `Prelude.hashWithSalt` branchFilter
+    _salt
+      `Prelude.hashWithSalt` branchFilter
       `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` filterGroups
       `Prelude.hashWithSalt` lastModifiedSecret

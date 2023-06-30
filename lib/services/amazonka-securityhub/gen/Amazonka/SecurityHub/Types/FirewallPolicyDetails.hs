@@ -132,19 +132,24 @@ instance Data.FromJSON FirewallPolicyDetails where
       "FirewallPolicyDetails"
       ( \x ->
           FirewallPolicyDetails'
-            Prelude.<$> ( x Data..:? "StatefulRuleGroupReferences"
+            Prelude.<$> ( x
+                            Data..:? "StatefulRuleGroupReferences"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessCustomActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessCustomActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessDefaultActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessDefaultActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessFragmentDefaultActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessFragmentDefaultActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessRuleGroupReferences"
+            Prelude.<*> ( x
+                            Data..:? "StatelessRuleGroupReferences"
                             Data..!= Prelude.mempty
                         )
       )

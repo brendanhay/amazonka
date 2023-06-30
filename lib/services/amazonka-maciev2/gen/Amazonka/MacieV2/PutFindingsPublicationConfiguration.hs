@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     PutFindingsPublicationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` securityHubConfiguration
 
 instance

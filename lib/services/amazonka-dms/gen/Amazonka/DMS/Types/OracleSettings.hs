@@ -68,10 +68,11 @@ data OracleSettings = OracleSettings'
     -- (ASM) only, the DMS user account needs to be granted ASM privileges.
     archivedLogsOnly :: Prelude.Maybe Prelude.Bool,
     -- | For an Oracle source endpoint, your Oracle Automatic Storage Management
-    -- (ASM) password. You can set this value from the @ asm_user_password @
-    -- value. You set this value as part of the comma-separated value that you
-    -- set to the @Password@ request parameter when you create the endpoint to
-    -- access transaction logs using Binary Reader. For more information, see
+    -- (ASM) password. You can set this value from the
+    -- @ @/@asm_user_password@/@ @ value. You set this value as part of the
+    -- comma-separated value that you set to the @Password@ request parameter
+    -- when you create the endpoint to access transaction logs using Binary
+    -- Reader. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
     asmPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | For an Oracle source endpoint, your ASM server address. You can set this
@@ -222,7 +223,7 @@ data OracleSettings = OracleSettings'
     secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
     -- | For an Oracle source endpoint, the transparent data encryption (TDE)
     -- password required by AWM DMS to access Oracle redo logs encrypted by TDE
-    -- using Binary Reader. It is also the @ TDE_Password @ part of the
+    -- using Binary Reader. It is also the @ @/@TDE_Password@/@ @ part of the
     -- comma-separated value you set to the @Password@ request parameter when
     -- you create the endpoint. The @SecurityDbEncryptian@ setting is related
     -- to this @SecurityDbEncryptionName@ setting. For more information, see
@@ -342,10 +343,11 @@ data OracleSettings = OracleSettings'
 -- (ASM) only, the DMS user account needs to be granted ASM privileges.
 --
 -- 'asmPassword', 'oracleSettings_asmPassword' - For an Oracle source endpoint, your Oracle Automatic Storage Management
--- (ASM) password. You can set this value from the @ asm_user_password @
--- value. You set this value as part of the comma-separated value that you
--- set to the @Password@ request parameter when you create the endpoint to
--- access transaction logs using Binary Reader. For more information, see
+-- (ASM) password. You can set this value from the
+-- @ @/@asm_user_password@/@ @ value. You set this value as part of the
+-- comma-separated value that you set to the @Password@ request parameter
+-- when you create the endpoint to access transaction logs using Binary
+-- Reader. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
 --
 -- 'asmServer', 'oracleSettings_asmServer' - For an Oracle source endpoint, your ASM server address. You can set this
@@ -496,7 +498,7 @@ data OracleSettings = OracleSettings'
 --
 -- 'securityDbEncryption', 'oracleSettings_securityDbEncryption' - For an Oracle source endpoint, the transparent data encryption (TDE)
 -- password required by AWM DMS to access Oracle redo logs encrypted by TDE
--- using Binary Reader. It is also the @ TDE_Password @ part of the
+-- using Binary Reader. It is also the @ @/@TDE_Password@/@ @ part of the
 -- comma-separated value you set to the @Password@ request parameter when
 -- you create the endpoint. The @SecurityDbEncryptian@ setting is related
 -- to this @SecurityDbEncryptionName@ setting. For more information, see
@@ -666,10 +668,11 @@ oracleSettings_archivedLogsOnly :: Lens.Lens' OracleSettings (Prelude.Maybe Prel
 oracleSettings_archivedLogsOnly = Lens.lens (\OracleSettings' {archivedLogsOnly} -> archivedLogsOnly) (\s@OracleSettings' {} a -> s {archivedLogsOnly = a} :: OracleSettings)
 
 -- | For an Oracle source endpoint, your Oracle Automatic Storage Management
--- (ASM) password. You can set this value from the @ asm_user_password @
--- value. You set this value as part of the comma-separated value that you
--- set to the @Password@ request parameter when you create the endpoint to
--- access transaction logs using Binary Reader. For more information, see
+-- (ASM) password. You can set this value from the
+-- @ @/@asm_user_password@/@ @ value. You set this value as part of the
+-- comma-separated value that you set to the @Password@ request parameter
+-- when you create the endpoint to access transaction logs using Binary
+-- Reader. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
 oracleSettings_asmPassword :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_asmPassword = Lens.lens (\OracleSettings' {asmPassword} -> asmPassword) (\s@OracleSettings' {} a -> s {asmPassword = a} :: OracleSettings) Prelude.. Lens.mapping Data._Sensitive
@@ -866,7 +869,7 @@ oracleSettings_secretsManagerSecretId = Lens.lens (\OracleSettings' {secretsMana
 
 -- | For an Oracle source endpoint, the transparent data encryption (TDE)
 -- password required by AWM DMS to access Oracle redo logs encrypted by TDE
--- using Binary Reader. It is also the @ TDE_Password @ part of the
+-- using Binary Reader. It is also the @ @/@TDE_Password@/@ @ part of the
 -- comma-separated value you set to the @Password@ request parameter when
 -- you create the endpoint. The @SecurityDbEncryptian@ setting is related
 -- to this @SecurityDbEncryptionName@ setting. For more information, see
@@ -980,7 +983,8 @@ instance Data.FromJSON OracleSettings where
             Prelude.<*> (x Data..:? "DirectPathNoLog")
             Prelude.<*> (x Data..:? "DirectPathParallelLoad")
             Prelude.<*> (x Data..:? "EnableHomogenousTablespace")
-            Prelude.<*> ( x Data..:? "ExtraArchivedLogDestIds"
+            Prelude.<*> ( x
+                            Data..:? "ExtraArchivedLogDestIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FailTasksOnLobTruncation")

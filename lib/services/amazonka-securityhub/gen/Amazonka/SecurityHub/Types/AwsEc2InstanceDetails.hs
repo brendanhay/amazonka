@@ -192,7 +192,8 @@ instance Data.FromJSON AwsEc2InstanceDetails where
             Prelude.<*> (x Data..:? "KeyName")
             Prelude.<*> (x Data..:? "LaunchedAt")
             Prelude.<*> (x Data..:? "MetadataOptions")
-            Prelude.<*> ( x Data..:? "NetworkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "NetworkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubnetId")
@@ -203,7 +204,8 @@ instance Data.FromJSON AwsEc2InstanceDetails where
 
 instance Prelude.Hashable AwsEc2InstanceDetails where
   hashWithSalt _salt AwsEc2InstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` iamInstanceProfileArn
+    _salt
+      `Prelude.hashWithSalt` iamInstanceProfileArn
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` ipV4Addresses
       `Prelude.hashWithSalt` ipV6Addresses

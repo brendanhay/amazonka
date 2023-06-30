@@ -77,7 +77,8 @@ instance Data.FromJSON PartListElement where
 
 instance Prelude.Hashable PartListElement where
   hashWithSalt _salt PartListElement' {..} =
-    _salt `Prelude.hashWithSalt` rangeInBytes
+    _salt
+      `Prelude.hashWithSalt` rangeInBytes
       `Prelude.hashWithSalt` sHA256TreeHash
 
 instance Prelude.NFData PartListElement where

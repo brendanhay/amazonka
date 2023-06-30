@@ -177,7 +177,8 @@ instance Core.AWSRequest GetCoipPoolUsage where
     Response.receiveXML
       ( \s h x ->
           GetCoipPoolUsageResponse'
-            Prelude.<$> ( x Data..@? "coipAddressUsageSet"
+            Prelude.<$> ( x
+                            Data..@? "coipAddressUsageSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -188,7 +189,8 @@ instance Core.AWSRequest GetCoipPoolUsage where
 
 instance Prelude.Hashable GetCoipPoolUsage where
   hashWithSalt _salt GetCoipPoolUsage' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

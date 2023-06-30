@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteForm where
 
 instance Prelude.Hashable DeleteForm where
   hashWithSalt _salt DeleteForm' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
 

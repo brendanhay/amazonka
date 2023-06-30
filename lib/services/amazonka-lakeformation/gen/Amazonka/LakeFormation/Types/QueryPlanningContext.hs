@@ -114,7 +114,8 @@ queryPlanningContext_databaseName = Lens.lens (\QueryPlanningContext' {databaseN
 
 instance Prelude.Hashable QueryPlanningContext where
   hashWithSalt _salt QueryPlanningContext' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` queryAsOfTime
       `Prelude.hashWithSalt` queryParameters
       `Prelude.hashWithSalt` transactionId

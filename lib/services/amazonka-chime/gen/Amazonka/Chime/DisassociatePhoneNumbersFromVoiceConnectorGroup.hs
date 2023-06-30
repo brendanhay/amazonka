@@ -104,10 +104,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'
-            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
+            Prelude.<$> ( x
+                            Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -117,7 +118,8 @@ instance
   hashWithSalt
     _salt
     DisassociatePhoneNumbersFromVoiceConnectorGroup' {..} =
-      _salt `Prelude.hashWithSalt` voiceConnectorGroupId
+      _salt
+        `Prelude.hashWithSalt` voiceConnectorGroupId
         `Prelude.hashWithSalt` e164PhoneNumbers
 
 instance

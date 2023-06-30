@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     InputSwitchScheduleActionSettings' {..} =
-      _salt `Prelude.hashWithSalt` inputClippingSettings
+      _salt
+        `Prelude.hashWithSalt` inputClippingSettings
         `Prelude.hashWithSalt` urlPath
         `Prelude.hashWithSalt` inputAttachmentNameReference
 

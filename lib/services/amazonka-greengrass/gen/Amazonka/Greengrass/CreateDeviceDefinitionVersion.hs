@@ -125,7 +125,8 @@ instance
     CreateDeviceDefinitionVersion
   where
   hashWithSalt _salt CreateDeviceDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` devices
       `Prelude.hashWithSalt` deviceDefinitionId
 

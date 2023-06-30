@@ -105,7 +105,8 @@ instance Core.AWSRequest PublishRecipe where
 
 instance Prelude.Hashable PublishRecipe where
   hashWithSalt _salt PublishRecipe' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData PublishRecipe where

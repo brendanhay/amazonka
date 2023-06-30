@@ -110,7 +110,8 @@ instance Core.AWSRequest RetryBuild where
 
 instance Prelude.Hashable RetryBuild where
   hashWithSalt _salt RetryBuild' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` idempotencyToken
 
 instance Prelude.NFData RetryBuild where

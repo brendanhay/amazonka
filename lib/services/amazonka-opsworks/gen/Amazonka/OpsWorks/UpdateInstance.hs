@@ -415,7 +415,8 @@ instance Core.AWSRequest UpdateInstance where
 
 instance Prelude.Hashable UpdateInstance where
   hashWithSalt _salt UpdateInstance' {..} =
-    _salt `Prelude.hashWithSalt` agentVersion
+    _salt
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` amiId
       `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` autoScalingType

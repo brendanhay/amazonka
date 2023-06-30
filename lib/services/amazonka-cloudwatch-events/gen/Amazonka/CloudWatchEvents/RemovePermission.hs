@@ -112,7 +112,8 @@ instance Core.AWSRequest RemovePermission where
 
 instance Prelude.Hashable RemovePermission where
   hashWithSalt _salt RemovePermission' {..} =
-    _salt `Prelude.hashWithSalt` eventBusName
+    _salt
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` removeAllPermissions
       `Prelude.hashWithSalt` statementId
 

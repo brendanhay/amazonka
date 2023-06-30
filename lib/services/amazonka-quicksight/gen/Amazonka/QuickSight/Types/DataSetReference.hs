@@ -69,7 +69,8 @@ dataSetReference_dataSetArn = Lens.lens (\DataSetReference' {dataSetArn} -> data
 
 instance Prelude.Hashable DataSetReference where
   hashWithSalt _salt DataSetReference' {..} =
-    _salt `Prelude.hashWithSalt` dataSetPlaceholder
+    _salt
+      `Prelude.hashWithSalt` dataSetPlaceholder
       `Prelude.hashWithSalt` dataSetArn
 
 instance Prelude.NFData DataSetReference where

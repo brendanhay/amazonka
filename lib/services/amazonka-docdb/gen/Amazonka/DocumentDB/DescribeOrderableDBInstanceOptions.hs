@@ -199,22 +199,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeOrderableDBInstanceOptionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOrderableDBInstanceOptionsResponse_orderableDBInstanceOptions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeOrderableDBInstanceOptions_marker
           Lens..~ rs
           Lens.^? describeOrderableDBInstanceOptionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -231,12 +231,13 @@ instance
       ( \s h x ->
           DescribeOrderableDBInstanceOptionsResponse'
             Prelude.<$> (x Data..@? "Marker")
-              Prelude.<*> ( x Data..@? "OrderableDBInstanceOptions"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may
-                                (Data.parseXMLList "OrderableDBInstanceOption")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "OrderableDBInstanceOptions"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may
+                              (Data.parseXMLList "OrderableDBInstanceOption")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -246,7 +247,8 @@ instance
   hashWithSalt
     _salt
     DescribeOrderableDBInstanceOptions' {..} =
-      _salt `Prelude.hashWithSalt` dbInstanceClass
+      _salt
+        `Prelude.hashWithSalt` dbInstanceClass
         `Prelude.hashWithSalt` engineVersion
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` licenseModel

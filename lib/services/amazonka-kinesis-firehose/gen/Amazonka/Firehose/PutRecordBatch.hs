@@ -173,7 +173,8 @@ instance Core.AWSRequest PutRecordBatch where
 
 instance Prelude.Hashable PutRecordBatch where
   hashWithSalt _salt PutRecordBatch' {..} =
-    _salt `Prelude.hashWithSalt` deliveryStreamName
+    _salt
+      `Prelude.hashWithSalt` deliveryStreamName
       `Prelude.hashWithSalt` records
 
 instance Prelude.NFData PutRecordBatch where

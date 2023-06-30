@@ -140,7 +140,8 @@ instance Core.AWSRequest AssociateVirtualInterface where
 
 instance Prelude.Hashable AssociateVirtualInterface where
   hashWithSalt _salt AssociateVirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` virtualInterfaceId
+    _salt
+      `Prelude.hashWithSalt` virtualInterfaceId
       `Prelude.hashWithSalt` connectionId
 
 instance Prelude.NFData AssociateVirtualInterface where

@@ -109,7 +109,8 @@ instance Core.AWSRequest GetApiKey where
 
 instance Prelude.Hashable GetApiKey where
   hashWithSalt _salt GetApiKey' {..} =
-    _salt `Prelude.hashWithSalt` includeValue
+    _salt
+      `Prelude.hashWithSalt` includeValue
       `Prelude.hashWithSalt` apiKey
 
 instance Prelude.NFData GetApiKey where

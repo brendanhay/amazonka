@@ -256,7 +256,7 @@ data UploadPartCopy = UploadPartCopy'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
     -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -387,7 +387,7 @@ data UploadPartCopy = UploadPartCopy'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
 -- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -575,7 +575,7 @@ uploadPartCopy_sSECustomerKeyMD5 = Lens.lens (\UploadPartCopy' {sSECustomerKeyMD
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
 -- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -672,7 +672,8 @@ instance Core.AWSRequest UploadPartCopy where
 
 instance Prelude.Hashable UploadPartCopy where
   hashWithSalt _salt UploadPartCopy' {..} =
-    _salt `Prelude.hashWithSalt` copySourceIfMatch
+    _salt
+      `Prelude.hashWithSalt` copySourceIfMatch
       `Prelude.hashWithSalt` copySourceIfModifiedSince
       `Prelude.hashWithSalt` copySourceIfNoneMatch
       `Prelude.hashWithSalt` copySourceIfUnmodifiedSince

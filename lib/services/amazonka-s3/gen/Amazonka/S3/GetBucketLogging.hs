@@ -117,7 +117,8 @@ instance Core.AWSRequest GetBucketLogging where
 
 instance Prelude.Hashable GetBucketLogging where
   hashWithSalt _salt GetBucketLogging' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketLogging where

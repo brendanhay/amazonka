@@ -79,7 +79,8 @@ instance Data.FromJSON ImportDataSource where
 
 instance Prelude.Hashable ImportDataSource where
   hashWithSalt _salt ImportDataSource' {..} =
-    _salt `Prelude.hashWithSalt` s3Url
+    _salt
+      `Prelude.hashWithSalt` s3Url
       `Prelude.hashWithSalt` dataFormat
 
 instance Prelude.NFData ImportDataSource where

@@ -132,7 +132,8 @@ instance Data.FromJSON Player where
       ( \x ->
           Player'
             Prelude.<$> (x Data..:? "LatencyInMs" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "PlayerAttributes"
+            Prelude.<*> ( x
+                            Data..:? "PlayerAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PlayerId")
@@ -141,7 +142,8 @@ instance Data.FromJSON Player where
 
 instance Prelude.Hashable Player where
   hashWithSalt _salt Player' {..} =
-    _salt `Prelude.hashWithSalt` latencyInMs
+    _salt
+      `Prelude.hashWithSalt` latencyInMs
       `Prelude.hashWithSalt` playerAttributes
       `Prelude.hashWithSalt` playerId
       `Prelude.hashWithSalt` team

@@ -193,7 +193,8 @@ instance Core.AWSRequest CreateDeployment where
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterEnabled
+    _salt
+      `Prelude.hashWithSalt` cacheClusterEnabled
       `Prelude.hashWithSalt` cacheClusterSize
       `Prelude.hashWithSalt` canarySettings
       `Prelude.hashWithSalt` description

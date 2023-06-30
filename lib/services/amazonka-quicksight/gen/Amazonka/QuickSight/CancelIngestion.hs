@@ -123,7 +123,8 @@ instance Core.AWSRequest CancelIngestion where
 
 instance Prelude.Hashable CancelIngestion where
   hashWithSalt _salt CancelIngestion' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` ingestionId
 

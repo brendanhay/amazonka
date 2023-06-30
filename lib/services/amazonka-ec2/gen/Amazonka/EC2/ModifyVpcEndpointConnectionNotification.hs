@@ -139,7 +139,7 @@ instance
       ( \s h x ->
           ModifyVpcEndpointConnectionNotificationResponse'
             Prelude.<$> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     ModifyVpcEndpointConnectionNotification' {..} =
-      _salt `Prelude.hashWithSalt` connectionEvents
+      _salt
+        `Prelude.hashWithSalt` connectionEvents
         `Prelude.hashWithSalt` connectionNotificationArn
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` connectionNotificationId

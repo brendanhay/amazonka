@@ -138,7 +138,8 @@ instance Core.AWSRequest CreateAssessmentFramework where
 
 instance Prelude.Hashable CreateAssessmentFramework where
   hashWithSalt _salt CreateAssessmentFramework' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

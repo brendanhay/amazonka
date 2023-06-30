@@ -79,7 +79,8 @@ instance
     ChannelMessageStatusStructure
   where
   hashWithSalt _salt ChannelMessageStatusStructure' {..} =
-    _salt `Prelude.hashWithSalt` detail
+    _salt
+      `Prelude.hashWithSalt` detail
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ChannelMessageStatusStructure where

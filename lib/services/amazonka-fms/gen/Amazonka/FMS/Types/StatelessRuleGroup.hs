@@ -91,7 +91,8 @@ instance Data.FromJSON StatelessRuleGroup where
 
 instance Prelude.Hashable StatelessRuleGroup where
   hashWithSalt _salt StatelessRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` ruleGroupName
 

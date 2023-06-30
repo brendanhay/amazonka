@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateConnectPeer where
 
 instance Prelude.Hashable CreateConnectPeer where
   hashWithSalt _salt CreateConnectPeer' {..} =
-    _salt `Prelude.hashWithSalt` bgpOptions
+    _salt
+      `Prelude.hashWithSalt` bgpOptions
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` coreNetworkAddress
       `Prelude.hashWithSalt` tags

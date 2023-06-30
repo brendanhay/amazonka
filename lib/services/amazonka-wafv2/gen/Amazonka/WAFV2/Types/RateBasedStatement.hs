@@ -211,7 +211,8 @@ instance Data.FromJSON RateBasedStatement where
 
 instance Prelude.Hashable RateBasedStatement where
   hashWithSalt _salt RateBasedStatement' {..} =
-    _salt `Prelude.hashWithSalt` forwardedIPConfig
+    _salt
+      `Prelude.hashWithSalt` forwardedIPConfig
       `Prelude.hashWithSalt` scopeDownStatement
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` aggregateKeyType

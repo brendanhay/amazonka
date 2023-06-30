@@ -22,7 +22,7 @@
 --
 -- Describe Elasticsearch Limits for a given InstanceType and
 -- ElasticsearchVersion. When modifying existing Domain, specify the
--- @ DomainName @ to know what Limits are supported for modifying.
+-- @ @@DomainName@@ @ to know what Limits are supported for modifying.
 module Amazonka.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
   ( -- * Creating a Request
     DescribeElasticsearchInstanceTypeLimits (..),
@@ -52,18 +52,18 @@ import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to
--- @ DescribeElasticsearchInstanceTypeLimits @ operation.
+-- @ @@DescribeElasticsearchInstanceTypeLimits@@ @ operation.
 --
 -- /See:/ 'newDescribeElasticsearchInstanceTypeLimits' smart constructor.
 data DescribeElasticsearchInstanceTypeLimits = DescribeElasticsearchInstanceTypeLimits'
   { -- | DomainName represents the name of the Domain that we are trying to
     -- modify. This should be present only if we are querying for Elasticsearch
-    -- @ Limits @ for existing domain.
+    -- @ @@Limits@@ @ for existing domain.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | The instance type for an Elasticsearch cluster for which Elasticsearch
-    -- @ Limits @ are needed.
+    -- @ @@Limits@@ @ are needed.
     instanceType :: ESPartitionInstanceType,
-    -- | Version of Elasticsearch for which @ Limits @ are needed.
+    -- | Version of Elasticsearch for which @ @@Limits@@ @ are needed.
     elasticsearchVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,12 +78,12 @@ data DescribeElasticsearchInstanceTypeLimits = DescribeElasticsearchInstanceType
 --
 -- 'domainName', 'describeElasticsearchInstanceTypeLimits_domainName' - DomainName represents the name of the Domain that we are trying to
 -- modify. This should be present only if we are querying for Elasticsearch
--- @ Limits @ for existing domain.
+-- @ @@Limits@@ @ for existing domain.
 --
 -- 'instanceType', 'describeElasticsearchInstanceTypeLimits_instanceType' - The instance type for an Elasticsearch cluster for which Elasticsearch
--- @ Limits @ are needed.
+-- @ @@Limits@@ @ are needed.
 --
--- 'elasticsearchVersion', 'describeElasticsearchInstanceTypeLimits_elasticsearchVersion' - Version of Elasticsearch for which @ Limits @ are needed.
+-- 'elasticsearchVersion', 'describeElasticsearchInstanceTypeLimits_elasticsearchVersion' - Version of Elasticsearch for which @ @@Limits@@ @ are needed.
 newDescribeElasticsearchInstanceTypeLimits ::
   -- | 'instanceType'
   ESPartitionInstanceType ->
@@ -103,16 +103,16 @@ newDescribeElasticsearchInstanceTypeLimits
 
 -- | DomainName represents the name of the Domain that we are trying to
 -- modify. This should be present only if we are querying for Elasticsearch
--- @ Limits @ for existing domain.
+-- @ @@Limits@@ @ for existing domain.
 describeElasticsearchInstanceTypeLimits_domainName :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits (Prelude.Maybe Prelude.Text)
 describeElasticsearchInstanceTypeLimits_domainName = Lens.lens (\DescribeElasticsearchInstanceTypeLimits' {domainName} -> domainName) (\s@DescribeElasticsearchInstanceTypeLimits' {} a -> s {domainName = a} :: DescribeElasticsearchInstanceTypeLimits)
 
 -- | The instance type for an Elasticsearch cluster for which Elasticsearch
--- @ Limits @ are needed.
+-- @ @@Limits@@ @ are needed.
 describeElasticsearchInstanceTypeLimits_instanceType :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits ESPartitionInstanceType
 describeElasticsearchInstanceTypeLimits_instanceType = Lens.lens (\DescribeElasticsearchInstanceTypeLimits' {instanceType} -> instanceType) (\s@DescribeElasticsearchInstanceTypeLimits' {} a -> s {instanceType = a} :: DescribeElasticsearchInstanceTypeLimits)
 
--- | Version of Elasticsearch for which @ Limits @ are needed.
+-- | Version of Elasticsearch for which @ @@Limits@@ @ are needed.
 describeElasticsearchInstanceTypeLimits_elasticsearchVersion :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits Prelude.Text
 describeElasticsearchInstanceTypeLimits_elasticsearchVersion = Lens.lens (\DescribeElasticsearchInstanceTypeLimits' {elasticsearchVersion} -> elasticsearchVersion) (\s@DescribeElasticsearchInstanceTypeLimits' {} a -> s {elasticsearchVersion = a} :: DescribeElasticsearchInstanceTypeLimits)
 
@@ -131,7 +131,7 @@ instance
       ( \s h x ->
           DescribeElasticsearchInstanceTypeLimitsResponse'
             Prelude.<$> (x Data..?> "LimitsByRole" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     DescribeElasticsearchInstanceTypeLimits' {..} =
-      _salt `Prelude.hashWithSalt` domainName
+      _salt
+        `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` instanceType
         `Prelude.hashWithSalt` elasticsearchVersion
 
@@ -180,7 +181,7 @@ instance
     Prelude.mconcat ["domainName" Data.=: domainName]
 
 -- | Container for the parameters received from
--- @ DescribeElasticsearchInstanceTypeLimits @ operation.
+-- @ @@DescribeElasticsearchInstanceTypeLimits@@ @ operation.
 --
 -- /See:/ 'newDescribeElasticsearchInstanceTypeLimitsResponse' smart constructor.
 data DescribeElasticsearchInstanceTypeLimitsResponse = DescribeElasticsearchInstanceTypeLimitsResponse'

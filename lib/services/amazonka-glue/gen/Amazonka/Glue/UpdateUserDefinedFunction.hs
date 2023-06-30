@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateUserDefinedFunction where
 
 instance Prelude.Hashable UpdateUserDefinedFunction where
   hashWithSalt _salt UpdateUserDefinedFunction' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` functionInput

@@ -104,7 +104,8 @@ instance Data.FromJSON QueryStagePlanNode where
 
 instance Prelude.Hashable QueryStagePlanNode where
   hashWithSalt _salt QueryStagePlanNode' {..} =
-    _salt `Prelude.hashWithSalt` children
+    _salt
+      `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` remoteSources

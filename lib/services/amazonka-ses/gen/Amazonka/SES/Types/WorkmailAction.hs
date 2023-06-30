@@ -103,7 +103,8 @@ instance Data.FromXML WorkmailAction where
 
 instance Prelude.Hashable WorkmailAction where
   hashWithSalt _salt WorkmailAction' {..} =
-    _salt `Prelude.hashWithSalt` topicArn
+    _salt
+      `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` organizationArn
 
 instance Prelude.NFData WorkmailAction where

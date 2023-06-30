@@ -189,7 +189,8 @@ instance Core.AWSRequest UpdateFleetMetric where
 
 instance Prelude.Hashable UpdateFleetMetric where
   hashWithSalt _salt UpdateFleetMetric' {..} =
-    _salt `Prelude.hashWithSalt` aggregationField
+    _salt
+      `Prelude.hashWithSalt` aggregationField
       `Prelude.hashWithSalt` aggregationType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expectedVersion

@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateStreamMode where
 
 instance Prelude.Hashable UpdateStreamMode where
   hashWithSalt _salt UpdateStreamMode' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamModeDetails
 
 instance Prelude.NFData UpdateStreamMode where

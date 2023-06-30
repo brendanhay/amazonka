@@ -162,7 +162,8 @@ instance Core.AWSRequest PutPermission where
 
 instance Prelude.Hashable PutPermission where
   hashWithSalt _salt PutPermission' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
+    _salt
+      `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` actionGroup
       `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` profilingGroupName

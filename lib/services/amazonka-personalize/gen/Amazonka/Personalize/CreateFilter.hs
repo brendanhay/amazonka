@@ -144,7 +144,8 @@ instance Core.AWSRequest CreateFilter where
 
 instance Prelude.Hashable CreateFilter where
   hashWithSalt _salt CreateFilter' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` filterExpression

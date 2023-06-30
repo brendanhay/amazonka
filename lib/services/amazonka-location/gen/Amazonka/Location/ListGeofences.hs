@@ -118,18 +118,20 @@ instance Core.AWSPager ListGeofences where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGeofencesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listGeofencesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listGeofencesResponse_entries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGeofences_nextToken
           Lens..~ rs
-          Lens.^? listGeofencesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listGeofencesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGeofences where
   type
@@ -148,7 +150,8 @@ instance Core.AWSRequest ListGeofences where
 
 instance Prelude.Hashable ListGeofences where
   hashWithSalt _salt ListGeofences' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` collectionName
 

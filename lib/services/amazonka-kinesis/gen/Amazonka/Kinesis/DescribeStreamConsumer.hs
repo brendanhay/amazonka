@@ -129,7 +129,8 @@ instance Core.AWSRequest DescribeStreamConsumer where
 
 instance Prelude.Hashable DescribeStreamConsumer where
   hashWithSalt _salt DescribeStreamConsumer' {..} =
-    _salt `Prelude.hashWithSalt` consumerARN
+    _salt
+      `Prelude.hashWithSalt` consumerARN
       `Prelude.hashWithSalt` consumerName
       `Prelude.hashWithSalt` streamARN
 

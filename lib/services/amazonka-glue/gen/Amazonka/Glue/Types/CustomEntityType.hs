@@ -107,7 +107,8 @@ instance Data.FromJSON CustomEntityType where
 
 instance Prelude.Hashable CustomEntityType where
   hashWithSalt _salt CustomEntityType' {..} =
-    _salt `Prelude.hashWithSalt` contextWords
+    _salt
+      `Prelude.hashWithSalt` contextWords
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` regexString
 

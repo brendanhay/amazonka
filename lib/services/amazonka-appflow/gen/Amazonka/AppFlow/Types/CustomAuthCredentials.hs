@@ -68,7 +68,8 @@ customAuthCredentials_customAuthenticationType = Lens.lens (\CustomAuthCredentia
 
 instance Prelude.Hashable CustomAuthCredentials where
   hashWithSalt _salt CustomAuthCredentials' {..} =
-    _salt `Prelude.hashWithSalt` credentialsMap
+    _salt
+      `Prelude.hashWithSalt` credentialsMap
       `Prelude.hashWithSalt` customAuthenticationType
 
 instance Prelude.NFData CustomAuthCredentials where

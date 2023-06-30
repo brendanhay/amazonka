@@ -116,7 +116,8 @@ instance Data.FromJSON SecurityConfigSummary where
 
 instance Prelude.Hashable SecurityConfigSummary where
   hashWithSalt _salt SecurityConfigSummary' {..} =
-    _salt `Prelude.hashWithSalt` configVersion
+    _salt
+      `Prelude.hashWithSalt` configVersion
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

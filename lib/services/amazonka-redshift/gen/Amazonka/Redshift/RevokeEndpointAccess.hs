@@ -133,7 +133,8 @@ instance Core.AWSRequest RevokeEndpointAccess where
 
 instance Prelude.Hashable RevokeEndpointAccess where
   hashWithSalt _salt RevokeEndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` account
+    _salt
+      `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` vpcIds

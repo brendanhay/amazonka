@@ -171,7 +171,9 @@ instanceProfile_roles = Lens.lens (\InstanceProfile' {roles} -> roles) (\s@Insta
 instance Data.FromXML InstanceProfile where
   parseXML x =
     InstanceProfile'
-      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "Path")
@@ -179,13 +181,16 @@ instance Data.FromXML InstanceProfile where
       Prelude.<*> (x Data..@ "InstanceProfileId")
       Prelude.<*> (x Data..@ "Arn")
       Prelude.<*> (x Data..@ "CreateDate")
-      Prelude.<*> ( x Data..@? "Roles" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Roles"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
 
 instance Prelude.Hashable InstanceProfile where
   hashWithSalt _salt InstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` instanceProfileName
       `Prelude.hashWithSalt` instanceProfileId

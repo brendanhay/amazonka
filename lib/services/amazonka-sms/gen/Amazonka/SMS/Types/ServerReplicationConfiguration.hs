@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     ServerReplicationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` server
+      _salt
+        `Prelude.hashWithSalt` server
         `Prelude.hashWithSalt` serverReplicationParameters
 
 instance

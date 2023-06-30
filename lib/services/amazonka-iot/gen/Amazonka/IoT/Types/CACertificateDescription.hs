@@ -197,7 +197,8 @@ instance Data.FromJSON CACertificateDescription where
 
 instance Prelude.Hashable CACertificateDescription where
   hashWithSalt _salt CACertificateDescription' {..} =
-    _salt `Prelude.hashWithSalt` autoRegistrationStatus
+    _salt
+      `Prelude.hashWithSalt` autoRegistrationStatus
       `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateId
       `Prelude.hashWithSalt` certificateMode

@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2NetworkInterfaceSecurityGroup' {..} =
-      _salt `Prelude.hashWithSalt` groupId
+      _salt
+        `Prelude.hashWithSalt` groupId
         `Prelude.hashWithSalt` groupName
 
 instance

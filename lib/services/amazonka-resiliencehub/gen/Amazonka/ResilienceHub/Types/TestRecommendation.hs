@@ -173,7 +173,8 @@ instance Data.FromJSON TestRecommendation where
 
 instance Prelude.Hashable TestRecommendation where
   hashWithSalt _salt TestRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` dependsOnAlarms
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` intent

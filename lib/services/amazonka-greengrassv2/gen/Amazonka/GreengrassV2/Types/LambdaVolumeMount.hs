@@ -107,7 +107,8 @@ lambdaVolumeMount_destinationPath = Lens.lens (\LambdaVolumeMount' {destinationP
 
 instance Prelude.Hashable LambdaVolumeMount where
   hashWithSalt _salt LambdaVolumeMount' {..} =
-    _salt `Prelude.hashWithSalt` addGroupOwner
+    _salt
+      `Prelude.hashWithSalt` addGroupOwner
       `Prelude.hashWithSalt` permission
       `Prelude.hashWithSalt` sourcePath
       `Prelude.hashWithSalt` destinationPath

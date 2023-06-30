@@ -331,7 +331,8 @@ instance Data.FromJSON ParameterDefinition where
             Prelude.<*> (x Data..:? "minValue")
             Prelude.<*> (x Data..:? "noEcho")
             Prelude.<*> (x Data..:? "type")
-            Prelude.<*> ( x Data..:? "referencedByResources"
+            Prelude.<*> ( x
+                            Data..:? "referencedByResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "name")
@@ -339,7 +340,8 @@ instance Data.FromJSON ParameterDefinition where
 
 instance Prelude.Hashable ParameterDefinition where
   hashWithSalt _salt ParameterDefinition' {..} =
-    _salt `Prelude.hashWithSalt` allowedPattern
+    _salt
+      `Prelude.hashWithSalt` allowedPattern
       `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` constraintDescription
       `Prelude.hashWithSalt` defaultValue

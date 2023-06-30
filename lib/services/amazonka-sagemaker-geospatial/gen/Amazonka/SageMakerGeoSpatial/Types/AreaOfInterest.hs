@@ -50,7 +50,6 @@ newAreaOfInterest =
         Prelude.Nothing
     }
 
--- |
 areaOfInterest_areaOfInterestGeometry :: Lens.Lens' AreaOfInterest (Prelude.Maybe AreaOfInterestGeometry)
 areaOfInterest_areaOfInterestGeometry = Lens.lens (\AreaOfInterest' {areaOfInterestGeometry} -> areaOfInterestGeometry) (\s@AreaOfInterest' {} a -> s {areaOfInterestGeometry = a} :: AreaOfInterest)
 

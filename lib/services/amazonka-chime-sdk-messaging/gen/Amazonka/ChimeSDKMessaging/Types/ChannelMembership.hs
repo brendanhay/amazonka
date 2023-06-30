@@ -126,7 +126,8 @@ instance Data.FromJSON ChannelMembership where
 
 instance Prelude.Hashable ChannelMembership where
   hashWithSalt _salt ChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` invitedBy
       `Prelude.hashWithSalt` lastUpdatedTimestamp

@@ -257,14 +257,16 @@ instance Data.FromJSON ParallelDataProperties where
             Prelude.<*> (x Data..:? "SkippedRecordCount")
             Prelude.<*> (x Data..:? "SourceLanguageCode")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> ( x Data..:? "TargetLanguageCodes"
+            Prelude.<*> ( x
+                            Data..:? "TargetLanguageCodes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ParallelDataProperties where
   hashWithSalt _salt ParallelDataProperties' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionKey

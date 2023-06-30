@@ -104,7 +104,8 @@ instance Data.FromJSON RouteResponse where
           RouteResponse'
             Prelude.<$> (x Data..:? "modelSelectionExpression")
             Prelude.<*> (x Data..:? "responseModels" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "responseParameters"
+            Prelude.<*> ( x
+                            Data..:? "responseParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "routeResponseId")

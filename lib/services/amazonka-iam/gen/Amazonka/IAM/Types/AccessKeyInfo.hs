@@ -125,7 +125,8 @@ instance Data.FromXML AccessKeyInfo where
 
 instance Prelude.Hashable AccessKeyInfo where
   hashWithSalt _salt AccessKeyInfo' {..} =
-    _salt `Prelude.hashWithSalt` createDate
+    _salt
+      `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` status

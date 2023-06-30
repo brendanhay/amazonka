@@ -77,7 +77,8 @@ instance Data.FromJSON AppFlowConfig where
 
 instance Prelude.Hashable AppFlowConfig where
   hashWithSalt _salt AppFlowConfig' {..} =
-    _salt `Prelude.hashWithSalt` flowName
+    _salt
+      `Prelude.hashWithSalt` flowName
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData AppFlowConfig where

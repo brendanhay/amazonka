@@ -73,10 +73,10 @@ data TagResource = TagResource'
   { -- | The ARN of the resource that you\'re adding tags to.
     --
     -- The ARN format of a sink is
-    -- @arn:aws:oam:Region:account-id:sink\/sink-id @
+    -- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:sink\/@/@sink-id@/@ @
     --
     -- The ARN format of a link is
-    -- @arn:aws:oam:Region:account-id:link\/link-id @
+    -- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:link\/@/@link-id@/@ @
     --
     -- For more information about ARN format, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -97,10 +97,10 @@ data TagResource = TagResource'
 -- 'resourceArn', 'tagResource_resourceArn' - The ARN of the resource that you\'re adding tags to.
 --
 -- The ARN format of a sink is
--- @arn:aws:oam:Region:account-id:sink\/sink-id @
+-- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:sink\/@/@sink-id@/@ @
 --
 -- The ARN format of a link is
--- @arn:aws:oam:Region:account-id:link\/link-id @
+-- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:link\/@/@link-id@/@ @
 --
 -- For more information about ARN format, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -119,10 +119,10 @@ newTagResource pResourceArn_ =
 -- | The ARN of the resource that you\'re adding tags to.
 --
 -- The ARN format of a sink is
--- @arn:aws:oam:Region:account-id:sink\/sink-id @
+-- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:sink\/@/@sink-id@/@ @
 --
 -- The ARN format of a link is
--- @arn:aws:oam:Region:account-id:link\/link-id @
+-- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:link\/@/@link-id@/@ @
 --
 -- For more information about ARN format, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -146,7 +146,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

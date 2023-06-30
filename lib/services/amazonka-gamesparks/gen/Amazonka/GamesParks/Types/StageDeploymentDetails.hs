@@ -127,7 +127,8 @@ instance Data.FromJSON StageDeploymentDetails where
 
 instance Prelude.Hashable StageDeploymentDetails where
   hashWithSalt _salt StageDeploymentDetails' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` deploymentAction
       `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` deploymentResult

@@ -119,7 +119,8 @@ instance Data.FromJSON Principal where
 
 instance Prelude.Hashable Principal where
   hashWithSalt _salt Principal' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` external
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdatedTime

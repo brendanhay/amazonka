@@ -55,7 +55,7 @@
 --         -   When you create log groups for query logging, we recommend
 --             that you use a consistent prefix, for example:
 --
---             @\/aws\/route53\/hosted zone name @
+--             @\/aws\/route53\/@/@hosted zone name@/@ @
 --
 --             In the next step, you\'ll create a resource policy, which
 --             controls access to one or more log groups and the associated
@@ -111,7 +111,7 @@
 --
 --     The name of each log stream is in the following format:
 --
---     @ hosted zone ID\/edge location code @
+--     @ @/@hosted zone ID@/@\/@/@edge location code@/@ @
 --
 --     The edge location code is a three-letter code and an arbitrarily
 --     assigned number, for example, DFW3. The three-letter code typically
@@ -273,7 +273,8 @@ instance Core.AWSRequest CreateQueryLoggingConfig where
 
 instance Prelude.Hashable CreateQueryLoggingConfig where
   hashWithSalt _salt CreateQueryLoggingConfig' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
 
 instance Prelude.NFData CreateQueryLoggingConfig where

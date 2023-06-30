@@ -54,7 +54,8 @@ data StartFileTransfer = StartFileTransfer'
   { -- | The unique identifier for the connector.
     connectorId :: Prelude.Text,
     -- | An array of strings. Each string represents the absolute path for one
-    -- outbound file transfer. For example, @ DOC-EXAMPLE-BUCKET\/myfile.txt @.
+    -- outbound file transfer. For example,
+    -- @ @/@DOC-EXAMPLE-BUCKET@/@\/@/@myfile.txt@/@ @.
     sendFilePaths :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +71,8 @@ data StartFileTransfer = StartFileTransfer'
 -- 'connectorId', 'startFileTransfer_connectorId' - The unique identifier for the connector.
 --
 -- 'sendFilePaths', 'startFileTransfer_sendFilePaths' - An array of strings. Each string represents the absolute path for one
--- outbound file transfer. For example, @ DOC-EXAMPLE-BUCKET\/myfile.txt @.
+-- outbound file transfer. For example,
+-- @ @/@DOC-EXAMPLE-BUCKET@/@\/@/@myfile.txt@/@ @.
 newStartFileTransfer ::
   -- | 'connectorId'
   Prelude.Text ->
@@ -88,7 +90,8 @@ startFileTransfer_connectorId :: Lens.Lens' StartFileTransfer Prelude.Text
 startFileTransfer_connectorId = Lens.lens (\StartFileTransfer' {connectorId} -> connectorId) (\s@StartFileTransfer' {} a -> s {connectorId = a} :: StartFileTransfer)
 
 -- | An array of strings. Each string represents the absolute path for one
--- outbound file transfer. For example, @ DOC-EXAMPLE-BUCKET\/myfile.txt @.
+-- outbound file transfer. For example,
+-- @ @/@DOC-EXAMPLE-BUCKET@/@\/@/@myfile.txt@/@ @.
 startFileTransfer_sendFilePaths :: Lens.Lens' StartFileTransfer (Prelude.NonEmpty Prelude.Text)
 startFileTransfer_sendFilePaths = Lens.lens (\StartFileTransfer' {sendFilePaths} -> sendFilePaths) (\s@StartFileTransfer' {} a -> s {sendFilePaths = a} :: StartFileTransfer) Prelude.. Lens.coerced
 
@@ -108,7 +111,8 @@ instance Core.AWSRequest StartFileTransfer where
 
 instance Prelude.Hashable StartFileTransfer where
   hashWithSalt _salt StartFileTransfer' {..} =
-    _salt `Prelude.hashWithSalt` connectorId
+    _salt
+      `Prelude.hashWithSalt` connectorId
       `Prelude.hashWithSalt` sendFilePaths
 
 instance Prelude.NFData StartFileTransfer where

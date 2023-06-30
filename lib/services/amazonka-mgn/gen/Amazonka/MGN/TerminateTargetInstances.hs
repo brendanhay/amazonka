@@ -105,7 +105,8 @@ instance Core.AWSRequest TerminateTargetInstances where
 
 instance Prelude.Hashable TerminateTargetInstances where
   hashWithSalt _salt TerminateTargetInstances' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceServerIDs
 
 instance Prelude.NFData TerminateTargetInstances where

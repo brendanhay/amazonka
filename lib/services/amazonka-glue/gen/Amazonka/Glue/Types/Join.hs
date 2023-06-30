@@ -106,7 +106,8 @@ instance Data.FromJSON Join where
 
 instance Prelude.Hashable Join where
   hashWithSalt _salt Join' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` joinType
       `Prelude.hashWithSalt` columns

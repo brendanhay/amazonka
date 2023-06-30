@@ -75,7 +75,8 @@ instance Data.FromJSON CustomAuthConfig where
 
 instance Prelude.Hashable CustomAuthConfig where
   hashWithSalt _salt CustomAuthConfig' {..} =
-    _salt `Prelude.hashWithSalt` authParameters
+    _salt
+      `Prelude.hashWithSalt` authParameters
       `Prelude.hashWithSalt` customAuthenticationType
 
 instance Prelude.NFData CustomAuthConfig where

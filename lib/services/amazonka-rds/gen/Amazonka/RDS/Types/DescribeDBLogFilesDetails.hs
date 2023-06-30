@@ -81,7 +81,8 @@ instance Data.FromXML DescribeDBLogFilesDetails where
 
 instance Prelude.Hashable DescribeDBLogFilesDetails where
   hashWithSalt _salt DescribeDBLogFilesDetails' {..} =
-    _salt `Prelude.hashWithSalt` lastWritten
+    _salt
+      `Prelude.hashWithSalt` lastWritten
       `Prelude.hashWithSalt` logFileName
       `Prelude.hashWithSalt` size
 

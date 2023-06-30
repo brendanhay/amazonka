@@ -83,7 +83,8 @@ instance Data.FromJSON CelebrityRecognition where
 
 instance Prelude.Hashable CelebrityRecognition where
   hashWithSalt _salt CelebrityRecognition' {..} =
-    _salt `Prelude.hashWithSalt` celebrity
+    _salt
+      `Prelude.hashWithSalt` celebrity
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData CelebrityRecognition where

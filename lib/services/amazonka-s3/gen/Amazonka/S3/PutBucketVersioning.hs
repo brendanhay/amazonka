@@ -235,7 +235,8 @@ instance Core.AWSRequest PutBucketVersioning where
 
 instance Prelude.Hashable PutBucketVersioning where
   hashWithSalt _salt PutBucketVersioning' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` mfa

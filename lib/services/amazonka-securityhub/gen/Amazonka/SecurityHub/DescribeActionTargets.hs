@@ -125,21 +125,21 @@ instance Core.AWSPager DescribeActionTargets where
     | Core.stop
         ( rs
             Lens.^? describeActionTargetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. describeActionTargetsResponse_actionTargets
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeActionTargets_nextToken
           Lens..~ rs
           Lens.^? describeActionTargetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeActionTargets where
   type
@@ -158,7 +158,8 @@ instance Core.AWSRequest DescribeActionTargets where
 
 instance Prelude.Hashable DescribeActionTargets where
   hashWithSalt _salt DescribeActionTargets' {..} =
-    _salt `Prelude.hashWithSalt` actionTargetArns
+    _salt
+      `Prelude.hashWithSalt` actionTargetArns
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

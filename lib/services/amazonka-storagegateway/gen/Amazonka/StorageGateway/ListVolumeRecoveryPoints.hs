@@ -95,7 +95,8 @@ instance Core.AWSRequest ListVolumeRecoveryPoints where
       ( \s h x ->
           ListVolumeRecoveryPointsResponse'
             Prelude.<$> (x Data..?> "GatewayARN")
-            Prelude.<*> ( x Data..?> "VolumeRecoveryPointInfos"
+            Prelude.<*> ( x
+                            Data..?> "VolumeRecoveryPointInfos"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

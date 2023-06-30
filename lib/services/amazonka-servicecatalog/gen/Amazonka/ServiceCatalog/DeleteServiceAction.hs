@@ -119,7 +119,8 @@ instance Core.AWSRequest DeleteServiceAction where
 
 instance Prelude.Hashable DeleteServiceAction where
   hashWithSalt _salt DeleteServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteServiceAction where

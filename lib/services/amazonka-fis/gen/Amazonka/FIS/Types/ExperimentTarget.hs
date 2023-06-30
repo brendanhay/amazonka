@@ -118,7 +118,8 @@ instance Data.FromJSON ExperimentTarget where
 
 instance Prelude.Hashable ExperimentTarget where
   hashWithSalt _salt ExperimentTarget' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resourceArns
       `Prelude.hashWithSalt` resourceTags

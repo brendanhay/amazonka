@@ -240,7 +240,8 @@ instance
   hashWithSalt
     _salt
     ExtendedS3DestinationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bufferingHints
+      _salt
+        `Prelude.hashWithSalt` bufferingHints
         `Prelude.hashWithSalt` cloudWatchLoggingOptions
         `Prelude.hashWithSalt` compressionFormat
         `Prelude.hashWithSalt` dataFormatConversionConfiguration

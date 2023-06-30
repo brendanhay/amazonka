@@ -665,21 +665,23 @@ instance Core.AWSPager GetMetricData where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getMetricDataResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getMetricDataResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getMetricDataResponse_metricResults
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getMetricData_nextToken
           Lens..~ rs
-          Lens.^? getMetricDataResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getMetricDataResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetMetricData where
   type
@@ -698,7 +700,8 @@ instance Core.AWSRequest GetMetricData where
 
 instance Prelude.Hashable GetMetricData where
   hashWithSalt _salt GetMetricData' {..} =
-    _salt `Prelude.hashWithSalt` groupings
+    _salt
+      `Prelude.hashWithSalt` groupings
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

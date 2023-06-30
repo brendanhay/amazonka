@@ -117,7 +117,8 @@ instance Core.AWSRequest AssociateChannelFlow where
 
 instance Prelude.Hashable AssociateChannelFlow where
   hashWithSalt _salt AssociateChannelFlow' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelFlowArn
       `Prelude.hashWithSalt` chimeBearer
 

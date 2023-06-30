@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateOrder where
 
 instance Prelude.Hashable CreateOrder where
   hashWithSalt _salt CreateOrder' {..} =
-    _salt `Prelude.hashWithSalt` paymentTerm
+    _salt
+      `Prelude.hashWithSalt` paymentTerm
       `Prelude.hashWithSalt` outpostIdentifier
       `Prelude.hashWithSalt` lineItems
       `Prelude.hashWithSalt` paymentOption

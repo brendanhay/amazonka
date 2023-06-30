@@ -75,7 +75,8 @@ instance Data.FromJSON VideoSelectorSettings where
 
 instance Prelude.Hashable VideoSelectorSettings where
   hashWithSalt _salt VideoSelectorSettings' {..} =
-    _salt `Prelude.hashWithSalt` videoSelectorPid
+    _salt
+      `Prelude.hashWithSalt` videoSelectorPid
       `Prelude.hashWithSalt` videoSelectorProgramId
 
 instance Prelude.NFData VideoSelectorSettings where

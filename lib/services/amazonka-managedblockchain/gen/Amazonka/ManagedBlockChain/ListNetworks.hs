@@ -145,7 +145,8 @@ instance Core.AWSRequest ListNetworks where
 
 instance Prelude.Hashable ListNetworks where
   hashWithSalt _salt ListNetworks' {..} =
-    _salt `Prelude.hashWithSalt` framework
+    _salt
+      `Prelude.hashWithSalt` framework
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken

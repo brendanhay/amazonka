@@ -109,7 +109,8 @@ instance Core.AWSRequest GetAppsList where
 
 instance Prelude.Hashable GetAppsList where
   hashWithSalt _salt GetAppsList' {..} =
-    _salt `Prelude.hashWithSalt` defaultList
+    _salt
+      `Prelude.hashWithSalt` defaultList
       `Prelude.hashWithSalt` listId
 
 instance Prelude.NFData GetAppsList where

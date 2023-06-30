@@ -86,7 +86,8 @@ instance Data.FromJSON SuggestModel where
 
 instance Prelude.Hashable SuggestModel where
   hashWithSalt _salt SuggestModel' {..} =
-    _salt `Prelude.hashWithSalt` found
+    _salt
+      `Prelude.hashWithSalt` found
       `Prelude.hashWithSalt` query
       `Prelude.hashWithSalt` suggestions
 

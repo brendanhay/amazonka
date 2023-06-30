@@ -137,7 +137,8 @@ instance Core.AWSRequest AttachUserPolicy where
 
 instance Prelude.Hashable AttachUserPolicy where
   hashWithSalt _salt AttachUserPolicy' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData AttachUserPolicy where

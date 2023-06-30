@@ -199,7 +199,8 @@ instance Core.AWSRequest UpdateFleetCapacity where
 
 instance Prelude.Hashable UpdateFleetCapacity where
   hashWithSalt _salt UpdateFleetCapacity' {..} =
-    _salt `Prelude.hashWithSalt` desiredInstances
+    _salt
+      `Prelude.hashWithSalt` desiredInstances
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` maxSize
       `Prelude.hashWithSalt` minSize

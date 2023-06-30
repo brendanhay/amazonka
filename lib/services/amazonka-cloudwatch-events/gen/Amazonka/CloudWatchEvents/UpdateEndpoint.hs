@@ -164,7 +164,8 @@ instance Core.AWSRequest UpdateEndpoint where
 
 instance Prelude.Hashable UpdateEndpoint where
   hashWithSalt _salt UpdateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBuses
       `Prelude.hashWithSalt` replicationConfig
       `Prelude.hashWithSalt` roleArn

@@ -136,7 +136,8 @@ instance Core.AWSRequest GetBucketReplication where
 
 instance Prelude.Hashable GetBucketReplication where
   hashWithSalt _salt GetBucketReplication' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketReplication where

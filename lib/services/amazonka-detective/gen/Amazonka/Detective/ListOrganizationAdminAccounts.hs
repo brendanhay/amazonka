@@ -116,7 +116,8 @@ instance
     ListOrganizationAdminAccounts
   where
   hashWithSalt _salt ListOrganizationAdminAccounts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListOrganizationAdminAccounts where

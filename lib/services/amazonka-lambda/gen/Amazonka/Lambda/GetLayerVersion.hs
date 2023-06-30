@@ -109,7 +109,8 @@ instance Core.AWSRequest GetLayerVersion where
 
 instance Prelude.Hashable GetLayerVersion where
   hashWithSalt _salt GetLayerVersion' {..} =
-    _salt `Prelude.hashWithSalt` layerName
+    _salt
+      `Prelude.hashWithSalt` layerName
       `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData GetLayerVersion where

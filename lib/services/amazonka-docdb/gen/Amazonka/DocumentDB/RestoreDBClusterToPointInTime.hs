@@ -468,7 +468,8 @@ instance
     RestoreDBClusterToPointInTime
   where
   hashWithSalt _salt RestoreDBClusterToPointInTime' {..} =
-    _salt `Prelude.hashWithSalt` dbSubnetGroupName
+    _salt
+      `Prelude.hashWithSalt` dbSubnetGroupName
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` enableCloudwatchLogsExports
       `Prelude.hashWithSalt` kmsKeyId

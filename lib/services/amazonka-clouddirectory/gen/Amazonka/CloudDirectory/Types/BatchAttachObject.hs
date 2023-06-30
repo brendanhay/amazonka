@@ -84,7 +84,8 @@ batchAttachObject_linkName = Lens.lens (\BatchAttachObject' {linkName} -> linkNa
 
 instance Prelude.Hashable BatchAttachObject where
   hashWithSalt _salt BatchAttachObject' {..} =
-    _salt `Prelude.hashWithSalt` parentReference
+    _salt
+      `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` childReference
       `Prelude.hashWithSalt` linkName
 

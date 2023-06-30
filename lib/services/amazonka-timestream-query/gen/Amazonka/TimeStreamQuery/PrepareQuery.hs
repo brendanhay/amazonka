@@ -119,7 +119,8 @@ instance Core.AWSRequest PrepareQuery where
 
 instance Prelude.Hashable PrepareQuery where
   hashWithSalt _salt PrepareQuery' {..} =
-    _salt `Prelude.hashWithSalt` validateOnly
+    _salt
+      `Prelude.hashWithSalt` validateOnly
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData PrepareQuery where

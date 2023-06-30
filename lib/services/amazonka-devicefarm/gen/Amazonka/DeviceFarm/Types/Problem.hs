@@ -175,7 +175,8 @@ instance Data.FromJSON Problem where
 
 instance Prelude.Hashable Problem where
   hashWithSalt _salt Problem' {..} =
-    _salt `Prelude.hashWithSalt` device
+    _salt
+      `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` job
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` result

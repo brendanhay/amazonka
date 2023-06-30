@@ -191,7 +191,8 @@ instance Core.AWSRequest ExportServerEngineAttribute where
 
 instance Prelude.Hashable ExportServerEngineAttribute where
   hashWithSalt _salt ExportServerEngineAttribute' {..} =
-    _salt `Prelude.hashWithSalt` inputAttributes
+    _salt
+      `Prelude.hashWithSalt` inputAttributes
       `Prelude.hashWithSalt` exportAttributeName
       `Prelude.hashWithSalt` serverName
 

@@ -157,7 +157,8 @@ instance Data.FromXML CacheNodeTypeSpecificParameter where
   parseXML x =
     CacheNodeTypeSpecificParameter'
       Prelude.<$> (x Data..@? "AllowedValues")
-      Prelude.<*> ( x Data..@? "CacheNodeTypeSpecificValues"
+      Prelude.<*> ( x
+                      Data..@? "CacheNodeTypeSpecificValues"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "CacheNodeTypeSpecificValue")
@@ -177,7 +178,8 @@ instance
   hashWithSalt
     _salt
     CacheNodeTypeSpecificParameter' {..} =
-      _salt `Prelude.hashWithSalt` allowedValues
+      _salt
+        `Prelude.hashWithSalt` allowedValues
         `Prelude.hashWithSalt` cacheNodeTypeSpecificValues
         `Prelude.hashWithSalt` changeType
         `Prelude.hashWithSalt` dataType

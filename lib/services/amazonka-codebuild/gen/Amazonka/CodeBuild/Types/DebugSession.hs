@@ -82,7 +82,8 @@ instance Data.FromJSON DebugSession where
 
 instance Prelude.Hashable DebugSession where
   hashWithSalt _salt DebugSession' {..} =
-    _salt `Prelude.hashWithSalt` sessionEnabled
+    _salt
+      `Prelude.hashWithSalt` sessionEnabled
       `Prelude.hashWithSalt` sessionTarget
 
 instance Prelude.NFData DebugSession where

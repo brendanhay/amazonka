@@ -189,22 +189,22 @@ instance Core.AWSPager GetIpamResourceCidrs where
     | Core.stop
         ( rs
             Lens.^? getIpamResourceCidrsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getIpamResourceCidrsResponse_ipamResourceCidrs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getIpamResourceCidrs_nextToken
           Lens..~ rs
           Lens.^? getIpamResourceCidrsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetIpamResourceCidrs where
   type
@@ -216,7 +216,8 @@ instance Core.AWSRequest GetIpamResourceCidrs where
     Response.receiveXML
       ( \s h x ->
           GetIpamResourceCidrsResponse'
-            Prelude.<$> ( x Data..@? "ipamResourceCidrSet"
+            Prelude.<$> ( x
+                            Data..@? "ipamResourceCidrSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -226,7 +227,8 @@ instance Core.AWSRequest GetIpamResourceCidrs where
 
 instance Prelude.Hashable GetIpamResourceCidrs where
   hashWithSalt _salt GetIpamResourceCidrs' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` ipamPoolId
       `Prelude.hashWithSalt` maxResults

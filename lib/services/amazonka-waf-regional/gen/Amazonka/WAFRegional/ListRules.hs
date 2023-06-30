@@ -130,7 +130,8 @@ instance Core.AWSRequest ListRules where
 
 instance Prelude.Hashable ListRules where
   hashWithSalt _salt ListRules' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListRules where

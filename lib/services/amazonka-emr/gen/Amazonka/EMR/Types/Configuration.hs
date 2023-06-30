@@ -96,7 +96,8 @@ instance Data.FromJSON Configuration where
 
 instance Prelude.Hashable Configuration where
   hashWithSalt _salt Configuration' {..} =
-    _salt `Prelude.hashWithSalt` classification
+    _salt
+      `Prelude.hashWithSalt` classification
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` properties
 

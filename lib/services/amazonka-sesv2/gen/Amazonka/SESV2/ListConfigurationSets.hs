@@ -117,7 +117,8 @@ instance Core.AWSRequest ListConfigurationSets where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationSetsResponse'
-            Prelude.<$> ( x Data..?> "ConfigurationSets"
+            Prelude.<$> ( x
+                            Data..?> "ConfigurationSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -126,7 +127,8 @@ instance Core.AWSRequest ListConfigurationSets where
 
 instance Prelude.Hashable ListConfigurationSets where
   hashWithSalt _salt ListConfigurationSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListConfigurationSets where

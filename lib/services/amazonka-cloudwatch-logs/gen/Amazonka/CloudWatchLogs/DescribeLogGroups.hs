@@ -25,10 +25,11 @@
 -- name.
 --
 -- CloudWatch Logs doesn’t support IAM policies that control access to the
--- @DescribeLogGroups@ action by using the @aws:ResourceTag\/key-name @
--- condition key. Other CloudWatch Logs actions do support the use of the
--- @aws:ResourceTag\/key-name @ condition key to control access. For more
--- information about using tags to control access, see
+-- @DescribeLogGroups@ action by using the
+-- @aws:ResourceTag\/@/@key-name@/@ @ condition key. Other CloudWatch Logs
+-- actions do support the use of the @aws:ResourceTag\/@/@key-name@/@ @
+-- condition key to control access. For more information about using tags
+-- to control access, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
 --
 -- If you are using CloudWatch cross-account observability, you can use
@@ -222,22 +223,22 @@ instance Core.AWSPager DescribeLogGroups where
     | Core.stop
         ( rs
             Lens.^? describeLogGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLogGroupsResponse_logGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLogGroups_nextToken
           Lens..~ rs
           Lens.^? describeLogGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLogGroups where
   type
@@ -256,7 +257,8 @@ instance Core.AWSRequest DescribeLogGroups where
 
 instance Prelude.Hashable DescribeLogGroups where
   hashWithSalt _salt DescribeLogGroups' {..} =
-    _salt `Prelude.hashWithSalt` accountIdentifiers
+    _salt
+      `Prelude.hashWithSalt` accountIdentifiers
       `Prelude.hashWithSalt` includeLinkedAccounts
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` logGroupNamePattern

@@ -228,7 +228,8 @@ instance Data.FromJSON RecordingGroup where
 
 instance Prelude.Hashable RecordingGroup where
   hashWithSalt _salt RecordingGroup' {..} =
-    _salt `Prelude.hashWithSalt` allSupported
+    _salt
+      `Prelude.hashWithSalt` allSupported
       `Prelude.hashWithSalt` includeGlobalResourceTypes
       `Prelude.hashWithSalt` resourceTypes
 

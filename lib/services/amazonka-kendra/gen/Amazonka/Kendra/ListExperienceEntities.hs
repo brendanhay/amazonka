@@ -130,7 +130,8 @@ instance Core.AWSRequest ListExperienceEntities where
 
 instance Prelude.Hashable ListExperienceEntities where
   hashWithSalt _salt ListExperienceEntities' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 

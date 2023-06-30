@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     EnableOrganizationAdminAccount' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` adminAccountId
 
 instance

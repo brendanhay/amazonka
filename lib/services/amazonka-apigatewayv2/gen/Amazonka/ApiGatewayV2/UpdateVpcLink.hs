@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateVpcLink where
           UpdateVpcLinkResponse'
             Prelude.<$> (x Data..?> "createdDate")
             Prelude.<*> (x Data..?> "name")
-            Prelude.<*> ( x Data..?> "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..?> "securityGroupIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "subnetIds" Core..!@ Prelude.mempty)
@@ -122,7 +123,8 @@ instance Core.AWSRequest UpdateVpcLink where
 
 instance Prelude.Hashable UpdateVpcLink where
   hashWithSalt _salt UpdateVpcLink' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` vpcLinkId
 
 instance Prelude.NFData UpdateVpcLink where

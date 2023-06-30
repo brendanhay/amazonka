@@ -123,7 +123,8 @@ instance Data.FromJSON VirtualRouterData where
 
 instance Prelude.Hashable VirtualRouterData where
   hashWithSalt _salt VirtualRouterData' {..} =
-    _salt `Prelude.hashWithSalt` meshName
+    _salt
+      `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` status

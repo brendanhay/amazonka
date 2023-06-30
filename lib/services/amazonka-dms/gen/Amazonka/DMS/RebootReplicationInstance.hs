@@ -136,7 +136,8 @@ instance Core.AWSRequest RebootReplicationInstance where
 
 instance Prelude.Hashable RebootReplicationInstance where
   hashWithSalt _salt RebootReplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` forceFailover
+    _salt
+      `Prelude.hashWithSalt` forceFailover
       `Prelude.hashWithSalt` forcePlannedFailover
       `Prelude.hashWithSalt` replicationInstanceArn
 

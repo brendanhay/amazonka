@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteThesaurus where
 
 instance Prelude.Hashable DeleteThesaurus where
   hashWithSalt _salt DeleteThesaurus' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DeleteThesaurus where

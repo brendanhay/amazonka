@@ -127,7 +127,8 @@ instance Core.AWSRequest UpdateBrokerType where
 
 instance Prelude.Hashable UpdateBrokerType where
   hashWithSalt _salt UpdateBrokerType' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` targetInstanceType
 

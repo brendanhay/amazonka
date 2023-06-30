@@ -160,7 +160,8 @@ instance Core.AWSRequest DeleteAwsLogSource where
 
 instance Prelude.Hashable DeleteAwsLogSource where
   hashWithSalt _salt DeleteAwsLogSource' {..} =
-    _salt `Prelude.hashWithSalt` disableAllDimensions
+    _salt
+      `Prelude.hashWithSalt` disableAllDimensions
       `Prelude.hashWithSalt` disableSingleDimension
       `Prelude.hashWithSalt` disableTwoDimensions
       `Prelude.hashWithSalt` inputOrder

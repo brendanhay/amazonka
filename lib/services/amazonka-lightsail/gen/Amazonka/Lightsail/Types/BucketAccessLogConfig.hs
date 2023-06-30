@@ -137,7 +137,8 @@ instance Data.FromJSON BucketAccessLogConfig where
 
 instance Prelude.Hashable BucketAccessLogConfig where
   hashWithSalt _salt BucketAccessLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` enabled
 

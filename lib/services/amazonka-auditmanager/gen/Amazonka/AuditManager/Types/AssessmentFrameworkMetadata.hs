@@ -169,7 +169,8 @@ instance Data.FromJSON AssessmentFrameworkMetadata where
 
 instance Prelude.Hashable AssessmentFrameworkMetadata where
   hashWithSalt _salt AssessmentFrameworkMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` controlSetsCount
       `Prelude.hashWithSalt` controlsCount

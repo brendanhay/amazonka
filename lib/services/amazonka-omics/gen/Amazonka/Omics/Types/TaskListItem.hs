@@ -135,7 +135,8 @@ instance Data.FromJSON TaskListItem where
 
 instance Prelude.Hashable TaskListItem where
   hashWithSalt _salt TaskListItem' {..} =
-    _salt `Prelude.hashWithSalt` cpus
+    _salt
+      `Prelude.hashWithSalt` cpus
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` memory
       `Prelude.hashWithSalt` name

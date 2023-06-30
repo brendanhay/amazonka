@@ -122,7 +122,8 @@ instance Data.FromXML OidcOptions where
 
 instance Prelude.Hashable OidcOptions where
   hashWithSalt _salt OidcOptions' {..} =
-    _salt `Prelude.hashWithSalt` authorizationEndpoint
+    _salt
+      `Prelude.hashWithSalt` authorizationEndpoint
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` issuer

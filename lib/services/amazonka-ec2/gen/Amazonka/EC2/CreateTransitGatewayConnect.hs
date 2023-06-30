@@ -146,7 +146,8 @@ instance Core.AWSRequest CreateTransitGatewayConnect where
 
 instance Prelude.Hashable CreateTransitGatewayConnect where
   hashWithSalt _salt CreateTransitGatewayConnect' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` transportTransitGatewayAttachmentId
       `Prelude.hashWithSalt` options

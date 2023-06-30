@@ -103,7 +103,8 @@ instance
     AdvancedSecurityOptionsInput
   where
   hashWithSalt _salt AdvancedSecurityOptionsInput' {..} =
-    _salt `Prelude.hashWithSalt` anonymousAuthEnabled
+    _salt
+      `Prelude.hashWithSalt` anonymousAuthEnabled
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` internalUserDatabaseEnabled
       `Prelude.hashWithSalt` masterUserOptions

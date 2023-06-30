@@ -155,7 +155,8 @@ instance Data.FromJSON TapeInfo where
 
 instance Prelude.Hashable TapeInfo where
   hashWithSalt _salt TapeInfo' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` poolEntryDate
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` retentionStartDate

@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateStandardsControl where
 
 instance Prelude.Hashable UpdateStandardsControl where
   hashWithSalt _salt UpdateStandardsControl' {..} =
-    _salt `Prelude.hashWithSalt` controlStatus
+    _salt
+      `Prelude.hashWithSalt` controlStatus
       `Prelude.hashWithSalt` disabledReason
       `Prelude.hashWithSalt` standardsControlArn
 

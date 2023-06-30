@@ -131,7 +131,8 @@ instance Core.AWSRequest UpdateDomainNameservers where
 
 instance Prelude.Hashable UpdateDomainNameservers where
   hashWithSalt _salt UpdateDomainNameservers' {..} =
-    _salt `Prelude.hashWithSalt` fIAuthKey
+    _salt
+      `Prelude.hashWithSalt` fIAuthKey
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` nameservers
 

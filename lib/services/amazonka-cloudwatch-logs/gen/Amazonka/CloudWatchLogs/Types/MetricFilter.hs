@@ -109,7 +109,8 @@ instance Data.FromJSON MetricFilter where
 
 instance Prelude.Hashable MetricFilter where
   hashWithSalt _salt MetricFilter' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` filterName
       `Prelude.hashWithSalt` filterPattern
       `Prelude.hashWithSalt` logGroupName

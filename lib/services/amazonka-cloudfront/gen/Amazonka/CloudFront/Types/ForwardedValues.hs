@@ -381,7 +381,8 @@ instance Data.FromXML ForwardedValues where
 
 instance Prelude.Hashable ForwardedValues where
   hashWithSalt _salt ForwardedValues' {..} =
-    _salt `Prelude.hashWithSalt` headers
+    _salt
+      `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` queryStringCacheKeys
       `Prelude.hashWithSalt` queryString
       `Prelude.hashWithSalt` cookies

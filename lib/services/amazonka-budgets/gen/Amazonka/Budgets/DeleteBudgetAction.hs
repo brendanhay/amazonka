@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteBudgetAction where
 
 instance Prelude.Hashable DeleteBudgetAction where
   hashWithSalt _salt DeleteBudgetAction' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` actionId
 

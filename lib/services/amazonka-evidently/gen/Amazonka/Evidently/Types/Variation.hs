@@ -70,12 +70,14 @@ instance Data.FromJSON Variation where
       "Variation"
       ( \x ->
           Variation'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Variation where
   hashWithSalt _salt Variation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Variation where

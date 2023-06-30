@@ -68,7 +68,8 @@ wiFiAccessPoint_rss = Lens.lens (\WiFiAccessPoint' {rss} -> rss) (\s@WiFiAccessP
 
 instance Prelude.Hashable WiFiAccessPoint where
   hashWithSalt _salt WiFiAccessPoint' {..} =
-    _salt `Prelude.hashWithSalt` macAddress
+    _salt
+      `Prelude.hashWithSalt` macAddress
       `Prelude.hashWithSalt` rss
 
 instance Prelude.NFData WiFiAccessPoint where

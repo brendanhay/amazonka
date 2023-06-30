@@ -136,10 +136,10 @@ instance
       ( \s h x ->
           GetDeployablePatchSnapshotForInstanceResponse'
             Prelude.<$> (x Data..?> "InstanceId")
-              Prelude.<*> (x Data..?> "Product")
-              Prelude.<*> (x Data..?> "SnapshotDownloadUrl")
-              Prelude.<*> (x Data..?> "SnapshotId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Product")
+            Prelude.<*> (x Data..?> "SnapshotDownloadUrl")
+            Prelude.<*> (x Data..?> "SnapshotId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     GetDeployablePatchSnapshotForInstance' {..} =
-      _salt `Prelude.hashWithSalt` baselineOverride
+      _salt
+        `Prelude.hashWithSalt` baselineOverride
         `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` snapshotId
 

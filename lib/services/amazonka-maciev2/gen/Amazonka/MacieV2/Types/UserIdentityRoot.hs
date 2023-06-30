@@ -92,7 +92,8 @@ instance Data.FromJSON UserIdentityRoot where
 
 instance Prelude.Hashable UserIdentityRoot where
   hashWithSalt _salt UserIdentityRoot' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` principalId
 

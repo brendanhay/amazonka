@@ -82,11 +82,12 @@ instance
   parseXML x =
     TransitGatewayMulticastRegisteredGroupMembers'
       Prelude.<$> (x Data..@? "groupIpAddress")
-        Prelude.<*> ( x Data..@? "registeredNetworkInterfaceIds"
-                        Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Data.parseXMLList "item")
-                    )
-        Prelude.<*> (x Data..@? "transitGatewayMulticastDomainId")
+      Prelude.<*> ( x
+                      Data..@? "registeredNetworkInterfaceIds"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> (x Data..@? "transitGatewayMulticastDomainId")
 
 instance
   Prelude.Hashable
@@ -95,7 +96,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayMulticastRegisteredGroupMembers' {..} =
-      _salt `Prelude.hashWithSalt` groupIpAddress
+      _salt
+        `Prelude.hashWithSalt` groupIpAddress
         `Prelude.hashWithSalt` registeredNetworkInterfaceIds
         `Prelude.hashWithSalt` transitGatewayMulticastDomainId
 

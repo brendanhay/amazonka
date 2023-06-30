@@ -128,7 +128,8 @@ instance Core.AWSRequest DescribeProduct where
             Prelude.<$> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "LaunchPaths" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ProductViewSummary")
-            Prelude.<*> ( x Data..?> "ProvisioningArtifacts"
+            Prelude.<*> ( x
+                            Data..?> "ProvisioningArtifacts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,7 +137,8 @@ instance Core.AWSRequest DescribeProduct where
 
 instance Prelude.Hashable DescribeProduct where
   hashWithSalt _salt DescribeProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

@@ -91,7 +91,8 @@ instance Data.FromJSON TriggerConfig where
 
 instance Prelude.Hashable TriggerConfig where
   hashWithSalt _salt TriggerConfig' {..} =
-    _salt `Prelude.hashWithSalt` triggerEvents
+    _salt
+      `Prelude.hashWithSalt` triggerEvents
       `Prelude.hashWithSalt` triggerName
       `Prelude.hashWithSalt` triggerTargetArn
 

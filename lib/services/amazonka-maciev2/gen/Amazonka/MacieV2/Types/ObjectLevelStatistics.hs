@@ -108,7 +108,8 @@ instance Data.FromJSON ObjectLevelStatistics where
 
 instance Prelude.Hashable ObjectLevelStatistics where
   hashWithSalt _salt ObjectLevelStatistics' {..} =
-    _salt `Prelude.hashWithSalt` fileType
+    _salt
+      `Prelude.hashWithSalt` fileType
       `Prelude.hashWithSalt` storageClass
       `Prelude.hashWithSalt` total
 

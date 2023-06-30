@@ -117,7 +117,8 @@ groupMembers_s3PathforGroupMembers = Lens.lens (\GroupMembers' {s3PathforGroupMe
 
 instance Prelude.Hashable GroupMembers where
   hashWithSalt _salt GroupMembers' {..} =
-    _salt `Prelude.hashWithSalt` memberGroups
+    _salt
+      `Prelude.hashWithSalt` memberGroups
       `Prelude.hashWithSalt` memberUsers
       `Prelude.hashWithSalt` s3PathforGroupMembers
 

@@ -165,7 +165,8 @@ instance Core.AWSRequest RequestEnvironmentInfo where
 
 instance Prelude.Hashable RequestEnvironmentInfo where
   hashWithSalt _salt RequestEnvironmentInfo' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` infoType
 

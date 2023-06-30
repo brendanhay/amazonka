@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     SankeyDiagramSortConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` destinationItemsLimit
+      _salt
+        `Prelude.hashWithSalt` destinationItemsLimit
         `Prelude.hashWithSalt` sourceItemsLimit
         `Prelude.hashWithSalt` weightSort
 

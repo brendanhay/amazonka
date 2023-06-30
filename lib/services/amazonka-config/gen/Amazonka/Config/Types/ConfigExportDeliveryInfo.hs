@@ -119,7 +119,8 @@ instance Data.FromJSON ConfigExportDeliveryInfo where
 
 instance Prelude.Hashable ConfigExportDeliveryInfo where
   hashWithSalt _salt ConfigExportDeliveryInfo' {..} =
-    _salt `Prelude.hashWithSalt` lastAttemptTime
+    _salt
+      `Prelude.hashWithSalt` lastAttemptTime
       `Prelude.hashWithSalt` lastErrorCode
       `Prelude.hashWithSalt` lastErrorMessage
       `Prelude.hashWithSalt` lastStatus

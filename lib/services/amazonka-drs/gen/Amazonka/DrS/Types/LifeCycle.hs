@@ -112,7 +112,8 @@ instance Data.FromJSON LifeCycle where
 
 instance Prelude.Hashable LifeCycle where
   hashWithSalt _salt LifeCycle' {..} =
-    _salt `Prelude.hashWithSalt` addedToServiceDateTime
+    _salt
+      `Prelude.hashWithSalt` addedToServiceDateTime
       `Prelude.hashWithSalt` elapsedReplicationDuration
       `Prelude.hashWithSalt` firstByteDateTime
       `Prelude.hashWithSalt` lastLaunch

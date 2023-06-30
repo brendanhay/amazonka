@@ -111,7 +111,8 @@ instance Core.AWSRequest GrantAccess where
 
 instance Prelude.Hashable GrantAccess where
   hashWithSalt _salt GrantAccess' {..} =
-    _salt `Prelude.hashWithSalt` validForInMinutes
+    _salt
+      `Prelude.hashWithSalt` validForInMinutes
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData GrantAccess where

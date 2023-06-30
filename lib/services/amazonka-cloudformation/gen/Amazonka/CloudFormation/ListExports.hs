@@ -89,20 +89,23 @@ instance Core.AWSPager ListExports where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listExportsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listExportsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listExportsResponse_exports Prelude.. Lens._Just
+            Lens.^? listExportsResponse_exports
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listExports_nextToken
           Lens..~ rs
-          Lens.^? listExportsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listExportsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExports where
   type AWSResponse ListExports = ListExportsResponse
@@ -113,7 +116,9 @@ instance Core.AWSRequest ListExports where
       "ListExportsResult"
       ( \s h x ->
           ListExportsResponse'
-            Prelude.<$> ( x Data..@? "Exports" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Exports"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")

@@ -229,7 +229,8 @@ instance Core.AWSRequest DisposePackageVersions where
       ( \s h x ->
           DisposePackageVersionsResponse'
             Prelude.<$> (x Data..?> "failedVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "successfulVersions"
+            Prelude.<*> ( x
+                            Data..?> "successfulVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -237,7 +238,8 @@ instance Core.AWSRequest DisposePackageVersions where
 
 instance Prelude.Hashable DisposePackageVersions where
   hashWithSalt _salt DisposePackageVersions' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` expectedStatus
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` versionRevisions

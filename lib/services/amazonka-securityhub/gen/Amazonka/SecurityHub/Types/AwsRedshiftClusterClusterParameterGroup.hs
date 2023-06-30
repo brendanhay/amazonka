@@ -85,7 +85,8 @@ instance
       "AwsRedshiftClusterClusterParameterGroup"
       ( \x ->
           AwsRedshiftClusterClusterParameterGroup'
-            Prelude.<$> ( x Data..:? "ClusterParameterStatusList"
+            Prelude.<$> ( x
+                            Data..:? "ClusterParameterStatusList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ParameterApplyStatus")

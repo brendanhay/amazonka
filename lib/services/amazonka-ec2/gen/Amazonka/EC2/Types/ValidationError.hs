@@ -85,7 +85,8 @@ instance Data.FromXML ValidationError where
 
 instance Prelude.Hashable ValidationError where
   hashWithSalt _salt ValidationError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ValidationError where

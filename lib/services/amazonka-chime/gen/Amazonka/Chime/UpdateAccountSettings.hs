@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateAccountSettings where
 
 instance Prelude.Hashable UpdateAccountSettings where
   hashWithSalt _salt UpdateAccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` accountSettings
 
 instance Prelude.NFData UpdateAccountSettings where

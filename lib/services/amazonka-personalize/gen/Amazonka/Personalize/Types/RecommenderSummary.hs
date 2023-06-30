@@ -169,7 +169,8 @@ instance Data.FromJSON RecommenderSummary where
 
 instance Prelude.Hashable RecommenderSummary where
   hashWithSalt _salt RecommenderSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` name

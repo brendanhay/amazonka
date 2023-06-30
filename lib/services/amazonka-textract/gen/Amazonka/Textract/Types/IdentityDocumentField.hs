@@ -75,7 +75,8 @@ instance Data.FromJSON IdentityDocumentField where
 
 instance Prelude.Hashable IdentityDocumentField where
   hashWithSalt _salt IdentityDocumentField' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` valueDetection
 
 instance Prelude.NFData IdentityDocumentField where

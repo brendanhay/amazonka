@@ -146,7 +146,8 @@ instance Data.FromJSON StreamingSessionStream where
 
 instance Prelude.Hashable StreamingSessionStream where
   hashWithSalt _salt StreamingSessionStream' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` expiresAt
       `Prelude.hashWithSalt` ownedBy

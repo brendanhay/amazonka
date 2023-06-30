@@ -83,9 +83,9 @@ instance
       ( \s h x ->
           StartSavingsPlansPurchaseRecommendationGenerationResponse'
             Prelude.<$> (x Data..?> "EstimatedCompletionTime")
-              Prelude.<*> (x Data..?> "GenerationStartedTime")
-              Prelude.<*> (x Data..?> "RecommendationId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "GenerationStartedTime")
+            Prelude.<*> (x Data..?> "RecommendationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -104,10 +104,14 @@ reservation_ownerId = Lens.lens (\Reservation' {ownerId} -> ownerId) (\s@Reserva
 instance Data.FromXML Reservation where
   parseXML x =
     Reservation'
-      Prelude.<$> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "instancesSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "requesterId")
@@ -116,7 +120,8 @@ instance Data.FromXML Reservation where
 
 instance Prelude.Hashable Reservation where
   hashWithSalt _salt Reservation' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` instances
       `Prelude.hashWithSalt` requesterId
       `Prelude.hashWithSalt` reservationId

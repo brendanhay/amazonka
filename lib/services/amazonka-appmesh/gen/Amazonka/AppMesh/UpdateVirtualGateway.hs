@@ -158,7 +158,8 @@ instance Core.AWSRequest UpdateVirtualGateway where
 
 instance Prelude.Hashable UpdateVirtualGateway where
   hashWithSalt _salt UpdateVirtualGateway' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` spec

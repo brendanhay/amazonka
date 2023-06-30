@@ -539,7 +539,8 @@ instance Data.FromJSON Command where
 
 instance Prelude.Hashable Command where
   hashWithSalt _salt Command' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` cloudWatchOutputConfig
       `Prelude.hashWithSalt` commandId
       `Prelude.hashWithSalt` comment

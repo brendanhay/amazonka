@@ -127,22 +127,22 @@ instance Core.AWSPager ListSignalCatalogNodes where
     | Core.stop
         ( rs
             Lens.^? listSignalCatalogNodesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSignalCatalogNodesResponse_nodes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSignalCatalogNodes_nextToken
           Lens..~ rs
           Lens.^? listSignalCatalogNodesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSignalCatalogNodes where
   type
@@ -161,7 +161,8 @@ instance Core.AWSRequest ListSignalCatalogNodes where
 
 instance Prelude.Hashable ListSignalCatalogNodes where
   hashWithSalt _salt ListSignalCatalogNodes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 

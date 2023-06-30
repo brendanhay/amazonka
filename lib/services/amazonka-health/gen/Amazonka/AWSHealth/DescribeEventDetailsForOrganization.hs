@@ -148,8 +148,8 @@ instance
       ( \s h x ->
           DescribeEventDetailsForOrganizationResponse'
             Prelude.<$> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "successfulSet" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "successfulSet" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -159,7 +159,8 @@ instance
   hashWithSalt
     _salt
     DescribeEventDetailsForOrganization' {..} =
-      _salt `Prelude.hashWithSalt` locale
+      _salt
+        `Prelude.hashWithSalt` locale
         `Prelude.hashWithSalt` organizationEventDetailFilters
 
 instance

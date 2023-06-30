@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteFacet where
 
 instance Prelude.Hashable DeleteFacet where
   hashWithSalt _salt DeleteFacet' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteFacet where

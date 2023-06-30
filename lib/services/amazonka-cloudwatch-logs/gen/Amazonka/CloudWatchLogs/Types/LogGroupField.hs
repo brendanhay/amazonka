@@ -76,7 +76,8 @@ instance Data.FromJSON LogGroupField where
 
 instance Prelude.Hashable LogGroupField where
   hashWithSalt _salt LogGroupField' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` percent
 
 instance Prelude.NFData LogGroupField where

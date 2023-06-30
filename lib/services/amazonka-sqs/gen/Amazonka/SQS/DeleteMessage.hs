@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteMessage where
 
 instance Prelude.Hashable DeleteMessage where
   hashWithSalt _salt DeleteMessage' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` receiptHandle
 
 instance Prelude.NFData DeleteMessage where

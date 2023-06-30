@@ -79,35 +79,27 @@ newComponent =
       status = Prelude.Nothing
     }
 
--- |
 component_applicationId :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_applicationId = Lens.lens (\Component' {applicationId} -> applicationId) (\s@Component' {} a -> s {applicationId = a} :: Component)
 
--- |
 component_componentId :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_componentId = Lens.lens (\Component' {componentId} -> componentId) (\s@Component' {} a -> s {componentId = a} :: Component)
 
--- |
 component_componentType :: Lens.Lens' Component (Prelude.Maybe ComponentType)
 component_componentType = Lens.lens (\Component' {componentType} -> componentType) (\s@Component' {} a -> s {componentType = a} :: Component)
 
--- |
 component_databases :: Lens.Lens' Component (Prelude.Maybe [Prelude.Text])
 component_databases = Lens.lens (\Component' {databases} -> databases) (\s@Component' {} a -> s {databases = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
--- |
 component_hosts :: Lens.Lens' Component (Prelude.Maybe [Host])
 component_hosts = Lens.lens (\Component' {hosts} -> hosts) (\s@Component' {} a -> s {hosts = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
--- |
 component_lastUpdated :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
 component_lastUpdated = Lens.lens (\Component' {lastUpdated} -> lastUpdated) (\s@Component' {} a -> s {lastUpdated = a} :: Component) Prelude.. Lens.mapping Data._Time
 
--- |
 component_primaryHost :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_primaryHost = Lens.lens (\Component' {primaryHost} -> primaryHost) (\s@Component' {} a -> s {primaryHost = a} :: Component)
 
--- |
 component_status :: Lens.Lens' Component (Prelude.Maybe ComponentStatus)
 component_status = Lens.lens (\Component' {status} -> status) (\s@Component' {} a -> s {status = a} :: Component)
 
@@ -129,7 +121,8 @@ instance Data.FromJSON Component where
 
 instance Prelude.Hashable Component where
   hashWithSalt _salt Component' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` databases

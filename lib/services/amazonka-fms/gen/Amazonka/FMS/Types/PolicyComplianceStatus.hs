@@ -128,7 +128,8 @@ instance Data.FromJSON PolicyComplianceStatus where
       "PolicyComplianceStatus"
       ( \x ->
           PolicyComplianceStatus'
-            Prelude.<$> ( x Data..:? "EvaluationResults"
+            Prelude.<$> ( x
+                            Data..:? "EvaluationResults"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IssueInfoMap" Data..!= Prelude.mempty)
@@ -141,7 +142,8 @@ instance Data.FromJSON PolicyComplianceStatus where
 
 instance Prelude.Hashable PolicyComplianceStatus where
   hashWithSalt _salt PolicyComplianceStatus' {..} =
-    _salt `Prelude.hashWithSalt` evaluationResults
+    _salt
+      `Prelude.hashWithSalt` evaluationResults
       `Prelude.hashWithSalt` issueInfoMap
       `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` memberAccount

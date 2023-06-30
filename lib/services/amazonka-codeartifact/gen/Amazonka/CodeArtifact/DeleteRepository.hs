@@ -117,7 +117,8 @@ instance Core.AWSRequest DeleteRepository where
 
 instance Prelude.Hashable DeleteRepository where
   hashWithSalt _salt DeleteRepository' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
 

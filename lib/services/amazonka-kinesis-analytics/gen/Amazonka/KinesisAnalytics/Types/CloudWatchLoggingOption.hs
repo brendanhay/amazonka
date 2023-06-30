@@ -76,7 +76,8 @@ cloudWatchLoggingOption_roleARN = Lens.lens (\CloudWatchLoggingOption' {roleARN}
 
 instance Prelude.Hashable CloudWatchLoggingOption where
   hashWithSalt _salt CloudWatchLoggingOption' {..} =
-    _salt `Prelude.hashWithSalt` logStreamARN
+    _salt
+      `Prelude.hashWithSalt` logStreamARN
       `Prelude.hashWithSalt` roleARN
 
 instance Prelude.NFData CloudWatchLoggingOption where

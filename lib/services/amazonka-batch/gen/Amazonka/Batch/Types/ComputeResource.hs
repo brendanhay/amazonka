@@ -136,9 +136,9 @@ data ComputeResource = ComputeResource'
     -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
     -- compute environment. You can specify the short name or full Amazon
     -- Resource Name (ARN) of an instance profile. For example,
-    -- @ ecsInstanceRole @ or
-    -- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
-    -- more information, see
+    -- @ @/@ecsInstanceRole@/@ @ or
+    -- @arn:aws:iam::@/@\<aws_account_id>@/@:instance-profile\/@/@ecsInstanceRole@/@ @.
+    -- For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
     -- in the /Batch User Guide/.
     --
@@ -387,9 +387,9 @@ data ComputeResource = ComputeResource'
 -- 'instanceRole', 'computeResource_instanceRole' - The Amazon ECS instance profile applied to Amazon EC2 instances in a
 -- compute environment. You can specify the short name or full Amazon
 -- Resource Name (ARN) of an instance profile. For example,
--- @ ecsInstanceRole @ or
--- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
--- more information, see
+-- @ @/@ecsInstanceRole@/@ @ or
+-- @arn:aws:iam::@/@\<aws_account_id>@/@:instance-profile\/@/@ecsInstanceRole@/@ @.
+-- For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
 -- in the /Batch User Guide/.
 --
@@ -666,9 +666,9 @@ computeResource_imageId = Lens.lens (\ComputeResource' {imageId} -> imageId) (\s
 -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
 -- compute environment. You can specify the short name or full Amazon
 -- Resource Name (ARN) of an instance profile. For example,
--- @ ecsInstanceRole @ or
--- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
--- more information, see
+-- @ @/@ecsInstanceRole@/@ @ or
+-- @arn:aws:iam::@/@\<aws_account_id>@/@:instance-profile\/@/@ecsInstanceRole@/@ @.
+-- For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
 -- in the /Batch User Guide/.
 --
@@ -836,7 +836,8 @@ instance Data.FromJSON ComputeResource where
             Prelude.<$> (x Data..:? "allocationStrategy")
             Prelude.<*> (x Data..:? "bidPercentage")
             Prelude.<*> (x Data..:? "desiredvCpus")
-            Prelude.<*> ( x Data..:? "ec2Configuration"
+            Prelude.<*> ( x
+                            Data..:? "ec2Configuration"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ec2KeyPair")
@@ -846,7 +847,8 @@ instance Data.FromJSON ComputeResource where
             Prelude.<*> (x Data..:? "launchTemplate")
             Prelude.<*> (x Data..:? "minvCpus")
             Prelude.<*> (x Data..:? "placementGroup")
-            Prelude.<*> ( x Data..:? "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "spotIamFleetRole")
@@ -858,7 +860,8 @@ instance Data.FromJSON ComputeResource where
 
 instance Prelude.Hashable ComputeResource where
   hashWithSalt _salt ComputeResource' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` bidPercentage
       `Prelude.hashWithSalt` desiredvCpus
       `Prelude.hashWithSalt` ec2Configuration

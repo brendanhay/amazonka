@@ -74,7 +74,8 @@ instance Data.FromJSON RuleResult where
 
 instance Prelude.Hashable RuleResult where
   hashWithSalt _salt RuleResult' {..} =
-    _salt `Prelude.hashWithSalt` outcomes
+    _salt
+      `Prelude.hashWithSalt` outcomes
       `Prelude.hashWithSalt` ruleId
 
 instance Prelude.NFData RuleResult where

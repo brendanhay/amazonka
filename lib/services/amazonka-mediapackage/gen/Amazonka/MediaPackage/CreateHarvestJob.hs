@@ -168,7 +168,8 @@ instance Core.AWSRequest CreateHarvestJob where
 
 instance Prelude.Hashable CreateHarvestJob where
   hashWithSalt _salt CreateHarvestJob' {..} =
-    _salt `Prelude.hashWithSalt` s3Destination
+    _salt
+      `Prelude.hashWithSalt` s3Destination
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` originEndpointId
       `Prelude.hashWithSalt` startTime

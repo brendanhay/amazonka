@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteTemplateSyncConfig where
 
 instance Prelude.Hashable DeleteTemplateSyncConfig where
   hashWithSalt _salt DeleteTemplateSyncConfig' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateType
 
 instance Prelude.NFData DeleteTemplateSyncConfig where

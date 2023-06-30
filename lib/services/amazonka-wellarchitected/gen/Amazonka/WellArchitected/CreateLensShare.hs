@@ -130,7 +130,8 @@ instance Core.AWSRequest CreateLensShare where
 
 instance Prelude.Hashable CreateLensShare where
   hashWithSalt _salt CreateLensShare' {..} =
-    _salt `Prelude.hashWithSalt` lensAlias
+    _salt
+      `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` sharedWith
       `Prelude.hashWithSalt` clientRequestToken
 

@@ -123,7 +123,8 @@ instance Core.AWSRequest GetRun where
             Prelude.<*> (x Data..?> "outputUri")
             Prelude.<*> (x Data..?> "parameters")
             Prelude.<*> (x Data..?> "priority")
-            Prelude.<*> ( x Data..?> "resourceDigests"
+            Prelude.<*> ( x
+                            Data..?> "resourceDigests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "roleArn")
@@ -143,7 +144,8 @@ instance Core.AWSRequest GetRun where
 
 instance Prelude.Hashable GetRun where
   hashWithSalt _salt GetRun' {..} =
-    _salt `Prelude.hashWithSalt` export'
+    _salt
+      `Prelude.hashWithSalt` export'
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData GetRun where

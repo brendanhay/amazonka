@@ -73,7 +73,7 @@ data CreateCertificateAuthorityAuditReport = CreateCertificateAuthorityAuditRepo
   { -- | The Amazon Resource Name (ARN) of the CA to be audited. This is of the
     -- form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
     certificateAuthorityArn :: Prelude.Text,
     -- | The name of the S3 bucket that will contain the audit report.
     s3BucketName :: Prelude.Text,
@@ -94,7 +94,7 @@ data CreateCertificateAuthorityAuditReport = CreateCertificateAuthorityAuditRepo
 -- 'certificateAuthorityArn', 'createCertificateAuthorityAuditReport_certificateAuthorityArn' - The Amazon Resource Name (ARN) of the CA to be audited. This is of the
 -- form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 --
 -- 's3BucketName', 'createCertificateAuthorityAuditReport_s3BucketName' - The name of the S3 bucket that will contain the audit report.
 --
@@ -123,7 +123,7 @@ newCreateCertificateAuthorityAuditReport
 -- | The Amazon Resource Name (ARN) of the CA to be audited. This is of the
 -- form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 createCertificateAuthorityAuditReport_certificateAuthorityArn :: Lens.Lens' CreateCertificateAuthorityAuditReport Prelude.Text
 createCertificateAuthorityAuditReport_certificateAuthorityArn = Lens.lens (\CreateCertificateAuthorityAuditReport' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@CreateCertificateAuthorityAuditReport' {} a -> s {certificateAuthorityArn = a} :: CreateCertificateAuthorityAuditReport)
 
@@ -151,8 +151,8 @@ instance
       ( \s h x ->
           CreateCertificateAuthorityAuditReportResponse'
             Prelude.<$> (x Data..?> "AuditReportId")
-              Prelude.<*> (x Data..?> "S3Key")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "S3Key")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

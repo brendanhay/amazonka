@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateWebhook where
 
 instance Prelude.Hashable UpdateWebhook where
   hashWithSalt _salt UpdateWebhook' {..} =
-    _salt `Prelude.hashWithSalt` branchName
+    _salt
+      `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` webhookId
 

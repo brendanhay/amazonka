@@ -114,7 +114,8 @@ instance Core.AWSRequest CancelBundleTask where
 
 instance Prelude.Hashable CancelBundleTask where
   hashWithSalt _salt CancelBundleTask' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` bundleId
 
 instance Prelude.NFData CancelBundleTask where

@@ -183,7 +183,8 @@ instance Data.FromJSON DetectAnomalyResult where
 
 instance Prelude.Hashable DetectAnomalyResult where
   hashWithSalt _salt DetectAnomalyResult' {..} =
-    _salt `Prelude.hashWithSalt` anomalies
+    _salt
+      `Prelude.hashWithSalt` anomalies
       `Prelude.hashWithSalt` anomalyMask
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` isAnomalous

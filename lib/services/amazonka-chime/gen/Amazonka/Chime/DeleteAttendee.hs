@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteAttendee where
 
 instance Prelude.Hashable DeleteAttendee where
   hashWithSalt _salt DeleteAttendee' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` attendeeId
 
 instance Prelude.NFData DeleteAttendee where

@@ -339,7 +339,8 @@ instance Data.FromJSON SecondaryStatusTransition where
 
 instance Prelude.Hashable SecondaryStatusTransition where
   hashWithSalt _salt SecondaryStatusTransition' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` startTime

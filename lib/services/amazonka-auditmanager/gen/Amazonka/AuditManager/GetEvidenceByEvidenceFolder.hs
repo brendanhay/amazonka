@@ -145,7 +145,8 @@ instance Core.AWSRequest GetEvidenceByEvidenceFolder where
 
 instance Prelude.Hashable GetEvidenceByEvidenceFolder where
   hashWithSalt _salt GetEvidenceByEvidenceFolder' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` controlSetId

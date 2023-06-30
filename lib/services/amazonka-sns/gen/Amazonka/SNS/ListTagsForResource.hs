@@ -88,7 +88,9 @@ instance Core.AWSRequest ListTagsForResource where
       "ListTagsForResourceResult"
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     UpdateExperimentTemplateTargetInput' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` parameters
         `Prelude.hashWithSalt` resourceArns
         `Prelude.hashWithSalt` resourceTags

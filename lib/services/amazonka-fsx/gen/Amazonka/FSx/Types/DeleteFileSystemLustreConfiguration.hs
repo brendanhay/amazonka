@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemLustreConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` finalBackupTags
+      _salt
+        `Prelude.hashWithSalt` finalBackupTags
         `Prelude.hashWithSalt` skipFinalBackup
 
 instance

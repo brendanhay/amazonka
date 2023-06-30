@@ -73,7 +73,8 @@ filterCriterion_filterCondition = Lens.lens (\FilterCriterion' {filterCondition}
 
 instance Prelude.Hashable FilterCriterion where
   hashWithSalt _salt FilterCriterion' {..} =
-    _salt `Prelude.hashWithSalt` criterionKey
+    _salt
+      `Prelude.hashWithSalt` criterionKey
       `Prelude.hashWithSalt` filterCondition
 
 instance Prelude.NFData FilterCriterion where

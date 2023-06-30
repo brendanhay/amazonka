@@ -314,7 +314,8 @@ instance Core.AWSRequest CreateCustomDataIdentifier where
 
 instance Prelude.Hashable CreateCustomDataIdentifier where
   hashWithSalt _salt CreateCustomDataIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ignoreWords
       `Prelude.hashWithSalt` keywords

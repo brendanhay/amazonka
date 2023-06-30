@@ -154,7 +154,8 @@ instance Data.FromJSON Table where
 
 instance Prelude.Hashable Table where
   hashWithSalt _salt Table' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` lastUpdatedTime

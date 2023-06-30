@@ -89,14 +89,16 @@ instance Data.FromJSON WorkflowExecutionInfos where
       ( \x ->
           WorkflowExecutionInfos'
             Prelude.<$> (x Data..:? "nextPageToken")
-            Prelude.<*> ( x Data..:? "executionInfos"
+            Prelude.<*> ( x
+                            Data..:? "executionInfos"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable WorkflowExecutionInfos where
   hashWithSalt _salt WorkflowExecutionInfos' {..} =
-    _salt `Prelude.hashWithSalt` nextPageToken
+    _salt
+      `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` executionInfos
 
 instance Prelude.NFData WorkflowExecutionInfos where

@@ -94,7 +94,8 @@ instance Core.AWSRequest DeleteFolder where
 
 instance Prelude.Hashable DeleteFolder where
   hashWithSalt _salt DeleteFolder' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData DeleteFolder where

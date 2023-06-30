@@ -130,11 +130,11 @@ instance
       ( \x ->
           AwsCloudFrontDistributionOriginCustomOriginConfig'
             Prelude.<$> (x Data..:? "HttpPort")
-              Prelude.<*> (x Data..:? "HttpsPort")
-              Prelude.<*> (x Data..:? "OriginKeepaliveTimeout")
-              Prelude.<*> (x Data..:? "OriginProtocolPolicy")
-              Prelude.<*> (x Data..:? "OriginReadTimeout")
-              Prelude.<*> (x Data..:? "OriginSslProtocols")
+            Prelude.<*> (x Data..:? "HttpsPort")
+            Prelude.<*> (x Data..:? "OriginKeepaliveTimeout")
+            Prelude.<*> (x Data..:? "OriginProtocolPolicy")
+            Prelude.<*> (x Data..:? "OriginReadTimeout")
+            Prelude.<*> (x Data..:? "OriginSslProtocols")
       )
 
 instance
@@ -144,7 +144,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionOriginCustomOriginConfig' {..} =
-      _salt `Prelude.hashWithSalt` httpPort
+      _salt
+        `Prelude.hashWithSalt` httpPort
         `Prelude.hashWithSalt` httpsPort
         `Prelude.hashWithSalt` originKeepaliveTimeout
         `Prelude.hashWithSalt` originProtocolPolicy

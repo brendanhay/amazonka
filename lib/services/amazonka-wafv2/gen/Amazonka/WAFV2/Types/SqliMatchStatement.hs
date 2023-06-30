@@ -151,7 +151,8 @@ instance Data.FromJSON SqliMatchStatement where
 
 instance Prelude.Hashable SqliMatchStatement where
   hashWithSalt _salt SqliMatchStatement' {..} =
-    _salt `Prelude.hashWithSalt` sensitivityLevel
+    _salt
+      `Prelude.hashWithSalt` sensitivityLevel
       `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformations
 

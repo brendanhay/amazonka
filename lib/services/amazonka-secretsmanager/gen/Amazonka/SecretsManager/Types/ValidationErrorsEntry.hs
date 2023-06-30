@@ -77,7 +77,8 @@ instance Data.FromJSON ValidationErrorsEntry where
 
 instance Prelude.Hashable ValidationErrorsEntry where
   hashWithSalt _salt ValidationErrorsEntry' {..} =
-    _salt `Prelude.hashWithSalt` checkName
+    _salt
+      `Prelude.hashWithSalt` checkName
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData ValidationErrorsEntry where

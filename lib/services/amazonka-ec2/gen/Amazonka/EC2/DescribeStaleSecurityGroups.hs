@@ -137,22 +137,22 @@ instance Core.AWSPager DescribeStaleSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? describeStaleSecurityGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeStaleSecurityGroupsResponse_staleSecurityGroupSet
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeStaleSecurityGroups_nextToken
           Lens..~ rs
           Lens.^? describeStaleSecurityGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStaleSecurityGroups where
   type
@@ -165,7 +165,8 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
       ( \s h x ->
           DescribeStaleSecurityGroupsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "staleSecurityGroupSet"
+            Prelude.<*> ( x
+                            Data..@? "staleSecurityGroupSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -174,7 +175,8 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
 
 instance Prelude.Hashable DescribeStaleSecurityGroups where
   hashWithSalt _salt DescribeStaleSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vpcId

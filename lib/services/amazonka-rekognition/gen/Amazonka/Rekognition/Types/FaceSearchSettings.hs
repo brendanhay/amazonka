@@ -86,7 +86,8 @@ instance Data.FromJSON FaceSearchSettings where
 
 instance Prelude.Hashable FaceSearchSettings where
   hashWithSalt _salt FaceSearchSettings' {..} =
-    _salt `Prelude.hashWithSalt` collectionId
+    _salt
+      `Prelude.hashWithSalt` collectionId
       `Prelude.hashWithSalt` faceMatchThreshold
 
 instance Prelude.NFData FaceSearchSettings where

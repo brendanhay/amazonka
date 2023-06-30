@@ -124,7 +124,8 @@ instance Core.AWSRequest AcceptInvitation where
 
 instance Prelude.Hashable AcceptInvitation where
   hashWithSalt _salt AcceptInvitation' {..} =
-    _salt `Prelude.hashWithSalt` administratorAccountId
+    _salt
+      `Prelude.hashWithSalt` administratorAccountId
       `Prelude.hashWithSalt` masterAccount
       `Prelude.hashWithSalt` invitationId
 

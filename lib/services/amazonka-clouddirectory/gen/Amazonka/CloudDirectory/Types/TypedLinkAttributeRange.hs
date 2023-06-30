@@ -68,7 +68,8 @@ typedLinkAttributeRange_range = Lens.lens (\TypedLinkAttributeRange' {range} -> 
 
 instance Prelude.Hashable TypedLinkAttributeRange where
   hashWithSalt _salt TypedLinkAttributeRange' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` range
 
 instance Prelude.NFData TypedLinkAttributeRange where

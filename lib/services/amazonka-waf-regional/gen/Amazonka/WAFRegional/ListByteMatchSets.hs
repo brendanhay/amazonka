@@ -135,7 +135,8 @@ instance Core.AWSRequest ListByteMatchSets where
 
 instance Prelude.Hashable ListByteMatchSets where
   hashWithSalt _salt ListByteMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListByteMatchSets where

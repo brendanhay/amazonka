@@ -82,15 +82,12 @@ newDeleteResourcePermission pResourceArn_ =
       resourceArn = pResourceArn_
     }
 
--- |
 deleteResourcePermission_actionType :: Lens.Lens' DeleteResourcePermission (Prelude.Maybe PermissionActionType)
 deleteResourcePermission_actionType = Lens.lens (\DeleteResourcePermission' {actionType} -> actionType) (\s@DeleteResourcePermission' {} a -> s {actionType = a} :: DeleteResourcePermission)
 
--- |
 deleteResourcePermission_sourceResourceArn :: Lens.Lens' DeleteResourcePermission (Prelude.Maybe Prelude.Text)
 deleteResourcePermission_sourceResourceArn = Lens.lens (\DeleteResourcePermission' {sourceResourceArn} -> sourceResourceArn) (\s@DeleteResourcePermission' {} a -> s {sourceResourceArn = a} :: DeleteResourcePermission)
 
--- |
 deleteResourcePermission_resourceArn :: Lens.Lens' DeleteResourcePermission Prelude.Text
 deleteResourcePermission_resourceArn = Lens.lens (\DeleteResourcePermission' {resourceArn} -> resourceArn) (\s@DeleteResourcePermission' {} a -> s {resourceArn = a} :: DeleteResourcePermission)
 
@@ -110,7 +107,8 @@ instance Core.AWSRequest DeleteResourcePermission where
 
 instance Prelude.Hashable DeleteResourcePermission where
   hashWithSalt _salt DeleteResourcePermission' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` sourceResourceArn
       `Prelude.hashWithSalt` resourceArn
 
@@ -178,7 +176,6 @@ newDeleteResourcePermissionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 deleteResourcePermissionResponse_policy :: Lens.Lens' DeleteResourcePermissionResponse (Prelude.Maybe Prelude.Text)
 deleteResourcePermissionResponse_policy = Lens.lens (\DeleteResourcePermissionResponse' {policy} -> policy) (\s@DeleteResourcePermissionResponse' {} a -> s {policy = a} :: DeleteResourcePermissionResponse)
 

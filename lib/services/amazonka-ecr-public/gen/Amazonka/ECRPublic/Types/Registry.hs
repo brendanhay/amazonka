@@ -132,7 +132,8 @@ instance Data.FromJSON Registry where
 
 instance Prelude.Hashable Registry where
   hashWithSalt _salt Registry' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` registryArn
       `Prelude.hashWithSalt` registryUri
       `Prelude.hashWithSalt` verified

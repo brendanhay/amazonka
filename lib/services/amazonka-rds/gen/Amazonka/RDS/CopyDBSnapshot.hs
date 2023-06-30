@@ -604,7 +604,8 @@ instance Core.AWSRequest CopyDBSnapshot where
 
 instance Prelude.Hashable CopyDBSnapshot where
   hashWithSalt _salt CopyDBSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` copyOptionGroup
+    _salt
+      `Prelude.hashWithSalt` copyOptionGroup
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` kmsKeyId

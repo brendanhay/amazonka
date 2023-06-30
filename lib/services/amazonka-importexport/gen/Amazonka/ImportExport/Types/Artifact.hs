@@ -69,7 +69,8 @@ instance Data.FromXML Artifact where
 
 instance Prelude.Hashable Artifact where
   hashWithSalt _salt Artifact' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Artifact where

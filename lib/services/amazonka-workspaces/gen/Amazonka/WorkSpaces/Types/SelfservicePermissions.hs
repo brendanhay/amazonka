@@ -117,7 +117,8 @@ instance Data.FromJSON SelfservicePermissions where
 
 instance Prelude.Hashable SelfservicePermissions where
   hashWithSalt _salt SelfservicePermissions' {..} =
-    _salt `Prelude.hashWithSalt` changeComputeType
+    _salt
+      `Prelude.hashWithSalt` changeComputeType
       `Prelude.hashWithSalt` increaseVolumeSize
       `Prelude.hashWithSalt` rebuildWorkspace
       `Prelude.hashWithSalt` restartWorkspace

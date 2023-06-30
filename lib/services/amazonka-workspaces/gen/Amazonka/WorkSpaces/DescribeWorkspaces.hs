@@ -168,22 +168,22 @@ instance Core.AWSPager DescribeWorkspaces where
     | Core.stop
         ( rs
             Lens.^? describeWorkspacesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeWorkspacesResponse_workspaces
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeWorkspaces_nextToken
           Lens..~ rs
           Lens.^? describeWorkspacesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeWorkspaces where
   type
@@ -202,7 +202,8 @@ instance Core.AWSRequest DescribeWorkspaces where
 
 instance Prelude.Hashable DescribeWorkspaces where
   hashWithSalt _salt DescribeWorkspaces' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken

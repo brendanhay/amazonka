@@ -129,7 +129,8 @@ instance Data.FromJSON KubernetesApiCallAction where
 
 instance Prelude.Hashable KubernetesApiCallAction where
   hashWithSalt _salt KubernetesApiCallAction' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` remoteIpDetails
       `Prelude.hashWithSalt` requestUri
       `Prelude.hashWithSalt` sourceIps

@@ -125,7 +125,8 @@ instance Data.FromXML Datapoint where
   parseXML x =
     Datapoint'
       Prelude.<$> (x Data..@? "Average")
-      Prelude.<*> ( x Data..@? "ExtendedStatistics"
+      Prelude.<*> ( x
+                      Data..@? "ExtendedStatistics"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
@@ -138,7 +139,8 @@ instance Data.FromXML Datapoint where
 
 instance Prelude.Hashable Datapoint where
   hashWithSalt _salt Datapoint' {..} =
-    _salt `Prelude.hashWithSalt` average
+    _salt
+      `Prelude.hashWithSalt` average
       `Prelude.hashWithSalt` extendedStatistics
       `Prelude.hashWithSalt` maximum
       `Prelude.hashWithSalt` minimum

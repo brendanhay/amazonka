@@ -136,7 +136,8 @@ instance Core.AWSRequest BatchCheckLayerAvailability where
 
 instance Prelude.Hashable BatchCheckLayerAvailability where
   hashWithSalt _salt BatchCheckLayerAvailability' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` layerDigests
 

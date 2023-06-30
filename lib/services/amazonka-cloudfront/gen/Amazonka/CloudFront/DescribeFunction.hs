@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeFunction where
 
 instance Prelude.Hashable DescribeFunction where
   hashWithSalt _salt DescribeFunction' {..} =
-    _salt `Prelude.hashWithSalt` stage
+    _salt
+      `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DescribeFunction where

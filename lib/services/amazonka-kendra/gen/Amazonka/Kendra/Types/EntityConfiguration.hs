@@ -74,7 +74,8 @@ entityConfiguration_entityType = Lens.lens (\EntityConfiguration' {entityType} -
 
 instance Prelude.Hashable EntityConfiguration where
   hashWithSalt _salt EntityConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` entityId
+    _salt
+      `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` entityType
 
 instance Prelude.NFData EntityConfiguration where

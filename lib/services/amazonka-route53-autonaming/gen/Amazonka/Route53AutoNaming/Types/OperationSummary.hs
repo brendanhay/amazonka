@@ -102,12 +102,14 @@ instance Data.FromJSON OperationSummary where
       "OperationSummary"
       ( \x ->
           OperationSummary'
-            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable OperationSummary where
   hashWithSalt _salt OperationSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData OperationSummary where

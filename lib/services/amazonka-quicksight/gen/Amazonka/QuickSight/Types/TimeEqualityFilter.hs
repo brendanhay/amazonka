@@ -126,7 +126,8 @@ instance Data.FromJSON TimeEqualityFilter where
 
 instance Prelude.Hashable TimeEqualityFilter where
   hashWithSalt _salt TimeEqualityFilter' {..} =
-    _salt `Prelude.hashWithSalt` parameterName
+    _salt
+      `Prelude.hashWithSalt` parameterName
       `Prelude.hashWithSalt` timeGranularity
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` filterId

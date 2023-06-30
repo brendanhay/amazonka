@@ -124,7 +124,8 @@ instance Data.FromJSON GreengrassLogger where
 
 instance Prelude.Hashable GreengrassLogger where
   hashWithSalt _salt GreengrassLogger' {..} =
-    _salt `Prelude.hashWithSalt` space
+    _salt
+      `Prelude.hashWithSalt` space
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` level
       `Prelude.hashWithSalt` id

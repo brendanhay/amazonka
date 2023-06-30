@@ -101,7 +101,8 @@ instance Data.FromJSON Message where
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
-    _salt `Prelude.hashWithSalt` customPayload
+    _salt
+      `Prelude.hashWithSalt` customPayload
       `Prelude.hashWithSalt` imageResponseCard
       `Prelude.hashWithSalt` plainTextMessage
       `Prelude.hashWithSalt` ssmlMessage

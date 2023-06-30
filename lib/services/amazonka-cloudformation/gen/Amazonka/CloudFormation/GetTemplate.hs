@@ -163,7 +163,9 @@ instance Core.AWSRequest GetTemplate where
       "GetTemplateResult"
       ( \s h x ->
           GetTemplateResponse'
-            Prelude.<$> ( x Data..@? "StagesAvailable" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "StagesAvailable"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "TemplateBody")
@@ -172,7 +174,8 @@ instance Core.AWSRequest GetTemplate where
 
 instance Prelude.Hashable GetTemplate where
   hashWithSalt _salt GetTemplate' {..} =
-    _salt `Prelude.hashWithSalt` changeSetName
+    _salt
+      `Prelude.hashWithSalt` changeSetName
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` templateStage
 

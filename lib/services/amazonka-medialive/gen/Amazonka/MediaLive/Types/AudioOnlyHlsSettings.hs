@@ -143,7 +143,8 @@ instance Data.FromJSON AudioOnlyHlsSettings where
 
 instance Prelude.Hashable AudioOnlyHlsSettings where
   hashWithSalt _salt AudioOnlyHlsSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioGroupId
+    _salt
+      `Prelude.hashWithSalt` audioGroupId
       `Prelude.hashWithSalt` audioOnlyImage
       `Prelude.hashWithSalt` audioTrackType
       `Prelude.hashWithSalt` segmentType

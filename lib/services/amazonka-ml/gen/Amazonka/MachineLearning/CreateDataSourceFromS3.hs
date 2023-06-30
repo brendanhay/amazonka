@@ -86,7 +86,7 @@ data CreateDataSourceFromS3 = CreateDataSourceFromS3'
   { -- | The compute statistics for a @DataSource@. The statistics are generated
     -- from the observation data referenced by a @DataSource@. Amazon ML uses
     -- the statistics internally during @MLModel@ training. This parameter must
-    -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
+    -- be set to @true@ if the DataSource needs to be used for @MLModel@
     -- training.
     computeStatistics :: Prelude.Maybe Prelude.Bool,
     -- | A user-supplied name or description of the @DataSource@.
@@ -122,7 +122,7 @@ data CreateDataSourceFromS3 = CreateDataSourceFromS3'
 -- 'computeStatistics', 'createDataSourceFromS3_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
--- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
+-- be set to @true@ if the DataSource needs to be used for @MLModel@
 -- training.
 --
 -- 'dataSourceName', 'createDataSourceFromS3_dataSourceName' - A user-supplied name or description of the @DataSource@.
@@ -161,7 +161,7 @@ newCreateDataSourceFromS3 pDataSourceId_ pDataSpec_ =
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
--- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
+-- be set to @true@ if the DataSource needs to be used for @MLModel@
 -- training.
 createDataSourceFromS3_computeStatistics :: Lens.Lens' CreateDataSourceFromS3 (Prelude.Maybe Prelude.Bool)
 createDataSourceFromS3_computeStatistics = Lens.lens (\CreateDataSourceFromS3' {computeStatistics} -> computeStatistics) (\s@CreateDataSourceFromS3' {} a -> s {computeStatistics = a} :: CreateDataSourceFromS3)
@@ -207,7 +207,8 @@ instance Core.AWSRequest CreateDataSourceFromS3 where
 
 instance Prelude.Hashable CreateDataSourceFromS3 where
   hashWithSalt _salt CreateDataSourceFromS3' {..} =
-    _salt `Prelude.hashWithSalt` computeStatistics
+    _salt
+      `Prelude.hashWithSalt` computeStatistics
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` dataSpec

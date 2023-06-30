@@ -91,7 +91,8 @@ instance Data.FromJSON ErrorHandlingConfig where
 
 instance Prelude.Hashable ErrorHandlingConfig where
   hashWithSalt _salt ErrorHandlingConfig' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` bucketPrefix
       `Prelude.hashWithSalt` failOnFirstDestinationError
 

@@ -117,19 +117,22 @@ instance Data.FromJSON ECSServiceProjectedMetric where
       "ECSServiceProjectedMetric"
       ( \x ->
           ECSServiceProjectedMetric'
-            Prelude.<$> ( x Data..:? "lowerBoundValues"
+            Prelude.<$> ( x
+                            Data..:? "lowerBoundValues"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "timestamps" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "upperBoundValues"
+            Prelude.<*> ( x
+                            Data..:? "upperBoundValues"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ECSServiceProjectedMetric where
   hashWithSalt _salt ECSServiceProjectedMetric' {..} =
-    _salt `Prelude.hashWithSalt` lowerBoundValues
+    _salt
+      `Prelude.hashWithSalt` lowerBoundValues
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timestamps
       `Prelude.hashWithSalt` upperBoundValues

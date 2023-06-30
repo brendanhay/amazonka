@@ -105,7 +105,8 @@ instance Data.FromJSON UserProfileDetails where
 
 instance Prelude.Hashable UserProfileDetails where
   hashWithSalt _salt UserProfileDetails' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` status

@@ -79,14 +79,16 @@ instance Data.FromJSON BuiltinIntentMetadata where
       ( \x ->
           BuiltinIntentMetadata'
             Prelude.<$> (x Data..:? "signature")
-            Prelude.<*> ( x Data..:? "supportedLocales"
+            Prelude.<*> ( x
+                            Data..:? "supportedLocales"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BuiltinIntentMetadata where
   hashWithSalt _salt BuiltinIntentMetadata' {..} =
-    _salt `Prelude.hashWithSalt` signature
+    _salt
+      `Prelude.hashWithSalt` signature
       `Prelude.hashWithSalt` supportedLocales
 
 instance Prelude.NFData BuiltinIntentMetadata where

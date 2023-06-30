@@ -128,7 +128,8 @@ instance Data.FromJSON PackageFilter where
 
 instance Prelude.Hashable PackageFilter where
   hashWithSalt _salt PackageFilter' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` epoch
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` release

@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     ParameterDateTimePickerControl' {..} =
-      _salt `Prelude.hashWithSalt` displayOptions
+      _salt
+        `Prelude.hashWithSalt` displayOptions
         `Prelude.hashWithSalt` parameterControlId
         `Prelude.hashWithSalt` title
         `Prelude.hashWithSalt` sourceParameterName

@@ -109,7 +109,8 @@ instance Data.FromXML ClusterIamRole where
 
 instance Prelude.Hashable ClusterIamRole where
   hashWithSalt _salt ClusterIamRole' {..} =
-    _salt `Prelude.hashWithSalt` applyStatus
+    _salt
+      `Prelude.hashWithSalt` applyStatus
       `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData ClusterIamRole where

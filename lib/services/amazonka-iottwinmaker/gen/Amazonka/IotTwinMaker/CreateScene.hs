@@ -152,7 +152,8 @@ instance Core.AWSRequest CreateScene where
 
 instance Prelude.Hashable CreateScene where
   hashWithSalt _salt CreateScene' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workspaceId

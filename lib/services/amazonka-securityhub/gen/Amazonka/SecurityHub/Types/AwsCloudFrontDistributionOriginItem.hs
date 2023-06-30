@@ -135,7 +135,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionOriginItem' {..} =
-      _salt `Prelude.hashWithSalt` customOriginConfig
+      _salt
+        `Prelude.hashWithSalt` customOriginConfig
         `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` originPath

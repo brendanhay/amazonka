@@ -85,7 +85,8 @@ instance Data.FromJSON ServerGroupLaunchConfiguration where
           ServerGroupLaunchConfiguration'
             Prelude.<$> (x Data..:? "launchOrder")
             Prelude.<*> (x Data..:? "serverGroupId")
-            Prelude.<*> ( x Data..:? "serverLaunchConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "serverLaunchConfigurations"
                             Data..!= Prelude.mempty
                         )
       )
@@ -97,7 +98,8 @@ instance
   hashWithSalt
     _salt
     ServerGroupLaunchConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` launchOrder
+      _salt
+        `Prelude.hashWithSalt` launchOrder
         `Prelude.hashWithSalt` serverGroupId
         `Prelude.hashWithSalt` serverLaunchConfigurations
 

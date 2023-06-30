@@ -108,21 +108,21 @@ instance
     | Core.stop
         ( rs
             Lens.^? listServicePipelineProvisionedResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listServicePipelineProvisionedResourcesResponse_provisionedResources
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listServicePipelineProvisionedResources_nextToken
           Lens..~ rs
-            Lens.^? listServicePipelineProvisionedResourcesResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? listServicePipelineProvisionedResourcesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -139,10 +139,11 @@ instance
       ( \s h x ->
           ListServicePipelineProvisionedResourcesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..?> "provisionedResources"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "provisionedResources"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -152,7 +153,8 @@ instance
   hashWithSalt
     _salt
     ListServicePipelineProvisionedResources' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` serviceName
 
 instance

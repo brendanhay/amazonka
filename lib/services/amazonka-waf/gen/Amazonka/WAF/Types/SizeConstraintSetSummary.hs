@@ -114,7 +114,8 @@ instance Data.FromJSON SizeConstraintSetSummary where
 
 instance Prelude.Hashable SizeConstraintSetSummary where
   hashWithSalt _salt SizeConstraintSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` sizeConstraintSetId
+    _salt
+      `Prelude.hashWithSalt` sizeConstraintSetId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SizeConstraintSetSummary where

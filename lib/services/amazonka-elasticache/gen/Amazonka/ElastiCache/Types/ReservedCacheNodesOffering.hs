@@ -429,7 +429,8 @@ instance Data.FromXML ReservedCacheNodesOffering where
       Prelude.<*> (x Data..@? "FixedPrice")
       Prelude.<*> (x Data..@? "OfferingType")
       Prelude.<*> (x Data..@? "ProductDescription")
-      Prelude.<*> ( x Data..@? "RecurringCharges"
+      Prelude.<*> ( x
+                      Data..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "RecurringCharge")
                   )
@@ -438,7 +439,8 @@ instance Data.FromXML ReservedCacheNodesOffering where
 
 instance Prelude.Hashable ReservedCacheNodesOffering where
   hashWithSalt _salt ReservedCacheNodesOffering' {..} =
-    _salt `Prelude.hashWithSalt` cacheNodeType
+    _salt
+      `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` fixedPrice
       `Prelude.hashWithSalt` offeringType

@@ -93,7 +93,8 @@ instance
     BatchPutGeofenceRequestEntry
   where
   hashWithSalt _salt BatchPutGeofenceRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` geofenceId
+    _salt
+      `Prelude.hashWithSalt` geofenceId
       `Prelude.hashWithSalt` geometry
 
 instance Prelude.NFData BatchPutGeofenceRequestEntry where

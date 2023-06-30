@@ -90,7 +90,8 @@ instance Data.FromJSON PrestoParameters where
 
 instance Prelude.Hashable PrestoParameters where
   hashWithSalt _salt PrestoParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` catalog
 

@@ -117,7 +117,8 @@ instance Core.AWSRequest DeleteBackup where
 
 instance Prelude.Hashable DeleteBackup where
   hashWithSalt _salt DeleteBackup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` backupId
 
 instance Prelude.NFData DeleteBackup where

@@ -102,7 +102,8 @@ instance Core.AWSRequest ResetAuthorizersCache where
 
 instance Prelude.Hashable ResetAuthorizersCache where
   hashWithSalt _salt ResetAuthorizersCache' {..} =
-    _salt `Prelude.hashWithSalt` stageName
+    _salt
+      `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData ResetAuthorizersCache where

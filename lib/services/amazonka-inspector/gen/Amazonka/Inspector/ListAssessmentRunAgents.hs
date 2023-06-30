@@ -148,21 +148,21 @@ instance Core.AWSPager ListAssessmentRunAgents where
     | Core.stop
         ( rs
             Lens.^? listAssessmentRunAgentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listAssessmentRunAgentsResponse_assessmentRunAgents
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssessmentRunAgents_nextToken
           Lens..~ rs
           Lens.^? listAssessmentRunAgentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssessmentRunAgents where
   type
@@ -176,14 +176,16 @@ instance Core.AWSRequest ListAssessmentRunAgents where
           ListAssessmentRunAgentsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "assessmentRunAgents"
+            Prelude.<*> ( x
+                            Data..?> "assessmentRunAgents"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAssessmentRunAgents where
   hashWithSalt _salt ListAssessmentRunAgents' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentRunArn

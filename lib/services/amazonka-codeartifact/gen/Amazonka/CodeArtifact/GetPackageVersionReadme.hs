@@ -221,7 +221,8 @@ instance Core.AWSRequest GetPackageVersionReadme where
 
 instance Prelude.Hashable GetPackageVersionReadme where
   hashWithSalt _salt GetPackageVersionReadme' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository

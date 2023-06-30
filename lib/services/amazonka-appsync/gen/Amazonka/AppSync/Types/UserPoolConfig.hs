@@ -113,7 +113,8 @@ instance Data.FromJSON UserPoolConfig where
 
 instance Prelude.Hashable UserPoolConfig where
   hashWithSalt _salt UserPoolConfig' {..} =
-    _salt `Prelude.hashWithSalt` appIdClientRegex
+    _salt
+      `Prelude.hashWithSalt` appIdClientRegex
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` defaultAction

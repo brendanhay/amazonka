@@ -84,7 +84,8 @@ regionalConfiguration_reshardingConfiguration = Lens.lens (\RegionalConfiguratio
 
 instance Prelude.Hashable RegionalConfiguration where
   hashWithSalt _salt RegionalConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` replicationGroupId
+    _salt
+      `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` replicationGroupRegion
       `Prelude.hashWithSalt` reshardingConfiguration
 

@@ -148,7 +148,8 @@ instance Core.AWSRequest UpdateStudio where
 
 instance Prelude.Hashable UpdateStudio where
   hashWithSalt _salt UpdateStudio' {..} =
-    _salt `Prelude.hashWithSalt` adminRoleArn
+    _salt
+      `Prelude.hashWithSalt` adminRoleArn
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` userRoleArn

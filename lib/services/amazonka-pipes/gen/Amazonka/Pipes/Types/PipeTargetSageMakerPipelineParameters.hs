@@ -67,7 +67,8 @@ instance
       "PipeTargetSageMakerPipelineParameters"
       ( \x ->
           PipeTargetSageMakerPipelineParameters'
-            Prelude.<$> ( x Data..:? "PipelineParameterList"
+            Prelude.<$> ( x
+                            Data..:? "PipelineParameterList"
                             Data..!= Prelude.mempty
                         )
       )

@@ -92,7 +92,8 @@ instance Data.FromJSON ConnectedHomeSettings where
 
 instance Prelude.Hashable ConnectedHomeSettings where
   hashWithSalt _salt ConnectedHomeSettings' {..} =
-    _salt `Prelude.hashWithSalt` minConfidence
+    _salt
+      `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` labels
 
 instance Prelude.NFData ConnectedHomeSettings where

@@ -105,7 +105,8 @@ instance Data.FromJSON KinesisConfiguration where
 
 instance Prelude.Hashable KinesisConfiguration where
   hashWithSalt _salt KinesisConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` aggregationEnabled
+    _salt
+      `Prelude.hashWithSalt` aggregationEnabled
       `Prelude.hashWithSalt` streamArn
 
 instance Prelude.NFData KinesisConfiguration where

@@ -124,7 +124,8 @@ instance Core.AWSRequest ListExtensions where
 
 instance Prelude.Hashable ListExtensions where
   hashWithSalt _salt ListExtensions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
 

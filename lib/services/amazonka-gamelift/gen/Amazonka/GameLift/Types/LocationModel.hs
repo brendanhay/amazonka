@@ -86,7 +86,8 @@ instance Data.FromJSON LocationModel where
 
 instance Prelude.Hashable LocationModel where
   hashWithSalt _salt LocationModel' {..} =
-    _salt `Prelude.hashWithSalt` locationArn
+    _salt
+      `Prelude.hashWithSalt` locationArn
       `Prelude.hashWithSalt` locationName
 
 instance Prelude.NFData LocationModel where

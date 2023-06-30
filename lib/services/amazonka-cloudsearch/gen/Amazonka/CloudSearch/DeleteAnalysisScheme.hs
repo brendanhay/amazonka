@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteAnalysisScheme where
 
 instance Prelude.Hashable DeleteAnalysisScheme where
   hashWithSalt _salt DeleteAnalysisScheme' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` analysisSchemeName
 
 instance Prelude.NFData DeleteAnalysisScheme where

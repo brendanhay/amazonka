@@ -86,7 +86,8 @@ instance Data.FromJSON SchemaFacet where
 
 instance Prelude.Hashable SchemaFacet where
   hashWithSalt _salt SchemaFacet' {..} =
-    _salt `Prelude.hashWithSalt` facetName
+    _salt
+      `Prelude.hashWithSalt` facetName
       `Prelude.hashWithSalt` schemaArn
 
 instance Prelude.NFData SchemaFacet where

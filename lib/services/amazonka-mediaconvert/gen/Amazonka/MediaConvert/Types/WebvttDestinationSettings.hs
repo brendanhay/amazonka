@@ -134,7 +134,8 @@ instance Data.FromJSON WebvttDestinationSettings where
 
 instance Prelude.Hashable WebvttDestinationSettings where
   hashWithSalt _salt WebvttDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` accessibility
+    _salt
+      `Prelude.hashWithSalt` accessibility
       `Prelude.hashWithSalt` stylePassthrough
 
 instance Prelude.NFData WebvttDestinationSettings where

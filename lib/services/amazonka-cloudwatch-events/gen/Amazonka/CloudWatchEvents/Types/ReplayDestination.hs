@@ -79,7 +79,8 @@ instance Data.FromJSON ReplayDestination where
 
 instance Prelude.Hashable ReplayDestination where
   hashWithSalt _salt ReplayDestination' {..} =
-    _salt `Prelude.hashWithSalt` filterArns
+    _salt
+      `Prelude.hashWithSalt` filterArns
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ReplayDestination where

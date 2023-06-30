@@ -181,7 +181,8 @@ instance Core.AWSRequest StartResourceEvaluation where
 
 instance Prelude.Hashable StartResourceEvaluation where
   hashWithSalt _salt StartResourceEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` evaluationContext
       `Prelude.hashWithSalt` evaluationTimeout
       `Prelude.hashWithSalt` resourceDetails

@@ -179,7 +179,8 @@ instance Core.AWSRequest CreateGroupVersion where
 
 instance Prelude.Hashable CreateGroupVersion where
   hashWithSalt _salt CreateGroupVersion' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` connectorDefinitionVersionArn
       `Prelude.hashWithSalt` coreDefinitionVersionArn
       `Prelude.hashWithSalt` deviceDefinitionVersionArn

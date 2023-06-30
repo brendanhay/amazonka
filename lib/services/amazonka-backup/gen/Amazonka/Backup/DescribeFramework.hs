@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeFramework where
             Prelude.<$> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "DeploymentStatus")
             Prelude.<*> (x Data..?> "FrameworkArn")
-            Prelude.<*> ( x Data..?> "FrameworkControls"
+            Prelude.<*> ( x
+                            Data..?> "FrameworkControls"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "FrameworkDescription")

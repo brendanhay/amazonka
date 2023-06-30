@@ -78,7 +78,8 @@ verifiedAccessLogOptions_s3 = Lens.lens (\VerifiedAccessLogOptions' {s3} -> s3) 
 
 instance Prelude.Hashable VerifiedAccessLogOptions where
   hashWithSalt _salt VerifiedAccessLogOptions' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` kinesisDataFirehose
       `Prelude.hashWithSalt` s3
 

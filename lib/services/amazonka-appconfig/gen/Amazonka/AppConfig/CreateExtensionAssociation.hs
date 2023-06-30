@@ -165,7 +165,8 @@ instance Core.AWSRequest CreateExtensionAssociation where
 
 instance Prelude.Hashable CreateExtensionAssociation where
   hashWithSalt _salt CreateExtensionAssociation' {..} =
-    _salt `Prelude.hashWithSalt` extensionVersionNumber
+    _salt
+      `Prelude.hashWithSalt` extensionVersionNumber
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` extensionIdentifier

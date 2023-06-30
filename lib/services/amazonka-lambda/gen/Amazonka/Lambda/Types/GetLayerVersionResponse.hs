@@ -142,10 +142,12 @@ instance Data.FromJSON GetLayerVersionResponse where
       "GetLayerVersionResponse"
       ( \x ->
           GetLayerVersionResponse'
-            Prelude.<$> ( x Data..:? "CompatibleArchitectures"
+            Prelude.<$> ( x
+                            Data..:? "CompatibleArchitectures"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "CompatibleRuntimes"
+            Prelude.<*> ( x
+                            Data..:? "CompatibleRuntimes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Content")

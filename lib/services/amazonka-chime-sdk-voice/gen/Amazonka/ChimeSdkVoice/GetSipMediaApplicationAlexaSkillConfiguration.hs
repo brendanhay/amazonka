@@ -94,7 +94,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "SipMediaApplicationAlexaSkillConfiguration"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

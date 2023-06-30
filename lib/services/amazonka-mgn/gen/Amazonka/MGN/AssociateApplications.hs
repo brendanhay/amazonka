@@ -103,7 +103,8 @@ instance Core.AWSRequest AssociateApplications where
 
 instance Prelude.Hashable AssociateApplications where
   hashWithSalt _salt AssociateApplications' {..} =
-    _salt `Prelude.hashWithSalt` applicationIDs
+    _salt
+      `Prelude.hashWithSalt` applicationIDs
       `Prelude.hashWithSalt` waveID
 
 instance Prelude.NFData AssociateApplications where

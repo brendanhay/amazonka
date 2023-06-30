@@ -115,7 +115,8 @@ instance Data.FromJSON LastCrawlInfo where
 
 instance Prelude.Hashable LastCrawlInfo where
   hashWithSalt _salt LastCrawlInfo' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` logGroup
       `Prelude.hashWithSalt` logStream
       `Prelude.hashWithSalt` messagePrefix

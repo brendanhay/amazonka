@@ -153,7 +153,8 @@ instance Core.AWSRequest UpdateDatabase where
 
 instance Prelude.Hashable UpdateDatabase where
   hashWithSalt _salt UpdateDatabase' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData UpdateDatabase where

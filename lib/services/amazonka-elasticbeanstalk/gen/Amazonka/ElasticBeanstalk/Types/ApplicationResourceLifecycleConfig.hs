@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     ApplicationResourceLifecycleConfig' {..} =
-      _salt `Prelude.hashWithSalt` serviceRole
+      _salt
+        `Prelude.hashWithSalt` serviceRole
         `Prelude.hashWithSalt` versionLifecycleConfig
 
 instance

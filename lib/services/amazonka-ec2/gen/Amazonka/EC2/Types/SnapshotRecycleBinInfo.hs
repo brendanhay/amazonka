@@ -105,7 +105,8 @@ instance Data.FromXML SnapshotRecycleBinInfo where
 
 instance Prelude.Hashable SnapshotRecycleBinInfo where
   hashWithSalt _salt SnapshotRecycleBinInfo' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` recycleBinEnterTime
       `Prelude.hashWithSalt` recycleBinExitTime
       `Prelude.hashWithSalt` snapshotId

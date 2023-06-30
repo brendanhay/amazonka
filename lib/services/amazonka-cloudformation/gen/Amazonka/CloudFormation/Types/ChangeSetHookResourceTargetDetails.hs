@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     ChangeSetHookResourceTargetDetails' {..} =
-      _salt `Prelude.hashWithSalt` logicalResourceId
+      _salt
+        `Prelude.hashWithSalt` logicalResourceId
         `Prelude.hashWithSalt` resourceAction
         `Prelude.hashWithSalt` resourceType
 

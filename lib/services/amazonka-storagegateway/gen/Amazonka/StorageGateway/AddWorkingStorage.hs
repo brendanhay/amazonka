@@ -122,7 +122,8 @@ instance Core.AWSRequest AddWorkingStorage where
 
 instance Prelude.Hashable AddWorkingStorage where
   hashWithSalt _salt AddWorkingStorage' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` diskIds
 
 instance Prelude.NFData AddWorkingStorage where

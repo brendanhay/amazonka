@@ -87,7 +87,8 @@ instance Data.FromJSON EvaluationResult where
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =
-    _salt `Prelude.hashWithSalt` f1Score
+    _salt
+      `Prelude.hashWithSalt` f1Score
       `Prelude.hashWithSalt` summary
 
 instance Prelude.NFData EvaluationResult where

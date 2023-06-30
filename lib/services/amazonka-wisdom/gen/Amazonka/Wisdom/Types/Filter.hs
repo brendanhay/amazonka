@@ -84,7 +84,8 @@ filter_value = Lens.lens (\Filter' {value} -> value) (\s@Filter' {} a -> s {valu
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` field
+    _salt
+      `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` value
 

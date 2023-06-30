@@ -587,66 +587,66 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Client authentication is not available in this region at this time.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | An authentication error occurred.
-_AuthenticationFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AuthenticationFailedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AuthenticationFailedException =
   Core._MatchServiceError
     defaultService
     "AuthenticationFailedException"
 
 -- | The certificate has already been registered into the system.
-_CertificateAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -654,7 +654,7 @@ _CertificateAlreadyExistsException =
 
 -- | The certificate is not present in the system for describe or deregister
 -- activities.
-_CertificateDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateDoesNotExistException =
   Core._MatchServiceError
     defaultService
@@ -662,7 +662,7 @@ _CertificateDoesNotExistException =
 
 -- | The certificate is being used for the LDAP security connection and
 -- cannot be removed without disabling LDAP security.
-_CertificateInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateInUseException =
   Core._MatchServiceError
     defaultService
@@ -670,14 +670,14 @@ _CertificateInUseException =
 
 -- | The certificate could not be added because the certificate limit has
 -- been reached.
-_CertificateLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateLimitExceededException =
   Core._MatchServiceError
     defaultService
     "CertificateLimitExceededException"
 
 -- | A client exception has occurred.
-_ClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ClientException =
   Core._MatchServiceError
     defaultService
@@ -685,7 +685,7 @@ _ClientException =
 
 -- | The Region you specified is the same Region where the Managed Microsoft
 -- AD directory was created. Specify a different Region and try again.
-_DirectoryAlreadyInRegionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryAlreadyInRegionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryAlreadyInRegionException =
   Core._MatchServiceError
     defaultService
@@ -693,21 +693,21 @@ _DirectoryAlreadyInRegionException =
 
 -- | The specified directory has already been shared with this Amazon Web
 -- Services account.
-_DirectoryAlreadySharedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryAlreadySharedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryAlreadySharedException =
   Core._MatchServiceError
     defaultService
     "DirectoryAlreadySharedException"
 
 -- | The specified directory does not exist in the system.
-_DirectoryDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryDoesNotExistException =
   Core._MatchServiceError
     defaultService
     "DirectoryDoesNotExistException"
 
 -- | The directory is already updated to desired update type settings.
-_DirectoryInDesiredStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryInDesiredStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryInDesiredStateException =
   Core._MatchServiceError
     defaultService
@@ -716,7 +716,7 @@ _DirectoryInDesiredStateException =
 -- | The maximum number of directories in the region has been reached. You
 -- can use the GetDirectoryLimits operation to determine your directory
 -- limits in the region.
-_DirectoryLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -724,14 +724,14 @@ _DirectoryLimitExceededException =
 
 -- | The specified directory has not been shared with this Amazon Web
 -- Services account.
-_DirectoryNotSharedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryNotSharedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryNotSharedException =
   Core._MatchServiceError
     defaultService
     "DirectoryNotSharedException"
 
 -- | The specified directory is unavailable or could not be found.
-_DirectoryUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -739,28 +739,28 @@ _DirectoryUnavailableException =
 
 -- | The maximum allowed number of domain controllers per directory was
 -- exceeded. The default limit per directory is 20 domain controllers.
-_DomainControllerLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DomainControllerLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DomainControllerLimitExceededException =
   Core._MatchServiceError
     defaultService
     "DomainControllerLimitExceededException"
 
 -- | The specified entity already exists.
-_EntityAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EntityAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntityAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "EntityAlreadyExistsException"
 
 -- | The specified entity could not be found.
-_EntityDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EntityDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntityDoesNotExistException =
   Core._MatchServiceError
     defaultService
     "EntityDoesNotExistException"
 
 -- | The specified directory setting is not compatible with other settings.
-_IncompatibleSettingsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IncompatibleSettingsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IncompatibleSettingsException =
   Core._MatchServiceError
     defaultService
@@ -768,21 +768,21 @@ _IncompatibleSettingsException =
 
 -- | The account does not have sufficient permission to perform the
 -- operation.
-_InsufficientPermissionsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InsufficientPermissionsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InsufficientPermissionsException =
   Core._MatchServiceError
     defaultService
     "InsufficientPermissionsException"
 
 -- | The certificate PEM that was provided has incorrect encoding.
-_InvalidCertificateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidCertificateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidCertificateException =
   Core._MatchServiceError
     defaultService
     "InvalidCertificateException"
 
 -- | Client authentication is already enabled.
-_InvalidClientAuthStatusException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidClientAuthStatusException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidClientAuthStatusException =
   Core._MatchServiceError
     defaultService
@@ -790,21 +790,21 @@ _InvalidClientAuthStatusException =
 
 -- | The LDAP activities could not be performed because they are limited by
 -- the LDAPS status.
-_InvalidLDAPSStatusException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidLDAPSStatusException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidLDAPSStatusException =
   Core._MatchServiceError
     defaultService
     "InvalidLDAPSStatusException"
 
 -- | The @NextToken@ value is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | One or more parameters are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -812,14 +812,14 @@ _InvalidParameterException =
 
 -- | The new password provided by the user does not meet the password
 -- complexity requirements defined in your directory.
-_InvalidPasswordException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPasswordException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPasswordException =
   Core._MatchServiceError
     defaultService
     "InvalidPasswordException"
 
 -- | The specified shared target is not valid.
-_InvalidTargetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTargetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTargetException =
   Core._MatchServiceError
     defaultService
@@ -827,7 +827,7 @@ _InvalidTargetException =
 
 -- | The maximum allowed number of IP addresses was exceeded. The default
 -- limit is 100 IP address blocks.
-_IpRouteLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IpRouteLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IpRouteLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -835,7 +835,7 @@ _IpRouteLimitExceededException =
 
 -- | Client authentication setup could not be completed because at least one
 -- valid certificate must be registered in the system.
-_NoAvailableCertificateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoAvailableCertificateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoAvailableCertificateException =
   Core._MatchServiceError
     defaultService
@@ -843,7 +843,7 @@ _NoAvailableCertificateException =
 
 -- | Exception encountered while trying to access your Amazon Web Services
 -- organization.
-_OrganizationsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OrganizationsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OrganizationsException =
   Core._MatchServiceError
     defaultService
@@ -851,14 +851,14 @@ _OrganizationsException =
 
 -- | You have reached the limit for maximum number of simultaneous Region
 -- replications per directory.
-_RegionLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RegionLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RegionLimitExceededException =
   Core._MatchServiceError
     defaultService
     "RegionLimitExceededException"
 
 -- | An exception has occurred in Directory Service.
-_ServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceException =
   Core._MatchServiceError
     defaultService
@@ -866,7 +866,7 @@ _ServiceException =
 
 -- | The maximum number of Amazon Web Services accounts that you can share
 -- with this directory has been reached.
-_ShareLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ShareLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ShareLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -875,35 +875,35 @@ _ShareLimitExceededException =
 -- | The maximum number of manual snapshots for the directory has been
 -- reached. You can use the GetSnapshotLimits operation to determine the
 -- snapshot limits for a directory.
-_SnapshotLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SnapshotLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SnapshotLimitExceededException =
   Core._MatchServiceError
     defaultService
     "SnapshotLimitExceededException"
 
 -- | The maximum allowed number of tags was exceeded.
-_TagLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TagLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagLimitExceededException =
   Core._MatchServiceError
     defaultService
     "TagLimitExceededException"
 
 -- | The operation is not supported.
-_UnsupportedOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService
     "UnsupportedOperationException"
 
 -- | The specified directory setting is not supported.
-_UnsupportedSettingsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedSettingsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedSettingsException =
   Core._MatchServiceError
     defaultService
     "UnsupportedSettingsException"
 
 -- | The user provided a username that does not exist in your directory.
-_UserDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UserDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UserDoesNotExistException =
   Core._MatchServiceError
     defaultService

@@ -134,7 +134,8 @@ instance Core.AWSRequest DescribeContainerInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeContainerInstancesResponse'
-            Prelude.<$> ( x Data..?> "containerInstances"
+            Prelude.<$> ( x
+                            Data..?> "containerInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
@@ -143,7 +144,8 @@ instance Core.AWSRequest DescribeContainerInstances where
 
 instance Prelude.Hashable DescribeContainerInstances where
   hashWithSalt _salt DescribeContainerInstances' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` include
       `Prelude.hashWithSalt` containerInstances
 

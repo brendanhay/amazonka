@@ -97,19 +97,19 @@ instance Core.AWSPager ListSubscribers where
     | Core.stop
         ( rs
             Lens.^? listSubscribersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listSubscribersResponse_subscribers) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSubscribers_nextToken
           Lens..~ rs
           Lens.^? listSubscribersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubscribers where
   type
@@ -128,7 +128,8 @@ instance Core.AWSRequest ListSubscribers where
 
 instance Prelude.Hashable ListSubscribers where
   hashWithSalt _salt ListSubscribers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSubscribers where

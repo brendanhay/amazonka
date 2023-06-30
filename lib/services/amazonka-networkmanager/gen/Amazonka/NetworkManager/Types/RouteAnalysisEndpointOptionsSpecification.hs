@@ -71,7 +71,8 @@ instance
   hashWithSalt
     _salt
     RouteAnalysisEndpointOptionsSpecification' {..} =
-      _salt `Prelude.hashWithSalt` ipAddress
+      _salt
+        `Prelude.hashWithSalt` ipAddress
         `Prelude.hashWithSalt` transitGatewayAttachmentArn
 
 instance

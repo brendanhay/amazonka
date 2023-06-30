@@ -67,7 +67,6 @@ newOperation pEquation_ pName_ =
 operation_outputType :: Lens.Lens' Operation (Prelude.Maybe OutputType)
 operation_outputType = Lens.lens (\Operation' {outputType} -> outputType) (\s@Operation' {} a -> s {outputType = a} :: Operation)
 
--- |
 operation_equation :: Lens.Lens' Operation Prelude.Text
 operation_equation = Lens.lens (\Operation' {equation} -> equation) (\s@Operation' {} a -> s {equation = a} :: Operation)
 
@@ -88,7 +87,8 @@ instance Data.FromJSON Operation where
 
 instance Prelude.Hashable Operation where
   hashWithSalt _salt Operation' {..} =
-    _salt `Prelude.hashWithSalt` outputType
+    _salt
+      `Prelude.hashWithSalt` outputType
       `Prelude.hashWithSalt` equation
       `Prelude.hashWithSalt` name
 

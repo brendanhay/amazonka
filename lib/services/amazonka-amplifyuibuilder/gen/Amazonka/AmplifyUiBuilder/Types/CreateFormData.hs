@@ -154,7 +154,8 @@ createFormData_style = Lens.lens (\CreateFormData' {style} -> style) (\s@CreateF
 
 instance Prelude.Hashable CreateFormData where
   hashWithSalt _salt CreateFormData' {..} =
-    _salt `Prelude.hashWithSalt` cta
+    _salt
+      `Prelude.hashWithSalt` cta
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` fields

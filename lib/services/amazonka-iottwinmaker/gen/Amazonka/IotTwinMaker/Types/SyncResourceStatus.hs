@@ -76,7 +76,8 @@ instance Data.FromJSON SyncResourceStatus where
 
 instance Prelude.Hashable SyncResourceStatus where
   hashWithSalt _salt SyncResourceStatus' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData SyncResourceStatus where

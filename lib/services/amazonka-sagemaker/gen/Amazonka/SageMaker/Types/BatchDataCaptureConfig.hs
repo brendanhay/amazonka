@@ -130,7 +130,8 @@ instance Data.FromJSON BatchDataCaptureConfig where
 
 instance Prelude.Hashable BatchDataCaptureConfig where
   hashWithSalt _salt BatchDataCaptureConfig' {..} =
-    _salt `Prelude.hashWithSalt` generateInferenceId
+    _salt
+      `Prelude.hashWithSalt` generateInferenceId
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` destinationS3Uri
 

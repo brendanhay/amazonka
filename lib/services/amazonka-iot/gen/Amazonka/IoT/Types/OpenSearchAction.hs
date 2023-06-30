@@ -120,7 +120,8 @@ instance Data.FromJSON OpenSearchAction where
 
 instance Prelude.Hashable OpenSearchAction where
   hashWithSalt _salt OpenSearchAction' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` type'

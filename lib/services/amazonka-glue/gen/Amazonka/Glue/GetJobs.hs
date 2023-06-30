@@ -91,20 +91,23 @@ instance Core.AWSPager GetJobs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getJobsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getJobsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getJobsResponse_jobs Prelude.. Lens._Just
+            Lens.^? getJobsResponse_jobs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getJobs_nextToken
           Lens..~ rs
-          Lens.^? getJobsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getJobsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetJobs where
   type AWSResponse GetJobs = GetJobsResponse
@@ -121,7 +124,8 @@ instance Core.AWSRequest GetJobs where
 
 instance Prelude.Hashable GetJobs where
   hashWithSalt _salt GetJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetJobs where

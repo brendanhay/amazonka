@@ -112,7 +112,8 @@ instance Core.AWSRequest DisassociateResolverRule where
 
 instance Prelude.Hashable DisassociateResolverRule where
   hashWithSalt _salt DisassociateResolverRule' {..} =
-    _salt `Prelude.hashWithSalt` vPCId
+    _salt
+      `Prelude.hashWithSalt` vPCId
       `Prelude.hashWithSalt` resolverRuleId
 
 instance Prelude.NFData DisassociateResolverRule where

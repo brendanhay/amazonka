@@ -116,22 +116,22 @@ instance Core.AWSPager ListFacetAttributes where
     | Core.stop
         ( rs
             Lens.^? listFacetAttributesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFacetAttributesResponse_attributes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFacetAttributes_nextToken
           Lens..~ rs
           Lens.^? listFacetAttributesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFacetAttributes where
   type
@@ -150,7 +150,8 @@ instance Core.AWSRequest ListFacetAttributes where
 
 instance Prelude.Hashable ListFacetAttributes where
   hashWithSalt _salt ListFacetAttributes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` name

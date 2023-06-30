@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdateTrigger where
 
 instance Prelude.Hashable UpdateTrigger where
   hashWithSalt _salt UpdateTrigger' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` triggerUpdate
 
 instance Prelude.NFData UpdateTrigger where

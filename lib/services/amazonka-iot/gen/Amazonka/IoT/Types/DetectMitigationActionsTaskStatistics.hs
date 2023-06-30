@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     DetectMitigationActionsTaskStatistics' {..} =
-      _salt `Prelude.hashWithSalt` actionsExecuted
+      _salt
+        `Prelude.hashWithSalt` actionsExecuted
         `Prelude.hashWithSalt` actionsFailed
         `Prelude.hashWithSalt` actionsSkipped
 

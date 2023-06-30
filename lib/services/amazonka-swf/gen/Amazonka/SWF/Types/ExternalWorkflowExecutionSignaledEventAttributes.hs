@@ -90,7 +90,7 @@ instance
       ( \x ->
           ExternalWorkflowExecutionSignaledEventAttributes'
             Prelude.<$> (x Data..: "workflowExecution")
-              Prelude.<*> (x Data..: "initiatedEventId")
+            Prelude.<*> (x Data..: "initiatedEventId")
       )
 
 instance
@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     ExternalWorkflowExecutionSignaledEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` workflowExecution
+      _salt
+        `Prelude.hashWithSalt` workflowExecution
         `Prelude.hashWithSalt` initiatedEventId
 
 instance

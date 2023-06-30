@@ -933,7 +933,8 @@ instanceRequirementsRequest_memoryMiB = Lens.lens (\InstanceRequirementsRequest'
 
 instance Prelude.Hashable InstanceRequirementsRequest where
   hashWithSalt _salt InstanceRequirementsRequest' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorCount
+    _salt
+      `Prelude.hashWithSalt` acceleratorCount
       `Prelude.hashWithSalt` acceleratorManufacturers
       `Prelude.hashWithSalt` acceleratorNames
       `Prelude.hashWithSalt` acceleratorTotalMemoryMiB

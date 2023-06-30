@@ -84,7 +84,8 @@ instance Data.FromJSON NetworkInterface where
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` ips
+    _salt
+      `Prelude.hashWithSalt` ips
       `Prelude.hashWithSalt` isPrimary
       `Prelude.hashWithSalt` macAddress
 

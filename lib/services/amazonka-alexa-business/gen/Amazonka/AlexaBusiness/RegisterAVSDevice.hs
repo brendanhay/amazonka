@@ -185,7 +185,8 @@ instance Core.AWSRequest RegisterAVSDevice where
 
 instance Prelude.Hashable RegisterAVSDevice where
   hashWithSalt _salt RegisterAVSDevice' {..} =
-    _salt `Prelude.hashWithSalt` deviceSerialNumber
+    _salt
+      `Prelude.hashWithSalt` deviceSerialNumber
       `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientId

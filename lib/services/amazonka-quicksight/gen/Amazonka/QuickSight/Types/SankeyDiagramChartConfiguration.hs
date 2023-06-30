@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     SankeyDiagramChartConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dataLabels
+      _salt
+        `Prelude.hashWithSalt` dataLabels
         `Prelude.hashWithSalt` fieldWells
         `Prelude.hashWithSalt` sortConfiguration
 

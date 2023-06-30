@@ -130,7 +130,8 @@ instance Core.AWSRequest AssociateHostedConnection where
 
 instance Prelude.Hashable AssociateHostedConnection where
   hashWithSalt _salt AssociateHostedConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` parentConnectionId
 
 instance Prelude.NFData AssociateHostedConnection where

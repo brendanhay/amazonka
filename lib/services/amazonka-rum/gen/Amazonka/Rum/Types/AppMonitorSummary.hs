@@ -109,7 +109,8 @@ instance Data.FromJSON AppMonitorSummary where
 
 instance Prelude.Hashable AppMonitorSummary where
   hashWithSalt _salt AppMonitorSummary' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` name

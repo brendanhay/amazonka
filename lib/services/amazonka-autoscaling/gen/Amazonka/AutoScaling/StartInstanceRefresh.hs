@@ -206,7 +206,8 @@ instance Core.AWSRequest StartInstanceRefresh where
 
 instance Prelude.Hashable StartInstanceRefresh where
   hashWithSalt _salt StartInstanceRefresh' {..} =
-    _salt `Prelude.hashWithSalt` desiredConfiguration
+    _salt
+      `Prelude.hashWithSalt` desiredConfiguration
       `Prelude.hashWithSalt` preferences
       `Prelude.hashWithSalt` strategy
       `Prelude.hashWithSalt` autoScalingGroupName

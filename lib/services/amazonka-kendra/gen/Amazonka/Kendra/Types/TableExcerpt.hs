@@ -79,7 +79,8 @@ instance Data.FromJSON TableExcerpt where
 
 instance Prelude.Hashable TableExcerpt where
   hashWithSalt _salt TableExcerpt' {..} =
-    _salt `Prelude.hashWithSalt` rows
+    _salt
+      `Prelude.hashWithSalt` rows
       `Prelude.hashWithSalt` totalNumberOfRows
 
 instance Prelude.NFData TableExcerpt where

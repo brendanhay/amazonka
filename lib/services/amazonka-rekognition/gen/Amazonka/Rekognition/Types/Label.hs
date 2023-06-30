@@ -131,7 +131,8 @@ instance Data.FromJSON Label where
 
 instance Prelude.Hashable Label where
   hashWithSalt _salt Label' {..} =
-    _salt `Prelude.hashWithSalt` aliases
+    _salt
+      `Prelude.hashWithSalt` aliases
       `Prelude.hashWithSalt` categories
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` instances

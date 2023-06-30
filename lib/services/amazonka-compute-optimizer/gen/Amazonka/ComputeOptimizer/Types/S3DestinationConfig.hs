@@ -79,7 +79,8 @@ s3DestinationConfig_keyPrefix = Lens.lens (\S3DestinationConfig' {keyPrefix} -> 
 
 instance Prelude.Hashable S3DestinationConfig where
   hashWithSalt _salt S3DestinationConfig' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` keyPrefix
 
 instance Prelude.NFData S3DestinationConfig where

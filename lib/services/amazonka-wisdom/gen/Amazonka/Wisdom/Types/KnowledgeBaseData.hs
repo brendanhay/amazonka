@@ -190,7 +190,8 @@ instance Data.FromJSON KnowledgeBaseData where
 
 instance Prelude.Hashable KnowledgeBaseData where
   hashWithSalt _salt KnowledgeBaseData' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastContentModificationTime
       `Prelude.hashWithSalt` renderingConfiguration
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration

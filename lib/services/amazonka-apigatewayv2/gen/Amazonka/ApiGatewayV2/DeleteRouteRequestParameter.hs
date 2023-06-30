@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteRouteRequestParameter where
 
 instance Prelude.Hashable DeleteRouteRequestParameter where
   hashWithSalt _salt DeleteRouteRequestParameter' {..} =
-    _salt `Prelude.hashWithSalt` requestParameterKey
+    _salt
+      `Prelude.hashWithSalt` requestParameterKey
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` routeId
 

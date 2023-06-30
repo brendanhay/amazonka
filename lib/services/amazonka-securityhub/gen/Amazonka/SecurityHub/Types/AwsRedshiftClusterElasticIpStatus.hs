@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsRedshiftClusterElasticIpStatus' {..} =
-      _salt `Prelude.hashWithSalt` elasticIp
+      _salt
+        `Prelude.hashWithSalt` elasticIp
         `Prelude.hashWithSalt` status
 
 instance

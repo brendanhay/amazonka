@@ -92,7 +92,8 @@ instance Core.AWSRequest DescribeIpRestriction where
           DescribeIpRestrictionResponse'
             Prelude.<$> (x Data..?> "AwsAccountId")
             Prelude.<*> (x Data..?> "Enabled")
-            Prelude.<*> ( x Data..?> "IpRestrictionRuleMap"
+            Prelude.<*> ( x
+                            Data..?> "IpRestrictionRuleMap"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "RequestId")

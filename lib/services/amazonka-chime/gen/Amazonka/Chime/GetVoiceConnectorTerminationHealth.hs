@@ -94,7 +94,7 @@ instance
       ( \s h x ->
           GetVoiceConnectorTerminationHealthResponse'
             Prelude.<$> (x Data..?> "TerminationHealth")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

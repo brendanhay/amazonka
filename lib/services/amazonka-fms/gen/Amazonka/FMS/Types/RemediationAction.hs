@@ -160,7 +160,8 @@ instance Data.FromJSON RemediationAction where
 
 instance Prelude.Hashable RemediationAction where
   hashWithSalt _salt RemediationAction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eC2AssociateRouteTableAction
       `Prelude.hashWithSalt` eC2CopyRouteTableAction
       `Prelude.hashWithSalt` eC2CreateRouteAction

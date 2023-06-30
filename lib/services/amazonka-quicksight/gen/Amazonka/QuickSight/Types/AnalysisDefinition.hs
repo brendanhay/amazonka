@@ -172,14 +172,17 @@ instance Data.FromJSON AnalysisDefinition where
       ( \x ->
           AnalysisDefinition'
             Prelude.<$> (x Data..:? "AnalysisDefaults")
-            Prelude.<*> ( x Data..:? "CalculatedFields"
+            Prelude.<*> ( x
+                            Data..:? "CalculatedFields"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ColumnConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "ColumnConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FilterGroups" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ParameterDeclarations"
+            Prelude.<*> ( x
+                            Data..:? "ParameterDeclarations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Sheets" Data..!= Prelude.mempty)
@@ -188,7 +191,8 @@ instance Data.FromJSON AnalysisDefinition where
 
 instance Prelude.Hashable AnalysisDefinition where
   hashWithSalt _salt AnalysisDefinition' {..} =
-    _salt `Prelude.hashWithSalt` analysisDefaults
+    _salt
+      `Prelude.hashWithSalt` analysisDefaults
       `Prelude.hashWithSalt` calculatedFields
       `Prelude.hashWithSalt` columnConfigurations
       `Prelude.hashWithSalt` filterGroups

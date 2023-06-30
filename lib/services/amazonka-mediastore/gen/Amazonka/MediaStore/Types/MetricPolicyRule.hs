@@ -86,7 +86,8 @@ instance Data.FromJSON MetricPolicyRule where
 
 instance Prelude.Hashable MetricPolicyRule where
   hashWithSalt _salt MetricPolicyRule' {..} =
-    _salt `Prelude.hashWithSalt` objectGroup
+    _salt
+      `Prelude.hashWithSalt` objectGroup
       `Prelude.hashWithSalt` objectGroupName
 
 instance Prelude.NFData MetricPolicyRule where

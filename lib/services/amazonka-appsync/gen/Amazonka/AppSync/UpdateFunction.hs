@@ -225,7 +225,8 @@ instance Core.AWSRequest UpdateFunction where
 
 instance Prelude.Hashable UpdateFunction where
   hashWithSalt _salt UpdateFunction' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` functionVersion
       `Prelude.hashWithSalt` maxBatchSize

@@ -81,7 +81,8 @@ instance
     InferenceS3InputConfiguration
   where
   hashWithSalt _salt InferenceS3InputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData InferenceS3InputConfiguration where

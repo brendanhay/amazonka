@@ -151,7 +151,8 @@ oidcConfig_jwksUri = Lens.lens (\OidcConfig' {jwksUri} -> jwksUri) (\s@OidcConfi
 
 instance Prelude.Hashable OidcConfig where
   hashWithSalt _salt OidcConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` authorizationEndpoint

@@ -138,19 +138,19 @@ instance Core.AWSPager SearchRelatedItems where
     | Core.stop
         ( rs
             Lens.^? searchRelatedItemsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. searchRelatedItemsResponse_relatedItems) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchRelatedItems_nextToken
           Lens..~ rs
           Lens.^? searchRelatedItemsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchRelatedItems where
   type
@@ -169,7 +169,8 @@ instance Core.AWSRequest SearchRelatedItems where
 
 instance Prelude.Hashable SearchRelatedItems where
   hashWithSalt _salt SearchRelatedItems' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` caseId

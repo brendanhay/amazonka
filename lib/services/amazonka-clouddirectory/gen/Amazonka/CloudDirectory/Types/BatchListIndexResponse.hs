@@ -70,7 +70,8 @@ instance Data.FromJSON BatchListIndexResponse where
       "BatchListIndexResponse"
       ( \x ->
           BatchListIndexResponse'
-            Prelude.<$> ( x Data..:? "IndexAttachments"
+            Prelude.<$> ( x
+                            Data..:? "IndexAttachments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "NextToken")
@@ -78,7 +79,8 @@ instance Data.FromJSON BatchListIndexResponse where
 
 instance Prelude.Hashable BatchListIndexResponse where
   hashWithSalt _salt BatchListIndexResponse' {..} =
-    _salt `Prelude.hashWithSalt` indexAttachments
+    _salt
+      `Prelude.hashWithSalt` indexAttachments
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData BatchListIndexResponse where

@@ -92,7 +92,8 @@ instance Data.FromJSON TotalAggregationComputation where
 
 instance Prelude.Hashable TotalAggregationComputation where
   hashWithSalt _salt TotalAggregationComputation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` computationId
       `Prelude.hashWithSalt` value
 

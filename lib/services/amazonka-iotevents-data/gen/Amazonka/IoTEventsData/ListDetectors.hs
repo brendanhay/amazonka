@@ -120,7 +120,8 @@ instance Core.AWSRequest ListDetectors where
     Response.receiveJSON
       ( \s h x ->
           ListDetectorsResponse'
-            Prelude.<$> ( x Data..?> "detectorSummaries"
+            Prelude.<$> ( x
+                            Data..?> "detectorSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -129,7 +130,8 @@ instance Core.AWSRequest ListDetectors where
 
 instance Prelude.Hashable ListDetectors where
   hashWithSalt _salt ListDetectors' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stateName
       `Prelude.hashWithSalt` detectorModelName

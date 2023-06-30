@@ -92,22 +92,22 @@ instance Core.AWSPager ListInputDevices where
     | Core.stop
         ( rs
             Lens.^? listInputDevicesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInputDevicesResponse_inputDevices
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInputDevices_nextToken
           Lens..~ rs
           Lens.^? listInputDevicesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInputDevices where
   type
@@ -126,7 +126,8 @@ instance Core.AWSRequest ListInputDevices where
 
 instance Prelude.Hashable ListInputDevices where
   hashWithSalt _salt ListInputDevices' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInputDevices where

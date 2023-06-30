@@ -143,7 +143,8 @@ instance Data.FromJSON Entity where
       ( \x ->
           Entity'
             Prelude.<$> (x Data..:? "BeginOffset")
-            Prelude.<*> ( x Data..:? "BlockReferences"
+            Prelude.<*> ( x
+                            Data..:? "BlockReferences"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EndOffset")
@@ -154,7 +155,8 @@ instance Data.FromJSON Entity where
 
 instance Prelude.Hashable Entity where
   hashWithSalt _salt Entity' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` blockReferences
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` score

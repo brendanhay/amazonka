@@ -138,7 +138,8 @@ instance
     RestoreSnapshotFromRecycleBin
   where
   hashWithSalt _salt RestoreSnapshotFromRecycleBin' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` snapshotId
 
 instance Prelude.NFData RestoreSnapshotFromRecycleBin where

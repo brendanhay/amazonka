@@ -81,7 +81,8 @@ instance Data.FromJSON S3SourceAdditionalOptions where
 
 instance Prelude.Hashable S3SourceAdditionalOptions where
   hashWithSalt _salt S3SourceAdditionalOptions' {..} =
-    _salt `Prelude.hashWithSalt` boundedFiles
+    _salt
+      `Prelude.hashWithSalt` boundedFiles
       `Prelude.hashWithSalt` boundedSize
 
 instance Prelude.NFData S3SourceAdditionalOptions where

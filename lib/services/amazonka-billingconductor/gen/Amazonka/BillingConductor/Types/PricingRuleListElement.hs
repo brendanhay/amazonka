@@ -189,7 +189,8 @@ instance Data.FromJSON PricingRuleListElement where
 
 instance Prelude.Hashable PricingRuleListElement where
   hashWithSalt _salt PricingRuleListElement' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` associatedPricingPlanCount
       `Prelude.hashWithSalt` billingEntity
       `Prelude.hashWithSalt` creationTime

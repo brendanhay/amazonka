@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteDeviceUsageData where
 
 instance Prelude.Hashable DeleteDeviceUsageData where
   hashWithSalt _salt DeleteDeviceUsageData' {..} =
-    _salt `Prelude.hashWithSalt` deviceArn
+    _salt
+      `Prelude.hashWithSalt` deviceArn
       `Prelude.hashWithSalt` deviceUsageType
 
 instance Prelude.NFData DeleteDeviceUsageData where

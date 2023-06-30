@@ -81,7 +81,8 @@ instance Data.FromXML PolicyTypeDescription where
   parseXML x =
     PolicyTypeDescription'
       Prelude.<$> (x Data..@? "Description")
-      Prelude.<*> ( x Data..@? "PolicyAttributeTypeDescriptions"
+      Prelude.<*> ( x
+                      Data..@? "PolicyAttributeTypeDescriptions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -89,7 +90,8 @@ instance Data.FromXML PolicyTypeDescription where
 
 instance Prelude.Hashable PolicyTypeDescription where
   hashWithSalt _salt PolicyTypeDescription' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` policyAttributeTypeDescriptions
       `Prelude.hashWithSalt` policyTypeName
 

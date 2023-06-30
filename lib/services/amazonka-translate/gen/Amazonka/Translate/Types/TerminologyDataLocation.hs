@@ -123,7 +123,8 @@ instance Data.FromJSON TerminologyDataLocation where
 
 instance Prelude.Hashable TerminologyDataLocation where
   hashWithSalt _salt TerminologyDataLocation' {..} =
-    _salt `Prelude.hashWithSalt` repositoryType
+    _salt
+      `Prelude.hashWithSalt` repositoryType
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData TerminologyDataLocation where

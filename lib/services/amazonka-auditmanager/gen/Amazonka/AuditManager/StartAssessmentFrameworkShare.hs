@@ -177,7 +177,8 @@ instance
     StartAssessmentFrameworkShare
   where
   hashWithSalt _salt StartAssessmentFrameworkShare' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` frameworkId
       `Prelude.hashWithSalt` destinationAccount
       `Prelude.hashWithSalt` destinationRegion

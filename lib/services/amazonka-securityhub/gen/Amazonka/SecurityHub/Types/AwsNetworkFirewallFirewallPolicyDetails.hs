@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     AwsNetworkFirewallFirewallPolicyDetails' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` firewallPolicy
         `Prelude.hashWithSalt` firewallPolicyArn
         `Prelude.hashWithSalt` firewallPolicyId

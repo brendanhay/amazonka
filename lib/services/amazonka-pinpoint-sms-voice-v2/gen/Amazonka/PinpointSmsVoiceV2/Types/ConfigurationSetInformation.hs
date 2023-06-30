@@ -134,7 +134,8 @@ instance Data.FromJSON ConfigurationSetInformation where
             Prelude.<*> (x Data..:? "DefaultSenderId")
             Prelude.<*> (x Data..: "ConfigurationSetArn")
             Prelude.<*> (x Data..: "ConfigurationSetName")
-            Prelude.<*> ( x Data..:? "EventDestinations"
+            Prelude.<*> ( x
+                            Data..:? "EventDestinations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "CreatedTimestamp")
@@ -142,7 +143,8 @@ instance Data.FromJSON ConfigurationSetInformation where
 
 instance Prelude.Hashable ConfigurationSetInformation where
   hashWithSalt _salt ConfigurationSetInformation' {..} =
-    _salt `Prelude.hashWithSalt` defaultMessageType
+    _salt
+      `Prelude.hashWithSalt` defaultMessageType
       `Prelude.hashWithSalt` defaultSenderId
       `Prelude.hashWithSalt` configurationSetArn
       `Prelude.hashWithSalt` configurationSetName

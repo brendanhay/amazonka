@@ -125,10 +125,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchAssociateServiceActionWithProvisioningArtifactResponse'
-            Prelude.<$> ( x Data..?> "FailedServiceActionAssociations"
+            Prelude.<$> ( x
+                            Data..?> "FailedServiceActionAssociations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -138,7 +139,8 @@ instance
   hashWithSalt
     _salt
     BatchAssociateServiceActionWithProvisioningArtifact' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` serviceActionAssociations
 
 instance

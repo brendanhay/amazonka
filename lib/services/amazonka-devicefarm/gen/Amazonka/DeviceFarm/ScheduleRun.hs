@@ -182,7 +182,8 @@ instance Core.AWSRequest ScheduleRun where
 
 instance Prelude.Hashable ScheduleRun where
   hashWithSalt _salt ScheduleRun' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` devicePoolArn
       `Prelude.hashWithSalt` deviceSelectionConfiguration

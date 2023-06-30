@@ -221,7 +221,8 @@ lambdaExecutionParameters_timeoutInSeconds = Lens.lens (\LambdaExecutionParamete
 
 instance Prelude.Hashable LambdaExecutionParameters where
   hashWithSalt _salt LambdaExecutionParameters' {..} =
-    _salt `Prelude.hashWithSalt` environmentVariables
+    _salt
+      `Prelude.hashWithSalt` environmentVariables
       `Prelude.hashWithSalt` eventSources
       `Prelude.hashWithSalt` execArgs
       `Prelude.hashWithSalt` inputPayloadEncodingType

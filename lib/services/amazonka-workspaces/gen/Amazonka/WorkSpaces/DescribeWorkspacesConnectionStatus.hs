@@ -99,22 +99,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeWorkspacesConnectionStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeWorkspacesConnectionStatus_nextToken
           Lens..~ rs
           Lens.^? describeWorkspacesConnectionStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -130,10 +130,11 @@ instance
       ( \s h x ->
           DescribeWorkspacesConnectionStatusResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "WorkspacesConnectionStatus"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "WorkspacesConnectionStatus"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -143,7 +144,8 @@ instance
   hashWithSalt
     _salt
     DescribeWorkspacesConnectionStatus' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` workspaceIds
 
 instance

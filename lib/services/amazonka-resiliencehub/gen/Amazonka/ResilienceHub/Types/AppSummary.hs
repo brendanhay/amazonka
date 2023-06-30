@@ -155,7 +155,8 @@ instance Data.FromJSON AppSummary where
 
 instance Prelude.Hashable AppSummary where
   hashWithSalt _salt AppSummary' {..} =
-    _salt `Prelude.hashWithSalt` assessmentSchedule
+    _salt
+      `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` resiliencyScore

@@ -114,7 +114,8 @@ instance Data.FromJSON AwsWafRegionalWebAclDetails where
 
 instance Prelude.Hashable AwsWafRegionalWebAclDetails where
   hashWithSalt _salt AwsWafRegionalWebAclDetails' {..} =
-    _salt `Prelude.hashWithSalt` defaultAction
+    _salt
+      `Prelude.hashWithSalt` defaultAction
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` rulesList

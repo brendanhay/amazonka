@@ -128,7 +128,8 @@ instance Data.FromJSON Pattern where
       "Pattern"
       ( \x ->
           Pattern'
-            Prelude.<$> ( x Data..:? "countersToAggregate"
+            Prelude.<$> ( x
+                            Data..:? "countersToAggregate"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "description")
@@ -141,7 +142,8 @@ instance Data.FromJSON Pattern where
 
 instance Prelude.Hashable Pattern where
   hashWithSalt _salt Pattern' {..} =
-    _salt `Prelude.hashWithSalt` countersToAggregate
+    _salt
+      `Prelude.hashWithSalt` countersToAggregate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

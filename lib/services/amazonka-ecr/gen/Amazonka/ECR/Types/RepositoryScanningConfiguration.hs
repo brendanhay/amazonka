@@ -101,7 +101,8 @@ instance
       "RepositoryScanningConfiguration"
       ( \x ->
           RepositoryScanningConfiguration'
-            Prelude.<$> ( x Data..:? "appliedScanFilters"
+            Prelude.<$> ( x
+                            Data..:? "appliedScanFilters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "repositoryArn")
@@ -117,7 +118,8 @@ instance
   hashWithSalt
     _salt
     RepositoryScanningConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` appliedScanFilters
+      _salt
+        `Prelude.hashWithSalt` appliedScanFilters
         `Prelude.hashWithSalt` repositoryArn
         `Prelude.hashWithSalt` repositoryName
         `Prelude.hashWithSalt` scanFrequency

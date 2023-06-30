@@ -78,7 +78,8 @@ instance Data.FromJSON HoursOfOperationTimeSlice where
 
 instance Prelude.Hashable HoursOfOperationTimeSlice where
   hashWithSalt _salt HoursOfOperationTimeSlice' {..} =
-    _salt `Prelude.hashWithSalt` hours
+    _salt
+      `Prelude.hashWithSalt` hours
       `Prelude.hashWithSalt` minutes
 
 instance Prelude.NFData HoursOfOperationTimeSlice where

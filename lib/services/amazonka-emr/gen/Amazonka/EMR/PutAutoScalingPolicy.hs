@@ -134,7 +134,8 @@ instance Core.AWSRequest PutAutoScalingPolicy where
 
 instance Prelude.Hashable PutAutoScalingPolicy where
   hashWithSalt _salt PutAutoScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` instanceGroupId
       `Prelude.hashWithSalt` autoScalingPolicy
 

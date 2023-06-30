@@ -89,7 +89,8 @@ instance Data.FromJSON MapFilter where
 
 instance Prelude.Hashable MapFilter where
   hashWithSalt _salt MapFilter' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` comparison
       `Prelude.hashWithSalt` key
 

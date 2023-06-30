@@ -195,7 +195,8 @@ instance Data.FromJSON Expression where
 
 instance Prelude.Hashable Expression where
   hashWithSalt _salt Expression' {..} =
-    _salt `Prelude.hashWithSalt` and
+    _salt
+      `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` costCategories
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` not

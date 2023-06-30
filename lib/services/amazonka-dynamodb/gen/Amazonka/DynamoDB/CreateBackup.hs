@@ -133,7 +133,8 @@ instance Core.AWSRequest CreateBackup where
 
 instance Prelude.Hashable CreateBackup where
   hashWithSalt _salt CreateBackup' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt
+      `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` backupName
 
 instance Prelude.NFData CreateBackup where

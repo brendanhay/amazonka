@@ -78,7 +78,8 @@ instance Data.FromJSON CodeSigningCertificateChain where
 
 instance Prelude.Hashable CodeSigningCertificateChain where
   hashWithSalt _salt CodeSigningCertificateChain' {..} =
-    _salt `Prelude.hashWithSalt` certificateName
+    _salt
+      `Prelude.hashWithSalt` certificateName
       `Prelude.hashWithSalt` inlineDocument
 
 instance Prelude.NFData CodeSigningCertificateChain where

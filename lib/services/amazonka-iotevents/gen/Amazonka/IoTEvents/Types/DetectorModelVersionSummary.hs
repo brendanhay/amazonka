@@ -143,7 +143,8 @@ instance Data.FromJSON DetectorModelVersionSummary where
 
 instance Prelude.Hashable DetectorModelVersionSummary where
   hashWithSalt _salt DetectorModelVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` detectorModelArn
       `Prelude.hashWithSalt` detectorModelName
       `Prelude.hashWithSalt` detectorModelVersion

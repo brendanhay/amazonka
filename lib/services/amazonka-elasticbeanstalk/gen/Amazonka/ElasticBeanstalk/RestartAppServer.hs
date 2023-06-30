@@ -118,7 +118,8 @@ instance Core.AWSRequest RestartAppServer where
 
 instance Prelude.Hashable RestartAppServer where
   hashWithSalt _salt RestartAppServer' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData RestartAppServer where

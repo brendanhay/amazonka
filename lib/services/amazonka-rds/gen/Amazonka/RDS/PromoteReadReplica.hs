@@ -230,7 +230,8 @@ instance Core.AWSRequest PromoteReadReplica where
 
 instance Prelude.Hashable PromoteReadReplica where
   hashWithSalt _salt PromoteReadReplica' {..} =
-    _salt `Prelude.hashWithSalt` backupRetentionPeriod
+    _salt
+      `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` dbInstanceIdentifier
 

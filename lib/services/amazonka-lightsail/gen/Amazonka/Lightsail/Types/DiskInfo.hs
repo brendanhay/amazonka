@@ -97,7 +97,8 @@ instance Data.FromJSON DiskInfo where
 
 instance Prelude.Hashable DiskInfo where
   hashWithSalt _salt DiskInfo' {..} =
-    _salt `Prelude.hashWithSalt` isSystemDisk
+    _salt
+      `Prelude.hashWithSalt` isSystemDisk
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` sizeInGb

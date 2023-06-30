@@ -83,7 +83,8 @@ instance Data.FromXML DeleteFleetSuccessItem where
 
 instance Prelude.Hashable DeleteFleetSuccessItem where
   hashWithSalt _salt DeleteFleetSuccessItem' {..} =
-    _salt `Prelude.hashWithSalt` currentFleetState
+    _salt
+      `Prelude.hashWithSalt` currentFleetState
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` previousFleetState
 

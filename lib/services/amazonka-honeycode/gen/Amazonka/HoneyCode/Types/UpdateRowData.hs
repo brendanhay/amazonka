@@ -74,7 +74,8 @@ updateRowData_cellsToUpdate = Lens.lens (\UpdateRowData' {cellsToUpdate} -> cell
 
 instance Prelude.Hashable UpdateRowData where
   hashWithSalt _salt UpdateRowData' {..} =
-    _salt `Prelude.hashWithSalt` rowId
+    _salt
+      `Prelude.hashWithSalt` rowId
       `Prelude.hashWithSalt` cellsToUpdate
 
 instance Prelude.NFData UpdateRowData where

@@ -145,7 +145,9 @@ instance
       "ValidateConfigurationSettingsResult"
       ( \s h x ->
           ValidateConfigurationSettingsResponse'
-            Prelude.<$> ( x Data..@? "Messages" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Messages"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,7 +158,8 @@ instance
     ValidateConfigurationSettings
   where
   hashWithSalt _salt ValidateConfigurationSettings' {..} =
-    _salt `Prelude.hashWithSalt` environmentName
+    _salt
+      `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` optionSettings

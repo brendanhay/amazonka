@@ -166,19 +166,19 @@ instance Core.AWSPager ListGatewayRoutes where
     | Core.stop
         ( rs
             Lens.^? listGatewayRoutesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listGatewayRoutesResponse_gatewayRoutes) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGatewayRoutes_nextToken
           Lens..~ rs
           Lens.^? listGatewayRoutesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGatewayRoutes where
   type
@@ -197,7 +197,8 @@ instance Core.AWSRequest ListGatewayRoutes where
 
 instance Prelude.Hashable ListGatewayRoutes where
   hashWithSalt _salt ListGatewayRoutes' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` meshName

@@ -142,13 +142,13 @@ instance
       ( \s h x ->
           ListBucketIntelligentTieringConfigurationsResponse'
             Prelude.<$> (x Data..@? "ContinuationToken")
-              Prelude.<*> ( Core.may
-                              (Data.parseXMLList "IntelligentTieringConfiguration")
-                              x
-                          )
-              Prelude.<*> (x Data..@? "IsTruncated")
-              Prelude.<*> (x Data..@? "NextContinuationToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( Core.may
+                            (Data.parseXMLList "IntelligentTieringConfiguration")
+                            x
+                        )
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "NextContinuationToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     ListBucketIntelligentTieringConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` continuationToken
+      _salt
+        `Prelude.hashWithSalt` continuationToken
         `Prelude.hashWithSalt` bucket
 
 instance

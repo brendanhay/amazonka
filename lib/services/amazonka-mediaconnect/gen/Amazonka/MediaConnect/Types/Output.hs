@@ -216,7 +216,8 @@ instance Data.FromJSON Output where
             Prelude.<*> (x Data..:? "entitlementArn")
             Prelude.<*> (x Data..:? "listenerAddress")
             Prelude.<*> (x Data..:? "mediaLiveInputArn")
-            Prelude.<*> ( x Data..:? "mediaStreamOutputConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "mediaStreamOutputConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "port")

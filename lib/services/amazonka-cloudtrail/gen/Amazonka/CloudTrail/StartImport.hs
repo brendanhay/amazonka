@@ -197,7 +197,8 @@ instance Core.AWSRequest StartImport where
 
 instance Prelude.Hashable StartImport where
   hashWithSalt _salt StartImport' {..} =
-    _salt `Prelude.hashWithSalt` destinations
+    _salt
+      `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` endEventTime
       `Prelude.hashWithSalt` importId
       `Prelude.hashWithSalt` importSource

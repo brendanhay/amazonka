@@ -178,7 +178,8 @@ instance Core.AWSRequest UpdateFlowEntitlement where
 
 instance Prelude.Hashable UpdateFlowEntitlement where
   hashWithSalt _salt UpdateFlowEntitlement' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` entitlementStatus
       `Prelude.hashWithSalt` subscribers

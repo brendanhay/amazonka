@@ -146,7 +146,8 @@ instance Data.FromJSON VpcPeeringAuthorization where
 
 instance Prelude.Hashable VpcPeeringAuthorization where
   hashWithSalt _salt VpcPeeringAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` gameLiftAwsAccountId
       `Prelude.hashWithSalt` peerVpcAwsAccountId

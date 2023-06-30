@@ -175,7 +175,8 @@ instance Data.FromJSON ManagedScaling where
 
 instance Prelude.Hashable ManagedScaling where
   hashWithSalt _salt ManagedScaling' {..} =
-    _salt `Prelude.hashWithSalt` instanceWarmupPeriod
+    _salt
+      `Prelude.hashWithSalt` instanceWarmupPeriod
       `Prelude.hashWithSalt` maximumScalingStepSize
       `Prelude.hashWithSalt` minimumScalingStepSize
       `Prelude.hashWithSalt` status

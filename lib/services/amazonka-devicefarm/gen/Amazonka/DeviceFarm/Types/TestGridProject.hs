@@ -106,7 +106,8 @@ instance Data.FromJSON TestGridProject where
 
 instance Prelude.Hashable TestGridProject where
   hashWithSalt _salt TestGridProject' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

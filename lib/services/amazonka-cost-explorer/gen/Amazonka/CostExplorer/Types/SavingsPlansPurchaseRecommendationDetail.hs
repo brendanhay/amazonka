@@ -282,7 +282,8 @@ instance
   hashWithSalt
     _salt
     SavingsPlansPurchaseRecommendationDetail' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` currencyCode
         `Prelude.hashWithSalt` currentAverageHourlyOnDemandSpend
         `Prelude.hashWithSalt` currentMaximumHourlyOnDemandSpend

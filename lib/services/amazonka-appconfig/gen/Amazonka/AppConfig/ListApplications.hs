@@ -120,7 +120,8 @@ instance Core.AWSRequest ListApplications where
 
 instance Prelude.Hashable ListApplications where
   hashWithSalt _salt ListApplications' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApplications where

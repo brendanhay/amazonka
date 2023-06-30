@@ -110,7 +110,8 @@ instance Core.AWSRequest RemoveFlowOutput where
 
 instance Prelude.Hashable RemoveFlowOutput where
   hashWithSalt _salt RemoveFlowOutput' {..} =
-    _salt `Prelude.hashWithSalt` flowArn
+    _salt
+      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` outputArn
 
 instance Prelude.NFData RemoveFlowOutput where

@@ -126,7 +126,8 @@ instance
   hashWithSalt
     _salt
     DisassociateDeviceFromPlacement' {..} =
-      _salt `Prelude.hashWithSalt` projectName
+      _salt
+        `Prelude.hashWithSalt` projectName
         `Prelude.hashWithSalt` placementName
         `Prelude.hashWithSalt` deviceTemplateName
 

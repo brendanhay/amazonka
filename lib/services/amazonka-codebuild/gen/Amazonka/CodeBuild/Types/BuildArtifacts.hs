@@ -176,7 +176,8 @@ instance Data.FromJSON BuildArtifacts where
 
 instance Prelude.Hashable BuildArtifacts where
   hashWithSalt _salt BuildArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` artifactIdentifier
+    _salt
+      `Prelude.hashWithSalt` artifactIdentifier
       `Prelude.hashWithSalt` bucketOwnerAccess
       `Prelude.hashWithSalt` encryptionDisabled
       `Prelude.hashWithSalt` location

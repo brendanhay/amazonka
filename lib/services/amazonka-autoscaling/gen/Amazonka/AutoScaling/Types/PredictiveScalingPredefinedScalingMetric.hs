@@ -151,7 +151,7 @@ instance
   parseXML x =
     PredictiveScalingPredefinedScalingMetric'
       Prelude.<$> (x Data..@? "ResourceLabel")
-        Prelude.<*> (x Data..@ "PredefinedMetricType")
+      Prelude.<*> (x Data..@ "PredefinedMetricType")
 
 instance
   Prelude.Hashable
@@ -160,7 +160,8 @@ instance
   hashWithSalt
     _salt
     PredictiveScalingPredefinedScalingMetric' {..} =
-      _salt `Prelude.hashWithSalt` resourceLabel
+      _salt
+        `Prelude.hashWithSalt` resourceLabel
         `Prelude.hashWithSalt` predefinedMetricType
 
 instance

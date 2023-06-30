@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     TableFieldLinkContentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` customIconContent
+      _salt
+        `Prelude.hashWithSalt` customIconContent
         `Prelude.hashWithSalt` customTextContent
 
 instance

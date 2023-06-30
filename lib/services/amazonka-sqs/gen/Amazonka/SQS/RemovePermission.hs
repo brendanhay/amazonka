@@ -65,7 +65,7 @@ data RemovePermission = RemovePermission'
     -- Queue URLs and names are case-sensitive.
     queueUrl :: Prelude.Text,
     -- | The identification of the permission to remove. This is the label added
-    -- using the @ AddPermission @ action.
+    -- using the @ @@AddPermission@@ @ action.
     label :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +83,7 @@ data RemovePermission = RemovePermission'
 -- Queue URLs and names are case-sensitive.
 --
 -- 'label', 'removePermission_label' - The identification of the permission to remove. This is the label added
--- using the @ AddPermission @ action.
+-- using the @ @@AddPermission@@ @ action.
 newRemovePermission ::
   -- | 'queueUrl'
   Prelude.Text ->
@@ -103,7 +103,7 @@ removePermission_queueUrl :: Lens.Lens' RemovePermission Prelude.Text
 removePermission_queueUrl = Lens.lens (\RemovePermission' {queueUrl} -> queueUrl) (\s@RemovePermission' {} a -> s {queueUrl = a} :: RemovePermission)
 
 -- | The identification of the permission to remove. This is the label added
--- using the @ AddPermission @ action.
+-- using the @ @@AddPermission@@ @ action.
 removePermission_label :: Lens.Lens' RemovePermission Prelude.Text
 removePermission_label = Lens.lens (\RemovePermission' {label} -> label) (\s@RemovePermission' {} a -> s {label = a} :: RemovePermission)
 
@@ -118,7 +118,8 @@ instance Core.AWSRequest RemovePermission where
 
 instance Prelude.Hashable RemovePermission where
   hashWithSalt _salt RemovePermission' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` label
 
 instance Prelude.NFData RemovePermission where

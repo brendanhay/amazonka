@@ -506,7 +506,8 @@ instance Core.AWSRequest SendMessage where
 
 instance Prelude.Hashable SendMessage where
   hashWithSalt _salt SendMessage' {..} =
-    _salt `Prelude.hashWithSalt` delaySeconds
+    _salt
+      `Prelude.hashWithSalt` delaySeconds
       `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` messageDeduplicationId
       `Prelude.hashWithSalt` messageGroupId

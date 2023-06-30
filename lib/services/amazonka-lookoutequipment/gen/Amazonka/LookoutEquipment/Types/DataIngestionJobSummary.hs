@@ -114,7 +114,8 @@ instance Data.FromJSON DataIngestionJobSummary where
 
 instance Prelude.Hashable DataIngestionJobSummary where
   hashWithSalt _salt DataIngestionJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` datasetArn
+    _salt
+      `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` ingestionInputConfiguration
       `Prelude.hashWithSalt` jobId

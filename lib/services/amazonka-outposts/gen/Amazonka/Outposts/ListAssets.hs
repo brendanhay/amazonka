@@ -136,7 +136,8 @@ instance Core.AWSRequest ListAssets where
 
 instance Prelude.Hashable ListAssets where
   hashWithSalt _salt ListAssets' {..} =
-    _salt `Prelude.hashWithSalt` hostIdFilter
+    _salt
+      `Prelude.hashWithSalt` hostIdFilter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` statusFilter

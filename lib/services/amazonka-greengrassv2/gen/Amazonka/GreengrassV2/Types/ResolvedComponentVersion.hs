@@ -178,7 +178,8 @@ instance Data.FromJSON ResolvedComponentVersion where
 
 instance Prelude.Hashable ResolvedComponentVersion where
   hashWithSalt _salt ResolvedComponentVersion' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` message

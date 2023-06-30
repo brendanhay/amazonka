@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     UpdateFailbackReplicationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bandwidthThrottling
+      _salt
+        `Prelude.hashWithSalt` bandwidthThrottling
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` usePrivateIP
         `Prelude.hashWithSalt` recoveryInstanceID

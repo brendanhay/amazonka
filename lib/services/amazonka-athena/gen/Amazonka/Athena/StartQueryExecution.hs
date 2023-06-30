@@ -213,7 +213,8 @@ instance Core.AWSRequest StartQueryExecution where
 
 instance Prelude.Hashable StartQueryExecution where
   hashWithSalt _salt StartQueryExecution' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` executionParameters
       `Prelude.hashWithSalt` queryExecutionContext
       `Prelude.hashWithSalt` resultConfiguration

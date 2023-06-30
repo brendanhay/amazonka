@@ -95,7 +95,8 @@ instance Data.FromJSON MissionProfileListItem where
 
 instance Prelude.Hashable MissionProfileListItem where
   hashWithSalt _salt MissionProfileListItem' {..} =
-    _salt `Prelude.hashWithSalt` missionProfileArn
+    _salt
+      `Prelude.hashWithSalt` missionProfileArn
       `Prelude.hashWithSalt` missionProfileId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` region

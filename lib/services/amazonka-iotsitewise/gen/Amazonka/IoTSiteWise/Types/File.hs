@@ -94,7 +94,8 @@ instance Data.FromJSON File where
 
 instance Prelude.Hashable File where
   hashWithSalt _salt File' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 

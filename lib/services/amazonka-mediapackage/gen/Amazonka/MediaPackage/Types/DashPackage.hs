@@ -288,7 +288,8 @@ instance Data.FromJSON DashPackage where
 
 instance Prelude.Hashable DashPackage where
   hashWithSalt _salt DashPackage' {..} =
-    _salt `Prelude.hashWithSalt` adTriggers
+    _salt
+      `Prelude.hashWithSalt` adTriggers
       `Prelude.hashWithSalt` adsOnDeliveryRestrictions
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` includeIframeOnlyStream

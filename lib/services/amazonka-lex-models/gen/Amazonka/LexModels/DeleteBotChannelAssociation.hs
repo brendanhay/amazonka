@@ -118,7 +118,8 @@ instance Core.AWSRequest DeleteBotChannelAssociation where
 
 instance Prelude.Hashable DeleteBotChannelAssociation where
   hashWithSalt _salt DeleteBotChannelAssociation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` botAlias
 

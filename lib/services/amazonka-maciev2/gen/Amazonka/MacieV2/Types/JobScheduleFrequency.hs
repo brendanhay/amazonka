@@ -88,7 +88,8 @@ instance Data.FromJSON JobScheduleFrequency where
 
 instance Prelude.Hashable JobScheduleFrequency where
   hashWithSalt _salt JobScheduleFrequency' {..} =
-    _salt `Prelude.hashWithSalt` dailySchedule
+    _salt
+      `Prelude.hashWithSalt` dailySchedule
       `Prelude.hashWithSalt` monthlySchedule
       `Prelude.hashWithSalt` weeklySchedule
 

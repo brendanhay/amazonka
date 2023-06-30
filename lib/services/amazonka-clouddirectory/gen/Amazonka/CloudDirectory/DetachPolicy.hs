@@ -121,7 +121,8 @@ instance Core.AWSRequest DetachPolicy where
 
 instance Prelude.Hashable DetachPolicy where
   hashWithSalt _salt DetachPolicy' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` policyReference
       `Prelude.hashWithSalt` objectReference
 

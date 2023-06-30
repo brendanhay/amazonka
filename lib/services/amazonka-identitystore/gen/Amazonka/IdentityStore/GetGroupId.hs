@@ -113,7 +113,8 @@ instance Core.AWSRequest GetGroupId where
 
 instance Prelude.Hashable GetGroupId where
   hashWithSalt _salt GetGroupId' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` alternateIdentifier
 
 instance Prelude.NFData GetGroupId where

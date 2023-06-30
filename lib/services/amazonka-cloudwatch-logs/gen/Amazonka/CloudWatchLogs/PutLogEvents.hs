@@ -188,7 +188,8 @@ instance Core.AWSRequest PutLogEvents where
 
 instance Prelude.Hashable PutLogEvents where
   hashWithSalt _salt PutLogEvents' {..} =
-    _salt `Prelude.hashWithSalt` sequenceToken
+    _salt
+      `Prelude.hashWithSalt` sequenceToken
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logStreamName
       `Prelude.hashWithSalt` logEvents

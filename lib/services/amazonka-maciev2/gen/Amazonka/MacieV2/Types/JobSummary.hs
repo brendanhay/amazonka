@@ -268,7 +268,8 @@ instance Data.FromJSON JobSummary where
       ( \x ->
           JobSummary'
             Prelude.<$> (x Data..:? "bucketCriteria")
-            Prelude.<*> ( x Data..:? "bucketDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "bucketDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "createdAt")
@@ -282,7 +283,8 @@ instance Data.FromJSON JobSummary where
 
 instance Prelude.Hashable JobSummary where
   hashWithSalt _salt JobSummary' {..} =
-    _salt `Prelude.hashWithSalt` bucketCriteria
+    _salt
+      `Prelude.hashWithSalt` bucketCriteria
       `Prelude.hashWithSalt` bucketDefinitions
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` jobId

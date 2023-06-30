@@ -107,22 +107,22 @@ instance Core.AWSPager ListDomainConfigurations where
     | Core.stop
         ( rs
             Lens.^? listDomainConfigurationsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDomainConfigurationsResponse_domainConfigurations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDomainConfigurations_marker
           Lens..~ rs
           Lens.^? listDomainConfigurationsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomainConfigurations where
   type
@@ -134,7 +134,8 @@ instance Core.AWSRequest ListDomainConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListDomainConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "domainConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "domainConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextMarker")
@@ -143,7 +144,8 @@ instance Core.AWSRequest ListDomainConfigurations where
 
 instance Prelude.Hashable ListDomainConfigurations where
   hashWithSalt _salt ListDomainConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` serviceType
 

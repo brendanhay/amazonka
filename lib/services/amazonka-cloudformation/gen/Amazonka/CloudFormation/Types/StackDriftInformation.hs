@@ -120,7 +120,8 @@ instance Data.FromXML StackDriftInformation where
 
 instance Prelude.Hashable StackDriftInformation where
   hashWithSalt _salt StackDriftInformation' {..} =
-    _salt `Prelude.hashWithSalt` lastCheckTimestamp
+    _salt
+      `Prelude.hashWithSalt` lastCheckTimestamp
       `Prelude.hashWithSalt` stackDriftStatus
 
 instance Prelude.NFData StackDriftInformation where

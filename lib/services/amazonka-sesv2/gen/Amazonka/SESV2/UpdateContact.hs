@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateContact where
 
 instance Prelude.Hashable UpdateContact where
   hashWithSalt _salt UpdateContact' {..} =
-    _salt `Prelude.hashWithSalt` attributesData
+    _salt
+      `Prelude.hashWithSalt` attributesData
       `Prelude.hashWithSalt` topicPreferences
       `Prelude.hashWithSalt` unsubscribeAll
       `Prelude.hashWithSalt` contactListName

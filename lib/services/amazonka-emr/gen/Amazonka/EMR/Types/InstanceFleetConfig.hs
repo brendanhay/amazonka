@@ -211,7 +211,8 @@ instanceFleetConfig_instanceFleetType = Lens.lens (\InstanceFleetConfig' {instan
 
 instance Prelude.Hashable InstanceFleetConfig where
   hashWithSalt _salt InstanceFleetConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceTypeConfigs
+    _salt
+      `Prelude.hashWithSalt` instanceTypeConfigs
       `Prelude.hashWithSalt` launchSpecifications
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` targetOnDemandCapacity

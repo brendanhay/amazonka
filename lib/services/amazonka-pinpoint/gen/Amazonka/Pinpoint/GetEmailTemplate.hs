@@ -175,7 +175,8 @@ instance Core.AWSRequest GetEmailTemplate where
 
 instance Prelude.Hashable GetEmailTemplate where
   hashWithSalt _salt GetEmailTemplate' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData GetEmailTemplate where

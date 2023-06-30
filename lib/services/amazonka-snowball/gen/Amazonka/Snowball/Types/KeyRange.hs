@@ -83,7 +83,8 @@ instance Data.FromJSON KeyRange where
 
 instance Prelude.Hashable KeyRange where
   hashWithSalt _salt KeyRange' {..} =
-    _salt `Prelude.hashWithSalt` beginMarker
+    _salt
+      `Prelude.hashWithSalt` beginMarker
       `Prelude.hashWithSalt` endMarker
 
 instance Prelude.NFData KeyRange where

@@ -133,22 +133,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeGlobalReplicationGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeGlobalReplicationGroupsResponse_globalReplicationGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeGlobalReplicationGroups_marker
           Lens..~ rs
           Lens.^? describeGlobalReplicationGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -164,7 +164,8 @@ instance
       "DescribeGlobalReplicationGroupsResult"
       ( \s h x ->
           DescribeGlobalReplicationGroupsResponse'
-            Prelude.<$> ( x Data..@? "GlobalReplicationGroups"
+            Prelude.<$> ( x
+                            Data..@? "GlobalReplicationGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Data.parseXMLList "GlobalReplicationGroup")

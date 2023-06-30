@@ -106,20 +106,23 @@ instance Core.AWSPager GetUsagePlans where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getUsagePlansResponse_position Prelude.. Lens._Just
+            Lens.^? getUsagePlansResponse_position
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getUsagePlansResponse_items Prelude.. Lens._Just
+            Lens.^? getUsagePlansResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getUsagePlans_position
           Lens..~ rs
-          Lens.^? getUsagePlansResponse_position Prelude.. Lens._Just
+          Lens.^? getUsagePlansResponse_position
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUsagePlans where
   type
@@ -138,7 +141,8 @@ instance Core.AWSRequest GetUsagePlans where
 
 instance Prelude.Hashable GetUsagePlans where
   hashWithSalt _salt GetUsagePlans' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
 

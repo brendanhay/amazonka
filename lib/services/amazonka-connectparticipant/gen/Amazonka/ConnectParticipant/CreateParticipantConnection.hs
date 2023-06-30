@@ -169,7 +169,8 @@ instance Core.AWSRequest CreateParticipantConnection where
 
 instance Prelude.Hashable CreateParticipantConnection where
   hashWithSalt _salt CreateParticipantConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectParticipant
+    _salt
+      `Prelude.hashWithSalt` connectParticipant
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` participantToken
 

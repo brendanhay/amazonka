@@ -116,7 +116,8 @@ instance Data.FromJSON MergeHunk where
 
 instance Prelude.Hashable MergeHunk where
   hashWithSalt _salt MergeHunk' {..} =
-    _salt `Prelude.hashWithSalt` base
+    _salt
+      `Prelude.hashWithSalt` base
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` isConflict
       `Prelude.hashWithSalt` source

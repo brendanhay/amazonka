@@ -145,7 +145,8 @@ instance Core.AWSRequest PutImageTagMutability where
 
 instance Prelude.Hashable PutImageTagMutability where
   hashWithSalt _salt PutImageTagMutability' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageTagMutability
 

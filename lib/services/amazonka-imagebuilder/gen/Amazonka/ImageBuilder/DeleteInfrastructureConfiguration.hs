@@ -96,8 +96,8 @@ instance
       ( \s h x ->
           DeleteInfrastructureConfigurationResponse'
             Prelude.<$> (x Data..?> "infrastructureConfigurationArn")
-              Prelude.<*> (x Data..?> "requestId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

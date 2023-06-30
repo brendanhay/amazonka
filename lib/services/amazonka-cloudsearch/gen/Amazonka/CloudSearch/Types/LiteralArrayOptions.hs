@@ -106,7 +106,8 @@ instance Data.FromXML LiteralArrayOptions where
 
 instance Prelude.Hashable LiteralArrayOptions where
   hashWithSalt _salt LiteralArrayOptions' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` facetEnabled
       `Prelude.hashWithSalt` returnEnabled
       `Prelude.hashWithSalt` searchEnabled

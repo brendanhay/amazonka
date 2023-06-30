@@ -85,7 +85,8 @@ instance Data.FromJSON GroupResult where
 
 instance Prelude.Hashable GroupResult where
   hashWithSalt _salt GroupResult' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` tests
 

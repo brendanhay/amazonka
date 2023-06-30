@@ -254,7 +254,8 @@ instance Data.FromXML CustomErrorResponse where
 
 instance Prelude.Hashable CustomErrorResponse where
   hashWithSalt _salt CustomErrorResponse' {..} =
-    _salt `Prelude.hashWithSalt` errorCachingMinTTL
+    _salt
+      `Prelude.hashWithSalt` errorCachingMinTTL
       `Prelude.hashWithSalt` responseCode
       `Prelude.hashWithSalt` responsePagePath
       `Prelude.hashWithSalt` errorCode

@@ -97,7 +97,8 @@ instance Data.FromJSON PivotTableTotalOptions where
 
 instance Prelude.Hashable PivotTableTotalOptions where
   hashWithSalt _salt PivotTableTotalOptions' {..} =
-    _salt `Prelude.hashWithSalt` columnSubtotalOptions
+    _salt
+      `Prelude.hashWithSalt` columnSubtotalOptions
       `Prelude.hashWithSalt` columnTotalOptions
       `Prelude.hashWithSalt` rowSubtotalOptions
       `Prelude.hashWithSalt` rowTotalOptions

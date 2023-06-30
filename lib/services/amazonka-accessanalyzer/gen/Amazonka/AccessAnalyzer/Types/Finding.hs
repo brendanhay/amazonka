@@ -233,7 +233,8 @@ instance Data.FromJSON Finding where
 
 instance Prelude.Hashable Finding where
   hashWithSalt _salt Finding' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` isPublic
       `Prelude.hashWithSalt` principal

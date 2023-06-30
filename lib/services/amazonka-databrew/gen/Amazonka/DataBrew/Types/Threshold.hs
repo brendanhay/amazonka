@@ -97,7 +97,8 @@ instance Data.FromJSON Threshold where
 
 instance Prelude.Hashable Threshold where
   hashWithSalt _salt Threshold' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` value
 

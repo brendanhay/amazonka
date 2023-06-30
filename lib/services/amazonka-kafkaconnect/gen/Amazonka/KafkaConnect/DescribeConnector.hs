@@ -105,7 +105,8 @@ instance Core.AWSRequest DescribeConnector where
           DescribeConnectorResponse'
             Prelude.<$> (x Data..?> "capacity")
             Prelude.<*> (x Data..?> "connectorArn")
-            Prelude.<*> ( x Data..?> "connectorConfiguration"
+            Prelude.<*> ( x
+                            Data..?> "connectorConfiguration"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "connectorDescription")

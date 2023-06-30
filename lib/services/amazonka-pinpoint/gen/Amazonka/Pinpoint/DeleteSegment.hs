@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteSegment where
 
 instance Prelude.Hashable DeleteSegment where
   hashWithSalt _salt DeleteSegment' {..} =
-    _salt `Prelude.hashWithSalt` segmentId
+    _salt
+      `Prelude.hashWithSalt` segmentId
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData DeleteSegment where

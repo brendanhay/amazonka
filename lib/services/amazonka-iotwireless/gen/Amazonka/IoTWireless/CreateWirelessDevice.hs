@@ -185,7 +185,8 @@ instance Core.AWSRequest CreateWirelessDevice where
 
 instance Prelude.Hashable CreateWirelessDevice where
   hashWithSalt _salt CreateWirelessDevice' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` name

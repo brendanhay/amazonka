@@ -71,14 +71,16 @@ instance Data.FromJSON SitePlan where
       ( \x ->
           SitePlan'
             Prelude.<$> (x Data..:? "options" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "resourceDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "resourceDefinitions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SitePlan where
   hashWithSalt _salt SitePlan' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` resourceDefinitions
 
 instance Prelude.NFData SitePlan where

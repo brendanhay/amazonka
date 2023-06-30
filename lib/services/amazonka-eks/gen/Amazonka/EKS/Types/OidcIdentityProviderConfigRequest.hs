@@ -210,7 +210,8 @@ instance
   hashWithSalt
     _salt
     OidcIdentityProviderConfigRequest' {..} =
-      _salt `Prelude.hashWithSalt` groupsClaim
+      _salt
+        `Prelude.hashWithSalt` groupsClaim
         `Prelude.hashWithSalt` groupsPrefix
         `Prelude.hashWithSalt` requiredClaims
         `Prelude.hashWithSalt` usernameClaim

@@ -419,7 +419,8 @@ instance Core.AWSRequest TransferDomain where
 
 instance Prelude.Hashable TransferDomain where
   hashWithSalt _salt TransferDomain' {..} =
-    _salt `Prelude.hashWithSalt` authCode
+    _salt
+      `Prelude.hashWithSalt` authCode
       `Prelude.hashWithSalt` autoRenew
       `Prelude.hashWithSalt` idnLangCode
       `Prelude.hashWithSalt` nameservers

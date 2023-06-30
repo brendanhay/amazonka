@@ -93,7 +93,8 @@ instance Data.FromJSON Serializer where
 
 instance Prelude.Hashable Serializer where
   hashWithSalt _salt Serializer' {..} =
-    _salt `Prelude.hashWithSalt` orcSerDe
+    _salt
+      `Prelude.hashWithSalt` orcSerDe
       `Prelude.hashWithSalt` parquetSerDe
 
 instance Prelude.NFData Serializer where

@@ -123,7 +123,8 @@ instance Data.FromJSON DeletionConfig where
 
 instance Prelude.Hashable DeletionConfig where
   hashWithSalt _salt DeletionConfig' {..} =
-    _salt `Prelude.hashWithSalt` deleteAfterUpload
+    _salt
+      `Prelude.hashWithSalt` deleteAfterUpload
       `Prelude.hashWithSalt` edgeRetentionInHours
       `Prelude.hashWithSalt` localSizeConfig
 

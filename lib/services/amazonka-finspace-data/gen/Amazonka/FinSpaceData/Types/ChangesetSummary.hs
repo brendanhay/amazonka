@@ -266,7 +266,8 @@ instance Data.FromJSON ChangesetSummary where
 
 instance Prelude.Hashable ChangesetSummary where
   hashWithSalt _salt ChangesetSummary' {..} =
-    _salt `Prelude.hashWithSalt` activeFromTimestamp
+    _salt
+      `Prelude.hashWithSalt` activeFromTimestamp
       `Prelude.hashWithSalt` activeUntilTimestamp
       `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` changesetArn

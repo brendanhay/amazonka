@@ -157,7 +157,8 @@ instance Core.AWSRequest RestoreServer where
 
 instance Prelude.Hashable RestoreServer where
   hashWithSalt _salt RestoreServer' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` keyPair
       `Prelude.hashWithSalt` backupId
       `Prelude.hashWithSalt` serverName

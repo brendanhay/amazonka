@@ -76,7 +76,8 @@ diskImage_volume = Lens.lens (\DiskImage' {volume} -> volume) (\s@DiskImage' {} 
 
 instance Prelude.Hashable DiskImage where
   hashWithSalt _salt DiskImage' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` volume
 

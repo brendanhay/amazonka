@@ -258,7 +258,9 @@ exportTask_warningMessage = Lens.lens (\ExportTask' {warningMessage} -> warningM
 instance Data.FromXML ExportTask where
   parseXML x =
     ExportTask'
-      Prelude.<$> ( x Data..@? "ExportOnly" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "ExportOnly"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ExportTaskIdentifier")
@@ -279,7 +281,8 @@ instance Data.FromXML ExportTask where
 
 instance Prelude.Hashable ExportTask where
   hashWithSalt _salt ExportTask' {..} =
-    _salt `Prelude.hashWithSalt` exportOnly
+    _salt
+      `Prelude.hashWithSalt` exportOnly
       `Prelude.hashWithSalt` exportTaskIdentifier
       `Prelude.hashWithSalt` failureCause
       `Prelude.hashWithSalt` iamRoleArn

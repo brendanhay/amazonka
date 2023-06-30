@@ -110,21 +110,22 @@ instance Core.AWSPager DescribeServers where
     | Core.stop
         ( rs
             Lens.^? describeServersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeServersResponse_servers Prelude.. Lens._Just
+            Lens.^? describeServersResponse_servers
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeServers_nextToken
           Lens..~ rs
           Lens.^? describeServersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeServers where
   type
@@ -143,7 +144,8 @@ instance Core.AWSRequest DescribeServers where
 
 instance Prelude.Hashable DescribeServers where
   hashWithSalt _salt DescribeServers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverName
 

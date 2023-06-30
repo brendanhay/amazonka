@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     MonitoringConfigurationDescription' {..} =
-      _salt `Prelude.hashWithSalt` configurationType
+      _salt
+        `Prelude.hashWithSalt` configurationType
         `Prelude.hashWithSalt` logLevel
         `Prelude.hashWithSalt` metricsLevel
 

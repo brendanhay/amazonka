@@ -144,7 +144,8 @@ instance Core.AWSRequest CreateCampaign where
 
 instance Prelude.Hashable CreateCampaign where
   hashWithSalt _salt CreateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` connectInstanceId
       `Prelude.hashWithSalt` dialerConfig
       `Prelude.hashWithSalt` name

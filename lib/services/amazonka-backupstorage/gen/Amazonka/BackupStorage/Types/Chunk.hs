@@ -120,7 +120,8 @@ instance Data.FromJSON Chunk where
 
 instance Prelude.Hashable Chunk where
   hashWithSalt _salt Chunk' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt
+      `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` length
       `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` checksumAlgorithm

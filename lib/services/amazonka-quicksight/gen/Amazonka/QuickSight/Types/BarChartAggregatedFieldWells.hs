@@ -100,7 +100,8 @@ instance
     BarChartAggregatedFieldWells
   where
   hashWithSalt _salt BarChartAggregatedFieldWells' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` colors
       `Prelude.hashWithSalt` smallMultiples
       `Prelude.hashWithSalt` values

@@ -169,7 +169,9 @@ instance Core.AWSRequest GetPredictiveScalingForecast where
       ( \s h x ->
           GetPredictiveScalingForecastResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "LoadForecast" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "LoadForecast"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
             Prelude.<*> (x Data..@ "CapacityForecast")
@@ -181,7 +183,8 @@ instance
     GetPredictiveScalingForecast
   where
   hashWithSalt _salt GetPredictiveScalingForecast' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime

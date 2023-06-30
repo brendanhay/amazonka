@@ -67,7 +67,8 @@ addRegionAction_regionName = Lens.lens (\AddRegionAction' {regionName} -> region
 
 instance Prelude.Hashable AddRegionAction where
   hashWithSalt _salt AddRegionAction' {..} =
-    _salt `Prelude.hashWithSalt` sseKmsKeyId
+    _salt
+      `Prelude.hashWithSalt` sseKmsKeyId
       `Prelude.hashWithSalt` regionName
 
 instance Prelude.NFData AddRegionAction where

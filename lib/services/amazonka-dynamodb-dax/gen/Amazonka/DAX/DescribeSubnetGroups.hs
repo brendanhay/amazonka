@@ -124,22 +124,22 @@ instance Core.AWSPager DescribeSubnetGroups where
     | Core.stop
         ( rs
             Lens.^? describeSubnetGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSubnetGroupsResponse_subnetGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSubnetGroups_nextToken
           Lens..~ rs
           Lens.^? describeSubnetGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSubnetGroups where
   type
@@ -158,7 +158,8 @@ instance Core.AWSRequest DescribeSubnetGroups where
 
 instance Prelude.Hashable DescribeSubnetGroups where
   hashWithSalt _salt DescribeSubnetGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` subnetGroupNames
 

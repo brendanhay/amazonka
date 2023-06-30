@@ -115,7 +115,8 @@ instance Data.FromJSON PatchBaselineIdentity where
 
 instance Prelude.Hashable PatchBaselineIdentity where
   hashWithSalt _salt PatchBaselineIdentity' {..} =
-    _salt `Prelude.hashWithSalt` baselineDescription
+    _salt
+      `Prelude.hashWithSalt` baselineDescription
       `Prelude.hashWithSalt` baselineId
       `Prelude.hashWithSalt` baselineName
       `Prelude.hashWithSalt` defaultBaseline

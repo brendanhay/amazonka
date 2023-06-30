@@ -91,7 +91,8 @@ instance Data.FromJSON PackageOriginRestrictions where
 
 instance Prelude.Hashable PackageOriginRestrictions where
   hashWithSalt _salt PackageOriginRestrictions' {..} =
-    _salt `Prelude.hashWithSalt` publish
+    _salt
+      `Prelude.hashWithSalt` publish
       `Prelude.hashWithSalt` upstream
 
 instance Prelude.NFData PackageOriginRestrictions where

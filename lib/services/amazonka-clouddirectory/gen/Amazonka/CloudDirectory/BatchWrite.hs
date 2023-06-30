@@ -104,7 +104,8 @@ instance Core.AWSRequest BatchWrite where
 
 instance Prelude.Hashable BatchWrite where
   hashWithSalt _salt BatchWrite' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` operations
 
 instance Prelude.NFData BatchWrite where

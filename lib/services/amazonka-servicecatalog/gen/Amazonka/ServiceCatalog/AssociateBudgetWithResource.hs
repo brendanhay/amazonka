@@ -105,7 +105,8 @@ instance Core.AWSRequest AssociateBudgetWithResource where
 
 instance Prelude.Hashable AssociateBudgetWithResource where
   hashWithSalt _salt AssociateBudgetWithResource' {..} =
-    _salt `Prelude.hashWithSalt` budgetName
+    _salt
+      `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData AssociateBudgetWithResource where

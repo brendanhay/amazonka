@@ -109,7 +109,8 @@ instance Core.AWSRequest BatchPutGeofence where
 
 instance Prelude.Hashable BatchPutGeofence where
   hashWithSalt _salt BatchPutGeofence' {..} =
-    _salt `Prelude.hashWithSalt` collectionName
+    _salt
+      `Prelude.hashWithSalt` collectionName
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData BatchPutGeofence where

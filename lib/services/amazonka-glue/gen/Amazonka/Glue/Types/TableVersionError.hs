@@ -88,7 +88,8 @@ instance Data.FromJSON TableVersionError where
 
 instance Prelude.Hashable TableVersionError where
   hashWithSalt _salt TableVersionError' {..} =
-    _salt `Prelude.hashWithSalt` errorDetail
+    _salt
+      `Prelude.hashWithSalt` errorDetail
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` versionId
 

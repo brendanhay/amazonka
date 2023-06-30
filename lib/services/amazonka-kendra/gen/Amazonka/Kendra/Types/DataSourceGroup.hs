@@ -80,7 +80,8 @@ dataSourceGroup_dataSourceId = Lens.lens (\DataSourceGroup' {dataSourceId} -> da
 
 instance Prelude.Hashable DataSourceGroup where
   hashWithSalt _salt DataSourceGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` dataSourceId
 
 instance Prelude.NFData DataSourceGroup where

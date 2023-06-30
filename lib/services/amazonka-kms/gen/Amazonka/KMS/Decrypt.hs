@@ -411,7 +411,8 @@ instance Core.AWSRequest Decrypt where
 
 instance Prelude.Hashable Decrypt where
   hashWithSalt _salt Decrypt' {..} =
-    _salt `Prelude.hashWithSalt` encryptionAlgorithm
+    _salt
+      `Prelude.hashWithSalt` encryptionAlgorithm
       `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keyId

@@ -155,7 +155,8 @@ instance Core.AWSRequest CreateAsset where
           CreateAssetResponse'
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createdAt")
-            Prelude.<*> ( x Data..?> "egressEndpoints"
+            Prelude.<*> ( x
+                            Data..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "id")
@@ -169,7 +170,8 @@ instance Core.AWSRequest CreateAsset where
 
 instance Prelude.Hashable CreateAsset where
   hashWithSalt _salt CreateAsset' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` id

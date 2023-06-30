@@ -404,7 +404,8 @@ instance Core.AWSRequest UpdateStackInstances where
 
 instance Prelude.Hashable UpdateStackInstances where
   hashWithSalt _salt UpdateStackInstances' {..} =
-    _salt `Prelude.hashWithSalt` accounts
+    _salt
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` deploymentTargets
       `Prelude.hashWithSalt` operationId

@@ -137,7 +137,8 @@ instance Data.FromJSON PackageSummary where
 
 instance Prelude.Hashable PackageSummary where
   hashWithSalt _salt PackageSummary' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` originConfiguration
       `Prelude.hashWithSalt` package

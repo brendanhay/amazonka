@@ -188,7 +188,8 @@ instance Core.AWSRequest DeleteAccountAssignment where
 
 instance Prelude.Hashable DeleteAccountAssignment where
   hashWithSalt _salt DeleteAccountAssignment' {..} =
-    _salt `Prelude.hashWithSalt` instanceArn
+    _salt
+      `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` targetId
       `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` permissionSetArn

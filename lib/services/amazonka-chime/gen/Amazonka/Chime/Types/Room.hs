@@ -114,7 +114,8 @@ instance Data.FromJSON Room where
 
 instance Prelude.Hashable Room where
   hashWithSalt _salt Room' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` name

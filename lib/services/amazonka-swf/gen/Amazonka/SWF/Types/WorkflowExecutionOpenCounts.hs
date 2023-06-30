@@ -125,7 +125,8 @@ instance Data.FromJSON WorkflowExecutionOpenCounts where
 
 instance Prelude.Hashable WorkflowExecutionOpenCounts where
   hashWithSalt _salt WorkflowExecutionOpenCounts' {..} =
-    _salt `Prelude.hashWithSalt` openLambdaFunctions
+    _salt
+      `Prelude.hashWithSalt` openLambdaFunctions
       `Prelude.hashWithSalt` openActivityTasks
       `Prelude.hashWithSalt` openDecisionTasks
       `Prelude.hashWithSalt` openTimers

@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribeBackupJob where
             Prelude.<*> (x Data..?> "BackupVaultArn")
             Prelude.<*> (x Data..?> "BackupVaultName")
             Prelude.<*> (x Data..?> "BytesTransferred")
-            Prelude.<*> ( x Data..?> "ChildJobsInState"
+            Prelude.<*> ( x
+                            Data..?> "ChildJobsInState"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CompletionDate")

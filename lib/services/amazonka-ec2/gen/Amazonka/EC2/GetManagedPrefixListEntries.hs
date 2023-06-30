@@ -143,22 +143,22 @@ instance Core.AWSPager GetManagedPrefixListEntries where
     | Core.stop
         ( rs
             Lens.^? getManagedPrefixListEntriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getManagedPrefixListEntriesResponse_entries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getManagedPrefixListEntries_nextToken
           Lens..~ rs
           Lens.^? getManagedPrefixListEntriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetManagedPrefixListEntries where
   type
@@ -170,7 +170,9 @@ instance Core.AWSRequest GetManagedPrefixListEntries where
     Response.receiveXML
       ( \s h x ->
           GetManagedPrefixListEntriesResponse'
-            Prelude.<$> ( x Data..@? "entrySet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "entrySet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -179,7 +181,8 @@ instance Core.AWSRequest GetManagedPrefixListEntries where
 
 instance Prelude.Hashable GetManagedPrefixListEntries where
   hashWithSalt _salt GetManagedPrefixListEntries' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` targetVersion

@@ -155,7 +155,8 @@ instance Data.FromJSON EnvironmentTemplateSummary where
 
 instance Prelude.Hashable EnvironmentTemplateSummary where
   hashWithSalt _salt EnvironmentTemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` provisioning
       `Prelude.hashWithSalt` recommendedVersion

@@ -113,14 +113,16 @@ instance Core.AWSRequest ListStreamSessions where
           ListStreamSessionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "streamSessions"
+            Prelude.<*> ( x
+                            Data..?> "streamSessions"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListStreamSessions where
   hashWithSalt _salt ListStreamSessions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn
 

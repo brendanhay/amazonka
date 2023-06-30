@@ -230,22 +230,25 @@ instance
       "OrganizationCustomPolicyRuleMetadataNoPolicy"
       ( \x ->
           OrganizationCustomPolicyRuleMetadataNoPolicy'
-            Prelude.<$> ( x Data..:? "DebugLogDeliveryAccounts"
+            Prelude.<$> ( x
+                            Data..:? "DebugLogDeliveryAccounts"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Data..:? "Description")
-              Prelude.<*> (x Data..:? "InputParameters")
-              Prelude.<*> (x Data..:? "MaximumExecutionFrequency")
-              Prelude.<*> ( x Data..:? "OrganizationConfigRuleTriggerTypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "PolicyRuntime")
-              Prelude.<*> (x Data..:? "ResourceIdScope")
-              Prelude.<*> ( x Data..:? "ResourceTypesScope"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "TagKeyScope")
-              Prelude.<*> (x Data..:? "TagValueScope")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "InputParameters")
+            Prelude.<*> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<*> ( x
+                            Data..:? "OrganizationConfigRuleTriggerTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "PolicyRuntime")
+            Prelude.<*> (x Data..:? "ResourceIdScope")
+            Prelude.<*> ( x
+                            Data..:? "ResourceTypesScope"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "TagKeyScope")
+            Prelude.<*> (x Data..:? "TagValueScope")
       )
 
 instance

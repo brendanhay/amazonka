@@ -76,7 +76,8 @@ instance Data.FromJSON ResourceLocation where
 
 instance Prelude.Hashable ResourceLocation where
   hashWithSalt _salt ResourceLocation' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` regionName
 
 instance Prelude.NFData ResourceLocation where

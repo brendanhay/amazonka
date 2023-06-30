@@ -108,7 +108,8 @@ instance Data.FromJSON AncillarySourceSettings where
 
 instance Prelude.Hashable AncillarySourceSettings where
   hashWithSalt _salt AncillarySourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` convert608To708
+    _salt
+      `Prelude.hashWithSalt` convert608To708
       `Prelude.hashWithSalt` sourceAncillaryChannelNumber
       `Prelude.hashWithSalt` terminateCaptions
 

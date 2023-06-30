@@ -124,7 +124,8 @@ instance Data.FromXML NodeGroup where
   parseXML x =
     NodeGroup'
       Prelude.<$> (x Data..@? "NodeGroupId")
-      Prelude.<*> ( x Data..@? "NodeGroupMembers"
+      Prelude.<*> ( x
+                      Data..@? "NodeGroupMembers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "NodeGroupMember")
                   )
@@ -135,7 +136,8 @@ instance Data.FromXML NodeGroup where
 
 instance Prelude.Hashable NodeGroup where
   hashWithSalt _salt NodeGroup' {..} =
-    _salt `Prelude.hashWithSalt` nodeGroupId
+    _salt
+      `Prelude.hashWithSalt` nodeGroupId
       `Prelude.hashWithSalt` nodeGroupMembers
       `Prelude.hashWithSalt` primaryEndpoint
       `Prelude.hashWithSalt` readerEndpoint

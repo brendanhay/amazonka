@@ -71,7 +71,8 @@ instance Data.FromXML LastError where
 
 instance Prelude.Hashable LastError where
   hashWithSalt _salt LastError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData LastError where

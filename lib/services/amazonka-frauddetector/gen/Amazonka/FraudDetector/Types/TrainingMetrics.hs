@@ -79,14 +79,16 @@ instance Data.FromJSON TrainingMetrics where
       ( \x ->
           TrainingMetrics'
             Prelude.<$> (x Data..:? "auc")
-            Prelude.<*> ( x Data..:? "metricDataPoints"
+            Prelude.<*> ( x
+                            Data..:? "metricDataPoints"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TrainingMetrics where
   hashWithSalt _salt TrainingMetrics' {..} =
-    _salt `Prelude.hashWithSalt` auc
+    _salt
+      `Prelude.hashWithSalt` auc
       `Prelude.hashWithSalt` metricDataPoints
 
 instance Prelude.NFData TrainingMetrics where

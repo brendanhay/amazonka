@@ -91,7 +91,8 @@ instance Data.FromJSON PillarReviewSummary where
 
 instance Prelude.Hashable PillarReviewSummary where
   hashWithSalt _salt PillarReviewSummary' {..} =
-    _salt `Prelude.hashWithSalt` notes
+    _salt
+      `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` pillarId
       `Prelude.hashWithSalt` pillarName
       `Prelude.hashWithSalt` riskCounts

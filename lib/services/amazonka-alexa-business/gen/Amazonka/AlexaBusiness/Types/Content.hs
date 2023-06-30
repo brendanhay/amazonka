@@ -77,7 +77,8 @@ content_textList = Lens.lens (\Content' {textList} -> textList) (\s@Content' {} 
 
 instance Prelude.Hashable Content where
   hashWithSalt _salt Content' {..} =
-    _salt `Prelude.hashWithSalt` audioList
+    _salt
+      `Prelude.hashWithSalt` audioList
       `Prelude.hashWithSalt` ssmlList
       `Prelude.hashWithSalt` textList
 

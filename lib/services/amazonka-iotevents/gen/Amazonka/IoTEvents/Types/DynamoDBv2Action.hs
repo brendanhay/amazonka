@@ -121,7 +121,8 @@ instance Data.FromJSON DynamoDBv2Action where
 
 instance Prelude.Hashable DynamoDBv2Action where
   hashWithSalt _salt DynamoDBv2Action' {..} =
-    _salt `Prelude.hashWithSalt` payload
+    _salt
+      `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData DynamoDBv2Action where

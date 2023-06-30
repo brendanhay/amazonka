@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     DeleteBucketIntelligentTieringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bucket
+      _salt
+        `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
 
 instance

@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     ApplicationRestoreConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` snapshotName
+      _salt
+        `Prelude.hashWithSalt` snapshotName
         `Prelude.hashWithSalt` applicationRestoreType
 
 instance

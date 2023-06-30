@@ -77,7 +77,8 @@ usageCriteria_dataSources = Lens.lens (\UsageCriteria' {dataSources} -> dataSour
 
 instance Prelude.Hashable UsageCriteria where
   hashWithSalt _salt UsageCriteria' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` resources
       `Prelude.hashWithSalt` dataSources
 

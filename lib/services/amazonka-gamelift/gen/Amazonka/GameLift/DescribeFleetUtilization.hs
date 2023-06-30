@@ -159,22 +159,22 @@ instance Core.AWSPager DescribeFleetUtilization where
     | Core.stop
         ( rs
             Lens.^? describeFleetUtilizationResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFleetUtilizationResponse_fleetUtilization
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFleetUtilization_nextToken
           Lens..~ rs
           Lens.^? describeFleetUtilizationResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFleetUtilization where
   type
@@ -186,7 +186,8 @@ instance Core.AWSRequest DescribeFleetUtilization where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetUtilizationResponse'
-            Prelude.<$> ( x Data..?> "FleetUtilization"
+            Prelude.<$> ( x
+                            Data..?> "FleetUtilization"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -195,7 +196,8 @@ instance Core.AWSRequest DescribeFleetUtilization where
 
 instance Prelude.Hashable DescribeFleetUtilization where
   hashWithSalt _salt DescribeFleetUtilization' {..} =
-    _salt `Prelude.hashWithSalt` fleetIds
+    _salt
+      `Prelude.hashWithSalt` fleetIds
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
 

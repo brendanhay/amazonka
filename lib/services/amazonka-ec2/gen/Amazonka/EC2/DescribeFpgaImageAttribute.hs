@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeFpgaImageAttribute where
 
 instance Prelude.Hashable DescribeFpgaImageAttribute where
   hashWithSalt _salt DescribeFpgaImageAttribute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fpgaImageId
       `Prelude.hashWithSalt` attribute
 

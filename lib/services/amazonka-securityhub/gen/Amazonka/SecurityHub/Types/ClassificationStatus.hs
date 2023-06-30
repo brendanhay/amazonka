@@ -78,7 +78,8 @@ instance Data.FromJSON ClassificationStatus where
 
 instance Prelude.Hashable ClassificationStatus where
   hashWithSalt _salt ClassificationStatus' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData ClassificationStatus where

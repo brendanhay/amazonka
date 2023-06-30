@@ -144,7 +144,8 @@ instance Core.AWSRequest PutSinkPolicy where
 
 instance Prelude.Hashable PutSinkPolicy where
   hashWithSalt _salt PutSinkPolicy' {..} =
-    _salt `Prelude.hashWithSalt` sinkIdentifier
+    _salt
+      `Prelude.hashWithSalt` sinkIdentifier
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutSinkPolicy where

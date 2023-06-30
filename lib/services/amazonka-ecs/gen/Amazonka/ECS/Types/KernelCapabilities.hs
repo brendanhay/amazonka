@@ -151,7 +151,8 @@ instance Data.FromJSON KernelCapabilities where
 
 instance Prelude.Hashable KernelCapabilities where
   hashWithSalt _salt KernelCapabilities' {..} =
-    _salt `Prelude.hashWithSalt` add
+    _salt
+      `Prelude.hashWithSalt` add
       `Prelude.hashWithSalt` drop
 
 instance Prelude.NFData KernelCapabilities where

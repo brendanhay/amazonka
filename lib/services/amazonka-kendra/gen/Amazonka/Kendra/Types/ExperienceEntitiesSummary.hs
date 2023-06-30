@@ -94,7 +94,8 @@ instance Data.FromJSON ExperienceEntitiesSummary where
 
 instance Prelude.Hashable ExperienceEntitiesSummary where
   hashWithSalt _salt ExperienceEntitiesSummary' {..} =
-    _salt `Prelude.hashWithSalt` displayData
+    _salt
+      `Prelude.hashWithSalt` displayData
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` entityType
 

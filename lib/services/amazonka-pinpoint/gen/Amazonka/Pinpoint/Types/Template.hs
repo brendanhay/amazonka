@@ -105,7 +105,8 @@ instance Data.FromJSON Template where
 
 instance Prelude.Hashable Template where
   hashWithSalt _salt Template' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData Template where

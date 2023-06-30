@@ -122,7 +122,8 @@ instance Core.AWSRequest GetTemplateStepGroup where
 
 instance Prelude.Hashable GetTemplateStepGroup where
   hashWithSalt _salt GetTemplateStepGroup' {..} =
-    _salt `Prelude.hashWithSalt` templateId
+    _salt
+      `Prelude.hashWithSalt` templateId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData GetTemplateStepGroup where

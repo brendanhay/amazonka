@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     OriginRequestPolicyCookiesConfig' {..} =
-      _salt `Prelude.hashWithSalt` cookies
+      _salt
+        `Prelude.hashWithSalt` cookies
         `Prelude.hashWithSalt` cookieBehavior
 
 instance

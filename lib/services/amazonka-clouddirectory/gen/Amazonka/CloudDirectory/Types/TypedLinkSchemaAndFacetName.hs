@@ -85,7 +85,8 @@ instance Data.FromJSON TypedLinkSchemaAndFacetName where
 
 instance Prelude.Hashable TypedLinkSchemaAndFacetName where
   hashWithSalt _salt TypedLinkSchemaAndFacetName' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` typedLinkName
 
 instance Prelude.NFData TypedLinkSchemaAndFacetName where

@@ -138,7 +138,8 @@ instance Core.AWSRequest ListSubscribedRuleGroups where
 
 instance Prelude.Hashable ListSubscribedRuleGroups where
   hashWithSalt _salt ListSubscribedRuleGroups' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListSubscribedRuleGroups where

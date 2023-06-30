@@ -159,7 +159,8 @@ instance Core.AWSRequest GetPositionEstimate where
 
 instance Prelude.Hashable GetPositionEstimate where
   hashWithSalt _salt GetPositionEstimate' {..} =
-    _salt `Prelude.hashWithSalt` cellTowers
+    _salt
+      `Prelude.hashWithSalt` cellTowers
       `Prelude.hashWithSalt` gnss
       `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` timestamp

@@ -153,7 +153,8 @@ instance Core.AWSRequest UpdateRuleVersion where
 
 instance Prelude.Hashable UpdateRuleVersion where
   hashWithSalt _salt UpdateRuleVersion' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` rule
       `Prelude.hashWithSalt` expression

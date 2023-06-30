@@ -98,19 +98,19 @@ instance Core.AWSPager ListServiceTemplates where
     | Core.stop
         ( rs
             Lens.^? listServiceTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listServiceTemplatesResponse_templates) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listServiceTemplates_nextToken
           Lens..~ rs
           Lens.^? listServiceTemplatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceTemplates where
   type
@@ -129,7 +129,8 @@ instance Core.AWSRequest ListServiceTemplates where
 
 instance Prelude.Hashable ListServiceTemplates where
   hashWithSalt _salt ListServiceTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListServiceTemplates where

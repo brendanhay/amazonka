@@ -82,7 +82,8 @@ instance Data.FromJSON ScanningRepositoryFilter where
 
 instance Prelude.Hashable ScanningRepositoryFilter where
   hashWithSalt _salt ScanningRepositoryFilter' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` filterType
 
 instance Prelude.NFData ScanningRepositoryFilter where

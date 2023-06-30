@@ -139,22 +139,22 @@ instance Core.AWSPager ListActivatedRulesInRuleGroup where
     | Core.stop
         ( rs
             Lens.^? listActivatedRulesInRuleGroupResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listActivatedRulesInRuleGroupResponse_activatedRules
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listActivatedRulesInRuleGroup_nextMarker
           Lens..~ rs
           Lens.^? listActivatedRulesInRuleGroupResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -179,7 +179,8 @@ instance
     ListActivatedRulesInRuleGroup
   where
   hashWithSalt _salt ListActivatedRulesInRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` ruleGroupId
 

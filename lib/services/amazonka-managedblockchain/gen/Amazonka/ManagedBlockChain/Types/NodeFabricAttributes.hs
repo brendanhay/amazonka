@@ -82,7 +82,8 @@ instance Data.FromJSON NodeFabricAttributes where
 
 instance Prelude.Hashable NodeFabricAttributes where
   hashWithSalt _salt NodeFabricAttributes' {..} =
-    _salt `Prelude.hashWithSalt` peerEndpoint
+    _salt
+      `Prelude.hashWithSalt` peerEndpoint
       `Prelude.hashWithSalt` peerEventEndpoint
 
 instance Prelude.NFData NodeFabricAttributes where

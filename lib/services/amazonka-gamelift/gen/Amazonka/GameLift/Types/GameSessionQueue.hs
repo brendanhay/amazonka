@@ -222,7 +222,8 @@ instance Data.FromJSON GameSessionQueue where
             Prelude.<*> (x Data..:? "GameSessionQueueArn")
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "NotificationTarget")
-            Prelude.<*> ( x Data..:? "PlayerLatencyPolicies"
+            Prelude.<*> ( x
+                            Data..:? "PlayerLatencyPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PriorityConfiguration")
@@ -231,7 +232,8 @@ instance Data.FromJSON GameSessionQueue where
 
 instance Prelude.Hashable GameSessionQueue where
   hashWithSalt _salt GameSessionQueue' {..} =
-    _salt `Prelude.hashWithSalt` customEventData
+    _salt
+      `Prelude.hashWithSalt` customEventData
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` filterConfiguration
       `Prelude.hashWithSalt` gameSessionQueueArn

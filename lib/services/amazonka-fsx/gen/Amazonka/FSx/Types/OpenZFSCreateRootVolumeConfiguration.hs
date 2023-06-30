@@ -193,7 +193,8 @@ instance
   hashWithSalt
     _salt
     OpenZFSCreateRootVolumeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` copyTagsToSnapshots
+      _salt
+        `Prelude.hashWithSalt` copyTagsToSnapshots
         `Prelude.hashWithSalt` dataCompressionType
         `Prelude.hashWithSalt` nfsExports
         `Prelude.hashWithSalt` readOnly

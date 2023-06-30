@@ -79,7 +79,8 @@ instance Data.FromJSON FirewallMetadata where
 
 instance Prelude.Hashable FirewallMetadata where
   hashWithSalt _salt FirewallMetadata' {..} =
-    _salt `Prelude.hashWithSalt` firewallArn
+    _salt
+      `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` firewallName
 
 instance Prelude.NFData FirewallMetadata where

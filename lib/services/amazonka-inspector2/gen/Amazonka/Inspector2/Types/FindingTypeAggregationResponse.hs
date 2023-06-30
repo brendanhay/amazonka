@@ -81,7 +81,8 @@ instance
   hashWithSalt
     _salt
     FindingTypeAggregationResponse' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` severityCounts
 
 instance

@@ -78,7 +78,8 @@ instance Data.FromJSON SetVariableAction where
 
 instance Prelude.Hashable SetVariableAction where
   hashWithSalt _salt SetVariableAction' {..} =
-    _salt `Prelude.hashWithSalt` variableName
+    _salt
+      `Prelude.hashWithSalt` variableName
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SetVariableAction where

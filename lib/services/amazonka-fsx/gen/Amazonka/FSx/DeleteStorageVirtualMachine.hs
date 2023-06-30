@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteStorageVirtualMachine where
 
 instance Prelude.Hashable DeleteStorageVirtualMachine where
   hashWithSalt _salt DeleteStorageVirtualMachine' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` storageVirtualMachineId
 
 instance Prelude.NFData DeleteStorageVirtualMachine where

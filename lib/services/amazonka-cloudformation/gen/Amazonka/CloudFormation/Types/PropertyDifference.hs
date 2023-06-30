@@ -141,7 +141,8 @@ instance Data.FromXML PropertyDifference where
 
 instance Prelude.Hashable PropertyDifference where
   hashWithSalt _salt PropertyDifference' {..} =
-    _salt `Prelude.hashWithSalt` propertyPath
+    _salt
+      `Prelude.hashWithSalt` propertyPath
       `Prelude.hashWithSalt` expectedValue
       `Prelude.hashWithSalt` actualValue
       `Prelude.hashWithSalt` differenceType

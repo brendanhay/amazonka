@@ -317,7 +317,8 @@ instance Core.AWSRequest ModifyVolume where
 
 instance Prelude.Hashable ModifyVolume where
   hashWithSalt _salt ModifyVolume' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` multiAttachEnabled
       `Prelude.hashWithSalt` size

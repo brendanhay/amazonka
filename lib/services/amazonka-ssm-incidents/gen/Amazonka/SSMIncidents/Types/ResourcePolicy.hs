@@ -97,7 +97,8 @@ instance Data.FromJSON ResourcePolicy where
 
 instance Prelude.Hashable ResourcePolicy where
   hashWithSalt _salt ResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyDocument
+    _salt
+      `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` ramResourceShareRegion
 

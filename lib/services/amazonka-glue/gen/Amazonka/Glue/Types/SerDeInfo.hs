@@ -88,7 +88,8 @@ instance Data.FromJSON SerDeInfo where
 
 instance Prelude.Hashable SerDeInfo where
   hashWithSalt _salt SerDeInfo' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` serializationLibrary
 

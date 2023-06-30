@@ -126,7 +126,8 @@ instance
   hashWithSalt
     _salt
     UpdateRoutingProfileDefaultOutboundQueue' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` routingProfileId
         `Prelude.hashWithSalt` defaultOutboundQueueId
 

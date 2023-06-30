@@ -159,7 +159,8 @@ scheduledInstancesEbs_volumeType = Lens.lens (\ScheduledInstancesEbs' {volumeTyp
 
 instance Prelude.Hashable ScheduledInstancesEbs where
   hashWithSalt _salt ScheduledInstancesEbs' {..} =
-    _salt `Prelude.hashWithSalt` deleteOnTermination
+    _salt
+      `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` snapshotId

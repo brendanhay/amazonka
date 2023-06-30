@@ -135,7 +135,8 @@ instance
     CreateLocalGatewayRouteTable
   where
   hashWithSalt _salt CreateLocalGatewayRouteTable' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` localGatewayId

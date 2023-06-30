@@ -77,7 +77,8 @@ instance Data.FromJSON DataQualityJobInput where
 
 instance Prelude.Hashable DataQualityJobInput where
   hashWithSalt _salt DataQualityJobInput' {..} =
-    _salt `Prelude.hashWithSalt` batchTransformInput
+    _salt
+      `Prelude.hashWithSalt` batchTransformInput
       `Prelude.hashWithSalt` endpointInput
 
 instance Prelude.NFData DataQualityJobInput where

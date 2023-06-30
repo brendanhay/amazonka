@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateAuthorizer where
 
 instance Prelude.Hashable UpdateAuthorizer where
   hashWithSalt _salt UpdateAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` authorizerId
 

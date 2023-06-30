@@ -176,7 +176,8 @@ instance Core.AWSRequest DeleteInventory where
 
 instance Prelude.Hashable DeleteInventory where
   hashWithSalt _salt DeleteInventory' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` schemaDeleteOption
       `Prelude.hashWithSalt` typeName

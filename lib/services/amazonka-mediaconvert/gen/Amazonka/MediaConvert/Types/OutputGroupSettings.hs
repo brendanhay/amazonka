@@ -187,7 +187,8 @@ instance Data.FromJSON OutputGroupSettings where
 
 instance Prelude.Hashable OutputGroupSettings where
   hashWithSalt _salt OutputGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` cmafGroupSettings
+    _salt
+      `Prelude.hashWithSalt` cmafGroupSettings
       `Prelude.hashWithSalt` dashIsoGroupSettings
       `Prelude.hashWithSalt` fileGroupSettings
       `Prelude.hashWithSalt` hlsGroupSettings

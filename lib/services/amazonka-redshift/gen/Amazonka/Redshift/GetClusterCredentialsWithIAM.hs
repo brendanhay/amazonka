@@ -153,7 +153,8 @@ instance
     GetClusterCredentialsWithIAM
   where
   hashWithSalt _salt GetClusterCredentialsWithIAM' {..} =
-    _salt `Prelude.hashWithSalt` dbName
+    _salt
+      `Prelude.hashWithSalt` dbName
       `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` clusterIdentifier
 

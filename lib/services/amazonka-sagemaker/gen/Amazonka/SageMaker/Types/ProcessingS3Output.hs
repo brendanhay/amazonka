@@ -110,7 +110,8 @@ instance Data.FromJSON ProcessingS3Output where
 
 instance Prelude.Hashable ProcessingS3Output where
   hashWithSalt _salt ProcessingS3Output' {..} =
-    _salt `Prelude.hashWithSalt` s3Uri
+    _salt
+      `Prelude.hashWithSalt` s3Uri
       `Prelude.hashWithSalt` localPath
       `Prelude.hashWithSalt` s3UploadMode
 

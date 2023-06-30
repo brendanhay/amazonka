@@ -243,7 +243,8 @@ instance Core.AWSRequest BatchExecuteStatement where
 
 instance Prelude.Hashable BatchExecuteStatement where
   hashWithSalt _salt BatchExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` secretArn

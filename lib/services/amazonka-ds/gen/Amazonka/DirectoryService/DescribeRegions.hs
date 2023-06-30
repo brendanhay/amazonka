@@ -108,22 +108,22 @@ instance Core.AWSPager DescribeRegions where
     | Core.stop
         ( rs
             Lens.^? describeRegionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeRegionsResponse_regionsDescription
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeRegions_nextToken
           Lens..~ rs
           Lens.^? describeRegionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRegions where
   type
@@ -136,7 +136,8 @@ instance Core.AWSRequest DescribeRegions where
       ( \s h x ->
           DescribeRegionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "RegionsDescription"
+            Prelude.<*> ( x
+                            Data..?> "RegionsDescription"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,7 +145,8 @@ instance Core.AWSRequest DescribeRegions where
 
 instance Prelude.Hashable DescribeRegions where
   hashWithSalt _salt DescribeRegions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` directoryId
 

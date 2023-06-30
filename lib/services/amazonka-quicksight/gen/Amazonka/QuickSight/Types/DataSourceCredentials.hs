@@ -35,7 +35,8 @@ data DataSourceCredentials = DataSourceCredentials'
     -- credential pair from the data source in the ARN is used as the
     -- credentials for the @DataSourceCredentials@ structure.
     copySourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Credential pair. For more information, see @ CredentialPair @.
+    -- | Credential pair. For more information, see
+    -- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html CredentialPair>@ @.
     credentialPair :: Prelude.Maybe CredentialPair,
     -- | The Amazon Resource Name (ARN) of the secret associated with the data
     -- source in Amazon Secrets Manager.
@@ -56,7 +57,8 @@ data DataSourceCredentials = DataSourceCredentials'
 -- credential pair from the data source in the ARN is used as the
 -- credentials for the @DataSourceCredentials@ structure.
 --
--- 'credentialPair', 'dataSourceCredentials_credentialPair' - Credential pair. For more information, see @ CredentialPair @.
+-- 'credentialPair', 'dataSourceCredentials_credentialPair' - Credential pair. For more information, see
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html CredentialPair>@ @.
 --
 -- 'secretArn', 'dataSourceCredentials_secretArn' - The Amazon Resource Name (ARN) of the secret associated with the data
 -- source in Amazon Secrets Manager.
@@ -77,7 +79,8 @@ newDataSourceCredentials =
 dataSourceCredentials_copySourceArn :: Lens.Lens' DataSourceCredentials (Prelude.Maybe Prelude.Text)
 dataSourceCredentials_copySourceArn = Lens.lens (\DataSourceCredentials' {copySourceArn} -> copySourceArn) (\s@DataSourceCredentials' {} a -> s {copySourceArn = a} :: DataSourceCredentials)
 
--- | Credential pair. For more information, see @ CredentialPair @.
+-- | Credential pair. For more information, see
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html CredentialPair>@ @.
 dataSourceCredentials_credentialPair :: Lens.Lens' DataSourceCredentials (Prelude.Maybe CredentialPair)
 dataSourceCredentials_credentialPair = Lens.lens (\DataSourceCredentials' {credentialPair} -> credentialPair) (\s@DataSourceCredentials' {} a -> s {credentialPair = a} :: DataSourceCredentials)
 
@@ -88,7 +91,8 @@ dataSourceCredentials_secretArn = Lens.lens (\DataSourceCredentials' {secretArn}
 
 instance Prelude.Hashable DataSourceCredentials where
   hashWithSalt _salt DataSourceCredentials' {..} =
-    _salt `Prelude.hashWithSalt` copySourceArn
+    _salt
+      `Prelude.hashWithSalt` copySourceArn
       `Prelude.hashWithSalt` credentialPair
       `Prelude.hashWithSalt` secretArn
 

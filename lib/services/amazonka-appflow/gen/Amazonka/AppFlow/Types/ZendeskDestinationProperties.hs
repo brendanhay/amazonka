@@ -99,7 +99,8 @@ instance
     ZendeskDestinationProperties
   where
   hashWithSalt _salt ZendeskDestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` errorHandlingConfig
+    _salt
+      `Prelude.hashWithSalt` errorHandlingConfig
       `Prelude.hashWithSalt` idFieldNames
       `Prelude.hashWithSalt` writeOperationType
       `Prelude.hashWithSalt` object'

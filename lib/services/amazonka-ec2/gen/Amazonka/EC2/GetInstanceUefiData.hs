@@ -129,7 +129,8 @@ instance Core.AWSRequest GetInstanceUefiData where
 
 instance Prelude.Hashable GetInstanceUefiData where
   hashWithSalt _salt GetInstanceUefiData' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData GetInstanceUefiData where

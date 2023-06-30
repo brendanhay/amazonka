@@ -110,7 +110,8 @@ instance Data.FromJSON CoreDevice where
 
 instance Prelude.Hashable CoreDevice where
   hashWithSalt _salt CoreDevice' {..} =
-    _salt `Prelude.hashWithSalt` coreDeviceThingName
+    _salt
+      `Prelude.hashWithSalt` coreDeviceThingName
       `Prelude.hashWithSalt` lastStatusUpdateTimestamp
       `Prelude.hashWithSalt` status
 

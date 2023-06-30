@@ -111,7 +111,8 @@ instance Core.AWSRequest RemoveNotificationChannel where
 
 instance Prelude.Hashable RemoveNotificationChannel where
   hashWithSalt _salt RemoveNotificationChannel' {..} =
-    _salt `Prelude.hashWithSalt` channelId
+    _salt
+      `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` profilingGroupName
 
 instance Prelude.NFData RemoveNotificationChannel where

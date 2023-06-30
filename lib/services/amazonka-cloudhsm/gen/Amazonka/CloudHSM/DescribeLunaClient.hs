@@ -123,7 +123,8 @@ instance Core.AWSRequest DescribeLunaClient where
 
 instance Prelude.Hashable DescribeLunaClient where
   hashWithSalt _salt DescribeLunaClient' {..} =
-    _salt `Prelude.hashWithSalt` certificateFingerprint
+    _salt
+      `Prelude.hashWithSalt` certificateFingerprint
       `Prelude.hashWithSalt` clientArn
 
 instance Prelude.NFData DescribeLunaClient where

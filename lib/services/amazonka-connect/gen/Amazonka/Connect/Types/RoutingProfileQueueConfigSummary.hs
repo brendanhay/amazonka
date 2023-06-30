@@ -157,7 +157,8 @@ instance
   hashWithSalt
     _salt
     RoutingProfileQueueConfigSummary' {..} =
-      _salt `Prelude.hashWithSalt` queueId
+      _salt
+        `Prelude.hashWithSalt` queueId
         `Prelude.hashWithSalt` queueArn
         `Prelude.hashWithSalt` queueName
         `Prelude.hashWithSalt` priority

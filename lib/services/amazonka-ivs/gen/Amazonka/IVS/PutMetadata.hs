@@ -101,7 +101,8 @@ instance Core.AWSRequest PutMetadata where
 
 instance Prelude.Hashable PutMetadata where
   hashWithSalt _salt PutMetadata' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` metadata
 
 instance Prelude.NFData PutMetadata where

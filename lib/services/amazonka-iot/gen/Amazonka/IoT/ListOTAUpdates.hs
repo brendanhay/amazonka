@@ -106,21 +106,22 @@ instance Core.AWSPager ListOTAUpdates where
     | Core.stop
         ( rs
             Lens.^? listOTAUpdatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOTAUpdatesResponse_otaUpdates
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listOTAUpdates_nextToken
           Lens..~ rs
-          Lens.^? listOTAUpdatesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listOTAUpdatesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOTAUpdates where
   type
@@ -139,7 +140,8 @@ instance Core.AWSRequest ListOTAUpdates where
 
 instance Prelude.Hashable ListOTAUpdates where
   hashWithSalt _salt ListOTAUpdates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` otaUpdateStatus
 

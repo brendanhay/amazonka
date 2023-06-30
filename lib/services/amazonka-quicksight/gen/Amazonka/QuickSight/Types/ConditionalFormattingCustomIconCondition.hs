@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     ConditionalFormattingCustomIconCondition' {..} =
-      _salt `Prelude.hashWithSalt` color
+      _salt
+        `Prelude.hashWithSalt` color
         `Prelude.hashWithSalt` displayConfiguration
         `Prelude.hashWithSalt` expression
         `Prelude.hashWithSalt` iconOptions

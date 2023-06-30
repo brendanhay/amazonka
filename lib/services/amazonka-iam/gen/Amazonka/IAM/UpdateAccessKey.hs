@@ -153,7 +153,8 @@ instance Core.AWSRequest UpdateAccessKey where
 
 instance Prelude.Hashable UpdateAccessKey where
   hashWithSalt _salt UpdateAccessKey' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` status
 

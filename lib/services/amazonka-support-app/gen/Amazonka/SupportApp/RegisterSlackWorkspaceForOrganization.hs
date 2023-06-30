@@ -132,9 +132,9 @@ instance
       ( \s h x ->
           RegisterSlackWorkspaceForOrganizationResponse'
             Prelude.<$> (x Data..?> "accountType")
-              Prelude.<*> (x Data..?> "teamId")
-              Prelude.<*> (x Data..?> "teamName")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "teamId")
+            Prelude.<*> (x Data..?> "teamName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

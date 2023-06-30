@@ -168,7 +168,8 @@ instance Core.AWSRequest ListObjectParents where
 
 instance Prelude.Hashable ListObjectParents where
   hashWithSalt _salt ListObjectParents' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` includeAllLinksToEachParent
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

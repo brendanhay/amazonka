@@ -78,7 +78,8 @@ instance Data.FromJSON ResourceSpecification where
 
 instance Prelude.Hashable ResourceSpecification where
   hashWithSalt _salt ResourceSpecification' {..} =
-    _salt `Prelude.hashWithSalt` reservedBitrate
+    _salt
+      `Prelude.hashWithSalt` reservedBitrate
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ResourceSpecification where

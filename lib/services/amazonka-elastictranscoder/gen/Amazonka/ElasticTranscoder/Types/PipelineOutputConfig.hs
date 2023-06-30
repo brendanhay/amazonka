@@ -187,7 +187,8 @@ instance Data.FromJSON PipelineOutputConfig where
 
 instance Prelude.Hashable PipelineOutputConfig where
   hashWithSalt _salt PipelineOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` storageClass
 

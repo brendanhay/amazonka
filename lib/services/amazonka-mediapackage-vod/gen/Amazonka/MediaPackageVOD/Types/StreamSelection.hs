@@ -86,7 +86,8 @@ instance Data.FromJSON StreamSelection where
 
 instance Prelude.Hashable StreamSelection where
   hashWithSalt _salt StreamSelection' {..} =
-    _salt `Prelude.hashWithSalt` maxVideoBitsPerSecond
+    _salt
+      `Prelude.hashWithSalt` maxVideoBitsPerSecond
       `Prelude.hashWithSalt` minVideoBitsPerSecond
       `Prelude.hashWithSalt` streamOrder
 

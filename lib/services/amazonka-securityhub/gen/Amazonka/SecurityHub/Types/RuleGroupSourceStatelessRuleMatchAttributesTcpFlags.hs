@@ -83,7 +83,7 @@ instance
       ( \x ->
           RuleGroupSourceStatelessRuleMatchAttributesTcpFlags'
             Prelude.<$> (x Data..:? "Flags" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Masks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Masks" Data..!= Prelude.mempty)
       )
 
 instance
@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatelessRuleMatchAttributesTcpFlags' {..} =
-      _salt `Prelude.hashWithSalt` flags
+      _salt
+        `Prelude.hashWithSalt` flags
         `Prelude.hashWithSalt` masks
 
 instance

@@ -140,7 +140,8 @@ instance Core.AWSRequest ListImportJobs where
 
 instance Prelude.Hashable ListImportJobs where
   hashWithSalt _salt ListImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` importDestinationType
+    _salt
+      `Prelude.hashWithSalt` importDestinationType
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 

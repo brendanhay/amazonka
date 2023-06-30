@@ -99,7 +99,8 @@ instance Data.FromJSON VpcEndpointSummary where
 
 instance Prelude.Hashable VpcEndpointSummary where
   hashWithSalt _salt VpcEndpointSummary' {..} =
-    _salt `Prelude.hashWithSalt` domainArn
+    _salt
+      `Prelude.hashWithSalt` domainArn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` vpcEndpointId
       `Prelude.hashWithSalt` vpcEndpointOwner

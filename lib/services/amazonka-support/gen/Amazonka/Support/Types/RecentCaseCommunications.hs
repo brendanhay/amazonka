@@ -76,7 +76,8 @@ instance Data.FromJSON RecentCaseCommunications where
 
 instance Prelude.Hashable RecentCaseCommunications where
   hashWithSalt _salt RecentCaseCommunications' {..} =
-    _salt `Prelude.hashWithSalt` communications
+    _salt
+      `Prelude.hashWithSalt` communications
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData RecentCaseCommunications where

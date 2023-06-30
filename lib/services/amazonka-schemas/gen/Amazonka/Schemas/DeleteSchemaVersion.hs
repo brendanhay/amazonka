@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteSchemaVersion where
 
 instance Prelude.Hashable DeleteSchemaVersion where
   hashWithSalt _salt DeleteSchemaVersion' {..} =
-    _salt `Prelude.hashWithSalt` schemaVersion
+    _salt
+      `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaName
 

@@ -96,7 +96,8 @@ lambdaLayerAggregation_sortOrder = Lens.lens (\LambdaLayerAggregation' {sortOrde
 
 instance Prelude.Hashable LambdaLayerAggregation where
   hashWithSalt _salt LambdaLayerAggregation' {..} =
-    _salt `Prelude.hashWithSalt` functionNames
+    _salt
+      `Prelude.hashWithSalt` functionNames
       `Prelude.hashWithSalt` layerArns
       `Prelude.hashWithSalt` resourceIds
       `Prelude.hashWithSalt` sortBy

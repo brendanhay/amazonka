@@ -285,7 +285,8 @@ instance Data.FromJSON FaceDetail where
 
 instance Prelude.Hashable FaceDetail where
   hashWithSalt _salt FaceDetail' {..} =
-    _salt `Prelude.hashWithSalt` ageRange
+    _salt
+      `Prelude.hashWithSalt` ageRange
       `Prelude.hashWithSalt` beard
       `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence

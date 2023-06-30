@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateFeatureGroup where
 
 instance Prelude.Hashable UpdateFeatureGroup where
   hashWithSalt _salt UpdateFeatureGroup' {..} =
-    _salt `Prelude.hashWithSalt` featureAdditions
+    _salt
+      `Prelude.hashWithSalt` featureAdditions
       `Prelude.hashWithSalt` featureGroupName
 
 instance Prelude.NFData UpdateFeatureGroup where

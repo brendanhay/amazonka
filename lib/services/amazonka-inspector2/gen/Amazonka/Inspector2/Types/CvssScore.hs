@@ -106,7 +106,8 @@ instance Data.FromJSON CvssScore where
 
 instance Prelude.Hashable CvssScore where
   hashWithSalt _salt CvssScore' {..} =
-    _salt `Prelude.hashWithSalt` baseScore
+    _salt
+      `Prelude.hashWithSalt` baseScore
       `Prelude.hashWithSalt` scoringVector
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` version

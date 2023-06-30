@@ -171,7 +171,8 @@ instance Data.FromJSON RedshiftDatasetDefinition where
 
 instance Prelude.Hashable RedshiftDatasetDefinition where
   hashWithSalt _salt RedshiftDatasetDefinition' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` outputCompression
       `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` database

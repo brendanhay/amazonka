@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     ConnectionStatusEventConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` loRaWAN
+      _salt
+        `Prelude.hashWithSalt` loRaWAN
         `Prelude.hashWithSalt` wirelessGatewayIdEventTopic
 
 instance

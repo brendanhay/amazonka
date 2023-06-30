@@ -153,7 +153,8 @@ instance Data.FromJSON Action where
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` awsApiCallAction
       `Prelude.hashWithSalt` dnsRequestAction
       `Prelude.hashWithSalt` networkConnectionAction

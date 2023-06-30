@@ -80,7 +80,8 @@ instance
     PendingModifiedServiceUpdate
   where
   hashWithSalt _salt PendingModifiedServiceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` serviceUpdateName
+    _salt
+      `Prelude.hashWithSalt` serviceUpdateName
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData PendingModifiedServiceUpdate where

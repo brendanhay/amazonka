@@ -121,7 +121,8 @@ instance Data.FromJSON OpenZFSClientConfiguration where
 
 instance Prelude.Hashable OpenZFSClientConfiguration where
   hashWithSalt _salt OpenZFSClientConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` clients
+    _salt
+      `Prelude.hashWithSalt` clients
       `Prelude.hashWithSalt` options
 
 instance Prelude.NFData OpenZFSClientConfiguration where

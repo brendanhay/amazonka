@@ -144,7 +144,8 @@ instance Data.FromJSON VpcLink where
 
 instance Prelude.Hashable VpcLink where
   hashWithSalt _salt VpcLink' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

@@ -77,7 +77,8 @@ instance Data.FromJSON EmailContent where
 
 instance Prelude.Hashable EmailContent where
   hashWithSalt _salt EmailContent' {..} =
-    _salt `Prelude.hashWithSalt` additionalMessage
+    _salt
+      `Prelude.hashWithSalt` additionalMessage
       `Prelude.hashWithSalt` subject
 
 instance Prelude.NFData EmailContent where

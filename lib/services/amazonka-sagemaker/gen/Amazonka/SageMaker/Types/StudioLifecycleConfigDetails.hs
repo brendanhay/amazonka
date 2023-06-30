@@ -113,7 +113,8 @@ instance
     StudioLifecycleConfigDetails
   where
   hashWithSalt _salt StudioLifecycleConfigDetails' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` studioLifecycleConfigAppType
       `Prelude.hashWithSalt` studioLifecycleConfigArn

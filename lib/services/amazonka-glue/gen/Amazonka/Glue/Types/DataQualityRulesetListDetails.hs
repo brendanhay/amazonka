@@ -132,7 +132,8 @@ instance
     DataQualityRulesetListDetails
   where
   hashWithSalt _salt DataQualityRulesetListDetails' {..} =
-    _salt `Prelude.hashWithSalt` createdOn
+    _salt
+      `Prelude.hashWithSalt` createdOn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastModifiedOn
       `Prelude.hashWithSalt` name

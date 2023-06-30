@@ -114,7 +114,8 @@ instance Data.FromJSON PortfolioDetail where
 
 instance Prelude.Hashable PortfolioDetail where
   hashWithSalt _salt PortfolioDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName

@@ -109,7 +109,8 @@ instance
   hashWithSalt
     _salt
     UpdateThingRuntimeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` telemetryConfiguration
+      _salt
+        `Prelude.hashWithSalt` telemetryConfiguration
         `Prelude.hashWithSalt` thingName
 
 instance

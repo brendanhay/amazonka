@@ -185,22 +185,22 @@ instance Core.AWSPager ListServerCertificates where
     | Core.stop
         ( rs
             Lens.^? listServerCertificatesResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listServerCertificatesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listServerCertificates_marker
           Lens..~ rs
           Lens.^? listServerCertificatesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServerCertificates where
   type
@@ -216,7 +216,8 @@ instance Core.AWSRequest ListServerCertificates where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "ServerCertificateMetadataList"
+            Prelude.<*> ( x
+                            Data..@? "ServerCertificateMetadataList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
@@ -224,7 +225,8 @@ instance Core.AWSRequest ListServerCertificates where
 
 instance Prelude.Hashable ListServerCertificates where
   hashWithSalt _salt ListServerCertificates' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` pathPrefix
 

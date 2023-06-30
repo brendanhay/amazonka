@@ -56,11 +56,9 @@ newVectorEnrichmentJobConfig =
       reverseGeocodingConfig = Prelude.Nothing
     }
 
--- |
 vectorEnrichmentJobConfig_mapMatchingConfig :: Lens.Lens' VectorEnrichmentJobConfig (Prelude.Maybe MapMatchingConfig)
 vectorEnrichmentJobConfig_mapMatchingConfig = Lens.lens (\VectorEnrichmentJobConfig' {mapMatchingConfig} -> mapMatchingConfig) (\s@VectorEnrichmentJobConfig' {} a -> s {mapMatchingConfig = a} :: VectorEnrichmentJobConfig)
 
--- |
 vectorEnrichmentJobConfig_reverseGeocodingConfig :: Lens.Lens' VectorEnrichmentJobConfig (Prelude.Maybe ReverseGeocodingConfig)
 vectorEnrichmentJobConfig_reverseGeocodingConfig = Lens.lens (\VectorEnrichmentJobConfig' {reverseGeocodingConfig} -> reverseGeocodingConfig) (\s@VectorEnrichmentJobConfig' {} a -> s {reverseGeocodingConfig = a} :: VectorEnrichmentJobConfig)
 
@@ -76,7 +74,8 @@ instance Data.FromJSON VectorEnrichmentJobConfig where
 
 instance Prelude.Hashable VectorEnrichmentJobConfig where
   hashWithSalt _salt VectorEnrichmentJobConfig' {..} =
-    _salt `Prelude.hashWithSalt` mapMatchingConfig
+    _salt
+      `Prelude.hashWithSalt` mapMatchingConfig
       `Prelude.hashWithSalt` reverseGeocodingConfig
 
 instance Prelude.NFData VectorEnrichmentJobConfig where

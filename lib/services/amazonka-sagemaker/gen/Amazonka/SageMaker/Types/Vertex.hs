@@ -88,7 +88,8 @@ instance Data.FromJSON Vertex where
 
 instance Prelude.Hashable Vertex where
   hashWithSalt _salt Vertex' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` lineageType
       `Prelude.hashWithSalt` type'
 

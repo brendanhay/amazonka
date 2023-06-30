@@ -145,7 +145,8 @@ instance Core.AWSRequest UpgradePublishedSchema where
 
 instance Prelude.Hashable UpgradePublishedSchema where
   hashWithSalt _salt UpgradePublishedSchema' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` developmentSchemaArn
       `Prelude.hashWithSalt` publishedSchemaArn
       `Prelude.hashWithSalt` minorVersion

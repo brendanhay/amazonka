@@ -32,7 +32,8 @@
 -- associated endpoint resources such as KMS key grants. You might still
 -- see these resources in your account for a few minutes after deleting
 -- your endpoint. Do not delete or revoke the permissions for your
--- @ ExecutionRoleArn @, otherwise SageMaker cannot delete these resources.
+-- @ @<https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn ExecutionRoleArn>@ @,
+-- otherwise SageMaker cannot delete these resources.
 module Amazonka.SageMaker.DeleteEndpoint
   ( -- * Creating a Request
     DeleteEndpoint (..),

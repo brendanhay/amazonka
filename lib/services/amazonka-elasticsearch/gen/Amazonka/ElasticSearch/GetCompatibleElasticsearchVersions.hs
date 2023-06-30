@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of upgrade compatible Elastisearch versions. You can
--- optionally pass a @ DomainName @ to get all upgrade compatible
+-- optionally pass a @ @@DomainName@@ @ to get all upgrade compatible
 -- Elasticsearch versions for that specific domain.
 module Amazonka.ElasticSearch.GetCompatibleElasticsearchVersions
   ( -- * Creating a Request
@@ -50,7 +50,7 @@ import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
 -- | Container for request parameters to
--- @ GetCompatibleElasticsearchVersions @ operation.
+-- @ @@GetCompatibleElasticsearchVersions@@ @ operation.
 --
 -- /See:/ 'newGetCompatibleElasticsearchVersions' smart constructor.
 data GetCompatibleElasticsearchVersions = GetCompatibleElasticsearchVersions'
@@ -92,10 +92,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetCompatibleElasticsearchVersionsResponse'
-            Prelude.<$> ( x Data..?> "CompatibleElasticsearchVersions"
+            Prelude.<$> ( x
+                            Data..?> "CompatibleElasticsearchVersions"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -135,12 +136,12 @@ instance
     Prelude.mconcat ["domainName" Data.=: domainName]
 
 -- | Container for response returned by
--- @ GetCompatibleElasticsearchVersions @ operation.
+-- @ @@GetCompatibleElasticsearchVersions@@ @ operation.
 --
 -- /See:/ 'newGetCompatibleElasticsearchVersionsResponse' smart constructor.
 data GetCompatibleElasticsearchVersionsResponse = GetCompatibleElasticsearchVersionsResponse'
   { -- | A map of compatible Elasticsearch versions returned as part of the
-    -- @ GetCompatibleElasticsearchVersions @ operation.
+    -- @ @@GetCompatibleElasticsearchVersions@@ @ operation.
     compatibleElasticsearchVersions :: Prelude.Maybe [CompatibleVersionsMap],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -156,7 +157,7 @@ data GetCompatibleElasticsearchVersionsResponse = GetCompatibleElasticsearchVers
 -- for backwards compatibility:
 --
 -- 'compatibleElasticsearchVersions', 'getCompatibleElasticsearchVersionsResponse_compatibleElasticsearchVersions' - A map of compatible Elasticsearch versions returned as part of the
--- @ GetCompatibleElasticsearchVersions @ operation.
+-- @ @@GetCompatibleElasticsearchVersions@@ @ operation.
 --
 -- 'httpStatus', 'getCompatibleElasticsearchVersionsResponse_httpStatus' - The response's http status code.
 newGetCompatibleElasticsearchVersionsResponse ::
@@ -172,7 +173,7 @@ newGetCompatibleElasticsearchVersionsResponse
       }
 
 -- | A map of compatible Elasticsearch versions returned as part of the
--- @ GetCompatibleElasticsearchVersions @ operation.
+-- @ @@GetCompatibleElasticsearchVersions@@ @ operation.
 getCompatibleElasticsearchVersionsResponse_compatibleElasticsearchVersions :: Lens.Lens' GetCompatibleElasticsearchVersionsResponse (Prelude.Maybe [CompatibleVersionsMap])
 getCompatibleElasticsearchVersionsResponse_compatibleElasticsearchVersions = Lens.lens (\GetCompatibleElasticsearchVersionsResponse' {compatibleElasticsearchVersions} -> compatibleElasticsearchVersions) (\s@GetCompatibleElasticsearchVersionsResponse' {} a -> s {compatibleElasticsearchVersions = a} :: GetCompatibleElasticsearchVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 

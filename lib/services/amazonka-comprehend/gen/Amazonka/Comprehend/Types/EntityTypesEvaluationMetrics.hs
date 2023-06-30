@@ -110,7 +110,8 @@ instance
     EntityTypesEvaluationMetrics
   where
   hashWithSalt _salt EntityTypesEvaluationMetrics' {..} =
-    _salt `Prelude.hashWithSalt` f1Score
+    _salt
+      `Prelude.hashWithSalt` f1Score
       `Prelude.hashWithSalt` precision
       `Prelude.hashWithSalt` recall
 

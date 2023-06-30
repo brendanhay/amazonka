@@ -146,7 +146,8 @@ instance Data.FromJSON ComparedFace where
 
 instance Prelude.Hashable ComparedFace where
   hashWithSalt _salt ComparedFace' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` emotions
       `Prelude.hashWithSalt` landmarks

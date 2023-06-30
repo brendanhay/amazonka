@@ -495,7 +495,8 @@ instance Data.FromJSON Project where
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "encryptionKey")
             Prelude.<*> (x Data..:? "environment")
-            Prelude.<*> ( x Data..:? "fileSystemLocations"
+            Prelude.<*> ( x
+                            Data..:? "fileSystemLocations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "lastModified")
@@ -505,13 +506,16 @@ instance Data.FromJSON Project where
             Prelude.<*> (x Data..:? "publicProjectAlias")
             Prelude.<*> (x Data..:? "queuedTimeoutInMinutes")
             Prelude.<*> (x Data..:? "resourceAccessRole")
-            Prelude.<*> ( x Data..:? "secondaryArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "secondaryArtifacts"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "secondarySourceVersions"
+            Prelude.<*> ( x
+                            Data..:? "secondarySourceVersions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "secondarySources"
+            Prelude.<*> ( x
+                            Data..:? "secondarySources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "serviceRole")
@@ -525,7 +529,8 @@ instance Data.FromJSON Project where
 
 instance Prelude.Hashable Project where
   hashWithSalt _salt Project' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` artifacts
       `Prelude.hashWithSalt` badge
       `Prelude.hashWithSalt` buildBatchConfig

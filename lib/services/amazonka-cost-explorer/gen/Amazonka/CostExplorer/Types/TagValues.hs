@@ -98,7 +98,8 @@ instance Data.FromJSON TagValues where
 
 instance Prelude.Hashable TagValues where
   hashWithSalt _salt TagValues' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` matchOptions
       `Prelude.hashWithSalt` values
 

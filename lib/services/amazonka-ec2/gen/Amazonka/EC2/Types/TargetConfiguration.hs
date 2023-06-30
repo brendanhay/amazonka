@@ -78,7 +78,8 @@ instance Data.FromXML TargetConfiguration where
 
 instance Prelude.Hashable TargetConfiguration where
   hashWithSalt _salt TargetConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` instanceCount
+    _salt
+      `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` offeringId
 
 instance Prelude.NFData TargetConfiguration where

@@ -69,7 +69,8 @@ optedOutFilter_values = Lens.lens (\OptedOutFilter' {values} -> values) (\s@Opte
 
 instance Prelude.Hashable OptedOutFilter where
   hashWithSalt _salt OptedOutFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData OptedOutFilter where

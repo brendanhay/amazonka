@@ -88,10 +88,12 @@ instance Core.AWSRequest DescribeWorkspaceSnapshots where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceSnapshotsResponse'
-            Prelude.<$> ( x Data..?> "RebuildSnapshots"
+            Prelude.<$> ( x
+                            Data..?> "RebuildSnapshots"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "RestoreSnapshots"
+            Prelude.<*> ( x
+                            Data..?> "RestoreSnapshots"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

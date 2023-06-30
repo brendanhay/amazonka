@@ -109,7 +109,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeSecurityGroupReferencesResponse'
-            Prelude.<$> ( x Data..@? "securityGroupReferenceSet"
+            Prelude.<$> ( x
+                            Data..@? "securityGroupReferenceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -123,7 +124,8 @@ instance
   hashWithSalt
     _salt
     DescribeSecurityGroupReferences' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` groupId
 
 instance

@@ -221,7 +221,8 @@ instance Core.AWSRequest PutPublicAccessBlock where
 
 instance Prelude.Hashable PutPublicAccessBlock where
   hashWithSalt _salt PutPublicAccessBlock' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

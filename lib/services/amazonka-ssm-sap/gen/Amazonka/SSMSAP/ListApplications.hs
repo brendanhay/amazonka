@@ -77,11 +77,9 @@ newListApplications =
       nextToken = Prelude.Nothing
     }
 
--- |
 listApplications_maxResults :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
 listApplications_maxResults = Lens.lens (\ListApplications' {maxResults} -> maxResults) (\s@ListApplications' {} a -> s {maxResults = a} :: ListApplications)
 
--- |
 listApplications_nextToken :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
 listApplications_nextToken = Lens.lens (\ListApplications' {nextToken} -> nextToken) (\s@ListApplications' {} a -> s {nextToken = a} :: ListApplications)
 
@@ -90,22 +88,22 @@ instance Core.AWSPager ListApplications where
     | Core.stop
         ( rs
             Lens.^? listApplicationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApplicationsResponse_applications
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listApplications_nextToken
           Lens..~ rs
           Lens.^? listApplicationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplications where
   type
@@ -124,7 +122,8 @@ instance Core.AWSRequest ListApplications where
 
 instance Prelude.Hashable ListApplications where
   hashWithSalt _salt ListApplications' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApplications where
@@ -192,11 +191,9 @@ newListApplicationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 listApplicationsResponse_applications :: Lens.Lens' ListApplicationsResponse (Prelude.Maybe [ApplicationSummary])
 listApplicationsResponse_applications = Lens.lens (\ListApplicationsResponse' {applications} -> applications) (\s@ListApplicationsResponse' {} a -> s {applications = a} :: ListApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
 listApplicationsResponse_nextToken :: Lens.Lens' ListApplicationsResponse (Prelude.Maybe Prelude.Text)
 listApplicationsResponse_nextToken = Lens.lens (\ListApplicationsResponse' {nextToken} -> nextToken) (\s@ListApplicationsResponse' {} a -> s {nextToken = a} :: ListApplicationsResponse)
 

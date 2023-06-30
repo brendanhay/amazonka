@@ -95,7 +95,8 @@ importFilter_operator = Lens.lens (\ImportFilter' {operator} -> operator) (\s@Im
 
 instance Prelude.Hashable ImportFilter where
   hashWithSalt _salt ImportFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

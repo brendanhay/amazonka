@@ -81,7 +81,8 @@ instance Data.FromJSON BotExportSpecification where
 
 instance Prelude.Hashable BotExportSpecification where
   hashWithSalt _salt BotExportSpecification' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
 
 instance Prelude.NFData BotExportSpecification where

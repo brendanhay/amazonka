@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     ListProfileObjectTypeTemplateItem' {..} =
-      _salt `Prelude.hashWithSalt` sourceName
+      _salt
+        `Prelude.hashWithSalt` sourceName
         `Prelude.hashWithSalt` sourceObject
         `Prelude.hashWithSalt` templateId
 

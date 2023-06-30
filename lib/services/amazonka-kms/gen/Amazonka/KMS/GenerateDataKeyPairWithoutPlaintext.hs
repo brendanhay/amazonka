@@ -338,10 +338,10 @@ instance
       ( \s h x ->
           GenerateDataKeyPairWithoutPlaintextResponse'
             Prelude.<$> (x Data..?> "KeyId")
-              Prelude.<*> (x Data..?> "KeyPairSpec")
-              Prelude.<*> (x Data..?> "PrivateKeyCiphertextBlob")
-              Prelude.<*> (x Data..?> "PublicKey")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "KeyPairSpec")
+            Prelude.<*> (x Data..?> "PrivateKeyCiphertextBlob")
+            Prelude.<*> (x Data..?> "PublicKey")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -351,7 +351,8 @@ instance
   hashWithSalt
     _salt
     GenerateDataKeyPairWithoutPlaintext' {..} =
-      _salt `Prelude.hashWithSalt` encryptionContext
+      _salt
+        `Prelude.hashWithSalt` encryptionContext
         `Prelude.hashWithSalt` grantTokens
         `Prelude.hashWithSalt` keyId
         `Prelude.hashWithSalt` keyPairSpec

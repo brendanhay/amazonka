@@ -126,7 +126,8 @@ instance Core.AWSRequest ResumeContactRecording where
 
 instance Prelude.Hashable ResumeContactRecording where
   hashWithSalt _salt ResumeContactRecording' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` initialContactId
 

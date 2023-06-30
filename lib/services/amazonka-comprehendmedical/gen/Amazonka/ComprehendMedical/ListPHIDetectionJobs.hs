@@ -115,7 +115,8 @@ instance Core.AWSRequest ListPHIDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListPHIDetectionJobsResponse'
-            Prelude.<$> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
+            Prelude.<$> ( x
+                            Data..?> "ComprehendMedicalAsyncJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -124,7 +125,8 @@ instance Core.AWSRequest ListPHIDetectionJobs where
 
 instance Prelude.Hashable ListPHIDetectionJobs where
   hashWithSalt _salt ListPHIDetectionJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

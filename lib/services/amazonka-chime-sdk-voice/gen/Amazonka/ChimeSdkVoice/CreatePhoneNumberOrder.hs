@@ -101,7 +101,8 @@ instance Core.AWSRequest CreatePhoneNumberOrder where
 
 instance Prelude.Hashable CreatePhoneNumberOrder where
   hashWithSalt _salt CreatePhoneNumberOrder' {..} =
-    _salt `Prelude.hashWithSalt` productType
+    _salt
+      `Prelude.hashWithSalt` productType
       `Prelude.hashWithSalt` e164PhoneNumbers
 
 instance Prelude.NFData CreatePhoneNumberOrder where

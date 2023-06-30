@@ -120,7 +120,8 @@ instance
     DescribeInputDeviceThumbnail
   where
   hashWithSalt _salt DescribeInputDeviceThumbnail' {..} =
-    _salt `Prelude.hashWithSalt` inputDeviceId
+    _salt
+      `Prelude.hashWithSalt` inputDeviceId
       `Prelude.hashWithSalt` accept
 
 instance Prelude.NFData DescribeInputDeviceThumbnail where

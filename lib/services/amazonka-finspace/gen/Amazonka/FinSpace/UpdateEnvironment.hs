@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdateEnvironment where
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` federationMode
       `Prelude.hashWithSalt` federationParameters
       `Prelude.hashWithSalt` name

@@ -86,7 +86,8 @@ instance Data.FromJSON DailyVolume where
       "DailyVolume"
       ( \x ->
           DailyVolume'
-            Prelude.<$> ( x Data..:? "DomainIspPlacements"
+            Prelude.<$> ( x
+                            Data..:? "DomainIspPlacements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StartDate")
@@ -95,7 +96,8 @@ instance Data.FromJSON DailyVolume where
 
 instance Prelude.Hashable DailyVolume where
   hashWithSalt _salt DailyVolume' {..} =
-    _salt `Prelude.hashWithSalt` domainIspPlacements
+    _salt
+      `Prelude.hashWithSalt` domainIspPlacements
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` volumeStatistics
 

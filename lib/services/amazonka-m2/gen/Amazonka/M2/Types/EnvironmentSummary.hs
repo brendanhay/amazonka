@@ -162,7 +162,8 @@ instance Data.FromJSON EnvironmentSummary where
 
 instance Prelude.Hashable EnvironmentSummary where
   hashWithSalt _salt EnvironmentSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` environmentArn

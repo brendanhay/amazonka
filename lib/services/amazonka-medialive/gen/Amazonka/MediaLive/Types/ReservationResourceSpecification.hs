@@ -151,7 +151,8 @@ instance
   hashWithSalt
     _salt
     ReservationResourceSpecification' {..} =
-      _salt `Prelude.hashWithSalt` channelClass
+      _salt
+        `Prelude.hashWithSalt` channelClass
         `Prelude.hashWithSalt` codec
         `Prelude.hashWithSalt` maximumBitrate
         `Prelude.hashWithSalt` maximumFramerate

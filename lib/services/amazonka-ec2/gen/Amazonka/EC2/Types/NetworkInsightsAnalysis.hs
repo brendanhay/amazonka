@@ -204,21 +204,28 @@ networkInsightsAnalysis_warningMessage = Lens.lens (\NetworkInsightsAnalysis' {w
 instance Data.FromXML NetworkInsightsAnalysis where
   parseXML x =
     NetworkInsightsAnalysis'
-      Prelude.<$> ( x Data..@? "additionalAccountSet"
+      Prelude.<$> ( x
+                      Data..@? "additionalAccountSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "alternatePathHintSet"
+      Prelude.<*> ( x
+                      Data..@? "alternatePathHintSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "explanationSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "explanationSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "filterInArnSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "filterInArnSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "forwardPathComponentSet"
+      Prelude.<*> ( x
+                      Data..@? "forwardPathComponentSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -226,25 +233,30 @@ instance Data.FromXML NetworkInsightsAnalysis where
       Prelude.<*> (x Data..@? "networkInsightsAnalysisId")
       Prelude.<*> (x Data..@? "networkInsightsPathId")
       Prelude.<*> (x Data..@? "networkPathFound")
-      Prelude.<*> ( x Data..@? "returnPathComponentSet"
+      Prelude.<*> ( x
+                      Data..@? "returnPathComponentSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "startDate")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x Data..@? "suggestedAccountSet"
+      Prelude.<*> ( x
+                      Data..@? "suggestedAccountSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "warningMessage")
 
 instance Prelude.Hashable NetworkInsightsAnalysis where
   hashWithSalt _salt NetworkInsightsAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` additionalAccounts
+    _salt
+      `Prelude.hashWithSalt` additionalAccounts
       `Prelude.hashWithSalt` alternatePathHints
       `Prelude.hashWithSalt` explanations
       `Prelude.hashWithSalt` filterInArns

@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteImageVersion where
 
 instance Prelude.Hashable DeleteImageVersion where
   hashWithSalt _salt DeleteImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` imageName
 

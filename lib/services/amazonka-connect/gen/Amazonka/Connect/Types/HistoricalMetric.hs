@@ -101,7 +101,8 @@ instance Data.FromJSON HistoricalMetric where
 
 instance Prelude.Hashable HistoricalMetric where
   hashWithSalt _salt HistoricalMetric' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` statistic
       `Prelude.hashWithSalt` threshold
       `Prelude.hashWithSalt` unit

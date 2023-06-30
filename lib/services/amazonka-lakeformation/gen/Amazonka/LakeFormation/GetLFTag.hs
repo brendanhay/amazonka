@@ -113,7 +113,8 @@ instance Core.AWSRequest GetLFTag where
 
 instance Prelude.Hashable GetLFTag where
   hashWithSalt _salt GetLFTag' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` tagKey
 
 instance Prelude.NFData GetLFTag where

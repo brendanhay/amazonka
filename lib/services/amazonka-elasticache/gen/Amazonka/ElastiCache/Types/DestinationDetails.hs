@@ -74,7 +74,8 @@ instance Data.FromXML DestinationDetails where
 
 instance Prelude.Hashable DestinationDetails where
   hashWithSalt _salt DestinationDetails' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogsDetails
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogsDetails
       `Prelude.hashWithSalt` kinesisFirehoseDetails
 
 instance Prelude.NFData DestinationDetails where

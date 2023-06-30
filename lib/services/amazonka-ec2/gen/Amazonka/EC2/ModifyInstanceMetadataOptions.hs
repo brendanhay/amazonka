@@ -262,7 +262,8 @@ instance
     ModifyInstanceMetadataOptions
   where
   hashWithSalt _salt ModifyInstanceMetadataOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` httpEndpoint
       `Prelude.hashWithSalt` httpProtocolIpv6
       `Prelude.hashWithSalt` httpPutResponseHopLimit

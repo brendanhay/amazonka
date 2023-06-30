@@ -114,7 +114,8 @@ instance Core.AWSRequest BatchAssociateResource where
 
 instance Prelude.Hashable BatchAssociateResource where
   hashWithSalt _salt BatchAssociateResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceSetIdentifier
+    _salt
+      `Prelude.hashWithSalt` resourceSetIdentifier
       `Prelude.hashWithSalt` items
 
 instance Prelude.NFData BatchAssociateResource where

@@ -90,7 +90,8 @@ instance Data.FromJSON Capacity where
 
 instance Prelude.Hashable Capacity where
   hashWithSalt _salt Capacity' {..} =
-    _salt `Prelude.hashWithSalt` capacityUnits
+    _salt
+      `Prelude.hashWithSalt` capacityUnits
       `Prelude.hashWithSalt` readCapacityUnits
       `Prelude.hashWithSalt` writeCapacityUnits
 

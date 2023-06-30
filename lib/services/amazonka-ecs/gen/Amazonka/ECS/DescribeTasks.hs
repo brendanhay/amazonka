@@ -133,7 +133,8 @@ instance Core.AWSRequest DescribeTasks where
 
 instance Prelude.Hashable DescribeTasks where
   hashWithSalt _salt DescribeTasks' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` include
       `Prelude.hashWithSalt` tasks
 

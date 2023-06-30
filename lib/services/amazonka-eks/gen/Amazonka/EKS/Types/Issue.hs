@@ -283,7 +283,8 @@ instance Data.FromJSON Issue where
 
 instance Prelude.Hashable Issue where
   hashWithSalt _salt Issue' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` resourceIds
 

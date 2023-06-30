@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateRoutingControl where
 
 instance Prelude.Hashable UpdateRoutingControl where
   hashWithSalt _salt UpdateRoutingControl' {..} =
-    _salt `Prelude.hashWithSalt` routingControlName
+    _salt
+      `Prelude.hashWithSalt` routingControlName
       `Prelude.hashWithSalt` routingControlArn
 
 instance Prelude.NFData UpdateRoutingControl where

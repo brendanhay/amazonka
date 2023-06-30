@@ -94,7 +94,8 @@ instance Data.FromJSON OnlineStoreConfig where
 
 instance Prelude.Hashable OnlineStoreConfig where
   hashWithSalt _salt OnlineStoreConfig' {..} =
-    _salt `Prelude.hashWithSalt` enableOnlineStore
+    _salt
+      `Prelude.hashWithSalt` enableOnlineStore
       `Prelude.hashWithSalt` securityConfig
 
 instance Prelude.NFData OnlineStoreConfig where

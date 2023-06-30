@@ -75,7 +75,8 @@ instance Data.FromJSON ParameterGroup where
 
 instance Prelude.Hashable ParameterGroup where
   hashWithSalt _salt ParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameterGroupName
 
 instance Prelude.NFData ParameterGroup where

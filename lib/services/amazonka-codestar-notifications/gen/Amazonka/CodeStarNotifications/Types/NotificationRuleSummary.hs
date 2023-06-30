@@ -68,12 +68,14 @@ instance Data.FromJSON NotificationRuleSummary where
       "NotificationRuleSummary"
       ( \x ->
           NotificationRuleSummary'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable NotificationRuleSummary where
   hashWithSalt _salt NotificationRuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData NotificationRuleSummary where

@@ -81,11 +81,13 @@ loadBalancerState_reason = Lens.lens (\LoadBalancerState' {reason} -> reason) (\
 instance Data.FromXML LoadBalancerState where
   parseXML x =
     LoadBalancerState'
-      Prelude.<$> (x Data..@? "Code") Prelude.<*> (x Data..@? "Reason")
+      Prelude.<$> (x Data..@? "Code")
+      Prelude.<*> (x Data..@? "Reason")
 
 instance Prelude.Hashable LoadBalancerState where
   hashWithSalt _salt LoadBalancerState' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData LoadBalancerState where

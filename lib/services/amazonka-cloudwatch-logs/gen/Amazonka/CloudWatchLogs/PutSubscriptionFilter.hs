@@ -255,7 +255,8 @@ instance Core.AWSRequest PutSubscriptionFilter where
 
 instance Prelude.Hashable PutSubscriptionFilter where
   hashWithSalt _salt PutSubscriptionFilter' {..} =
-    _salt `Prelude.hashWithSalt` distribution
+    _salt
+      `Prelude.hashWithSalt` distribution
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` filterName

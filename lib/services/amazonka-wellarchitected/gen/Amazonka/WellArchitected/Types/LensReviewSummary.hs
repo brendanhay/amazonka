@@ -122,7 +122,8 @@ instance Data.FromJSON LensReviewSummary where
 
 instance Prelude.Hashable LensReviewSummary where
   hashWithSalt _salt LensReviewSummary' {..} =
-    _salt `Prelude.hashWithSalt` lensAlias
+    _salt
+      `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` lensStatus

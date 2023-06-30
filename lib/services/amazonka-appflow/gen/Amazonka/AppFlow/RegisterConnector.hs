@@ -132,7 +132,8 @@ instance Core.AWSRequest RegisterConnector where
 
 instance Prelude.Hashable RegisterConnector where
   hashWithSalt _salt RegisterConnector' {..} =
-    _salt `Prelude.hashWithSalt` connectorLabel
+    _salt
+      `Prelude.hashWithSalt` connectorLabel
       `Prelude.hashWithSalt` connectorProvisioningConfig
       `Prelude.hashWithSalt` connectorProvisioningType
       `Prelude.hashWithSalt` description

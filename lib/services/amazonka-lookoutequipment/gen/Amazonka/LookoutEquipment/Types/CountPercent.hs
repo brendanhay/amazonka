@@ -78,7 +78,8 @@ instance Data.FromJSON CountPercent where
 
 instance Prelude.Hashable CountPercent where
   hashWithSalt _salt CountPercent' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` percentage
 
 instance Prelude.NFData CountPercent where

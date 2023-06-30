@@ -84,7 +84,8 @@ instance Core.AWSRequest GetServerStrategies where
     Response.receiveJSON
       ( \s h x ->
           GetServerStrategiesResponse'
-            Prelude.<$> ( x Data..?> "serverStrategies"
+            Prelude.<$> ( x
+                            Data..?> "serverStrategies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -94,7 +94,8 @@ instance Data.FromJSON TestGridVpcConfig where
 
 instance Prelude.Hashable TestGridVpcConfig where
   hashWithSalt _salt TestGridVpcConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vpcId
 

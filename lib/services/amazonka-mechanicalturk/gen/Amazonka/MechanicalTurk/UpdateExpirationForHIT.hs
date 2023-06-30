@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdateExpirationForHIT where
 
 instance Prelude.Hashable UpdateExpirationForHIT where
   hashWithSalt _salt UpdateExpirationForHIT' {..} =
-    _salt `Prelude.hashWithSalt` hITId
+    _salt
+      `Prelude.hashWithSalt` hITId
       `Prelude.hashWithSalt` expireAt
 
 instance Prelude.NFData UpdateExpirationForHIT where

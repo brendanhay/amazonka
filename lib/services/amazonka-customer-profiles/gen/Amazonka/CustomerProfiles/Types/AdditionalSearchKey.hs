@@ -73,7 +73,8 @@ additionalSearchKey_values = Lens.lens (\AdditionalSearchKey' {values} -> values
 
 instance Prelude.Hashable AdditionalSearchKey where
   hashWithSalt _salt AdditionalSearchKey' {..} =
-    _salt `Prelude.hashWithSalt` keyName
+    _salt
+      `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData AdditionalSearchKey where

@@ -127,7 +127,9 @@ instance Data.FromXML TrafficMirrorTarget where
       Prelude.<*> (x Data..@? "networkInterfaceId")
       Prelude.<*> (x Data..@? "networkLoadBalancerArn")
       Prelude.<*> (x Data..@? "ownerId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trafficMirrorTargetId")
@@ -135,7 +137,8 @@ instance Data.FromXML TrafficMirrorTarget where
 
 instance Prelude.Hashable TrafficMirrorTarget where
   hashWithSalt _salt TrafficMirrorTarget' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` gatewayLoadBalancerEndpointId
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` networkLoadBalancerArn

@@ -140,17 +140,19 @@ instance
   parseXML x =
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation'
       Prelude.<$> (x Data..@? "localGatewayId")
-        Prelude.<*> (x Data..@? "localGatewayRouteTableArn")
-        Prelude.<*> (x Data..@? "localGatewayRouteTableId")
-        Prelude.<*> ( x
-                        Data..@? "localGatewayRouteTableVirtualInterfaceGroupAssociationId"
-                    )
-        Prelude.<*> (x Data..@? "localGatewayVirtualInterfaceGroupId")
-        Prelude.<*> (x Data..@? "ownerId")
-        Prelude.<*> (x Data..@? "state")
-        Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Data.parseXMLList "item")
-                    )
+      Prelude.<*> (x Data..@? "localGatewayRouteTableArn")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableId")
+      Prelude.<*> ( x
+                      Data..@? "localGatewayRouteTableVirtualInterfaceGroupAssociationId"
+                  )
+      Prelude.<*> (x Data..@? "localGatewayVirtualInterfaceGroupId")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
 
 instance
   Prelude.Hashable
@@ -159,7 +161,8 @@ instance
   hashWithSalt
     _salt
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {..} =
-      _salt `Prelude.hashWithSalt` localGatewayId
+      _salt
+        `Prelude.hashWithSalt` localGatewayId
         `Prelude.hashWithSalt` localGatewayRouteTableArn
         `Prelude.hashWithSalt` localGatewayRouteTableId
         `Prelude.hashWithSalt` localGatewayRouteTableVirtualInterfaceGroupAssociationId

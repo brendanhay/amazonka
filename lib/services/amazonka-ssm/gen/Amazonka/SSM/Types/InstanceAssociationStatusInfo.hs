@@ -182,7 +182,8 @@ instance
     InstanceAssociationStatusInfo
   where
   hashWithSalt _salt InstanceAssociationStatusInfo' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` associationName
       `Prelude.hashWithSalt` associationVersion
       `Prelude.hashWithSalt` detailedStatus

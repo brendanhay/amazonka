@@ -120,7 +120,8 @@ instance Data.FromJSON AwsEcrRepositoryDetails where
 
 instance Prelude.Hashable AwsEcrRepositoryDetails where
   hashWithSalt _salt AwsEcrRepositoryDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` imageScanningConfiguration
       `Prelude.hashWithSalt` imageTagMutability
       `Prelude.hashWithSalt` lifecyclePolicy

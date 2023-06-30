@@ -96,7 +96,7 @@ data CreateToken = CreateToken'
     -- device code request. For device code requests, specify the following
     -- value:
     --
-    -- @urn:ietf:params:oauth:grant-type:device_code @
+    -- @urn:ietf:params:oauth:grant-type:@/@device_code@/@ @
     --
     -- For information about how to obtain the device code, see the
     -- StartDeviceAuthorization topic.
@@ -146,7 +146,7 @@ data CreateToken = CreateToken'
 -- device code request. For device code requests, specify the following
 -- value:
 --
--- @urn:ietf:params:oauth:grant-type:device_code @
+-- @urn:ietf:params:oauth:grant-type:@/@device_code@/@ @
 --
 -- For information about how to obtain the device code, see the
 -- StartDeviceAuthorization topic.
@@ -218,7 +218,7 @@ createToken_clientSecret = Lens.lens (\CreateToken' {clientSecret} -> clientSecr
 -- device code request. For device code requests, specify the following
 -- value:
 --
--- @urn:ietf:params:oauth:grant-type:device_code @
+-- @urn:ietf:params:oauth:grant-type:@/@device_code@/@ @
 --
 -- For information about how to obtain the device code, see the
 -- StartDeviceAuthorization topic.
@@ -243,7 +243,8 @@ instance Core.AWSRequest CreateToken where
 
 instance Prelude.Hashable CreateToken where
   hashWithSalt _salt CreateToken' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` deviceCode
       `Prelude.hashWithSalt` redirectUri
       `Prelude.hashWithSalt` refreshToken

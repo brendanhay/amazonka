@@ -286,7 +286,8 @@ instance Data.FromJSON ImageVersion where
 
 instance Prelude.Hashable ImageVersion where
   hashWithSalt _salt ImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` name

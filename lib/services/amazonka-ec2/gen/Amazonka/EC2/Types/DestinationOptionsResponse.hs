@@ -86,7 +86,8 @@ instance Data.FromXML DestinationOptionsResponse where
 
 instance Prelude.Hashable DestinationOptionsResponse where
   hashWithSalt _salt DestinationOptionsResponse' {..} =
-    _salt `Prelude.hashWithSalt` fileFormat
+    _salt
+      `Prelude.hashWithSalt` fileFormat
       `Prelude.hashWithSalt` hiveCompatiblePartitions
       `Prelude.hashWithSalt` perHourPartition
 

@@ -69,7 +69,9 @@ instance Core.AWSRequest ListDomainNames where
       "ListDomainNamesResult"
       ( \s h x ->
           ListDomainNamesResponse'
-            Prelude.<$> ( x Data..@? "DomainNames" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "DomainNames"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

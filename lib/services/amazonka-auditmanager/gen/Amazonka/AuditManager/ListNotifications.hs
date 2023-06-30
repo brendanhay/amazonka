@@ -105,7 +105,8 @@ instance Core.AWSRequest ListNotifications where
 
 instance Prelude.Hashable ListNotifications where
   hashWithSalt _salt ListNotifications' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListNotifications where

@@ -197,7 +197,8 @@ instance Data.FromJSON ScalingPlan where
             Prelude.<*> (x Data..: "ScalingPlanName")
             Prelude.<*> (x Data..: "ScalingPlanVersion")
             Prelude.<*> (x Data..: "ApplicationSource")
-            Prelude.<*> ( x Data..:? "ScalingInstructions"
+            Prelude.<*> ( x
+                            Data..:? "ScalingInstructions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "StatusCode")
@@ -205,7 +206,8 @@ instance Data.FromJSON ScalingPlan where
 
 instance Prelude.Hashable ScalingPlan where
   hashWithSalt _salt ScalingPlan' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` statusStartTime
       `Prelude.hashWithSalt` scalingPlanName

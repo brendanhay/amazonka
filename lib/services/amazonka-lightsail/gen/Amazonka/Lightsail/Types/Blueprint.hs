@@ -206,7 +206,8 @@ instance Data.FromJSON Blueprint where
 
 instance Prelude.Hashable Blueprint where
   hashWithSalt _salt Blueprint' {..} =
-    _salt `Prelude.hashWithSalt` blueprintId
+    _salt
+      `Prelude.hashWithSalt` blueprintId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` isActive

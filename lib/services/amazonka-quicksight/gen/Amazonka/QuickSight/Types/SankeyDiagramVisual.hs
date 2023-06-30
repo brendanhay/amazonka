@@ -120,7 +120,8 @@ instance Data.FromJSON SankeyDiagramVisual where
 
 instance Prelude.Hashable SankeyDiagramVisual where
   hashWithSalt _salt SankeyDiagramVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chartConfiguration
       `Prelude.hashWithSalt` subtitle
       `Prelude.hashWithSalt` title

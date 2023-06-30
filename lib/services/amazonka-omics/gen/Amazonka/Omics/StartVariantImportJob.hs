@@ -130,7 +130,8 @@ instance Core.AWSRequest StartVariantImportJob where
 
 instance Prelude.Hashable StartVariantImportJob where
   hashWithSalt _salt StartVariantImportJob' {..} =
-    _salt `Prelude.hashWithSalt` runLeftNormalization
+    _salt
+      `Prelude.hashWithSalt` runLeftNormalization
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` roleArn

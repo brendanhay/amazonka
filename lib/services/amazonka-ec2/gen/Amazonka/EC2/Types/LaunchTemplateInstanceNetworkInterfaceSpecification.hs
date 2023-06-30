@@ -282,36 +282,44 @@ instance
   parseXML x =
     LaunchTemplateInstanceNetworkInterfaceSpecification'
       Prelude.<$> (x Data..@? "associateCarrierIpAddress")
-        Prelude.<*> (x Data..@? "associatePublicIpAddress")
-        Prelude.<*> (x Data..@? "deleteOnTermination")
-        Prelude.<*> (x Data..@? "description")
-        Prelude.<*> (x Data..@? "deviceIndex")
-        Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Data.parseXMLList "groupId")
-                    )
-        Prelude.<*> (x Data..@? "interfaceType")
-        Prelude.<*> (x Data..@? "ipv4PrefixCount")
-        Prelude.<*> ( x Data..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Data.parseXMLList "item")
-                    )
-        Prelude.<*> (x Data..@? "ipv6AddressCount")
-        Prelude.<*> ( x Data..@? "ipv6AddressesSet"
-                        Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Data.parseXMLList "item")
-                    )
-        Prelude.<*> (x Data..@? "ipv6PrefixCount")
-        Prelude.<*> ( x Data..@? "ipv6PrefixSet" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Data.parseXMLList "item")
-                    )
-        Prelude.<*> (x Data..@? "networkCardIndex")
-        Prelude.<*> (x Data..@? "networkInterfaceId")
-        Prelude.<*> (x Data..@? "privateIpAddress")
-        Prelude.<*> ( x Data..@? "privateIpAddressesSet"
-                        Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Data.parseXMLList "item")
-                    )
-        Prelude.<*> (x Data..@? "secondaryPrivateIpAddressCount")
-        Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "associatePublicIpAddress")
+      Prelude.<*> (x Data..@? "deleteOnTermination")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "deviceIndex")
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "groupId")
+                  )
+      Prelude.<*> (x Data..@? "interfaceType")
+      Prelude.<*> (x Data..@? "ipv4PrefixCount")
+      Prelude.<*> ( x
+                      Data..@? "ipv4PrefixSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> (x Data..@? "ipv6AddressCount")
+      Prelude.<*> ( x
+                      Data..@? "ipv6AddressesSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> (x Data..@? "ipv6PrefixCount")
+      Prelude.<*> ( x
+                      Data..@? "ipv6PrefixSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> (x Data..@? "networkCardIndex")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "privateIpAddress")
+      Prelude.<*> ( x
+                      Data..@? "privateIpAddressesSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> (x Data..@? "secondaryPrivateIpAddressCount")
+      Prelude.<*> (x Data..@? "subnetId")
 
 instance
   Prelude.Hashable

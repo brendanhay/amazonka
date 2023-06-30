@@ -174,7 +174,8 @@ instance Core.AWSRequest UpdateUserPoolDomain where
 
 instance Prelude.Hashable UpdateUserPoolDomain where
   hashWithSalt _salt UpdateUserPoolDomain' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` customDomainConfig
 

@@ -138,7 +138,8 @@ instance Data.FromJSON DataViewErrorInfo where
 
 instance Prelude.Hashable DataViewErrorInfo where
   hashWithSalt _salt DataViewErrorInfo' {..} =
-    _salt `Prelude.hashWithSalt` errorCategory
+    _salt
+      `Prelude.hashWithSalt` errorCategory
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData DataViewErrorInfo where

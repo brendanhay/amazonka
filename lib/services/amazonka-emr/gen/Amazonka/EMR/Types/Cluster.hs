@@ -559,7 +559,8 @@ instance Data.FromJSON Cluster where
             Prelude.<*> (x Data..:? "NormalizedInstanceHours")
             Prelude.<*> (x Data..:? "OSReleaseLabel")
             Prelude.<*> (x Data..:? "OutpostArn")
-            Prelude.<*> ( x Data..:? "PlacementGroups"
+            Prelude.<*> ( x
+                            Data..:? "PlacementGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReleaseLabel")
@@ -580,7 +581,8 @@ instance Data.FromJSON Cluster where
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` applications
+    _salt
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` autoScalingRole
       `Prelude.hashWithSalt` autoTerminate
       `Prelude.hashWithSalt` clusterArn

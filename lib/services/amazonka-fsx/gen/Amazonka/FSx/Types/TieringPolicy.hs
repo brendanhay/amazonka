@@ -143,7 +143,8 @@ instance Data.FromJSON TieringPolicy where
 
 instance Prelude.Hashable TieringPolicy where
   hashWithSalt _salt TieringPolicy' {..} =
-    _salt `Prelude.hashWithSalt` coolingPeriod
+    _salt
+      `Prelude.hashWithSalt` coolingPeriod
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData TieringPolicy where

@@ -207,7 +207,8 @@ instance Data.FromJSON IdentityResolutionJob where
 
 instance Prelude.Hashable IdentityResolutionJob where
   hashWithSalt _salt IdentityResolutionJob' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` exportingLocation
       `Prelude.hashWithSalt` jobEndTime
       `Prelude.hashWithSalt` jobId

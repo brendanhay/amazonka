@@ -127,7 +127,8 @@ instance Core.AWSRequest GetGroupVersion where
 
 instance Prelude.Hashable GetGroupVersion where
   hashWithSalt _salt GetGroupVersion' {..} =
-    _salt `Prelude.hashWithSalt` groupVersionId
+    _salt
+      `Prelude.hashWithSalt` groupVersionId
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData GetGroupVersion where

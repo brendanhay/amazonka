@@ -110,7 +110,8 @@ instance Core.AWSRequest AddCustomAttributes where
 
 instance Prelude.Hashable AddCustomAttributes where
   hashWithSalt _salt AddCustomAttributes' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` customAttributes
 
 instance Prelude.NFData AddCustomAttributes where

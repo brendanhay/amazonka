@@ -557,7 +557,8 @@ dimensionGroup_group = Lens.lens (\DimensionGroup' {group'} -> group') (\s@Dimen
 
 instance Prelude.Hashable DimensionGroup where
   hashWithSalt _salt DimensionGroup' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` group'
 

@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     LiveConnectorSinkConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` sinkType
+      _salt
+        `Prelude.hashWithSalt` sinkType
         `Prelude.hashWithSalt` rTMPConfiguration
 
 instance

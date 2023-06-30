@@ -148,22 +148,22 @@ instance Core.AWSPager ListGameServers where
     | Core.stop
         ( rs
             Lens.^? listGameServersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGameServersResponse_gameServers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGameServers_nextToken
           Lens..~ rs
           Lens.^? listGameServersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGameServers where
   type
@@ -182,7 +182,8 @@ instance Core.AWSRequest ListGameServers where
 
 instance Prelude.Hashable ListGameServers where
   hashWithSalt _salt ListGameServers' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` gameServerGroupName

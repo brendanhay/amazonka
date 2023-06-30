@@ -88,7 +88,8 @@ instance Data.FromJSON MergeHunkDetail where
 
 instance Prelude.Hashable MergeHunkDetail where
   hashWithSalt _salt MergeHunkDetail' {..} =
-    _salt `Prelude.hashWithSalt` endLine
+    _salt
+      `Prelude.hashWithSalt` endLine
       `Prelude.hashWithSalt` hunkContent
       `Prelude.hashWithSalt` startLine
 

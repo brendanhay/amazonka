@@ -123,7 +123,8 @@ instance Data.FromJSON DatasetSummary where
 
 instance Prelude.Hashable DatasetSummary where
   hashWithSalt _salt DatasetSummary' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` lastUpdateTime

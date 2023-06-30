@@ -163,7 +163,8 @@ instance Data.FromJSON PrefetchSchedule where
 
 instance Prelude.Hashable PrefetchSchedule where
   hashWithSalt _salt PrefetchSchedule' {..} =
-    _salt `Prelude.hashWithSalt` streamId
+    _salt
+      `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` consumption
       `Prelude.hashWithSalt` name

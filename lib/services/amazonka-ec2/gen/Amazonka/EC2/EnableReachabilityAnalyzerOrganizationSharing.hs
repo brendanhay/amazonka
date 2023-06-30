@@ -105,7 +105,7 @@ instance
       ( \s h x ->
           EnableReachabilityAnalyzerOrganizationSharingResponse'
             Prelude.<$> (x Data..@? "returnValue")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

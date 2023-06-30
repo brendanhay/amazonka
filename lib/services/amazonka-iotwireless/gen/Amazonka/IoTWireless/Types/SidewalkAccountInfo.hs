@@ -74,7 +74,8 @@ instance Data.FromJSON SidewalkAccountInfo where
 
 instance Prelude.Hashable SidewalkAccountInfo where
   hashWithSalt _salt SidewalkAccountInfo' {..} =
-    _salt `Prelude.hashWithSalt` amazonId
+    _salt
+      `Prelude.hashWithSalt` amazonId
       `Prelude.hashWithSalt` appServerPrivateKey
 
 instance Prelude.NFData SidewalkAccountInfo where

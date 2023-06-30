@@ -167,7 +167,8 @@ assessmentRunFilter_states = Lens.lens (\AssessmentRunFilter' {states} -> states
 
 instance Prelude.Hashable AssessmentRunFilter where
   hashWithSalt _salt AssessmentRunFilter' {..} =
-    _salt `Prelude.hashWithSalt` completionTimeRange
+    _salt
+      `Prelude.hashWithSalt` completionTimeRange
       `Prelude.hashWithSalt` durationRange
       `Prelude.hashWithSalt` namePattern
       `Prelude.hashWithSalt` rulesPackageArns

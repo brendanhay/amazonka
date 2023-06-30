@@ -109,7 +109,8 @@ instance Data.FromXML Invalidation where
 
 instance Prelude.Hashable Invalidation where
   hashWithSalt _salt Invalidation' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` invalidationBatch

@@ -118,7 +118,8 @@ instance Data.FromJSON Usage where
 
 instance Prelude.Hashable Usage where
   hashWithSalt _salt Usage' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` startDate

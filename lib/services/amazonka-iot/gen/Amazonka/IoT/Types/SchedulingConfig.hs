@@ -118,7 +118,8 @@ instance Data.FromJSON SchedulingConfig where
 
 instance Prelude.Hashable SchedulingConfig where
   hashWithSalt _salt SchedulingConfig' {..} =
-    _salt `Prelude.hashWithSalt` endBehavior
+    _salt
+      `Prelude.hashWithSalt` endBehavior
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 

@@ -167,7 +167,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueHistoryEntry' {..} =
-      _salt `Prelude.hashWithSalt` assetId
+      _salt
+        `Prelude.hashWithSalt` assetId
         `Prelude.hashWithSalt` endDate
         `Prelude.hashWithSalt` propertyAlias
         `Prelude.hashWithSalt` propertyId

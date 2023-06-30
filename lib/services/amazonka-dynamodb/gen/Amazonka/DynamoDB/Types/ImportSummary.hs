@@ -155,7 +155,8 @@ instance Data.FromJSON ImportSummary where
 
 instance Prelude.Hashable ImportSummary where
   hashWithSalt _salt ImportSummary' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogGroupArn
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` importArn
       `Prelude.hashWithSalt` importStatus

@@ -70,7 +70,8 @@ cloudWatchLogsLogDelivery_enabled = Lens.lens (\CloudWatchLogsLogDelivery' {enab
 
 instance Prelude.Hashable CloudWatchLogsLogDelivery where
   hashWithSalt _salt CloudWatchLogsLogDelivery' {..} =
-    _salt `Prelude.hashWithSalt` logGroup
+    _salt
+      `Prelude.hashWithSalt` logGroup
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData CloudWatchLogsLogDelivery where

@@ -85,7 +85,8 @@ instance
     ResponseHeadersPolicySummary
   where
   hashWithSalt _salt ResponseHeadersPolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` responseHeadersPolicy
 
 instance Prelude.NFData ResponseHeadersPolicySummary where

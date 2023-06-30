@@ -82,12 +82,14 @@ instance Data.FromJSON Spend where
       "Spend"
       ( \x ->
           Spend'
-            Prelude.<$> (x Data..: "Amount") Prelude.<*> (x Data..: "Unit")
+            Prelude.<$> (x Data..: "Amount")
+            Prelude.<*> (x Data..: "Unit")
       )
 
 instance Prelude.Hashable Spend where
   hashWithSalt _salt Spend' {..} =
-    _salt `Prelude.hashWithSalt` amount
+    _salt
+      `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData Spend where

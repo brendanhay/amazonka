@@ -111,7 +111,8 @@ instance Data.FromJSON HlsOutputSettings where
 
 instance Prelude.Hashable HlsOutputSettings where
   hashWithSalt _salt HlsOutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` h265PackagingType
+    _salt
+      `Prelude.hashWithSalt` h265PackagingType
       `Prelude.hashWithSalt` nameModifier
       `Prelude.hashWithSalt` segmentModifier
       `Prelude.hashWithSalt` hlsSettings

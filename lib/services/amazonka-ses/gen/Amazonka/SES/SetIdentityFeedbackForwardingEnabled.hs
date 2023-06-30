@@ -153,7 +153,8 @@ instance
   hashWithSalt
     _salt
     SetIdentityFeedbackForwardingEnabled' {..} =
-      _salt `Prelude.hashWithSalt` identity
+      _salt
+        `Prelude.hashWithSalt` identity
         `Prelude.hashWithSalt` forwardingEnabled
 
 instance

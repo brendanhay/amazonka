@@ -116,7 +116,8 @@ instance Data.FromXML CacheEngineVersion where
 
 instance Prelude.Hashable CacheEngineVersion where
   hashWithSalt _salt CacheEngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` cacheEngineDescription
+    _salt
+      `Prelude.hashWithSalt` cacheEngineDescription
       `Prelude.hashWithSalt` cacheEngineVersionDescription
       `Prelude.hashWithSalt` cacheParameterGroupFamily
       `Prelude.hashWithSalt` engine

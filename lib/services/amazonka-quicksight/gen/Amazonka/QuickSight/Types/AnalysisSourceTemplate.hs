@@ -70,7 +70,8 @@ analysisSourceTemplate_arn = Lens.lens (\AnalysisSourceTemplate' {arn} -> arn) (
 
 instance Prelude.Hashable AnalysisSourceTemplate where
   hashWithSalt _salt AnalysisSourceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` dataSetReferences
+    _salt
+      `Prelude.hashWithSalt` dataSetReferences
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData AnalysisSourceTemplate where

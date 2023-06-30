@@ -154,7 +154,8 @@ instance Data.FromXML ServerCertificateMetadata where
 
 instance Prelude.Hashable ServerCertificateMetadata where
   hashWithSalt _salt ServerCertificateMetadata' {..} =
-    _salt `Prelude.hashWithSalt` expiration
+    _salt
+      `Prelude.hashWithSalt` expiration
       `Prelude.hashWithSalt` uploadDate
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` serverCertificateName

@@ -148,7 +148,8 @@ instance Core.AWSRequest ListSyncResources where
 
 instance Prelude.Hashable ListSyncResources where
   hashWithSalt _salt ListSyncResources' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workspaceId

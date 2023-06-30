@@ -156,7 +156,8 @@ instance Data.FromJSON Configuration where
 
 instance Prelude.Hashable Configuration where
   hashWithSalt _salt Configuration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` latestRevision
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` kafkaVersions

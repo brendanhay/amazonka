@@ -94,7 +94,8 @@ instance Data.FromJSON EntityPropertyReference where
           EntityPropertyReference'
             Prelude.<$> (x Data..:? "componentName")
             Prelude.<*> (x Data..:? "entityId")
-            Prelude.<*> ( x Data..:? "externalIdProperty"
+            Prelude.<*> ( x
+                            Data..:? "externalIdProperty"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "propertyName")
@@ -102,7 +103,8 @@ instance Data.FromJSON EntityPropertyReference where
 
 instance Prelude.Hashable EntityPropertyReference where
   hashWithSalt _salt EntityPropertyReference' {..} =
-    _salt `Prelude.hashWithSalt` componentName
+    _salt
+      `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` externalIdProperty
       `Prelude.hashWithSalt` propertyName

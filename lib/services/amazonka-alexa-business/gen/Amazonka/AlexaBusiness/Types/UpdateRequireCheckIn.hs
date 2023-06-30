@@ -70,7 +70,8 @@ updateRequireCheckIn_releaseAfterMinutes = Lens.lens (\UpdateRequireCheckIn' {re
 
 instance Prelude.Hashable UpdateRequireCheckIn where
   hashWithSalt _salt UpdateRequireCheckIn' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` releaseAfterMinutes
 
 instance Prelude.NFData UpdateRequireCheckIn where

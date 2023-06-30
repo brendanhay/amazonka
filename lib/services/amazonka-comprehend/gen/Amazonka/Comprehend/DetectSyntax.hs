@@ -114,7 +114,8 @@ instance Core.AWSRequest DetectSyntax where
 
 instance Prelude.Hashable DetectSyntax where
   hashWithSalt _salt DetectSyntax' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData DetectSyntax where

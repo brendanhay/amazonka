@@ -101,20 +101,23 @@ instance Core.AWSPager ListSuites where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listSuitesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listSuitesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listSuitesResponse_suites Prelude.. Lens._Just
+            Lens.^? listSuitesResponse_suites
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSuites_nextToken
           Lens..~ rs
-          Lens.^? listSuitesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSuitesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSuites where
   type AWSResponse ListSuites = ListSuitesResponse
@@ -131,7 +134,8 @@ instance Core.AWSRequest ListSuites where
 
 instance Prelude.Hashable ListSuites where
   hashWithSalt _salt ListSuites' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListSuites where

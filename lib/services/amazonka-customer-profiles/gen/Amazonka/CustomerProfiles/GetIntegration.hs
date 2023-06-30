@@ -108,7 +108,8 @@ instance Core.AWSRequest GetIntegration where
           GetIntegrationResponse'
             Prelude.<$> (x Data..?> "IsUnstructured")
             Prelude.<*> (x Data..?> "ObjectTypeName")
-            Prelude.<*> ( x Data..?> "ObjectTypeNames"
+            Prelude.<*> ( x
+                            Data..?> "ObjectTypeNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
@@ -122,7 +123,8 @@ instance Core.AWSRequest GetIntegration where
 
 instance Prelude.Hashable GetIntegration where
   hashWithSalt _salt GetIntegration' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData GetIntegration where

@@ -76,7 +76,8 @@ instance Data.FromJSON PropertyResponse where
 
 instance Prelude.Hashable PropertyResponse where
   hashWithSalt _salt PropertyResponse' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PropertyResponse where

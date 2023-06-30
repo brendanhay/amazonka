@@ -94,7 +94,8 @@ instance Data.FromJSON GluePolicy where
 
 instance Prelude.Hashable GluePolicy where
   hashWithSalt _salt GluePolicy' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` policyHash
       `Prelude.hashWithSalt` policyInJson
       `Prelude.hashWithSalt` updateTime

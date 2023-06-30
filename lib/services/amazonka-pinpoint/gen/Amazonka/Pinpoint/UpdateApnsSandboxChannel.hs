@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdateApnsSandboxChannel where
 
 instance Prelude.Hashable UpdateApnsSandboxChannel where
   hashWithSalt _salt UpdateApnsSandboxChannel' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` aPNSSandboxChannelRequest
 
 instance Prelude.NFData UpdateApnsSandboxChannel where

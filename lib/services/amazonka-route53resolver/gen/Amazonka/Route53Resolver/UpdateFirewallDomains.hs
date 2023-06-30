@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateFirewallDomains where
 
 instance Prelude.Hashable UpdateFirewallDomains where
   hashWithSalt _salt UpdateFirewallDomains' {..} =
-    _salt `Prelude.hashWithSalt` firewallDomainListId
+    _salt
+      `Prelude.hashWithSalt` firewallDomainListId
       `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` domains
 
@@ -280,7 +281,6 @@ updateFirewallDomainsResponse_id = Lens.lens (\UpdateFirewallDomainsResponse' {i
 updateFirewallDomainsResponse_name :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe Prelude.Text)
 updateFirewallDomainsResponse_name = Lens.lens (\UpdateFirewallDomainsResponse' {name} -> name) (\s@UpdateFirewallDomainsResponse' {} a -> s {name = a} :: UpdateFirewallDomainsResponse)
 
--- |
 updateFirewallDomainsResponse_status :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe FirewallDomainListStatus)
 updateFirewallDomainsResponse_status = Lens.lens (\UpdateFirewallDomainsResponse' {status} -> status) (\s@UpdateFirewallDomainsResponse' {} a -> s {status = a} :: UpdateFirewallDomainsResponse)
 

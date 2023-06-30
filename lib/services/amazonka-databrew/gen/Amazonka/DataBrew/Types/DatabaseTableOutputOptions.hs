@@ -82,7 +82,8 @@ instance Data.FromJSON DatabaseTableOutputOptions where
 
 instance Prelude.Hashable DatabaseTableOutputOptions where
   hashWithSalt _salt DatabaseTableOutputOptions' {..} =
-    _salt `Prelude.hashWithSalt` tempDirectory
+    _salt
+      `Prelude.hashWithSalt` tempDirectory
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData DatabaseTableOutputOptions where

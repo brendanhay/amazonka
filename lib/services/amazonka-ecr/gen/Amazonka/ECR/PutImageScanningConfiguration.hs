@@ -150,7 +150,8 @@ instance
     PutImageScanningConfiguration
   where
   hashWithSalt _salt PutImageScanningConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageScanningConfiguration
 

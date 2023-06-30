@@ -82,7 +82,8 @@ instance Data.FromJSON LanguageCodeItem where
 
 instance Prelude.Hashable LanguageCodeItem where
   hashWithSalt _salt LanguageCodeItem' {..} =
-    _salt `Prelude.hashWithSalt` durationInSeconds
+    _salt
+      `Prelude.hashWithSalt` durationInSeconds
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData LanguageCodeItem where

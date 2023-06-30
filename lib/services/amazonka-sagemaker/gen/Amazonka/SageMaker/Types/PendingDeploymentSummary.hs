@@ -111,7 +111,8 @@ instance Data.FromJSON PendingDeploymentSummary where
 
 instance Prelude.Hashable PendingDeploymentSummary where
   hashWithSalt _salt PendingDeploymentSummary' {..} =
-    _salt `Prelude.hashWithSalt` productionVariants
+    _salt
+      `Prelude.hashWithSalt` productionVariants
       `Prelude.hashWithSalt` shadowProductionVariants
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endpointConfigName

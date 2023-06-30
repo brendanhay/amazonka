@@ -108,7 +108,8 @@ instance Core.AWSRequest DeregisterIdentityProvider where
 
 instance Prelude.Hashable DeregisterIdentityProvider where
   hashWithSalt _salt DeregisterIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` identityProvider
+    _salt
+      `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` product
 
 instance Prelude.NFData DeregisterIdentityProvider where

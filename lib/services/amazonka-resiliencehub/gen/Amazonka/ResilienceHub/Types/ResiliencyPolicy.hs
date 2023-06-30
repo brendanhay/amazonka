@@ -173,7 +173,8 @@ instance Data.FromJSON ResiliencyPolicy where
 
 instance Prelude.Hashable ResiliencyPolicy where
   hashWithSalt _salt ResiliencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dataLocationConstraint
       `Prelude.hashWithSalt` estimatedCostTier
       `Prelude.hashWithSalt` policy

@@ -80,7 +80,8 @@ instance Data.FromJSON AttributeNameAndValue where
 
 instance Prelude.Hashable AttributeNameAndValue where
   hashWithSalt _salt AttributeNameAndValue' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AttributeNameAndValue where

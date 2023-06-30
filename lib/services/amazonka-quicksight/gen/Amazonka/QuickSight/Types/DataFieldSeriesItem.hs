@@ -103,7 +103,8 @@ instance Data.FromJSON DataFieldSeriesItem where
 
 instance Prelude.Hashable DataFieldSeriesItem where
   hashWithSalt _salt DataFieldSeriesItem' {..} =
-    _salt `Prelude.hashWithSalt` fieldValue
+    _salt
+      `Prelude.hashWithSalt` fieldValue
       `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` axisBinding

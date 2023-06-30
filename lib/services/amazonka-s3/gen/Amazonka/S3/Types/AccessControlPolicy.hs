@@ -68,7 +68,8 @@ accessControlPolicy_owner = Lens.lens (\AccessControlPolicy' {owner} -> owner) (
 
 instance Prelude.Hashable AccessControlPolicy where
   hashWithSalt _salt AccessControlPolicy' {..} =
-    _salt `Prelude.hashWithSalt` grants
+    _salt
+      `Prelude.hashWithSalt` grants
       `Prelude.hashWithSalt` owner
 
 instance Prelude.NFData AccessControlPolicy where

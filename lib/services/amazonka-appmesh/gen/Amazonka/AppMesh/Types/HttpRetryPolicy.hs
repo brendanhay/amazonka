@@ -138,7 +138,8 @@ instance Data.FromJSON HttpRetryPolicy where
 
 instance Prelude.Hashable HttpRetryPolicy where
   hashWithSalt _salt HttpRetryPolicy' {..} =
-    _salt `Prelude.hashWithSalt` httpRetryEvents
+    _salt
+      `Prelude.hashWithSalt` httpRetryEvents
       `Prelude.hashWithSalt` tcpRetryEvents
       `Prelude.hashWithSalt` maxRetries
       `Prelude.hashWithSalt` perRetryTimeout

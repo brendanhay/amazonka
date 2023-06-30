@@ -128,7 +128,8 @@ instance Data.FromJSON Celebrity where
 
 instance Prelude.Hashable Celebrity where
   hashWithSalt _salt Celebrity' {..} =
-    _salt `Prelude.hashWithSalt` face
+    _salt
+      `Prelude.hashWithSalt` face
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` knownGender
       `Prelude.hashWithSalt` matchConfidence

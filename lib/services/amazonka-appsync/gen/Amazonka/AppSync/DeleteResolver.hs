@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteResolver where
 
 instance Prelude.Hashable DeleteResolver where
   hashWithSalt _salt DeleteResolver' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` fieldName
 

@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     DefaultCategoricalHyperParameterRange' {..} =
-      _salt `Prelude.hashWithSalt` isTunable
+      _salt
+        `Prelude.hashWithSalt` isTunable
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` values
 

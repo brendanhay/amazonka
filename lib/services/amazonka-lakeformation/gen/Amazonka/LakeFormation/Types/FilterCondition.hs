@@ -77,7 +77,8 @@ filterCondition_stringValueList = Lens.lens (\FilterCondition' {stringValueList}
 
 instance Prelude.Hashable FilterCondition where
   hashWithSalt _salt FilterCondition' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` stringValueList
 

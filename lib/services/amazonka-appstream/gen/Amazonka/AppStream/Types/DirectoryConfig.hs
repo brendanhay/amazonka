@@ -140,7 +140,8 @@ instance Data.FromJSON DirectoryConfig where
           DirectoryConfig'
             Prelude.<$> (x Data..:? "CertificateBasedAuthProperties")
             Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> ( x Data..:? "OrganizationalUnitDistinguishedNames"
+            Prelude.<*> ( x
+                            Data..:? "OrganizationalUnitDistinguishedNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ServiceAccountCredentials")

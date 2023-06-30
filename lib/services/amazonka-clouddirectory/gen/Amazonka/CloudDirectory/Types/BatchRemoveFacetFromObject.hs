@@ -73,7 +73,8 @@ batchRemoveFacetFromObject_objectReference = Lens.lens (\BatchRemoveFacetFromObj
 
 instance Prelude.Hashable BatchRemoveFacetFromObject where
   hashWithSalt _salt BatchRemoveFacetFromObject' {..} =
-    _salt `Prelude.hashWithSalt` schemaFacet
+    _salt
+      `Prelude.hashWithSalt` schemaFacet
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData BatchRemoveFacetFromObject where

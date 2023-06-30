@@ -363,7 +363,8 @@ instance Core.AWSRequest CreateTopic where
 
 instance Prelude.Hashable CreateTopic where
   hashWithSalt _salt CreateTopic' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` dataProtectionPolicy
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

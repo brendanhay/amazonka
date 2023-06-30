@@ -109,7 +109,8 @@ instance Core.AWSRequest AssociateRoleToGroup where
 
 instance Prelude.Hashable AssociateRoleToGroup where
   hashWithSalt _salt AssociateRoleToGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData AssociateRoleToGroup where

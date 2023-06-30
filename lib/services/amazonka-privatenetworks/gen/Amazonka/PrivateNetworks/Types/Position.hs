@@ -106,7 +106,8 @@ instance Data.FromJSON Position where
 
 instance Prelude.Hashable Position where
   hashWithSalt _salt Position' {..} =
-    _salt `Prelude.hashWithSalt` elevation
+    _salt
+      `Prelude.hashWithSalt` elevation
       `Prelude.hashWithSalt` elevationReference
       `Prelude.hashWithSalt` elevationUnit
       `Prelude.hashWithSalt` latitude

@@ -130,7 +130,8 @@ instance Core.AWSRequest GetConnection where
 
 instance Prelude.Hashable GetConnection where
   hashWithSalt _salt GetConnection' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` hidePassword
       `Prelude.hashWithSalt` name
 

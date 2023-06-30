@@ -95,11 +95,12 @@ instance
       ( \x ->
           NetworkFirewallUnexpectedGatewayRoutesViolation'
             Prelude.<$> (x Data..:? "GatewayId")
-              Prelude.<*> (x Data..:? "RouteTableId")
-              Prelude.<*> ( x Data..:? "ViolatingRoutes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "RouteTableId")
+            Prelude.<*> ( x
+                            Data..:? "ViolatingRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance
@@ -109,7 +110,8 @@ instance
   hashWithSalt
     _salt
     NetworkFirewallUnexpectedGatewayRoutesViolation' {..} =
-      _salt `Prelude.hashWithSalt` gatewayId
+      _salt
+        `Prelude.hashWithSalt` gatewayId
         `Prelude.hashWithSalt` routeTableId
         `Prelude.hashWithSalt` violatingRoutes
         `Prelude.hashWithSalt` vpcId

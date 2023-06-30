@@ -277,7 +277,8 @@ instance Core.AWSRequest UpdateImageVersion where
 
 instance Prelude.Hashable UpdateImageVersion where
   hashWithSalt _salt UpdateImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` aliasesToAdd
       `Prelude.hashWithSalt` aliasesToDelete
       `Prelude.hashWithSalt` horovod

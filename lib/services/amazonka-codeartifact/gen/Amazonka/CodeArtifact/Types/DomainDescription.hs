@@ -150,7 +150,8 @@ instance Data.FromJSON DomainDescription where
 
 instance Prelude.Hashable DomainDescription where
   hashWithSalt _salt DomainDescription' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` assetSizeBytes
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` encryptionKey

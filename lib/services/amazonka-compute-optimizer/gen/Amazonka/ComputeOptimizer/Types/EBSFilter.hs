@@ -88,7 +88,8 @@ eBSFilter_values = Lens.lens (\EBSFilter' {values} -> values) (\s@EBSFilter' {} 
 
 instance Prelude.Hashable EBSFilter where
   hashWithSalt _salt EBSFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData EBSFilter where

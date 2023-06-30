@@ -105,7 +105,8 @@ instance
     SuppressedDestinationSummary
   where
   hashWithSalt _salt SuppressedDestinationSummary' {..} =
-    _salt `Prelude.hashWithSalt` emailAddress
+    _salt
+      `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` lastUpdateTime
 

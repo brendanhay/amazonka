@@ -138,7 +138,9 @@ instance Core.AWSRequest ListReusableDelegationSets where
           ListReusableDelegationSetsResponse'
             Prelude.<$> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "DelegationSets" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "DelegationSets"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "DelegationSet"
                         )
             Prelude.<*> (x Data..@ "Marker")
@@ -148,7 +150,8 @@ instance Core.AWSRequest ListReusableDelegationSets where
 
 instance Prelude.Hashable ListReusableDelegationSets where
   hashWithSalt _salt ListReusableDelegationSets' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListReusableDelegationSets where

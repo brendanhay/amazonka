@@ -1210,12 +1210,14 @@ instance Data.FromJSON ExtraParam where
       "ExtraParam"
       ( \x ->
           ExtraParam'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable ExtraParam where
   hashWithSalt _salt ExtraParam' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ExtraParam where

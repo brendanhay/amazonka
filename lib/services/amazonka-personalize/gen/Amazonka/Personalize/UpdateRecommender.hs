@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateRecommender where
 
 instance Prelude.Hashable UpdateRecommender where
   hashWithSalt _salt UpdateRecommender' {..} =
-    _salt `Prelude.hashWithSalt` recommenderArn
+    _salt
+      `Prelude.hashWithSalt` recommenderArn
       `Prelude.hashWithSalt` recommenderConfig
 
 instance Prelude.NFData UpdateRecommender where

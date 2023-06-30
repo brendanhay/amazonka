@@ -74,7 +74,8 @@ instance Data.FromXML InventoryEncryption where
 
 instance Prelude.Hashable InventoryEncryption where
   hashWithSalt _salt InventoryEncryption' {..} =
-    _salt `Prelude.hashWithSalt` ssekms
+    _salt
+      `Prelude.hashWithSalt` ssekms
       `Prelude.hashWithSalt` sses3
 
 instance Prelude.NFData InventoryEncryption where

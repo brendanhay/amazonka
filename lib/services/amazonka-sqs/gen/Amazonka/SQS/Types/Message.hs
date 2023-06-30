@@ -30,7 +30,7 @@ import Amazonka.SQS.Types.MessageAttributeValue
 --
 -- /See:/ 'newMessage' smart constructor.
 data Message = Message'
-  { -- | A map of the attributes requested in @ ReceiveMessage @ to their
+  { -- | A map of the attributes requested in @ @@ReceiveMessage@@ @ to their
     -- respective values. Supported attributes:
     --
     -- -   @ApproximateReceiveCount@
@@ -85,7 +85,7 @@ data Message = Message'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributes', 'message_attributes' - A map of the attributes requested in @ ReceiveMessage @ to their
+-- 'attributes', 'message_attributes' - A map of the attributes requested in @ @@ReceiveMessage@@ @ to their
 -- respective values. Supported attributes:
 --
 -- -   @ApproximateReceiveCount@
@@ -141,7 +141,7 @@ newMessage =
       receiptHandle = Prelude.Nothing
     }
 
--- | A map of the attributes requested in @ ReceiveMessage @ to their
+-- | A map of the attributes requested in @ @@ReceiveMessage@@ @ to their
 -- respective values. Supported attributes:
 --
 -- -   @ApproximateReceiveCount@
@@ -218,7 +218,8 @@ instance Data.FromXML Message where
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` mD5OfBody
       `Prelude.hashWithSalt` mD5OfMessageAttributes

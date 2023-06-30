@@ -442,52 +442,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An unexpected service exception occurred.
-_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
@@ -495,7 +495,7 @@ _InternalServiceErrorException =
 
 -- | One or more input parameters aren\'t valid. Refer to the API action\'s
 -- document page, correct the input parameters, and try the action again.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -503,7 +503,7 @@ _InvalidRequestException =
 
 -- | You can\'t perform this action when the resource is in its current
 -- state.
-_InvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -511,7 +511,7 @@ _InvalidStateException =
 
 -- | A resource doesn\'t exist for the specified Amazon Resource Name (ARN)
 -- in your Amazon Web Services account.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -523,7 +523,7 @@ _ResourceNotFoundException =
 -- For App Runner per-resource quotas, see
 -- <https://docs.aws.amazon.com/general/latest/gr/apprunner.html App Runner endpoints and quotas>
 -- in the /Amazon Web Services General Reference/.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService

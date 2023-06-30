@@ -134,7 +134,8 @@ instance Core.AWSRequest SetDefaultSenderId where
 
 instance Prelude.Hashable SetDefaultSenderId where
   hashWithSalt _salt SetDefaultSenderId' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` senderId
 
 instance Prelude.NFData SetDefaultSenderId where

@@ -179,7 +179,8 @@ instance Core.AWSRequest NotifyMigrationTaskState where
 
 instance Prelude.Hashable NotifyMigrationTaskState where
   hashWithSalt _salt NotifyMigrationTaskState' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` migrationTaskName
       `Prelude.hashWithSalt` task

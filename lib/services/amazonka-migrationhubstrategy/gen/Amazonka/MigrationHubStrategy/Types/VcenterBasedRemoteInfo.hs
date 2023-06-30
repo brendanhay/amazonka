@@ -75,7 +75,8 @@ instance Data.FromJSON VcenterBasedRemoteInfo where
 
 instance Prelude.Hashable VcenterBasedRemoteInfo where
   hashWithSalt _salt VcenterBasedRemoteInfo' {..} =
-    _salt `Prelude.hashWithSalt` osType
+    _salt
+      `Prelude.hashWithSalt` osType
       `Prelude.hashWithSalt` vcenterConfigurationTimeStamp
 
 instance Prelude.NFData VcenterBasedRemoteInfo where

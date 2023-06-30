@@ -80,7 +80,8 @@ imageFile_type = Lens.lens (\ImageFile' {type'} -> type') (\s@ImageFile' {} a ->
 
 instance Prelude.Hashable ImageFile where
   hashWithSalt _salt ImageFile' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ImageFile where

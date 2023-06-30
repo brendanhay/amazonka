@@ -90,14 +90,16 @@ instance Data.FromJSON DashAdditionalManifest where
       ( \x ->
           DashAdditionalManifest'
             Prelude.<$> (x Data..:? "manifestNameModifier")
-            Prelude.<*> ( x Data..:? "selectedOutputs"
+            Prelude.<*> ( x
+                            Data..:? "selectedOutputs"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DashAdditionalManifest where
   hashWithSalt _salt DashAdditionalManifest' {..} =
-    _salt `Prelude.hashWithSalt` manifestNameModifier
+    _salt
+      `Prelude.hashWithSalt` manifestNameModifier
       `Prelude.hashWithSalt` selectedOutputs
 
 instance Prelude.NFData DashAdditionalManifest where

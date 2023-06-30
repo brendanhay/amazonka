@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdateExport where
 
 instance Prelude.Hashable UpdateExport where
   hashWithSalt _salt UpdateExport' {..} =
-    _salt `Prelude.hashWithSalt` filePassword
+    _salt
+      `Prelude.hashWithSalt` filePassword
       `Prelude.hashWithSalt` exportId
 
 instance Prelude.NFData UpdateExport where

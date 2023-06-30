@@ -163,7 +163,8 @@ instance
   hashWithSalt
     _salt
     BatchCreateCustomVocabularyItem' {..} =
-      _salt `Prelude.hashWithSalt` botId
+      _salt
+        `Prelude.hashWithSalt` botId
         `Prelude.hashWithSalt` botVersion
         `Prelude.hashWithSalt` localeId
         `Prelude.hashWithSalt` customVocabularyItemList

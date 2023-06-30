@@ -157,24 +157,33 @@ instance Data.FromXML IpPermission where
   parseXML x =
     IpPermission'
       Prelude.<$> (x Data..@? "fromPort")
-      Prelude.<*> ( x Data..@? "ipRanges" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ipRanges"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "ipv6Ranges" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ipv6Ranges"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "prefixListIds" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "prefixListIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "toPort")
-      Prelude.<*> ( x Data..@? "groups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "ipProtocol")
 
 instance Prelude.Hashable IpPermission where
   hashWithSalt _salt IpPermission' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` ipRanges
       `Prelude.hashWithSalt` ipv6Ranges
       `Prelude.hashWithSalt` prefixListIds

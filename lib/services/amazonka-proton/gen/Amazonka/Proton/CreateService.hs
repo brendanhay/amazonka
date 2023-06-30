@@ -253,7 +253,8 @@ instance Core.AWSRequest CreateService where
 
 instance Prelude.Hashable CreateService where
   hashWithSalt _salt CreateService' {..} =
-    _salt `Prelude.hashWithSalt` branchName
+    _salt
+      `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` repositoryConnectionArn
       `Prelude.hashWithSalt` repositoryId

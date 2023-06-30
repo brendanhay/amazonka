@@ -148,7 +148,8 @@ instance Core.AWSRequest UpdateTagsForResource where
 
 instance Prelude.Hashable UpdateTagsForResource where
   hashWithSalt _salt UpdateTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` tagsToAdd
+    _salt
+      `Prelude.hashWithSalt` tagsToAdd
       `Prelude.hashWithSalt` tagsToRemove
       `Prelude.hashWithSalt` resourceArn
 

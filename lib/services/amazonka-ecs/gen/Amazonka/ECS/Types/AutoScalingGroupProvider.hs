@@ -143,7 +143,8 @@ instance Data.FromJSON AutoScalingGroupProvider where
 
 instance Prelude.Hashable AutoScalingGroupProvider where
   hashWithSalt _salt AutoScalingGroupProvider' {..} =
-    _salt `Prelude.hashWithSalt` managedScaling
+    _salt
+      `Prelude.hashWithSalt` managedScaling
       `Prelude.hashWithSalt` managedTerminationProtection
       `Prelude.hashWithSalt` autoScalingGroupArn
 

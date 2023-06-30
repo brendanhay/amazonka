@@ -284,7 +284,8 @@ instance Data.FromJSON Playlist where
 
 instance Prelude.Hashable Playlist where
   hashWithSalt _salt Playlist' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` hlsContentProtection
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outputKeys

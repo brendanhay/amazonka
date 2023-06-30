@@ -116,7 +116,8 @@ instance Core.AWSRequest StopJob where
 
 instance Prelude.Hashable StopJob where
   hashWithSalt _salt StopJob' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` jobId
 

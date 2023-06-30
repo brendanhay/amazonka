@@ -74,7 +74,8 @@ sequenceStoreFilter_name = Lens.lens (\SequenceStoreFilter' {name} -> name) (\s@
 
 instance Prelude.Hashable SequenceStoreFilter where
   hashWithSalt _salt SequenceStoreFilter' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` name
 

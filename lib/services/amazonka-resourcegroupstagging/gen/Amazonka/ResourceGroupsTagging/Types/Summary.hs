@@ -124,7 +124,8 @@ instance Data.FromJSON Summary where
 
 instance Prelude.Hashable Summary where
   hashWithSalt _salt Summary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdated
+    _salt
+      `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` nonCompliantResources
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` resourceType

@@ -117,7 +117,8 @@ instance Data.FromJSON ExecutionStepResult where
 
 instance Prelude.Hashable ExecutionStepResult where
   hashWithSalt _salt ExecutionStepResult' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` stepType
 

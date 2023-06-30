@@ -181,7 +181,8 @@ instance Data.FromJSON ObservabilityConfiguration where
 
 instance Prelude.Hashable ObservabilityConfiguration where
   hashWithSalt _salt ObservabilityConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` deletedAt
       `Prelude.hashWithSalt` latest
       `Prelude.hashWithSalt` observabilityConfigurationArn

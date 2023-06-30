@@ -93,7 +93,8 @@ monitoringConfiguration_configurationType = Lens.lens (\MonitoringConfiguration'
 
 instance Prelude.Hashable MonitoringConfiguration where
   hashWithSalt _salt MonitoringConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` logLevel
+    _salt
+      `Prelude.hashWithSalt` logLevel
       `Prelude.hashWithSalt` metricsLevel
       `Prelude.hashWithSalt` configurationType
 

@@ -81,7 +81,8 @@ instance Data.FromXML HostInstance where
 
 instance Prelude.Hashable HostInstance where
   hashWithSalt _salt HostInstance' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` ownerId
 

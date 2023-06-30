@@ -93,7 +93,8 @@ instance Data.FromJSON WeeklyStartTime where
 
 instance Prelude.Hashable WeeklyStartTime where
   hashWithSalt _salt WeeklyStartTime' {..} =
-    _salt `Prelude.hashWithSalt` timeZone
+    _salt
+      `Prelude.hashWithSalt` timeZone
       `Prelude.hashWithSalt` timeOfDay
       `Prelude.hashWithSalt` dayOfWeek
 

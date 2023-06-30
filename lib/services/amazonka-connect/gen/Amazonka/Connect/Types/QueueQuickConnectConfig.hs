@@ -79,7 +79,8 @@ instance Data.FromJSON QueueQuickConnectConfig where
 
 instance Prelude.Hashable QueueQuickConnectConfig where
   hashWithSalt _salt QueueQuickConnectConfig' {..} =
-    _salt `Prelude.hashWithSalt` queueId
+    _salt
+      `Prelude.hashWithSalt` queueId
       `Prelude.hashWithSalt` contactFlowId
 
 instance Prelude.NFData QueueQuickConnectConfig where

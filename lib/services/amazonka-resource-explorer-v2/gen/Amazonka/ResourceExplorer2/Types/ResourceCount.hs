@@ -112,7 +112,8 @@ instance Data.FromJSON ResourceCount where
 
 instance Prelude.Hashable ResourceCount where
   hashWithSalt _salt ResourceCount' {..} =
-    _salt `Prelude.hashWithSalt` complete
+    _salt
+      `Prelude.hashWithSalt` complete
       `Prelude.hashWithSalt` totalResources
 
 instance Prelude.NFData ResourceCount where

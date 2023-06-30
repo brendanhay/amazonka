@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteFileCache where
 
 instance Prelude.Hashable DeleteFileCache where
   hashWithSalt _salt DeleteFileCache' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileCacheId
 
 instance Prelude.NFData DeleteFileCache where

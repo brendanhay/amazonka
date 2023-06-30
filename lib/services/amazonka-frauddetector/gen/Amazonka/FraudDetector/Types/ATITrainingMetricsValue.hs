@@ -71,7 +71,8 @@ instance Data.FromJSON ATITrainingMetricsValue where
       "ATITrainingMetricsValue"
       ( \x ->
           ATITrainingMetricsValue'
-            Prelude.<$> ( x Data..:? "metricDataPoints"
+            Prelude.<$> ( x
+                            Data..:? "metricDataPoints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "modelPerformance")
@@ -79,7 +80,8 @@ instance Data.FromJSON ATITrainingMetricsValue where
 
 instance Prelude.Hashable ATITrainingMetricsValue where
   hashWithSalt _salt ATITrainingMetricsValue' {..} =
-    _salt `Prelude.hashWithSalt` metricDataPoints
+    _salt
+      `Prelude.hashWithSalt` metricDataPoints
       `Prelude.hashWithSalt` modelPerformance
 
 instance Prelude.NFData ATITrainingMetricsValue where

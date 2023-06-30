@@ -99,7 +99,8 @@ instance Data.FromJSON Destination where
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt `Prelude.hashWithSalt` destinationId
+    _salt
+      `Prelude.hashWithSalt` destinationId
       `Prelude.hashWithSalt` destinationType
       `Prelude.hashWithSalt` status
 

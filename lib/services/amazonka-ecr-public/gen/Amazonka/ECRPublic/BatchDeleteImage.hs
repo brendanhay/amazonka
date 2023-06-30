@@ -137,7 +137,8 @@ instance Core.AWSRequest BatchDeleteImage where
 
 instance Prelude.Hashable BatchDeleteImage where
   hashWithSalt _salt BatchDeleteImage' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageIds
 

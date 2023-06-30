@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     UpdateIdentityProviderSettings' {..} =
-      _salt `Prelude.hashWithSalt` identityProvider
+      _salt
+        `Prelude.hashWithSalt` identityProvider
         `Prelude.hashWithSalt` product
         `Prelude.hashWithSalt` updateSettings
 

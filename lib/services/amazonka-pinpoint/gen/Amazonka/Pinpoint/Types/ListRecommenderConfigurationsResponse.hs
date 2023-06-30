@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     ListRecommenderConfigurationsResponse' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` item
 
 instance

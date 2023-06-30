@@ -132,7 +132,8 @@ instance Data.FromJSON ExecuteCommandConfiguration where
 
 instance Prelude.Hashable ExecuteCommandConfiguration where
   hashWithSalt _salt ExecuteCommandConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` logging
 

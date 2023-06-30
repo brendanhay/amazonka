@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteCluster where
 
 instance Prelude.Hashable DeleteCluster where
   hashWithSalt _salt DeleteCluster' {..} =
-    _salt `Prelude.hashWithSalt` finalSnapshotName
+    _salt
+      `Prelude.hashWithSalt` finalSnapshotName
       `Prelude.hashWithSalt` clusterName
 
 instance Prelude.NFData DeleteCluster where

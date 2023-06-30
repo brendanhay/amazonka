@@ -132,7 +132,8 @@ instance Core.AWSRequest DeleteEmailIdentityPolicy where
 
 instance Prelude.Hashable DeleteEmailIdentityPolicy where
   hashWithSalt _salt DeleteEmailIdentityPolicy' {..} =
-    _salt `Prelude.hashWithSalt` emailIdentity
+    _salt
+      `Prelude.hashWithSalt` emailIdentity
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData DeleteEmailIdentityPolicy where

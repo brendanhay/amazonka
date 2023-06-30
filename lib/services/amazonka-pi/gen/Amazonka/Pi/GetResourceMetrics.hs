@@ -323,7 +323,8 @@ instance Core.AWSRequest GetResourceMetrics where
 
 instance Prelude.Hashable GetResourceMetrics where
   hashWithSalt _salt GetResourceMetrics' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` periodInSeconds
       `Prelude.hashWithSalt` serviceType

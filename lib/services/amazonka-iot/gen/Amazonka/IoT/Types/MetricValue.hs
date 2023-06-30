@@ -123,7 +123,8 @@ instance Data.FromJSON MetricValue where
 
 instance Prelude.Hashable MetricValue where
   hashWithSalt _salt MetricValue' {..} =
-    _salt `Prelude.hashWithSalt` cidrs
+    _salt
+      `Prelude.hashWithSalt` cidrs
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` number
       `Prelude.hashWithSalt` numbers

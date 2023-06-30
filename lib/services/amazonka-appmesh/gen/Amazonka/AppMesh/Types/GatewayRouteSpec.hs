@@ -97,7 +97,8 @@ instance Data.FromJSON GatewayRouteSpec where
 
 instance Prelude.Hashable GatewayRouteSpec where
   hashWithSalt _salt GatewayRouteSpec' {..} =
-    _salt `Prelude.hashWithSalt` grpcRoute
+    _salt
+      `Prelude.hashWithSalt` grpcRoute
       `Prelude.hashWithSalt` http2Route
       `Prelude.hashWithSalt` httpRoute
       `Prelude.hashWithSalt` priority

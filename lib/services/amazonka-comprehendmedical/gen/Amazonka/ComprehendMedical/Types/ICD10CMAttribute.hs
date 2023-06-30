@@ -191,7 +191,8 @@ instance Data.FromJSON ICD10CMAttribute where
 
 instance Prelude.Hashable ICD10CMAttribute where
   hashWithSalt _salt ICD10CMAttribute' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` id

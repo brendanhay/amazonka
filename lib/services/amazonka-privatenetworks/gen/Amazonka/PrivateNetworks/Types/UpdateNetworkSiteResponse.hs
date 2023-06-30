@@ -74,7 +74,8 @@ instance Data.FromJSON UpdateNetworkSiteResponse where
 
 instance Prelude.Hashable UpdateNetworkSiteResponse where
   hashWithSalt _salt UpdateNetworkSiteResponse' {..} =
-    _salt `Prelude.hashWithSalt` networkSite
+    _salt
+      `Prelude.hashWithSalt` networkSite
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData UpdateNetworkSiteResponse where

@@ -117,7 +117,8 @@ instance Core.AWSRequest GetApiMappings where
 
 instance Prelude.Hashable GetApiMappings where
   hashWithSalt _salt GetApiMappings' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 

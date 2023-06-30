@@ -104,7 +104,8 @@ instance Data.FromJSON Outcome where
 
 instance Prelude.Hashable Outcome where
   hashWithSalt _salt Outcome' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedTime

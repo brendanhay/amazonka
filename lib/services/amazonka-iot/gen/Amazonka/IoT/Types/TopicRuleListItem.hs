@@ -104,7 +104,8 @@ instance Data.FromJSON TopicRuleListItem where
 
 instance Prelude.Hashable TopicRuleListItem where
   hashWithSalt _salt TopicRuleListItem' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` ruleArn
       `Prelude.hashWithSalt` ruleDisabled
       `Prelude.hashWithSalt` ruleName

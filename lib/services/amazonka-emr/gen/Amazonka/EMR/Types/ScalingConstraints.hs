@@ -92,7 +92,8 @@ instance Data.FromJSON ScalingConstraints where
 
 instance Prelude.Hashable ScalingConstraints where
   hashWithSalt _salt ScalingConstraints' {..} =
-    _salt `Prelude.hashWithSalt` minCapacity
+    _salt
+      `Prelude.hashWithSalt` minCapacity
       `Prelude.hashWithSalt` maxCapacity
 
 instance Prelude.NFData ScalingConstraints where

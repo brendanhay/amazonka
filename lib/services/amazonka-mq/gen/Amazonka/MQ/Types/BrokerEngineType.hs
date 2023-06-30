@@ -71,14 +71,16 @@ instance Data.FromJSON BrokerEngineType where
       ( \x ->
           BrokerEngineType'
             Prelude.<$> (x Data..:? "engineType")
-            Prelude.<*> ( x Data..:? "engineVersions"
+            Prelude.<*> ( x
+                            Data..:? "engineVersions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BrokerEngineType where
   hashWithSalt _salt BrokerEngineType' {..} =
-    _salt `Prelude.hashWithSalt` engineType
+    _salt
+      `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` engineVersions
 
 instance Prelude.NFData BrokerEngineType where

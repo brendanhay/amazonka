@@ -77,7 +77,8 @@ inputS3Object_key = Lens.lens (\InputS3Object' {key} -> key) (\s@InputS3Object' 
 
 instance Prelude.Hashable InputS3Object where
   hashWithSalt _salt InputS3Object' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 

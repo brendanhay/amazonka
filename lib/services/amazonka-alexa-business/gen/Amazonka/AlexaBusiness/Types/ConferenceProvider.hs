@@ -121,7 +121,8 @@ instance Data.FromJSON ConferenceProvider where
 
 instance Prelude.Hashable ConferenceProvider where
   hashWithSalt _salt ConferenceProvider' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` iPDialIn
       `Prelude.hashWithSalt` meetingSetting
       `Prelude.hashWithSalt` name

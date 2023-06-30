@@ -127,7 +127,8 @@ instance Core.AWSRequest GetMLTransforms where
 
 instance Prelude.Hashable GetMLTransforms where
   hashWithSalt _salt GetMLTransforms' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sort

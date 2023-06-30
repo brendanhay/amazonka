@@ -242,7 +242,8 @@ instance Data.FromJSON User where
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` customPermissionsName
       `Prelude.hashWithSalt` email

@@ -111,7 +111,8 @@ instance Core.AWSRequest GetMinuteUsage where
 
 instance Prelude.Hashable GetMinuteUsage where
   hashWithSalt _salt GetMinuteUsage' {..} =
-    _salt `Prelude.hashWithSalt` month
+    _salt
+      `Prelude.hashWithSalt` month
       `Prelude.hashWithSalt` year
 
 instance Prelude.NFData GetMinuteUsage where

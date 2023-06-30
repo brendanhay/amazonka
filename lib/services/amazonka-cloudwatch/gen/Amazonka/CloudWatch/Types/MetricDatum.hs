@@ -238,7 +238,8 @@ metricDatum_metricName = Lens.lens (\MetricDatum' {metricName} -> metricName) (\
 
 instance Prelude.Hashable MetricDatum where
   hashWithSalt _salt MetricDatum' {..} =
-    _salt `Prelude.hashWithSalt` counts
+    _salt
+      `Prelude.hashWithSalt` counts
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` statisticValues
       `Prelude.hashWithSalt` storageResolution

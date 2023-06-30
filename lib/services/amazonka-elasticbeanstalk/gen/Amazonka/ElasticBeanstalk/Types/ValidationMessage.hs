@@ -109,7 +109,8 @@ instance Data.FromXML ValidationMessage where
 
 instance Prelude.Hashable ValidationMessage where
   hashWithSalt _salt ValidationMessage' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` optionName
       `Prelude.hashWithSalt` severity

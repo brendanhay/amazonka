@@ -206,7 +206,8 @@ instance Core.AWSRequest CreateAccessPoint where
 
 instance Prelude.Hashable CreateAccessPoint where
   hashWithSalt _salt CreateAccessPoint' {..} =
-    _salt `Prelude.hashWithSalt` posixUser
+    _salt
+      `Prelude.hashWithSalt` posixUser
       `Prelude.hashWithSalt` rootDirectory
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken

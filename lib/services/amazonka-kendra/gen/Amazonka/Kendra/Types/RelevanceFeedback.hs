@@ -74,7 +74,8 @@ relevanceFeedback_relevanceValue = Lens.lens (\RelevanceFeedback' {relevanceValu
 
 instance Prelude.Hashable RelevanceFeedback where
   hashWithSalt _salt RelevanceFeedback' {..} =
-    _salt `Prelude.hashWithSalt` resultId
+    _salt
+      `Prelude.hashWithSalt` resultId
       `Prelude.hashWithSalt` relevanceValue
 
 instance Prelude.NFData RelevanceFeedback where

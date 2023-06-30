@@ -134,21 +134,21 @@ instance Core.AWSPager GetDatalakeStatus where
     | Core.stop
         ( rs
             Lens.^? getDatalakeStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. getDatalakeStatusResponse_accountSourcesList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getDatalakeStatus_nextToken
           Lens..~ rs
           Lens.^? getDatalakeStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDatalakeStatus where
   type
@@ -162,14 +162,16 @@ instance Core.AWSRequest GetDatalakeStatus where
           GetDatalakeStatusResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "accountSourcesList"
+            Prelude.<*> ( x
+                            Data..?> "accountSourcesList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetDatalakeStatus where
   hashWithSalt _salt GetDatalakeStatus' {..} =
-    _salt `Prelude.hashWithSalt` accountSet
+    _salt
+      `Prelude.hashWithSalt` accountSet
       `Prelude.hashWithSalt` maxAccountResults
       `Prelude.hashWithSalt` nextToken
 

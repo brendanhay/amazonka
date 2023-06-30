@@ -82,7 +82,8 @@ instance
     SoftwareTokenMfaSettingsType
   where
   hashWithSalt _salt SoftwareTokenMfaSettingsType' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` preferredMfa
 
 instance Prelude.NFData SoftwareTokenMfaSettingsType where

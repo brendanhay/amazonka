@@ -103,7 +103,8 @@ instance Data.FromJSON GroupConfiguration where
           GroupConfiguration'
             Prelude.<$> (x Data..:? "Configuration" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "FailureReason")
-            Prelude.<*> ( x Data..:? "ProposedConfiguration"
+            Prelude.<*> ( x
+                            Data..:? "ProposedConfiguration"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Status")
@@ -111,7 +112,8 @@ instance Data.FromJSON GroupConfiguration where
 
 instance Prelude.Hashable GroupConfiguration where
   hashWithSalt _salt GroupConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` proposedConfiguration
       `Prelude.hashWithSalt` status

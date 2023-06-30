@@ -76,7 +76,8 @@ instance Data.FromJSON CapacityDescription where
 
 instance Prelude.Hashable CapacityDescription where
   hashWithSalt _salt CapacityDescription' {..} =
-    _salt `Prelude.hashWithSalt` autoScaling
+    _salt
+      `Prelude.hashWithSalt` autoScaling
       `Prelude.hashWithSalt` provisionedCapacity
 
 instance Prelude.NFData CapacityDescription where

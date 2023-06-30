@@ -102,7 +102,8 @@ instance Data.FromXML FunctionSummary where
 
 instance Prelude.Hashable FunctionSummary where
   hashWithSalt _salt FunctionSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` functionConfig
       `Prelude.hashWithSalt` functionMetadata

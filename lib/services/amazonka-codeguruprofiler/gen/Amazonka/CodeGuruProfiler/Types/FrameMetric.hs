@@ -105,7 +105,8 @@ instance Data.FromJSON FrameMetric where
 
 instance Prelude.Hashable FrameMetric where
   hashWithSalt _salt FrameMetric' {..} =
-    _salt `Prelude.hashWithSalt` frameName
+    _salt
+      `Prelude.hashWithSalt` frameName
       `Prelude.hashWithSalt` threadStates
       `Prelude.hashWithSalt` type'
 

@@ -69,12 +69,14 @@ instance Data.FromJSON AppComponent where
       "AppComponent"
       ( \x ->
           AppComponent'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable AppComponent where
   hashWithSalt _salt AppComponent' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AppComponent where

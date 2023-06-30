@@ -150,7 +150,8 @@ instance Data.FromJSON PriorityConfiguration where
 
 instance Prelude.Hashable PriorityConfiguration where
   hashWithSalt _salt PriorityConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` locationOrder
+    _salt
+      `Prelude.hashWithSalt` locationOrder
       `Prelude.hashWithSalt` priorityOrder
 
 instance Prelude.NFData PriorityConfiguration where

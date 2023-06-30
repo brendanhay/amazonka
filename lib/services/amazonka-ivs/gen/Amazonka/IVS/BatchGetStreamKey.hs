@@ -158,11 +158,9 @@ newBatchGetStreamKeyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 batchGetStreamKeyResponse_errors :: Lens.Lens' BatchGetStreamKeyResponse (Prelude.Maybe [BatchError])
 batchGetStreamKeyResponse_errors = Lens.lens (\BatchGetStreamKeyResponse' {errors} -> errors) (\s@BatchGetStreamKeyResponse' {} a -> s {errors = a} :: BatchGetStreamKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
 batchGetStreamKeyResponse_streamKeys :: Lens.Lens' BatchGetStreamKeyResponse (Prelude.Maybe [StreamKey])
 batchGetStreamKeyResponse_streamKeys = Lens.lens (\BatchGetStreamKeyResponse' {streamKeys} -> streamKeys) (\s@BatchGetStreamKeyResponse' {} a -> s {streamKeys = a} :: BatchGetStreamKeyResponse) Prelude.. Lens.mapping Lens.coerced
 

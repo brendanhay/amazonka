@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateBuild where
 
 instance Prelude.Hashable UpdateBuild where
   hashWithSalt _salt UpdateBuild' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` buildId
 

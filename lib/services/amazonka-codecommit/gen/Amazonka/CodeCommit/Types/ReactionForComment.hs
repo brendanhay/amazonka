@@ -97,7 +97,8 @@ instance Data.FromJSON ReactionForComment where
 
 instance Prelude.Hashable ReactionForComment where
   hashWithSalt _salt ReactionForComment' {..} =
-    _salt `Prelude.hashWithSalt` reaction
+    _salt
+      `Prelude.hashWithSalt` reaction
       `Prelude.hashWithSalt` reactionUsers
       `Prelude.hashWithSalt` reactionsFromDeletedUsersCount
 

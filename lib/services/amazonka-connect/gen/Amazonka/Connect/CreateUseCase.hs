@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateUseCase where
 
 instance Prelude.Hashable CreateUseCase where
   hashWithSalt _salt CreateUseCase' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationAssociationId
       `Prelude.hashWithSalt` useCaseType

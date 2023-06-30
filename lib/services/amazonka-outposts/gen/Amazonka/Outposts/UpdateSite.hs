@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateSite where
 
 instance Prelude.Hashable UpdateSite where
   hashWithSalt _salt UpdateSite' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` siteId

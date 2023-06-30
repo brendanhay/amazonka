@@ -121,7 +121,8 @@ instance Core.AWSRequest CreateStreamKey where
 
 instance Prelude.Hashable CreateStreamKey where
   hashWithSalt _salt CreateStreamKey' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` channelArn
 
 instance Prelude.NFData CreateStreamKey where

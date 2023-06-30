@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteExpression where
 
 instance Prelude.Hashable DeleteExpression where
   hashWithSalt _salt DeleteExpression' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` expressionName
 
 instance Prelude.NFData DeleteExpression where

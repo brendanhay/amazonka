@@ -151,7 +151,8 @@ instance Data.FromJSON UpgradeStepItem where
 
 instance Prelude.Hashable UpgradeStepItem where
   hashWithSalt _salt UpgradeStepItem' {..} =
-    _salt `Prelude.hashWithSalt` issues
+    _salt
+      `Prelude.hashWithSalt` issues
       `Prelude.hashWithSalt` progressPercent
       `Prelude.hashWithSalt` upgradeStep
       `Prelude.hashWithSalt` upgradeStepStatus

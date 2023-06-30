@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateFuotaTask where
 
 instance Prelude.Hashable UpdateFuotaTask where
   hashWithSalt _salt UpdateFuotaTask' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` firmwareUpdateImage
       `Prelude.hashWithSalt` firmwareUpdateRole
       `Prelude.hashWithSalt` loRaWAN

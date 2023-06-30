@@ -95,12 +95,14 @@ instance Data.FromJSON EnvironmentFile where
       "EnvironmentFile"
       ( \x ->
           EnvironmentFile'
-            Prelude.<$> (x Data..: "value") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..: "value")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable EnvironmentFile where
   hashWithSalt _salt EnvironmentFile' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EnvironmentFile where

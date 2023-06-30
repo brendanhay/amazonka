@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateEndpoint where
 
 instance Prelude.Hashable CreateEndpoint where
   hashWithSalt _salt CreateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` replicationConfig
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` name

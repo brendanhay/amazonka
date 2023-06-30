@@ -103,7 +103,8 @@ instance Core.AWSRequest PutChannelPolicy where
 
 instance Prelude.Hashable PutChannelPolicy where
   hashWithSalt _salt PutChannelPolicy' {..} =
-    _salt `Prelude.hashWithSalt` channelName
+    _salt
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutChannelPolicy where

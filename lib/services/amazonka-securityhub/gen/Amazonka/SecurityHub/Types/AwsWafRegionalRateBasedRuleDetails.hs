@@ -127,7 +127,8 @@ instance
       "AwsWafRegionalRateBasedRuleDetails"
       ( \x ->
           AwsWafRegionalRateBasedRuleDetails'
-            Prelude.<$> ( x Data..:? "MatchPredicates"
+            Prelude.<$> ( x
+                            Data..:? "MatchPredicates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MetricName")
@@ -144,7 +145,8 @@ instance
   hashWithSalt
     _salt
     AwsWafRegionalRateBasedRuleDetails' {..} =
-      _salt `Prelude.hashWithSalt` matchPredicates
+      _salt
+        `Prelude.hashWithSalt` matchPredicates
         `Prelude.hashWithSalt` metricName
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` rateKey

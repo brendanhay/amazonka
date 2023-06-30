@@ -74,7 +74,7 @@ instance
       ( \s h x ->
           DeleteDatalakeExceptionsSubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance

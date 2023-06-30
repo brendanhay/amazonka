@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     EC2ReplaceRouteTableAssociationAction' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` associationId
         `Prelude.hashWithSalt` routeTableId
 

@@ -131,7 +131,8 @@ instance
     DeleteDomainPermissionsPolicy
   where
   hashWithSalt _salt DeleteDomainPermissionsPolicy' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` policyRevision
       `Prelude.hashWithSalt` domain
 

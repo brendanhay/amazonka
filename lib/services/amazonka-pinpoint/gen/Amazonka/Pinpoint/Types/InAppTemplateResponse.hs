@@ -191,7 +191,8 @@ instance Data.FromJSON InAppTemplateResponse where
 
 instance Prelude.Hashable InAppTemplateResponse where
   hashWithSalt _salt InAppTemplateResponse' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` customConfig
       `Prelude.hashWithSalt` layout

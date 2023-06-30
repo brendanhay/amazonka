@@ -111,14 +111,16 @@ instance Data.FromJSON Pipeline where
             Prelude.<*> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "lastUpdateTime")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> ( x Data..:? "reprocessingSummaries"
+            Prelude.<*> ( x
+                            Data..:? "reprocessingSummaries"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Pipeline where
   hashWithSalt _salt Pipeline' {..} =
-    _salt `Prelude.hashWithSalt` activities
+    _salt
+      `Prelude.hashWithSalt` activities
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastUpdateTime

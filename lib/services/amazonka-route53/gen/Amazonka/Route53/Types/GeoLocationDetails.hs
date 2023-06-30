@@ -134,7 +134,8 @@ instance Data.FromXML GeoLocationDetails where
 
 instance Prelude.Hashable GeoLocationDetails where
   hashWithSalt _salt GeoLocationDetails' {..} =
-    _salt `Prelude.hashWithSalt` continentCode
+    _salt
+      `Prelude.hashWithSalt` continentCode
       `Prelude.hashWithSalt` continentName
       `Prelude.hashWithSalt` countryCode
       `Prelude.hashWithSalt` countryName

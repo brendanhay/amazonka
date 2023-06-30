@@ -155,7 +155,8 @@ instance Data.FromJSON MonitoringScheduleSummary where
 
 instance Prelude.Hashable MonitoringScheduleSummary where
   hashWithSalt _salt MonitoringScheduleSummary' {..} =
-    _salt `Prelude.hashWithSalt` endpointName
+    _salt
+      `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` monitoringJobDefinitionName
       `Prelude.hashWithSalt` monitoringType
       `Prelude.hashWithSalt` monitoringScheduleName

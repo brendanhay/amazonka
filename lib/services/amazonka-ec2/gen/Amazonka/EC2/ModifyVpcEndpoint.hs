@@ -260,7 +260,8 @@ instance Core.AWSRequest ModifyVpcEndpoint where
 
 instance Prelude.Hashable ModifyVpcEndpoint where
   hashWithSalt _salt ModifyVpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` addRouteTableIds
+    _salt
+      `Prelude.hashWithSalt` addRouteTableIds
       `Prelude.hashWithSalt` addSecurityGroupIds
       `Prelude.hashWithSalt` addSubnetIds
       `Prelude.hashWithSalt` dnsOptions

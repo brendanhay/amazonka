@@ -68,7 +68,8 @@ sessionTag_value = Lens.lens (\SessionTag' {value} -> value) (\s@SessionTag' {} 
 
 instance Prelude.Hashable SessionTag where
   hashWithSalt _salt SessionTag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SessionTag where

@@ -141,7 +141,8 @@ instance Data.FromJSON Entitlement where
 
 instance Prelude.Hashable Entitlement where
   hashWithSalt _salt Entitlement' {..} =
-    _salt `Prelude.hashWithSalt` customerIdentifier
+    _salt
+      `Prelude.hashWithSalt` customerIdentifier
       `Prelude.hashWithSalt` dimension
       `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` productCode

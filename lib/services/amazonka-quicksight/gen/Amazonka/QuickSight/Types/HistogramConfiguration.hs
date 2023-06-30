@@ -142,7 +142,8 @@ instance Data.FromJSON HistogramConfiguration where
 
 instance Prelude.Hashable HistogramConfiguration where
   hashWithSalt _salt HistogramConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` binOptions
+    _salt
+      `Prelude.hashWithSalt` binOptions
       `Prelude.hashWithSalt` dataLabels
       `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` tooltip

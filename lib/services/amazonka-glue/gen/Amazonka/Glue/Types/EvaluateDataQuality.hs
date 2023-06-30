@@ -126,7 +126,8 @@ instance Data.FromJSON EvaluateDataQuality where
 
 instance Prelude.Hashable EvaluateDataQuality where
   hashWithSalt _salt EvaluateDataQuality' {..} =
-    _salt `Prelude.hashWithSalt` output
+    _salt
+      `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` publishingOptions
       `Prelude.hashWithSalt` stopJobOnFailureOptions
       `Prelude.hashWithSalt` name

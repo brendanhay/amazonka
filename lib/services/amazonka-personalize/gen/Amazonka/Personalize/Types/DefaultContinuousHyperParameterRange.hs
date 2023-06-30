@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     DefaultContinuousHyperParameterRange' {..} =
-      _salt `Prelude.hashWithSalt` isTunable
+      _salt
+        `Prelude.hashWithSalt` isTunable
         `Prelude.hashWithSalt` maxValue
         `Prelude.hashWithSalt` minValue
         `Prelude.hashWithSalt` name

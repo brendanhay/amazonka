@@ -91,10 +91,12 @@ instance Data.FromJSON Evaluation where
       "Evaluation"
       ( \x ->
           Evaluation'
-            Prelude.<$> ( x Data..:? "approvalRulesNotSatisfied"
+            Prelude.<$> ( x
+                            Data..:? "approvalRulesNotSatisfied"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "approvalRulesSatisfied"
+            Prelude.<*> ( x
+                            Data..:? "approvalRulesSatisfied"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "approved")

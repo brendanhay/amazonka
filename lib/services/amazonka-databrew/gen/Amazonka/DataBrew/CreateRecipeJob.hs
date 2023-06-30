@@ -274,7 +274,8 @@ instance Core.AWSRequest CreateRecipeJob where
 
 instance Prelude.Hashable CreateRecipeJob where
   hashWithSalt _salt CreateRecipeJob' {..} =
-    _salt `Prelude.hashWithSalt` dataCatalogOutputs
+    _salt
+      `Prelude.hashWithSalt` dataCatalogOutputs
       `Prelude.hashWithSalt` databaseOutputs
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` encryptionKeyArn

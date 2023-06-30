@@ -136,7 +136,8 @@ instance Core.AWSRequest DescribeCommands where
 
 instance Prelude.Hashable DescribeCommands where
   hashWithSalt _salt DescribeCommands' {..} =
-    _salt `Prelude.hashWithSalt` commandIds
+    _salt
+      `Prelude.hashWithSalt` commandIds
       `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` instanceId
 

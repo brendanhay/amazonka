@@ -57,11 +57,9 @@ newGeometry pCoordinates_ pType_ =
       type' = pType_
     }
 
--- |
 geometry_coordinates :: Lens.Lens' Geometry (Prelude.NonEmpty (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Double)))
 geometry_coordinates = Lens.lens (\Geometry' {coordinates} -> coordinates) (\s@Geometry' {} a -> s {coordinates = a} :: Geometry) Prelude.. Lens.coerced
 
--- |
 geometry_type :: Lens.Lens' Geometry Prelude.Text
 geometry_type = Lens.lens (\Geometry' {type'} -> type') (\s@Geometry' {} a -> s {type' = a} :: Geometry)
 
@@ -77,7 +75,8 @@ instance Data.FromJSON Geometry where
 
 instance Prelude.Hashable Geometry where
   hashWithSalt _salt Geometry' {..} =
-    _salt `Prelude.hashWithSalt` coordinates
+    _salt
+      `Prelude.hashWithSalt` coordinates
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Geometry where

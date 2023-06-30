@@ -117,7 +117,8 @@ instance Data.FromJSON RouteSettings where
 
 instance Prelude.Hashable RouteSettings where
   hashWithSalt _salt RouteSettings' {..} =
-    _salt `Prelude.hashWithSalt` dataTraceEnabled
+    _salt
+      `Prelude.hashWithSalt` dataTraceEnabled
       `Prelude.hashWithSalt` detailedMetricsEnabled
       `Prelude.hashWithSalt` loggingLevel
       `Prelude.hashWithSalt` throttlingBurstLimit

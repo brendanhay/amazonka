@@ -102,7 +102,8 @@ instance Data.FromJSON CalculatedColumn where
 
 instance Prelude.Hashable CalculatedColumn where
   hashWithSalt _salt CalculatedColumn' {..} =
-    _salt `Prelude.hashWithSalt` columnName
+    _salt
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` columnId
       `Prelude.hashWithSalt` expression
 

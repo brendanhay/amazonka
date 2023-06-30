@@ -101,7 +101,8 @@ instance Core.AWSRequest GetEventDataStore where
     Response.receiveJSON
       ( \s h x ->
           GetEventDataStoreResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CreatedTimestamp")

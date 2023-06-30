@@ -176,7 +176,8 @@ instance Core.AWSRequest CheckDomainAvailability where
 
 instance Prelude.Hashable CheckDomainAvailability where
   hashWithSalt _salt CheckDomainAvailability' {..} =
-    _salt `Prelude.hashWithSalt` idnLangCode
+    _salt
+      `Prelude.hashWithSalt` idnLangCode
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData CheckDomainAvailability where

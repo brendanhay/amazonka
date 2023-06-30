@@ -132,7 +132,8 @@ instance
     UpdateServerEngineAttributes
   where
   hashWithSalt _salt UpdateServerEngineAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributeValue
+    _salt
+      `Prelude.hashWithSalt` attributeValue
       `Prelude.hashWithSalt` serverName
       `Prelude.hashWithSalt` attributeName
 

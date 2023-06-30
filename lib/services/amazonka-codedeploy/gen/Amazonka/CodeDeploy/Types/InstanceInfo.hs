@@ -128,7 +128,8 @@ instance Data.FromJSON InstanceInfo where
 
 instance Prelude.Hashable InstanceInfo where
   hashWithSalt _salt InstanceInfo' {..} =
-    _salt `Prelude.hashWithSalt` deregisterTime
+    _salt
+      `Prelude.hashWithSalt` deregisterTime
       `Prelude.hashWithSalt` iamSessionArn
       `Prelude.hashWithSalt` iamUserArn
       `Prelude.hashWithSalt` instanceArn

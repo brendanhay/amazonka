@@ -115,7 +115,8 @@ instance
     PacketHeaderStatementRequest
   where
   hashWithSalt _salt PacketHeaderStatementRequest' {..} =
-    _salt `Prelude.hashWithSalt` destinationAddresses
+    _salt
+      `Prelude.hashWithSalt` destinationAddresses
       `Prelude.hashWithSalt` destinationPorts
       `Prelude.hashWithSalt` destinationPrefixLists
       `Prelude.hashWithSalt` protocols

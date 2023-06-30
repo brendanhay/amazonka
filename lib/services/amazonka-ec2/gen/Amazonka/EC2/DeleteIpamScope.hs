@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteIpamScope where
 
 instance Prelude.Hashable DeleteIpamScope where
   hashWithSalt _salt DeleteIpamScope' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamScopeId
 
 instance Prelude.NFData DeleteIpamScope where

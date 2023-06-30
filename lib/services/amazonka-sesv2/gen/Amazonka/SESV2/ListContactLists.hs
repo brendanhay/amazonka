@@ -120,7 +120,8 @@ instance Core.AWSRequest ListContactLists where
 
 instance Prelude.Hashable ListContactLists where
   hashWithSalt _salt ListContactLists' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListContactLists where

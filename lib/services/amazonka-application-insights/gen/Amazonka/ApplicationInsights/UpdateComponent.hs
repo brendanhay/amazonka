@@ -126,7 +126,8 @@ instance Core.AWSRequest UpdateComponent where
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =
-    _salt `Prelude.hashWithSalt` newComponentName'
+    _salt
+      `Prelude.hashWithSalt` newComponentName'
       `Prelude.hashWithSalt` resourceList
       `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` componentName

@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     PipeTargetRedshiftDataParameters' {..} =
-      _salt `Prelude.hashWithSalt` dbUser
+      _salt
+        `Prelude.hashWithSalt` dbUser
         `Prelude.hashWithSalt` secretManagerArn
         `Prelude.hashWithSalt` statementName
         `Prelude.hashWithSalt` withEvent

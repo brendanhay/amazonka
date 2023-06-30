@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteV2LoggingLevel where
 
 instance Prelude.Hashable DeleteV2LoggingLevel where
   hashWithSalt _salt DeleteV2LoggingLevel' {..} =
-    _salt `Prelude.hashWithSalt` targetType
+    _salt
+      `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` targetName
 
 instance Prelude.NFData DeleteV2LoggingLevel where

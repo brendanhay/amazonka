@@ -232,7 +232,8 @@ instance
   hashWithSalt
     _salt
     AndroidPushNotificationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` action
+      _salt
+        `Prelude.hashWithSalt` action
         `Prelude.hashWithSalt` body
         `Prelude.hashWithSalt` imageIconUrl
         `Prelude.hashWithSalt` imageUrl

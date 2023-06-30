@@ -96,7 +96,8 @@ instance Data.FromJSON AutoMLCandidateStep where
 
 instance Prelude.Hashable AutoMLCandidateStep where
   hashWithSalt _salt AutoMLCandidateStep' {..} =
-    _salt `Prelude.hashWithSalt` candidateStepType
+    _salt
+      `Prelude.hashWithSalt` candidateStepType
       `Prelude.hashWithSalt` candidateStepArn
       `Prelude.hashWithSalt` candidateStepName
 

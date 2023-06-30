@@ -175,7 +175,8 @@ instance Data.FromXML RefreshPreferences where
   parseXML x =
     RefreshPreferences'
       Prelude.<$> (x Data..@? "CheckpointDelay")
-      Prelude.<*> ( x Data..@? "CheckpointPercentages"
+      Prelude.<*> ( x
+                      Data..@? "CheckpointPercentages"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -185,7 +186,8 @@ instance Data.FromXML RefreshPreferences where
 
 instance Prelude.Hashable RefreshPreferences where
   hashWithSalt _salt RefreshPreferences' {..} =
-    _salt `Prelude.hashWithSalt` checkpointDelay
+    _salt
+      `Prelude.hashWithSalt` checkpointDelay
       `Prelude.hashWithSalt` checkpointPercentages
       `Prelude.hashWithSalt` instanceWarmup
       `Prelude.hashWithSalt` minHealthyPercentage

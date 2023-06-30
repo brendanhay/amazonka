@@ -84,7 +84,8 @@ instance
     CompatibleEnvironmentTemplate
   where
   hashWithSalt _salt CompatibleEnvironmentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` majorVersion
+    _salt
+      `Prelude.hashWithSalt` majorVersion
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData CompatibleEnvironmentTemplate where

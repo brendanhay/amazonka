@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     CreateConnectionOAuthRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` oAuthHttpParameters
+      _salt
+        `Prelude.hashWithSalt` oAuthHttpParameters
         `Prelude.hashWithSalt` clientParameters
         `Prelude.hashWithSalt` authorizationEndpoint
         `Prelude.hashWithSalt` httpMethod

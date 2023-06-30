@@ -115,7 +115,8 @@ instance Data.FromJSON Hypervisor where
 
 instance Prelude.Hashable Hypervisor where
   hashWithSalt _salt Hypervisor' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` hypervisorArn
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` name

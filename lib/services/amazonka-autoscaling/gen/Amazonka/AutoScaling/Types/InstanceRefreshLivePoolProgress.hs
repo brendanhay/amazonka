@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     InstanceRefreshLivePoolProgress' {..} =
-      _salt `Prelude.hashWithSalt` instancesToUpdate
+      _salt
+        `Prelude.hashWithSalt` instancesToUpdate
         `Prelude.hashWithSalt` percentageComplete
 
 instance

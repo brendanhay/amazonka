@@ -74,7 +74,8 @@ instance Data.FromJSON EnvironmentError where
 
 instance Prelude.Hashable EnvironmentError where
   hashWithSalt _salt EnvironmentError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData EnvironmentError where

@@ -120,7 +120,8 @@ instance Data.FromJSON NetworkInterface where
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` canInterface
+    _salt
+      `Prelude.hashWithSalt` canInterface
       `Prelude.hashWithSalt` obdInterface
       `Prelude.hashWithSalt` interfaceId
       `Prelude.hashWithSalt` type'

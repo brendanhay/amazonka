@@ -157,7 +157,8 @@ instance
   hashWithSalt
     _salt
     CreateAdditionalAssignmentsForHIT' {..} =
-      _salt `Prelude.hashWithSalt` uniqueRequestToken
+      _salt
+        `Prelude.hashWithSalt` uniqueRequestToken
         `Prelude.hashWithSalt` hITId
         `Prelude.hashWithSalt` numberOfAdditionalAssignments
 

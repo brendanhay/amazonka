@@ -104,7 +104,8 @@ instance Core.AWSRequest GetMember where
 
 instance Prelude.Hashable GetMember where
   hashWithSalt _salt GetMember' {..} =
-    _salt `Prelude.hashWithSalt` networkId
+    _salt
+      `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` memberId
 
 instance Prelude.NFData GetMember where

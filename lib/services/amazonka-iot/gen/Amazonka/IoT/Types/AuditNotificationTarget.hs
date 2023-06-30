@@ -87,7 +87,8 @@ instance Data.FromJSON AuditNotificationTarget where
 
 instance Prelude.Hashable AuditNotificationTarget where
   hashWithSalt _salt AuditNotificationTarget' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` targetArn
 

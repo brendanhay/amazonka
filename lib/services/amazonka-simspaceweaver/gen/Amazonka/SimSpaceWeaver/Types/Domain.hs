@@ -128,7 +128,8 @@ instance Data.FromJSON Domain where
 
 instance Prelude.Hashable Domain where
   hashWithSalt _salt Domain' {..} =
-    _salt `Prelude.hashWithSalt` lifecycle
+    _salt
+      `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Domain where

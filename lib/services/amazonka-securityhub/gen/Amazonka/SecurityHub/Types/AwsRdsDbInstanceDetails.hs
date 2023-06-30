@@ -810,7 +810,8 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
       ( \x ->
           AwsRdsDbInstanceDetails'
             Prelude.<$> (x Data..:? "AllocatedStorage")
-            Prelude.<*> ( x Data..:? "AssociatedRoles"
+            Prelude.<*> ( x
+                            Data..:? "AssociatedRoles"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AutoMinorVersionUpgrade")
@@ -825,19 +826,23 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
             Prelude.<*> (x Data..:? "DBName")
             Prelude.<*> (x Data..:? "DbInstancePort")
             Prelude.<*> (x Data..:? "DbInstanceStatus")
-            Prelude.<*> ( x Data..:? "DbParameterGroups"
+            Prelude.<*> ( x
+                            Data..:? "DbParameterGroups"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "DbSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "DbSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DbSubnetGroup")
             Prelude.<*> (x Data..:? "DbiResourceId")
             Prelude.<*> (x Data..:? "DeletionProtection")
-            Prelude.<*> ( x Data..:? "DomainMemberships"
+            Prelude.<*> ( x
+                            Data..:? "DomainMemberships"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "EnabledCloudWatchLogsExports"
+            Prelude.<*> ( x
+                            Data..:? "EnabledCloudWatchLogsExports"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Endpoint")
@@ -856,7 +861,8 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
             Prelude.<*> (x Data..:? "MonitoringInterval")
             Prelude.<*> (x Data..:? "MonitoringRoleArn")
             Prelude.<*> (x Data..:? "MultiAz")
-            Prelude.<*> ( x Data..:? "OptionGroupMemberships"
+            Prelude.<*> ( x
+                            Data..:? "OptionGroupMemberships"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PendingModifiedValues")
@@ -865,15 +871,18 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
             Prelude.<*> (x Data..:? "PerformanceInsightsRetentionPeriod")
             Prelude.<*> (x Data..:? "PreferredBackupWindow")
             Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
-            Prelude.<*> ( x Data..:? "ProcessorFeatures"
+            Prelude.<*> ( x
+                            Data..:? "ProcessorFeatures"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PromotionTier")
             Prelude.<*> (x Data..:? "PubliclyAccessible")
-            Prelude.<*> ( x Data..:? "ReadReplicaDBClusterIdentifiers"
+            Prelude.<*> ( x
+                            Data..:? "ReadReplicaDBClusterIdentifiers"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ReadReplicaDBInstanceIdentifiers"
+            Prelude.<*> ( x
+                            Data..:? "ReadReplicaDBInstanceIdentifiers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReadReplicaSourceDBInstanceIdentifier")
@@ -883,14 +892,16 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
             Prelude.<*> (x Data..:? "StorageType")
             Prelude.<*> (x Data..:? "TdeCredentialArn")
             Prelude.<*> (x Data..:? "Timezone")
-            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "VpcSecurityGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AwsRdsDbInstanceDetails where
   hashWithSalt _salt AwsRdsDbInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` associatedRoles
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone

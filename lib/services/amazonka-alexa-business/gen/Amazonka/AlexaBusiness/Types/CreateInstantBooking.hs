@@ -75,7 +75,8 @@ createInstantBooking_enabled = Lens.lens (\CreateInstantBooking' {enabled} -> en
 
 instance Prelude.Hashable CreateInstantBooking where
   hashWithSalt _salt CreateInstantBooking' {..} =
-    _salt `Prelude.hashWithSalt` durationInMinutes
+    _salt
+      `Prelude.hashWithSalt` durationInMinutes
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData CreateInstantBooking where

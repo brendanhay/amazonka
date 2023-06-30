@@ -71,7 +71,8 @@ instance Data.FromXML AlternatePathHint where
 
 instance Prelude.Hashable AlternatePathHint where
   hashWithSalt _salt AlternatePathHint' {..} =
-    _salt `Prelude.hashWithSalt` componentArn
+    _salt
+      `Prelude.hashWithSalt` componentArn
       `Prelude.hashWithSalt` componentId
 
 instance Prelude.NFData AlternatePathHint where

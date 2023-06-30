@@ -173,7 +173,8 @@ instance Core.AWSRequest UpdateScheduledAudit where
 
 instance Prelude.Hashable UpdateScheduledAudit where
   hashWithSalt _salt UpdateScheduledAudit' {..} =
-    _salt `Prelude.hashWithSalt` dayOfMonth
+    _salt
+      `Prelude.hashWithSalt` dayOfMonth
       `Prelude.hashWithSalt` dayOfWeek
       `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` targetCheckNames

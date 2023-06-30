@@ -174,7 +174,8 @@ instance
   hashWithSalt
     _salt
     VirtualGatewayHealthCheckPolicy' {..} =
-      _salt `Prelude.hashWithSalt` path
+      _salt
+        `Prelude.hashWithSalt` path
         `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` healthyThreshold
         `Prelude.hashWithSalt` intervalMillis

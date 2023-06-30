@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeNodegroup where
 
 instance Prelude.Hashable DescribeNodegroup where
   hashWithSalt _salt DescribeNodegroup' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` nodegroupName
 
 instance Prelude.NFData DescribeNodegroup where

@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateUserHierarchy where
 
 instance Prelude.Hashable UpdateUserHierarchy where
   hashWithSalt _salt UpdateUserHierarchy' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyGroupId
+    _salt
+      `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
 

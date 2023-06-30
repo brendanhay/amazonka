@@ -142,10 +142,10 @@ instance
       ( \x ->
           ChildWorkflowExecutionTimedOutEventAttributes'
             Prelude.<$> (x Data..: "workflowExecution")
-              Prelude.<*> (x Data..: "workflowType")
-              Prelude.<*> (x Data..: "timeoutType")
-              Prelude.<*> (x Data..: "initiatedEventId")
-              Prelude.<*> (x Data..: "startedEventId")
+            Prelude.<*> (x Data..: "workflowType")
+            Prelude.<*> (x Data..: "timeoutType")
+            Prelude.<*> (x Data..: "initiatedEventId")
+            Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance
@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     ChildWorkflowExecutionTimedOutEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` workflowExecution
+      _salt
+        `Prelude.hashWithSalt` workflowExecution
         `Prelude.hashWithSalt` workflowType
         `Prelude.hashWithSalt` timeoutType
         `Prelude.hashWithSalt` initiatedEventId

@@ -224,7 +224,8 @@ instance
     FirewallRuleGroupAssociation
   where
   hashWithSalt _salt FirewallRuleGroupAssociation' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` firewallRuleGroupId

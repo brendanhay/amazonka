@@ -141,7 +141,8 @@ instance
     CreateVerifiedAccessInstance
   where
   hashWithSalt _salt CreateVerifiedAccessInstance' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications

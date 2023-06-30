@@ -233,7 +233,8 @@ instance
   hashWithSalt
     _salt
     WindowsAuditLogCreateConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` auditLogDestination
+      _salt
+        `Prelude.hashWithSalt` auditLogDestination
         `Prelude.hashWithSalt` fileAccessAuditLogLevel
         `Prelude.hashWithSalt` fileShareAccessAuditLogLevel
 

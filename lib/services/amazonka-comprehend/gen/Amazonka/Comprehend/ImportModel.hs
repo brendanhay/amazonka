@@ -201,7 +201,8 @@ instance Core.AWSRequest ImportModel where
 
 instance Prelude.Hashable ImportModel where
   hashWithSalt _salt ImportModel' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` modelKmsKeyId
       `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` tags

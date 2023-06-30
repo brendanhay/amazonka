@@ -82,7 +82,8 @@ priceScheduleSpecification_term = Lens.lens (\PriceScheduleSpecification' {term}
 
 instance Prelude.Hashable PriceScheduleSpecification where
   hashWithSalt _salt PriceScheduleSpecification' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
+    _salt
+      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` price
       `Prelude.hashWithSalt` term
 

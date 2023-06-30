@@ -122,7 +122,8 @@ instance Data.FromJSON ReferenceStoreDetail where
 
 instance Prelude.Hashable ReferenceStoreDetail where
   hashWithSalt _salt ReferenceStoreDetail' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sseConfig
       `Prelude.hashWithSalt` arn

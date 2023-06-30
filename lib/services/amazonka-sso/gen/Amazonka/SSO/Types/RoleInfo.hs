@@ -74,7 +74,8 @@ instance Data.FromJSON RoleInfo where
 
 instance Prelude.Hashable RoleInfo where
   hashWithSalt _salt RoleInfo' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` roleName
 
 instance Prelude.NFData RoleInfo where

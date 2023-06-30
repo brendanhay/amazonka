@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayPolicyTableEntry' {..} =
-      _salt `Prelude.hashWithSalt` policyRule
+      _salt
+        `Prelude.hashWithSalt` policyRule
         `Prelude.hashWithSalt` policyRuleNumber
         `Prelude.hashWithSalt` targetRouteTableId
 

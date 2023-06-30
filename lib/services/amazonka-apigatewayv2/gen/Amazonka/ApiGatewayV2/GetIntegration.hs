@@ -131,13 +131,16 @@ instance Core.AWSRequest GetIntegration where
             Prelude.<*> (x Data..?> "integrationUri")
             Prelude.<*> (x Data..?> "passthroughBehavior")
             Prelude.<*> (x Data..?> "payloadFormatVersion")
-            Prelude.<*> ( x Data..?> "requestParameters"
+            Prelude.<*> ( x
+                            Data..?> "requestParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "requestTemplates"
+            Prelude.<*> ( x
+                            Data..?> "requestTemplates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "responseParameters"
+            Prelude.<*> ( x
+                            Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "templateSelectionExpression")
@@ -148,7 +151,8 @@ instance Core.AWSRequest GetIntegration where
 
 instance Prelude.Hashable GetIntegration where
   hashWithSalt _salt GetIntegration' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` integrationId
 
 instance Prelude.NFData GetIntegration where

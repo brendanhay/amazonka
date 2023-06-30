@@ -76,7 +76,8 @@ instance Data.FromJSON AxisTickLabelOptions where
 
 instance Prelude.Hashable AxisTickLabelOptions where
   hashWithSalt _salt AxisTickLabelOptions' {..} =
-    _salt `Prelude.hashWithSalt` labelOptions
+    _salt
+      `Prelude.hashWithSalt` labelOptions
       `Prelude.hashWithSalt` rotationAngle
 
 instance Prelude.NFData AxisTickLabelOptions where

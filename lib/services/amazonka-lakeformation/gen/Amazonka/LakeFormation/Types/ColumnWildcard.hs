@@ -61,7 +61,8 @@ instance Data.FromJSON ColumnWildcard where
       "ColumnWildcard"
       ( \x ->
           ColumnWildcard'
-            Prelude.<$> ( x Data..:? "ExcludedColumnNames"
+            Prelude.<$> ( x
+                            Data..:? "ExcludedColumnNames"
                             Data..!= Prelude.mempty
                         )
       )

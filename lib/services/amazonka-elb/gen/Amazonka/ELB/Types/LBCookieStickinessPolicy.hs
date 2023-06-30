@@ -81,7 +81,8 @@ instance Data.FromXML LBCookieStickinessPolicy where
 
 instance Prelude.Hashable LBCookieStickinessPolicy where
   hashWithSalt _salt LBCookieStickinessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` cookieExpirationPeriod
+    _salt
+      `Prelude.hashWithSalt` cookieExpirationPeriod
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData LBCookieStickinessPolicy where

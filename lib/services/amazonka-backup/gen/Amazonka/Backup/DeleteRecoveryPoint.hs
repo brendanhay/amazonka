@@ -130,7 +130,8 @@ instance Core.AWSRequest DeleteRecoveryPoint where
 
 instance Prelude.Hashable DeleteRecoveryPoint where
   hashWithSalt _salt DeleteRecoveryPoint' {..} =
-    _salt `Prelude.hashWithSalt` backupVaultName
+    _salt
+      `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` recoveryPointArn
 
 instance Prelude.NFData DeleteRecoveryPoint where

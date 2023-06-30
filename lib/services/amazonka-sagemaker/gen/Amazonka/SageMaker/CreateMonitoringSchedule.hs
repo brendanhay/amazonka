@@ -130,7 +130,8 @@ instance Core.AWSRequest CreateMonitoringSchedule where
 
 instance Prelude.Hashable CreateMonitoringSchedule where
   hashWithSalt _salt CreateMonitoringSchedule' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` monitoringScheduleName
       `Prelude.hashWithSalt` monitoringScheduleConfig
 

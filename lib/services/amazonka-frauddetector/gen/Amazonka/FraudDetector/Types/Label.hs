@@ -104,7 +104,8 @@ instance Data.FromJSON Label where
 
 instance Prelude.Hashable Label where
   hashWithSalt _salt Label' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedTime

@@ -134,7 +134,8 @@ instance Core.AWSRequest AcknowledgeThirdPartyJob where
 
 instance Prelude.Hashable AcknowledgeThirdPartyJob where
   hashWithSalt _salt AcknowledgeThirdPartyJob' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` nonce
       `Prelude.hashWithSalt` clientToken
 

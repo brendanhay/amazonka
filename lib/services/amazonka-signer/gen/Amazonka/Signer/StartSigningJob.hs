@@ -177,7 +177,8 @@ instance Core.AWSRequest StartSigningJob where
 
 instance Prelude.Hashable StartSigningJob where
   hashWithSalt _salt StartSigningJob' {..} =
-    _salt `Prelude.hashWithSalt` profileOwner
+    _salt
+      `Prelude.hashWithSalt` profileOwner
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` profileName

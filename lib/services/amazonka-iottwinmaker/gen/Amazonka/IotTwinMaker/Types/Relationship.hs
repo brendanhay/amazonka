@@ -74,7 +74,8 @@ instance Data.FromJSON Relationship where
 
 instance Prelude.Hashable Relationship where
   hashWithSalt _salt Relationship' {..} =
-    _salt `Prelude.hashWithSalt` relationshipType
+    _salt
+      `Prelude.hashWithSalt` relationshipType
       `Prelude.hashWithSalt` targetComponentTypeId
 
 instance Prelude.NFData Relationship where

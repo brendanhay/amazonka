@@ -78,7 +78,8 @@ instance Data.FromJSON ConversationLogSettings where
 
 instance Prelude.Hashable ConversationLogSettings where
   hashWithSalt _salt ConversationLogSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioLogSettings
+    _salt
+      `Prelude.hashWithSalt` audioLogSettings
       `Prelude.hashWithSalt` textLogSettings
 
 instance Prelude.NFData ConversationLogSettings where

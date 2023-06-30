@@ -126,7 +126,8 @@ instance Data.FromJSON AssessmentRunNotification where
 
 instance Prelude.Hashable AssessmentRunNotification where
   hashWithSalt _salt AssessmentRunNotification' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` snsPublishStatusCode
       `Prelude.hashWithSalt` snsTopicArn
       `Prelude.hashWithSalt` date

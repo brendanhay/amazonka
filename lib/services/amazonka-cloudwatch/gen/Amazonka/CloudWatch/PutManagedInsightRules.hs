@@ -94,7 +94,9 @@ instance Core.AWSRequest PutManagedInsightRules where
       "PutManagedInsightRulesResult"
       ( \s h x ->
           PutManagedInsightRulesResponse'
-            Prelude.<$> ( x Data..@? "Failures" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Failures"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

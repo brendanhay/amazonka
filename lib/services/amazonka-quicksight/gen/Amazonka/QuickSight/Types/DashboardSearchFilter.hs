@@ -218,7 +218,8 @@ dashboardSearchFilter_operator = Lens.lens (\DashboardSearchFilter' {operator} -
 
 instance Prelude.Hashable DashboardSearchFilter where
   hashWithSalt _salt DashboardSearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` operator
 

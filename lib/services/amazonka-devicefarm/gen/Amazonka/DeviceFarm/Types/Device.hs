@@ -327,7 +327,8 @@ instance Data.FromJSON Device where
 
 instance Prelude.Hashable Device where
   hashWithSalt _salt Device' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` availability
       `Prelude.hashWithSalt` carrier
       `Prelude.hashWithSalt` cpu

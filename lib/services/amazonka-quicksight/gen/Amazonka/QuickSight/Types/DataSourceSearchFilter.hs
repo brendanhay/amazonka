@@ -192,7 +192,8 @@ dataSourceSearchFilter_value = Lens.lens (\DataSourceSearchFilter' {value} -> va
 
 instance Prelude.Hashable DataSourceSearchFilter where
   hashWithSalt _salt DataSourceSearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` operator
+    _salt
+      `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

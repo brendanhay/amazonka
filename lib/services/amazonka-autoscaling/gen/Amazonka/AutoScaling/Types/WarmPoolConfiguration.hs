@@ -110,7 +110,8 @@ instance Data.FromXML WarmPoolConfiguration where
 
 instance Prelude.Hashable WarmPoolConfiguration where
   hashWithSalt _salt WarmPoolConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` instanceReusePolicy
+    _salt
+      `Prelude.hashWithSalt` instanceReusePolicy
       `Prelude.hashWithSalt` maxGroupPreparedCapacity
       `Prelude.hashWithSalt` minSize
       `Prelude.hashWithSalt` poolState

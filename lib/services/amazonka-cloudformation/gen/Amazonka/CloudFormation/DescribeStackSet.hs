@@ -148,7 +148,8 @@ instance Core.AWSRequest DescribeStackSet where
 
 instance Prelude.Hashable DescribeStackSet where
   hashWithSalt _salt DescribeStackSet' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` stackSetName
 
 instance Prelude.NFData DescribeStackSet where

@@ -141,21 +141,23 @@ instance Core.AWSPager ListIndex where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listIndexResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listIndexResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listIndexResponse_indexAttachments
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIndex_nextToken
           Lens..~ rs
-          Lens.^? listIndexResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listIndexResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIndex where
   type AWSResponse ListIndex = ListIndexResponse
@@ -165,7 +167,8 @@ instance Core.AWSRequest ListIndex where
     Response.receiveJSON
       ( \s h x ->
           ListIndexResponse'
-            Prelude.<$> ( x Data..?> "IndexAttachments"
+            Prelude.<$> ( x
+                            Data..?> "IndexAttachments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -174,7 +177,8 @@ instance Core.AWSRequest ListIndex where
 
 instance Prelude.Hashable ListIndex where
   hashWithSalt _salt ListIndex' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` rangesOnIndexedValues

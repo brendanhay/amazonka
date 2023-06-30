@@ -289,7 +289,8 @@ instance Core.AWSRequest CreateIPSet where
 
 instance Prelude.Hashable CreateIPSet where
   hashWithSalt _salt CreateIPSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope

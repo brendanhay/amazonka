@@ -79,7 +79,8 @@ instance Data.FromJSON CvssScoreAdjustment where
 
 instance Prelude.Hashable CvssScoreAdjustment where
   hashWithSalt _salt CvssScoreAdjustment' {..} =
-    _salt `Prelude.hashWithSalt` metric
+    _salt
+      `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData CvssScoreAdjustment where

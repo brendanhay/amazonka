@@ -111,7 +111,8 @@ instance Data.FromJSON QueryDefinition where
 
 instance Prelude.Hashable QueryDefinition where
   hashWithSalt _salt QueryDefinition' {..} =
-    _salt `Prelude.hashWithSalt` lastModified
+    _salt
+      `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` logGroupNames
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` queryDefinitionId

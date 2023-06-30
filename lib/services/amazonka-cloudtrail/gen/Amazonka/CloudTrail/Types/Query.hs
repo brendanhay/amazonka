@@ -89,7 +89,8 @@ instance Data.FromJSON Query where
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` queryId
       `Prelude.hashWithSalt` queryStatus
 

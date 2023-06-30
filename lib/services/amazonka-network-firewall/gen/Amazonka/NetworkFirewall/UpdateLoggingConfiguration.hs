@@ -156,7 +156,8 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
 
 instance Prelude.Hashable UpdateLoggingConfiguration where
   hashWithSalt _salt UpdateLoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` firewallArn
+    _salt
+      `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` firewallName
       `Prelude.hashWithSalt` loggingConfiguration
 

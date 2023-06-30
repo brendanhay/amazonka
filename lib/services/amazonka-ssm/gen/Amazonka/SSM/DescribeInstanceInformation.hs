@@ -158,22 +158,22 @@ instance Core.AWSPager DescribeInstanceInformation where
     | Core.stop
         ( rs
             Lens.^? describeInstanceInformationResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceInformationResponse_instanceInformationList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstanceInformation_nextToken
           Lens..~ rs
           Lens.^? describeInstanceInformationResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstanceInformation where
   type
@@ -185,7 +185,8 @@ instance Core.AWSRequest DescribeInstanceInformation where
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceInformationResponse'
-            Prelude.<$> ( x Data..?> "InstanceInformationList"
+            Prelude.<$> ( x
+                            Data..?> "InstanceInformationList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -194,7 +195,8 @@ instance Core.AWSRequest DescribeInstanceInformation where
 
 instance Prelude.Hashable DescribeInstanceInformation where
   hashWithSalt _salt DescribeInstanceInformation' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` instanceInformationFilterList
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

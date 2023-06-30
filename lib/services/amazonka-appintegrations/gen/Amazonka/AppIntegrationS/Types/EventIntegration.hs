@@ -115,7 +115,8 @@ instance Data.FromJSON EventIntegration where
 
 instance Prelude.Hashable EventIntegration where
   hashWithSalt _salt EventIntegration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBridgeBus
       `Prelude.hashWithSalt` eventFilter
       `Prelude.hashWithSalt` eventIntegrationArn

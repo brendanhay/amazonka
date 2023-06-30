@@ -235,7 +235,8 @@ instance Data.FromJSON CodeReviewSummary where
 
 instance Prelude.Hashable CodeReviewSummary where
   hashWithSalt _salt CodeReviewSummary' {..} =
-    _salt `Prelude.hashWithSalt` codeReviewArn
+    _salt
+      `Prelude.hashWithSalt` codeReviewArn
       `Prelude.hashWithSalt` createdTimeStamp
       `Prelude.hashWithSalt` lastUpdatedTimeStamp
       `Prelude.hashWithSalt` metricsSummary

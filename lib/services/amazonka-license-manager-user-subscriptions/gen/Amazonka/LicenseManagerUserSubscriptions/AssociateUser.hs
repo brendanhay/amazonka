@@ -137,7 +137,8 @@ instance Core.AWSRequest AssociateUser where
 
 instance Prelude.Hashable AssociateUser where
   hashWithSalt _salt AssociateUser' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` username

@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteRoom where
 
 instance Prelude.Hashable DeleteRoom where
   hashWithSalt _salt DeleteRoom' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` roomId
 
 instance Prelude.NFData DeleteRoom where

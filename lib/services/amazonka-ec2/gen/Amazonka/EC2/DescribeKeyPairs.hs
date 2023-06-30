@@ -197,7 +197,9 @@ instance Core.AWSRequest DescribeKeyPairs where
     Response.receiveXML
       ( \s h x ->
           DescribeKeyPairsResponse'
-            Prelude.<$> ( x Data..@? "keySet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "keySet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -205,7 +207,8 @@ instance Core.AWSRequest DescribeKeyPairs where
 
 instance Prelude.Hashable DescribeKeyPairs where
   hashWithSalt _salt DescribeKeyPairs' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includePublicKey
       `Prelude.hashWithSalt` keyNames

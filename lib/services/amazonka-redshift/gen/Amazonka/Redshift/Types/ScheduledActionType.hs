@@ -86,7 +86,8 @@ instance Data.FromXML ScheduledActionType where
 
 instance Prelude.Hashable ScheduledActionType where
   hashWithSalt _salt ScheduledActionType' {..} =
-    _salt `Prelude.hashWithSalt` pauseCluster
+    _salt
+      `Prelude.hashWithSalt` pauseCluster
       `Prelude.hashWithSalt` resizeCluster
       `Prelude.hashWithSalt` resumeCluster
 

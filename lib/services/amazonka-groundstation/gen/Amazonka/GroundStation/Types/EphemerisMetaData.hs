@@ -121,7 +121,8 @@ instance Data.FromJSON EphemerisMetaData where
 
 instance Prelude.Hashable EphemerisMetaData where
   hashWithSalt _salt EphemerisMetaData' {..} =
-    _salt `Prelude.hashWithSalt` ephemerisId
+    _salt
+      `Prelude.hashWithSalt` ephemerisId
       `Prelude.hashWithSalt` epoch
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` source

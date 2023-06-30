@@ -60,7 +60,8 @@ credential_username = Lens.lens (\Credential' {username} -> username) (\s@Creden
 
 instance Prelude.Hashable Credential where
   hashWithSalt _salt Credential' {..} =
-    _salt `Prelude.hashWithSalt` password
+    _salt
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData Credential where

@@ -96,14 +96,16 @@ instance Data.FromJSON ReplicationDetails where
           ReplicationDetails'
             Prelude.<$> (x Data..:? "replicated")
             Prelude.<*> (x Data..:? "replicatedExternally")
-            Prelude.<*> ( x Data..:? "replicationAccounts"
+            Prelude.<*> ( x
+                            Data..:? "replicationAccounts"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ReplicationDetails where
   hashWithSalt _salt ReplicationDetails' {..} =
-    _salt `Prelude.hashWithSalt` replicated
+    _salt
+      `Prelude.hashWithSalt` replicated
       `Prelude.hashWithSalt` replicatedExternally
       `Prelude.hashWithSalt` replicationAccounts
 

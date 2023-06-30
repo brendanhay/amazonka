@@ -79,7 +79,8 @@ instance Data.FromJSON AwsLambdaFunctionVpcConfig where
       "AwsLambdaFunctionVpcConfig"
       ( \x ->
           AwsLambdaFunctionVpcConfig'
-            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+            Prelude.<$> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
@@ -88,7 +89,8 @@ instance Data.FromJSON AwsLambdaFunctionVpcConfig where
 
 instance Prelude.Hashable AwsLambdaFunctionVpcConfig where
   hashWithSalt _salt AwsLambdaFunctionVpcConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vpcId
 

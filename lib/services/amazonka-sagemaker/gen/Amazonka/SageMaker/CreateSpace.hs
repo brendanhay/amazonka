@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateSpace where
 
 instance Prelude.Hashable CreateSpace where
   hashWithSalt _salt CreateSpace' {..} =
-    _salt `Prelude.hashWithSalt` spaceSettings
+    _salt
+      `Prelude.hashWithSalt` spaceSettings
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` spaceName

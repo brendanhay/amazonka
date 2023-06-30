@@ -137,7 +137,8 @@ aPNSChannelRequest_tokenKeyId = Lens.lens (\APNSChannelRequest' {tokenKeyId} -> 
 
 instance Prelude.Hashable APNSChannelRequest where
   hashWithSalt _salt APNSChannelRequest' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` defaultAuthenticationMethod
       `Prelude.hashWithSalt` enabled

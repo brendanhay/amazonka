@@ -182,7 +182,8 @@ instance
   hashWithSalt
     _salt
     UpdateApplicationComponentConfig' {..} =
-      _salt `Prelude.hashWithSalt` appType
+      _salt
+        `Prelude.hashWithSalt` appType
         `Prelude.hashWithSalt` configureOnly
         `Prelude.hashWithSalt` inclusionStatus
         `Prelude.hashWithSalt` secretsManagerKey

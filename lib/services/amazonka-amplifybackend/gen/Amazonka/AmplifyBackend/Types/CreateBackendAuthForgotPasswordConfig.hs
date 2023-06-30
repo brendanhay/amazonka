@@ -109,7 +109,8 @@ instance
   hashWithSalt
     _salt
     CreateBackendAuthForgotPasswordConfig' {..} =
-      _salt `Prelude.hashWithSalt` emailSettings
+      _salt
+        `Prelude.hashWithSalt` emailSettings
         `Prelude.hashWithSalt` smsSettings
         `Prelude.hashWithSalt` deliveryMethod
 

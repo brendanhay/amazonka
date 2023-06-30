@@ -110,7 +110,8 @@ instance Core.AWSRequest GetApiMapping where
 
 instance Prelude.Hashable GetApiMapping where
   hashWithSalt _salt GetApiMapping' {..} =
-    _salt `Prelude.hashWithSalt` apiMappingId
+    _salt
+      `Prelude.hashWithSalt` apiMappingId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData GetApiMapping where

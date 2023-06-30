@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     DisassociateInstanceStorageConfig' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` associationId
         `Prelude.hashWithSalt` resourceType
 

@@ -82,7 +82,8 @@ instance Data.FromJSON DiscoveredResource where
 
 instance Prelude.Hashable DiscoveredResource where
   hashWithSalt _salt DiscoveredResource' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` configurationId
 
 instance Prelude.NFData DiscoveredResource where

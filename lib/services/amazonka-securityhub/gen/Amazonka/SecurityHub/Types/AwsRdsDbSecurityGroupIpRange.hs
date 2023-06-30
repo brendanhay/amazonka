@@ -78,7 +78,8 @@ instance
     AwsRdsDbSecurityGroupIpRange
   where
   hashWithSalt _salt AwsRdsDbSecurityGroupIpRange' {..} =
-    _salt `Prelude.hashWithSalt` cidrIp
+    _salt
+      `Prelude.hashWithSalt` cidrIp
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AwsRdsDbSecurityGroupIpRange where

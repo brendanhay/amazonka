@@ -121,7 +121,8 @@ instance
     DescribeDashboardPermissions
   where
   hashWithSalt _salt DescribeDashboardPermissions' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
 
 instance Prelude.NFData DescribeDashboardPermissions where

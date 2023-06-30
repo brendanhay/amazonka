@@ -109,7 +109,8 @@ instance
   hashWithSalt
     _salt
     BlueGreenDeploymentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` deploymentReadyOption
+      _salt
+        `Prelude.hashWithSalt` deploymentReadyOption
         `Prelude.hashWithSalt` greenFleetProvisioningOption
         `Prelude.hashWithSalt` terminateBlueInstancesOnDeploymentSuccess
 

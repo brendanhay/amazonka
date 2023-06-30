@@ -153,7 +153,8 @@ instance Data.FromJSON Attribute where
 
 instance Prelude.Hashable Attribute where
   hashWithSalt _salt Attribute' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` assignedValue
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description

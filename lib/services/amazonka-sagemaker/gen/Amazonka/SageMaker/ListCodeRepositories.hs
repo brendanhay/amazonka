@@ -184,21 +184,21 @@ instance Core.AWSPager ListCodeRepositories where
     | Core.stop
         ( rs
             Lens.^? listCodeRepositoriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listCodeRepositoriesResponse_codeRepositorySummaryList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCodeRepositories_nextToken
           Lens..~ rs
           Lens.^? listCodeRepositoriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCodeRepositories where
   type
@@ -212,14 +212,16 @@ instance Core.AWSRequest ListCodeRepositories where
           ListCodeRepositoriesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "CodeRepositorySummaryList"
+            Prelude.<*> ( x
+                            Data..?> "CodeRepositorySummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListCodeRepositories where
   hashWithSalt _salt ListCodeRepositories' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

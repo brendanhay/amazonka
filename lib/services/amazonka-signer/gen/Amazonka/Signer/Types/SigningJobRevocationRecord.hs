@@ -85,7 +85,8 @@ instance Data.FromJSON SigningJobRevocationRecord where
 
 instance Prelude.Hashable SigningJobRevocationRecord where
   hashWithSalt _salt SigningJobRevocationRecord' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` revokedAt
       `Prelude.hashWithSalt` revokedBy
 

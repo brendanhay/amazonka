@@ -171,7 +171,8 @@ instance Core.AWSRequest MergeDeveloperIdentities where
 
 instance Prelude.Hashable MergeDeveloperIdentities where
   hashWithSalt _salt MergeDeveloperIdentities' {..} =
-    _salt `Prelude.hashWithSalt` sourceUserIdentifier
+    _salt
+      `Prelude.hashWithSalt` sourceUserIdentifier
       `Prelude.hashWithSalt` destinationUserIdentifier
       `Prelude.hashWithSalt` developerProviderName
       `Prelude.hashWithSalt` identityPoolId

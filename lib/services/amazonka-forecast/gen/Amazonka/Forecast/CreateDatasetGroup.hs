@@ -264,7 +264,8 @@ instance Core.AWSRequest CreateDatasetGroup where
 
 instance Prelude.Hashable CreateDatasetGroup where
   hashWithSalt _salt CreateDatasetGroup' {..} =
-    _salt `Prelude.hashWithSalt` datasetArns
+    _salt
+      `Prelude.hashWithSalt` datasetArns
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` datasetGroupName
       `Prelude.hashWithSalt` domain

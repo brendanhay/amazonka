@@ -280,7 +280,8 @@ instance Core.AWSRequest ImportComponent where
 
 instance Prelude.Hashable ImportComponent where
   hashWithSalt _salt ImportComponent' {..} =
-    _salt `Prelude.hashWithSalt` changeDescription
+    _salt
+      `Prelude.hashWithSalt` changeDescription
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId

@@ -295,7 +295,8 @@ instance Core.AWSRequest Invoke where
 
 instance Prelude.Hashable Invoke where
   hashWithSalt _salt Invoke' {..} =
-    _salt `Prelude.hashWithSalt` clientContext
+    _salt
+      `Prelude.hashWithSalt` clientContext
       `Prelude.hashWithSalt` invocationType
       `Prelude.hashWithSalt` logType
       `Prelude.hashWithSalt` qualifier

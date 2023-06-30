@@ -96,7 +96,8 @@ instance
     SegmentDeliveryConfiguration
   where
   hashWithSalt _salt SegmentDeliveryConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` baseUrl
+    _salt
+      `Prelude.hashWithSalt` baseUrl
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SegmentDeliveryConfiguration where

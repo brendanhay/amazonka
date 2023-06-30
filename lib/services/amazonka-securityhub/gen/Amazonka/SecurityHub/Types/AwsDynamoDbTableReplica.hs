@@ -140,7 +140,8 @@ instance Data.FromJSON AwsDynamoDbTableReplica where
       "AwsDynamoDbTableReplica"
       ( \x ->
           AwsDynamoDbTableReplica'
-            Prelude.<$> ( x Data..:? "GlobalSecondaryIndexes"
+            Prelude.<$> ( x
+                            Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "KmsMasterKeyId")
@@ -152,7 +153,8 @@ instance Data.FromJSON AwsDynamoDbTableReplica where
 
 instance Prelude.Hashable AwsDynamoDbTableReplica where
   hashWithSalt _salt AwsDynamoDbTableReplica' {..} =
-    _salt `Prelude.hashWithSalt` globalSecondaryIndexes
+    _salt
+      `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` kmsMasterKeyId
       `Prelude.hashWithSalt` provisionedThroughputOverride
       `Prelude.hashWithSalt` regionName

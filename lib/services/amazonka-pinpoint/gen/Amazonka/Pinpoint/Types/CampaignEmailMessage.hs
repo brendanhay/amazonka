@@ -104,7 +104,8 @@ instance Data.FromJSON CampaignEmailMessage where
 
 instance Prelude.Hashable CampaignEmailMessage where
   hashWithSalt _salt CampaignEmailMessage' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` fromAddress
       `Prelude.hashWithSalt` htmlBody
       `Prelude.hashWithSalt` title

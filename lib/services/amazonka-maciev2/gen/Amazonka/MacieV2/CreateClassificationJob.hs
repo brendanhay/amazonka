@@ -405,7 +405,8 @@ instance Core.AWSRequest CreateClassificationJob where
 
 instance Prelude.Hashable CreateClassificationJob where
   hashWithSalt _salt CreateClassificationJob' {..} =
-    _salt `Prelude.hashWithSalt` allowListIds
+    _salt
+      `Prelude.hashWithSalt` allowListIds
       `Prelude.hashWithSalt` customDataIdentifierIds
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` initialRun

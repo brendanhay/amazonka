@@ -129,7 +129,8 @@ instance Core.AWSRequest StartImageScan where
 
 instance Prelude.Hashable StartImageScan where
   hashWithSalt _salt StartImageScan' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageId
 

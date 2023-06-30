@@ -105,7 +105,8 @@ instance Data.FromJSON Predicate where
 
 instance Prelude.Hashable Predicate where
   hashWithSalt _salt Predicate' {..} =
-    _salt `Prelude.hashWithSalt` and
+    _salt
+      `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` operand
       `Prelude.hashWithSalt` operator

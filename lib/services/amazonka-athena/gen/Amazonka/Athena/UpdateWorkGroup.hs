@@ -126,7 +126,8 @@ instance Core.AWSRequest UpdateWorkGroup where
 
 instance Prelude.Hashable UpdateWorkGroup where
   hashWithSalt _salt UpdateWorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` configurationUpdates
+    _salt
+      `Prelude.hashWithSalt` configurationUpdates
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` workGroup

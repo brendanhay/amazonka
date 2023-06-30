@@ -117,7 +117,8 @@ instance Data.FromJSON SqlInjectionMatchSetSummary where
 
 instance Prelude.Hashable SqlInjectionMatchSetSummary where
   hashWithSalt _salt SqlInjectionMatchSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` sqlInjectionMatchSetId
+    _salt
+      `Prelude.hashWithSalt` sqlInjectionMatchSetId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SqlInjectionMatchSetSummary where

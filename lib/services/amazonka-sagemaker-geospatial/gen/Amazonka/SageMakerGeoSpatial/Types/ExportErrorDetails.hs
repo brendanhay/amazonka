@@ -55,11 +55,9 @@ newExportErrorDetails =
       exportSourceImages = Prelude.Nothing
     }
 
--- |
 exportErrorDetails_exportResults :: Lens.Lens' ExportErrorDetails (Prelude.Maybe ExportErrorDetailsOutput)
 exportErrorDetails_exportResults = Lens.lens (\ExportErrorDetails' {exportResults} -> exportResults) (\s@ExportErrorDetails' {} a -> s {exportResults = a} :: ExportErrorDetails)
 
--- |
 exportErrorDetails_exportSourceImages :: Lens.Lens' ExportErrorDetails (Prelude.Maybe ExportErrorDetailsOutput)
 exportErrorDetails_exportSourceImages = Lens.lens (\ExportErrorDetails' {exportSourceImages} -> exportSourceImages) (\s@ExportErrorDetails' {} a -> s {exportSourceImages = a} :: ExportErrorDetails)
 
@@ -75,7 +73,8 @@ instance Data.FromJSON ExportErrorDetails where
 
 instance Prelude.Hashable ExportErrorDetails where
   hashWithSalt _salt ExportErrorDetails' {..} =
-    _salt `Prelude.hashWithSalt` exportResults
+    _salt
+      `Prelude.hashWithSalt` exportResults
       `Prelude.hashWithSalt` exportSourceImages
 
 instance Prelude.NFData ExportErrorDetails where

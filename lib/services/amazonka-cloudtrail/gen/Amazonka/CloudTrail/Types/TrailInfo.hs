@@ -85,7 +85,8 @@ instance Data.FromJSON TrailInfo where
 
 instance Prelude.Hashable TrailInfo where
   hashWithSalt _salt TrailInfo' {..} =
-    _salt `Prelude.hashWithSalt` homeRegion
+    _salt
+      `Prelude.hashWithSalt` homeRegion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` trailARN
 

@@ -72,7 +72,8 @@ inputLogEvent_message = Lens.lens (\InputLogEvent' {message} -> message) (\s@Inp
 
 instance Prelude.Hashable InputLogEvent where
   hashWithSalt _salt InputLogEvent' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData InputLogEvent where

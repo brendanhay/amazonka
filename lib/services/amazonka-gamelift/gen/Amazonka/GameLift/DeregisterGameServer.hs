@@ -114,7 +114,8 @@ instance Core.AWSRequest DeregisterGameServer where
 
 instance Prelude.Hashable DeregisterGameServer where
   hashWithSalt _salt DeregisterGameServer' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupName
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` gameServerId
 
 instance Prelude.NFData DeregisterGameServer where

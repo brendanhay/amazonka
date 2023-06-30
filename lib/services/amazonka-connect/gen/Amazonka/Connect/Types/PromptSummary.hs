@@ -84,7 +84,8 @@ instance Data.FromJSON PromptSummary where
 
 instance Prelude.Hashable PromptSummary where
   hashWithSalt _salt PromptSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

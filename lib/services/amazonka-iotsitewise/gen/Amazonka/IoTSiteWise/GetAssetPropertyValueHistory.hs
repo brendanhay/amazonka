@@ -208,21 +208,21 @@ instance Core.AWSPager GetAssetPropertyValueHistory where
     | Core.stop
         ( rs
             Lens.^? getAssetPropertyValueHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. getAssetPropertyValueHistoryResponse_assetPropertyValueHistory
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getAssetPropertyValueHistory_nextToken
           Lens..~ rs
           Lens.^? getAssetPropertyValueHistoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAssetPropertyValueHistory where
   type
@@ -236,7 +236,8 @@ instance Core.AWSRequest GetAssetPropertyValueHistory where
           GetAssetPropertyValueHistoryResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "assetPropertyValueHistory"
+            Prelude.<*> ( x
+                            Data..?> "assetPropertyValueHistory"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -246,7 +247,8 @@ instance
     GetAssetPropertyValueHistory
   where
   hashWithSalt _salt GetAssetPropertyValueHistory' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

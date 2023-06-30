@@ -80,7 +80,8 @@ instance Data.FromJSON ProjectBadge where
 
 instance Prelude.Hashable ProjectBadge where
   hashWithSalt _salt ProjectBadge' {..} =
-    _salt `Prelude.hashWithSalt` badgeEnabled
+    _salt
+      `Prelude.hashWithSalt` badgeEnabled
       `Prelude.hashWithSalt` badgeRequestUrl
 
 instance Prelude.NFData ProjectBadge where

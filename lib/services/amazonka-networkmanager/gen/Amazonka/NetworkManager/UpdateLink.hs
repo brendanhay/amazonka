@@ -161,7 +161,8 @@ instance Core.AWSRequest UpdateLink where
 
 instance Prelude.Hashable UpdateLink where
   hashWithSalt _salt UpdateLink' {..} =
-    _salt `Prelude.hashWithSalt` bandwidth
+    _salt
+      `Prelude.hashWithSalt` bandwidth
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` type'

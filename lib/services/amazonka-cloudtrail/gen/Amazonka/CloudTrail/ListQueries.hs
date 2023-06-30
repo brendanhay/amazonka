@@ -162,7 +162,8 @@ instance Core.AWSRequest ListQueries where
 
 instance Prelude.Hashable ListQueries where
   hashWithSalt _salt ListQueries' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryStatus

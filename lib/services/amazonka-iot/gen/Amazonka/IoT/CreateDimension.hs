@@ -170,7 +170,8 @@ instance Core.AWSRequest CreateDimension where
 
 instance Prelude.Hashable CreateDimension where
   hashWithSalt _salt CreateDimension' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` stringValues

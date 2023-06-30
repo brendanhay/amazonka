@@ -144,13 +144,16 @@ instance Data.FromXML LocalGatewayRouteTable where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "stateReason")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable LocalGatewayRouteTable where
   hashWithSalt _salt LocalGatewayRouteTable' {..} =
-    _salt `Prelude.hashWithSalt` localGatewayId
+    _salt
+      `Prelude.hashWithSalt` localGatewayId
       `Prelude.hashWithSalt` localGatewayRouteTableArn
       `Prelude.hashWithSalt` localGatewayRouteTableId
       `Prelude.hashWithSalt` mode

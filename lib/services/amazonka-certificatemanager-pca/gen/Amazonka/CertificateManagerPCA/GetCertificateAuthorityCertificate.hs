@@ -56,7 +56,7 @@ import qualified Amazonka.Response as Response
 data GetCertificateAuthorityCertificate = GetCertificateAuthorityCertificate'
   { -- | The Amazon Resource Name (ARN) of your private CA. This is of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
     certificateAuthorityArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +71,7 @@ data GetCertificateAuthorityCertificate = GetCertificateAuthorityCertificate'
 --
 -- 'certificateAuthorityArn', 'getCertificateAuthorityCertificate_certificateAuthorityArn' - The Amazon Resource Name (ARN) of your private CA. This is of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 newGetCertificateAuthorityCertificate ::
   -- | 'certificateAuthorityArn'
   Prelude.Text ->
@@ -85,7 +85,7 @@ newGetCertificateAuthorityCertificate
 
 -- | The Amazon Resource Name (ARN) of your private CA. This is of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 getCertificateAuthorityCertificate_certificateAuthorityArn :: Lens.Lens' GetCertificateAuthorityCertificate Prelude.Text
 getCertificateAuthorityCertificate_certificateAuthorityArn = Lens.lens (\GetCertificateAuthorityCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@GetCertificateAuthorityCertificate' {} a -> s {certificateAuthorityArn = a} :: GetCertificateAuthorityCertificate)
 
@@ -103,8 +103,8 @@ instance
       ( \s h x ->
           GetCertificateAuthorityCertificateResponse'
             Prelude.<$> (x Data..?> "Certificate")
-              Prelude.<*> (x Data..?> "CertificateChain")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "CertificateChain")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

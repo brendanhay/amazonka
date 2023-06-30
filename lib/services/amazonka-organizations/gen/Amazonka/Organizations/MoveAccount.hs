@@ -192,7 +192,8 @@ instance Core.AWSRequest MoveAccount where
 
 instance Prelude.Hashable MoveAccount where
   hashWithSalt _salt MoveAccount' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` sourceParentId
       `Prelude.hashWithSalt` destinationParentId
 

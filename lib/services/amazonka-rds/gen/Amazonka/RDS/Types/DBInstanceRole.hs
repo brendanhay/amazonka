@@ -126,7 +126,8 @@ instance Data.FromXML DBInstanceRole where
 
 instance Prelude.Hashable DBInstanceRole where
   hashWithSalt _salt DBInstanceRole' {..} =
-    _salt `Prelude.hashWithSalt` featureName
+    _salt
+      `Prelude.hashWithSalt` featureName
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` status
 

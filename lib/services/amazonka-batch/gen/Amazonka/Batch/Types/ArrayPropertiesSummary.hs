@@ -74,12 +74,14 @@ instance Data.FromJSON ArrayPropertiesSummary where
       "ArrayPropertiesSummary"
       ( \x ->
           ArrayPropertiesSummary'
-            Prelude.<$> (x Data..:? "index") Prelude.<*> (x Data..:? "size")
+            Prelude.<$> (x Data..:? "index")
+            Prelude.<*> (x Data..:? "size")
       )
 
 instance Prelude.Hashable ArrayPropertiesSummary where
   hashWithSalt _salt ArrayPropertiesSummary' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt
+      `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` size
 
 instance Prelude.NFData ArrayPropertiesSummary where

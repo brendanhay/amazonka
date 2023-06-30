@@ -50,7 +50,6 @@ newDashboardVisualPublishOptions =
         Prelude.Nothing
     }
 
--- |
 dashboardVisualPublishOptions_exportHiddenFieldsOption :: Lens.Lens' DashboardVisualPublishOptions (Prelude.Maybe ExportHiddenFieldsOption)
 dashboardVisualPublishOptions_exportHiddenFieldsOption = Lens.lens (\DashboardVisualPublishOptions' {exportHiddenFieldsOption} -> exportHiddenFieldsOption) (\s@DashboardVisualPublishOptions' {} a -> s {exportHiddenFieldsOption = a} :: DashboardVisualPublishOptions)
 

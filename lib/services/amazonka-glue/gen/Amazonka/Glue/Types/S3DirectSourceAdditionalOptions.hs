@@ -109,7 +109,8 @@ instance
   hashWithSalt
     _salt
     S3DirectSourceAdditionalOptions' {..} =
-      _salt `Prelude.hashWithSalt` boundedFiles
+      _salt
+        `Prelude.hashWithSalt` boundedFiles
         `Prelude.hashWithSalt` boundedSize
         `Prelude.hashWithSalt` enableSamplePath
         `Prelude.hashWithSalt` samplePath

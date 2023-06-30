@@ -156,7 +156,8 @@ instance Data.FromJSON EnvironmentVariable where
 
 instance Prelude.Hashable EnvironmentVariable where
   hashWithSalt _salt EnvironmentVariable' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

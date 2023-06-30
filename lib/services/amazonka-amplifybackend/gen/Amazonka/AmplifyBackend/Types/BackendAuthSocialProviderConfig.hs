@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     BackendAuthSocialProviderConfig' {..} =
-      _salt `Prelude.hashWithSalt` clientId
+      _salt
+        `Prelude.hashWithSalt` clientId
         `Prelude.hashWithSalt` clientSecret
 
 instance

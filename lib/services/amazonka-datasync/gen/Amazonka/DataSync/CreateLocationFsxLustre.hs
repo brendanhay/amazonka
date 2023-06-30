@@ -146,7 +146,8 @@ instance Core.AWSRequest CreateLocationFsxLustre where
 
 instance Prelude.Hashable CreateLocationFsxLustre where
   hashWithSalt _salt CreateLocationFsxLustre' {..} =
-    _salt `Prelude.hashWithSalt` subdirectory
+    _salt
+      `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fsxFilesystemArn
       `Prelude.hashWithSalt` securityGroupArns

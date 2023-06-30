@@ -176,7 +176,8 @@ instance Core.AWSRequest AssociateExternalConnection where
 
 instance Prelude.Hashable AssociateExternalConnection where
   hashWithSalt _salt AssociateExternalConnection' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` externalConnection

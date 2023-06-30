@@ -157,7 +157,8 @@ instance Data.FromXML LocalGatewayRoute where
 
 instance Prelude.Hashable LocalGatewayRoute where
   hashWithSalt _salt LocalGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` coipPoolId
+    _salt
+      `Prelude.hashWithSalt` coipPoolId
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` localGatewayRouteTableArn
       `Prelude.hashWithSalt` localGatewayRouteTableId

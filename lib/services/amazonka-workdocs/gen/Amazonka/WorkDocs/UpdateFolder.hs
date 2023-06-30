@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateFolder where
 
 instance Prelude.Hashable UpdateFolder where
   hashWithSalt _salt UpdateFolder' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentFolderId
       `Prelude.hashWithSalt` resourceState

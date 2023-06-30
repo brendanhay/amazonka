@@ -136,7 +136,8 @@ instance
     AdminUpdateAuthEventFeedback
   where
   hashWithSalt _salt AdminUpdateAuthEventFeedback' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` feedbackValue

@@ -157,7 +157,8 @@ instance Data.FromJSON SmsConfigurationType where
 
 instance Prelude.Hashable SmsConfigurationType where
   hashWithSalt _salt SmsConfigurationType' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` snsRegion
       `Prelude.hashWithSalt` snsCallerArn
 

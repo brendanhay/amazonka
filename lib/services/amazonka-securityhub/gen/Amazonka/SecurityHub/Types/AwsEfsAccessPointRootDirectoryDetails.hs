@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     AwsEfsAccessPointRootDirectoryDetails' {..} =
-      _salt `Prelude.hashWithSalt` creationInfo
+      _salt
+        `Prelude.hashWithSalt` creationInfo
         `Prelude.hashWithSalt` path
 
 instance

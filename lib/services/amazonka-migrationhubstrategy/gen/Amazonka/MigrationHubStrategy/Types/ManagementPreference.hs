@@ -88,7 +88,8 @@ instance Data.FromJSON ManagementPreference where
 
 instance Prelude.Hashable ManagementPreference where
   hashWithSalt _salt ManagementPreference' {..} =
-    _salt `Prelude.hashWithSalt` awsManagedResources
+    _salt
+      `Prelude.hashWithSalt` awsManagedResources
       `Prelude.hashWithSalt` noPreference
       `Prelude.hashWithSalt` selfManageResources
 

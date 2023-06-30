@@ -136,22 +136,22 @@ instance Core.AWSPager ListDatasetContents where
     | Core.stop
         ( rs
             Lens.^? listDatasetContentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDatasetContentsResponse_datasetContentSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDatasetContents_nextToken
           Lens..~ rs
           Lens.^? listDatasetContentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatasetContents where
   type
@@ -163,7 +163,8 @@ instance Core.AWSRequest ListDatasetContents where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetContentsResponse'
-            Prelude.<$> ( x Data..?> "datasetContentSummaries"
+            Prelude.<$> ( x
+                            Data..?> "datasetContentSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -172,7 +173,8 @@ instance Core.AWSRequest ListDatasetContents where
 
 instance Prelude.Hashable ListDatasetContents where
   hashWithSalt _salt ListDatasetContents' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` scheduledBefore
       `Prelude.hashWithSalt` scheduledOnOrAfter

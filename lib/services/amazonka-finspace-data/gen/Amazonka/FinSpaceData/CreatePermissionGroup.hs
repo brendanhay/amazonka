@@ -202,7 +202,8 @@ instance Core.AWSRequest CreatePermissionGroup where
 
 instance Prelude.Hashable CreatePermissionGroup where
   hashWithSalt _salt CreatePermissionGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` applicationPermissions

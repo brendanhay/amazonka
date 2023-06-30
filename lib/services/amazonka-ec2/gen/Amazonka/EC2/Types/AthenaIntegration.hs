@@ -95,7 +95,8 @@ athenaIntegration_partitionLoadFrequency = Lens.lens (\AthenaIntegration' {parti
 
 instance Prelude.Hashable AthenaIntegration where
   hashWithSalt _salt AthenaIntegration' {..} =
-    _salt `Prelude.hashWithSalt` partitionEndDate
+    _salt
+      `Prelude.hashWithSalt` partitionEndDate
       `Prelude.hashWithSalt` partitionStartDate
       `Prelude.hashWithSalt` integrationResultS3DestinationArn
       `Prelude.hashWithSalt` partitionLoadFrequency

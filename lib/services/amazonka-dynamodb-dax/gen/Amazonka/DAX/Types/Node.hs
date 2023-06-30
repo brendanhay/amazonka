@@ -127,7 +127,8 @@ instance Data.FromJSON Node where
 
 instance Prelude.Hashable Node where
   hashWithSalt _salt Node' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` nodeCreateTime
       `Prelude.hashWithSalt` nodeId

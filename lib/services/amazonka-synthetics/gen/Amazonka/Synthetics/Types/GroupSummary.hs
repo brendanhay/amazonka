@@ -84,7 +84,8 @@ instance Data.FromJSON GroupSummary where
 
 instance Prelude.Hashable GroupSummary where
   hashWithSalt _salt GroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

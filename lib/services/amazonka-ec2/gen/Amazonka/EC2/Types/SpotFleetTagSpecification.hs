@@ -33,7 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 data SpotFleetTagSpecification = SpotFleetTagSpecification'
   { -- | The type of resource. Currently, the only resource type that is
     -- supported is @instance@. To tag the Spot Fleet request on creation, use
-    -- the @TagSpecifications@ parameter in @ SpotFleetRequestConfigData @.
+    -- the @TagSpecifications@ parameter in
+    -- @ @<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html SpotFleetRequestConfigData>@ @.
     resourceType :: Prelude.Maybe ResourceType,
     -- | The tags.
     tags :: Prelude.Maybe [Tag]
@@ -50,7 +51,8 @@ data SpotFleetTagSpecification = SpotFleetTagSpecification'
 --
 -- 'resourceType', 'spotFleetTagSpecification_resourceType' - The type of resource. Currently, the only resource type that is
 -- supported is @instance@. To tag the Spot Fleet request on creation, use
--- the @TagSpecifications@ parameter in @ SpotFleetRequestConfigData @.
+-- the @TagSpecifications@ parameter in
+-- @ @<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html SpotFleetRequestConfigData>@ @.
 --
 -- 'tags', 'spotFleetTagSpecification_tags' - The tags.
 newSpotFleetTagSpecification ::
@@ -64,7 +66,8 @@ newSpotFleetTagSpecification =
 
 -- | The type of resource. Currently, the only resource type that is
 -- supported is @instance@. To tag the Spot Fleet request on creation, use
--- the @TagSpecifications@ parameter in @ SpotFleetRequestConfigData @.
+-- the @TagSpecifications@ parameter in
+-- @ @<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html SpotFleetRequestConfigData>@ @.
 spotFleetTagSpecification_resourceType :: Lens.Lens' SpotFleetTagSpecification (Prelude.Maybe ResourceType)
 spotFleetTagSpecification_resourceType = Lens.lens (\SpotFleetTagSpecification' {resourceType} -> resourceType) (\s@SpotFleetTagSpecification' {} a -> s {resourceType = a} :: SpotFleetTagSpecification)
 
@@ -76,13 +79,16 @@ instance Data.FromXML SpotFleetTagSpecification where
   parseXML x =
     SpotFleetTagSpecification'
       Prelude.<$> (x Data..@? "resourceType")
-      Prelude.<*> ( x Data..@? "tag" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tag"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable SpotFleetTagSpecification where
   hashWithSalt _salt SpotFleetTagSpecification' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData SpotFleetTagSpecification where

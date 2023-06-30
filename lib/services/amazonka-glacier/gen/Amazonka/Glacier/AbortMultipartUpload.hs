@@ -152,7 +152,8 @@ instance Core.AWSRequest AbortMultipartUpload where
 
 instance Prelude.Hashable AbortMultipartUpload where
   hashWithSalt _salt AbortMultipartUpload' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
       `Prelude.hashWithSalt` uploadId
 

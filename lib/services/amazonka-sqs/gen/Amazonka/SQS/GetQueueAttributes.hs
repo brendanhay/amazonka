@@ -542,7 +542,8 @@ instance Core.AWSRequest GetQueueAttributes where
 
 instance Prelude.Hashable GetQueueAttributes where
   hashWithSalt _salt GetQueueAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` queueUrl
 
 instance Prelude.NFData GetQueueAttributes where

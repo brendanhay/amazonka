@@ -153,12 +153,13 @@ instance
       ( \s h x ->
           GetAggregateDiscoveredResourceCountsResponse'
             Prelude.<$> (x Data..?> "GroupByKey")
-              Prelude.<*> ( x Data..?> "GroupedResourceCounts"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "TotalDiscoveredResources")
+            Prelude.<*> ( x
+                            Data..?> "GroupedResourceCounts"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "TotalDiscoveredResources")
       )
 
 instance
@@ -168,7 +169,8 @@ instance
   hashWithSalt
     _salt
     GetAggregateDiscoveredResourceCounts' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` groupByKey
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken

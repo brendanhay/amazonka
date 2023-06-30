@@ -159,7 +159,8 @@ instance Core.AWSRequest ModifyVpcAttribute where
 
 instance Prelude.Hashable ModifyVpcAttribute where
   hashWithSalt _salt ModifyVpcAttribute' {..} =
-    _salt `Prelude.hashWithSalt` enableDnsHostnames
+    _salt
+      `Prelude.hashWithSalt` enableDnsHostnames
       `Prelude.hashWithSalt` enableDnsSupport
       `Prelude.hashWithSalt` enableNetworkAddressUsageMetrics
       `Prelude.hashWithSalt` vpcId

@@ -178,22 +178,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeDirectConnectGatewayAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDirectConnectGatewayAssociationsResponse_directConnectGatewayAssociations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDirectConnectGatewayAssociations_nextToken
           Lens..~ rs
-            Lens.^? describeDirectConnectGatewayAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeDirectConnectGatewayAssociationsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -209,11 +209,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewayAssociationsResponse'
-            Prelude.<$> ( x Data..?> "directConnectGatewayAssociations"
+            Prelude.<$> ( x
+                            Data..?> "directConnectGatewayAssociations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -223,7 +224,8 @@ instance
   hashWithSalt
     _salt
     DescribeDirectConnectGatewayAssociations' {..} =
-      _salt `Prelude.hashWithSalt` associatedGatewayId
+      _salt
+        `Prelude.hashWithSalt` associatedGatewayId
         `Prelude.hashWithSalt` associationId
         `Prelude.hashWithSalt` directConnectGatewayId
         `Prelude.hashWithSalt` maxResults

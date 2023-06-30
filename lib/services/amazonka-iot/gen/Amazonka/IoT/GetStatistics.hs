@@ -132,7 +132,8 @@ instance Core.AWSRequest GetStatistics where
 
 instance Prelude.Hashable GetStatistics where
   hashWithSalt _salt GetStatistics' {..} =
-    _salt `Prelude.hashWithSalt` aggregationField
+    _salt
+      `Prelude.hashWithSalt` aggregationField
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` queryString

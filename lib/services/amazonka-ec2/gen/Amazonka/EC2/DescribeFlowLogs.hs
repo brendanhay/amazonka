@@ -219,22 +219,22 @@ instance Core.AWSPager DescribeFlowLogs where
     | Core.stop
         ( rs
             Lens.^? describeFlowLogsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFlowLogsResponse_flowLogs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFlowLogs_nextToken
           Lens..~ rs
           Lens.^? describeFlowLogsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFlowLogs where
   type
@@ -246,7 +246,9 @@ instance Core.AWSRequest DescribeFlowLogs where
     Response.receiveXML
       ( \s h x ->
           DescribeFlowLogsResponse'
-            Prelude.<$> ( x Data..@? "flowLogSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "flowLogSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -255,7 +257,8 @@ instance Core.AWSRequest DescribeFlowLogs where
 
 instance Prelude.Hashable DescribeFlowLogs where
   hashWithSalt _salt DescribeFlowLogs' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` flowLogIds
       `Prelude.hashWithSalt` maxResults

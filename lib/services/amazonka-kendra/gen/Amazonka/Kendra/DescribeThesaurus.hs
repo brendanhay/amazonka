@@ -125,7 +125,8 @@ instance Core.AWSRequest DescribeThesaurus where
 
 instance Prelude.Hashable DescribeThesaurus where
   hashWithSalt _salt DescribeThesaurus' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DescribeThesaurus where

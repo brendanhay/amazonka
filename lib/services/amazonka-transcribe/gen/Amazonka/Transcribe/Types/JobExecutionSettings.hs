@@ -148,7 +148,8 @@ instance Data.FromJSON JobExecutionSettings where
 
 instance Prelude.Hashable JobExecutionSettings where
   hashWithSalt _salt JobExecutionSettings' {..} =
-    _salt `Prelude.hashWithSalt` allowDeferredExecution
+    _salt
+      `Prelude.hashWithSalt` allowDeferredExecution
       `Prelude.hashWithSalt` dataAccessRoleArn
 
 instance Prelude.NFData JobExecutionSettings where

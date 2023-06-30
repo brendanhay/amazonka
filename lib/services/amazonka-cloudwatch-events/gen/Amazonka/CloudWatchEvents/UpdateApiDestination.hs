@@ -152,7 +152,8 @@ instance Core.AWSRequest UpdateApiDestination where
 
 instance Prelude.Hashable UpdateApiDestination where
   hashWithSalt _salt UpdateApiDestination' {..} =
-    _salt `Prelude.hashWithSalt` connectionArn
+    _salt
+      `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` httpMethod
       `Prelude.hashWithSalt` invocationEndpoint

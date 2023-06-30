@@ -162,7 +162,8 @@ instance Data.FromJSON Parameter where
             Prelude.<*> (x Data..:? "DataType")
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "IsModifiable")
-            Prelude.<*> ( x Data..:? "NodeTypeSpecificValues"
+            Prelude.<*> ( x
+                            Data..:? "NodeTypeSpecificValues"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ParameterName")
@@ -173,7 +174,8 @@ instance Data.FromJSON Parameter where
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` description

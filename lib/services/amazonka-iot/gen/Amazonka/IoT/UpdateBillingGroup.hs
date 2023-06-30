@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateBillingGroup where
 
 instance Prelude.Hashable UpdateBillingGroup where
   hashWithSalt _salt UpdateBillingGroup' {..} =
-    _salt `Prelude.hashWithSalt` expectedVersion
+    _salt
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` billingGroupName
       `Prelude.hashWithSalt` billingGroupProperties
 

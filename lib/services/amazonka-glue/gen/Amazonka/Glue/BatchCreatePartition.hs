@@ -133,7 +133,8 @@ instance Core.AWSRequest BatchCreatePartition where
 
 instance Prelude.Hashable BatchCreatePartition where
   hashWithSalt _salt BatchCreatePartition' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` partitionInputList

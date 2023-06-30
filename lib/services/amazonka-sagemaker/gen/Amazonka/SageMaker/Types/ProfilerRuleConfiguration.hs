@@ -144,7 +144,8 @@ instance Data.FromJSON ProfilerRuleConfiguration where
 
 instance Prelude.Hashable ProfilerRuleConfiguration where
   hashWithSalt _salt ProfilerRuleConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` localPath
       `Prelude.hashWithSalt` ruleParameters
       `Prelude.hashWithSalt` s3OutputPath

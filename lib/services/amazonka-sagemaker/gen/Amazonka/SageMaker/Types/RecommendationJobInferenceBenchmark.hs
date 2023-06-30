@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     RecommendationJobInferenceBenchmark' {..} =
-      _salt `Prelude.hashWithSalt` endpointConfiguration
+      _salt
+        `Prelude.hashWithSalt` endpointConfiguration
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` metrics
         `Prelude.hashWithSalt` modelConfiguration

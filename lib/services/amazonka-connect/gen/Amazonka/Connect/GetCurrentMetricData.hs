@@ -570,7 +570,8 @@ instance Core.AWSRequest GetCurrentMetricData where
 
 instance Prelude.Hashable GetCurrentMetricData where
   hashWithSalt _salt GetCurrentMetricData' {..} =
-    _salt `Prelude.hashWithSalt` groupings
+    _salt
+      `Prelude.hashWithSalt` groupings
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortCriteria

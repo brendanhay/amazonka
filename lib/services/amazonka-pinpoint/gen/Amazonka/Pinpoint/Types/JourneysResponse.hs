@@ -85,7 +85,8 @@ instance Data.FromJSON JourneysResponse where
 
 instance Prelude.Hashable JourneysResponse where
   hashWithSalt _salt JourneysResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` item
 
 instance Prelude.NFData JourneysResponse where

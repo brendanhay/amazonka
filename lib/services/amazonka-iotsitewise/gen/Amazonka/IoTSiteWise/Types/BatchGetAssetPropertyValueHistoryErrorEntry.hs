@@ -93,8 +93,8 @@ instance
       ( \x ->
           BatchGetAssetPropertyValueHistoryErrorEntry'
             Prelude.<$> (x Data..: "errorCode")
-              Prelude.<*> (x Data..: "errorMessage")
-              Prelude.<*> (x Data..: "entryId")
+            Prelude.<*> (x Data..: "errorMessage")
+            Prelude.<*> (x Data..: "entryId")
       )
 
 instance
@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueHistoryErrorEntry' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` entryId
 

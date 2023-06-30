@@ -224,7 +224,8 @@ instance Core.AWSRequest UpdateProfile where
 
 instance Prelude.Hashable UpdateProfile where
   hashWithSalt _salt UpdateProfile' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` dataRetentionOptIn
       `Prelude.hashWithSalt` distanceUnit
       `Prelude.hashWithSalt` isDefault

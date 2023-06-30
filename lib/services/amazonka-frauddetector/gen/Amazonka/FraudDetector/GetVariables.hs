@@ -115,7 +115,8 @@ instance Core.AWSRequest GetVariables where
 
 instance Prelude.Hashable GetVariables where
   hashWithSalt _salt GetVariables' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
 

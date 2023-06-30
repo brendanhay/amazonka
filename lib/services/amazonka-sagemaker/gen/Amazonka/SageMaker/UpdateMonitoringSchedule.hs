@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateMonitoringSchedule where
 
 instance Prelude.Hashable UpdateMonitoringSchedule where
   hashWithSalt _salt UpdateMonitoringSchedule' {..} =
-    _salt `Prelude.hashWithSalt` monitoringScheduleName
+    _salt
+      `Prelude.hashWithSalt` monitoringScheduleName
       `Prelude.hashWithSalt` monitoringScheduleConfig
 
 instance Prelude.NFData UpdateMonitoringSchedule where

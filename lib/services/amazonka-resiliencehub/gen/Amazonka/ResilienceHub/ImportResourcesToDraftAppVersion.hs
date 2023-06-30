@@ -132,7 +132,8 @@ instance
       ( \s h x ->
           ImportResourcesToDraftAppVersionResponse'
             Prelude.<$> (x Data..?> "sourceArns" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "terraformSources"
+            Prelude.<*> ( x
+                            Data..?> "terraformSources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,7 +149,8 @@ instance
   hashWithSalt
     _salt
     ImportResourcesToDraftAppVersion' {..} =
-      _salt `Prelude.hashWithSalt` sourceArns
+      _salt
+        `Prelude.hashWithSalt` sourceArns
         `Prelude.hashWithSalt` terraformSources
         `Prelude.hashWithSalt` appArn
 

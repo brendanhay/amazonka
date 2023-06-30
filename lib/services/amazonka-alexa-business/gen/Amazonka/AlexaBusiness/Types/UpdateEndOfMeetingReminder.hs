@@ -83,7 +83,8 @@ updateEndOfMeetingReminder_reminderType = Lens.lens (\UpdateEndOfMeetingReminder
 
 instance Prelude.Hashable UpdateEndOfMeetingReminder where
   hashWithSalt _salt UpdateEndOfMeetingReminder' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` reminderAtMinutes
       `Prelude.hashWithSalt` reminderType
 

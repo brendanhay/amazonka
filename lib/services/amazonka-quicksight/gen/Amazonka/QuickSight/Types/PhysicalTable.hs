@@ -89,7 +89,8 @@ instance Data.FromJSON PhysicalTable where
 
 instance Prelude.Hashable PhysicalTable where
   hashWithSalt _salt PhysicalTable' {..} =
-    _salt `Prelude.hashWithSalt` customSql
+    _salt
+      `Prelude.hashWithSalt` customSql
       `Prelude.hashWithSalt` relationalTable
       `Prelude.hashWithSalt` s3Source
 

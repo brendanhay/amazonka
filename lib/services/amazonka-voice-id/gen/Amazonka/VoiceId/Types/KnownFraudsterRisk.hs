@@ -84,7 +84,8 @@ instance Data.FromJSON KnownFraudsterRisk where
 
 instance Prelude.Hashable KnownFraudsterRisk where
   hashWithSalt _salt KnownFraudsterRisk' {..} =
-    _salt `Prelude.hashWithSalt` generatedFraudsterId
+    _salt
+      `Prelude.hashWithSalt` generatedFraudsterId
       `Prelude.hashWithSalt` riskScore
 
 instance Prelude.NFData KnownFraudsterRisk where

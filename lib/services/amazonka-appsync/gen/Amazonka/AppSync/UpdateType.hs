@@ -124,7 +124,8 @@ instance Core.AWSRequest UpdateType where
 
 instance Prelude.Hashable UpdateType where
   hashWithSalt _salt UpdateType' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` format

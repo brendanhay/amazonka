@@ -142,7 +142,8 @@ instance Core.AWSRequest ListChangeSets where
     Response.receiveJSON
       ( \s h x ->
           ListChangeSetsResponse'
-            Prelude.<$> ( x Data..?> "ChangeSetSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "ChangeSetSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -151,7 +152,8 @@ instance Core.AWSRequest ListChangeSets where
 
 instance Prelude.Hashable ListChangeSets where
   hashWithSalt _salt ListChangeSets' {..} =
-    _salt `Prelude.hashWithSalt` filterList
+    _salt
+      `Prelude.hashWithSalt` filterList
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sort

@@ -346,7 +346,8 @@ instance Data.FromJSON ContainerRecipe where
 
 instance Prelude.Hashable ContainerRecipe where
   hashWithSalt _salt ContainerRecipe' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` components
       `Prelude.hashWithSalt` containerType
       `Prelude.hashWithSalt` dateCreated

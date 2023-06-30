@@ -71,7 +71,8 @@ timerDefinition_seconds = Lens.lens (\TimerDefinition' {seconds} -> seconds) (\s
 
 instance Prelude.Hashable TimerDefinition where
   hashWithSalt _salt TimerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` seconds
 
 instance Prelude.NFData TimerDefinition where

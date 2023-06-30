@@ -117,7 +117,8 @@ instance
     GetPatchBaselineForPatchGroup
   where
   hashWithSalt _salt GetPatchBaselineForPatchGroup' {..} =
-    _salt `Prelude.hashWithSalt` operatingSystem
+    _salt
+      `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` patchGroup
 
 instance Prelude.NFData GetPatchBaselineForPatchGroup where

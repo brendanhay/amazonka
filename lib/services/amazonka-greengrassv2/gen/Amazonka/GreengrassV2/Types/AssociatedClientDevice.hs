@@ -79,7 +79,8 @@ instance Data.FromJSON AssociatedClientDevice where
 
 instance Prelude.Hashable AssociatedClientDevice where
   hashWithSalt _salt AssociatedClientDevice' {..} =
-    _salt `Prelude.hashWithSalt` associationTimestamp
+    _salt
+      `Prelude.hashWithSalt` associationTimestamp
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData AssociatedClientDevice where

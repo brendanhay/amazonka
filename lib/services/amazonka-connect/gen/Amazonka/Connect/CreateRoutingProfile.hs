@@ -180,7 +180,8 @@ instance Core.AWSRequest CreateRoutingProfile where
 
 instance Prelude.Hashable CreateRoutingProfile where
   hashWithSalt _salt CreateRoutingProfile' {..} =
-    _salt `Prelude.hashWithSalt` queueConfigs
+    _salt
+      `Prelude.hashWithSalt` queueConfigs
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name

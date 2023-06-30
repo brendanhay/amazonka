@@ -246,7 +246,8 @@ instance Data.FromJSON PackageVersionDescription where
 
 instance Prelude.Hashable PackageVersionDescription where
   hashWithSalt _salt PackageVersionDescription' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` homePage
       `Prelude.hashWithSalt` licenses

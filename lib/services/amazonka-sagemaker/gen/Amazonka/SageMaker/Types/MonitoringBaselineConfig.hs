@@ -95,7 +95,8 @@ instance Data.FromJSON MonitoringBaselineConfig where
 
 instance Prelude.Hashable MonitoringBaselineConfig where
   hashWithSalt _salt MonitoringBaselineConfig' {..} =
-    _salt `Prelude.hashWithSalt` baseliningJobName
+    _salt
+      `Prelude.hashWithSalt` baseliningJobName
       `Prelude.hashWithSalt` constraintsResource
       `Prelude.hashWithSalt` statisticsResource
 

@@ -130,7 +130,8 @@ instance Data.FromJSON AwsIamInstanceProfile where
 
 instance Prelude.Hashable AwsIamInstanceProfile where
   hashWithSalt _salt AwsIamInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` instanceProfileId
       `Prelude.hashWithSalt` instanceProfileName

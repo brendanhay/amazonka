@@ -97,7 +97,8 @@ instance Data.FromJSON WorkUnitRange where
 
 instance Prelude.Hashable WorkUnitRange where
   hashWithSalt _salt WorkUnitRange' {..} =
-    _salt `Prelude.hashWithSalt` workUnitIdMax
+    _salt
+      `Prelude.hashWithSalt` workUnitIdMax
       `Prelude.hashWithSalt` workUnitIdMin
       `Prelude.hashWithSalt` workUnitToken
 

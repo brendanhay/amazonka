@@ -106,7 +106,8 @@ instance Core.AWSRequest DeletePreparedStatement where
 
 instance Prelude.Hashable DeletePreparedStatement where
   hashWithSalt _salt DeletePreparedStatement' {..} =
-    _salt `Prelude.hashWithSalt` statementName
+    _salt
+      `Prelude.hashWithSalt` statementName
       `Prelude.hashWithSalt` workGroup
 
 instance Prelude.NFData DeletePreparedStatement where

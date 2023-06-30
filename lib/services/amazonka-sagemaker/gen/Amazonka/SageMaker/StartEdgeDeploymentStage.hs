@@ -99,7 +99,8 @@ instance Core.AWSRequest StartEdgeDeploymentStage where
 
 instance Prelude.Hashable StartEdgeDeploymentStage where
   hashWithSalt _salt StartEdgeDeploymentStage' {..} =
-    _salt `Prelude.hashWithSalt` edgeDeploymentPlanName
+    _salt
+      `Prelude.hashWithSalt` edgeDeploymentPlanName
       `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData StartEdgeDeploymentStage where

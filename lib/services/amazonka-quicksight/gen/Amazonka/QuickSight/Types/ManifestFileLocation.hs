@@ -72,12 +72,14 @@ instance Data.FromJSON ManifestFileLocation where
       "ManifestFileLocation"
       ( \x ->
           ManifestFileLocation'
-            Prelude.<$> (x Data..: "Bucket") Prelude.<*> (x Data..: "Key")
+            Prelude.<$> (x Data..: "Bucket")
+            Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable ManifestFileLocation where
   hashWithSalt _salt ManifestFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData ManifestFileLocation where

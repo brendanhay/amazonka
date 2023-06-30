@@ -86,7 +86,8 @@ instance Data.FromJSON SourceCloudProperties where
 
 instance Prelude.Hashable SourceCloudProperties where
   hashWithSalt _salt SourceCloudProperties' {..} =
-    _salt `Prelude.hashWithSalt` originAccountID
+    _salt
+      `Prelude.hashWithSalt` originAccountID
       `Prelude.hashWithSalt` originAvailabilityZone
       `Prelude.hashWithSalt` originRegion
 

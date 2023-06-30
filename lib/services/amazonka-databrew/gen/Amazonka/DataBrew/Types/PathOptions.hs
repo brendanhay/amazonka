@@ -97,7 +97,8 @@ instance Data.FromJSON PathOptions where
 
 instance Prelude.Hashable PathOptions where
   hashWithSalt _salt PathOptions' {..} =
-    _salt `Prelude.hashWithSalt` filesLimit
+    _salt
+      `Prelude.hashWithSalt` filesLimit
       `Prelude.hashWithSalt` lastModifiedDateCondition
       `Prelude.hashWithSalt` parameters
 

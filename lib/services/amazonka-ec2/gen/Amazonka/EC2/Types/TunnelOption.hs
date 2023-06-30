@@ -274,33 +274,41 @@ instance Data.FromXML TunnelOption where
     TunnelOption'
       Prelude.<$> (x Data..@? "dpdTimeoutAction")
       Prelude.<*> (x Data..@? "dpdTimeoutSeconds")
-      Prelude.<*> ( x Data..@? "ikeVersionSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ikeVersionSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "logOptions")
       Prelude.<*> (x Data..@? "outsideIpAddress")
-      Prelude.<*> ( x Data..@? "phase1DHGroupNumberSet"
+      Prelude.<*> ( x
+                      Data..@? "phase1DHGroupNumberSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "phase1EncryptionAlgorithmSet"
+      Prelude.<*> ( x
+                      Data..@? "phase1EncryptionAlgorithmSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "phase1IntegrityAlgorithmSet"
+      Prelude.<*> ( x
+                      Data..@? "phase1IntegrityAlgorithmSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "phase1LifetimeSeconds")
-      Prelude.<*> ( x Data..@? "phase2DHGroupNumberSet"
+      Prelude.<*> ( x
+                      Data..@? "phase2DHGroupNumberSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "phase2EncryptionAlgorithmSet"
+      Prelude.<*> ( x
+                      Data..@? "phase2EncryptionAlgorithmSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "phase2IntegrityAlgorithmSet"
+      Prelude.<*> ( x
+                      Data..@? "phase2IntegrityAlgorithmSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -315,7 +323,8 @@ instance Data.FromXML TunnelOption where
 
 instance Prelude.Hashable TunnelOption where
   hashWithSalt _salt TunnelOption' {..} =
-    _salt `Prelude.hashWithSalt` dpdTimeoutAction
+    _salt
+      `Prelude.hashWithSalt` dpdTimeoutAction
       `Prelude.hashWithSalt` dpdTimeoutSeconds
       `Prelude.hashWithSalt` ikeVersions
       `Prelude.hashWithSalt` logOptions

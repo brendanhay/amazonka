@@ -209,7 +209,8 @@ instance Core.AWSRequest UpdateDevice where
 
 instance Prelude.Hashable UpdateDevice where
   hashWithSalt _salt UpdateDevice' {..} =
-    _salt `Prelude.hashWithSalt` aWSLocation
+    _salt
+      `Prelude.hashWithSalt` aWSLocation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` model

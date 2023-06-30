@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     ApplicationCodeConfigurationDescription' {..} =
-      _salt `Prelude.hashWithSalt` codeContentDescription
+      _salt
+        `Prelude.hashWithSalt` codeContentDescription
         `Prelude.hashWithSalt` codeContentType
 
 instance

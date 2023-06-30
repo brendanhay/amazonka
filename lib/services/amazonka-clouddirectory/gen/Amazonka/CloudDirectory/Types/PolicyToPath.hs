@@ -77,7 +77,8 @@ instance Data.FromJSON PolicyToPath where
 
 instance Prelude.Hashable PolicyToPath where
   hashWithSalt _salt PolicyToPath' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` policies
 
 instance Prelude.NFData PolicyToPath where

@@ -78,7 +78,8 @@ instance
     SecurityConfigurationSummary
   where
   hashWithSalt _salt SecurityConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SecurityConfigurationSummary where

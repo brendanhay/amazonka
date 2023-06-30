@@ -97,7 +97,8 @@ instance Data.FromJSON CustomLabel where
 
 instance Prelude.Hashable CustomLabel where
   hashWithSalt _salt CustomLabel' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` geometry
       `Prelude.hashWithSalt` name
 

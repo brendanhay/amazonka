@@ -167,7 +167,8 @@ instance Core.AWSRequest PutContactInformation where
 
 instance Prelude.Hashable PutContactInformation where
   hashWithSalt _salt PutContactInformation' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` contactInformation
 
 instance Prelude.NFData PutContactInformation where

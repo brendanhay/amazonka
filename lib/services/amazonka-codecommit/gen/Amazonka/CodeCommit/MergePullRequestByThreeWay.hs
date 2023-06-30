@@ -238,7 +238,8 @@ instance Core.AWSRequest MergePullRequestByThreeWay where
 
 instance Prelude.Hashable MergePullRequestByThreeWay where
   hashWithSalt _salt MergePullRequestByThreeWay' {..} =
-    _salt `Prelude.hashWithSalt` authorName
+    _salt
+      `Prelude.hashWithSalt` authorName
       `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolution

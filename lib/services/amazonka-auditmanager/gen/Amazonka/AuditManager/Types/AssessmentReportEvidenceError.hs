@@ -89,7 +89,8 @@ instance
     AssessmentReportEvidenceError
   where
   hashWithSalt _salt AssessmentReportEvidenceError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` evidenceId
 

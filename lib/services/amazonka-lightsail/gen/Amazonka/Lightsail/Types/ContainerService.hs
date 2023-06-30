@@ -457,7 +457,8 @@ instance Data.FromJSON ContainerService where
             Prelude.<*> (x Data..:? "principalArn")
             Prelude.<*> (x Data..:? "privateDomainName")
             Prelude.<*> (x Data..:? "privateRegistryAccess")
-            Prelude.<*> ( x Data..:? "publicDomainNames"
+            Prelude.<*> ( x
+                            Data..:? "publicDomainNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "resourceType")
@@ -470,7 +471,8 @@ instance Data.FromJSON ContainerService where
 
 instance Prelude.Hashable ContainerService where
   hashWithSalt _salt ContainerService' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` containerServiceName
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` currentDeployment

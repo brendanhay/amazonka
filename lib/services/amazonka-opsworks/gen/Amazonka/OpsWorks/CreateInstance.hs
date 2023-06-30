@@ -550,7 +550,8 @@ instance Core.AWSRequest CreateInstance where
 
 instance Prelude.Hashable CreateInstance where
   hashWithSalt _salt CreateInstance' {..} =
-    _salt `Prelude.hashWithSalt` agentVersion
+    _salt
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` amiId
       `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` autoScalingType

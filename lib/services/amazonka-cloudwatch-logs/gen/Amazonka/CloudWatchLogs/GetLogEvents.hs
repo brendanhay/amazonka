@@ -263,7 +263,8 @@ instance Core.AWSRequest GetLogEvents where
 
 instance Prelude.Hashable GetLogEvents where
   hashWithSalt _salt GetLogEvents' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` logGroupIdentifier
       `Prelude.hashWithSalt` nextToken

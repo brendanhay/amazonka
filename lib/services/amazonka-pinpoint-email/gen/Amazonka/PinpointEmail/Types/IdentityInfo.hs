@@ -118,7 +118,8 @@ instance Data.FromJSON IdentityInfo where
 
 instance Prelude.Hashable IdentityInfo where
   hashWithSalt _salt IdentityInfo' {..} =
-    _salt `Prelude.hashWithSalt` identityName
+    _salt
+      `Prelude.hashWithSalt` identityName
       `Prelude.hashWithSalt` identityType
       `Prelude.hashWithSalt` sendingEnabled
 

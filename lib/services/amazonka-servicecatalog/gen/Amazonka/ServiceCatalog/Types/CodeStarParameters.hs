@@ -116,7 +116,8 @@ instance Data.FromJSON CodeStarParameters where
 
 instance Prelude.Hashable CodeStarParameters where
   hashWithSalt _salt CodeStarParameters' {..} =
-    _salt `Prelude.hashWithSalt` connectionArn
+    _salt
+      `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` artifactPath

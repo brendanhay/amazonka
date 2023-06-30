@@ -316,38 +316,38 @@ instance Core.AWSPager ListResourceRecordSets where
         ( rs
             Lens.^. listResourceRecordSetsResponse_isTruncated
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listResourceRecordSetsResponse_nextRecordName
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         )
         Prelude.&& Prelude.isNothing
           ( rs
               Lens.^? listResourceRecordSetsResponse_nextRecordType
-                Prelude.. Lens._Just
+              Prelude.. Lens._Just
           )
         Prelude.&& Prelude.isNothing
           ( rs
               Lens.^? listResourceRecordSetsResponse_nextRecordIdentifier
-                Prelude.. Lens._Just
+              Prelude.. Lens._Just
           ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResourceRecordSets_startRecordName
           Lens..~ rs
           Lens.^? listResourceRecordSetsResponse_nextRecordName
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
           Prelude.& listResourceRecordSets_startRecordType
           Lens..~ rs
           Lens.^? listResourceRecordSetsResponse_nextRecordType
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
           Prelude.& listResourceRecordSets_startRecordIdentifier
           Lens..~ rs
           Lens.^? listResourceRecordSetsResponse_nextRecordIdentifier
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceRecordSets where
   type
@@ -363,7 +363,8 @@ instance Core.AWSRequest ListResourceRecordSets where
             Prelude.<*> (x Data..@? "NextRecordName")
             Prelude.<*> (x Data..@? "NextRecordType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "ResourceRecordSets"
+            Prelude.<*> ( x
+                            Data..@? "ResourceRecordSets"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "ResourceRecordSet"
                         )
@@ -373,7 +374,8 @@ instance Core.AWSRequest ListResourceRecordSets where
 
 instance Prelude.Hashable ListResourceRecordSets where
   hashWithSalt _salt ListResourceRecordSets' {..} =
-    _salt `Prelude.hashWithSalt` maxItems
+    _salt
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` startRecordIdentifier
       `Prelude.hashWithSalt` startRecordName
       `Prelude.hashWithSalt` startRecordType

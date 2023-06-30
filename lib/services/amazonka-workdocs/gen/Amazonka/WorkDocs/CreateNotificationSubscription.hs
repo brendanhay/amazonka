@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     CreateNotificationSubscription' {..} =
-      _salt `Prelude.hashWithSalt` organizationId
+      _salt
+        `Prelude.hashWithSalt` organizationId
         `Prelude.hashWithSalt` endpoint
         `Prelude.hashWithSalt` protocol
         `Prelude.hashWithSalt` subscriptionType

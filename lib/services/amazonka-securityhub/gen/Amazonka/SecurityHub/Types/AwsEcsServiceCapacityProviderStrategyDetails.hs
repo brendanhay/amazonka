@@ -110,8 +110,8 @@ instance
       ( \x ->
           AwsEcsServiceCapacityProviderStrategyDetails'
             Prelude.<$> (x Data..:? "Base")
-              Prelude.<*> (x Data..:? "CapacityProvider")
-              Prelude.<*> (x Data..:? "Weight")
+            Prelude.<*> (x Data..:? "CapacityProvider")
+            Prelude.<*> (x Data..:? "Weight")
       )
 
 instance
@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsServiceCapacityProviderStrategyDetails' {..} =
-      _salt `Prelude.hashWithSalt` base
+      _salt
+        `Prelude.hashWithSalt` base
         `Prelude.hashWithSalt` capacityProvider
         `Prelude.hashWithSalt` weight
 

@@ -198,7 +198,8 @@ instance
   hashWithSalt
     _salt
     UpdateLicenseManagerReportGenerator' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` licenseManagerReportGeneratorArn
         `Prelude.hashWithSalt` reportGeneratorName
         `Prelude.hashWithSalt` type'

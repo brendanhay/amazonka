@@ -118,7 +118,8 @@ instance
     MonitoringAlertHistorySummary
   where
   hashWithSalt _salt MonitoringAlertHistorySummary' {..} =
-    _salt `Prelude.hashWithSalt` monitoringScheduleName
+    _salt
+      `Prelude.hashWithSalt` monitoringScheduleName
       `Prelude.hashWithSalt` monitoringAlertName
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` alertStatus

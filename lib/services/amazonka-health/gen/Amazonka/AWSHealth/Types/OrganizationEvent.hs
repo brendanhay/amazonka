@@ -34,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOrganizationEvent' smart constructor.
 data OrganizationEvent = OrganizationEvent'
   { -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
     -- format.
     --
     -- For example, an event ARN might look like the following:
@@ -91,7 +91,7 @@ data OrganizationEvent = OrganizationEvent'
 -- for backwards compatibility:
 --
 -- 'arn', 'organizationEvent_arn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -152,7 +152,7 @@ newOrganizationEvent =
     }
 
 -- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -237,7 +237,8 @@ instance Data.FromJSON OrganizationEvent where
 
 instance Prelude.Hashable OrganizationEvent where
   hashWithSalt _salt OrganizationEvent' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` eventScopeCode
       `Prelude.hashWithSalt` eventTypeCategory

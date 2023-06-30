@@ -118,11 +118,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentFrameworkShareRequestsResponse'
-            Prelude.<$> ( x Data..?> "assessmentFrameworkShareRequests"
+            Prelude.<$> ( x
+                            Data..?> "assessmentFrameworkShareRequests"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -132,7 +133,8 @@ instance
   hashWithSalt
     _salt
     ListAssessmentFrameworkShareRequests' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` requestType
 

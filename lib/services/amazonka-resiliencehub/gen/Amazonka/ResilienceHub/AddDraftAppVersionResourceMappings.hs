@@ -127,11 +127,12 @@ instance
       ( \s h x ->
           AddDraftAppVersionResourceMappingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "appArn")
-              Prelude.<*> (x Data..:> "appVersion")
-              Prelude.<*> ( x Data..?> "resourceMappings"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (x Data..:> "appArn")
+            Prelude.<*> (x Data..:> "appVersion")
+            Prelude.<*> ( x
+                            Data..?> "resourceMappings"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -141,7 +142,8 @@ instance
   hashWithSalt
     _salt
     AddDraftAppVersionResourceMappings' {..} =
-      _salt `Prelude.hashWithSalt` appArn
+      _salt
+        `Prelude.hashWithSalt` appArn
         `Prelude.hashWithSalt` resourceMappings
 
 instance

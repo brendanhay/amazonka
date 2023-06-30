@@ -87,7 +87,8 @@ instance Data.FromJSON LogicalTableSource where
 
 instance Prelude.Hashable LogicalTableSource where
   hashWithSalt _salt LogicalTableSource' {..} =
-    _salt `Prelude.hashWithSalt` dataSetArn
+    _salt
+      `Prelude.hashWithSalt` dataSetArn
       `Prelude.hashWithSalt` joinInstruction
       `Prelude.hashWithSalt` physicalTableId
 

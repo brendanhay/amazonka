@@ -125,7 +125,8 @@ instance Core.AWSRequest MoveAddressToVpc where
 
 instance Prelude.Hashable MoveAddressToVpc where
   hashWithSalt _salt MoveAddressToVpc' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` publicIp
 
 instance Prelude.NFData MoveAddressToVpc where

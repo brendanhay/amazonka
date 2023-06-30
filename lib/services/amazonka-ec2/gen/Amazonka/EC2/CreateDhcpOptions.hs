@@ -164,7 +164,8 @@ instance Core.AWSRequest CreateDhcpOptions where
 
 instance Prelude.Hashable CreateDhcpOptions where
   hashWithSalt _salt CreateDhcpOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` dhcpConfigurations
 

@@ -88,7 +88,8 @@ trail_cloudTrailArn = Lens.lens (\Trail' {cloudTrailArn} -> cloudTrailArn) (\s@T
 
 instance Prelude.Hashable Trail where
   hashWithSalt _salt Trail' {..} =
-    _salt `Prelude.hashWithSalt` allRegions
+    _salt
+      `Prelude.hashWithSalt` allRegions
       `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` cloudTrailArn
 

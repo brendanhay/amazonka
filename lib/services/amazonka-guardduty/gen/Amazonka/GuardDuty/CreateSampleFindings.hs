@@ -103,7 +103,8 @@ instance Core.AWSRequest CreateSampleFindings where
 
 instance Prelude.Hashable CreateSampleFindings where
   hashWithSalt _salt CreateSampleFindings' {..} =
-    _salt `Prelude.hashWithSalt` findingTypes
+    _salt
+      `Prelude.hashWithSalt` findingTypes
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData CreateSampleFindings where

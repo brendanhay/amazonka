@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     GroupMembershipExistenceResult' {..} =
-      _salt `Prelude.hashWithSalt` groupId
+      _salt
+        `Prelude.hashWithSalt` groupId
         `Prelude.hashWithSalt` memberId
         `Prelude.hashWithSalt` membershipExists
 

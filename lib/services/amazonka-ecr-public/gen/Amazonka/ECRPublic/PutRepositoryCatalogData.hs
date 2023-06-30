@@ -127,7 +127,8 @@ instance Core.AWSRequest PutRepositoryCatalogData where
 
 instance Prelude.Hashable PutRepositoryCatalogData where
   hashWithSalt _salt PutRepositoryCatalogData' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` catalogData
 

@@ -125,7 +125,8 @@ instance Data.FromJSON DatasetMetadata where
 
 instance Prelude.Hashable DatasetMetadata where
   hashWithSalt _salt DatasetMetadata' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` datasetType
       `Prelude.hashWithSalt` status

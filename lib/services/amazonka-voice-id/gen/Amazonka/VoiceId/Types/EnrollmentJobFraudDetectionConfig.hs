@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     EnrollmentJobFraudDetectionConfig' {..} =
-      _salt `Prelude.hashWithSalt` fraudDetectionAction
+      _salt
+        `Prelude.hashWithSalt` fraudDetectionAction
         `Prelude.hashWithSalt` riskThreshold
 
 instance

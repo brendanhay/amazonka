@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionSucceededEventDetails' {..} =
-      _salt `Prelude.hashWithSalt` output
+      _salt
+        `Prelude.hashWithSalt` output
         `Prelude.hashWithSalt` outputDetails
 
 instance

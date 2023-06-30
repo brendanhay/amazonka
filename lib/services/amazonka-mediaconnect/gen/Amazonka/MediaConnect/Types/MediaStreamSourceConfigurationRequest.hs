@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     MediaStreamSourceConfigurationRequest' {..} =
-      _salt `Prelude.hashWithSalt` inputConfigurations
+      _salt
+        `Prelude.hashWithSalt` inputConfigurations
         `Prelude.hashWithSalt` mediaStreamName
         `Prelude.hashWithSalt` encodingName
 

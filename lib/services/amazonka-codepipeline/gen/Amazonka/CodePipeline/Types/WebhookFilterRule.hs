@@ -119,7 +119,8 @@ instance Data.FromJSON WebhookFilterRule where
 
 instance Prelude.Hashable WebhookFilterRule where
   hashWithSalt _salt WebhookFilterRule' {..} =
-    _salt `Prelude.hashWithSalt` matchEquals
+    _salt
+      `Prelude.hashWithSalt` matchEquals
       `Prelude.hashWithSalt` jsonPath
 
 instance Prelude.NFData WebhookFilterRule where

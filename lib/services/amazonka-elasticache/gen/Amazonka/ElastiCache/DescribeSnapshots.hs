@@ -201,21 +201,22 @@ instance Core.AWSPager DescribeSnapshots where
     | Core.stop
         ( rs
             Lens.^? describeSnapshotsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSnapshotsResponse_snapshots
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSnapshots_marker
           Lens..~ rs
-          Lens.^? describeSnapshotsResponse_marker Prelude.. Lens._Just
+          Lens.^? describeSnapshotsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshots where
   type
@@ -229,7 +230,9 @@ instance Core.AWSRequest DescribeSnapshots where
       ( \s h x ->
           DescribeSnapshotsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Snapshots" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Snapshots"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Snapshot")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -237,7 +240,8 @@ instance Core.AWSRequest DescribeSnapshots where
 
 instance Prelude.Hashable DescribeSnapshots where
   hashWithSalt _salt DescribeSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` replicationGroupId

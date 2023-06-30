@@ -124,7 +124,8 @@ instance Data.FromJSON DomainIspPlacement where
 
 instance Prelude.Hashable DomainIspPlacement where
   hashWithSalt _salt DomainIspPlacement' {..} =
-    _salt `Prelude.hashWithSalt` inboxPercentage
+    _salt
+      `Prelude.hashWithSalt` inboxPercentage
       `Prelude.hashWithSalt` inboxRawCount
       `Prelude.hashWithSalt` ispName
       `Prelude.hashWithSalt` spamPercentage

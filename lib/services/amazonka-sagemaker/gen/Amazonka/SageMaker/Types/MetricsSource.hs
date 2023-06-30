@@ -88,7 +88,8 @@ instance Data.FromJSON MetricsSource where
 
 instance Prelude.Hashable MetricsSource where
   hashWithSalt _salt MetricsSource' {..} =
-    _salt `Prelude.hashWithSalt` contentDigest
+    _salt
+      `Prelude.hashWithSalt` contentDigest
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` s3Uri
 

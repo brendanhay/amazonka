@@ -114,7 +114,8 @@ instance Data.FromJSON MappingEntry where
 
 instance Prelude.Hashable MappingEntry where
   hashWithSalt _salt MappingEntry' {..} =
-    _salt `Prelude.hashWithSalt` sourcePath
+    _salt
+      `Prelude.hashWithSalt` sourcePath
       `Prelude.hashWithSalt` sourceTable
       `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` targetPath

@@ -163,7 +163,8 @@ instance Data.FromJSON ServiceConnectConfiguration where
 
 instance Prelude.Hashable ServiceConnectConfiguration where
   hashWithSalt _salt ServiceConnectConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` logConfiguration
+    _salt
+      `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` services
       `Prelude.hashWithSalt` enabled

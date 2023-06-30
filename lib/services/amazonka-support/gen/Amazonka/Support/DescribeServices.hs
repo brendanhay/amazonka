@@ -134,7 +134,8 @@ instance Core.AWSRequest DescribeServices where
 
 instance Prelude.Hashable DescribeServices where
   hashWithSalt _salt DescribeServices' {..} =
-    _salt `Prelude.hashWithSalt` language
+    _salt
+      `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` serviceCodeList
 
 instance Prelude.NFData DescribeServices where

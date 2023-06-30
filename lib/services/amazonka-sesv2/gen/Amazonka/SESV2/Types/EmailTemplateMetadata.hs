@@ -75,7 +75,8 @@ instance Data.FromJSON EmailTemplateMetadata where
 
 instance Prelude.Hashable EmailTemplateMetadata where
   hashWithSalt _salt EmailTemplateMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData EmailTemplateMetadata where

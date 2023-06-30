@@ -98,7 +98,8 @@ instance Core.AWSRequest UntagQueue where
 
 instance Prelude.Hashable UntagQueue where
   hashWithSalt _salt UntagQueue' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagQueue where

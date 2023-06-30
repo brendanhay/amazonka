@@ -76,7 +76,8 @@ instance Data.FromJSON ScrollBarOptions where
 
 instance Prelude.Hashable ScrollBarOptions where
   hashWithSalt _salt ScrollBarOptions' {..} =
-    _salt `Prelude.hashWithSalt` visibility
+    _salt
+      `Prelude.hashWithSalt` visibility
       `Prelude.hashWithSalt` visibleRange
 
 instance Prelude.NFData ScrollBarOptions where

@@ -112,7 +112,8 @@ instance Core.AWSRequest AddTagsToStream where
 
 instance Prelude.Hashable AddTagsToStream where
   hashWithSalt _salt AddTagsToStream' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` tags
 

@@ -126,7 +126,8 @@ instance Core.AWSRequest DescribeNode where
 
 instance Prelude.Hashable DescribeNode where
   hashWithSalt _salt DescribeNode' {..} =
-    _salt `Prelude.hashWithSalt` ownerAccount
+    _salt
+      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` nodeId
 
 instance Prelude.NFData DescribeNode where

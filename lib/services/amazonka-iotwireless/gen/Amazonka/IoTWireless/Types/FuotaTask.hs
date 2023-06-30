@@ -81,7 +81,8 @@ instance Data.FromJSON FuotaTask where
 
 instance Prelude.Hashable FuotaTask where
   hashWithSalt _salt FuotaTask' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

@@ -64,7 +64,8 @@ instance
       "EnvironmentPropertyDescriptions"
       ( \x ->
           EnvironmentPropertyDescriptions'
-            Prelude.<$> ( x Data..:? "PropertyGroupDescriptions"
+            Prelude.<$> ( x
+                            Data..:? "PropertyGroupDescriptions"
                             Data..!= Prelude.mempty
                         )
       )

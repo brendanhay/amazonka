@@ -105,7 +105,8 @@ inAppTemplateRequest_tags = Lens.lens (\InAppTemplateRequest' {tags} -> tags) (\
 
 instance Prelude.Hashable InAppTemplateRequest where
   hashWithSalt _salt InAppTemplateRequest' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` customConfig
       `Prelude.hashWithSalt` layout
       `Prelude.hashWithSalt` templateDescription

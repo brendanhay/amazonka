@@ -114,7 +114,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDetectorModelAnalysisResultsResponse'
-            Prelude.<$> ( x Data..?> "analysisResults"
+            Prelude.<$> ( x
+                            Data..?> "analysisResults"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -128,7 +129,8 @@ instance
   hashWithSalt
     _salt
     GetDetectorModelAnalysisResults' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` analysisId
 

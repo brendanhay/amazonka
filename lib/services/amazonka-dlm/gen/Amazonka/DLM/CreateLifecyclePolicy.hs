@@ -149,7 +149,8 @@ instance Core.AWSRequest CreateLifecyclePolicy where
 
 instance Prelude.Hashable CreateLifecyclePolicy where
   hashWithSalt _salt CreateLifecyclePolicy' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` state

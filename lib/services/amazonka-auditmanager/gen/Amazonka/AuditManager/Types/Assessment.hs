@@ -109,7 +109,8 @@ instance Data.FromJSON Assessment where
 
 instance Prelude.Hashable Assessment where
   hashWithSalt _salt Assessment' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` awsAccount
       `Prelude.hashWithSalt` framework
       `Prelude.hashWithSalt` metadata

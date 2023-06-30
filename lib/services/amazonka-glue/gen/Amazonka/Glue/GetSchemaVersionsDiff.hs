@@ -159,7 +159,8 @@ instance Core.AWSRequest GetSchemaVersionsDiff where
 
 instance Prelude.Hashable GetSchemaVersionsDiff where
   hashWithSalt _salt GetSchemaVersionsDiff' {..} =
-    _salt `Prelude.hashWithSalt` schemaId
+    _salt
+      `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` firstSchemaVersionNumber
       `Prelude.hashWithSalt` secondSchemaVersionNumber
       `Prelude.hashWithSalt` schemaDiffType

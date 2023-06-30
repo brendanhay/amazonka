@@ -127,7 +127,8 @@ instance
     DescribeFlowExecutionRecords
   where
   hashWithSalt _salt DescribeFlowExecutionRecords' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` flowName
 

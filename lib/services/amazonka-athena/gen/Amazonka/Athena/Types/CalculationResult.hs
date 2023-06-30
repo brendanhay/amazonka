@@ -97,7 +97,8 @@ instance Data.FromJSON CalculationResult where
 
 instance Prelude.Hashable CalculationResult where
   hashWithSalt _salt CalculationResult' {..} =
-    _salt `Prelude.hashWithSalt` resultS3Uri
+    _salt
+      `Prelude.hashWithSalt` resultS3Uri
       `Prelude.hashWithSalt` resultType
       `Prelude.hashWithSalt` stdErrorS3Uri
       `Prelude.hashWithSalt` stdOutS3Uri

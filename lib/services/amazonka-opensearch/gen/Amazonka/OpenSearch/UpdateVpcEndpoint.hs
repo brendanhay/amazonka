@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdateVpcEndpoint where
 
 instance Prelude.Hashable UpdateVpcEndpoint where
   hashWithSalt _salt UpdateVpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` vpcEndpointId
+    _salt
+      `Prelude.hashWithSalt` vpcEndpointId
       `Prelude.hashWithSalt` vpcOptions
 
 instance Prelude.NFData UpdateVpcEndpoint where

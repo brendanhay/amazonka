@@ -126,7 +126,8 @@ instance Core.AWSRequest SampleChannelData where
 
 instance Prelude.Hashable SampleChannelData where
   hashWithSalt _salt SampleChannelData' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxMessages
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` channelName

@@ -101,7 +101,8 @@ instance Core.AWSRequest GetWorldTemplateBody where
 
 instance Prelude.Hashable GetWorldTemplateBody where
   hashWithSalt _salt GetWorldTemplateBody' {..} =
-    _salt `Prelude.hashWithSalt` generationJob
+    _salt
+      `Prelude.hashWithSalt` generationJob
       `Prelude.hashWithSalt` template
 
 instance Prelude.NFData GetWorldTemplateBody where

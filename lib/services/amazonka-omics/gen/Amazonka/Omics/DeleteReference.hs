@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteReference where
 
 instance Prelude.Hashable DeleteReference where
   hashWithSalt _salt DeleteReference' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` referenceStoreId
 
 instance Prelude.NFData DeleteReference where

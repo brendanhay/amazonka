@@ -86,7 +86,8 @@ instance Data.FromJSON CampaignEventFilter where
 
 instance Prelude.Hashable CampaignEventFilter where
   hashWithSalt _salt CampaignEventFilter' {..} =
-    _salt `Prelude.hashWithSalt` filterType
+    _salt
+      `Prelude.hashWithSalt` filterType
       `Prelude.hashWithSalt` dimensions
 
 instance Prelude.NFData CampaignEventFilter where

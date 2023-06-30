@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     AssociateDeviceWithNetworkProfile' {..} =
-      _salt `Prelude.hashWithSalt` deviceArn
+      _salt
+        `Prelude.hashWithSalt` deviceArn
         `Prelude.hashWithSalt` networkProfileArn
 
 instance

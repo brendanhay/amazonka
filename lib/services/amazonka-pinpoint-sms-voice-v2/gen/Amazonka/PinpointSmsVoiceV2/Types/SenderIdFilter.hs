@@ -69,7 +69,8 @@ senderIdFilter_values = Lens.lens (\SenderIdFilter' {values} -> values) (\s@Send
 
 instance Prelude.Hashable SenderIdFilter where
   hashWithSalt _salt SenderIdFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData SenderIdFilter where

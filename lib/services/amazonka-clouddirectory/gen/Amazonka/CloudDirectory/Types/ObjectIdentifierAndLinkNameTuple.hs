@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     ObjectIdentifierAndLinkNameTuple' {..} =
-      _salt `Prelude.hashWithSalt` linkName
+      _salt
+        `Prelude.hashWithSalt` linkName
         `Prelude.hashWithSalt` objectIdentifier
 
 instance

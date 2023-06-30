@@ -122,7 +122,8 @@ instance Core.AWSRequest ListLanguages where
 
 instance Prelude.Hashable ListLanguages where
   hashWithSalt _salt ListLanguages' {..} =
-    _salt `Prelude.hashWithSalt` displayLanguageCode
+    _salt
+      `Prelude.hashWithSalt` displayLanguageCode
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

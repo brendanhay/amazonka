@@ -156,7 +156,8 @@ instance Data.FromJSON UserSettingsSummary where
 
 instance Prelude.Hashable UserSettingsSummary where
   hashWithSalt _salt UserSettingsSummary' {..} =
-    _salt `Prelude.hashWithSalt` copyAllowed
+    _salt
+      `Prelude.hashWithSalt` copyAllowed
       `Prelude.hashWithSalt` disconnectTimeoutInMinutes
       `Prelude.hashWithSalt` downloadAllowed
       `Prelude.hashWithSalt` idleDisconnectTimeoutInMinutes

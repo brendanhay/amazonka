@@ -157,7 +157,8 @@ instance Data.FromJSON Peering where
 
 instance Prelude.Hashable Peering where
   hashWithSalt _salt Peering' {..} =
-    _salt `Prelude.hashWithSalt` coreNetworkArn
+    _salt
+      `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` edgeLocation

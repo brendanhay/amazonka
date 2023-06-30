@@ -79,7 +79,8 @@ instance Data.FromJSON LambdaOutputDescription where
 
 instance Prelude.Hashable LambdaOutputDescription where
   hashWithSalt _salt LambdaOutputDescription' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` roleARN
 
 instance Prelude.NFData LambdaOutputDescription where

@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     DeploymentComponentUpdatePolicy' {..} =
-      _salt `Prelude.hashWithSalt` action
+      _salt
+        `Prelude.hashWithSalt` action
         `Prelude.hashWithSalt` timeoutInSeconds
 
 instance

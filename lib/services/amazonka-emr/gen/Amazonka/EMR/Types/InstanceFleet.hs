@@ -278,7 +278,8 @@ instance Data.FromJSON InstanceFleet where
           InstanceFleet'
             Prelude.<$> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "InstanceFleetType")
-            Prelude.<*> ( x Data..:? "InstanceTypeSpecifications"
+            Prelude.<*> ( x
+                            Data..:? "InstanceTypeSpecifications"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LaunchSpecifications")
@@ -292,7 +293,8 @@ instance Data.FromJSON InstanceFleet where
 
 instance Prelude.Hashable InstanceFleet where
   hashWithSalt _salt InstanceFleet' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` instanceFleetType
       `Prelude.hashWithSalt` instanceTypeSpecifications
       `Prelude.hashWithSalt` launchSpecifications

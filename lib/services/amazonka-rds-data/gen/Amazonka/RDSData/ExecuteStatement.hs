@@ -291,7 +291,8 @@ instance Core.AWSRequest ExecuteStatement where
           ExecuteStatementResponse'
             Prelude.<$> (x Data..?> "columnMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "formattedRecords")
-            Prelude.<*> ( x Data..?> "generatedFields"
+            Prelude.<*> ( x
+                            Data..?> "generatedFields"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "numberOfRecordsUpdated")
@@ -301,7 +302,8 @@ instance Core.AWSRequest ExecuteStatement where
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` continueAfterTimeout
+    _salt
+      `Prelude.hashWithSalt` continueAfterTimeout
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` formatRecordsAs
       `Prelude.hashWithSalt` includeResultMetadata

@@ -82,7 +82,8 @@ instance
     AwsJobExecutionsRolloutConfig
   where
   hashWithSalt _salt AwsJobExecutionsRolloutConfig' {..} =
-    _salt `Prelude.hashWithSalt` exponentialRate
+    _salt
+      `Prelude.hashWithSalt` exponentialRate
       `Prelude.hashWithSalt` maximumPerMinute
 
 instance Prelude.NFData AwsJobExecutionsRolloutConfig where

@@ -152,7 +152,8 @@ instance Core.AWSRequest StartContactStreaming where
 
 instance Prelude.Hashable StartContactStreaming where
   hashWithSalt _salt StartContactStreaming' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` chatStreamingConfiguration
       `Prelude.hashWithSalt` clientToken

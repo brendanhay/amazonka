@@ -130,7 +130,8 @@ instance Core.AWSRequest SetIdentityPoolRoles where
 
 instance Prelude.Hashable SetIdentityPoolRoles where
   hashWithSalt _salt SetIdentityPoolRoles' {..} =
-    _salt `Prelude.hashWithSalt` roleMappings
+    _salt
+      `Prelude.hashWithSalt` roleMappings
       `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` roles
 

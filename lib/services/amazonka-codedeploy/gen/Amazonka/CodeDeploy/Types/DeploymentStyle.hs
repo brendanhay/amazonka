@@ -82,7 +82,8 @@ instance Data.FromJSON DeploymentStyle where
 
 instance Prelude.Hashable DeploymentStyle where
   hashWithSalt _salt DeploymentStyle' {..} =
-    _salt `Prelude.hashWithSalt` deploymentOption
+    _salt
+      `Prelude.hashWithSalt` deploymentOption
       `Prelude.hashWithSalt` deploymentType
 
 instance Prelude.NFData DeploymentStyle where

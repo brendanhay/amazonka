@@ -91,14 +91,16 @@ instance Data.FromJSON RetryStrategy where
       ( \x ->
           RetryStrategy'
             Prelude.<$> (x Data..:? "attempts")
-            Prelude.<*> ( x Data..:? "evaluateOnExit"
+            Prelude.<*> ( x
+                            Data..:? "evaluateOnExit"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable RetryStrategy where
   hashWithSalt _salt RetryStrategy' {..} =
-    _salt `Prelude.hashWithSalt` attempts
+    _salt
+      `Prelude.hashWithSalt` attempts
       `Prelude.hashWithSalt` evaluateOnExit
 
 instance Prelude.NFData RetryStrategy where

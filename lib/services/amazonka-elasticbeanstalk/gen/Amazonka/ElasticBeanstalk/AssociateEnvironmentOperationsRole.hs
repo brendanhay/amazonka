@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     AssociateEnvironmentOperationsRole' {..} =
-      _salt `Prelude.hashWithSalt` environmentName
+      _salt
+        `Prelude.hashWithSalt` environmentName
         `Prelude.hashWithSalt` operationsRole
 
 instance

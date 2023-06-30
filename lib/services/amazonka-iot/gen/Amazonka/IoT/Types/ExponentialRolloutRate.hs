@@ -110,7 +110,8 @@ instance Data.FromJSON ExponentialRolloutRate where
 
 instance Prelude.Hashable ExponentialRolloutRate where
   hashWithSalt _salt ExponentialRolloutRate' {..} =
-    _salt `Prelude.hashWithSalt` baseRatePerMinute
+    _salt
+      `Prelude.hashWithSalt` baseRatePerMinute
       `Prelude.hashWithSalt` incrementFactor
       `Prelude.hashWithSalt` rateIncreaseCriteria
 

@@ -130,7 +130,8 @@ instance Core.AWSRequest GetModels where
 
 instance Prelude.Hashable GetModels where
   hashWithSalt _salt GetModels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` nextToken

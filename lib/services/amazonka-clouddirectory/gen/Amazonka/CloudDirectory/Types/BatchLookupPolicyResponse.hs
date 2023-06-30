@@ -77,14 +77,16 @@ instance Data.FromJSON BatchLookupPolicyResponse where
       ( \x ->
           BatchLookupPolicyResponse'
             Prelude.<$> (x Data..:? "NextToken")
-            Prelude.<*> ( x Data..:? "PolicyToPathList"
+            Prelude.<*> ( x
+                            Data..:? "PolicyToPathList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BatchLookupPolicyResponse where
   hashWithSalt _salt BatchLookupPolicyResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` policyToPathList
 
 instance Prelude.NFData BatchLookupPolicyResponse where

@@ -98,7 +98,8 @@ instance Data.FromJSON DefaultDetection where
 
 instance Prelude.Hashable DefaultDetection where
   hashWithSalt _salt DefaultDetection' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` occurrences
       `Prelude.hashWithSalt` type'
 

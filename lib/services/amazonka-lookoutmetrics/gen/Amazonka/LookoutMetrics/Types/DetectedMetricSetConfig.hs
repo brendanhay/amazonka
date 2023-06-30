@@ -87,7 +87,8 @@ instance Data.FromJSON DetectedMetricSetConfig where
 
 instance Prelude.Hashable DetectedMetricSetConfig where
   hashWithSalt _salt DetectedMetricSetConfig' {..} =
-    _salt `Prelude.hashWithSalt` metricSetFrequency
+    _salt
+      `Prelude.hashWithSalt` metricSetFrequency
       `Prelude.hashWithSalt` metricSource
       `Prelude.hashWithSalt` offset
 

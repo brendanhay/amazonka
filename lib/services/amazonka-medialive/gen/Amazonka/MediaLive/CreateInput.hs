@@ -212,7 +212,8 @@ instance Core.AWSRequest CreateInput' where
 
 instance Prelude.Hashable CreateInput' where
   hashWithSalt _salt CreateInput'' {..} =
-    _salt `Prelude.hashWithSalt` destinations
+    _salt
+      `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` inputDevices
       `Prelude.hashWithSalt` inputSecurityGroups
       `Prelude.hashWithSalt` mediaConnectFlows

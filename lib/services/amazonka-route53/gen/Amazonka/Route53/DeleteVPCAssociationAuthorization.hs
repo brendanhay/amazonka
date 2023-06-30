@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     DeleteVPCAssociationAuthorization' {..} =
-      _salt `Prelude.hashWithSalt` hostedZoneId
+      _salt
+        `Prelude.hashWithSalt` hostedZoneId
         `Prelude.hashWithSalt` vpc
 
 instance

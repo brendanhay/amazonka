@@ -133,7 +133,8 @@ instance Data.FromJSON XMLClassifier where
 
 instance Prelude.Hashable XMLClassifier where
   hashWithSalt _salt XMLClassifier' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` rowTag
       `Prelude.hashWithSalt` version

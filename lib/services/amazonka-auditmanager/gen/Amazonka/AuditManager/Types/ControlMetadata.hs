@@ -118,7 +118,8 @@ instance Data.FromJSON ControlMetadata where
 
 instance Prelude.Hashable ControlMetadata where
   hashWithSalt _salt ControlMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` controlSources
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id

@@ -134,7 +134,8 @@ instance Core.AWSRequest DeleteGeoMatchSet where
 
 instance Prelude.Hashable DeleteGeoMatchSet where
   hashWithSalt _salt DeleteGeoMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` geoMatchSetId
+    _salt
+      `Prelude.hashWithSalt` geoMatchSetId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteGeoMatchSet where

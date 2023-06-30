@@ -126,7 +126,8 @@ instance Data.FromJSON DocumentParameter where
 
 instance Prelude.Hashable DocumentParameter where
   hashWithSalt _salt DocumentParameter' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` example
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` optional

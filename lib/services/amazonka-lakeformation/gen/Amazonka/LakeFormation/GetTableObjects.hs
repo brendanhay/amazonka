@@ -216,7 +216,8 @@ instance Core.AWSRequest GetTableObjects where
 
 instance Prelude.Hashable GetTableObjects where
   hashWithSalt _salt GetTableObjects' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` partitionPredicate

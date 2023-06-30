@@ -205,7 +205,8 @@ instance Data.FromJSON FreeFormLayoutElement where
 
 instance Prelude.Hashable FreeFormLayoutElement where
   hashWithSalt _salt FreeFormLayoutElement' {..} =
-    _salt `Prelude.hashWithSalt` backgroundStyle
+    _salt
+      `Prelude.hashWithSalt` backgroundStyle
       `Prelude.hashWithSalt` borderStyle
       `Prelude.hashWithSalt` loadingAnimation
       `Prelude.hashWithSalt` renderingRules

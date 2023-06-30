@@ -86,7 +86,8 @@ newBatchDetectKeyPhrases ::
 newBatchDetectKeyPhrases pTextList_ pLanguageCode_ =
   BatchDetectKeyPhrases'
     { textList =
-        Data._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive
+          Prelude.. Lens.coerced
           Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
@@ -120,7 +121,8 @@ instance Core.AWSRequest BatchDetectKeyPhrases where
 
 instance Prelude.Hashable BatchDetectKeyPhrases where
   hashWithSalt _salt BatchDetectKeyPhrases' {..} =
-    _salt `Prelude.hashWithSalt` textList
+    _salt
+      `Prelude.hashWithSalt` textList
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData BatchDetectKeyPhrases where

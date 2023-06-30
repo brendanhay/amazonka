@@ -74,7 +74,8 @@ instance Data.FromJSON InventoryData where
 
 instance Prelude.Hashable InventoryData where
   hashWithSalt _salt InventoryData' {..} =
-    _salt `Prelude.hashWithSalt` numberOfDatabases
+    _salt
+      `Prelude.hashWithSalt` numberOfDatabases
       `Prelude.hashWithSalt` numberOfSchemas
 
 instance Prelude.NFData InventoryData where

@@ -133,7 +133,8 @@ instance Data.FromJSON StudioSummary where
 
 instance Prelude.Hashable StudioSummary where
   hashWithSalt _salt StudioSummary' {..} =
-    _salt `Prelude.hashWithSalt` authMode
+    _salt
+      `Prelude.hashWithSalt` authMode
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     NFSOnDeviceServiceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` storageLimit
+      _salt
+        `Prelude.hashWithSalt` storageLimit
         `Prelude.hashWithSalt` storageUnit
 
 instance

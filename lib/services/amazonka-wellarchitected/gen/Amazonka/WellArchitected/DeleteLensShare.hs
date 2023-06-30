@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteLensShare where
 
 instance Prelude.Hashable DeleteLensShare where
   hashWithSalt _salt DeleteLensShare' {..} =
-    _salt `Prelude.hashWithSalt` shareId
+    _salt
+      `Prelude.hashWithSalt` shareId
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` clientRequestToken
 

@@ -96,7 +96,8 @@ instance Data.FromJSON RelatedItem where
 
 instance Prelude.Hashable RelatedItem where
   hashWithSalt _salt RelatedItem' {..} =
-    _salt `Prelude.hashWithSalt` generatedId
+    _salt
+      `Prelude.hashWithSalt` generatedId
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` identifier
 

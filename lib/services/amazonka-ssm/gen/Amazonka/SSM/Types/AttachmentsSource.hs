@@ -154,7 +154,8 @@ attachmentsSource_values = Lens.lens (\AttachmentsSource' {values} -> values) (\
 
 instance Prelude.Hashable AttachmentsSource where
   hashWithSalt _salt AttachmentsSource' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 

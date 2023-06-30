@@ -81,7 +81,8 @@ instance Data.FromJSON ChannelTargetInfo where
 
 instance Prelude.Hashable ChannelTargetInfo where
   hashWithSalt _salt ChannelTargetInfo' {..} =
-    _salt `Prelude.hashWithSalt` retryIntervalInMinutes
+    _salt
+      `Prelude.hashWithSalt` retryIntervalInMinutes
       `Prelude.hashWithSalt` contactChannelId
 
 instance Prelude.NFData ChannelTargetInfo where

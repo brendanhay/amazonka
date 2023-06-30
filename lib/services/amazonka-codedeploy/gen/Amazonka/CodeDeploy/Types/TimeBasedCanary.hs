@@ -83,7 +83,8 @@ instance Data.FromJSON TimeBasedCanary where
 
 instance Prelude.Hashable TimeBasedCanary where
   hashWithSalt _salt TimeBasedCanary' {..} =
-    _salt `Prelude.hashWithSalt` canaryInterval
+    _salt
+      `Prelude.hashWithSalt` canaryInterval
       `Prelude.hashWithSalt` canaryPercentage
 
 instance Prelude.NFData TimeBasedCanary where

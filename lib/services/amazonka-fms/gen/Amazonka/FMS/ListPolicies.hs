@@ -121,20 +121,23 @@ instance Core.AWSPager ListPolicies where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listPoliciesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_policyList Prelude.. Lens._Just
+            Lens.^? listPoliciesResponse_policyList
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPolicies_nextToken
           Lens..~ rs
-          Lens.^? listPoliciesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPoliciesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -151,7 +154,8 @@ instance Core.AWSRequest ListPolicies where
 
 instance Prelude.Hashable ListPolicies where
   hashWithSalt _salt ListPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPolicies where

@@ -73,14 +73,16 @@ instance Data.FromJSON LambdaStepMetadata where
       ( \x ->
           LambdaStepMetadata'
             Prelude.<$> (x Data..:? "Arn")
-            Prelude.<*> ( x Data..:? "OutputParameters"
+            Prelude.<*> ( x
+                            Data..:? "OutputParameters"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LambdaStepMetadata where
   hashWithSalt _salt LambdaStepMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` outputParameters
 
 instance Prelude.NFData LambdaStepMetadata where

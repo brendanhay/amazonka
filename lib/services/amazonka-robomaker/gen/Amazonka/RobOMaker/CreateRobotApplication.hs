@@ -160,7 +160,8 @@ instance Core.AWSRequest CreateRobotApplication where
 
 instance Prelude.Hashable CreateRobotApplication where
   hashWithSalt _salt CreateRobotApplication' {..} =
-    _salt `Prelude.hashWithSalt` environment
+    _salt
+      `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

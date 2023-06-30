@@ -71,7 +71,8 @@ instance
   hashWithSalt
     _salt
     ListAnnotationImportJobsFilter' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` storeName
 
 instance

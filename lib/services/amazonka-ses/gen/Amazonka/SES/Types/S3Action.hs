@@ -234,7 +234,8 @@ instance Data.FromXML S3Action where
 
 instance Prelude.Hashable S3Action where
   hashWithSalt _salt S3Action' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` objectKeyPrefix
       `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` bucketName

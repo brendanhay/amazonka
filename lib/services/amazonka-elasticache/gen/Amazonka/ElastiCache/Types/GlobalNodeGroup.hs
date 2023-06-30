@@ -72,7 +72,8 @@ instance Data.FromXML GlobalNodeGroup where
 
 instance Prelude.Hashable GlobalNodeGroup where
   hashWithSalt _salt GlobalNodeGroup' {..} =
-    _salt `Prelude.hashWithSalt` globalNodeGroupId
+    _salt
+      `Prelude.hashWithSalt` globalNodeGroupId
       `Prelude.hashWithSalt` slots
 
 instance Prelude.NFData GlobalNodeGroup where

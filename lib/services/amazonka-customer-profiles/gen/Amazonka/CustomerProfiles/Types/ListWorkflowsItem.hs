@@ -134,7 +134,8 @@ instance Data.FromJSON ListWorkflowsItem where
 
 instance Prelude.Hashable ListWorkflowsItem where
   hashWithSalt _salt ListWorkflowsItem' {..} =
-    _salt `Prelude.hashWithSalt` workflowType
+    _salt
+      `Prelude.hashWithSalt` workflowType
       `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusDescription

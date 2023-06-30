@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     AssociateAssessmentReportEvidenceFolder' {..} =
-      _salt `Prelude.hashWithSalt` assessmentId
+      _salt
+        `Prelude.hashWithSalt` assessmentId
         `Prelude.hashWithSalt` evidenceFolderId
 
 instance

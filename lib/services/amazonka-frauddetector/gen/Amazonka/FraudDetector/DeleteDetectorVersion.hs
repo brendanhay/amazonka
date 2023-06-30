@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteDetectorVersion where
 
 instance Prelude.Hashable DeleteDetectorVersion where
   hashWithSalt _salt DeleteDetectorVersion' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` detectorVersionId
 
 instance Prelude.NFData DeleteDetectorVersion where

@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateDataIntegration where
 
 instance Prelude.Hashable UpdateDataIntegration where
   hashWithSalt _salt UpdateDataIntegration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` identifier
 

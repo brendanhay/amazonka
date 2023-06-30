@@ -100,7 +100,8 @@ instance Data.FromJSON Group where
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` groupArn
       `Prelude.hashWithSalt` name
 

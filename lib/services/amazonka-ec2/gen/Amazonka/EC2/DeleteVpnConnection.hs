@@ -118,7 +118,8 @@ instance Core.AWSRequest DeleteVpnConnection where
 
 instance Prelude.Hashable DeleteVpnConnection where
   hashWithSalt _salt DeleteVpnConnection' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpnConnectionId
 
 instance Prelude.NFData DeleteVpnConnection where

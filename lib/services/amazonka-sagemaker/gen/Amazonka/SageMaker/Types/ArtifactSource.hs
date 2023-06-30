@@ -77,7 +77,8 @@ instance Data.FromJSON ArtifactSource where
 
 instance Prelude.Hashable ArtifactSource where
   hashWithSalt _salt ArtifactSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceTypes
+    _salt
+      `Prelude.hashWithSalt` sourceTypes
       `Prelude.hashWithSalt` sourceUri
 
 instance Prelude.NFData ArtifactSource where

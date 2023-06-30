@@ -148,7 +148,8 @@ instance
   hashWithSalt
     _salt
     TrustedAdvisorCheckRefreshStatus' {..} =
-      _salt `Prelude.hashWithSalt` checkId
+      _salt
+        `Prelude.hashWithSalt` checkId
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` millisUntilNextRefreshable
 

@@ -109,7 +109,8 @@ instance Data.FromJSON ContactFlowSummary where
 
 instance Prelude.Hashable ContactFlowSummary where
   hashWithSalt _salt ContactFlowSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` contactFlowState
       `Prelude.hashWithSalt` contactFlowType
       `Prelude.hashWithSalt` id

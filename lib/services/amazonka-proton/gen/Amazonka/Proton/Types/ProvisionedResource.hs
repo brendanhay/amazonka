@@ -103,7 +103,8 @@ instance Data.FromJSON ProvisionedResource where
 
 instance Prelude.Hashable ProvisionedResource where
   hashWithSalt _salt ProvisionedResource' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` provisioningEngine
 

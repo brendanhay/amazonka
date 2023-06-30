@@ -129,7 +129,8 @@ instance Core.AWSRequest DeleteAlias where
 
 instance Prelude.Hashable DeleteAlias where
   hashWithSalt _salt DeleteAlias' {..} =
-    _salt `Prelude.hashWithSalt` functionName
+    _salt
+      `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteAlias where

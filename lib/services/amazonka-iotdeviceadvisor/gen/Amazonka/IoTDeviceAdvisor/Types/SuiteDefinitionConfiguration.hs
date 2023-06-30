@@ -140,7 +140,8 @@ instance
     SuiteDefinitionConfiguration
   where
   hashWithSalt _salt SuiteDefinitionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` devices
+    _salt
+      `Prelude.hashWithSalt` devices
       `Prelude.hashWithSalt` intendedForQualification
       `Prelude.hashWithSalt` isLongDurationTest
       `Prelude.hashWithSalt` protocol

@@ -120,7 +120,8 @@ instance
     GetVerifiedAccessGroupPolicy
   where
   hashWithSalt _salt GetVerifiedAccessGroupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessGroupId
 
 instance Prelude.NFData GetVerifiedAccessGroupPolicy where

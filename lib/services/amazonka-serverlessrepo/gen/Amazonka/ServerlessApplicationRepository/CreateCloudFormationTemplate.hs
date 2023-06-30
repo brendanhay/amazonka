@@ -124,7 +124,8 @@ instance
     CreateCloudFormationTemplate
   where
   hashWithSalt _salt CreateCloudFormationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` semanticVersion
+    _salt
+      `Prelude.hashWithSalt` semanticVersion
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData CreateCloudFormationTemplate where

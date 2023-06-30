@@ -64,7 +64,8 @@ instance
       "PivotTableConditionalFormatting"
       ( \x ->
           PivotTableConditionalFormatting'
-            Prelude.<$> ( x Data..:? "ConditionalFormattingOptions"
+            Prelude.<$> ( x
+                            Data..:? "ConditionalFormattingOptions"
                             Data..!= Prelude.mempty
                         )
       )

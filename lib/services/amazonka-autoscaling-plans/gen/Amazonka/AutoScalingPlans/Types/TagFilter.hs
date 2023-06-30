@@ -74,7 +74,8 @@ instance Data.FromJSON TagFilter where
 
 instance Prelude.Hashable TagFilter where
   hashWithSalt _salt TagFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData TagFilter where

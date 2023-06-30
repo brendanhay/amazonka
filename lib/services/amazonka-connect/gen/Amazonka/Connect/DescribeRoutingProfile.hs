@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeRoutingProfile where
 
 instance Prelude.Hashable DescribeRoutingProfile where
   hashWithSalt _salt DescribeRoutingProfile' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` routingProfileId
 
 instance Prelude.NFData DescribeRoutingProfile where

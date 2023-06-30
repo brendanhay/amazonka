@@ -201,7 +201,8 @@ instance Data.FromJSON ContainerSettings where
 
 instance Prelude.Hashable ContainerSettings where
   hashWithSalt _salt ContainerSettings' {..} =
-    _salt `Prelude.hashWithSalt` cmfcSettings
+    _salt
+      `Prelude.hashWithSalt` cmfcSettings
       `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` f4vSettings
       `Prelude.hashWithSalt` m2tsSettings

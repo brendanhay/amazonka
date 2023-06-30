@@ -93,22 +93,22 @@ instance Core.AWSPager ListWorkerBlocks where
     | Core.stop
         ( rs
             Lens.^? listWorkerBlocksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listWorkerBlocksResponse_workerBlocks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWorkerBlocks_nextToken
           Lens..~ rs
           Lens.^? listWorkerBlocksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkerBlocks where
   type
@@ -128,7 +128,8 @@ instance Core.AWSRequest ListWorkerBlocks where
 
 instance Prelude.Hashable ListWorkerBlocks where
   hashWithSalt _salt ListWorkerBlocks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkerBlocks where

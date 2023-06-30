@@ -154,7 +154,8 @@ instance Data.FromJSON VariantImportJobItem where
 
 instance Prelude.Hashable VariantImportJobItem where
   hashWithSalt _salt VariantImportJobItem' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` runLeftNormalization
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` destinationName

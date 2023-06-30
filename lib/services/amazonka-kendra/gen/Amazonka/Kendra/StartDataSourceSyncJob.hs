@@ -106,7 +106,8 @@ instance Core.AWSRequest StartDataSourceSyncJob where
 
 instance Prelude.Hashable StartDataSourceSyncJob where
   hashWithSalt _salt StartDataSourceSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData StartDataSourceSyncJob where

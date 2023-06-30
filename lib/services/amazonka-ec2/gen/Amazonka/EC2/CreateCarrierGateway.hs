@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateCarrierGateway where
 
 instance Prelude.Hashable CreateCarrierGateway where
   hashWithSalt _salt CreateCarrierGateway' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` vpcId

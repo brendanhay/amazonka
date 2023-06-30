@@ -166,7 +166,8 @@ instance Data.FromJSON WirelessDeviceStatistics where
 
 instance Prelude.Hashable WirelessDeviceStatistics where
   hashWithSalt _salt WirelessDeviceStatistics' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` fuotaDeviceStatus
       `Prelude.hashWithSalt` id

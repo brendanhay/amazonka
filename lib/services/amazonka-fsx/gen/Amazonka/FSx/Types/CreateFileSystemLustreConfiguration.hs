@@ -693,7 +693,8 @@ instance
   hashWithSalt
     _salt
     CreateFileSystemLustreConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoImportPolicy
+      _salt
+        `Prelude.hashWithSalt` autoImportPolicy
         `Prelude.hashWithSalt` automaticBackupRetentionDays
         `Prelude.hashWithSalt` copyTagsToBackups
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime

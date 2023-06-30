@@ -197,7 +197,8 @@ instance Core.AWSRequest AssociateFirewallPolicy where
 
 instance Prelude.Hashable AssociateFirewallPolicy where
   hashWithSalt _salt AssociateFirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` firewallArn
+    _salt
+      `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` firewallName
       `Prelude.hashWithSalt` updateToken
       `Prelude.hashWithSalt` firewallPolicyArn

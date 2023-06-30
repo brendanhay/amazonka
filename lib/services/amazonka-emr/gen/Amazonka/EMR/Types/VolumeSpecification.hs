@@ -112,7 +112,8 @@ instance Data.FromJSON VolumeSpecification where
 
 instance Prelude.Hashable VolumeSpecification where
   hashWithSalt _salt VolumeSpecification' {..} =
-    _salt `Prelude.hashWithSalt` iops
+    _salt
+      `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` throughput
       `Prelude.hashWithSalt` volumeType
       `Prelude.hashWithSalt` sizeInGB

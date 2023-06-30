@@ -138,22 +138,22 @@ instance Core.AWSPager DescribeComplianceByConfigRule where
     | Core.stop
         ( rs
             Lens.^? describeComplianceByConfigRuleResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeComplianceByConfigRuleResponse_complianceByConfigRules
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeComplianceByConfigRule_nextToken
           Lens..~ rs
           Lens.^? describeComplianceByConfigRuleResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -168,7 +168,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByConfigRuleResponse'
-            Prelude.<$> ( x Data..?> "ComplianceByConfigRules"
+            Prelude.<$> ( x
+                            Data..?> "ComplianceByConfigRules"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -182,7 +183,8 @@ instance
   hashWithSalt
     _salt
     DescribeComplianceByConfigRule' {..} =
-      _salt `Prelude.hashWithSalt` complianceTypes
+      _salt
+        `Prelude.hashWithSalt` complianceTypes
         `Prelude.hashWithSalt` configRuleNames
         `Prelude.hashWithSalt` nextToken
 

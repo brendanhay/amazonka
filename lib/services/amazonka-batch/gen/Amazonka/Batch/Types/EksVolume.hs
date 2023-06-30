@@ -135,7 +135,8 @@ instance Data.FromJSON EksVolume where
 
 instance Prelude.Hashable EksVolume where
   hashWithSalt _salt EksVolume' {..} =
-    _salt `Prelude.hashWithSalt` emptyDir
+    _salt
+      `Prelude.hashWithSalt` emptyDir
       `Prelude.hashWithSalt` hostPath
       `Prelude.hashWithSalt` secret
       `Prelude.hashWithSalt` name

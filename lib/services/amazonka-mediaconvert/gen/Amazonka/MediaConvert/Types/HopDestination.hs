@@ -112,7 +112,8 @@ instance Data.FromJSON HopDestination where
 
 instance Prelude.Hashable HopDestination where
   hashWithSalt _salt HopDestination' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` queue
       `Prelude.hashWithSalt` waitMinutes
 

@@ -112,22 +112,22 @@ instance Core.AWSPager ListTrafficDistributionGroups where
     | Core.stop
         ( rs
             Lens.^? listTrafficDistributionGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTrafficDistributionGroupsResponse_trafficDistributionGroupSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTrafficDistributionGroups_nextToken
           Lens..~ rs
           Lens.^? listTrafficDistributionGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -143,7 +143,8 @@ instance
       ( \s h x ->
           ListTrafficDistributionGroupsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "TrafficDistributionGroupSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "TrafficDistributionGroupSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,7 +155,8 @@ instance
     ListTrafficDistributionGroups
   where
   hashWithSalt _salt ListTrafficDistributionGroups' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

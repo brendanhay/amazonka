@@ -115,7 +115,8 @@ entityFilter_eventArns = Lens.lens (\EntityFilter' {eventArns} -> eventArns) (\s
 
 instance Prelude.Hashable EntityFilter where
   hashWithSalt _salt EntityFilter' {..} =
-    _salt `Prelude.hashWithSalt` entityArns
+    _salt
+      `Prelude.hashWithSalt` entityArns
       `Prelude.hashWithSalt` entityValues
       `Prelude.hashWithSalt` lastUpdatedTimes
       `Prelude.hashWithSalt` statusCodes

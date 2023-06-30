@@ -70,7 +70,8 @@ instance Core.AWSRequest DescribeOperatingSystems where
     Response.receiveJSON
       ( \s h x ->
           DescribeOperatingSystemsResponse'
-            Prelude.<$> ( x Data..?> "OperatingSystems"
+            Prelude.<$> ( x
+                            Data..?> "OperatingSystems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -117,7 +117,8 @@ instance Data.FromJSON PhysicalResourceId where
 
 instance Prelude.Hashable PhysicalResourceId where
   hashWithSalt _salt PhysicalResourceId' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` type'

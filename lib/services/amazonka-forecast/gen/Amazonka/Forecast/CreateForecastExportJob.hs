@@ -268,7 +268,8 @@ instance Core.AWSRequest CreateForecastExportJob where
 
 instance Prelude.Hashable CreateForecastExportJob where
   hashWithSalt _salt CreateForecastExportJob' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` forecastExportJobName
       `Prelude.hashWithSalt` forecastArn

@@ -187,7 +187,8 @@ instance Core.AWSRequest UpdateFunctionUrlConfig where
 
 instance Prelude.Hashable UpdateFunctionUrlConfig where
   hashWithSalt _salt UpdateFunctionUrlConfig' {..} =
-    _salt `Prelude.hashWithSalt` authType
+    _salt
+      `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` cors
       `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` functionName

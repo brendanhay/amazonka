@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteThreatIntelSet where
 
 instance Prelude.Hashable DeleteThreatIntelSet where
   hashWithSalt _salt DeleteThreatIntelSet' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` threatIntelSetId
 
 instance Prelude.NFData DeleteThreatIntelSet where

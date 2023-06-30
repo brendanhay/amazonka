@@ -87,8 +87,8 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails'
             Prelude.<$> (x Data..:? "ContainerPort")
-              Prelude.<*> (x Data..:? "HostPort")
-              Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "HostPort")
+            Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance
@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {..} =
-      _salt `Prelude.hashWithSalt` containerPort
+      _salt
+        `Prelude.hashWithSalt` containerPort
         `Prelude.hashWithSalt` hostPort
         `Prelude.hashWithSalt` protocol
 

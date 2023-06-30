@@ -89,11 +89,12 @@ instance
       "ECSServiceRecommendedOptionProjectedMetric"
       ( \x ->
           ECSServiceRecommendedOptionProjectedMetric'
-            Prelude.<$> ( x Data..:? "projectedMetrics"
+            Prelude.<$> ( x
+                            Data..:? "projectedMetrics"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Data..:? "recommendedCpuUnits")
-              Prelude.<*> (x Data..:? "recommendedMemorySize")
+            Prelude.<*> (x Data..:? "recommendedCpuUnits")
+            Prelude.<*> (x Data..:? "recommendedMemorySize")
       )
 
 instance
@@ -103,7 +104,8 @@ instance
   hashWithSalt
     _salt
     ECSServiceRecommendedOptionProjectedMetric' {..} =
-      _salt `Prelude.hashWithSalt` projectedMetrics
+      _salt
+        `Prelude.hashWithSalt` projectedMetrics
         `Prelude.hashWithSalt` recommendedCpuUnits
         `Prelude.hashWithSalt` recommendedMemorySize
 

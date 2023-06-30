@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     FSxWindowsFileServerVolumeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` fileSystemId
+      _salt
+        `Prelude.hashWithSalt` fileSystemId
         `Prelude.hashWithSalt` rootDirectory
         `Prelude.hashWithSalt` authorizationConfig
 

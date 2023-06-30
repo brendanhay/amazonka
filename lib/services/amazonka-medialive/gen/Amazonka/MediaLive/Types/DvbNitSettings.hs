@@ -94,7 +94,8 @@ instance Data.FromJSON DvbNitSettings where
 
 instance Prelude.Hashable DvbNitSettings where
   hashWithSalt _salt DvbNitSettings' {..} =
-    _salt `Prelude.hashWithSalt` repInterval
+    _salt
+      `Prelude.hashWithSalt` repInterval
       `Prelude.hashWithSalt` networkName
       `Prelude.hashWithSalt` networkId
 

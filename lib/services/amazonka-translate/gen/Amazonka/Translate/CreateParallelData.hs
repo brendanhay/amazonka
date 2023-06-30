@@ -169,7 +169,8 @@ instance Core.AWSRequest CreateParallelData where
 
 instance Prelude.Hashable CreateParallelData where
   hashWithSalt _salt CreateParallelData' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

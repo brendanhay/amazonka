@@ -672,7 +672,8 @@ instance Core.AWSRequest UpdatePipeline where
 
 instance Prelude.Hashable UpdatePipeline where
   hashWithSalt _salt UpdatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` awsKmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` awsKmsKeyArn
       `Prelude.hashWithSalt` contentConfig
       `Prelude.hashWithSalt` inputBucket
       `Prelude.hashWithSalt` name

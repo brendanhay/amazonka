@@ -162,7 +162,8 @@ instance Core.AWSRequest StartExportTask where
 
 instance Prelude.Hashable StartExportTask where
   hashWithSalt _salt StartExportTask' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` exportDataFormat
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` startTime

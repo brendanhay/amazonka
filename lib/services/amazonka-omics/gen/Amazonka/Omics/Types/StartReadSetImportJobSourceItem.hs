@@ -150,7 +150,8 @@ instance
   hashWithSalt
     _salt
     StartReadSetImportJobSourceItem' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` generatedFrom
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` tags

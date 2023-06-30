@@ -96,7 +96,8 @@ instance Data.FromJSON Failures where
 
 instance Prelude.Hashable Failures where
   hashWithSalt _salt Failures' {..} =
-    _salt `Prelude.hashWithSalt` exceptionMessage
+    _salt
+      `Prelude.hashWithSalt` exceptionMessage
       `Prelude.hashWithSalt` remediation
       `Prelude.hashWithSalt` timestamp
 

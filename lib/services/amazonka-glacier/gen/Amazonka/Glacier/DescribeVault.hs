@@ -140,7 +140,8 @@ instance Core.AWSRequest DescribeVault where
 
 instance Prelude.Hashable DescribeVault where
   hashWithSalt _salt DescribeVault' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData DescribeVault where

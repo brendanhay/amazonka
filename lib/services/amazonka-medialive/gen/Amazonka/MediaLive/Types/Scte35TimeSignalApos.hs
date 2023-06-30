@@ -99,7 +99,8 @@ instance Data.FromJSON Scte35TimeSignalApos where
 
 instance Prelude.Hashable Scte35TimeSignalApos where
   hashWithSalt _salt Scte35TimeSignalApos' {..} =
-    _salt `Prelude.hashWithSalt` adAvailOffset
+    _salt
+      `Prelude.hashWithSalt` adAvailOffset
       `Prelude.hashWithSalt` noRegionalBlackoutFlag
       `Prelude.hashWithSalt` webDeliveryAllowedFlag
 

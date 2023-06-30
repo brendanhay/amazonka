@@ -101,7 +101,8 @@ instance Core.AWSRequest ListDeviceProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceProfilesResponse'
-            Prelude.<$> ( x Data..?> "DeviceProfileList"
+            Prelude.<$> ( x
+                            Data..?> "DeviceProfileList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -110,7 +111,8 @@ instance Core.AWSRequest ListDeviceProfiles where
 
 instance Prelude.Hashable ListDeviceProfiles where
   hashWithSalt _salt ListDeviceProfiles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDeviceProfiles where

@@ -102,7 +102,8 @@ instance Data.FromXML FieldLevelEncryption where
 
 instance Prelude.Hashable FieldLevelEncryption where
   hashWithSalt _salt FieldLevelEncryption' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` fieldLevelEncryptionConfig
 

@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateTask where
 
 instance Prelude.Hashable UpdateTask where
   hashWithSalt _salt UpdateTask' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogGroupArn
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
       `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` name

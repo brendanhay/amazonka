@@ -79,7 +79,8 @@ instance Data.FromJSON EventCondition where
 
 instance Prelude.Hashable EventCondition where
   hashWithSalt _salt EventCondition' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` messageActivity
 
 instance Prelude.NFData EventCondition where

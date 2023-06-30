@@ -128,7 +128,8 @@ instance Data.FromJSON RecommendationTrigger where
           RecommendationTrigger'
             Prelude.<$> (x Data..: "data")
             Prelude.<*> (x Data..: "id")
-            Prelude.<*> ( x Data..:? "recommendationIds"
+            Prelude.<*> ( x
+                            Data..:? "recommendationIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "source")
@@ -137,7 +138,8 @@ instance Data.FromJSON RecommendationTrigger where
 
 instance Prelude.Hashable RecommendationTrigger where
   hashWithSalt _salt RecommendationTrigger' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` recommendationIds
       `Prelude.hashWithSalt` source

@@ -124,7 +124,8 @@ instance Core.AWSRequest UpdatePublicDnsNamespace where
 
 instance Prelude.Hashable UpdatePublicDnsNamespace where
   hashWithSalt _salt UpdatePublicDnsNamespace' {..} =
-    _salt `Prelude.hashWithSalt` updaterRequestId
+    _salt
+      `Prelude.hashWithSalt` updaterRequestId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` namespace
 

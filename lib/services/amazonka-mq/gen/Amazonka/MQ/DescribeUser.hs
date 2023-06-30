@@ -116,7 +116,8 @@ instance Core.AWSRequest DescribeUser where
 
 instance Prelude.Hashable DescribeUser where
   hashWithSalt _salt DescribeUser' {..} =
-    _salt `Prelude.hashWithSalt` username
+    _salt
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` brokerId
 
 instance Prelude.NFData DescribeUser where

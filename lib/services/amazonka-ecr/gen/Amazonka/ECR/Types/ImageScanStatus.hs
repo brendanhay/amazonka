@@ -75,7 +75,8 @@ instance Data.FromJSON ImageScanStatus where
 
 instance Prelude.Hashable ImageScanStatus where
   hashWithSalt _salt ImageScanStatus' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ImageScanStatus where

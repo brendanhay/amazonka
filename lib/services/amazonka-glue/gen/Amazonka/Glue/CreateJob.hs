@@ -589,7 +589,8 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` allocatedCapacity
+    _salt
+      `Prelude.hashWithSalt` allocatedCapacity
       `Prelude.hashWithSalt` codeGenConfigurationNodes
       `Prelude.hashWithSalt` connections
       `Prelude.hashWithSalt` defaultArguments

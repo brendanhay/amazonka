@@ -204,7 +204,8 @@ instance Core.AWSRequest CreateBudgetAction where
 
 instance Prelude.Hashable CreateBudgetAction where
   hashWithSalt _salt CreateBudgetAction' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` notificationType
       `Prelude.hashWithSalt` actionType

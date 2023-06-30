@@ -313,7 +313,8 @@ instance Core.AWSRequest CreatePortal where
 
 instance Prelude.Hashable CreatePortal where
   hashWithSalt _salt CreatePortal' {..} =
-    _salt `Prelude.hashWithSalt` alarms
+    _salt
+      `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` notificationSenderEmail
       `Prelude.hashWithSalt` portalAuthMode

@@ -79,7 +79,8 @@ instance Data.FromJSON GeospatialWindowOptions where
 
 instance Prelude.Hashable GeospatialWindowOptions where
   hashWithSalt _salt GeospatialWindowOptions' {..} =
-    _salt `Prelude.hashWithSalt` bounds
+    _salt
+      `Prelude.hashWithSalt` bounds
       `Prelude.hashWithSalt` mapZoomMode
 
 instance Prelude.NFData GeospatialWindowOptions where

@@ -94,7 +94,8 @@ instance Data.FromJSON UpdateError where
 
 instance Prelude.Hashable UpdateError where
   hashWithSalt _salt UpdateError' {..} =
-    _salt `Prelude.hashWithSalt` causedBy
+    _salt
+      `Prelude.hashWithSalt` causedBy
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 

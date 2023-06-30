@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     DeleteApplicationFromEnvironment' {..} =
-      _salt `Prelude.hashWithSalt` applicationId
+      _salt
+        `Prelude.hashWithSalt` applicationId
         `Prelude.hashWithSalt` environmentId
 
 instance

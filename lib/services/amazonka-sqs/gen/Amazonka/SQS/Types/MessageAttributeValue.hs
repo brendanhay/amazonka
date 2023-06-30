@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The user-specified message attribute value. For string data types, the
 -- @Value@ attribute has the same restrictions on the content as the
--- message body. For more information, see @ SendMessage.@
+-- message body. For more information, see @ @@SendMessage@@.@
 --
 -- @Name@, @type@, @value@ and the message body must not be empty or null.
 -- All parts of the message attribute, including @Name@, @Type@, and
@@ -137,11 +137,15 @@ messageAttributeValue_dataType = Lens.lens (\MessageAttributeValue' {dataType} -
 instance Data.FromXML MessageAttributeValue where
   parseXML x =
     MessageAttributeValue'
-      Prelude.<$> ( x Data..@? "BinaryListValue" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "BinaryListValue"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "BinaryListValue")
                   )
       Prelude.<*> (x Data..@? "BinaryValue")
-      Prelude.<*> ( x Data..@? "StringListValue" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "StringListValue"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "StringListValue")
                   )
       Prelude.<*> (x Data..@? "StringValue")
@@ -149,7 +153,8 @@ instance Data.FromXML MessageAttributeValue where
 
 instance Prelude.Hashable MessageAttributeValue where
   hashWithSalt _salt MessageAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` binaryListValues
+    _salt
+      `Prelude.hashWithSalt` binaryListValues
       `Prelude.hashWithSalt` binaryValue
       `Prelude.hashWithSalt` stringListValues
       `Prelude.hashWithSalt` stringValue

@@ -101,7 +101,8 @@ instance Data.FromJSON AwsRdsDbDomainMembership where
 
 instance Prelude.Hashable AwsRdsDbDomainMembership where
   hashWithSalt _salt AwsRdsDbDomainMembership' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` fqdn
       `Prelude.hashWithSalt` iamRoleName
       `Prelude.hashWithSalt` status

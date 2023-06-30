@@ -80,7 +80,8 @@ instance Data.FromJSON InstanceConfiguration where
       "InstanceConfiguration"
       ( \x ->
           InstanceConfiguration'
-            Prelude.<$> ( x Data..:? "blockDeviceMappings"
+            Prelude.<$> ( x
+                            Data..:? "blockDeviceMappings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "image")
@@ -88,7 +89,8 @@ instance Data.FromJSON InstanceConfiguration where
 
 instance Prelude.Hashable InstanceConfiguration where
   hashWithSalt _salt InstanceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
+    _salt
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` image
 
 instance Prelude.NFData InstanceConfiguration where

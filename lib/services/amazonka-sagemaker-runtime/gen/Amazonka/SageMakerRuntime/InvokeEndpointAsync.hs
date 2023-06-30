@@ -240,7 +240,8 @@ instance Core.AWSRequest InvokeEndpointAsync where
 
 instance Prelude.Hashable InvokeEndpointAsync where
   hashWithSalt _salt InvokeEndpointAsync' {..} =
-    _salt `Prelude.hashWithSalt` accept
+    _salt
+      `Prelude.hashWithSalt` accept
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` customAttributes
       `Prelude.hashWithSalt` inferenceId

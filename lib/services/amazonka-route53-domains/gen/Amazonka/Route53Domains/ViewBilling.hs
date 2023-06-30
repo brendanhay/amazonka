@@ -160,22 +160,22 @@ instance Core.AWSPager ViewBilling where
     | Core.stop
         ( rs
             Lens.^? viewBillingResponse_nextPageMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? viewBillingResponse_billingRecords
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& viewBilling_marker
           Lens..~ rs
           Lens.^? viewBillingResponse_nextPageMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ViewBilling where
   type AWSResponse ViewBilling = ViewBillingResponse
@@ -192,7 +192,8 @@ instance Core.AWSRequest ViewBilling where
 
 instance Prelude.Hashable ViewBilling where
   hashWithSalt _salt ViewBilling' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` start

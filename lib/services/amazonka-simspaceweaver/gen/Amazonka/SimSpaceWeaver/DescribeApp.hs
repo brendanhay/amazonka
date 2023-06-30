@@ -128,7 +128,8 @@ instance Core.AWSRequest DescribeApp where
 
 instance Prelude.Hashable DescribeApp where
   hashWithSalt _salt DescribeApp' {..} =
-    _salt `Prelude.hashWithSalt` app
+    _salt
+      `Prelude.hashWithSalt` app
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` simulation
 

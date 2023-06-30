@@ -368,7 +368,8 @@ instance
     PipelineExecutionStepMetadata
   where
   hashWithSalt _salt PipelineExecutionStepMetadata' {..} =
-    _salt `Prelude.hashWithSalt` autoMLJob
+    _salt
+      `Prelude.hashWithSalt` autoMLJob
       `Prelude.hashWithSalt` callback
       `Prelude.hashWithSalt` clarifyCheck
       `Prelude.hashWithSalt` condition

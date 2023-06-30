@@ -327,19 +327,19 @@ instance Core.AWSPager ListClosedWorkflowExecutions where
     | Core.stop
         ( rs
             Lens.^? workflowExecutionInfos_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. workflowExecutionInfos_executionInfos) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listClosedWorkflowExecutions_nextPageToken
           Lens..~ rs
           Lens.^? workflowExecutionInfos_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClosedWorkflowExecutions where
   type
@@ -356,7 +356,8 @@ instance
     ListClosedWorkflowExecutions
   where
   hashWithSalt _salt ListClosedWorkflowExecutions' {..} =
-    _salt `Prelude.hashWithSalt` closeStatusFilter
+    _salt
+      `Prelude.hashWithSalt` closeStatusFilter
       `Prelude.hashWithSalt` closeTimeFilter
       `Prelude.hashWithSalt` executionFilter
       `Prelude.hashWithSalt` maximumPageSize

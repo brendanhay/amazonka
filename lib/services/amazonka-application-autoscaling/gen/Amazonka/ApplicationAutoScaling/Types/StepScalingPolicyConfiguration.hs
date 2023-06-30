@@ -332,7 +332,8 @@ instance Data.FromJSON StepScalingPolicyConfiguration where
             Prelude.<*> (x Data..:? "Cooldown")
             Prelude.<*> (x Data..:? "MetricAggregationType")
             Prelude.<*> (x Data..:? "MinAdjustmentMagnitude")
-            Prelude.<*> ( x Data..:? "StepAdjustments"
+            Prelude.<*> ( x
+                            Data..:? "StepAdjustments"
                             Data..!= Prelude.mempty
                         )
       )
@@ -344,7 +345,8 @@ instance
   hashWithSalt
     _salt
     StepScalingPolicyConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` adjustmentType
+      _salt
+        `Prelude.hashWithSalt` adjustmentType
         `Prelude.hashWithSalt` cooldown
         `Prelude.hashWithSalt` metricAggregationType
         `Prelude.hashWithSalt` minAdjustmentMagnitude

@@ -256,7 +256,8 @@ instance Core.AWSRequest CreateLocationObjectStorage where
 
 instance Prelude.Hashable CreateLocationObjectStorage where
   hashWithSalt _salt CreateLocationObjectStorage' {..} =
-    _salt `Prelude.hashWithSalt` accessKey
+    _salt
+      `Prelude.hashWithSalt` accessKey
       `Prelude.hashWithSalt` secretKey
       `Prelude.hashWithSalt` serverCertificate
       `Prelude.hashWithSalt` serverPort

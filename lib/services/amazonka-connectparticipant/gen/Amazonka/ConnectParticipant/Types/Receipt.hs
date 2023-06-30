@@ -84,7 +84,8 @@ instance Data.FromJSON Receipt where
 
 instance Prelude.Hashable Receipt where
   hashWithSalt _salt Receipt' {..} =
-    _salt `Prelude.hashWithSalt` deliveredTimestamp
+    _salt
+      `Prelude.hashWithSalt` deliveredTimestamp
       `Prelude.hashWithSalt` readTimestamp
       `Prelude.hashWithSalt` recipientParticipantId
 

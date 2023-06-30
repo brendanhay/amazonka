@@ -467,7 +467,8 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` badgeEnabled
+    _salt
+      `Prelude.hashWithSalt` badgeEnabled
       `Prelude.hashWithSalt` buildBatchConfig
       `Prelude.hashWithSalt` cache
       `Prelude.hashWithSalt` concurrentBuildLimit

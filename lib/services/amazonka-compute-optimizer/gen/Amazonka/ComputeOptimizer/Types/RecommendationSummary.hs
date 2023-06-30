@@ -117,7 +117,8 @@ instance Data.FromJSON RecommendationSummary where
 
 instance Prelude.Hashable RecommendationSummary where
   hashWithSalt _salt RecommendationSummary' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentPerformanceRiskRatings
       `Prelude.hashWithSalt` recommendationResourceType
       `Prelude.hashWithSalt` savingsOpportunity

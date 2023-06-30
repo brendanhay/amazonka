@@ -84,8 +84,8 @@ instance
       ( \x ->
           SavingsPlansPurchaseRecommendationMetadata'
             Prelude.<$> (x Data..:? "AdditionalMetadata")
-              Prelude.<*> (x Data..:? "GenerationTimestamp")
-              Prelude.<*> (x Data..:? "RecommendationId")
+            Prelude.<*> (x Data..:? "GenerationTimestamp")
+            Prelude.<*> (x Data..:? "RecommendationId")
       )
 
 instance
@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     SavingsPlansPurchaseRecommendationMetadata' {..} =
-      _salt `Prelude.hashWithSalt` additionalMetadata
+      _salt
+        `Prelude.hashWithSalt` additionalMetadata
         `Prelude.hashWithSalt` generationTimestamp
         `Prelude.hashWithSalt` recommendationId
 

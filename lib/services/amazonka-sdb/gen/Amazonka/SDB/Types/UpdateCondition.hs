@@ -92,7 +92,8 @@ updateCondition_value = Lens.lens (\UpdateCondition' {value} -> value) (\s@Updat
 
 instance Prelude.Hashable UpdateCondition where
   hashWithSalt _salt UpdateCondition' {..} =
-    _salt `Prelude.hashWithSalt` exists
+    _salt
+      `Prelude.hashWithSalt` exists
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

@@ -120,7 +120,8 @@ instance Core.AWSRequest DescribeSpace where
 
 instance Prelude.Hashable DescribeSpace where
   hashWithSalt _salt DescribeSpace' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` spaceName
 
 instance Prelude.NFData DescribeSpace where

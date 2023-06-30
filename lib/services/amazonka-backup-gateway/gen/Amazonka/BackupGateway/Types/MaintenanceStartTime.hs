@@ -124,7 +124,8 @@ instance Data.FromJSON MaintenanceStartTime where
 
 instance Prelude.Hashable MaintenanceStartTime where
   hashWithSalt _salt MaintenanceStartTime' {..} =
-    _salt `Prelude.hashWithSalt` dayOfMonth
+    _salt
+      `Prelude.hashWithSalt` dayOfMonth
       `Prelude.hashWithSalt` dayOfWeek
       `Prelude.hashWithSalt` hourOfDay
       `Prelude.hashWithSalt` minuteOfHour

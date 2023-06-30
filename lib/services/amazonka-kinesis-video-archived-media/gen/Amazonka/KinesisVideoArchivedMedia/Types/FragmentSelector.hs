@@ -91,7 +91,8 @@ fragmentSelector_timestampRange = Lens.lens (\FragmentSelector' {timestampRange}
 
 instance Prelude.Hashable FragmentSelector where
   hashWithSalt _salt FragmentSelector' {..} =
-    _salt `Prelude.hashWithSalt` fragmentSelectorType
+    _salt
+      `Prelude.hashWithSalt` fragmentSelectorType
       `Prelude.hashWithSalt` timestampRange
 
 instance Prelude.NFData FragmentSelector where

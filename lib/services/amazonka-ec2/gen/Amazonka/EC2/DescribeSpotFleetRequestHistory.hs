@@ -181,7 +181,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeSpotFleetRequestHistoryResponse'
-            Prelude.<$> ( x Data..@? "historyRecordSet"
+            Prelude.<$> ( x
+                            Data..@? "historyRecordSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -199,7 +200,8 @@ instance
   hashWithSalt
     _salt
     DescribeSpotFleetRequestHistory' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` eventType
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

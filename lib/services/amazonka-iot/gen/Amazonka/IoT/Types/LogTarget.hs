@@ -77,7 +77,8 @@ instance Data.FromJSON LogTarget where
 
 instance Prelude.Hashable LogTarget where
   hashWithSalt _salt LogTarget' {..} =
-    _salt `Prelude.hashWithSalt` targetName
+    _salt
+      `Prelude.hashWithSalt` targetName
       `Prelude.hashWithSalt` targetType
 
 instance Prelude.NFData LogTarget where

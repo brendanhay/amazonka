@@ -156,7 +156,8 @@ instance Core.AWSRequest AttachClassicLinkVpc where
 
 instance Prelude.Hashable AttachClassicLinkVpc where
   hashWithSalt _salt AttachClassicLinkVpc' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` vpcId

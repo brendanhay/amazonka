@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetsFromRedshiftDataSharesRequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` assetSources
+      _salt
+        `Prelude.hashWithSalt` assetSources
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
 

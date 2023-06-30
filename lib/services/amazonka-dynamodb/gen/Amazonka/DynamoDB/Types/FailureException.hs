@@ -77,7 +77,8 @@ instance Data.FromJSON FailureException where
 
 instance Prelude.Hashable FailureException where
   hashWithSalt _salt FailureException' {..} =
-    _salt `Prelude.hashWithSalt` exceptionDescription
+    _salt
+      `Prelude.hashWithSalt` exceptionDescription
       `Prelude.hashWithSalt` exceptionName
 
 instance Prelude.NFData FailureException where

@@ -120,7 +120,8 @@ instance Core.AWSRequest CancelLegalHold where
 
 instance Prelude.Hashable CancelLegalHold where
   hashWithSalt _salt CancelLegalHold' {..} =
-    _salt `Prelude.hashWithSalt` retainRecordInDays
+    _salt
+      `Prelude.hashWithSalt` retainRecordInDays
       `Prelude.hashWithSalt` legalHoldId
       `Prelude.hashWithSalt` cancelDescription
 

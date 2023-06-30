@@ -77,7 +77,8 @@ instance Data.FromJSON FormStyleConfig where
 
 instance Prelude.Hashable FormStyleConfig where
   hashWithSalt _salt FormStyleConfig' {..} =
-    _salt `Prelude.hashWithSalt` tokenReference
+    _salt
+      `Prelude.hashWithSalt` tokenReference
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData FormStyleConfig where

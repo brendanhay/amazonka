@@ -125,7 +125,8 @@ instance Data.FromJSON Settings where
       ( \x ->
           Settings'
             Prelude.<$> (x Data..:? "defaultAssessmentReportsDestination")
-            Prelude.<*> ( x Data..:? "defaultProcessOwners"
+            Prelude.<*> ( x
+                            Data..:? "defaultProcessOwners"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "deregistrationPolicy")

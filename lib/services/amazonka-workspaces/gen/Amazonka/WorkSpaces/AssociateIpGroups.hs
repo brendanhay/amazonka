@@ -101,7 +101,8 @@ instance Core.AWSRequest AssociateIpGroups where
 
 instance Prelude.Hashable AssociateIpGroups where
   hashWithSalt _salt AssociateIpGroups' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` groupIds
 
 instance Prelude.NFData AssociateIpGroups where

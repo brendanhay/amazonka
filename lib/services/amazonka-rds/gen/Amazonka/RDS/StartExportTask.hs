@@ -303,7 +303,8 @@ instance Core.AWSRequest StartExportTask where
 
 instance Prelude.Hashable StartExportTask where
   hashWithSalt _salt StartExportTask' {..} =
-    _salt `Prelude.hashWithSalt` exportOnly
+    _salt
+      `Prelude.hashWithSalt` exportOnly
       `Prelude.hashWithSalt` s3Prefix
       `Prelude.hashWithSalt` exportTaskIdentifier
       `Prelude.hashWithSalt` sourceArn

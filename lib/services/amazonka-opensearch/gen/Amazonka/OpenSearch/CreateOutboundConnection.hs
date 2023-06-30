@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateOutboundConnection where
 
 instance Prelude.Hashable CreateOutboundConnection where
   hashWithSalt _salt CreateOutboundConnection' {..} =
-    _salt `Prelude.hashWithSalt` localDomainInfo
+    _salt
+      `Prelude.hashWithSalt` localDomainInfo
       `Prelude.hashWithSalt` remoteDomainInfo
       `Prelude.hashWithSalt` connectionAlias
 

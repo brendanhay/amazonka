@@ -265,7 +265,8 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` autoStartConfiguration
       `Prelude.hashWithSalt` autoStopConfiguration
       `Prelude.hashWithSalt` imageConfiguration

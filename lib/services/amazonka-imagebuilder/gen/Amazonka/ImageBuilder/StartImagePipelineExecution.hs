@@ -114,7 +114,8 @@ instance Core.AWSRequest StartImagePipelineExecution where
 
 instance Prelude.Hashable StartImagePipelineExecution where
   hashWithSalt _salt StartImagePipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` imagePipelineArn
+    _salt
+      `Prelude.hashWithSalt` imagePipelineArn
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData StartImagePipelineExecution where

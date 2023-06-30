@@ -147,8 +147,8 @@ instance
       ( \s h x ->
           DescribeDataRepositoryAssociationsResponse'
             Prelude.<$> (x Data..?> "Associations" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     DescribeDataRepositoryAssociations' {..} =
-      _salt `Prelude.hashWithSalt` associationIds
+      _salt
+        `Prelude.hashWithSalt` associationIds
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

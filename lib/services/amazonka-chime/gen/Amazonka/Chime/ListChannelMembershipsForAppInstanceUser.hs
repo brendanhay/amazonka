@@ -129,11 +129,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListChannelMembershipsForAppInstanceUserResponse'
-            Prelude.<$> ( x Data..?> "ChannelMemberships"
+            Prelude.<$> ( x
+                            Data..?> "ChannelMemberships"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -143,7 +144,8 @@ instance
   hashWithSalt
     _salt
     ListChannelMembershipsForAppInstanceUser' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceUserArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` chimeBearer
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

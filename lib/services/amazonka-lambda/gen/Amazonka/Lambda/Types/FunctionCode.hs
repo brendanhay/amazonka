@@ -116,7 +116,8 @@ functionCode_zipFile = Lens.lens (\FunctionCode' {zipFile} -> zipFile) (\s@Funct
 
 instance Prelude.Hashable FunctionCode where
   hashWithSalt _salt FunctionCode' {..} =
-    _salt `Prelude.hashWithSalt` imageUri
+    _salt
+      `Prelude.hashWithSalt` imageUri
       `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Key
       `Prelude.hashWithSalt` s3ObjectVersion

@@ -93,7 +93,8 @@ instance Data.FromXML AssumedRoleUser where
 
 instance Prelude.Hashable AssumedRoleUser where
   hashWithSalt _salt AssumedRoleUser' {..} =
-    _salt `Prelude.hashWithSalt` assumedRoleId
+    _salt
+      `Prelude.hashWithSalt` assumedRoleId
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData AssumedRoleUser where

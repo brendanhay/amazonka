@@ -175,7 +175,8 @@ instance Data.FromJSON KnowledgeBaseSummary where
 
 instance Prelude.Hashable KnowledgeBaseSummary where
   hashWithSalt _salt KnowledgeBaseSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` renderingConfiguration
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
       `Prelude.hashWithSalt` sourceConfiguration

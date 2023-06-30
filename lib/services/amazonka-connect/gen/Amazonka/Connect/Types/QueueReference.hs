@@ -69,12 +69,14 @@ instance Data.FromJSON QueueReference where
       "QueueReference"
       ( \x ->
           QueueReference'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable QueueReference where
   hashWithSalt _salt QueueReference' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData QueueReference where

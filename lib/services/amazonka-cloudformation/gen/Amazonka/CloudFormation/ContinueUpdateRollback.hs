@@ -306,7 +306,8 @@ instance Core.AWSRequest ContinueUpdateRollback where
 
 instance Prelude.Hashable ContinueUpdateRollback where
   hashWithSalt _salt ContinueUpdateRollback' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` resourcesToSkip
       `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` stackName

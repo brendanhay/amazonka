@@ -129,7 +129,8 @@ s3Location_prefix = Lens.lens (\S3Location' {prefix} -> prefix) (\s@S3Location' 
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` accessControlList
+    _salt
+      `Prelude.hashWithSalt` accessControlList
       `Prelude.hashWithSalt` cannedACL
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` storageClass

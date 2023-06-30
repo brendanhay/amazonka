@@ -126,7 +126,8 @@ instance Data.FromJSON ResourceProfileArtifact where
 
 instance Prelude.Hashable ResourceProfileArtifact where
   hashWithSalt _salt ResourceProfileArtifact' {..} =
-    _salt `Prelude.hashWithSalt` sensitive
+    _salt
+      `Prelude.hashWithSalt` sensitive
       `Prelude.hashWithSalt` classificationResultStatus
       `Prelude.hashWithSalt` arn
 

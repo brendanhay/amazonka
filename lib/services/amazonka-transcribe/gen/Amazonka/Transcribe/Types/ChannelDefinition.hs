@@ -81,7 +81,8 @@ instance Data.FromJSON ChannelDefinition where
 
 instance Prelude.Hashable ChannelDefinition where
   hashWithSalt _salt ChannelDefinition' {..} =
-    _salt `Prelude.hashWithSalt` channelId
+    _salt
+      `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` participantRole
 
 instance Prelude.NFData ChannelDefinition where

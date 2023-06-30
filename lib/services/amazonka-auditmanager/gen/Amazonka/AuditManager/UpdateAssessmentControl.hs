@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateAssessmentControl where
 
 instance Prelude.Hashable UpdateAssessmentControl where
   hashWithSalt _salt UpdateAssessmentControl' {..} =
-    _salt `Prelude.hashWithSalt` commentBody
+    _salt
+      `Prelude.hashWithSalt` commentBody
       `Prelude.hashWithSalt` controlStatus
       `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` controlSetId

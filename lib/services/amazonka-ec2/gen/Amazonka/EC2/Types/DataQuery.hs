@@ -137,7 +137,8 @@ dataQuery_statistic = Lens.lens (\DataQuery' {statistic} -> statistic) (\s@DataQ
 
 instance Prelude.Hashable DataQuery where
   hashWithSalt _salt DataQuery' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` period

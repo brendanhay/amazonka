@@ -84,7 +84,8 @@ instance Data.FromJSON SavingsPlansSavings where
 
 instance Prelude.Hashable SavingsPlansSavings where
   hashWithSalt _salt SavingsPlansSavings' {..} =
-    _salt `Prelude.hashWithSalt` netSavings
+    _salt
+      `Prelude.hashWithSalt` netSavings
       `Prelude.hashWithSalt` onDemandCostEquivalent
 
 instance Prelude.NFData SavingsPlansSavings where

@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateGlobalTable where
 
 instance Prelude.Hashable UpdateGlobalTable where
   hashWithSalt _salt UpdateGlobalTable' {..} =
-    _salt `Prelude.hashWithSalt` globalTableName
+    _salt
+      `Prelude.hashWithSalt` globalTableName
       `Prelude.hashWithSalt` replicaUpdates
 
 instance Prelude.NFData UpdateGlobalTable where

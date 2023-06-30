@@ -124,19 +124,19 @@ instance Core.AWSPager ListEndpointAccess where
     | Core.stop
         ( rs
             Lens.^? listEndpointAccessResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listEndpointAccessResponse_endpoints) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEndpointAccess_nextToken
           Lens..~ rs
           Lens.^? listEndpointAccessResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEndpointAccess where
   type
@@ -155,7 +155,8 @@ instance Core.AWSRequest ListEndpointAccess where
 
 instance Prelude.Hashable ListEndpointAccess where
   hashWithSalt _salt ListEndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` workgroupName

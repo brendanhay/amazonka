@@ -73,7 +73,6 @@ newDeregisterApplication pApplicationId_ =
         pApplicationId_
     }
 
--- |
 deregisterApplication_applicationId :: Lens.Lens' DeregisterApplication Prelude.Text
 deregisterApplication_applicationId = Lens.lens (\DeregisterApplication' {applicationId} -> applicationId) (\s@DeregisterApplication' {} a -> s {applicationId = a} :: DeregisterApplication)
 

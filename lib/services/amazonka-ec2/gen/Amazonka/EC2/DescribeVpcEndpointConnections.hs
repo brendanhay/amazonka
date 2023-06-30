@@ -174,22 +174,22 @@ instance Core.AWSPager DescribeVpcEndpointConnections where
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointConnectionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointConnectionsResponse_vpcEndpointConnections
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcEndpointConnections_nextToken
           Lens..~ rs
           Lens.^? describeVpcEndpointConnectionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -205,7 +205,8 @@ instance
       ( \s h x ->
           DescribeVpcEndpointConnectionsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "vpcEndpointConnectionSet"
+            Prelude.<*> ( x
+                            Data..@? "vpcEndpointConnectionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -219,7 +220,8 @@ instance
   hashWithSalt
     _salt
     DescribeVpcEndpointConnections' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

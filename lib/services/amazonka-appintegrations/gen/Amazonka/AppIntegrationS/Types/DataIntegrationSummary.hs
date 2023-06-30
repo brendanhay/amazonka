@@ -84,7 +84,8 @@ instance Data.FromJSON DataIntegrationSummary where
 
 instance Prelude.Hashable DataIntegrationSummary where
   hashWithSalt _salt DataIntegrationSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceURI
 

@@ -194,7 +194,8 @@ instance Data.FromJSON ElasticsearchClusterConfig where
 
 instance Prelude.Hashable ElasticsearchClusterConfig where
   hashWithSalt _salt ElasticsearchClusterConfig' {..} =
-    _salt `Prelude.hashWithSalt` coldStorageOptions
+    _salt
+      `Prelude.hashWithSalt` coldStorageOptions
       `Prelude.hashWithSalt` dedicatedMasterCount
       `Prelude.hashWithSalt` dedicatedMasterEnabled
       `Prelude.hashWithSalt` dedicatedMasterType

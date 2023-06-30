@@ -79,7 +79,8 @@ instance Data.FromJSON SeriesItem where
 
 instance Prelude.Hashable SeriesItem where
   hashWithSalt _salt SeriesItem' {..} =
-    _salt `Prelude.hashWithSalt` dataFieldSeriesItem
+    _salt
+      `Prelude.hashWithSalt` dataFieldSeriesItem
       `Prelude.hashWithSalt` fieldSeriesItem
 
 instance Prelude.NFData SeriesItem where

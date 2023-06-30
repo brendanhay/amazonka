@@ -94,7 +94,8 @@ instance Data.FromJSON BinaryColumnStatisticsData where
 
 instance Prelude.Hashable BinaryColumnStatisticsData where
   hashWithSalt _salt BinaryColumnStatisticsData' {..} =
-    _salt `Prelude.hashWithSalt` maximumLength
+    _salt
+      `Prelude.hashWithSalt` maximumLength
       `Prelude.hashWithSalt` averageLength
       `Prelude.hashWithSalt` numberOfNulls
 

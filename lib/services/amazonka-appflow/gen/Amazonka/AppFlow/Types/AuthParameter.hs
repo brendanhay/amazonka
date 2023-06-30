@@ -108,7 +108,8 @@ instance Data.FromJSON AuthParameter where
       "AuthParameter"
       ( \x ->
           AuthParameter'
-            Prelude.<$> ( x Data..:? "connectorSuppliedValues"
+            Prelude.<$> ( x
+                            Data..:? "connectorSuppliedValues"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "description")

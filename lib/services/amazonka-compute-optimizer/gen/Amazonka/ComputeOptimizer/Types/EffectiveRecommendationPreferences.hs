@@ -204,7 +204,8 @@ instance
       "EffectiveRecommendationPreferences"
       ( \x ->
           EffectiveRecommendationPreferences'
-            Prelude.<$> ( x Data..:? "cpuVendorArchitectures"
+            Prelude.<$> ( x
+                            Data..:? "cpuVendorArchitectures"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "enhancedInfrastructureMetrics")
@@ -219,7 +220,8 @@ instance
   hashWithSalt
     _salt
     EffectiveRecommendationPreferences' {..} =
-      _salt `Prelude.hashWithSalt` cpuVendorArchitectures
+      _salt
+        `Prelude.hashWithSalt` cpuVendorArchitectures
         `Prelude.hashWithSalt` enhancedInfrastructureMetrics
         `Prelude.hashWithSalt` externalMetricsPreference
         `Prelude.hashWithSalt` inferredWorkloadTypes

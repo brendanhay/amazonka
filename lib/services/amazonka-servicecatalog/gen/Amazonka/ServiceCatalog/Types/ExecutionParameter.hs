@@ -86,7 +86,8 @@ instance Data.FromJSON ExecutionParameter where
 
 instance Prelude.Hashable ExecutionParameter where
   hashWithSalt _salt ExecutionParameter' {..} =
-    _salt `Prelude.hashWithSalt` defaultValues
+    _salt
+      `Prelude.hashWithSalt` defaultValues
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 

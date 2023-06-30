@@ -105,7 +105,8 @@ instance
     UpsolverDestinationProperties
   where
   hashWithSalt _salt UpsolverDestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` bucketPrefix
+    _salt
+      `Prelude.hashWithSalt` bucketPrefix
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` s3OutputFormatConfig
 

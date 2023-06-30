@@ -136,7 +136,8 @@ instance Core.AWSRequest GetLinkAttributes where
 
 instance Prelude.Hashable GetLinkAttributes where
   hashWithSalt _salt GetLinkAttributes' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` typedLinkSpecifier
       `Prelude.hashWithSalt` attributeNames

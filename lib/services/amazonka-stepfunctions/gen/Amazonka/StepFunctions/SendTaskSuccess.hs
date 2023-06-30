@@ -120,7 +120,8 @@ instance Core.AWSRequest SendTaskSuccess where
 
 instance Prelude.Hashable SendTaskSuccess where
   hashWithSalt _salt SendTaskSuccess' {..} =
-    _salt `Prelude.hashWithSalt` taskToken
+    _salt
+      `Prelude.hashWithSalt` taskToken
       `Prelude.hashWithSalt` output
 
 instance Prelude.NFData SendTaskSuccess where

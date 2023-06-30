@@ -124,7 +124,8 @@ instance Data.FromJSON PackagingGroup where
 
 instance Prelude.Hashable PackagingGroup where
   hashWithSalt _salt PackagingGroup' {..} =
-    _salt `Prelude.hashWithSalt` approximateAssetCount
+    _salt
+      `Prelude.hashWithSalt` approximateAssetCount
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` authorization
       `Prelude.hashWithSalt` domainName

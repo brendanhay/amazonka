@@ -147,7 +147,8 @@ instance Core.AWSRequest StartImportLabelsTaskRun where
 
 instance Prelude.Hashable StartImportLabelsTaskRun where
   hashWithSalt _salt StartImportLabelsTaskRun' {..} =
-    _salt `Prelude.hashWithSalt` replaceAllLabels
+    _salt
+      `Prelude.hashWithSalt` replaceAllLabels
       `Prelude.hashWithSalt` transformId
       `Prelude.hashWithSalt` inputS3Path
 

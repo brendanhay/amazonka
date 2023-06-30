@@ -91,7 +91,8 @@ instance Data.FromJSON SplitFields where
 
 instance Prelude.Hashable SplitFields where
   hashWithSalt _salt SplitFields' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` paths
 

@@ -112,7 +112,8 @@ instance Data.FromJSON DirectKafkaSource where
 
 instance Prelude.Hashable DirectKafkaSource where
   hashWithSalt _salt DirectKafkaSource' {..} =
-    _salt `Prelude.hashWithSalt` dataPreviewOptions
+    _salt
+      `Prelude.hashWithSalt` dataPreviewOptions
       `Prelude.hashWithSalt` detectSchema
       `Prelude.hashWithSalt` streamingOptions
       `Prelude.hashWithSalt` windowSize

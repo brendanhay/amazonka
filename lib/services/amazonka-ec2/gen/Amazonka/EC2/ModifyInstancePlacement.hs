@@ -222,7 +222,8 @@ instance Core.AWSRequest ModifyInstancePlacement where
 
 instance Prelude.Hashable ModifyInstancePlacement where
   hashWithSalt _salt ModifyInstancePlacement' {..} =
-    _salt `Prelude.hashWithSalt` affinity
+    _salt
+      `Prelude.hashWithSalt` affinity
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` hostId

@@ -128,20 +128,23 @@ instance Core.AWSPager GetBots where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getBotsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getBotsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getBotsResponse_bots Prelude.. Lens._Just
+            Lens.^? getBotsResponse_bots
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getBots_nextToken
           Lens..~ rs
-          Lens.^? getBotsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getBotsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBots where
   type AWSResponse GetBots = GetBotsResponse
@@ -158,7 +161,8 @@ instance Core.AWSRequest GetBots where
 
 instance Prelude.Hashable GetBots where
   hashWithSalt _salt GetBots' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` nextToken
 

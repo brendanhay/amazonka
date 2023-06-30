@@ -54,11 +54,9 @@ newEarthObservationJobErrorDetails =
       type' = Prelude.Nothing
     }
 
--- |
 earthObservationJobErrorDetails_message :: Lens.Lens' EarthObservationJobErrorDetails (Prelude.Maybe Prelude.Text)
 earthObservationJobErrorDetails_message = Lens.lens (\EarthObservationJobErrorDetails' {message} -> message) (\s@EarthObservationJobErrorDetails' {} a -> s {message = a} :: EarthObservationJobErrorDetails)
 
--- |
 earthObservationJobErrorDetails_type :: Lens.Lens' EarthObservationJobErrorDetails (Prelude.Maybe EarthObservationJobErrorType)
 earthObservationJobErrorDetails_type = Lens.lens (\EarthObservationJobErrorDetails' {type'} -> type') (\s@EarthObservationJobErrorDetails' {} a -> s {type' = a} :: EarthObservationJobErrorDetails)
 
@@ -82,7 +80,8 @@ instance
   hashWithSalt
     _salt
     EarthObservationJobErrorDetails' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` type'
 
 instance

@@ -106,21 +106,23 @@ instance Core.AWSPager ListTemplates where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTemplatesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTemplatesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTemplatesResponse_templatesMetadata
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTemplates_nextToken
           Lens..~ rs
-          Lens.^? listTemplatesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTemplatesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTemplates where
   type
@@ -134,7 +136,8 @@ instance Core.AWSRequest ListTemplates where
       ( \s h x ->
           ListTemplatesResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "TemplatesMetadata"
+            Prelude.<*> ( x
+                            Data..@? "TemplatesMetadata"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -143,7 +146,8 @@ instance Core.AWSRequest ListTemplates where
 
 instance Prelude.Hashable ListTemplates where
   hashWithSalt _salt ListTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxItems
+    _salt
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTemplates where

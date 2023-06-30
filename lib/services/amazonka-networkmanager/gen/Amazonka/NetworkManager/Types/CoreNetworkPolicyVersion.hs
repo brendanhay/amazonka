@@ -119,7 +119,8 @@ instance Data.FromJSON CoreNetworkPolicyVersion where
 
 instance Prelude.Hashable CoreNetworkPolicyVersion where
   hashWithSalt _salt CoreNetworkPolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` changeSetState
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` createdAt

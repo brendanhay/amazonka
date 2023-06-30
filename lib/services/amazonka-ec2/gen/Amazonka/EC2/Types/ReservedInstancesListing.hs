@@ -154,24 +154,31 @@ instance Data.FromXML ReservedInstancesListing where
     ReservedInstancesListing'
       Prelude.<$> (x Data..@? "clientToken")
       Prelude.<*> (x Data..@? "createDate")
-      Prelude.<*> ( x Data..@? "instanceCounts" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "instanceCounts"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "priceSchedules" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "priceSchedules"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "reservedInstancesId")
       Prelude.<*> (x Data..@? "reservedInstancesListingId")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "updateDate")
 
 instance Prelude.Hashable ReservedInstancesListing where
   hashWithSalt _salt ReservedInstancesListing' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` instanceCounts
       `Prelude.hashWithSalt` priceSchedules

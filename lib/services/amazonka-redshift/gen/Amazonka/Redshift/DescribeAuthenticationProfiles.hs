@@ -92,7 +92,8 @@ instance
       "DescribeAuthenticationProfilesResult"
       ( \s h x ->
           DescribeAuthenticationProfilesResponse'
-            Prelude.<$> ( x Data..@? "AuthenticationProfiles"
+            Prelude.<$> ( x
+                            Data..@? "AuthenticationProfiles"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )

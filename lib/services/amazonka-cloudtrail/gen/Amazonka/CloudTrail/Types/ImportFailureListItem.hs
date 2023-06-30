@@ -106,7 +106,8 @@ instance Data.FromJSON ImportFailureListItem where
 
 instance Prelude.Hashable ImportFailureListItem where
   hashWithSalt _salt ImportFailureListItem' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorType
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` location

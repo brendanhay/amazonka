@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     UpdateDatalakeExceptionsSubscription' {..} =
-      _salt `Prelude.hashWithSalt` notificationEndpoint
+      _salt
+        `Prelude.hashWithSalt` notificationEndpoint
         `Prelude.hashWithSalt` subscriptionProtocol
 
 instance

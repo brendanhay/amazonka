@@ -159,28 +159,28 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeEngineDefaultClusterParametersResponse_engineDefaults
-              Prelude.. Lens._Just
-              Prelude.. engineDefaults_marker
-              Prelude.. Lens._Just
-        ) =
-      Prelude.Nothing
-    | Core.stop
-        ( rs
-            Lens.^? describeEngineDefaultClusterParametersResponse_engineDefaults
-              Prelude.. Lens._Just
-              Prelude.. engineDefaults_parameters
-              Prelude.. Lens._Just
-        ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
-          Prelude.& describeEngineDefaultClusterParameters_marker
-          Lens..~ rs
-          Lens.^? describeEngineDefaultClusterParametersResponse_engineDefaults
             Prelude.. Lens._Just
             Prelude.. engineDefaults_marker
             Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeEngineDefaultClusterParametersResponse_engineDefaults
+            Prelude.. Lens._Just
+            Prelude.. engineDefaults_parameters
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& describeEngineDefaultClusterParameters_marker
+          Lens..~ rs
+          Lens.^? describeEngineDefaultClusterParametersResponse_engineDefaults
+          Prelude.. Lens._Just
+          Prelude.. engineDefaults_marker
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -198,7 +198,7 @@ instance
       ( \s h x ->
           DescribeEngineDefaultClusterParametersResponse'
             Prelude.<$> (x Data..@? "EngineDefaults")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -208,7 +208,8 @@ instance
   hashWithSalt
     _salt
     DescribeEngineDefaultClusterParameters' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` dbParameterGroupFamily

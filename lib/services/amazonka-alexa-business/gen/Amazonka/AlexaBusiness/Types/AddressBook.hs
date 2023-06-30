@@ -84,7 +84,8 @@ instance Data.FromJSON AddressBook where
 
 instance Prelude.Hashable AddressBook where
   hashWithSalt _salt AddressBook' {..} =
-    _salt `Prelude.hashWithSalt` addressBookArn
+    _salt
+      `Prelude.hashWithSalt` addressBookArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 

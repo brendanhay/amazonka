@@ -244,7 +244,8 @@ instance Core.AWSRequest CreateComponent where
 
 instance Prelude.Hashable CreateComponent where
   hashWithSalt _salt CreateComponent' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` serviceInstanceName
       `Prelude.hashWithSalt` serviceName

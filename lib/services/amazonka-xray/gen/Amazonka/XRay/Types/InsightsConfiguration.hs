@@ -84,7 +84,8 @@ instance Data.FromJSON InsightsConfiguration where
 
 instance Prelude.Hashable InsightsConfiguration where
   hashWithSalt _salt InsightsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` insightsEnabled
+    _salt
+      `Prelude.hashWithSalt` insightsEnabled
       `Prelude.hashWithSalt` notificationsEnabled
 
 instance Prelude.NFData InsightsConfiguration where

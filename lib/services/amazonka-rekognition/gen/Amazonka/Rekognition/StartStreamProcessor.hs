@@ -153,7 +153,8 @@ instance Core.AWSRequest StartStreamProcessor where
 
 instance Prelude.Hashable StartStreamProcessor where
   hashWithSalt _salt StartStreamProcessor' {..} =
-    _salt `Prelude.hashWithSalt` startSelector
+    _salt
+      `Prelude.hashWithSalt` startSelector
       `Prelude.hashWithSalt` stopSelector
       `Prelude.hashWithSalt` name
 

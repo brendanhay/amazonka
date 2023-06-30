@@ -109,23 +109,27 @@ instance Data.FromJSON BrokerInstanceOption where
       "BrokerInstanceOption"
       ( \x ->
           BrokerInstanceOption'
-            Prelude.<$> ( x Data..:? "availabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "availabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "engineType")
             Prelude.<*> (x Data..:? "hostInstanceType")
             Prelude.<*> (x Data..:? "storageType")
-            Prelude.<*> ( x Data..:? "supportedDeploymentModes"
+            Prelude.<*> ( x
+                            Data..:? "supportedDeploymentModes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedEngineVersions"
+            Prelude.<*> ( x
+                            Data..:? "supportedEngineVersions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BrokerInstanceOption where
   hashWithSalt _salt BrokerInstanceOption' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` hostInstanceType
       `Prelude.hashWithSalt` storageType

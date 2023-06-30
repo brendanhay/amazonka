@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteRoomMembership where
 
 instance Prelude.Hashable DeleteRoomMembership where
   hashWithSalt _salt DeleteRoomMembership' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` roomId
       `Prelude.hashWithSalt` memberId
 

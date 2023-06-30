@@ -507,7 +507,8 @@ instance Core.AWSRequest AdminCreateUser where
 
 instance Prelude.Hashable AdminCreateUser where
   hashWithSalt _salt AdminCreateUser' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
+    _salt
+      `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` desiredDeliveryMediums
       `Prelude.hashWithSalt` forceAliasCreation
       `Prelude.hashWithSalt` messageAction

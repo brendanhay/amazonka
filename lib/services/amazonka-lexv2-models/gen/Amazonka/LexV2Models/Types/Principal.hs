@@ -71,7 +71,8 @@ principal_service = Lens.lens (\Principal' {service} -> service) (\s@Principal' 
 
 instance Prelude.Hashable Principal where
   hashWithSalt _salt Principal' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` service
 
 instance Prelude.NFData Principal where

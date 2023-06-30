@@ -85,7 +85,8 @@ regexPatternSetUpdate_regexPatternString = Lens.lens (\RegexPatternSetUpdate' {r
 
 instance Prelude.Hashable RegexPatternSetUpdate where
   hashWithSalt _salt RegexPatternSetUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` regexPatternString
 
 instance Prelude.NFData RegexPatternSetUpdate where

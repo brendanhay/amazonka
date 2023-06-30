@@ -109,7 +109,8 @@ instance Data.FromJSON OutpostConfigResponse where
 
 instance Prelude.Hashable OutpostConfigResponse where
   hashWithSalt _salt OutpostConfigResponse' {..} =
-    _salt `Prelude.hashWithSalt` controlPlanePlacement
+    _salt
+      `Prelude.hashWithSalt` controlPlanePlacement
       `Prelude.hashWithSalt` outpostArns
       `Prelude.hashWithSalt` controlPlaneInstanceType
 

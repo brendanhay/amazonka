@@ -513,7 +513,8 @@ instance Data.FromJSON AdvancedFieldSelector where
 
 instance Prelude.Hashable AdvancedFieldSelector where
   hashWithSalt _salt AdvancedFieldSelector' {..} =
-    _salt `Prelude.hashWithSalt` endsWith
+    _salt
+      `Prelude.hashWithSalt` endsWith
       `Prelude.hashWithSalt` equals
       `Prelude.hashWithSalt` notEndsWith
       `Prelude.hashWithSalt` notEquals

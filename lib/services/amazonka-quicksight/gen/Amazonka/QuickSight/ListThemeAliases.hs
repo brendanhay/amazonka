@@ -134,7 +134,8 @@ instance Core.AWSRequest ListThemeAliases where
 
 instance Prelude.Hashable ListThemeAliases where
   hashWithSalt _salt ListThemeAliases' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId

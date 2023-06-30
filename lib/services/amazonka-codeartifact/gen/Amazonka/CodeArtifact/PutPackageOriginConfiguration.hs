@@ -246,7 +246,8 @@ instance
     PutPackageOriginConfiguration
   where
   hashWithSalt _salt PutPackageOriginConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository

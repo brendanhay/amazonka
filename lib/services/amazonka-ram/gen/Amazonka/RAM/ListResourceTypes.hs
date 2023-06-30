@@ -187,7 +187,8 @@ instance Core.AWSRequest ListResourceTypes where
 
 instance Prelude.Hashable ListResourceTypes where
   hashWithSalt _salt ListResourceTypes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceRegionScope
 

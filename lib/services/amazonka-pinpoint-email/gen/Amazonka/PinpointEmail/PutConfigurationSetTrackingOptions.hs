@@ -118,7 +118,8 @@ instance
   hashWithSalt
     _salt
     PutConfigurationSetTrackingOptions' {..} =
-      _salt `Prelude.hashWithSalt` customRedirectDomain
+      _salt
+        `Prelude.hashWithSalt` customRedirectDomain
         `Prelude.hashWithSalt` configurationSetName
 
 instance

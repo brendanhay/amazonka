@@ -77,7 +77,8 @@ instance Data.FromJSON ChallengeResponseType where
 
 instance Prelude.Hashable ChallengeResponseType where
   hashWithSalt _salt ChallengeResponseType' {..} =
-    _salt `Prelude.hashWithSalt` challengeName
+    _salt
+      `Prelude.hashWithSalt` challengeName
       `Prelude.hashWithSalt` challengeResponse
 
 instance Prelude.NFData ChallengeResponseType where

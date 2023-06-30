@@ -119,7 +119,8 @@ instance Core.AWSRequest CancelConversionTask where
 
 instance Prelude.Hashable CancelConversionTask where
   hashWithSalt _salt CancelConversionTask' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` reasonMessage
       `Prelude.hashWithSalt` conversionTaskId
 

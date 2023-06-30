@@ -91,7 +91,8 @@ instance Data.FromJSON PipelineObject where
 
 instance Prelude.Hashable PipelineObject where
   hashWithSalt _salt PipelineObject' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fields
 

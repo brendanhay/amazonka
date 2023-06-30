@@ -85,12 +85,14 @@ instance Data.FromJSON CustomHTTPHeader where
       "CustomHTTPHeader"
       ( \x ->
           CustomHTTPHeader'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable CustomHTTPHeader where
   hashWithSalt _salt CustomHTTPHeader' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CustomHTTPHeader where

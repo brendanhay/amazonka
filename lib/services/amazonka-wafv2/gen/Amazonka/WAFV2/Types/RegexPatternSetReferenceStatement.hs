@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     RegexPatternSetReferenceStatement' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` fieldToMatch
         `Prelude.hashWithSalt` textTransformations
 

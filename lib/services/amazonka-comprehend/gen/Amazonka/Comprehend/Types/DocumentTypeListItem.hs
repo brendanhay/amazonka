@@ -69,12 +69,14 @@ instance Data.FromJSON DocumentTypeListItem where
       "DocumentTypeListItem"
       ( \x ->
           DocumentTypeListItem'
-            Prelude.<$> (x Data..:? "Page") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Page")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable DocumentTypeListItem where
   hashWithSalt _salt DocumentTypeListItem' {..} =
-    _salt `Prelude.hashWithSalt` page
+    _salt
+      `Prelude.hashWithSalt` page
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DocumentTypeListItem where

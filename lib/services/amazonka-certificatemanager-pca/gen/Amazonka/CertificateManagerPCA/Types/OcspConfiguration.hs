@@ -120,7 +120,8 @@ instance Data.FromJSON OcspConfiguration where
 
 instance Prelude.Hashable OcspConfiguration where
   hashWithSalt _salt OcspConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` ocspCustomCname
+    _salt
+      `Prelude.hashWithSalt` ocspCustomCname
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData OcspConfiguration where

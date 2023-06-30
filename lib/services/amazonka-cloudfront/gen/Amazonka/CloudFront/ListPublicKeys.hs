@@ -113,7 +113,8 @@ instance Core.AWSRequest ListPublicKeys where
 
 instance Prelude.Hashable ListPublicKeys where
   hashWithSalt _salt ListPublicKeys' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListPublicKeys where

@@ -258,7 +258,8 @@ instance Core.AWSRequest UpdateWorkload where
 
 instance Prelude.Hashable UpdateWorkload where
   hashWithSalt _salt UpdateWorkload' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` architecturalDesign
       `Prelude.hashWithSalt` awsRegions

@@ -131,7 +131,8 @@ instance Core.AWSRequest DeleteSchemaVersions where
     Response.receiveJSON
       ( \s h x ->
           DeleteSchemaVersionsResponse'
-            Prelude.<$> ( x Data..?> "SchemaVersionErrors"
+            Prelude.<$> ( x
+                            Data..?> "SchemaVersionErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -139,7 +140,8 @@ instance Core.AWSRequest DeleteSchemaVersions where
 
 instance Prelude.Hashable DeleteSchemaVersions where
   hashWithSalt _salt DeleteSchemaVersions' {..} =
-    _salt `Prelude.hashWithSalt` schemaId
+    _salt
+      `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` versions
 
 instance Prelude.NFData DeleteSchemaVersions where

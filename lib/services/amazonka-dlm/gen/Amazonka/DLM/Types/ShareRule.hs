@@ -95,7 +95,8 @@ instance Data.FromJSON ShareRule where
 
 instance Prelude.Hashable ShareRule where
   hashWithSalt _salt ShareRule' {..} =
-    _salt `Prelude.hashWithSalt` unshareInterval
+    _salt
+      `Prelude.hashWithSalt` unshareInterval
       `Prelude.hashWithSalt` unshareIntervalUnit
       `Prelude.hashWithSalt` targetAccounts
 

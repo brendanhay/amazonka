@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     ModifyMountTargetSecurityGroups' {..} =
-      _salt `Prelude.hashWithSalt` securityGroups
+      _salt
+        `Prelude.hashWithSalt` securityGroups
         `Prelude.hashWithSalt` mountTargetId
 
 instance

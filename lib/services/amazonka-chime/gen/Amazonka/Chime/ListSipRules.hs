@@ -113,7 +113,8 @@ instance Core.AWSRequest ListSipRules where
 
 instance Prelude.Hashable ListSipRules where
   hashWithSalt _salt ListSipRules' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sipMediaApplicationId
 

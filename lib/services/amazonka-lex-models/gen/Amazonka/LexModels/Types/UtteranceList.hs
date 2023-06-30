@@ -82,7 +82,8 @@ instance Data.FromJSON UtteranceList where
 
 instance Prelude.Hashable UtteranceList where
   hashWithSalt _salt UtteranceList' {..} =
-    _salt `Prelude.hashWithSalt` botVersion
+    _salt
+      `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` utterances
 
 instance Prelude.NFData UtteranceList where

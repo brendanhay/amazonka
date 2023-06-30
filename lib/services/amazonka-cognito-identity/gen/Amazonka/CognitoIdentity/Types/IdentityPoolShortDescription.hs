@@ -78,7 +78,8 @@ instance
     IdentityPoolShortDescription
   where
   hashWithSalt _salt IdentityPoolShortDescription' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
+    _salt
+      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityPoolName
 
 instance Prelude.NFData IdentityPoolShortDescription where

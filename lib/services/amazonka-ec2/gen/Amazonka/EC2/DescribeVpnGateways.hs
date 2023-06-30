@@ -215,7 +215,9 @@ instance Core.AWSRequest DescribeVpnGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeVpnGatewaysResponse'
-            Prelude.<$> ( x Data..@? "vpnGatewaySet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "vpnGatewaySet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -223,7 +225,8 @@ instance Core.AWSRequest DescribeVpnGateways where
 
 instance Prelude.Hashable DescribeVpnGateways where
   hashWithSalt _salt DescribeVpnGateways' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` vpnGatewayIds
 

@@ -137,7 +137,8 @@ instance Data.FromJSON Campaign where
 
 instance Prelude.Hashable Campaign where
   hashWithSalt _salt Campaign' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` connectInstanceId
       `Prelude.hashWithSalt` dialerConfig

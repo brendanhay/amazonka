@@ -110,7 +110,8 @@ instance Data.FromJSON EventIntegrationAssociation where
       "EventIntegrationAssociation"
       ( \x ->
           EventIntegrationAssociation'
-            Prelude.<$> ( x Data..:? "ClientAssociationMetadata"
+            Prelude.<$> ( x
+                            Data..:? "ClientAssociationMetadata"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ClientId")

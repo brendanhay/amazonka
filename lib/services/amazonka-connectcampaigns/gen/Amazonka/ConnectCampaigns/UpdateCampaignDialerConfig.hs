@@ -97,7 +97,8 @@ instance Core.AWSRequest UpdateCampaignDialerConfig where
 
 instance Prelude.Hashable UpdateCampaignDialerConfig where
   hashWithSalt _salt UpdateCampaignDialerConfig' {..} =
-    _salt `Prelude.hashWithSalt` dialerConfig
+    _salt
+      `Prelude.hashWithSalt` dialerConfig
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateCampaignDialerConfig where

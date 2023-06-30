@@ -105,7 +105,8 @@ instance Core.AWSRequest StopSuiteRun where
 
 instance Prelude.Hashable StopSuiteRun where
   hashWithSalt _salt StopSuiteRun' {..} =
-    _salt `Prelude.hashWithSalt` suiteDefinitionId
+    _salt
+      `Prelude.hashWithSalt` suiteDefinitionId
       `Prelude.hashWithSalt` suiteRunId
 
 instance Prelude.NFData StopSuiteRun where

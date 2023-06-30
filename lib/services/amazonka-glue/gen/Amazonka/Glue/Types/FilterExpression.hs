@@ -88,7 +88,8 @@ instance Data.FromJSON FilterExpression where
 
 instance Prelude.Hashable FilterExpression where
   hashWithSalt _salt FilterExpression' {..} =
-    _salt `Prelude.hashWithSalt` negated
+    _salt
+      `Prelude.hashWithSalt` negated
       `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` values
 

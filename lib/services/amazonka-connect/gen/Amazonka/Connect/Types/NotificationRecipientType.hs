@@ -81,7 +81,8 @@ instance Data.FromJSON NotificationRecipientType where
 
 instance Prelude.Hashable NotificationRecipientType where
   hashWithSalt _salt NotificationRecipientType' {..} =
-    _salt `Prelude.hashWithSalt` userIds
+    _salt
+      `Prelude.hashWithSalt` userIds
       `Prelude.hashWithSalt` userTags
 
 instance Prelude.NFData NotificationRecipientType where

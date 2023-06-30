@@ -257,7 +257,8 @@ instance Data.FromJSON Studio where
 
 instance Prelude.Hashable Studio where
   hashWithSalt _salt Studio' {..} =
-    _salt `Prelude.hashWithSalt` authMode
+    _salt
+      `Prelude.hashWithSalt` authMode
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` defaultS3Location
       `Prelude.hashWithSalt` description

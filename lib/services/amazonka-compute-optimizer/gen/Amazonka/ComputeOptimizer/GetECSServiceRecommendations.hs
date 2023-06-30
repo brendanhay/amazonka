@@ -181,7 +181,8 @@ instance Core.AWSRequest GetECSServiceRecommendations where
     Response.receiveJSON
       ( \s h x ->
           GetECSServiceRecommendationsResponse'
-            Prelude.<$> ( x Data..?> "ecsServiceRecommendations"
+            Prelude.<$> ( x
+                            Data..?> "ecsServiceRecommendations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
@@ -194,7 +195,8 @@ instance
     GetECSServiceRecommendations
   where
   hashWithSalt _salt GetECSServiceRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

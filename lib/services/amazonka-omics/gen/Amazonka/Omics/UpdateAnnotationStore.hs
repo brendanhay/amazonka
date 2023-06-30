@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateAnnotationStore where
 
 instance Prelude.Hashable UpdateAnnotationStore where
   hashWithSalt _salt UpdateAnnotationStore' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateAnnotationStore where

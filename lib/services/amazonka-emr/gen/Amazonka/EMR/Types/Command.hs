@@ -84,7 +84,8 @@ instance Data.FromJSON Command where
 
 instance Prelude.Hashable Command where
   hashWithSalt _salt Command' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt
+      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scriptPath
 

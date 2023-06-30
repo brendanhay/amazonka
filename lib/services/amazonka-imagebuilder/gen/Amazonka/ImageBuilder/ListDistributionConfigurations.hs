@@ -113,7 +113,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDistributionConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "distributionConfigurationSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "distributionConfigurationSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -128,7 +129,8 @@ instance
   hashWithSalt
     _salt
     ListDistributionConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 

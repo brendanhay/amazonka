@@ -199,22 +199,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeLocalGatewayVirtualInterfacesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLocalGatewayVirtualInterfacesResponse_localGatewayVirtualInterfaces
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLocalGatewayVirtualInterfaces_nextToken
           Lens..~ rs
-            Lens.^? describeLocalGatewayVirtualInterfacesResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeLocalGatewayVirtualInterfacesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -230,12 +230,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeLocalGatewayVirtualInterfacesResponse'
-            Prelude.<$> ( x Data..@? "localGatewayVirtualInterfaceSet"
+            Prelude.<$> ( x
+                            Data..@? "localGatewayVirtualInterfaceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -245,7 +246,8 @@ instance
   hashWithSalt
     _salt
     DescribeLocalGatewayVirtualInterfaces' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` localGatewayVirtualInterfaceIds
         `Prelude.hashWithSalt` maxResults

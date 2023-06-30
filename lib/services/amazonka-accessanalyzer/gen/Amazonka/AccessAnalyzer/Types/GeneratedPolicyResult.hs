@@ -85,7 +85,8 @@ instance Data.FromJSON GeneratedPolicyResult where
       "GeneratedPolicyResult"
       ( \x ->
           GeneratedPolicyResult'
-            Prelude.<$> ( x Data..:? "generatedPolicies"
+            Prelude.<$> ( x
+                            Data..:? "generatedPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "properties")
@@ -93,7 +94,8 @@ instance Data.FromJSON GeneratedPolicyResult where
 
 instance Prelude.Hashable GeneratedPolicyResult where
   hashWithSalt _salt GeneratedPolicyResult' {..} =
-    _salt `Prelude.hashWithSalt` generatedPolicies
+    _salt
+      `Prelude.hashWithSalt` generatedPolicies
       `Prelude.hashWithSalt` properties
 
 instance Prelude.NFData GeneratedPolicyResult where

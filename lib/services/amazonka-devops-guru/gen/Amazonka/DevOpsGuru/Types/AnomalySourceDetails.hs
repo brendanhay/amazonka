@@ -81,17 +81,20 @@ instance Data.FromJSON AnomalySourceDetails where
       "AnomalySourceDetails"
       ( \x ->
           AnomalySourceDetails'
-            Prelude.<$> ( x Data..:? "CloudWatchMetrics"
+            Prelude.<$> ( x
+                            Data..:? "CloudWatchMetrics"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "PerformanceInsightsMetrics"
+            Prelude.<*> ( x
+                            Data..:? "PerformanceInsightsMetrics"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AnomalySourceDetails where
   hashWithSalt _salt AnomalySourceDetails' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchMetrics
+    _salt
+      `Prelude.hashWithSalt` cloudWatchMetrics
       `Prelude.hashWithSalt` performanceInsightsMetrics
 
 instance Prelude.NFData AnomalySourceDetails where

@@ -125,7 +125,8 @@ instance Core.AWSRequest DescribeVirtualNode where
 
 instance Prelude.Hashable DescribeVirtualNode where
   hashWithSalt _salt DescribeVirtualNode' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualNodeName
 

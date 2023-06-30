@@ -164,7 +164,8 @@ instance
     GetMobileDeviceAccessOverride
   where
   hashWithSalt _salt GetMobileDeviceAccessOverride' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` deviceId
 

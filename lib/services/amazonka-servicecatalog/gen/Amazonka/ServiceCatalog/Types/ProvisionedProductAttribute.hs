@@ -388,7 +388,8 @@ instance Data.FromJSON ProvisionedProductAttribute where
 
 instance Prelude.Hashable ProvisionedProductAttribute where
   hashWithSalt _salt ProvisionedProductAttribute' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` idempotencyToken

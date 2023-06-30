@@ -78,7 +78,8 @@ instance Data.FromJSON LabelsS3InputConfiguration where
 
 instance Prelude.Hashable LabelsS3InputConfiguration where
   hashWithSalt _salt LabelsS3InputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData LabelsS3InputConfiguration where

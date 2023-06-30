@@ -192,7 +192,8 @@ instance
   hashWithSalt
     _salt
     UpdateQuerySuggestionsBlockList' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` roleArn
         `Prelude.hashWithSalt` sourceS3Path

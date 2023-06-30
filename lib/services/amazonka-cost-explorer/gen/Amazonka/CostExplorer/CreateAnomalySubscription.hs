@@ -178,7 +178,8 @@ instance Core.AWSRequest CreateAnomalySubscription where
 
 instance Prelude.Hashable CreateAnomalySubscription where
   hashWithSalt _salt CreateAnomalySubscription' {..} =
-    _salt `Prelude.hashWithSalt` resourceTags
+    _salt
+      `Prelude.hashWithSalt` resourceTags
       `Prelude.hashWithSalt` anomalySubscription
 
 instance Prelude.NFData CreateAnomalySubscription where

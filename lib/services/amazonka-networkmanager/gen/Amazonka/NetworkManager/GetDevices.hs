@@ -123,20 +123,23 @@ instance Core.AWSPager GetDevices where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getDevicesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getDevicesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getDevicesResponse_devices Prelude.. Lens._Just
+            Lens.^? getDevicesResponse_devices
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getDevices_nextToken
           Lens..~ rs
-          Lens.^? getDevicesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getDevicesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDevices where
   type AWSResponse GetDevices = GetDevicesResponse
@@ -153,7 +156,8 @@ instance Core.AWSRequest GetDevices where
 
 instance Prelude.Hashable GetDevices where
   hashWithSalt _salt GetDevices' {..} =
-    _salt `Prelude.hashWithSalt` deviceIds
+    _salt
+      `Prelude.hashWithSalt` deviceIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` siteId

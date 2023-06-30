@@ -123,7 +123,8 @@ instance Core.AWSRequest AddLFTagsToResource where
 
 instance Prelude.Hashable AddLFTagsToResource where
   hashWithSalt _salt AddLFTagsToResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` lFTags
 

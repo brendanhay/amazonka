@@ -85,14 +85,16 @@ instance Data.FromJSON DialogState where
           DialogState'
             Prelude.<$> (x Data..:? "dialogAction")
             Prelude.<*> (x Data..:? "intent")
-            Prelude.<*> ( x Data..:? "sessionAttributes"
+            Prelude.<*> ( x
+                            Data..:? "sessionAttributes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DialogState where
   hashWithSalt _salt DialogState' {..} =
-    _salt `Prelude.hashWithSalt` dialogAction
+    _salt
+      `Prelude.hashWithSalt` dialogAction
       `Prelude.hashWithSalt` intent
       `Prelude.hashWithSalt` sessionAttributes
 

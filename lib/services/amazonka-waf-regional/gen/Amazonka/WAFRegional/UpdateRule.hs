@@ -182,7 +182,8 @@ instance Core.AWSRequest UpdateRule where
 
 instance Prelude.Hashable UpdateRule where
   hashWithSalt _salt UpdateRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleId
+    _salt
+      `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` changeToken
       `Prelude.hashWithSalt` updates
 

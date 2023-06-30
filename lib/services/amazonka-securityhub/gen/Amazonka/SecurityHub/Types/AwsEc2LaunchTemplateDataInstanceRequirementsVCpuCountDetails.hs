@@ -73,7 +73,8 @@ instance
       "AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails"
       ( \x ->
           AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails'
-            Prelude.<$> (x Data..:? "Max") Prelude.<*> (x Data..:? "Min")
+            Prelude.<$> (x Data..:? "Max")
+            Prelude.<*> (x Data..:? "Min")
       )
 
 instance
@@ -83,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails' {..} =
-      _salt `Prelude.hashWithSalt` max
+      _salt
+        `Prelude.hashWithSalt` max
         `Prelude.hashWithSalt` min
 
 instance

@@ -100,7 +100,8 @@ instance Core.AWSRequest GetSearchSuggestions where
     Response.receiveJSON
       ( \s h x ->
           GetSearchSuggestionsResponse'
-            Prelude.<$> ( x Data..?> "PropertyNameSuggestions"
+            Prelude.<$> ( x
+                            Data..?> "PropertyNameSuggestions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -108,7 +109,8 @@ instance Core.AWSRequest GetSearchSuggestions where
 
 instance Prelude.Hashable GetSearchSuggestions where
   hashWithSalt _salt GetSearchSuggestions' {..} =
-    _salt `Prelude.hashWithSalt` suggestionQuery
+    _salt
+      `Prelude.hashWithSalt` suggestionQuery
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData GetSearchSuggestions where

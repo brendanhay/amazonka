@@ -283,20 +283,23 @@ instance Core.AWSPager DescribeVpcs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeVpcsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describeVpcsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeVpcsResponse_vpcs Prelude.. Lens._Just
+            Lens.^? describeVpcsResponse_vpcs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcs_nextToken
           Lens..~ rs
-          Lens.^? describeVpcsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeVpcsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVpcs where
   type AWSResponse DescribeVpcs = DescribeVpcsResponse
@@ -307,7 +310,9 @@ instance Core.AWSRequest DescribeVpcs where
       ( \s h x ->
           DescribeVpcsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "vpcSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "vpcSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -315,7 +320,8 @@ instance Core.AWSRequest DescribeVpcs where
 
 instance Prelude.Hashable DescribeVpcs where
   hashWithSalt _salt DescribeVpcs' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

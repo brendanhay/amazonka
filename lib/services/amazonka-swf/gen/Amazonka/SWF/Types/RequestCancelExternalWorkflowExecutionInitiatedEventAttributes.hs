@@ -116,9 +116,9 @@ instance
       ( \x ->
           RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
             Prelude.<$> (x Data..:? "control")
-              Prelude.<*> (x Data..:? "runId")
-              Prelude.<*> (x Data..: "workflowId")
-              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+            Prelude.<*> (x Data..:? "runId")
+            Prelude.<*> (x Data..: "workflowId")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance
@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     RequestCancelExternalWorkflowExecutionInitiatedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` runId
         `Prelude.hashWithSalt` workflowId
         `Prelude.hashWithSalt` decisionTaskCompletedEventId

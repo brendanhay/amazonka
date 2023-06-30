@@ -47,7 +47,6 @@ newCustomIndicesInput ::
 newCustomIndicesInput =
   CustomIndicesInput' {operations = Prelude.Nothing}
 
--- |
 customIndicesInput_operations :: Lens.Lens' CustomIndicesInput (Prelude.Maybe (Prelude.NonEmpty Operation))
 customIndicesInput_operations = Lens.lens (\CustomIndicesInput' {operations} -> operations) (\s@CustomIndicesInput' {} a -> s {operations = a} :: CustomIndicesInput) Prelude.. Lens.mapping Lens.coerced
 

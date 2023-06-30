@@ -145,7 +145,8 @@ instance Data.FromJSON ProactiveInsightSummary where
       "ProactiveInsightSummary"
       ( \x ->
           ProactiveInsightSummary'
-            Prelude.<$> ( x Data..:? "AssociatedResourceArns"
+            Prelude.<$> ( x
+                            Data..:? "AssociatedResourceArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Id")
@@ -160,7 +161,8 @@ instance Data.FromJSON ProactiveInsightSummary where
 
 instance Prelude.Hashable ProactiveInsightSummary where
   hashWithSalt _salt ProactiveInsightSummary' {..} =
-    _salt `Prelude.hashWithSalt` associatedResourceArns
+    _salt
+      `Prelude.hashWithSalt` associatedResourceArns
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` insightTimeRange
       `Prelude.hashWithSalt` name

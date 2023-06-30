@@ -75,7 +75,8 @@ instance
       ( \x ->
           ServerGroupValidationConfiguration'
             Prelude.<$> (x Data..:? "serverGroupId")
-            Prelude.<*> ( x Data..:? "serverValidationConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "serverValidationConfigurations"
                             Data..!= Prelude.mempty
                         )
       )
@@ -87,7 +88,8 @@ instance
   hashWithSalt
     _salt
     ServerGroupValidationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` serverGroupId
+      _salt
+        `Prelude.hashWithSalt` serverGroupId
         `Prelude.hashWithSalt` serverValidationConfigurations
 
 instance

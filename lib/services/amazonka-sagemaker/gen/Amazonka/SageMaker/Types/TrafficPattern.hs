@@ -76,7 +76,8 @@ instance Data.FromJSON TrafficPattern where
 
 instance Prelude.Hashable TrafficPattern where
   hashWithSalt _salt TrafficPattern' {..} =
-    _salt `Prelude.hashWithSalt` phases
+    _salt
+      `Prelude.hashWithSalt` phases
       `Prelude.hashWithSalt` trafficType
 
 instance Prelude.NFData TrafficPattern where

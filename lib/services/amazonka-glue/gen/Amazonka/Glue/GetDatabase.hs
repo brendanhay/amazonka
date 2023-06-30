@@ -106,7 +106,8 @@ instance Core.AWSRequest GetDatabase where
 
 instance Prelude.Hashable GetDatabase where
   hashWithSalt _salt GetDatabase' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetDatabase where

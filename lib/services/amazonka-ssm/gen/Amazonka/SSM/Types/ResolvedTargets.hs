@@ -74,7 +74,8 @@ instance Data.FromJSON ResolvedTargets where
       "ResolvedTargets"
       ( \x ->
           ResolvedTargets'
-            Prelude.<$> ( x Data..:? "ParameterValues"
+            Prelude.<$> ( x
+                            Data..:? "ParameterValues"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Truncated")
@@ -82,7 +83,8 @@ instance Data.FromJSON ResolvedTargets where
 
 instance Prelude.Hashable ResolvedTargets where
   hashWithSalt _salt ResolvedTargets' {..} =
-    _salt `Prelude.hashWithSalt` parameterValues
+    _salt
+      `Prelude.hashWithSalt` parameterValues
       `Prelude.hashWithSalt` truncated
 
 instance Prelude.NFData ResolvedTargets where

@@ -148,7 +148,8 @@ instance Data.FromJSON AggregateEvaluationResult where
 
 instance Prelude.Hashable AggregateEvaluationResult where
   hashWithSalt _salt AggregateEvaluationResult' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` annotation
       `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` complianceType

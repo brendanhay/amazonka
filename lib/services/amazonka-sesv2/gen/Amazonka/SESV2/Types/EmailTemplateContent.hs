@@ -88,7 +88,8 @@ instance Data.FromJSON EmailTemplateContent where
 
 instance Prelude.Hashable EmailTemplateContent where
   hashWithSalt _salt EmailTemplateContent' {..} =
-    _salt `Prelude.hashWithSalt` html
+    _salt
+      `Prelude.hashWithSalt` html
       `Prelude.hashWithSalt` subject
       `Prelude.hashWithSalt` text
 

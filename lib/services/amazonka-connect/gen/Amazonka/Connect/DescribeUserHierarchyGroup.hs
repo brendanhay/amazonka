@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeUserHierarchyGroup where
 
 instance Prelude.Hashable DescribeUserHierarchyGroup where
   hashWithSalt _salt DescribeUserHierarchyGroup' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyGroupId
+    _salt
+      `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DescribeUserHierarchyGroup where

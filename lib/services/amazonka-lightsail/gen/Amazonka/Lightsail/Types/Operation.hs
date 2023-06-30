@@ -181,7 +181,8 @@ instance Data.FromJSON Operation where
 
 instance Prelude.Hashable Operation where
   hashWithSalt _salt Operation' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorDetails
       `Prelude.hashWithSalt` id

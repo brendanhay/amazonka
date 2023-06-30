@@ -79,7 +79,8 @@ slotDateTimeRangeRequest_latestTime = Lens.lens (\SlotDateTimeRangeRequest' {lat
 
 instance Prelude.Hashable SlotDateTimeRangeRequest where
   hashWithSalt _salt SlotDateTimeRangeRequest' {..} =
-    _salt `Prelude.hashWithSalt` earliestTime
+    _salt
+      `Prelude.hashWithSalt` earliestTime
       `Prelude.hashWithSalt` latestTime
 
 instance Prelude.NFData SlotDateTimeRangeRequest where

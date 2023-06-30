@@ -104,7 +104,8 @@ instance Core.AWSRequest RemoveTagsFromResource where
 
 instance Prelude.Hashable RemoveTagsFromResource where
   hashWithSalt _salt RemoveTagsFromResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceName
+    _salt
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData RemoveTagsFromResource where

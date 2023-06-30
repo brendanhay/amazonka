@@ -146,7 +146,8 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` appConfigResource
+    _salt
+      `Prelude.hashWithSalt` appConfigResource
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` project
 

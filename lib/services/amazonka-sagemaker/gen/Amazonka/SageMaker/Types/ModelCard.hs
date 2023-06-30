@@ -234,7 +234,8 @@ instance Data.FromJSON ModelCard where
 
 instance Prelude.Hashable ModelCard where
   hashWithSalt _salt ModelCard' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedBy

@@ -91,11 +91,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeKinesisStreamingDestinationResponse'
-            Prelude.<$> ( x Data..?> "KinesisDataStreamDestinations"
+            Prelude.<$> ( x
+                            Data..?> "KinesisDataStreamDestinations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "TableName")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "TableName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

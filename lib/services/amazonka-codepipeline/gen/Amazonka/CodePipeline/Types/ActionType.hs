@@ -109,7 +109,8 @@ instance Data.FromJSON ActionType where
       "ActionType"
       ( \x ->
           ActionType'
-            Prelude.<$> ( x Data..:? "actionConfigurationProperties"
+            Prelude.<$> ( x
+                            Data..:? "actionConfigurationProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "settings")

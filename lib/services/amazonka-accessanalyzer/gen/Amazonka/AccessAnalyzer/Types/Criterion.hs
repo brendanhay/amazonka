@@ -99,7 +99,8 @@ instance Data.FromJSON Criterion where
 
 instance Prelude.Hashable Criterion where
   hashWithSalt _salt Criterion' {..} =
-    _salt `Prelude.hashWithSalt` contains
+    _salt
+      `Prelude.hashWithSalt` contains
       `Prelude.hashWithSalt` eq
       `Prelude.hashWithSalt` exists
       `Prelude.hashWithSalt` neq

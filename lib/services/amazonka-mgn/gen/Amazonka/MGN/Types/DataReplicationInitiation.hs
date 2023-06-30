@@ -86,7 +86,8 @@ instance Data.FromJSON DataReplicationInitiation where
 
 instance Prelude.Hashable DataReplicationInitiation where
   hashWithSalt _salt DataReplicationInitiation' {..} =
-    _salt `Prelude.hashWithSalt` nextAttemptDateTime
+    _salt
+      `Prelude.hashWithSalt` nextAttemptDateTime
       `Prelude.hashWithSalt` startDateTime
       `Prelude.hashWithSalt` steps
 

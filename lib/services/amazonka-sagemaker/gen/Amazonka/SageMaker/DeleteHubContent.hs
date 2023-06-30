@@ -123,7 +123,8 @@ instance Core.AWSRequest DeleteHubContent where
 
 instance Prelude.Hashable DeleteHubContent where
   hashWithSalt _salt DeleteHubContent' {..} =
-    _salt `Prelude.hashWithSalt` hubName
+    _salt
+      `Prelude.hashWithSalt` hubName
       `Prelude.hashWithSalt` hubContentType
       `Prelude.hashWithSalt` hubContentName
       `Prelude.hashWithSalt` hubContentVersion

@@ -204,7 +204,8 @@ instance Core.AWSRequest UpdateDevicePool where
 
 instance Prelude.Hashable UpdateDevicePool where
   hashWithSalt _salt UpdateDevicePool' {..} =
-    _salt `Prelude.hashWithSalt` clearMaxDevices
+    _salt
+      `Prelude.hashWithSalt` clearMaxDevices
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxDevices
       `Prelude.hashWithSalt` name

@@ -106,7 +106,8 @@ instance Core.AWSRequest DeregisterCompute where
 
 instance Prelude.Hashable DeregisterCompute where
   hashWithSalt _salt DeregisterCompute' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` computeName
 
 instance Prelude.NFData DeregisterCompute where

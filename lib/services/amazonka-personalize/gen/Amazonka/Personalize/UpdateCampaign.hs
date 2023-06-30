@@ -139,7 +139,8 @@ instance Core.AWSRequest UpdateCampaign where
 
 instance Prelude.Hashable UpdateCampaign where
   hashWithSalt _salt UpdateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignConfig
+    _salt
+      `Prelude.hashWithSalt` campaignConfig
       `Prelude.hashWithSalt` minProvisionedTPS
       `Prelude.hashWithSalt` solutionVersionArn
       `Prelude.hashWithSalt` campaignArn

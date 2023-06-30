@@ -387,7 +387,8 @@ instance Core.AWSRequest CreateContainerService where
 
 instance Prelude.Hashable CreateContainerService where
   hashWithSalt _salt CreateContainerService' {..} =
-    _salt `Prelude.hashWithSalt` deployment
+    _salt
+      `Prelude.hashWithSalt` deployment
       `Prelude.hashWithSalt` privateRegistryAccess
       `Prelude.hashWithSalt` publicDomainNames
       `Prelude.hashWithSalt` tags

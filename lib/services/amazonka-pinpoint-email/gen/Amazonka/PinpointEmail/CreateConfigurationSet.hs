@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateConfigurationSet where
 
 instance Prelude.Hashable CreateConfigurationSet where
   hashWithSalt _salt CreateConfigurationSet' {..} =
-    _salt `Prelude.hashWithSalt` deliveryOptions
+    _salt
+      `Prelude.hashWithSalt` deliveryOptions
       `Prelude.hashWithSalt` reputationOptions
       `Prelude.hashWithSalt` sendingOptions
       `Prelude.hashWithSalt` tags

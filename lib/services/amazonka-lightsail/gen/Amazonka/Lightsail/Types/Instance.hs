@@ -322,7 +322,8 @@ instance Data.FromJSON Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` addOns
+    _salt
+      `Prelude.hashWithSalt` addOns
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` blueprintId
       `Prelude.hashWithSalt` blueprintName

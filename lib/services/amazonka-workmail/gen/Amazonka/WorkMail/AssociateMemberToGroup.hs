@@ -118,7 +118,8 @@ instance Core.AWSRequest AssociateMemberToGroup where
 
 instance Prelude.Hashable AssociateMemberToGroup where
   hashWithSalt _salt AssociateMemberToGroup' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` memberId
 

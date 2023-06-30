@@ -87,7 +87,8 @@ instance
     OnDeviceServiceConfiguration
   where
   hashWithSalt _salt OnDeviceServiceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` nFSOnDeviceService
+    _salt
+      `Prelude.hashWithSalt` nFSOnDeviceService
       `Prelude.hashWithSalt` tGWOnDeviceService
 
 instance Prelude.NFData OnDeviceServiceConfiguration where

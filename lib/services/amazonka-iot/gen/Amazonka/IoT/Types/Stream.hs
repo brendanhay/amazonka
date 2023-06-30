@@ -74,7 +74,8 @@ instance Data.FromJSON Stream where
 
 instance Prelude.Hashable Stream where
   hashWithSalt _salt Stream' {..} =
-    _salt `Prelude.hashWithSalt` fileId
+    _salt
+      `Prelude.hashWithSalt` fileId
       `Prelude.hashWithSalt` streamId
 
 instance Prelude.NFData Stream where

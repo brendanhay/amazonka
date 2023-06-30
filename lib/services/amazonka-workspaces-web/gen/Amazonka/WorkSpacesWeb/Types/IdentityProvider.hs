@@ -273,7 +273,8 @@ instance Data.FromJSON IdentityProvider where
       "IdentityProvider"
       ( \x ->
           IdentityProvider'
-            Prelude.<$> ( x Data..:? "identityProviderDetails"
+            Prelude.<$> ( x
+                            Data..:? "identityProviderDetails"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "identityProviderName")

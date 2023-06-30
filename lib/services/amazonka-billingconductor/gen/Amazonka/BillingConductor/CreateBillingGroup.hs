@@ -173,7 +173,8 @@ instance Core.AWSRequest CreateBillingGroup where
 
 instance Prelude.Hashable CreateBillingGroup where
   hashWithSalt _salt CreateBillingGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` primaryAccountId
       `Prelude.hashWithSalt` tags

@@ -68,12 +68,14 @@ instance Data.FromJSON HttpEndpointDescription where
       "HttpEndpointDescription"
       ( \x ->
           HttpEndpointDescription'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Url")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable HttpEndpointDescription where
   hashWithSalt _salt HttpEndpointDescription' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData HttpEndpointDescription where

@@ -169,7 +169,8 @@ instance Core.AWSRequest CreatePlatformEndpoint where
 
 instance Prelude.Hashable CreatePlatformEndpoint where
   hashWithSalt _salt CreatePlatformEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` customUserData
       `Prelude.hashWithSalt` platformApplicationArn
       `Prelude.hashWithSalt` token

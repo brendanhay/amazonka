@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteIAMPolicyAssignment where
 
 instance Prelude.Hashable DeleteIAMPolicyAssignment where
   hashWithSalt _salt DeleteIAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` assignmentName
       `Prelude.hashWithSalt` namespace
 

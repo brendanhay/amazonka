@@ -75,12 +75,14 @@ instance Data.FromJSON PhoneNumber where
       "PhoneNumber"
       ( \x ->
           PhoneNumber'
-            Prelude.<$> (x Data..: "Number") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..: "Number")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable PhoneNumber where
   hashWithSalt _salt PhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` number
+    _salt
+      `Prelude.hashWithSalt` number
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PhoneNumber where

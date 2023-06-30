@@ -160,7 +160,8 @@ instance Data.FromJSON CompletionReport where
 
 instance Prelude.Hashable CompletionReport where
   hashWithSalt _salt CompletionReport' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` enabled

@@ -167,7 +167,8 @@ instance Data.FromJSON CommentsForPullRequest where
 
 instance Prelude.Hashable CommentsForPullRequest where
   hashWithSalt _salt CommentsForPullRequest' {..} =
-    _salt `Prelude.hashWithSalt` afterBlobId
+    _salt
+      `Prelude.hashWithSalt` afterBlobId
       `Prelude.hashWithSalt` afterCommitId
       `Prelude.hashWithSalt` beforeBlobId
       `Prelude.hashWithSalt` beforeCommitId

@@ -198,7 +198,8 @@ instance Data.FromJSON Mp4Settings where
 
 instance Prelude.Hashable Mp4Settings where
   hashWithSalt _salt Mp4Settings' {..} =
-    _salt `Prelude.hashWithSalt` audioDuration
+    _salt
+      `Prelude.hashWithSalt` audioDuration
       `Prelude.hashWithSalt` cslgAtom
       `Prelude.hashWithSalt` cttsVersion
       `Prelude.hashWithSalt` freeSpaceBox

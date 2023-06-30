@@ -91,7 +91,8 @@ instance Core.AWSRequest BatchGetDeployments where
     Response.receiveJSON
       ( \s h x ->
           BatchGetDeploymentsResponse'
-            Prelude.<$> ( x Data..?> "deploymentsInfo"
+            Prelude.<$> ( x
+                            Data..?> "deploymentsInfo"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     ListProfileObjectTypeTemplates' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 
 instance

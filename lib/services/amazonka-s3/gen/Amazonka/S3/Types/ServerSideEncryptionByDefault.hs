@@ -147,7 +147,8 @@ instance
     ServerSideEncryptionByDefault
   where
   hashWithSalt _salt ServerSideEncryptionByDefault' {..} =
-    _salt `Prelude.hashWithSalt` kmsMasterKeyID
+    _salt
+      `Prelude.hashWithSalt` kmsMasterKeyID
       `Prelude.hashWithSalt` sSEAlgorithm
 
 instance Prelude.NFData ServerSideEncryptionByDefault where

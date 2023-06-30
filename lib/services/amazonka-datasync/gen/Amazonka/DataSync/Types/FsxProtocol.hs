@@ -80,12 +80,14 @@ instance Data.FromJSON FsxProtocol where
       "FsxProtocol"
       ( \x ->
           FsxProtocol'
-            Prelude.<$> (x Data..:? "NFS") Prelude.<*> (x Data..:? "SMB")
+            Prelude.<$> (x Data..:? "NFS")
+            Prelude.<*> (x Data..:? "SMB")
       )
 
 instance Prelude.Hashable FsxProtocol where
   hashWithSalt _salt FsxProtocol' {..} =
-    _salt `Prelude.hashWithSalt` nfs
+    _salt
+      `Prelude.hashWithSalt` nfs
       `Prelude.hashWithSalt` smb
 
 instance Prelude.NFData FsxProtocol where

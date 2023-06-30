@@ -220,7 +220,8 @@ instance Data.FromJSON Source where
             Prelude.<*> (x Data..:? "entitlementArn")
             Prelude.<*> (x Data..:? "ingestIp")
             Prelude.<*> (x Data..:? "ingestPort")
-            Prelude.<*> ( x Data..:? "mediaStreamSourceConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "mediaStreamSourceConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "senderControlPort")

@@ -286,7 +286,8 @@ instance Data.FromJSON EntityRecognizerProperties where
 
 instance Prelude.Hashable EntityRecognizerProperties where
   hashWithSalt _salt EntityRecognizerProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` entityRecognizerArn
       `Prelude.hashWithSalt` inputDataConfig

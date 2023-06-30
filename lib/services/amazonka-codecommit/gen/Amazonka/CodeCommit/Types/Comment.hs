@@ -162,7 +162,8 @@ instance Data.FromJSON Comment where
       ( \x ->
           Comment'
             Prelude.<$> (x Data..:? "authorArn")
-            Prelude.<*> ( x Data..:? "callerReactions"
+            Prelude.<*> ( x
+                            Data..:? "callerReactions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "clientRequestToken")
@@ -172,14 +173,16 @@ instance Data.FromJSON Comment where
             Prelude.<*> (x Data..:? "deleted")
             Prelude.<*> (x Data..:? "inReplyTo")
             Prelude.<*> (x Data..:? "lastModifiedDate")
-            Prelude.<*> ( x Data..:? "reactionCounts"
+            Prelude.<*> ( x
+                            Data..:? "reactionCounts"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Comment where
   hashWithSalt _salt Comment' {..} =
-    _salt `Prelude.hashWithSalt` authorArn
+    _salt
+      `Prelude.hashWithSalt` authorArn
       `Prelude.hashWithSalt` callerReactions
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` commentId

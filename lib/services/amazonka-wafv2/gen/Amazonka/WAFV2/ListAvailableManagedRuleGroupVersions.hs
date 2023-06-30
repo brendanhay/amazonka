@@ -199,9 +199,9 @@ instance
       ( \s h x ->
           ListAvailableManagedRuleGroupVersionsResponse'
             Prelude.<$> (x Data..?> "CurrentDefaultVersion")
-              Prelude.<*> (x Data..?> "NextMarker")
-              Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -211,7 +211,8 @@ instance
   hashWithSalt
     _salt
     ListAvailableManagedRuleGroupVersions' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextMarker
         `Prelude.hashWithSalt` vendorName
         `Prelude.hashWithSalt` name

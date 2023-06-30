@@ -112,7 +112,8 @@ awsJobAbortCriteria_minNumberOfExecutedThings = Lens.lens (\AwsJobAbortCriteria'
 
 instance Prelude.Hashable AwsJobAbortCriteria where
   hashWithSalt _salt AwsJobAbortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` failureType
+    _salt
+      `Prelude.hashWithSalt` failureType
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` thresholdPercentage
       `Prelude.hashWithSalt` minNumberOfExecutedThings

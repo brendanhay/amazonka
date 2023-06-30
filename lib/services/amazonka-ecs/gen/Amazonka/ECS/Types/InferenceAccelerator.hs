@@ -83,7 +83,8 @@ instance Data.FromJSON InferenceAccelerator where
 
 instance Prelude.Hashable InferenceAccelerator where
   hashWithSalt _salt InferenceAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` deviceName
+    _salt
+      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceType
 
 instance Prelude.NFData InferenceAccelerator where

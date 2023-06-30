@@ -105,22 +105,22 @@ instance Core.AWSPager ListScramSecrets where
     | Core.stop
         ( rs
             Lens.^? listScramSecretsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listScramSecretsResponse_secretArnList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listScramSecrets_nextToken
           Lens..~ rs
           Lens.^? listScramSecretsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListScramSecrets where
   type
@@ -139,7 +139,8 @@ instance Core.AWSRequest ListScramSecrets where
 
 instance Prelude.Hashable ListScramSecrets where
   hashWithSalt _salt ListScramSecrets' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterArn
 

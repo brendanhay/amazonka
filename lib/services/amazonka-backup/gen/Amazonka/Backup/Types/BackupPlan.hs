@@ -91,7 +91,8 @@ instance Data.FromJSON BackupPlan where
       "BackupPlan"
       ( \x ->
           BackupPlan'
-            Prelude.<$> ( x Data..:? "AdvancedBackupSettings"
+            Prelude.<$> ( x
+                            Data..:? "AdvancedBackupSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "BackupPlanName")
@@ -100,7 +101,8 @@ instance Data.FromJSON BackupPlan where
 
 instance Prelude.Hashable BackupPlan where
   hashWithSalt _salt BackupPlan' {..} =
-    _salt `Prelude.hashWithSalt` advancedBackupSettings
+    _salt
+      `Prelude.hashWithSalt` advancedBackupSettings
       `Prelude.hashWithSalt` backupPlanName
       `Prelude.hashWithSalt` rules
 

@@ -155,7 +155,8 @@ instance
     TransitGatewayRequestOptions
   where
   hashWithSalt _salt TransitGatewayRequestOptions' {..} =
-    _salt `Prelude.hashWithSalt` amazonSideAsn
+    _salt
+      `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` autoAcceptSharedAttachments
       `Prelude.hashWithSalt` defaultRouteTableAssociation
       `Prelude.hashWithSalt` defaultRouteTablePropagation

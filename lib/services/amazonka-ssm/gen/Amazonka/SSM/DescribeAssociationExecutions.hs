@@ -145,22 +145,22 @@ instance Core.AWSPager DescribeAssociationExecutions where
     | Core.stop
         ( rs
             Lens.^? describeAssociationExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAssociationExecutionsResponse_associationExecutions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAssociationExecutions_nextToken
           Lens..~ rs
           Lens.^? describeAssociationExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -175,7 +175,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAssociationExecutionsResponse'
-            Prelude.<$> ( x Data..?> "AssociationExecutions"
+            Prelude.<$> ( x
+                            Data..?> "AssociationExecutions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -187,7 +188,8 @@ instance
     DescribeAssociationExecutions
   where
   hashWithSalt _salt DescribeAssociationExecutions' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` associationId

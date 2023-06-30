@@ -118,7 +118,8 @@ instance Core.AWSRequest GetReadSetExportJob where
 
 instance Prelude.Hashable GetReadSetExportJob where
   hashWithSalt _salt GetReadSetExportJob' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` sequenceStoreId
 
 instance Prelude.NFData GetReadSetExportJob where

@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     DeleteCoreNetworkPolicyVersion' {..} =
-      _salt `Prelude.hashWithSalt` coreNetworkId
+      _salt
+        `Prelude.hashWithSalt` coreNetworkId
         `Prelude.hashWithSalt` policyVersionId
 
 instance

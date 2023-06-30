@@ -177,7 +177,8 @@ instance Core.AWSRequest UpdateLoginProfile where
 
 instance Prelude.Hashable UpdateLoginProfile where
   hashWithSalt _salt UpdateLoginProfile' {..} =
-    _salt `Prelude.hashWithSalt` password
+    _salt
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` passwordResetRequired
       `Prelude.hashWithSalt` userName
 

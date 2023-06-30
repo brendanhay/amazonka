@@ -84,7 +84,8 @@ instance Data.FromJSON Specifications where
 
 instance Prelude.Hashable Specifications where
   hashWithSalt _salt Specifications' {..} =
-    _salt `Prelude.hashWithSalt` slotTypeId
+    _salt
+      `Prelude.hashWithSalt` slotTypeId
       `Prelude.hashWithSalt` valueElicitationSetting
 
 instance Prelude.NFData Specifications where

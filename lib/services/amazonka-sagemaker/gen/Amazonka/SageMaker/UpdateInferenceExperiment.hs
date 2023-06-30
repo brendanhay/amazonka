@@ -173,7 +173,8 @@ instance Core.AWSRequest UpdateInferenceExperiment where
 
 instance Prelude.Hashable UpdateInferenceExperiment where
   hashWithSalt _salt UpdateInferenceExperiment' {..} =
-    _salt `Prelude.hashWithSalt` dataStorageConfig
+    _salt
+      `Prelude.hashWithSalt` dataStorageConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modelVariants
       `Prelude.hashWithSalt` schedule

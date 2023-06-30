@@ -83,7 +83,8 @@ instance Data.FromJSON LFResourceDetails where
 
 instance Prelude.Hashable LFResourceDetails where
   hashWithSalt _salt LFResourceDetails' {..} =
-    _salt `Prelude.hashWithSalt` database
+    _salt
+      `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table
 
 instance Prelude.NFData LFResourceDetails where

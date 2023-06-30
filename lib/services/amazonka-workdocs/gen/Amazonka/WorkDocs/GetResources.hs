@@ -143,7 +143,8 @@ instance Core.AWSRequest GetResources where
 
 instance Prelude.Hashable GetResources where
   hashWithSalt _salt GetResources' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` collectionType
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker

@@ -104,7 +104,8 @@ instance
     AssociateSkillWithSkillGroup
   where
   hashWithSalt _salt AssociateSkillWithSkillGroup' {..} =
-    _salt `Prelude.hashWithSalt` skillGroupArn
+    _salt
+      `Prelude.hashWithSalt` skillGroupArn
       `Prelude.hashWithSalt` skillId
 
 instance Prelude.NFData AssociateSkillWithSkillGroup where

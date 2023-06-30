@@ -127,7 +127,8 @@ instance Data.FromJSON OAuth2CustomParameter where
       "OAuth2CustomParameter"
       ( \x ->
           OAuth2CustomParameter'
-            Prelude.<$> ( x Data..:? "connectorSuppliedValues"
+            Prelude.<$> ( x
+                            Data..:? "connectorSuppliedValues"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "description")

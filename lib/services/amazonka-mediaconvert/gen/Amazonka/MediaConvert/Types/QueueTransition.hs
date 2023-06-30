@@ -89,7 +89,8 @@ instance Data.FromJSON QueueTransition where
 
 instance Prelude.Hashable QueueTransition where
   hashWithSalt _salt QueueTransition' {..} =
-    _salt `Prelude.hashWithSalt` destinationQueue
+    _salt
+      `Prelude.hashWithSalt` destinationQueue
       `Prelude.hashWithSalt` sourceQueue
       `Prelude.hashWithSalt` timestamp
 

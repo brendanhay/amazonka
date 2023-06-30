@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     GaugeChartConditionalFormattingOption' {..} =
-      _salt `Prelude.hashWithSalt` arc
+      _salt
+        `Prelude.hashWithSalt` arc
         `Prelude.hashWithSalt` primaryValue
 
 instance

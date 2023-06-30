@@ -123,31 +123,24 @@ newRegisterApplication
         credentials = Lens.coerced Lens.# pCredentials_
       }
 
--- |
 registerApplication_sapInstanceNumber :: Lens.Lens' RegisterApplication (Prelude.Maybe Prelude.Text)
 registerApplication_sapInstanceNumber = Lens.lens (\RegisterApplication' {sapInstanceNumber} -> sapInstanceNumber) (\s@RegisterApplication' {} a -> s {sapInstanceNumber = a} :: RegisterApplication)
 
--- |
 registerApplication_sid :: Lens.Lens' RegisterApplication (Prelude.Maybe Prelude.Text)
 registerApplication_sid = Lens.lens (\RegisterApplication' {sid} -> sid) (\s@RegisterApplication' {} a -> s {sid = a} :: RegisterApplication)
 
--- |
 registerApplication_tags :: Lens.Lens' RegisterApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 registerApplication_tags = Lens.lens (\RegisterApplication' {tags} -> tags) (\s@RegisterApplication' {} a -> s {tags = a} :: RegisterApplication) Prelude.. Lens.mapping Lens.coerced
 
--- |
 registerApplication_applicationId :: Lens.Lens' RegisterApplication Prelude.Text
 registerApplication_applicationId = Lens.lens (\RegisterApplication' {applicationId} -> applicationId) (\s@RegisterApplication' {} a -> s {applicationId = a} :: RegisterApplication)
 
--- |
 registerApplication_applicationType :: Lens.Lens' RegisterApplication ApplicationType
 registerApplication_applicationType = Lens.lens (\RegisterApplication' {applicationType} -> applicationType) (\s@RegisterApplication' {} a -> s {applicationType = a} :: RegisterApplication)
 
--- |
 registerApplication_instances :: Lens.Lens' RegisterApplication (Prelude.NonEmpty Prelude.Text)
 registerApplication_instances = Lens.lens (\RegisterApplication' {instances} -> instances) (\s@RegisterApplication' {} a -> s {instances = a} :: RegisterApplication) Prelude.. Lens.coerced
 
--- |
 registerApplication_credentials :: Lens.Lens' RegisterApplication (Prelude.NonEmpty ApplicationCredential)
 registerApplication_credentials = Lens.lens (\RegisterApplication' {credentials} -> credentials) (\s@RegisterApplication' {} a -> s {credentials = a} :: RegisterApplication) Prelude.. Lens.coerced
 
@@ -168,7 +161,8 @@ instance Core.AWSRequest RegisterApplication where
 
 instance Prelude.Hashable RegisterApplication where
   hashWithSalt _salt RegisterApplication' {..} =
-    _salt `Prelude.hashWithSalt` sapInstanceNumber
+    _salt
+      `Prelude.hashWithSalt` sapInstanceNumber
       `Prelude.hashWithSalt` sid
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationId
@@ -253,11 +247,9 @@ newRegisterApplicationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 registerApplicationResponse_application :: Lens.Lens' RegisterApplicationResponse (Prelude.Maybe Application)
 registerApplicationResponse_application = Lens.lens (\RegisterApplicationResponse' {application} -> application) (\s@RegisterApplicationResponse' {} a -> s {application = a} :: RegisterApplicationResponse)
 
--- |
 registerApplicationResponse_operationId :: Lens.Lens' RegisterApplicationResponse (Prelude.Maybe Prelude.Text)
 registerApplicationResponse_operationId = Lens.lens (\RegisterApplicationResponse' {operationId} -> operationId) (\s@RegisterApplicationResponse' {} a -> s {operationId = a} :: RegisterApplicationResponse)
 

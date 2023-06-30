@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     TemplateParameterConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` defaultValue
+      _salt
+        `Prelude.hashWithSalt` defaultValue
         `Prelude.hashWithSalt` type'
 
 instance

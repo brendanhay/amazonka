@@ -249,7 +249,8 @@ instance Data.FromXML CacheNode where
 
 instance Prelude.Hashable CacheNode where
   hashWithSalt _salt CacheNode' {..} =
-    _salt `Prelude.hashWithSalt` cacheNodeCreateTime
+    _salt
+      `Prelude.hashWithSalt` cacheNodeCreateTime
       `Prelude.hashWithSalt` cacheNodeId
       `Prelude.hashWithSalt` cacheNodeStatus
       `Prelude.hashWithSalt` customerAvailabilityZone

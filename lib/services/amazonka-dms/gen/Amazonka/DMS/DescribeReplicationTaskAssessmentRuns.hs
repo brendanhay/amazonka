@@ -149,10 +149,11 @@ instance
       ( \s h x ->
           DescribeReplicationTaskAssessmentRunsResponse'
             Prelude.<$> (x Data..?> "Marker")
-              Prelude.<*> ( x Data..?> "ReplicationTaskAssessmentRuns"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ReplicationTaskAssessmentRuns"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -162,7 +163,8 @@ instance
   hashWithSalt
     _salt
     DescribeReplicationTaskAssessmentRuns' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
 

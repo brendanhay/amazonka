@@ -232,7 +232,8 @@ instance Core.AWSRequest CreateReplicationJob where
 
 instance Prelude.Hashable CreateReplicationJob where
   hashWithSalt _salt CreateReplicationJob' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` kmsKeyId

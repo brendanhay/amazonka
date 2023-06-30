@@ -120,7 +120,8 @@ instance Data.FromJSON AttributesResource where
 
 instance Prelude.Hashable AttributesResource where
   hashWithSalt _salt AttributesResource' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` attributeType
       `Prelude.hashWithSalt` applicationId
 

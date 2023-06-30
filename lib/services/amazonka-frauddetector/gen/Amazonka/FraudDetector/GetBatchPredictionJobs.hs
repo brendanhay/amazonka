@@ -111,7 +111,8 @@ instance Core.AWSRequest GetBatchPredictionJobs where
     Response.receiveJSON
       ( \s h x ->
           GetBatchPredictionJobsResponse'
-            Prelude.<$> ( x Data..?> "batchPredictions"
+            Prelude.<$> ( x
+                            Data..?> "batchPredictions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -120,7 +121,8 @@ instance Core.AWSRequest GetBatchPredictionJobs where
 
 instance Prelude.Hashable GetBatchPredictionJobs where
   hashWithSalt _salt GetBatchPredictionJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

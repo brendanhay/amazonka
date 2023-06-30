@@ -145,7 +145,8 @@ instance
     DescribeOrganizationOverview
   where
   hashWithSalt _salt DescribeOrganizationOverview' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` organizationalUnitIds
       `Prelude.hashWithSalt` toTime
       `Prelude.hashWithSalt` fromTime

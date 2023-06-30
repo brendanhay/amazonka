@@ -98,7 +98,8 @@ instance Data.FromJSON Hits where
 
 instance Prelude.Hashable Hits where
   hashWithSalt _salt Hits' {..} =
-    _salt `Prelude.hashWithSalt` cursor
+    _salt
+      `Prelude.hashWithSalt` cursor
       `Prelude.hashWithSalt` found
       `Prelude.hashWithSalt` hit
       `Prelude.hashWithSalt` start

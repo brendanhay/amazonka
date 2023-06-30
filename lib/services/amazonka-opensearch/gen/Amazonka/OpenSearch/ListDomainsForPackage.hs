@@ -128,7 +128,8 @@ instance Core.AWSRequest ListDomainsForPackage where
     Response.receiveJSON
       ( \s h x ->
           ListDomainsForPackageResponse'
-            Prelude.<$> ( x Data..?> "DomainPackageDetailsList"
+            Prelude.<$> ( x
+                            Data..?> "DomainPackageDetailsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -137,7 +138,8 @@ instance Core.AWSRequest ListDomainsForPackage where
 
 instance Prelude.Hashable ListDomainsForPackage where
   hashWithSalt _salt ListDomainsForPackage' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` packageID
 

@@ -282,7 +282,8 @@ instance Core.AWSRequest UpdateServicePipeline where
 
 instance Prelude.Hashable UpdateServicePipeline where
   hashWithSalt _salt UpdateServicePipeline' {..} =
-    _salt `Prelude.hashWithSalt` templateMajorVersion
+    _salt
+      `Prelude.hashWithSalt` templateMajorVersion
       `Prelude.hashWithSalt` templateMinorVersion
       `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` serviceName

@@ -102,7 +102,8 @@ instance Core.AWSRequest Disable where
 
 instance Prelude.Hashable Disable where
   hashWithSalt _salt Disable' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` resourceTypes
 
 instance Prelude.NFData Disable where

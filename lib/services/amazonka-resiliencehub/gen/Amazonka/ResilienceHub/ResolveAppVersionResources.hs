@@ -122,7 +122,8 @@ instance Core.AWSRequest ResolveAppVersionResources where
 
 instance Prelude.Hashable ResolveAppVersionResources where
   hashWithSalt _salt ResolveAppVersionResources' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion
 
 instance Prelude.NFData ResolveAppVersionResources where

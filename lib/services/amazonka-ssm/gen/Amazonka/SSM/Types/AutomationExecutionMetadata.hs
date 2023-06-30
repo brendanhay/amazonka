@@ -409,7 +409,8 @@ instance Data.FromJSON AutomationExecutionMetadata where
 
 instance Prelude.Hashable AutomationExecutionMetadata where
   hashWithSalt _salt AutomationExecutionMetadata' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` automationExecutionId
       `Prelude.hashWithSalt` automationExecutionStatus

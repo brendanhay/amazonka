@@ -139,7 +139,8 @@ instance Data.FromJSON IntentSummary where
 
 instance Prelude.Hashable IntentSummary where
   hashWithSalt _salt IntentSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` inputContexts
       `Prelude.hashWithSalt` intentId
       `Prelude.hashWithSalt` intentName

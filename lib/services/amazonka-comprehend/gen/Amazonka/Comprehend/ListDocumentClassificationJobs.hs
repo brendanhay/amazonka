@@ -113,22 +113,22 @@ instance Core.AWSPager ListDocumentClassificationJobs where
     | Core.stop
         ( rs
             Lens.^? listDocumentClassificationJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDocumentClassificationJobsResponse_documentClassificationJobPropertiesList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDocumentClassificationJobs_nextToken
           Lens..~ rs
           Lens.^? listDocumentClassificationJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -143,7 +143,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDocumentClassificationJobsResponse'
-            Prelude.<$> ( x Data..?> "DocumentClassificationJobPropertiesList"
+            Prelude.<$> ( x
+                            Data..?> "DocumentClassificationJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -157,7 +158,8 @@ instance
   hashWithSalt
     _salt
     ListDocumentClassificationJobs' {..} =
-      _salt `Prelude.hashWithSalt` filter'
+      _salt
+        `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 

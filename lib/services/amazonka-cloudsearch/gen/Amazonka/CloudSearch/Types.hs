@@ -374,58 +374,58 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "BandwidthLimitExceeded"
               Prelude.. Core.hasStatus 509
           )
           e =
-        Prelude.Just "request_limit_exceeded"
+          Prelude.Just "request_limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An error occurred while processing the request.
-_BaseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BaseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BaseException =
   Core._MatchServiceError
     defaultService
@@ -433,7 +433,7 @@ _BaseException =
 
 -- | The request was rejected because it attempted an operation which is not
 -- enabled.
-_DisabledOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DisabledOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DisabledOperationException =
   Core._MatchServiceError
     defaultService
@@ -443,7 +443,7 @@ _DisabledOperationException =
 -- | An internal error occurred while processing the request. If this problem
 -- persists, report an issue from the
 -- <http://status.aws.amazon.com/ Service Health Dashboard>.
-_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
@@ -452,7 +452,7 @@ _InternalException =
 
 -- | The request was rejected because it specified an invalid type
 -- definition.
-_InvalidTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTypeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTypeException =
   Core._MatchServiceError
     defaultService
@@ -460,7 +460,7 @@ _InvalidTypeException =
     Prelude.. Core.hasStatus 409
 
 -- | The request was rejected because a resource limit has already been met.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -469,7 +469,7 @@ _LimitExceededException =
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -478,7 +478,7 @@ _ResourceAlreadyExistsException =
 
 -- | The request was rejected because it attempted to reference a resource
 -- that does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -486,7 +486,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 409
 
 -- | The request was rejected because it has invalid parameters.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

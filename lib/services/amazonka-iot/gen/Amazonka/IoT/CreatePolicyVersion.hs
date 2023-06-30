@@ -148,7 +148,8 @@ instance Core.AWSRequest CreatePolicyVersion where
 
 instance Prelude.Hashable CreatePolicyVersion where
   hashWithSalt _salt CreatePolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` setAsDefault
+    _salt
+      `Prelude.hashWithSalt` setAsDefault
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
 

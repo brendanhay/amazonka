@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyFrameOptions' {..} =
-      _salt `Prelude.hashWithSalt` override
+      _salt
+        `Prelude.hashWithSalt` override
         `Prelude.hashWithSalt` frameOption
 
 instance

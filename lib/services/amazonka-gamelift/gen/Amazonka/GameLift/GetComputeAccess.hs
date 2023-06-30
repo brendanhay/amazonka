@@ -136,7 +136,8 @@ instance Core.AWSRequest GetComputeAccess where
 
 instance Prelude.Hashable GetComputeAccess where
   hashWithSalt _salt GetComputeAccess' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` computeName
 
 instance Prelude.NFData GetComputeAccess where

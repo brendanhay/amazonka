@@ -90,7 +90,8 @@ instance Data.FromJSON GeoSpatialColumnGroup where
 
 instance Prelude.Hashable GeoSpatialColumnGroup where
   hashWithSalt _salt GeoSpatialColumnGroup' {..} =
-    _salt `Prelude.hashWithSalt` countryCode
+    _salt
+      `Prelude.hashWithSalt` countryCode
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` columns
 

@@ -127,7 +127,8 @@ instance Core.AWSRequest RegisterAccount where
 
 instance Prelude.Hashable RegisterAccount where
   hashWithSalt _salt RegisterAccount' {..} =
-    _salt `Prelude.hashWithSalt` iamResources
+    _salt
+      `Prelude.hashWithSalt` iamResources
       `Prelude.hashWithSalt` timestreamResources
 
 instance Prelude.NFData RegisterAccount where

@@ -76,7 +76,8 @@ instance Data.FromJSON ReadinessCheckSummary where
 
 instance Prelude.Hashable ReadinessCheckSummary where
   hashWithSalt _salt ReadinessCheckSummary' {..} =
-    _salt `Prelude.hashWithSalt` readiness
+    _salt
+      `Prelude.hashWithSalt` readiness
       `Prelude.hashWithSalt` readinessCheckName
 
 instance Prelude.NFData ReadinessCheckSummary where

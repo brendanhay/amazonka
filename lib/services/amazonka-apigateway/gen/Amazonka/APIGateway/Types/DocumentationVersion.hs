@@ -85,7 +85,8 @@ instance Data.FromJSON DocumentationVersion where
 
 instance Prelude.Hashable DocumentationVersion where
   hashWithSalt _salt DocumentationVersion' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` version
 

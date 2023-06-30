@@ -213,7 +213,8 @@ instance Data.FromJSON PropertyDefinitionResponse where
 
 instance Prelude.Hashable PropertyDefinitionResponse where
   hashWithSalt _salt PropertyDefinitionResponse' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` dataType

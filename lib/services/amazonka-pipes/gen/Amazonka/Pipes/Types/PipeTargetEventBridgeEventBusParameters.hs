@@ -146,7 +146,8 @@ instance
   hashWithSalt
     _salt
     PipeTargetEventBridgeEventBusParameters' {..} =
-      _salt `Prelude.hashWithSalt` detailType
+      _salt
+        `Prelude.hashWithSalt` detailType
         `Prelude.hashWithSalt` endpointId
         `Prelude.hashWithSalt` resources
         `Prelude.hashWithSalt` source

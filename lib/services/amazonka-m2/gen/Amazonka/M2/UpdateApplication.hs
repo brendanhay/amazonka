@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` currentApplicationVersion

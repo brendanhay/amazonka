@@ -91,7 +91,8 @@ instance Data.FromXML ContentTypeProfile where
 
 instance Prelude.Hashable ContentTypeProfile where
   hashWithSalt _salt ContentTypeProfile' {..} =
-    _salt `Prelude.hashWithSalt` profileId
+    _salt
+      `Prelude.hashWithSalt` profileId
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` contentType
 

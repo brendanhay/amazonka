@@ -104,24 +104,27 @@ instance Core.AWSPager ListJobs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listJobsResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? listJobsResponse_isTruncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listJobsResponse_jobs Prelude.. Lens._Just
-              Prelude.. Lens._last
-              Prelude.. job_jobId
-        ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
-          Prelude.& listJobs_marker
-          Lens..~ rs
-          Lens.^? listJobsResponse_jobs Prelude.. Lens._Just
+            Lens.^? listJobsResponse_jobs
+            Prelude.. Lens._Just
             Prelude.. Lens._last
             Prelude.. job_jobId
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listJobs_marker
+          Lens..~ rs
+          Lens.^? listJobsResponse_jobs
+          Prelude.. Lens._Just
+          Prelude.. Lens._last
+          Prelude.. job_jobId
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -133,7 +136,9 @@ instance Core.AWSRequest ListJobs where
       ( \s h x ->
           ListJobsResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
-            Prelude.<*> ( x Data..@? "Jobs" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Jobs"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,7 +146,8 @@ instance Core.AWSRequest ListJobs where
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
-    _salt `Prelude.hashWithSalt` aPIVersion
+    _salt
+      `Prelude.hashWithSalt` aPIVersion
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxJobs
 

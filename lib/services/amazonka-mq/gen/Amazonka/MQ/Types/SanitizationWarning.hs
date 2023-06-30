@@ -92,7 +92,8 @@ instance Data.FromJSON SanitizationWarning where
 
 instance Prelude.Hashable SanitizationWarning where
   hashWithSalt _salt SanitizationWarning' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` elementName
       `Prelude.hashWithSalt` reason
 

@@ -75,7 +75,8 @@ instance
   hashWithSalt
     _salt
     CloudwatchLogsExportConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` disableLogTypes
+      _salt
+        `Prelude.hashWithSalt` disableLogTypes
         `Prelude.hashWithSalt` enableLogTypes
 
 instance

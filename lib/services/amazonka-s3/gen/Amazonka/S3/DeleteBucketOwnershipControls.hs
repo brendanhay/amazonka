@@ -120,7 +120,8 @@ instance
     DeleteBucketOwnershipControls
   where
   hashWithSalt _salt DeleteBucketOwnershipControls' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucketOwnershipControls where

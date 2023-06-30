@@ -176,7 +176,8 @@ instance Data.FromJSON Domain where
 
 instance Prelude.Hashable Domain where
   hashWithSalt _salt Domain' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` domainEntries
       `Prelude.hashWithSalt` location

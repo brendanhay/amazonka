@@ -135,7 +135,8 @@ instance Core.AWSRequest CreateServiceProfile where
 
 instance Prelude.Hashable CreateServiceProfile where
   hashWithSalt _salt CreateServiceProfile' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

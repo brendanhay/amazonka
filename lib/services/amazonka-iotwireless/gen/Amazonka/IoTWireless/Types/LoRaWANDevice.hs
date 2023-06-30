@@ -138,7 +138,8 @@ instance Data.FromJSON LoRaWANDevice where
 
 instance Prelude.Hashable LoRaWANDevice where
   hashWithSalt _salt LoRaWANDevice' {..} =
-    _salt `Prelude.hashWithSalt` abpV1_0_x
+    _salt
+      `Prelude.hashWithSalt` abpV1_0_x
       `Prelude.hashWithSalt` abpV1_1
       `Prelude.hashWithSalt` devEui
       `Prelude.hashWithSalt` deviceProfileId

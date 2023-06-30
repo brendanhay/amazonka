@@ -118,7 +118,8 @@ instance Data.FromJSON TokenData where
             Prelude.<*> (x Data..:? "RoleArns" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "TokenId")
-            Prelude.<*> ( x Data..:? "TokenProperties"
+            Prelude.<*> ( x
+                            Data..:? "TokenProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TokenType")
@@ -126,7 +127,8 @@ instance Data.FromJSON TokenData where
 
 instance Prelude.Hashable TokenData where
   hashWithSalt _salt TokenData' {..} =
-    _salt `Prelude.hashWithSalt` expirationTime
+    _salt
+      `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` licenseArn
       `Prelude.hashWithSalt` roleArns
       `Prelude.hashWithSalt` status

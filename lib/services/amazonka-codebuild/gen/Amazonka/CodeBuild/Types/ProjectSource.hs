@@ -472,7 +472,8 @@ instance Data.FromJSON ProjectSource where
 
 instance Prelude.Hashable ProjectSource where
   hashWithSalt _salt ProjectSource' {..} =
-    _salt `Prelude.hashWithSalt` auth
+    _salt
+      `Prelude.hashWithSalt` auth
       `Prelude.hashWithSalt` buildStatusConfig
       `Prelude.hashWithSalt` buildspec
       `Prelude.hashWithSalt` gitCloneDepth

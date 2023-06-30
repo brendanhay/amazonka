@@ -262,7 +262,8 @@ instance Core.AWSRequest PutBucketReplication where
 
 instance Prelude.Hashable PutBucketReplication where
   hashWithSalt _salt PutBucketReplication' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` token

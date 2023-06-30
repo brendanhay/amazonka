@@ -168,21 +168,23 @@ instance Core.AWSPager ListTrials where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTrialsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTrialsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTrialsResponse_trialSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTrials_nextToken
           Lens..~ rs
-          Lens.^? listTrialsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTrialsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrials where
   type AWSResponse ListTrials = ListTrialsResponse
@@ -199,7 +201,8 @@ instance Core.AWSRequest ListTrials where
 
 instance Prelude.Hashable ListTrials where
   hashWithSalt _salt ListTrials' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` experimentName
       `Prelude.hashWithSalt` maxResults

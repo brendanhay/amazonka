@@ -98,22 +98,22 @@ instance Core.AWSPager ListAssociatedFleets where
     | Core.stop
         ( rs
             Lens.^? listAssociatedFleetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAssociatedFleetsResponse_names
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssociatedFleets_nextToken
           Lens..~ rs
           Lens.^? listAssociatedFleetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssociatedFleets where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest ListAssociatedFleets where
 
 instance Prelude.Hashable ListAssociatedFleets where
   hashWithSalt _salt ListAssociatedFleets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData ListAssociatedFleets where

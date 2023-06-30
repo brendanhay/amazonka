@@ -142,7 +142,8 @@ event_timestamp = Lens.lens (\Event' {timestamp} -> timestamp) (\s@Event' {} a -
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` appPackageName
+    _salt
+      `Prelude.hashWithSalt` appPackageName
       `Prelude.hashWithSalt` appTitle
       `Prelude.hashWithSalt` appVersionCode
       `Prelude.hashWithSalt` attributes

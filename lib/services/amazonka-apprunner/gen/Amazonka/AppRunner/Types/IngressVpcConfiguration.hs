@@ -77,7 +77,8 @@ instance Data.FromJSON IngressVpcConfiguration where
 
 instance Prelude.Hashable IngressVpcConfiguration where
   hashWithSalt _salt IngressVpcConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` vpcEndpointId
+    _salt
+      `Prelude.hashWithSalt` vpcEndpointId
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData IngressVpcConfiguration where

@@ -86,7 +86,8 @@ eventTypeFilter_services = Lens.lens (\EventTypeFilter' {services} -> services) 
 
 instance Prelude.Hashable EventTypeFilter where
   hashWithSalt _salt EventTypeFilter' {..} =
-    _salt `Prelude.hashWithSalt` eventTypeCategories
+    _salt
+      `Prelude.hashWithSalt` eventTypeCategories
       `Prelude.hashWithSalt` eventTypeCodes
       `Prelude.hashWithSalt` services
 

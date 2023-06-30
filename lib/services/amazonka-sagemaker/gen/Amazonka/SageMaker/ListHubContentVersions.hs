@@ -209,14 +209,16 @@ instance Core.AWSRequest ListHubContentVersions where
           ListHubContentVersionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "HubContentSummaries"
+            Prelude.<*> ( x
+                            Data..?> "HubContentSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListHubContentVersions where
   hashWithSalt _salt ListHubContentVersions' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` maxSchemaVersion

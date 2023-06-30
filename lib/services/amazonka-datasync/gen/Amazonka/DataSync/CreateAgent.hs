@@ -263,7 +263,8 @@ instance Core.AWSRequest CreateAgent where
 
 instance Prelude.Hashable CreateAgent where
   hashWithSalt _salt CreateAgent' {..} =
-    _salt `Prelude.hashWithSalt` agentName
+    _salt
+      `Prelude.hashWithSalt` agentName
       `Prelude.hashWithSalt` securityGroupArns
       `Prelude.hashWithSalt` subnetArns
       `Prelude.hashWithSalt` tags

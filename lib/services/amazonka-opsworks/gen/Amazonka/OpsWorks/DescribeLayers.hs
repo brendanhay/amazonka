@@ -114,7 +114,8 @@ instance Core.AWSRequest DescribeLayers where
 
 instance Prelude.Hashable DescribeLayers where
   hashWithSalt _salt DescribeLayers' {..} =
-    _salt `Prelude.hashWithSalt` layerIds
+    _salt
+      `Prelude.hashWithSalt` layerIds
       `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData DescribeLayers where

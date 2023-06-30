@@ -114,7 +114,8 @@ instance Core.AWSRequest DescribeThemePermissions where
 
 instance Prelude.Hashable DescribeThemePermissions where
   hashWithSalt _salt DescribeThemePermissions' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId
 
 instance Prelude.NFData DescribeThemePermissions where

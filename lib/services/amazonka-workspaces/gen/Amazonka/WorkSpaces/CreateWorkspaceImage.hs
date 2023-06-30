@@ -149,7 +149,8 @@ instance Core.AWSRequest CreateWorkspaceImage where
 
 instance Prelude.Hashable CreateWorkspaceImage where
   hashWithSalt _salt CreateWorkspaceImage' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` workspaceId

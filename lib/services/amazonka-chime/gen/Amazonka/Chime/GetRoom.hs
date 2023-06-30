@@ -103,7 +103,8 @@ instance Core.AWSRequest GetRoom where
 
 instance Prelude.Hashable GetRoom where
   hashWithSalt _salt GetRoom' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` roomId
 
 instance Prelude.NFData GetRoom where

@@ -129,7 +129,8 @@ instance Core.AWSRequest ListAccountIntegrations where
 
 instance Prelude.Hashable ListAccountIntegrations where
   hashWithSalt _salt ListAccountIntegrations' {..} =
-    _salt `Prelude.hashWithSalt` includeHidden
+    _salt
+      `Prelude.hashWithSalt` includeHidden
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` uri

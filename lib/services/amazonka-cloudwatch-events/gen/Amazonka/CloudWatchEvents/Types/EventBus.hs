@@ -92,7 +92,8 @@ instance Data.FromJSON EventBus where
 
 instance Prelude.Hashable EventBus where
   hashWithSalt _salt EventBus' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` policy
 

@@ -149,8 +149,8 @@ instance
       ( \s h x ->
           UpdateGatewayCapabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "capabilityNamespace")
-              Prelude.<*> (x Data..:> "capabilitySyncStatus")
+            Prelude.<*> (x Data..:> "capabilityNamespace")
+            Prelude.<*> (x Data..:> "capabilitySyncStatus")
       )
 
 instance
@@ -160,7 +160,8 @@ instance
   hashWithSalt
     _salt
     UpdateGatewayCapabilityConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` gatewayId
+      _salt
+        `Prelude.hashWithSalt` gatewayId
         `Prelude.hashWithSalt` capabilityNamespace
         `Prelude.hashWithSalt` capabilityConfiguration
 

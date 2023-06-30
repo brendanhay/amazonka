@@ -230,7 +230,8 @@ instance Core.AWSRequest UpdateIncidentRecord where
 
 instance Prelude.Hashable UpdateIncidentRecord where
   hashWithSalt _salt UpdateIncidentRecord' {..} =
-    _salt `Prelude.hashWithSalt` chatChannel
+    _salt
+      `Prelude.hashWithSalt` chatChannel
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` impact
       `Prelude.hashWithSalt` notificationTargets

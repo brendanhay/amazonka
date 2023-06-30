@@ -166,7 +166,8 @@ instance Data.FromJSON QuantumTaskSummary where
 
 instance Prelude.Hashable QuantumTaskSummary where
   hashWithSalt _salt QuantumTaskSummary' {..} =
-    _salt `Prelude.hashWithSalt` endedAt
+    _salt
+      `Prelude.hashWithSalt` endedAt
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` deviceArn

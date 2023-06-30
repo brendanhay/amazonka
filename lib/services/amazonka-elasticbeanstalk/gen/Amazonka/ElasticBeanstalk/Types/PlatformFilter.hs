@@ -139,7 +139,8 @@ platformFilter_values = Lens.lens (\PlatformFilter' {values} -> values) (\s@Plat
 
 instance Prelude.Hashable PlatformFilter where
   hashWithSalt _salt PlatformFilter' {..} =
-    _salt `Prelude.hashWithSalt` operator
+    _salt
+      `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` values
 

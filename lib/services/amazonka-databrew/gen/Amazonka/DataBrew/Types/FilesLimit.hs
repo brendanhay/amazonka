@@ -101,7 +101,8 @@ instance Data.FromJSON FilesLimit where
 
 instance Prelude.Hashable FilesLimit where
   hashWithSalt _salt FilesLimit' {..} =
-    _salt `Prelude.hashWithSalt` order
+    _salt
+      `Prelude.hashWithSalt` order
       `Prelude.hashWithSalt` orderedBy
       `Prelude.hashWithSalt` maxFiles
 

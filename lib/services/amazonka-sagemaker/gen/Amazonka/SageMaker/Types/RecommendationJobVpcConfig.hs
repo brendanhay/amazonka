@@ -91,7 +91,8 @@ instance Data.FromJSON RecommendationJobVpcConfig where
 
 instance Prelude.Hashable RecommendationJobVpcConfig where
   hashWithSalt _salt RecommendationJobVpcConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData RecommendationJobVpcConfig where

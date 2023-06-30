@@ -87,7 +87,8 @@ instance Data.FromJSON CoverageByTime where
 
 instance Prelude.Hashable CoverageByTime where
   hashWithSalt _salt CoverageByTime' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` timePeriod
       `Prelude.hashWithSalt` total
 

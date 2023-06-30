@@ -97,7 +97,8 @@ instance Data.FromJSON LFTagPair where
 
 instance Prelude.Hashable LFTagPair where
   hashWithSalt _salt LFTagPair' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` tagValues
 

@@ -132,20 +132,23 @@ instance Core.AWSPager SearchUsers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? searchUsersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? searchUsersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? searchUsersResponse_users Prelude.. Lens._Just
+            Lens.^? searchUsersResponse_users
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchUsers_nextToken
           Lens..~ rs
-          Lens.^? searchUsersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? searchUsersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchUsers where
   type AWSResponse SearchUsers = SearchUsersResponse
@@ -163,7 +166,8 @@ instance Core.AWSRequest SearchUsers where
 
 instance Prelude.Hashable SearchUsers where
   hashWithSalt _salt SearchUsers' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchCriteria

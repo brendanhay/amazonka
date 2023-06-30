@@ -93,7 +93,8 @@ instance Data.FromJSON Proxy where
             Prelude.<$> (x Data..:? "DefaultSessionExpiryMinutes")
             Prelude.<*> (x Data..:? "Disabled")
             Prelude.<*> (x Data..:? "FallBackPhoneNumber")
-            Prelude.<*> ( x Data..:? "PhoneNumberCountries"
+            Prelude.<*> ( x
+                            Data..:? "PhoneNumberCountries"
                             Data..!= Prelude.mempty
                         )
       )

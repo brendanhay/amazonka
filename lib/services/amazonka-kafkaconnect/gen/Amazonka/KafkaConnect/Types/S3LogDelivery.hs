@@ -78,7 +78,8 @@ s3LogDelivery_enabled = Lens.lens (\S3LogDelivery' {enabled} -> enabled) (\s@S3L
 
 instance Prelude.Hashable S3LogDelivery where
   hashWithSalt _salt S3LogDelivery' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` enabled
 

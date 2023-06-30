@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeJobRun where
 
 instance Prelude.Hashable DescribeJobRun where
   hashWithSalt _salt DescribeJobRun' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` virtualClusterId
 
 instance Prelude.NFData DescribeJobRun where

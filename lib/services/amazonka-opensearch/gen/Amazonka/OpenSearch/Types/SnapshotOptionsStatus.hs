@@ -81,7 +81,8 @@ instance Data.FromJSON SnapshotOptionsStatus where
 
 instance Prelude.Hashable SnapshotOptionsStatus where
   hashWithSalt _salt SnapshotOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SnapshotOptionsStatus where

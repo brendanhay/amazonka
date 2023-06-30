@@ -138,7 +138,8 @@ instance Core.AWSRequest TransferCertificate where
 
 instance Prelude.Hashable TransferCertificate where
   hashWithSalt _salt TransferCertificate' {..} =
-    _salt `Prelude.hashWithSalt` transferMessage
+    _salt
+      `Prelude.hashWithSalt` transferMessage
       `Prelude.hashWithSalt` certificateId
       `Prelude.hashWithSalt` targetAwsAccount
 

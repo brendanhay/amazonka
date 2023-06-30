@@ -166,7 +166,8 @@ instance
             Prelude.<*> (x Data..:? "oAuth")
             Prelude.<*> (x Data..:? "passwordPolicy")
             Prelude.<*> (x Data..:? "verificationMessage")
-            Prelude.<*> ( x Data..:? "requiredSignUpAttributes"
+            Prelude.<*> ( x
+                            Data..:? "requiredSignUpAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "signInMethod")
@@ -180,7 +181,8 @@ instance
   hashWithSalt
     _salt
     CreateBackendAuthUserPoolConfig' {..} =
-      _salt `Prelude.hashWithSalt` forgotPassword
+      _salt
+        `Prelude.hashWithSalt` forgotPassword
         `Prelude.hashWithSalt` mfa
         `Prelude.hashWithSalt` oAuth
         `Prelude.hashWithSalt` passwordPolicy

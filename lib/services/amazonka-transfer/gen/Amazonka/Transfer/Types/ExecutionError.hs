@@ -161,12 +161,14 @@ instance Data.FromJSON ExecutionError where
       "ExecutionError"
       ( \x ->
           ExecutionError'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Message")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Message")
       )
 
 instance Prelude.Hashable ExecutionError where
   hashWithSalt _salt ExecutionError' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ExecutionError where

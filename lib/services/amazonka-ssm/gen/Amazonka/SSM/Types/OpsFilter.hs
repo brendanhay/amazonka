@@ -78,7 +78,8 @@ opsFilter_values = Lens.lens (\OpsFilter' {values} -> values) (\s@OpsFilter' {} 
 
 instance Prelude.Hashable OpsFilter where
   hashWithSalt _salt OpsFilter' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 

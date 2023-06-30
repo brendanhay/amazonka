@@ -171,7 +171,8 @@ instance Core.AWSRequest PutKeyword where
 
 instance Prelude.Hashable PutKeyword where
   hashWithSalt _salt PutKeyword' {..} =
-    _salt `Prelude.hashWithSalt` keywordAction
+    _salt
+      `Prelude.hashWithSalt` keywordAction
       `Prelude.hashWithSalt` originationIdentity
       `Prelude.hashWithSalt` keyword
       `Prelude.hashWithSalt` keywordMessage

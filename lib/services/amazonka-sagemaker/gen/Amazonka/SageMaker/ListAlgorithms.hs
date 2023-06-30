@@ -161,20 +161,21 @@ instance Core.AWSPager ListAlgorithms where
     | Core.stop
         ( rs
             Lens.^? listAlgorithmsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listAlgorithmsResponse_algorithmSummaryList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAlgorithms_nextToken
           Lens..~ rs
-          Lens.^? listAlgorithmsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAlgorithmsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAlgorithms where
   type
@@ -188,14 +189,16 @@ instance Core.AWSRequest ListAlgorithms where
           ListAlgorithmsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "AlgorithmSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "AlgorithmSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAlgorithms where
   hashWithSalt _salt ListAlgorithms' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains

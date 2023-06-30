@@ -139,28 +139,28 @@ instance Core.AWSPager ListAnomaliesForInsight where
     | Core.stop
         ( rs
             Lens.^? listAnomaliesForInsightResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAnomaliesForInsightResponse_reactiveAnomalies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAnomaliesForInsightResponse_proactiveAnomalies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAnomaliesForInsight_nextToken
           Lens..~ rs
           Lens.^? listAnomaliesForInsightResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnomaliesForInsight where
   type
@@ -173,10 +173,12 @@ instance Core.AWSRequest ListAnomaliesForInsight where
       ( \s h x ->
           ListAnomaliesForInsightResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ProactiveAnomalies"
+            Prelude.<*> ( x
+                            Data..?> "ProactiveAnomalies"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ReactiveAnomalies"
+            Prelude.<*> ( x
+                            Data..?> "ReactiveAnomalies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -184,7 +186,8 @@ instance Core.AWSRequest ListAnomaliesForInsight where
 
 instance Prelude.Hashable ListAnomaliesForInsight where
   hashWithSalt _salt ListAnomaliesForInsight' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTimeRange

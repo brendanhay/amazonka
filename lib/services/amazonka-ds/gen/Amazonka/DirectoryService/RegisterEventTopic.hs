@@ -118,7 +118,8 @@ instance Core.AWSRequest RegisterEventTopic where
 
 instance Prelude.Hashable RegisterEventTopic where
   hashWithSalt _salt RegisterEventTopic' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` topicName
 
 instance Prelude.NFData RegisterEventTopic where

@@ -190,53 +190,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The request includes one or more parameters that violate validation
 -- rules.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -244,7 +244,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The caller isn\'t authorized to make the request. Check permissions.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -253,7 +253,7 @@ _ForbiddenException =
 
 -- | An internal error occurred while processing the request. Try again
 -- later.
-_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -262,7 +262,7 @@ _InternalServerErrorException =
 
 -- | The request uses an HTTP method that isn\'t allowed for the specified
 -- resource.
-_MethodNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MethodNotAllowedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MethodNotAllowedException =
   Core._MatchServiceError
     defaultService
@@ -270,7 +270,7 @@ _MethodNotAllowedException =
     Prelude.. Core.hasStatus 405
 
 -- | One or more of the specified resources don\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -279,7 +279,7 @@ _NotFoundException =
 
 -- | You\'ve exceeded throttling limits by making too many requests in a
 -- period of time.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -288,7 +288,7 @@ _TooManyRequestsException =
 
 -- | The request was rejected because it doesn\'t have valid credentials for
 -- the target resource.
-_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

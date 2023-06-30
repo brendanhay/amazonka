@@ -83,7 +83,8 @@ instance Data.FromJSON SubscriptionLimits where
 
 instance Prelude.Hashable SubscriptionLimits where
   hashWithSalt _salt SubscriptionLimits' {..} =
-    _salt `Prelude.hashWithSalt` protectionLimits
+    _salt
+      `Prelude.hashWithSalt` protectionLimits
       `Prelude.hashWithSalt` protectionGroupLimits
 
 instance Prelude.NFData SubscriptionLimits where

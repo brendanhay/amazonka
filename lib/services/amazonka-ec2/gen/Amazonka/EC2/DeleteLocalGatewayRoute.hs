@@ -130,7 +130,8 @@ instance Core.AWSRequest DeleteLocalGatewayRoute where
 
 instance Prelude.Hashable DeleteLocalGatewayRoute where
   hashWithSalt _salt DeleteLocalGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` localGatewayRouteTableId
 

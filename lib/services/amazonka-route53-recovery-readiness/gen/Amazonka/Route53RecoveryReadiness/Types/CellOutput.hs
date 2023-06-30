@@ -106,7 +106,8 @@ instance Data.FromJSON CellOutput where
       ( \x ->
           CellOutput'
             Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "parentReadinessScopes"
+            Prelude.<*> ( x
+                            Data..:? "parentReadinessScopes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "cellArn")
@@ -116,7 +117,8 @@ instance Data.FromJSON CellOutput where
 
 instance Prelude.Hashable CellOutput where
   hashWithSalt _salt CellOutput' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` parentReadinessScopes
       `Prelude.hashWithSalt` cellArn
       `Prelude.hashWithSalt` cellName

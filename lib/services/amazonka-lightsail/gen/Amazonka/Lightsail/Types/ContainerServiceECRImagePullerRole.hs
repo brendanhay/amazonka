@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     ContainerServiceECRImagePullerRole' {..} =
-      _salt `Prelude.hashWithSalt` isActive
+      _salt
+        `Prelude.hashWithSalt` isActive
         `Prelude.hashWithSalt` principalArn
 
 instance

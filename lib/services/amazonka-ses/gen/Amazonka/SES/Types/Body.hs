@@ -79,7 +79,8 @@ body_text = Lens.lens (\Body' {text} -> text) (\s@Body' {} a -> s {text = a} :: 
 
 instance Prelude.Hashable Body where
   hashWithSalt _salt Body' {..} =
-    _salt `Prelude.hashWithSalt` html
+    _salt
+      `Prelude.hashWithSalt` html
       `Prelude.hashWithSalt` text
 
 instance Prelude.NFData Body where

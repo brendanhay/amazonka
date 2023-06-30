@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemLustreResponse' {..} =
-      _salt `Prelude.hashWithSalt` finalBackupId
+      _salt
+        `Prelude.hashWithSalt` finalBackupId
         `Prelude.hashWithSalt` finalBackupTags
 
 instance

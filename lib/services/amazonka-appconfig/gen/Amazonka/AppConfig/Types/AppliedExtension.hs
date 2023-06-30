@@ -95,7 +95,8 @@ instance Data.FromJSON AppliedExtension where
 
 instance Prelude.Hashable AppliedExtension where
   hashWithSalt _salt AppliedExtension' {..} =
-    _salt `Prelude.hashWithSalt` extensionAssociationId
+    _salt
+      `Prelude.hashWithSalt` extensionAssociationId
       `Prelude.hashWithSalt` extensionId
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` versionNumber

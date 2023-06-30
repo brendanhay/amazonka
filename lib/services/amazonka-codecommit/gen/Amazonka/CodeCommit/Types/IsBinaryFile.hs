@@ -94,7 +94,8 @@ instance Data.FromJSON IsBinaryFile where
 
 instance Prelude.Hashable IsBinaryFile where
   hashWithSalt _salt IsBinaryFile' {..} =
-    _salt `Prelude.hashWithSalt` base
+    _salt
+      `Prelude.hashWithSalt` base
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` source
 

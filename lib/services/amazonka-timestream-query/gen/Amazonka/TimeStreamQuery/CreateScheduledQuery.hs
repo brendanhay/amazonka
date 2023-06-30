@@ -296,7 +296,8 @@ instance Core.AWSRequest CreateScheduledQuery where
 
 instance Prelude.Hashable CreateScheduledQuery where
   hashWithSalt _salt CreateScheduledQuery' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targetConfiguration

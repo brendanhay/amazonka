@@ -218,7 +218,8 @@ instance Core.AWSRequest StartRun where
 
 instance Prelude.Hashable StartRun where
   hashWithSalt _salt StartRun' {..} =
-    _salt `Prelude.hashWithSalt` logLevel
+    _salt
+      `Prelude.hashWithSalt` logLevel
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outputUri
       `Prelude.hashWithSalt` parameters

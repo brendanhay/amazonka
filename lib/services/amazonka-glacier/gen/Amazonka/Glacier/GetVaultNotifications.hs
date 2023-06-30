@@ -139,7 +139,8 @@ instance Core.AWSRequest GetVaultNotifications where
 
 instance Prelude.Hashable GetVaultNotifications where
   hashWithSalt _salt GetVaultNotifications' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData GetVaultNotifications where

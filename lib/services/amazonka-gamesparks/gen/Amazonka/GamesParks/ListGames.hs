@@ -112,20 +112,23 @@ instance Core.AWSPager ListGames where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGamesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listGamesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listGamesResponse_games Prelude.. Lens._Just
+            Lens.^? listGamesResponse_games
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGames_nextToken
           Lens..~ rs
-          Lens.^? listGamesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listGamesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGames where
   type AWSResponse ListGames = ListGamesResponse
@@ -142,7 +145,8 @@ instance Core.AWSRequest ListGames where
 
 instance Prelude.Hashable ListGames where
   hashWithSalt _salt ListGames' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGames where

@@ -106,7 +106,8 @@ instance Data.FromJSON DonutOptions where
 
 instance Prelude.Hashable DonutOptions where
   hashWithSalt _salt DonutOptions' {..} =
-    _salt `Prelude.hashWithSalt` arcOptions
+    _salt
+      `Prelude.hashWithSalt` arcOptions
       `Prelude.hashWithSalt` donutCenterOptions
 
 instance Prelude.NFData DonutOptions where

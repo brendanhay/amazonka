@@ -76,7 +76,7 @@ instance
       ( \x ->
           GaugeChartPrimaryValueConditionalFormatting'
             Prelude.<$> (x Data..:? "Icon")
-              Prelude.<*> (x Data..:? "TextColor")
+            Prelude.<*> (x Data..:? "TextColor")
       )
 
 instance
@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     GaugeChartPrimaryValueConditionalFormatting' {..} =
-      _salt `Prelude.hashWithSalt` icon
+      _salt
+        `Prelude.hashWithSalt` icon
         `Prelude.hashWithSalt` textColor
 
 instance

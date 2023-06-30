@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteAnalyzer where
 
 instance Prelude.Hashable DeleteAnalyzer where
   hashWithSalt _salt DeleteAnalyzer' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` analyzerName
 
 instance Prelude.NFData DeleteAnalyzer where

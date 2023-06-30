@@ -93,14 +93,16 @@ instance Data.FromJSON DefaultSpaceSettings where
             Prelude.<$> (x Data..:? "ExecutionRole")
             Prelude.<*> (x Data..:? "JupyterServerAppSettings")
             Prelude.<*> (x Data..:? "KernelGatewayAppSettings")
-            Prelude.<*> ( x Data..:? "SecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DefaultSpaceSettings where
   hashWithSalt _salt DefaultSpaceSettings' {..} =
-    _salt `Prelude.hashWithSalt` executionRole
+    _salt
+      `Prelude.hashWithSalt` executionRole
       `Prelude.hashWithSalt` jupyterServerAppSettings
       `Prelude.hashWithSalt` kernelGatewayAppSettings
       `Prelude.hashWithSalt` securityGroups

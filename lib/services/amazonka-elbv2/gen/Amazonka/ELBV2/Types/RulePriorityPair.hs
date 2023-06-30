@@ -64,7 +64,8 @@ rulePriorityPair_ruleArn = Lens.lens (\RulePriorityPair' {ruleArn} -> ruleArn) (
 
 instance Prelude.Hashable RulePriorityPair where
   hashWithSalt _salt RulePriorityPair' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` ruleArn
 
 instance Prelude.NFData RulePriorityPair where

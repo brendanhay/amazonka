@@ -366,7 +366,8 @@ instance Data.FromJSON Profile where
 
 instance Prelude.Hashable Profile where
   hashWithSalt _salt Profile' {..} =
-    _salt `Prelude.hashWithSalt` accountNumber
+    _salt
+      `Prelude.hashWithSalt` accountNumber
       `Prelude.hashWithSalt` additionalInformation
       `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` attributes

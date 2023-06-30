@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     XksProxyAuthenticationCredentialType' {..} =
-      _salt `Prelude.hashWithSalt` accessKeyId
+      _salt
+        `Prelude.hashWithSalt` accessKeyId
         `Prelude.hashWithSalt` rawSecretAccessKey
 
 instance

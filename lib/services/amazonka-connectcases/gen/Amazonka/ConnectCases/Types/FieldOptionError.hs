@@ -90,7 +90,8 @@ instance Data.FromJSON FieldOptionError where
 
 instance Prelude.Hashable FieldOptionError where
   hashWithSalt _salt FieldOptionError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` value
 

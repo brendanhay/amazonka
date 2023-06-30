@@ -163,7 +163,8 @@ instance Data.FromXML Redirect where
 
 instance Prelude.Hashable Redirect where
   hashWithSalt _salt Redirect' {..} =
-    _salt `Prelude.hashWithSalt` hostName
+    _salt
+      `Prelude.hashWithSalt` hostName
       `Prelude.hashWithSalt` httpRedirectCode
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` replaceKeyPrefixWith

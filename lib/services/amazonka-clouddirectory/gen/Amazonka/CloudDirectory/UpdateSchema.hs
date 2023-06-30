@@ -106,7 +106,8 @@ instance Core.AWSRequest UpdateSchema where
 
 instance Prelude.Hashable UpdateSchema where
   hashWithSalt _salt UpdateSchema' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateSchema where

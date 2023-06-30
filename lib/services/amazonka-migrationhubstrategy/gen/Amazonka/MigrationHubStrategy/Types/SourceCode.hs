@@ -84,7 +84,8 @@ sourceCode_versionControl = Lens.lens (\SourceCode' {versionControl} -> versionC
 
 instance Prelude.Hashable SourceCode where
   hashWithSalt _salt SourceCode' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` sourceVersion
       `Prelude.hashWithSalt` versionControl

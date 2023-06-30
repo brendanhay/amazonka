@@ -78,7 +78,8 @@ instance Data.FromJSON InitialCapacityConfig where
 
 instance Prelude.Hashable InitialCapacityConfig where
   hashWithSalt _salt InitialCapacityConfig' {..} =
-    _salt `Prelude.hashWithSalt` workerConfiguration
+    _salt
+      `Prelude.hashWithSalt` workerConfiguration
       `Prelude.hashWithSalt` workerCount
 
 instance Prelude.NFData InitialCapacityConfig where

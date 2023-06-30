@@ -122,7 +122,8 @@ instance Data.FromJSON ImpersonationRule where
 
 instance Prelude.Hashable ImpersonationRule where
   hashWithSalt _salt ImpersonationRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` notTargetUsers
       `Prelude.hashWithSalt` targetUsers

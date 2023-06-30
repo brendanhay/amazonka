@@ -298,7 +298,8 @@ instance Data.FromJSON Backup where
 
 instance Prelude.Hashable Backup where
   hashWithSalt _salt Backup' {..} =
-    _salt `Prelude.hashWithSalt` directoryInformation
+    _salt
+      `Prelude.hashWithSalt` directoryInformation
       `Prelude.hashWithSalt` failureDetails
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` ownerId

@@ -133,7 +133,8 @@ instance Data.FromXML NetworkInterfaceAssociation where
 
 instance Prelude.Hashable NetworkInterfaceAssociation where
   hashWithSalt _salt NetworkInterfaceAssociation' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` carrierIp
       `Prelude.hashWithSalt` customerOwnedIp

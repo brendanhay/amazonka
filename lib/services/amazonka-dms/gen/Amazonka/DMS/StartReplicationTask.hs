@@ -261,7 +261,8 @@ instance Core.AWSRequest StartReplicationTask where
 
 instance Prelude.Hashable StartReplicationTask where
   hashWithSalt _salt StartReplicationTask' {..} =
-    _salt `Prelude.hashWithSalt` cdcStartPosition
+    _salt
+      `Prelude.hashWithSalt` cdcStartPosition
       `Prelude.hashWithSalt` cdcStartTime
       `Prelude.hashWithSalt` cdcStopPosition
       `Prelude.hashWithSalt` replicationTaskArn

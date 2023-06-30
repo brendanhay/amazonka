@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     MicrosoftSQLServerCatalogTarget' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` inputs
         `Prelude.hashWithSalt` database
         `Prelude.hashWithSalt` table

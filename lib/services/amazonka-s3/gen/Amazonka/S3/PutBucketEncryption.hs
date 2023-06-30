@@ -225,7 +225,8 @@ instance Core.AWSRequest PutBucketEncryption where
 
 instance Prelude.Hashable PutBucketEncryption where
   hashWithSalt _salt PutBucketEncryption' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

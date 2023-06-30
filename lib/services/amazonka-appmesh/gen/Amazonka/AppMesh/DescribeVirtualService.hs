@@ -128,7 +128,8 @@ instance Core.AWSRequest DescribeVirtualService where
 
 instance Prelude.Hashable DescribeVirtualService where
   hashWithSalt _salt DescribeVirtualService' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualServiceName
 

@@ -84,7 +84,8 @@ instance Data.FromJSON Fraudster where
 
 instance Prelude.Hashable Fraudster where
   hashWithSalt _salt Fraudster' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` generatedFraudsterId
 

@@ -226,7 +226,8 @@ instance Data.FromJSON MotionImageInserter where
 
 instance Prelude.Hashable MotionImageInserter where
   hashWithSalt _salt MotionImageInserter' {..} =
-    _salt `Prelude.hashWithSalt` framerate
+    _salt
+      `Prelude.hashWithSalt` framerate
       `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` insertionMode
       `Prelude.hashWithSalt` offset

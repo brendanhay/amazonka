@@ -109,7 +109,8 @@ instance Data.FromJSON CognitoStreams where
 
 instance Prelude.Hashable CognitoStreams where
   hashWithSalt _salt CognitoStreams' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` streamingStatus
 

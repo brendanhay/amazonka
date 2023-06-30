@@ -84,7 +84,8 @@ instance Data.FromJSON RowInfo where
 
 instance Prelude.Hashable RowInfo where
   hashWithSalt _salt RowInfo' {..} =
-    _salt `Prelude.hashWithSalt` rowsDropped
+    _salt
+      `Prelude.hashWithSalt` rowsDropped
       `Prelude.hashWithSalt` rowsIngested
       `Prelude.hashWithSalt` totalRowsInDataset
 

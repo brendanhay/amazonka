@@ -141,7 +141,8 @@ instance Core.AWSRequest ListCustomVocabularyItems where
           ListCustomVocabularyItemsResponse'
             Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botVersion")
-            Prelude.<*> ( x Data..?> "customVocabularyItems"
+            Prelude.<*> ( x
+                            Data..?> "customVocabularyItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "localeId")
@@ -151,7 +152,8 @@ instance Core.AWSRequest ListCustomVocabularyItems where
 
 instance Prelude.Hashable ListCustomVocabularyItems where
   hashWithSalt _salt ListCustomVocabularyItems' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion

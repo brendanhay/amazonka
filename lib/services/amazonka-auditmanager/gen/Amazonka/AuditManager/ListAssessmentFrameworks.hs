@@ -115,7 +115,8 @@ instance Core.AWSRequest ListAssessmentFrameworks where
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentFrameworksResponse'
-            Prelude.<$> ( x Data..?> "frameworkMetadataList"
+            Prelude.<$> ( x
+                            Data..?> "frameworkMetadataList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -124,7 +125,8 @@ instance Core.AWSRequest ListAssessmentFrameworks where
 
 instance Prelude.Hashable ListAssessmentFrameworks where
   hashWithSalt _salt ListAssessmentFrameworks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` frameworkType
 

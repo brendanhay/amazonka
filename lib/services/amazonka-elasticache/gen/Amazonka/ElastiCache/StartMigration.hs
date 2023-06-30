@@ -107,7 +107,8 @@ instance Core.AWSRequest StartMigration where
 
 instance Prelude.Hashable StartMigration where
   hashWithSalt _salt StartMigration' {..} =
-    _salt `Prelude.hashWithSalt` replicationGroupId
+    _salt
+      `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` customerNodeEndpointList
 
 instance Prelude.NFData StartMigration where

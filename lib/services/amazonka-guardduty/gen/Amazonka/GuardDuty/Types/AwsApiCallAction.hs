@@ -144,7 +144,8 @@ instance Data.FromJSON AwsApiCallAction where
       "AwsApiCallAction"
       ( \x ->
           AwsApiCallAction'
-            Prelude.<$> ( x Data..:? "affectedResources"
+            Prelude.<$> ( x
+                            Data..:? "affectedResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "api")
@@ -159,7 +160,8 @@ instance Data.FromJSON AwsApiCallAction where
 
 instance Prelude.Hashable AwsApiCallAction where
   hashWithSalt _salt AwsApiCallAction' {..} =
-    _salt `Prelude.hashWithSalt` affectedResources
+    _salt
+      `Prelude.hashWithSalt` affectedResources
       `Prelude.hashWithSalt` api
       `Prelude.hashWithSalt` callerType
       `Prelude.hashWithSalt` domainDetails

@@ -69,11 +69,13 @@ icmpTypeCode_type = Lens.lens (\IcmpTypeCode' {type'} -> type') (\s@IcmpTypeCode
 instance Data.FromXML IcmpTypeCode where
   parseXML x =
     IcmpTypeCode'
-      Prelude.<$> (x Data..@? "code") Prelude.<*> (x Data..@? "type")
+      Prelude.<$> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "type")
 
 instance Prelude.Hashable IcmpTypeCode where
   hashWithSalt _salt IcmpTypeCode' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData IcmpTypeCode where

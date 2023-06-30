@@ -151,7 +151,8 @@ instance Core.AWSRequest DeleteStackSet where
 
 instance Prelude.Hashable DeleteStackSet where
   hashWithSalt _salt DeleteStackSet' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` stackSetName
 
 instance Prelude.NFData DeleteStackSet where

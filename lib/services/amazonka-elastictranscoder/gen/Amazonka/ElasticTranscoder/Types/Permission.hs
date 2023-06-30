@@ -168,7 +168,8 @@ instance Data.FromJSON Permission where
 
 instance Prelude.Hashable Permission where
   hashWithSalt _salt Permission' {..} =
-    _salt `Prelude.hashWithSalt` access
+    _salt
+      `Prelude.hashWithSalt` access
       `Prelude.hashWithSalt` grantee
       `Prelude.hashWithSalt` granteeType
 

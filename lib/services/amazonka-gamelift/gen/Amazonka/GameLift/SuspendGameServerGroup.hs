@@ -135,7 +135,8 @@ instance Core.AWSRequest SuspendGameServerGroup where
 
 instance Prelude.Hashable SuspendGameServerGroup where
   hashWithSalt _salt SuspendGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupName
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` suspendActions
 
 instance Prelude.NFData SuspendGameServerGroup where

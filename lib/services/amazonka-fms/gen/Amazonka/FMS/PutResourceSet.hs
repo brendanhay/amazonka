@@ -122,7 +122,8 @@ instance Core.AWSRequest PutResourceSet where
 
 instance Prelude.Hashable PutResourceSet where
   hashWithSalt _salt PutResourceSet' {..} =
-    _salt `Prelude.hashWithSalt` tagList
+    _salt
+      `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` resourceSet
 
 instance Prelude.NFData PutResourceSet where

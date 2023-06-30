@@ -75,7 +75,8 @@ instance Data.FromJSON ChefConfiguration where
 
 instance Prelude.Hashable ChefConfiguration where
   hashWithSalt _salt ChefConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` berkshelfVersion
+    _salt
+      `Prelude.hashWithSalt` berkshelfVersion
       `Prelude.hashWithSalt` manageBerkshelf
 
 instance Prelude.NFData ChefConfiguration where

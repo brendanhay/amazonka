@@ -101,7 +101,8 @@ instance Data.FromJSON ProjectAppConfigResource where
 
 instance Prelude.Hashable ProjectAppConfigResource where
   hashWithSalt _salt ProjectAppConfigResource' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` configurationProfileId
       `Prelude.hashWithSalt` environmentId
 

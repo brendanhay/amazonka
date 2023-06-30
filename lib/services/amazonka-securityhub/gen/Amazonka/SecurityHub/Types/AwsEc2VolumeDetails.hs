@@ -219,7 +219,8 @@ instance Data.FromJSON AwsEc2VolumeDetails where
 
 instance Prelude.Hashable AwsEc2VolumeDetails where
   hashWithSalt _salt AwsEc2VolumeDetails' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` encrypted

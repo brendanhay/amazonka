@@ -89,7 +89,8 @@ instance Data.FromXML AvailableProcessorFeature where
 
 instance Prelude.Hashable AvailableProcessorFeature where
   hashWithSalt _salt AvailableProcessorFeature' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` name
 

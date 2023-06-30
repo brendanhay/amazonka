@@ -111,17 +111,22 @@ instance Data.FromXML ClusterSubnetGroup where
       Prelude.<$> (x Data..@? "ClusterSubnetGroupName")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "SubnetGroupStatus")
-      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Subnets"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "VpcId")
 
 instance Prelude.Hashable ClusterSubnetGroup where
   hashWithSalt _salt ClusterSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` clusterSubnetGroupName
+    _salt
+      `Prelude.hashWithSalt` clusterSubnetGroupName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` subnetGroupStatus
       `Prelude.hashWithSalt` subnets

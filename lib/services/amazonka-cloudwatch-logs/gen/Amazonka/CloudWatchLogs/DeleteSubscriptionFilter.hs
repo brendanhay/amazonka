@@ -99,7 +99,8 @@ instance Core.AWSRequest DeleteSubscriptionFilter where
 
 instance Prelude.Hashable DeleteSubscriptionFilter where
   hashWithSalt _salt DeleteSubscriptionFilter' {..} =
-    _salt `Prelude.hashWithSalt` logGroupName
+    _salt
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` filterName
 
 instance Prelude.NFData DeleteSubscriptionFilter where

@@ -103,7 +103,8 @@ instance Data.FromJSON CustomerManagedS3Storage where
 
 instance Prelude.Hashable CustomerManagedS3Storage where
   hashWithSalt _salt CustomerManagedS3Storage' {..} =
-    _salt `Prelude.hashWithSalt` s3ResourceArn
+    _salt
+      `Prelude.hashWithSalt` s3ResourceArn
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CustomerManagedS3Storage where

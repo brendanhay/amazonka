@@ -123,21 +123,21 @@ instance Core.AWSPager ListEventSubscriptions where
     | Core.stop
         ( rs
             Lens.^? listEventSubscriptionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listEventSubscriptionsResponse_subscriptions
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEventSubscriptions_nextToken
           Lens..~ rs
           Lens.^? listEventSubscriptionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEventSubscriptions where
   type
@@ -156,7 +156,8 @@ instance Core.AWSRequest ListEventSubscriptions where
 
 instance Prelude.Hashable ListEventSubscriptions where
   hashWithSalt _salt ListEventSubscriptions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 

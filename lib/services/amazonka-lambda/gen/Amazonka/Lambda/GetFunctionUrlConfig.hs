@@ -148,7 +148,8 @@ instance Core.AWSRequest GetFunctionUrlConfig where
 
 instance Prelude.Hashable GetFunctionUrlConfig where
   hashWithSalt _salt GetFunctionUrlConfig' {..} =
-    _salt `Prelude.hashWithSalt` qualifier
+    _salt
+      `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData GetFunctionUrlConfig where

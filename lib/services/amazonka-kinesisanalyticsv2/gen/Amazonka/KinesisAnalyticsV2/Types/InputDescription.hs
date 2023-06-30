@@ -170,7 +170,8 @@ instance Data.FromJSON InputDescription where
       "InputDescription"
       ( \x ->
           InputDescription'
-            Prelude.<$> ( x Data..:? "InAppStreamNames"
+            Prelude.<$> ( x
+                            Data..:? "InAppStreamNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "InputId")
@@ -187,7 +188,8 @@ instance Data.FromJSON InputDescription where
 
 instance Prelude.Hashable InputDescription where
   hashWithSalt _salt InputDescription' {..} =
-    _salt `Prelude.hashWithSalt` inAppStreamNames
+    _salt
+      `Prelude.hashWithSalt` inAppStreamNames
       `Prelude.hashWithSalt` inputId
       `Prelude.hashWithSalt` inputParallelism
       `Prelude.hashWithSalt` inputProcessingConfigurationDescription

@@ -126,7 +126,8 @@ instance Data.FromJSON PeriodToDateComputation where
 
 instance Prelude.Hashable PeriodToDateComputation where
   hashWithSalt _salt PeriodToDateComputation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` periodTimeGranularity
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` computationId

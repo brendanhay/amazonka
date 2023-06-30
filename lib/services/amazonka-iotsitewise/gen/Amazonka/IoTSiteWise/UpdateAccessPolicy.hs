@@ -156,7 +156,8 @@ instance Core.AWSRequest UpdateAccessPolicy where
 
 instance Prelude.Hashable UpdateAccessPolicy where
   hashWithSalt _salt UpdateAccessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` accessPolicyId
       `Prelude.hashWithSalt` accessPolicyIdentity
       `Prelude.hashWithSalt` accessPolicyResource

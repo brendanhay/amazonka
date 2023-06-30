@@ -101,7 +101,8 @@ instance Data.FromJSON S3Destination where
 
 instance Prelude.Hashable S3Destination where
   hashWithSalt _salt S3Destination' {..} =
-    _salt `Prelude.hashWithSalt` keyPrefix
+    _salt
+      `Prelude.hashWithSalt` keyPrefix
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` kmsKeyArn
 

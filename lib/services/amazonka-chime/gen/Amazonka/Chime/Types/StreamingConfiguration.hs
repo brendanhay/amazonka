@@ -90,7 +90,8 @@ instance Data.FromJSON StreamingConfiguration where
 
 instance Prelude.Hashable StreamingConfiguration where
   hashWithSalt _salt StreamingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` streamingNotificationTargets
       `Prelude.hashWithSalt` dataRetentionInHours
 

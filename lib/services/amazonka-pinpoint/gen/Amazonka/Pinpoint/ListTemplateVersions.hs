@@ -149,7 +149,8 @@ instance Core.AWSRequest ListTemplateVersions where
 
 instance Prelude.Hashable ListTemplateVersions where
   hashWithSalt _salt ListTemplateVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateType

@@ -100,7 +100,8 @@ instance Data.FromJSON DeployedImage where
 
 instance Prelude.Hashable DeployedImage where
   hashWithSalt _salt DeployedImage' {..} =
-    _salt `Prelude.hashWithSalt` resolutionTime
+    _salt
+      `Prelude.hashWithSalt` resolutionTime
       `Prelude.hashWithSalt` resolvedImage
       `Prelude.hashWithSalt` specifiedImage
 

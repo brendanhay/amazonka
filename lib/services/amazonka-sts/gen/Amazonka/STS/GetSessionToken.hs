@@ -255,7 +255,8 @@ instance Core.AWSRequest GetSessionToken where
 
 instance Prelude.Hashable GetSessionToken where
   hashWithSalt _salt GetSessionToken' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` serialNumber
       `Prelude.hashWithSalt` tokenCode
 

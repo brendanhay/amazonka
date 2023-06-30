@@ -213,7 +213,8 @@ instance Core.AWSRequest PutTemplateAction where
 
 instance Prelude.Hashable PutTemplateAction where
   hashWithSalt _salt PutTemplateAction' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` mustSucceedForCutover
       `Prelude.hashWithSalt` operatingSystem

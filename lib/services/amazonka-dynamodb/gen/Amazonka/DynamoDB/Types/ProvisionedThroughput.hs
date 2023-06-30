@@ -121,7 +121,8 @@ instance Data.FromJSON ProvisionedThroughput where
 
 instance Prelude.Hashable ProvisionedThroughput where
   hashWithSalt _salt ProvisionedThroughput' {..} =
-    _salt `Prelude.hashWithSalt` readCapacityUnits
+    _salt
+      `Prelude.hashWithSalt` readCapacityUnits
       `Prelude.hashWithSalt` writeCapacityUnits
 
 instance Prelude.NFData ProvisionedThroughput where

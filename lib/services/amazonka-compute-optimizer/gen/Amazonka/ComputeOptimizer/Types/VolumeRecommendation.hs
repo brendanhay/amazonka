@@ -194,18 +194,21 @@ instance Data.FromJSON VolumeRecommendation where
             Prelude.<*> (x Data..:? "finding")
             Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "lookBackPeriodInDays")
-            Prelude.<*> ( x Data..:? "utilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "utilizationMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "volumeArn")
-            Prelude.<*> ( x Data..:? "volumeRecommendationOptions"
+            Prelude.<*> ( x
+                            Data..:? "volumeRecommendationOptions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable VolumeRecommendation where
   hashWithSalt _salt VolumeRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentConfiguration
       `Prelude.hashWithSalt` currentPerformanceRisk
       `Prelude.hashWithSalt` finding

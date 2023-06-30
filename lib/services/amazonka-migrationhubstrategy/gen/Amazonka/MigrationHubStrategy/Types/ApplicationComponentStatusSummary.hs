@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     ApplicationComponentStatusSummary' {..} =
-      _salt `Prelude.hashWithSalt` count
+      _salt
+        `Prelude.hashWithSalt` count
         `Prelude.hashWithSalt` srcCodeOrDbAnalysisStatus
 
 instance

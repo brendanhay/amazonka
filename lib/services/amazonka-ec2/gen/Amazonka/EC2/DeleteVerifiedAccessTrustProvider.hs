@@ -128,7 +128,7 @@ instance
       ( \s h x ->
           DeleteVerifiedAccessTrustProviderResponse'
             Prelude.<$> (x Data..@? "verifiedAccessTrustProvider")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     DeleteVerifiedAccessTrustProvider' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` verifiedAccessTrustProviderId
 

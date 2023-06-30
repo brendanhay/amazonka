@@ -322,7 +322,8 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` accelerationSettings
+    _salt
+      `Prelude.hashWithSalt` accelerationSettings
       `Prelude.hashWithSalt` billingTagsSource
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` hopDestinations

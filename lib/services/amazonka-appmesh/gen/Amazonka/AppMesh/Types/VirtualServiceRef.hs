@@ -186,7 +186,8 @@ instance Data.FromJSON VirtualServiceRef where
 
 instance Prelude.Hashable VirtualServiceRef where
   hashWithSalt _salt VirtualServiceRef' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` meshName

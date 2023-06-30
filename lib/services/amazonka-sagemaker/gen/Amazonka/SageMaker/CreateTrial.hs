@@ -154,7 +154,8 @@ instance Core.AWSRequest CreateTrial where
 
 instance Prelude.Hashable CreateTrial where
   hashWithSalt _salt CreateTrial' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` metadataProperties
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` trialName

@@ -74,7 +74,8 @@ instance Data.FromJSON StateDescription where
 
 instance Prelude.Hashable StateDescription where
   hashWithSalt _salt StateDescription' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData StateDescription where

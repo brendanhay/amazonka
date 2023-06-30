@@ -110,7 +110,8 @@ instance Data.FromJSON AutoScalingSettingsDescription where
             Prelude.<*> (x Data..:? "AutoScalingRoleArn")
             Prelude.<*> (x Data..:? "MaximumUnits")
             Prelude.<*> (x Data..:? "MinimumUnits")
-            Prelude.<*> ( x Data..:? "ScalingPolicies"
+            Prelude.<*> ( x
+                            Data..:? "ScalingPolicies"
                             Data..!= Prelude.mempty
                         )
       )
@@ -122,7 +123,8 @@ instance
   hashWithSalt
     _salt
     AutoScalingSettingsDescription' {..} =
-      _salt `Prelude.hashWithSalt` autoScalingDisabled
+      _salt
+        `Prelude.hashWithSalt` autoScalingDisabled
         `Prelude.hashWithSalt` autoScalingRoleArn
         `Prelude.hashWithSalt` maximumUnits
         `Prelude.hashWithSalt` minimumUnits

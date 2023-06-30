@@ -175,7 +175,8 @@ instance
                         )
             Prelude.<*> (x Data..:? "RunConfigurationDescription")
             Prelude.<*> (x Data..:? "SqlApplicationConfigurationDescription")
-            Prelude.<*> ( x Data..:? "VpcConfigurationDescriptions"
+            Prelude.<*> ( x
+                            Data..:? "VpcConfigurationDescriptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x

@@ -195,7 +195,8 @@ instance Data.FromJSON ReportGroup where
 
 instance Prelude.Hashable ReportGroup where
   hashWithSalt _salt ReportGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` exportConfig
       `Prelude.hashWithSalt` lastModified

@@ -218,7 +218,8 @@ instance Core.AWSRequest AuthorizeSecurityGroupEgress where
       ( \s h x ->
           AuthorizeSecurityGroupEgressResponse'
             Prelude.<$> (x Data..@? "return")
-            Prelude.<*> ( x Data..@? "securityGroupRuleSet"
+            Prelude.<*> ( x
+                            Data..@? "securityGroupRuleSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -230,7 +231,8 @@ instance
     AuthorizeSecurityGroupEgress
   where
   hashWithSalt _salt AuthorizeSecurityGroupEgress' {..} =
-    _salt `Prelude.hashWithSalt` cidrIp
+    _salt
+      `Prelude.hashWithSalt` cidrIp
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` ipPermissions

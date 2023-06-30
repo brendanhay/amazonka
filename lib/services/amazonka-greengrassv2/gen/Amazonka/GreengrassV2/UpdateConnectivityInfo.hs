@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateConnectivityInfo where
 
 instance Prelude.Hashable UpdateConnectivityInfo where
   hashWithSalt _salt UpdateConnectivityInfo' {..} =
-    _salt `Prelude.hashWithSalt` thingName
+    _salt
+      `Prelude.hashWithSalt` thingName
       `Prelude.hashWithSalt` connectivityInfo
 
 instance Prelude.NFData UpdateConnectivityInfo where

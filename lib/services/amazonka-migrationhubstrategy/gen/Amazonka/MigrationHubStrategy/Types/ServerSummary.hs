@@ -76,7 +76,8 @@ instance Data.FromJSON ServerSummary where
 
 instance Prelude.Hashable ServerSummary where
   hashWithSalt _salt ServerSummary' {..} =
-    _salt `Prelude.hashWithSalt` serverOsType
+    _salt
+      `Prelude.hashWithSalt` serverOsType
       `Prelude.hashWithSalt` count
 
 instance Prelude.NFData ServerSummary where

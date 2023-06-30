@@ -114,7 +114,8 @@ instance Data.FromJSON Record where
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
-    _salt `Prelude.hashWithSalt` deviceLastModifiedDate
+    _salt
+      `Prelude.hashWithSalt` deviceLastModifiedDate
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` lastModifiedBy
       `Prelude.hashWithSalt` lastModifiedDate

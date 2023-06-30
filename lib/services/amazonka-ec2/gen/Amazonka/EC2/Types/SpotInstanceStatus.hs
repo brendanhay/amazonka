@@ -90,7 +90,8 @@ instance Data.FromXML SpotInstanceStatus where
 
 instance Prelude.Hashable SpotInstanceStatus where
   hashWithSalt _salt SpotInstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` updateTime
 

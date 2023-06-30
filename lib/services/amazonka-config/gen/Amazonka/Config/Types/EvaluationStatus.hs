@@ -80,7 +80,8 @@ instance Data.FromJSON EvaluationStatus where
 
 instance Prelude.Hashable EvaluationStatus where
   hashWithSalt _salt EvaluationStatus' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData EvaluationStatus where

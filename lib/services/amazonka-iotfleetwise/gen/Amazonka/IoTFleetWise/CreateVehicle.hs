@@ -70,7 +70,7 @@ data CreateVehicle = CreateVehicle'
     -- vehicle, or to validate an existing Amazon Web Services IoT thing as a
     -- vehicle.
     --
-    -- Default: @@
+    -- Default:
     associationBehavior :: Prelude.Maybe VehicleAssociationBehavior,
     -- | Static information about a vehicle in a key-value pair. For example:
     -- @\"engineType\"@ : @\"1.3 L R2\"@
@@ -98,7 +98,7 @@ data CreateVehicle = CreateVehicle'
 -- vehicle, or to validate an existing Amazon Web Services IoT thing as a
 -- vehicle.
 --
--- Default: @@
+-- Default:
 --
 -- 'attributes', 'createVehicle_attributes' - Static information about a vehicle in a key-value pair. For example:
 -- @\"engineType\"@ : @\"1.3 L R2\"@
@@ -136,7 +136,7 @@ newCreateVehicle
 -- vehicle, or to validate an existing Amazon Web Services IoT thing as a
 -- vehicle.
 --
--- Default: @@
+-- Default:
 createVehicle_associationBehavior :: Lens.Lens' CreateVehicle (Prelude.Maybe VehicleAssociationBehavior)
 createVehicle_associationBehavior = Lens.lens (\CreateVehicle' {associationBehavior} -> associationBehavior) (\s@CreateVehicle' {} a -> s {associationBehavior = a} :: CreateVehicle)
 
@@ -179,7 +179,8 @@ instance Core.AWSRequest CreateVehicle where
 
 instance Prelude.Hashable CreateVehicle where
   hashWithSalt _salt CreateVehicle' {..} =
-    _salt `Prelude.hashWithSalt` associationBehavior
+    _salt
+      `Prelude.hashWithSalt` associationBehavior
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vehicleName

@@ -86,7 +86,8 @@ instance Data.FromJSON MetricAttributionOutput where
 
 instance Prelude.Hashable MetricAttributionOutput where
   hashWithSalt _salt MetricAttributionOutput' {..} =
-    _salt `Prelude.hashWithSalt` s3DataDestination
+    _salt
+      `Prelude.hashWithSalt` s3DataDestination
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData MetricAttributionOutput where

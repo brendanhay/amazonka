@@ -115,7 +115,8 @@ instance Core.AWSRequest GetFolder where
 
 instance Prelude.Hashable GetFolder where
   hashWithSalt _salt GetFolder' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` includeCustomMetadata
       `Prelude.hashWithSalt` folderId
 

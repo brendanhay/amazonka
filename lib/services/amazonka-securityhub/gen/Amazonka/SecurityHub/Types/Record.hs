@@ -84,7 +84,8 @@ instance Data.FromJSON Record where
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
-    _salt `Prelude.hashWithSalt` jsonPath
+    _salt
+      `Prelude.hashWithSalt` jsonPath
       `Prelude.hashWithSalt` recordIndex
 
 instance Prelude.NFData Record where

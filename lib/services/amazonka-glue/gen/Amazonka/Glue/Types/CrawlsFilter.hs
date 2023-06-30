@@ -145,7 +145,8 @@ crawlsFilter_filterOperator = Lens.lens (\CrawlsFilter' {filterOperator} -> filt
 
 instance Prelude.Hashable CrawlsFilter where
   hashWithSalt _salt CrawlsFilter' {..} =
-    _salt `Prelude.hashWithSalt` fieldName
+    _salt
+      `Prelude.hashWithSalt` fieldName
       `Prelude.hashWithSalt` fieldValue
       `Prelude.hashWithSalt` filterOperator
 

@@ -119,7 +119,8 @@ instance Data.FromJSON SSMValidationParameters where
 
 instance Prelude.Hashable SSMValidationParameters where
   hashWithSalt _salt SSMValidationParameters' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` executionTimeoutSeconds
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` outputS3BucketName

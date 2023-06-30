@@ -134,7 +134,8 @@ instance
           ListAppComponentRecommendationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "componentRecommendations"
+            Prelude.<*> ( x
+                            Data..?> "componentRecommendations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -146,7 +147,8 @@ instance
   hashWithSalt
     _salt
     ListAppComponentRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` assessmentArn
 

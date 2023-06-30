@@ -151,7 +151,8 @@ instance
   hashWithSalt
     _salt
     ListGeofenceCollectionsResponseEntry' {..} =
-      _salt `Prelude.hashWithSalt` pricingPlan
+      _salt
+        `Prelude.hashWithSalt` pricingPlan
         `Prelude.hashWithSalt` pricingPlanDataSource
         `Prelude.hashWithSalt` collectionName
         `Prelude.hashWithSalt` createTime

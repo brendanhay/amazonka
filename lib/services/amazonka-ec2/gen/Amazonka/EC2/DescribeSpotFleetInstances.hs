@@ -136,22 +136,22 @@ instance Core.AWSPager DescribeSpotFleetInstances where
     | Core.stop
         ( rs
             Lens.^? describeSpotFleetInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSpotFleetInstancesResponse_activeInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSpotFleetInstances_nextToken
           Lens..~ rs
           Lens.^? describeSpotFleetInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSpotFleetInstances where
   type
@@ -163,7 +163,8 @@ instance Core.AWSRequest DescribeSpotFleetInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeSpotFleetInstancesResponse'
-            Prelude.<$> ( x Data..@? "activeInstanceSet"
+            Prelude.<$> ( x
+                            Data..@? "activeInstanceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -174,7 +175,8 @@ instance Core.AWSRequest DescribeSpotFleetInstances where
 
 instance Prelude.Hashable DescribeSpotFleetInstances where
   hashWithSalt _salt DescribeSpotFleetInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` spotFleetRequestId

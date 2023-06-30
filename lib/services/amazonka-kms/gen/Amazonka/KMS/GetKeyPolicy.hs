@@ -150,7 +150,8 @@ instance Core.AWSRequest GetKeyPolicy where
 
 instance Prelude.Hashable GetKeyPolicy where
   hashWithSalt _salt GetKeyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData GetKeyPolicy where

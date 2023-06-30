@@ -114,7 +114,8 @@ instance Core.AWSRequest DescribeRouterConfiguration where
 
 instance Prelude.Hashable DescribeRouterConfiguration where
   hashWithSalt _salt DescribeRouterConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` routerTypeIdentifier
+    _salt
+      `Prelude.hashWithSalt` routerTypeIdentifier
       `Prelude.hashWithSalt` virtualInterfaceId
 
 instance Prelude.NFData DescribeRouterConfiguration where

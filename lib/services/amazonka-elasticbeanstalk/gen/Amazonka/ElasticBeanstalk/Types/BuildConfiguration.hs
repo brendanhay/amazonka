@@ -141,7 +141,8 @@ buildConfiguration_image = Lens.lens (\BuildConfiguration' {image} -> image) (\s
 
 instance Prelude.Hashable BuildConfiguration where
   hashWithSalt _salt BuildConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` artifactName
+    _salt
+      `Prelude.hashWithSalt` artifactName
       `Prelude.hashWithSalt` computeType
       `Prelude.hashWithSalt` timeoutInMinutes
       `Prelude.hashWithSalt` codeBuildServiceRole

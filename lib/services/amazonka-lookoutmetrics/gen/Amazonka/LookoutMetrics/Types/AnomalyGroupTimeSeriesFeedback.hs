@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     AnomalyGroupTimeSeriesFeedback' {..} =
-      _salt `Prelude.hashWithSalt` anomalyGroupId
+      _salt
+        `Prelude.hashWithSalt` anomalyGroupId
         `Prelude.hashWithSalt` timeSeriesId
         `Prelude.hashWithSalt` isAnomaly
 

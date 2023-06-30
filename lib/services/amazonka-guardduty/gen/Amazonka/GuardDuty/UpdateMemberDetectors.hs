@@ -110,14 +110,16 @@ instance Core.AWSRequest UpdateMemberDetectors where
       ( \s h x ->
           UpdateMemberDetectorsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable UpdateMemberDetectors where
   hashWithSalt _salt UpdateMemberDetectors' {..} =
-    _salt `Prelude.hashWithSalt` dataSources
+    _salt
+      `Prelude.hashWithSalt` dataSources
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 

@@ -371,7 +371,8 @@ instance Core.AWSRequest CreateEnvironment where
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` codebuildRoleArn
+    _salt
+      `Prelude.hashWithSalt` codebuildRoleArn
       `Prelude.hashWithSalt` componentRoleArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentAccountConnectionId

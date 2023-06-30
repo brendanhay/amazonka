@@ -84,7 +84,8 @@ instance Data.FromJSON RemoteAccountDetails where
 
 instance Prelude.Hashable RemoteAccountDetails where
   hashWithSalt _salt RemoteAccountDetails' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` affiliated
 
 instance Prelude.NFData RemoteAccountDetails where

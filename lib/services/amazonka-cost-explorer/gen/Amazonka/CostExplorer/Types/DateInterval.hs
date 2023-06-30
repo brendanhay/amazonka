@@ -87,12 +87,14 @@ instance Data.FromJSON DateInterval where
       "DateInterval"
       ( \x ->
           DateInterval'
-            Prelude.<$> (x Data..: "Start") Prelude.<*> (x Data..: "End")
+            Prelude.<$> (x Data..: "Start")
+            Prelude.<*> (x Data..: "End")
       )
 
 instance Prelude.Hashable DateInterval where
   hashWithSalt _salt DateInterval' {..} =
-    _salt `Prelude.hashWithSalt` start
+    _salt
+      `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` end
 
 instance Prelude.NFData DateInterval where

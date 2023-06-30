@@ -118,7 +118,8 @@ instance Core.AWSRequest GetReferenceImportJob where
 
 instance Prelude.Hashable GetReferenceImportJob where
   hashWithSalt _salt GetReferenceImportJob' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` referenceStoreId
 
 instance Prelude.NFData GetReferenceImportJob where

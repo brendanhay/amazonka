@@ -165,7 +165,8 @@ instance Data.FromJSON Filter where
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` categoryFilter
+    _salt
+      `Prelude.hashWithSalt` categoryFilter
       `Prelude.hashWithSalt` numericEqualityFilter
       `Prelude.hashWithSalt` numericRangeFilter
       `Prelude.hashWithSalt` relativeDatesFilter

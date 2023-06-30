@@ -100,7 +100,8 @@ instance Data.FromJSON AssetRelationshipSummary where
 
 instance Prelude.Hashable AssetRelationshipSummary where
   hashWithSalt _salt AssetRelationshipSummary' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyInfo
+    _salt
+      `Prelude.hashWithSalt` hierarchyInfo
       `Prelude.hashWithSalt` relationshipType
 
 instance Prelude.NFData AssetRelationshipSummary where

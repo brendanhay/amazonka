@@ -149,7 +149,6 @@ newGetRecordingConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getRecordingConfigurationResponse_recordingConfiguration :: Lens.Lens' GetRecordingConfigurationResponse (Prelude.Maybe RecordingConfiguration)
 getRecordingConfigurationResponse_recordingConfiguration = Lens.lens (\GetRecordingConfigurationResponse' {recordingConfiguration} -> recordingConfiguration) (\s@GetRecordingConfigurationResponse' {} a -> s {recordingConfiguration = a} :: GetRecordingConfigurationResponse)
 

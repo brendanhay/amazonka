@@ -69,7 +69,6 @@ newGetOperation ::
 newGetOperation pOperationId_ =
   GetOperation' {operationId = pOperationId_}
 
--- |
 getOperation_operationId :: Lens.Lens' GetOperation Prelude.Text
 getOperation_operationId = Lens.lens (\GetOperation' {operationId} -> operationId) (\s@GetOperation' {} a -> s {operationId = a} :: GetOperation)
 
@@ -145,7 +144,6 @@ newGetOperationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getOperationResponse_operation :: Lens.Lens' GetOperationResponse (Prelude.Maybe Operation)
 getOperationResponse_operation = Lens.lens (\GetOperationResponse' {operation} -> operation) (\s@GetOperationResponse' {} a -> s {operation = a} :: GetOperationResponse)
 

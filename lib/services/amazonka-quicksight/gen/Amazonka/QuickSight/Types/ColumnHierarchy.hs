@@ -101,7 +101,8 @@ instance Data.FromJSON ColumnHierarchy where
 
 instance Prelude.Hashable ColumnHierarchy where
   hashWithSalt _salt ColumnHierarchy' {..} =
-    _salt `Prelude.hashWithSalt` dateTimeHierarchy
+    _salt
+      `Prelude.hashWithSalt` dateTimeHierarchy
       `Prelude.hashWithSalt` explicitHierarchy
       `Prelude.hashWithSalt` predefinedHierarchy
 

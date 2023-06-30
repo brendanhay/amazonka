@@ -87,10 +87,11 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionProxyConfigurationDetails'
             Prelude.<$> (x Data..:? "ContainerName")
-              Prelude.<*> ( x Data..:? "ProxyConfigurationProperties"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> ( x
+                            Data..:? "ProxyConfigurationProperties"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -100,7 +101,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionProxyConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` containerName
+      _salt
+        `Prelude.hashWithSalt` containerName
         `Prelude.hashWithSalt` proxyConfigurationProperties
         `Prelude.hashWithSalt` type'
 

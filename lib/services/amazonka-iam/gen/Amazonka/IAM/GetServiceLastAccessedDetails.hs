@@ -219,7 +219,8 @@ instance
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "JobStatus")
             Prelude.<*> (x Data..@ "JobCreationDate")
-            Prelude.<*> ( x Data..@? "ServicesLastAccessed"
+            Prelude.<*> ( x
+                            Data..@? "ServicesLastAccessed"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
@@ -231,7 +232,8 @@ instance
     GetServiceLastAccessedDetails
   where
   hashWithSalt _salt GetServiceLastAccessedDetails' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` jobId
 

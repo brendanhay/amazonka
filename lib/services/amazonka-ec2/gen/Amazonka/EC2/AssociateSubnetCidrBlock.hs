@@ -114,7 +114,8 @@ instance Core.AWSRequest AssociateSubnetCidrBlock where
 
 instance Prelude.Hashable AssociateSubnetCidrBlock where
   hashWithSalt _salt AssociateSubnetCidrBlock' {..} =
-    _salt `Prelude.hashWithSalt` ipv6CidrBlock
+    _salt
+      `Prelude.hashWithSalt` ipv6CidrBlock
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData AssociateSubnetCidrBlock where

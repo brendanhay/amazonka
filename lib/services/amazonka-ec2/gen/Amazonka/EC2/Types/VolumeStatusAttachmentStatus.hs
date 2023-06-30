@@ -75,7 +75,8 @@ instance
     VolumeStatusAttachmentStatus
   where
   hashWithSalt _salt VolumeStatusAttachmentStatus' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` ioPerformance
 
 instance Prelude.NFData VolumeStatusAttachmentStatus where

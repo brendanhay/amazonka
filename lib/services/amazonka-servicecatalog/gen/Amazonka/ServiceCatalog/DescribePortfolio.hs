@@ -129,7 +129,8 @@ instance Core.AWSRequest DescribePortfolio where
 
 instance Prelude.Hashable DescribePortfolio where
   hashWithSalt _salt DescribePortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribePortfolio where

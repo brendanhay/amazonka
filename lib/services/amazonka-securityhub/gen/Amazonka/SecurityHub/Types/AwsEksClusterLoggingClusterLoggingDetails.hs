@@ -103,7 +103,7 @@ instance
       ( \x ->
           AwsEksClusterLoggingClusterLoggingDetails'
             Prelude.<$> (x Data..:? "Enabled")
-              Prelude.<*> (x Data..:? "Types" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Types" Data..!= Prelude.mempty)
       )
 
 instance
@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     AwsEksClusterLoggingClusterLoggingDetails' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` types
 
 instance

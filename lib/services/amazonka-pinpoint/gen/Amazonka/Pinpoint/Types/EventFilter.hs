@@ -96,7 +96,8 @@ instance Data.FromJSON EventFilter where
 
 instance Prelude.Hashable EventFilter where
   hashWithSalt _salt EventFilter' {..} =
-    _salt `Prelude.hashWithSalt` filterType
+    _salt
+      `Prelude.hashWithSalt` filterType
       `Prelude.hashWithSalt` dimensions
 
 instance Prelude.NFData EventFilter where

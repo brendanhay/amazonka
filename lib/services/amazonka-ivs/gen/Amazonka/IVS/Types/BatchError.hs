@@ -84,7 +84,8 @@ instance Data.FromJSON BatchError where
 
 instance Prelude.Hashable BatchError where
   hashWithSalt _salt BatchError' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 

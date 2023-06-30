@@ -191,7 +191,8 @@ instance Data.FromXML Activity where
 
 instance Prelude.Hashable Activity where
   hashWithSalt _salt Activity' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupARN
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupARN
       `Prelude.hashWithSalt` autoScalingGroupState
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` details

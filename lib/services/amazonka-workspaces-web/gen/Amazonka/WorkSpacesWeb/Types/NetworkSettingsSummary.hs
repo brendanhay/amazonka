@@ -75,7 +75,8 @@ instance Data.FromJSON NetworkSettingsSummary where
 
 instance Prelude.Hashable NetworkSettingsSummary where
   hashWithSalt _salt NetworkSettingsSummary' {..} =
-    _salt `Prelude.hashWithSalt` networkSettingsArn
+    _salt
+      `Prelude.hashWithSalt` networkSettingsArn
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData NetworkSettingsSummary where

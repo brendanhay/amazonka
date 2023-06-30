@@ -125,7 +125,8 @@ instance Data.FromJSON StatefulRuleGroupReference where
 
 instance Prelude.Hashable StatefulRuleGroupReference where
   hashWithSalt _salt StatefulRuleGroupReference' {..} =
-    _salt `Prelude.hashWithSalt` override
+    _salt
+      `Prelude.hashWithSalt` override
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` resourceArn
 

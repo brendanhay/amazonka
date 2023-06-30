@@ -77,7 +77,8 @@ providerUserIdentifierType_providerName = Lens.lens (\ProviderUserIdentifierType
 
 instance Prelude.Hashable ProviderUserIdentifierType where
   hashWithSalt _salt ProviderUserIdentifierType' {..} =
-    _salt `Prelude.hashWithSalt` providerAttributeName
+    _salt
+      `Prelude.hashWithSalt` providerAttributeName
       `Prelude.hashWithSalt` providerAttributeValue
       `Prelude.hashWithSalt` providerName
 

@@ -100,7 +100,8 @@ instance Data.FromJSON DomainSummary where
 
 instance Prelude.Hashable DomainSummary where
   hashWithSalt _salt DomainSummary' {..} =
-    _salt `Prelude.hashWithSalt` autoRenew
+    _salt
+      `Prelude.hashWithSalt` autoRenew
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` expiry
       `Prelude.hashWithSalt` transferLock

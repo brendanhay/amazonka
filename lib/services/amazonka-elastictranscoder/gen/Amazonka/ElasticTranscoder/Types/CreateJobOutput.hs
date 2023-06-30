@@ -522,7 +522,8 @@ createJobOutput_watermarks = Lens.lens (\CreateJobOutput' {watermarks} -> waterm
 
 instance Prelude.Hashable CreateJobOutput where
   hashWithSalt _salt CreateJobOutput' {..} =
-    _salt `Prelude.hashWithSalt` albumArt
+    _salt
+      `Prelude.hashWithSalt` albumArt
       `Prelude.hashWithSalt` captions
       `Prelude.hashWithSalt` composition
       `Prelude.hashWithSalt` encryption

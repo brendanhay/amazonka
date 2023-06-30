@@ -137,7 +137,8 @@ instance Core.AWSRequest ResetCacheParameterGroup where
 
 instance Prelude.Hashable ResetCacheParameterGroup where
   hashWithSalt _salt ResetCacheParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` parameterNameValues
+    _salt
+      `Prelude.hashWithSalt` parameterNameValues
       `Prelude.hashWithSalt` resetAllParameters
       `Prelude.hashWithSalt` cacheParameterGroupName
 

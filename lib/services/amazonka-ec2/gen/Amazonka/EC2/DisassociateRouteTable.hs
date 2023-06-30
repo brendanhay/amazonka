@@ -112,7 +112,8 @@ instance Core.AWSRequest DisassociateRouteTable where
 
 instance Prelude.Hashable DisassociateRouteTable where
   hashWithSalt _salt DisassociateRouteTable' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` associationId
 
 instance Prelude.NFData DisassociateRouteTable where

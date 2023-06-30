@@ -104,7 +104,8 @@ instance Data.FromJSON AwsWafv2RulesActionDetails where
 
 instance Prelude.Hashable AwsWafv2RulesActionDetails where
   hashWithSalt _salt AwsWafv2RulesActionDetails' {..} =
-    _salt `Prelude.hashWithSalt` allow
+    _salt
+      `Prelude.hashWithSalt` allow
       `Prelude.hashWithSalt` block
       `Prelude.hashWithSalt` captcha
       `Prelude.hashWithSalt` count

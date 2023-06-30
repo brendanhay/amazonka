@@ -74,7 +74,8 @@ loRaWANServiceProfile_drMin = Lens.lens (\LoRaWANServiceProfile' {drMin} -> drMi
 
 instance Prelude.Hashable LoRaWANServiceProfile where
   hashWithSalt _salt LoRaWANServiceProfile' {..} =
-    _salt `Prelude.hashWithSalt` addGwMetadata
+    _salt
+      `Prelude.hashWithSalt` addGwMetadata
       `Prelude.hashWithSalt` drMax
       `Prelude.hashWithSalt` drMin
 

@@ -131,22 +131,22 @@ instance Core.AWSPager ListBonusPayments where
     | Core.stop
         ( rs
             Lens.^? listBonusPaymentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBonusPaymentsResponse_bonusPayments
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBonusPayments_nextToken
           Lens..~ rs
           Lens.^? listBonusPaymentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBonusPayments where
   type
@@ -166,7 +166,8 @@ instance Core.AWSRequest ListBonusPayments where
 
 instance Prelude.Hashable ListBonusPayments where
   hashWithSalt _salt ListBonusPayments' {..} =
-    _salt `Prelude.hashWithSalt` assignmentId
+    _salt
+      `Prelude.hashWithSalt` assignmentId
       `Prelude.hashWithSalt` hITId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

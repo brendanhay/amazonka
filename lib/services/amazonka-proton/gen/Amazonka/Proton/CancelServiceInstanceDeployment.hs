@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     CancelServiceInstanceDeployment' {..} =
-      _salt `Prelude.hashWithSalt` serviceInstanceName
+      _salt
+        `Prelude.hashWithSalt` serviceInstanceName
         `Prelude.hashWithSalt` serviceName
 
 instance

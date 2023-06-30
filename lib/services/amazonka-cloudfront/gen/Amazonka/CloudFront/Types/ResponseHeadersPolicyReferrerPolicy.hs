@@ -161,7 +161,8 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyReferrerPolicy' {..} =
-      _salt `Prelude.hashWithSalt` override
+      _salt
+        `Prelude.hashWithSalt` override
         `Prelude.hashWithSalt` referrerPolicy
 
 instance

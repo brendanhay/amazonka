@@ -118,7 +118,8 @@ instance Data.FromJSON CSVOutput where
 
 instance Prelude.Hashable CSVOutput where
   hashWithSalt _salt CSVOutput' {..} =
-    _salt `Prelude.hashWithSalt` fieldDelimiter
+    _salt
+      `Prelude.hashWithSalt` fieldDelimiter
       `Prelude.hashWithSalt` quoteCharacter
       `Prelude.hashWithSalt` quoteEscapeCharacter
       `Prelude.hashWithSalt` quoteFields

@@ -79,7 +79,8 @@ instance Data.FromJSON EthernetPayload where
 
 instance Prelude.Hashable EthernetPayload where
   hashWithSalt _salt EthernetPayload' {..} =
-    _salt `Prelude.hashWithSalt` staticIpConnectionInfo
+    _salt
+      `Prelude.hashWithSalt` staticIpConnectionInfo
       `Prelude.hashWithSalt` connectionType
 
 instance Prelude.NFData EthernetPayload where

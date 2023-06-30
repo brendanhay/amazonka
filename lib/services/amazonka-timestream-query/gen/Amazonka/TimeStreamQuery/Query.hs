@@ -334,17 +334,19 @@ instance Core.AWSPager Query where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? queryResponse_nextToken Prelude.. Lens._Just
+            Lens.^? queryResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. queryResponse_rows) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& query_nextToken
           Lens..~ rs
-          Lens.^? queryResponse_nextToken Prelude.. Lens._Just
+          Lens.^? queryResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest Query where
   type AWSResponse Query = QueryResponse
@@ -364,7 +366,8 @@ instance Core.AWSRequest Query where
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` maxRows
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryString

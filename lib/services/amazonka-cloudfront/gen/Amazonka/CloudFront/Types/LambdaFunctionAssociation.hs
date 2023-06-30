@@ -163,7 +163,8 @@ instance Data.FromXML LambdaFunctionAssociation where
 
 instance Prelude.Hashable LambdaFunctionAssociation where
   hashWithSalt _salt LambdaFunctionAssociation' {..} =
-    _salt `Prelude.hashWithSalt` includeBody
+    _salt
+      `Prelude.hashWithSalt` includeBody
       `Prelude.hashWithSalt` lambdaFunctionARN
       `Prelude.hashWithSalt` eventType
 

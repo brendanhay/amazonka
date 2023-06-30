@@ -135,7 +135,8 @@ instance Data.FromJSON RedshiftDataParameters where
 
 instance Prelude.Hashable RedshiftDataParameters where
   hashWithSalt _salt RedshiftDataParameters' {..} =
-    _salt `Prelude.hashWithSalt` dbUser
+    _salt
+      `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` secretManagerArn
       `Prelude.hashWithSalt` statementName
       `Prelude.hashWithSalt` withEvent

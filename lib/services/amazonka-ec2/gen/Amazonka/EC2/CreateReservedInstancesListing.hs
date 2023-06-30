@@ -175,7 +175,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateReservedInstancesListingResponse'
-            Prelude.<$> ( x Data..@? "reservedInstancesListingsSet"
+            Prelude.<$> ( x
+                            Data..@? "reservedInstancesListingsSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -189,7 +190,8 @@ instance
   hashWithSalt
     _salt
     CreateReservedInstancesListing' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` instanceCount
         `Prelude.hashWithSalt` priceSchedules
         `Prelude.hashWithSalt` reservedInstancesId

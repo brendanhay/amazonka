@@ -429,7 +429,8 @@ instance Core.AWSRequest CalculateRouteMatrix where
 
 instance Prelude.Hashable CalculateRouteMatrix where
   hashWithSalt _salt CalculateRouteMatrix' {..} =
-    _salt `Prelude.hashWithSalt` carModeOptions
+    _salt
+      `Prelude.hashWithSalt` carModeOptions
       `Prelude.hashWithSalt` departNow
       `Prelude.hashWithSalt` departureTime
       `Prelude.hashWithSalt` distanceUnit

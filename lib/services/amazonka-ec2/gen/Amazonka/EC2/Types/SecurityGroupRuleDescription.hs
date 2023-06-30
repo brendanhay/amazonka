@@ -72,7 +72,8 @@ instance
     SecurityGroupRuleDescription
   where
   hashWithSalt _salt SecurityGroupRuleDescription' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` securityGroupRuleId
 
 instance Prelude.NFData SecurityGroupRuleDescription where

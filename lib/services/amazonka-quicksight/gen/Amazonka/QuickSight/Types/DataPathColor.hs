@@ -91,7 +91,8 @@ instance Data.FromJSON DataPathColor where
 
 instance Prelude.Hashable DataPathColor where
   hashWithSalt _salt DataPathColor' {..} =
-    _salt `Prelude.hashWithSalt` timeGranularity
+    _salt
+      `Prelude.hashWithSalt` timeGranularity
       `Prelude.hashWithSalt` element
       `Prelude.hashWithSalt` color
 

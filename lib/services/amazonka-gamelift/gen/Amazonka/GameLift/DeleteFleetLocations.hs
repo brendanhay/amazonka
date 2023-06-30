@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteFleetLocations where
 
 instance Prelude.Hashable DeleteFleetLocations where
   hashWithSalt _salt DeleteFleetLocations' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` locations
 
 instance Prelude.NFData DeleteFleetLocations where

@@ -132,7 +132,8 @@ instance Core.AWSRequest ImportPlaybackKeyPair where
 
 instance Prelude.Hashable ImportPlaybackKeyPair where
   hashWithSalt _salt ImportPlaybackKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` publicKeyMaterial
 
@@ -200,7 +201,6 @@ newImportPlaybackKeyPairResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 importPlaybackKeyPairResponse_keyPair :: Lens.Lens' ImportPlaybackKeyPairResponse (Prelude.Maybe PlaybackKeyPair)
 importPlaybackKeyPairResponse_keyPair = Lens.lens (\ImportPlaybackKeyPairResponse' {keyPair} -> keyPair) (\s@ImportPlaybackKeyPairResponse' {} a -> s {keyPair = a} :: ImportPlaybackKeyPairResponse)
 

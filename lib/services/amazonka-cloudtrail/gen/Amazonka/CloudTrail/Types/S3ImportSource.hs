@@ -93,7 +93,8 @@ instance Data.FromJSON S3ImportSource where
 
 instance Prelude.Hashable S3ImportSource where
   hashWithSalt _salt S3ImportSource' {..} =
-    _salt `Prelude.hashWithSalt` s3LocationUri
+    _salt
+      `Prelude.hashWithSalt` s3LocationUri
       `Prelude.hashWithSalt` s3BucketRegion
       `Prelude.hashWithSalt` s3BucketAccessRoleArn
 

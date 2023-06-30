@@ -72,12 +72,14 @@ instance Data.FromJSON MetricDimension where
       "MetricDimension"
       ( \x ->
           MetricDimension'
-            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable MetricDimension where
   hashWithSalt _salt MetricDimension' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MetricDimension where

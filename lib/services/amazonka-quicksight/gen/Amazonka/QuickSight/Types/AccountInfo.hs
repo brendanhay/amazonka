@@ -131,7 +131,8 @@ instance Data.FromJSON AccountInfo where
 
 instance Prelude.Hashable AccountInfo where
   hashWithSalt _salt AccountInfo' {..} =
-    _salt `Prelude.hashWithSalt` accountName
+    _salt
+      `Prelude.hashWithSalt` accountName
       `Prelude.hashWithSalt` accountSubscriptionStatus
       `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` edition

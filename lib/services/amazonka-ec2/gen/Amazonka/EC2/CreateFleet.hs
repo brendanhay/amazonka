@@ -354,11 +354,14 @@ instance Core.AWSRequest CreateFleet where
     Response.receiveXML
       ( \s h x ->
           CreateFleetResponse'
-            Prelude.<$> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "errorSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "fleetId")
-            Prelude.<*> ( x Data..@? "fleetInstanceSet"
+            Prelude.<*> ( x
+                            Data..@? "fleetInstanceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -367,7 +370,8 @@ instance Core.AWSRequest CreateFleet where
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` excessCapacityTerminationPolicy

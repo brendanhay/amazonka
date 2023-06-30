@@ -291,7 +291,8 @@ instance Core.AWSRequest CreateCase where
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =
-    _salt `Prelude.hashWithSalt` attachmentSetId
+    _salt
+      `Prelude.hashWithSalt` attachmentSetId
       `Prelude.hashWithSalt` categoryCode
       `Prelude.hashWithSalt` ccEmailAddresses
       `Prelude.hashWithSalt` issueType

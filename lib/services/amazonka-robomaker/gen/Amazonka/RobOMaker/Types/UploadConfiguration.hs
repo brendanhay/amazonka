@@ -161,7 +161,8 @@ instance Data.FromJSON UploadConfiguration where
 
 instance Prelude.Hashable UploadConfiguration where
   hashWithSalt _salt UploadConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` uploadBehavior
 

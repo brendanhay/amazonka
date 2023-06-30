@@ -199,7 +199,8 @@ instance Data.FromXML Object where
 
 instance Prelude.Hashable Object where
   hashWithSalt _salt Object' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` size

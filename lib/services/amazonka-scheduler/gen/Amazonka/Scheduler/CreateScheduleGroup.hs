@@ -121,7 +121,8 @@ instance Core.AWSRequest CreateScheduleGroup where
 
 instance Prelude.Hashable CreateScheduleGroup where
   hashWithSalt _salt CreateScheduleGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 

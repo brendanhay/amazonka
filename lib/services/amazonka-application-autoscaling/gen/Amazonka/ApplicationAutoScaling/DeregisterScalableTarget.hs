@@ -519,7 +519,8 @@ instance Core.AWSRequest DeregisterScalableTarget where
 
 instance Prelude.Hashable DeregisterScalableTarget where
   hashWithSalt _salt DeregisterScalableTarget' {..} =
-    _salt `Prelude.hashWithSalt` serviceNamespace
+    _salt
+      `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
 

@@ -104,7 +104,8 @@ instance Data.FromJSON SendQuota where
 
 instance Prelude.Hashable SendQuota where
   hashWithSalt _salt SendQuota' {..} =
-    _salt `Prelude.hashWithSalt` max24HourSend
+    _salt
+      `Prelude.hashWithSalt` max24HourSend
       `Prelude.hashWithSalt` maxSendRate
       `Prelude.hashWithSalt` sentLast24Hours
 

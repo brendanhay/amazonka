@@ -140,7 +140,8 @@ instance Data.FromJSON FeatureMetadata where
 
 instance Prelude.Hashable FeatureMetadata where
   hashWithSalt _salt FeatureMetadata' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` featureGroupArn
       `Prelude.hashWithSalt` featureGroupName

@@ -23,9 +23,9 @@
 -- Attaches an inline policy to a permission set.
 --
 -- If the permission set is already referenced by one or more account
--- assignments, you will need to call @ ProvisionPermissionSet @ after this
--- action to apply the corresponding IAM policy updates to all assigned
--- accounts.
+-- assignments, you will need to call @ @@ProvisionPermissionSet@@ @ after
+-- this action to apply the corresponding IAM policy updates to all
+-- assigned accounts.
 module Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet
   ( -- * Creating a Request
     PutInlinePolicyToPermissionSet (..),
@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     PutInlinePolicyToPermissionSet' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` permissionSetArn
         `Prelude.hashWithSalt` inlinePolicy
 

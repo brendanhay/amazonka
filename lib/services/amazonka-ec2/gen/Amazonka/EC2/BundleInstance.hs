@@ -158,7 +158,8 @@ instance Core.AWSRequest BundleInstance where
 
 instance Prelude.Hashable BundleInstance where
   hashWithSalt _salt BundleInstance' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` storage
 

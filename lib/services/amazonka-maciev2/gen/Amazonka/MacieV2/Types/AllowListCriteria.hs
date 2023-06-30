@@ -83,7 +83,8 @@ instance Data.FromJSON AllowListCriteria where
 
 instance Prelude.Hashable AllowListCriteria where
   hashWithSalt _salt AllowListCriteria' {..} =
-    _salt `Prelude.hashWithSalt` regex
+    _salt
+      `Prelude.hashWithSalt` regex
       `Prelude.hashWithSalt` s3WordsList
 
 instance Prelude.NFData AllowListCriteria where

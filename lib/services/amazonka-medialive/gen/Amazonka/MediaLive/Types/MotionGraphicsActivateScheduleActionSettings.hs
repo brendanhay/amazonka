@@ -99,9 +99,9 @@ instance
       ( \x ->
           MotionGraphicsActivateScheduleActionSettings'
             Prelude.<$> (x Data..:? "duration")
-              Prelude.<*> (x Data..:? "passwordParam")
-              Prelude.<*> (x Data..:? "url")
-              Prelude.<*> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "passwordParam")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "username")
       )
 
 instance
@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     MotionGraphicsActivateScheduleActionSettings' {..} =
-      _salt `Prelude.hashWithSalt` duration
+      _salt
+        `Prelude.hashWithSalt` duration
         `Prelude.hashWithSalt` passwordParam
         `Prelude.hashWithSalt` url
         `Prelude.hashWithSalt` username

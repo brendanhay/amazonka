@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     InputDeviceConfigurableSettings' {..} =
-      _salt `Prelude.hashWithSalt` configuredInput
+      _salt
+        `Prelude.hashWithSalt` configuredInput
         `Prelude.hashWithSalt` latencyMs
         `Prelude.hashWithSalt` maxBitrate
 

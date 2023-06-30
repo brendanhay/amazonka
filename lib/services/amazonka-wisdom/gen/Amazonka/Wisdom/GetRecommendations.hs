@@ -146,14 +146,16 @@ instance Core.AWSRequest GetRecommendations where
           GetRecommendationsResponse'
             Prelude.<$> (x Data..?> "triggers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "recommendations"
+            Prelude.<*> ( x
+                            Data..?> "recommendations"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetRecommendations where
   hashWithSalt _salt GetRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` waitTimeSeconds
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` sessionId

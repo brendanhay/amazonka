@@ -247,7 +247,8 @@ instance Core.AWSRequest CreateBotLocale where
 
 instance Prelude.Hashable CreateBotLocale where
   hashWithSalt _salt CreateBotLocale' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` voiceSettings
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion

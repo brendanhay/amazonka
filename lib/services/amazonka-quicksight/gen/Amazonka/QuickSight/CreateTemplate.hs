@@ -250,7 +250,8 @@ instance Core.AWSRequest CreateTemplate where
 
 instance Prelude.Hashable CreateTemplate where
   hashWithSalt _salt CreateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` sourceEntity

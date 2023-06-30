@@ -73,7 +73,8 @@ instance Data.FromXML ResponseError where
 
 instance Prelude.Hashable ResponseError where
   hashWithSalt _salt ResponseError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ResponseError where

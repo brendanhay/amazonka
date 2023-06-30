@@ -91,11 +91,13 @@ instance
   parseXML x =
     VerifiedAccessEndpointLoadBalancerOptions'
       Prelude.<$> (x Data..@? "loadBalancerArn")
-        Prelude.<*> (x Data..@? "port")
-        Prelude.<*> (x Data..@? "protocol")
-        Prelude.<*> ( x Data..@? "subnetIdSet" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Data.parseXMLList "item")
-                    )
+      Prelude.<*> (x Data..@? "port")
+      Prelude.<*> (x Data..@? "protocol")
+      Prelude.<*> ( x
+                      Data..@? "subnetIdSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
 
 instance
   Prelude.Hashable
@@ -104,7 +106,8 @@ instance
   hashWithSalt
     _salt
     VerifiedAccessEndpointLoadBalancerOptions' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerArn
+      _salt
+        `Prelude.hashWithSalt` loadBalancerArn
         `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` protocol
         `Prelude.hashWithSalt` subnetIds

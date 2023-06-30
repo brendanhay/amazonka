@@ -203,7 +203,8 @@ instance Data.FromJSON ProvisionedProductPlanDetails where
       ( \x ->
           ProvisionedProductPlanDetails'
             Prelude.<$> (x Data..:? "CreatedTime")
-            Prelude.<*> ( x Data..:? "NotificationArns"
+            Prelude.<*> ( x
+                            Data..:? "NotificationArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PathId")
@@ -214,7 +215,8 @@ instance Data.FromJSON ProvisionedProductPlanDetails where
             Prelude.<*> (x Data..:? "ProvisionProductId")
             Prelude.<*> (x Data..:? "ProvisionProductName")
             Prelude.<*> (x Data..:? "ProvisioningArtifactId")
-            Prelude.<*> ( x Data..:? "ProvisioningParameters"
+            Prelude.<*> ( x
+                            Data..:? "ProvisioningParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Status")
@@ -228,7 +230,8 @@ instance
     ProvisionedProductPlanDetails
   where
   hashWithSalt _salt ProvisionedProductPlanDetails' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` notificationArns
       `Prelude.hashWithSalt` pathId
       `Prelude.hashWithSalt` planId

@@ -134,7 +134,8 @@ instance Data.FromJSON PackageDependency where
 
 instance Prelude.Hashable PackageDependency where
   hashWithSalt _salt PackageDependency' {..} =
-    _salt `Prelude.hashWithSalt` dependencyType
+    _salt
+      `Prelude.hashWithSalt` dependencyType
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` package
       `Prelude.hashWithSalt` versionRequirement

@@ -134,22 +134,22 @@ instance Core.AWSPager ListLayerVersions where
     | Core.stop
         ( rs
             Lens.^? listLayerVersionsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listLayerVersionsResponse_layerVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLayerVersions_marker
           Lens..~ rs
           Lens.^? listLayerVersionsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLayerVersions where
   type
@@ -168,7 +168,8 @@ instance Core.AWSRequest ListLayerVersions where
 
 instance Prelude.Hashable ListLayerVersions where
   hashWithSalt _salt ListLayerVersions' {..} =
-    _salt `Prelude.hashWithSalt` compatibleArchitecture
+    _salt
+      `Prelude.hashWithSalt` compatibleArchitecture
       `Prelude.hashWithSalt` compatibleRuntime
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

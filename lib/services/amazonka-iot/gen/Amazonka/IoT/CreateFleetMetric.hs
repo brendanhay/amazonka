@@ -213,7 +213,8 @@ instance Core.AWSRequest CreateFleetMetric where
 
 instance Prelude.Hashable CreateFleetMetric where
   hashWithSalt _salt CreateFleetMetric' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` tags

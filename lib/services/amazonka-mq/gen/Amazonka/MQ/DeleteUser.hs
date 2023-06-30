@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteUser where
 
 instance Prelude.Hashable DeleteUser where
   hashWithSalt _salt DeleteUser' {..} =
-    _salt `Prelude.hashWithSalt` username
+    _salt
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` brokerId
 
 instance Prelude.NFData DeleteUser where

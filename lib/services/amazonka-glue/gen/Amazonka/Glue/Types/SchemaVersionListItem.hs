@@ -106,7 +106,8 @@ instance Data.FromJSON SchemaVersionListItem where
 
 instance Prelude.Hashable SchemaVersionListItem where
   hashWithSalt _salt SchemaVersionListItem' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` schemaVersionId
       `Prelude.hashWithSalt` status

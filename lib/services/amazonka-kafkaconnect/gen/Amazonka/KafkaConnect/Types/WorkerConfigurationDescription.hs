@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     WorkerConfigurationDescription' {..} =
-      _salt `Prelude.hashWithSalt` revision
+      _salt
+        `Prelude.hashWithSalt` revision
         `Prelude.hashWithSalt` workerConfigurationArn
 
 instance

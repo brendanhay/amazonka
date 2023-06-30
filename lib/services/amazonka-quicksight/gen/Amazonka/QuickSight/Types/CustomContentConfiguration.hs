@@ -99,7 +99,8 @@ instance Data.FromJSON CustomContentConfiguration where
 
 instance Prelude.Hashable CustomContentConfiguration where
   hashWithSalt _salt CustomContentConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` contentUrl
       `Prelude.hashWithSalt` imageScaling
 

@@ -111,7 +111,8 @@ instance
     ServerValidationConfiguration
   where
   hashWithSalt _salt ServerValidationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` server
       `Prelude.hashWithSalt` serverValidationStrategy
       `Prelude.hashWithSalt` userDataValidationParameters

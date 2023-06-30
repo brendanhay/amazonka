@@ -107,7 +107,8 @@ instance Data.FromJSON GrpcMetadataMatchMethod where
 
 instance Prelude.Hashable GrpcMetadataMatchMethod where
   hashWithSalt _salt GrpcMetadataMatchMethod' {..} =
-    _salt `Prelude.hashWithSalt` exact
+    _salt
+      `Prelude.hashWithSalt` exact
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` regex

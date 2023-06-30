@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     RedactedEwsAvailabilityProvider' {..} =
-      _salt `Prelude.hashWithSalt` ewsEndpoint
+      _salt
+        `Prelude.hashWithSalt` ewsEndpoint
         `Prelude.hashWithSalt` ewsUsername
 
 instance

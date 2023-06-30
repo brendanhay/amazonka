@@ -76,7 +76,8 @@ instance Data.FromJSON NormalizedValue where
 
 instance Prelude.Hashable NormalizedValue where
   hashWithSalt _salt NormalizedValue' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` valueType
 
 instance Prelude.NFData NormalizedValue where

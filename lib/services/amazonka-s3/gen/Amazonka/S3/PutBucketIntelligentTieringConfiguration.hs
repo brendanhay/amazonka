@@ -182,7 +182,8 @@ instance
   hashWithSalt
     _salt
     PutBucketIntelligentTieringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bucket
+      _salt
+        `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` intelligentTieringConfiguration
 

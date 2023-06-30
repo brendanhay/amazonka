@@ -126,7 +126,8 @@ instance Data.FromJSON BillingRecord where
 
 instance Prelude.Hashable BillingRecord where
   hashWithSalt _salt BillingRecord' {..} =
-    _salt `Prelude.hashWithSalt` billDate
+    _salt
+      `Prelude.hashWithSalt` billDate
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` invoiceId
       `Prelude.hashWithSalt` operation

@@ -220,7 +220,8 @@ instance Core.AWSRequest SendChannelMessage where
 
 instance Prelude.Hashable SendChannelMessage where
   hashWithSalt _salt SendChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` messageAttributes
+    _salt
+      `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` pushNotification
       `Prelude.hashWithSalt` subChannelId

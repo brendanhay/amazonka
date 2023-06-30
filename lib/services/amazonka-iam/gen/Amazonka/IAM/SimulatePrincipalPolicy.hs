@@ -723,20 +723,22 @@ instance Core.AWSPager SimulatePrincipalPolicy where
     | Core.stop
         ( rs
             Lens.^? simulatePolicyResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
+            Lens.^? simulatePolicyResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& simulatePrincipalPolicy_marker
           Lens..~ rs
-          Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
+          Lens.^? simulatePolicyResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SimulatePrincipalPolicy where
   type
@@ -751,7 +753,8 @@ instance Core.AWSRequest SimulatePrincipalPolicy where
 
 instance Prelude.Hashable SimulatePrincipalPolicy where
   hashWithSalt _salt SimulatePrincipalPolicy' {..} =
-    _salt `Prelude.hashWithSalt` callerArn
+    _salt
+      `Prelude.hashWithSalt` callerArn
       `Prelude.hashWithSalt` contextEntries
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

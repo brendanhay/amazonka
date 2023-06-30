@@ -100,12 +100,14 @@ instance Data.FromJSON RuleSummary where
       "RuleSummary"
       ( \x ->
           RuleSummary'
-            Prelude.<$> (x Data..: "RuleId") Prelude.<*> (x Data..: "Name")
+            Prelude.<$> (x Data..: "RuleId")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable RuleSummary where
   hashWithSalt _salt RuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` ruleId
+    _salt
+      `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RuleSummary where

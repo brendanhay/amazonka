@@ -164,7 +164,8 @@ instance Core.AWSRequest PutResolverRulePolicy where
 
 instance Prelude.Hashable PutResolverRulePolicy where
   hashWithSalt _salt PutResolverRulePolicy' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` resolverRulePolicy
 
 instance Prelude.NFData PutResolverRulePolicy where

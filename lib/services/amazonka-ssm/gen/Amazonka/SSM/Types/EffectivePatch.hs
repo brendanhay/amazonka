@@ -95,7 +95,8 @@ instance Data.FromJSON EffectivePatch where
 
 instance Prelude.Hashable EffectivePatch where
   hashWithSalt _salt EffectivePatch' {..} =
-    _salt `Prelude.hashWithSalt` patch
+    _salt
+      `Prelude.hashWithSalt` patch
       `Prelude.hashWithSalt` patchStatus
 
 instance Prelude.NFData EffectivePatch where

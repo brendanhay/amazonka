@@ -106,7 +106,8 @@ instance Data.FromJSON PostgreSQLCatalogTarget where
 
 instance Prelude.Hashable PostgreSQLCatalogTarget where
   hashWithSalt _salt PostgreSQLCatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table

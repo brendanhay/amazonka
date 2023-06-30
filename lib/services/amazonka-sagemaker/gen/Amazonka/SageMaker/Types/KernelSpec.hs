@@ -79,7 +79,8 @@ instance Data.FromJSON KernelSpec where
 
 instance Prelude.Hashable KernelSpec where
   hashWithSalt _salt KernelSpec' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData KernelSpec where

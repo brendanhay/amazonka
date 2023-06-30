@@ -166,7 +166,8 @@ instance Data.FromJSON EFSVolumeConfiguration where
 
 instance Prelude.Hashable EFSVolumeConfiguration where
   hashWithSalt _salt EFSVolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authorizationConfig
+    _salt
+      `Prelude.hashWithSalt` authorizationConfig
       `Prelude.hashWithSalt` rootDirectory
       `Prelude.hashWithSalt` transitEncryption
       `Prelude.hashWithSalt` transitEncryptionPort

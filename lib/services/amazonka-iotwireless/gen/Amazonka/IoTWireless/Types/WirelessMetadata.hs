@@ -66,7 +66,8 @@ wirelessMetadata_sidewalk = Lens.lens (\WirelessMetadata' {sidewalk} -> sidewalk
 
 instance Prelude.Hashable WirelessMetadata where
   hashWithSalt _salt WirelessMetadata' {..} =
-    _salt `Prelude.hashWithSalt` loRaWAN
+    _salt
+      `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` sidewalk
 
 instance Prelude.NFData WirelessMetadata where

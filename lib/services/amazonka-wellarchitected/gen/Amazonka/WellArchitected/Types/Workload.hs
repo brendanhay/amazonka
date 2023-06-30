@@ -289,7 +289,8 @@ instance Data.FromJSON Workload where
             Prelude.<*> (x Data..:? "NonAwsRegions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Notes")
             Prelude.<*> (x Data..:? "Owner")
-            Prelude.<*> ( x Data..:? "PillarPriorities"
+            Prelude.<*> ( x
+                            Data..:? "PillarPriorities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReviewOwner")
@@ -305,7 +306,8 @@ instance Data.FromJSON Workload where
 
 instance Prelude.Hashable Workload where
   hashWithSalt _salt Workload' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` architecturalDesign
       `Prelude.hashWithSalt` awsRegions

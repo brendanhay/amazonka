@@ -137,7 +137,8 @@ instance Core.AWSRequest PurchaseScheduledInstances where
     Response.receiveXML
       ( \s h x ->
           PurchaseScheduledInstancesResponse'
-            Prelude.<$> ( x Data..@? "scheduledInstanceSet"
+            Prelude.<$> ( x
+                            Data..@? "scheduledInstanceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -146,7 +147,8 @@ instance Core.AWSRequest PurchaseScheduledInstances where
 
 instance Prelude.Hashable PurchaseScheduledInstances where
   hashWithSalt _salt PurchaseScheduledInstances' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` purchaseRequests
 

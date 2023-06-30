@@ -110,7 +110,8 @@ instance Data.FromJSON SsmDocument where
 
 instance Prelude.Hashable SsmDocument where
   hashWithSalt _salt SsmDocument' {..} =
-    _salt `Prelude.hashWithSalt` mustSucceedForCutover
+    _salt
+      `Prelude.hashWithSalt` mustSucceedForCutover
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` timeoutSeconds
       `Prelude.hashWithSalt` actionName

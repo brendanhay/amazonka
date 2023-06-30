@@ -70,7 +70,8 @@ instance Data.FromJSON ColumnGroupSchema where
       "ColumnGroupSchema"
       ( \x ->
           ColumnGroupSchema'
-            Prelude.<$> ( x Data..:? "ColumnGroupColumnSchemaList"
+            Prelude.<$> ( x
+                            Data..:? "ColumnGroupColumnSchemaList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")

@@ -78,7 +78,8 @@ instance Data.FromJSON IngestedEventsTimeWindow where
 
 instance Prelude.Hashable IngestedEventsTimeWindow where
   hashWithSalt _salt IngestedEventsTimeWindow' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 
 instance Prelude.NFData IngestedEventsTimeWindow where

@@ -81,7 +81,8 @@ instance Data.FromJSON InventoryResultEntity where
 
 instance Prelude.Hashable InventoryResultEntity where
   hashWithSalt _salt InventoryResultEntity' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData InventoryResultEntity where

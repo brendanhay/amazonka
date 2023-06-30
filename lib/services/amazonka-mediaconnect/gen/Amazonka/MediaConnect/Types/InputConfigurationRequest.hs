@@ -73,7 +73,8 @@ inputConfigurationRequest_interface = Lens.lens (\InputConfigurationRequest' {in
 
 instance Prelude.Hashable InputConfigurationRequest where
   hashWithSalt _salt InputConfigurationRequest' {..} =
-    _salt `Prelude.hashWithSalt` inputPort
+    _salt
+      `Prelude.hashWithSalt` inputPort
       `Prelude.hashWithSalt` interface
 
 instance Prelude.NFData InputConfigurationRequest where

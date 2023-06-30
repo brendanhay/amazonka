@@ -148,7 +148,8 @@ instance Core.AWSRequest StartSchemaExtension where
 
 instance Prelude.Hashable StartSchemaExtension where
   hashWithSalt _salt StartSchemaExtension' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` createSnapshotBeforeSchemaExtension
       `Prelude.hashWithSalt` ldifContent
       `Prelude.hashWithSalt` description

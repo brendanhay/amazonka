@@ -192,7 +192,8 @@ instance Data.FromJSON Scan where
           Scan'
             Prelude.<$> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "adminDetectorId")
-            Prelude.<*> ( x Data..:? "attachedVolumes"
+            Prelude.<*> ( x
+                            Data..:? "attachedVolumes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "detectorId")
@@ -210,7 +211,8 @@ instance Data.FromJSON Scan where
 
 instance Prelude.Hashable Scan where
   hashWithSalt _salt Scan' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` adminDetectorId
       `Prelude.hashWithSalt` attachedVolumes
       `Prelude.hashWithSalt` detectorId

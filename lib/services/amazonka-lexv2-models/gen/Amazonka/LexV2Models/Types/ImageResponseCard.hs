@@ -119,7 +119,8 @@ instance Data.FromJSON ImageResponseCard where
 
 instance Prelude.Hashable ImageResponseCard where
   hashWithSalt _salt ImageResponseCard' {..} =
-    _salt `Prelude.hashWithSalt` buttons
+    _salt
+      `Prelude.hashWithSalt` buttons
       `Prelude.hashWithSalt` imageUrl
       `Prelude.hashWithSalt` subtitle
       `Prelude.hashWithSalt` title

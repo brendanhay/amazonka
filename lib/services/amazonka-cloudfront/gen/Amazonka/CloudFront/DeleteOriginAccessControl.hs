@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteOriginAccessControl where
 
 instance Prelude.Hashable DeleteOriginAccessControl where
   hashWithSalt _salt DeleteOriginAccessControl' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteOriginAccessControl where

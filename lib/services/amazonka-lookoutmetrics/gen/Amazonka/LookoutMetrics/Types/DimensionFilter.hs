@@ -77,7 +77,8 @@ instance Data.FromJSON DimensionFilter where
 
 instance Prelude.Hashable DimensionFilter where
   hashWithSalt _salt DimensionFilter' {..} =
-    _salt `Prelude.hashWithSalt` dimensionName
+    _salt
+      `Prelude.hashWithSalt` dimensionName
       `Prelude.hashWithSalt` dimensionValueList
 
 instance Prelude.NFData DimensionFilter where

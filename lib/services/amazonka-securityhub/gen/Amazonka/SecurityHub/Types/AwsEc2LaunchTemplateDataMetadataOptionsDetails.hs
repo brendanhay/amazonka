@@ -128,10 +128,10 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataMetadataOptionsDetails'
             Prelude.<$> (x Data..:? "HttpEndpoint")
-              Prelude.<*> (x Data..:? "HttpProtocolIpv6")
-              Prelude.<*> (x Data..:? "HttpPutResponseHopLimit")
-              Prelude.<*> (x Data..:? "HttpTokens")
-              Prelude.<*> (x Data..:? "InstanceMetadataTags")
+            Prelude.<*> (x Data..:? "HttpProtocolIpv6")
+            Prelude.<*> (x Data..:? "HttpPutResponseHopLimit")
+            Prelude.<*> (x Data..:? "HttpTokens")
+            Prelude.<*> (x Data..:? "InstanceMetadataTags")
       )
 
 instance
@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataMetadataOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` httpEndpoint
+      _salt
+        `Prelude.hashWithSalt` httpEndpoint
         `Prelude.hashWithSalt` httpProtocolIpv6
         `Prelude.hashWithSalt` httpPutResponseHopLimit
         `Prelude.hashWithSalt` httpTokens

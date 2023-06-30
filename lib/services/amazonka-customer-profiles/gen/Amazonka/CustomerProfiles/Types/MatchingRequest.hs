@@ -93,7 +93,8 @@ matchingRequest_enabled = Lens.lens (\MatchingRequest' {enabled} -> enabled) (\s
 
 instance Prelude.Hashable MatchingRequest where
   hashWithSalt _salt MatchingRequest' {..} =
-    _salt `Prelude.hashWithSalt` autoMerging
+    _salt
+      `Prelude.hashWithSalt` autoMerging
       `Prelude.hashWithSalt` exportingConfig
       `Prelude.hashWithSalt` jobSchedule
       `Prelude.hashWithSalt` enabled

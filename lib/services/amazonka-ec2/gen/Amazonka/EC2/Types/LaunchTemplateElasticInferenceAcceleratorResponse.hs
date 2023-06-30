@@ -79,7 +79,8 @@ instance
   where
   parseXML x =
     LaunchTemplateElasticInferenceAcceleratorResponse'
-      Prelude.<$> (x Data..@? "count") Prelude.<*> (x Data..@? "type")
+      Prelude.<$> (x Data..@? "count")
+      Prelude.<*> (x Data..@? "type")
 
 instance
   Prelude.Hashable
@@ -88,7 +89,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateElasticInferenceAcceleratorResponse' {..} =
-      _salt `Prelude.hashWithSalt` count
+      _salt
+        `Prelude.hashWithSalt` count
         `Prelude.hashWithSalt` type'
 
 instance

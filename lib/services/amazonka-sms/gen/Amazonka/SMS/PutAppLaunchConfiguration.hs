@@ -129,7 +129,8 @@ instance Core.AWSRequest PutAppLaunchConfiguration where
 
 instance Prelude.Hashable PutAppLaunchConfiguration where
   hashWithSalt _salt PutAppLaunchConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` autoLaunch
       `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` serverGroupLaunchConfigurations

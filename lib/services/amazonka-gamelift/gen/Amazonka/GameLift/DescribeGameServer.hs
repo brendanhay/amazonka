@@ -125,7 +125,8 @@ instance Core.AWSRequest DescribeGameServer where
 
 instance Prelude.Hashable DescribeGameServer where
   hashWithSalt _salt DescribeGameServer' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupName
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` gameServerId
 
 instance Prelude.NFData DescribeGameServer where

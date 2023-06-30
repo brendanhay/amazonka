@@ -406,7 +406,8 @@ instance
   hashWithSalt
     _salt
     UpdateMatchmakingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` acceptanceRequired
+      _salt
+        `Prelude.hashWithSalt` acceptanceRequired
         `Prelude.hashWithSalt` acceptanceTimeoutSeconds
         `Prelude.hashWithSalt` additionalPlayerCount
         `Prelude.hashWithSalt` backfillMode

@@ -92,7 +92,7 @@ instance
       ( \x ->
           WorkflowExecutionCompletedEventAttributes'
             Prelude.<$> (x Data..:? "result")
-              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance
@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     WorkflowExecutionCompletedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` result
+      _salt
+        `Prelude.hashWithSalt` result
         `Prelude.hashWithSalt` decisionTaskCompletedEventId
 
 instance

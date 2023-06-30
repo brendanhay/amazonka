@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteVirtualRouter where
 
 instance Prelude.Hashable DeleteVirtualRouter where
   hashWithSalt _salt DeleteVirtualRouter' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualRouterName
 

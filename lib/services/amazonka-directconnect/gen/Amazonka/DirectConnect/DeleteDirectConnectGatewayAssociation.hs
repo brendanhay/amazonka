@@ -117,7 +117,7 @@ instance
       ( \s h x ->
           DeleteDirectConnectGatewayAssociationResponse'
             Prelude.<$> (x Data..?> "directConnectGatewayAssociation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     DeleteDirectConnectGatewayAssociation' {..} =
-      _salt `Prelude.hashWithSalt` associationId
+      _salt
+        `Prelude.hashWithSalt` associationId
         `Prelude.hashWithSalt` directConnectGatewayId
         `Prelude.hashWithSalt` virtualGatewayId
 

@@ -82,7 +82,8 @@ objectIdentifier_key = Lens.lens (\ObjectIdentifier' {key} -> key) (\s@ObjectIde
 
 instance Prelude.Hashable ObjectIdentifier where
   hashWithSalt _salt ObjectIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData ObjectIdentifier where

@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateGroupMembership where
 
 instance Prelude.Hashable CreateGroupMembership where
   hashWithSalt _salt CreateGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` memberName
+    _salt
+      `Prelude.hashWithSalt` memberName
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace

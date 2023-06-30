@@ -144,7 +144,8 @@ instance Data.FromJSON FilterControl where
 
 instance Prelude.Hashable FilterControl where
   hashWithSalt _salt FilterControl' {..} =
-    _salt `Prelude.hashWithSalt` dateTimePicker
+    _salt
+      `Prelude.hashWithSalt` dateTimePicker
       `Prelude.hashWithSalt` dropdown
       `Prelude.hashWithSalt` list
       `Prelude.hashWithSalt` relativeDateTime

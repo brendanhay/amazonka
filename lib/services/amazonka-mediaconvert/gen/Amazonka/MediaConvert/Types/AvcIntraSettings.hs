@@ -401,7 +401,8 @@ instance Data.FromJSON AvcIntraSettings where
 
 instance Prelude.Hashable AvcIntraSettings where
   hashWithSalt _salt AvcIntraSettings' {..} =
-    _salt `Prelude.hashWithSalt` avcIntraClass
+    _salt
+      `Prelude.hashWithSalt` avcIntraClass
       `Prelude.hashWithSalt` avcIntraUhdSettings
       `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` framerateConversionAlgorithm

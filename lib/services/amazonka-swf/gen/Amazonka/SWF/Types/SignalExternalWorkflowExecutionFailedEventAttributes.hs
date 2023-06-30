@@ -175,11 +175,11 @@ instance
       ( \x ->
           SignalExternalWorkflowExecutionFailedEventAttributes'
             Prelude.<$> (x Data..:? "control")
-              Prelude.<*> (x Data..:? "runId")
-              Prelude.<*> (x Data..: "workflowId")
-              Prelude.<*> (x Data..: "cause")
-              Prelude.<*> (x Data..: "initiatedEventId")
-              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+            Prelude.<*> (x Data..:? "runId")
+            Prelude.<*> (x Data..: "workflowId")
+            Prelude.<*> (x Data..: "cause")
+            Prelude.<*> (x Data..: "initiatedEventId")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance
@@ -189,7 +189,8 @@ instance
   hashWithSalt
     _salt
     SignalExternalWorkflowExecutionFailedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` runId
         `Prelude.hashWithSalt` workflowId
         `Prelude.hashWithSalt` cause

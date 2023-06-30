@@ -87,7 +87,8 @@ instance Data.FromJSON EndOfMeetingReminder where
 
 instance Prelude.Hashable EndOfMeetingReminder where
   hashWithSalt _salt EndOfMeetingReminder' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` reminderAtMinutes
       `Prelude.hashWithSalt` reminderType
 

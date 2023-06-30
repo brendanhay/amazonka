@@ -114,7 +114,8 @@ instance Data.FromJSON Name where
 
 instance Prelude.Hashable Name where
   hashWithSalt _salt Name' {..} =
-    _salt `Prelude.hashWithSalt` familyName
+    _salt
+      `Prelude.hashWithSalt` familyName
       `Prelude.hashWithSalt` formatted
       `Prelude.hashWithSalt` givenName
       `Prelude.hashWithSalt` honorificPrefix

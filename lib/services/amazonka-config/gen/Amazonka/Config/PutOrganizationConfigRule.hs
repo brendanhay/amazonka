@@ -243,7 +243,8 @@ instance Core.AWSRequest PutOrganizationConfigRule where
 
 instance Prelude.Hashable PutOrganizationConfigRule where
   hashWithSalt _salt PutOrganizationConfigRule' {..} =
-    _salt `Prelude.hashWithSalt` excludedAccounts
+    _salt
+      `Prelude.hashWithSalt` excludedAccounts
       `Prelude.hashWithSalt` organizationCustomPolicyRuleMetadata
       `Prelude.hashWithSalt` organizationCustomRuleMetadata
       `Prelude.hashWithSalt` organizationManagedRuleMetadata

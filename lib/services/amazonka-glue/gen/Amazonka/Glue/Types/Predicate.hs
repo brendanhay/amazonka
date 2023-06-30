@@ -79,7 +79,8 @@ instance Data.FromJSON Predicate where
 
 instance Prelude.Hashable Predicate where
   hashWithSalt _salt Predicate' {..} =
-    _salt `Prelude.hashWithSalt` conditions
+    _salt
+      `Prelude.hashWithSalt` conditions
       `Prelude.hashWithSalt` logical
 
 instance Prelude.NFData Predicate where

@@ -68,7 +68,8 @@ hITLayoutParameter_value = Lens.lens (\HITLayoutParameter' {value} -> value) (\s
 
 instance Prelude.Hashable HITLayoutParameter where
   hashWithSalt _salt HITLayoutParameter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData HITLayoutParameter where

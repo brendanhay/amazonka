@@ -71,7 +71,8 @@ predictionTimeRange_endTime = Lens.lens (\PredictionTimeRange' {endTime} -> endT
 
 instance Prelude.Hashable PredictionTimeRange where
   hashWithSalt _salt PredictionTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 
 instance Prelude.NFData PredictionTimeRange where

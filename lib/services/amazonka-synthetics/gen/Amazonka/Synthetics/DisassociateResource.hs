@@ -109,7 +109,8 @@ instance Core.AWSRequest DisassociateResource where
 
 instance Prelude.Hashable DisassociateResource where
   hashWithSalt _salt DisassociateResource' {..} =
-    _salt `Prelude.hashWithSalt` groupIdentifier
+    _salt
+      `Prelude.hashWithSalt` groupIdentifier
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData DisassociateResource where

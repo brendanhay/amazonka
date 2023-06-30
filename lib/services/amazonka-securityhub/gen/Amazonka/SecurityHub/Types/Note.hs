@@ -105,7 +105,8 @@ instance Data.FromJSON Note where
 
 instance Prelude.Hashable Note where
   hashWithSalt _salt Note' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` updatedBy
       `Prelude.hashWithSalt` updatedAt
 

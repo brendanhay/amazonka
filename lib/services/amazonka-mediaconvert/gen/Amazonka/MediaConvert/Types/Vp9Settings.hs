@@ -352,7 +352,8 @@ instance Data.FromJSON Vp9Settings where
 
 instance Prelude.Hashable Vp9Settings where
   hashWithSalt _salt Vp9Settings' {..} =
-    _salt `Prelude.hashWithSalt` bitrate
+    _salt
+      `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` framerateConversionAlgorithm
       `Prelude.hashWithSalt` framerateDenominator

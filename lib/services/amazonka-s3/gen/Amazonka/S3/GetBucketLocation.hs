@@ -124,7 +124,8 @@ instance Core.AWSRequest GetBucketLocation where
 
 instance Prelude.Hashable GetBucketLocation where
   hashWithSalt _salt GetBucketLocation' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketLocation where

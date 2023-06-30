@@ -161,7 +161,8 @@ instance Data.FromJSON TreeMapConfiguration where
 
 instance Prelude.Hashable TreeMapConfiguration where
   hashWithSalt _salt TreeMapConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` colorLabelOptions
+    _salt
+      `Prelude.hashWithSalt` colorLabelOptions
       `Prelude.hashWithSalt` colorScale
       `Prelude.hashWithSalt` dataLabels
       `Prelude.hashWithSalt` fieldWells

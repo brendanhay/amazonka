@@ -121,7 +121,8 @@ instance Data.FromJSON OperatingSystem where
       "OperatingSystem"
       ( \x ->
           OperatingSystem'
-            Prelude.<$> ( x Data..:? "ConfigurationManagers"
+            Prelude.<$> ( x
+                            Data..:? "ConfigurationManagers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Id")
@@ -134,7 +135,8 @@ instance Data.FromJSON OperatingSystem where
 
 instance Prelude.Hashable OperatingSystem where
   hashWithSalt _salt OperatingSystem' {..} =
-    _salt `Prelude.hashWithSalt` configurationManagers
+    _salt
+      `Prelude.hashWithSalt` configurationManagers
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` reportedName

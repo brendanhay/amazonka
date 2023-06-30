@@ -137,7 +137,8 @@ instance Core.AWSRequest DescribeJobExecution where
 
 instance Prelude.Hashable DescribeJobExecution where
   hashWithSalt _salt DescribeJobExecution' {..} =
-    _salt `Prelude.hashWithSalt` executionNumber
+    _salt
+      `Prelude.hashWithSalt` executionNumber
       `Prelude.hashWithSalt` includeJobDocument
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` thingName

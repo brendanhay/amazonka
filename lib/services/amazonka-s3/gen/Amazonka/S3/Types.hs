@@ -1309,66 +1309,66 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has
           ( Core.hasCode "BadDigest"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "contentmd5"
+          Prelude.Just "contentmd5"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has
           ( Core.hasCode "RequestTimeout"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "timeouts"
+          Prelude.Just "timeouts"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The requested bucket name is not available. The bucket namespace is
 -- shared by all users of the system. Select a different name and try
 -- again.
-_BucketAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BucketAlreadyExists :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BucketAlreadyExists =
   Core._MatchServiceError
     defaultService
@@ -1380,40 +1380,40 @@ _BucketAlreadyExists =
 -- existing bucket that you already own in the North Virginia Region,
 -- Amazon S3 returns 200 OK and resets the bucket access control lists
 -- (ACLs).
-_BucketAlreadyOwnedByYou :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BucketAlreadyOwnedByYou :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BucketAlreadyOwnedByYou =
   Core._MatchServiceError
     defaultService
     "BucketAlreadyOwnedByYou"
 
 -- | Object is archived and inaccessible until restored.
-_InvalidObjectState :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidObjectState :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidObjectState =
   Core._MatchServiceError
     defaultService
     "InvalidObjectState"
 
 -- | The specified bucket does not exist.
-_NoSuchBucket :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoSuchBucket :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoSuchBucket =
   Core._MatchServiceError
     defaultService
     "NoSuchBucket"
 
 -- | The specified key does not exist.
-_NoSuchKey :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoSuchKey :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoSuchKey =
   Core._MatchServiceError defaultService "NoSuchKey"
 
 -- | The specified multipart upload does not exist.
-_NoSuchUpload :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoSuchUpload :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoSuchUpload =
   Core._MatchServiceError
     defaultService
     "NoSuchUpload"
 
 -- | This action is not allowed against this storage tier.
-_ObjectAlreadyInActiveTierError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ObjectAlreadyInActiveTierError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ObjectAlreadyInActiveTierError =
   Core._MatchServiceError
     defaultService
@@ -1421,7 +1421,7 @@ _ObjectAlreadyInActiveTierError =
 
 -- | The source object of the COPY action is not in the active tier and is
 -- only stored in Amazon S3 Glacier.
-_ObjectNotInActiveTierError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ObjectNotInActiveTierError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ObjectNotInActiveTierError =
   Core._MatchServiceError
     defaultService

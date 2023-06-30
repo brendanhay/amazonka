@@ -166,7 +166,8 @@ instance Core.AWSRequest GetChannelMessageStatus where
 
 instance Prelude.Hashable GetChannelMessageStatus where
   hashWithSalt _salt GetChannelMessageStatus' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` chimeBearer

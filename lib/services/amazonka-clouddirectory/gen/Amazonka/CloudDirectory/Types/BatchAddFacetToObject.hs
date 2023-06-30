@@ -82,7 +82,8 @@ batchAddFacetToObject_objectReference = Lens.lens (\BatchAddFacetToObject' {obje
 
 instance Prelude.Hashable BatchAddFacetToObject where
   hashWithSalt _salt BatchAddFacetToObject' {..} =
-    _salt `Prelude.hashWithSalt` schemaFacet
+    _salt
+      `Prelude.hashWithSalt` schemaFacet
       `Prelude.hashWithSalt` objectAttributeList
       `Prelude.hashWithSalt` objectReference
 

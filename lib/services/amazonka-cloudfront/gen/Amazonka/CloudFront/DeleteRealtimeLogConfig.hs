@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteRealtimeLogConfig where
 
 instance Prelude.Hashable DeleteRealtimeLogConfig where
   hashWithSalt _salt DeleteRealtimeLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteRealtimeLogConfig where

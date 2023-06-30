@@ -217,7 +217,8 @@ instance Core.AWSRequest UpdateFeature where
 
 instance Prelude.Hashable UpdateFeature where
   hashWithSalt _salt UpdateFeature' {..} =
-    _salt `Prelude.hashWithSalt` addOrUpdateVariations
+    _salt
+      `Prelude.hashWithSalt` addOrUpdateVariations
       `Prelude.hashWithSalt` defaultVariation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityOverrides

@@ -143,7 +143,7 @@ instance
       ( \s h x ->
           PurchaseReservedDBInstancesOfferingResponse'
             Prelude.<$> (x Data..@? "ReservedDBInstance")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -153,7 +153,8 @@ instance
   hashWithSalt
     _salt
     PurchaseReservedDBInstancesOffering' {..} =
-      _salt `Prelude.hashWithSalt` dbInstanceCount
+      _salt
+        `Prelude.hashWithSalt` dbInstanceCount
         `Prelude.hashWithSalt` reservedDBInstanceId
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` reservedDBInstancesOfferingId

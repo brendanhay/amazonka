@@ -159,7 +159,8 @@ instance Core.AWSRequest ResumeProcesses where
 
 instance Prelude.Hashable ResumeProcesses where
   hashWithSalt _salt ResumeProcesses' {..} =
-    _salt `Prelude.hashWithSalt` scalingProcesses
+    _salt
+      `Prelude.hashWithSalt` scalingProcesses
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData ResumeProcesses where

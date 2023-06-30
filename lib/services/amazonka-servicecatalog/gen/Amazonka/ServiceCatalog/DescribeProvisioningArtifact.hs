@@ -167,7 +167,8 @@ instance
     DescribeProvisioningArtifact
   where
   hashWithSalt _salt DescribeProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` productName
       `Prelude.hashWithSalt` provisioningArtifactId

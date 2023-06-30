@@ -105,7 +105,8 @@ instance Data.FromJSON Origin where
 
 instance Prelude.Hashable Origin where
   hashWithSalt _salt Origin' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` protocolPolicy
       `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` resourceType

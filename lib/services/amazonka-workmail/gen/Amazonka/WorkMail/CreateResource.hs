@@ -122,7 +122,8 @@ instance Core.AWSRequest CreateResource where
 
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 

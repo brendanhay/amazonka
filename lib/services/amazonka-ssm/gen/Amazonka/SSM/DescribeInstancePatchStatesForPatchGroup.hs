@@ -144,23 +144,23 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeInstancePatchStatesForPatchGroupResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstancePatchStatesForPatchGroupResponse_instancePatchStates
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstancePatchStatesForPatchGroup_nextToken
           Lens..~ rs
-            Lens.^? describeInstancePatchStatesForPatchGroupResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeInstancePatchStatesForPatchGroupResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -177,8 +177,8 @@ instance
       ( \s h x ->
           DescribeInstancePatchStatesForPatchGroupResponse'
             Prelude.<$> (x Data..?> "InstancePatchStates")
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -188,7 +188,8 @@ instance
   hashWithSalt
     _salt
     DescribeInstancePatchStatesForPatchGroup' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` patchGroup

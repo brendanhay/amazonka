@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteComponent where
 
 instance Prelude.Hashable DeleteComponent where
   hashWithSalt _salt DeleteComponent' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
 

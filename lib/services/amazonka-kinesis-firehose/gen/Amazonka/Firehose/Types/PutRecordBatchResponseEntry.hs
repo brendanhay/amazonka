@@ -88,7 +88,8 @@ instance Data.FromJSON PutRecordBatchResponseEntry where
 
 instance Prelude.Hashable PutRecordBatchResponseEntry where
   hashWithSalt _salt PutRecordBatchResponseEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` recordId
 

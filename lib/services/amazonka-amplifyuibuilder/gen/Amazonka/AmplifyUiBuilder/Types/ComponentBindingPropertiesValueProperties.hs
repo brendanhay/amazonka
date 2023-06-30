@@ -131,13 +131,13 @@ instance
       ( \x ->
           ComponentBindingPropertiesValueProperties'
             Prelude.<$> (x Data..:? "bucket")
-              Prelude.<*> (x Data..:? "defaultValue")
-              Prelude.<*> (x Data..:? "field")
-              Prelude.<*> (x Data..:? "key")
-              Prelude.<*> (x Data..:? "model")
-              Prelude.<*> (x Data..:? "predicates" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "slotName")
-              Prelude.<*> (x Data..:? "userAttribute")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "field")
+            Prelude.<*> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "model")
+            Prelude.<*> (x Data..:? "predicates" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "slotName")
+            Prelude.<*> (x Data..:? "userAttribute")
       )
 
 instance
@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     ComponentBindingPropertiesValueProperties' {..} =
-      _salt `Prelude.hashWithSalt` bucket
+      _salt
+        `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` defaultValue
         `Prelude.hashWithSalt` field
         `Prelude.hashWithSalt` key

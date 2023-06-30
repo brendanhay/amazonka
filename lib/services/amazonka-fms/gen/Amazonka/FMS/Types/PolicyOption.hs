@@ -78,7 +78,8 @@ instance Data.FromJSON PolicyOption where
 
 instance Prelude.Hashable PolicyOption where
   hashWithSalt _salt PolicyOption' {..} =
-    _salt `Prelude.hashWithSalt` networkFirewallPolicy
+    _salt
+      `Prelude.hashWithSalt` networkFirewallPolicy
       `Prelude.hashWithSalt` thirdPartyFirewallPolicy
 
 instance Prelude.NFData PolicyOption where

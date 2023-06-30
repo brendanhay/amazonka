@@ -88,7 +88,8 @@ vpcConfigurationUpdate_vpcConfigurationId = Lens.lens (\VpcConfigurationUpdate' 
 
 instance Prelude.Hashable VpcConfigurationUpdate where
   hashWithSalt _salt VpcConfigurationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIdUpdates
+    _salt
+      `Prelude.hashWithSalt` securityGroupIdUpdates
       `Prelude.hashWithSalt` subnetIdUpdates
       `Prelude.hashWithSalt` vpcConfigurationId
 

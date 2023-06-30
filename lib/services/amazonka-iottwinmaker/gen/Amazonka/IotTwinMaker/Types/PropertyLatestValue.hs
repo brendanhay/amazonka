@@ -79,7 +79,8 @@ instance Data.FromJSON PropertyLatestValue where
 
 instance Prelude.Hashable PropertyLatestValue where
   hashWithSalt _salt PropertyLatestValue' {..} =
-    _salt `Prelude.hashWithSalt` propertyValue
+    _salt
+      `Prelude.hashWithSalt` propertyValue
       `Prelude.hashWithSalt` propertyReference
 
 instance Prelude.NFData PropertyLatestValue where

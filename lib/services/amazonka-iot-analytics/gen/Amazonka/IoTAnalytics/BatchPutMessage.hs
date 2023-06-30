@@ -165,7 +165,8 @@ instance Core.AWSRequest BatchPutMessage where
     Response.receiveJSON
       ( \s h x ->
           BatchPutMessageResponse'
-            Prelude.<$> ( x Data..?> "batchPutMessageErrorEntries"
+            Prelude.<$> ( x
+                            Data..?> "batchPutMessageErrorEntries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,7 +174,8 @@ instance Core.AWSRequest BatchPutMessage where
 
 instance Prelude.Hashable BatchPutMessage where
   hashWithSalt _salt BatchPutMessage' {..} =
-    _salt `Prelude.hashWithSalt` channelName
+    _salt
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` messages
 
 instance Prelude.NFData BatchPutMessage where

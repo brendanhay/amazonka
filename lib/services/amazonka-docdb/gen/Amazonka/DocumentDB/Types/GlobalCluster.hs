@@ -159,7 +159,8 @@ instance Data.FromXML GlobalCluster where
       Prelude.<*> (x Data..@? "EngineVersion")
       Prelude.<*> (x Data..@? "GlobalClusterArn")
       Prelude.<*> (x Data..@? "GlobalClusterIdentifier")
-      Prelude.<*> ( x Data..@? "GlobalClusterMembers"
+      Prelude.<*> ( x
+                      Data..@? "GlobalClusterMembers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "GlobalClusterMember")
                   )
@@ -169,7 +170,8 @@ instance Data.FromXML GlobalCluster where
 
 instance Prelude.Hashable GlobalCluster where
   hashWithSalt _salt GlobalCluster' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

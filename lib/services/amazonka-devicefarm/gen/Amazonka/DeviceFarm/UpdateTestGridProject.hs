@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateTestGridProject where
 
 instance Prelude.Hashable UpdateTestGridProject where
   hashWithSalt _salt UpdateTestGridProject' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` projectArn

@@ -125,7 +125,8 @@ instance Core.AWSRequest DescribeConstraint where
 
 instance Prelude.Hashable DescribeConstraint where
   hashWithSalt _salt DescribeConstraint' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribeConstraint where

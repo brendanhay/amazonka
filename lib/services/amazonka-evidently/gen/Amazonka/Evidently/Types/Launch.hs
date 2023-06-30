@@ -254,7 +254,8 @@ instance Data.FromJSON Launch where
 
 instance Prelude.Hashable Launch where
   hashWithSalt _salt Launch' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` execution
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` metricMonitors

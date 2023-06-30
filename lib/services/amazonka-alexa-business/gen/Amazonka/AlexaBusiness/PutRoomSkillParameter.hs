@@ -115,7 +115,8 @@ instance Core.AWSRequest PutRoomSkillParameter where
 
 instance Prelude.Hashable PutRoomSkillParameter where
   hashWithSalt _salt PutRoomSkillParameter' {..} =
-    _salt `Prelude.hashWithSalt` roomArn
+    _salt
+      `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` skillId
       `Prelude.hashWithSalt` roomSkillParameter
 

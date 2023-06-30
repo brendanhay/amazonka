@@ -72,7 +72,8 @@ instance Data.FromJSON BatchInferenceJobConfig where
       "BatchInferenceJobConfig"
       ( \x ->
           BatchInferenceJobConfig'
-            Prelude.<$> ( x Data..:? "itemExplorationConfig"
+            Prelude.<$> ( x
+                            Data..:? "itemExplorationConfig"
                             Data..!= Prelude.mempty
                         )
       )

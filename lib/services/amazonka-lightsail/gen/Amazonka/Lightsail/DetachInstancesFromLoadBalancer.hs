@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     DetachInstancesFromLoadBalancer' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerName
+      _salt
+        `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` instanceNames
 
 instance

@@ -1066,7 +1066,8 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` allowVersionUpgrade
       `Prelude.hashWithSalt` aquaConfigurationStatus
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod

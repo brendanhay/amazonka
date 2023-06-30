@@ -124,13 +124,13 @@ instance
       ( \x ->
           ReplicaGlobalSecondaryIndexAutoScalingDescription'
             Prelude.<$> (x Data..:? "IndexName")
-              Prelude.<*> (x Data..:? "IndexStatus")
-              Prelude.<*> ( x
-                              Data..:? "ProvisionedReadCapacityAutoScalingSettings"
-                          )
-              Prelude.<*> ( x
-                              Data..:? "ProvisionedWriteCapacityAutoScalingSettings"
-                          )
+            Prelude.<*> (x Data..:? "IndexStatus")
+            Prelude.<*> ( x
+                            Data..:? "ProvisionedReadCapacityAutoScalingSettings"
+                        )
+            Prelude.<*> ( x
+                            Data..:? "ProvisionedWriteCapacityAutoScalingSettings"
+                        )
       )
 
 instance
@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     ReplicaGlobalSecondaryIndexAutoScalingDescription' {..} =
-      _salt `Prelude.hashWithSalt` indexName
+      _salt
+        `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` indexStatus
         `Prelude.hashWithSalt` provisionedReadCapacityAutoScalingSettings
         `Prelude.hashWithSalt` provisionedWriteCapacityAutoScalingSettings

@@ -189,7 +189,8 @@ instance Data.FromJSON SourceTableDetails where
 
 instance Prelude.Hashable SourceTableDetails where
   hashWithSalt _salt SourceTableDetails' {..} =
-    _salt `Prelude.hashWithSalt` billingMode
+    _salt
+      `Prelude.hashWithSalt` billingMode
       `Prelude.hashWithSalt` itemCount
       `Prelude.hashWithSalt` tableArn
       `Prelude.hashWithSalt` tableSizeBytes

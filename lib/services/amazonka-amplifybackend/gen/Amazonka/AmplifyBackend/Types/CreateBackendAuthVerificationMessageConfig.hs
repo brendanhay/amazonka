@@ -90,8 +90,8 @@ instance
       ( \x ->
           CreateBackendAuthVerificationMessageConfig'
             Prelude.<$> (x Data..:? "emailSettings")
-              Prelude.<*> (x Data..:? "smsSettings")
-              Prelude.<*> (x Data..: "deliveryMethod")
+            Prelude.<*> (x Data..:? "smsSettings")
+            Prelude.<*> (x Data..: "deliveryMethod")
       )
 
 instance
@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     CreateBackendAuthVerificationMessageConfig' {..} =
-      _salt `Prelude.hashWithSalt` emailSettings
+      _salt
+        `Prelude.hashWithSalt` emailSettings
         `Prelude.hashWithSalt` smsSettings
         `Prelude.hashWithSalt` deliveryMethod
 

@@ -109,7 +109,8 @@ instance Data.FromJSON QueryInfo where
 
 instance Prelude.Hashable QueryInfo where
   hashWithSalt _salt QueryInfo' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` queryId
       `Prelude.hashWithSalt` queryString

@@ -66,11 +66,13 @@ acceleratorCountRequest_min = Lens.lens (\AcceleratorCountRequest' {min} -> min)
 instance Data.FromXML AcceleratorCountRequest where
   parseXML x =
     AcceleratorCountRequest'
-      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
+      Prelude.<$> (x Data..@? "Max")
+      Prelude.<*> (x Data..@? "Min")
 
 instance Prelude.Hashable AcceleratorCountRequest where
   hashWithSalt _salt AcceleratorCountRequest' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData AcceleratorCountRequest where

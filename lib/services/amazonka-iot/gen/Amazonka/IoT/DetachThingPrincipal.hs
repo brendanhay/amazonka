@@ -119,7 +119,8 @@ instance Core.AWSRequest DetachThingPrincipal where
 
 instance Prelude.Hashable DetachThingPrincipal where
   hashWithSalt _salt DetachThingPrincipal' {..} =
-    _salt `Prelude.hashWithSalt` thingName
+    _salt
+      `Prelude.hashWithSalt` thingName
       `Prelude.hashWithSalt` principal
 
 instance Prelude.NFData DetachThingPrincipal where

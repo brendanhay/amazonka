@@ -295,11 +295,11 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- timestamps.
     --
     -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
-    -- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
-    -- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
-    -- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
-    -- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
-    -- be set.
+    -- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is @LIVE@. If
+    -- @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but the
+    -- @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or
+    -- @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must be
+    -- set.
     hLSFragmentSelector :: Prelude.Maybe HLSFragmentSelector,
     -- | The maximum number of fragments that are returned in the HLS media
     -- playlists.
@@ -468,11 +468,11 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
 -- timestamps.
 --
 -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
--- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
--- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
--- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
--- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
--- be set.
+-- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is @LIVE@. If
+-- @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but the
+-- @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or
+-- @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must be
+-- set.
 --
 -- 'maxMediaPlaylistFragmentResults', 'getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults' - The maximum number of fragments that are returned in the HLS media
 -- playlists.
@@ -654,11 +654,11 @@ getHLSStreamingSessionURL_expires = Lens.lens (\GetHLSStreamingSessionURL' {expi
 -- timestamps.
 --
 -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
--- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
--- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
--- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
--- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
--- be set.
+-- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is @LIVE@. If
+-- @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but the
+-- @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or
+-- @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must be
+-- set.
 getHLSStreamingSessionURL_hLSFragmentSelector :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSFragmentSelector)
 getHLSStreamingSessionURL_hLSFragmentSelector = Lens.lens (\GetHLSStreamingSessionURL' {hLSFragmentSelector} -> hLSFragmentSelector) (\s@GetHLSStreamingSessionURL' {} a -> s {hLSFragmentSelector = a} :: GetHLSStreamingSessionURL)
 
@@ -770,7 +770,8 @@ instance Core.AWSRequest GetHLSStreamingSessionURL where
 
 instance Prelude.Hashable GetHLSStreamingSessionURL where
   hashWithSalt _salt GetHLSStreamingSessionURL' {..} =
-    _salt `Prelude.hashWithSalt` containerFormat
+    _salt
+      `Prelude.hashWithSalt` containerFormat
       `Prelude.hashWithSalt` discontinuityMode
       `Prelude.hashWithSalt` displayFragmentTimestamp
       `Prelude.hashWithSalt` expires

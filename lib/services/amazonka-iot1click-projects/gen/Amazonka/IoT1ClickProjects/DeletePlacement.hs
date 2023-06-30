@@ -105,7 +105,8 @@ instance Core.AWSRequest DeletePlacement where
 
 instance Prelude.Hashable DeletePlacement where
   hashWithSalt _salt DeletePlacement' {..} =
-    _salt `Prelude.hashWithSalt` placementName
+    _salt
+      `Prelude.hashWithSalt` placementName
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData DeletePlacement where

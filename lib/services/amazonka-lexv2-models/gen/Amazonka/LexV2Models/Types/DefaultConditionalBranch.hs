@@ -77,7 +77,8 @@ instance Data.FromJSON DefaultConditionalBranch where
 
 instance Prelude.Hashable DefaultConditionalBranch where
   hashWithSalt _salt DefaultConditionalBranch' {..} =
-    _salt `Prelude.hashWithSalt` nextStep
+    _salt
+      `Prelude.hashWithSalt` nextStep
       `Prelude.hashWithSalt` response
 
 instance Prelude.NFData DefaultConditionalBranch where

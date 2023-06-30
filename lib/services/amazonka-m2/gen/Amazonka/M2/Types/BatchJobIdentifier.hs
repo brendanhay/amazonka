@@ -70,7 +70,8 @@ batchJobIdentifier_scriptBatchJobIdentifier = Lens.lens (\BatchJobIdentifier' {s
 
 instance Prelude.Hashable BatchJobIdentifier where
   hashWithSalt _salt BatchJobIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` fileBatchJobIdentifier
+    _salt
+      `Prelude.hashWithSalt` fileBatchJobIdentifier
       `Prelude.hashWithSalt` scriptBatchJobIdentifier
 
 instance Prelude.NFData BatchJobIdentifier where

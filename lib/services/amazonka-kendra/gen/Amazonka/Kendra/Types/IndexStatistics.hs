@@ -83,7 +83,8 @@ instance Data.FromJSON IndexStatistics where
 
 instance Prelude.Hashable IndexStatistics where
   hashWithSalt _salt IndexStatistics' {..} =
-    _salt `Prelude.hashWithSalt` faqStatistics
+    _salt
+      `Prelude.hashWithSalt` faqStatistics
       `Prelude.hashWithSalt` textDocumentStatistics
 
 instance Prelude.NFData IndexStatistics where

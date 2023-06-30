@@ -175,7 +175,8 @@ instance
   hashWithSalt
     _salt
     UpdateResourceCollectionFilter' {..} =
-      _salt `Prelude.hashWithSalt` cloudFormation
+      _salt
+        `Prelude.hashWithSalt` cloudFormation
         `Prelude.hashWithSalt` tags
 
 instance

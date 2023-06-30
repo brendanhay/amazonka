@@ -168,7 +168,8 @@ instance
   hashWithSalt
     _salt
     PredictiveScalingPredefinedMetricPair' {..} =
-      _salt `Prelude.hashWithSalt` resourceLabel
+      _salt
+        `Prelude.hashWithSalt` resourceLabel
         `Prelude.hashWithSalt` predefinedMetricType
 
 instance

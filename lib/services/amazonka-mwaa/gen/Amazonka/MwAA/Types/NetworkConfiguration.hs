@@ -84,7 +84,8 @@ instance Data.FromJSON NetworkConfiguration where
 
 instance Prelude.Hashable NetworkConfiguration where
   hashWithSalt _salt NetworkConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData NetworkConfiguration where

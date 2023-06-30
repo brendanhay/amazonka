@@ -109,22 +109,22 @@ instance Core.AWSPager ListBatchSegmentJobs where
     | Core.stop
         ( rs
             Lens.^? listBatchSegmentJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBatchSegmentJobsResponse_batchSegmentJobs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBatchSegmentJobs_nextToken
           Lens..~ rs
           Lens.^? listBatchSegmentJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBatchSegmentJobs where
   type
@@ -136,7 +136,8 @@ instance Core.AWSRequest ListBatchSegmentJobs where
     Response.receiveJSON
       ( \s h x ->
           ListBatchSegmentJobsResponse'
-            Prelude.<$> ( x Data..?> "batchSegmentJobs"
+            Prelude.<$> ( x
+                            Data..?> "batchSegmentJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -145,7 +146,8 @@ instance Core.AWSRequest ListBatchSegmentJobs where
 
 instance Prelude.Hashable ListBatchSegmentJobs where
   hashWithSalt _salt ListBatchSegmentJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` solutionVersionArn
 

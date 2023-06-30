@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeInsight where
 
 instance Prelude.Hashable DescribeInsight where
   hashWithSalt _salt DescribeInsight' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribeInsight where

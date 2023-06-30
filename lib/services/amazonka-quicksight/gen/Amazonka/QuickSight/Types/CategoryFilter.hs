@@ -97,7 +97,8 @@ instance Data.FromJSON CategoryFilter where
 
 instance Prelude.Hashable CategoryFilter where
   hashWithSalt _salt CategoryFilter' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` filterId
       `Prelude.hashWithSalt` column
 

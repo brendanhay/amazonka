@@ -83,7 +83,8 @@ instance
     BatchDetectEntitiesItemResult
   where
   hashWithSalt _salt BatchDetectEntitiesItemResult' {..} =
-    _salt `Prelude.hashWithSalt` entities
+    _salt
+      `Prelude.hashWithSalt` entities
       `Prelude.hashWithSalt` index
 
 instance Prelude.NFData BatchDetectEntitiesItemResult where

@@ -98,7 +98,8 @@ instance Data.FromJSON AwsEcsContainerDetails where
 
 instance Prelude.Hashable AwsEcsContainerDetails where
   hashWithSalt _salt AwsEcsContainerDetails' {..} =
-    _salt `Prelude.hashWithSalt` image
+    _salt
+      `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` mountPoints
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` privileged

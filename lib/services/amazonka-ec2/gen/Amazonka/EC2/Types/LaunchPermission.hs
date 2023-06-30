@@ -101,7 +101,8 @@ instance Data.FromXML LaunchPermission where
 
 instance Prelude.Hashable LaunchPermission where
   hashWithSalt _salt LaunchPermission' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` organizationArn
       `Prelude.hashWithSalt` organizationalUnitArn
       `Prelude.hashWithSalt` userId

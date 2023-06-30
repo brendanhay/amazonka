@@ -132,21 +132,23 @@ instance Core.AWSPager ListAliases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAliasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAliasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAliasesResponse_sageMakerImageVersionAliases
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAliases_nextToken
           Lens..~ rs
-          Lens.^? listAliasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAliasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAliases where
   type AWSResponse ListAliases = ListAliasesResponse
@@ -157,7 +159,8 @@ instance Core.AWSRequest ListAliases where
       ( \s h x ->
           ListAliasesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SageMakerImageVersionAliases"
+            Prelude.<*> ( x
+                            Data..?> "SageMakerImageVersionAliases"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -165,7 +168,8 @@ instance Core.AWSRequest ListAliases where
 
 instance Prelude.Hashable ListAliases where
   hashWithSalt _salt ListAliases' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` version

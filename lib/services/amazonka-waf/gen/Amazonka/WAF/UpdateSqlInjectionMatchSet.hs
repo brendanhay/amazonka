@@ -206,7 +206,8 @@ instance Core.AWSRequest UpdateSqlInjectionMatchSet where
 
 instance Prelude.Hashable UpdateSqlInjectionMatchSet where
   hashWithSalt _salt UpdateSqlInjectionMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` sqlInjectionMatchSetId
+    _salt
+      `Prelude.hashWithSalt` sqlInjectionMatchSetId
       `Prelude.hashWithSalt` changeToken
       `Prelude.hashWithSalt` updates
 

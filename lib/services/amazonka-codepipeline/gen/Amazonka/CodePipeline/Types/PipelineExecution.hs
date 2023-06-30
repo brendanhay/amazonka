@@ -182,7 +182,8 @@ instance Data.FromJSON PipelineExecution where
       "PipelineExecution"
       ( \x ->
           PipelineExecution'
-            Prelude.<$> ( x Data..:? "artifactRevisions"
+            Prelude.<$> ( x
+                            Data..:? "artifactRevisions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "pipelineExecutionId")
@@ -194,7 +195,8 @@ instance Data.FromJSON PipelineExecution where
 
 instance Prelude.Hashable PipelineExecution where
   hashWithSalt _salt PipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` artifactRevisions
+    _salt
+      `Prelude.hashWithSalt` artifactRevisions
       `Prelude.hashWithSalt` pipelineExecutionId
       `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` pipelineVersion

@@ -441,7 +441,8 @@ instance Core.AWSRequest PutScalingPolicy where
 
 instance Prelude.Hashable PutScalingPolicy where
   hashWithSalt _salt PutScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` evaluationPeriods
       `Prelude.hashWithSalt` policyType
       `Prelude.hashWithSalt` scalingAdjustment

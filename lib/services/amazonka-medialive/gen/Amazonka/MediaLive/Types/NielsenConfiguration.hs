@@ -76,7 +76,8 @@ instance Data.FromJSON NielsenConfiguration where
 
 instance Prelude.Hashable NielsenConfiguration where
   hashWithSalt _salt NielsenConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` distributorId
+    _salt
+      `Prelude.hashWithSalt` distributorId
       `Prelude.hashWithSalt` nielsenPcmToId3Tagging
 
 instance Prelude.NFData NielsenConfiguration where

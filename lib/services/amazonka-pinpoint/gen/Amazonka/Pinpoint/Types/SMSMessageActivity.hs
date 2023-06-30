@@ -136,7 +136,8 @@ instance Data.FromJSON SMSMessageActivity where
 
 instance Prelude.Hashable SMSMessageActivity where
   hashWithSalt _salt SMSMessageActivity' {..} =
-    _salt `Prelude.hashWithSalt` messageConfig
+    _salt
+      `Prelude.hashWithSalt` messageConfig
       `Prelude.hashWithSalt` nextActivity
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateVersion

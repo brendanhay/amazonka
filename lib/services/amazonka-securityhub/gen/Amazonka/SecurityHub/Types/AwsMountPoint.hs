@@ -77,7 +77,8 @@ instance Data.FromJSON AwsMountPoint where
 
 instance Prelude.Hashable AwsMountPoint where
   hashWithSalt _salt AwsMountPoint' {..} =
-    _salt `Prelude.hashWithSalt` containerPath
+    _salt
+      `Prelude.hashWithSalt` containerPath
       `Prelude.hashWithSalt` sourceVolume
 
 instance Prelude.NFData AwsMountPoint where

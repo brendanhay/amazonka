@@ -108,7 +108,8 @@ instance Core.AWSRequest RemoveTemplateAction where
 
 instance Prelude.Hashable RemoveTemplateAction where
   hashWithSalt _salt RemoveTemplateAction' {..} =
-    _salt `Prelude.hashWithSalt` actionID
+    _salt
+      `Prelude.hashWithSalt` actionID
       `Prelude.hashWithSalt` launchConfigurationTemplateID
 
 instance Prelude.NFData RemoveTemplateAction where

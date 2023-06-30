@@ -167,7 +167,8 @@ instance Data.FromJSON AutoMLJobSummary where
 
 instance Prelude.Hashable AutoMLJobSummary where
   hashWithSalt _salt AutoMLJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` partialFailureReasons
       `Prelude.hashWithSalt` autoMLJobName

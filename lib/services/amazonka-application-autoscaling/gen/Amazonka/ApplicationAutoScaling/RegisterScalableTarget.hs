@@ -810,7 +810,8 @@ instance Core.AWSRequest RegisterScalableTarget where
 
 instance Prelude.Hashable RegisterScalableTarget where
   hashWithSalt _salt RegisterScalableTarget' {..} =
-    _salt `Prelude.hashWithSalt` maxCapacity
+    _salt
+      `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` minCapacity
       `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` suspendedState

@@ -86,7 +86,8 @@ instance Data.FromJSON ModelVersionEvaluation where
 
 instance Prelude.Hashable ModelVersionEvaluation where
   hashWithSalt _salt ModelVersionEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` evaluationScore
+    _salt
+      `Prelude.hashWithSalt` evaluationScore
       `Prelude.hashWithSalt` outputVariableName
       `Prelude.hashWithSalt` predictionExplanations
 

@@ -146,7 +146,8 @@ instance Data.FromJSON ResourceSetOutput where
 
 instance Prelude.Hashable ResourceSetOutput where
   hashWithSalt _salt ResourceSetOutput' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceSetType
       `Prelude.hashWithSalt` resourceSetName
       `Prelude.hashWithSalt` resourceSetArn

@@ -139,7 +139,8 @@ instancePatchStateFilter_type = Lens.lens (\InstancePatchStateFilter' {type'} ->
 
 instance Prelude.Hashable InstancePatchStateFilter where
   hashWithSalt _salt InstancePatchStateFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` type'
 

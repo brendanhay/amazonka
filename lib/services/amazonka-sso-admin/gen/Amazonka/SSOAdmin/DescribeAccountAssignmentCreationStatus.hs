@@ -116,7 +116,7 @@ instance
       ( \s h x ->
           DescribeAccountAssignmentCreationStatusResponse'
             Prelude.<$> (x Data..?> "AccountAssignmentCreationStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -126,7 +126,8 @@ instance
   hashWithSalt
     _salt
     DescribeAccountAssignmentCreationStatus' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` accountAssignmentCreationRequestId
 
 instance

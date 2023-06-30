@@ -137,7 +137,8 @@ instance Data.FromJSON SubjectSummary where
 
 instance Prelude.Hashable SubjectSummary where
   hashWithSalt _salt SubjectSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` lastSeenAt
       `Prelude.hashWithSalt` subjectArn

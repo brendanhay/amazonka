@@ -168,22 +168,22 @@ instance Core.AWSPager DescribeFastLaunchImages where
     | Core.stop
         ( rs
             Lens.^? describeFastLaunchImagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFastLaunchImagesResponse_fastLaunchImages
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFastLaunchImages_nextToken
           Lens..~ rs
           Lens.^? describeFastLaunchImagesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFastLaunchImages where
   type
@@ -195,7 +195,8 @@ instance Core.AWSRequest DescribeFastLaunchImages where
     Response.receiveXML
       ( \s h x ->
           DescribeFastLaunchImagesResponse'
-            Prelude.<$> ( x Data..@? "fastLaunchImageSet"
+            Prelude.<$> ( x
+                            Data..@? "fastLaunchImageSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -205,7 +206,8 @@ instance Core.AWSRequest DescribeFastLaunchImages where
 
 instance Prelude.Hashable DescribeFastLaunchImages where
   hashWithSalt _salt DescribeFastLaunchImages' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` maxResults

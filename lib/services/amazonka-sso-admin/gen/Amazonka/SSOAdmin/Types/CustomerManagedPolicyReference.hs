@@ -88,7 +88,8 @@ instance Data.FromJSON CustomerManagedPolicyReference where
       "CustomerManagedPolicyReference"
       ( \x ->
           CustomerManagedPolicyReference'
-            Prelude.<$> (x Data..:? "Path") Prelude.<*> (x Data..: "Name")
+            Prelude.<$> (x Data..:? "Path")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance
@@ -98,7 +99,8 @@ instance
   hashWithSalt
     _salt
     CustomerManagedPolicyReference' {..} =
-      _salt `Prelude.hashWithSalt` path
+      _salt
+        `Prelude.hashWithSalt` path
         `Prelude.hashWithSalt` name
 
 instance

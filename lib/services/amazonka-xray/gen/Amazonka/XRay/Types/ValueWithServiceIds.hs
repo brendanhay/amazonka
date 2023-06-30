@@ -77,7 +77,8 @@ instance Data.FromJSON ValueWithServiceIds where
 
 instance Prelude.Hashable ValueWithServiceIds where
   hashWithSalt _salt ValueWithServiceIds' {..} =
-    _salt `Prelude.hashWithSalt` annotationValue
+    _salt
+      `Prelude.hashWithSalt` annotationValue
       `Prelude.hashWithSalt` serviceIds
 
 instance Prelude.NFData ValueWithServiceIds where

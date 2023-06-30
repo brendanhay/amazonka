@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     BatchGetDocumentStatusResponseError' {..} =
-      _salt `Prelude.hashWithSalt` documentId
+      _salt
+        `Prelude.hashWithSalt` documentId
         `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
 

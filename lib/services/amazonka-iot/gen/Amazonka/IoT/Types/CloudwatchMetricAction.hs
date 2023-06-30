@@ -139,7 +139,8 @@ instance Data.FromJSON CloudwatchMetricAction where
 
 instance Prelude.Hashable CloudwatchMetricAction where
   hashWithSalt _salt CloudwatchMetricAction' {..} =
-    _salt `Prelude.hashWithSalt` metricTimestamp
+    _salt
+      `Prelude.hashWithSalt` metricTimestamp
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` metricNamespace
       `Prelude.hashWithSalt` metricName

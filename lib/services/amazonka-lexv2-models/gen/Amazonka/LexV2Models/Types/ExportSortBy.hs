@@ -70,7 +70,8 @@ exportSortBy_order = Lens.lens (\ExportSortBy' {order} -> order) (\s@ExportSortB
 
 instance Prelude.Hashable ExportSortBy where
   hashWithSalt _salt ExportSortBy' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData ExportSortBy where

@@ -160,7 +160,8 @@ instance Core.AWSRequest CreateProxySession where
 
 instance Prelude.Hashable CreateProxySession where
   hashWithSalt _salt CreateProxySession' {..} =
-    _salt `Prelude.hashWithSalt` expiryMinutes
+    _salt
+      `Prelude.hashWithSalt` expiryMinutes
       `Prelude.hashWithSalt` geoMatchLevel
       `Prelude.hashWithSalt` geoMatchParams
       `Prelude.hashWithSalt` name

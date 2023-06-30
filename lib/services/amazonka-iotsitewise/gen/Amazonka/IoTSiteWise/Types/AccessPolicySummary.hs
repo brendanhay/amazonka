@@ -137,7 +137,8 @@ instance Data.FromJSON AccessPolicySummary where
 
 instance Prelude.Hashable AccessPolicySummary where
   hashWithSalt _salt AccessPolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` lastUpdateDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` identity

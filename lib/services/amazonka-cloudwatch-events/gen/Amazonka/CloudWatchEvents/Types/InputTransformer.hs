@@ -242,7 +242,8 @@ instance Data.FromJSON InputTransformer where
 
 instance Prelude.Hashable InputTransformer where
   hashWithSalt _salt InputTransformer' {..} =
-    _salt `Prelude.hashWithSalt` inputPathsMap
+    _salt
+      `Prelude.hashWithSalt` inputPathsMap
       `Prelude.hashWithSalt` inputTemplate
 
 instance Prelude.NFData InputTransformer where

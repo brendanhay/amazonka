@@ -93,7 +93,8 @@ instance Data.FromJSON SectionStyle where
 
 instance Prelude.Hashable SectionStyle where
   hashWithSalt _salt SectionStyle' {..} =
-    _salt `Prelude.hashWithSalt` height
+    _salt
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` padding
 
 instance Prelude.NFData SectionStyle where

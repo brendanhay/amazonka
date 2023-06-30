@@ -94,7 +94,8 @@ instance Data.FromJSON SqsAction where
 
 instance Prelude.Hashable SqsAction where
   hashWithSalt _salt SqsAction' {..} =
-    _salt `Prelude.hashWithSalt` payload
+    _salt
+      `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` useBase64
       `Prelude.hashWithSalt` queueUrl
 

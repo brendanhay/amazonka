@@ -81,7 +81,8 @@ instance Data.FromJSON CsvOptions where
 
 instance Prelude.Hashable CsvOptions where
   hashWithSalt _salt CsvOptions' {..} =
-    _salt `Prelude.hashWithSalt` delimiter
+    _salt
+      `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` headerRow
 
 instance Prelude.NFData CsvOptions where

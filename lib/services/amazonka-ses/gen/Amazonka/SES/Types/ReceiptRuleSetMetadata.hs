@@ -99,7 +99,8 @@ instance Data.FromXML ReceiptRuleSetMetadata where
 
 instance Prelude.Hashable ReceiptRuleSetMetadata where
   hashWithSalt _salt ReceiptRuleSetMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ReceiptRuleSetMetadata where

@@ -81,14 +81,16 @@ instance Data.FromJSON CoreNetworkSegment where
           CoreNetworkSegment'
             Prelude.<$> (x Data..:? "EdgeLocations" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "SharedSegments"
+            Prelude.<*> ( x
+                            Data..:? "SharedSegments"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CoreNetworkSegment where
   hashWithSalt _salt CoreNetworkSegment' {..} =
-    _salt `Prelude.hashWithSalt` edgeLocations
+    _salt
+      `Prelude.hashWithSalt` edgeLocations
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sharedSegments
 

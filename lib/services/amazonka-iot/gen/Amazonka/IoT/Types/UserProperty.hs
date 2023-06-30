@@ -71,12 +71,14 @@ instance Data.FromJSON UserProperty where
       "UserProperty"
       ( \x ->
           UserProperty'
-            Prelude.<$> (x Data..: "key") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "key")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable UserProperty where
   hashWithSalt _salt UserProperty' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData UserProperty where

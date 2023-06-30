@@ -309,20 +309,23 @@ instance Core.AWSPager GetImages where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getImagesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getImagesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getImagesResponse_images Prelude.. Lens._Just
+            Lens.^? getImagesResponse_images
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getImages_nextToken
           Lens..~ rs
-          Lens.^? getImagesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getImagesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetImages where
   type AWSResponse GetImages = GetImagesResponse
@@ -339,7 +342,8 @@ instance Core.AWSRequest GetImages where
 
 instance Prelude.Hashable GetImages where
   hashWithSalt _salt GetImages' {..} =
-    _salt `Prelude.hashWithSalt` formatConfig
+    _salt
+      `Prelude.hashWithSalt` formatConfig
       `Prelude.hashWithSalt` heightPixels
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

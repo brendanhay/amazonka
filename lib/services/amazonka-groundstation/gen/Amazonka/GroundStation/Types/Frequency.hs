@@ -73,12 +73,14 @@ instance Data.FromJSON Frequency where
       "Frequency"
       ( \x ->
           Frequency'
-            Prelude.<$> (x Data..: "units") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "units")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Frequency where
   hashWithSalt _salt Frequency' {..} =
-    _salt `Prelude.hashWithSalt` units
+    _salt
+      `Prelude.hashWithSalt` units
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Frequency where

@@ -94,7 +94,8 @@ userDefinedFunctionInput_resourceUris = Lens.lens (\UserDefinedFunctionInput' {r
 
 instance Prelude.Hashable UserDefinedFunctionInput where
   hashWithSalt _salt UserDefinedFunctionInput' {..} =
-    _salt `Prelude.hashWithSalt` className
+    _salt
+      `Prelude.hashWithSalt` className
       `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` ownerName
       `Prelude.hashWithSalt` ownerType

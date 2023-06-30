@@ -114,7 +114,8 @@ instance Core.AWSRequest UntagPolicy where
 
 instance Prelude.Hashable UntagPolicy where
   hashWithSalt _salt UntagPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyArn
+    _salt
+      `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagPolicy where

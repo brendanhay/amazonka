@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateDocumentVersion where
 
 instance Prelude.Hashable UpdateDocumentVersion where
   hashWithSalt _salt UpdateDocumentVersion' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` versionStatus
       `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` versionId

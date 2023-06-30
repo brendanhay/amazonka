@@ -105,7 +105,8 @@ instance Data.FromJSON EncodingParameters where
 
 instance Prelude.Hashable EncodingParameters where
   hashWithSalt _salt EncodingParameters' {..} =
-    _salt `Prelude.hashWithSalt` encoderProfile
+    _salt
+      `Prelude.hashWithSalt` encoderProfile
       `Prelude.hashWithSalt` compressionFactor
 
 instance Prelude.NFData EncodingParameters where

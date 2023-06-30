@@ -161,7 +161,8 @@ instance Data.FromJSON StatefulRule where
 
 instance Prelude.Hashable StatefulRule where
   hashWithSalt _salt StatefulRule' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` header
       `Prelude.hashWithSalt` ruleOptions
 

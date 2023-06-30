@@ -208,11 +208,11 @@ instance
       ( \x ->
           AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails'
             Prelude.<$> (x Data..:? "DeleteOnTermination")
-              Prelude.<*> (x Data..:? "Encrypted")
-              Prelude.<*> (x Data..:? "Iops")
-              Prelude.<*> (x Data..:? "SnapshotId")
-              Prelude.<*> (x Data..:? "VolumeSize")
-              Prelude.<*> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "Encrypted")
+            Prelude.<*> (x Data..:? "Iops")
+            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "VolumeSize")
+            Prelude.<*> (x Data..:? "VolumeType")
       )
 
 instance
@@ -222,7 +222,8 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {..} =
-      _salt `Prelude.hashWithSalt` deleteOnTermination
+      _salt
+        `Prelude.hashWithSalt` deleteOnTermination
         `Prelude.hashWithSalt` encrypted
         `Prelude.hashWithSalt` iops
         `Prelude.hashWithSalt` snapshotId

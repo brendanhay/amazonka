@@ -72,7 +72,8 @@ instance Data.FromXML Ipv6CidrAssociation where
 
 instance Prelude.Hashable Ipv6CidrAssociation where
   hashWithSalt _salt Ipv6CidrAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associatedResource
+    _salt
+      `Prelude.hashWithSalt` associatedResource
       `Prelude.hashWithSalt` ipv6Cidr
 
 instance Prelude.NFData Ipv6CidrAssociation where

@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateUserProfile where
 
 instance Prelude.Hashable UpdateUserProfile where
   hashWithSalt _salt UpdateUserProfile' {..} =
-    _salt `Prelude.hashWithSalt` userSettings
+    _salt
+      `Prelude.hashWithSalt` userSettings
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` userProfileName
 

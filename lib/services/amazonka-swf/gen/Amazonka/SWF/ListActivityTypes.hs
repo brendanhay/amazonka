@@ -195,19 +195,19 @@ instance Core.AWSPager ListActivityTypes where
     | Core.stop
         ( rs
             Lens.^? listActivityTypesResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listActivityTypesResponse_typeInfos) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listActivityTypes_nextPageToken
           Lens..~ rs
           Lens.^? listActivityTypesResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListActivityTypes where
   type
@@ -226,7 +226,8 @@ instance Core.AWSRequest ListActivityTypes where
 
 instance Prelude.Hashable ListActivityTypes where
   hashWithSalt _salt ListActivityTypes' {..} =
-    _salt `Prelude.hashWithSalt` maximumPageSize
+    _salt
+      `Prelude.hashWithSalt` maximumPageSize
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` reverseOrder

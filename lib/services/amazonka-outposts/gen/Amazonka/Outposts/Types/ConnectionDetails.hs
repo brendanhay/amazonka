@@ -114,7 +114,8 @@ instance Data.FromJSON ConnectionDetails where
 
 instance Prelude.Hashable ConnectionDetails where
   hashWithSalt _salt ConnectionDetails' {..} =
-    _salt `Prelude.hashWithSalt` allowedIps
+    _salt
+      `Prelude.hashWithSalt` allowedIps
       `Prelude.hashWithSalt` clientPublicKey
       `Prelude.hashWithSalt` clientTunnelAddress
       `Prelude.hashWithSalt` serverEndpoint

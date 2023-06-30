@@ -92,7 +92,8 @@ instance Data.FromJSON InstanceSnapshotInfo where
 
 instance Prelude.Hashable InstanceSnapshotInfo where
   hashWithSalt _salt InstanceSnapshotInfo' {..} =
-    _salt `Prelude.hashWithSalt` fromBlueprintId
+    _salt
+      `Prelude.hashWithSalt` fromBlueprintId
       `Prelude.hashWithSalt` fromBundleId
       `Prelude.hashWithSalt` fromDiskInfo
 

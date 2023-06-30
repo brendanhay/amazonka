@@ -92,7 +92,8 @@ instance Data.FromJSON PredictedItem where
 
 instance Prelude.Hashable PredictedItem where
   hashWithSalt _salt PredictedItem' {..} =
-    _salt `Prelude.hashWithSalt` itemId
+    _salt
+      `Prelude.hashWithSalt` itemId
       `Prelude.hashWithSalt` promotionName
       `Prelude.hashWithSalt` score
 

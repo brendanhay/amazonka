@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     InstanceRefreshProgressDetails' {..} =
-      _salt `Prelude.hashWithSalt` livePoolProgress
+      _salt
+        `Prelude.hashWithSalt` livePoolProgress
         `Prelude.hashWithSalt` warmPoolProgress
 
 instance

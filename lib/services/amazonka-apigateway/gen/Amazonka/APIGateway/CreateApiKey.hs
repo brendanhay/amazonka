@@ -182,7 +182,8 @@ instance Core.AWSRequest CreateApiKey where
 
 instance Prelude.Hashable CreateApiKey where
   hashWithSalt _salt CreateApiKey' {..} =
-    _salt `Prelude.hashWithSalt` customerId
+    _salt
+      `Prelude.hashWithSalt` customerId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` generateDistinctId

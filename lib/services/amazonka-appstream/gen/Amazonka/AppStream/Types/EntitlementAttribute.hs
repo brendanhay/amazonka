@@ -131,12 +131,14 @@ instance Data.FromJSON EntitlementAttribute where
       "EntitlementAttribute"
       ( \x ->
           EntitlementAttribute'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable EntitlementAttribute where
   hashWithSalt _salt EntitlementAttribute' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EntitlementAttribute where

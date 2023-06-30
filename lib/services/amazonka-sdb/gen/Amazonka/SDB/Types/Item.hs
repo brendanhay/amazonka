@@ -61,7 +61,6 @@ newItem pName_ =
       attributes = Prelude.mempty
     }
 
--- |
 item_alternateNameEncoding :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
 item_alternateNameEncoding = Lens.lens (\Item' {alternateNameEncoding} -> alternateNameEncoding) (\s@Item' {} a -> s {alternateNameEncoding = a} :: Item)
 
@@ -82,7 +81,8 @@ instance Data.FromXML Item where
 
 instance Prelude.Hashable Item where
   hashWithSalt _salt Item' {..} =
-    _salt `Prelude.hashWithSalt` alternateNameEncoding
+    _salt
+      `Prelude.hashWithSalt` alternateNameEncoding
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attributes
 

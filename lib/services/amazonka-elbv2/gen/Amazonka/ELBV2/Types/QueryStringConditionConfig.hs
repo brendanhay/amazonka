@@ -88,7 +88,9 @@ queryStringConditionConfig_values = Lens.lens (\QueryStringConditionConfig' {val
 instance Data.FromXML QueryStringConditionConfig where
   parseXML x =
     QueryStringConditionConfig'
-      Prelude.<$> ( x Data..@? "Values" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Values"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

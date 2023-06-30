@@ -116,7 +116,8 @@ instance Core.AWSRequest PutAccountConfiguration where
 
 instance Prelude.Hashable PutAccountConfiguration where
   hashWithSalt _salt PutAccountConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` expiryEvents
+    _salt
+      `Prelude.hashWithSalt` expiryEvents
       `Prelude.hashWithSalt` idempotencyToken
 
 instance Prelude.NFData PutAccountConfiguration where

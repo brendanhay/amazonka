@@ -190,7 +190,8 @@ instance Data.FromJSON AacSettings where
 
 instance Prelude.Hashable AacSettings where
   hashWithSalt _salt AacSettings' {..} =
-    _salt `Prelude.hashWithSalt` bitrate
+    _salt
+      `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` codingMode
       `Prelude.hashWithSalt` inputType
       `Prelude.hashWithSalt` profile

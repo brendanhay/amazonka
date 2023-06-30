@@ -208,7 +208,8 @@ instance Core.AWSRequest CreatePool where
 
 instance Prelude.Hashable CreatePool where
   hashWithSalt _salt CreatePool' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` deletionProtectionEnabled
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` originationIdentity

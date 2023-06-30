@@ -83,7 +83,8 @@ instance Data.FromXML TargetReservationValue where
 
 instance Prelude.Hashable TargetReservationValue where
   hashWithSalt _salt TargetReservationValue' {..} =
-    _salt `Prelude.hashWithSalt` reservationValue
+    _salt
+      `Prelude.hashWithSalt` reservationValue
       `Prelude.hashWithSalt` targetConfiguration
 
 instance Prelude.NFData TargetReservationValue where

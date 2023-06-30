@@ -163,10 +163,12 @@ instance Core.AWSRequest CreateApplicationVersion where
           CreateApplicationVersionResponse'
             Prelude.<$> (x Data..?> "applicationId")
             Prelude.<*> (x Data..?> "creationTime")
-            Prelude.<*> ( x Data..?> "parameterDefinitions"
+            Prelude.<*> ( x
+                            Data..?> "parameterDefinitions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "requiredCapabilities"
+            Prelude.<*> ( x
+                            Data..?> "requiredCapabilities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "resourcesSupported")
@@ -179,7 +181,8 @@ instance Core.AWSRequest CreateApplicationVersion where
 
 instance Prelude.Hashable CreateApplicationVersion where
   hashWithSalt _salt CreateApplicationVersion' {..} =
-    _salt `Prelude.hashWithSalt` sourceCodeArchiveUrl
+    _salt
+      `Prelude.hashWithSalt` sourceCodeArchiveUrl
       `Prelude.hashWithSalt` sourceCodeUrl
       `Prelude.hashWithSalt` templateBody
       `Prelude.hashWithSalt` templateUrl

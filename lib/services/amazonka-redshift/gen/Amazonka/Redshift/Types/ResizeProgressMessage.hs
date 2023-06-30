@@ -287,15 +287,18 @@ instance Data.FromXML ResizeProgressMessage where
       Prelude.<*> (x Data..@? "DataTransferProgressPercent")
       Prelude.<*> (x Data..@? "ElapsedTimeInSeconds")
       Prelude.<*> (x Data..@? "EstimatedTimeToCompletionInSeconds")
-      Prelude.<*> ( x Data..@? "ImportTablesCompleted"
+      Prelude.<*> ( x
+                      Data..@? "ImportTablesCompleted"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "ImportTablesInProgress"
+      Prelude.<*> ( x
+                      Data..@? "ImportTablesInProgress"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "ImportTablesNotStarted"
+      Prelude.<*> ( x
+                      Data..@? "ImportTablesNotStarted"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )

@@ -126,7 +126,8 @@ instance Core.AWSRequest UpdateInstanceAttribute where
 
 instance Prelude.Hashable UpdateInstanceAttribute where
   hashWithSalt _salt UpdateInstanceAttribute' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` attributeType
       `Prelude.hashWithSalt` value
 

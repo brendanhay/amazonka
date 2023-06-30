@@ -82,7 +82,8 @@ instance Data.FromJSON EvaluationResult where
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =
-    _salt `Prelude.hashWithSalt` algorithmArn
+    _salt
+      `Prelude.hashWithSalt` algorithmArn
       `Prelude.hashWithSalt` testWindows
 
 instance Prelude.NFData EvaluationResult where

@@ -123,7 +123,8 @@ instance Core.AWSRequest CopyBackupToRegion where
 
 instance Prelude.Hashable CopyBackupToRegion where
   hashWithSalt _salt CopyBackupToRegion' {..} =
-    _salt `Prelude.hashWithSalt` tagList
+    _salt
+      `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` backupId
 

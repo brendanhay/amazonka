@@ -107,7 +107,8 @@ instance Core.AWSRequest AttachInstances where
 
 instance Prelude.Hashable AttachInstances where
   hashWithSalt _salt AttachInstances' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData AttachInstances where

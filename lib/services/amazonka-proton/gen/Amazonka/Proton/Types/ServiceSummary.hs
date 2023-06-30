@@ -153,7 +153,8 @@ instance Data.FromJSON ServiceSummary where
 
 instance Prelude.Hashable ServiceSummary where
   hashWithSalt _salt ServiceSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt

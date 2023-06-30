@@ -146,7 +146,8 @@ instance Data.FromJSON LogGroup where
 
 instance Prelude.Hashable LogGroup where
   hashWithSalt _salt LogGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dataProtectionStatus
       `Prelude.hashWithSalt` kmsKeyId

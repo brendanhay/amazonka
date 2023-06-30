@@ -90,7 +90,8 @@ instance Core.AWSRequest GetSensitiveDataOccurrences where
       ( \s h x ->
           GetSensitiveDataOccurrencesResponse'
             Prelude.<$> (x Data..?> "error")
-            Prelude.<*> ( x Data..?> "sensitiveDataOccurrences"
+            Prelude.<*> ( x
+                            Data..?> "sensitiveDataOccurrences"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "status")

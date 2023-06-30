@@ -123,10 +123,12 @@ instance Data.FromJSON LayerVersionsListItem where
       "LayerVersionsListItem"
       ( \x ->
           LayerVersionsListItem'
-            Prelude.<$> ( x Data..:? "CompatibleArchitectures"
+            Prelude.<$> ( x
+                            Data..:? "CompatibleArchitectures"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "CompatibleRuntimes"
+            Prelude.<*> ( x
+                            Data..:? "CompatibleRuntimes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedDate")

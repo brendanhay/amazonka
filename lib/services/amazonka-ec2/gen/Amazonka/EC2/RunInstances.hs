@@ -1095,7 +1095,8 @@ instance Core.AWSRequest RunInstances where
 
 instance Prelude.Hashable RunInstances where
   hashWithSalt _salt RunInstances' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` capacityReservationSpecification
       `Prelude.hashWithSalt` clientToken

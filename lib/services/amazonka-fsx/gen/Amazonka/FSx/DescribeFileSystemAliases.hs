@@ -154,7 +154,8 @@ instance Core.AWSRequest DescribeFileSystemAliases where
 
 instance Prelude.Hashable DescribeFileSystemAliases where
   hashWithSalt _salt DescribeFileSystemAliases' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` fileSystemId

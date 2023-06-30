@@ -75,7 +75,8 @@ instance Data.FromJSON ColumnError where
 
 instance Prelude.Hashable ColumnError where
   hashWithSalt _salt ColumnError' {..} =
-    _salt `Prelude.hashWithSalt` columnName
+    _salt
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` error
 
 instance Prelude.NFData ColumnError where

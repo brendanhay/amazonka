@@ -173,7 +173,8 @@ instance Core.AWSRequest DescribeTrails where
 
 instance Prelude.Hashable DescribeTrails where
   hashWithSalt _salt DescribeTrails' {..} =
-    _salt `Prelude.hashWithSalt` includeShadowTrails
+    _salt
+      `Prelude.hashWithSalt` includeShadowTrails
       `Prelude.hashWithSalt` trailNameList
 
 instance Prelude.NFData DescribeTrails where

@@ -82,7 +82,8 @@ instance Data.FromXML SecurityGroupReference where
 
 instance Prelude.Hashable SecurityGroupReference where
   hashWithSalt _salt SecurityGroupReference' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` referencingVpcId
       `Prelude.hashWithSalt` vpcPeeringConnectionId
 

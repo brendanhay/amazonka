@@ -114,7 +114,8 @@ instance
     DeleteMobileDeviceAccessRule
   where
   hashWithSalt _salt DeleteMobileDeviceAccessRule' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` mobileDeviceAccessRuleId
 
 instance Prelude.NFData DeleteMobileDeviceAccessRule where

@@ -84,7 +84,8 @@ instance Data.FromJSON MethodSnapshot where
 
 instance Prelude.Hashable MethodSnapshot where
   hashWithSalt _salt MethodSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` apiKeyRequired
+    _salt
+      `Prelude.hashWithSalt` apiKeyRequired
       `Prelude.hashWithSalt` authorizationType
 
 instance Prelude.NFData MethodSnapshot where

@@ -130,7 +130,8 @@ instance Data.FromJSON SourceFlowConfig where
 
 instance Prelude.Hashable SourceFlowConfig where
   hashWithSalt _salt SourceFlowConfig' {..} =
-    _salt `Prelude.hashWithSalt` apiVersion
+    _salt
+      `Prelude.hashWithSalt` apiVersion
       `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` incrementalPullConfig
       `Prelude.hashWithSalt` connectorType

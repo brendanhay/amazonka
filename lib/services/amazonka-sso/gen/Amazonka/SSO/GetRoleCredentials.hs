@@ -129,7 +129,8 @@ instance Core.AWSRequest GetRoleCredentials where
 
 instance Prelude.Hashable GetRoleCredentials where
   hashWithSalt _salt GetRoleCredentials' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` accessToken
 

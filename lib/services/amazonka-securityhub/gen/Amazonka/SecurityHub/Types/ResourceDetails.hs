@@ -1046,7 +1046,8 @@ instance Data.FromJSON ResourceDetails where
 
 instance Prelude.Hashable ResourceDetails where
   hashWithSalt _salt ResourceDetails' {..} =
-    _salt `Prelude.hashWithSalt` awsApiGatewayRestApi
+    _salt
+      `Prelude.hashWithSalt` awsApiGatewayRestApi
       `Prelude.hashWithSalt` awsApiGatewayStage
       `Prelude.hashWithSalt` awsApiGatewayV2Api
       `Prelude.hashWithSalt` awsApiGatewayV2Stage

@@ -143,7 +143,8 @@ voiceTemplateRequest_tags = Lens.lens (\VoiceTemplateRequest' {tags} -> tags) (\
 
 instance Prelude.Hashable VoiceTemplateRequest where
   hashWithSalt _salt VoiceTemplateRequest' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` templateDescription

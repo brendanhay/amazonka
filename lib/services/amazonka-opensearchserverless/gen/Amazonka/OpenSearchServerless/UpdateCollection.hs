@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateCollection where
 
 instance Prelude.Hashable UpdateCollection where
   hashWithSalt _salt UpdateCollection' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
 

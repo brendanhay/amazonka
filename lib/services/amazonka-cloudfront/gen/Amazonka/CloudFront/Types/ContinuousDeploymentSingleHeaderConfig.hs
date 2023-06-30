@@ -81,7 +81,8 @@ instance
   where
   parseXML x =
     ContinuousDeploymentSingleHeaderConfig'
-      Prelude.<$> (x Data..@ "Header") Prelude.<*> (x Data..@ "Value")
+      Prelude.<$> (x Data..@ "Header")
+      Prelude.<*> (x Data..@ "Value")
 
 instance
   Prelude.Hashable
@@ -90,7 +91,8 @@ instance
   hashWithSalt
     _salt
     ContinuousDeploymentSingleHeaderConfig' {..} =
-      _salt `Prelude.hashWithSalt` header
+      _salt
+        `Prelude.hashWithSalt` header
         `Prelude.hashWithSalt` value
 
 instance

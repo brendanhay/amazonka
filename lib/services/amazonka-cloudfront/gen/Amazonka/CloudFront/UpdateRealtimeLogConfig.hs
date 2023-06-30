@@ -171,7 +171,8 @@ instance Core.AWSRequest UpdateRealtimeLogConfig where
 
 instance Prelude.Hashable UpdateRealtimeLogConfig where
   hashWithSalt _salt UpdateRealtimeLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` endPoints
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` name

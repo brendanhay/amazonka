@@ -177,7 +177,8 @@ instance Data.FromJSON GraphqlApi where
       "GraphqlApi"
       ( \x ->
           GraphqlApi'
-            Prelude.<$> ( x Data..:? "additionalAuthenticationProviders"
+            Prelude.<$> ( x
+                            Data..:? "additionalAuthenticationProviders"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "apiId")

@@ -154,7 +154,8 @@ instance Data.FromXML Group where
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` arn

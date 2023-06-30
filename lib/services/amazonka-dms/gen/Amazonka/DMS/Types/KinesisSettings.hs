@@ -234,7 +234,8 @@ instance Data.FromJSON KinesisSettings where
 
 instance Prelude.Hashable KinesisSettings where
   hashWithSalt _salt KinesisSettings' {..} =
-    _salt `Prelude.hashWithSalt` includeControlDetails
+    _salt
+      `Prelude.hashWithSalt` includeControlDetails
       `Prelude.hashWithSalt` includeNullAndEmpty
       `Prelude.hashWithSalt` includePartitionValue
       `Prelude.hashWithSalt` includeTableAlterOperations

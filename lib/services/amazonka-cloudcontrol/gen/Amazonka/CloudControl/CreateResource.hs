@@ -81,7 +81,9 @@ data CreateResource = CreateResource'
     -- (IAM) role for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
     -- this operation. The necessary permissions for each event handler are
-    -- defined in the @ handlers @ section of the
+    -- defined in the
+    -- @ @<https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers handlers>@ @
+    -- section of the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema>.
     --
     -- If you do not specify a role, Cloud Control API uses a temporary session
@@ -135,7 +137,9 @@ data CreateResource = CreateResource'
 -- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
--- defined in the @ handlers @ section of the
+-- defined in the
+-- @ @<https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers handlers>@ @
+-- section of the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema>.
 --
 -- If you do not specify a role, Cloud Control API uses a temporary session
@@ -194,7 +198,9 @@ createResource_clientToken = Lens.lens (\CreateResource' {clientToken} -> client
 -- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
--- defined in the @ handlers @ section of the
+-- defined in the
+-- @ @<https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers handlers>@ @
+-- section of the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema>.
 --
 -- If you do not specify a role, Cloud Control API uses a temporary session
@@ -241,7 +247,8 @@ instance Core.AWSRequest CreateResource where
 
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` typeVersionId
       `Prelude.hashWithSalt` typeName

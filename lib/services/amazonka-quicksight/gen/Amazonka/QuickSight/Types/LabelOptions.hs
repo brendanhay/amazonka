@@ -86,7 +86,8 @@ instance Data.FromJSON LabelOptions where
 
 instance Prelude.Hashable LabelOptions where
   hashWithSalt _salt LabelOptions' {..} =
-    _salt `Prelude.hashWithSalt` customLabel
+    _salt
+      `Prelude.hashWithSalt` customLabel
       `Prelude.hashWithSalt` fontConfiguration
       `Prelude.hashWithSalt` visibility
 

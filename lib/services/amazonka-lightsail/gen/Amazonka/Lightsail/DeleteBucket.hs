@@ -167,7 +167,8 @@ instance Core.AWSRequest DeleteBucket where
 
 instance Prelude.Hashable DeleteBucket where
   hashWithSalt _salt DeleteBucket' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData DeleteBucket where

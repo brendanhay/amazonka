@@ -154,7 +154,8 @@ instance
     ImportHypervisorConfiguration
   where
   hashWithSalt _salt ImportHypervisorConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` username

@@ -87,7 +87,8 @@ entityPersonaConfiguration_persona = Lens.lens (\EntityPersonaConfiguration' {pe
 
 instance Prelude.Hashable EntityPersonaConfiguration where
   hashWithSalt _salt EntityPersonaConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` entityId
+    _salt
+      `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` persona
 
 instance Prelude.NFData EntityPersonaConfiguration where

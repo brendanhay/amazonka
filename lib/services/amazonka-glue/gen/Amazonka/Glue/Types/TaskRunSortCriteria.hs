@@ -77,7 +77,8 @@ taskRunSortCriteria_sortDirection = Lens.lens (\TaskRunSortCriteria' {sortDirect
 
 instance Prelude.Hashable TaskRunSortCriteria where
   hashWithSalt _salt TaskRunSortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` column
+    _salt
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` sortDirection
 
 instance Prelude.NFData TaskRunSortCriteria where

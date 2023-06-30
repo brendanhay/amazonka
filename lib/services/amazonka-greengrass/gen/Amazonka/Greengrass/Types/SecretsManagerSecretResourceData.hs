@@ -86,7 +86,8 @@ instance
       ( \x ->
           SecretsManagerSecretResourceData'
             Prelude.<$> (x Data..:? "ARN")
-            Prelude.<*> ( x Data..:? "AdditionalStagingLabelsToDownload"
+            Prelude.<*> ( x
+                            Data..:? "AdditionalStagingLabelsToDownload"
                             Data..!= Prelude.mempty
                         )
       )
@@ -98,7 +99,8 @@ instance
   hashWithSalt
     _salt
     SecretsManagerSecretResourceData' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` additionalStagingLabelsToDownload
 
 instance

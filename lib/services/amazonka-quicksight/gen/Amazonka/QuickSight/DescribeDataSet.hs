@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeDataSet where
 
 instance Prelude.Hashable DescribeDataSet where
   hashWithSalt _salt DescribeDataSet' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSetId
 
 instance Prelude.NFData DescribeDataSet where

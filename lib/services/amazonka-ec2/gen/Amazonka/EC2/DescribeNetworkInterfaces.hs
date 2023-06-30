@@ -494,22 +494,22 @@ instance Core.AWSPager DescribeNetworkInterfaces where
     | Core.stop
         ( rs
             Lens.^? describeNetworkInterfacesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNetworkInterfacesResponse_networkInterfaces
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNetworkInterfaces_nextToken
           Lens..~ rs
           Lens.^? describeNetworkInterfacesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNetworkInterfaces where
   type
@@ -521,7 +521,8 @@ instance Core.AWSRequest DescribeNetworkInterfaces where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInterfacesResponse'
-            Prelude.<$> ( x Data..@? "networkInterfaceSet"
+            Prelude.<$> ( x
+                            Data..@? "networkInterfaceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -531,7 +532,8 @@ instance Core.AWSRequest DescribeNetworkInterfaces where
 
 instance Prelude.Hashable DescribeNetworkInterfaces where
   hashWithSalt _salt DescribeNetworkInterfaces' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` networkInterfaceIds

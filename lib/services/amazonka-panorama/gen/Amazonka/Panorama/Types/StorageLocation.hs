@@ -120,7 +120,8 @@ instance Data.FromJSON StorageLocation where
 
 instance Prelude.Hashable StorageLocation where
   hashWithSalt _salt StorageLocation' {..} =
-    _salt `Prelude.hashWithSalt` binaryPrefixLocation
+    _salt
+      `Prelude.hashWithSalt` binaryPrefixLocation
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` generatedPrefixLocation
       `Prelude.hashWithSalt` manifestPrefixLocation

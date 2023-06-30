@@ -130,7 +130,8 @@ instance Data.FromJSON ReportDefinition where
 
 instance Prelude.Hashable ReportDefinition where
   hashWithSalt _salt ReportDefinition' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` destinationS3Location
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` lastUpdatedAt

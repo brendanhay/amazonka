@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateDataSetPermissions where
 
 instance Prelude.Hashable UpdateDataSetPermissions where
   hashWithSalt _salt UpdateDataSetPermissions' {..} =
-    _salt `Prelude.hashWithSalt` grantPermissions
+    _salt
+      `Prelude.hashWithSalt` grantPermissions
       `Prelude.hashWithSalt` revokePermissions
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSetId

@@ -100,7 +100,8 @@ instance Data.FromJSON FindingActor where
 
 instance Prelude.Hashable FindingActor where
   hashWithSalt _salt FindingActor' {..} =
-    _salt `Prelude.hashWithSalt` domainDetails
+    _salt
+      `Prelude.hashWithSalt` domainDetails
       `Prelude.hashWithSalt` ipAddressDetails
       `Prelude.hashWithSalt` userIdentity
 

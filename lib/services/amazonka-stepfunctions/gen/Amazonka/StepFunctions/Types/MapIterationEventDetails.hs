@@ -68,12 +68,14 @@ instance Data.FromJSON MapIterationEventDetails where
       "MapIterationEventDetails"
       ( \x ->
           MapIterationEventDetails'
-            Prelude.<$> (x Data..:? "index") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "index")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable MapIterationEventDetails where
   hashWithSalt _salt MapIterationEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt
+      `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData MapIterationEventDetails where

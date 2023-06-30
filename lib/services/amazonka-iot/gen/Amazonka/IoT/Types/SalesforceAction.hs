@@ -82,12 +82,14 @@ instance Data.FromJSON SalesforceAction where
       "SalesforceAction"
       ( \x ->
           SalesforceAction'
-            Prelude.<$> (x Data..: "token") Prelude.<*> (x Data..: "url")
+            Prelude.<$> (x Data..: "token")
+            Prelude.<*> (x Data..: "url")
       )
 
 instance Prelude.Hashable SalesforceAction where
   hashWithSalt _salt SalesforceAction' {..} =
-    _salt `Prelude.hashWithSalt` token
+    _salt
+      `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData SalesforceAction where

@@ -102,7 +102,8 @@ instance Core.AWSRequest GenerateTemplate where
 
 instance Prelude.Hashable GenerateTemplate where
   hashWithSalt _salt GenerateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` templateFormat
 
 instance Prelude.NFData GenerateTemplate where

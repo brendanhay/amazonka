@@ -119,7 +119,8 @@ instance Core.AWSRequest Subscribe where
 
 instance Prelude.Hashable Subscribe where
   hashWithSalt _salt Subscribe' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` target
 

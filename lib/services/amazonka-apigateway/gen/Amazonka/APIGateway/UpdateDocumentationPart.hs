@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateDocumentationPart where
 
 instance Prelude.Hashable UpdateDocumentationPart where
   hashWithSalt _salt UpdateDocumentationPart' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` documentationPartId
 

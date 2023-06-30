@@ -189,22 +189,22 @@ instance Core.AWSPager DescribeLaunchTemplates where
     | Core.stop
         ( rs
             Lens.^? describeLaunchTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLaunchTemplatesResponse_launchTemplates
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLaunchTemplates_nextToken
           Lens..~ rs
           Lens.^? describeLaunchTemplatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLaunchTemplates where
   type
@@ -216,7 +216,9 @@ instance Core.AWSRequest DescribeLaunchTemplates where
     Response.receiveXML
       ( \s h x ->
           DescribeLaunchTemplatesResponse'
-            Prelude.<$> ( x Data..@? "launchTemplates" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "launchTemplates"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -225,7 +227,8 @@ instance Core.AWSRequest DescribeLaunchTemplates where
 
 instance Prelude.Hashable DescribeLaunchTemplates where
   hashWithSalt _salt DescribeLaunchTemplates' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` launchTemplateIds
       `Prelude.hashWithSalt` launchTemplateNames

@@ -119,7 +119,8 @@ instance Data.FromJSON AuthenticationResultType where
 
 instance Prelude.Hashable AuthenticationResultType where
   hashWithSalt _salt AuthenticationResultType' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` expiresIn
       `Prelude.hashWithSalt` idToken
       `Prelude.hashWithSalt` newDeviceMetadata'

@@ -123,7 +123,8 @@ instance Core.AWSRequest DeleteMembers where
       ( \s h x ->
           DeleteMembersResponse'
             Prelude.<$> (x Data..?> "AccountIds")
-            Prelude.<*> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -131,7 +132,8 @@ instance Core.AWSRequest DeleteMembers where
 
 instance Prelude.Hashable DeleteMembers where
   hashWithSalt _salt DeleteMembers' {..} =
-    _salt `Prelude.hashWithSalt` graphArn
+    _salt
+      `Prelude.hashWithSalt` graphArn
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData DeleteMembers where

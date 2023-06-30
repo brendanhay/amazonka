@@ -351,7 +351,8 @@ writeJourneyRequest_name = Lens.lens (\WriteJourneyRequest' {name} -> name) (\s@
 
 instance Prelude.Hashable WriteJourneyRequest where
   hashWithSalt _salt WriteJourneyRequest' {..} =
-    _salt `Prelude.hashWithSalt` activities
+    _salt
+      `Prelude.hashWithSalt` activities
       `Prelude.hashWithSalt` closedDays
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` journeyChannelSettings

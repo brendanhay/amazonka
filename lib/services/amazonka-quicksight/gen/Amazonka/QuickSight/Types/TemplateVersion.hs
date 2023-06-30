@@ -148,7 +148,8 @@ instance Data.FromJSON TemplateVersion where
       ( \x ->
           TemplateVersion'
             Prelude.<$> (x Data..:? "CreatedTime")
-            Prelude.<*> ( x Data..:? "DataSetConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "DataSetConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
@@ -162,7 +163,8 @@ instance Data.FromJSON TemplateVersion where
 
 instance Prelude.Hashable TemplateVersion where
   hashWithSalt _salt TemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dataSetConfigurations
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` errors

@@ -108,7 +108,8 @@ instance Data.FromJSON NetworkRoute where
 
 instance Prelude.Hashable NetworkRoute where
   hashWithSalt _salt NetworkRoute' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidrBlock
+    _salt
+      `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` prefixListId
       `Prelude.hashWithSalt` state

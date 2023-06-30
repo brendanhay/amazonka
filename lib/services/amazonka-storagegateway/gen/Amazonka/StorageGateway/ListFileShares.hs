@@ -122,22 +122,22 @@ instance Core.AWSPager ListFileShares where
     | Core.stop
         ( rs
             Lens.^? listFileSharesResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFileSharesResponse_fileShareInfoList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFileShares_marker
           Lens..~ rs
           Lens.^? listFileSharesResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFileShares where
   type
@@ -149,7 +149,8 @@ instance Core.AWSRequest ListFileShares where
     Response.receiveJSON
       ( \s h x ->
           ListFileSharesResponse'
-            Prelude.<$> ( x Data..?> "FileShareInfoList"
+            Prelude.<$> ( x
+                            Data..?> "FileShareInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Marker")
@@ -159,7 +160,8 @@ instance Core.AWSRequest ListFileShares where
 
 instance Prelude.Hashable ListFileShares where
   hashWithSalt _salt ListFileShares' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
 

@@ -125,7 +125,8 @@ instance Core.AWSRequest AssociateResource where
 
 instance Prelude.Hashable AssociateResource where
   hashWithSalt _salt AssociateResource' {..} =
-    _salt `Prelude.hashWithSalt` application
+    _salt
+      `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 

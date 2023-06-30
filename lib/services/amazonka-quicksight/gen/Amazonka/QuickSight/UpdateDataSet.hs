@@ -69,7 +69,8 @@ data UpdateDataSet = UpdateDataSet'
   { -- | Groupings of columns that work together in certain Amazon QuickSight
     -- features. Currently, only geospatial hierarchy is supported.
     columnGroups :: Prelude.Maybe (Prelude.NonEmpty ColumnGroup),
-    -- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+    -- | A set of one or more definitions of a
+    -- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
     columnLevelPermissionRules :: Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule),
     dataSetUsageConfiguration :: Prelude.Maybe DataSetUsageConfiguration,
     -- | The folder that contains fields and nested subfolders for your dataset.
@@ -109,7 +110,8 @@ data UpdateDataSet = UpdateDataSet'
 -- 'columnGroups', 'updateDataSet_columnGroups' - Groupings of columns that work together in certain Amazon QuickSight
 -- features. Currently, only geospatial hierarchy is supported.
 --
--- 'columnLevelPermissionRules', 'updateDataSet_columnLevelPermissionRules' - A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+-- 'columnLevelPermissionRules', 'updateDataSet_columnLevelPermissionRules' - A set of one or more definitions of a
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
 --
 -- 'dataSetUsageConfiguration', 'updateDataSet_dataSetUsageConfiguration' - Undocumented member.
 --
@@ -170,7 +172,8 @@ newUpdateDataSet
 updateDataSet_columnGroups :: Lens.Lens' UpdateDataSet (Prelude.Maybe (Prelude.NonEmpty ColumnGroup))
 updateDataSet_columnGroups = Lens.lens (\UpdateDataSet' {columnGroups} -> columnGroups) (\s@UpdateDataSet' {} a -> s {columnGroups = a} :: UpdateDataSet) Prelude.. Lens.mapping Lens.coerced
 
--- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+-- | A set of one or more definitions of a
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
 updateDataSet_columnLevelPermissionRules :: Lens.Lens' UpdateDataSet (Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule))
 updateDataSet_columnLevelPermissionRules = Lens.lens (\UpdateDataSet' {columnLevelPermissionRules} -> columnLevelPermissionRules) (\s@UpdateDataSet' {} a -> s {columnLevelPermissionRules = a} :: UpdateDataSet) Prelude.. Lens.mapping Lens.coerced
 
@@ -239,7 +242,8 @@ instance Core.AWSRequest UpdateDataSet where
 
 instance Prelude.Hashable UpdateDataSet where
   hashWithSalt _salt UpdateDataSet' {..} =
-    _salt `Prelude.hashWithSalt` columnGroups
+    _salt
+      `Prelude.hashWithSalt` columnGroups
       `Prelude.hashWithSalt` columnLevelPermissionRules
       `Prelude.hashWithSalt` dataSetUsageConfiguration
       `Prelude.hashWithSalt` fieldFolders

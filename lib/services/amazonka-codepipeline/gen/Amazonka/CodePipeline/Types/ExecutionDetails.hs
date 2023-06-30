@@ -81,7 +81,8 @@ executionDetails_summary = Lens.lens (\ExecutionDetails' {summary} -> summary) (
 
 instance Prelude.Hashable ExecutionDetails where
   hashWithSalt _salt ExecutionDetails' {..} =
-    _salt `Prelude.hashWithSalt` externalExecutionId
+    _salt
+      `Prelude.hashWithSalt` externalExecutionId
       `Prelude.hashWithSalt` percentComplete
       `Prelude.hashWithSalt` summary
 

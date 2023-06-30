@@ -46,7 +46,6 @@ newDatasetSchema ::
 newDatasetSchema =
   DatasetSchema' {inlineDataSchema = Prelude.Nothing}
 
--- |
 datasetSchema_inlineDataSchema :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.Text)
 datasetSchema_inlineDataSchema = Lens.lens (\DatasetSchema' {inlineDataSchema} -> inlineDataSchema) (\s@DatasetSchema' {} a -> s {inlineDataSchema = a} :: DatasetSchema)
 

@@ -74,7 +74,8 @@ instance Data.FromJSON MessageBody where
 
 instance Prelude.Hashable MessageBody where
   hashWithSalt _salt MessageBody' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` requestID
 
 instance Prelude.NFData MessageBody where

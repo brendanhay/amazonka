@@ -233,7 +233,8 @@ instance Data.FromXML BulkEmailDestinationStatus where
 
 instance Prelude.Hashable BulkEmailDestinationStatus where
   hashWithSalt _salt BulkEmailDestinationStatus' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` status
 

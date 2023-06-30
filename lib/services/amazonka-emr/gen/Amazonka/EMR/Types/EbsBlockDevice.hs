@@ -82,7 +82,8 @@ instance Data.FromJSON EbsBlockDevice where
 
 instance Prelude.Hashable EbsBlockDevice where
   hashWithSalt _salt EbsBlockDevice' {..} =
-    _salt `Prelude.hashWithSalt` device
+    _salt
+      `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` volumeSpecification
 
 instance Prelude.NFData EbsBlockDevice where

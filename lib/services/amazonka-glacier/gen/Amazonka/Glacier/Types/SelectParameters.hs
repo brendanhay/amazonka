@@ -97,7 +97,8 @@ instance Data.FromJSON SelectParameters where
 
 instance Prelude.Hashable SelectParameters where
   hashWithSalt _salt SelectParameters' {..} =
-    _salt `Prelude.hashWithSalt` expression
+    _salt
+      `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` expressionType
       `Prelude.hashWithSalt` inputSerialization
       `Prelude.hashWithSalt` outputSerialization

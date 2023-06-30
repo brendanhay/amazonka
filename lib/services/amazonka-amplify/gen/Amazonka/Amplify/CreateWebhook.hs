@@ -116,7 +116,8 @@ instance Core.AWSRequest CreateWebhook where
 
 instance Prelude.Hashable CreateWebhook where
   hashWithSalt _salt CreateWebhook' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName
 

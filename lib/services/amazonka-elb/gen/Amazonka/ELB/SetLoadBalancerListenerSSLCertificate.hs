@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     SetLoadBalancerListenerSSLCertificate' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerName
+      _salt
+        `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` loadBalancerPort
         `Prelude.hashWithSalt` sSLCertificateId
 

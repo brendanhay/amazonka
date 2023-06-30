@@ -150,7 +150,8 @@ instance Core.AWSRequest CreateLoggingConfiguration where
 
 instance Prelude.Hashable CreateLoggingConfiguration where
   hashWithSalt _salt CreateLoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` destinationConfiguration
 

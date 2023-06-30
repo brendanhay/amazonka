@@ -169,20 +169,23 @@ instance Core.AWSPager ListThings where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listThingsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listThingsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listThingsResponse_things Prelude.. Lens._Just
+            Lens.^? listThingsResponse_things
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listThings_nextToken
           Lens..~ rs
-          Lens.^? listThingsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listThingsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThings where
   type AWSResponse ListThings = ListThingsResponse
@@ -199,7 +202,8 @@ instance Core.AWSRequest ListThings where
 
 instance Prelude.Hashable ListThings where
   hashWithSalt _salt ListThings' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` attributeValue
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

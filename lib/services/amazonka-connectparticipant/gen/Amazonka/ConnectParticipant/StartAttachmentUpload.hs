@@ -172,7 +172,8 @@ instance Core.AWSRequest StartAttachmentUpload where
 
 instance Prelude.Hashable StartAttachmentUpload where
   hashWithSalt _salt StartAttachmentUpload' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` attachmentSizeInBytes
       `Prelude.hashWithSalt` attachmentName
       `Prelude.hashWithSalt` clientToken

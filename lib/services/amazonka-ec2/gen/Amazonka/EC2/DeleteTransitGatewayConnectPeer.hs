@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     DeleteTransitGatewayConnectPeer' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` transitGatewayConnectPeerId
 
 instance

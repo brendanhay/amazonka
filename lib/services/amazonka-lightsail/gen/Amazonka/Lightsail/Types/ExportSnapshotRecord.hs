@@ -145,7 +145,8 @@ instance Data.FromJSON ExportSnapshotRecord where
 
 instance Prelude.Hashable ExportSnapshotRecord where
   hashWithSalt _salt ExportSnapshotRecord' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` destinationInfo
       `Prelude.hashWithSalt` location

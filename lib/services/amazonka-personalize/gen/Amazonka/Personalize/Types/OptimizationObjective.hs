@@ -87,7 +87,8 @@ instance Data.FromJSON OptimizationObjective where
 
 instance Prelude.Hashable OptimizationObjective where
   hashWithSalt _salt OptimizationObjective' {..} =
-    _salt `Prelude.hashWithSalt` itemAttribute
+    _salt
+      `Prelude.hashWithSalt` itemAttribute
       `Prelude.hashWithSalt` objectiveSensitivity
 
 instance Prelude.NFData OptimizationObjective where

@@ -110,10 +110,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociatePhoneNumbersWithVoiceConnectorResponse'
-            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
+            Prelude.<$> ( x
+                            Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -123,7 +124,8 @@ instance
   hashWithSalt
     _salt
     AssociatePhoneNumbersWithVoiceConnector' {..} =
-      _salt `Prelude.hashWithSalt` forceAssociate
+      _salt
+        `Prelude.hashWithSalt` forceAssociate
         `Prelude.hashWithSalt` voiceConnectorId
         `Prelude.hashWithSalt` e164PhoneNumbers
 

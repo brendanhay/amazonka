@@ -176,7 +176,8 @@ instance Data.FromJSON GrantListEntry where
 
 instance Prelude.Hashable GrantListEntry where
   hashWithSalt _salt GrantListEntry' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` grantId
       `Prelude.hashWithSalt` granteePrincipal

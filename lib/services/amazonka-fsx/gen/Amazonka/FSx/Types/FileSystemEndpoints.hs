@@ -84,7 +84,8 @@ instance Data.FromJSON FileSystemEndpoints where
 
 instance Prelude.Hashable FileSystemEndpoints where
   hashWithSalt _salt FileSystemEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` intercluster
+    _salt
+      `Prelude.hashWithSalt` intercluster
       `Prelude.hashWithSalt` management
 
 instance Prelude.NFData FileSystemEndpoints where

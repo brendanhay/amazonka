@@ -235,7 +235,8 @@ instance Data.FromJSON SimulationJobRequest where
 
 instance Prelude.Hashable SimulationJobRequest where
   hashWithSalt _salt SimulationJobRequest' {..} =
-    _salt `Prelude.hashWithSalt` compute
+    _salt
+      `Prelude.hashWithSalt` compute
       `Prelude.hashWithSalt` dataSources
       `Prelude.hashWithSalt` failureBehavior
       `Prelude.hashWithSalt` iamRole

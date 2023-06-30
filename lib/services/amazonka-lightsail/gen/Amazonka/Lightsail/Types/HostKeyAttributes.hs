@@ -199,7 +199,8 @@ instance Data.FromJSON HostKeyAttributes where
 
 instance Prelude.Hashable HostKeyAttributes where
   hashWithSalt _salt HostKeyAttributes' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` fingerprintSHA1
       `Prelude.hashWithSalt` fingerprintSHA256
       `Prelude.hashWithSalt` notValidAfter

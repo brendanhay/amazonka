@@ -337,7 +337,8 @@ instance Core.AWSRequest UpdateCanary where
 
 instance Prelude.Hashable UpdateCanary where
   hashWithSalt _salt UpdateCanary' {..} =
-    _salt `Prelude.hashWithSalt` artifactConfig
+    _salt
+      `Prelude.hashWithSalt` artifactConfig
       `Prelude.hashWithSalt` artifactS3Location
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` executionRoleArn

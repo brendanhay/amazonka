@@ -124,7 +124,8 @@ instance Core.AWSRequest SendTaskFailure where
 
 instance Prelude.Hashable SendTaskFailure where
   hashWithSalt _salt SendTaskFailure' {..} =
-    _salt `Prelude.hashWithSalt` cause
+    _salt
+      `Prelude.hashWithSalt` cause
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` taskToken
 

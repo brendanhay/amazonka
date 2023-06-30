@@ -161,7 +161,8 @@ instance
   hashWithSalt
     _salt
     FraudsterRegistrationJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` createdAt
+      _salt
+        `Prelude.hashWithSalt` createdAt
         `Prelude.hashWithSalt` domainId
         `Prelude.hashWithSalt` endedAt
         `Prelude.hashWithSalt` failureDetails

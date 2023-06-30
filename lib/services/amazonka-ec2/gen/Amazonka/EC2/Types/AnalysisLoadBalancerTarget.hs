@@ -93,7 +93,8 @@ instance Data.FromXML AnalysisLoadBalancerTarget where
 
 instance Prelude.Hashable AnalysisLoadBalancerTarget where
   hashWithSalt _salt AnalysisLoadBalancerTarget' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` instance'
       `Prelude.hashWithSalt` port

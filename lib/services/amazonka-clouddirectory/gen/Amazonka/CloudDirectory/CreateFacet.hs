@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateFacet where
 
 instance Prelude.Hashable CreateFacet where
   hashWithSalt _salt CreateFacet' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` facetStyle
       `Prelude.hashWithSalt` objectType
       `Prelude.hashWithSalt` schemaArn

@@ -71,7 +71,8 @@ instance Data.FromXML ElasticIpStatus where
 
 instance Prelude.Hashable ElasticIpStatus where
   hashWithSalt _salt ElasticIpStatus' {..} =
-    _salt `Prelude.hashWithSalt` elasticIp
+    _salt
+      `Prelude.hashWithSalt` elasticIp
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ElasticIpStatus where

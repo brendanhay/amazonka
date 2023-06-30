@@ -130,7 +130,8 @@ instance Data.FromJSON CelebrityDetail where
 
 instance Prelude.Hashable CelebrityDetail where
   hashWithSalt _salt CelebrityDetail' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` face
       `Prelude.hashWithSalt` id

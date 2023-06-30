@@ -123,7 +123,8 @@ endpointSendConfiguration_titleOverride = Lens.lens (\EndpointSendConfiguration'
 
 instance Prelude.Hashable EndpointSendConfiguration where
   hashWithSalt _salt EndpointSendConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` bodyOverride
+    _salt
+      `Prelude.hashWithSalt` bodyOverride
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` rawContent
       `Prelude.hashWithSalt` substitutions

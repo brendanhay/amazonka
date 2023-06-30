@@ -109,7 +109,8 @@ instance Data.FromJSON FecOutputSettings where
 
 instance Prelude.Hashable FecOutputSettings where
   hashWithSalt _salt FecOutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` columnDepth
+    _salt
+      `Prelude.hashWithSalt` columnDepth
       `Prelude.hashWithSalt` includeFec
       `Prelude.hashWithSalt` rowLength
 

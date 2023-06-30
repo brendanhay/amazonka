@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     SuppressedDestinationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` feedbackId
+      _salt
+        `Prelude.hashWithSalt` feedbackId
         `Prelude.hashWithSalt` messageId
 
 instance

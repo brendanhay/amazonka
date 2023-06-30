@@ -157,20 +157,22 @@ instance Core.AWSPager ListUserTags where
     | Core.stop
         ( rs
             Lens.^? listUserTagsResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listUserTagsResponse_marker Prelude.. Lens._Just
+            Lens.^? listUserTagsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listUserTags_marker
           Lens..~ rs
-          Lens.^? listUserTagsResponse_marker Prelude.. Lens._Just
+          Lens.^? listUserTagsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserTags where
   type AWSResponse ListUserTags = ListUserTagsResponse
@@ -184,14 +186,17 @@ instance Core.AWSRequest ListUserTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListUserTags where
   hashWithSalt _salt ListUserTags' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` userName
 

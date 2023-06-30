@@ -245,7 +245,8 @@ instance
   hashWithSalt
     _salt
     CreatePredictorBacktestExportJob' {..} =
-      _salt `Prelude.hashWithSalt` format
+      _salt
+        `Prelude.hashWithSalt` format
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` predictorBacktestExportJobName
         `Prelude.hashWithSalt` predictorArn

@@ -284,7 +284,8 @@ instance Core.AWSRequest CreateProduct where
 
 instance Prelude.Hashable CreateProduct where
   hashWithSalt _salt CreateProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` distributor
       `Prelude.hashWithSalt` provisioningArtifactParameters

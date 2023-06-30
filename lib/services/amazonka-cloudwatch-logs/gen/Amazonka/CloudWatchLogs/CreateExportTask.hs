@@ -219,7 +219,8 @@ instance Core.AWSRequest CreateExportTask where
 
 instance Prelude.Hashable CreateExportTask where
   hashWithSalt _salt CreateExportTask' {..} =
-    _salt `Prelude.hashWithSalt` destinationPrefix
+    _salt
+      `Prelude.hashWithSalt` destinationPrefix
       `Prelude.hashWithSalt` logStreamNamePrefix
       `Prelude.hashWithSalt` taskName
       `Prelude.hashWithSalt` logGroupName

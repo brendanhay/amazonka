@@ -251,7 +251,8 @@ instance Data.FromJSON ColorCorrector where
 
 instance Prelude.Hashable ColorCorrector where
   hashWithSalt _salt ColorCorrector' {..} =
-    _salt `Prelude.hashWithSalt` brightness
+    _salt
+      `Prelude.hashWithSalt` brightness
       `Prelude.hashWithSalt` colorSpaceConversion
       `Prelude.hashWithSalt` contrast
       `Prelude.hashWithSalt` hdr10Metadata

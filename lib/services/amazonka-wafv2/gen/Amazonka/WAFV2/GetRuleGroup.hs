@@ -162,7 +162,8 @@ instance Core.AWSRequest GetRuleGroup where
 
 instance Prelude.Hashable GetRuleGroup where
   hashWithSalt _salt GetRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
@@ -265,7 +266,6 @@ newGetRuleGroupResponse pHttpStatus_ =
 getRuleGroupResponse_lockToken :: Lens.Lens' GetRuleGroupResponse (Prelude.Maybe Prelude.Text)
 getRuleGroupResponse_lockToken = Lens.lens (\GetRuleGroupResponse' {lockToken} -> lockToken) (\s@GetRuleGroupResponse' {} a -> s {lockToken = a} :: GetRuleGroupResponse)
 
--- |
 getRuleGroupResponse_ruleGroup :: Lens.Lens' GetRuleGroupResponse (Prelude.Maybe RuleGroup)
 getRuleGroupResponse_ruleGroup = Lens.lens (\GetRuleGroupResponse' {ruleGroup} -> ruleGroup) (\s@GetRuleGroupResponse' {} a -> s {ruleGroup = a} :: GetRuleGroupResponse)
 

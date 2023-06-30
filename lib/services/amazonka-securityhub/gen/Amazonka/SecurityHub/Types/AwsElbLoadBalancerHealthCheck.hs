@@ -42,12 +42,12 @@ data AwsElbLoadBalancerHealthCheck = AwsElbLoadBalancerHealthCheck'
     -- For the HTTP and HTTPS protocols, the target also specifies the ping
     -- path.
     --
-    -- For the TCP protocol, the target is specified as @TCP: \<port> @.
+    -- For the TCP protocol, the target is specified as @TCP: @/@\<port>@/@ @.
     --
-    -- For the SSL protocol, the target is specified as @SSL.\<port> @.
+    -- For the SSL protocol, the target is specified as @SSL.@/@\<port>@/@ @.
     --
     -- For the HTTP and HTTPS protocols, the target is specified as
-    -- @ \<protocol>:\<port>\/\<path to ping> @.
+    -- @ @/@\<protocol>@/@:@/@\<port>@/@\/@/@\<path to ping>@/@ @.
     target :: Prelude.Maybe Prelude.Text,
     -- | The amount of time, in seconds, during which no response means a failed
     -- health check.
@@ -79,12 +79,12 @@ data AwsElbLoadBalancerHealthCheck = AwsElbLoadBalancerHealthCheck'
 -- For the HTTP and HTTPS protocols, the target also specifies the ping
 -- path.
 --
--- For the TCP protocol, the target is specified as @TCP: \<port> @.
+-- For the TCP protocol, the target is specified as @TCP: @/@\<port>@/@ @.
 --
--- For the SSL protocol, the target is specified as @SSL.\<port> @.
+-- For the SSL protocol, the target is specified as @SSL.@/@\<port>@/@ @.
 --
 -- For the HTTP and HTTPS protocols, the target is specified as
--- @ \<protocol>:\<port>\/\<path to ping> @.
+-- @ @/@\<protocol>@/@:@/@\<port>@/@\/@/@\<path to ping>@/@ @.
 --
 -- 'timeout', 'awsElbLoadBalancerHealthCheck_timeout' - The amount of time, in seconds, during which no response means a failed
 -- health check.
@@ -120,12 +120,12 @@ awsElbLoadBalancerHealthCheck_interval = Lens.lens (\AwsElbLoadBalancerHealthChe
 -- For the HTTP and HTTPS protocols, the target also specifies the ping
 -- path.
 --
--- For the TCP protocol, the target is specified as @TCP: \<port> @.
+-- For the TCP protocol, the target is specified as @TCP: @/@\<port>@/@ @.
 --
--- For the SSL protocol, the target is specified as @SSL.\<port> @.
+-- For the SSL protocol, the target is specified as @SSL.@/@\<port>@/@ @.
 --
 -- For the HTTP and HTTPS protocols, the target is specified as
--- @ \<protocol>:\<port>\/\<path to ping> @.
+-- @ @/@\<protocol>@/@:@/@\<port>@/@\/@/@\<path to ping>@/@ @.
 awsElbLoadBalancerHealthCheck_target :: Lens.Lens' AwsElbLoadBalancerHealthCheck (Prelude.Maybe Prelude.Text)
 awsElbLoadBalancerHealthCheck_target = Lens.lens (\AwsElbLoadBalancerHealthCheck' {target} -> target) (\s@AwsElbLoadBalancerHealthCheck' {} a -> s {target = a} :: AwsElbLoadBalancerHealthCheck)
 
@@ -157,7 +157,8 @@ instance
     AwsElbLoadBalancerHealthCheck
   where
   hashWithSalt _salt AwsElbLoadBalancerHealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` healthyThreshold
+    _salt
+      `Prelude.hashWithSalt` healthyThreshold
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` timeout

@@ -191,20 +191,23 @@ instance Core.AWSPager ListParts where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPartsResponse_marker Prelude.. Lens._Just
+            Lens.^? listPartsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPartsResponse_parts Prelude.. Lens._Just
+            Lens.^? listPartsResponse_parts
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listParts_marker
           Lens..~ rs
-          Lens.^? listPartsResponse_marker Prelude.. Lens._Just
+          Lens.^? listPartsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListParts where
   type AWSResponse ListParts = ListPartsResponse
@@ -227,7 +230,8 @@ instance Core.AWSRequest ListParts where
 
 instance Prelude.Hashable ListParts where
   hashWithSalt _salt ListParts' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName

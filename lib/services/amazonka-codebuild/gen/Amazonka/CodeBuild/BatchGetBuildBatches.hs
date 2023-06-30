@@ -84,7 +84,8 @@ instance Core.AWSRequest BatchGetBuildBatches where
       ( \s h x ->
           BatchGetBuildBatchesResponse'
             Prelude.<$> (x Data..?> "buildBatches" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "buildBatchesNotFound"
+            Prelude.<*> ( x
+                            Data..?> "buildBatchesNotFound"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

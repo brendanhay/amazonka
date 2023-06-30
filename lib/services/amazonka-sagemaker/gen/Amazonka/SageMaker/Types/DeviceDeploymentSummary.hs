@@ -181,7 +181,8 @@ instance Data.FromJSON DeviceDeploymentSummary where
 
 instance Prelude.Hashable DeviceDeploymentSummary where
   hashWithSalt _salt DeviceDeploymentSummary' {..} =
-    _salt `Prelude.hashWithSalt` deployedStageName
+    _salt
+      `Prelude.hashWithSalt` deployedStageName
       `Prelude.hashWithSalt` deploymentStartTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceDeploymentStatus

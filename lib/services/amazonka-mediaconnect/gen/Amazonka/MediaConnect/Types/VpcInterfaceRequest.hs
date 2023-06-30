@@ -105,7 +105,8 @@ vpcInterfaceRequest_name = Lens.lens (\VpcInterfaceRequest' {name} -> name) (\s@
 
 instance Prelude.Hashable VpcInterfaceRequest where
   hashWithSalt _salt VpcInterfaceRequest' {..} =
-    _salt `Prelude.hashWithSalt` networkInterfaceType
+    _salt
+      `Prelude.hashWithSalt` networkInterfaceType
       `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` roleArn

@@ -145,7 +145,8 @@ instance Data.FromJSON MovSettings where
 
 instance Prelude.Hashable MovSettings where
   hashWithSalt _salt MovSettings' {..} =
-    _salt `Prelude.hashWithSalt` clapAtom
+    _salt
+      `Prelude.hashWithSalt` clapAtom
       `Prelude.hashWithSalt` cslgAtom
       `Prelude.hashWithSalt` mpeg2FourCCControl
       `Prelude.hashWithSalt` paddingControl

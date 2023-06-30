@@ -78,7 +78,8 @@ instance Data.FromJSON Artifact where
 
 instance Prelude.Hashable Artifact where
   hashWithSalt _salt Artifact' {..} =
-    _salt `Prelude.hashWithSalt` artifactFileName
+    _salt
+      `Prelude.hashWithSalt` artifactFileName
       `Prelude.hashWithSalt` artifactId
 
 instance Prelude.NFData Artifact where

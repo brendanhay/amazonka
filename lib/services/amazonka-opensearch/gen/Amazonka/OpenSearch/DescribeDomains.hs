@@ -92,7 +92,8 @@ instance Core.AWSRequest DescribeDomains where
       ( \s h x ->
           DescribeDomainsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "DomainStatusList"
+            Prelude.<*> ( x
+                            Data..?> "DomainStatusList"
                             Core..!@ Prelude.mempty
                         )
       )

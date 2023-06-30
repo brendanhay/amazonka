@@ -308,21 +308,22 @@ instance Core.AWSPager ListBackupJobs where
     | Core.stop
         ( rs
             Lens.^? listBackupJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBackupJobsResponse_backupJobs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBackupJobs_nextToken
           Lens..~ rs
-          Lens.^? listBackupJobsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listBackupJobsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupJobs where
   type
@@ -341,7 +342,8 @@ instance Core.AWSRequest ListBackupJobs where
 
 instance Prelude.Hashable ListBackupJobs where
   hashWithSalt _salt ListBackupJobs' {..} =
-    _salt `Prelude.hashWithSalt` byAccountId
+    _salt
+      `Prelude.hashWithSalt` byAccountId
       `Prelude.hashWithSalt` byBackupVaultName
       `Prelude.hashWithSalt` byCompleteAfter
       `Prelude.hashWithSalt` byCompleteBefore

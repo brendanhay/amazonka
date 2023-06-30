@@ -175,11 +175,13 @@ instance Data.FromJSON LakeConfigurationResponse where
       ( \x ->
           LakeConfigurationResponse'
             Prelude.<$> (x Data..:? "encryptionKey")
-            Prelude.<*> ( x Data..:? "replicationDestinationRegions"
+            Prelude.<*> ( x
+                            Data..:? "replicationDestinationRegions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "replicationRoleArn")
-            Prelude.<*> ( x Data..:? "retentionSettings"
+            Prelude.<*> ( x
+                            Data..:? "retentionSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "s3BucketArn")
@@ -189,7 +191,8 @@ instance Data.FromJSON LakeConfigurationResponse where
 
 instance Prelude.Hashable LakeConfigurationResponse where
   hashWithSalt _salt LakeConfigurationResponse' {..} =
-    _salt `Prelude.hashWithSalt` encryptionKey
+    _salt
+      `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` replicationDestinationRegions
       `Prelude.hashWithSalt` replicationRoleArn
       `Prelude.hashWithSalt` retentionSettings

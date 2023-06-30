@@ -135,7 +135,8 @@ instance
   hashWithSalt
     _salt
     DisassociatePersonasFromEntities' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` entityIds
 

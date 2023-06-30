@@ -92,7 +92,8 @@ instance Data.FromJSON ServiceAccountCredentials where
 
 instance Prelude.Hashable ServiceAccountCredentials where
   hashWithSalt _salt ServiceAccountCredentials' {..} =
-    _salt `Prelude.hashWithSalt` accountName
+    _salt
+      `Prelude.hashWithSalt` accountName
       `Prelude.hashWithSalt` accountPassword
 
 instance Prelude.NFData ServiceAccountCredentials where

@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateSchedule where
 
 instance Prelude.Hashable UpdateSchedule where
   hashWithSalt _salt UpdateSchedule' {..} =
-    _salt `Prelude.hashWithSalt` jobNames
+    _salt
+      `Prelude.hashWithSalt` jobNames
       `Prelude.hashWithSalt` cronExpression
       `Prelude.hashWithSalt` name
 

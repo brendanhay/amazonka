@@ -175,7 +175,8 @@ instance Core.AWSRequest DeleteInAppTemplate where
 
 instance Prelude.Hashable DeleteInAppTemplate where
   hashWithSalt _salt DeleteInAppTemplate' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData DeleteInAppTemplate where

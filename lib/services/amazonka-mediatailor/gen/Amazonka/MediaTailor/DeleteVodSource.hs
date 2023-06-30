@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteVodSource where
 
 instance Prelude.Hashable DeleteVodSource where
   hashWithSalt _salt DeleteVodSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceLocationName
+    _salt
+      `Prelude.hashWithSalt` sourceLocationName
       `Prelude.hashWithSalt` vodSourceName
 
 instance Prelude.NFData DeleteVodSource where

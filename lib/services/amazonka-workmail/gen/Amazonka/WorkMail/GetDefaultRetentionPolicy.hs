@@ -92,7 +92,8 @@ instance Core.AWSRequest GetDefaultRetentionPolicy where
       ( \s h x ->
           GetDefaultRetentionPolicyResponse'
             Prelude.<$> (x Data..?> "Description")
-            Prelude.<*> ( x Data..?> "FolderConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "FolderConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Id")

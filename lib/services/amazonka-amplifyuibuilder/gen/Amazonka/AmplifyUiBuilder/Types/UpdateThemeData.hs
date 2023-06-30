@@ -83,7 +83,8 @@ updateThemeData_values = Lens.lens (\UpdateThemeData' {values} -> values) (\s@Up
 
 instance Prelude.Hashable UpdateThemeData where
   hashWithSalt _salt UpdateThemeData' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` overrides
       `Prelude.hashWithSalt` values

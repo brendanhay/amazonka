@@ -123,22 +123,22 @@ instance Core.AWSPager ListResolversByFunction where
     | Core.stop
         ( rs
             Lens.^? listResolversByFunctionResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResolversByFunctionResponse_resolvers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResolversByFunction_nextToken
           Lens..~ rs
           Lens.^? listResolversByFunctionResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResolversByFunction where
   type
@@ -157,7 +157,8 @@ instance Core.AWSRequest ListResolversByFunction where
 
 instance Prelude.Hashable ListResolversByFunction where
   hashWithSalt _salt ListResolversByFunction' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` functionId

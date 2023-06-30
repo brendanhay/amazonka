@@ -85,7 +85,8 @@ instance Data.FromJSON ImageTagDetail where
 
 instance Prelude.Hashable ImageTagDetail where
   hashWithSalt _salt ImageTagDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` imageDetail
       `Prelude.hashWithSalt` imageTag
 

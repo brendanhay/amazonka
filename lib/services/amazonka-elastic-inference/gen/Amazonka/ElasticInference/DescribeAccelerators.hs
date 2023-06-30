@@ -141,22 +141,22 @@ instance Core.AWSPager DescribeAccelerators where
     | Core.stop
         ( rs
             Lens.^? describeAcceleratorsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAcceleratorsResponse_acceleratorSet
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAccelerators_nextToken
           Lens..~ rs
           Lens.^? describeAcceleratorsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccelerators where
   type
@@ -175,7 +175,8 @@ instance Core.AWSRequest DescribeAccelerators where
 
 instance Prelude.Hashable DescribeAccelerators where
   hashWithSalt _salt DescribeAccelerators' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorIds
+    _salt
+      `Prelude.hashWithSalt` acceleratorIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

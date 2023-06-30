@@ -76,13 +76,15 @@ instance
   where
   parseXML x =
     ResponseHeadersPolicyCustomHeadersConfig'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
                             "ResponseHeadersPolicyCustomHeader"
                         )
                   )
-        Prelude.<*> (x Data..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance
   Prelude.Hashable
@@ -91,7 +93,8 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyCustomHeadersConfig' {..} =
-      _salt `Prelude.hashWithSalt` items
+      _salt
+        `Prelude.hashWithSalt` items
         `Prelude.hashWithSalt` quantity
 
 instance

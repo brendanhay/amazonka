@@ -112,7 +112,8 @@ instance Data.FromJSON LensUpgradeSummary where
 
 instance Prelude.Hashable LensUpgradeSummary where
   hashWithSalt _salt LensUpgradeSummary' {..} =
-    _salt `Prelude.hashWithSalt` currentLensVersion
+    _salt
+      `Prelude.hashWithSalt` currentLensVersion
       `Prelude.hashWithSalt` latestLensVersion
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensArn

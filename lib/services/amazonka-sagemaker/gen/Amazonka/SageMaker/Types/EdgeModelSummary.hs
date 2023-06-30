@@ -78,7 +78,8 @@ instance Data.FromJSON EdgeModelSummary where
 
 instance Prelude.Hashable EdgeModelSummary where
   hashWithSalt _salt EdgeModelSummary' {..} =
-    _salt `Prelude.hashWithSalt` modelName
+    _salt
+      `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` modelVersion
 
 instance Prelude.NFData EdgeModelSummary where

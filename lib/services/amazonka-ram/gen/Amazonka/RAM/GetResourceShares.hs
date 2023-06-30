@@ -236,22 +236,22 @@ instance Core.AWSPager GetResourceShares where
     | Core.stop
         ( rs
             Lens.^? getResourceSharesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getResourceSharesResponse_resourceShares
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getResourceShares_nextToken
           Lens..~ rs
           Lens.^? getResourceSharesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResourceShares where
   type
@@ -270,7 +270,8 @@ instance Core.AWSRequest GetResourceShares where
 
 instance Prelude.Hashable GetResourceShares where
   hashWithSalt _salt GetResourceShares' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` permissionArn

@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     AwsBackupRecoveryPointCreatedByDetails' {..} =
-      _salt `Prelude.hashWithSalt` backupPlanArn
+      _salt
+        `Prelude.hashWithSalt` backupPlanArn
         `Prelude.hashWithSalt` backupPlanId
         `Prelude.hashWithSalt` backupPlanVersion
         `Prelude.hashWithSalt` backupRuleId

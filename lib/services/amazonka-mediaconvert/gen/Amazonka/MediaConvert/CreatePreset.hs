@@ -137,7 +137,8 @@ instance Core.AWSRequest CreatePreset where
 
 instance Prelude.Hashable CreatePreset where
   hashWithSalt _salt CreatePreset' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` settings

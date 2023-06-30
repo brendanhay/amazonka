@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateResourceDataSync where
 
 instance Prelude.Hashable CreateResourceDataSync where
   hashWithSalt _salt CreateResourceDataSync' {..} =
-    _salt `Prelude.hashWithSalt` s3Destination
+    _salt
+      `Prelude.hashWithSalt` s3Destination
       `Prelude.hashWithSalt` syncSource
       `Prelude.hashWithSalt` syncType
       `Prelude.hashWithSalt` syncName

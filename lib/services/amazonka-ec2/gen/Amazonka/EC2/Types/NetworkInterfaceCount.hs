@@ -72,11 +72,13 @@ networkInterfaceCount_min = Lens.lens (\NetworkInterfaceCount' {min} -> min) (\s
 instance Data.FromXML NetworkInterfaceCount where
   parseXML x =
     NetworkInterfaceCount'
-      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
+      Prelude.<$> (x Data..@? "max")
+      Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable NetworkInterfaceCount where
   hashWithSalt _salt NetworkInterfaceCount' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData NetworkInterfaceCount where

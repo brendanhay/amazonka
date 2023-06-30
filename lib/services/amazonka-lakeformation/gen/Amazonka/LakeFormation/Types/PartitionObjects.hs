@@ -75,7 +75,8 @@ instance Data.FromJSON PartitionObjects where
 
 instance Prelude.Hashable PartitionObjects where
   hashWithSalt _salt PartitionObjects' {..} =
-    _salt `Prelude.hashWithSalt` objects
+    _salt
+      `Prelude.hashWithSalt` objects
       `Prelude.hashWithSalt` partitionValues
 
 instance Prelude.NFData PartitionObjects where

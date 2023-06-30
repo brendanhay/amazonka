@@ -97,7 +97,8 @@ instance Core.AWSRequest SetTagsForResource where
 
 instance Prelude.Hashable SetTagsForResource where
   hashWithSalt _salt SetTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData SetTagsForResource where

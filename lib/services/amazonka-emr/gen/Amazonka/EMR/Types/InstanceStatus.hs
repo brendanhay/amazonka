@@ -87,7 +87,8 @@ instance Data.FromJSON InstanceStatus where
 
 instance Prelude.Hashable InstanceStatus where
   hashWithSalt _salt InstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` timeline
 

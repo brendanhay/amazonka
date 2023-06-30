@@ -89,7 +89,8 @@ instance Data.FromJSON ImageConfig where
 
 instance Prelude.Hashable ImageConfig where
   hashWithSalt _salt ImageConfig' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` entryPoint
       `Prelude.hashWithSalt` workingDirectory
 

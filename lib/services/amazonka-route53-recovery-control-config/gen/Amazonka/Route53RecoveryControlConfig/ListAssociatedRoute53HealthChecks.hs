@@ -110,22 +110,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listAssociatedRoute53HealthChecksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAssociatedRoute53HealthChecksResponse_healthCheckIds
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssociatedRoute53HealthChecks_nextToken
           Lens..~ rs
           Lens.^? listAssociatedRoute53HealthChecksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -141,8 +141,8 @@ instance
       ( \s h x ->
           ListAssociatedRoute53HealthChecksResponse'
             Prelude.<$> (x Data..?> "HealthCheckIds" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     ListAssociatedRoute53HealthChecks' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` routingControlArn
 

@@ -131,7 +131,8 @@ instance Data.FromJSON Speaker where
 
 instance Prelude.Hashable Speaker where
   hashWithSalt _salt Speaker' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` customerSpeakerId
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` generatedSpeakerId

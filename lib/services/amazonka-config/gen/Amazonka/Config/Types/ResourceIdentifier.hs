@@ -98,7 +98,8 @@ instance Data.FromJSON ResourceIdentifier where
 
 instance Prelude.Hashable ResourceIdentifier where
   hashWithSalt _salt ResourceIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` resourceDeletionTime
+    _salt
+      `Prelude.hashWithSalt` resourceDeletionTime
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType

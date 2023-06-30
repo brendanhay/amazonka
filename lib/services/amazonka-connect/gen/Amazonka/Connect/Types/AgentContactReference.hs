@@ -133,7 +133,8 @@ instance Data.FromJSON AgentContactReference where
 
 instance Prelude.Hashable AgentContactReference where
   hashWithSalt _salt AgentContactReference' {..} =
-    _salt `Prelude.hashWithSalt` agentContactState
+    _salt
+      `Prelude.hashWithSalt` agentContactState
       `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` connectedToAgentTimestamp
       `Prelude.hashWithSalt` contactId

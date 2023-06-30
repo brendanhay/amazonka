@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateResource where
 
 instance Prelude.Hashable UpdateResource where
   hashWithSalt _salt UpdateResource' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData UpdateResource where

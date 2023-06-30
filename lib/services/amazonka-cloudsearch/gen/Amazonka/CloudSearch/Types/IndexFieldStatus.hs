@@ -74,7 +74,8 @@ instance Data.FromXML IndexFieldStatus where
 
 instance Prelude.Hashable IndexFieldStatus where
   hashWithSalt _salt IndexFieldStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData IndexFieldStatus where

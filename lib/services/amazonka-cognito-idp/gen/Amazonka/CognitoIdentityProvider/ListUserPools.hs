@@ -104,20 +104,23 @@ instance Core.AWSPager ListUserPools where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listUserPoolsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listUserPoolsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listUserPoolsResponse_userPools Prelude.. Lens._Just
+            Lens.^? listUserPoolsResponse_userPools
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listUserPools_nextToken
           Lens..~ rs
-          Lens.^? listUserPoolsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listUserPoolsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserPools where
   type
@@ -136,7 +139,8 @@ instance Core.AWSRequest ListUserPools where
 
 instance Prelude.Hashable ListUserPools where
   hashWithSalt _salt ListUserPools' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListUserPools where

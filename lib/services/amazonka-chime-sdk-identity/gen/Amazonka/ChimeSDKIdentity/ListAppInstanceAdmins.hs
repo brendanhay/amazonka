@@ -112,7 +112,8 @@ instance Core.AWSRequest ListAppInstanceAdmins where
     Response.receiveJSON
       ( \s h x ->
           ListAppInstanceAdminsResponse'
-            Prelude.<$> ( x Data..?> "AppInstanceAdmins"
+            Prelude.<$> ( x
+                            Data..?> "AppInstanceAdmins"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "AppInstanceArn")
@@ -122,7 +123,8 @@ instance Core.AWSRequest ListAppInstanceAdmins where
 
 instance Prelude.Hashable ListAppInstanceAdmins where
   hashWithSalt _salt ListAppInstanceAdmins' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appInstanceArn
 

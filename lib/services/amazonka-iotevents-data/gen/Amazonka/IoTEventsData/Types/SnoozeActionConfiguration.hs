@@ -77,7 +77,8 @@ instance Data.FromJSON SnoozeActionConfiguration where
 
 instance Prelude.Hashable SnoozeActionConfiguration where
   hashWithSalt _salt SnoozeActionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` note
+    _salt
+      `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` snoozeDuration
 
 instance Prelude.NFData SnoozeActionConfiguration where

@@ -145,7 +145,8 @@ instance Data.FromJSON NetworkTelemetry where
 
 instance Prelude.Hashable NetworkTelemetry where
   hashWithSalt _salt NetworkTelemetry' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` coreNetworkId

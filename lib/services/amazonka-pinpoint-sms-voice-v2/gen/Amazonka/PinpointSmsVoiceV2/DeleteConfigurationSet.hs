@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteConfigurationSet where
             Prelude.<*> (x Data..?> "CreatedTimestamp")
             Prelude.<*> (x Data..?> "DefaultMessageType")
             Prelude.<*> (x Data..?> "DefaultSenderId")
-            Prelude.<*> ( x Data..?> "EventDestinations"
+            Prelude.<*> ( x
+                            Data..?> "EventDestinations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

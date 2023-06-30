@@ -76,7 +76,8 @@ instance Data.FromJSON FreeFormLayoutConfiguration where
 
 instance Prelude.Hashable FreeFormLayoutConfiguration where
   hashWithSalt _salt FreeFormLayoutConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` canvasSizeOptions
+    _salt
+      `Prelude.hashWithSalt` canvasSizeOptions
       `Prelude.hashWithSalt` elements
 
 instance Prelude.NFData FreeFormLayoutConfiguration where

@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     AssociateContactWithAddressBook' {..} =
-      _salt `Prelude.hashWithSalt` contactArn
+      _salt
+        `Prelude.hashWithSalt` contactArn
         `Prelude.hashWithSalt` addressBookArn
 
 instance

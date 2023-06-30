@@ -91,7 +91,8 @@ instance Data.FromJSON UnaggregatedField where
 
 instance Prelude.Hashable UnaggregatedField where
   hashWithSalt _salt UnaggregatedField' {..} =
-    _salt `Prelude.hashWithSalt` formatConfiguration
+    _salt
+      `Prelude.hashWithSalt` formatConfiguration
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` column
 

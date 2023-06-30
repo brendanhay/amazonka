@@ -303,7 +303,8 @@ instance Data.FromJSON Proposal where
 
 instance Prelude.Hashable Proposal where
   hashWithSalt _salt Proposal' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description

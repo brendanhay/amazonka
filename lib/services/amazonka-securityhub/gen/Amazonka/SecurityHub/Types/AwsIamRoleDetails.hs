@@ -164,11 +164,13 @@ instance Data.FromJSON AwsIamRoleDetails where
       ( \x ->
           AwsIamRoleDetails'
             Prelude.<$> (x Data..:? "AssumeRolePolicyDocument")
-            Prelude.<*> ( x Data..:? "AttachedManagedPolicies"
+            Prelude.<*> ( x
+                            Data..:? "AttachedManagedPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreateDate")
-            Prelude.<*> ( x Data..:? "InstanceProfileList"
+            Prelude.<*> ( x
+                            Data..:? "InstanceProfileList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MaxSessionDuration")
@@ -176,7 +178,8 @@ instance Data.FromJSON AwsIamRoleDetails where
             Prelude.<*> (x Data..:? "PermissionsBoundary")
             Prelude.<*> (x Data..:? "RoleId")
             Prelude.<*> (x Data..:? "RoleName")
-            Prelude.<*> ( x Data..:? "RolePolicyList"
+            Prelude.<*> ( x
+                            Data..:? "RolePolicyList"
                             Data..!= Prelude.mempty
                         )
       )

@@ -148,22 +148,22 @@ instance Core.AWSPager ListImagesInRecycleBin where
     | Core.stop
         ( rs
             Lens.^? listImagesInRecycleBinResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listImagesInRecycleBinResponse_images
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listImagesInRecycleBin_nextToken
           Lens..~ rs
           Lens.^? listImagesInRecycleBinResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImagesInRecycleBin where
   type
@@ -175,7 +175,9 @@ instance Core.AWSRequest ListImagesInRecycleBin where
     Response.receiveXML
       ( \s h x ->
           ListImagesInRecycleBinResponse'
-            Prelude.<$> ( x Data..@? "imageSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "imageSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -184,7 +186,8 @@ instance Core.AWSRequest ListImagesInRecycleBin where
 
 instance Prelude.Hashable ListImagesInRecycleBin where
   hashWithSalt _salt ListImagesInRecycleBin' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

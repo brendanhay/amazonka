@@ -154,7 +154,8 @@ instance Core.AWSRequest GetFunction where
 
 instance Prelude.Hashable GetFunction where
   hashWithSalt _salt GetFunction' {..} =
-    _salt `Prelude.hashWithSalt` qualifier
+    _salt
+      `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData GetFunction where

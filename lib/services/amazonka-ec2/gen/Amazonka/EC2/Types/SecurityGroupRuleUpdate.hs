@@ -67,7 +67,8 @@ securityGroupRuleUpdate_securityGroupRuleId = Lens.lens (\SecurityGroupRuleUpdat
 
 instance Prelude.Hashable SecurityGroupRuleUpdate where
   hashWithSalt _salt SecurityGroupRuleUpdate' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupRule
+    _salt
+      `Prelude.hashWithSalt` securityGroupRule
       `Prelude.hashWithSalt` securityGroupRuleId
 
 instance Prelude.NFData SecurityGroupRuleUpdate where

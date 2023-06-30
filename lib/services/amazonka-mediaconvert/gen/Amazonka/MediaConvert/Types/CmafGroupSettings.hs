@@ -622,7 +622,8 @@ instance Data.FromJSON CmafGroupSettings where
       "CmafGroupSettings"
       ( \x ->
           CmafGroupSettings'
-            Prelude.<$> ( x Data..:? "additionalManifests"
+            Prelude.<$> ( x
+                            Data..:? "additionalManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "baseUrl")
@@ -654,7 +655,8 @@ instance Data.FromJSON CmafGroupSettings where
 
 instance Prelude.Hashable CmafGroupSettings where
   hashWithSalt _salt CmafGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` additionalManifests
+    _salt
+      `Prelude.hashWithSalt` additionalManifests
       `Prelude.hashWithSalt` baseUrl
       `Prelude.hashWithSalt` clientCache
       `Prelude.hashWithSalt` codecSpecification

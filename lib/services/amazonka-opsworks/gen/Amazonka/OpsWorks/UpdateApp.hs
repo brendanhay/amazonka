@@ -234,7 +234,8 @@ instance Core.AWSRequest UpdateApp where
 
 instance Prelude.Hashable UpdateApp where
   hashWithSalt _salt UpdateApp' {..} =
-    _salt `Prelude.hashWithSalt` appSource
+    _salt
+      `Prelude.hashWithSalt` appSource
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` dataSources
       `Prelude.hashWithSalt` description

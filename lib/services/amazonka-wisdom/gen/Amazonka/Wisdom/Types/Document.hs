@@ -88,7 +88,8 @@ instance Data.FromJSON Document where
 
 instance Prelude.Hashable Document where
   hashWithSalt _salt Document' {..} =
-    _salt `Prelude.hashWithSalt` excerpt
+    _salt
+      `Prelude.hashWithSalt` excerpt
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` contentReference
 

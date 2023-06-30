@@ -35,7 +35,7 @@ data ListedAccess = ListedAccess'
     -- Transfer Family. If you know the group name, you can view the SID values
     -- by running the following command using Windows PowerShell.
     --
-    -- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
+    -- @Get-ADGroup -Filter {samAccountName -like \"@/@YourGroupName@/@*\"} -Properties * | Select SamAccountName,ObjectSid@
     --
     -- In that command, replace /YourGroupName/ with the name of your Active
     -- Directory group.
@@ -83,7 +83,7 @@ data ListedAccess = ListedAccess'
 -- Transfer Family. If you know the group name, you can view the SID values
 -- by running the following command using Windows PowerShell.
 --
--- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
+-- @Get-ADGroup -Filter {samAccountName -like \"@/@YourGroupName@/@*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
@@ -129,7 +129,7 @@ newListedAccess =
 -- Transfer Family. If you know the group name, you can view the SID values
 -- by running the following command using Windows PowerShell.
 --
--- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
+-- @Get-ADGroup -Filter {samAccountName -like \"@/@YourGroupName@/@*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
@@ -182,7 +182,8 @@ instance Data.FromJSON ListedAccess where
 
 instance Prelude.Hashable ListedAccess where
   hashWithSalt _salt ListedAccess' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` homeDirectory
       `Prelude.hashWithSalt` homeDirectoryType
       `Prelude.hashWithSalt` role'

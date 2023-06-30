@@ -96,7 +96,8 @@ instance Data.FromXML DashboardEntry where
 
 instance Prelude.Hashable DashboardEntry where
   hashWithSalt _salt DashboardEntry' {..} =
-    _salt `Prelude.hashWithSalt` dashboardArn
+    _salt
+      `Prelude.hashWithSalt` dashboardArn
       `Prelude.hashWithSalt` dashboardName
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` size

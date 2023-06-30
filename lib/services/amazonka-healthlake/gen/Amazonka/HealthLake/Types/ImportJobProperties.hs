@@ -185,7 +185,8 @@ instance Data.FromJSON ImportJobProperties where
 
 instance Prelude.Hashable ImportJobProperties where
   hashWithSalt _salt ImportJobProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobOutputDataConfig

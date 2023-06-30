@@ -241,7 +241,8 @@ instance Core.AWSRequest ModifyImageAttribute where
 
 instance Prelude.Hashable ModifyImageAttribute where
   hashWithSalt _salt ModifyImageAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchPermission

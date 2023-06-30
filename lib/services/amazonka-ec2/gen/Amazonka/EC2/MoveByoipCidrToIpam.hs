@@ -144,7 +144,8 @@ instance Core.AWSRequest MoveByoipCidrToIpam where
 
 instance Prelude.Hashable MoveByoipCidrToIpam where
   hashWithSalt _salt MoveByoipCidrToIpam' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` ipamPoolId
       `Prelude.hashWithSalt` ipamPoolOwner

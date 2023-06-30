@@ -130,7 +130,8 @@ scheduledTriggerProperties_scheduleExpression = Lens.lens (\ScheduledTriggerProp
 
 instance Prelude.Hashable ScheduledTriggerProperties where
   hashWithSalt _salt ScheduledTriggerProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataPullMode
+    _salt
+      `Prelude.hashWithSalt` dataPullMode
       `Prelude.hashWithSalt` firstExecutionFrom
       `Prelude.hashWithSalt` scheduleEndTime
       `Prelude.hashWithSalt` scheduleOffset

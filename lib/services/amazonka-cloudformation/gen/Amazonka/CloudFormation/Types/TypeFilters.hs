@@ -131,7 +131,8 @@ typeFilters_typeNamePrefix = Lens.lens (\TypeFilters' {typeNamePrefix} -> typeNa
 
 instance Prelude.Hashable TypeFilters where
   hashWithSalt _salt TypeFilters' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` publisherId
       `Prelude.hashWithSalt` typeNamePrefix
 

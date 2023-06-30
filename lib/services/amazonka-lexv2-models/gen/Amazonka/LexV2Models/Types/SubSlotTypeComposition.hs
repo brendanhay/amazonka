@@ -81,7 +81,8 @@ instance Data.FromJSON SubSlotTypeComposition where
 
 instance Prelude.Hashable SubSlotTypeComposition where
   hashWithSalt _salt SubSlotTypeComposition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` slotTypeId
 
 instance Prelude.NFData SubSlotTypeComposition where

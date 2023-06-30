@@ -74,7 +74,8 @@ instance
   hashWithSalt
     _salt
     ApplicationCodeConfigurationUpdate' {..} =
-      _salt `Prelude.hashWithSalt` codeContentTypeUpdate
+      _salt
+        `Prelude.hashWithSalt` codeContentTypeUpdate
         `Prelude.hashWithSalt` codeContentUpdate
 
 instance

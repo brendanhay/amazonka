@@ -116,7 +116,8 @@ instance Data.FromJSON RoutingControl where
 
 instance Prelude.Hashable RoutingControl where
   hashWithSalt _salt RoutingControl' {..} =
-    _salt `Prelude.hashWithSalt` controlPanelArn
+    _salt
+      `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` controlPanelName
       `Prelude.hashWithSalt` routingControlArn
       `Prelude.hashWithSalt` routingControlName

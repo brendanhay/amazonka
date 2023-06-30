@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteCarrierGateway where
 
 instance Prelude.Hashable DeleteCarrierGateway where
   hashWithSalt _salt DeleteCarrierGateway' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` carrierGatewayId
 
 instance Prelude.NFData DeleteCarrierGateway where

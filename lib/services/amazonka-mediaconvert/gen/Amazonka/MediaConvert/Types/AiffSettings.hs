@@ -94,7 +94,8 @@ instance Data.FromJSON AiffSettings where
 
 instance Prelude.Hashable AiffSettings where
   hashWithSalt _salt AiffSettings' {..} =
-    _salt `Prelude.hashWithSalt` bitDepth
+    _salt
+      `Prelude.hashWithSalt` bitDepth
       `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` sampleRate
 

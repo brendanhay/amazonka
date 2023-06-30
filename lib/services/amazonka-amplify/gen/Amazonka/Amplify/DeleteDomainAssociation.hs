@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteDomainAssociation where
 
 instance Prelude.Hashable DeleteDomainAssociation where
   hashWithSalt _salt DeleteDomainAssociation' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DeleteDomainAssociation where

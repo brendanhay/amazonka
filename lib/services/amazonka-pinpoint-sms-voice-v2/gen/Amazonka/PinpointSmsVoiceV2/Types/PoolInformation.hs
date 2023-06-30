@@ -248,7 +248,8 @@ instance Data.FromJSON PoolInformation where
 
 instance Prelude.Hashable PoolInformation where
   hashWithSalt _salt PoolInformation' {..} =
-    _salt `Prelude.hashWithSalt` twoWayChannelArn
+    _salt
+      `Prelude.hashWithSalt` twoWayChannelArn
       `Prelude.hashWithSalt` poolArn
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` status

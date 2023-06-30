@@ -101,7 +101,8 @@ instance Data.FromJSON PeriodOverPeriodComputation where
 
 instance Prelude.Hashable PeriodOverPeriodComputation where
   hashWithSalt _salt PeriodOverPeriodComputation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` computationId
       `Prelude.hashWithSalt` time

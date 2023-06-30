@@ -152,7 +152,8 @@ instance Data.FromJSON AccountSettings where
 
 instance Prelude.Hashable AccountSettings where
   hashWithSalt _salt AccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` accountName
+    _salt
+      `Prelude.hashWithSalt` accountName
       `Prelude.hashWithSalt` defaultNamespace
       `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` notificationEmail

@@ -408,7 +408,8 @@ instance Data.FromJSON BackupJob where
 
 instance Prelude.Hashable BackupJob where
   hashWithSalt _salt BackupJob' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` backupJobId
       `Prelude.hashWithSalt` backupOptions
       `Prelude.hashWithSalt` backupSizeInBytes

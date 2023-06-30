@@ -111,22 +111,22 @@ instance Core.AWSPager ListTopicsDetectionJobs where
     | Core.stop
         ( rs
             Lens.^? listTopicsDetectionJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTopicsDetectionJobs_nextToken
           Lens..~ rs
           Lens.^? listTopicsDetectionJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTopicsDetectionJobs where
   type
@@ -139,7 +139,8 @@ instance Core.AWSRequest ListTopicsDetectionJobs where
       ( \s h x ->
           ListTopicsDetectionJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "TopicsDetectionJobPropertiesList"
+            Prelude.<*> ( x
+                            Data..?> "TopicsDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -147,7 +148,8 @@ instance Core.AWSRequest ListTopicsDetectionJobs where
 
 instance Prelude.Hashable ListTopicsDetectionJobs where
   hashWithSalt _salt ListTopicsDetectionJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

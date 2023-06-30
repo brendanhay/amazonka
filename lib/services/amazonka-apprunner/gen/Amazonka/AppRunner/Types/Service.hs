@@ -331,7 +331,8 @@ instance Data.FromJSON Service where
 
 instance Prelude.Hashable Service where
   hashWithSalt _salt Service' {..} =
-    _salt `Prelude.hashWithSalt` deletedAt
+    _salt
+      `Prelude.hashWithSalt` deletedAt
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` healthCheckConfiguration
       `Prelude.hashWithSalt` observabilityConfiguration

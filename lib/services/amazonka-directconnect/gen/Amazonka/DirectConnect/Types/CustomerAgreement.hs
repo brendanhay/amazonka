@@ -77,7 +77,8 @@ instance Data.FromJSON CustomerAgreement where
 
 instance Prelude.Hashable CustomerAgreement where
   hashWithSalt _salt CustomerAgreement' {..} =
-    _salt `Prelude.hashWithSalt` agreementName
+    _salt
+      `Prelude.hashWithSalt` agreementName
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CustomerAgreement where

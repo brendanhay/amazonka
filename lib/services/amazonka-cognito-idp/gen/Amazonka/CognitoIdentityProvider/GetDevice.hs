@@ -105,7 +105,8 @@ instance Core.AWSRequest GetDevice where
 
 instance Prelude.Hashable GetDevice where
   hashWithSalt _salt GetDevice' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` deviceKey
 
 instance Prelude.NFData GetDevice where

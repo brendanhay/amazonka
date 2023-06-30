@@ -74,7 +74,8 @@ instance Data.FromJSON AuthorizerSummary where
 
 instance Prelude.Hashable AuthorizerSummary where
   hashWithSalt _salt AuthorizerSummary' {..} =
-    _salt `Prelude.hashWithSalt` authorizerArn
+    _salt
+      `Prelude.hashWithSalt` authorizerArn
       `Prelude.hashWithSalt` authorizerName
 
 instance Prelude.NFData AuthorizerSummary where

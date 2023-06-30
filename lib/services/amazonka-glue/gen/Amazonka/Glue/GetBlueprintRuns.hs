@@ -114,7 +114,8 @@ instance Core.AWSRequest GetBlueprintRuns where
 
 instance Prelude.Hashable GetBlueprintRuns where
   hashWithSalt _salt GetBlueprintRuns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` blueprintName
 

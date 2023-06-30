@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateUserHierarchyGroup where
 
 instance Prelude.Hashable CreateUserHierarchyGroup where
   hashWithSalt _salt CreateUserHierarchyGroup' {..} =
-    _salt `Prelude.hashWithSalt` parentGroupId
+    _salt
+      `Prelude.hashWithSalt` parentGroupId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId

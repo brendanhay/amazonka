@@ -151,7 +151,8 @@ instance Core.AWSRequest UpdateAgentStatus where
 
 instance Prelude.Hashable UpdateAgentStatus where
   hashWithSalt _salt UpdateAgentStatus' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayOrder
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resetOrderNumber

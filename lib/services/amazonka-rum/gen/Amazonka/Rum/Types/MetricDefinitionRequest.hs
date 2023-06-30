@@ -362,7 +362,8 @@ instance Data.FromJSON MetricDefinitionRequest where
 
 instance Prelude.Hashable MetricDefinitionRequest where
   hashWithSalt _salt MetricDefinitionRequest' {..} =
-    _salt `Prelude.hashWithSalt` dimensionKeys
+    _salt
+      `Prelude.hashWithSalt` dimensionKeys
       `Prelude.hashWithSalt` eventPattern
       `Prelude.hashWithSalt` unitLabel
       `Prelude.hashWithSalt` valueKey

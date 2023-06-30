@@ -203,7 +203,8 @@ instance Data.FromJSON ReplicationRun where
 
 instance Prelude.Hashable ReplicationRun where
   hashWithSalt _salt ReplicationRun' {..} =
-    _salt `Prelude.hashWithSalt` amiId
+    _salt
+      `Prelude.hashWithSalt` amiId
       `Prelude.hashWithSalt` completedTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encrypted

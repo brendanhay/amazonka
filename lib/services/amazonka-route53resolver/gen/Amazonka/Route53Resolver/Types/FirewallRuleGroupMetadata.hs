@@ -140,7 +140,8 @@ instance Data.FromJSON FirewallRuleGroupMetadata where
 
 instance Prelude.Hashable FirewallRuleGroupMetadata where
   hashWithSalt _salt FirewallRuleGroupMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

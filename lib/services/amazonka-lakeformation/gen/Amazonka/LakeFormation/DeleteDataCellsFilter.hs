@@ -119,7 +119,8 @@ instance Core.AWSRequest DeleteDataCellsFilter where
 
 instance Prelude.Hashable DeleteDataCellsFilter where
   hashWithSalt _salt DeleteDataCellsFilter' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tableCatalogId
       `Prelude.hashWithSalt` tableName

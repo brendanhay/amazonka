@@ -98,7 +98,8 @@ instance Data.FromJSON TableSummary where
 
 instance Prelude.Hashable TableSummary where
   hashWithSalt _salt TableSummary' {..} =
-    _salt `Prelude.hashWithSalt` keyspaceName
+    _salt
+      `Prelude.hashWithSalt` keyspaceName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` resourceArn
 

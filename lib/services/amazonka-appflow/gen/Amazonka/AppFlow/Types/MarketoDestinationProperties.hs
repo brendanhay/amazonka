@@ -81,7 +81,8 @@ instance
     MarketoDestinationProperties
   where
   hashWithSalt _salt MarketoDestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` errorHandlingConfig
+    _salt
+      `Prelude.hashWithSalt` errorHandlingConfig
       `Prelude.hashWithSalt` object'
 
 instance Prelude.NFData MarketoDestinationProperties where

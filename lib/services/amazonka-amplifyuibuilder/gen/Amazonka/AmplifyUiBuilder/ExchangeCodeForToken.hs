@@ -108,7 +108,8 @@ instance Core.AWSRequest ExchangeCodeForToken where
 
 instance Prelude.Hashable ExchangeCodeForToken where
   hashWithSalt _salt ExchangeCodeForToken' {..} =
-    _salt `Prelude.hashWithSalt` provider
+    _salt
+      `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` request
 
 instance Prelude.NFData ExchangeCodeForToken where

@@ -110,7 +110,8 @@ instance Data.FromJSON AlternateKey where
 
 instance Prelude.Hashable AlternateKey where
   hashWithSalt _salt AlternateKey' {..} =
-    _salt `Prelude.hashWithSalt` allowDuplicates
+    _salt
+      `Prelude.hashWithSalt` allowDuplicates
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` length
       `Prelude.hashWithSalt` offset

@@ -97,7 +97,8 @@ instance Data.FromJSON InputDestination where
 
 instance Prelude.Hashable InputDestination where
   hashWithSalt _salt InputDestination' {..} =
-    _salt `Prelude.hashWithSalt` ip
+    _salt
+      `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` vpc

@@ -224,28 +224,28 @@ instance Core.AWSPager DescribeVpcEndpointServices where
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicesResponse_serviceDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicesResponse_serviceNames
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcEndpointServices_nextToken
           Lens..~ rs
           Lens.^? describeVpcEndpointServicesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVpcEndpointServices where
   type
@@ -258,11 +258,14 @@ instance Core.AWSRequest DescribeVpcEndpointServices where
       ( \s h x ->
           DescribeVpcEndpointServicesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "serviceDetailSet"
+            Prelude.<*> ( x
+                            Data..@? "serviceDetailSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "serviceNameSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "serviceNameSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -270,7 +273,8 @@ instance Core.AWSRequest DescribeVpcEndpointServices where
 
 instance Prelude.Hashable DescribeVpcEndpointServices where
   hashWithSalt _salt DescribeVpcEndpointServices' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

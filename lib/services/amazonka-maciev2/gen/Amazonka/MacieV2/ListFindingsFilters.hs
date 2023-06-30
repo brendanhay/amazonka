@@ -99,22 +99,22 @@ instance Core.AWSPager ListFindingsFilters where
     | Core.stop
         ( rs
             Lens.^? listFindingsFiltersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFindingsFiltersResponse_findingsFilterListItems
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFindingsFilters_nextToken
           Lens..~ rs
           Lens.^? listFindingsFiltersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFindingsFilters where
   type
@@ -126,7 +126,8 @@ instance Core.AWSRequest ListFindingsFilters where
     Response.receiveJSON
       ( \s h x ->
           ListFindingsFiltersResponse'
-            Prelude.<$> ( x Data..?> "findingsFilterListItems"
+            Prelude.<$> ( x
+                            Data..?> "findingsFilterListItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -135,7 +136,8 @@ instance Core.AWSRequest ListFindingsFilters where
 
 instance Prelude.Hashable ListFindingsFilters where
   hashWithSalt _salt ListFindingsFilters' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFindingsFilters where

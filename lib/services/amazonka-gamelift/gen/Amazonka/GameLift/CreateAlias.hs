@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateAlias where
 
 instance Prelude.Hashable CreateAlias where
   hashWithSalt _salt CreateAlias' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` routingStrategy

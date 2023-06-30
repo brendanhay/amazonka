@@ -66,7 +66,8 @@ anomalyDateInterval_startDate = Lens.lens (\AnomalyDateInterval' {startDate} -> 
 
 instance Prelude.Hashable AnomalyDateInterval where
   hashWithSalt _salt AnomalyDateInterval' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` startDate
 
 instance Prelude.NFData AnomalyDateInterval where

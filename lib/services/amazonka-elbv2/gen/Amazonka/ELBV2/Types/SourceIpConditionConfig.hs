@@ -80,7 +80,9 @@ sourceIpConditionConfig_values = Lens.lens (\SourceIpConditionConfig' {values} -
 instance Data.FromXML SourceIpConditionConfig where
   parseXML x =
     SourceIpConditionConfig'
-      Prelude.<$> ( x Data..@? "Values" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Values"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

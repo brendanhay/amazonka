@@ -86,7 +86,8 @@ cidrCollectionChange_cidrList = Lens.lens (\CidrCollectionChange' {cidrList} -> 
 
 instance Prelude.Hashable CidrCollectionChange where
   hashWithSalt _salt CidrCollectionChange' {..} =
-    _salt `Prelude.hashWithSalt` locationName
+    _salt
+      `Prelude.hashWithSalt` locationName
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` cidrList
 

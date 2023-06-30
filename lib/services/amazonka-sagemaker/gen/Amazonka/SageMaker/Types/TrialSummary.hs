@@ -118,7 +118,8 @@ instance Data.FromJSON TrialSummary where
 
 instance Prelude.Hashable TrialSummary where
   hashWithSalt _salt TrialSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` trialArn

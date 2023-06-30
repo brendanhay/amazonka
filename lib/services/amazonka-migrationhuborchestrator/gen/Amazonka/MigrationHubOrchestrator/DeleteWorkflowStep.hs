@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteWorkflowStep where
 
 instance Prelude.Hashable DeleteWorkflowStep where
   hashWithSalt _salt DeleteWorkflowStep' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` stepGroupId
       `Prelude.hashWithSalt` workflowId
 

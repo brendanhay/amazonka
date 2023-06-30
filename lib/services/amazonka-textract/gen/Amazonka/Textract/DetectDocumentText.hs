@@ -208,7 +208,6 @@ newDetectDocumentTextResponse pHttpStatus_ =
 detectDocumentTextResponse_blocks :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe [Block])
 detectDocumentTextResponse_blocks = Lens.lens (\DetectDocumentTextResponse' {blocks} -> blocks) (\s@DetectDocumentTextResponse' {} a -> s {blocks = a} :: DetectDocumentTextResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
 detectDocumentTextResponse_detectDocumentTextModelVersion :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe Prelude.Text)
 detectDocumentTextResponse_detectDocumentTextModelVersion = Lens.lens (\DetectDocumentTextResponse' {detectDocumentTextModelVersion} -> detectDocumentTextModelVersion) (\s@DetectDocumentTextResponse' {} a -> s {detectDocumentTextModelVersion = a} :: DetectDocumentTextResponse)
 

@@ -695,7 +695,8 @@ instance Data.FromJSON Run where
 
 instance Prelude.Hashable Run where
   hashWithSalt _salt Run' {..} =
-    _salt `Prelude.hashWithSalt` appUpload
+    _salt
+      `Prelude.hashWithSalt` appUpload
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` billingMethod
       `Prelude.hashWithSalt` completedJobs

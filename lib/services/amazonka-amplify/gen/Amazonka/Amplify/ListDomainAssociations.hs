@@ -113,21 +113,21 @@ instance Core.AWSPager ListDomainAssociations where
     | Core.stop
         ( rs
             Lens.^? listDomainAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listDomainAssociationsResponse_domainAssociations
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDomainAssociations_nextToken
           Lens..~ rs
           Lens.^? listDomainAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomainAssociations where
   type
@@ -141,14 +141,16 @@ instance Core.AWSRequest ListDomainAssociations where
           ListDomainAssociationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "domainAssociations"
+            Prelude.<*> ( x
+                            Data..?> "domainAssociations"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListDomainAssociations where
   hashWithSalt _salt ListDomainAssociations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
 

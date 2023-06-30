@@ -172,7 +172,8 @@ instance Core.AWSRequest UploadSSHPublicKey where
 
 instance Prelude.Hashable UploadSSHPublicKey where
   hashWithSalt _salt UploadSSHPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` sSHPublicKeyBody
 
 instance Prelude.NFData UploadSSHPublicKey where

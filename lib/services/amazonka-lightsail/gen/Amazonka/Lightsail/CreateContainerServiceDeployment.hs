@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     CreateContainerServiceDeployment' {..} =
-      _salt `Prelude.hashWithSalt` containers
+      _salt
+        `Prelude.hashWithSalt` containers
         `Prelude.hashWithSalt` publicEndpoint
         `Prelude.hashWithSalt` serviceName
 

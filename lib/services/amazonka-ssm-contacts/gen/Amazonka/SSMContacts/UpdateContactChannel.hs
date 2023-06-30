@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateContactChannel where
 
 instance Prelude.Hashable UpdateContactChannel where
   hashWithSalt _salt UpdateContactChannel' {..} =
-    _salt `Prelude.hashWithSalt` deliveryAddress
+    _salt
+      `Prelude.hashWithSalt` deliveryAddress
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` contactChannelId
 

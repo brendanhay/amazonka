@@ -170,7 +170,8 @@ instance Data.FromJSON ApplicationInstance where
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "HealthStatus")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "RuntimeContextStates"
+            Prelude.<*> ( x
+                            Data..:? "RuntimeContextStates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Status")
@@ -180,7 +181,8 @@ instance Data.FromJSON ApplicationInstance where
 
 instance Prelude.Hashable ApplicationInstance where
   hashWithSalt _salt ApplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` applicationInstanceId
+    _salt
+      `Prelude.hashWithSalt` applicationInstanceId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` defaultRuntimeContextDevice

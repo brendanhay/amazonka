@@ -69,12 +69,14 @@ instance Data.FromJSON ReasonCodeSummary where
       "ReasonCodeSummary"
       ( \x ->
           ReasonCodeSummary'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ReasonCodeSummary where
   hashWithSalt _salt ReasonCodeSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ReasonCodeSummary where

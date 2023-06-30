@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeTable where
 
 instance Prelude.Hashable DescribeTable where
   hashWithSalt _salt DescribeTable' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData DescribeTable where

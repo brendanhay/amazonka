@@ -201,7 +201,8 @@ instance Core.AWSRequest CreateInstanceProfile where
 
 instance Prelude.Hashable CreateInstanceProfile where
   hashWithSalt _salt CreateInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceProfileName
 

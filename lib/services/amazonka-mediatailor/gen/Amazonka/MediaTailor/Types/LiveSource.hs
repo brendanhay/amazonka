@@ -136,7 +136,8 @@ instance Data.FromJSON LiveSource where
             Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Arn")
-            Prelude.<*> ( x Data..:? "HttpPackageConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "HttpPackageConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "LiveSourceName")
@@ -145,7 +146,8 @@ instance Data.FromJSON LiveSource where
 
 instance Prelude.Hashable LiveSource where
   hashWithSalt _salt LiveSource' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn

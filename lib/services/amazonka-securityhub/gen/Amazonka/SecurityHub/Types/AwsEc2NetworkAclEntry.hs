@@ -146,7 +146,8 @@ instance Data.FromJSON AwsEc2NetworkAclEntry where
 
 instance Prelude.Hashable AwsEc2NetworkAclEntry where
   hashWithSalt _salt AwsEc2NetworkAclEntry' {..} =
-    _salt `Prelude.hashWithSalt` cidrBlock
+    _salt
+      `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` egress
       `Prelude.hashWithSalt` icmpTypeCode
       `Prelude.hashWithSalt` ipv6CidrBlock

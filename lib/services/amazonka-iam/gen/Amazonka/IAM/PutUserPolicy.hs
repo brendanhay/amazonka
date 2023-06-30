@@ -209,7 +209,8 @@ instance Core.AWSRequest PutUserPolicy where
 
 instance Prelude.Hashable PutUserPolicy where
   hashWithSalt _salt PutUserPolicy' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
 

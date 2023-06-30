@@ -235,7 +235,8 @@ instance Data.FromJSON Build where
 
 instance Prelude.Hashable Build where
   hashWithSalt _salt Build' {..} =
-    _salt `Prelude.hashWithSalt` buildArn
+    _salt
+      `Prelude.hashWithSalt` buildArn
       `Prelude.hashWithSalt` buildId
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` name

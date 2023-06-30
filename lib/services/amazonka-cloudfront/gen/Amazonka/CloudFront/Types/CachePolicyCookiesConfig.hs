@@ -139,7 +139,8 @@ instance Data.FromXML CachePolicyCookiesConfig where
 
 instance Prelude.Hashable CachePolicyCookiesConfig where
   hashWithSalt _salt CachePolicyCookiesConfig' {..} =
-    _salt `Prelude.hashWithSalt` cookies
+    _salt
+      `Prelude.hashWithSalt` cookies
       `Prelude.hashWithSalt` cookieBehavior
 
 instance Prelude.NFData CachePolicyCookiesConfig where

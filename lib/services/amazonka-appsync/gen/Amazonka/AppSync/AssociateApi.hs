@@ -102,7 +102,8 @@ instance Core.AWSRequest AssociateApi where
 
 instance Prelude.Hashable AssociateApi where
   hashWithSalt _salt AssociateApi' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData AssociateApi where

@@ -121,18 +121,18 @@ instance
       ( \s h x ->
           DescribeQuerySuggestionsBlockListResponse'
             Prelude.<$> (x Data..?> "CreatedAt")
-              Prelude.<*> (x Data..?> "Description")
-              Prelude.<*> (x Data..?> "ErrorMessage")
-              Prelude.<*> (x Data..?> "FileSizeBytes")
-              Prelude.<*> (x Data..?> "Id")
-              Prelude.<*> (x Data..?> "IndexId")
-              Prelude.<*> (x Data..?> "ItemCount")
-              Prelude.<*> (x Data..?> "Name")
-              Prelude.<*> (x Data..?> "RoleArn")
-              Prelude.<*> (x Data..?> "SourceS3Path")
-              Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (x Data..?> "UpdatedAt")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "FileSizeBytes")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "IndexId")
+            Prelude.<*> (x Data..?> "ItemCount")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "SourceS3Path")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "UpdatedAt")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -142,7 +142,8 @@ instance
   hashWithSalt
     _salt
     DescribeQuerySuggestionsBlockList' {..} =
-      _salt `Prelude.hashWithSalt` indexId
+      _salt
+        `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` id
 
 instance

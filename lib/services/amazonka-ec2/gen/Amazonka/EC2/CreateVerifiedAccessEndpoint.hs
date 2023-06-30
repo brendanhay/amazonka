@@ -280,7 +280,8 @@ instance
     CreateVerifiedAccessEndpoint
   where
   hashWithSalt _salt CreateVerifiedAccessEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` loadBalancerOptions

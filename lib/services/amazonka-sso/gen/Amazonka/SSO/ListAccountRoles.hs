@@ -128,22 +128,22 @@ instance Core.AWSPager ListAccountRoles where
     | Core.stop
         ( rs
             Lens.^? listAccountRolesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAccountRolesResponse_roleList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccountRoles_nextToken
           Lens..~ rs
           Lens.^? listAccountRolesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountRoles where
   type
@@ -162,7 +162,8 @@ instance Core.AWSRequest ListAccountRoles where
 
 instance Prelude.Hashable ListAccountRoles where
   hashWithSalt _salt ListAccountRoles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` accountId

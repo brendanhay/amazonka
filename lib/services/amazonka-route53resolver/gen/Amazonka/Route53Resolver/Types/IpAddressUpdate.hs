@@ -87,7 +87,8 @@ ipAddressUpdate_subnetId = Lens.lens (\IpAddressUpdate' {subnetId} -> subnetId) 
 
 instance Prelude.Hashable IpAddressUpdate where
   hashWithSalt _salt IpAddressUpdate' {..} =
-    _salt `Prelude.hashWithSalt` ip
+    _salt
+      `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` ipId
       `Prelude.hashWithSalt` subnetId
 

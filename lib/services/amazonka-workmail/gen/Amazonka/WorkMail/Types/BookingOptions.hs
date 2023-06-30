@@ -92,7 +92,8 @@ instance Data.FromJSON BookingOptions where
 
 instance Prelude.Hashable BookingOptions where
   hashWithSalt _salt BookingOptions' {..} =
-    _salt `Prelude.hashWithSalt` autoAcceptRequests
+    _salt
+      `Prelude.hashWithSalt` autoAcceptRequests
       `Prelude.hashWithSalt` autoDeclineConflictingRequests
       `Prelude.hashWithSalt` autoDeclineRecurringRequests
 

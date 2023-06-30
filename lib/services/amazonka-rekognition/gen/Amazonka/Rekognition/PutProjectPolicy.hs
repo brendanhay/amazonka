@@ -170,7 +170,8 @@ instance Core.AWSRequest PutProjectPolicy where
 
 instance Prelude.Hashable PutProjectPolicy where
   hashWithSalt _salt PutProjectPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyRevisionId
+    _salt
+      `Prelude.hashWithSalt` policyRevisionId
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument

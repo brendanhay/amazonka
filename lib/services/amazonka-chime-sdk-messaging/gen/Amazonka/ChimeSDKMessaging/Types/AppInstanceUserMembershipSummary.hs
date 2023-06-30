@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     AppInstanceUserMembershipSummary' {..} =
-      _salt `Prelude.hashWithSalt` readMarkerTimestamp
+      _salt
+        `Prelude.hashWithSalt` readMarkerTimestamp
         `Prelude.hashWithSalt` subChannelId
         `Prelude.hashWithSalt` type'
 

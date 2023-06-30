@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     DocumentClassifierOutputDataConfig' {..} =
-      _salt `Prelude.hashWithSalt` kmsKeyId
+      _salt
+        `Prelude.hashWithSalt` kmsKeyId
         `Prelude.hashWithSalt` s3Uri
 
 instance

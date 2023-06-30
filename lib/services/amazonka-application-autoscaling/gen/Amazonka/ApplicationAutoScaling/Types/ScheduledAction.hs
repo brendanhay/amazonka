@@ -119,11 +119,12 @@ data ScheduledAction = ScheduledAction'
     serviceNamespace :: ServiceNamespace,
     -- | The schedule for this action. The following formats are supported:
     --
-    -- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+    -- -   At expressions -
+    --     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
     --
-    -- -   Rate expressions - \"@rate(value unit)@\"
+    -- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
     --
-    -- -   Cron expressions - \"@cron(fields)@\"
+    -- -   Cron expressions - \"@cron(@/@fields@/@)@\"
     --
     -- At expressions are useful for one-time schedules. Cron expressions are
     -- useful for scheduled actions that run periodically at a specified date
@@ -311,11 +312,12 @@ data ScheduledAction = ScheduledAction'
 --
 -- 'schedule', 'scheduledAction_schedule' - The schedule for this action. The following formats are supported:
 --
--- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+-- -   At expressions -
+--     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
 --
--- -   Rate expressions - \"@rate(value unit)@\"
+-- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
 --
--- -   Cron expressions - \"@cron(fields)@\"
+-- -   Cron expressions - \"@cron(@/@fields@/@)@\"
 --
 -- At expressions are useful for one-time schedules. Cron expressions are
 -- useful for scheduled actions that run periodically at a specified date
@@ -542,11 +544,12 @@ scheduledAction_serviceNamespace = Lens.lens (\ScheduledAction' {serviceNamespac
 
 -- | The schedule for this action. The following formats are supported:
 --
--- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+-- -   At expressions -
+--     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
 --
--- -   Rate expressions - \"@rate(value unit)@\"
+-- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
 --
--- -   Cron expressions - \"@cron(fields)@\"
+-- -   Cron expressions - \"@cron(@/@fields@/@)@\"
 --
 -- At expressions are useful for one-time schedules. Cron expressions are
 -- useful for scheduled actions that run periodically at a specified date
@@ -662,7 +665,8 @@ instance Data.FromJSON ScheduledAction where
 
 instance Prelude.Hashable ScheduledAction where
   hashWithSalt _salt ScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` scalableDimension
       `Prelude.hashWithSalt` scalableTargetAction
       `Prelude.hashWithSalt` startTime

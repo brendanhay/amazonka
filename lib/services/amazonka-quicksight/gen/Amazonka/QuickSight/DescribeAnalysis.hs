@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribeAnalysis where
 
 instance Prelude.Hashable DescribeAnalysis where
   hashWithSalt _salt DescribeAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` analysisId
 
 instance Prelude.NFData DescribeAnalysis where

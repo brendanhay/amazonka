@@ -160,7 +160,8 @@ instance Data.FromJSON AgentConfiguration where
       "AgentConfiguration"
       ( \x ->
           AgentConfiguration'
-            Prelude.<$> ( x Data..:? "agentParameters"
+            Prelude.<$> ( x
+                            Data..:? "agentParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "periodInSeconds")
@@ -169,7 +170,8 @@ instance Data.FromJSON AgentConfiguration where
 
 instance Prelude.Hashable AgentConfiguration where
   hashWithSalt _salt AgentConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` agentParameters
+    _salt
+      `Prelude.hashWithSalt` agentParameters
       `Prelude.hashWithSalt` periodInSeconds
       `Prelude.hashWithSalt` shouldProfile
 

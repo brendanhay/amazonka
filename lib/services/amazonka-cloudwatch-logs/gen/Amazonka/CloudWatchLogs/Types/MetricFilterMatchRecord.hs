@@ -80,14 +80,16 @@ instance Data.FromJSON MetricFilterMatchRecord where
           MetricFilterMatchRecord'
             Prelude.<$> (x Data..:? "eventMessage")
             Prelude.<*> (x Data..:? "eventNumber")
-            Prelude.<*> ( x Data..:? "extractedValues"
+            Prelude.<*> ( x
+                            Data..:? "extractedValues"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable MetricFilterMatchRecord where
   hashWithSalt _salt MetricFilterMatchRecord' {..} =
-    _salt `Prelude.hashWithSalt` eventMessage
+    _salt
+      `Prelude.hashWithSalt` eventMessage
       `Prelude.hashWithSalt` eventNumber
       `Prelude.hashWithSalt` extractedValues
 

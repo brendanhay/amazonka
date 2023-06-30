@@ -109,7 +109,8 @@ instance Data.FromJSON InstanceAccess where
 
 instance Prelude.Hashable InstanceAccess where
   hashWithSalt _salt InstanceAccess' {..} =
-    _salt `Prelude.hashWithSalt` credentials
+    _salt
+      `Prelude.hashWithSalt` credentials
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` ipAddress

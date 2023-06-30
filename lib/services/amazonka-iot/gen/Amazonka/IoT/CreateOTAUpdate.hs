@@ -277,7 +277,8 @@ instance Core.AWSRequest CreateOTAUpdate where
 
 instance Prelude.Hashable CreateOTAUpdate where
   hashWithSalt _salt CreateOTAUpdate' {..} =
-    _salt `Prelude.hashWithSalt` additionalParameters
+    _salt
+      `Prelude.hashWithSalt` additionalParameters
       `Prelude.hashWithSalt` awsJobAbortConfig
       `Prelude.hashWithSalt` awsJobExecutionsRolloutConfig
       `Prelude.hashWithSalt` awsJobPresignedUrlConfig

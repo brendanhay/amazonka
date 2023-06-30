@@ -127,7 +127,7 @@ instance
       ( \s h x ->
           CreateTransitGatewayRouteTableAttachmentResponse'
             Prelude.<$> (x Data..?> "TransitGatewayRouteTableAttachment")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -137,7 +137,8 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayRouteTableAttachment' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` peeringId
         `Prelude.hashWithSalt` transitGatewayRouteTableArn

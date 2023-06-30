@@ -122,7 +122,8 @@ instance Core.AWSRequest RetryWorkflowStep where
 
 instance Prelude.Hashable RetryWorkflowStep where
   hashWithSalt _salt RetryWorkflowStep' {..} =
-    _salt `Prelude.hashWithSalt` workflowId
+    _salt
+      `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` stepGroupId
       `Prelude.hashWithSalt` id
 

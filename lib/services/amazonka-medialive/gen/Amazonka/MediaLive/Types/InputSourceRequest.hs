@@ -74,7 +74,8 @@ inputSourceRequest_username = Lens.lens (\InputSourceRequest' {username} -> user
 
 instance Prelude.Hashable InputSourceRequest where
   hashWithSalt _salt InputSourceRequest' {..} =
-    _salt `Prelude.hashWithSalt` passwordParam
+    _salt
+      `Prelude.hashWithSalt` passwordParam
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` username
 

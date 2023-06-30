@@ -108,7 +108,8 @@ instance Data.FromJSON SegmentOverride where
 
 instance Prelude.Hashable SegmentOverride where
   hashWithSalt _salt SegmentOverride' {..} =
-    _salt `Prelude.hashWithSalt` evaluationOrder
+    _salt
+      `Prelude.hashWithSalt` evaluationOrder
       `Prelude.hashWithSalt` segment
       `Prelude.hashWithSalt` weights
 

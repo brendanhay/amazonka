@@ -179,7 +179,8 @@ instance Core.AWSRequest CreateInterconnect where
 
 instance Prelude.Hashable CreateInterconnect where
   hashWithSalt _salt CreateInterconnect' {..} =
-    _salt `Prelude.hashWithSalt` lagId
+    _salt
+      `Prelude.hashWithSalt` lagId
       `Prelude.hashWithSalt` providerName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` interconnectName

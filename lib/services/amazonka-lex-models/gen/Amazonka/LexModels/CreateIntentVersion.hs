@@ -160,7 +160,8 @@ instance Core.AWSRequest CreateIntentVersion where
             Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "parentIntentSignature")
             Prelude.<*> (x Data..?> "rejectionStatement")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "slots" Core..!@ Prelude.mempty)
@@ -170,7 +171,8 @@ instance Core.AWSRequest CreateIntentVersion where
 
 instance Prelude.Hashable CreateIntentVersion where
   hashWithSalt _salt CreateIntentVersion' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt
+      `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateIntentVersion where

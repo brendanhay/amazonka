@@ -121,7 +121,8 @@ instance Core.AWSRequest DisassociateLink where
 
 instance Prelude.Hashable DisassociateLink where
   hashWithSalt _salt DisassociateLink' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` linkId
 

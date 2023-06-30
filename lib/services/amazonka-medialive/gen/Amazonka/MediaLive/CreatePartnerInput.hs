@@ -117,7 +117,8 @@ instance Core.AWSRequest CreatePartnerInput' where
 
 instance Prelude.Hashable CreatePartnerInput' where
   hashWithSalt _salt CreatePartnerInput'' {..} =
-    _salt `Prelude.hashWithSalt` requestId
+    _salt
+      `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` inputId
 

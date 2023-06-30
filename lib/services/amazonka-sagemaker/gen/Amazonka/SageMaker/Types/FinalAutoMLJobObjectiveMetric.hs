@@ -97,7 +97,8 @@ instance
     FinalAutoMLJobObjectiveMetric
   where
   hashWithSalt _salt FinalAutoMLJobObjectiveMetric' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` value
 

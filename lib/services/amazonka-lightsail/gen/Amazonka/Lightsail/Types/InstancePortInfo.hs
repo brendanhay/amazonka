@@ -402,7 +402,8 @@ instance Data.FromJSON InstancePortInfo where
             Prelude.<$> (x Data..:? "accessDirection")
             Prelude.<*> (x Data..:? "accessFrom")
             Prelude.<*> (x Data..:? "accessType")
-            Prelude.<*> ( x Data..:? "cidrListAliases"
+            Prelude.<*> ( x
+                            Data..:? "cidrListAliases"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cidrs" Data..!= Prelude.mempty)
@@ -415,7 +416,8 @@ instance Data.FromJSON InstancePortInfo where
 
 instance Prelude.Hashable InstancePortInfo where
   hashWithSalt _salt InstancePortInfo' {..} =
-    _salt `Prelude.hashWithSalt` accessDirection
+    _salt
+      `Prelude.hashWithSalt` accessDirection
       `Prelude.hashWithSalt` accessFrom
       `Prelude.hashWithSalt` accessType
       `Prelude.hashWithSalt` cidrListAliases

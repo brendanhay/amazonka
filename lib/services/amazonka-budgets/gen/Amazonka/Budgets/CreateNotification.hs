@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateNotification where
 
 instance Prelude.Hashable CreateNotification where
   hashWithSalt _salt CreateNotification' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` notification
       `Prelude.hashWithSalt` subscribers

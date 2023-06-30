@@ -171,7 +171,8 @@ instance
     ApplyPendingMaintenanceAction
   where
   hashWithSalt _salt ApplyPendingMaintenanceAction' {..} =
-    _salt `Prelude.hashWithSalt` replicationInstanceArn
+    _salt
+      `Prelude.hashWithSalt` replicationInstanceArn
       `Prelude.hashWithSalt` applyAction
       `Prelude.hashWithSalt` optInType
 

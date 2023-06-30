@@ -111,22 +111,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getBehaviorModelTrainingSummariesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getBehaviorModelTrainingSummariesResponse_summaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getBehaviorModelTrainingSummaries_nextToken
           Lens..~ rs
           Lens.^? getBehaviorModelTrainingSummariesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -142,8 +142,8 @@ instance
       ( \s h x ->
           GetBehaviorModelTrainingSummariesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> (x Data..?> "summaries" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "summaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -153,7 +153,8 @@ instance
   hashWithSalt
     _salt
     GetBehaviorModelTrainingSummaries' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` securityProfileName
 

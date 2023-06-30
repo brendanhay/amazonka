@@ -147,7 +147,8 @@ instance
           ListAppVersionResourceMappingsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "resourceMappings"
+            Prelude.<*> ( x
+                            Data..?> "resourceMappings"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -159,7 +160,8 @@ instance
   hashWithSalt
     _salt
     ListAppVersionResourceMappings' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` appArn
         `Prelude.hashWithSalt` appVersion

@@ -143,7 +143,8 @@ instance Core.AWSRequest UpdateAssessmentFramework where
 
 instance Prelude.Hashable UpdateAssessmentFramework where
   hashWithSalt _salt UpdateAssessmentFramework' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` frameworkId
       `Prelude.hashWithSalt` name

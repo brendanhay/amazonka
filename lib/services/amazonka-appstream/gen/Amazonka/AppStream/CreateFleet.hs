@@ -791,7 +791,8 @@ instance Core.AWSRequest CreateFleet where
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =
-    _salt `Prelude.hashWithSalt` computeCapacity
+    _salt
+      `Prelude.hashWithSalt` computeCapacity
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disconnectTimeoutInSeconds
       `Prelude.hashWithSalt` displayName

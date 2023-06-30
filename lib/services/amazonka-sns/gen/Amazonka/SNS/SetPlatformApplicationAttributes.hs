@@ -292,7 +292,8 @@ instance
   hashWithSalt
     _salt
     SetPlatformApplicationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` platformApplicationArn
+      _salt
+        `Prelude.hashWithSalt` platformApplicationArn
         `Prelude.hashWithSalt` attributes
 
 instance

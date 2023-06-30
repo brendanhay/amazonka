@@ -191,13 +191,16 @@ instance Data.FromXML KeyPairInfo where
       Prelude.<*> (x Data..@? "keyPairId")
       Prelude.<*> (x Data..@? "keyType")
       Prelude.<*> (x Data..@? "publicKey")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable KeyPairInfo where
   hashWithSalt _salt KeyPairInfo' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` keyFingerprint
       `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` keyPairId

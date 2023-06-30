@@ -184,7 +184,8 @@ instance Data.FromJSON PortalSummary where
 
 instance Prelude.Hashable PortalSummary where
   hashWithSalt _salt PortalSummary' {..} =
-    _salt `Prelude.hashWithSalt` browserSettingsArn
+    _salt
+      `Prelude.hashWithSalt` browserSettingsArn
       `Prelude.hashWithSalt` browserType
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` displayName

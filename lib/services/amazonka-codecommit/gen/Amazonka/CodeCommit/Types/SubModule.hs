@@ -90,7 +90,8 @@ instance Data.FromJSON SubModule where
 
 instance Prelude.Hashable SubModule where
   hashWithSalt _salt SubModule' {..} =
-    _salt `Prelude.hashWithSalt` absolutePath
+    _salt
+      `Prelude.hashWithSalt` absolutePath
       `Prelude.hashWithSalt` commitId
       `Prelude.hashWithSalt` relativePath
 

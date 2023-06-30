@@ -123,7 +123,8 @@ instance Core.AWSRequest DeleteBucketReplication where
 
 instance Prelude.Hashable DeleteBucketReplication where
   hashWithSalt _salt DeleteBucketReplication' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucketReplication where

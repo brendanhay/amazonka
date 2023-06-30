@@ -112,7 +112,8 @@ instance Data.FromJSON WorkforceVpcConfigResponse where
 
 instance Prelude.Hashable WorkforceVpcConfigResponse where
   hashWithSalt _salt WorkforceVpcConfigResponse' {..} =
-    _salt `Prelude.hashWithSalt` vpcEndpointId
+    _salt
+      `Prelude.hashWithSalt` vpcEndpointId
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnets

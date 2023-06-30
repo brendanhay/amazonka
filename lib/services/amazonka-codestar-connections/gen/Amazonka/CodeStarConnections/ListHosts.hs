@@ -109,7 +109,8 @@ instance Core.AWSRequest ListHosts where
 
 instance Prelude.Hashable ListHosts where
   hashWithSalt _salt ListHosts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListHosts where

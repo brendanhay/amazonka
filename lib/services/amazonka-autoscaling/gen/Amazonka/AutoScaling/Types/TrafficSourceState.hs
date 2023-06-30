@@ -124,7 +124,8 @@ instance Data.FromXML TrafficSourceState where
 
 instance Prelude.Hashable TrafficSourceState where
   hashWithSalt _salt TrafficSourceState' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` trafficSource
 
 instance Prelude.NFData TrafficSourceState where

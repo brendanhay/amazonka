@@ -147,7 +147,8 @@ instance Data.FromJSON AssistantAssociationSummary where
 
 instance Prelude.Hashable AssistantAssociationSummary where
   hashWithSalt _salt AssistantAssociationSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assistantArn
       `Prelude.hashWithSalt` assistantAssociationArn
       `Prelude.hashWithSalt` assistantAssociationId

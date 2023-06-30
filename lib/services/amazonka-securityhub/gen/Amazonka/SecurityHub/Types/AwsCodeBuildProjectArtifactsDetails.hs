@@ -180,7 +180,8 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectArtifactsDetails' {..} =
-      _salt `Prelude.hashWithSalt` artifactIdentifier
+      _salt
+        `Prelude.hashWithSalt` artifactIdentifier
         `Prelude.hashWithSalt` encryptionDisabled
         `Prelude.hashWithSalt` location
         `Prelude.hashWithSalt` name

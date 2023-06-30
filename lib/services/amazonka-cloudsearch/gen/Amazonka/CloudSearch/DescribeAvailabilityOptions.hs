@@ -117,7 +117,8 @@ instance Core.AWSRequest DescribeAvailabilityOptions where
 
 instance Prelude.Hashable DescribeAvailabilityOptions where
   hashWithSalt _salt DescribeAvailabilityOptions' {..} =
-    _salt `Prelude.hashWithSalt` deployed
+    _salt
+      `Prelude.hashWithSalt` deployed
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DescribeAvailabilityOptions where

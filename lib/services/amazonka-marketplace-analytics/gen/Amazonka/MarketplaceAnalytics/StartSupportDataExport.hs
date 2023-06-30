@@ -251,7 +251,8 @@ instance Core.AWSRequest StartSupportDataExport where
 
 instance Prelude.Hashable StartSupportDataExport where
   hashWithSalt _salt StartSupportDataExport' {..} =
-    _salt `Prelude.hashWithSalt` customerDefinedValues
+    _salt
+      `Prelude.hashWithSalt` customerDefinedValues
       `Prelude.hashWithSalt` destinationS3Prefix
       `Prelude.hashWithSalt` dataSetType
       `Prelude.hashWithSalt` fromDate

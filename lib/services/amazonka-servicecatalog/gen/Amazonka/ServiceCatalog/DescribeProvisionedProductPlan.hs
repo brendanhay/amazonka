@@ -145,7 +145,8 @@ instance
           DescribeProvisionedProductPlanResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (x Data..?> "ProvisionedProductPlanDetails")
-            Prelude.<*> ( x Data..?> "ResourceChanges"
+            Prelude.<*> ( x
+                            Data..?> "ResourceChanges"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,7 +159,8 @@ instance
   hashWithSalt
     _salt
     DescribeProvisionedProductPlan' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` pageSize
         `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` planId

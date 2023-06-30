@@ -1486,7 +1486,9 @@ instance Data.FromXML ResourceRecordSet where
       Prelude.<*> (x Data..@? "HealthCheckId")
       Prelude.<*> (x Data..@? "MultiValueAnswer")
       Prelude.<*> (x Data..@? "Region")
-      Prelude.<*> ( x Data..@? "ResourceRecords" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ResourceRecords"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "ResourceRecord")
                   )
       Prelude.<*> (x Data..@? "SetIdentifier")
@@ -1498,7 +1500,8 @@ instance Data.FromXML ResourceRecordSet where
 
 instance Prelude.Hashable ResourceRecordSet where
   hashWithSalt _salt ResourceRecordSet' {..} =
-    _salt `Prelude.hashWithSalt` aliasTarget
+    _salt
+      `Prelude.hashWithSalt` aliasTarget
       `Prelude.hashWithSalt` cidrRoutingConfig
       `Prelude.hashWithSalt` failover
       `Prelude.hashWithSalt` geoLocation

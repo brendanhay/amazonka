@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateEndpointAccess where
 
 instance Prelude.Hashable CreateEndpointAccess where
   hashWithSalt _salt CreateEndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` vpcSecurityGroupIds
+    _salt
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` workgroupName

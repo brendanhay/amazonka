@@ -126,7 +126,8 @@ instance Data.FromJSON WorkflowListItem where
 
 instance Prelude.Hashable WorkflowListItem where
   hashWithSalt _salt WorkflowListItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` digest
       `Prelude.hashWithSalt` id

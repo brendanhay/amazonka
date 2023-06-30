@@ -75,7 +75,8 @@ instance Data.FromJSON AwsRdsDbParameterGroup where
 
 instance Prelude.Hashable AwsRdsDbParameterGroup where
   hashWithSalt _salt AwsRdsDbParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` dbParameterGroupName
+    _salt
+      `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` parameterApplyStatus
 
 instance Prelude.NFData AwsRdsDbParameterGroup where

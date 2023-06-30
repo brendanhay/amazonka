@@ -236,7 +236,8 @@ instance Data.FromJSON RemediationConfiguration where
 
 instance Prelude.Hashable RemediationConfiguration where
   hashWithSalt _salt RemediationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` automatic
       `Prelude.hashWithSalt` createdByService
       `Prelude.hashWithSalt` executionControls

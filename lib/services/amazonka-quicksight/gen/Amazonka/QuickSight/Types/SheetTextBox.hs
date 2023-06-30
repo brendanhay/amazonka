@@ -85,7 +85,8 @@ instance Data.FromJSON SheetTextBox where
 
 instance Prelude.Hashable SheetTextBox where
   hashWithSalt _salt SheetTextBox' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` sheetTextBoxId
 
 instance Prelude.NFData SheetTextBox where

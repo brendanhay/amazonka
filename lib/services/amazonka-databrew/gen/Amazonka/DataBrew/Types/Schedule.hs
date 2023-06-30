@@ -165,7 +165,8 @@ instance Data.FromJSON Schedule where
 
 instance Prelude.Hashable Schedule where
   hashWithSalt _salt Schedule' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` cronExpression

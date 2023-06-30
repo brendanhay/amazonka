@@ -77,7 +77,8 @@ instance
   hashWithSalt
     _salt
     UpdateRoutingControlStateEntry' {..} =
-      _salt `Prelude.hashWithSalt` routingControlArn
+      _salt
+        `Prelude.hashWithSalt` routingControlArn
         `Prelude.hashWithSalt` routingControlState
 
 instance

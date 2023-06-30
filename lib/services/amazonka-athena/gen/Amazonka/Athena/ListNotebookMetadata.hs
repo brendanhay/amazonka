@@ -125,7 +125,8 @@ instance Core.AWSRequest ListNotebookMetadata where
       ( \s h x ->
           ListNotebookMetadataResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "NotebookMetadataList"
+            Prelude.<*> ( x
+                            Data..?> "NotebookMetadataList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -133,7 +134,8 @@ instance Core.AWSRequest ListNotebookMetadata where
 
 instance Prelude.Hashable ListNotebookMetadata where
   hashWithSalt _salt ListNotebookMetadata' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workGroup

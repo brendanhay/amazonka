@@ -66,7 +66,8 @@ collectionFilters_status = Lens.lens (\CollectionFilters' {status} -> status) (\
 
 instance Prelude.Hashable CollectionFilters where
   hashWithSalt _salt CollectionFilters' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CollectionFilters where

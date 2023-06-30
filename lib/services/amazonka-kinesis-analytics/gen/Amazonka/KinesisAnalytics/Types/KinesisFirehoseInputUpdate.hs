@@ -76,7 +76,8 @@ kinesisFirehoseInputUpdate_roleARNUpdate = Lens.lens (\KinesisFirehoseInputUpdat
 
 instance Prelude.Hashable KinesisFirehoseInputUpdate where
   hashWithSalt _salt KinesisFirehoseInputUpdate' {..} =
-    _salt `Prelude.hashWithSalt` resourceARNUpdate
+    _salt
+      `Prelude.hashWithSalt` resourceARNUpdate
       `Prelude.hashWithSalt` roleARNUpdate
 
 instance Prelude.NFData KinesisFirehoseInputUpdate where

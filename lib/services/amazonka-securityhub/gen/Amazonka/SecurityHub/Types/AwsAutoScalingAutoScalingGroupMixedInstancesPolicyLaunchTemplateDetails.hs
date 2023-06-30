@@ -76,7 +76,7 @@ instance
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails'
             Prelude.<$> (x Data..:? "LaunchTemplateSpecification")
-              Prelude.<*> (x Data..:? "Overrides" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Overrides" Data..!= Prelude.mempty)
       )
 
 instance

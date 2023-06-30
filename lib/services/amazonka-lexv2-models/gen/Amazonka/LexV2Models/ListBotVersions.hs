@@ -148,7 +148,8 @@ instance Core.AWSRequest ListBotVersions where
       ( \s h x ->
           ListBotVersionsResponse'
             Prelude.<$> (x Data..?> "botId")
-            Prelude.<*> ( x Data..?> "botVersionSummaries"
+            Prelude.<*> ( x
+                            Data..?> "botVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -157,7 +158,8 @@ instance Core.AWSRequest ListBotVersions where
 
 instance Prelude.Hashable ListBotVersions where
   hashWithSalt _salt ListBotVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` botId

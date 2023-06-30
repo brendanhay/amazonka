@@ -203,7 +203,8 @@ instance Data.FromJSON Namespace where
 
 instance Prelude.Hashable Namespace where
   hashWithSalt _salt Namespace' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` description

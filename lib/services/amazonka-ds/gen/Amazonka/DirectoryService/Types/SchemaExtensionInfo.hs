@@ -131,7 +131,8 @@ instance Data.FromJSON SchemaExtensionInfo where
 
 instance Prelude.Hashable SchemaExtensionInfo where
   hashWithSalt _salt SchemaExtensionInfo' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` schemaExtensionId

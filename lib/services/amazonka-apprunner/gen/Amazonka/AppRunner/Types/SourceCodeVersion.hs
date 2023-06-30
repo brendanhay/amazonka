@@ -86,12 +86,14 @@ instance Data.FromJSON SourceCodeVersion where
       "SourceCodeVersion"
       ( \x ->
           SourceCodeVersion'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable SourceCodeVersion where
   hashWithSalt _salt SourceCodeVersion' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SourceCodeVersion where

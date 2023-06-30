@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     UpdateCostAllocationTagsStatusError' {..} =
-      _salt `Prelude.hashWithSalt` code
+      _salt
+        `Prelude.hashWithSalt` code
         `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` tagKey
 

@@ -355,7 +355,8 @@ instance Core.AWSRequest CreateEntityRecognizer where
 
 instance Prelude.Hashable CreateEntityRecognizer where
   hashWithSalt _salt CreateEntityRecognizer' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` modelKmsKeyId
       `Prelude.hashWithSalt` modelPolicy
       `Prelude.hashWithSalt` tags

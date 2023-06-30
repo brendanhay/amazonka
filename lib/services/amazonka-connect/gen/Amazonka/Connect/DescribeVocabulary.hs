@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeVocabulary where
 
 instance Prelude.Hashable DescribeVocabulary where
   hashWithSalt _salt DescribeVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` vocabularyId
 
 instance Prelude.NFData DescribeVocabulary where

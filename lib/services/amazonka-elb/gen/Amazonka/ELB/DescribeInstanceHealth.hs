@@ -105,7 +105,9 @@ instance Core.AWSRequest DescribeInstanceHealth where
       "DescribeInstanceHealthResult"
       ( \s h x ->
           DescribeInstanceHealthResponse'
-            Prelude.<$> ( x Data..@? "InstanceStates" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "InstanceStates"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -113,7 +115,8 @@ instance Core.AWSRequest DescribeInstanceHealth where
 
 instance Prelude.Hashable DescribeInstanceHealth where
   hashWithSalt _salt DescribeInstanceHealth' {..} =
-    _salt `Prelude.hashWithSalt` instances
+    _salt
+      `Prelude.hashWithSalt` instances
       `Prelude.hashWithSalt` loadBalancerName
 
 instance Prelude.NFData DescribeInstanceHealth where

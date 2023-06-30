@@ -110,21 +110,21 @@ instance Core.AWSPager ListAccessPreviews where
     | Core.stop
         ( rs
             Lens.^? listAccessPreviewsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listAccessPreviewsResponse_accessPreviews
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccessPreviews_nextToken
           Lens..~ rs
           Lens.^? listAccessPreviewsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccessPreviews where
   type
@@ -138,14 +138,16 @@ instance Core.AWSRequest ListAccessPreviews where
           ListAccessPreviewsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "accessPreviews"
+            Prelude.<*> ( x
+                            Data..?> "accessPreviews"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAccessPreviews where
   hashWithSalt _salt ListAccessPreviews' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` analyzerArn
 

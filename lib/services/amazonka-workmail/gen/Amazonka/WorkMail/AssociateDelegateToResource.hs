@@ -118,7 +118,8 @@ instance Core.AWSRequest AssociateDelegateToResource where
 
 instance Prelude.Hashable AssociateDelegateToResource where
   hashWithSalt _salt AssociateDelegateToResource' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` entityId
 

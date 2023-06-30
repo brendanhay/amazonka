@@ -176,7 +176,8 @@ instance Data.FromJSON ReplicationTaskStats where
 
 instance Prelude.Hashable ReplicationTaskStats where
   hashWithSalt _salt ReplicationTaskStats' {..} =
-    _salt `Prelude.hashWithSalt` elapsedTimeMillis
+    _salt
+      `Prelude.hashWithSalt` elapsedTimeMillis
       `Prelude.hashWithSalt` freshStartDate
       `Prelude.hashWithSalt` fullLoadFinishDate
       `Prelude.hashWithSalt` fullLoadProgressPercent

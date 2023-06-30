@@ -111,7 +111,8 @@ imageDiskContainer_userBucket = Lens.lens (\ImageDiskContainer' {userBucket} -> 
 
 instance Prelude.Hashable ImageDiskContainer where
   hashWithSalt _salt ImageDiskContainer' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` snapshotId

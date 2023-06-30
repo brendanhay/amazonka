@@ -105,7 +105,8 @@ instance Data.FromJSON Type where
 
 instance Prelude.Hashable Type where
   hashWithSalt _salt Type' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` format

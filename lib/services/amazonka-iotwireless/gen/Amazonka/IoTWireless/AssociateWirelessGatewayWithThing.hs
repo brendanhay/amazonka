@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     AssociateWirelessGatewayWithThing' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` thingArn
 
 instance

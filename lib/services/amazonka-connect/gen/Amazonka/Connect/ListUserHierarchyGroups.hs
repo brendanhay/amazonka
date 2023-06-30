@@ -122,22 +122,22 @@ instance Core.AWSPager ListUserHierarchyGroups where
     | Core.stop
         ( rs
             Lens.^? listUserHierarchyGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listUserHierarchyGroups_nextToken
           Lens..~ rs
           Lens.^? listUserHierarchyGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserHierarchyGroups where
   type
@@ -150,7 +150,8 @@ instance Core.AWSRequest ListUserHierarchyGroups where
       ( \s h x ->
           ListUserHierarchyGroupsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "UserHierarchyGroupSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "UserHierarchyGroupSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,7 +159,8 @@ instance Core.AWSRequest ListUserHierarchyGroups where
 
 instance Prelude.Hashable ListUserHierarchyGroups where
   hashWithSalt _salt ListUserHierarchyGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 

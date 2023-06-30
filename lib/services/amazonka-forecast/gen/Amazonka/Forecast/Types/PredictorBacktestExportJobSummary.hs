@@ -198,7 +198,8 @@ instance
   hashWithSalt
     _salt
     PredictorBacktestExportJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
+      _salt
+        `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` destination
         `Prelude.hashWithSalt` lastModificationTime
         `Prelude.hashWithSalt` message

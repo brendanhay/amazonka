@@ -102,7 +102,8 @@ instance Data.FromJSON Filter where
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` behavior
+    _salt
+      `Prelude.hashWithSalt` behavior
       `Prelude.hashWithSalt` requirement
       `Prelude.hashWithSalt` conditions
 

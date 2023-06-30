@@ -95,7 +95,8 @@ createGrokClassifierRequest_grokPattern = Lens.lens (\CreateGrokClassifierReques
 
 instance Prelude.Hashable CreateGrokClassifierRequest where
   hashWithSalt _salt CreateGrokClassifierRequest' {..} =
-    _salt `Prelude.hashWithSalt` customPatterns
+    _salt
+      `Prelude.hashWithSalt` customPatterns
       `Prelude.hashWithSalt` classification
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` grokPattern

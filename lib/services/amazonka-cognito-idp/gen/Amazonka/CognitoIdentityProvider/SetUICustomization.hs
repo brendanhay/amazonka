@@ -142,7 +142,8 @@ instance Core.AWSRequest SetUICustomization where
 
 instance Prelude.Hashable SetUICustomization where
   hashWithSalt _salt SetUICustomization' {..} =
-    _salt `Prelude.hashWithSalt` css
+    _salt
+      `Prelude.hashWithSalt` css
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` imageFile
       `Prelude.hashWithSalt` userPoolId

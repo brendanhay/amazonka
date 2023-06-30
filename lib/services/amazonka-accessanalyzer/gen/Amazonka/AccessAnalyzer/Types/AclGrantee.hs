@@ -73,12 +73,14 @@ instance Data.FromJSON AclGrantee where
       "AclGrantee"
       ( \x ->
           AclGrantee'
-            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "uri")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "uri")
       )
 
 instance Prelude.Hashable AclGrantee where
   hashWithSalt _salt AclGrantee' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData AclGrantee where

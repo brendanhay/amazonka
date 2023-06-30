@@ -97,7 +97,8 @@ textTranslationJobFilter_submittedBeforeTime = Lens.lens (\TextTranslationJobFil
 
 instance Prelude.Hashable TextTranslationJobFilter where
   hashWithSalt _salt TextTranslationJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submittedAfterTime
       `Prelude.hashWithSalt` submittedBeforeTime

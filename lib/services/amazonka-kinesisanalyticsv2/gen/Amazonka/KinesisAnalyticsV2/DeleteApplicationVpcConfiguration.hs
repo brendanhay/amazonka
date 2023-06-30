@@ -155,8 +155,8 @@ instance
       ( \s h x ->
           DeleteApplicationVpcConfigurationResponse'
             Prelude.<$> (x Data..?> "ApplicationARN")
-              Prelude.<*> (x Data..?> "ApplicationVersionId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ApplicationVersionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -166,7 +166,8 @@ instance
   hashWithSalt
     _salt
     DeleteApplicationVpcConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` conditionalToken
+      _salt
+        `Prelude.hashWithSalt` conditionalToken
         `Prelude.hashWithSalt` currentApplicationVersionId
         `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` vpcConfigurationId

@@ -82,7 +82,8 @@ instance Data.FromJSON EstimatedMonthlySavings where
 
 instance Prelude.Hashable EstimatedMonthlySavings where
   hashWithSalt _salt EstimatedMonthlySavings' {..} =
-    _salt `Prelude.hashWithSalt` currency
+    _salt
+      `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EstimatedMonthlySavings where

@@ -164,7 +164,8 @@ instance Data.FromJSON Evaluation where
 
 instance Prelude.Hashable Evaluation where
   hashWithSalt _salt Evaluation' {..} =
-    _salt `Prelude.hashWithSalt` annotation
+    _salt
+      `Prelude.hashWithSalt` annotation
       `Prelude.hashWithSalt` complianceResourceType
       `Prelude.hashWithSalt` complianceResourceId
       `Prelude.hashWithSalt` complianceType

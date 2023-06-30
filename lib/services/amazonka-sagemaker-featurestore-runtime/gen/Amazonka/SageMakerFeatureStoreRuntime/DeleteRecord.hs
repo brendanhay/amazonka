@@ -133,7 +133,8 @@ instance Core.AWSRequest DeleteRecord where
 
 instance Prelude.Hashable DeleteRecord where
   hashWithSalt _salt DeleteRecord' {..} =
-    _salt `Prelude.hashWithSalt` targetStores
+    _salt
+      `Prelude.hashWithSalt` targetStores
       `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` recordIdentifierValueAsString
       `Prelude.hashWithSalt` eventTime

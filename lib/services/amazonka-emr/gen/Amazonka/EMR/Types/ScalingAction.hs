@@ -86,7 +86,8 @@ instance Data.FromJSON ScalingAction where
 
 instance Prelude.Hashable ScalingAction where
   hashWithSalt _salt ScalingAction' {..} =
-    _salt `Prelude.hashWithSalt` market
+    _salt
+      `Prelude.hashWithSalt` market
       `Prelude.hashWithSalt` simpleScalingPolicyConfiguration
 
 instance Prelude.NFData ScalingAction where

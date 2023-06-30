@@ -110,7 +110,8 @@ instance Data.FromJSON LayoutConfiguration where
 
 instance Prelude.Hashable LayoutConfiguration where
   hashWithSalt _salt LayoutConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` freeFormLayout
+    _salt
+      `Prelude.hashWithSalt` freeFormLayout
       `Prelude.hashWithSalt` gridLayout
       `Prelude.hashWithSalt` sectionBasedLayout
 

@@ -112,7 +112,8 @@ instance Core.AWSRequest ValidateConfiguration where
 
 instance Prelude.Hashable ValidateConfiguration where
   hashWithSalt _salt ValidateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` configurationProfileId
       `Prelude.hashWithSalt` configurationVersion
 

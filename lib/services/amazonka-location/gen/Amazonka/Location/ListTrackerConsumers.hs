@@ -123,21 +123,21 @@ instance Core.AWSPager ListTrackerConsumers where
     | Core.stop
         ( rs
             Lens.^? listTrackerConsumersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listTrackerConsumersResponse_consumerArns
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTrackerConsumers_nextToken
           Lens..~ rs
           Lens.^? listTrackerConsumersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrackerConsumers where
   type
@@ -156,7 +156,8 @@ instance Core.AWSRequest ListTrackerConsumers where
 
 instance Prelude.Hashable ListTrackerConsumers where
   hashWithSalt _salt ListTrackerConsumers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` trackerName
 

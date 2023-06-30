@@ -122,7 +122,8 @@ instance Core.AWSRequest DescribeBotVersion where
 
 instance Prelude.Hashable DescribeBotVersion where
   hashWithSalt _salt DescribeBotVersion' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
 
 instance Prelude.NFData DescribeBotVersion where

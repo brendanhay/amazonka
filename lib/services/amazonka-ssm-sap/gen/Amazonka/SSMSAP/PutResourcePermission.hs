@@ -88,15 +88,12 @@ newPutResourcePermission
         resourceArn = pResourceArn_
       }
 
--- |
 putResourcePermission_actionType :: Lens.Lens' PutResourcePermission PermissionActionType
 putResourcePermission_actionType = Lens.lens (\PutResourcePermission' {actionType} -> actionType) (\s@PutResourcePermission' {} a -> s {actionType = a} :: PutResourcePermission)
 
--- |
 putResourcePermission_sourceResourceArn :: Lens.Lens' PutResourcePermission Prelude.Text
 putResourcePermission_sourceResourceArn = Lens.lens (\PutResourcePermission' {sourceResourceArn} -> sourceResourceArn) (\s@PutResourcePermission' {} a -> s {sourceResourceArn = a} :: PutResourcePermission)
 
--- |
 putResourcePermission_resourceArn :: Lens.Lens' PutResourcePermission Prelude.Text
 putResourcePermission_resourceArn = Lens.lens (\PutResourcePermission' {resourceArn} -> resourceArn) (\s@PutResourcePermission' {} a -> s {resourceArn = a} :: PutResourcePermission)
 
@@ -116,7 +113,8 @@ instance Core.AWSRequest PutResourcePermission where
 
 instance Prelude.Hashable PutResourcePermission where
   hashWithSalt _salt PutResourcePermission' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` sourceResourceArn
       `Prelude.hashWithSalt` resourceArn
 
@@ -184,7 +182,6 @@ newPutResourcePermissionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 putResourcePermissionResponse_policy :: Lens.Lens' PutResourcePermissionResponse (Prelude.Maybe Prelude.Text)
 putResourcePermissionResponse_policy = Lens.lens (\PutResourcePermissionResponse' {policy} -> policy) (\s@PutResourcePermissionResponse' {} a -> s {policy = a} :: PutResourcePermissionResponse)
 

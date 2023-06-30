@@ -109,7 +109,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartDataCollectionByAgentIdsResponse'
-            Prelude.<$> ( x Data..?> "agentsConfigurationStatus"
+            Prelude.<$> ( x
+                            Data..?> "agentsConfigurationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -87,7 +87,8 @@ instance Core.AWSRequest DeleteBuildBatch where
       ( \s h x ->
           DeleteBuildBatchResponse'
             Prelude.<$> (x Data..?> "buildsDeleted")
-            Prelude.<*> ( x Data..?> "buildsNotDeleted"
+            Prelude.<*> ( x
+                            Data..?> "buildsNotDeleted"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "statusCode")

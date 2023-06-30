@@ -126,7 +126,8 @@ instance Core.AWSRequest UntagServerCertificate where
 
 instance Prelude.Hashable UntagServerCertificate where
   hashWithSalt _salt UntagServerCertificate' {..} =
-    _salt `Prelude.hashWithSalt` serverCertificateName
+    _salt
+      `Prelude.hashWithSalt` serverCertificateName
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagServerCertificate where

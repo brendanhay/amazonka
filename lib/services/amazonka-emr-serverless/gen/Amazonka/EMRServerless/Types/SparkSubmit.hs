@@ -79,7 +79,8 @@ instance Data.FromJSON SparkSubmit where
       "SparkSubmit"
       ( \x ->
           SparkSubmit'
-            Prelude.<$> ( x Data..:? "entryPointArguments"
+            Prelude.<$> ( x
+                            Data..:? "entryPointArguments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "sparkSubmitParameters")
@@ -88,7 +89,8 @@ instance Data.FromJSON SparkSubmit where
 
 instance Prelude.Hashable SparkSubmit where
   hashWithSalt _salt SparkSubmit' {..} =
-    _salt `Prelude.hashWithSalt` entryPointArguments
+    _salt
+      `Prelude.hashWithSalt` entryPointArguments
       `Prelude.hashWithSalt` sparkSubmitParameters
       `Prelude.hashWithSalt` entryPoint
 

@@ -169,7 +169,8 @@ instance Core.AWSRequest CreateOrganization where
 
 instance Prelude.Hashable CreateOrganization where
   hashWithSalt _salt CreateOrganization' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` domains
       `Prelude.hashWithSalt` enableInteroperability

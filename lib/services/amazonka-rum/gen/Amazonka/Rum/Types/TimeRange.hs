@@ -73,7 +73,8 @@ timeRange_after = Lens.lens (\TimeRange' {after} -> after) (\s@TimeRange' {} a -
 
 instance Prelude.Hashable TimeRange where
   hashWithSalt _salt TimeRange' {..} =
-    _salt `Prelude.hashWithSalt` before
+    _salt
+      `Prelude.hashWithSalt` before
       `Prelude.hashWithSalt` after
 
 instance Prelude.NFData TimeRange where

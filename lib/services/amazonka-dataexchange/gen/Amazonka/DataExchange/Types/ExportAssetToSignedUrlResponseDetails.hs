@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     ExportAssetToSignedUrlResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` signedUrl
+      _salt
+        `Prelude.hashWithSalt` signedUrl
         `Prelude.hashWithSalt` signedUrlExpiresAt
         `Prelude.hashWithSalt` assetId
         `Prelude.hashWithSalt` dataSetId

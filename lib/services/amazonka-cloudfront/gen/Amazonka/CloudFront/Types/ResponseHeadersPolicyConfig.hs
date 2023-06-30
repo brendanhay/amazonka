@@ -156,7 +156,8 @@ instance Data.FromXML ResponseHeadersPolicyConfig where
 
 instance Prelude.Hashable ResponseHeadersPolicyConfig where
   hashWithSalt _salt ResponseHeadersPolicyConfig' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` corsConfig
       `Prelude.hashWithSalt` customHeadersConfig
       `Prelude.hashWithSalt` removeHeadersConfig

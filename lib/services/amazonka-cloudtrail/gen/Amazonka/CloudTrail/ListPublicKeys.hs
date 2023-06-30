@@ -124,21 +124,22 @@ instance Core.AWSPager ListPublicKeys where
     | Core.stop
         ( rs
             Lens.^? listPublicKeysResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPublicKeysResponse_publicKeyList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPublicKeys_nextToken
           Lens..~ rs
-          Lens.^? listPublicKeysResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPublicKeysResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPublicKeys where
   type
@@ -157,7 +158,8 @@ instance Core.AWSRequest ListPublicKeys where
 
 instance Prelude.Hashable ListPublicKeys where
   hashWithSalt _salt ListPublicKeys' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTime
 

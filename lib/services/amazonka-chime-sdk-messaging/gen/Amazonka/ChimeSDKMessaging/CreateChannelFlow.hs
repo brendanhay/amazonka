@@ -161,7 +161,8 @@ instance Core.AWSRequest CreateChannelFlow where
 
 instance Prelude.Hashable CreateChannelFlow where
   hashWithSalt _salt CreateChannelFlow' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` processors
       `Prelude.hashWithSalt` name

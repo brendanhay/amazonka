@@ -237,7 +237,8 @@ instance Core.AWSRequest ListTypeVersions where
       ( \s h x ->
           ListTypeVersionsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "TypeVersionSummaries"
+            Prelude.<*> ( x
+                            Data..@? "TypeVersionSummaries"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -246,7 +247,8 @@ instance Core.AWSRequest ListTypeVersions where
 
 instance Prelude.Hashable ListTypeVersions where
   hashWithSalt _salt ListTypeVersions' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` deprecatedStatus
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

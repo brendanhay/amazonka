@@ -97,7 +97,8 @@ instance Data.FromJSON EksContainerVolumeMount where
 
 instance Prelude.Hashable EksContainerVolumeMount where
   hashWithSalt _salt EksContainerVolumeMount' {..} =
-    _salt `Prelude.hashWithSalt` mountPath
+    _salt
+      `Prelude.hashWithSalt` mountPath
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` readOnly
 

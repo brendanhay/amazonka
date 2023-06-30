@@ -120,7 +120,8 @@ instance Data.FromJSON JobWatermark where
 
 instance Prelude.Hashable JobWatermark where
   hashWithSalt _salt JobWatermark' {..} =
-    _salt `Prelude.hashWithSalt` encryption
+    _salt
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` inputKey
       `Prelude.hashWithSalt` presetWatermarkId
 

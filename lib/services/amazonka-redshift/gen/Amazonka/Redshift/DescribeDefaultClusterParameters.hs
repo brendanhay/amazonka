@@ -158,25 +158,25 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeDefaultClusterParametersResponse_defaultClusterParameters
-              Prelude.. defaultClusterParameters_marker
-              Prelude.. Lens._Just
+            Prelude.. defaultClusterParameters_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDefaultClusterParametersResponse_defaultClusterParameters
-              Prelude.. defaultClusterParameters_parameters
-              Prelude.. Lens._Just
+            Prelude.. defaultClusterParameters_parameters
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDefaultClusterParameters_marker
           Lens..~ rs
           Lens.^? describeDefaultClusterParametersResponse_defaultClusterParameters
-            Prelude.. defaultClusterParameters_marker
-            Prelude.. Lens._Just
+          Prelude.. defaultClusterParameters_marker
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -203,7 +203,8 @@ instance
   hashWithSalt
     _salt
     DescribeDefaultClusterParameters' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` parameterGroupFamily
 

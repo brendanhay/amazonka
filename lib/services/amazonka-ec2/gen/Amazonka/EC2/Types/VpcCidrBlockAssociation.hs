@@ -83,7 +83,8 @@ instance Data.FromXML VpcCidrBlockAssociation where
 
 instance Prelude.Hashable VpcCidrBlockAssociation where
   hashWithSalt _salt VpcCidrBlockAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` cidrBlockState
 

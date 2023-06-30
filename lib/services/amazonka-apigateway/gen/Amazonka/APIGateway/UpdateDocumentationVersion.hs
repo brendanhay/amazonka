@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateDocumentationVersion where
 
 instance Prelude.Hashable UpdateDocumentationVersion where
   hashWithSalt _salt UpdateDocumentationVersion' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` documentationVersion
 

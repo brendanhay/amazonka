@@ -153,7 +153,8 @@ instance
   hashWithSalt
     _salt
     ReplicationConfigurationDescription' {..} =
-      _salt `Prelude.hashWithSalt` sourceFileSystemId
+      _salt
+        `Prelude.hashWithSalt` sourceFileSystemId
         `Prelude.hashWithSalt` sourceFileSystemRegion
         `Prelude.hashWithSalt` sourceFileSystemArn
         `Prelude.hashWithSalt` originalSourceFileSystemArn

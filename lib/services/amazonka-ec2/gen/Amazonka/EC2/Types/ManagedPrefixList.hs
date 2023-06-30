@@ -148,14 +148,17 @@ instance Data.FromXML ManagedPrefixList where
       Prelude.<*> (x Data..@? "prefixListName")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "stateMessage")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "version")
 
 instance Prelude.Hashable ManagedPrefixList where
   hashWithSalt _salt ManagedPrefixList' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` maxEntries
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` prefixListArn

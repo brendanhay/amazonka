@@ -205,7 +205,8 @@ instance Core.AWSRequest DeletePrincipalMapping where
 
 instance Prelude.Hashable DeletePrincipalMapping where
   hashWithSalt _salt DeletePrincipalMapping' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceId
+    _salt
+      `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` orderingId
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` groupId

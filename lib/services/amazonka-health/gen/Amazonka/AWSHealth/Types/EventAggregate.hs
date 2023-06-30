@@ -76,7 +76,8 @@ instance Data.FromJSON EventAggregate where
 
 instance Prelude.Hashable EventAggregate where
   hashWithSalt _salt EventAggregate' {..} =
-    _salt `Prelude.hashWithSalt` aggregateValue
+    _salt
+      `Prelude.hashWithSalt` aggregateValue
       `Prelude.hashWithSalt` count
 
 instance Prelude.NFData EventAggregate where

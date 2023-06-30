@@ -173,7 +173,8 @@ instance Core.AWSRequest UpdateGroup where
 
 instance Prelude.Hashable UpdateGroup where
   hashWithSalt _salt UpdateGroup' {..} =
-    _salt `Prelude.hashWithSalt` newGroupName'
+    _salt
+      `Prelude.hashWithSalt` newGroupName'
       `Prelude.hashWithSalt` newPath'
       `Prelude.hashWithSalt` groupName
 

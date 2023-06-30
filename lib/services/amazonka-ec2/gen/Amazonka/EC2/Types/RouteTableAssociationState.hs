@@ -74,7 +74,8 @@ instance Data.FromXML RouteTableAssociationState where
 
 instance Prelude.Hashable RouteTableAssociationState where
   hashWithSalt _salt RouteTableAssociationState' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData RouteTableAssociationState where

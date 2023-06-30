@@ -88,7 +88,8 @@ instance
     S3BucketAclGrantConfiguration
   where
   hashWithSalt _salt S3BucketAclGrantConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` permission
+    _salt
+      `Prelude.hashWithSalt` permission
       `Prelude.hashWithSalt` grantee
 
 instance Prelude.NFData S3BucketAclGrantConfiguration where

@@ -313,7 +313,8 @@ instance Core.AWSRequest CreateRouteCalculator where
 
 instance Prelude.Hashable CreateRouteCalculator where
   hashWithSalt _salt CreateRouteCalculator' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` calculatorName

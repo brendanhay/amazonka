@@ -118,27 +118,29 @@ instance Core.AWSPager ListInsights where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listInsightsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listInsightsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInsightsResponse_proactiveInsights
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInsightsResponse_reactiveInsights
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInsights_nextToken
           Lens..~ rs
-          Lens.^? listInsightsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listInsightsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInsights where
   type AWSResponse ListInsights = ListInsightsResponse
@@ -149,10 +151,12 @@ instance Core.AWSRequest ListInsights where
       ( \s h x ->
           ListInsightsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ProactiveInsights"
+            Prelude.<*> ( x
+                            Data..?> "ProactiveInsights"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ReactiveInsights"
+            Prelude.<*> ( x
+                            Data..?> "ReactiveInsights"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,7 +164,8 @@ instance Core.AWSRequest ListInsights where
 
 instance Prelude.Hashable ListInsights where
   hashWithSalt _salt ListInsights' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` statusFilter
 

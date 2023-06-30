@@ -223,7 +223,8 @@ instance Data.FromJSON EndpointSummary where
 
 instance Prelude.Hashable EndpointSummary where
   hashWithSalt _salt EndpointSummary' {..} =
-    _salt `Prelude.hashWithSalt` endpointName
+    _salt
+      `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` endpointArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime

@@ -145,20 +145,23 @@ instance Core.AWSPager ListJobRuns where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listJobRunsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listJobRunsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listJobRunsResponse_jobRuns Prelude.. Lens._Just
+            Lens.^? listJobRunsResponse_jobRuns
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listJobRuns_nextToken
           Lens..~ rs
-          Lens.^? listJobRunsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listJobRunsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobRuns where
   type AWSResponse ListJobRuns = ListJobRunsResponse
@@ -175,7 +178,8 @@ instance Core.AWSRequest ListJobRuns where
 
 instance Prelude.Hashable ListJobRuns where
   hashWithSalt _salt ListJobRuns' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name

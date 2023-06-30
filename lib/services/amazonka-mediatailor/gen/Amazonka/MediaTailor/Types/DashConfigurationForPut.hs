@@ -99,7 +99,8 @@ dashConfigurationForPut_originManifestType = Lens.lens (\DashConfigurationForPut
 
 instance Prelude.Hashable DashConfigurationForPut where
   hashWithSalt _salt DashConfigurationForPut' {..} =
-    _salt `Prelude.hashWithSalt` mpdLocation
+    _salt
+      `Prelude.hashWithSalt` mpdLocation
       `Prelude.hashWithSalt` originManifestType
 
 instance Prelude.NFData DashConfigurationForPut where

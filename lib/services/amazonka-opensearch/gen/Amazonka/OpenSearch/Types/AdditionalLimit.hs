@@ -95,7 +95,8 @@ instance Data.FromJSON AdditionalLimit where
 
 instance Prelude.Hashable AdditionalLimit where
   hashWithSalt _salt AdditionalLimit' {..} =
-    _salt `Prelude.hashWithSalt` limitName
+    _salt
+      `Prelude.hashWithSalt` limitName
       `Prelude.hashWithSalt` limitValues
 
 instance Prelude.NFData AdditionalLimit where

@@ -132,7 +132,8 @@ gnss_payload = Lens.lens (\Gnss' {payload} -> payload) (\s@Gnss' {} a -> s {payl
 
 instance Prelude.Hashable Gnss where
   hashWithSalt _salt Gnss' {..} =
-    _salt `Prelude.hashWithSalt` assistAltitude
+    _salt
+      `Prelude.hashWithSalt` assistAltitude
       `Prelude.hashWithSalt` assistPosition
       `Prelude.hashWithSalt` captureTime
       `Prelude.hashWithSalt` captureTimeAccuracy

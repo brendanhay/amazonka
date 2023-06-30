@@ -113,7 +113,8 @@ instance Core.AWSRequest GetPipeline where
 
 instance Prelude.Hashable GetPipeline where
   hashWithSalt _salt GetPipeline' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetPipeline where

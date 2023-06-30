@@ -432,7 +432,8 @@ instance
     SendMessageBatchRequestEntry
   where
   hashWithSalt _salt SendMessageBatchRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` delaySeconds
+    _salt
+      `Prelude.hashWithSalt` delaySeconds
       `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` messageDeduplicationId
       `Prelude.hashWithSalt` messageGroupId

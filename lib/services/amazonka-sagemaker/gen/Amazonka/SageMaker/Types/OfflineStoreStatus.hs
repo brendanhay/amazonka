@@ -81,7 +81,8 @@ instance Data.FromJSON OfflineStoreStatus where
 
 instance Prelude.Hashable OfflineStoreStatus where
   hashWithSalt _salt OfflineStoreStatus' {..} =
-    _salt `Prelude.hashWithSalt` blockedReason
+    _salt
+      `Prelude.hashWithSalt` blockedReason
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData OfflineStoreStatus where

@@ -119,7 +119,8 @@ instance Data.FromJSON ElastiCacheInstanceDetails where
 
 instance Prelude.Hashable ElastiCacheInstanceDetails where
   hashWithSalt _salt ElastiCacheInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` currentGeneration
+    _salt
+      `Prelude.hashWithSalt` currentGeneration
       `Prelude.hashWithSalt` family
       `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` productDescription

@@ -353,7 +353,8 @@ instance Core.AWSRequest PutSession where
 
 instance Prelude.Hashable PutSession where
   hashWithSalt _salt PutSession' {..} =
-    _salt `Prelude.hashWithSalt` accept
+    _salt
+      `Prelude.hashWithSalt` accept
       `Prelude.hashWithSalt` activeContexts
       `Prelude.hashWithSalt` dialogAction
       `Prelude.hashWithSalt` recentIntentSummaryView

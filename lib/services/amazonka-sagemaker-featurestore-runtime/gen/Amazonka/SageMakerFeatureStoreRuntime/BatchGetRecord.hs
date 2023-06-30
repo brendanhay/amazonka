@@ -98,7 +98,8 @@ instance Core.AWSRequest BatchGetRecord where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Records" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "UnprocessedIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedIdentifiers"
                             Core..!@ Prelude.mempty
                         )
       )

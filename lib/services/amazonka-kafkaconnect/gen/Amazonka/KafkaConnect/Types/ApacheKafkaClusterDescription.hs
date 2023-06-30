@@ -83,7 +83,8 @@ instance
     ApacheKafkaClusterDescription
   where
   hashWithSalt _salt ApacheKafkaClusterDescription' {..} =
-    _salt `Prelude.hashWithSalt` bootstrapServers
+    _salt
+      `Prelude.hashWithSalt` bootstrapServers
       `Prelude.hashWithSalt` vpc
 
 instance Prelude.NFData ApacheKafkaClusterDescription where

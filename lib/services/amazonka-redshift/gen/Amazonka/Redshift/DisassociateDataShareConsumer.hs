@@ -145,7 +145,8 @@ instance
     DisassociateDataShareConsumer
   where
   hashWithSalt _salt DisassociateDataShareConsumer' {..} =
-    _salt `Prelude.hashWithSalt` consumerArn
+    _salt
+      `Prelude.hashWithSalt` consumerArn
       `Prelude.hashWithSalt` consumerRegion
       `Prelude.hashWithSalt` disassociateEntireAccount
       `Prelude.hashWithSalt` dataShareArn

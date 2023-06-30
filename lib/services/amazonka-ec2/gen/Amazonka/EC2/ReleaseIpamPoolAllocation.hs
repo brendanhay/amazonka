@@ -148,7 +148,8 @@ instance Core.AWSRequest ReleaseIpamPoolAllocation where
 
 instance Prelude.Hashable ReleaseIpamPoolAllocation where
   hashWithSalt _salt ReleaseIpamPoolAllocation' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamPoolId
       `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` ipamPoolAllocationId

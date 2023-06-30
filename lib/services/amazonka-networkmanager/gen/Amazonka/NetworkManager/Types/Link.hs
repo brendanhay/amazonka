@@ -167,7 +167,8 @@ instance Data.FromJSON Link where
 
 instance Prelude.Hashable Link where
   hashWithSalt _salt Link' {..} =
-    _salt `Prelude.hashWithSalt` bandwidth
+    _salt
+      `Prelude.hashWithSalt` bandwidth
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` globalNetworkId

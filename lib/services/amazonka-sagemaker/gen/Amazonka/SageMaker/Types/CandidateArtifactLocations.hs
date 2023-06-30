@@ -83,7 +83,8 @@ instance Data.FromJSON CandidateArtifactLocations where
 
 instance Prelude.Hashable CandidateArtifactLocations where
   hashWithSalt _salt CandidateArtifactLocations' {..} =
-    _salt `Prelude.hashWithSalt` modelInsights
+    _salt
+      `Prelude.hashWithSalt` modelInsights
       `Prelude.hashWithSalt` explainability
 
 instance Prelude.NFData CandidateArtifactLocations where

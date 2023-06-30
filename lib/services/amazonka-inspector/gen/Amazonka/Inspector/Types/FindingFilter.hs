@@ -164,7 +164,8 @@ findingFilter_userAttributes = Lens.lens (\FindingFilter' {userAttributes} -> us
 
 instance Prelude.Hashable FindingFilter where
   hashWithSalt _salt FindingFilter' {..} =
-    _salt `Prelude.hashWithSalt` agentIds
+    _salt
+      `Prelude.hashWithSalt` agentIds
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` autoScalingGroups
       `Prelude.hashWithSalt` creationTimeRange

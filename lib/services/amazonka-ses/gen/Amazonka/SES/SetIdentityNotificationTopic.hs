@@ -169,7 +169,8 @@ instance
     SetIdentityNotificationTopic
   where
   hashWithSalt _salt SetIdentityNotificationTopic' {..} =
-    _salt `Prelude.hashWithSalt` snsTopic
+    _salt
+      `Prelude.hashWithSalt` snsTopic
       `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` notificationType
 

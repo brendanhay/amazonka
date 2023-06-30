@@ -206,7 +206,8 @@ instance Core.AWSRequest GetCelebrityRecognition where
 
 instance Prelude.Hashable GetCelebrityRecognition where
   hashWithSalt _salt GetCelebrityRecognition' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` jobId

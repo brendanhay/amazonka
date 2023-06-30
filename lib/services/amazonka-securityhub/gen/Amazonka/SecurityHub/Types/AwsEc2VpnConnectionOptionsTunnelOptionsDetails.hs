@@ -253,33 +253,39 @@ instance
       ( \x ->
           AwsEc2VpnConnectionOptionsTunnelOptionsDetails'
             Prelude.<$> (x Data..:? "DpdTimeoutSeconds")
-              Prelude.<*> (x Data..:? "IkeVersions" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "OutsideIpAddress")
-              Prelude.<*> ( x Data..:? "Phase1DhGroupNumbers"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "Phase1EncryptionAlgorithms"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "Phase1IntegrityAlgorithms"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "Phase1LifetimeSeconds")
-              Prelude.<*> ( x Data..:? "Phase2DhGroupNumbers"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "Phase2EncryptionAlgorithms"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "Phase2IntegrityAlgorithms"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "Phase2LifetimeSeconds")
-              Prelude.<*> (x Data..:? "PreSharedKey")
-              Prelude.<*> (x Data..:? "RekeyFuzzPercentage")
-              Prelude.<*> (x Data..:? "RekeyMarginTimeSeconds")
-              Prelude.<*> (x Data..:? "ReplayWindowSize")
-              Prelude.<*> (x Data..:? "TunnelInsideCidr")
+            Prelude.<*> (x Data..:? "IkeVersions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OutsideIpAddress")
+            Prelude.<*> ( x
+                            Data..:? "Phase1DhGroupNumbers"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "Phase1EncryptionAlgorithms"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "Phase1IntegrityAlgorithms"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Phase1LifetimeSeconds")
+            Prelude.<*> ( x
+                            Data..:? "Phase2DhGroupNumbers"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "Phase2EncryptionAlgorithms"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "Phase2IntegrityAlgorithms"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Phase2LifetimeSeconds")
+            Prelude.<*> (x Data..:? "PreSharedKey")
+            Prelude.<*> (x Data..:? "RekeyFuzzPercentage")
+            Prelude.<*> (x Data..:? "RekeyMarginTimeSeconds")
+            Prelude.<*> (x Data..:? "ReplayWindowSize")
+            Prelude.<*> (x Data..:? "TunnelInsideCidr")
       )
 
 instance
@@ -289,7 +295,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` dpdTimeoutSeconds
+      _salt
+        `Prelude.hashWithSalt` dpdTimeoutSeconds
         `Prelude.hashWithSalt` ikeVersions
         `Prelude.hashWithSalt` outsideIpAddress
         `Prelude.hashWithSalt` phase1DhGroupNumbers

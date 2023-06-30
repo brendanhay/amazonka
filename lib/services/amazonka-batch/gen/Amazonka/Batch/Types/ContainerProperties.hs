@@ -77,10 +77,11 @@ data ContainerProperties = ContainerProperties'
     -- | The image used to start a container. This string is passed directly to
     -- the Docker daemon. Images in the Docker Hub registry are available by
     -- default. Other repositories are specified with
-    -- @ repository-url\/image:tag @. It can be 255 characters long. It can
-    -- contain uppercase and lowercase letters, numbers, hyphens (-),
-    -- underscores (_), colons (:), periods (.), forward slashes (\/), and
-    -- number signs (#). This parameter maps to @Image@ in the
+    -- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @. It can be 255
+    -- characters long. It can contain uppercase and lowercase letters,
+    -- numbers, hyphens (-), underscores (_), colons (:), periods (.), forward
+    -- slashes (\/), and number signs (#). This parameter maps to @Image@ in
+    -- the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -94,7 +95,7 @@ data ContainerProperties = ContainerProperties'
     -- -   Images in Amazon ECR Public repositories use the full
     --     @registry\/repository[:tag]@ or @registry\/repository[\@digest]@
     --     naming conventions. For example,
-    --     @public.ecr.aws\/registry_alias\/my-web-app:latest @.
+    --     @public.ecr.aws\/@/@registry_alias@/@\/@/@my-web-app@/@:@/@latest@/@ @.
     --
     -- -   Images in Amazon ECR repositories use the full registry and
     --     repository URI (for example,
@@ -289,10 +290,11 @@ data ContainerProperties = ContainerProperties'
 -- 'image', 'containerProperties_image' - The image used to start a container. This string is passed directly to
 -- the Docker daemon. Images in the Docker Hub registry are available by
 -- default. Other repositories are specified with
--- @ repository-url\/image:tag @. It can be 255 characters long. It can
--- contain uppercase and lowercase letters, numbers, hyphens (-),
--- underscores (_), colons (:), periods (.), forward slashes (\/), and
--- number signs (#). This parameter maps to @Image@ in the
+-- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @. It can be 255
+-- characters long. It can contain uppercase and lowercase letters,
+-- numbers, hyphens (-), underscores (_), colons (:), periods (.), forward
+-- slashes (\/), and number signs (#). This parameter maps to @Image@ in
+-- the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -306,7 +308,7 @@ data ContainerProperties = ContainerProperties'
 -- -   Images in Amazon ECR Public repositories use the full
 --     @registry\/repository[:tag]@ or @registry\/repository[\@digest]@
 --     naming conventions. For example,
---     @public.ecr.aws\/registry_alias\/my-web-app:latest @.
+--     @public.ecr.aws\/@/@registry_alias@/@\/@/@my-web-app@/@:@/@latest@/@ @.
 --
 -- -   Images in Amazon ECR repositories use the full registry and
 --     repository URI (for example,
@@ -523,10 +525,11 @@ containerProperties_fargatePlatformConfiguration = Lens.lens (\ContainerProperti
 -- | The image used to start a container. This string is passed directly to
 -- the Docker daemon. Images in the Docker Hub registry are available by
 -- default. Other repositories are specified with
--- @ repository-url\/image:tag @. It can be 255 characters long. It can
--- contain uppercase and lowercase letters, numbers, hyphens (-),
--- underscores (_), colons (:), periods (.), forward slashes (\/), and
--- number signs (#). This parameter maps to @Image@ in the
+-- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @. It can be 255
+-- characters long. It can contain uppercase and lowercase letters,
+-- numbers, hyphens (-), underscores (_), colons (:), periods (.), forward
+-- slashes (\/), and number signs (#). This parameter maps to @Image@ in
+-- the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -540,7 +543,7 @@ containerProperties_fargatePlatformConfiguration = Lens.lens (\ContainerProperti
 -- -   Images in Amazon ECR Public repositories use the full
 --     @registry\/repository[:tag]@ or @registry\/repository[\@digest]@
 --     naming conventions. For example,
---     @public.ecr.aws\/registry_alias\/my-web-app:latest @.
+--     @public.ecr.aws\/@/@registry_alias@/@\/@/@my-web-app@/@:@/@latest@/@ @.
 --
 -- -   Images in Amazon ECR repositories use the full registry and
 --     repository URI (for example,
@@ -739,7 +742,8 @@ instance Data.FromJSON ContainerProperties where
             Prelude.<*> (x Data..:? "networkConfiguration")
             Prelude.<*> (x Data..:? "privileged")
             Prelude.<*> (x Data..:? "readonlyRootFilesystem")
-            Prelude.<*> ( x Data..:? "resourceRequirements"
+            Prelude.<*> ( x
+                            Data..:? "resourceRequirements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "secrets" Data..!= Prelude.mempty)
@@ -751,7 +755,8 @@ instance Data.FromJSON ContainerProperties where
 
 instance Prelude.Hashable ContainerProperties where
   hashWithSalt _salt ContainerProperties' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` fargatePlatformConfiguration

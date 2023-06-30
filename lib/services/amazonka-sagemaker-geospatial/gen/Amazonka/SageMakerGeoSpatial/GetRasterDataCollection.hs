@@ -96,11 +96,13 @@ instance Core.AWSRequest GetRasterDataCollection where
             Prelude.<*> (x Data..:> "Arn")
             Prelude.<*> (x Data..:> "Description")
             Prelude.<*> (x Data..:> "DescriptionPageUrl")
-            Prelude.<*> ( x Data..?> "ImageSourceBands"
+            Prelude.<*> ( x
+                            Data..?> "ImageSourceBands"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "Name")
-            Prelude.<*> ( x Data..?> "SupportedFilters"
+            Prelude.<*> ( x
+                            Data..?> "SupportedFilters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "Type")
@@ -233,7 +235,6 @@ getRasterDataCollectionResponse_description = Lens.lens (\GetRasterDataCollectio
 getRasterDataCollectionResponse_descriptionPageUrl :: Lens.Lens' GetRasterDataCollectionResponse Prelude.Text
 getRasterDataCollectionResponse_descriptionPageUrl = Lens.lens (\GetRasterDataCollectionResponse' {descriptionPageUrl} -> descriptionPageUrl) (\s@GetRasterDataCollectionResponse' {} a -> s {descriptionPageUrl = a} :: GetRasterDataCollectionResponse)
 
--- |
 getRasterDataCollectionResponse_imageSourceBands :: Lens.Lens' GetRasterDataCollectionResponse [Prelude.Text]
 getRasterDataCollectionResponse_imageSourceBands = Lens.lens (\GetRasterDataCollectionResponse' {imageSourceBands} -> imageSourceBands) (\s@GetRasterDataCollectionResponse' {} a -> s {imageSourceBands = a} :: GetRasterDataCollectionResponse) Prelude.. Lens.coerced
 

@@ -133,7 +133,8 @@ instance Core.AWSRequest GetDomainStatisticsReport where
 
 instance Prelude.Hashable GetDomainStatisticsReport where
   hashWithSalt _salt GetDomainStatisticsReport' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` endDate
 

@@ -103,7 +103,6 @@ searchRasterDataCollection_nextToken = Lens.lens (\SearchRasterDataCollection' {
 searchRasterDataCollection_arn :: Lens.Lens' SearchRasterDataCollection Prelude.Text
 searchRasterDataCollection_arn = Lens.lens (\SearchRasterDataCollection' {arn} -> arn) (\s@SearchRasterDataCollection' {} a -> s {arn = a} :: SearchRasterDataCollection)
 
--- |
 searchRasterDataCollection_rasterDataCollectionQuery :: Lens.Lens' SearchRasterDataCollection RasterDataCollectionQueryWithBandFilterInput
 searchRasterDataCollection_rasterDataCollectionQuery = Lens.lens (\SearchRasterDataCollection' {rasterDataCollectionQuery} -> rasterDataCollectionQuery) (\s@SearchRasterDataCollection' {} a -> s {rasterDataCollectionQuery = a} :: SearchRasterDataCollection)
 
@@ -125,7 +124,8 @@ instance Core.AWSRequest SearchRasterDataCollection where
 
 instance Prelude.Hashable SearchRasterDataCollection where
   hashWithSalt _salt SearchRasterDataCollection' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` rasterDataCollectionQuery
 
@@ -212,7 +212,6 @@ newSearchRasterDataCollectionResponse
           pApproximateResultCount_
       }
 
--- |
 searchRasterDataCollectionResponse_items :: Lens.Lens' SearchRasterDataCollectionResponse (Prelude.Maybe [ItemSource])
 searchRasterDataCollectionResponse_items = Lens.lens (\SearchRasterDataCollectionResponse' {items} -> items) (\s@SearchRasterDataCollectionResponse' {} a -> s {items = a} :: SearchRasterDataCollectionResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -225,7 +224,6 @@ searchRasterDataCollectionResponse_nextToken = Lens.lens (\SearchRasterDataColle
 searchRasterDataCollectionResponse_httpStatus :: Lens.Lens' SearchRasterDataCollectionResponse Prelude.Int
 searchRasterDataCollectionResponse_httpStatus = Lens.lens (\SearchRasterDataCollectionResponse' {httpStatus} -> httpStatus) (\s@SearchRasterDataCollectionResponse' {} a -> s {httpStatus = a} :: SearchRasterDataCollectionResponse)
 
--- |
 searchRasterDataCollectionResponse_approximateResultCount :: Lens.Lens' SearchRasterDataCollectionResponse Prelude.Int
 searchRasterDataCollectionResponse_approximateResultCount = Lens.lens (\SearchRasterDataCollectionResponse' {approximateResultCount} -> approximateResultCount) (\s@SearchRasterDataCollectionResponse' {} a -> s {approximateResultCount = a} :: SearchRasterDataCollectionResponse)
 

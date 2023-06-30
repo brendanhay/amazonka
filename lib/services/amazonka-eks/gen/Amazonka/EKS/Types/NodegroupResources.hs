@@ -74,7 +74,8 @@ instance Data.FromJSON NodegroupResources where
       "NodegroupResources"
       ( \x ->
           NodegroupResources'
-            Prelude.<$> ( x Data..:? "autoScalingGroups"
+            Prelude.<$> ( x
+                            Data..:? "autoScalingGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "remoteAccessSecurityGroup")
@@ -82,7 +83,8 @@ instance Data.FromJSON NodegroupResources where
 
 instance Prelude.Hashable NodegroupResources where
   hashWithSalt _salt NodegroupResources' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroups
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroups
       `Prelude.hashWithSalt` remoteAccessSecurityGroup
 
 instance Prelude.NFData NodegroupResources where

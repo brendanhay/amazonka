@@ -75,12 +75,14 @@ instance Data.FromJSON PermissionEntry where
       "PermissionEntry"
       ( \x ->
           PermissionEntry'
-            Prelude.<$> (x Data..: "role") Prelude.<*> (x Data..: "user")
+            Prelude.<$> (x Data..: "role")
+            Prelude.<*> (x Data..: "user")
       )
 
 instance Prelude.Hashable PermissionEntry where
   hashWithSalt _salt PermissionEntry' {..} =
-    _salt `Prelude.hashWithSalt` role'
+    _salt
+      `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` user
 
 instance Prelude.NFData PermissionEntry where

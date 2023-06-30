@@ -85,7 +85,8 @@ instance Data.FromJSON LDAPSSettingInfo where
 
 instance Prelude.Hashable LDAPSSettingInfo where
   hashWithSalt _salt LDAPSSettingInfo' {..} =
-    _salt `Prelude.hashWithSalt` lDAPSStatus
+    _salt
+      `Prelude.hashWithSalt` lDAPSStatus
       `Prelude.hashWithSalt` lDAPSStatusReason
       `Prelude.hashWithSalt` lastUpdatedDateTime
 

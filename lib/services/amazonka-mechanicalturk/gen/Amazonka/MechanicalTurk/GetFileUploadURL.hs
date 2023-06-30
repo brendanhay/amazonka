@@ -122,7 +122,8 @@ instance Core.AWSRequest GetFileUploadURL where
 
 instance Prelude.Hashable GetFileUploadURL where
   hashWithSalt _salt GetFileUploadURL' {..} =
-    _salt `Prelude.hashWithSalt` assignmentId
+    _salt
+      `Prelude.hashWithSalt` assignmentId
       `Prelude.hashWithSalt` questionIdentifier
 
 instance Prelude.NFData GetFileUploadURL where

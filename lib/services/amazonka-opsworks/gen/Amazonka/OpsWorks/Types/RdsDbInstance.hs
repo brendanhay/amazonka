@@ -156,7 +156,8 @@ instance Data.FromJSON RdsDbInstance where
 
 instance Prelude.Hashable RdsDbInstance where
   hashWithSalt _salt RdsDbInstance' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` dbPassword
       `Prelude.hashWithSalt` dbUser

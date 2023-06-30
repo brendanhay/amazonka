@@ -145,7 +145,8 @@ instance Data.FromJSON TrainingJobSummary where
 
 instance Prelude.Hashable TrainingJobSummary where
   hashWithSalt _salt TrainingJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
+    _salt
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` trainingEndTime
       `Prelude.hashWithSalt` warmPoolStatus
       `Prelude.hashWithSalt` trainingJobName

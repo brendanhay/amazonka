@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteMailboxPermissions where
 
 instance Prelude.Hashable DeleteMailboxPermissions where
   hashWithSalt _salt DeleteMailboxPermissions' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` granteeId
 

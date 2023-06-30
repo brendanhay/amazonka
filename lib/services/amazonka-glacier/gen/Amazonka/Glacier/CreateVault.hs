@@ -144,7 +144,8 @@ instance Core.AWSRequest CreateVault where
 
 instance Prelude.Hashable CreateVault where
   hashWithSalt _salt CreateVault' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData CreateVault where

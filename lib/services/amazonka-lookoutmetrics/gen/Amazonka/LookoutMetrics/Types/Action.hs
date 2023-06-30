@@ -77,7 +77,8 @@ instance Data.FromJSON Action where
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` lambdaConfiguration
+    _salt
+      `Prelude.hashWithSalt` lambdaConfiguration
       `Prelude.hashWithSalt` sNSConfiguration
 
 instance Prelude.NFData Action where

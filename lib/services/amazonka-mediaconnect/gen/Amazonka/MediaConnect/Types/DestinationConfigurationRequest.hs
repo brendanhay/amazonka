@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     DestinationConfigurationRequest' {..} =
-      _salt `Prelude.hashWithSalt` destinationIp
+      _salt
+        `Prelude.hashWithSalt` destinationIp
         `Prelude.hashWithSalt` destinationPort
         `Prelude.hashWithSalt` interface
 

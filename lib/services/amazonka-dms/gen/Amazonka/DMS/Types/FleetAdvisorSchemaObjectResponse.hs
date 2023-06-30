@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     FleetAdvisorSchemaObjectResponse' {..} =
-      _salt `Prelude.hashWithSalt` codeLineCount
+      _salt
+        `Prelude.hashWithSalt` codeLineCount
         `Prelude.hashWithSalt` codeSize
         `Prelude.hashWithSalt` numberOfObjects
         `Prelude.hashWithSalt` objectType

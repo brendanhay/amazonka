@@ -78,7 +78,8 @@ instance Data.FromJSON DatastorePartition where
 
 instance Prelude.Hashable DatastorePartition where
   hashWithSalt _salt DatastorePartition' {..} =
-    _salt `Prelude.hashWithSalt` attributePartition
+    _salt
+      `Prelude.hashWithSalt` attributePartition
       `Prelude.hashWithSalt` timestampPartition
 
 instance Prelude.NFData DatastorePartition where

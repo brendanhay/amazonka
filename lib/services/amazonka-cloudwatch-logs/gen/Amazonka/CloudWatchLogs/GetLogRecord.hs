@@ -126,7 +126,8 @@ instance Core.AWSRequest GetLogRecord where
 
 instance Prelude.Hashable GetLogRecord where
   hashWithSalt _salt GetLogRecord' {..} =
-    _salt `Prelude.hashWithSalt` unmask
+    _salt
+      `Prelude.hashWithSalt` unmask
       `Prelude.hashWithSalt` logRecordPointer
 
 instance Prelude.NFData GetLogRecord where

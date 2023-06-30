@@ -136,7 +136,8 @@ propertyDefinitionRequest_isTimeSeries = Lens.lens (\PropertyDefinitionRequest' 
 
 instance Prelude.Hashable PropertyDefinitionRequest where
   hashWithSalt _salt PropertyDefinitionRequest' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` displayName

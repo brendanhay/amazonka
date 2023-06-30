@@ -95,8 +95,8 @@ instance
       ( \x ->
           FinalHyperParameterTuningJobObjectiveMetric'
             Prelude.<$> (x Data..:? "Type")
-              Prelude.<*> (x Data..: "MetricName")
-              Prelude.<*> (x Data..: "Value")
+            Prelude.<*> (x Data..: "MetricName")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance
@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     FinalHyperParameterTuningJobObjectiveMetric' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt
+        `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` metricName
         `Prelude.hashWithSalt` value
 

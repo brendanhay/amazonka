@@ -85,7 +85,8 @@ instance Data.FromJSON SmartHomeAppliance where
 
 instance Prelude.Hashable SmartHomeAppliance where
   hashWithSalt _salt SmartHomeAppliance' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` friendlyName
       `Prelude.hashWithSalt` manufacturerName
 

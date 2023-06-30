@@ -156,7 +156,8 @@ instance Core.AWSRequest AddProfilePermission where
 
 instance Prelude.Hashable AddProfilePermission where
   hashWithSalt _salt AddProfilePermission' {..} =
-    _salt `Prelude.hashWithSalt` profileVersion
+    _salt
+      `Prelude.hashWithSalt` profileVersion
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` principal

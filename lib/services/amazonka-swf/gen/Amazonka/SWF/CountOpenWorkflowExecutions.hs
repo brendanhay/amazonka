@@ -203,7 +203,8 @@ instance Core.AWSRequest CountOpenWorkflowExecutions where
 
 instance Prelude.Hashable CountOpenWorkflowExecutions where
   hashWithSalt _salt CountOpenWorkflowExecutions' {..} =
-    _salt `Prelude.hashWithSalt` executionFilter
+    _salt
+      `Prelude.hashWithSalt` executionFilter
       `Prelude.hashWithSalt` tagFilter
       `Prelude.hashWithSalt` typeFilter
       `Prelude.hashWithSalt` domain

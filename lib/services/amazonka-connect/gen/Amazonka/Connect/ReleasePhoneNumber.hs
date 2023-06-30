@@ -112,7 +112,8 @@ instance Core.AWSRequest ReleasePhoneNumber where
 
 instance Prelude.Hashable ReleasePhoneNumber where
   hashWithSalt _salt ReleasePhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` phoneNumberId
 
 instance Prelude.NFData ReleasePhoneNumber where

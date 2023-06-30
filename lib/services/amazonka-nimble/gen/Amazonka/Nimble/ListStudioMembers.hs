@@ -109,22 +109,22 @@ instance Core.AWSPager ListStudioMembers where
     | Core.stop
         ( rs
             Lens.^? listStudioMembersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStudioMembersResponse_members
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStudioMembers_nextToken
           Lens..~ rs
           Lens.^? listStudioMembersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudioMembers where
   type
@@ -143,7 +143,8 @@ instance Core.AWSRequest ListStudioMembers where
 
 instance Prelude.Hashable ListStudioMembers where
   hashWithSalt _salt ListStudioMembers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` studioId
 

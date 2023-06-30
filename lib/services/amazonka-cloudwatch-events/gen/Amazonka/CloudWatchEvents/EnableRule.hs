@@ -98,7 +98,8 @@ instance Core.AWSRequest EnableRule where
 
 instance Prelude.Hashable EnableRule where
   hashWithSalt _salt EnableRule' {..} =
-    _salt `Prelude.hashWithSalt` eventBusName
+    _salt
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData EnableRule where

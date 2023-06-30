@@ -101,7 +101,8 @@ instance Data.FromJSON Job where
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` nonce

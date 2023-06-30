@@ -137,7 +137,8 @@ instance Core.AWSRequest DeleteDistribution where
 
 instance Prelude.Hashable DeleteDistribution where
   hashWithSalt _salt DeleteDistribution' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteDistribution where

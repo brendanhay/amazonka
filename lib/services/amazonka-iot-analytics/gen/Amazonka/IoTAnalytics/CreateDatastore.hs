@@ -174,7 +174,8 @@ instance Core.AWSRequest CreateDatastore where
 
 instance Prelude.Hashable CreateDatastore where
   hashWithSalt _salt CreateDatastore' {..} =
-    _salt `Prelude.hashWithSalt` datastorePartitions
+    _salt
+      `Prelude.hashWithSalt` datastorePartitions
       `Prelude.hashWithSalt` datastoreStorage
       `Prelude.hashWithSalt` fileFormatConfiguration
       `Prelude.hashWithSalt` retentionPeriod

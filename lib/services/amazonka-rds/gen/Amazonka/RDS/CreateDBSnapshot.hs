@@ -170,7 +170,8 @@ instance Core.AWSRequest CreateDBSnapshot where
 
 instance Prelude.Hashable CreateDBSnapshot where
   hashWithSalt _salt CreateDBSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dbSnapshotIdentifier
       `Prelude.hashWithSalt` dbInstanceIdentifier
 

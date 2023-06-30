@@ -101,7 +101,8 @@ writeSegmentRequest_tags = Lens.lens (\WriteSegmentRequest' {tags} -> tags) (\s@
 
 instance Prelude.Hashable WriteSegmentRequest where
   hashWithSalt _salt WriteSegmentRequest' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` segmentGroups
       `Prelude.hashWithSalt` tags

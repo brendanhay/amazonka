@@ -157,7 +157,8 @@ instance
   hashWithSalt
     _salt
     CreateRelationalDatabaseSnapshot' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` relationalDatabaseName
         `Prelude.hashWithSalt` relationalDatabaseSnapshotName
 

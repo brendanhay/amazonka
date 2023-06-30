@@ -241,7 +241,8 @@ instance Core.AWSRequest CreateLag where
 
 instance Prelude.Hashable CreateLag where
   hashWithSalt _salt CreateLag' {..} =
-    _salt `Prelude.hashWithSalt` childConnectionTags
+    _salt
+      `Prelude.hashWithSalt` childConnectionTags
       `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` providerName
       `Prelude.hashWithSalt` requestMACSec

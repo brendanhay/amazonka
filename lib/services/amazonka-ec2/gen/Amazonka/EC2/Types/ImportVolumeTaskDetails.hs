@@ -104,7 +104,8 @@ instance Data.FromXML ImportVolumeTaskDetails where
 
 instance Prelude.Hashable ImportVolumeTaskDetails where
   hashWithSalt _salt ImportVolumeTaskDetails' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` bytesConverted
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` image

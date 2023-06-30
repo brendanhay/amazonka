@@ -258,9 +258,9 @@ instance
       ( \s h x ->
           UpdateManagedRuleSetVersionExpiryDateResponse'
             Prelude.<$> (x Data..?> "ExpiringVersion")
-              Prelude.<*> (x Data..?> "ExpiryTimestamp")
-              Prelude.<*> (x Data..?> "NextLockToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ExpiryTimestamp")
+            Prelude.<*> (x Data..?> "NextLockToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -270,7 +270,8 @@ instance
   hashWithSalt
     _salt
     UpdateManagedRuleSetVersionExpiryDate' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` scope
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` lockToken

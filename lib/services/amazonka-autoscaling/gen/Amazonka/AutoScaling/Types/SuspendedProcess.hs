@@ -74,7 +74,8 @@ instance Data.FromXML SuspendedProcess where
 
 instance Prelude.Hashable SuspendedProcess where
   hashWithSalt _salt SuspendedProcess' {..} =
-    _salt `Prelude.hashWithSalt` processName
+    _salt
+      `Prelude.hashWithSalt` processName
       `Prelude.hashWithSalt` suspensionReason
 
 instance Prelude.NFData SuspendedProcess where

@@ -152,7 +152,8 @@ instance Core.AWSRequest CreateFuotaTask where
 
 instance Prelude.Hashable CreateFuotaTask where
   hashWithSalt _salt CreateFuotaTask' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` name

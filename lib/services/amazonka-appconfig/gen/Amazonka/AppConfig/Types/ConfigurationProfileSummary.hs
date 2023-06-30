@@ -135,14 +135,16 @@ instance Data.FromJSON ConfigurationProfileSummary where
             Prelude.<*> (x Data..:? "LocationUri")
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> ( x Data..:? "ValidatorTypes"
+            Prelude.<*> ( x
+                            Data..:? "ValidatorTypes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ConfigurationProfileSummary where
   hashWithSalt _salt ConfigurationProfileSummary' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` locationUri
       `Prelude.hashWithSalt` name

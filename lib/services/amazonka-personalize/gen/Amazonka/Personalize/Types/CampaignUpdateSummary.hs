@@ -152,7 +152,8 @@ instance Data.FromJSON CampaignUpdateSummary where
 
 instance Prelude.Hashable CampaignUpdateSummary where
   hashWithSalt _salt CampaignUpdateSummary' {..} =
-    _salt `Prelude.hashWithSalt` campaignConfig
+    _salt
+      `Prelude.hashWithSalt` campaignConfig
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastUpdatedDateTime

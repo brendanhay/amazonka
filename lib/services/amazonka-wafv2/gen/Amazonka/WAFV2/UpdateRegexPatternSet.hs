@@ -204,7 +204,6 @@ updateRegexPatternSet_scope = Lens.lens (\UpdateRegexPatternSet' {scope} -> scop
 updateRegexPatternSet_id :: Lens.Lens' UpdateRegexPatternSet Prelude.Text
 updateRegexPatternSet_id = Lens.lens (\UpdateRegexPatternSet' {id} -> id) (\s@UpdateRegexPatternSet' {} a -> s {id = a} :: UpdateRegexPatternSet)
 
--- |
 updateRegexPatternSet_regularExpressionList :: Lens.Lens' UpdateRegexPatternSet [Regex]
 updateRegexPatternSet_regularExpressionList = Lens.lens (\UpdateRegexPatternSet' {regularExpressionList} -> regularExpressionList) (\s@UpdateRegexPatternSet' {} a -> s {regularExpressionList = a} :: UpdateRegexPatternSet) Prelude.. Lens.coerced
 
@@ -235,7 +234,8 @@ instance Core.AWSRequest UpdateRegexPatternSet where
 
 instance Prelude.Hashable UpdateRegexPatternSet where
   hashWithSalt _salt UpdateRegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id

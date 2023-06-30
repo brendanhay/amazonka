@@ -89,7 +89,9 @@ instance Core.AWSRequest BuildSuggesters where
       "BuildSuggestersResult"
       ( \s h x ->
           BuildSuggestersResponse'
-            Prelude.<$> ( x Data..@? "FieldNames" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "FieldNames"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

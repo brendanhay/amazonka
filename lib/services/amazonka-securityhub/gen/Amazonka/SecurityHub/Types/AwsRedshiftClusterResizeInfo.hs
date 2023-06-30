@@ -84,7 +84,8 @@ instance
     AwsRedshiftClusterResizeInfo
   where
   hashWithSalt _salt AwsRedshiftClusterResizeInfo' {..} =
-    _salt `Prelude.hashWithSalt` allowCancelResize
+    _salt
+      `Prelude.hashWithSalt` allowCancelResize
       `Prelude.hashWithSalt` resizeType
 
 instance Prelude.NFData AwsRedshiftClusterResizeInfo where

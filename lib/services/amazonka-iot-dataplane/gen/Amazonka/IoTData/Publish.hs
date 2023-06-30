@@ -279,7 +279,8 @@ instance Core.AWSRequest Publish where
 
 instance Prelude.Hashable Publish where
   hashWithSalt _salt Publish' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` correlationData
       `Prelude.hashWithSalt` messageExpiry
       `Prelude.hashWithSalt` payload

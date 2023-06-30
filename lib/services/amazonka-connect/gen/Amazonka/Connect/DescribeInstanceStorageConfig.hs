@@ -136,7 +136,8 @@ instance
     DescribeInstanceStorageConfig
   where
   hashWithSalt _salt DescribeInstanceStorageConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` resourceType
 

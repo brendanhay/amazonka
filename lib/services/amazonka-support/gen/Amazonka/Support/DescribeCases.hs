@@ -216,20 +216,23 @@ instance Core.AWSPager DescribeCases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeCasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describeCasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeCasesResponse_cases Prelude.. Lens._Just
+            Lens.^? describeCasesResponse_cases
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCases_nextToken
           Lens..~ rs
-          Lens.^? describeCasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeCasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCases where
   type
@@ -248,7 +251,8 @@ instance Core.AWSRequest DescribeCases where
 
 instance Prelude.Hashable DescribeCases where
   hashWithSalt _salt DescribeCases' {..} =
-    _salt `Prelude.hashWithSalt` afterTime
+    _salt
+      `Prelude.hashWithSalt` afterTime
       `Prelude.hashWithSalt` beforeTime
       `Prelude.hashWithSalt` caseIdList
       `Prelude.hashWithSalt` displayId

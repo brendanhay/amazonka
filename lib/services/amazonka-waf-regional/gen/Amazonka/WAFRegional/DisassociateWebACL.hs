@@ -66,10 +66,10 @@ data DisassociateWebACL = DisassociateWebACL'
     -- The ARN should be in one of the following formats:
     --
     -- -   For an Application Load Balancer:
-    --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+    --     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
     --
     -- -   For an Amazon API Gateway stage:
-    --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+    --     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,10 +89,10 @@ data DisassociateWebACL = DisassociateWebACL'
 -- The ARN should be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway stage:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 newDisassociateWebACL ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -107,10 +107,10 @@ newDisassociateWebACL pResourceArn_ =
 -- The ARN should be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway stage:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 disassociateWebACL_resourceArn :: Lens.Lens' DisassociateWebACL Prelude.Text
 disassociateWebACL_resourceArn = Lens.lens (\DisassociateWebACL' {resourceArn} -> resourceArn) (\s@DisassociateWebACL' {} a -> s {resourceArn = a} :: DisassociateWebACL)
 

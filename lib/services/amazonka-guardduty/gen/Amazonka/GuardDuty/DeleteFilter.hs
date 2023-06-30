@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteFilter where
 
 instance Prelude.Hashable DeleteFilter where
   hashWithSalt _salt DeleteFilter' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` filterName
 
 instance Prelude.NFData DeleteFilter where

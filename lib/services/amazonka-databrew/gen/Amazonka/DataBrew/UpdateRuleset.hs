@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateRuleset where
 
 instance Prelude.Hashable UpdateRuleset where
   hashWithSalt _salt UpdateRuleset' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` rules
 

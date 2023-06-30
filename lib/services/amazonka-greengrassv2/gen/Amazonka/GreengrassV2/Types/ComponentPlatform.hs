@@ -101,7 +101,8 @@ instance Data.FromJSON ComponentPlatform where
 
 instance Prelude.Hashable ComponentPlatform where
   hashWithSalt _salt ComponentPlatform' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ComponentPlatform where

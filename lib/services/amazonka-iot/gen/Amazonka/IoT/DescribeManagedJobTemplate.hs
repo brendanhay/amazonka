@@ -108,7 +108,8 @@ instance Core.AWSRequest DescribeManagedJobTemplate where
           DescribeManagedJobTemplateResponse'
             Prelude.<$> (x Data..?> "description")
             Prelude.<*> (x Data..?> "document")
-            Prelude.<*> ( x Data..?> "documentParameters"
+            Prelude.<*> ( x
+                            Data..?> "documentParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "environments" Core..!@ Prelude.mempty)
@@ -120,7 +121,8 @@ instance Core.AWSRequest DescribeManagedJobTemplate where
 
 instance Prelude.Hashable DescribeManagedJobTemplate where
   hashWithSalt _salt DescribeManagedJobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` templateVersion
+    _salt
+      `Prelude.hashWithSalt` templateVersion
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData DescribeManagedJobTemplate where

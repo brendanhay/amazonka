@@ -106,7 +106,8 @@ instance
     UpdateUserHierarchyStructure
   where
   hashWithSalt _salt UpdateUserHierarchyStructure' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyStructure
+    _salt
+      `Prelude.hashWithSalt` hierarchyStructure
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData UpdateUserHierarchyStructure where

@@ -149,7 +149,8 @@ instance Core.AWSRequest ListImageRecipes where
     Response.receiveJSON
       ( \s h x ->
           ListImageRecipesResponse'
-            Prelude.<$> ( x Data..?> "imageRecipeSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "imageRecipeSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -159,7 +160,8 @@ instance Core.AWSRequest ListImageRecipes where
 
 instance Prelude.Hashable ListImageRecipes where
   hashWithSalt _salt ListImageRecipes' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` owner

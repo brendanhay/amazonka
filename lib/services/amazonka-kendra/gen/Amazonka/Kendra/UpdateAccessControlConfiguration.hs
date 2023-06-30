@@ -194,7 +194,8 @@ instance
   hashWithSalt
     _salt
     UpdateAccessControlConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` accessControlList
+      _salt
+        `Prelude.hashWithSalt` accessControlList
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` hierarchicalAccessControlList
         `Prelude.hashWithSalt` name

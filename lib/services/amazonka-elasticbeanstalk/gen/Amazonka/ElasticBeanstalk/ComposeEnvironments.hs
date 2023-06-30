@@ -144,7 +144,8 @@ instance Core.AWSRequest ComposeEnvironments where
 
 instance Prelude.Hashable ComposeEnvironments where
   hashWithSalt _salt ComposeEnvironments' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` versionLabels
 

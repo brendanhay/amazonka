@@ -258,7 +258,8 @@ instance Data.FromJSON ApplicationDetail where
             Prelude.<*> (x Data..:? "ApplicationVersionRolledBackFrom")
             Prelude.<*> (x Data..:? "ApplicationVersionRolledBackTo")
             Prelude.<*> (x Data..:? "ApplicationVersionUpdatedFrom")
-            Prelude.<*> ( x Data..:? "CloudWatchLoggingOptionDescriptions"
+            Prelude.<*> ( x
+                            Data..:? "CloudWatchLoggingOptionDescriptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ConditionalToken")

@@ -251,7 +251,8 @@ instance Data.FromJSON Image where
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` applications
+    _salt
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` appstreamAgentVersion
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` baseImageArn

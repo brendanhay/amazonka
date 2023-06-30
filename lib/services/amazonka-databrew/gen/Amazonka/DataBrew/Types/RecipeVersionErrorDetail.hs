@@ -86,7 +86,8 @@ instance Data.FromJSON RecipeVersionErrorDetail where
 
 instance Prelude.Hashable RecipeVersionErrorDetail where
   hashWithSalt _salt RecipeVersionErrorDetail' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` recipeVersion
 

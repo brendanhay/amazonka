@@ -70,7 +70,8 @@ intentSortBy_order = Lens.lens (\IntentSortBy' {order} -> order) (\s@IntentSortB
 
 instance Prelude.Hashable IntentSortBy where
   hashWithSalt _salt IntentSortBy' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData IntentSortBy where

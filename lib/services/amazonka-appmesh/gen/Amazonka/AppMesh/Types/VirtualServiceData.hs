@@ -122,7 +122,8 @@ instance Data.FromJSON VirtualServiceData where
 
 instance Prelude.Hashable VirtualServiceData where
   hashWithSalt _salt VirtualServiceData' {..} =
-    _salt `Prelude.hashWithSalt` meshName
+    _salt
+      `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` status

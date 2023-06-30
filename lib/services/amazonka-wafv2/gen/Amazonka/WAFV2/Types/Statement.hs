@@ -654,7 +654,8 @@ instance Data.FromJSON Statement where
 
 instance Prelude.Hashable Statement where
   hashWithSalt _salt Statement' {..} =
-    _salt `Prelude.hashWithSalt` andStatement
+    _salt
+      `Prelude.hashWithSalt` andStatement
       `Prelude.hashWithSalt` byteMatchStatement
       `Prelude.hashWithSalt` geoMatchStatement
       `Prelude.hashWithSalt` iPSetReferenceStatement

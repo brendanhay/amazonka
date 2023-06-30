@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateDocumentationPart where
 
 instance Prelude.Hashable CreateDocumentationPart where
   hashWithSalt _salt CreateDocumentationPart' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` properties
 

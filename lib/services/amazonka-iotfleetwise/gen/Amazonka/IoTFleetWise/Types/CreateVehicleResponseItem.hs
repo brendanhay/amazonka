@@ -84,7 +84,8 @@ instance Data.FromJSON CreateVehicleResponseItem where
 
 instance Prelude.Hashable CreateVehicleResponseItem where
   hashWithSalt _salt CreateVehicleResponseItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` thingArn
       `Prelude.hashWithSalt` vehicleName
 

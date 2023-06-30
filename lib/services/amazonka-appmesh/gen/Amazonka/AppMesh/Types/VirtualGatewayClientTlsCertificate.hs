@@ -90,7 +90,8 @@ instance
       "VirtualGatewayClientTlsCertificate"
       ( \x ->
           VirtualGatewayClientTlsCertificate'
-            Prelude.<$> (x Data..:? "file") Prelude.<*> (x Data..:? "sds")
+            Prelude.<$> (x Data..:? "file")
+            Prelude.<*> (x Data..:? "sds")
       )
 
 instance
@@ -100,7 +101,8 @@ instance
   hashWithSalt
     _salt
     VirtualGatewayClientTlsCertificate' {..} =
-      _salt `Prelude.hashWithSalt` file
+      _salt
+        `Prelude.hashWithSalt` file
         `Prelude.hashWithSalt` sds
 
 instance

@@ -78,7 +78,8 @@ instance Data.FromJSON LateDataRule where
 
 instance Prelude.Hashable LateDataRule where
   hashWithSalt _salt LateDataRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleName
+    _salt
+      `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` ruleConfiguration
 
 instance Prelude.NFData LateDataRule where

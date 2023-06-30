@@ -156,7 +156,8 @@ instance Data.FromJSON ServiceConfiguration where
       ( \x ->
           ServiceConfiguration'
             Prelude.<$> (x Data..:? "autoScalingConfiguration")
-            Prelude.<*> ( x Data..:? "containerConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "containerConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cpu")

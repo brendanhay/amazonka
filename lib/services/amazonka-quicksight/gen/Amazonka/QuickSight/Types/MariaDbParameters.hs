@@ -90,7 +90,8 @@ instance Data.FromJSON MariaDbParameters where
 
 instance Prelude.Hashable MariaDbParameters where
   hashWithSalt _salt MariaDbParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` database
 

@@ -135,7 +135,8 @@ instance Core.AWSRequest AddFacetToObject where
 
 instance Prelude.Hashable AddFacetToObject where
   hashWithSalt _salt AddFacetToObject' {..} =
-    _salt `Prelude.hashWithSalt` objectAttributeList
+    _salt
+      `Prelude.hashWithSalt` objectAttributeList
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` schemaFacet
       `Prelude.hashWithSalt` objectReference

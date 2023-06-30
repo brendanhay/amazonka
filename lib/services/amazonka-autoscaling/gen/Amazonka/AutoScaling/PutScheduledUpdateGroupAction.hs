@@ -282,7 +282,8 @@ instance
     PutScheduledUpdateGroupAction
   where
   hashWithSalt _salt PutScheduledUpdateGroupAction' {..} =
-    _salt `Prelude.hashWithSalt` desiredCapacity
+    _salt
+      `Prelude.hashWithSalt` desiredCapacity
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxSize
       `Prelude.hashWithSalt` minSize

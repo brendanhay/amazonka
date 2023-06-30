@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     AwsRedshiftClusterLoggingStatus' {..} =
-      _salt `Prelude.hashWithSalt` bucketName
+      _salt
+        `Prelude.hashWithSalt` bucketName
         `Prelude.hashWithSalt` lastFailureMessage
         `Prelude.hashWithSalt` lastFailureTime
         `Prelude.hashWithSalt` lastSuccessfulDeliveryTime

@@ -79,7 +79,7 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataCpuOptionsDetails'
             Prelude.<$> (x Data..:? "CoreCount")
-              Prelude.<*> (x Data..:? "ThreadsPerCore")
+            Prelude.<*> (x Data..:? "ThreadsPerCore")
       )
 
 instance
@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataCpuOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` coreCount
+      _salt
+        `Prelude.hashWithSalt` coreCount
         `Prelude.hashWithSalt` threadsPerCore
 
 instance

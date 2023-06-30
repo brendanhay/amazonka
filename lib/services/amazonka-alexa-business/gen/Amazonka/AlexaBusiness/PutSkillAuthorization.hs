@@ -119,7 +119,8 @@ instance Core.AWSRequest PutSkillAuthorization where
 
 instance Prelude.Hashable PutSkillAuthorization where
   hashWithSalt _salt PutSkillAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` roomArn
+    _salt
+      `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` authorizationResult
       `Prelude.hashWithSalt` skillId
 

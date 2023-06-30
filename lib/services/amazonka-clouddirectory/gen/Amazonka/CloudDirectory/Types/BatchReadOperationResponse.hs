@@ -77,7 +77,8 @@ instance Data.FromJSON BatchReadOperationResponse where
 
 instance Prelude.Hashable BatchReadOperationResponse where
   hashWithSalt _salt BatchReadOperationResponse' {..} =
-    _salt `Prelude.hashWithSalt` exceptionResponse
+    _salt
+      `Prelude.hashWithSalt` exceptionResponse
       `Prelude.hashWithSalt` successfulResponse
 
 instance Prelude.NFData BatchReadOperationResponse where

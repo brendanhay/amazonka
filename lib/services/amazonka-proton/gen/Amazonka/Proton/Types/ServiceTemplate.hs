@@ -166,7 +166,8 @@ instance Data.FromJSON ServiceTemplate where
 
 instance Prelude.Hashable ServiceTemplate where
   hashWithSalt _salt ServiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` pipelineProvisioning

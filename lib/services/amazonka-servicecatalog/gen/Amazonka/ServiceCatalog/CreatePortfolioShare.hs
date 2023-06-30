@@ -230,7 +230,8 @@ instance Core.AWSRequest CreatePortfolioShare where
 
 instance Prelude.Hashable CreatePortfolioShare where
   hashWithSalt _salt CreatePortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` organizationNode
       `Prelude.hashWithSalt` sharePrincipals

@@ -130,7 +130,8 @@ instance Data.FromJSON UpgradeHistory where
 
 instance Prelude.Hashable UpgradeHistory where
   hashWithSalt _salt UpgradeHistory' {..} =
-    _salt `Prelude.hashWithSalt` startTimestamp
+    _salt
+      `Prelude.hashWithSalt` startTimestamp
       `Prelude.hashWithSalt` stepsList
       `Prelude.hashWithSalt` upgradeName
       `Prelude.hashWithSalt` upgradeStatus

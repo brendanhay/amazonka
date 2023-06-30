@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteLaunch where
 
 instance Prelude.Hashable DeleteLaunch where
   hashWithSalt _salt DeleteLaunch' {..} =
-    _salt `Prelude.hashWithSalt` launch
+    _salt
+      `Prelude.hashWithSalt` launch
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData DeleteLaunch where

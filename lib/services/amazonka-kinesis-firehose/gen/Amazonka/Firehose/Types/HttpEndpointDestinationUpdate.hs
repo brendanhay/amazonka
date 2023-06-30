@@ -178,7 +178,8 @@ instance
     HttpEndpointDestinationUpdate
   where
   hashWithSalt _salt HttpEndpointDestinationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` bufferingHints
+    _salt
+      `Prelude.hashWithSalt` bufferingHints
       `Prelude.hashWithSalt` cloudWatchLoggingOptions
       `Prelude.hashWithSalt` endpointConfiguration
       `Prelude.hashWithSalt` processingConfiguration

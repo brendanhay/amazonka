@@ -132,7 +132,8 @@ update_tableName = Lens.lens (\Update' {tableName} -> tableName) (\s@Update' {} 
 
 instance Prelude.Hashable Update where
   hashWithSalt _salt Update' {..} =
-    _salt `Prelude.hashWithSalt` conditionExpression
+    _salt
+      `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` expressionAttributeValues
       `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure

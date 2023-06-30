@@ -160,7 +160,8 @@ instance Data.FromJSON TaskRun where
 
 instance Prelude.Hashable TaskRun where
   hashWithSalt _salt TaskRun' {..} =
-    _salt `Prelude.hashWithSalt` completedOn
+    _salt
+      `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` errorString
       `Prelude.hashWithSalt` executionTime
       `Prelude.hashWithSalt` lastModifiedOn

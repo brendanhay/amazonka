@@ -71,7 +71,8 @@ instance Data.FromXML BundleTaskError where
 
 instance Prelude.Hashable BundleTaskError where
   hashWithSalt _salt BundleTaskError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData BundleTaskError where

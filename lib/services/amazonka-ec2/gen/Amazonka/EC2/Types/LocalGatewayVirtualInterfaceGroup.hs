@@ -105,12 +105,15 @@ instance
     LocalGatewayVirtualInterfaceGroup'
       Prelude.<$> (x Data..@? "localGatewayId")
       Prelude.<*> (x Data..@? "localGatewayVirtualInterfaceGroupId")
-      Prelude.<*> ( x Data..@? "localGatewayVirtualInterfaceIdSet"
+      Prelude.<*> ( x
+                      Data..@? "localGatewayVirtualInterfaceIdSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ownerId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -121,7 +124,8 @@ instance
   hashWithSalt
     _salt
     LocalGatewayVirtualInterfaceGroup' {..} =
-      _salt `Prelude.hashWithSalt` localGatewayId
+      _salt
+        `Prelude.hashWithSalt` localGatewayId
         `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupId
         `Prelude.hashWithSalt` localGatewayVirtualInterfaceIds
         `Prelude.hashWithSalt` ownerId

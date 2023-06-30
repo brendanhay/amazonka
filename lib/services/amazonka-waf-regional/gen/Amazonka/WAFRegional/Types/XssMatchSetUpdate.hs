@@ -90,7 +90,8 @@ xssMatchSetUpdate_xssMatchTuple = Lens.lens (\XssMatchSetUpdate' {xssMatchTuple}
 
 instance Prelude.Hashable XssMatchSetUpdate where
   hashWithSalt _salt XssMatchSetUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` xssMatchTuple
 
 instance Prelude.NFData XssMatchSetUpdate where

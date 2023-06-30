@@ -504,7 +504,8 @@ instance Core.AWSRequest CreateImageBuilder where
 
 instance Prelude.Hashable CreateImageBuilder where
   hashWithSalt _salt CreateImageBuilder' {..} =
-    _salt `Prelude.hashWithSalt` accessEndpoints
+    _salt
+      `Prelude.hashWithSalt` accessEndpoints
       `Prelude.hashWithSalt` appstreamAgentVersion
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName

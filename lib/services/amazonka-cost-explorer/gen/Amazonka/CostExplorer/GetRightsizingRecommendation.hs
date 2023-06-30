@@ -164,7 +164,8 @@ instance Core.AWSRequest GetRightsizingRecommendation where
             Prelude.<$> (x Data..?> "Configuration")
             Prelude.<*> (x Data..?> "Metadata")
             Prelude.<*> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "RightsizingRecommendations"
+            Prelude.<*> ( x
+                            Data..?> "RightsizingRecommendations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Summary")
@@ -176,7 +177,8 @@ instance
     GetRightsizingRecommendation
   where
   hashWithSalt _salt GetRightsizingRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` pageSize

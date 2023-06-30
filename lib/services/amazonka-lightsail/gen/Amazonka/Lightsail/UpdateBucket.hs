@@ -175,7 +175,8 @@ instance Core.AWSRequest UpdateBucket where
 
 instance Prelude.Hashable UpdateBucket where
   hashWithSalt _salt UpdateBucket' {..} =
-    _salt `Prelude.hashWithSalt` accessLogConfig
+    _salt
+      `Prelude.hashWithSalt` accessLogConfig
       `Prelude.hashWithSalt` accessRules
       `Prelude.hashWithSalt` readonlyAccessAccounts
       `Prelude.hashWithSalt` versioning

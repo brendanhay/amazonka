@@ -260,7 +260,8 @@ instance Core.AWSRequest PutTargets where
 
 instance Prelude.Hashable PutTargets where
   hashWithSalt _salt PutTargets' {..} =
-    _salt `Prelude.hashWithSalt` eventBusName
+    _salt
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` rule
       `Prelude.hashWithSalt` targets
 

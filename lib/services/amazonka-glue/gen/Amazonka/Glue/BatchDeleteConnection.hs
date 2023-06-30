@@ -105,7 +105,8 @@ instance Core.AWSRequest BatchDeleteConnection where
 
 instance Prelude.Hashable BatchDeleteConnection where
   hashWithSalt _salt BatchDeleteConnection' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` connectionNameList
 
 instance Prelude.NFData BatchDeleteConnection where

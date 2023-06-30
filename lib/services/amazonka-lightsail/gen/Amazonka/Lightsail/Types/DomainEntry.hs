@@ -222,7 +222,8 @@ instance Data.FromJSON DomainEntry where
 
 instance Prelude.Hashable DomainEntry where
   hashWithSalt _salt DomainEntry' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` isAlias
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` options

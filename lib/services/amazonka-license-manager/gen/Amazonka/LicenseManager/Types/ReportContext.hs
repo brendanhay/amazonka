@@ -63,7 +63,8 @@ instance Data.FromJSON ReportContext where
       "ReportContext"
       ( \x ->
           ReportContext'
-            Prelude.<$> ( x Data..:? "licenseConfigurationArns"
+            Prelude.<$> ( x
+                            Data..:? "licenseConfigurationArns"
                             Data..!= Prelude.mempty
                         )
       )

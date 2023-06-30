@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteHostKey where
 
 instance Prelude.Hashable DeleteHostKey where
   hashWithSalt _salt DeleteHostKey' {..} =
-    _salt `Prelude.hashWithSalt` serverId
+    _salt
+      `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` hostKeyId
 
 instance Prelude.NFData DeleteHostKey where

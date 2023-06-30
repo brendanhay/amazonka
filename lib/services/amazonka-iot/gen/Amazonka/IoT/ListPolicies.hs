@@ -110,20 +110,23 @@ instance Core.AWSPager ListPolicies where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listPoliciesResponse_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_policies Prelude.. Lens._Just
+            Lens.^? listPoliciesResponse_policies
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPolicies_marker
           Lens..~ rs
-          Lens.^? listPoliciesResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listPoliciesResponse_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -140,7 +143,8 @@ instance Core.AWSRequest ListPolicies where
 
 instance Prelude.Hashable ListPolicies where
   hashWithSalt _salt ListPolicies' {..} =
-    _salt `Prelude.hashWithSalt` ascendingOrder
+    _salt
+      `Prelude.hashWithSalt` ascendingOrder
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize
 

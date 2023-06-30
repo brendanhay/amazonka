@@ -359,7 +359,8 @@ instance Data.FromJSON OntapVolumeConfiguration where
 
 instance Prelude.Hashable OntapVolumeConfiguration where
   hashWithSalt _salt OntapVolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` copyTagsToBackups
+    _salt
+      `Prelude.hashWithSalt` copyTagsToBackups
       `Prelude.hashWithSalt` flexCacheEndpointType
       `Prelude.hashWithSalt` junctionPath
       `Prelude.hashWithSalt` ontapVolumeType

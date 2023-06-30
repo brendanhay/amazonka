@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateDataSource where
 
 instance Prelude.Hashable UpdateDataSource where
   hashWithSalt _salt UpdateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` credentials
+    _salt
+      `Prelude.hashWithSalt` credentials
       `Prelude.hashWithSalt` dataSourceParameters
       `Prelude.hashWithSalt` sslProperties
       `Prelude.hashWithSalt` vpcConnectionProperties

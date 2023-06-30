@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     InsightRuleContributorDatapoint' {..} =
-      _salt `Prelude.hashWithSalt` timestamp
+      _salt
+        `Prelude.hashWithSalt` timestamp
         `Prelude.hashWithSalt` approximateValue
 
 instance

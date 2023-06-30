@@ -201,7 +201,8 @@ instance Core.AWSRequest StartImport where
 
 instance Prelude.Hashable StartImport where
   hashWithSalt _salt StartImport' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` mergeStrategy

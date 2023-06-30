@@ -74,7 +74,8 @@ referenceStoreFilter_name = Lens.lens (\ReferenceStoreFilter' {name} -> name) (\
 
 instance Prelude.Hashable ReferenceStoreFilter where
   hashWithSalt _salt ReferenceStoreFilter' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` name
 

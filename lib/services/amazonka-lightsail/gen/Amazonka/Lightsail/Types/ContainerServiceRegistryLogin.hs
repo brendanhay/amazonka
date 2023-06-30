@@ -123,7 +123,8 @@ instance
     ContainerServiceRegistryLogin
   where
   hashWithSalt _salt ContainerServiceRegistryLogin' {..} =
-    _salt `Prelude.hashWithSalt` expiresAt
+    _salt
+      `Prelude.hashWithSalt` expiresAt
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` registry
       `Prelude.hashWithSalt` username

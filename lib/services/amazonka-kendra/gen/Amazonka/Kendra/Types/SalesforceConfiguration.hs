@@ -264,10 +264,12 @@ instance Data.FromJSON SalesforceConfiguration where
           SalesforceConfiguration'
             Prelude.<$> (x Data..:? "ChatterFeedConfiguration")
             Prelude.<*> (x Data..:? "CrawlAttachments")
-            Prelude.<*> ( x Data..:? "ExcludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExcludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "IncludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "IncludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "KnowledgeArticleConfiguration")

@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteLabels where
 
 instance Prelude.Hashable DeleteLabels where
   hashWithSalt _salt DeleteLabels' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` deleteAll
       `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` resourceId

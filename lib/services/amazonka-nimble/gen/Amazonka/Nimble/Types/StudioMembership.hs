@@ -108,7 +108,8 @@ instance Data.FromJSON StudioMembership where
 
 instance Prelude.Hashable StudioMembership where
   hashWithSalt _salt StudioMembership' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` persona
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` sid

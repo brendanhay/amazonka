@@ -75,7 +75,8 @@ instance Data.FromJSON CustomPluginDescription where
 
 instance Prelude.Hashable CustomPluginDescription where
   hashWithSalt _salt CustomPluginDescription' {..} =
-    _salt `Prelude.hashWithSalt` customPluginArn
+    _salt
+      `Prelude.hashWithSalt` customPluginArn
       `Prelude.hashWithSalt` revision
 
 instance Prelude.NFData CustomPluginDescription where

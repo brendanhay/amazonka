@@ -194,7 +194,8 @@ instance Data.FromJSON ReadSetListItem where
 
 instance Prelude.Hashable ReadSetListItem where
   hashWithSalt _salt ReadSetListItem' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` referenceArn
       `Prelude.hashWithSalt` sampleId

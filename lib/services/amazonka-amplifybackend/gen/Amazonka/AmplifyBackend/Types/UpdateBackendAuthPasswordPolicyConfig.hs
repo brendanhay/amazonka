@@ -78,7 +78,8 @@ instance
   hashWithSalt
     _salt
     UpdateBackendAuthPasswordPolicyConfig' {..} =
-      _salt `Prelude.hashWithSalt` additionalConstraints
+      _salt
+        `Prelude.hashWithSalt` additionalConstraints
         `Prelude.hashWithSalt` minimumLength
 
 instance

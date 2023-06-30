@@ -89,10 +89,12 @@ instance Core.AWSRequest GetSamplingTargets where
       ( \s h x ->
           GetSamplingTargetsResponse'
             Prelude.<$> (x Data..?> "LastRuleModification")
-            Prelude.<*> ( x Data..?> "SamplingTargetDocuments"
+            Prelude.<*> ( x
+                            Data..?> "SamplingTargetDocuments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "UnprocessedStatistics"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedStatistics"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

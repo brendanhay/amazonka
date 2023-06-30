@@ -100,7 +100,8 @@ instance Core.AWSRequest UpdateAgent where
 
 instance Prelude.Hashable UpdateAgent where
   hashWithSalt _salt UpdateAgent' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` agentArn
 
 instance Prelude.NFData UpdateAgent where

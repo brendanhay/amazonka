@@ -163,7 +163,8 @@ instance Core.AWSRequest DescribeCanariesLastRun where
     Response.receiveJSON
       ( \s h x ->
           DescribeCanariesLastRunResponse'
-            Prelude.<$> ( x Data..?> "CanariesLastRun"
+            Prelude.<$> ( x
+                            Data..?> "CanariesLastRun"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -172,7 +173,8 @@ instance Core.AWSRequest DescribeCanariesLastRun where
 
 instance Prelude.Hashable DescribeCanariesLastRun where
   hashWithSalt _salt DescribeCanariesLastRun' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` nextToken
 

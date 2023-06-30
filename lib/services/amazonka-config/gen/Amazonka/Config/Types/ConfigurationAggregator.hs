@@ -117,7 +117,8 @@ instance Data.FromJSON ConfigurationAggregator where
       "ConfigurationAggregator"
       ( \x ->
           ConfigurationAggregator'
-            Prelude.<$> ( x Data..:? "AccountAggregationSources"
+            Prelude.<$> ( x
+                            Data..:? "AccountAggregationSources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ConfigurationAggregatorArn")

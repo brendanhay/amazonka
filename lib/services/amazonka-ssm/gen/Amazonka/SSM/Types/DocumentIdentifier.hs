@@ -240,7 +240,8 @@ instance Data.FromJSON DocumentIdentifier where
 
 instance Prelude.Hashable DocumentIdentifier where
   hashWithSalt _salt DocumentIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` author
+    _salt
+      `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` documentFormat

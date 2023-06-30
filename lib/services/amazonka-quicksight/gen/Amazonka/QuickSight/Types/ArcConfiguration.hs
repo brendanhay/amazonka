@@ -75,7 +75,8 @@ instance Data.FromJSON ArcConfiguration where
 
 instance Prelude.Hashable ArcConfiguration where
   hashWithSalt _salt ArcConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` arcAngle
+    _salt
+      `Prelude.hashWithSalt` arcAngle
       `Prelude.hashWithSalt` arcThickness
 
 instance Prelude.NFData ArcConfiguration where

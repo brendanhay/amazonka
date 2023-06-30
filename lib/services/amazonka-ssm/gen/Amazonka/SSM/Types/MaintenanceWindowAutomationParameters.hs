@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowAutomationParameters' {..} =
-      _salt `Prelude.hashWithSalt` documentVersion
+      _salt
+        `Prelude.hashWithSalt` documentVersion
         `Prelude.hashWithSalt` parameters
 
 instance

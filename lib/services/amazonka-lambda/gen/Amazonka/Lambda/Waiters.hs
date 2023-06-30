@@ -36,19 +36,22 @@ newFunctionActive =
         [ Core.matchAll
             "Active"
             Core.AcceptSuccess
-            ( functionConfiguration_state Prelude.. Lens._Just
+            ( functionConfiguration_state
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
-            ( functionConfiguration_state Prelude.. Lens._Just
+            ( functionConfiguration_state
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Pending"
             Core.AcceptRetry
-            ( functionConfiguration_state Prelude.. Lens._Just
+            ( functionConfiguration_state
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
         ]
@@ -188,19 +191,22 @@ newPublishedVersionActive =
         [ Core.matchAll
             "Active"
             Core.AcceptSuccess
-            ( functionConfiguration_state Prelude.. Lens._Just
+            ( functionConfiguration_state
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
-            ( functionConfiguration_state Prelude.. Lens._Just
+            ( functionConfiguration_state
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Pending"
             Core.AcceptRetry
-            ( functionConfiguration_state Prelude.. Lens._Just
+            ( functionConfiguration_state
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
         ]

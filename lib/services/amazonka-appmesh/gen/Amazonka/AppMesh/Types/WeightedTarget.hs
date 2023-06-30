@@ -92,7 +92,8 @@ instance Data.FromJSON WeightedTarget where
 
 instance Prelude.Hashable WeightedTarget where
   hashWithSalt _salt WeightedTarget' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` virtualNode
       `Prelude.hashWithSalt` weight
 

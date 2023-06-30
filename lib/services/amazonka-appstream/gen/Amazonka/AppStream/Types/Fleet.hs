@@ -694,7 +694,8 @@ instance Data.FromJSON Fleet where
             Prelude.<*> (x Data..:? "Platform")
             Prelude.<*> (x Data..:? "SessionScriptS3Location")
             Prelude.<*> (x Data..:? "StreamView")
-            Prelude.<*> ( x Data..:? "UsbDeviceFilterStrings"
+            Prelude.<*> ( x
+                            Data..:? "UsbDeviceFilterStrings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VpcConfig")
@@ -707,7 +708,8 @@ instance Data.FromJSON Fleet where
 
 instance Prelude.Hashable Fleet where
   hashWithSalt _salt Fleet' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disconnectTimeoutInSeconds
       `Prelude.hashWithSalt` displayName

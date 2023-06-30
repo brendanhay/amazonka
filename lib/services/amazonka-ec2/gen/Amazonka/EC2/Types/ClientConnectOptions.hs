@@ -72,7 +72,8 @@ clientConnectOptions_lambdaFunctionArn = Lens.lens (\ClientConnectOptions' {lamb
 
 instance Prelude.Hashable ClientConnectOptions where
   hashWithSalt _salt ClientConnectOptions' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` lambdaFunctionArn
 
 instance Prelude.NFData ClientConnectOptions where

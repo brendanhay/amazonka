@@ -136,21 +136,22 @@ instance Core.AWSPager ListBuildBatches where
     | Core.stop
         ( rs
             Lens.^? listBuildBatchesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBuildBatchesResponse_ids Prelude.. Lens._Just
+            Lens.^? listBuildBatchesResponse_ids
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBuildBatches_nextToken
           Lens..~ rs
           Lens.^? listBuildBatchesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBuildBatches where
   type
@@ -169,7 +170,8 @@ instance Core.AWSRequest ListBuildBatches where
 
 instance Prelude.Hashable ListBuildBatches where
   hashWithSalt _salt ListBuildBatches' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortOrder

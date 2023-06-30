@@ -100,9 +100,9 @@ instance
       ( \s h x ->
           CreateStreamingDistributionWithTagsResponse'
             Prelude.<$> (h Data..#? "ETag")
-              Prelude.<*> (h Data..#? "Location")
-              Prelude.<*> (Data.parseXML x)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (h Data..#? "Location")
+            Prelude.<*> (Data.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

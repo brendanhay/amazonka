@@ -73,7 +73,8 @@ instance Data.FromJSON NumericEqualityDrillDownFilter where
       "NumericEqualityDrillDownFilter"
       ( \x ->
           NumericEqualityDrillDownFilter'
-            Prelude.<$> (x Data..: "Column") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Column")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance
@@ -83,7 +84,8 @@ instance
   hashWithSalt
     _salt
     NumericEqualityDrillDownFilter' {..} =
-      _salt `Prelude.hashWithSalt` column
+      _salt
+        `Prelude.hashWithSalt` column
         `Prelude.hashWithSalt` value
 
 instance

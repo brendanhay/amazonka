@@ -160,7 +160,8 @@ instance Data.FromJSON Device where
 
 instance Prelude.Hashable Device where
   hashWithSalt _salt Device' {..} =
-    _salt `Prelude.hashWithSalt` deviceArn
+    _salt
+      `Prelude.hashWithSalt` deviceArn
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceSerialNumber
       `Prelude.hashWithSalt` deviceStatus

@@ -159,7 +159,7 @@ instance
       ( \s h x ->
           UpdateSecurityGroupRuleDescriptionsEgressResponse'
             Prelude.<$> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -169,7 +169,8 @@ instance
   hashWithSalt
     _salt
     UpdateSecurityGroupRuleDescriptionsEgress' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` groupId
         `Prelude.hashWithSalt` groupName
         `Prelude.hashWithSalt` ipPermissions

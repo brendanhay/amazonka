@@ -210,7 +210,8 @@ instance Data.FromJSON ApplicationSummary where
 
 instance Prelude.Hashable ApplicationSummary where
   hashWithSalt _salt ApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` deploymentStatus
+    _salt
+      `Prelude.hashWithSalt` deploymentStatus
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` lastStartTime

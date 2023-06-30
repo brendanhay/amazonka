@@ -709,7 +709,8 @@ instance Core.AWSRequest UpdateServer where
 
 instance Prelude.Hashable UpdateServer where
   hashWithSalt _salt UpdateServer' {..} =
-    _salt `Prelude.hashWithSalt` certificate
+    _salt
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` endpointDetails
       `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` hostKey

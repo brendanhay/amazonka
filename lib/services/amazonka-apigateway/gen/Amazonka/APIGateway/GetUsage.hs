@@ -145,15 +145,17 @@ instance Core.AWSPager GetUsage where
   page rq rs
     | Core.stop
         (rs Lens.^? usage_position Prelude.. Lens._Just) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^? usage_items Prelude.. Lens._Just) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getUsage_position
-          Lens..~ rs Lens.^? usage_position Prelude.. Lens._Just
+          Lens..~ rs
+          Lens.^? usage_position
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUsage where
   type AWSResponse GetUsage = Usage
@@ -165,7 +167,8 @@ instance Core.AWSRequest GetUsage where
 
 instance Prelude.Hashable GetUsage where
   hashWithSalt _salt GetUsage' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` usagePlanId

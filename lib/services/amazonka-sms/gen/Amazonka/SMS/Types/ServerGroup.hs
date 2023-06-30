@@ -85,7 +85,8 @@ instance Data.FromJSON ServerGroup where
 
 instance Prelude.Hashable ServerGroup where
   hashWithSalt _salt ServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` serverGroupId
       `Prelude.hashWithSalt` serverList
 

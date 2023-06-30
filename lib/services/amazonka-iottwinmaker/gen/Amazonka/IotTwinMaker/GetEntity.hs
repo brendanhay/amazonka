@@ -124,7 +124,8 @@ instance Core.AWSRequest GetEntity where
 
 instance Prelude.Hashable GetEntity where
   hashWithSalt _salt GetEntity' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData GetEntity where

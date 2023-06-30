@@ -93,7 +93,8 @@ instance
     ColumnStatisticsConfiguration
   where
   hashWithSalt _salt ColumnStatisticsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` selectors
+    _salt
+      `Prelude.hashWithSalt` selectors
       `Prelude.hashWithSalt` statistics
 
 instance Prelude.NFData ColumnStatisticsConfiguration where

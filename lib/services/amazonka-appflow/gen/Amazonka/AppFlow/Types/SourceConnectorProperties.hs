@@ -233,7 +233,8 @@ instance Data.FromJSON SourceConnectorProperties where
 
 instance Prelude.Hashable SourceConnectorProperties where
   hashWithSalt _salt SourceConnectorProperties' {..} =
-    _salt `Prelude.hashWithSalt` amplitude
+    _salt
+      `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` datadog
       `Prelude.hashWithSalt` dynatrace

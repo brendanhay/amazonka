@@ -119,10 +119,12 @@ instance Data.FromJSON SourceTableFeatureDetails where
       "SourceTableFeatureDetails"
       ( \x ->
           SourceTableFeatureDetails'
-            Prelude.<$> ( x Data..:? "GlobalSecondaryIndexes"
+            Prelude.<$> ( x
+                            Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "LocalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "LocalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SSEDescription")
@@ -132,7 +134,8 @@ instance Data.FromJSON SourceTableFeatureDetails where
 
 instance Prelude.Hashable SourceTableFeatureDetails where
   hashWithSalt _salt SourceTableFeatureDetails' {..} =
-    _salt `Prelude.hashWithSalt` globalSecondaryIndexes
+    _salt
+      `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` localSecondaryIndexes
       `Prelude.hashWithSalt` sSEDescription
       `Prelude.hashWithSalt` streamDescription

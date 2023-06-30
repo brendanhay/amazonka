@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     EncryptionContractConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` presetSpeke20Audio
+      _salt
+        `Prelude.hashWithSalt` presetSpeke20Audio
         `Prelude.hashWithSalt` presetSpeke20Video
 
 instance

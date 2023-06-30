@@ -90,7 +90,8 @@ instance Data.FromJSON Coverage where
 
 instance Prelude.Hashable Coverage where
   hashWithSalt _salt Coverage' {..} =
-    _salt `Prelude.hashWithSalt` coverageCost
+    _salt
+      `Prelude.hashWithSalt` coverageCost
       `Prelude.hashWithSalt` coverageHours
       `Prelude.hashWithSalt` coverageNormalizedUnits
 

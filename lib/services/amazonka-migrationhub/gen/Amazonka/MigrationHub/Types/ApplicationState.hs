@@ -90,7 +90,8 @@ instance Data.FromJSON ApplicationState where
 
 instance Prelude.Hashable ApplicationState where
   hashWithSalt _salt ApplicationState' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` applicationStatus
       `Prelude.hashWithSalt` lastUpdatedTime
 

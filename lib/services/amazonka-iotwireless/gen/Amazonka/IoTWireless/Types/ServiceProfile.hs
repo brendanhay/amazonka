@@ -84,7 +84,8 @@ instance Data.FromJSON ServiceProfile where
 
 instance Prelude.Hashable ServiceProfile where
   hashWithSalt _salt ServiceProfile' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

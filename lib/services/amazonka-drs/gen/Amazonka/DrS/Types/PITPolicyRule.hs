@@ -115,7 +115,8 @@ instance Data.FromJSON PITPolicyRule where
 
 instance Prelude.Hashable PITPolicyRule where
   hashWithSalt _salt PITPolicyRule' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ruleID
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` retentionDuration

@@ -80,7 +80,8 @@ instance Data.FromJSON SNSTopicPublishAction where
 
 instance Prelude.Hashable SNSTopicPublishAction where
   hashWithSalt _salt SNSTopicPublishAction' {..} =
-    _salt `Prelude.hashWithSalt` payload
+    _salt
+      `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` targetArn
 
 instance Prelude.NFData SNSTopicPublishAction where

@@ -131,7 +131,8 @@ instance Core.AWSRequest UpdateResolverConfig where
 
 instance Prelude.Hashable UpdateResolverConfig where
   hashWithSalt _salt UpdateResolverConfig' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` autodefinedReverseFlag
 
 instance Prelude.NFData UpdateResolverConfig where

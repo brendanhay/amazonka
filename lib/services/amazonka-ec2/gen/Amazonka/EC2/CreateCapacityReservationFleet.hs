@@ -316,13 +316,16 @@ instance
             Prelude.<*> (x Data..@? "capacityReservationFleetId")
             Prelude.<*> (x Data..@? "createTime")
             Prelude.<*> (x Data..@? "endDate")
-            Prelude.<*> ( x Data..@? "fleetCapacityReservationSet"
+            Prelude.<*> ( x
+                            Data..@? "fleetCapacityReservationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "instanceMatchCriteria")
             Prelude.<*> (x Data..@? "state")
-            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "tenancy")
@@ -338,7 +341,8 @@ instance
   hashWithSalt
     _salt
     CreateCapacityReservationFleet' {..} =
-      _salt `Prelude.hashWithSalt` allocationStrategy
+      _salt
+        `Prelude.hashWithSalt` allocationStrategy
         `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` endDate

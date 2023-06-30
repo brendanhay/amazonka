@@ -473,22 +473,22 @@ instance Core.AWSPager DescribeDBEngineVersions where
     | Core.stop
         ( rs
             Lens.^? describeDBEngineVersionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBEngineVersionsResponse_dbEngineVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBEngineVersions_marker
           Lens..~ rs
           Lens.^? describeDBEngineVersionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBEngineVersions where
   type
@@ -501,7 +501,8 @@ instance Core.AWSRequest DescribeDBEngineVersions where
       "DescribeDBEngineVersionsResult"
       ( \s h x ->
           DescribeDBEngineVersionsResponse'
-            Prelude.<$> ( x Data..@? "DBEngineVersions"
+            Prelude.<$> ( x
+                            Data..@? "DBEngineVersions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBEngineVersion")
                         )
@@ -511,7 +512,8 @@ instance Core.AWSRequest DescribeDBEngineVersions where
 
 instance Prelude.Hashable DescribeDBEngineVersions where
   hashWithSalt _salt DescribeDBEngineVersions' {..} =
-    _salt `Prelude.hashWithSalt` dbParameterGroupFamily
+    _salt
+      `Prelude.hashWithSalt` dbParameterGroupFamily
       `Prelude.hashWithSalt` defaultOnly
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

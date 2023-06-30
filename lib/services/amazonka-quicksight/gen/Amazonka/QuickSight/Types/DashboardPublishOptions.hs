@@ -80,13 +80,13 @@ dashboardPublishOptions_exportToCSVOption = Lens.lens (\DashboardPublishOptions'
 dashboardPublishOptions_sheetControlsOption :: Lens.Lens' DashboardPublishOptions (Prelude.Maybe SheetControlsOption)
 dashboardPublishOptions_sheetControlsOption = Lens.lens (\DashboardPublishOptions' {sheetControlsOption} -> sheetControlsOption) (\s@DashboardPublishOptions' {} a -> s {sheetControlsOption = a} :: DashboardPublishOptions)
 
--- |
 dashboardPublishOptions_visualPublishOptions :: Lens.Lens' DashboardPublishOptions (Prelude.Maybe DashboardVisualPublishOptions)
 dashboardPublishOptions_visualPublishOptions = Lens.lens (\DashboardPublishOptions' {visualPublishOptions} -> visualPublishOptions) (\s@DashboardPublishOptions' {} a -> s {visualPublishOptions = a} :: DashboardPublishOptions)
 
 instance Prelude.Hashable DashboardPublishOptions where
   hashWithSalt _salt DashboardPublishOptions' {..} =
-    _salt `Prelude.hashWithSalt` adHocFilteringOption
+    _salt
+      `Prelude.hashWithSalt` adHocFilteringOption
       `Prelude.hashWithSalt` exportToCSVOption
       `Prelude.hashWithSalt` sheetControlsOption
       `Prelude.hashWithSalt` visualPublishOptions

@@ -79,7 +79,8 @@ listComponentTypesFilter_namespace = Lens.lens (\ListComponentTypesFilter' {name
 
 instance Prelude.Hashable ListComponentTypesFilter where
   hashWithSalt _salt ListComponentTypesFilter' {..} =
-    _salt `Prelude.hashWithSalt` extendsFrom
+    _salt
+      `Prelude.hashWithSalt` extendsFrom
       `Prelude.hashWithSalt` isAbstract
       `Prelude.hashWithSalt` namespace
 

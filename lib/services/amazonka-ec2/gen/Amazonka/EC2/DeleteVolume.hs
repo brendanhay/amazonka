@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteVolume where
 
 instance Prelude.Hashable DeleteVolume where
   hashWithSalt _salt DeleteVolume' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData DeleteVolume where

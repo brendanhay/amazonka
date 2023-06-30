@@ -75,7 +75,8 @@ instance Data.FromJSON ThemeValue where
 
 instance Prelude.Hashable ThemeValue where
   hashWithSalt _salt ThemeValue' {..} =
-    _salt `Prelude.hashWithSalt` children
+    _salt
+      `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ThemeValue where

@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     RecordMarkerFailedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` markerName
+      _salt
+        `Prelude.hashWithSalt` markerName
         `Prelude.hashWithSalt` cause
         `Prelude.hashWithSalt` decisionTaskCompletedEventId
 

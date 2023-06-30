@@ -196,7 +196,8 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` apiAccess
+    _salt
+      `Prelude.hashWithSalt` apiAccess
       `Prelude.hashWithSalt` apiAccessPrincipalArn
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` firstName

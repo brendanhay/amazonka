@@ -87,7 +87,8 @@ instance Data.FromJSON TsvStoreOptions where
 
 instance Prelude.Hashable TsvStoreOptions where
   hashWithSalt _salt TsvStoreOptions' {..} =
-    _salt `Prelude.hashWithSalt` annotationType
+    _salt
+      `Prelude.hashWithSalt` annotationType
       `Prelude.hashWithSalt` formatToHeader
       `Prelude.hashWithSalt` schema
 

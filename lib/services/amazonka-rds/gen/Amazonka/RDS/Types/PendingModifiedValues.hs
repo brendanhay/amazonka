@@ -292,7 +292,8 @@ instance Data.FromXML PendingModifiedValues where
       Prelude.<*> (x Data..@? "MultiAZ")
       Prelude.<*> (x Data..@? "PendingCloudwatchLogsExports")
       Prelude.<*> (x Data..@? "Port")
-      Prelude.<*> ( x Data..@? "ProcessorFeatures"
+      Prelude.<*> ( x
+                      Data..@? "ProcessorFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ProcessorFeature")
                   )
@@ -302,7 +303,8 @@ instance Data.FromXML PendingModifiedValues where
 
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` automationMode
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` cACertificateIdentifier

@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteProxySession where
 
 instance Prelude.Hashable DeleteProxySession where
   hashWithSalt _salt DeleteProxySession' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` proxySessionId
 
 instance Prelude.NFData DeleteProxySession where

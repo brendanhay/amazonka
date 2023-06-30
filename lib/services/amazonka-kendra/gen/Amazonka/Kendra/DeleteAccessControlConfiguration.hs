@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     DeleteAccessControlConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` indexId
+      _salt
+        `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` id
 
 instance

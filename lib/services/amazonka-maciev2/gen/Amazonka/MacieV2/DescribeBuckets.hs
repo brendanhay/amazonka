@@ -119,21 +119,22 @@ instance Core.AWSPager DescribeBuckets where
     | Core.stop
         ( rs
             Lens.^? describeBucketsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeBucketsResponse_buckets Prelude.. Lens._Just
+            Lens.^? describeBucketsResponse_buckets
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeBuckets_nextToken
           Lens..~ rs
           Lens.^? describeBucketsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeBuckets where
   type
@@ -152,7 +153,8 @@ instance Core.AWSRequest DescribeBuckets where
 
 instance Prelude.Hashable DescribeBuckets where
   hashWithSalt _salt DescribeBuckets' {..} =
-    _salt `Prelude.hashWithSalt` criteria
+    _salt
+      `Prelude.hashWithSalt` criteria
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortCriteria

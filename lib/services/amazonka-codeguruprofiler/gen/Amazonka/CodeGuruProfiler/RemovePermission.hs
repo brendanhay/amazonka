@@ -144,7 +144,8 @@ instance Core.AWSRequest RemovePermission where
 
 instance Prelude.Hashable RemovePermission where
   hashWithSalt _salt RemovePermission' {..} =
-    _salt `Prelude.hashWithSalt` actionGroup
+    _salt
+      `Prelude.hashWithSalt` actionGroup
       `Prelude.hashWithSalt` profilingGroupName
       `Prelude.hashWithSalt` revisionId
 

@@ -87,7 +87,8 @@ accessScopeAnalysisFinding_networkInsightsAccessScopeId = Lens.lens (\AccessScop
 instance Data.FromXML AccessScopeAnalysisFinding where
   parseXML x =
     AccessScopeAnalysisFinding'
-      Prelude.<$> ( x Data..@? "findingComponentSet"
+      Prelude.<$> ( x
+                      Data..@? "findingComponentSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -97,7 +98,8 @@ instance Data.FromXML AccessScopeAnalysisFinding where
 
 instance Prelude.Hashable AccessScopeAnalysisFinding where
   hashWithSalt _salt AccessScopeAnalysisFinding' {..} =
-    _salt `Prelude.hashWithSalt` findingComponents
+    _salt
+      `Prelude.hashWithSalt` findingComponents
       `Prelude.hashWithSalt` findingId
       `Prelude.hashWithSalt` networkInsightsAccessScopeAnalysisId
       `Prelude.hashWithSalt` networkInsightsAccessScopeId

@@ -252,7 +252,8 @@ instance Core.AWSRequest UpdateEndpointGroup where
 
 instance Prelude.Hashable UpdateEndpointGroup where
   hashWithSalt _salt UpdateEndpointGroup' {..} =
-    _salt `Prelude.hashWithSalt` endpointConfigurations
+    _salt
+      `Prelude.hashWithSalt` endpointConfigurations
       `Prelude.hashWithSalt` healthCheckIntervalSeconds
       `Prelude.hashWithSalt` healthCheckPath
       `Prelude.hashWithSalt` healthCheckPort

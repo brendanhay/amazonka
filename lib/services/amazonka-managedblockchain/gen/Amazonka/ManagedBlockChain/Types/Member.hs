@@ -310,7 +310,8 @@ instance Data.FromJSON Member where
 
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` frameworkAttributes

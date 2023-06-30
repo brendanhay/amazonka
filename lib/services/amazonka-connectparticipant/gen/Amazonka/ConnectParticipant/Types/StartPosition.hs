@@ -83,7 +83,8 @@ startPosition_mostRecent = Lens.lens (\StartPosition' {mostRecent} -> mostRecent
 
 instance Prelude.Hashable StartPosition where
   hashWithSalt _salt StartPosition' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTime
+    _salt
+      `Prelude.hashWithSalt` absoluteTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` mostRecent
 

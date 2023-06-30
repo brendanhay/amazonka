@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdatePackagingGroup where
 
 instance Prelude.Hashable UpdatePackagingGroup where
   hashWithSalt _salt UpdatePackagingGroup' {..} =
-    _salt `Prelude.hashWithSalt` authorization
+    _salt
+      `Prelude.hashWithSalt` authorization
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdatePackagingGroup where

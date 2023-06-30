@@ -118,7 +118,8 @@ instance Core.AWSRequest RedactConversationMessage where
 
 instance Prelude.Hashable RedactConversationMessage where
   hashWithSalt _salt RedactConversationMessage' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` conversationId
       `Prelude.hashWithSalt` messageId
 

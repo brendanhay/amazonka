@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     CoreNetworkSegmentEdgeIdentifier' {..} =
-      _salt `Prelude.hashWithSalt` coreNetworkId
+      _salt
+        `Prelude.hashWithSalt` coreNetworkId
         `Prelude.hashWithSalt` edgeLocation
         `Prelude.hashWithSalt` segmentName
 

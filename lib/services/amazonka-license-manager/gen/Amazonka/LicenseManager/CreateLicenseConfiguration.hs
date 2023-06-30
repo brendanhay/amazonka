@@ -248,7 +248,8 @@ instance Core.AWSRequest CreateLicenseConfiguration where
 
 instance Prelude.Hashable CreateLicenseConfiguration where
   hashWithSalt _salt CreateLicenseConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disassociateWhenNotFound
       `Prelude.hashWithSalt` licenseCount
       `Prelude.hashWithSalt` licenseCountHardLimit

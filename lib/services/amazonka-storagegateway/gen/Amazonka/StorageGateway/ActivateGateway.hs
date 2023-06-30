@@ -328,7 +328,8 @@ instance Core.AWSRequest ActivateGateway where
 
 instance Prelude.Hashable ActivateGateway where
   hashWithSalt _salt ActivateGateway' {..} =
-    _salt `Prelude.hashWithSalt` gatewayType
+    _salt
+      `Prelude.hashWithSalt` gatewayType
       `Prelude.hashWithSalt` mediumChangerType
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` tapeDriveType

@@ -158,11 +158,12 @@ instance
       ( \s h x ->
           AddApplicationCloudWatchLoggingOptionResponse'
             Prelude.<$> (x Data..?> "ApplicationARN")
-              Prelude.<*> (x Data..?> "ApplicationVersionId")
-              Prelude.<*> ( x Data..?> "CloudWatchLoggingOptionDescriptions"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ApplicationVersionId")
+            Prelude.<*> ( x
+                            Data..?> "CloudWatchLoggingOptionDescriptions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -172,7 +173,8 @@ instance
   hashWithSalt
     _salt
     AddApplicationCloudWatchLoggingOption' {..} =
-      _salt `Prelude.hashWithSalt` conditionalToken
+      _salt
+        `Prelude.hashWithSalt` conditionalToken
         `Prelude.hashWithSalt` currentApplicationVersionId
         `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` cloudWatchLoggingOption

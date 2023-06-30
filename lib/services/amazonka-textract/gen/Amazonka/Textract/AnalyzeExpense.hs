@@ -95,7 +95,8 @@ instance Core.AWSRequest AnalyzeExpense where
       ( \s h x ->
           AnalyzeExpenseResponse'
             Prelude.<$> (x Data..?> "DocumentMetadata")
-            Prelude.<*> ( x Data..?> "ExpenseDocuments"
+            Prelude.<*> ( x
+                            Data..?> "ExpenseDocuments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

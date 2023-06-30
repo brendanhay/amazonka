@@ -90,7 +90,8 @@ instance Data.FromJSON LendingResult where
 
 instance Prelude.Hashable LendingResult where
   hashWithSalt _salt LendingResult' {..} =
-    _salt `Prelude.hashWithSalt` extractions
+    _salt
+      `Prelude.hashWithSalt` extractions
       `Prelude.hashWithSalt` page
       `Prelude.hashWithSalt` pageClassification
 

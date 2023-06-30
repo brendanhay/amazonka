@@ -74,7 +74,8 @@ instance Data.FromJSON DatabaseIdentifier where
 
 instance Prelude.Hashable DatabaseIdentifier where
   hashWithSalt _salt DatabaseIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData DatabaseIdentifier where

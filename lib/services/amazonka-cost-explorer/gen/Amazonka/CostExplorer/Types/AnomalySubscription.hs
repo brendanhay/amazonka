@@ -240,7 +240,8 @@ instance Data.FromJSON AnomalySubscription where
 
 instance Prelude.Hashable AnomalySubscription where
   hashWithSalt _salt AnomalySubscription' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` subscriptionArn
       `Prelude.hashWithSalt` threshold
       `Prelude.hashWithSalt` thresholdExpression

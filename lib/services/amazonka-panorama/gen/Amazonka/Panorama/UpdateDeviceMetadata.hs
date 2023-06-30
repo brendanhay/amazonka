@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateDeviceMetadata where
 
 instance Prelude.Hashable UpdateDeviceMetadata where
   hashWithSalt _salt UpdateDeviceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceId
 
 instance Prelude.NFData UpdateDeviceMetadata where

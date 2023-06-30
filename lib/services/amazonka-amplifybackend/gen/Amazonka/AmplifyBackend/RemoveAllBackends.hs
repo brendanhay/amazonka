@@ -113,7 +113,8 @@ instance Core.AWSRequest RemoveAllBackends where
 
 instance Prelude.Hashable RemoveAllBackends where
   hashWithSalt _salt RemoveAllBackends' {..} =
-    _salt `Prelude.hashWithSalt` cleanAmplifyApp
+    _salt
+      `Prelude.hashWithSalt` cleanAmplifyApp
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData RemoveAllBackends where

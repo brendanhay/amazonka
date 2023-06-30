@@ -112,7 +112,8 @@ instance Core.AWSRequest DisassociateTeamMember where
 
 instance Prelude.Hashable DisassociateTeamMember where
   hashWithSalt _salt DisassociateTeamMember' {..} =
-    _salt `Prelude.hashWithSalt` projectId
+    _salt
+      `Prelude.hashWithSalt` projectId
       `Prelude.hashWithSalt` userArn
 
 instance Prelude.NFData DisassociateTeamMember where

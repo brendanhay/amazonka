@@ -202,7 +202,8 @@ instance Core.AWSRequest UpdateIPSet where
 
 instance Prelude.Hashable UpdateIPSet where
   hashWithSalt _salt UpdateIPSet' {..} =
-    _salt `Prelude.hashWithSalt` iPSetId
+    _salt
+      `Prelude.hashWithSalt` iPSetId
       `Prelude.hashWithSalt` changeToken
       `Prelude.hashWithSalt` updates
 

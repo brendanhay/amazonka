@@ -102,7 +102,8 @@ instance Core.AWSRequest UpdateRuleMetadata where
 
 instance Prelude.Hashable UpdateRuleMetadata where
   hashWithSalt _salt UpdateRuleMetadata' {..} =
-    _salt `Prelude.hashWithSalt` rule
+    _salt
+      `Prelude.hashWithSalt` rule
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData UpdateRuleMetadata where

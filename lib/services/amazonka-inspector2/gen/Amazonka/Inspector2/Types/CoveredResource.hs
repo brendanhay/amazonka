@@ -132,7 +132,8 @@ instance Data.FromJSON CoveredResource where
 
 instance Prelude.Hashable CoveredResource where
   hashWithSalt _salt CoveredResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceMetadata
+    _salt
+      `Prelude.hashWithSalt` resourceMetadata
       `Prelude.hashWithSalt` scanStatus
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` resourceId

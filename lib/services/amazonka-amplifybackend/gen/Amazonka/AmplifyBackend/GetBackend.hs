@@ -107,7 +107,8 @@ instance Core.AWSRequest GetBackend where
             Prelude.<*> (x Data..?> "amplifyMetaConfig")
             Prelude.<*> (x Data..?> "appId")
             Prelude.<*> (x Data..?> "appName")
-            Prelude.<*> ( x Data..?> "backendEnvironmentList"
+            Prelude.<*> ( x
+                            Data..?> "backendEnvironmentList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "backendEnvironmentName")
@@ -117,7 +118,8 @@ instance Core.AWSRequest GetBackend where
 
 instance Prelude.Hashable GetBackend where
   hashWithSalt _salt GetBackend' {..} =
-    _salt `Prelude.hashWithSalt` backendEnvironmentName
+    _salt
+      `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData GetBackend where

@@ -74,7 +74,8 @@ patchOrchestratorFilter_values = Lens.lens (\PatchOrchestratorFilter' {values} -
 
 instance Prelude.Hashable PatchOrchestratorFilter where
   hashWithSalt _salt PatchOrchestratorFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData PatchOrchestratorFilter where

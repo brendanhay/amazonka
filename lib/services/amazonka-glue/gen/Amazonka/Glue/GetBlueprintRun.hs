@@ -104,7 +104,8 @@ instance Core.AWSRequest GetBlueprintRun where
 
 instance Prelude.Hashable GetBlueprintRun where
   hashWithSalt _salt GetBlueprintRun' {..} =
-    _salt `Prelude.hashWithSalt` blueprintName
+    _salt
+      `Prelude.hashWithSalt` blueprintName
       `Prelude.hashWithSalt` runId
 
 instance Prelude.NFData GetBlueprintRun where

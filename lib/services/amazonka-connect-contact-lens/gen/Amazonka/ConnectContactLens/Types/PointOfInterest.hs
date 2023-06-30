@@ -84,7 +84,8 @@ instance Data.FromJSON PointOfInterest where
 
 instance Prelude.Hashable PointOfInterest where
   hashWithSalt _salt PointOfInterest' {..} =
-    _salt `Prelude.hashWithSalt` beginOffsetMillis
+    _salt
+      `Prelude.hashWithSalt` beginOffsetMillis
       `Prelude.hashWithSalt` endOffsetMillis
 
 instance Prelude.NFData PointOfInterest where

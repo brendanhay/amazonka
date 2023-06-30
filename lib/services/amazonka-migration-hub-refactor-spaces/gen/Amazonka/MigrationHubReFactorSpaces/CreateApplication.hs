@@ -204,7 +204,8 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` apiGatewayProxy
+    _salt
+      `Prelude.hashWithSalt` apiGatewayProxy
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` environmentIdentifier
@@ -267,7 +268,7 @@ data CreateApplicationResponse = CreateApplicationResponse'
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is
-    -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+    -- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
@@ -315,7 +316,7 @@ data CreateApplicationResponse = CreateApplicationResponse'
 --
 -- 'arn', 'createApplicationResponse_arn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is
--- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+-- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
@@ -378,7 +379,7 @@ createApplicationResponse_applicationId = Lens.lens (\CreateApplicationResponse'
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is
--- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+-- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.

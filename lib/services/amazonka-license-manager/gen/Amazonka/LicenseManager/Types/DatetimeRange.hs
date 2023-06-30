@@ -70,12 +70,14 @@ instance Data.FromJSON DatetimeRange where
       "DatetimeRange"
       ( \x ->
           DatetimeRange'
-            Prelude.<$> (x Data..:? "End") Prelude.<*> (x Data..: "Begin")
+            Prelude.<$> (x Data..:? "End")
+            Prelude.<*> (x Data..: "Begin")
       )
 
 instance Prelude.Hashable DatetimeRange where
   hashWithSalt _salt DatetimeRange' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` begin
 
 instance Prelude.NFData DatetimeRange where

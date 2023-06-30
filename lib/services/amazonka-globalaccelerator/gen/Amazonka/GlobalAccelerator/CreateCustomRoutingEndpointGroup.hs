@@ -161,7 +161,8 @@ instance
   hashWithSalt
     _salt
     CreateCustomRoutingEndpointGroup' {..} =
-      _salt `Prelude.hashWithSalt` listenerArn
+      _salt
+        `Prelude.hashWithSalt` listenerArn
         `Prelude.hashWithSalt` endpointGroupRegion
         `Prelude.hashWithSalt` destinationConfigurations
         `Prelude.hashWithSalt` idempotencyToken

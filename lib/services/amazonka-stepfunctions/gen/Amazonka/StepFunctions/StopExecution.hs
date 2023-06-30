@@ -114,7 +114,8 @@ instance Core.AWSRequest StopExecution where
 
 instance Prelude.Hashable StopExecution where
   hashWithSalt _salt StopExecution' {..} =
-    _salt `Prelude.hashWithSalt` cause
+    _salt
+      `Prelude.hashWithSalt` cause
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` executionArn
 

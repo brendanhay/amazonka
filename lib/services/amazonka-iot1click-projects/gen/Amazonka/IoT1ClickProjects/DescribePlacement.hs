@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribePlacement where
 
 instance Prelude.Hashable DescribePlacement where
   hashWithSalt _salt DescribePlacement' {..} =
-    _salt `Prelude.hashWithSalt` placementName
+    _salt
+      `Prelude.hashWithSalt` placementName
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData DescribePlacement where

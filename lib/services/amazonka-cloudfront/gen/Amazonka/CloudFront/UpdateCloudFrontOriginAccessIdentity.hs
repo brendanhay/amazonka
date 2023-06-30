@@ -121,8 +121,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           UpdateCloudFrontOriginAccessIdentityResponse'
-            Prelude.<$> (Data.parseXML x) Prelude.<*> (h Data..#? "ETag")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -132,7 +133,8 @@ instance
   hashWithSalt
     _salt
     UpdateCloudFrontOriginAccessIdentity' {..} =
-      _salt `Prelude.hashWithSalt` ifMatch
+      _salt
+        `Prelude.hashWithSalt` ifMatch
         `Prelude.hashWithSalt` cloudFrontOriginAccessIdentityConfig
         `Prelude.hashWithSalt` id
 

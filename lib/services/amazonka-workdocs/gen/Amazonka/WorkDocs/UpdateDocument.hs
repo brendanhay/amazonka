@@ -131,7 +131,8 @@ instance Core.AWSRequest UpdateDocument where
 
 instance Prelude.Hashable UpdateDocument where
   hashWithSalt _salt UpdateDocument' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentFolderId
       `Prelude.hashWithSalt` resourceState

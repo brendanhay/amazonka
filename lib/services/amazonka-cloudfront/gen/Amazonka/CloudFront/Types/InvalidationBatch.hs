@@ -135,7 +135,8 @@ instance Data.FromXML InvalidationBatch where
 
 instance Prelude.Hashable InvalidationBatch where
   hashWithSalt _salt InvalidationBatch' {..} =
-    _salt `Prelude.hashWithSalt` paths
+    _salt
+      `Prelude.hashWithSalt` paths
       `Prelude.hashWithSalt` callerReference
 
 instance Prelude.NFData InvalidationBatch where

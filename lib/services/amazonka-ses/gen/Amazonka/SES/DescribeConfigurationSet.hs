@@ -113,7 +113,8 @@ instance Core.AWSRequest DescribeConfigurationSet where
           DescribeConfigurationSetResponse'
             Prelude.<$> (x Data..@? "ConfigurationSet")
             Prelude.<*> (x Data..@? "DeliveryOptions")
-            Prelude.<*> ( x Data..@? "EventDestinations"
+            Prelude.<*> ( x
+                            Data..@? "EventDestinations"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )

@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     DeleteConfigurationSetEventDestination' {..} =
-      _salt `Prelude.hashWithSalt` configurationSetName
+      _salt
+        `Prelude.hashWithSalt` configurationSetName
         `Prelude.hashWithSalt` eventDestinationName
 
 instance

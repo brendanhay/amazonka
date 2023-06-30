@@ -102,7 +102,8 @@ instance Core.AWSRequest BatchStart' where
 
 instance Prelude.Hashable BatchStart' where
   hashWithSalt _salt BatchStart'' {..} =
-    _salt `Prelude.hashWithSalt` channelIds
+    _salt
+      `Prelude.hashWithSalt` channelIds
       `Prelude.hashWithSalt` multiplexIds
 
 instance Prelude.NFData BatchStart' where

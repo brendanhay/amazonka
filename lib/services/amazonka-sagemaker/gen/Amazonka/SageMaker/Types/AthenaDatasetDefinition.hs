@@ -152,7 +152,8 @@ instance Data.FromJSON AthenaDatasetDefinition where
 
 instance Prelude.Hashable AthenaDatasetDefinition where
   hashWithSalt _salt AthenaDatasetDefinition' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` outputCompression
       `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` catalog

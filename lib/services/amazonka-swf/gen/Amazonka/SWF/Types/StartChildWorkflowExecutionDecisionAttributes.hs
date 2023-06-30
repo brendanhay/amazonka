@@ -415,7 +415,8 @@ instance
   hashWithSalt
     _salt
     StartChildWorkflowExecutionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` childPolicy
+      _salt
+        `Prelude.hashWithSalt` childPolicy
         `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` executionStartToCloseTimeout
         `Prelude.hashWithSalt` input

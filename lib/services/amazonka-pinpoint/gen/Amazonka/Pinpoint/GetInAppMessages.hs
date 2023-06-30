@@ -107,7 +107,8 @@ instance Core.AWSRequest GetInAppMessages where
 
 instance Prelude.Hashable GetInAppMessages where
   hashWithSalt _salt GetInAppMessages' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` endpointId
 
 instance Prelude.NFData GetInAppMessages where

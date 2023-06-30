@@ -153,7 +153,8 @@ instance Data.FromJSON MatchmakingRuleSet where
 
 instance Prelude.Hashable MatchmakingRuleSet where
   hashWithSalt _salt MatchmakingRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` ruleSetArn
       `Prelude.hashWithSalt` ruleSetName
       `Prelude.hashWithSalt` ruleSetBody

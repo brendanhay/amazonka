@@ -77,7 +77,8 @@ instance
       "SensitivityInspectionTemplatesEntry"
       ( \x ->
           SensitivityInspectionTemplatesEntry'
-            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance
@@ -87,7 +88,8 @@ instance
   hashWithSalt
     _salt
     SensitivityInspectionTemplatesEntry' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` name
 
 instance

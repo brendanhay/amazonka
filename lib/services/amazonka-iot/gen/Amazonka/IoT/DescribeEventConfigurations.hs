@@ -76,7 +76,8 @@ instance Core.AWSRequest DescribeEventConfigurations where
       ( \s h x ->
           DescribeEventConfigurationsResponse'
             Prelude.<$> (x Data..?> "creationDate")
-            Prelude.<*> ( x Data..?> "eventConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "eventConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "lastModifiedDate")

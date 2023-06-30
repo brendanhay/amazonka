@@ -118,7 +118,8 @@ instance Core.AWSRequest GetSyncJob where
 
 instance Prelude.Hashable GetSyncJob where
   hashWithSalt _salt GetSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` syncSource
 
 instance Prelude.NFData GetSyncJob where

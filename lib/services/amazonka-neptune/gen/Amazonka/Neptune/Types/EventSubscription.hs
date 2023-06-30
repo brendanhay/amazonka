@@ -175,13 +175,16 @@ instance Data.FromXML EventSubscription where
       Prelude.<$> (x Data..@? "CustSubscriptionId")
       Prelude.<*> (x Data..@? "CustomerAwsId")
       Prelude.<*> (x Data..@? "Enabled")
-      Prelude.<*> ( x Data..@? "EventCategoriesList"
+      Prelude.<*> ( x
+                      Data..@? "EventCategoriesList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
       Prelude.<*> (x Data..@? "EventSubscriptionArn")
       Prelude.<*> (x Data..@? "SnsTopicArn")
-      Prelude.<*> ( x Data..@? "SourceIdsList" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "SourceIdsList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "SourceId")
                   )
       Prelude.<*> (x Data..@? "SourceType")
@@ -190,7 +193,8 @@ instance Data.FromXML EventSubscription where
 
 instance Prelude.Hashable EventSubscription where
   hashWithSalt _salt EventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` custSubscriptionId
+    _salt
+      `Prelude.hashWithSalt` custSubscriptionId
       `Prelude.hashWithSalt` customerAwsId
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` eventCategoriesList

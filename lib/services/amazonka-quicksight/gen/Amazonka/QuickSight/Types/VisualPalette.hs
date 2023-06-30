@@ -75,7 +75,8 @@ instance Data.FromJSON VisualPalette where
 
 instance Prelude.Hashable VisualPalette where
   hashWithSalt _salt VisualPalette' {..} =
-    _salt `Prelude.hashWithSalt` chartColor
+    _salt
+      `Prelude.hashWithSalt` chartColor
       `Prelude.hashWithSalt` colorMap
 
 instance Prelude.NFData VisualPalette where

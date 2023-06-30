@@ -240,20 +240,23 @@ instance Core.AWSPager ListPackages where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPackagesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listPackagesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPackagesResponse_packages Prelude.. Lens._Just
+            Lens.^? listPackagesResponse_packages
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPackages_nextToken
           Lens..~ rs
-          Lens.^? listPackagesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPackagesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPackages where
   type AWSResponse ListPackages = ListPackagesResponse
@@ -270,7 +273,8 @@ instance Core.AWSRequest ListPackages where
 
 instance Prelude.Hashable ListPackages where
   hashWithSalt _salt ListPackages' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namespace

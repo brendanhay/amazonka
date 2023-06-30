@@ -317,7 +317,8 @@ instance Core.AWSRequest ModifyReplicationTask where
 
 instance Prelude.Hashable ModifyReplicationTask where
   hashWithSalt _salt ModifyReplicationTask' {..} =
-    _salt `Prelude.hashWithSalt` cdcStartPosition
+    _salt
+      `Prelude.hashWithSalt` cdcStartPosition
       `Prelude.hashWithSalt` cdcStartTime
       `Prelude.hashWithSalt` cdcStopPosition
       `Prelude.hashWithSalt` migrationType

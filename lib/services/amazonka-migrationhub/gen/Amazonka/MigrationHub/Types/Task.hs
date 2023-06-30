@@ -93,7 +93,8 @@ instance Data.FromJSON Task where
 
 instance Prelude.Hashable Task where
   hashWithSalt _salt Task' {..} =
-    _salt `Prelude.hashWithSalt` progressPercent
+    _salt
+      `Prelude.hashWithSalt` progressPercent
       `Prelude.hashWithSalt` statusDetail
       `Prelude.hashWithSalt` status
 

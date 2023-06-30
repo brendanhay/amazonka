@@ -124,7 +124,8 @@ instance Data.FromJSON AwsWafRateBasedRuleDetails where
       "AwsWafRateBasedRuleDetails"
       ( \x ->
           AwsWafRateBasedRuleDetails'
-            Prelude.<$> ( x Data..:? "MatchPredicates"
+            Prelude.<$> ( x
+                            Data..:? "MatchPredicates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MetricName")
@@ -136,7 +137,8 @@ instance Data.FromJSON AwsWafRateBasedRuleDetails where
 
 instance Prelude.Hashable AwsWafRateBasedRuleDetails where
   hashWithSalt _salt AwsWafRateBasedRuleDetails' {..} =
-    _salt `Prelude.hashWithSalt` matchPredicates
+    _salt
+      `Prelude.hashWithSalt` matchPredicates
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` rateKey

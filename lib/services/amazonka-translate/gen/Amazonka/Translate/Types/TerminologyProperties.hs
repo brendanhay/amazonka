@@ -236,7 +236,8 @@ instance Data.FromJSON TerminologyProperties where
             Prelude.<*> (x Data..:? "SizeBytes")
             Prelude.<*> (x Data..:? "SkippedTermCount")
             Prelude.<*> (x Data..:? "SourceLanguageCode")
-            Prelude.<*> ( x Data..:? "TargetLanguageCodes"
+            Prelude.<*> ( x
+                            Data..:? "TargetLanguageCodes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TermCount")
@@ -244,7 +245,8 @@ instance Data.FromJSON TerminologyProperties where
 
 instance Prelude.Hashable TerminologyProperties where
   hashWithSalt _salt TerminologyProperties' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` directionality

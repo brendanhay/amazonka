@@ -103,7 +103,8 @@ instance
       ( \s h x ->
           ListSlackWorkspaceConfigurationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "slackWorkspaceConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "slackWorkspaceConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -502,7 +502,8 @@ instance Core.AWSRequest DeleteItem where
 
 instance Prelude.Hashable DeleteItem where
   hashWithSalt _salt DeleteItem' {..} =
-    _salt `Prelude.hashWithSalt` conditionExpression
+    _salt
+      `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` conditionalOperator
       `Prelude.hashWithSalt` expected
       `Prelude.hashWithSalt` expressionAttributeNames

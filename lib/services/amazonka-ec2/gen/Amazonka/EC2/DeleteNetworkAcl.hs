@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteNetworkAcl where
 
 instance Prelude.Hashable DeleteNetworkAcl where
   hashWithSalt _salt DeleteNetworkAcl' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` networkAclId
 
 instance Prelude.NFData DeleteNetworkAcl where

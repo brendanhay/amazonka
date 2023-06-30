@@ -147,7 +147,8 @@ instance Data.FromXML ObjectVersion where
 
 instance Prelude.Hashable ObjectVersion where
   hashWithSalt _salt ObjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` isLatest
       `Prelude.hashWithSalt` key

@@ -159,7 +159,8 @@ instance Data.FromJSON StandardsSubscription where
 
 instance Prelude.Hashable StandardsSubscription where
   hashWithSalt _salt StandardsSubscription' {..} =
-    _salt `Prelude.hashWithSalt` standardsStatusReason
+    _salt
+      `Prelude.hashWithSalt` standardsStatusReason
       `Prelude.hashWithSalt` standardsSubscriptionArn
       `Prelude.hashWithSalt` standardsArn
       `Prelude.hashWithSalt` standardsInput

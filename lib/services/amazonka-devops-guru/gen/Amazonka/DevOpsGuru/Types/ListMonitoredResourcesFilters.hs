@@ -73,7 +73,8 @@ instance
     ListMonitoredResourcesFilters
   where
   hashWithSalt _salt ListMonitoredResourcesFilters' {..} =
-    _salt `Prelude.hashWithSalt` resourcePermission
+    _salt
+      `Prelude.hashWithSalt` resourcePermission
       `Prelude.hashWithSalt` resourceTypeFilters
 
 instance Prelude.NFData ListMonitoredResourcesFilters where

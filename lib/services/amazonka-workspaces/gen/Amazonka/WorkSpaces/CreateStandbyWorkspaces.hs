@@ -98,10 +98,12 @@ instance Core.AWSRequest CreateStandbyWorkspaces where
     Response.receiveJSON
       ( \s h x ->
           CreateStandbyWorkspacesResponse'
-            Prelude.<$> ( x Data..?> "FailedStandbyRequests"
+            Prelude.<$> ( x
+                            Data..?> "FailedStandbyRequests"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "PendingStandbyRequests"
+            Prelude.<*> ( x
+                            Data..?> "PendingStandbyRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -109,7 +111,8 @@ instance Core.AWSRequest CreateStandbyWorkspaces where
 
 instance Prelude.Hashable CreateStandbyWorkspaces where
   hashWithSalt _salt CreateStandbyWorkspaces' {..} =
-    _salt `Prelude.hashWithSalt` primaryRegion
+    _salt
+      `Prelude.hashWithSalt` primaryRegion
       `Prelude.hashWithSalt` standbyWorkspaces
 
 instance Prelude.NFData CreateStandbyWorkspaces where

@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeDatasetImportJob where
             Prelude.<*> (x Data..?> "DatasetImportJobArn")
             Prelude.<*> (x Data..?> "DatasetImportJobName")
             Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> ( x Data..?> "FieldStatistics"
+            Prelude.<*> ( x
+                            Data..?> "FieldStatistics"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Format")

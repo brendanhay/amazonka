@@ -109,17 +109,20 @@ instance Data.FromJSON LoadBalancerInfo where
       ( \x ->
           LoadBalancerInfo'
             Prelude.<$> (x Data..:? "elbInfoList" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "targetGroupInfoList"
+            Prelude.<*> ( x
+                            Data..:? "targetGroupInfoList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "targetGroupPairInfoList"
+            Prelude.<*> ( x
+                            Data..:? "targetGroupPairInfoList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LoadBalancerInfo where
   hashWithSalt _salt LoadBalancerInfo' {..} =
-    _salt `Prelude.hashWithSalt` elbInfoList
+    _salt
+      `Prelude.hashWithSalt` elbInfoList
       `Prelude.hashWithSalt` targetGroupInfoList
       `Prelude.hashWithSalt` targetGroupPairInfoList
 

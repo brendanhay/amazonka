@@ -292,7 +292,8 @@ newEncrypt pKeyId_ pPlaintext_ =
       grantTokens = Prelude.Nothing,
       keyId = pKeyId_,
       plaintext =
-        Data._Sensitive Prelude.. Data._Base64
+        Data._Sensitive
+          Prelude.. Data._Base64
           Lens.# pPlaintext_
     }
 
@@ -391,7 +392,8 @@ instance Core.AWSRequest Encrypt where
 
 instance Prelude.Hashable Encrypt where
   hashWithSalt _salt Encrypt' {..} =
-    _salt `Prelude.hashWithSalt` encryptionAlgorithm
+    _salt
+      `Prelude.hashWithSalt` encryptionAlgorithm
       `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keyId

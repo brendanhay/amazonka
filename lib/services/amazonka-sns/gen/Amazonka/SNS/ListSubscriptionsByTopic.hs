@@ -103,22 +103,22 @@ instance Core.AWSPager ListSubscriptionsByTopic where
     | Core.stop
         ( rs
             Lens.^? listSubscriptionsByTopicResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSubscriptionsByTopicResponse_subscriptions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSubscriptionsByTopic_nextToken
           Lens..~ rs
           Lens.^? listSubscriptionsByTopicResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubscriptionsByTopic where
   type
@@ -132,7 +132,9 @@ instance Core.AWSRequest ListSubscriptionsByTopic where
       ( \s h x ->
           ListSubscriptionsByTopicResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "Subscriptions" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Subscriptions"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,7 +142,8 @@ instance Core.AWSRequest ListSubscriptionsByTopic where
 
 instance Prelude.Hashable ListSubscriptionsByTopic where
   hashWithSalt _salt ListSubscriptionsByTopic' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` topicArn
 
 instance Prelude.NFData ListSubscriptionsByTopic where

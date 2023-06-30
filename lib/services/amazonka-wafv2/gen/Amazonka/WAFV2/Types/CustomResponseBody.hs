@@ -110,7 +110,8 @@ instance Data.FromJSON CustomResponseBody where
 
 instance Prelude.Hashable CustomResponseBody where
   hashWithSalt _salt CustomResponseBody' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData CustomResponseBody where

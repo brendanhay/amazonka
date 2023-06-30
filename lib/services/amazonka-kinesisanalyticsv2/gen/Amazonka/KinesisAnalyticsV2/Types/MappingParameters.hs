@@ -87,7 +87,8 @@ instance Data.FromJSON MappingParameters where
 
 instance Prelude.Hashable MappingParameters where
   hashWithSalt _salt MappingParameters' {..} =
-    _salt `Prelude.hashWithSalt` cSVMappingParameters
+    _salt
+      `Prelude.hashWithSalt` cSVMappingParameters
       `Prelude.hashWithSalt` jSONMappingParameters
 
 instance Prelude.NFData MappingParameters where

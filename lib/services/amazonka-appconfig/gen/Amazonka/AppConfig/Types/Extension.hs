@@ -134,7 +134,8 @@ instance Data.FromJSON Extension where
 
 instance Prelude.Hashable Extension where
   hashWithSalt _salt Extension' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

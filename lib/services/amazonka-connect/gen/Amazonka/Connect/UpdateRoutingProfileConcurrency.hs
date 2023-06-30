@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     UpdateRoutingProfileConcurrency' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` routingProfileId
         `Prelude.hashWithSalt` mediaConcurrencies
 

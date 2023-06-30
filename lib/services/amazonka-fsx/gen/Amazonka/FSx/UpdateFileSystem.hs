@@ -349,7 +349,8 @@ instance Core.AWSRequest UpdateFileSystem where
 
 instance Prelude.Hashable UpdateFileSystem where
   hashWithSalt _salt UpdateFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` lustreConfiguration
       `Prelude.hashWithSalt` ontapConfiguration
       `Prelude.hashWithSalt` openZFSConfiguration

@@ -124,22 +124,22 @@ instance Core.AWSPager ListResolverConfigs where
     | Core.stop
         ( rs
             Lens.^? listResolverConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResolverConfigsResponse_resolverConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResolverConfigs_nextToken
           Lens..~ rs
           Lens.^? listResolverConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResolverConfigs where
   type
@@ -152,7 +152,8 @@ instance Core.AWSRequest ListResolverConfigs where
       ( \s h x ->
           ListResolverConfigsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ResolverConfigs"
+            Prelude.<*> ( x
+                            Data..?> "ResolverConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,7 +161,8 @@ instance Core.AWSRequest ListResolverConfigs where
 
 instance Prelude.Hashable ListResolverConfigs where
   hashWithSalt _salt ListResolverConfigs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResolverConfigs where

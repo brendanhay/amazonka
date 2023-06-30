@@ -194,7 +194,8 @@ instance
   hashWithSalt
     _salt
     StackSetOperationResultSummary' {..} =
-      _salt `Prelude.hashWithSalt` account
+      _salt
+        `Prelude.hashWithSalt` account
         `Prelude.hashWithSalt` accountGateResult
         `Prelude.hashWithSalt` organizationalUnitId
         `Prelude.hashWithSalt` region

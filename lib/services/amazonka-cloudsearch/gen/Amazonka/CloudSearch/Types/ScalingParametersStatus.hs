@@ -74,7 +74,8 @@ instance Data.FromXML ScalingParametersStatus where
 
 instance Prelude.Hashable ScalingParametersStatus where
   hashWithSalt _salt ScalingParametersStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ScalingParametersStatus where

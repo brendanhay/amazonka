@@ -144,7 +144,8 @@ instance Core.AWSRequest ModifyVpnTunnelOptions where
 
 instance Prelude.Hashable ModifyVpnTunnelOptions where
   hashWithSalt _salt ModifyVpnTunnelOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpnConnectionId
       `Prelude.hashWithSalt` vpnTunnelOutsideIpAddress
       `Prelude.hashWithSalt` tunnelOptions

@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteBucketCors where
 
 instance Prelude.Hashable DeleteBucketCors where
   hashWithSalt _salt DeleteBucketCors' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucketCors where

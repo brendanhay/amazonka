@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateGcmChannel where
 
 instance Prelude.Hashable UpdateGcmChannel where
   hashWithSalt _salt UpdateGcmChannel' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` gCMChannelRequest
 
 instance Prelude.NFData UpdateGcmChannel where

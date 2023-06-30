@@ -308,7 +308,8 @@ instance Data.FromJSON Cluster where
             Prelude.<*> (x Data..:? "clientRequestToken")
             Prelude.<*> (x Data..:? "connectorConfig")
             Prelude.<*> (x Data..:? "createdAt")
-            Prelude.<*> ( x Data..:? "encryptionConfig"
+            Prelude.<*> ( x
+                            Data..:? "encryptionConfig"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "endpoint")
@@ -329,7 +330,8 @@ instance Data.FromJSON Cluster where
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` certificateAuthority
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` connectorConfig

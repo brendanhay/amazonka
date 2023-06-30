@@ -77,7 +77,8 @@ instance Data.FromJSON ForecastScenario where
 
 instance Prelude.Hashable ForecastScenario where
   hashWithSalt _salt ForecastScenario' {..} =
-    _salt `Prelude.hashWithSalt` whatIfPointScenario
+    _salt
+      `Prelude.hashWithSalt` whatIfPointScenario
       `Prelude.hashWithSalt` whatIfRangeScenario
 
 instance Prelude.NFData ForecastScenario where

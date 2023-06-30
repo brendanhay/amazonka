@@ -84,7 +84,8 @@ syncResourceFilter_state = Lens.lens (\SyncResourceFilter' {state} -> state) (\s
 
 instance Prelude.Hashable SyncResourceFilter where
   hashWithSalt _salt SyncResourceFilter' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` state

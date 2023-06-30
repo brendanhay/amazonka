@@ -79,7 +79,8 @@ instance Data.FromJSON ExportS3DataInput where
 
 instance Prelude.Hashable ExportS3DataInput where
   hashWithSalt _salt ExportS3DataInput' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData ExportS3DataInput where

@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteBucketLifecycle where
 
 instance Prelude.Hashable DeleteBucketLifecycle where
   hashWithSalt _salt DeleteBucketLifecycle' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucketLifecycle where

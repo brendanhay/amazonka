@@ -109,7 +109,8 @@ instance Data.FromJSON InstanceSummary where
 
 instance Prelude.Hashable InstanceSummary where
   hashWithSalt _salt InstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastStatusCheckDate
+    _salt
+      `Prelude.hashWithSalt` lastStatusCheckDate
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` products

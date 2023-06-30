@@ -289,7 +289,8 @@ instance Core.AWSRequest CreateDomainName where
 
 instance Prelude.Hashable CreateDomainName where
   hashWithSalt _salt CreateDomainName' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateBody
       `Prelude.hashWithSalt` certificateChain
       `Prelude.hashWithSalt` certificateName

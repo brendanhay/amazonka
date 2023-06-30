@@ -183,7 +183,8 @@ instance Data.FromJSON Environment where
 
 instance Prelude.Hashable Environment where
   hashWithSalt _salt Environment' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dedicatedServiceAccountId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentArn

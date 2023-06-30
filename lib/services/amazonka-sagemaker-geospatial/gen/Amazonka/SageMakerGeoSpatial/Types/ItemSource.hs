@@ -75,19 +75,15 @@ newItemSource pDateTime_ pGeometry_ pId_ =
       id = pId_
     }
 
--- |
 itemSource_assets :: Lens.Lens' ItemSource (Prelude.Maybe (Prelude.HashMap Prelude.Text AssetValue))
 itemSource_assets = Lens.lens (\ItemSource' {assets} -> assets) (\s@ItemSource' {} a -> s {assets = a} :: ItemSource) Prelude.. Lens.mapping Lens.coerced
 
--- |
 itemSource_properties :: Lens.Lens' ItemSource (Prelude.Maybe Properties)
 itemSource_properties = Lens.lens (\ItemSource' {properties} -> properties) (\s@ItemSource' {} a -> s {properties = a} :: ItemSource)
 
--- |
 itemSource_dateTime :: Lens.Lens' ItemSource Prelude.UTCTime
 itemSource_dateTime = Lens.lens (\ItemSource' {dateTime} -> dateTime) (\s@ItemSource' {} a -> s {dateTime = a} :: ItemSource) Prelude.. Data._Time
 
--- |
 itemSource_geometry :: Lens.Lens' ItemSource Geometry
 itemSource_geometry = Lens.lens (\ItemSource' {geometry} -> geometry) (\s@ItemSource' {} a -> s {geometry = a} :: ItemSource)
 
@@ -110,7 +106,8 @@ instance Data.FromJSON ItemSource where
 
 instance Prelude.Hashable ItemSource where
   hashWithSalt _salt ItemSource' {..} =
-    _salt `Prelude.hashWithSalt` assets
+    _salt
+      `Prelude.hashWithSalt` assets
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` dateTime
       `Prelude.hashWithSalt` geometry

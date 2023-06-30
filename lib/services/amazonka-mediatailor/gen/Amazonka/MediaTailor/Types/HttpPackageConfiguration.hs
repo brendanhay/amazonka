@@ -103,7 +103,8 @@ instance Data.FromJSON HttpPackageConfiguration where
 
 instance Prelude.Hashable HttpPackageConfiguration where
   hashWithSalt _salt HttpPackageConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` sourceGroup
       `Prelude.hashWithSalt` type'
 

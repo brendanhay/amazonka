@@ -94,7 +94,8 @@ instance Data.FromJSON AccessKeyDetails where
 
 instance Prelude.Hashable AccessKeyDetails where
   hashWithSalt _salt AccessKeyDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` userType

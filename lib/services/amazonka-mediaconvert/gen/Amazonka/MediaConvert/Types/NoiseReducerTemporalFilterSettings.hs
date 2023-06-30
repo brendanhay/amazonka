@@ -180,7 +180,8 @@ instance
   hashWithSalt
     _salt
     NoiseReducerTemporalFilterSettings' {..} =
-      _salt `Prelude.hashWithSalt` aggressiveMode
+      _salt
+        `Prelude.hashWithSalt` aggressiveMode
         `Prelude.hashWithSalt` postTemporalSharpening
         `Prelude.hashWithSalt` postTemporalSharpeningStrength
         `Prelude.hashWithSalt` speed

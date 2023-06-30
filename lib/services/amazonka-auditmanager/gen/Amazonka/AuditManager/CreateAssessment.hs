@@ -168,7 +168,8 @@ instance Core.AWSRequest CreateAssessment where
 
 instance Prelude.Hashable CreateAssessment where
   hashWithSalt _salt CreateAssessment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` assessmentReportsDestination

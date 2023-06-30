@@ -131,21 +131,23 @@ instance Core.AWSPager ListWorlds where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listWorldsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listWorldsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listWorldsResponse_worldSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWorlds_nextToken
           Lens..~ rs
-          Lens.^? listWorldsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listWorldsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorlds where
   type AWSResponse ListWorlds = ListWorldsResponse
@@ -162,7 +164,8 @@ instance Core.AWSRequest ListWorlds where
 
 instance Prelude.Hashable ListWorlds where
   hashWithSalt _salt ListWorlds' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

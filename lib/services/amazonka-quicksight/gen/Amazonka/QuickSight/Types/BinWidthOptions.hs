@@ -74,7 +74,8 @@ instance Data.FromJSON BinWidthOptions where
 
 instance Prelude.Hashable BinWidthOptions where
   hashWithSalt _salt BinWidthOptions' {..} =
-    _salt `Prelude.hashWithSalt` binCountLimit
+    _salt
+      `Prelude.hashWithSalt` binCountLimit
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData BinWidthOptions where

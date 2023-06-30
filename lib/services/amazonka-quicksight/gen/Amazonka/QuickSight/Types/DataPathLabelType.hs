@@ -85,7 +85,8 @@ instance Data.FromJSON DataPathLabelType where
 
 instance Prelude.Hashable DataPathLabelType where
   hashWithSalt _salt DataPathLabelType' {..} =
-    _salt `Prelude.hashWithSalt` fieldId
+    _salt
+      `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` fieldValue
       `Prelude.hashWithSalt` visibility
 

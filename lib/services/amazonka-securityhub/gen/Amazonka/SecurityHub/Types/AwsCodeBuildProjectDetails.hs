@@ -157,7 +157,8 @@ instance Data.FromJSON AwsCodeBuildProjectDetails where
             Prelude.<*> (x Data..:? "Environment")
             Prelude.<*> (x Data..:? "LogsConfig")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "SecondaryArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "SecondaryArtifacts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ServiceRole")
@@ -167,7 +168,8 @@ instance Data.FromJSON AwsCodeBuildProjectDetails where
 
 instance Prelude.Hashable AwsCodeBuildProjectDetails where
   hashWithSalt _salt AwsCodeBuildProjectDetails' {..} =
-    _salt `Prelude.hashWithSalt` artifacts
+    _salt
+      `Prelude.hashWithSalt` artifacts
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` logsConfig

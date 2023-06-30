@@ -142,7 +142,8 @@ instance Core.AWSRequest StartStageDeployment where
 
 instance Prelude.Hashable StartStageDeployment where
   hashWithSalt _salt StartStageDeployment' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` stageName

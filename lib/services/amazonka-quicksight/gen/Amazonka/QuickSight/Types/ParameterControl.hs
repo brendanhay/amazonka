@@ -133,7 +133,8 @@ instance Data.FromJSON ParameterControl where
 
 instance Prelude.Hashable ParameterControl where
   hashWithSalt _salt ParameterControl' {..} =
-    _salt `Prelude.hashWithSalt` dateTimePicker
+    _salt
+      `Prelude.hashWithSalt` dateTimePicker
       `Prelude.hashWithSalt` dropdown
       `Prelude.hashWithSalt` list
       `Prelude.hashWithSalt` slider

@@ -167,7 +167,8 @@ instance Core.AWSRequest CreateContactFlowModule where
 
 instance Prelude.Hashable CreateContactFlowModule where
   hashWithSalt _salt CreateContactFlowModule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId

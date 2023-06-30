@@ -102,7 +102,8 @@ instance Data.FromJSON CollectorHealthCheck where
 
 instance Prelude.Hashable CollectorHealthCheck where
   hashWithSalt _salt CollectorHealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` collectorStatus
+    _salt
+      `Prelude.hashWithSalt` collectorStatus
       `Prelude.hashWithSalt` localCollectorS3Access
       `Prelude.hashWithSalt` webCollectorGrantedRoleBasedAccess
       `Prelude.hashWithSalt` webCollectorS3Access

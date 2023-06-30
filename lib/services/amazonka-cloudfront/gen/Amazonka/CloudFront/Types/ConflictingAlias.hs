@@ -90,7 +90,8 @@ instance Data.FromXML ConflictingAlias where
 
 instance Prelude.Hashable ConflictingAlias where
   hashWithSalt _salt ConflictingAlias' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` distributionId
 

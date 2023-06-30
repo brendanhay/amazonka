@@ -182,7 +182,8 @@ instance Data.FromXML ChangeSetHook where
 
 instance Prelude.Hashable ChangeSetHook where
   hashWithSalt _salt ChangeSetHook' {..} =
-    _salt `Prelude.hashWithSalt` failureMode
+    _salt
+      `Prelude.hashWithSalt` failureMode
       `Prelude.hashWithSalt` invocationPoint
       `Prelude.hashWithSalt` targetDetails
       `Prelude.hashWithSalt` typeConfigurationVersionId

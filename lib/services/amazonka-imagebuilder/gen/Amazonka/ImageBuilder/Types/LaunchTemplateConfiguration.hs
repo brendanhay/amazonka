@@ -90,7 +90,8 @@ instance Data.FromJSON LaunchTemplateConfiguration where
 
 instance Prelude.Hashable LaunchTemplateConfiguration where
   hashWithSalt _salt LaunchTemplateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` setDefaultVersion
       `Prelude.hashWithSalt` launchTemplateId
 

@@ -147,7 +147,8 @@ instance Core.AWSRequest CreateWorkGroup where
 
 instance Prelude.Hashable CreateWorkGroup where
   hashWithSalt _salt CreateWorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

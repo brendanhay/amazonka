@@ -106,7 +106,8 @@ instance Core.AWSRequest CreateGlobalNetwork where
 
 instance Prelude.Hashable CreateGlobalNetwork where
   hashWithSalt _salt CreateGlobalNetwork' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateGlobalNetwork where

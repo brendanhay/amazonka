@@ -90,7 +90,8 @@ instance Data.FromJSON CalculatedSpend where
 
 instance Prelude.Hashable CalculatedSpend where
   hashWithSalt _salt CalculatedSpend' {..} =
-    _salt `Prelude.hashWithSalt` forecastedSpend
+    _salt
+      `Prelude.hashWithSalt` forecastedSpend
       `Prelude.hashWithSalt` actualSpend
 
 instance Prelude.NFData CalculatedSpend where

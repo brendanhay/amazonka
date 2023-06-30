@@ -154,12 +154,13 @@ instance
       "AwsCertificateManagerCertificateRenewalSummary"
       ( \x ->
           AwsCertificateManagerCertificateRenewalSummary'
-            Prelude.<$> ( x Data..:? "DomainValidationOptions"
+            Prelude.<$> ( x
+                            Data..:? "DomainValidationOptions"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Data..:? "RenewalStatus")
-              Prelude.<*> (x Data..:? "RenewalStatusReason")
-              Prelude.<*> (x Data..:? "UpdatedAt")
+            Prelude.<*> (x Data..:? "RenewalStatus")
+            Prelude.<*> (x Data..:? "RenewalStatusReason")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance

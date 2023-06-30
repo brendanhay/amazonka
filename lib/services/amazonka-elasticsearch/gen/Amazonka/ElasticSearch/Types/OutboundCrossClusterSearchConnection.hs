@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     OutboundCrossClusterSearchConnection' {..} =
-      _salt `Prelude.hashWithSalt` connectionAlias
+      _salt
+        `Prelude.hashWithSalt` connectionAlias
         `Prelude.hashWithSalt` connectionStatus
         `Prelude.hashWithSalt` crossClusterSearchConnectionId
         `Prelude.hashWithSalt` destinationDomainInfo

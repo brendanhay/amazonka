@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateConnection where
 
 instance Prelude.Hashable UpdateConnection where
   hashWithSalt _salt UpdateConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
+    _salt
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` encryptionMode
       `Prelude.hashWithSalt` connectionId
 

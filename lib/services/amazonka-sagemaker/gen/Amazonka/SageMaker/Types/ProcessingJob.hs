@@ -282,7 +282,8 @@ instance Data.FromJSON ProcessingJob where
             Prelude.<*> (x Data..:? "MonitoringScheduleArn")
             Prelude.<*> (x Data..:? "NetworkConfig")
             Prelude.<*> (x Data..:? "ProcessingEndTime")
-            Prelude.<*> ( x Data..:? "ProcessingInputs"
+            Prelude.<*> ( x
+                            Data..:? "ProcessingInputs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProcessingJobArn")
@@ -299,7 +300,8 @@ instance Data.FromJSON ProcessingJob where
 
 instance Prelude.Hashable ProcessingJob where
   hashWithSalt _salt ProcessingJob' {..} =
-    _salt `Prelude.hashWithSalt` appSpecification
+    _salt
+      `Prelude.hashWithSalt` appSpecification
       `Prelude.hashWithSalt` autoMLJobArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` environment

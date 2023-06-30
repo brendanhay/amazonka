@@ -72,7 +72,8 @@ instance
   where
   parseXML x =
     EnableFastSnapshotRestoreErrorItem'
-      Prelude.<$> ( x Data..@? "fastSnapshotRestoreStateErrorSet"
+      Prelude.<$> ( x
+                      Data..@? "fastSnapshotRestoreStateErrorSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )

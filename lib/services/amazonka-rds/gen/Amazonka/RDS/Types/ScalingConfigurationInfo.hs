@@ -170,7 +170,8 @@ instance Data.FromXML ScalingConfigurationInfo where
 
 instance Prelude.Hashable ScalingConfigurationInfo where
   hashWithSalt _salt ScalingConfigurationInfo' {..} =
-    _salt `Prelude.hashWithSalt` autoPause
+    _salt
+      `Prelude.hashWithSalt` autoPause
       `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` minCapacity
       `Prelude.hashWithSalt` secondsBeforeTimeout

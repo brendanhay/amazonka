@@ -78,7 +78,8 @@ instance Data.FromJSON Approval where
 
 instance Prelude.Hashable Approval where
   hashWithSalt _salt Approval' {..} =
-    _salt `Prelude.hashWithSalt` approvalState
+    _salt
+      `Prelude.hashWithSalt` approvalState
       `Prelude.hashWithSalt` userArn
 
 instance Prelude.NFData Approval where

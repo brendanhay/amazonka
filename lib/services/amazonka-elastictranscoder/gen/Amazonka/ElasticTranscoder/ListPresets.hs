@@ -108,21 +108,22 @@ instance Core.AWSPager ListPresets where
     | Core.stop
         ( rs
             Lens.^? listPresetsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPresetsResponse_presets Prelude.. Lens._Just
+            Lens.^? listPresetsResponse_presets
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPresets_pageToken
           Lens..~ rs
           Lens.^? listPresetsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPresets where
   type AWSResponse ListPresets = ListPresetsResponse
@@ -139,7 +140,8 @@ instance Core.AWSRequest ListPresets where
 
 instance Prelude.Hashable ListPresets where
   hashWithSalt _salt ListPresets' {..} =
-    _salt `Prelude.hashWithSalt` ascending
+    _salt
+      `Prelude.hashWithSalt` ascending
       `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData ListPresets where

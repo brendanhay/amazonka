@@ -155,7 +155,8 @@ instance Core.AWSRequest GetEventSelectors where
     Response.receiveJSON
       ( \s h x ->
           GetEventSelectorsResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EventSelectors" Core..!@ Prelude.mempty)

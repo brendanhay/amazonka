@@ -112,7 +112,8 @@ instance Data.FromJSON BasicCatalogTarget where
 
 instance Prelude.Hashable BasicCatalogTarget where
   hashWithSalt _salt BasicCatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table

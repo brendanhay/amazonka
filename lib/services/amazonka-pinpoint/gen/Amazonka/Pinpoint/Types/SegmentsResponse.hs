@@ -88,7 +88,8 @@ instance Data.FromJSON SegmentsResponse where
 
 instance Prelude.Hashable SegmentsResponse where
   hashWithSalt _salt SegmentsResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` item
 
 instance Prelude.NFData SegmentsResponse where

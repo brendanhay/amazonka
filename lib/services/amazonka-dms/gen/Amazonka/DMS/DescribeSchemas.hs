@@ -135,20 +135,23 @@ instance Core.AWSPager DescribeSchemas where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeSchemasResponse_marker Prelude.. Lens._Just
+            Lens.^? describeSchemasResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeSchemasResponse_schemas Prelude.. Lens._Just
+            Lens.^? describeSchemasResponse_schemas
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSchemas_marker
           Lens..~ rs
-          Lens.^? describeSchemasResponse_marker Prelude.. Lens._Just
+          Lens.^? describeSchemasResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSchemas where
   type
@@ -167,7 +170,8 @@ instance Core.AWSRequest DescribeSchemas where
 
 instance Prelude.Hashable DescribeSchemas where
   hashWithSalt _salt DescribeSchemas' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` endpointArn
 

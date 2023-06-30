@@ -89,7 +89,8 @@ instance Data.FromJSON ConnectionAliasPermission where
 
 instance Prelude.Hashable ConnectionAliasPermission where
   hashWithSalt _salt ConnectionAliasPermission' {..} =
-    _salt `Prelude.hashWithSalt` sharedAccountId
+    _salt
+      `Prelude.hashWithSalt` sharedAccountId
       `Prelude.hashWithSalt` allowAssociation
 
 instance Prelude.NFData ConnectionAliasPermission where

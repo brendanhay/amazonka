@@ -214,7 +214,8 @@ instance Core.AWSRequest GetCampaignDateRangeKpi where
 
 instance Prelude.Hashable GetCampaignDateRangeKpi where
   hashWithSalt _salt GetCampaignDateRangeKpi' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` startTime

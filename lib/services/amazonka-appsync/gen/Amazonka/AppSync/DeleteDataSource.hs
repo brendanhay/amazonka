@@ -99,7 +99,8 @@ instance Core.AWSRequest DeleteDataSource where
 
 instance Prelude.Hashable DeleteDataSource where
   hashWithSalt _salt DeleteDataSource' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteDataSource where

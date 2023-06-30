@@ -114,7 +114,8 @@ instance Core.AWSRequest ListEventConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListEventConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "EventConfigurationsList"
+            Prelude.<$> ( x
+                            Data..?> "EventConfigurationsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -123,7 +124,8 @@ instance Core.AWSRequest ListEventConfigurations where
 
 instance Prelude.Hashable ListEventConfigurations where
   hashWithSalt _salt ListEventConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceType
 

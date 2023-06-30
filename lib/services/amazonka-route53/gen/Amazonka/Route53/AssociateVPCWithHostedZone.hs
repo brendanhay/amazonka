@@ -160,7 +160,8 @@ instance Core.AWSRequest AssociateVPCWithHostedZone where
 
 instance Prelude.Hashable AssociateVPCWithHostedZone where
   hashWithSalt _salt AssociateVPCWithHostedZone' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` vpc
 

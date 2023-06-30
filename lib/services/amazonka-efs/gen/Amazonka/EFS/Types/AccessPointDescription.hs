@@ -177,7 +177,8 @@ instance Data.FromJSON AccessPointDescription where
 
 instance Prelude.Hashable AccessPointDescription where
   hashWithSalt _salt AccessPointDescription' {..} =
-    _salt `Prelude.hashWithSalt` accessPointArn
+    _salt
+      `Prelude.hashWithSalt` accessPointArn
       `Prelude.hashWithSalt` accessPointId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` fileSystemId

@@ -121,7 +121,8 @@ instance Core.AWSRequest StartResourceScan where
 
 instance Prelude.Hashable StartResourceScan where
   hashWithSalt _salt StartResourceScan' {..} =
-    _salt `Prelude.hashWithSalt` resourceOwnerAccount
+    _salt
+      `Prelude.hashWithSalt` resourceOwnerAccount
       `Prelude.hashWithSalt` analyzerArn
       `Prelude.hashWithSalt` resourceArn
 

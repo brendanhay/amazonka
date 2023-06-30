@@ -107,7 +107,8 @@ instance Core.AWSRequest DisassociateAccounts where
 
 instance Prelude.Hashable DisassociateAccounts where
   hashWithSalt _salt DisassociateAccounts' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData DisassociateAccounts where

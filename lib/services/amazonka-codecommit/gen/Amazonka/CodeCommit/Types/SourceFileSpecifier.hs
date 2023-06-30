@@ -67,7 +67,8 @@ sourceFileSpecifier_filePath = Lens.lens (\SourceFileSpecifier' {filePath} -> fi
 
 instance Prelude.Hashable SourceFileSpecifier where
   hashWithSalt _salt SourceFileSpecifier' {..} =
-    _salt `Prelude.hashWithSalt` isMove
+    _salt
+      `Prelude.hashWithSalt` isMove
       `Prelude.hashWithSalt` filePath
 
 instance Prelude.NFData SourceFileSpecifier where

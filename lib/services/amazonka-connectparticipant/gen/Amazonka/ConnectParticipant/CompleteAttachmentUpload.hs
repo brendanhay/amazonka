@@ -134,7 +134,8 @@ instance Core.AWSRequest CompleteAttachmentUpload where
 
 instance Prelude.Hashable CompleteAttachmentUpload where
   hashWithSalt _salt CompleteAttachmentUpload' {..} =
-    _salt `Prelude.hashWithSalt` attachmentIds
+    _salt
+      `Prelude.hashWithSalt` attachmentIds
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` connectionToken
 

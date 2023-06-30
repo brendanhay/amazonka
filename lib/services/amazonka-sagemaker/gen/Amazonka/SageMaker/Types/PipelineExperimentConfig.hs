@@ -75,7 +75,8 @@ instance Data.FromJSON PipelineExperimentConfig where
 
 instance Prelude.Hashable PipelineExperimentConfig where
   hashWithSalt _salt PipelineExperimentConfig' {..} =
-    _salt `Prelude.hashWithSalt` experimentName
+    _salt
+      `Prelude.hashWithSalt` experimentName
       `Prelude.hashWithSalt` trialName
 
 instance Prelude.NFData PipelineExperimentConfig where

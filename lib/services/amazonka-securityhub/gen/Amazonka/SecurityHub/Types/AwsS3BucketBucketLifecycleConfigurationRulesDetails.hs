@@ -218,18 +218,19 @@ instance
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesDetails'
             Prelude.<$> (x Data..:? "AbortIncompleteMultipartUpload")
-              Prelude.<*> (x Data..:? "ExpirationDate")
-              Prelude.<*> (x Data..:? "ExpirationInDays")
-              Prelude.<*> (x Data..:? "ExpiredObjectDeleteMarker")
-              Prelude.<*> (x Data..:? "Filter")
-              Prelude.<*> (x Data..:? "ID")
-              Prelude.<*> (x Data..:? "NoncurrentVersionExpirationInDays")
-              Prelude.<*> ( x Data..:? "NoncurrentVersionTransitions"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "Prefix")
-              Prelude.<*> (x Data..:? "Status")
-              Prelude.<*> (x Data..:? "Transitions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExpirationDate")
+            Prelude.<*> (x Data..:? "ExpirationInDays")
+            Prelude.<*> (x Data..:? "ExpiredObjectDeleteMarker")
+            Prelude.<*> (x Data..:? "Filter")
+            Prelude.<*> (x Data..:? "ID")
+            Prelude.<*> (x Data..:? "NoncurrentVersionExpirationInDays")
+            Prelude.<*> ( x
+                            Data..:? "NoncurrentVersionTransitions"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Transitions" Data..!= Prelude.mempty)
       )
 
 instance

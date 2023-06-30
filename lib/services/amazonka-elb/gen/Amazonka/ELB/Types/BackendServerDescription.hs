@@ -68,13 +68,16 @@ instance Data.FromXML BackendServerDescription where
   parseXML x =
     BackendServerDescription'
       Prelude.<$> (x Data..@? "InstancePort")
-      Prelude.<*> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "PolicyNames"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable BackendServerDescription where
   hashWithSalt _salt BackendServerDescription' {..} =
-    _salt `Prelude.hashWithSalt` instancePort
+    _salt
+      `Prelude.hashWithSalt` instancePort
       `Prelude.hashWithSalt` policyNames
 
 instance Prelude.NFData BackendServerDescription where

@@ -113,7 +113,8 @@ instance Data.FromJSON ExecutionStats where
 
 instance Prelude.Hashable ExecutionStats where
   hashWithSalt _salt ExecutionStats' {..} =
-    _salt `Prelude.hashWithSalt` bytesMetered
+    _salt
+      `Prelude.hashWithSalt` bytesMetered
       `Prelude.hashWithSalt` dataWrites
       `Prelude.hashWithSalt` executionTimeInMillis
       `Prelude.hashWithSalt` queryResultRows

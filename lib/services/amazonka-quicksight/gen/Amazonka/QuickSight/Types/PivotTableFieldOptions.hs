@@ -71,17 +71,20 @@ instance Data.FromJSON PivotTableFieldOptions where
       "PivotTableFieldOptions"
       ( \x ->
           PivotTableFieldOptions'
-            Prelude.<$> ( x Data..:? "DataPathOptions"
+            Prelude.<$> ( x
+                            Data..:? "DataPathOptions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SelectedFieldOptions"
+            Prelude.<*> ( x
+                            Data..:? "SelectedFieldOptions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PivotTableFieldOptions where
   hashWithSalt _salt PivotTableFieldOptions' {..} =
-    _salt `Prelude.hashWithSalt` dataPathOptions
+    _salt
+      `Prelude.hashWithSalt` dataPathOptions
       `Prelude.hashWithSalt` selectedFieldOptions
 
 instance Prelude.NFData PivotTableFieldOptions where

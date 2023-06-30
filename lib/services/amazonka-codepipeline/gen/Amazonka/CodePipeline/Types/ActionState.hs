@@ -112,7 +112,8 @@ instance Data.FromJSON ActionState where
 
 instance Prelude.Hashable ActionState where
   hashWithSalt _salt ActionState' {..} =
-    _salt `Prelude.hashWithSalt` actionName
+    _salt
+      `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` currentRevision
       `Prelude.hashWithSalt` entityUrl
       `Prelude.hashWithSalt` latestExecution

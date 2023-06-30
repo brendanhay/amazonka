@@ -82,7 +82,8 @@ instance Data.FromJSON KinesisFirehoseDestination where
 
 instance Prelude.Hashable KinesisFirehoseDestination where
   hashWithSalt _salt KinesisFirehoseDestination' {..} =
-    _salt `Prelude.hashWithSalt` deliveryStreamArn
+    _salt
+      `Prelude.hashWithSalt` deliveryStreamArn
       `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData KinesisFirehoseDestination where

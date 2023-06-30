@@ -120,7 +120,8 @@ instance Core.AWSRequest DescribeSettings where
 
 instance Prelude.Hashable DescribeSettings where
   hashWithSalt _salt DescribeSettings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` directoryId
 

@@ -192,7 +192,7 @@ data CacheCluster = CacheCluster'
     -- application to connect to any node in the cluster. The configuration
     -- endpoint will always have @.cfg@ in it.
     --
-    -- Example: @mem-3.9dvc4r.cfg.usw2.cache.amazonaws.com:11211@
+    -- Example: @mem-3.9dvc4r@/@.cfg@/@.usw2.cache.amazonaws.com:11211@
     configurationEndpoint :: Prelude.Maybe Endpoint,
     -- | The name of the cache engine (@memcached@ or @redis@) to be used for
     -- this cluster.
@@ -445,7 +445,7 @@ data CacheCluster = CacheCluster'
 -- application to connect to any node in the cluster. The configuration
 -- endpoint will always have @.cfg@ in it.
 --
--- Example: @mem-3.9dvc4r.cfg.usw2.cache.amazonaws.com:11211@
+-- Example: @mem-3.9dvc4r@/@.cfg@/@.usw2.cache.amazonaws.com:11211@
 --
 -- 'engine', 'cacheCluster_engine' - The name of the cache engine (@memcached@ or @redis@) to be used for
 -- this cluster.
@@ -754,7 +754,7 @@ cacheCluster_clientDownloadLandingPage = Lens.lens (\CacheCluster' {clientDownlo
 -- application to connect to any node in the cluster. The configuration
 -- endpoint will always have @.cfg@ in it.
 --
--- Example: @mem-3.9dvc4r.cfg.usw2.cache.amazonaws.com:11211@
+-- Example: @mem-3.9dvc4r@/@.cfg@/@.usw2.cache.amazonaws.com:11211@
 cacheCluster_configurationEndpoint :: Lens.Lens' CacheCluster (Prelude.Maybe Endpoint)
 cacheCluster_configurationEndpoint = Lens.lens (\CacheCluster' {configurationEndpoint} -> configurationEndpoint) (\s@CacheCluster' {} a -> s {configurationEndpoint = a} :: CacheCluster)
 
@@ -894,11 +894,14 @@ instance Data.FromXML CacheCluster where
       Prelude.<*> (x Data..@? "CacheClusterId")
       Prelude.<*> (x Data..@? "CacheClusterStatus")
       Prelude.<*> (x Data..@? "CacheNodeType")
-      Prelude.<*> ( x Data..@? "CacheNodes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "CacheNodes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CacheNode")
                   )
       Prelude.<*> (x Data..@? "CacheParameterGroup")
-      Prelude.<*> ( x Data..@? "CacheSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "CacheSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CacheSecurityGroup")
                   )
@@ -908,7 +911,8 @@ instance Data.FromXML CacheCluster where
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EngineVersion")
       Prelude.<*> (x Data..@? "IpDiscovery")
-      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
+      Prelude.<*> ( x
+                      Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "LogDeliveryConfiguration")
@@ -922,7 +926,9 @@ instance Data.FromXML CacheCluster where
       Prelude.<*> (x Data..@? "PreferredOutpostArn")
       Prelude.<*> (x Data..@? "ReplicationGroupId")
       Prelude.<*> (x Data..@? "ReplicationGroupLogDeliveryEnabled")
-      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "SecurityGroups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "SnapshotRetentionLimit")
@@ -932,7 +938,8 @@ instance Data.FromXML CacheCluster where
 
 instance Prelude.Hashable CacheCluster where
   hashWithSalt _salt CacheCluster' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` atRestEncryptionEnabled
       `Prelude.hashWithSalt` authTokenEnabled
       `Prelude.hashWithSalt` authTokenLastModifiedDate

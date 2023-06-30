@@ -174,7 +174,8 @@ instance Data.FromJSON AwsIamAccessKeyDetails where
 
 instance Prelude.Hashable AwsIamAccessKeyDetails where
   hashWithSalt _salt AwsIamAccessKeyDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` principalId

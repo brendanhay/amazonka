@@ -109,7 +109,8 @@ instance Core.AWSRequest StopUserImportJob where
 
 instance Prelude.Hashable StopUserImportJob where
   hashWithSalt _salt StopUserImportJob' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData StopUserImportJob where

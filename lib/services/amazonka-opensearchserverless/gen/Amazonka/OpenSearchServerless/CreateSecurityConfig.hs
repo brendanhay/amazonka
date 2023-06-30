@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateSecurityConfig where
 
 instance Prelude.Hashable CreateSecurityConfig where
   hashWithSalt _salt CreateSecurityConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` samlOptions
       `Prelude.hashWithSalt` name

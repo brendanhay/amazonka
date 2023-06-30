@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     AntennaDownlinkDemodDecodeConfig' {..} =
-      _salt `Prelude.hashWithSalt` decodeConfig
+      _salt
+        `Prelude.hashWithSalt` decodeConfig
         `Prelude.hashWithSalt` demodulationConfig
         `Prelude.hashWithSalt` spectrumConfig
 

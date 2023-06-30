@@ -151,7 +151,8 @@ instance
     GetBucketMetricsConfiguration
   where
   hashWithSalt _salt GetBucketMetricsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` id
 

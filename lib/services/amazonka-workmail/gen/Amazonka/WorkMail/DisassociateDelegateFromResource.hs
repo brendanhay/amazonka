@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     DisassociateDelegateFromResource' {..} =
-      _salt `Prelude.hashWithSalt` organizationId
+      _salt
+        `Prelude.hashWithSalt` organizationId
         `Prelude.hashWithSalt` resourceId
         `Prelude.hashWithSalt` entityId
 

@@ -132,22 +132,22 @@ instance Core.AWSPager ListSpeakerEnrollmentJobs where
     | Core.stop
         ( rs
             Lens.^? listSpeakerEnrollmentJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSpeakerEnrollmentJobsResponse_jobSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSpeakerEnrollmentJobs_nextToken
           Lens..~ rs
           Lens.^? listSpeakerEnrollmentJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpeakerEnrollmentJobs where
   type
@@ -166,7 +166,8 @@ instance Core.AWSRequest ListSpeakerEnrollmentJobs where
 
 instance Prelude.Hashable ListSpeakerEnrollmentJobs where
   hashWithSalt _salt ListSpeakerEnrollmentJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
+    _salt
+      `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainId

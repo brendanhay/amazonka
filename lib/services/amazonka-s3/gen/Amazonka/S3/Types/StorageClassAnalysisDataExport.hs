@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     StorageClassAnalysisDataExport' {..} =
-      _salt `Prelude.hashWithSalt` outputSchemaVersion
+      _salt
+        `Prelude.hashWithSalt` outputSchemaVersion
         `Prelude.hashWithSalt` destination
 
 instance

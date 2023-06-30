@@ -84,7 +84,8 @@ instance Data.FromJSON ModelPerformance where
 
 instance Prelude.Hashable ModelPerformance where
   hashWithSalt _salt ModelPerformance' {..} =
-    _salt `Prelude.hashWithSalt` f1Score
+    _salt
+      `Prelude.hashWithSalt` f1Score
       `Prelude.hashWithSalt` precision
       `Prelude.hashWithSalt` recall
 

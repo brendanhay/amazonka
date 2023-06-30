@@ -123,7 +123,6 @@ listEarthObservationJobOutputConfig_durationInSeconds = Lens.lens (\ListEarthObs
 listEarthObservationJobOutputConfig_name :: Lens.Lens' ListEarthObservationJobOutputConfig Prelude.Text
 listEarthObservationJobOutputConfig_name = Lens.lens (\ListEarthObservationJobOutputConfig' {name} -> name) (\s@ListEarthObservationJobOutputConfig' {} a -> s {name = a} :: ListEarthObservationJobOutputConfig)
 
--- |
 listEarthObservationJobOutputConfig_operationType :: Lens.Lens' ListEarthObservationJobOutputConfig Prelude.Text
 listEarthObservationJobOutputConfig_operationType = Lens.lens (\ListEarthObservationJobOutputConfig' {operationType} -> operationType) (\s@ListEarthObservationJobOutputConfig' {} a -> s {operationType = a} :: ListEarthObservationJobOutputConfig)
 
@@ -156,7 +155,8 @@ instance
   hashWithSalt
     _salt
     ListEarthObservationJobOutputConfig' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` durationInSeconds

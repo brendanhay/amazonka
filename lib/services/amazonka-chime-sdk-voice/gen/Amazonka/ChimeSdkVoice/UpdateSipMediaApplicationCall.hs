@@ -120,7 +120,8 @@ instance
     UpdateSipMediaApplicationCall
   where
   hashWithSalt _salt UpdateSipMediaApplicationCall' {..} =
-    _salt `Prelude.hashWithSalt` sipMediaApplicationId
+    _salt
+      `Prelude.hashWithSalt` sipMediaApplicationId
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` arguments
 

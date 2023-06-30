@@ -78,7 +78,8 @@ instance Data.FromJSON PaginationConfiguration where
 
 instance Prelude.Hashable PaginationConfiguration where
   hashWithSalt _salt PaginationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` pageSize
+    _salt
+      `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageNumber
 
 instance Prelude.NFData PaginationConfiguration where

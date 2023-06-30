@@ -75,8 +75,8 @@ instance
       ( \s h x ->
           DescribeOrganizationConfigurationResponse'
             Prelude.<$> (x Data..?> "autoEnable")
-              Prelude.<*> (x Data..?> "maxAccountLimitReached")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "maxAccountLimitReached")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

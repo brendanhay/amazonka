@@ -160,21 +160,21 @@ instance Core.AWSPager DescribeScalingActivities where
     | Core.stop
         ( rs
             Lens.^? describeScalingActivitiesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. describeScalingActivitiesResponse_activities
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScalingActivities_nextToken
           Lens..~ rs
           Lens.^? describeScalingActivitiesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingActivities where
   type
@@ -189,14 +189,17 @@ instance Core.AWSRequest DescribeScalingActivities where
           DescribeScalingActivitiesResponse'
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Activities" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Activities"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable DescribeScalingActivities where
   hashWithSalt _salt DescribeScalingActivities' {..} =
-    _salt `Prelude.hashWithSalt` activityIds
+    _salt
+      `Prelude.hashWithSalt` activityIds
       `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` includeDeletedGroups
       `Prelude.hashWithSalt` maxRecords

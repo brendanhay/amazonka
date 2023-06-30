@@ -132,21 +132,23 @@ instance Core.AWSPager DescribeComments where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeCommentsResponse_marker Prelude.. Lens._Just
+            Lens.^? describeCommentsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCommentsResponse_comments
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeComments_marker
           Lens..~ rs
-          Lens.^? describeCommentsResponse_marker Prelude.. Lens._Just
+          Lens.^? describeCommentsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeComments where
   type
@@ -165,7 +167,8 @@ instance Core.AWSRequest DescribeComments where
 
 instance Prelude.Hashable DescribeComments where
   hashWithSalt _salt DescribeComments' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` documentId

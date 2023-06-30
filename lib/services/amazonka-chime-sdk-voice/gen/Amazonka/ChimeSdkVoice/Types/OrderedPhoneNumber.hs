@@ -72,7 +72,8 @@ instance Data.FromJSON OrderedPhoneNumber where
 
 instance Prelude.Hashable OrderedPhoneNumber where
   hashWithSalt _salt OrderedPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` e164PhoneNumber
+    _salt
+      `Prelude.hashWithSalt` e164PhoneNumber
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData OrderedPhoneNumber where

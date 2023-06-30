@@ -82,7 +82,8 @@ instance Data.FromJSON DevicePoolCompatibilityResult where
           DevicePoolCompatibilityResult'
             Prelude.<$> (x Data..:? "compatible")
             Prelude.<*> (x Data..:? "device")
-            Prelude.<*> ( x Data..:? "incompatibilityMessages"
+            Prelude.<*> ( x
+                            Data..:? "incompatibilityMessages"
                             Data..!= Prelude.mempty
                         )
       )
@@ -92,7 +93,8 @@ instance
     DevicePoolCompatibilityResult
   where
   hashWithSalt _salt DevicePoolCompatibilityResult' {..} =
-    _salt `Prelude.hashWithSalt` compatible
+    _salt
+      `Prelude.hashWithSalt` compatible
       `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` incompatibilityMessages
 

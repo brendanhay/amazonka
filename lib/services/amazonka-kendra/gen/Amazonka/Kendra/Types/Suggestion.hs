@@ -78,12 +78,14 @@ instance Data.FromJSON Suggestion where
       "Suggestion"
       ( \x ->
           Suggestion'
-            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Suggestion where
   hashWithSalt _salt Suggestion' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Suggestion where

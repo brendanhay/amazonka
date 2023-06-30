@@ -151,7 +151,8 @@ instance Data.FromJSON SimpleCriterionForJob where
 
 instance Prelude.Hashable SimpleCriterionForJob where
   hashWithSalt _salt SimpleCriterionForJob' {..} =
-    _salt `Prelude.hashWithSalt` comparator
+    _salt
+      `Prelude.hashWithSalt` comparator
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 

@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     WaterfallChartAggregatedFieldWells' {..} =
-      _salt `Prelude.hashWithSalt` breakdowns
+      _salt
+        `Prelude.hashWithSalt` breakdowns
         `Prelude.hashWithSalt` categories
         `Prelude.hashWithSalt` values
 

@@ -82,7 +82,8 @@ instance Data.FromJSON ValueHolder where
 
 instance Prelude.Hashable ValueHolder where
   hashWithSalt _salt ValueHolder' {..} =
-    _salt `Prelude.hashWithSalt` ionBinary
+    _salt
+      `Prelude.hashWithSalt` ionBinary
       `Prelude.hashWithSalt` ionText
 
 instance Prelude.NFData ValueHolder where

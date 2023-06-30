@@ -122,7 +122,8 @@ putRecordsRequestEntry_partitionKey = Lens.lens (\PutRecordsRequestEntry' {parti
 
 instance Prelude.Hashable PutRecordsRequestEntry where
   hashWithSalt _salt PutRecordsRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` explicitHashKey
+    _salt
+      `Prelude.hashWithSalt` explicitHashKey
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` partitionKey
 

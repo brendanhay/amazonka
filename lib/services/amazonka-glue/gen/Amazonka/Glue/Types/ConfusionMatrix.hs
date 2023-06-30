@@ -112,7 +112,8 @@ instance Data.FromJSON ConfusionMatrix where
 
 instance Prelude.Hashable ConfusionMatrix where
   hashWithSalt _salt ConfusionMatrix' {..} =
-    _salt `Prelude.hashWithSalt` numFalseNegatives
+    _salt
+      `Prelude.hashWithSalt` numFalseNegatives
       `Prelude.hashWithSalt` numFalsePositives
       `Prelude.hashWithSalt` numTrueNegatives
       `Prelude.hashWithSalt` numTruePositives

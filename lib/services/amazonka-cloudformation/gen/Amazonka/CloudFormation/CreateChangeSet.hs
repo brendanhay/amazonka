@@ -695,7 +695,8 @@ instance Core.AWSRequest CreateChangeSet where
 
 instance Prelude.Hashable CreateChangeSet where
   hashWithSalt _salt CreateChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` changeSetType
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description

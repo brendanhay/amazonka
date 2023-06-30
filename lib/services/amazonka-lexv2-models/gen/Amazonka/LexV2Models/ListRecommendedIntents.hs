@@ -186,7 +186,8 @@ instance Core.AWSRequest ListRecommendedIntents where
 
 instance Prelude.Hashable ListRecommendedIntents where
   hashWithSalt _salt ListRecommendedIntents' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion

@@ -89,7 +89,8 @@ componentRequest_propertyGroups = Lens.lens (\ComponentRequest' {propertyGroups}
 
 instance Prelude.Hashable ComponentRequest where
   hashWithSalt _salt ComponentRequest' {..} =
-    _salt `Prelude.hashWithSalt` componentTypeId
+    _salt
+      `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` propertyGroups

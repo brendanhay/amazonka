@@ -137,7 +137,8 @@ instance Data.FromJSON IpAddressResponse where
 
 instance Prelude.Hashable IpAddressResponse where
   hashWithSalt _salt IpAddressResponse' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` ipId
       `Prelude.hashWithSalt` modificationTime

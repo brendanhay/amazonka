@@ -170,7 +170,8 @@ metricQuery_metric = Lens.lens (\MetricQuery' {metric} -> metric) (\s@MetricQuer
 
 instance Prelude.Hashable MetricQuery where
   hashWithSalt _salt MetricQuery' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` metric
 

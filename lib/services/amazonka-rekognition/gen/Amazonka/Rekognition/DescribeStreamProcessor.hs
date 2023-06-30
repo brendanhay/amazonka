@@ -108,7 +108,8 @@ instance Core.AWSRequest DescribeStreamProcessor where
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "NotificationChannel")
             Prelude.<*> (x Data..?> "Output")
-            Prelude.<*> ( x Data..?> "RegionsOfInterest"
+            Prelude.<*> ( x
+                            Data..?> "RegionsOfInterest"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "RoleArn")

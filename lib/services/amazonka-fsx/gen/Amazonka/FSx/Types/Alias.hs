@@ -170,7 +170,8 @@ instance Data.FromJSON Alias where
 
 instance Prelude.Hashable Alias where
   hashWithSalt _salt Alias' {..} =
-    _salt `Prelude.hashWithSalt` lifecycle
+    _salt
+      `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Alias where

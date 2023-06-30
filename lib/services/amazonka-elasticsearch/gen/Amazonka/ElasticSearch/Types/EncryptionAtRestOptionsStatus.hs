@@ -90,7 +90,8 @@ instance
     EncryptionAtRestOptionsStatus
   where
   hashWithSalt _salt EncryptionAtRestOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData EncryptionAtRestOptionsStatus where

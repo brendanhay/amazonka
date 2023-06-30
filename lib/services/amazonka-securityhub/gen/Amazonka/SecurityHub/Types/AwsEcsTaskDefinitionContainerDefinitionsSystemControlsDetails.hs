@@ -74,7 +74,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails'
             Prelude.<$> (x Data..:? "Namespace")
-              Prelude.<*> (x Data..:? "Value")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails' {..} =
-      _salt `Prelude.hashWithSalt` namespace
+      _salt
+        `Prelude.hashWithSalt` namespace
         `Prelude.hashWithSalt` value
 
 instance

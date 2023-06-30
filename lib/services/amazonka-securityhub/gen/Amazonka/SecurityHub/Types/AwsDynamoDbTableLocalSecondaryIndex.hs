@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableLocalSecondaryIndex' {..} =
-      _salt `Prelude.hashWithSalt` indexArn
+      _salt
+        `Prelude.hashWithSalt` indexArn
         `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` keySchema
         `Prelude.hashWithSalt` projection

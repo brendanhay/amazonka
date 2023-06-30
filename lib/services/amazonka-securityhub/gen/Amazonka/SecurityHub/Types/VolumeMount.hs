@@ -74,7 +74,8 @@ instance Data.FromJSON VolumeMount where
 
 instance Prelude.Hashable VolumeMount where
   hashWithSalt _salt VolumeMount' {..} =
-    _salt `Prelude.hashWithSalt` mountPath
+    _salt
+      `Prelude.hashWithSalt` mountPath
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData VolumeMount where

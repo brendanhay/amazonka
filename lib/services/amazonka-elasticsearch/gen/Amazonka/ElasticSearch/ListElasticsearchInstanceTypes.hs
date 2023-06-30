@@ -54,8 +54,8 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ ListElasticsearchInstanceTypes @
--- operation.
+-- | Container for the parameters to the
+-- @ @@ListElasticsearchInstanceTypes@@ @ operation.
 --
 -- /See:/ 'newListElasticsearchInstanceTypes' smart constructor.
 data ListElasticsearchInstanceTypes = ListElasticsearchInstanceTypes'
@@ -136,22 +136,22 @@ instance Core.AWSPager ListElasticsearchInstanceTypes where
     | Core.stop
         ( rs
             Lens.^? listElasticsearchInstanceTypesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listElasticsearchInstanceTypes_nextToken
           Lens..~ rs
           Lens.^? listElasticsearchInstanceTypesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -166,7 +166,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListElasticsearchInstanceTypesResponse'
-            Prelude.<$> ( x Data..?> "ElasticsearchInstanceTypes"
+            Prelude.<$> ( x
+                            Data..?> "ElasticsearchInstanceTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -180,7 +181,8 @@ instance
   hashWithSalt
     _salt
     ListElasticsearchInstanceTypes' {..} =
-      _salt `Prelude.hashWithSalt` domainName
+      _salt
+        `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` elasticsearchVersion
@@ -217,12 +219,12 @@ instance Data.ToQuery ListElasticsearchInstanceTypes where
       ]
 
 -- | Container for the parameters returned by
--- @ ListElasticsearchInstanceTypes @ operation.
+-- @ @@ListElasticsearchInstanceTypes@@ @ operation.
 --
 -- /See:/ 'newListElasticsearchInstanceTypesResponse' smart constructor.
 data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResponse'
   { -- | List of instance types supported by Amazon Elasticsearch service for
-    -- given @ ElasticsearchVersion @
+    -- given @ @@ElasticsearchVersion@@ @
     elasticsearchInstanceTypes :: Prelude.Maybe [ESPartitionInstanceType],
     -- | In case if there are more results available NextToken would be present,
     -- make further request to the same API with received NextToken to paginate
@@ -242,7 +244,7 @@ data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResp
 -- for backwards compatibility:
 --
 -- 'elasticsearchInstanceTypes', 'listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes' - List of instance types supported by Amazon Elasticsearch service for
--- given @ ElasticsearchVersion @
+-- given @ @@ElasticsearchVersion@@ @
 --
 -- 'nextToken', 'listElasticsearchInstanceTypesResponse_nextToken' - In case if there are more results available NextToken would be present,
 -- make further request to the same API with received NextToken to paginate
@@ -263,7 +265,7 @@ newListElasticsearchInstanceTypesResponse
       }
 
 -- | List of instance types supported by Amazon Elasticsearch service for
--- given @ ElasticsearchVersion @
+-- given @ @@ElasticsearchVersion@@ @
 listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes :: Lens.Lens' ListElasticsearchInstanceTypesResponse (Prelude.Maybe [ESPartitionInstanceType])
 listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes = Lens.lens (\ListElasticsearchInstanceTypesResponse' {elasticsearchInstanceTypes} -> elasticsearchInstanceTypes) (\s@ListElasticsearchInstanceTypesResponse' {} a -> s {elasticsearchInstanceTypes = a} :: ListElasticsearchInstanceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 

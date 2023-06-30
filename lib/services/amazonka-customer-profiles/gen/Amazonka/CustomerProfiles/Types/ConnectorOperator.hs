@@ -96,7 +96,8 @@ connectorOperator_zendesk = Lens.lens (\ConnectorOperator' {zendesk} -> zendesk)
 
 instance Prelude.Hashable ConnectorOperator where
   hashWithSalt _salt ConnectorOperator' {..} =
-    _salt `Prelude.hashWithSalt` marketo
+    _salt
+      `Prelude.hashWithSalt` marketo
       `Prelude.hashWithSalt` s3
       `Prelude.hashWithSalt` salesforce
       `Prelude.hashWithSalt` serviceNow

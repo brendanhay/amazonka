@@ -80,7 +80,9 @@ instance Core.AWSRequest ListReceiptFilters where
       "ListReceiptFiltersResult"
       ( \s h x ->
           ListReceiptFiltersResponse'
-            Prelude.<$> ( x Data..@? "Filters" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Filters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

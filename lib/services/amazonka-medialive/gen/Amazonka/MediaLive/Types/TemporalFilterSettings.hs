@@ -95,7 +95,8 @@ instance Data.FromJSON TemporalFilterSettings where
 
 instance Prelude.Hashable TemporalFilterSettings where
   hashWithSalt _salt TemporalFilterSettings' {..} =
-    _salt `Prelude.hashWithSalt` postFilterSharpening
+    _salt
+      `Prelude.hashWithSalt` postFilterSharpening
       `Prelude.hashWithSalt` strength
 
 instance Prelude.NFData TemporalFilterSettings where

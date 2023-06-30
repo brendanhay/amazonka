@@ -141,19 +141,19 @@ instance Core.AWSPager ListTableColumns where
     | Core.stop
         ( rs
             Lens.^? listTableColumnsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listTableColumnsResponse_tableColumns) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTableColumns_nextToken
           Lens..~ rs
           Lens.^? listTableColumnsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTableColumns where
   type
@@ -173,7 +173,8 @@ instance Core.AWSRequest ListTableColumns where
 
 instance Prelude.Hashable ListTableColumns where
   hashWithSalt _salt ListTableColumns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` tableId
 

@@ -76,7 +76,8 @@ instance Data.FromJSON FieldSortOptions where
 
 instance Prelude.Hashable FieldSortOptions where
   hashWithSalt _salt FieldSortOptions' {..} =
-    _salt `Prelude.hashWithSalt` columnSort
+    _salt
+      `Prelude.hashWithSalt` columnSort
       `Prelude.hashWithSalt` fieldSort
 
 instance Prelude.NFData FieldSortOptions where

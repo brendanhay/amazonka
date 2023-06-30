@@ -91,10 +91,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetMembershipDatasourcesResponse'
-            Prelude.<$> ( x Data..?> "MembershipDatasources"
+            Prelude.<$> ( x
+                            Data..?> "MembershipDatasources"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "UnprocessedGraphs"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedGraphs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -78,35 +78,27 @@ newApplication =
       type' = Prelude.Nothing
     }
 
--- |
 application_appRegistryArn :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_appRegistryArn = Lens.lens (\Application' {appRegistryArn} -> appRegistryArn) (\s@Application' {} a -> s {appRegistryArn = a} :: Application)
 
--- |
 application_arn :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_arn = Lens.lens (\Application' {arn} -> arn) (\s@Application' {} a -> s {arn = a} :: Application)
 
--- |
 application_components :: Lens.Lens' Application (Prelude.Maybe [Prelude.Text])
 application_components = Lens.lens (\Application' {components} -> components) (\s@Application' {} a -> s {components = a} :: Application) Prelude.. Lens.mapping Lens.coerced
 
--- |
 application_id :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_id = Lens.lens (\Application' {id} -> id) (\s@Application' {} a -> s {id = a} :: Application)
 
--- |
 application_lastUpdated :: Lens.Lens' Application (Prelude.Maybe Prelude.UTCTime)
 application_lastUpdated = Lens.lens (\Application' {lastUpdated} -> lastUpdated) (\s@Application' {} a -> s {lastUpdated = a} :: Application) Prelude.. Lens.mapping Data._Time
 
--- |
 application_status :: Lens.Lens' Application (Prelude.Maybe ApplicationStatus)
 application_status = Lens.lens (\Application' {status} -> status) (\s@Application' {} a -> s {status = a} :: Application)
 
--- |
 application_statusMessage :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_statusMessage = Lens.lens (\Application' {statusMessage} -> statusMessage) (\s@Application' {} a -> s {statusMessage = a} :: Application)
 
--- |
 application_type :: Lens.Lens' Application (Prelude.Maybe ApplicationType)
 application_type = Lens.lens (\Application' {type'} -> type') (\s@Application' {} a -> s {type' = a} :: Application)
 
@@ -128,7 +120,8 @@ instance Data.FromJSON Application where
 
 instance Prelude.Hashable Application where
   hashWithSalt _salt Application' {..} =
-    _salt `Prelude.hashWithSalt` appRegistryArn
+    _salt
+      `Prelude.hashWithSalt` appRegistryArn
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` components
       `Prelude.hashWithSalt` id

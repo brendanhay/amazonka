@@ -106,7 +106,8 @@ instance Core.AWSRequest UpdateJob where
 
 instance Prelude.Hashable UpdateJob where
   hashWithSalt _salt UpdateJob' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobUpdate
 
 instance Prelude.NFData UpdateJob where

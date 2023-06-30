@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     DisassociateInstanceEventWindow' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` instanceEventWindowId
         `Prelude.hashWithSalt` associationTarget
 

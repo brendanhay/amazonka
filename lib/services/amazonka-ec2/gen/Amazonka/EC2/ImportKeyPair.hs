@@ -155,7 +155,9 @@ instance Core.AWSRequest ImportKeyPair where
             Prelude.<$> (x Data..@? "keyFingerprint")
             Prelude.<*> (x Data..@? "keyName")
             Prelude.<*> (x Data..@? "keyPairId")
-            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,7 +165,8 @@ instance Core.AWSRequest ImportKeyPair where
 
 instance Prelude.Hashable ImportKeyPair where
   hashWithSalt _salt ImportKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` publicKeyMaterial

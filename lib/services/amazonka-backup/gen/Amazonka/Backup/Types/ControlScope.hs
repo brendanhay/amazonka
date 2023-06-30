@@ -106,7 +106,8 @@ instance Data.FromJSON ControlScope where
       ( \x ->
           ControlScope'
             Prelude.<$> (x Data..:? "ComplianceResourceIds")
-            Prelude.<*> ( x Data..:? "ComplianceResourceTypes"
+            Prelude.<*> ( x
+                            Data..:? "ComplianceResourceTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
@@ -114,7 +115,8 @@ instance Data.FromJSON ControlScope where
 
 instance Prelude.Hashable ControlScope where
   hashWithSalt _salt ControlScope' {..} =
-    _salt `Prelude.hashWithSalt` complianceResourceIds
+    _salt
+      `Prelude.hashWithSalt` complianceResourceIds
       `Prelude.hashWithSalt` complianceResourceTypes
       `Prelude.hashWithSalt` tags
 

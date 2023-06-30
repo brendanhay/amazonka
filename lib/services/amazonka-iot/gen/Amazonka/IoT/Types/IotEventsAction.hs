@@ -146,7 +146,8 @@ instance Data.FromJSON IotEventsAction where
 
 instance Prelude.Hashable IotEventsAction where
   hashWithSalt _salt IotEventsAction' {..} =
-    _salt `Prelude.hashWithSalt` batchMode
+    _salt
+      `Prelude.hashWithSalt` batchMode
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` inputName
       `Prelude.hashWithSalt` roleArn

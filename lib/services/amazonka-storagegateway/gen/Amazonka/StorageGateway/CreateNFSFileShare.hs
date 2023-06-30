@@ -615,7 +615,8 @@ instance Core.AWSRequest CreateNFSFileShare where
 
 instance Prelude.Hashable CreateNFSFileShare where
   hashWithSalt _salt CreateNFSFileShare' {..} =
-    _salt `Prelude.hashWithSalt` auditDestinationARN
+    _salt
+      `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` bucketRegion
       `Prelude.hashWithSalt` cacheAttributes
       `Prelude.hashWithSalt` clientList

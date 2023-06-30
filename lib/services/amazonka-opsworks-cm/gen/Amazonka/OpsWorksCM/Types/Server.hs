@@ -412,7 +412,8 @@ instance Data.FromJSON Server where
             Prelude.<*> (x Data..:? "DisableAutomatedBackup")
             Prelude.<*> (x Data..:? "Endpoint")
             Prelude.<*> (x Data..:? "Engine")
-            Prelude.<*> ( x Data..:? "EngineAttributes"
+            Prelude.<*> ( x
+                            Data..:? "EngineAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EngineModel")
@@ -423,7 +424,8 @@ instance Data.FromJSON Server where
             Prelude.<*> (x Data..:? "MaintenanceStatus")
             Prelude.<*> (x Data..:? "PreferredBackupWindow")
             Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
-            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ServerArn")

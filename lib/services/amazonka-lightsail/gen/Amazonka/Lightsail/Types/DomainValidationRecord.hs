@@ -112,7 +112,8 @@ instance Data.FromJSON DomainValidationRecord where
 
 instance Prelude.Hashable DomainValidationRecord where
   hashWithSalt _salt DomainValidationRecord' {..} =
-    _salt `Prelude.hashWithSalt` dnsRecordCreationState
+    _salt
+      `Prelude.hashWithSalt` dnsRecordCreationState
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` resourceRecord
       `Prelude.hashWithSalt` validationStatus

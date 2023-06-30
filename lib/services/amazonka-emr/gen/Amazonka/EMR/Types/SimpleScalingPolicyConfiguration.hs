@@ -160,7 +160,8 @@ instance
   hashWithSalt
     _salt
     SimpleScalingPolicyConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` adjustmentType
+      _salt
+        `Prelude.hashWithSalt` adjustmentType
         `Prelude.hashWithSalt` coolDown
         `Prelude.hashWithSalt` scalingAdjustment
 

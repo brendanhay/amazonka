@@ -287,7 +287,8 @@ instance Core.AWSRequest RegisterContainerInstance where
 
 instance Prelude.Hashable RegisterContainerInstance where
   hashWithSalt _salt RegisterContainerInstance' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` containerInstanceArn
       `Prelude.hashWithSalt` instanceIdentityDocument

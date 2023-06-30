@@ -147,22 +147,22 @@ instance Core.AWSPager DescribeKeywords where
     | Core.stop
         ( rs
             Lens.^? describeKeywordsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeKeywordsResponse_keywords
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeKeywords_nextToken
           Lens..~ rs
           Lens.^? describeKeywordsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeKeywords where
   type
@@ -183,7 +183,8 @@ instance Core.AWSRequest DescribeKeywords where
 
 instance Prelude.Hashable DescribeKeywords where
   hashWithSalt _salt DescribeKeywords' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` keywords
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

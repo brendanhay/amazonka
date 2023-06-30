@@ -295,7 +295,8 @@ instance Data.FromXML StackEvent where
 
 instance Prelude.Hashable StackEvent where
   hashWithSalt _salt StackEvent' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` hookFailureMode
       `Prelude.hashWithSalt` hookInvocationPoint
       `Prelude.hashWithSalt` hookStatus

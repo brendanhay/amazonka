@@ -112,7 +112,8 @@ instance Data.FromJSON ExperiencesSummary where
 
 instance Prelude.Hashable ExperiencesSummary where
   hashWithSalt _salt ExperiencesSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

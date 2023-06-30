@@ -115,22 +115,22 @@ instance Core.AWSPager ListResourceProfileDetections where
     | Core.stop
         ( rs
             Lens.^? listResourceProfileDetectionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResourceProfileDetectionsResponse_detections
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResourceProfileDetections_nextToken
           Lens..~ rs
           Lens.^? listResourceProfileDetectionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -155,7 +155,8 @@ instance
     ListResourceProfileDetections
   where
   hashWithSalt _salt ListResourceProfileDetections' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 

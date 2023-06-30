@@ -102,7 +102,9 @@ instance Core.AWSRequest ExitStandby where
       "ExitStandbyResult"
       ( \s h x ->
           ExitStandbyResponse'
-            Prelude.<$> ( x Data..@? "Activities" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Activities"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -110,7 +112,8 @@ instance Core.AWSRequest ExitStandby where
 
 instance Prelude.Hashable ExitStandby where
   hashWithSalt _salt ExitStandby' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData ExitStandby where

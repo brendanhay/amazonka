@@ -155,7 +155,8 @@ instance Core.AWSRequest UpdateModel where
 
 instance Prelude.Hashable UpdateModel where
   hashWithSalt _salt UpdateModel' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` schema

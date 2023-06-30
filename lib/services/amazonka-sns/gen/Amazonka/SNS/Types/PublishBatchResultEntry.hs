@@ -99,7 +99,8 @@ instance Data.FromXML PublishBatchResultEntry where
 
 instance Prelude.Hashable PublishBatchResultEntry where
   hashWithSalt _salt PublishBatchResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` sequenceNumber
 

@@ -68,12 +68,14 @@ instance Data.FromJSON Metadata where
       "Metadata"
       ( \x ->
           Metadata'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Metadata where
   hashWithSalt _salt Metadata' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Metadata where

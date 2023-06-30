@@ -120,7 +120,8 @@ instance Data.FromJSON InventoryResultItem where
 
 instance Prelude.Hashable InventoryResultItem where
   hashWithSalt _salt InventoryResultItem' {..} =
-    _salt `Prelude.hashWithSalt` captureTime
+    _salt
+      `Prelude.hashWithSalt` captureTime
       `Prelude.hashWithSalt` contentHash
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` schemaVersion

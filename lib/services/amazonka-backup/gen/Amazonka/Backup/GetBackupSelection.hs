@@ -116,7 +116,8 @@ instance Core.AWSRequest GetBackupSelection where
 
 instance Prelude.Hashable GetBackupSelection where
   hashWithSalt _salt GetBackupSelection' {..} =
-    _salt `Prelude.hashWithSalt` backupPlanId
+    _salt
+      `Prelude.hashWithSalt` backupPlanId
       `Prelude.hashWithSalt` selectionId
 
 instance Prelude.NFData GetBackupSelection where

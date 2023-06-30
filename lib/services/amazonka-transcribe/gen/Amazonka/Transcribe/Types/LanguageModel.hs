@@ -263,7 +263,8 @@ instance Data.FromJSON LanguageModel where
 
 instance Prelude.Hashable LanguageModel where
   hashWithSalt _salt LanguageModel' {..} =
-    _salt `Prelude.hashWithSalt` baseModelName
+    _salt
+      `Prelude.hashWithSalt` baseModelName
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` inputDataConfig

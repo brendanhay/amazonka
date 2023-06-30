@@ -74,12 +74,14 @@ instance Data.FromJSON HttpGatewayRoute where
       "HttpGatewayRoute"
       ( \x ->
           HttpGatewayRoute'
-            Prelude.<$> (x Data..: "action") Prelude.<*> (x Data..: "match")
+            Prelude.<$> (x Data..: "action")
+            Prelude.<*> (x Data..: "match")
       )
 
 instance Prelude.Hashable HttpGatewayRoute where
   hashWithSalt _salt HttpGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` match
 
 instance Prelude.NFData HttpGatewayRoute where

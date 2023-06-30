@@ -139,7 +139,9 @@ instance Core.AWSRequest DescribeChangeSetHooks where
           DescribeChangeSetHooksResponse'
             Prelude.<$> (x Data..@? "ChangeSetId")
             Prelude.<*> (x Data..@? "ChangeSetName")
-            Prelude.<*> ( x Data..@? "Hooks" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Hooks"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -151,7 +153,8 @@ instance Core.AWSRequest DescribeChangeSetHooks where
 
 instance Prelude.Hashable DescribeChangeSetHooks where
   hashWithSalt _salt DescribeChangeSetHooks' {..} =
-    _salt `Prelude.hashWithSalt` logicalResourceId
+    _salt
+      `Prelude.hashWithSalt` logicalResourceId
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` changeSetName

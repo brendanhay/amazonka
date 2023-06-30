@@ -145,7 +145,8 @@ instance Data.FromJSON ModelManifestSummary where
 
 instance Prelude.Hashable ModelManifestSummary where
   hashWithSalt _salt ModelManifestSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` signalCatalogArn

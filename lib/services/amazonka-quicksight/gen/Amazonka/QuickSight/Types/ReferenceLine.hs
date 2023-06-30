@@ -113,7 +113,8 @@ instance Data.FromJSON ReferenceLine where
 
 instance Prelude.Hashable ReferenceLine where
   hashWithSalt _salt ReferenceLine' {..} =
-    _salt `Prelude.hashWithSalt` labelConfiguration
+    _salt
+      `Prelude.hashWithSalt` labelConfiguration
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` styleConfiguration
       `Prelude.hashWithSalt` dataConfiguration

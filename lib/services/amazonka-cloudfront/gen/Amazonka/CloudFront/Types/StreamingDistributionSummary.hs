@@ -273,7 +273,8 @@ instance
     StreamingDistributionSummary
   where
   hashWithSalt _salt StreamingDistributionSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` lastModifiedTime

@@ -131,7 +131,8 @@ instance Core.AWSRequest UpdatePackage where
 
 instance Prelude.Hashable UpdatePackage where
   hashWithSalt _salt UpdatePackage' {..} =
-    _salt `Prelude.hashWithSalt` commitMessage
+    _salt
+      `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` packageDescription
       `Prelude.hashWithSalt` packageID
       `Prelude.hashWithSalt` packageSource

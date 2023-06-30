@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteWorkGroup where
 
 instance Prelude.Hashable DeleteWorkGroup where
   hashWithSalt _salt DeleteWorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` recursiveDeleteOption
+    _salt
+      `Prelude.hashWithSalt` recursiveDeleteOption
       `Prelude.hashWithSalt` workGroup
 
 instance Prelude.NFData DeleteWorkGroup where

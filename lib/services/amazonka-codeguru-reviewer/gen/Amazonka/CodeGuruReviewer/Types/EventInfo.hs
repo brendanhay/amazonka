@@ -75,12 +75,14 @@ instance Data.FromJSON EventInfo where
       "EventInfo"
       ( \x ->
           EventInfo'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "State")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable EventInfo where
   hashWithSalt _salt EventInfo' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData EventInfo where

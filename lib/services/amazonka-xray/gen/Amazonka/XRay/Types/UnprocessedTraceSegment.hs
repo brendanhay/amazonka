@@ -85,7 +85,8 @@ instance Data.FromJSON UnprocessedTraceSegment where
 
 instance Prelude.Hashable UnprocessedTraceSegment where
   hashWithSalt _salt UnprocessedTraceSegment' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` message
 

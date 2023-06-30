@@ -87,7 +87,8 @@ searchInsightsFilters_statuses = Lens.lens (\SearchInsightsFilters' {statuses} -
 
 instance Prelude.Hashable SearchInsightsFilters where
   hashWithSalt _salt SearchInsightsFilters' {..} =
-    _salt `Prelude.hashWithSalt` resourceCollection
+    _salt
+      `Prelude.hashWithSalt` resourceCollection
       `Prelude.hashWithSalt` serviceCollection
       `Prelude.hashWithSalt` severities
       `Prelude.hashWithSalt` statuses

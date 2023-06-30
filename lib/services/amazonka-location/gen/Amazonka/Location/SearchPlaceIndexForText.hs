@@ -329,7 +329,8 @@ instance Core.AWSRequest SearchPlaceIndexForText where
 
 instance Prelude.Hashable SearchPlaceIndexForText where
   hashWithSalt _salt SearchPlaceIndexForText' {..} =
-    _salt `Prelude.hashWithSalt` biasPosition
+    _salt
+      `Prelude.hashWithSalt` biasPosition
       `Prelude.hashWithSalt` filterBBox
       `Prelude.hashWithSalt` filterCountries
       `Prelude.hashWithSalt` language

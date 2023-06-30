@@ -162,7 +162,8 @@ instance
   hashWithSalt
     _salt
     CreateServiceSpecificCredential' {..} =
-      _salt `Prelude.hashWithSalt` userName
+      _salt
+        `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` serviceName
 
 instance

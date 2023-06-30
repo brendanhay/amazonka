@@ -210,7 +210,8 @@ instance Data.FromXML AccessDetail where
 
 instance Prelude.Hashable AccessDetail where
   hashWithSalt _salt AccessDetail' {..} =
-    _salt `Prelude.hashWithSalt` entityPath
+    _salt
+      `Prelude.hashWithSalt` entityPath
       `Prelude.hashWithSalt` lastAuthenticatedTime
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` totalAuthenticatedEntities

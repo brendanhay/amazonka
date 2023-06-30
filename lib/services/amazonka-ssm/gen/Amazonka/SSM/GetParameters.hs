@@ -117,7 +117,8 @@ instance Core.AWSRequest GetParameters where
       ( \s h x ->
           GetParametersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "InvalidParameters"
+            Prelude.<*> ( x
+                            Data..?> "InvalidParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
@@ -125,7 +126,8 @@ instance Core.AWSRequest GetParameters where
 
 instance Prelude.Hashable GetParameters where
   hashWithSalt _salt GetParameters' {..} =
-    _salt `Prelude.hashWithSalt` withDecryption
+    _salt
+      `Prelude.hashWithSalt` withDecryption
       `Prelude.hashWithSalt` names
 
 instance Prelude.NFData GetParameters where

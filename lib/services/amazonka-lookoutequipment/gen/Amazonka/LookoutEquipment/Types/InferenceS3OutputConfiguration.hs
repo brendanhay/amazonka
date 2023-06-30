@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     InferenceS3OutputConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` prefix
+      _salt
+        `Prelude.hashWithSalt` prefix
         `Prelude.hashWithSalt` bucket
 
 instance

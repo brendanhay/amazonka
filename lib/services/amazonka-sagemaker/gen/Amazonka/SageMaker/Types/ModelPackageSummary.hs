@@ -176,7 +176,8 @@ instance Data.FromJSON ModelPackageSummary where
 
 instance Prelude.Hashable ModelPackageSummary where
   hashWithSalt _salt ModelPackageSummary' {..} =
-    _salt `Prelude.hashWithSalt` modelApprovalStatus
+    _salt
+      `Prelude.hashWithSalt` modelApprovalStatus
       `Prelude.hashWithSalt` modelPackageDescription
       `Prelude.hashWithSalt` modelPackageGroupName
       `Prelude.hashWithSalt` modelPackageVersion

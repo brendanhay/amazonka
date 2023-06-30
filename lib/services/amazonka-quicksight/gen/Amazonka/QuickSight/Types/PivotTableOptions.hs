@@ -148,7 +148,8 @@ instance Data.FromJSON PivotTableOptions where
 
 instance Prelude.Hashable PivotTableOptions where
   hashWithSalt _salt PivotTableOptions' {..} =
-    _salt `Prelude.hashWithSalt` cellStyle
+    _salt
+      `Prelude.hashWithSalt` cellStyle
       `Prelude.hashWithSalt` columnHeaderStyle
       `Prelude.hashWithSalt` columnNamesVisibility
       `Prelude.hashWithSalt` metricPlacement

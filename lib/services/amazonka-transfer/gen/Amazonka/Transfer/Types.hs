@@ -645,52 +645,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -699,7 +699,7 @@ _AccessDeniedException =
 -- | This exception is thrown when the @UpdateServer@ is called for a file
 -- transfer protocol-enabled server that has VPC as the endpoint type and
 -- the server\'s @VpcEndpointID@ is not in the available state.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -707,28 +707,28 @@ _ConflictException =
 
 -- | This exception is thrown when an error occurs in the Amazon Web
 -- ServicesTransfer Family service.
-_InternalServiceError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceError =
   Core._MatchServiceError
     defaultService
     "InternalServiceError"
 
 -- | The @NextToken@ parameter that was passed is invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | This exception is thrown when the client submits a malformed request.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The requested resource does not exist.
-_ResourceExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceExistsException =
   Core._MatchServiceError
     defaultService
@@ -736,7 +736,7 @@ _ResourceExistsException =
 
 -- | This exception is thrown when a resource is not found by the Amazon Web
 -- ServicesTransfer Family service.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -744,14 +744,14 @@ _ResourceNotFoundException =
 
 -- | The request has failed because the Amazon Web ServicesTransfer Family
 -- service is not available.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

@@ -211,7 +211,8 @@ instance Core.AWSRequest UpdateFindingsFilter where
 
 instance Prelude.Hashable UpdateFindingsFilter where
   hashWithSalt _salt UpdateFindingsFilter' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` findingCriteria

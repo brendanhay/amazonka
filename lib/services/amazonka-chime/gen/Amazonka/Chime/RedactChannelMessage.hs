@@ -123,7 +123,8 @@ instance Core.AWSRequest RedactChannelMessage where
 
 instance Prelude.Hashable RedactChannelMessage where
   hashWithSalt _salt RedactChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
 

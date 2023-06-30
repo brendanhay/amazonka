@@ -101,7 +101,8 @@ instance Data.FromJSON Layer where
 
 instance Prelude.Hashable Layer where
   hashWithSalt _salt Layer' {..} =
-    _salt `Prelude.hashWithSalt` layerAvailability
+    _salt
+      `Prelude.hashWithSalt` layerAvailability
       `Prelude.hashWithSalt` layerDigest
       `Prelude.hashWithSalt` layerSize
       `Prelude.hashWithSalt` mediaType

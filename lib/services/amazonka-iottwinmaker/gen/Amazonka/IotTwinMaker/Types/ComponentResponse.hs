@@ -144,7 +144,8 @@ instance Data.FromJSON ComponentResponse where
 
 instance Prelude.Hashable ComponentResponse where
   hashWithSalt _salt ComponentResponse' {..} =
-    _salt `Prelude.hashWithSalt` componentName
+    _salt
+      `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` definedIn
       `Prelude.hashWithSalt` description

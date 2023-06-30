@@ -133,7 +133,8 @@ instance
     DeleteVerifiedAccessEndpoint
   where
   hashWithSalt _salt DeleteVerifiedAccessEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessEndpointId
 

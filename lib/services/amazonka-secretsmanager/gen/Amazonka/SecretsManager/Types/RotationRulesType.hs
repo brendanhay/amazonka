@@ -205,7 +205,8 @@ instance Data.FromJSON RotationRulesType where
 
 instance Prelude.Hashable RotationRulesType where
   hashWithSalt _salt RotationRulesType' {..} =
-    _salt `Prelude.hashWithSalt` automaticallyAfterDays
+    _salt
+      `Prelude.hashWithSalt` automaticallyAfterDays
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` scheduleExpression
 

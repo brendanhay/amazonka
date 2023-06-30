@@ -90,7 +90,8 @@ instance Data.FromJSON TeradataParameters where
 
 instance Prelude.Hashable TeradataParameters where
   hashWithSalt _salt TeradataParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` database
 

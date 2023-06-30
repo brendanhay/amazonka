@@ -322,7 +322,8 @@ instance Data.FromJSON PipeTargetEcsTaskParameters where
       "PipeTargetEcsTaskParameters"
       ( \x ->
           PipeTargetEcsTaskParameters'
-            Prelude.<$> ( x Data..:? "CapacityProviderStrategy"
+            Prelude.<$> ( x
+                            Data..:? "CapacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EnableECSManagedTags")
@@ -331,10 +332,12 @@ instance Data.FromJSON PipeTargetEcsTaskParameters where
             Prelude.<*> (x Data..:? "LaunchType")
             Prelude.<*> (x Data..:? "NetworkConfiguration")
             Prelude.<*> (x Data..:? "Overrides")
-            Prelude.<*> ( x Data..:? "PlacementConstraints"
+            Prelude.<*> ( x
+                            Data..:? "PlacementConstraints"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "PlacementStrategy"
+            Prelude.<*> ( x
+                            Data..:? "PlacementStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PlatformVersion")

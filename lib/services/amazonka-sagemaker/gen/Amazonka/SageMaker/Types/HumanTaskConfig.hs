@@ -2250,7 +2250,8 @@ instance Data.FromJSON HumanTaskConfig where
 
 instance Prelude.Hashable HumanTaskConfig where
   hashWithSalt _salt HumanTaskConfig' {..} =
-    _salt `Prelude.hashWithSalt` maxConcurrentTaskCount
+    _salt
+      `Prelude.hashWithSalt` maxConcurrentTaskCount
       `Prelude.hashWithSalt` publicWorkforceTaskPrice
       `Prelude.hashWithSalt` taskAvailabilityLifetimeInSeconds
       `Prelude.hashWithSalt` taskKeywords

@@ -79,14 +79,16 @@ instance Data.FromJSON OutputChannelMapping where
       ( \x ->
           OutputChannelMapping'
             Prelude.<$> (x Data..:? "inputChannels" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "inputChannelsFineTune"
+            Prelude.<*> ( x
+                            Data..:? "inputChannelsFineTune"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable OutputChannelMapping where
   hashWithSalt _salt OutputChannelMapping' {..} =
-    _salt `Prelude.hashWithSalt` inputChannels
+    _salt
+      `Prelude.hashWithSalt` inputChannels
       `Prelude.hashWithSalt` inputChannelsFineTune
 
 instance Prelude.NFData OutputChannelMapping where

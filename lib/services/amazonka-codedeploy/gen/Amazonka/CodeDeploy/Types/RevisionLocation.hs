@@ -154,7 +154,8 @@ instance Data.FromJSON RevisionLocation where
 
 instance Prelude.Hashable RevisionLocation where
   hashWithSalt _salt RevisionLocation' {..} =
-    _salt `Prelude.hashWithSalt` appSpecContent
+    _salt
+      `Prelude.hashWithSalt` appSpecContent
       `Prelude.hashWithSalt` gitHubLocation
       `Prelude.hashWithSalt` revisionType
       `Prelude.hashWithSalt` s3Location

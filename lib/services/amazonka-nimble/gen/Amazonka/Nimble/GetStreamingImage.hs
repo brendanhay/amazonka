@@ -105,7 +105,8 @@ instance Core.AWSRequest GetStreamingImage where
 
 instance Prelude.Hashable GetStreamingImage where
   hashWithSalt _salt GetStreamingImage' {..} =
-    _salt `Prelude.hashWithSalt` streamingImageId
+    _salt
+      `Prelude.hashWithSalt` streamingImageId
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetStreamingImage where

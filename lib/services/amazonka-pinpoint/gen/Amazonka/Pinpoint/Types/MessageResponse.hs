@@ -117,7 +117,8 @@ instance Data.FromJSON MessageResponse where
 
 instance Prelude.Hashable MessageResponse where
   hashWithSalt _salt MessageResponse' {..} =
-    _salt `Prelude.hashWithSalt` endpointResult
+    _salt
+      `Prelude.hashWithSalt` endpointResult
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` result
       `Prelude.hashWithSalt` applicationId

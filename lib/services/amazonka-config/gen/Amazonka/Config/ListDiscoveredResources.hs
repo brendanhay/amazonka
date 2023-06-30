@@ -175,22 +175,22 @@ instance Core.AWSPager ListDiscoveredResources where
     | Core.stop
         ( rs
             Lens.^? listDiscoveredResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDiscoveredResourcesResponse_resourceIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDiscoveredResources_nextToken
           Lens..~ rs
           Lens.^? listDiscoveredResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDiscoveredResources where
   type
@@ -203,7 +203,8 @@ instance Core.AWSRequest ListDiscoveredResources where
       ( \s h x ->
           ListDiscoveredResourcesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "resourceIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "resourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

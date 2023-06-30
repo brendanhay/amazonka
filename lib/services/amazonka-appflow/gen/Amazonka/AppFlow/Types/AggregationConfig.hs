@@ -92,7 +92,8 @@ instance Data.FromJSON AggregationConfig where
 
 instance Prelude.Hashable AggregationConfig where
   hashWithSalt _salt AggregationConfig' {..} =
-    _salt `Prelude.hashWithSalt` aggregationType
+    _salt
+      `Prelude.hashWithSalt` aggregationType
       `Prelude.hashWithSalt` targetFileSize
 
 instance Prelude.NFData AggregationConfig where

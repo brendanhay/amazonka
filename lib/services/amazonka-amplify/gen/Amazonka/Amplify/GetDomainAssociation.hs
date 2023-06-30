@@ -106,7 +106,8 @@ instance Core.AWSRequest GetDomainAssociation where
 
 instance Prelude.Hashable GetDomainAssociation where
   hashWithSalt _salt GetDomainAssociation' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData GetDomainAssociation where

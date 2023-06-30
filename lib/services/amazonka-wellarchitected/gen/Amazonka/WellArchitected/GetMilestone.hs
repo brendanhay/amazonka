@@ -104,7 +104,8 @@ instance Core.AWSRequest GetMilestone where
 
 instance Prelude.Hashable GetMilestone where
   hashWithSalt _salt GetMilestone' {..} =
-    _salt `Prelude.hashWithSalt` workloadId
+    _salt
+      `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` milestoneNumber
 
 instance Prelude.NFData GetMilestone where

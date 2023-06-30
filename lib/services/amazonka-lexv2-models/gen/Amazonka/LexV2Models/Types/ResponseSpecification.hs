@@ -85,7 +85,8 @@ instance Data.FromJSON ResponseSpecification where
 
 instance Prelude.Hashable ResponseSpecification where
   hashWithSalt _salt ResponseSpecification' {..} =
-    _salt `Prelude.hashWithSalt` allowInterrupt
+    _salt
+      `Prelude.hashWithSalt` allowInterrupt
       `Prelude.hashWithSalt` messageGroups
 
 instance Prelude.NFData ResponseSpecification where

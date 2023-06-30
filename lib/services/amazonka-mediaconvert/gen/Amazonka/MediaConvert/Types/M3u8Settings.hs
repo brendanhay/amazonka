@@ -386,7 +386,8 @@ instance Data.FromJSON M3u8Settings where
 
 instance Prelude.Hashable M3u8Settings where
   hashWithSalt _salt M3u8Settings' {..} =
-    _salt `Prelude.hashWithSalt` audioDuration
+    _salt
+      `Prelude.hashWithSalt` audioDuration
       `Prelude.hashWithSalt` audioFramesPerPes
       `Prelude.hashWithSalt` audioPids
       `Prelude.hashWithSalt` dataPTSControl

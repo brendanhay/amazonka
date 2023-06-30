@@ -79,7 +79,8 @@ instance Data.FromJSON SystemEvent where
 
 instance Prelude.Hashable SystemEvent where
   hashWithSalt _salt SystemEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventType
+    _salt
+      `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` stateChangeConfiguration
 
 instance Prelude.NFData SystemEvent where

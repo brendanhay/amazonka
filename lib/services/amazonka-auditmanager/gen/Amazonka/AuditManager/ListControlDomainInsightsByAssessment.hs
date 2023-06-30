@@ -122,11 +122,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListControlDomainInsightsByAssessmentResponse'
-            Prelude.<$> ( x Data..?> "controlDomainInsights"
+            Prelude.<$> ( x
+                            Data..?> "controlDomainInsights"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -136,7 +137,8 @@ instance
   hashWithSalt
     _salt
     ListControlDomainInsightsByAssessment' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` assessmentId
 

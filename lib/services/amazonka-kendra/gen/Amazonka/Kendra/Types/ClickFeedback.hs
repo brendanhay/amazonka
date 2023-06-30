@@ -70,7 +70,8 @@ clickFeedback_clickTime = Lens.lens (\ClickFeedback' {clickTime} -> clickTime) (
 
 instance Prelude.Hashable ClickFeedback where
   hashWithSalt _salt ClickFeedback' {..} =
-    _salt `Prelude.hashWithSalt` resultId
+    _salt
+      `Prelude.hashWithSalt` resultId
       `Prelude.hashWithSalt` clickTime
 
 instance Prelude.NFData ClickFeedback where

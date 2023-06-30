@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     InstanceCreditSpecificationRequest' {..} =
-      _salt `Prelude.hashWithSalt` cpuCredits
+      _salt
+        `Prelude.hashWithSalt` cpuCredits
         `Prelude.hashWithSalt` instanceId
 
 instance

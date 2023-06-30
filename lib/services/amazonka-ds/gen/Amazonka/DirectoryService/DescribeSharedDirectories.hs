@@ -117,22 +117,22 @@ instance Core.AWSPager DescribeSharedDirectories where
     | Core.stop
         ( rs
             Lens.^? describeSharedDirectoriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSharedDirectoriesResponse_sharedDirectories
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSharedDirectories_nextToken
           Lens..~ rs
           Lens.^? describeSharedDirectoriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSharedDirectories where
   type
@@ -145,7 +145,8 @@ instance Core.AWSRequest DescribeSharedDirectories where
       ( \s h x ->
           DescribeSharedDirectoriesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SharedDirectories"
+            Prelude.<*> ( x
+                            Data..?> "SharedDirectories"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -153,7 +154,8 @@ instance Core.AWSRequest DescribeSharedDirectories where
 
 instance Prelude.Hashable DescribeSharedDirectories where
   hashWithSalt _salt DescribeSharedDirectories' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sharedDirectoryIds
       `Prelude.hashWithSalt` ownerDirectoryId

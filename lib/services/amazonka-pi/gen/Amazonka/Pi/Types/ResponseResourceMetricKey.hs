@@ -138,7 +138,8 @@ instance Data.FromJSON ResponseResourceMetricKey where
 
 instance Prelude.Hashable ResponseResourceMetricKey where
   hashWithSalt _salt ResponseResourceMetricKey' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` metric
 
 instance Prelude.NFData ResponseResourceMetricKey where

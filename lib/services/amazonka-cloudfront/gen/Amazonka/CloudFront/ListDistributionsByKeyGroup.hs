@@ -136,7 +136,8 @@ instance Core.AWSRequest ListDistributionsByKeyGroup where
 
 instance Prelude.Hashable ListDistributionsByKeyGroup where
   hashWithSalt _salt ListDistributionsByKeyGroup' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` keyGroupId
 

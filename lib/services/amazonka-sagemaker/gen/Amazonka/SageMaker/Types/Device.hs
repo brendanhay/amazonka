@@ -75,7 +75,8 @@ device_deviceName = Lens.lens (\Device' {deviceName} -> deviceName) (\s@Device' 
 
 instance Prelude.Hashable Device where
   hashWithSalt _salt Device' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` iotThingName
       `Prelude.hashWithSalt` deviceName
 

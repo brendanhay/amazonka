@@ -71,7 +71,8 @@ detectLabelsSettings_imageProperties = Lens.lens (\DetectLabelsSettings' {imageP
 
 instance Prelude.Hashable DetectLabelsSettings where
   hashWithSalt _salt DetectLabelsSettings' {..} =
-    _salt `Prelude.hashWithSalt` generalLabels
+    _salt
+      `Prelude.hashWithSalt` generalLabels
       `Prelude.hashWithSalt` imageProperties
 
 instance Prelude.NFData DetectLabelsSettings where

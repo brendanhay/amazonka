@@ -76,7 +76,8 @@ instance Data.FromJSON RenewalSettings where
 
 instance Prelude.Hashable RenewalSettings where
   hashWithSalt _salt RenewalSettings' {..} =
-    _salt `Prelude.hashWithSalt` automaticRenewal
+    _salt
+      `Prelude.hashWithSalt` automaticRenewal
       `Prelude.hashWithSalt` renewalCount
 
 instance Prelude.NFData RenewalSettings where

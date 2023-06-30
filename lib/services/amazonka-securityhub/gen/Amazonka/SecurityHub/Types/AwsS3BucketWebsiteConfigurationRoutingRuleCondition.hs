@@ -77,7 +77,7 @@ instance
       ( \x ->
           AwsS3BucketWebsiteConfigurationRoutingRuleCondition'
             Prelude.<$> (x Data..:? "HttpErrorCodeReturnedEquals")
-              Prelude.<*> (x Data..:? "KeyPrefixEquals")
+            Prelude.<*> (x Data..:? "KeyPrefixEquals")
       )
 
 instance

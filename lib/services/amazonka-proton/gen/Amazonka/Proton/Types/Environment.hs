@@ -331,7 +331,8 @@ instance Data.FromJSON Environment where
 
 instance Prelude.Hashable Environment where
   hashWithSalt _salt Environment' {..} =
-    _salt `Prelude.hashWithSalt` codebuildRoleArn
+    _salt
+      `Prelude.hashWithSalt` codebuildRoleArn
       `Prelude.hashWithSalt` componentRoleArn
       `Prelude.hashWithSalt` deploymentStatusMessage
       `Prelude.hashWithSalt` description

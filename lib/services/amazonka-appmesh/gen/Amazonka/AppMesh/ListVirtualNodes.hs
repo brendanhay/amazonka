@@ -155,19 +155,19 @@ instance Core.AWSPager ListVirtualNodes where
     | Core.stop
         ( rs
             Lens.^? listVirtualNodesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listVirtualNodesResponse_virtualNodes) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listVirtualNodes_nextToken
           Lens..~ rs
           Lens.^? listVirtualNodesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVirtualNodes where
   type
@@ -186,7 +186,8 @@ instance Core.AWSRequest ListVirtualNodes where
 
 instance Prelude.Hashable ListVirtualNodes where
   hashWithSalt _salt ListVirtualNodes' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` meshName

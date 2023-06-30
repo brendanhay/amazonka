@@ -134,7 +134,8 @@ instance Core.AWSRequest GetReference where
 
 instance Prelude.Hashable GetReference where
   hashWithSalt _salt GetReference' {..} =
-    _salt `Prelude.hashWithSalt` file
+    _salt
+      `Prelude.hashWithSalt` file
       `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` partNumber

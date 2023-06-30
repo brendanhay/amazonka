@@ -76,7 +76,8 @@ instance Data.FromJSON ManagedResourceSummary where
 
 instance Prelude.Hashable ManagedResourceSummary where
   hashWithSalt _salt ManagedResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` associationCount
+    _salt
+      `Prelude.hashWithSalt` associationCount
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ManagedResourceSummary where

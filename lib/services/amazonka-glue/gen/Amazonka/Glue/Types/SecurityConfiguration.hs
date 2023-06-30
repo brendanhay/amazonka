@@ -89,7 +89,8 @@ instance Data.FromJSON SecurityConfiguration where
 
 instance Prelude.Hashable SecurityConfiguration where
   hashWithSalt _salt SecurityConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` createdTimeStamp
+    _salt
+      `Prelude.hashWithSalt` createdTimeStamp
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` name
 

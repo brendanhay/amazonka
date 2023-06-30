@@ -92,7 +92,8 @@ instance Data.FromXML ScalingParameters where
 
 instance Prelude.Hashable ScalingParameters where
   hashWithSalt _salt ScalingParameters' {..} =
-    _salt `Prelude.hashWithSalt` desiredInstanceType
+    _salt
+      `Prelude.hashWithSalt` desiredInstanceType
       `Prelude.hashWithSalt` desiredPartitionCount
       `Prelude.hashWithSalt` desiredReplicationCount
 

@@ -170,7 +170,8 @@ instance Core.AWSRequest UpdateRoutingControlState where
 
 instance Prelude.Hashable UpdateRoutingControlState where
   hashWithSalt _salt UpdateRoutingControlState' {..} =
-    _salt `Prelude.hashWithSalt` safetyRulesToOverride
+    _salt
+      `Prelude.hashWithSalt` safetyRulesToOverride
       `Prelude.hashWithSalt` routingControlArn
       `Prelude.hashWithSalt` routingControlState
 

@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteAutoScalingGroup where
 
 instance Prelude.Hashable DeleteAutoScalingGroup where
   hashWithSalt _salt DeleteAutoScalingGroup' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData DeleteAutoScalingGroup where

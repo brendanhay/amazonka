@@ -109,7 +109,9 @@ createFleetInstance_platform = Lens.lens (\CreateFleetInstance' {platform} -> pl
 instance Data.FromXML CreateFleetInstance where
   parseXML x =
     CreateFleetInstance'
-      Prelude.<$> ( x Data..@? "instanceIds" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "instanceIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "instanceType")
@@ -119,7 +121,8 @@ instance Data.FromXML CreateFleetInstance where
 
 instance Prelude.Hashable CreateFleetInstance where
   hashWithSalt _salt CreateFleetInstance' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` launchTemplateAndOverrides
       `Prelude.hashWithSalt` lifecycle

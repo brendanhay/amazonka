@@ -128,7 +128,8 @@ instance Data.FromXML SwitchoverDetail where
 
 instance Prelude.Hashable SwitchoverDetail where
   hashWithSalt _salt SwitchoverDetail' {..} =
-    _salt `Prelude.hashWithSalt` sourceMember
+    _salt
+      `Prelude.hashWithSalt` sourceMember
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` targetMember
 

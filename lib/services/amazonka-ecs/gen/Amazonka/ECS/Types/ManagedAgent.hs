@@ -98,7 +98,8 @@ instance Data.FromJSON ManagedAgent where
 
 instance Prelude.Hashable ManagedAgent where
   hashWithSalt _salt ManagedAgent' {..} =
-    _salt `Prelude.hashWithSalt` lastStartedAt
+    _salt
+      `Prelude.hashWithSalt` lastStartedAt
       `Prelude.hashWithSalt` lastStatus
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` reason

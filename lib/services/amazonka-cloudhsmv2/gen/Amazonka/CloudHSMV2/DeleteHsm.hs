@@ -132,7 +132,8 @@ instance Core.AWSRequest DeleteHsm where
 
 instance Prelude.Hashable DeleteHsm where
   hashWithSalt _salt DeleteHsm' {..} =
-    _salt `Prelude.hashWithSalt` eniId
+    _salt
+      `Prelude.hashWithSalt` eniId
       `Prelude.hashWithSalt` eniIp
       `Prelude.hashWithSalt` hsmId
       `Prelude.hashWithSalt` clusterId

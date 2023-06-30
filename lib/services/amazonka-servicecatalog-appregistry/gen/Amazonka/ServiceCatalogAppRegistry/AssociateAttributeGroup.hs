@@ -115,7 +115,8 @@ instance Core.AWSRequest AssociateAttributeGroup where
 
 instance Prelude.Hashable AssociateAttributeGroup where
   hashWithSalt _salt AssociateAttributeGroup' {..} =
-    _salt `Prelude.hashWithSalt` application
+    _salt
+      `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` attributeGroup
 
 instance Prelude.NFData AssociateAttributeGroup where

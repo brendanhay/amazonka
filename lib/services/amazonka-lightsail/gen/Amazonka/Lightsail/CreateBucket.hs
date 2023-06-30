@@ -203,7 +203,8 @@ instance Core.AWSRequest CreateBucket where
 
 instance Prelude.Hashable CreateBucket where
   hashWithSalt _salt CreateBucket' {..} =
-    _salt `Prelude.hashWithSalt` enableObjectVersioning
+    _salt
+      `Prelude.hashWithSalt` enableObjectVersioning
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` bundleId

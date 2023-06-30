@@ -174,7 +174,8 @@ instance Core.AWSRequest ClaimGameServer where
 
 instance Prelude.Hashable ClaimGameServer where
   hashWithSalt _salt ClaimGameServer' {..} =
-    _salt `Prelude.hashWithSalt` gameServerData
+    _salt
+      `Prelude.hashWithSalt` gameServerData
       `Prelude.hashWithSalt` gameServerId
       `Prelude.hashWithSalt` gameServerGroupName
 

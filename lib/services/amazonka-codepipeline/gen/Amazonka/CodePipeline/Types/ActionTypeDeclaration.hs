@@ -175,7 +175,8 @@ instance Data.FromJSON ActionTypeDeclaration where
 
 instance Prelude.Hashable ActionTypeDeclaration where
   hashWithSalt _salt ActionTypeDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` urls

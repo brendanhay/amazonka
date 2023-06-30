@@ -160,7 +160,8 @@ instance Data.FromJSON HarvestJob where
 
 instance Prelude.Hashable HarvestJob where
   hashWithSalt _salt HarvestJob' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` endTime

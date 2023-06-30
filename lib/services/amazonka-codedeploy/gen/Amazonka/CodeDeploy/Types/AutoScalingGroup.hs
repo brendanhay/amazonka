@@ -68,12 +68,14 @@ instance Data.FromJSON AutoScalingGroup where
       "AutoScalingGroup"
       ( \x ->
           AutoScalingGroup'
-            Prelude.<$> (x Data..:? "hook") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "hook")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable AutoScalingGroup where
   hashWithSalt _salt AutoScalingGroup' {..} =
-    _salt `Prelude.hashWithSalt` hook
+    _salt
+      `Prelude.hashWithSalt` hook
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AutoScalingGroup where

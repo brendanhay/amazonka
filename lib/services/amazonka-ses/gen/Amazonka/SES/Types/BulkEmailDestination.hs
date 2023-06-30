@@ -93,7 +93,8 @@ bulkEmailDestination_destination = Lens.lens (\BulkEmailDestination' {destinatio
 
 instance Prelude.Hashable BulkEmailDestination where
   hashWithSalt _salt BulkEmailDestination' {..} =
-    _salt `Prelude.hashWithSalt` replacementTags
+    _salt
+      `Prelude.hashWithSalt` replacementTags
       `Prelude.hashWithSalt` replacementTemplateData
       `Prelude.hashWithSalt` destination
 

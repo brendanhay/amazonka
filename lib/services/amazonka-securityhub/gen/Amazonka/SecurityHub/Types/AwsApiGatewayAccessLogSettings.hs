@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     AwsApiGatewayAccessLogSettings' {..} =
-      _salt `Prelude.hashWithSalt` destinationArn
+      _salt
+        `Prelude.hashWithSalt` destinationArn
         `Prelude.hashWithSalt` format
 
 instance

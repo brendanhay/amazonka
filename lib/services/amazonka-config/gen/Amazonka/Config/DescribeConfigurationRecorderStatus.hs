@@ -101,10 +101,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationRecorderStatusResponse'
-            Prelude.<$> ( x Data..?> "ConfigurationRecordersStatus"
+            Prelude.<$> ( x
+                            Data..?> "ConfigurationRecordersStatus"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

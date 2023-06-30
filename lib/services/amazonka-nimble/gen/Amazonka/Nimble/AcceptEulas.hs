@@ -113,7 +113,8 @@ instance Core.AWSRequest AcceptEulas where
     Response.receiveJSON
       ( \s h x ->
           AcceptEulasResponse'
-            Prelude.<$> ( x Data..?> "eulaAcceptances"
+            Prelude.<$> ( x
+                            Data..?> "eulaAcceptances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,7 +122,8 @@ instance Core.AWSRequest AcceptEulas where
 
 instance Prelude.Hashable AcceptEulas where
   hashWithSalt _salt AcceptEulas' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` eulaIds
       `Prelude.hashWithSalt` studioId
 

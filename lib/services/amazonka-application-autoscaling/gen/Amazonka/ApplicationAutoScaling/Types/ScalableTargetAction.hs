@@ -114,7 +114,8 @@ instance Data.FromJSON ScalableTargetAction where
 
 instance Prelude.Hashable ScalableTargetAction where
   hashWithSalt _salt ScalableTargetAction' {..} =
-    _salt `Prelude.hashWithSalt` maxCapacity
+    _salt
+      `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` minCapacity
 
 instance Prelude.NFData ScalableTargetAction where

@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateLayout where
 
 instance Prelude.Hashable UpdateLayout where
   hashWithSalt _salt UpdateLayout' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` layoutId

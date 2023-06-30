@@ -84,7 +84,8 @@ instance Data.FromJSON Permission where
 
 instance Prelude.Hashable Permission where
   hashWithSalt _salt Permission' {..} =
-    _salt `Prelude.hashWithSalt` operation
+    _salt
+      `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` service
 
 instance Prelude.NFData Permission where

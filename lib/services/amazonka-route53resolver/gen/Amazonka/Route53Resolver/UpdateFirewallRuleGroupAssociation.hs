@@ -157,7 +157,7 @@ instance
       ( \s h x ->
           UpdateFirewallRuleGroupAssociationResponse'
             Prelude.<$> (x Data..?> "FirewallRuleGroupAssociation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -167,7 +167,8 @@ instance
   hashWithSalt
     _salt
     UpdateFirewallRuleGroupAssociation' {..} =
-      _salt `Prelude.hashWithSalt` mutationProtection
+      _salt
+        `Prelude.hashWithSalt` mutationProtection
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` priority
         `Prelude.hashWithSalt` firewallRuleGroupAssociationId

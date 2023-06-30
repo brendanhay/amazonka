@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionScheduledEventDetails' {..} =
-      _salt `Prelude.hashWithSalt` input
+      _salt
+        `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` inputDetails
         `Prelude.hashWithSalt` taskCredentials
         `Prelude.hashWithSalt` timeoutInSeconds

@@ -105,7 +105,8 @@ instance Data.FromJSON AudioNormalizationSettings where
 
 instance Prelude.Hashable AudioNormalizationSettings where
   hashWithSalt _salt AudioNormalizationSettings' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` algorithmControl
       `Prelude.hashWithSalt` targetLkfs
 

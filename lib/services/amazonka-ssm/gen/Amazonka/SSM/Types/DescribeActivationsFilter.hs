@@ -66,7 +66,8 @@ describeActivationsFilter_filterValues = Lens.lens (\DescribeActivationsFilter' 
 
 instance Prelude.Hashable DescribeActivationsFilter where
   hashWithSalt _salt DescribeActivationsFilter' {..} =
-    _salt `Prelude.hashWithSalt` filterKey
+    _salt
+      `Prelude.hashWithSalt` filterKey
       `Prelude.hashWithSalt` filterValues
 
 instance Prelude.NFData DescribeActivationsFilter where

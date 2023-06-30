@@ -82,8 +82,9 @@ instance
       "AwsCertificateManagerCertificateResourceRecord"
       ( \x ->
           AwsCertificateManagerCertificateResourceRecord'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Type")
-              Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -93,7 +94,8 @@ instance
   hashWithSalt
     _salt
     AwsCertificateManagerCertificateResourceRecord' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` value
 

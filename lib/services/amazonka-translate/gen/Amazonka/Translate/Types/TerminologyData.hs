@@ -153,7 +153,8 @@ terminologyData_format = Lens.lens (\TerminologyData' {format} -> format) (\s@Te
 
 instance Prelude.Hashable TerminologyData where
   hashWithSalt _salt TerminologyData' {..} =
-    _salt `Prelude.hashWithSalt` directionality
+    _salt
+      `Prelude.hashWithSalt` directionality
       `Prelude.hashWithSalt` file
       `Prelude.hashWithSalt` format
 

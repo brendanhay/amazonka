@@ -74,7 +74,8 @@ instance
   hashWithSalt
     _salt
     BatchUpdatePartitionRequestEntry' {..} =
-      _salt `Prelude.hashWithSalt` partitionValueList
+      _salt
+        `Prelude.hashWithSalt` partitionValueList
         `Prelude.hashWithSalt` partitionInput
 
 instance

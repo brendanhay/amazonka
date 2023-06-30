@@ -76,7 +76,8 @@ instance
   hashWithSalt
     _salt
     KinesisStreamingDestinationInput' {..} =
-      _salt `Prelude.hashWithSalt` tableName
+      _salt
+        `Prelude.hashWithSalt` tableName
         `Prelude.hashWithSalt` streamArn
 
 instance

@@ -116,7 +116,8 @@ instance Data.FromJSON IAMPolicyAssignment where
 
 instance Prelude.Hashable IAMPolicyAssignment where
   hashWithSalt _salt IAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` assignmentId
+    _salt
+      `Prelude.hashWithSalt` assignmentId
       `Prelude.hashWithSalt` assignmentName
       `Prelude.hashWithSalt` assignmentStatus
       `Prelude.hashWithSalt` awsAccountId

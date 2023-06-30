@@ -265,7 +265,8 @@ instance Data.FromJSON Component where
       ( \x ->
           Component'
             Prelude.<$> (x Data..:? "children" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "collectionProperties"
+            Prelude.<*> ( x
+                            Data..:? "collectionProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
@@ -274,7 +275,8 @@ instance Data.FromJSON Component where
             Prelude.<*> (x Data..:? "sourceId")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "appId")
-            Prelude.<*> ( x Data..:? "bindingProperties"
+            Prelude.<*> ( x
+                            Data..:? "bindingProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "componentType")
@@ -289,7 +291,8 @@ instance Data.FromJSON Component where
 
 instance Prelude.Hashable Component where
   hashWithSalt _salt Component' {..} =
-    _salt `Prelude.hashWithSalt` children
+    _salt
+      `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` collectionProperties
       `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` modifiedAt

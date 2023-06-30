@@ -77,7 +77,8 @@ instance Data.FromJSON JobExecutionSummaryForJob where
 
 instance Prelude.Hashable JobExecutionSummaryForJob where
   hashWithSalt _salt JobExecutionSummaryForJob' {..} =
-    _salt `Prelude.hashWithSalt` jobExecutionSummary
+    _salt
+      `Prelude.hashWithSalt` jobExecutionSummary
       `Prelude.hashWithSalt` thingArn
 
 instance Prelude.NFData JobExecutionSummaryForJob where

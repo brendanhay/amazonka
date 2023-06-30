@@ -106,7 +106,8 @@ instance Data.FromJSON Cluster where
       ( \x ->
           Cluster'
             Prelude.<$> (x Data..:? "ClusterArn")
-            Prelude.<*> ( x Data..:? "ClusterEndpoints"
+            Prelude.<*> ( x
+                            Data..:? "ClusterEndpoints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")
@@ -115,7 +116,8 @@ instance Data.FromJSON Cluster where
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` clusterEndpoints
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

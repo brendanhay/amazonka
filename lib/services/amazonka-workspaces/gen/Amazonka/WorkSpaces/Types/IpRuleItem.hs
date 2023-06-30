@@ -74,7 +74,8 @@ instance Data.FromJSON IpRuleItem where
 
 instance Prelude.Hashable IpRuleItem where
   hashWithSalt _salt IpRuleItem' {..} =
-    _salt `Prelude.hashWithSalt` ipRule
+    _salt
+      `Prelude.hashWithSalt` ipRule
       `Prelude.hashWithSalt` ruleDesc
 
 instance Prelude.NFData IpRuleItem where

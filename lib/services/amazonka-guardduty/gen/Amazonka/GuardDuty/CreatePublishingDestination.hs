@@ -141,7 +141,8 @@ instance Core.AWSRequest CreatePublishingDestination where
 
 instance Prelude.Hashable CreatePublishingDestination where
   hashWithSalt _salt CreatePublishingDestination' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` destinationType
       `Prelude.hashWithSalt` destinationProperties

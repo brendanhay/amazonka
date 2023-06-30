@@ -114,14 +114,16 @@ instance Core.AWSRequest ListResiliencyPolicies where
           ListResiliencyPoliciesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "resiliencyPolicies"
+            Prelude.<*> ( x
+                            Data..?> "resiliencyPolicies"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListResiliencyPolicies where
   hashWithSalt _salt ListResiliencyPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` policyName
 

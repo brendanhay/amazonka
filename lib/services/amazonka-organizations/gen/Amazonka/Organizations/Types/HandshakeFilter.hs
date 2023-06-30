@@ -99,7 +99,8 @@ handshakeFilter_parentHandshakeId = Lens.lens (\HandshakeFilter' {parentHandshak
 
 instance Prelude.Hashable HandshakeFilter where
   hashWithSalt _salt HandshakeFilter' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` parentHandshakeId
 
 instance Prelude.NFData HandshakeFilter where

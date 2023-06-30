@@ -150,18 +150,21 @@ instance
       ( \x ->
           AdditionalInferenceSpecificationDefinition'
             Prelude.<$> (x Data..:? "Description")
-              Prelude.<*> ( x Data..:? "SupportedContentTypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "SupportedRealtimeInferenceInstanceTypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "SupportedResponseMIMETypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "SupportedTransformInstanceTypes")
-              Prelude.<*> (x Data..: "Name")
-              Prelude.<*> (x Data..: "Containers")
+            Prelude.<*> ( x
+                            Data..:? "SupportedContentTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "SupportedRealtimeInferenceInstanceTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "SupportedResponseMIMETypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "SupportedTransformInstanceTypes")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Containers")
       )
 
 instance
@@ -171,7 +174,8 @@ instance
   hashWithSalt
     _salt
     AdditionalInferenceSpecificationDefinition' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` supportedContentTypes
         `Prelude.hashWithSalt` supportedRealtimeInferenceInstanceTypes
         `Prelude.hashWithSalt` supportedResponseMIMETypes

@@ -728,7 +728,8 @@ instance_state = Lens.lens (\Instance' {state} -> state) (\s@Instance' {} a -> s
 instance Data.FromXML Instance where
   parseXML x =
     Instance'
-      Prelude.<$> ( x Data..@? "blockDeviceMapping"
+      Prelude.<$> ( x
+                      Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -738,7 +739,8 @@ instance Data.FromXML Instance where
       Prelude.<*> (x Data..@? "clientToken")
       Prelude.<*> (x Data..@? "cpuOptions")
       Prelude.<*> (x Data..@? "ebsOptimized")
-      Prelude.<*> ( x Data..@? "elasticGpuAssociationSet"
+      Prelude.<*> ( x
+                      Data..@? "elasticGpuAssociationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -755,12 +757,15 @@ instance Data.FromXML Instance where
       Prelude.<*> (x Data..@? "ipv6Address")
       Prelude.<*> (x Data..@? "kernelId")
       Prelude.<*> (x Data..@? "keyName")
-      Prelude.<*> ( x Data..@? "licenseSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "licenseSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "maintenanceOptions")
       Prelude.<*> (x Data..@? "metadataOptions")
-      Prelude.<*> ( x Data..@? "networkInterfaceSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -770,14 +775,18 @@ instance Data.FromXML Instance where
       Prelude.<*> (x Data..@? "privateDnsName")
       Prelude.<*> (x Data..@? "privateDnsNameOptions")
       Prelude.<*> (x Data..@? "privateIpAddress")
-      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "productCodes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "dnsName")
       Prelude.<*> (x Data..@? "ipAddress")
       Prelude.<*> (x Data..@? "ramdiskId")
       Prelude.<*> (x Data..@? "rootDeviceName")
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "sourceDestCheck")
@@ -786,7 +795,9 @@ instance Data.FromXML Instance where
       Prelude.<*> (x Data..@? "stateReason")
       Prelude.<*> (x Data..@? "reason")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "tpmSupport")
@@ -808,7 +819,8 @@ instance Data.FromXML Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
+    _salt
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` capacityReservationId
       `Prelude.hashWithSalt` capacityReservationSpecification

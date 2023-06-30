@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteMultiplex where
       ( \s h x ->
           DeleteMultiplexResponse'
             Prelude.<$> (x Data..?> "arn")
-            Prelude.<*> ( x Data..?> "availabilityZones"
+            Prelude.<*> ( x
+                            Data..?> "availabilityZones"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)

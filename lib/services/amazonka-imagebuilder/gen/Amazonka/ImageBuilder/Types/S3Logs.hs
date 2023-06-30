@@ -74,7 +74,8 @@ instance Data.FromJSON S3Logs where
 
 instance Prelude.Hashable S3Logs where
   hashWithSalt _salt S3Logs' {..} =
-    _salt `Prelude.hashWithSalt` s3BucketName
+    _salt
+      `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` s3KeyPrefix
 
 instance Prelude.NFData S3Logs where

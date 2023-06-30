@@ -72,7 +72,8 @@ createAttendeeRequestItem_externalUserId = Lens.lens (\CreateAttendeeRequestItem
 
 instance Prelude.Hashable CreateAttendeeRequestItem where
   hashWithSalt _salt CreateAttendeeRequestItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` externalUserId
 
 instance Prelude.NFData CreateAttendeeRequestItem where

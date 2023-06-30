@@ -146,7 +146,6 @@ newGetStreamResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getStreamResponse_stream :: Lens.Lens' GetStreamResponse (Prelude.Maybe Stream)
 getStreamResponse_stream = Lens.lens (\GetStreamResponse' {stream} -> stream) (\s@GetStreamResponse' {} a -> s {stream = a} :: GetStreamResponse)
 

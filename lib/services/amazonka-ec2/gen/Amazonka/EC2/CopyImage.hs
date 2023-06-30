@@ -374,7 +374,8 @@ instance Core.AWSRequest CopyImage where
 
 instance Prelude.Hashable CopyImage where
   hashWithSalt _salt CopyImage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` copyImageTags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationOutpostArn

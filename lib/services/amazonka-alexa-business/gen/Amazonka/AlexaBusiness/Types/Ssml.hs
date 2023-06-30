@@ -70,7 +70,8 @@ ssml_value = Lens.lens (\Ssml' {value} -> value) (\s@Ssml' {} a -> s {value = a}
 
 instance Prelude.Hashable Ssml where
   hashWithSalt _salt Ssml' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Ssml where

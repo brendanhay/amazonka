@@ -86,7 +86,8 @@ instance Core.AWSRequest BatchDeleteBuilds where
       ( \s h x ->
           BatchDeleteBuildsResponse'
             Prelude.<$> (x Data..?> "buildsDeleted")
-            Prelude.<*> ( x Data..?> "buildsNotDeleted"
+            Prelude.<*> ( x
+                            Data..?> "buildsNotDeleted"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -167,7 +167,8 @@ instance Core.AWSRequest TestEventPattern where
 
 instance Prelude.Hashable TestEventPattern where
   hashWithSalt _salt TestEventPattern' {..} =
-    _salt `Prelude.hashWithSalt` eventPattern
+    _salt
+      `Prelude.hashWithSalt` eventPattern
       `Prelude.hashWithSalt` event
 
 instance Prelude.NFData TestEventPattern where

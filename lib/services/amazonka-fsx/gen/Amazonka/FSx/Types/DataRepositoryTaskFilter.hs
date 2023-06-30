@@ -96,7 +96,8 @@ dataRepositoryTaskFilter_values = Lens.lens (\DataRepositoryTaskFilter' {values}
 
 instance Prelude.Hashable DataRepositoryTaskFilter where
   hashWithSalt _salt DataRepositoryTaskFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData DataRepositoryTaskFilter where

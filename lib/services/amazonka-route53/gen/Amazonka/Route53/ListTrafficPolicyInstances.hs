@@ -235,7 +235,8 @@ instance Core.AWSRequest ListTrafficPolicyInstances where
             Prelude.<*> (x Data..@? "TrafficPolicyInstanceNameMarker")
             Prelude.<*> (x Data..@? "TrafficPolicyInstanceTypeMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "TrafficPolicyInstances"
+            Prelude.<*> ( x
+                            Data..@? "TrafficPolicyInstances"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "TrafficPolicyInstance"
                         )
@@ -245,7 +246,8 @@ instance Core.AWSRequest ListTrafficPolicyInstances where
 
 instance Prelude.Hashable ListTrafficPolicyInstances where
   hashWithSalt _salt ListTrafficPolicyInstances' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneIdMarker
+    _salt
+      `Prelude.hashWithSalt` hostedZoneIdMarker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` trafficPolicyInstanceNameMarker
       `Prelude.hashWithSalt` trafficPolicyInstanceTypeMarker

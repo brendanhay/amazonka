@@ -69,9 +69,9 @@ data Thumbnails = Thumbnails'
     -- use them together.
     --
     -- The width and height of thumbnail files in pixels. Specify a value in
-    -- the format @ width @ x @ height @ where both values are even integers.
-    -- The values cannot exceed the width and height that you specified in the
-    -- @Video:Resolution@ object.
+    -- the format @ @/@width@/@ @ x @ @/@height@/@ @ where both values are even
+    -- integers. The values cannot exceed the width and height that you
+    -- specified in the @Video:Resolution@ object.
     resolution :: Prelude.Maybe Prelude.Text,
     -- | Specify one of the following values to control scaling of thumbnails:
     --
@@ -159,9 +159,9 @@ data Thumbnails = Thumbnails'
 -- use them together.
 --
 -- The width and height of thumbnail files in pixels. Specify a value in
--- the format @ width @ x @ height @ where both values are even integers.
--- The values cannot exceed the width and height that you specified in the
--- @Video:Resolution@ object.
+-- the format @ @/@width@/@ @ x @ @/@height@/@ @ where both values are even
+-- integers. The values cannot exceed the width and height that you
+-- specified in the @Video:Resolution@ object.
 --
 -- 'sizingPolicy', 'thumbnails_sizingPolicy' - Specify one of the following values to control scaling of thumbnails:
 --
@@ -263,9 +263,9 @@ thumbnails_paddingPolicy = Lens.lens (\Thumbnails' {paddingPolicy} -> paddingPol
 -- use them together.
 --
 -- The width and height of thumbnail files in pixels. Specify a value in
--- the format @ width @ x @ height @ where both values are even integers.
--- The values cannot exceed the width and height that you specified in the
--- @Video:Resolution@ object.
+-- the format @ @/@width@/@ @ x @ @/@height@/@ @ where both values are even
+-- integers. The values cannot exceed the width and height that you
+-- specified in the @Video:Resolution@ object.
 thumbnails_resolution :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_resolution = Lens.lens (\Thumbnails' {resolution} -> resolution) (\s@Thumbnails' {} a -> s {resolution = a} :: Thumbnails)
 
@@ -323,7 +323,8 @@ instance Data.FromJSON Thumbnails where
 
 instance Prelude.Hashable Thumbnails where
   hashWithSalt _salt Thumbnails' {..} =
-    _salt `Prelude.hashWithSalt` aspectRatio
+    _salt
+      `Prelude.hashWithSalt` aspectRatio
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` maxHeight

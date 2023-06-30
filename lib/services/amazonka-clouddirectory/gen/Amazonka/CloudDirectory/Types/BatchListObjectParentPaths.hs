@@ -83,7 +83,8 @@ batchListObjectParentPaths_objectReference = Lens.lens (\BatchListObjectParentPa
 
 instance Prelude.Hashable BatchListObjectParentPaths where
   hashWithSalt _salt BatchListObjectParentPaths' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` objectReference
 

@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateContact where
 
 instance Prelude.Hashable CreateContact where
   hashWithSalt _salt CreateContact' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` alias

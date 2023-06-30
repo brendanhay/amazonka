@@ -129,7 +129,8 @@ instance
     GetReusableDelegationSetLimit
   where
   hashWithSalt _salt GetReusableDelegationSetLimit' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` delegationSetId
 
 instance Prelude.NFData GetReusableDelegationSetLimit where

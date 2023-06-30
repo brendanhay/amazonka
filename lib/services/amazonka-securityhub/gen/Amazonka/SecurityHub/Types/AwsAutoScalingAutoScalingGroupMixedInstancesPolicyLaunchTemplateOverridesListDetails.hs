@@ -80,7 +80,7 @@ instance
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails'
             Prelude.<$> (x Data..:? "InstanceType")
-              Prelude.<*> (x Data..:? "WeightedCapacity")
+            Prelude.<*> (x Data..:? "WeightedCapacity")
       )
 
 instance
@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails' {..} =
-      _salt `Prelude.hashWithSalt` instanceType
+      _salt
+        `Prelude.hashWithSalt` instanceType
         `Prelude.hashWithSalt` weightedCapacity
 
 instance

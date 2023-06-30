@@ -122,7 +122,8 @@ instance Core.AWSRequest DisassociateFileSystem where
 
 instance Prelude.Hashable DisassociateFileSystem where
   hashWithSalt _salt DisassociateFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` fileSystemAssociationARN
 
 instance Prelude.NFData DisassociateFileSystem where

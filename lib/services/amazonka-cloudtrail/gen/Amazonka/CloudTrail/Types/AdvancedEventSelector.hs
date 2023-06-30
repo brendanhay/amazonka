@@ -101,7 +101,8 @@ instance Data.FromJSON AdvancedEventSelector where
 
 instance Prelude.Hashable AdvancedEventSelector where
   hashWithSalt _salt AdvancedEventSelector' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fieldSelectors
 
 instance Prelude.NFData AdvancedEventSelector where

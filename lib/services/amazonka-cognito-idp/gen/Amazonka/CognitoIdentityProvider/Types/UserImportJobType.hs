@@ -258,7 +258,8 @@ instance Data.FromJSON UserImportJobType where
 
 instance Prelude.Hashable UserImportJobType where
   hashWithSalt _salt UserImportJobType' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogsRoleArn
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogsRoleArn
       `Prelude.hashWithSalt` completionDate
       `Prelude.hashWithSalt` completionMessage
       `Prelude.hashWithSalt` creationDate

@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     ModelPackageValidationSpecification' {..} =
-      _salt `Prelude.hashWithSalt` validationRole
+      _salt
+        `Prelude.hashWithSalt` validationRole
         `Prelude.hashWithSalt` validationProfiles
 
 instance

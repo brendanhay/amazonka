@@ -160,7 +160,8 @@ instance Data.FromJSON Analysis where
 
 instance Prelude.Hashable Analysis where
   hashWithSalt _salt Analysis' {..} =
-    _salt `Prelude.hashWithSalt` analysisId
+    _salt
+      `Prelude.hashWithSalt` analysisId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dataSetArns

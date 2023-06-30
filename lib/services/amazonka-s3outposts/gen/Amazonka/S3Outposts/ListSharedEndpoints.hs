@@ -114,22 +114,22 @@ instance Core.AWSPager ListSharedEndpoints where
     | Core.stop
         ( rs
             Lens.^? listSharedEndpointsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSharedEndpointsResponse_endpoints
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSharedEndpoints_nextToken
           Lens..~ rs
           Lens.^? listSharedEndpointsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSharedEndpoints where
   type
@@ -148,7 +148,8 @@ instance Core.AWSRequest ListSharedEndpoints where
 
 instance Prelude.Hashable ListSharedEndpoints where
   hashWithSalt _salt ListSharedEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` outpostId
 

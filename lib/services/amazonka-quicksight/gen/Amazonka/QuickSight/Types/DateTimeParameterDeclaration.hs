@@ -109,7 +109,8 @@ instance
     DateTimeParameterDeclaration
   where
   hashWithSalt _salt DateTimeParameterDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` defaultValues
+    _salt
+      `Prelude.hashWithSalt` defaultValues
       `Prelude.hashWithSalt` timeGranularity
       `Prelude.hashWithSalt` valueWhenUnset
       `Prelude.hashWithSalt` name

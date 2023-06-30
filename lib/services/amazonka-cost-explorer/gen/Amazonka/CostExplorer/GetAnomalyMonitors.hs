@@ -115,14 +115,16 @@ instance Core.AWSRequest GetAnomalyMonitors where
           GetAnomalyMonitorsResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "AnomalyMonitors"
+            Prelude.<*> ( x
+                            Data..?> "AnomalyMonitors"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetAnomalyMonitors where
   hashWithSalt _salt GetAnomalyMonitors' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` monitorArnList
       `Prelude.hashWithSalt` nextPageToken
 

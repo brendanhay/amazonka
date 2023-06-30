@@ -269,7 +269,8 @@ instance Core.AWSRequest ReplaceRoute where
 
 instance Prelude.Hashable ReplaceRoute where
   hashWithSalt _salt ReplaceRoute' {..} =
-    _salt `Prelude.hashWithSalt` carrierGatewayId
+    _salt
+      `Prelude.hashWithSalt` carrierGatewayId
       `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` destinationIpv6CidrBlock

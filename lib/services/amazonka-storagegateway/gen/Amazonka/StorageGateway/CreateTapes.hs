@@ -291,7 +291,8 @@ instance Core.AWSRequest CreateTapes where
 
 instance Prelude.Hashable CreateTapes where
   hashWithSalt _salt CreateTapes' {..} =
-    _salt `Prelude.hashWithSalt` kmsEncrypted
+    _salt
+      `Prelude.hashWithSalt` kmsEncrypted
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` tags

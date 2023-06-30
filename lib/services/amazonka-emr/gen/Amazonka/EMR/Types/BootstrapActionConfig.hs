@@ -71,7 +71,8 @@ bootstrapActionConfig_scriptBootstrapAction = Lens.lens (\BootstrapActionConfig'
 
 instance Prelude.Hashable BootstrapActionConfig where
   hashWithSalt _salt BootstrapActionConfig' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scriptBootstrapAction
 
 instance Prelude.NFData BootstrapActionConfig where

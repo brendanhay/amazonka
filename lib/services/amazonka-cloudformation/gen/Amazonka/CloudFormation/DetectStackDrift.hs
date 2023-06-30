@@ -132,7 +132,8 @@ instance Core.AWSRequest DetectStackDrift where
 
 instance Prelude.Hashable DetectStackDrift where
   hashWithSalt _salt DetectStackDrift' {..} =
-    _salt `Prelude.hashWithSalt` logicalResourceIds
+    _salt
+      `Prelude.hashWithSalt` logicalResourceIds
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData DetectStackDrift where

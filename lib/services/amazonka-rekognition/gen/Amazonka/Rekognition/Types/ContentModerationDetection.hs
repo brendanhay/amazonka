@@ -86,7 +86,8 @@ instance Data.FromJSON ContentModerationDetection where
 
 instance Prelude.Hashable ContentModerationDetection where
   hashWithSalt _salt ContentModerationDetection' {..} =
-    _salt `Prelude.hashWithSalt` moderationLabel
+    _salt
+      `Prelude.hashWithSalt` moderationLabel
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData ContentModerationDetection where

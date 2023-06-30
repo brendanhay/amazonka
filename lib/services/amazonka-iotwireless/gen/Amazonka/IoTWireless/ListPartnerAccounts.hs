@@ -108,7 +108,8 @@ instance Core.AWSRequest ListPartnerAccounts where
 
 instance Prelude.Hashable ListPartnerAccounts where
   hashWithSalt _salt ListPartnerAccounts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPartnerAccounts where

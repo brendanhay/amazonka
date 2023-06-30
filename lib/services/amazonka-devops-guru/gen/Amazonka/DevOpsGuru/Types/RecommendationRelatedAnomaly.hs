@@ -105,7 +105,8 @@ instance
     RecommendationRelatedAnomaly
   where
   hashWithSalt _salt RecommendationRelatedAnomaly' {..} =
-    _salt `Prelude.hashWithSalt` anomalyId
+    _salt
+      `Prelude.hashWithSalt` anomalyId
       `Prelude.hashWithSalt` resources
       `Prelude.hashWithSalt` sourceDetails
 

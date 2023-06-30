@@ -150,7 +150,8 @@ instance Data.FromXML ProvisionedBandwidth where
 
 instance Prelude.Hashable ProvisionedBandwidth where
   hashWithSalt _salt ProvisionedBandwidth' {..} =
-    _salt `Prelude.hashWithSalt` provisionTime
+    _salt
+      `Prelude.hashWithSalt` provisionTime
       `Prelude.hashWithSalt` provisioned
       `Prelude.hashWithSalt` requestTime
       `Prelude.hashWithSalt` requested

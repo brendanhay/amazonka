@@ -135,7 +135,8 @@ instance Data.FromJSON InputCaptions where
 
 instance Prelude.Hashable InputCaptions where
   hashWithSalt _salt InputCaptions' {..} =
-    _salt `Prelude.hashWithSalt` captionSources
+    _salt
+      `Prelude.hashWithSalt` captionSources
       `Prelude.hashWithSalt` mergePolicy
 
 instance Prelude.NFData InputCaptions where

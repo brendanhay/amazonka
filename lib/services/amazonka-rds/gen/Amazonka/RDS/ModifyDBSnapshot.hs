@@ -198,7 +198,8 @@ instance Core.AWSRequest ModifyDBSnapshot where
 
 instance Prelude.Hashable ModifyDBSnapshot where
   hashWithSalt _salt ModifyDBSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
+    _salt
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` dbSnapshotIdentifier
 

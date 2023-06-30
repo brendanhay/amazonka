@@ -107,7 +107,8 @@ instance Data.FromJSON IntentMetadata where
 
 instance Prelude.Hashable IntentMetadata where
   hashWithSalt _salt IntentMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedDate
       `Prelude.hashWithSalt` name

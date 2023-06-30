@@ -113,7 +113,8 @@ instance Core.AWSRequest DefineSuggester where
 
 instance Prelude.Hashable DefineSuggester where
   hashWithSalt _salt DefineSuggester' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` suggester
 
 instance Prelude.NFData DefineSuggester where

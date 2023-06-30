@@ -131,7 +131,8 @@ instance Core.AWSRequest GetChangeset where
 
 instance Prelude.Hashable GetChangeset where
   hashWithSalt _salt GetChangeset' {..} =
-    _salt `Prelude.hashWithSalt` datasetId
+    _salt
+      `Prelude.hashWithSalt` datasetId
       `Prelude.hashWithSalt` changesetId
 
 instance Prelude.NFData GetChangeset where

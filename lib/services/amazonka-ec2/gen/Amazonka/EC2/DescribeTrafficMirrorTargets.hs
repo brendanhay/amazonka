@@ -177,22 +177,22 @@ instance Core.AWSPager DescribeTrafficMirrorTargets where
     | Core.stop
         ( rs
             Lens.^? describeTrafficMirrorTargetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTrafficMirrorTargetsResponse_trafficMirrorTargets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTrafficMirrorTargets_nextToken
           Lens..~ rs
           Lens.^? describeTrafficMirrorTargetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTrafficMirrorTargets where
   type
@@ -205,7 +205,8 @@ instance Core.AWSRequest DescribeTrafficMirrorTargets where
       ( \s h x ->
           DescribeTrafficMirrorTargetsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "trafficMirrorTargetSet"
+            Prelude.<*> ( x
+                            Data..@? "trafficMirrorTargetSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -217,7 +218,8 @@ instance
     DescribeTrafficMirrorTargets
   where
   hashWithSalt _salt DescribeTrafficMirrorTargets' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

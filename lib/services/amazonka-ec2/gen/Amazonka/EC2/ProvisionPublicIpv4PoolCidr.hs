@@ -148,7 +148,8 @@ instance Core.AWSRequest ProvisionPublicIpv4PoolCidr where
 
 instance Prelude.Hashable ProvisionPublicIpv4PoolCidr where
   hashWithSalt _salt ProvisionPublicIpv4PoolCidr' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamPoolId
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` netmaskLength

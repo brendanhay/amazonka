@@ -113,7 +113,8 @@ instance Data.FromJSON DynamodbDataSourceConfig where
 
 instance Prelude.Hashable DynamodbDataSourceConfig where
   hashWithSalt _salt DynamodbDataSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` deltaSyncConfig
+    _salt
+      `Prelude.hashWithSalt` deltaSyncConfig
       `Prelude.hashWithSalt` useCallerCredentials
       `Prelude.hashWithSalt` versioned
       `Prelude.hashWithSalt` tableName

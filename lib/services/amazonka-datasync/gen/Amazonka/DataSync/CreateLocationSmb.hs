@@ -271,7 +271,8 @@ instance Core.AWSRequest CreateLocationSmb where
 
 instance Prelude.Hashable CreateLocationSmb where
   hashWithSalt _salt CreateLocationSmb' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` mountOptions
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subdirectory

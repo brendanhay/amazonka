@@ -126,22 +126,22 @@ instance Core.AWSPager DescribeSubscriptionFilters where
     | Core.stop
         ( rs
             Lens.^? describeSubscriptionFiltersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSubscriptionFiltersResponse_subscriptionFilters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSubscriptionFilters_nextToken
           Lens..~ rs
           Lens.^? describeSubscriptionFiltersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSubscriptionFilters where
   type
@@ -154,7 +154,8 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
       ( \s h x ->
           DescribeSubscriptionFiltersResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "subscriptionFilters"
+            Prelude.<*> ( x
+                            Data..?> "subscriptionFilters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -162,7 +163,8 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
 
 instance Prelude.Hashable DescribeSubscriptionFilters where
   hashWithSalt _salt DescribeSubscriptionFilters' {..} =
-    _salt `Prelude.hashWithSalt` filterNamePrefix
+    _salt
+      `Prelude.hashWithSalt` filterNamePrefix
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` logGroupName

@@ -111,21 +111,22 @@ instance Core.AWSPager ListDashboards where
     | Core.stop
         ( rs
             Lens.^? listDashboardsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDashboardsResponse_dashboardSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDashboards_nextToken
           Lens..~ rs
-          Lens.^? listDashboardsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDashboardsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDashboards where
   type
@@ -137,7 +138,8 @@ instance Core.AWSRequest ListDashboards where
     Response.receiveJSON
       ( \s h x ->
           ListDashboardsResponse'
-            Prelude.<$> ( x Data..?> "DashboardSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "DashboardSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -147,7 +149,8 @@ instance Core.AWSRequest ListDashboards where
 
 instance Prelude.Hashable ListDashboards where
   hashWithSalt _salt ListDashboards' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
 

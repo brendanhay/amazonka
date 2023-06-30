@@ -117,7 +117,8 @@ instance Core.AWSRequest GetFindingsStatistics where
 
 instance Prelude.Hashable GetFindingsStatistics where
   hashWithSalt _salt GetFindingsStatistics' {..} =
-    _salt `Prelude.hashWithSalt` findingCriteria
+    _salt
+      `Prelude.hashWithSalt` findingCriteria
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` findingStatisticTypes
 

@@ -189,7 +189,8 @@ instance Data.FromJSON ProductViewSummary where
 
 instance Prelude.Hashable ProductViewSummary where
   hashWithSalt _salt ProductViewSummary' {..} =
-    _salt `Prelude.hashWithSalt` distributor
+    _salt
+      `Prelude.hashWithSalt` distributor
       `Prelude.hashWithSalt` hasDefaultPath
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

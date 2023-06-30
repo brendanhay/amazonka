@@ -142,7 +142,8 @@ instance
   hashWithSalt
     _salt
     ReferenceDataSourceDescription' {..} =
-      _salt `Prelude.hashWithSalt` referenceSchema
+      _salt
+        `Prelude.hashWithSalt` referenceSchema
         `Prelude.hashWithSalt` referenceId
         `Prelude.hashWithSalt` tableName
         `Prelude.hashWithSalt` s3ReferenceDataSourceDescription

@@ -79,7 +79,8 @@ instance Data.FromJSON ImageScanFindingsSummary where
       "ImageScanFindingsSummary"
       ( \x ->
           ImageScanFindingsSummary'
-            Prelude.<$> ( x Data..:? "findingSeverityCounts"
+            Prelude.<$> ( x
+                            Data..:? "findingSeverityCounts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "imageScanCompletedAt")
@@ -88,7 +89,8 @@ instance Data.FromJSON ImageScanFindingsSummary where
 
 instance Prelude.Hashable ImageScanFindingsSummary where
   hashWithSalt _salt ImageScanFindingsSummary' {..} =
-    _salt `Prelude.hashWithSalt` findingSeverityCounts
+    _salt
+      `Prelude.hashWithSalt` findingSeverityCounts
       `Prelude.hashWithSalt` imageScanCompletedAt
       `Prelude.hashWithSalt` vulnerabilitySourceUpdatedAt
 

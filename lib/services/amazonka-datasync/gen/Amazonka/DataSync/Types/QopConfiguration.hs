@@ -91,7 +91,8 @@ instance Data.FromJSON QopConfiguration where
 
 instance Prelude.Hashable QopConfiguration where
   hashWithSalt _salt QopConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dataTransferProtection
+    _salt
+      `Prelude.hashWithSalt` dataTransferProtection
       `Prelude.hashWithSalt` rpcProtection
 
 instance Prelude.NFData QopConfiguration where

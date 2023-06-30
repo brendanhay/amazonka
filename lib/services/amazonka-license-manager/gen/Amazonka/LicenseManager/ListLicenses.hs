@@ -144,7 +144,8 @@ instance Core.AWSRequest ListLicenses where
 
 instance Prelude.Hashable ListLicenses where
   hashWithSalt _salt ListLicenses' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` licenseArns
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

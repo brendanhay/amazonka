@@ -92,7 +92,7 @@ instance
       ( \s h x ->
           GetVoiceConnectorStreamingConfigurationResponse'
             Prelude.<$> (x Data..?> "StreamingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

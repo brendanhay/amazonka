@@ -212,7 +212,8 @@ instance Core.AWSRequest PutBucketPolicy where
 
 instance Prelude.Hashable PutBucketPolicy where
   hashWithSalt _salt PutBucketPolicy' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` confirmRemoveSelfBucketAccess
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner

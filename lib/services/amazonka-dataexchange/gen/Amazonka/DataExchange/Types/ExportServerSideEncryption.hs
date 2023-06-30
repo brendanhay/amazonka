@@ -89,7 +89,8 @@ instance Data.FromJSON ExportServerSideEncryption where
 
 instance Prelude.Hashable ExportServerSideEncryption where
   hashWithSalt _salt ExportServerSideEncryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ExportServerSideEncryption where

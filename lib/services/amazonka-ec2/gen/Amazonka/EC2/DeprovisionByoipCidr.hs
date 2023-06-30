@@ -120,7 +120,8 @@ instance Core.AWSRequest DeprovisionByoipCidr where
 
 instance Prelude.Hashable DeprovisionByoipCidr where
   hashWithSalt _salt DeprovisionByoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` cidr
 
 instance Prelude.NFData DeprovisionByoipCidr where

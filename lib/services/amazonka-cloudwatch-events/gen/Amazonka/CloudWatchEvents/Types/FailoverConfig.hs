@@ -84,7 +84,8 @@ instance Data.FromJSON FailoverConfig where
 
 instance Prelude.Hashable FailoverConfig where
   hashWithSalt _salt FailoverConfig' {..} =
-    _salt `Prelude.hashWithSalt` primary
+    _salt
+      `Prelude.hashWithSalt` primary
       `Prelude.hashWithSalt` secondary
 
 instance Prelude.NFData FailoverConfig where

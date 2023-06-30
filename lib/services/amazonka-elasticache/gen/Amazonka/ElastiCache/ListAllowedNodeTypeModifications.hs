@@ -145,11 +145,13 @@ instance
       "ListAllowedNodeTypeModificationsResult"
       ( \s h x ->
           ListAllowedNodeTypeModificationsResponse'
-            Prelude.<$> ( x Data..@? "ScaleDownModifications"
+            Prelude.<$> ( x
+                            Data..@? "ScaleDownModifications"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "ScaleUpModifications"
+            Prelude.<*> ( x
+                            Data..@? "ScaleUpModifications"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -163,7 +165,8 @@ instance
   hashWithSalt
     _salt
     ListAllowedNodeTypeModifications' {..} =
-      _salt `Prelude.hashWithSalt` cacheClusterId
+      _salt
+        `Prelude.hashWithSalt` cacheClusterId
         `Prelude.hashWithSalt` replicationGroupId
 
 instance

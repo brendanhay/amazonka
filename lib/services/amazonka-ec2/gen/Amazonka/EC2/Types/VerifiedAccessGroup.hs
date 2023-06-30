@@ -136,7 +136,9 @@ instance Data.FromXML VerifiedAccessGroup where
       Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "lastUpdatedTime")
       Prelude.<*> (x Data..@? "owner")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "verifiedAccessGroupArn")
@@ -145,7 +147,8 @@ instance Data.FromXML VerifiedAccessGroup where
 
 instance Prelude.Hashable VerifiedAccessGroup where
   hashWithSalt _salt VerifiedAccessGroup' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` deletionTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedTime

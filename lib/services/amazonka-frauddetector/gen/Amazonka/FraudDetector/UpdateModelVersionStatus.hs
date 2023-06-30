@@ -138,7 +138,8 @@ instance Core.AWSRequest UpdateModelVersionStatus where
 
 instance Prelude.Hashable UpdateModelVersionStatus where
   hashWithSalt _salt UpdateModelVersionStatus' {..} =
-    _salt `Prelude.hashWithSalt` modelId
+    _salt
+      `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` modelVersionNumber
       `Prelude.hashWithSalt` status

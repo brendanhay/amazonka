@@ -132,7 +132,8 @@ instance Core.AWSRequest DescribeBotLocale where
       ( \s h x ->
           DescribeBotLocaleResponse'
             Prelude.<$> (x Data..?> "botId")
-            Prelude.<*> ( x Data..?> "botLocaleHistoryEvents"
+            Prelude.<*> ( x
+                            Data..?> "botLocaleHistoryEvents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botLocaleStatus")
@@ -146,7 +147,8 @@ instance Core.AWSRequest DescribeBotLocale where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "localeName")
             Prelude.<*> (x Data..?> "nluIntentConfidenceThreshold")
-            Prelude.<*> ( x Data..?> "recommendedActions"
+            Prelude.<*> ( x
+                            Data..?> "recommendedActions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "slotTypesCount")
@@ -156,7 +158,8 @@ instance Core.AWSRequest DescribeBotLocale where
 
 instance Prelude.Hashable DescribeBotLocale where
   hashWithSalt _salt DescribeBotLocale' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
 

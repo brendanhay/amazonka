@@ -172,7 +172,8 @@ instance
   hashWithSalt
     _salt
     GetTemporaryGlueTableCredentials' {..} =
-      _salt `Prelude.hashWithSalt` auditContext
+      _salt
+        `Prelude.hashWithSalt` auditContext
         `Prelude.hashWithSalt` durationSeconds
         `Prelude.hashWithSalt` permissions
         `Prelude.hashWithSalt` tableArn

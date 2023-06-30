@@ -242,7 +242,8 @@ instance Core.AWSRequest CreateProfile where
 
 instance Prelude.Hashable CreateProfile where
   hashWithSalt _salt CreateProfile' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` dataRetentionOptIn
       `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxVolumeLimit

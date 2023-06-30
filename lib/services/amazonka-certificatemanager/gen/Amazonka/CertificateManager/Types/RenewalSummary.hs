@@ -132,7 +132,8 @@ instance Data.FromJSON RenewalSummary where
 
 instance Prelude.Hashable RenewalSummary where
   hashWithSalt _salt RenewalSummary' {..} =
-    _salt `Prelude.hashWithSalt` renewalStatusReason
+    _salt
+      `Prelude.hashWithSalt` renewalStatusReason
       `Prelude.hashWithSalt` renewalStatus
       `Prelude.hashWithSalt` domainValidationOptions
       `Prelude.hashWithSalt` updatedAt

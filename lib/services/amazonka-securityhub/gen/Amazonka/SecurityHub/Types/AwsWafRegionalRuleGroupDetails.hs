@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     AwsWafRegionalRuleGroupDetails' {..} =
-      _salt `Prelude.hashWithSalt` metricName
+      _salt
+        `Prelude.hashWithSalt` metricName
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` ruleGroupId
         `Prelude.hashWithSalt` rules

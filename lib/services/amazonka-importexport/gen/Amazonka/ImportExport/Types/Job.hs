@@ -95,7 +95,8 @@ instance Data.FromXML Job where
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` jobType
+    _salt
+      `Prelude.hashWithSalt` jobType
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` isCanceled
       `Prelude.hashWithSalt` creationDate

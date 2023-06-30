@@ -133,11 +133,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListCustomVerificationEmailTemplatesResponse'
-            Prelude.<$> ( x Data..?> "CustomVerificationEmailTemplates"
+            Prelude.<$> ( x
+                            Data..?> "CustomVerificationEmailTemplates"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -147,7 +148,8 @@ instance
   hashWithSalt
     _salt
     ListCustomVerificationEmailTemplates' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` pageSize
 
 instance

@@ -138,7 +138,8 @@ instance Core.AWSRequest UpdateFacet where
 
 instance Prelude.Hashable UpdateFacet where
   hashWithSalt _salt UpdateFacet' {..} =
-    _salt `Prelude.hashWithSalt` attributeUpdates
+    _salt
+      `Prelude.hashWithSalt` attributeUpdates
       `Prelude.hashWithSalt` objectType
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` name

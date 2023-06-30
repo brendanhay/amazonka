@@ -237,11 +237,11 @@ instance
       ( \x ->
           OrganizationConformancePackDetailedStatus'
             Prelude.<$> (x Data..:? "ErrorCode")
-              Prelude.<*> (x Data..:? "ErrorMessage")
-              Prelude.<*> (x Data..:? "LastUpdateTime")
-              Prelude.<*> (x Data..: "AccountId")
-              Prelude.<*> (x Data..: "ConformancePackName")
-              Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..: "AccountId")
+            Prelude.<*> (x Data..: "ConformancePackName")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance
@@ -251,7 +251,8 @@ instance
   hashWithSalt
     _salt
     OrganizationConformancePackDetailedStatus' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` lastUpdateTime
         `Prelude.hashWithSalt` accountId

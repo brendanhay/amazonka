@@ -55,7 +55,7 @@
 --     user to creating an index in only the @us-east-2@ Region of the
 --     specified account.
 --
---     @\"Resource\": \"arn:aws:resource-explorer-2:us-west-2:\<account-id>:index\/*\"@
+--     @\"Resource\": \"arn:aws:resource-explorer-2:us-west-2:@/@\<account-id>@/@:index\/*\"@
 --
 --     Alternatively, you can use @\"Resource\": \"*\"@ to allow the role
 --     or user to create an index in any Region.
@@ -169,7 +169,8 @@ instance Core.AWSRequest CreateIndex where
 
 instance Prelude.Hashable CreateIndex where
   hashWithSalt _salt CreateIndex' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateIndex where

@@ -138,7 +138,8 @@ instance Data.FromJSON DataSourceSummary where
 
 instance Prelude.Hashable DataSourceSummary where
   hashWithSalt _salt DataSourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` name

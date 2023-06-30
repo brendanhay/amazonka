@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayConnectPeerAssociation' {..} =
-      _salt `Prelude.hashWithSalt` deviceId
+      _salt
+        `Prelude.hashWithSalt` deviceId
         `Prelude.hashWithSalt` globalNetworkId
         `Prelude.hashWithSalt` linkId
         `Prelude.hashWithSalt` state

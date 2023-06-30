@@ -87,9 +87,9 @@ data AwsEcsTaskDefinitionContainerDefinitionsDetails = AwsEcsTaskDefinitionConta
     -- | If set to true, then containerized applications can be deployed that
     -- require @stdin@ or a @tty@ to be allocated.
     interactive :: Prelude.Maybe Prelude.Bool,
-    -- | A list of links for the container in the form @ container_name:alias @.
-    -- Allows containers to communicate with each other without the need for
-    -- port mappings.
+    -- | A list of links for the container in the form
+    -- @ @/@container_name@/@:@/@alias@/@ @. Allows containers to communicate
+    -- with each other without the need for port mappings.
     links :: Prelude.Maybe [Prelude.Text],
     -- | Linux-specific modifications that are applied to the container, such as
     -- Linux kernel capabilities.
@@ -137,17 +137,17 @@ data AwsEcsTaskDefinitionContainerDefinitionsDetails = AwsEcsTaskDefinitionConta
     --
     -- The value can use one of the following formats.
     --
-    -- -   @ user @
+    -- -   @ @/@user@/@ @
     --
-    -- -   @ user @:@ group @
+    -- -   @ @/@user@/@ @:@ @/@group@/@ @
     --
-    -- -   @ uid @
+    -- -   @ @/@uid@/@ @
     --
-    -- -   @ uid @:@ gid @
+    -- -   @ @/@uid@/@ @:@ @/@gid@/@ @
     --
-    -- -   @ user @:@ gid @
+    -- -   @ @/@user@/@ @:@ @/@gid@/@ @
     --
-    -- -   @ uid @:@ group @
+    -- -   @ @/@uid@/@ @:@ @/@group@/@ @
     user :: Prelude.Maybe Prelude.Text,
     -- | Data volumes to mount from another container.
     volumesFrom :: Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails],
@@ -207,9 +207,9 @@ data AwsEcsTaskDefinitionContainerDefinitionsDetails = AwsEcsTaskDefinitionConta
 -- 'interactive', 'awsEcsTaskDefinitionContainerDefinitionsDetails_interactive' - If set to true, then containerized applications can be deployed that
 -- require @stdin@ or a @tty@ to be allocated.
 --
--- 'links', 'awsEcsTaskDefinitionContainerDefinitionsDetails_links' - A list of links for the container in the form @ container_name:alias @.
--- Allows containers to communicate with each other without the need for
--- port mappings.
+-- 'links', 'awsEcsTaskDefinitionContainerDefinitionsDetails_links' - A list of links for the container in the form
+-- @ @/@container_name@/@:@/@alias@/@ @. Allows containers to communicate
+-- with each other without the need for port mappings.
 --
 -- 'linuxParameters', 'awsEcsTaskDefinitionContainerDefinitionsDetails_linuxParameters' - Linux-specific modifications that are applied to the container, such as
 -- Linux kernel capabilities.
@@ -257,17 +257,17 @@ data AwsEcsTaskDefinitionContainerDefinitionsDetails = AwsEcsTaskDefinitionConta
 --
 -- The value can use one of the following formats.
 --
--- -   @ user @
+-- -   @ @/@user@/@ @
 --
--- -   @ user @:@ group @
+-- -   @ @/@user@/@ @:@ @/@group@/@ @
 --
--- -   @ uid @
+-- -   @ @/@uid@/@ @
 --
--- -   @ uid @:@ gid @
+-- -   @ @/@uid@/@ @:@ @/@gid@/@ @
 --
--- -   @ user @:@ gid @
+-- -   @ @/@user@/@ @:@ @/@gid@/@ @
 --
--- -   @ uid @:@ group @
+-- -   @ @/@uid@/@ @:@ @/@group@/@ @
 --
 -- 'volumesFrom', 'awsEcsTaskDefinitionContainerDefinitionsDetails_volumesFrom' - Data volumes to mount from another container.
 --
@@ -426,9 +426,9 @@ awsEcsTaskDefinitionContainerDefinitionsDetails_image = Lens.lens (\AwsEcsTaskDe
 awsEcsTaskDefinitionContainerDefinitionsDetails_interactive :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsDetails (Prelude.Maybe Prelude.Bool)
 awsEcsTaskDefinitionContainerDefinitionsDetails_interactive = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsDetails' {interactive} -> interactive) (\s@AwsEcsTaskDefinitionContainerDefinitionsDetails' {} a -> s {interactive = a} :: AwsEcsTaskDefinitionContainerDefinitionsDetails)
 
--- | A list of links for the container in the form @ container_name:alias @.
--- Allows containers to communicate with each other without the need for
--- port mappings.
+-- | A list of links for the container in the form
+-- @ @/@container_name@/@:@/@alias@/@ @. Allows containers to communicate
+-- with each other without the need for port mappings.
 awsEcsTaskDefinitionContainerDefinitionsDetails_links :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsDetails (Prelude.Maybe [Prelude.Text])
 awsEcsTaskDefinitionContainerDefinitionsDetails_links = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsDetails' {links} -> links) (\s@AwsEcsTaskDefinitionContainerDefinitionsDetails' {} a -> s {links = a} :: AwsEcsTaskDefinitionContainerDefinitionsDetails) Prelude.. Lens.mapping Lens.coerced
 
@@ -512,17 +512,17 @@ awsEcsTaskDefinitionContainerDefinitionsDetails_ulimits = Lens.lens (\AwsEcsTask
 --
 -- The value can use one of the following formats.
 --
--- -   @ user @
+-- -   @ @/@user@/@ @
 --
--- -   @ user @:@ group @
+-- -   @ @/@user@/@ @:@ @/@group@/@ @
 --
--- -   @ uid @
+-- -   @ @/@uid@/@ @
 --
--- -   @ uid @:@ gid @
+-- -   @ @/@uid@/@ @:@ @/@gid@/@ @
 --
--- -   @ user @:@ gid @
+-- -   @ @/@user@/@ @:@ @/@gid@/@ @
 --
--- -   @ uid @:@ group @
+-- -   @ @/@uid@/@ @:@ @/@group@/@ @
 awsEcsTaskDefinitionContainerDefinitionsDetails_user :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsDetails_user = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsDetails' {user} -> user) (\s@AwsEcsTaskDefinitionContainerDefinitionsDetails' {} a -> s {user = a} :: AwsEcsTaskDefinitionContainerDefinitionsDetails)
 
@@ -544,52 +544,56 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsDetails'
             Prelude.<$> (x Data..:? "Command" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Cpu")
-              Prelude.<*> (x Data..:? "DependsOn" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "DisableNetworking")
-              Prelude.<*> ( x Data..:? "DnsSearchDomains"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "DnsServers" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "DockerLabels" Data..!= Prelude.mempty)
-              Prelude.<*> ( x Data..:? "DockerSecurityOptions"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "EntryPoint" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
-              Prelude.<*> ( x Data..:? "EnvironmentFiles"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "Essential")
-              Prelude.<*> (x Data..:? "ExtraHosts" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "FirelensConfiguration")
-              Prelude.<*> (x Data..:? "HealthCheck")
-              Prelude.<*> (x Data..:? "Hostname")
-              Prelude.<*> (x Data..:? "Image")
-              Prelude.<*> (x Data..:? "Interactive")
-              Prelude.<*> (x Data..:? "Links" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "LinuxParameters")
-              Prelude.<*> (x Data..:? "LogConfiguration")
-              Prelude.<*> (x Data..:? "Memory")
-              Prelude.<*> (x Data..:? "MemoryReservation")
-              Prelude.<*> (x Data..:? "MountPoints" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Name")
-              Prelude.<*> (x Data..:? "PortMappings" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Privileged")
-              Prelude.<*> (x Data..:? "PseudoTerminal")
-              Prelude.<*> (x Data..:? "ReadonlyRootFilesystem")
-              Prelude.<*> (x Data..:? "RepositoryCredentials")
-              Prelude.<*> ( x Data..:? "ResourceRequirements"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "Secrets" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "StartTimeout")
-              Prelude.<*> (x Data..:? "StopTimeout")
-              Prelude.<*> (x Data..:? "SystemControls" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Ulimits" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "User")
-              Prelude.<*> (x Data..:? "VolumesFrom" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "WorkingDirectory")
+            Prelude.<*> (x Data..:? "Cpu")
+            Prelude.<*> (x Data..:? "DependsOn" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DisableNetworking")
+            Prelude.<*> ( x
+                            Data..:? "DnsSearchDomains"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "DnsServers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DockerLabels" Data..!= Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..:? "DockerSecurityOptions"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "EntryPoint" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..:? "EnvironmentFiles"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Essential")
+            Prelude.<*> (x Data..:? "ExtraHosts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FirelensConfiguration")
+            Prelude.<*> (x Data..:? "HealthCheck")
+            Prelude.<*> (x Data..:? "Hostname")
+            Prelude.<*> (x Data..:? "Image")
+            Prelude.<*> (x Data..:? "Interactive")
+            Prelude.<*> (x Data..:? "Links" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LinuxParameters")
+            Prelude.<*> (x Data..:? "LogConfiguration")
+            Prelude.<*> (x Data..:? "Memory")
+            Prelude.<*> (x Data..:? "MemoryReservation")
+            Prelude.<*> (x Data..:? "MountPoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "PortMappings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Privileged")
+            Prelude.<*> (x Data..:? "PseudoTerminal")
+            Prelude.<*> (x Data..:? "ReadonlyRootFilesystem")
+            Prelude.<*> (x Data..:? "RepositoryCredentials")
+            Prelude.<*> ( x
+                            Data..:? "ResourceRequirements"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Secrets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StartTimeout")
+            Prelude.<*> (x Data..:? "StopTimeout")
+            Prelude.<*> (x Data..:? "SystemControls" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Ulimits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "User")
+            Prelude.<*> (x Data..:? "VolumesFrom" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "WorkingDirectory")
       )
 
 instance
@@ -599,7 +603,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` command
+      _salt
+        `Prelude.hashWithSalt` command
         `Prelude.hashWithSalt` cpu
         `Prelude.hashWithSalt` dependsOn
         `Prelude.hashWithSalt` disableNetworking

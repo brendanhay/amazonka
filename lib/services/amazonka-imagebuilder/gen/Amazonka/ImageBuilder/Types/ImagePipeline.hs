@@ -249,7 +249,8 @@ instance Data.FromJSON ImagePipeline where
 
 instance Prelude.Hashable ImagePipeline where
   hashWithSalt _salt ImagePipeline' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` containerRecipeArn
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateLastRun

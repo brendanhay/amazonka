@@ -123,7 +123,8 @@ instance Core.AWSRequest CommitTransaction where
 
 instance Prelude.Hashable CommitTransaction where
   hashWithSalt _salt CommitTransaction' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` transactionId
 

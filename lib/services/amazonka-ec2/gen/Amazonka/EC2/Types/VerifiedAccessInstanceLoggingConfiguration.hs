@@ -74,7 +74,7 @@ instance
   parseXML x =
     VerifiedAccessInstanceLoggingConfiguration'
       Prelude.<$> (x Data..@? "accessLogs")
-        Prelude.<*> (x Data..@? "verifiedAccessInstanceId")
+      Prelude.<*> (x Data..@? "verifiedAccessInstanceId")
 
 instance
   Prelude.Hashable
@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     VerifiedAccessInstanceLoggingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` accessLogs
+      _salt
+        `Prelude.hashWithSalt` accessLogs
         `Prelude.hashWithSalt` verifiedAccessInstanceId
 
 instance

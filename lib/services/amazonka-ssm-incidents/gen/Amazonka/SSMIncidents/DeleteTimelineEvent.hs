@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteTimelineEvent where
 
 instance Prelude.Hashable DeleteTimelineEvent where
   hashWithSalt _salt DeleteTimelineEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventId
+    _salt
+      `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` incidentRecordArn
 
 instance Prelude.NFData DeleteTimelineEvent where

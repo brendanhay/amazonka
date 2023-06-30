@@ -210,7 +210,8 @@ instance Data.FromJSON AwsEc2VpnConnectionDetails where
 
 instance Prelude.Hashable AwsEc2VpnConnectionDetails where
   hashWithSalt _salt AwsEc2VpnConnectionDetails' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` customerGatewayConfiguration
       `Prelude.hashWithSalt` customerGatewayId
       `Prelude.hashWithSalt` options

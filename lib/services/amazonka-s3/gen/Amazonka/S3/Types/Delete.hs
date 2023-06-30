@@ -69,7 +69,8 @@ delete_objects = Lens.lens (\Delete' {objects} -> objects) (\s@Delete' {} a -> s
 
 instance Prelude.Hashable Delete where
   hashWithSalt _salt Delete' {..} =
-    _salt `Prelude.hashWithSalt` quiet
+    _salt
+      `Prelude.hashWithSalt` quiet
       `Prelude.hashWithSalt` objects
 
 instance Prelude.NFData Delete where

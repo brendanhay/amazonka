@@ -118,7 +118,8 @@ instance Data.FromJSON ReportSetting where
             Prelude.<$> (x Data..:? "Accounts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "FrameworkArns" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "NumberOfFrameworks")
-            Prelude.<*> ( x Data..:? "OrganizationUnits"
+            Prelude.<*> ( x
+                            Data..:? "OrganizationUnits"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Regions" Data..!= Prelude.mempty)
@@ -127,7 +128,8 @@ instance Data.FromJSON ReportSetting where
 
 instance Prelude.Hashable ReportSetting where
   hashWithSalt _salt ReportSetting' {..} =
-    _salt `Prelude.hashWithSalt` accounts
+    _salt
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` frameworkArns
       `Prelude.hashWithSalt` numberOfFrameworks
       `Prelude.hashWithSalt` organizationUnits

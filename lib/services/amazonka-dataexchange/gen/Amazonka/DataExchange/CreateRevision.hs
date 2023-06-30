@@ -146,7 +146,8 @@ instance Core.AWSRequest CreateRevision where
 
 instance Prelude.Hashable CreateRevision where
   hashWithSalt _salt CreateRevision' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataSetId
 

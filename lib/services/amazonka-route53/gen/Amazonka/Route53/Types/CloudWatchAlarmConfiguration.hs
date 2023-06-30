@@ -182,7 +182,9 @@ cloudWatchAlarmConfiguration_statistic = Lens.lens (\CloudWatchAlarmConfiguratio
 instance Data.FromXML CloudWatchAlarmConfiguration where
   parseXML x =
     CloudWatchAlarmConfiguration'
-      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Dimensions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Dimension")
                   )
       Prelude.<*> (x Data..@ "EvaluationPeriods")
@@ -198,7 +200,8 @@ instance
     CloudWatchAlarmConfiguration
   where
   hashWithSalt _salt CloudWatchAlarmConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` evaluationPeriods
       `Prelude.hashWithSalt` threshold
       `Prelude.hashWithSalt` comparisonOperator

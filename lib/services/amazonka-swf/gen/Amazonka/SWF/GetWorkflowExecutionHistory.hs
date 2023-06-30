@@ -185,21 +185,21 @@ instance Core.AWSPager GetWorkflowExecutionHistory where
     | Core.stop
         ( rs
             Lens.^? getWorkflowExecutionHistoryResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. getWorkflowExecutionHistoryResponse_events
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getWorkflowExecutionHistory_nextPageToken
           Lens..~ rs
           Lens.^? getWorkflowExecutionHistoryResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetWorkflowExecutionHistory where
   type
@@ -218,7 +218,8 @@ instance Core.AWSRequest GetWorkflowExecutionHistory where
 
 instance Prelude.Hashable GetWorkflowExecutionHistory where
   hashWithSalt _salt GetWorkflowExecutionHistory' {..} =
-    _salt `Prelude.hashWithSalt` maximumPageSize
+    _salt
+      `Prelude.hashWithSalt` maximumPageSize
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` reverseOrder
       `Prelude.hashWithSalt` domain

@@ -166,7 +166,8 @@ instance
           DescribeFleetLocationAttributesResponse'
             Prelude.<$> (x Data..?> "FleetArn")
             Prelude.<*> (x Data..?> "FleetId")
-            Prelude.<*> ( x Data..?> "LocationAttributes"
+            Prelude.<*> ( x
+                            Data..?> "LocationAttributes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -180,7 +181,8 @@ instance
   hashWithSalt
     _salt
     DescribeFleetLocationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` locations
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` fleetId

@@ -67,7 +67,8 @@ relatedItemTypeFilter_contact = Lens.lens (\RelatedItemTypeFilter' {contact} -> 
 
 instance Prelude.Hashable RelatedItemTypeFilter where
   hashWithSalt _salt RelatedItemTypeFilter' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` contact
 
 instance Prelude.NFData RelatedItemTypeFilter where

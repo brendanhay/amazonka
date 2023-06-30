@@ -104,7 +104,8 @@ instance Core.AWSRequest SendMessages where
 
 instance Prelude.Hashable SendMessages where
   hashWithSalt _salt SendMessages' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` messageRequest
 
 instance Prelude.NFData SendMessages where

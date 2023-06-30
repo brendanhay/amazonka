@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateTimeToLive where
 
 instance Prelude.Hashable UpdateTimeToLive where
   hashWithSalt _salt UpdateTimeToLive' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt
+      `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` timeToLiveSpecification
 
 instance Prelude.NFData UpdateTimeToLive where

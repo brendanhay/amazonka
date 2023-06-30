@@ -110,21 +110,22 @@ instance Core.AWSPager ListDashboards where
     | Core.stop
         ( rs
             Lens.^? listDashboardsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDashboardsResponse_dashboardEntries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDashboards_nextToken
           Lens..~ rs
-          Lens.^? listDashboardsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDashboardsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDashboards where
   type
@@ -137,7 +138,8 @@ instance Core.AWSRequest ListDashboards where
       "ListDashboardsResult"
       ( \s h x ->
           ListDashboardsResponse'
-            Prelude.<$> ( x Data..@? "DashboardEntries"
+            Prelude.<$> ( x
+                            Data..@? "DashboardEntries"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -147,7 +149,8 @@ instance Core.AWSRequest ListDashboards where
 
 instance Prelude.Hashable ListDashboards where
   hashWithSalt _salt ListDashboards' {..} =
-    _salt `Prelude.hashWithSalt` dashboardNamePrefix
+    _salt
+      `Prelude.hashWithSalt` dashboardNamePrefix
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDashboards where

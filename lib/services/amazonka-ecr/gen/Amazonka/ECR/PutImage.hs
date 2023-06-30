@@ -168,7 +168,8 @@ instance Core.AWSRequest PutImage where
 
 instance Prelude.Hashable PutImage where
   hashWithSalt _salt PutImage' {..} =
-    _salt `Prelude.hashWithSalt` imageDigest
+    _salt
+      `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imageManifestMediaType
       `Prelude.hashWithSalt` imageTag
       `Prelude.hashWithSalt` registryId

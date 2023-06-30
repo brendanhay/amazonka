@@ -83,7 +83,8 @@ instance Data.FromJSON TableAggregatedFieldWells where
 
 instance Prelude.Hashable TableAggregatedFieldWells where
   hashWithSalt _salt TableAggregatedFieldWells' {..} =
-    _salt `Prelude.hashWithSalt` groupBy
+    _salt
+      `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData TableAggregatedFieldWells where

@@ -66,7 +66,8 @@ relatedItemsUpdate_itemToRemove = Lens.lens (\RelatedItemsUpdate' {itemToRemove}
 
 instance Prelude.Hashable RelatedItemsUpdate where
   hashWithSalt _salt RelatedItemsUpdate' {..} =
-    _salt `Prelude.hashWithSalt` itemToAdd
+    _salt
+      `Prelude.hashWithSalt` itemToAdd
       `Prelude.hashWithSalt` itemToRemove
 
 instance Prelude.NFData RelatedItemsUpdate where

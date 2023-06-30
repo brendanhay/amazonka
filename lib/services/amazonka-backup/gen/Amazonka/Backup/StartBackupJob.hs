@@ -290,7 +290,8 @@ instance Core.AWSRequest StartBackupJob where
 
 instance Prelude.Hashable StartBackupJob where
   hashWithSalt _salt StartBackupJob' {..} =
-    _salt `Prelude.hashWithSalt` backupOptions
+    _salt
+      `Prelude.hashWithSalt` backupOptions
       `Prelude.hashWithSalt` completeWindowMinutes
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` lifecycle

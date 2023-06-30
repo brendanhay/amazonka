@@ -170,7 +170,8 @@ transformFilterCriteria_transformType = Lens.lens (\TransformFilterCriteria' {tr
 
 instance Prelude.Hashable TransformFilterCriteria where
   hashWithSalt _salt TransformFilterCriteria' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` glueVersion
       `Prelude.hashWithSalt` lastModifiedAfter

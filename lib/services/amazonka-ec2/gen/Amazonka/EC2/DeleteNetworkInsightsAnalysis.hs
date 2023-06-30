@@ -120,7 +120,8 @@ instance
     DeleteNetworkInsightsAnalysis
   where
   hashWithSalt _salt DeleteNetworkInsightsAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` networkInsightsAnalysisId
 
 instance Prelude.NFData DeleteNetworkInsightsAnalysis where

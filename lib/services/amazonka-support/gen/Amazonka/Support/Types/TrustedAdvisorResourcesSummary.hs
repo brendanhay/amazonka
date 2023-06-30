@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     TrustedAdvisorResourcesSummary' {..} =
-      _salt `Prelude.hashWithSalt` resourcesProcessed
+      _salt
+        `Prelude.hashWithSalt` resourcesProcessed
         `Prelude.hashWithSalt` resourcesFlagged
         `Prelude.hashWithSalt` resourcesIgnored
         `Prelude.hashWithSalt` resourcesSuppressed

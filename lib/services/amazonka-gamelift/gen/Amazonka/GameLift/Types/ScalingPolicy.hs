@@ -455,7 +455,8 @@ instance Data.FromJSON ScalingPolicy where
 
 instance Prelude.Hashable ScalingPolicy where
   hashWithSalt _salt ScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` evaluationPeriods
       `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` fleetId

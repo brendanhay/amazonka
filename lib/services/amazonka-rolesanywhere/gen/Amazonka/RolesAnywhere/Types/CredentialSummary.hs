@@ -130,7 +130,8 @@ instance Data.FromJSON CredentialSummary where
 
 instance Prelude.Hashable CredentialSummary where
   hashWithSalt _salt CredentialSummary' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` seenAt

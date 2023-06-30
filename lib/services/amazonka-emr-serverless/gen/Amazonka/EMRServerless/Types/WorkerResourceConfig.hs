@@ -89,7 +89,8 @@ instance Data.FromJSON WorkerResourceConfig where
 
 instance Prelude.Hashable WorkerResourceConfig where
   hashWithSalt _salt WorkerResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` disk
+    _salt
+      `Prelude.hashWithSalt` disk
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` memory
 

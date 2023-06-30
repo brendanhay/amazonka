@@ -106,7 +106,8 @@ instance Core.AWSRequest CancelQuantumTask where
 
 instance Prelude.Hashable CancelQuantumTask where
   hashWithSalt _salt CancelQuantumTask' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` quantumTaskArn
 
 instance Prelude.NFData CancelQuantumTask where

@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     PullRequestCreatedEventMetadata' {..} =
-      _salt `Prelude.hashWithSalt` destinationCommitId
+      _salt
+        `Prelude.hashWithSalt` destinationCommitId
         `Prelude.hashWithSalt` mergeBase
         `Prelude.hashWithSalt` repositoryName
         `Prelude.hashWithSalt` sourceCommitId

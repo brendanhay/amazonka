@@ -120,7 +120,8 @@ instance Data.FromJSON LicenseConfigurationUsage where
 
 instance Prelude.Hashable LicenseConfigurationUsage where
   hashWithSalt _salt LicenseConfigurationUsage' {..} =
-    _salt `Prelude.hashWithSalt` associationTime
+    _salt
+      `Prelude.hashWithSalt` associationTime
       `Prelude.hashWithSalt` consumedLicenses
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` resourceOwnerId

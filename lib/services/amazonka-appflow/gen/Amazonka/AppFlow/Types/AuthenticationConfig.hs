@@ -111,7 +111,8 @@ instance Data.FromJSON AuthenticationConfig where
       "AuthenticationConfig"
       ( \x ->
           AuthenticationConfig'
-            Prelude.<$> ( x Data..:? "customAuthConfigs"
+            Prelude.<$> ( x
+                            Data..:? "customAuthConfigs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "isApiKeyAuthSupported")
@@ -123,7 +124,8 @@ instance Data.FromJSON AuthenticationConfig where
 
 instance Prelude.Hashable AuthenticationConfig where
   hashWithSalt _salt AuthenticationConfig' {..} =
-    _salt `Prelude.hashWithSalt` customAuthConfigs
+    _salt
+      `Prelude.hashWithSalt` customAuthConfigs
       `Prelude.hashWithSalt` isApiKeyAuthSupported
       `Prelude.hashWithSalt` isBasicAuthSupported
       `Prelude.hashWithSalt` isCustomAuthSupported

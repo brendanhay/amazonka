@@ -133,7 +133,8 @@ instance Core.AWSRequest CreatePartition where
 
 instance Prelude.Hashable CreatePartition where
   hashWithSalt _salt CreatePartition' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` partitionInput

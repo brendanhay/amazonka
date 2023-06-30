@@ -235,7 +235,8 @@ instance Data.FromJSON ElasticsearchDomainConfig where
 
 instance Prelude.Hashable ElasticsearchDomainConfig where
   hashWithSalt _salt ElasticsearchDomainConfig' {..} =
-    _salt `Prelude.hashWithSalt` accessPolicies
+    _salt
+      `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` advancedOptions
       `Prelude.hashWithSalt` advancedSecurityOptions
       `Prelude.hashWithSalt` autoTuneOptions

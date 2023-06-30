@@ -209,7 +209,8 @@ instance Data.FromJSON TrafficDistributionGroup where
 
 instance Prelude.Hashable TrafficDistributionGroup where
   hashWithSalt _salt TrafficDistributionGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` instanceArn

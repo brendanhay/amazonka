@@ -78,7 +78,8 @@ instance Data.FromJSON TextLogSetting where
 
 instance Prelude.Hashable TextLogSetting where
   hashWithSalt _salt TextLogSetting' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData TextLogSetting where

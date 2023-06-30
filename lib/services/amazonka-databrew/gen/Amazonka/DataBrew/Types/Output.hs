@@ -134,7 +134,8 @@ instance Data.FromJSON Output where
             Prelude.<*> (x Data..:? "FormatOptions")
             Prelude.<*> (x Data..:? "MaxOutputFiles")
             Prelude.<*> (x Data..:? "Overwrite")
-            Prelude.<*> ( x Data..:? "PartitionColumns"
+            Prelude.<*> ( x
+                            Data..:? "PartitionColumns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "Location")
@@ -142,7 +143,8 @@ instance Data.FromJSON Output where
 
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
-    _salt `Prelude.hashWithSalt` compressionFormat
+    _salt
+      `Prelude.hashWithSalt` compressionFormat
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` formatOptions
       `Prelude.hashWithSalt` maxOutputFiles

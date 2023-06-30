@@ -117,7 +117,8 @@ instance Data.FromJSON LambdaFunctionInfo where
 
 instance Prelude.Hashable LambdaFunctionInfo where
   hashWithSalt _salt LambdaFunctionInfo' {..} =
-    _salt `Prelude.hashWithSalt` currentVersion
+    _salt
+      `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` functionAlias
       `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` targetVersion

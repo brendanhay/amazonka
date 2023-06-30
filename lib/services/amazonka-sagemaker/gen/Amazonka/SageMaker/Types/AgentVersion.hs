@@ -78,7 +78,8 @@ instance Data.FromJSON AgentVersion where
 
 instance Prelude.Hashable AgentVersion where
   hashWithSalt _salt AgentVersion' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` agentCount
 
 instance Prelude.NFData AgentVersion where

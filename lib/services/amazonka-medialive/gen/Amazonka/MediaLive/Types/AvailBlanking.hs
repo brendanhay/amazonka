@@ -83,7 +83,8 @@ instance Data.FromJSON AvailBlanking where
 
 instance Prelude.Hashable AvailBlanking where
   hashWithSalt _salt AvailBlanking' {..} =
-    _salt `Prelude.hashWithSalt` availBlankingImage
+    _salt
+      `Prelude.hashWithSalt` availBlankingImage
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData AvailBlanking where

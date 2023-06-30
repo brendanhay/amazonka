@@ -114,7 +114,8 @@ instance
     DeploymentStageStatusSummary
   where
   hashWithSalt _salt DeploymentStageStatusSummary' {..} =
-    _salt `Prelude.hashWithSalt` stageName
+    _salt
+      `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` deviceSelectionConfig
       `Prelude.hashWithSalt` deploymentConfig
       `Prelude.hashWithSalt` deploymentStatus

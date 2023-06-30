@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdateShareInvitation where
 
 instance Prelude.Hashable UpdateShareInvitation where
   hashWithSalt _salt UpdateShareInvitation' {..} =
-    _salt `Prelude.hashWithSalt` shareInvitationId
+    _salt
+      `Prelude.hashWithSalt` shareInvitationId
       `Prelude.hashWithSalt` shareInvitationAction
 
 instance Prelude.NFData UpdateShareInvitation where

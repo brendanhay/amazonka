@@ -102,7 +102,8 @@ instance Data.FromJSON LocationState where
 
 instance Prelude.Hashable LocationState where
   hashWithSalt _salt LocationState' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData LocationState where

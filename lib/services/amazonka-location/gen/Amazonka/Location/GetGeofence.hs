@@ -110,7 +110,8 @@ instance Core.AWSRequest GetGeofence where
 
 instance Prelude.Hashable GetGeofence where
   hashWithSalt _salt GetGeofence' {..} =
-    _salt `Prelude.hashWithSalt` collectionName
+    _salt
+      `Prelude.hashWithSalt` collectionName
       `Prelude.hashWithSalt` geofenceId
 
 instance Prelude.NFData GetGeofence where

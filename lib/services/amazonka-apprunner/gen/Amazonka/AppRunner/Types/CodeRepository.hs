@@ -100,7 +100,8 @@ instance Data.FromJSON CodeRepository where
 
 instance Prelude.Hashable CodeRepository where
   hashWithSalt _salt CodeRepository' {..} =
-    _salt `Prelude.hashWithSalt` codeConfiguration
+    _salt
+      `Prelude.hashWithSalt` codeConfiguration
       `Prelude.hashWithSalt` repositoryUrl
       `Prelude.hashWithSalt` sourceCodeVersion
 

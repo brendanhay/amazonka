@@ -83,7 +83,8 @@ instance Data.FromJSON DataLocationResource where
 
 instance Prelude.Hashable DataLocationResource where
   hashWithSalt _salt DataLocationResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData DataLocationResource where

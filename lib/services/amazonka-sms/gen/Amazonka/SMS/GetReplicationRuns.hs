@@ -111,22 +111,22 @@ instance Core.AWSPager GetReplicationRuns where
     | Core.stop
         ( rs
             Lens.^? getReplicationRunsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getReplicationRunsResponse_replicationRunList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getReplicationRuns_nextToken
           Lens..~ rs
           Lens.^? getReplicationRunsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetReplicationRuns where
   type
@@ -140,7 +140,8 @@ instance Core.AWSRequest GetReplicationRuns where
           GetReplicationRunsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "replicationJob")
-            Prelude.<*> ( x Data..?> "replicationRunList"
+            Prelude.<*> ( x
+                            Data..?> "replicationRunList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,7 +149,8 @@ instance Core.AWSRequest GetReplicationRuns where
 
 instance Prelude.Hashable GetReplicationRuns where
   hashWithSalt _salt GetReplicationRuns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` replicationJobId
 

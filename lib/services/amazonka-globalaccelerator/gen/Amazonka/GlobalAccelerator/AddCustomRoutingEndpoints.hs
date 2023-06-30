@@ -121,7 +121,8 @@ instance Core.AWSRequest AddCustomRoutingEndpoints where
     Response.receiveJSON
       ( \s h x ->
           AddCustomRoutingEndpointsResponse'
-            Prelude.<$> ( x Data..?> "EndpointDescriptions"
+            Prelude.<$> ( x
+                            Data..?> "EndpointDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EndpointGroupArn")
@@ -130,7 +131,8 @@ instance Core.AWSRequest AddCustomRoutingEndpoints where
 
 instance Prelude.Hashable AddCustomRoutingEndpoints where
   hashWithSalt _salt AddCustomRoutingEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` endpointConfigurations
+    _salt
+      `Prelude.hashWithSalt` endpointConfigurations
       `Prelude.hashWithSalt` endpointGroupArn
 
 instance Prelude.NFData AddCustomRoutingEndpoints where

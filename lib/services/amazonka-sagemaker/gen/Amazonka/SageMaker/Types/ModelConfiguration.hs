@@ -80,7 +80,8 @@ instance Data.FromJSON ModelConfiguration where
 
 instance Prelude.Hashable ModelConfiguration where
   hashWithSalt _salt ModelConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` environmentParameters
+    _salt
+      `Prelude.hashWithSalt` environmentParameters
       `Prelude.hashWithSalt` inferenceSpecificationName
 
 instance Prelude.NFData ModelConfiguration where

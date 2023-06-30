@@ -86,7 +86,8 @@ instance Data.FromJSON ParticipatingServer where
 
 instance Prelude.Hashable ParticipatingServer where
   hashWithSalt _salt ParticipatingServer' {..} =
-    _salt `Prelude.hashWithSalt` launchStatus
+    _salt
+      `Prelude.hashWithSalt` launchStatus
       `Prelude.hashWithSalt` recoveryInstanceID
       `Prelude.hashWithSalt` sourceServerID
 

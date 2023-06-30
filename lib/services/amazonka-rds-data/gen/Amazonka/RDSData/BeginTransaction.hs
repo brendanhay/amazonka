@@ -138,7 +138,8 @@ instance Core.AWSRequest BeginTransaction where
 
 instance Prelude.Hashable BeginTransaction where
   hashWithSalt _salt BeginTransaction' {..} =
-    _salt `Prelude.hashWithSalt` database
+    _salt
+      `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` secretArn

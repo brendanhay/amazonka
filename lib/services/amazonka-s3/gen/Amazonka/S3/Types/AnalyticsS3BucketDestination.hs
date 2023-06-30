@@ -115,7 +115,8 @@ instance
     AnalyticsS3BucketDestination
   where
   hashWithSalt _salt AnalyticsS3BucketDestination' {..} =
-    _salt `Prelude.hashWithSalt` bucketAccountId
+    _salt
+      `Prelude.hashWithSalt` bucketAccountId
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` bucket

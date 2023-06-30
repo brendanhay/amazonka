@@ -84,7 +84,8 @@ instance Data.FromXML RegionInfo where
 
 instance Prelude.Hashable RegionInfo where
   hashWithSalt _salt RegionInfo' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` optInStatus
       `Prelude.hashWithSalt` regionName
 

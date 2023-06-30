@@ -122,7 +122,8 @@ instance Core.AWSRequest RestoreFromRecoveryPoint where
 
 instance Prelude.Hashable RestoreFromRecoveryPoint where
   hashWithSalt _salt RestoreFromRecoveryPoint' {..} =
-    _salt `Prelude.hashWithSalt` namespaceName
+    _salt
+      `Prelude.hashWithSalt` namespaceName
       `Prelude.hashWithSalt` recoveryPointId
       `Prelude.hashWithSalt` workgroupName
 

@@ -141,7 +141,8 @@ instance Data.FromJSON TargetedSentimentMention where
 
 instance Prelude.Hashable TargetedSentimentMention where
   hashWithSalt _salt TargetedSentimentMention' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` groupScore
       `Prelude.hashWithSalt` mentionSentiment

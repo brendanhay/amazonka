@@ -200,22 +200,22 @@ instance Core.AWSPager DescribeScheduledActions where
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_scheduledActions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScheduledActions_marker
           Lens..~ rs
           Lens.^? describeScheduledActionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledActions where
   type
@@ -229,7 +229,8 @@ instance Core.AWSRequest DescribeScheduledActions where
       ( \s h x ->
           DescribeScheduledActionsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "ScheduledActions"
+            Prelude.<*> ( x
+                            Data..@? "ScheduledActions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ScheduledAction")
                         )
@@ -238,7 +239,8 @@ instance Core.AWSRequest DescribeScheduledActions where
 
 instance Prelude.Hashable DescribeScheduledActions where
   hashWithSalt _salt DescribeScheduledActions' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker

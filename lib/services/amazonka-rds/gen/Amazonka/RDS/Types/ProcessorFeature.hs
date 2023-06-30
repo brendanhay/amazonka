@@ -113,11 +113,13 @@ processorFeature_value = Lens.lens (\ProcessorFeature' {value} -> value) (\s@Pro
 instance Data.FromXML ProcessorFeature where
   parseXML x =
     ProcessorFeature'
-      Prelude.<$> (x Data..@? "Name") Prelude.<*> (x Data..@? "Value")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable ProcessorFeature where
   hashWithSalt _salt ProcessorFeature' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ProcessorFeature where

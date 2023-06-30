@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteSshPublicKey where
 
 instance Prelude.Hashable DeleteSshPublicKey where
   hashWithSalt _salt DeleteSshPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` serverId
+    _salt
+      `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` sshPublicKeyId
       `Prelude.hashWithSalt` userName
 

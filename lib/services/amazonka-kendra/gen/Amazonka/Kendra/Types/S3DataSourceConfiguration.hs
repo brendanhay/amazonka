@@ -213,13 +213,16 @@ instance Data.FromJSON S3DataSourceConfiguration where
           S3DataSourceConfiguration'
             Prelude.<$> (x Data..:? "AccessControlListConfiguration")
             Prelude.<*> (x Data..:? "DocumentsMetadataConfiguration")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "InclusionPrefixes"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPrefixes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "BucketName")

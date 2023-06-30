@@ -103,7 +103,8 @@ instance Core.AWSRequest StartCutover where
 
 instance Prelude.Hashable StartCutover where
   hashWithSalt _salt StartCutover' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceServerIDs
 
 instance Prelude.NFData StartCutover where

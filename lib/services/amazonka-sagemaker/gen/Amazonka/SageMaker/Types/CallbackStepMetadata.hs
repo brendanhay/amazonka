@@ -83,7 +83,8 @@ instance Data.FromJSON CallbackStepMetadata where
       ( \x ->
           CallbackStepMetadata'
             Prelude.<$> (x Data..:? "CallbackToken")
-            Prelude.<*> ( x Data..:? "OutputParameters"
+            Prelude.<*> ( x
+                            Data..:? "OutputParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SqsQueueUrl")
@@ -91,7 +92,8 @@ instance Data.FromJSON CallbackStepMetadata where
 
 instance Prelude.Hashable CallbackStepMetadata where
   hashWithSalt _salt CallbackStepMetadata' {..} =
-    _salt `Prelude.hashWithSalt` callbackToken
+    _salt
+      `Prelude.hashWithSalt` callbackToken
       `Prelude.hashWithSalt` outputParameters
       `Prelude.hashWithSalt` sqsQueueUrl
 

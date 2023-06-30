@@ -131,7 +131,8 @@ instance
     DescribeEnvironmentResources
   where
   hashWithSalt _salt DescribeEnvironmentResources' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData DescribeEnvironmentResources where

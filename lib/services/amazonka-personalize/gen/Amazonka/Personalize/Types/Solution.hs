@@ -230,7 +230,8 @@ instance Data.FromJSON Solution where
 
 instance Prelude.Hashable Solution where
   hashWithSalt _salt Solution' {..} =
-    _salt `Prelude.hashWithSalt` autoMLResult
+    _salt
+      `Prelude.hashWithSalt` autoMLResult
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` eventType

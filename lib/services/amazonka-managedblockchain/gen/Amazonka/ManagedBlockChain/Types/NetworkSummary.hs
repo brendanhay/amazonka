@@ -145,7 +145,8 @@ instance Data.FromJSON NetworkSummary where
 
 instance Prelude.Hashable NetworkSummary where
   hashWithSalt _salt NetworkSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` framework

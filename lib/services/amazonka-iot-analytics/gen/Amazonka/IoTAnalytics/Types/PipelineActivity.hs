@@ -170,7 +170,8 @@ instance Data.FromJSON PipelineActivity where
 
 instance Prelude.Hashable PipelineActivity where
   hashWithSalt _salt PipelineActivity' {..} =
-    _salt `Prelude.hashWithSalt` addAttributes
+    _salt
+      `Prelude.hashWithSalt` addAttributes
       `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` datastore
       `Prelude.hashWithSalt` deviceRegistryEnrich

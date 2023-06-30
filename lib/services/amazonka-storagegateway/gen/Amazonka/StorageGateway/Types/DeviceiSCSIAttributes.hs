@@ -98,7 +98,8 @@ instance Data.FromJSON DeviceiSCSIAttributes where
 
 instance Prelude.Hashable DeviceiSCSIAttributes where
   hashWithSalt _salt DeviceiSCSIAttributes' {..} =
-    _salt `Prelude.hashWithSalt` chapEnabled
+    _salt
+      `Prelude.hashWithSalt` chapEnabled
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` networkInterfacePort
       `Prelude.hashWithSalt` targetARN

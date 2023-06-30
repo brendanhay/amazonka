@@ -126,7 +126,8 @@ instance Data.FromJSON OpsItemEventSummary where
 
 instance Prelude.Hashable OpsItemEventSummary where
   hashWithSalt _salt OpsItemEventSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` detail
       `Prelude.hashWithSalt` detailType

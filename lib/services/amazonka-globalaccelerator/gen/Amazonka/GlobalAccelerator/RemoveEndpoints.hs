@@ -115,7 +115,8 @@ instance Core.AWSRequest RemoveEndpoints where
 
 instance Prelude.Hashable RemoveEndpoints where
   hashWithSalt _salt RemoveEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` endpointIdentifiers
+    _salt
+      `Prelude.hashWithSalt` endpointIdentifiers
       `Prelude.hashWithSalt` endpointGroupArn
 
 instance Prelude.NFData RemoveEndpoints where

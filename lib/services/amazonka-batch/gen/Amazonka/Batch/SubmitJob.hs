@@ -437,7 +437,8 @@ instance Core.AWSRequest SubmitJob where
 
 instance Prelude.Hashable SubmitJob where
   hashWithSalt _salt SubmitJob' {..} =
-    _salt `Prelude.hashWithSalt` arrayProperties
+    _salt
+      `Prelude.hashWithSalt` arrayProperties
       `Prelude.hashWithSalt` containerOverrides
       `Prelude.hashWithSalt` dependsOn
       `Prelude.hashWithSalt` eksPropertiesOverride

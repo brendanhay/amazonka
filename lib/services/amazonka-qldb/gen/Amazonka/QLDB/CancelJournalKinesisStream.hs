@@ -113,7 +113,8 @@ instance Core.AWSRequest CancelJournalKinesisStream where
 
 instance Prelude.Hashable CancelJournalKinesisStream where
   hashWithSalt _salt CancelJournalKinesisStream' {..} =
-    _salt `Prelude.hashWithSalt` ledgerName
+    _salt
+      `Prelude.hashWithSalt` ledgerName
       `Prelude.hashWithSalt` streamId
 
 instance Prelude.NFData CancelJournalKinesisStream where

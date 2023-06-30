@@ -167,7 +167,8 @@ instance
   hashWithSalt
     _salt
     CreateDeliverabilityTestReport' {..} =
-      _salt `Prelude.hashWithSalt` reportName
+      _salt
+        `Prelude.hashWithSalt` reportName
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` fromEmailAddress
         `Prelude.hashWithSalt` content

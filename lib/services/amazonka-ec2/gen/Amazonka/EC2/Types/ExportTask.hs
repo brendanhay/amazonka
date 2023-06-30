@@ -133,7 +133,9 @@ exportTask_statusMessage = Lens.lens (\ExportTask' {statusMessage} -> statusMess
 instance Data.FromXML ExportTask where
   parseXML x =
     ExportTask'
-      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "description")
@@ -145,7 +147,8 @@ instance Data.FromXML ExportTask where
 
 instance Prelude.Hashable ExportTask where
   hashWithSalt _salt ExportTask' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` exportTaskId
       `Prelude.hashWithSalt` exportToS3Task

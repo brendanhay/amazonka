@@ -132,7 +132,8 @@ sortingConfiguration_sortOrder = Lens.lens (\SortingConfiguration' {sortOrder} -
 
 instance Prelude.Hashable SortingConfiguration where
   hashWithSalt _salt SortingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` documentAttributeKey
+    _salt
+      `Prelude.hashWithSalt` documentAttributeKey
       `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData SortingConfiguration where

@@ -168,7 +168,8 @@ instance Core.AWSRequest UpdateChannelMessage where
 
 instance Prelude.Hashable UpdateChannelMessage where
   hashWithSalt _salt UpdateChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn

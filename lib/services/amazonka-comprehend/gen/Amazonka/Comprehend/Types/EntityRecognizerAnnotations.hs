@@ -89,7 +89,8 @@ instance Data.FromJSON EntityRecognizerAnnotations where
 
 instance Prelude.Hashable EntityRecognizerAnnotations where
   hashWithSalt _salt EntityRecognizerAnnotations' {..} =
-    _salt `Prelude.hashWithSalt` testS3Uri
+    _salt
+      `Prelude.hashWithSalt` testS3Uri
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData EntityRecognizerAnnotations where

@@ -76,11 +76,13 @@ ipamResourceTag_value = Lens.lens (\IpamResourceTag' {value} -> value) (\s@IpamR
 instance Data.FromXML IpamResourceTag where
   parseXML x =
     IpamResourceTag'
-      Prelude.<$> (x Data..@? "key") Prelude.<*> (x Data..@? "value")
+      Prelude.<$> (x Data..@? "key")
+      Prelude.<*> (x Data..@? "value")
 
 instance Prelude.Hashable IpamResourceTag where
   hashWithSalt _salt IpamResourceTag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData IpamResourceTag where

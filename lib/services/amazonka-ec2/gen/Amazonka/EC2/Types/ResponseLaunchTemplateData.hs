@@ -408,7 +408,8 @@ responseLaunchTemplateData_userData = Lens.lens (\ResponseLaunchTemplateData' {u
 instance Data.FromXML ResponseLaunchTemplateData where
   parseXML x =
     ResponseLaunchTemplateData'
-      Prelude.<$> ( x Data..@? "blockDeviceMappingSet"
+      Prelude.<$> ( x
+                      Data..@? "blockDeviceMappingSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -418,11 +419,13 @@ instance Data.FromXML ResponseLaunchTemplateData where
       Prelude.<*> (x Data..@? "disableApiStop")
       Prelude.<*> (x Data..@? "disableApiTermination")
       Prelude.<*> (x Data..@? "ebsOptimized")
-      Prelude.<*> ( x Data..@? "elasticGpuSpecificationSet"
+      Prelude.<*> ( x
+                      Data..@? "elasticGpuSpecificationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "elasticInferenceAcceleratorSet"
+      Prelude.<*> ( x
+                      Data..@? "elasticInferenceAcceleratorSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -436,28 +439,34 @@ instance Data.FromXML ResponseLaunchTemplateData where
       Prelude.<*> (x Data..@? "instanceType")
       Prelude.<*> (x Data..@? "kernelId")
       Prelude.<*> (x Data..@? "keyName")
-      Prelude.<*> ( x Data..@? "licenseSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "licenseSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "maintenanceOptions")
       Prelude.<*> (x Data..@? "metadataOptions")
       Prelude.<*> (x Data..@? "monitoring")
-      Prelude.<*> ( x Data..@? "networkInterfaceSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "placement")
       Prelude.<*> (x Data..@? "privateDnsNameOptions")
       Prelude.<*> (x Data..@? "ramDiskId")
-      Prelude.<*> ( x Data..@? "securityGroupIdSet"
+      Prelude.<*> ( x
+                      Data..@? "securityGroupIdSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "securityGroupSet"
+      Prelude.<*> ( x
+                      Data..@? "securityGroupSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSpecificationSet"
+      Prelude.<*> ( x
+                      Data..@? "tagSpecificationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -465,7 +474,8 @@ instance Data.FromXML ResponseLaunchTemplateData where
 
 instance Prelude.Hashable ResponseLaunchTemplateData where
   hashWithSalt _salt ResponseLaunchTemplateData' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
+    _salt
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` capacityReservationSpecification
       `Prelude.hashWithSalt` cpuOptions
       `Prelude.hashWithSalt` creditSpecification

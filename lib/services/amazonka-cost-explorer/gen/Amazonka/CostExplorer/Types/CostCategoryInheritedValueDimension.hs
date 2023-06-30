@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     CostCategoryInheritedValueDimension' {..} =
-      _salt `Prelude.hashWithSalt` dimensionKey
+      _salt
+        `Prelude.hashWithSalt` dimensionKey
         `Prelude.hashWithSalt` dimensionName
 
 instance

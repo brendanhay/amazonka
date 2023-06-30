@@ -455,7 +455,8 @@ instance Core.AWSRequest ModifyDBCluster where
 
 instance Prelude.Hashable ModifyDBCluster where
   hashWithSalt _salt ModifyDBCluster' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` cloudwatchLogsExportConfiguration
       `Prelude.hashWithSalt` dbClusterParameterGroupName

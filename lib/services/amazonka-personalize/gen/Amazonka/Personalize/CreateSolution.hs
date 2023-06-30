@@ -293,7 +293,8 @@ instance Core.AWSRequest CreateSolution where
 
 instance Prelude.Hashable CreateSolution where
   hashWithSalt _salt CreateSolution' {..} =
-    _salt `Prelude.hashWithSalt` eventType
+    _salt
+      `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` performAutoML
       `Prelude.hashWithSalt` performHPO
       `Prelude.hashWithSalt` recipeArn

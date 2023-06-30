@@ -118,7 +118,8 @@ instance Data.FromJSON MigrationAlert where
 
 instance Prelude.Hashable MigrationAlert where
   hashWithSalt _salt MigrationAlert' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` referenceURLs
       `Prelude.hashWithSalt` type'

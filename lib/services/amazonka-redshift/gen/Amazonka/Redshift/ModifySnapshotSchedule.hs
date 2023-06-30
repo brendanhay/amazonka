@@ -112,7 +112,8 @@ instance Core.AWSRequest ModifySnapshotSchedule where
 
 instance Prelude.Hashable ModifySnapshotSchedule where
   hashWithSalt _salt ModifySnapshotSchedule' {..} =
-    _salt `Prelude.hashWithSalt` scheduleIdentifier
+    _salt
+      `Prelude.hashWithSalt` scheduleIdentifier
       `Prelude.hashWithSalt` scheduleDefinitions
 
 instance Prelude.NFData ModifySnapshotSchedule where

@@ -148,7 +148,8 @@ instance Data.FromJSON CoreNetwork where
 
 instance Prelude.Hashable CoreNetwork where
   hashWithSalt _salt CoreNetwork' {..} =
-    _salt `Prelude.hashWithSalt` coreNetworkArn
+    _salt
+      `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description

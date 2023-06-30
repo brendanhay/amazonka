@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeDomain where
 
 instance Prelude.Hashable DescribeDomain where
   hashWithSalt _salt DescribeDomain' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
 
 instance Prelude.NFData DescribeDomain where

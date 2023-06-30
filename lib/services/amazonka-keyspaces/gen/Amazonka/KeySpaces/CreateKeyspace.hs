@@ -124,7 +124,8 @@ instance Core.AWSRequest CreateKeyspace where
 
 instance Prelude.Hashable CreateKeyspace where
   hashWithSalt _salt CreateKeyspace' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` keyspaceName
 
 instance Prelude.NFData CreateKeyspace where

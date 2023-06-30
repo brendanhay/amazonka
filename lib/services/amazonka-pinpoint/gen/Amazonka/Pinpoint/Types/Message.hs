@@ -266,7 +266,8 @@ instance Data.FromJSON Message where
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` imageIconUrl
       `Prelude.hashWithSalt` imageSmallIconUrl

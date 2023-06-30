@@ -427,7 +427,6 @@ block_id = Lens.lens (\Block' {id} -> id) (\s@Block' {} a -> s {id = a} :: Block
 block_page :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
 block_page = Lens.lens (\Block' {page} -> page) (\s@Block' {} a -> s {page = a} :: Block)
 
--- |
 block_query :: Lens.Lens' Block (Prelude.Maybe Query)
 block_query = Lens.lens (\Block' {query} -> query) (\s@Block' {} a -> s {query = a} :: Block)
 
@@ -495,7 +494,8 @@ instance Data.FromJSON Block where
 
 instance Prelude.Hashable Block where
   hashWithSalt _salt Block' {..} =
-    _salt `Prelude.hashWithSalt` blockType
+    _salt
+      `Prelude.hashWithSalt` blockType
       `Prelude.hashWithSalt` columnIndex
       `Prelude.hashWithSalt` columnSpan
       `Prelude.hashWithSalt` confidence

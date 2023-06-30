@@ -198,7 +198,8 @@ instance Data.FromJSON GatewayRouteRef where
 
 instance Prelude.Hashable GatewayRouteRef where
   hashWithSalt _salt GatewayRouteRef' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` gatewayRouteName
       `Prelude.hashWithSalt` lastUpdatedAt

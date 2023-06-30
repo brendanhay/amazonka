@@ -106,7 +106,8 @@ instance Data.FromJSON DecryptStepDetails where
 
 instance Prelude.Hashable DecryptStepDetails where
   hashWithSalt _salt DecryptStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` overwriteExisting
       `Prelude.hashWithSalt` sourceFileLocation
       `Prelude.hashWithSalt` type'

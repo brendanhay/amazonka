@@ -195,7 +195,8 @@ instance Data.FromJSON ColumnMetadata where
 
 instance Prelude.Hashable ColumnMetadata where
   hashWithSalt _salt ColumnMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arrayBaseColumnType
+    _salt
+      `Prelude.hashWithSalt` arrayBaseColumnType
       `Prelude.hashWithSalt` isAutoIncrement
       `Prelude.hashWithSalt` isCaseSensitive
       `Prelude.hashWithSalt` isCurrency

@@ -161,7 +161,8 @@ instance Core.AWSRequest GetSnapshotBlock where
 
 instance Prelude.Hashable GetSnapshotBlock where
   hashWithSalt _salt GetSnapshotBlock' {..} =
-    _salt `Prelude.hashWithSalt` snapshotId
+    _salt
+      `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` blockIndex
       `Prelude.hashWithSalt` blockToken
 

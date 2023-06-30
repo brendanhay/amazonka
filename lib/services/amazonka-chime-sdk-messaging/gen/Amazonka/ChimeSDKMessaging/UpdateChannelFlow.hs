@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateChannelFlow where
 
 instance Prelude.Hashable UpdateChannelFlow where
   hashWithSalt _salt UpdateChannelFlow' {..} =
-    _salt `Prelude.hashWithSalt` channelFlowArn
+    _salt
+      `Prelude.hashWithSalt` channelFlowArn
       `Prelude.hashWithSalt` processors
       `Prelude.hashWithSalt` name
 

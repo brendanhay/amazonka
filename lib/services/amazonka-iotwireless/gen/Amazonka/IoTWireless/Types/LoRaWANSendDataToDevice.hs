@@ -77,7 +77,8 @@ instance Data.FromJSON LoRaWANSendDataToDevice where
 
 instance Prelude.Hashable LoRaWANSendDataToDevice where
   hashWithSalt _salt LoRaWANSendDataToDevice' {..} =
-    _salt `Prelude.hashWithSalt` fPort
+    _salt
+      `Prelude.hashWithSalt` fPort
       `Prelude.hashWithSalt` participatingGateways
 
 instance Prelude.NFData LoRaWANSendDataToDevice where

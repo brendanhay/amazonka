@@ -148,7 +148,8 @@ instance Data.FromJSON ExternalModel where
 
 instance Prelude.Hashable ExternalModel where
   hashWithSalt _salt ExternalModel' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` inputConfiguration
       `Prelude.hashWithSalt` invokeModelEndpointRoleArn

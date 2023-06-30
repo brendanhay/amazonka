@@ -87,7 +87,8 @@ instance Data.FromJSON LifeCycleLastCutover where
 
 instance Prelude.Hashable LifeCycleLastCutover where
   hashWithSalt _salt LifeCycleLastCutover' {..} =
-    _salt `Prelude.hashWithSalt` finalized
+    _salt
+      `Prelude.hashWithSalt` finalized
       `Prelude.hashWithSalt` initiated
       `Prelude.hashWithSalt` reverted
 

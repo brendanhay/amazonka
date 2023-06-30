@@ -182,7 +182,8 @@ instance Core.AWSRequest UpdateLaunchProfile where
 
 instance Prelude.Hashable UpdateLaunchProfile where
   hashWithSalt _salt UpdateLaunchProfile' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` launchProfileProtocolVersions
       `Prelude.hashWithSalt` name

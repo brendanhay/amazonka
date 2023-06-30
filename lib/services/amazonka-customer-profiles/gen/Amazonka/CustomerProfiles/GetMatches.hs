@@ -167,7 +167,8 @@ instance Core.AWSRequest GetMatches where
 
 instance Prelude.Hashable GetMatches where
   hashWithSalt _salt GetMatches' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 

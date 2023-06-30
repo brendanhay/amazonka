@@ -193,7 +193,8 @@ instance Data.FromJSON InputDeviceSummary where
 
 instance Prelude.Hashable InputDeviceSummary where
   hashWithSalt _salt InputDeviceSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` deviceSettingsSyncState
       `Prelude.hashWithSalt` deviceUpdateStatus

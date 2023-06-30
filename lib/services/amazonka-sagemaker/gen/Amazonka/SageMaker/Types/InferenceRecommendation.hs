@@ -97,7 +97,8 @@ instance Data.FromJSON InferenceRecommendation where
 
 instance Prelude.Hashable InferenceRecommendation where
   hashWithSalt _salt InferenceRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` metrics
+    _salt
+      `Prelude.hashWithSalt` metrics
       `Prelude.hashWithSalt` endpointConfiguration
       `Prelude.hashWithSalt` modelConfiguration
 

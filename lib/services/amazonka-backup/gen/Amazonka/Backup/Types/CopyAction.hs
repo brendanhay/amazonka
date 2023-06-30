@@ -83,7 +83,8 @@ instance Data.FromJSON CopyAction where
 
 instance Prelude.Hashable CopyAction where
   hashWithSalt _salt CopyAction' {..} =
-    _salt `Prelude.hashWithSalt` lifecycle
+    _salt
+      `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` destinationBackupVaultArn
 
 instance Prelude.NFData CopyAction where

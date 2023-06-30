@@ -188,7 +188,8 @@ instance Core.AWSRequest StopStreamEncryption where
 
 instance Prelude.Hashable StopStreamEncryption where
   hashWithSalt _salt StopStreamEncryption' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` keyId

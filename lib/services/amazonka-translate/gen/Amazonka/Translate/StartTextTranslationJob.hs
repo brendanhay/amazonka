@@ -368,7 +368,8 @@ instance Core.AWSRequest StartTextTranslationJob where
 
 instance Prelude.Hashable StartTextTranslationJob where
   hashWithSalt _salt StartTextTranslationJob' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` parallelDataNames
       `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` terminologyNames

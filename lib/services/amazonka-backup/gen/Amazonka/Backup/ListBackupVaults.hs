@@ -102,22 +102,22 @@ instance Core.AWSPager ListBackupVaults where
     | Core.stop
         ( rs
             Lens.^? listBackupVaultsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBackupVaultsResponse_backupVaultList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBackupVaults_nextToken
           Lens..~ rs
           Lens.^? listBackupVaultsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupVaults where
   type
@@ -129,7 +129,8 @@ instance Core.AWSRequest ListBackupVaults where
     Response.receiveJSON
       ( \s h x ->
           ListBackupVaultsResponse'
-            Prelude.<$> ( x Data..?> "BackupVaultList"
+            Prelude.<$> ( x
+                            Data..?> "BackupVaultList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -138,7 +139,8 @@ instance Core.AWSRequest ListBackupVaults where
 
 instance Prelude.Hashable ListBackupVaults where
   hashWithSalt _salt ListBackupVaults' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBackupVaults where

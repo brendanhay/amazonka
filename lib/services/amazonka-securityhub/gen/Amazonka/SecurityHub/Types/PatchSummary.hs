@@ -221,7 +221,8 @@ instance Data.FromJSON PatchSummary where
 
 instance Prelude.Hashable PatchSummary where
   hashWithSalt _salt PatchSummary' {..} =
-    _salt `Prelude.hashWithSalt` failedCount
+    _salt
+      `Prelude.hashWithSalt` failedCount
       `Prelude.hashWithSalt` installedCount
       `Prelude.hashWithSalt` installedOtherCount
       `Prelude.hashWithSalt` installedPendingReboot

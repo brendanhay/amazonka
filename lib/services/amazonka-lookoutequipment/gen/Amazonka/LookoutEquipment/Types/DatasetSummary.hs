@@ -99,7 +99,8 @@ instance Data.FromJSON DatasetSummary where
 
 instance Prelude.Hashable DatasetSummary where
   hashWithSalt _salt DatasetSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` status

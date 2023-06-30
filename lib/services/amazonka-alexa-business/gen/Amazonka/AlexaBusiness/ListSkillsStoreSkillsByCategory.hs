@@ -111,22 +111,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listSkillsStoreSkillsByCategoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSkillsStoreSkillsByCategory_nextToken
           Lens..~ rs
           Lens.^? listSkillsStoreSkillsByCategoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -142,7 +142,8 @@ instance
       ( \s h x ->
           ListSkillsStoreSkillsByCategoryResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SkillsStoreSkills"
+            Prelude.<*> ( x
+                            Data..?> "SkillsStoreSkills"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -155,7 +156,8 @@ instance
   hashWithSalt
     _salt
     ListSkillsStoreSkillsByCategory' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` categoryId
 

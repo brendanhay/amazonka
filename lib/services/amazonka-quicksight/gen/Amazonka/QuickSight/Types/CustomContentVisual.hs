@@ -135,7 +135,8 @@ instance Data.FromJSON CustomContentVisual where
 
 instance Prelude.Hashable CustomContentVisual where
   hashWithSalt _salt CustomContentVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chartConfiguration
       `Prelude.hashWithSalt` subtitle
       `Prelude.hashWithSalt` title

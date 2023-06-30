@@ -102,7 +102,8 @@ instance Core.AWSRequest GetMetadata where
 
 instance Prelude.Hashable GetMetadata where
   hashWithSalt _salt GetMetadata' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData GetMetadata where

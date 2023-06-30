@@ -79,14 +79,16 @@ instance Data.FromJSON ItemResponse where
       ( \x ->
           ItemResponse'
             Prelude.<$> (x Data..:? "EndpointItemResponse")
-            Prelude.<*> ( x Data..:? "EventsItemResponse"
+            Prelude.<*> ( x
+                            Data..:? "EventsItemResponse"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ItemResponse where
   hashWithSalt _salt ItemResponse' {..} =
-    _salt `Prelude.hashWithSalt` endpointItemResponse
+    _salt
+      `Prelude.hashWithSalt` endpointItemResponse
       `Prelude.hashWithSalt` eventsItemResponse
 
 instance Prelude.NFData ItemResponse where

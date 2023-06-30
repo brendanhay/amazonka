@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueErrorEntry' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` entryId
 

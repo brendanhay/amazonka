@@ -126,7 +126,8 @@ instance Data.FromJSON InstanceDetails where
 
 instance Prelude.Hashable InstanceDetails where
   hashWithSalt _salt InstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` eC2InstanceDetails
+    _salt
+      `Prelude.hashWithSalt` eC2InstanceDetails
       `Prelude.hashWithSalt` eSInstanceDetails
       `Prelude.hashWithSalt` elastiCacheInstanceDetails
       `Prelude.hashWithSalt` rDSInstanceDetails

@@ -94,7 +94,8 @@ instance Data.FromJSON DeveloperInfo where
 
 instance Prelude.Hashable DeveloperInfo where
   hashWithSalt _salt DeveloperInfo' {..} =
-    _salt `Prelude.hashWithSalt` developerName
+    _salt
+      `Prelude.hashWithSalt` developerName
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` privacyPolicy
       `Prelude.hashWithSalt` url

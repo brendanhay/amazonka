@@ -130,7 +130,8 @@ instance Core.AWSRequest ModifyActivityStream where
 
 instance Prelude.Hashable ModifyActivityStream where
   hashWithSalt _salt ModifyActivityStream' {..} =
-    _salt `Prelude.hashWithSalt` auditPolicyState
+    _salt
+      `Prelude.hashWithSalt` auditPolicyState
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ModifyActivityStream where

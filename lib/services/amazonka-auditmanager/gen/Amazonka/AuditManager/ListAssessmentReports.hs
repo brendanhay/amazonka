@@ -99,7 +99,8 @@ instance Core.AWSRequest ListAssessmentReports where
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentReportsResponse'
-            Prelude.<$> ( x Data..?> "assessmentReports"
+            Prelude.<$> ( x
+                            Data..?> "assessmentReports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -108,7 +109,8 @@ instance Core.AWSRequest ListAssessmentReports where
 
 instance Prelude.Hashable ListAssessmentReports where
   hashWithSalt _salt ListAssessmentReports' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAssessmentReports where

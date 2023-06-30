@@ -81,7 +81,8 @@ instance
   hashWithSalt
     _salt
     KinesisVideoStreamStartSelector' {..} =
-      _salt `Prelude.hashWithSalt` fragmentNumber
+      _salt
+        `Prelude.hashWithSalt` fragmentNumber
         `Prelude.hashWithSalt` producerTimestamp
 
 instance

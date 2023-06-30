@@ -114,22 +114,22 @@ instance Core.AWSPager ListApplicationStates where
     | Core.stop
         ( rs
             Lens.^? listApplicationStatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApplicationStatesResponse_applicationStateList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listApplicationStates_nextToken
           Lens..~ rs
           Lens.^? listApplicationStatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationStates where
   type
@@ -141,7 +141,8 @@ instance Core.AWSRequest ListApplicationStates where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationStatesResponse'
-            Prelude.<$> ( x Data..?> "ApplicationStateList"
+            Prelude.<$> ( x
+                            Data..?> "ApplicationStateList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -150,7 +151,8 @@ instance Core.AWSRequest ListApplicationStates where
 
 instance Prelude.Hashable ListApplicationStates where
   hashWithSalt _salt ListApplicationStates' {..} =
-    _salt `Prelude.hashWithSalt` applicationIds
+    _salt
+      `Prelude.hashWithSalt` applicationIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -93,7 +93,8 @@ instance Data.FromJSON ClassificationType where
 
 instance Prelude.Hashable ClassificationType where
   hashWithSalt _salt ClassificationType' {..} =
-    _salt `Prelude.hashWithSalt` oneTime
+    _salt
+      `Prelude.hashWithSalt` oneTime
       `Prelude.hashWithSalt` continuous
 
 instance Prelude.NFData ClassificationType where

@@ -84,7 +84,8 @@ instance Data.FromJSON SkillGroupData where
 
 instance Prelude.Hashable SkillGroupData where
   hashWithSalt _salt SkillGroupData' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` skillGroupArn
       `Prelude.hashWithSalt` skillGroupName
 

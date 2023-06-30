@@ -135,22 +135,22 @@ instance Core.AWSPager DescribeExportImageTasks where
     | Core.stop
         ( rs
             Lens.^? describeExportImageTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeExportImageTasksResponse_exportImageTasks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeExportImageTasks_nextToken
           Lens..~ rs
           Lens.^? describeExportImageTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeExportImageTasks where
   type
@@ -162,7 +162,8 @@ instance Core.AWSRequest DescribeExportImageTasks where
     Response.receiveXML
       ( \s h x ->
           DescribeExportImageTasksResponse'
-            Prelude.<$> ( x Data..@? "exportImageTaskSet"
+            Prelude.<$> ( x
+                            Data..@? "exportImageTaskSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -172,7 +173,8 @@ instance Core.AWSRequest DescribeExportImageTasks where
 
 instance Prelude.Hashable DescribeExportImageTasks where
   hashWithSalt _salt DescribeExportImageTasks' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` exportImageTaskIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults

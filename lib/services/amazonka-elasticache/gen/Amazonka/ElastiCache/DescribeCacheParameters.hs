@@ -152,22 +152,22 @@ instance Core.AWSPager DescribeCacheParameters where
     | Core.stop
         ( rs
             Lens.^? describeCacheParametersResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCacheParametersResponse_parameters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCacheParameters_marker
           Lens..~ rs
           Lens.^? describeCacheParametersResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheParameters where
   type
@@ -180,13 +180,16 @@ instance Core.AWSRequest DescribeCacheParameters where
       "DescribeCacheParametersResult"
       ( \s h x ->
           DescribeCacheParametersResponse'
-            Prelude.<$> ( x Data..@? "CacheNodeTypeSpecificParameters"
+            Prelude.<$> ( x
+                            Data..@? "CacheNodeTypeSpecificParameters"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Data.parseXMLList "CacheNodeTypeSpecificParameter")
                         )
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Parameters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -194,7 +197,8 @@ instance Core.AWSRequest DescribeCacheParameters where
 
 instance Prelude.Hashable DescribeCacheParameters where
   hashWithSalt _salt DescribeCacheParameters' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` cacheParameterGroupName

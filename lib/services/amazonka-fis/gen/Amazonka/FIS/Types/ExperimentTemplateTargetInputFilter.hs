@@ -76,7 +76,8 @@ instance
   hashWithSalt
     _salt
     ExperimentTemplateTargetInputFilter' {..} =
-      _salt `Prelude.hashWithSalt` path
+      _salt
+        `Prelude.hashWithSalt` path
         `Prelude.hashWithSalt` values
 
 instance

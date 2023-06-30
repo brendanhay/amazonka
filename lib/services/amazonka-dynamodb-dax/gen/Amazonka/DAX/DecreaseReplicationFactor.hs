@@ -130,7 +130,8 @@ instance Core.AWSRequest DecreaseReplicationFactor where
 
 instance Prelude.Hashable DecreaseReplicationFactor where
   hashWithSalt _salt DecreaseReplicationFactor' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` nodeIdsToRemove
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` newReplicationFactor'

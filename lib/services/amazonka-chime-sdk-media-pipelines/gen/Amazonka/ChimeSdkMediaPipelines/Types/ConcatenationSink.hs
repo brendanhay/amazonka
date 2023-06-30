@@ -83,7 +83,8 @@ instance Data.FromJSON ConcatenationSink where
 
 instance Prelude.Hashable ConcatenationSink where
   hashWithSalt _salt ConcatenationSink' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` s3BucketSinkConfiguration
 
 instance Prelude.NFData ConcatenationSink where

@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateVoiceChannel where
 
 instance Prelude.Hashable UpdateVoiceChannel where
   hashWithSalt _salt UpdateVoiceChannel' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` voiceChannelRequest
 
 instance Prelude.NFData UpdateVoiceChannel where

@@ -120,7 +120,8 @@ instance Core.AWSRequest RejectAssignment where
 
 instance Prelude.Hashable RejectAssignment where
   hashWithSalt _salt RejectAssignment' {..} =
-    _salt `Prelude.hashWithSalt` assignmentId
+    _salt
+      `Prelude.hashWithSalt` assignmentId
       `Prelude.hashWithSalt` requesterFeedback
 
 instance Prelude.NFData RejectAssignment where

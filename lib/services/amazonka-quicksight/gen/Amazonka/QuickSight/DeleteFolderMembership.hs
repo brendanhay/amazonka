@@ -139,7 +139,8 @@ instance Core.AWSRequest DeleteFolderMembership where
 
 instance Prelude.Hashable DeleteFolderMembership where
   hashWithSalt _salt DeleteFolderMembership' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` folderId
       `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` memberType

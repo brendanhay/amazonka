@@ -129,7 +129,8 @@ instance Data.FromJSON AthenaSourceConfig where
 
 instance Prelude.Hashable AthenaSourceConfig where
   hashWithSalt _salt AthenaSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` backTestConfiguration
+    _salt
+      `Prelude.hashWithSalt` backTestConfiguration
       `Prelude.hashWithSalt` dataCatalog
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` roleArn

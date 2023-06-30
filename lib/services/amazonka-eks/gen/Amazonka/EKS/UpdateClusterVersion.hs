@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateClusterVersion where
 
 instance Prelude.Hashable UpdateClusterVersion where
   hashWithSalt _salt UpdateClusterVersion' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 

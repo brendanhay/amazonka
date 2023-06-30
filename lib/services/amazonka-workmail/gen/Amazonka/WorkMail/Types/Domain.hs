@@ -73,7 +73,8 @@ domain_hostedZoneId = Lens.lens (\Domain' {hostedZoneId} -> hostedZoneId) (\s@Do
 
 instance Prelude.Hashable Domain where
   hashWithSalt _salt Domain' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` hostedZoneId
 
 instance Prelude.NFData Domain where

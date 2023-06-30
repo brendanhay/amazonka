@@ -187,7 +187,8 @@ instance Core.AWSRequest DeleteIPSet where
 
 instance Prelude.Hashable DeleteIPSet where
   hashWithSalt _salt DeleteIPSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lockToken

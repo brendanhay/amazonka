@@ -79,7 +79,8 @@ instance Data.FromJSON OutputResources where
 
 instance Prelude.Hashable OutputResources where
   hashWithSalt _salt OutputResources' {..} =
-    _salt `Prelude.hashWithSalt` amis
+    _salt
+      `Prelude.hashWithSalt` amis
       `Prelude.hashWithSalt` containers
 
 instance Prelude.NFData OutputResources where

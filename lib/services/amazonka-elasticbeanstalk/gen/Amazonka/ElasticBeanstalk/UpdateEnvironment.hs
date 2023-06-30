@@ -321,7 +321,8 @@ instance Core.AWSRequest UpdateEnvironment where
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName

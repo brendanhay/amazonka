@@ -399,7 +399,8 @@ instance Core.AWSRequest CreateWorkspace where
 
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` organizationRoleName
       `Prelude.hashWithSalt` stackSetName

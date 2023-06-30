@@ -108,7 +108,8 @@ instance
           ListSuggestedResiliencyPoliciesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "resiliencyPolicies"
+            Prelude.<*> ( x
+                            Data..?> "resiliencyPolicies"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -120,7 +121,8 @@ instance
   hashWithSalt
     _salt
     ListSuggestedResiliencyPolicies' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 
 instance

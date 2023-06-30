@@ -96,7 +96,8 @@ groupSearchFilter_value = Lens.lens (\GroupSearchFilter' {value} -> value) (\s@G
 
 instance Prelude.Hashable GroupSearchFilter where
   hashWithSalt _salt GroupSearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` operator
+    _salt
+      `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

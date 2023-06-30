@@ -274,7 +274,8 @@ instance Core.AWSRequest CreateBuild where
 
 instance Prelude.Hashable CreateBuild where
   hashWithSalt _salt CreateBuild' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` serverSdkVersion
       `Prelude.hashWithSalt` storageLocation

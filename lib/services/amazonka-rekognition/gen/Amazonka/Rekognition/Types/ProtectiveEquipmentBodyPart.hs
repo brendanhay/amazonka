@@ -89,7 +89,8 @@ instance Data.FromJSON ProtectiveEquipmentBodyPart where
       ( \x ->
           ProtectiveEquipmentBodyPart'
             Prelude.<$> (x Data..:? "Confidence")
-            Prelude.<*> ( x Data..:? "EquipmentDetections"
+            Prelude.<*> ( x
+                            Data..:? "EquipmentDetections"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")
@@ -97,7 +98,8 @@ instance Data.FromJSON ProtectiveEquipmentBodyPart where
 
 instance Prelude.Hashable ProtectiveEquipmentBodyPart where
   hashWithSalt _salt ProtectiveEquipmentBodyPart' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` equipmentDetections
       `Prelude.hashWithSalt` name
 

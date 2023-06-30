@@ -167,7 +167,8 @@ instance Data.FromJSON ADMChannelResponse where
 
 instance Prelude.Hashable ADMChannelResponse where
   hashWithSalt _salt ADMChannelResponse' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` hasCredential

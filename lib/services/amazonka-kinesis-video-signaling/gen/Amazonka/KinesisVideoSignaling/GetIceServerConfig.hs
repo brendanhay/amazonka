@@ -148,7 +148,8 @@ instance Core.AWSRequest GetIceServerConfig where
 
 instance Prelude.Hashable GetIceServerConfig where
   hashWithSalt _salt GetIceServerConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` channelARN

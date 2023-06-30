@@ -123,7 +123,8 @@ instance Core.AWSRequest GetRecords where
 
 instance Prelude.Hashable GetRecords where
   hashWithSalt _salt GetRecords' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` shardIterator
 
 instance Prelude.NFData GetRecords where

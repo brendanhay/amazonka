@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateDomainEndpointOptions where
 
 instance Prelude.Hashable UpdateDomainEndpointOptions where
   hashWithSalt _salt UpdateDomainEndpointOptions' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` domainEndpointOptions
 
 instance Prelude.NFData UpdateDomainEndpointOptions where

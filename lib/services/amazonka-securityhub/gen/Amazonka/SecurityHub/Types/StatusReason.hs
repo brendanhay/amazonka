@@ -85,7 +85,8 @@ instance Data.FromJSON StatusReason where
 
 instance Prelude.Hashable StatusReason where
   hashWithSalt _salt StatusReason' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reasonCode
 
 instance Prelude.NFData StatusReason where

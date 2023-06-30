@@ -94,7 +94,8 @@ instance Data.FromJSON Spacing where
 
 instance Prelude.Hashable Spacing where
   hashWithSalt _salt Spacing' {..} =
-    _salt `Prelude.hashWithSalt` bottom
+    _salt
+      `Prelude.hashWithSalt` bottom
       `Prelude.hashWithSalt` left
       `Prelude.hashWithSalt` right
       `Prelude.hashWithSalt` top

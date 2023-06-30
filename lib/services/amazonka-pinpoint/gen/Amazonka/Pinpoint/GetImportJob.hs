@@ -106,7 +106,8 @@ instance Core.AWSRequest GetImportJob where
 
 instance Prelude.Hashable GetImportJob where
   hashWithSalt _salt GetImportJob' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetImportJob where

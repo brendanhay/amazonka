@@ -227,7 +227,8 @@ instance Data.FromJSON WorkflowExecutionInfo where
 
 instance Prelude.Hashable WorkflowExecutionInfo where
   hashWithSalt _salt WorkflowExecutionInfo' {..} =
-    _salt `Prelude.hashWithSalt` cancelRequested
+    _salt
+      `Prelude.hashWithSalt` cancelRequested
       `Prelude.hashWithSalt` closeStatus
       `Prelude.hashWithSalt` closeTimestamp
       `Prelude.hashWithSalt` parent

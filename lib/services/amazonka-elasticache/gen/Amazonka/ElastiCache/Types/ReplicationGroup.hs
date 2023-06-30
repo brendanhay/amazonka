@@ -522,22 +522,28 @@ instance Data.FromXML ReplicationGroup where
       Prelude.<*> (x Data..@? "GlobalReplicationGroupInfo")
       Prelude.<*> (x Data..@? "IpDiscovery")
       Prelude.<*> (x Data..@? "KmsKeyId")
-      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
+      Prelude.<*> ( x
+                      Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "LogDeliveryConfiguration")
                   )
-      Prelude.<*> ( x Data..@? "MemberClusters" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "MemberClusters"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterId")
                   )
-      Prelude.<*> ( x Data..@? "MemberClustersOutpostArns"
+      Prelude.<*> ( x
+                      Data..@? "MemberClustersOutpostArns"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "ReplicationGroupOutpostArn")
                   )
       Prelude.<*> (x Data..@? "MultiAZ")
       Prelude.<*> (x Data..@? "NetworkType")
-      Prelude.<*> ( x Data..@? "NodeGroups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "NodeGroups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "NodeGroup")
                   )
       Prelude.<*> (x Data..@? "PendingModifiedValues")
@@ -549,13 +555,16 @@ instance Data.FromXML ReplicationGroup where
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "TransitEncryptionEnabled")
       Prelude.<*> (x Data..@? "TransitEncryptionMode")
-      Prelude.<*> ( x Data..@? "UserGroupIds" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "UserGroupIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable ReplicationGroup where
   hashWithSalt _salt ReplicationGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` atRestEncryptionEnabled
       `Prelude.hashWithSalt` authTokenEnabled
       `Prelude.hashWithSalt` authTokenLastModifiedDate

@@ -88,7 +88,8 @@ instance Data.FromJSON UnlockDelay where
 
 instance Prelude.Hashable UnlockDelay where
   hashWithSalt _salt UnlockDelay' {..} =
-    _salt `Prelude.hashWithSalt` unlockDelayValue
+    _salt
+      `Prelude.hashWithSalt` unlockDelayValue
       `Prelude.hashWithSalt` unlockDelayUnit
 
 instance Prelude.NFData UnlockDelay where

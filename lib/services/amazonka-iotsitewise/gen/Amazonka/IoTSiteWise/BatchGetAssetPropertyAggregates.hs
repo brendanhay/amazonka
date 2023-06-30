@@ -139,7 +139,8 @@ instance
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "skippedEntries"
+            Prelude.<*> ( x
+                            Data..?> "skippedEntries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -151,7 +152,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyAggregates' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` entries
 

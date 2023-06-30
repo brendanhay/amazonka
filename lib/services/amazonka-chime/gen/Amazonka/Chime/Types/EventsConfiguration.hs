@@ -85,7 +85,8 @@ instance Data.FromJSON EventsConfiguration where
 
 instance Prelude.Hashable EventsConfiguration where
   hashWithSalt _salt EventsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` lambdaFunctionArn
       `Prelude.hashWithSalt` outboundEventsHTTPSEndpoint
 

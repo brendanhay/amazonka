@@ -84,7 +84,8 @@ instance Data.FromJSON CodeErrorLocation where
 
 instance Prelude.Hashable CodeErrorLocation where
   hashWithSalt _salt CodeErrorLocation' {..} =
-    _salt `Prelude.hashWithSalt` column
+    _salt
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` line
       `Prelude.hashWithSalt` span
 

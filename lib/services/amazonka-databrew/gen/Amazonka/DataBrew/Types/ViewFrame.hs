@@ -115,7 +115,8 @@ viewFrame_startColumnIndex = Lens.lens (\ViewFrame' {startColumnIndex} -> startC
 
 instance Prelude.Hashable ViewFrame where
   hashWithSalt _salt ViewFrame' {..} =
-    _salt `Prelude.hashWithSalt` analytics
+    _salt
+      `Prelude.hashWithSalt` analytics
       `Prelude.hashWithSalt` columnRange
       `Prelude.hashWithSalt` hiddenColumns
       `Prelude.hashWithSalt` rowRange

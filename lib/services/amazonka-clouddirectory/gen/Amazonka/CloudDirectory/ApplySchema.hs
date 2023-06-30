@@ -113,7 +113,8 @@ instance Core.AWSRequest ApplySchema where
 
 instance Prelude.Hashable ApplySchema where
   hashWithSalt _salt ApplySchema' {..} =
-    _salt `Prelude.hashWithSalt` publishedSchemaArn
+    _salt
+      `Prelude.hashWithSalt` publishedSchemaArn
       `Prelude.hashWithSalt` directoryArn
 
 instance Prelude.NFData ApplySchema where

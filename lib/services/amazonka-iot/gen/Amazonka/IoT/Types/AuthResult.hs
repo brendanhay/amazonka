@@ -109,14 +109,16 @@ instance Data.FromJSON AuthResult where
             Prelude.<*> (x Data..:? "authDecision")
             Prelude.<*> (x Data..:? "authInfo")
             Prelude.<*> (x Data..:? "denied")
-            Prelude.<*> ( x Data..:? "missingContextValues"
+            Prelude.<*> ( x
+                            Data..:? "missingContextValues"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AuthResult where
   hashWithSalt _salt AuthResult' {..} =
-    _salt `Prelude.hashWithSalt` allowed
+    _salt
+      `Prelude.hashWithSalt` allowed
       `Prelude.hashWithSalt` authDecision
       `Prelude.hashWithSalt` authInfo
       `Prelude.hashWithSalt` denied

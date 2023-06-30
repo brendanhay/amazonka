@@ -117,22 +117,22 @@ instance Core.AWSPager DescribeUserGroups where
     | Core.stop
         ( rs
             Lens.^? describeUserGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeUserGroupsResponse_userGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeUserGroups_marker
           Lens..~ rs
           Lens.^? describeUserGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUserGroups where
   type
@@ -146,7 +146,9 @@ instance Core.AWSRequest DescribeUserGroups where
       ( \s h x ->
           DescribeUserGroupsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "UserGroups" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "UserGroups"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,7 +156,8 @@ instance Core.AWSRequest DescribeUserGroups where
 
 instance Prelude.Hashable DescribeUserGroups where
   hashWithSalt _salt DescribeUserGroups' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` userGroupId
 

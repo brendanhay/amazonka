@@ -96,7 +96,7 @@ instance
       ( \s h x ->
           PutClassificationExportConfigurationResponse'
             Prelude.<$> (x Data..?> "configuration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

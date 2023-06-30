@@ -135,7 +135,8 @@ queryFilters_types = Lens.lens (\QueryFilters' {types} -> types) (\s@QueryFilter
 
 instance Prelude.Hashable QueryFilters where
   hashWithSalt _salt QueryFilters' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` lineageTypes
       `Prelude.hashWithSalt` modifiedAfter

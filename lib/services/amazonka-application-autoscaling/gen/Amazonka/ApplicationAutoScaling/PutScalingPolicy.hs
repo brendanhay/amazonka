@@ -671,7 +671,8 @@ instance Core.AWSRequest PutScalingPolicy where
 
 instance Prelude.Hashable PutScalingPolicy where
   hashWithSalt _salt PutScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyType
+    _salt
+      `Prelude.hashWithSalt` policyType
       `Prelude.hashWithSalt` stepScalingPolicyConfiguration
       `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
       `Prelude.hashWithSalt` policyName

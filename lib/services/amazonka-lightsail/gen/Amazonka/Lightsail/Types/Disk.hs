@@ -268,7 +268,8 @@ instance Data.FromJSON Disk where
 
 instance Prelude.Hashable Disk where
   hashWithSalt _salt Disk' {..} =
-    _salt `Prelude.hashWithSalt` addOns
+    _salt
+      `Prelude.hashWithSalt` addOns
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attachedTo
       `Prelude.hashWithSalt` attachmentState

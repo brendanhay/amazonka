@@ -75,7 +75,8 @@ instance Data.FromJSON S3SignedObject where
 
 instance Prelude.Hashable S3SignedObject where
   hashWithSalt _salt S3SignedObject' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData S3SignedObject where

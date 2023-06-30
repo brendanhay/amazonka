@@ -214,7 +214,8 @@ instance Data.FromJSON ResourceShareAssociation where
 
 instance Prelude.Hashable ResourceShareAssociation where
   hashWithSalt _salt ResourceShareAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associatedEntity
+    _salt
+      `Prelude.hashWithSalt` associatedEntity
       `Prelude.hashWithSalt` associationType
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` external

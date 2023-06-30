@@ -150,7 +150,8 @@ instance Data.FromJSON ElasticsearchSettings where
 
 instance Prelude.Hashable ElasticsearchSettings where
   hashWithSalt _salt ElasticsearchSettings' {..} =
-    _salt `Prelude.hashWithSalt` errorRetryDuration
+    _salt
+      `Prelude.hashWithSalt` errorRetryDuration
       `Prelude.hashWithSalt` fullLoadErrorPercentage
       `Prelude.hashWithSalt` useNewMappingType
       `Prelude.hashWithSalt` serviceAccessRoleArn

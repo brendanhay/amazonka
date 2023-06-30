@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeFraudster where
 
 instance Prelude.Hashable DescribeFraudster where
   hashWithSalt _salt DescribeFraudster' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fraudsterId
 
 instance Prelude.NFData DescribeFraudster where

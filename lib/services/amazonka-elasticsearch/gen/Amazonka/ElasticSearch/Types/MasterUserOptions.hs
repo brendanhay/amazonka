@@ -79,7 +79,8 @@ masterUserOptions_masterUserPassword = Lens.lens (\MasterUserOptions' {masterUse
 
 instance Prelude.Hashable MasterUserOptions where
   hashWithSalt _salt MasterUserOptions' {..} =
-    _salt `Prelude.hashWithSalt` masterUserARN
+    _salt
+      `Prelude.hashWithSalt` masterUserARN
       `Prelude.hashWithSalt` masterUserName
       `Prelude.hashWithSalt` masterUserPassword
 

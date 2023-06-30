@@ -94,8 +94,8 @@ data SetQueueAttributes = SetQueueAttributes'
     --     in the /Identity and Access Management User Guide/.
     --
     -- -   @ReceiveMessageWaitTimeSeconds@ – The length of time, in seconds,
-    --     for which a @ ReceiveMessage @ action waits for a message to arrive.
-    --     Valid values: An integer from 0 to 20 (seconds). Default: 0.
+    --     for which a @ @@ReceiveMessage@@ @ action waits for a message to
+    --     arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.
     --
     -- -   @RedrivePolicy@ – The string that includes the parameters for the
     --     dead-letter queue functionality of the source queue as a JSON
@@ -133,7 +133,7 @@ data SetQueueAttributes = SetQueueAttributes'
     --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms Key Terms>.
     --     While the alias of the AWS-managed CMK for Amazon SQS is always
     --     @alias\/aws\/sqs@, the alias of a custom CMK can, for example, be
-    --     @alias\/MyAlias @. For more examples, see
+    --     @alias\/@/@MyAlias@/@ @. For more examples, see
     --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
     --     in the /Key Management Service API Reference/.
     --
@@ -257,8 +257,8 @@ data SetQueueAttributes = SetQueueAttributes'
 --     in the /Identity and Access Management User Guide/.
 --
 -- -   @ReceiveMessageWaitTimeSeconds@ – The length of time, in seconds,
---     for which a @ ReceiveMessage @ action waits for a message to arrive.
---     Valid values: An integer from 0 to 20 (seconds). Default: 0.
+--     for which a @ @@ReceiveMessage@@ @ action waits for a message to
+--     arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.
 --
 -- -   @RedrivePolicy@ – The string that includes the parameters for the
 --     dead-letter queue functionality of the source queue as a JSON
@@ -296,7 +296,7 @@ data SetQueueAttributes = SetQueueAttributes'
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms Key Terms>.
 --     While the alias of the AWS-managed CMK for Amazon SQS is always
 --     @alias\/aws\/sqs@, the alias of a custom CMK can, for example, be
---     @alias\/MyAlias @. For more examples, see
+--     @alias\/@/@MyAlias@/@ @. For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
 --     in the /Key Management Service API Reference/.
 --
@@ -420,8 +420,8 @@ setQueueAttributes_queueUrl = Lens.lens (\SetQueueAttributes' {queueUrl} -> queu
 --     in the /Identity and Access Management User Guide/.
 --
 -- -   @ReceiveMessageWaitTimeSeconds@ – The length of time, in seconds,
---     for which a @ ReceiveMessage @ action waits for a message to arrive.
---     Valid values: An integer from 0 to 20 (seconds). Default: 0.
+--     for which a @ @@ReceiveMessage@@ @ action waits for a message to
+--     arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.
 --
 -- -   @RedrivePolicy@ – The string that includes the parameters for the
 --     dead-letter queue functionality of the source queue as a JSON
@@ -459,7 +459,7 @@ setQueueAttributes_queueUrl = Lens.lens (\SetQueueAttributes' {queueUrl} -> queu
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms Key Terms>.
 --     While the alias of the AWS-managed CMK for Amazon SQS is always
 --     @alias\/aws\/sqs@, the alias of a custom CMK can, for example, be
---     @alias\/MyAlias @. For more examples, see
+--     @alias\/@/@MyAlias@/@ @. For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
 --     in the /Key Management Service API Reference/.
 --
@@ -556,7 +556,8 @@ instance Core.AWSRequest SetQueueAttributes where
 
 instance Prelude.Hashable SetQueueAttributes where
   hashWithSalt _salt SetQueueAttributes' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData SetQueueAttributes where

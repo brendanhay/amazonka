@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateInputSecurityGroup where
 
 instance Prelude.Hashable UpdateInputSecurityGroup where
   hashWithSalt _salt UpdateInputSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` whitelistRules
       `Prelude.hashWithSalt` inputSecurityGroupId
 

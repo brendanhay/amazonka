@@ -109,7 +109,8 @@ instance Data.FromJSON RecommendationMetrics where
 
 instance Prelude.Hashable RecommendationMetrics where
   hashWithSalt _salt RecommendationMetrics' {..} =
-    _salt `Prelude.hashWithSalt` costPerHour
+    _salt
+      `Prelude.hashWithSalt` costPerHour
       `Prelude.hashWithSalt` costPerInference
       `Prelude.hashWithSalt` maxInvocations
       `Prelude.hashWithSalt` modelLatency

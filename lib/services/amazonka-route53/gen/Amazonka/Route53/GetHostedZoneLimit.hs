@@ -133,7 +133,8 @@ instance Core.AWSRequest GetHostedZoneLimit where
 
 instance Prelude.Hashable GetHostedZoneLimit where
   hashWithSalt _salt GetHostedZoneLimit' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` hostedZoneId
 
 instance Prelude.NFData GetHostedZoneLimit where

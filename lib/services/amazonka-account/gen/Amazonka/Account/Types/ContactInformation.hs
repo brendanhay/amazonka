@@ -205,7 +205,8 @@ instance Data.FromJSON ContactInformation where
 
 instance Prelude.Hashable ContactInformation where
   hashWithSalt _salt ContactInformation' {..} =
-    _salt `Prelude.hashWithSalt` addressLine2
+    _salt
+      `Prelude.hashWithSalt` addressLine2
       `Prelude.hashWithSalt` addressLine3
       `Prelude.hashWithSalt` companyName
       `Prelude.hashWithSalt` districtOrCounty

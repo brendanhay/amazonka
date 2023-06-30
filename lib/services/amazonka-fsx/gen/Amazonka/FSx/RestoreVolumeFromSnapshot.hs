@@ -154,7 +154,8 @@ instance Core.AWSRequest RestoreVolumeFromSnapshot where
     Response.receiveJSON
       ( \s h x ->
           RestoreVolumeFromSnapshotResponse'
-            Prelude.<$> ( x Data..?> "AdministrativeActions"
+            Prelude.<$> ( x
+                            Data..?> "AdministrativeActions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Lifecycle")
@@ -164,7 +165,8 @@ instance Core.AWSRequest RestoreVolumeFromSnapshot where
 
 instance Prelude.Hashable RestoreVolumeFromSnapshot where
   hashWithSalt _salt RestoreVolumeFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` volumeId
       `Prelude.hashWithSalt` snapshotId

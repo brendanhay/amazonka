@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateAsset where
 
 instance Prelude.Hashable UpdateAsset where
   hashWithSalt _salt UpdateAsset' {..} =
-    _salt `Prelude.hashWithSalt` assetDescription
+    _salt
+      `Prelude.hashWithSalt` assetDescription
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` assetName

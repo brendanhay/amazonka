@@ -142,7 +142,8 @@ instance Data.FromJSON Attachment where
 
 instance Prelude.Hashable Attachment where
   hashWithSalt _salt Attachment' {..} =
-    _salt `Prelude.hashWithSalt` endpointId
+    _salt
+      `Prelude.hashWithSalt` endpointId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` subnetId

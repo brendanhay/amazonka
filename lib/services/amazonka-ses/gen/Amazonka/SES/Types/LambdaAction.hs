@@ -148,7 +148,8 @@ instance Data.FromXML LambdaAction where
 
 instance Prelude.Hashable LambdaAction where
   hashWithSalt _salt LambdaAction' {..} =
-    _salt `Prelude.hashWithSalt` invocationType
+    _salt
+      `Prelude.hashWithSalt` invocationType
       `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` functionArn
 

@@ -189,7 +189,8 @@ instance Core.AWSRequest ImportTable where
 
 instance Prelude.Hashable ImportTable where
   hashWithSalt _salt ImportTable' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` inputCompressionType
       `Prelude.hashWithSalt` inputFormatOptions
       `Prelude.hashWithSalt` s3BucketSource

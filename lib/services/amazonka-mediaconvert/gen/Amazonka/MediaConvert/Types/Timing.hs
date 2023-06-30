@@ -85,7 +85,8 @@ instance Data.FromJSON Timing where
 
 instance Prelude.Hashable Timing where
   hashWithSalt _salt Timing' {..} =
-    _salt `Prelude.hashWithSalt` finishTime
+    _salt
+      `Prelude.hashWithSalt` finishTime
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` submitTime
 

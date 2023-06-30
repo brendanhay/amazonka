@@ -109,7 +109,8 @@ instance Data.FromJSON FPorts where
 
 instance Prelude.Hashable FPorts where
   hashWithSalt _salt FPorts' {..} =
-    _salt `Prelude.hashWithSalt` applications
+    _salt
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` clockSync
       `Prelude.hashWithSalt` fuota
       `Prelude.hashWithSalt` multicast

@@ -115,7 +115,8 @@ instance Core.AWSRequest RegisterMailDomain where
 
 instance Prelude.Hashable RegisterMailDomain where
   hashWithSalt _salt RegisterMailDomain' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` domainName
 

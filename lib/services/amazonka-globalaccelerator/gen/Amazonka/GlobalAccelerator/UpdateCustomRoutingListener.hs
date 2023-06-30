@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateCustomRoutingListener where
 
 instance Prelude.Hashable UpdateCustomRoutingListener where
   hashWithSalt _salt UpdateCustomRoutingListener' {..} =
-    _salt `Prelude.hashWithSalt` listenerArn
+    _salt
+      `Prelude.hashWithSalt` listenerArn
       `Prelude.hashWithSalt` portRanges
 
 instance Prelude.NFData UpdateCustomRoutingListener where

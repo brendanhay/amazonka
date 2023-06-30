@@ -74,7 +74,7 @@ instance
       ( \s h x ->
           DisassociateServiceRoleFromAccountResponse'
             Prelude.<$> (x Data..?> "DisassociatedAt")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

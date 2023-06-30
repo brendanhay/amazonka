@@ -66,11 +66,13 @@ totalLocalStorageGBRequest_min = Lens.lens (\TotalLocalStorageGBRequest' {min} -
 instance Data.FromXML TotalLocalStorageGBRequest where
   parseXML x =
     TotalLocalStorageGBRequest'
-      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
+      Prelude.<$> (x Data..@? "Max")
+      Prelude.<*> (x Data..@? "Min")
 
 instance Prelude.Hashable TotalLocalStorageGBRequest where
   hashWithSalt _salt TotalLocalStorageGBRequest' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData TotalLocalStorageGBRequest where

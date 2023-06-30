@@ -81,7 +81,8 @@ instance
   hashWithSalt
     _salt
     CapacityReservationTargetResponse' {..} =
-      _salt `Prelude.hashWithSalt` capacityReservationId
+      _salt
+        `Prelude.hashWithSalt` capacityReservationId
         `Prelude.hashWithSalt` capacityReservationResourceGroupArn
 
 instance

@@ -76,7 +76,8 @@ agentFilter_agentHealthCodes = Lens.lens (\AgentFilter' {agentHealthCodes} -> ag
 
 instance Prelude.Hashable AgentFilter where
   hashWithSalt _salt AgentFilter' {..} =
-    _salt `Prelude.hashWithSalt` agentHealths
+    _salt
+      `Prelude.hashWithSalt` agentHealths
       `Prelude.hashWithSalt` agentHealthCodes
 
 instance Prelude.NFData AgentFilter where

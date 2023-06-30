@@ -82,7 +82,8 @@ endpointRequest_containerPort = Lens.lens (\EndpointRequest' {containerPort} -> 
 
 instance Prelude.Hashable EndpointRequest where
   hashWithSalt _salt EndpointRequest' {..} =
-    _salt `Prelude.hashWithSalt` healthCheck
+    _salt
+      `Prelude.hashWithSalt` healthCheck
       `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` containerPort
 

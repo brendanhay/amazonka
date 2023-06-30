@@ -146,7 +146,8 @@ instance Core.AWSRequest RetryStageExecution where
 
 instance Prelude.Hashable RetryStageExecution where
   hashWithSalt _salt RetryStageExecution' {..} =
-    _salt `Prelude.hashWithSalt` pipelineName
+    _salt
+      `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` pipelineExecutionId
       `Prelude.hashWithSalt` retryMode

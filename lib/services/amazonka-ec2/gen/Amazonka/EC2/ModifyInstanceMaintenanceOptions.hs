@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     ModifyInstanceMaintenanceOptions' {..} =
-      _salt `Prelude.hashWithSalt` autoRecovery
+      _salt
+        `Prelude.hashWithSalt` autoRecovery
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` instanceId
 

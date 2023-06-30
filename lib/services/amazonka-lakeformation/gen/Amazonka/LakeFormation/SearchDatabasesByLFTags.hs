@@ -135,22 +135,22 @@ instance Core.AWSPager SearchDatabasesByLFTags where
     | Core.stop
         ( rs
             Lens.^? searchDatabasesByLFTagsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchDatabasesByLFTagsResponse_databaseList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchDatabasesByLFTags_nextToken
           Lens..~ rs
           Lens.^? searchDatabasesByLFTagsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchDatabasesByLFTags where
   type
@@ -169,7 +169,8 @@ instance Core.AWSRequest SearchDatabasesByLFTags where
 
 instance Prelude.Hashable SearchDatabasesByLFTags where
   hashWithSalt _salt SearchDatabasesByLFTags' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` expression

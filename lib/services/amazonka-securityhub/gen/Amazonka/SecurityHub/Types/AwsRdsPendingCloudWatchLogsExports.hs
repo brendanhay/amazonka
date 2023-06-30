@@ -72,10 +72,12 @@ instance
       "AwsRdsPendingCloudWatchLogsExports"
       ( \x ->
           AwsRdsPendingCloudWatchLogsExports'
-            Prelude.<$> ( x Data..:? "LogTypesToDisable"
+            Prelude.<$> ( x
+                            Data..:? "LogTypesToDisable"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "LogTypesToEnable"
+            Prelude.<*> ( x
+                            Data..:? "LogTypesToEnable"
                             Data..!= Prelude.mempty
                         )
       )
@@ -87,7 +89,8 @@ instance
   hashWithSalt
     _salt
     AwsRdsPendingCloudWatchLogsExports' {..} =
-      _salt `Prelude.hashWithSalt` logTypesToDisable
+      _salt
+        `Prelude.hashWithSalt` logTypesToDisable
         `Prelude.hashWithSalt` logTypesToEnable
 
 instance

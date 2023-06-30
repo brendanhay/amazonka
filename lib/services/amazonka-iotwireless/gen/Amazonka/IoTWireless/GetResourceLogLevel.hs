@@ -111,7 +111,8 @@ instance Core.AWSRequest GetResourceLogLevel where
 
 instance Prelude.Hashable GetResourceLogLevel where
   hashWithSalt _salt GetResourceLogLevel' {..} =
-    _salt `Prelude.hashWithSalt` resourceIdentifier
+    _salt
+      `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData GetResourceLogLevel where

@@ -97,7 +97,8 @@ availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName
 instance Data.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      Prelude.<$> ( x Data..@? "LoadBalancerAddresses"
+      Prelude.<$> ( x
+                      Data..@? "LoadBalancerAddresses"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -107,7 +108,8 @@ instance Data.FromXML AvailabilityZone where
 
 instance Prelude.Hashable AvailabilityZone where
   hashWithSalt _salt AvailabilityZone' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerAddresses
+    _salt
+      `Prelude.hashWithSalt` loadBalancerAddresses
       `Prelude.hashWithSalt` outpostId
       `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` zoneName

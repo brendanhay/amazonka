@@ -123,7 +123,8 @@ instance Core.AWSRequest GetCampaignVersion where
 
 instance Prelude.Hashable GetCampaignVersion where
   hashWithSalt _salt GetCampaignVersion' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` campaignId
 

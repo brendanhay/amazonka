@@ -185,7 +185,8 @@ instance Data.FromJSON Rule where
           Rule'
             Prelude.<$> (x Data..:? "ColumnSelectors")
             Prelude.<*> (x Data..:? "Disabled")
-            Prelude.<*> ( x Data..:? "SubstitutionMap"
+            Prelude.<*> ( x
+                            Data..:? "SubstitutionMap"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Threshold")
@@ -195,7 +196,8 @@ instance Data.FromJSON Rule where
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` columnSelectors
+    _salt
+      `Prelude.hashWithSalt` columnSelectors
       `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` substitutionMap
       `Prelude.hashWithSalt` threshold

@@ -156,7 +156,8 @@ instance Core.AWSRequest GetUserPolicy where
 
 instance Prelude.Hashable GetUserPolicy where
   hashWithSalt _salt GetUserPolicy' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData GetUserPolicy where

@@ -78,7 +78,8 @@ instance
     KnowledgeBaseAssociationData
   where
   hashWithSalt _salt KnowledgeBaseAssociationData' {..} =
-    _salt `Prelude.hashWithSalt` knowledgeBaseArn
+    _salt
+      `Prelude.hashWithSalt` knowledgeBaseArn
       `Prelude.hashWithSalt` knowledgeBaseId
 
 instance Prelude.NFData KnowledgeBaseAssociationData where

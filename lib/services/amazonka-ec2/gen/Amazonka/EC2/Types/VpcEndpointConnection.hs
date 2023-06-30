@@ -159,20 +159,26 @@ instance Data.FromXML VpcEndpointConnection where
   parseXML x =
     VpcEndpointConnection'
       Prelude.<$> (x Data..@? "creationTimestamp")
-      Prelude.<*> ( x Data..@? "dnsEntrySet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "dnsEntrySet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "gatewayLoadBalancerArnSet"
+      Prelude.<*> ( x
+                      Data..@? "gatewayLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipAddressType")
-      Prelude.<*> ( x Data..@? "networkLoadBalancerArnSet"
+      Prelude.<*> ( x
+                      Data..@? "networkLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "serviceId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcEndpointConnectionId")
@@ -182,7 +188,8 @@ instance Data.FromXML VpcEndpointConnection where
 
 instance Prelude.Hashable VpcEndpointConnection where
   hashWithSalt _salt VpcEndpointConnection' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` dnsEntries
       `Prelude.hashWithSalt` gatewayLoadBalancerArns
       `Prelude.hashWithSalt` ipAddressType

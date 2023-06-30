@@ -80,7 +80,8 @@ instance Data.FromJSON ActionThreshold where
 
 instance Prelude.Hashable ActionThreshold where
   hashWithSalt _salt ActionThreshold' {..} =
-    _salt `Prelude.hashWithSalt` actionThresholdValue
+    _salt
+      `Prelude.hashWithSalt` actionThresholdValue
       `Prelude.hashWithSalt` actionThresholdType
 
 instance Prelude.NFData ActionThreshold where

@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateSnapshot where
 
 instance Prelude.Hashable UpdateSnapshot where
   hashWithSalt _salt UpdateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` snapshotId
 

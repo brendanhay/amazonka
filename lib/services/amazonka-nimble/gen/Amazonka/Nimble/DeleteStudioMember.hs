@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteStudioMember where
 
 instance Prelude.Hashable DeleteStudioMember where
   hashWithSalt _salt DeleteStudioMember' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` studioId
 

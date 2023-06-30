@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     RecommendationJobStoppingConditions' {..} =
-      _salt `Prelude.hashWithSalt` maxInvocations
+      _salt
+        `Prelude.hashWithSalt` maxInvocations
         `Prelude.hashWithSalt` modelLatencyThresholds
 
 instance

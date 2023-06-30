@@ -113,7 +113,8 @@ instance Data.FromXML DataShare where
     DataShare'
       Prelude.<$> (x Data..@? "AllowPubliclyAccessibleConsumers")
       Prelude.<*> (x Data..@? "DataShareArn")
-      Prelude.<*> ( x Data..@? "DataShareAssociations"
+      Prelude.<*> ( x
+                      Data..@? "DataShareAssociations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )

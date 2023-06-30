@@ -98,7 +98,8 @@ instance Core.AWSRequest DeactivateUser where
 
 instance Prelude.Hashable DeactivateUser where
   hashWithSalt _salt DeactivateUser' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData DeactivateUser where

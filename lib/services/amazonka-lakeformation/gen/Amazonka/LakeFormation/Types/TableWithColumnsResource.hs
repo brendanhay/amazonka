@@ -138,7 +138,8 @@ instance Data.FromJSON TableWithColumnsResource where
 
 instance Prelude.Hashable TableWithColumnsResource where
   hashWithSalt _salt TableWithColumnsResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` columnNames
       `Prelude.hashWithSalt` columnWildcard
       `Prelude.hashWithSalt` databaseName

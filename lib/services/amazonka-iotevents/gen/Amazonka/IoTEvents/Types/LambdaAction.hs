@@ -81,7 +81,8 @@ instance Data.FromJSON LambdaAction where
 
 instance Prelude.Hashable LambdaAction where
   hashWithSalt _salt LambdaAction' {..} =
-    _salt `Prelude.hashWithSalt` payload
+    _salt
+      `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` functionArn
 
 instance Prelude.NFData LambdaAction where

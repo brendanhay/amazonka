@@ -77,7 +77,8 @@ instance Data.FromJSON SlateSource where
 
 instance Prelude.Hashable SlateSource where
   hashWithSalt _salt SlateSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceLocationName
+    _salt
+      `Prelude.hashWithSalt` sourceLocationName
       `Prelude.hashWithSalt` vodSourceName
 
 instance Prelude.NFData SlateSource where

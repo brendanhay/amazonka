@@ -132,7 +132,8 @@ instance Core.AWSRequest PutRetentionPolicy where
 
 instance Prelude.Hashable PutRetentionPolicy where
   hashWithSalt _salt PutRetentionPolicy' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` name

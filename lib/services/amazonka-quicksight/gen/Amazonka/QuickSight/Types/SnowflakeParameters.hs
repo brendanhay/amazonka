@@ -90,7 +90,8 @@ instance Data.FromJSON SnowflakeParameters where
 
 instance Prelude.Hashable SnowflakeParameters where
   hashWithSalt _salt SnowflakeParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` warehouse
 

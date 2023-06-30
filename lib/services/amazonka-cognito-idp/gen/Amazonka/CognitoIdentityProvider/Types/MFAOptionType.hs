@@ -83,7 +83,8 @@ instance Data.FromJSON MFAOptionType where
 
 instance Prelude.Hashable MFAOptionType where
   hashWithSalt _salt MFAOptionType' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` deliveryMedium
 
 instance Prelude.NFData MFAOptionType where

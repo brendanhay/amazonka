@@ -225,7 +225,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionDetails' {..} =
-      _salt `Prelude.hashWithSalt` cacheBehaviors
+      _salt
+        `Prelude.hashWithSalt` cacheBehaviors
         `Prelude.hashWithSalt` defaultCacheBehavior
         `Prelude.hashWithSalt` defaultRootObject
         `Prelude.hashWithSalt` domainName

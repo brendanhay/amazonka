@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     VirtualGatewayListenerTlsFileCertificate' {..} =
-      _salt `Prelude.hashWithSalt` certificateChain
+      _salt
+        `Prelude.hashWithSalt` certificateChain
         `Prelude.hashWithSalt` privateKey
 
 instance

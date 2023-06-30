@@ -134,7 +134,8 @@ instance Core.AWSRequest AssociateConnectPeer where
 
 instance Prelude.Hashable AssociateConnectPeer where
   hashWithSalt _salt AssociateConnectPeer' {..} =
-    _salt `Prelude.hashWithSalt` linkId
+    _salt
+      `Prelude.hashWithSalt` linkId
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` connectPeerId
       `Prelude.hashWithSalt` deviceId

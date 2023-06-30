@@ -103,7 +103,8 @@ instance
     AutoScalingPolicyDescription
   where
   hashWithSalt _salt AutoScalingPolicyDescription' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` status
 

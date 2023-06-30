@@ -117,7 +117,8 @@ instance Core.AWSRequest RebootInputDevice' where
 
 instance Prelude.Hashable RebootInputDevice' where
   hashWithSalt _salt RebootInputDevice'' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` inputDeviceId
 
 instance Prelude.NFData RebootInputDevice' where

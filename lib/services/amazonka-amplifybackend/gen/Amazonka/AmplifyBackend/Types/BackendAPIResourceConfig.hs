@@ -123,7 +123,8 @@ instance Data.FromJSON BackendAPIResourceConfig where
       "BackendAPIResourceConfig"
       ( \x ->
           BackendAPIResourceConfig'
-            Prelude.<$> ( x Data..:? "additionalAuthTypes"
+            Prelude.<$> ( x
+                            Data..:? "additionalAuthTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "apiName")
@@ -135,7 +136,8 @@ instance Data.FromJSON BackendAPIResourceConfig where
 
 instance Prelude.Hashable BackendAPIResourceConfig where
   hashWithSalt _salt BackendAPIResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` additionalAuthTypes
+    _salt
+      `Prelude.hashWithSalt` additionalAuthTypes
       `Prelude.hashWithSalt` apiName
       `Prelude.hashWithSalt` conflictResolution
       `Prelude.hashWithSalt` defaultAuthType

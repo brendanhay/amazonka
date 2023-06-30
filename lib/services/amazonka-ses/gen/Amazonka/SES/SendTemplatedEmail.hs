@@ -448,7 +448,8 @@ instance Core.AWSRequest SendTemplatedEmail where
 
 instance Prelude.Hashable SendTemplatedEmail where
   hashWithSalt _salt SendTemplatedEmail' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` replyToAddresses
       `Prelude.hashWithSalt` returnPath
       `Prelude.hashWithSalt` returnPathArn

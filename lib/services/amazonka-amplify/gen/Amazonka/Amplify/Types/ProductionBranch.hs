@@ -94,7 +94,8 @@ instance Data.FromJSON ProductionBranch where
 
 instance Prelude.Hashable ProductionBranch where
   hashWithSalt _salt ProductionBranch' {..} =
-    _salt `Prelude.hashWithSalt` branchName
+    _salt
+      `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` lastDeployTime
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` thumbnailUrl

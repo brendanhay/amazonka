@@ -82,7 +82,8 @@ instance Data.FromJSON RegistrySummary where
 
 instance Prelude.Hashable RegistrySummary where
   hashWithSalt _salt RegistrySummary' {..} =
-    _salt `Prelude.hashWithSalt` registryArn
+    _salt
+      `Prelude.hashWithSalt` registryArn
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` tags
 

@@ -78,7 +78,8 @@ instance Data.FromJSON StorageType where
       ( \x ->
           StorageType'
             Prelude.<$> (x Data..:? "StorageSubTypeName")
-            Prelude.<*> ( x Data..:? "StorageTypeLimits"
+            Prelude.<*> ( x
+                            Data..:? "StorageTypeLimits"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StorageTypeName")
@@ -86,7 +87,8 @@ instance Data.FromJSON StorageType where
 
 instance Prelude.Hashable StorageType where
   hashWithSalt _salt StorageType' {..} =
-    _salt `Prelude.hashWithSalt` storageSubTypeName
+    _salt
+      `Prelude.hashWithSalt` storageSubTypeName
       `Prelude.hashWithSalt` storageTypeLimits
       `Prelude.hashWithSalt` storageTypeName
 

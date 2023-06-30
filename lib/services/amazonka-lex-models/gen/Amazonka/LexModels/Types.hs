@@ -430,53 +430,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Your IAM user or role does not have permission to call the Amazon Lex V2
 -- APIs required to migrate your bot.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -485,7 +485,7 @@ _AccessDeniedException =
 
 -- | The request is not well formed. For example, a value is invalid or a
 -- required field is missing. Check the field values, and try again.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -493,7 +493,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | There was a conflict processing the request. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -501,7 +501,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An internal Amazon Lex error occurred. Try your request again.
-_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -509,7 +509,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The request exceeded a limit. Try your request again.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -518,7 +518,7 @@ _LimitExceededException =
 
 -- | The resource specified in the request was not found. Check the resource
 -- and try again.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -528,7 +528,7 @@ _NotFoundException =
 -- | The checksum of the resource that you are trying to change does not
 -- match the checksum in the request. Check the resource\'s checksum and
 -- try again.
-_PreconditionFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PreconditionFailedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PreconditionFailedException =
   Core._MatchServiceError
     defaultService
@@ -546,8 +546,8 @@ _PreconditionFailedException =
 --
 -- @\"resourceReference\": {@
 --
--- @\"name\": string, \"version\": string } }@
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- @\"name\": @/@string@/@, \"version\": @/@string@/@ } }@
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService

@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteIPSet where
 
 instance Prelude.Hashable DeleteIPSet where
   hashWithSalt _salt DeleteIPSet' {..} =
-    _salt `Prelude.hashWithSalt` iPSetId
+    _salt
+      `Prelude.hashWithSalt` iPSetId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteIPSet where

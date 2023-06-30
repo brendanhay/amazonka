@@ -138,7 +138,8 @@ instance Data.FromJSON RegexPatternSetSummary where
 
 instance Prelude.Hashable RegexPatternSetSummary where
   hashWithSalt _salt RegexPatternSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lockToken

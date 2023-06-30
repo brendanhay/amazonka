@@ -104,7 +104,8 @@ instance Data.FromJSON OpsMetadata where
 
 instance Prelude.Hashable OpsMetadata where
   hashWithSalt _salt OpsMetadata' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` lastModifiedUser
       `Prelude.hashWithSalt` opsMetadataArn

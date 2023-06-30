@@ -79,7 +79,8 @@ instance Data.FromJSON TooltipItem where
 
 instance Prelude.Hashable TooltipItem where
   hashWithSalt _salt TooltipItem' {..} =
-    _salt `Prelude.hashWithSalt` columnTooltipItem
+    _salt
+      `Prelude.hashWithSalt` columnTooltipItem
       `Prelude.hashWithSalt` fieldTooltipItem
 
 instance Prelude.NFData TooltipItem where

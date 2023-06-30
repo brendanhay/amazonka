@@ -101,7 +101,8 @@ instance Data.FromJSON DeleteStepDetails where
 
 instance Prelude.Hashable DeleteStepDetails where
   hashWithSalt _salt DeleteStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceFileLocation
 
 instance Prelude.NFData DeleteStepDetails where

@@ -131,7 +131,8 @@ instance Core.AWSRequest DeleteMessage where
 
 instance Prelude.Hashable DeleteMessage where
   hashWithSalt _salt DeleteMessage' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` roomIdentifier
 

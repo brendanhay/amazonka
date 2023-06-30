@@ -89,7 +89,8 @@ instance Data.FromXML InstanceCapacity where
 
 instance Prelude.Hashable InstanceCapacity where
   hashWithSalt _salt InstanceCapacity' {..} =
-    _salt `Prelude.hashWithSalt` availableCapacity
+    _salt
+      `Prelude.hashWithSalt` availableCapacity
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` totalCapacity
 

@@ -136,7 +136,8 @@ instance Core.AWSRequest DeleteIdentityPolicy where
 
 instance Prelude.Hashable DeleteIdentityPolicy where
   hashWithSalt _salt DeleteIdentityPolicy' {..} =
-    _salt `Prelude.hashWithSalt` identity
+    _salt
+      `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData DeleteIdentityPolicy where

@@ -224,7 +224,8 @@ instance Data.FromJSON Transport where
 
 instance Prelude.Hashable Transport where
   hashWithSalt _salt Transport' {..} =
-    _salt `Prelude.hashWithSalt` cidrAllowList
+    _salt
+      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` maxBitrate
       `Prelude.hashWithSalt` maxLatency
       `Prelude.hashWithSalt` maxSyncBuffer

@@ -71,7 +71,8 @@ instance
   hashWithSalt
     _salt
     ListVpcIngressConnectionsFilter' {..} =
-      _salt `Prelude.hashWithSalt` serviceArn
+      _salt
+        `Prelude.hashWithSalt` serviceArn
         `Prelude.hashWithSalt` vpcEndpointId
 
 instance

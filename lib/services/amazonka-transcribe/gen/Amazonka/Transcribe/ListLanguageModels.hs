@@ -157,7 +157,8 @@ instance Core.AWSRequest ListLanguageModels where
 
 instance Prelude.Hashable ListLanguageModels where
   hashWithSalt _salt ListLanguageModels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` statusEquals

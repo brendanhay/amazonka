@@ -84,7 +84,8 @@ instance Data.FromJSON TimeBasedLinear where
 
 instance Prelude.Hashable TimeBasedLinear where
   hashWithSalt _salt TimeBasedLinear' {..} =
-    _salt `Prelude.hashWithSalt` linearInterval
+    _salt
+      `Prelude.hashWithSalt` linearInterval
       `Prelude.hashWithSalt` linearPercentage
 
 instance Prelude.NFData TimeBasedLinear where

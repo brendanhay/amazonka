@@ -127,7 +127,8 @@ instance Data.FromJSON ProductionVariantStatus where
 
 instance Prelude.Hashable ProductionVariantStatus where
   hashWithSalt _salt ProductionVariantStatus' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` status
 

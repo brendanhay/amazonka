@@ -136,7 +136,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListJournalS3ExportsForLedgerResponse'
-            Prelude.<$> ( x Data..?> "JournalS3Exports"
+            Prelude.<$> ( x
+                            Data..?> "JournalS3Exports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -148,7 +149,8 @@ instance
     ListJournalS3ExportsForLedger
   where
   hashWithSalt _salt ListJournalS3ExportsForLedger' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 

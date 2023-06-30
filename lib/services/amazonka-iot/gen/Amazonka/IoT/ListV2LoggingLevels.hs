@@ -115,22 +115,22 @@ instance Core.AWSPager ListV2LoggingLevels where
     | Core.stop
         ( rs
             Lens.^? listV2LoggingLevelsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listV2LoggingLevelsResponse_logTargetConfigurations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listV2LoggingLevels_nextToken
           Lens..~ rs
           Lens.^? listV2LoggingLevelsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListV2LoggingLevels where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest ListV2LoggingLevels where
     Response.receiveJSON
       ( \s h x ->
           ListV2LoggingLevelsResponse'
-            Prelude.<$> ( x Data..?> "logTargetConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "logTargetConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -151,7 +152,8 @@ instance Core.AWSRequest ListV2LoggingLevels where
 
 instance Prelude.Hashable ListV2LoggingLevels where
   hashWithSalt _salt ListV2LoggingLevels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` targetType
 

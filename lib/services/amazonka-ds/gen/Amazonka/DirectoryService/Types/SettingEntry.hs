@@ -168,7 +168,8 @@ instance Data.FromJSON SettingEntry where
             Prelude.<*> (x Data..:? "LastRequestedDateTime")
             Prelude.<*> (x Data..:? "LastUpdatedDateTime")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "RequestDetailedStatus"
+            Prelude.<*> ( x
+                            Data..:? "RequestDetailedStatus"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RequestStatus")
@@ -179,7 +180,8 @@ instance Data.FromJSON SettingEntry where
 
 instance Prelude.Hashable SettingEntry where
   hashWithSalt _salt SettingEntry' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` appliedValue
       `Prelude.hashWithSalt` lastRequestedDateTime
       `Prelude.hashWithSalt` lastUpdatedDateTime

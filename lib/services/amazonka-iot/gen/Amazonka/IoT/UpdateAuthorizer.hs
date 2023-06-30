@@ -155,7 +155,8 @@ instance Core.AWSRequest UpdateAuthorizer where
 
 instance Prelude.Hashable UpdateAuthorizer where
   hashWithSalt _salt UpdateAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` authorizerFunctionArn
+    _salt
+      `Prelude.hashWithSalt` authorizerFunctionArn
       `Prelude.hashWithSalt` enableCachingForHttp
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tokenKeyName

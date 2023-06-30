@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     DeleteQuerySuggestionsBlockList' {..} =
-      _salt `Prelude.hashWithSalt` indexId
+      _salt
+        `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` id
 
 instance

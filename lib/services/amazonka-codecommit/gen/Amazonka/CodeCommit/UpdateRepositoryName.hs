@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateRepositoryName where
 
 instance Prelude.Hashable UpdateRepositoryName where
   hashWithSalt _salt UpdateRepositoryName' {..} =
-    _salt `Prelude.hashWithSalt` oldName
+    _salt
+      `Prelude.hashWithSalt` oldName
       `Prelude.hashWithSalt` newName'
 
 instance Prelude.NFData UpdateRepositoryName where

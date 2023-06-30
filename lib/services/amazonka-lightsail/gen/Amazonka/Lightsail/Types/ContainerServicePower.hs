@@ -121,7 +121,8 @@ instance Data.FromJSON ContainerServicePower where
 
 instance Prelude.Hashable ContainerServicePower where
   hashWithSalt _salt ContainerServicePower' {..} =
-    _salt `Prelude.hashWithSalt` cpuCount
+    _salt
+      `Prelude.hashWithSalt` cpuCount
       `Prelude.hashWithSalt` isActive
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` powerId

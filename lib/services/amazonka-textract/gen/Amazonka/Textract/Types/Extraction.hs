@@ -89,7 +89,8 @@ instance Data.FromJSON Extraction where
 
 instance Prelude.Hashable Extraction where
   hashWithSalt _salt Extraction' {..} =
-    _salt `Prelude.hashWithSalt` expenseDocument
+    _salt
+      `Prelude.hashWithSalt` expenseDocument
       `Prelude.hashWithSalt` identityDocument
       `Prelude.hashWithSalt` lendingDocument
 

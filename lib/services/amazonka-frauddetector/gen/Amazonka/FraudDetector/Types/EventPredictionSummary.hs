@@ -115,7 +115,8 @@ instance Data.FromJSON EventPredictionSummary where
 
 instance Prelude.Hashable EventPredictionSummary where
   hashWithSalt _salt EventPredictionSummary' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` detectorVersionId
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTimestamp

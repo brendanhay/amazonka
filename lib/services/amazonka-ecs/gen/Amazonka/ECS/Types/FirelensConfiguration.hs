@@ -110,7 +110,8 @@ instance Data.FromJSON FirelensConfiguration where
 
 instance Prelude.Hashable FirelensConfiguration where
   hashWithSalt _salt FirelensConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData FirelensConfiguration where

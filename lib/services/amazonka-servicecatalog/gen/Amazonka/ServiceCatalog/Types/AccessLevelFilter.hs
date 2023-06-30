@@ -89,7 +89,8 @@ accessLevelFilter_value = Lens.lens (\AccessLevelFilter' {value} -> value) (\s@A
 
 instance Prelude.Hashable AccessLevelFilter where
   hashWithSalt _salt AccessLevelFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AccessLevelFilter where

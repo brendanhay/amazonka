@@ -124,7 +124,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayPrefixListReference' {..} =
-      _salt `Prelude.hashWithSalt` blackhole
+      _salt
+        `Prelude.hashWithSalt` blackhole
         `Prelude.hashWithSalt` prefixListId
         `Prelude.hashWithSalt` prefixListOwnerId
         `Prelude.hashWithSalt` state

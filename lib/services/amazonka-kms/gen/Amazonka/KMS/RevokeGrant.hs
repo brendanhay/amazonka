@@ -168,7 +168,8 @@ instance Core.AWSRequest RevokeGrant where
 
 instance Prelude.Hashable RevokeGrant where
   hashWithSalt _salt RevokeGrant' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` grantId
 
 instance Prelude.NFData RevokeGrant where

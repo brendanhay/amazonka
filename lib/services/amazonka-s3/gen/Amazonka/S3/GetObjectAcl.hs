@@ -194,7 +194,8 @@ instance Core.AWSRequest GetObjectAcl where
     Response.receiveXML
       ( \s h x ->
           GetObjectAclResponse'
-            Prelude.<$> ( x Data..@? "AccessControlList"
+            Prelude.<$> ( x
+                            Data..@? "AccessControlList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Grant")
                         )
@@ -205,7 +206,8 @@ instance Core.AWSRequest GetObjectAcl where
 
 instance Prelude.Hashable GetObjectAcl where
   hashWithSalt _salt GetObjectAcl' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket

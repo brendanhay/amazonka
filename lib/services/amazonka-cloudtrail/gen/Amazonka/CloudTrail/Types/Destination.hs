@@ -82,7 +82,8 @@ instance Data.FromJSON Destination where
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData Destination where

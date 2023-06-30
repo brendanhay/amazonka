@@ -235,7 +235,7 @@ instance
       ( \s h x ->
           ModifyVpcEndpointServiceConfigurationResponse'
             Prelude.<$> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -245,7 +245,8 @@ instance
   hashWithSalt
     _salt
     ModifyVpcEndpointServiceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` acceptanceRequired
+      _salt
+        `Prelude.hashWithSalt` acceptanceRequired
         `Prelude.hashWithSalt` addGatewayLoadBalancerArns
         `Prelude.hashWithSalt` addNetworkLoadBalancerArns
         `Prelude.hashWithSalt` addSupportedIpAddressTypes

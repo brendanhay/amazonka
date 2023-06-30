@@ -137,7 +137,8 @@ instance Core.AWSRequest DescribeTimeSeries where
 
 instance Prelude.Hashable DescribeTimeSeries where
   hashWithSalt _salt DescribeTimeSeries' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` propertyId
 

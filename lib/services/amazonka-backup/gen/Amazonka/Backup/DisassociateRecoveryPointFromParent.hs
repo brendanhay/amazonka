@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     DisassociateRecoveryPointFromParent' {..} =
-      _salt `Prelude.hashWithSalt` backupVaultName
+      _salt
+        `Prelude.hashWithSalt` backupVaultName
         `Prelude.hashWithSalt` recoveryPointArn
 
 instance

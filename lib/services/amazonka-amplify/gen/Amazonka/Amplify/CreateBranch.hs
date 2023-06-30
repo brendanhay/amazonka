@@ -292,7 +292,8 @@ instance Core.AWSRequest CreateBranch where
 
 instance Prelude.Hashable CreateBranch where
   hashWithSalt _salt CreateBranch' {..} =
-    _salt `Prelude.hashWithSalt` backendEnvironmentArn
+    _salt
+      `Prelude.hashWithSalt` backendEnvironmentArn
       `Prelude.hashWithSalt` basicAuthCredentials
       `Prelude.hashWithSalt` buildSpec
       `Prelude.hashWithSalt` description

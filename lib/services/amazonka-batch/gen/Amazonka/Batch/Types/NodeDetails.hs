@@ -83,7 +83,8 @@ instance Data.FromJSON NodeDetails where
 
 instance Prelude.Hashable NodeDetails where
   hashWithSalt _salt NodeDetails' {..} =
-    _salt `Prelude.hashWithSalt` isMainNode
+    _salt
+      `Prelude.hashWithSalt` isMainNode
       `Prelude.hashWithSalt` nodeIndex
 
 instance Prelude.NFData NodeDetails where

@@ -82,7 +82,8 @@ instance Data.FromJSON FailedEntity where
 
 instance Prelude.Hashable FailedEntity where
   hashWithSalt _salt FailedEntity' {..} =
-    _salt `Prelude.hashWithSalt` entityId
+    _salt
+      `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData FailedEntity where

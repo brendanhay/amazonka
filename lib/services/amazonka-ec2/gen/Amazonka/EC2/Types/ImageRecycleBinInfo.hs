@@ -104,7 +104,8 @@ instance Data.FromXML ImageRecycleBinInfo where
 
 instance Prelude.Hashable ImageRecycleBinInfo where
   hashWithSalt _salt ImageRecycleBinInfo' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recycleBinEnterTime

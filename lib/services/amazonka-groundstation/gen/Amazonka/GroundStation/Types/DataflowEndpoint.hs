@@ -96,7 +96,8 @@ instance Data.FromJSON DataflowEndpoint where
 
 instance Prelude.Hashable DataflowEndpoint where
   hashWithSalt _salt DataflowEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` mtu
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

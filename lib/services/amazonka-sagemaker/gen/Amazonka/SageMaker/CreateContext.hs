@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateContext where
 
 instance Prelude.Hashable CreateContext where
   hashWithSalt _salt CreateContext' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` contextName

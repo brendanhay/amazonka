@@ -227,7 +227,8 @@ instance Data.FromJSON LoRaWANDeviceProfile where
           LoRaWANDeviceProfile'
             Prelude.<$> (x Data..:? "ClassBTimeout")
             Prelude.<*> (x Data..:? "ClassCTimeout")
-            Prelude.<*> ( x Data..:? "FactoryPresetFreqsList"
+            Prelude.<*> ( x
+                            Data..:? "FactoryPresetFreqsList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MacVersion")
@@ -250,7 +251,8 @@ instance Data.FromJSON LoRaWANDeviceProfile where
 
 instance Prelude.Hashable LoRaWANDeviceProfile where
   hashWithSalt _salt LoRaWANDeviceProfile' {..} =
-    _salt `Prelude.hashWithSalt` classBTimeout
+    _salt
+      `Prelude.hashWithSalt` classBTimeout
       `Prelude.hashWithSalt` classCTimeout
       `Prelude.hashWithSalt` factoryPresetFreqsList
       `Prelude.hashWithSalt` macVersion

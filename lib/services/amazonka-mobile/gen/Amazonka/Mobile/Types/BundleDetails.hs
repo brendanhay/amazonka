@@ -100,7 +100,8 @@ instance Data.FromJSON BundleDetails where
       "BundleDetails"
       ( \x ->
           BundleDetails'
-            Prelude.<$> ( x Data..:? "availablePlatforms"
+            Prelude.<$> ( x
+                            Data..:? "availablePlatforms"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "bundleId")
@@ -112,7 +113,8 @@ instance Data.FromJSON BundleDetails where
 
 instance Prelude.Hashable BundleDetails where
   hashWithSalt _salt BundleDetails' {..} =
-    _salt `Prelude.hashWithSalt` availablePlatforms
+    _salt
+      `Prelude.hashWithSalt` availablePlatforms
       `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` iconUrl

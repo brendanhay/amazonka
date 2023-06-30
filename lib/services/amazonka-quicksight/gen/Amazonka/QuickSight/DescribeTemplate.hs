@@ -147,7 +147,8 @@ instance Core.AWSRequest DescribeTemplate where
 
 instance Prelude.Hashable DescribeTemplate where
   hashWithSalt _salt DescribeTemplate' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId

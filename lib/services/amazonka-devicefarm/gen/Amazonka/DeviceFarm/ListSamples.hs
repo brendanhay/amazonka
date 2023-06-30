@@ -101,20 +101,23 @@ instance Core.AWSPager ListSamples where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listSamplesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listSamplesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listSamplesResponse_samples Prelude.. Lens._Just
+            Lens.^? listSamplesResponse_samples
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSamples_nextToken
           Lens..~ rs
-          Lens.^? listSamplesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSamplesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSamples where
   type AWSResponse ListSamples = ListSamplesResponse
@@ -131,7 +134,8 @@ instance Core.AWSRequest ListSamples where
 
 instance Prelude.Hashable ListSamples where
   hashWithSalt _salt ListSamples' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListSamples where

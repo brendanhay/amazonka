@@ -117,7 +117,7 @@ instance
       ( \s h x ->
           DisableIpamOrganizationAdminAccountResponse'
             Prelude.<$> (x Data..@? "success")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     DisableIpamOrganizationAdminAccount' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` delegatedAdminAccountId
 
 instance

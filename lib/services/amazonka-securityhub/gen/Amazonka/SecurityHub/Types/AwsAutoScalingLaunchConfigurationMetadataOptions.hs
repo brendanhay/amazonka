@@ -93,8 +93,8 @@ instance
       ( \x ->
           AwsAutoScalingLaunchConfigurationMetadataOptions'
             Prelude.<$> (x Data..:? "HttpEndpoint")
-              Prelude.<*> (x Data..:? "HttpPutResponseHopLimit")
-              Prelude.<*> (x Data..:? "HttpTokens")
+            Prelude.<*> (x Data..:? "HttpPutResponseHopLimit")
+            Prelude.<*> (x Data..:? "HttpTokens")
       )
 
 instance
@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingLaunchConfigurationMetadataOptions' {..} =
-      _salt `Prelude.hashWithSalt` httpEndpoint
+      _salt
+        `Prelude.hashWithSalt` httpEndpoint
         `Prelude.hashWithSalt` httpPutResponseHopLimit
         `Prelude.hashWithSalt` httpTokens
 

@@ -209,7 +209,8 @@ instance Data.FromJSON Volume where
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> ( x Data..:? "AdministrativeActions"
+            Prelude.<$> ( x
+                            Data..:? "AdministrativeActions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreationTime")
@@ -227,7 +228,8 @@ instance Data.FromJSON Volume where
 
 instance Prelude.Hashable Volume where
   hashWithSalt _salt Volume' {..} =
-    _salt `Prelude.hashWithSalt` administrativeActions
+    _salt
+      `Prelude.hashWithSalt` administrativeActions
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` lifecycle

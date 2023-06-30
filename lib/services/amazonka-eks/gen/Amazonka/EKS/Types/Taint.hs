@@ -87,7 +87,8 @@ instance Data.FromJSON Taint where
 
 instance Prelude.Hashable Taint where
   hashWithSalt _salt Taint' {..} =
-    _salt `Prelude.hashWithSalt` effect
+    _salt
+      `Prelude.hashWithSalt` effect
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 

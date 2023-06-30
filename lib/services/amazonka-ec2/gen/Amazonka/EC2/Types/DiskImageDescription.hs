@@ -116,7 +116,8 @@ instance Data.FromXML DiskImageDescription where
 
 instance Prelude.Hashable DiskImageDescription where
   hashWithSalt _salt DiskImageDescription' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt
+      `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` importManifestUrl
       `Prelude.hashWithSalt` size

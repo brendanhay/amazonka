@@ -74,7 +74,7 @@ instance
       ( \x ->
           FirewallPolicyStatelessCustomActionsDetails'
             Prelude.<$> (x Data..:? "ActionDefinition")
-              Prelude.<*> (x Data..:? "ActionName")
+            Prelude.<*> (x Data..:? "ActionName")
       )
 
 instance
@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     FirewallPolicyStatelessCustomActionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` actionDefinition
+      _salt
+        `Prelude.hashWithSalt` actionDefinition
         `Prelude.hashWithSalt` actionName
 
 instance

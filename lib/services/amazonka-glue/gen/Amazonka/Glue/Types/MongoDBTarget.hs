@@ -108,7 +108,8 @@ instance Data.FromJSON MongoDBTarget where
 
 instance Prelude.Hashable MongoDBTarget where
   hashWithSalt _salt MongoDBTarget' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
+    _salt
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` scanAll
 

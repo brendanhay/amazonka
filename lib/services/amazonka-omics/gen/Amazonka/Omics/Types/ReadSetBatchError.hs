@@ -90,7 +90,8 @@ instance Data.FromJSON ReadSetBatchError where
 
 instance Prelude.Hashable ReadSetBatchError where
   hashWithSalt _salt ReadSetBatchError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` message
 

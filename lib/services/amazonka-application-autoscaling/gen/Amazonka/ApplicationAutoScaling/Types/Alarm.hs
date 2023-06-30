@@ -78,7 +78,8 @@ instance Data.FromJSON Alarm where
 
 instance Prelude.Hashable Alarm where
   hashWithSalt _salt Alarm' {..} =
-    _salt `Prelude.hashWithSalt` alarmName
+    _salt
+      `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` alarmARN
 
 instance Prelude.NFData Alarm where

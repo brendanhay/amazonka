@@ -216,7 +216,8 @@ instance Core.AWSRequest PublishVersion where
 
 instance Prelude.Hashable PublishVersion where
   hashWithSalt _salt PublishVersion' {..} =
-    _salt `Prelude.hashWithSalt` codeSha256
+    _salt
+      `Prelude.hashWithSalt` codeSha256
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` functionName

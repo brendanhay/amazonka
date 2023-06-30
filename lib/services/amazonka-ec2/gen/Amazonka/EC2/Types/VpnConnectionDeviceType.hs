@@ -96,7 +96,8 @@ instance Data.FromXML VpnConnectionDeviceType where
 
 instance Prelude.Hashable VpnConnectionDeviceType where
   hashWithSalt _salt VpnConnectionDeviceType' {..} =
-    _salt `Prelude.hashWithSalt` platform
+    _salt
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` software
       `Prelude.hashWithSalt` vendor
       `Prelude.hashWithSalt` vpnConnectionDeviceTypeId

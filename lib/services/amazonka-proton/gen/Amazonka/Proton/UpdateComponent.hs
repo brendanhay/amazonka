@@ -252,7 +252,8 @@ instance Core.AWSRequest UpdateComponent where
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` serviceInstanceName
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` serviceSpec

@@ -121,7 +121,8 @@ instance Data.FromJSON RuleGroup where
 
 instance Prelude.Hashable RuleGroup where
   hashWithSalt _salt RuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` referenceSets
+    _salt
+      `Prelude.hashWithSalt` referenceSets
       `Prelude.hashWithSalt` ruleVariables
       `Prelude.hashWithSalt` statefulRuleOptions
       `Prelude.hashWithSalt` rulesSource

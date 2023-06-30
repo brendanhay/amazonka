@@ -94,7 +94,8 @@ instance Data.FromJSON SelfUserProfile where
 
 instance Prelude.Hashable SelfUserProfile where
   hashWithSalt _salt SelfUserProfile' {..} =
-    _salt `Prelude.hashWithSalt` iamUserArn
+    _salt
+      `Prelude.hashWithSalt` iamUserArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sshPublicKey
       `Prelude.hashWithSalt` sshUsername

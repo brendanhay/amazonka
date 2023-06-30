@@ -109,7 +109,8 @@ instance Core.AWSRequest ListDetectorModelVersions where
     Response.receiveJSON
       ( \s h x ->
           ListDetectorModelVersionsResponse'
-            Prelude.<$> ( x Data..?> "detectorModelVersionSummaries"
+            Prelude.<$> ( x
+                            Data..?> "detectorModelVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -118,7 +119,8 @@ instance Core.AWSRequest ListDetectorModelVersions where
 
 instance Prelude.Hashable ListDetectorModelVersions where
   hashWithSalt _salt ListDetectorModelVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` detectorModelName
 

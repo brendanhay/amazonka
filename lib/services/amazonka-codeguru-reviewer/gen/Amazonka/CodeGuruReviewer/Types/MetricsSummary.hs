@@ -159,7 +159,8 @@ instance Data.FromJSON MetricsSummary where
 
 instance Prelude.Hashable MetricsSummary where
   hashWithSalt _salt MetricsSummary' {..} =
-    _salt `Prelude.hashWithSalt` findingsCount
+    _salt
+      `Prelude.hashWithSalt` findingsCount
       `Prelude.hashWithSalt` meteredLinesOfCodeCount
       `Prelude.hashWithSalt` suppressedLinesOfCodeCount
 

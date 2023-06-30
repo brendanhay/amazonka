@@ -129,7 +129,8 @@ instance Core.AWSRequest DisassociateMacSecKey where
 
 instance Prelude.Hashable DisassociateMacSecKey where
   hashWithSalt _salt DisassociateMacSecKey' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` secretARN
 
 instance Prelude.NFData DisassociateMacSecKey where

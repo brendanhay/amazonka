@@ -104,7 +104,8 @@ instance Data.FromJSON EventTypeSummary where
 
 instance Prelude.Hashable EventTypeSummary where
   hashWithSalt _salt EventTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` eventTypeId
+    _salt
+      `Prelude.hashWithSalt` eventTypeId
       `Prelude.hashWithSalt` eventTypeName
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` serviceName

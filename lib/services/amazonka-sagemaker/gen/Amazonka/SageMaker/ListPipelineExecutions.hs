@@ -157,22 +157,22 @@ instance Core.AWSPager ListPipelineExecutions where
     | Core.stop
         ( rs
             Lens.^? listPipelineExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPipelineExecutionsResponse_pipelineExecutionSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPipelineExecutions_nextToken
           Lens..~ rs
           Lens.^? listPipelineExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipelineExecutions where
   type
@@ -185,7 +185,8 @@ instance Core.AWSRequest ListPipelineExecutions where
       ( \s h x ->
           ListPipelineExecutionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PipelineExecutionSummaries"
+            Prelude.<*> ( x
+                            Data..?> "PipelineExecutionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -193,7 +194,8 @@ instance Core.AWSRequest ListPipelineExecutions where
 
 instance Prelude.Hashable ListPipelineExecutions where
   hashWithSalt _salt ListPipelineExecutions' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

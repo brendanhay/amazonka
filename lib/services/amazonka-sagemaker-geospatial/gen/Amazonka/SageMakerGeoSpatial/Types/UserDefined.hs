@@ -54,11 +54,9 @@ newUserDefined ::
 newUserDefined pUnit_ pValue_ =
   UserDefined' {unit = pUnit_, value = pValue_}
 
--- |
 userDefined_unit :: Lens.Lens' UserDefined Unit
 userDefined_unit = Lens.lens (\UserDefined' {unit} -> unit) (\s@UserDefined' {} a -> s {unit = a} :: UserDefined)
 
--- |
 userDefined_value :: Lens.Lens' UserDefined Prelude.Double
 userDefined_value = Lens.lens (\UserDefined' {value} -> value) (\s@UserDefined' {} a -> s {value = a} :: UserDefined)
 
@@ -68,12 +66,14 @@ instance Data.FromJSON UserDefined where
       "UserDefined"
       ( \x ->
           UserDefined'
-            Prelude.<$> (x Data..: "Unit") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Unit")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable UserDefined where
   hashWithSalt _salt UserDefined' {..} =
-    _salt `Prelude.hashWithSalt` unit
+    _salt
+      `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData UserDefined where

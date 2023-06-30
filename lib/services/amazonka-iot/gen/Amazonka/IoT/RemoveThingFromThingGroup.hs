@@ -127,7 +127,8 @@ instance Core.AWSRequest RemoveThingFromThingGroup where
 
 instance Prelude.Hashable RemoveThingFromThingGroup where
   hashWithSalt _salt RemoveThingFromThingGroup' {..} =
-    _salt `Prelude.hashWithSalt` thingArn
+    _salt
+      `Prelude.hashWithSalt` thingArn
       `Prelude.hashWithSalt` thingGroupArn
       `Prelude.hashWithSalt` thingGroupName
       `Prelude.hashWithSalt` thingName

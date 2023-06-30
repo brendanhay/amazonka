@@ -83,7 +83,7 @@ instance
       ( \x ->
           DeviceRegistrationStateEventConfiguration'
             Prelude.<$> (x Data..:? "Sidewalk")
-              Prelude.<*> (x Data..:? "WirelessDeviceIdEventTopic")
+            Prelude.<*> (x Data..:? "WirelessDeviceIdEventTopic")
       )
 
 instance
@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     DeviceRegistrationStateEventConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` sidewalk
+      _salt
+        `Prelude.hashWithSalt` sidewalk
         `Prelude.hashWithSalt` wirelessDeviceIdEventTopic
 
 instance

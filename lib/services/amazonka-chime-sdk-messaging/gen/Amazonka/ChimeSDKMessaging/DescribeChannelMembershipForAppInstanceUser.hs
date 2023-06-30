@@ -125,7 +125,7 @@ instance
       ( \s h x ->
           DescribeChannelMembershipForAppInstanceUserResponse'
             Prelude.<$> (x Data..?> "ChannelMembership")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -135,7 +135,8 @@ instance
   hashWithSalt
     _salt
     DescribeChannelMembershipForAppInstanceUser' {..} =
-      _salt `Prelude.hashWithSalt` channelArn
+      _salt
+        `Prelude.hashWithSalt` channelArn
         `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` chimeBearer
 

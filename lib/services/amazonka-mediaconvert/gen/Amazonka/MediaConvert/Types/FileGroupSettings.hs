@@ -94,7 +94,8 @@ instance Data.FromJSON FileGroupSettings where
 
 instance Prelude.Hashable FileGroupSettings where
   hashWithSalt _salt FileGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationSettings
 
 instance Prelude.NFData FileGroupSettings where

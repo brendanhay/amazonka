@@ -117,7 +117,8 @@ instance Data.FromJSON AccountAssignment where
 
 instance Prelude.Hashable AccountAssignment where
   hashWithSalt _salt AccountAssignment' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` permissionSetArn
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` principalType

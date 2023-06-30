@@ -84,7 +84,8 @@ instance Data.FromJSON BatchCreateVariableError where
 
 instance Prelude.Hashable BatchCreateVariableError where
   hashWithSalt _salt BatchCreateVariableError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` name
 

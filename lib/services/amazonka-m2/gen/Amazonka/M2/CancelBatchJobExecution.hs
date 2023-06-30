@@ -105,7 +105,8 @@ instance Core.AWSRequest CancelBatchJobExecution where
 
 instance Prelude.Hashable CancelBatchJobExecution where
   hashWithSalt _salt CancelBatchJobExecution' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` executionId
 
 instance Prelude.NFData CancelBatchJobExecution where

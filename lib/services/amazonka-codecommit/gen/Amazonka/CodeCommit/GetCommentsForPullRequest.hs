@@ -157,22 +157,22 @@ instance Core.AWSPager GetCommentsForPullRequest where
     | Core.stop
         ( rs
             Lens.^? getCommentsForPullRequestResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getCommentsForPullRequestResponse_commentsForPullRequestData
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getCommentsForPullRequest_nextToken
           Lens..~ rs
           Lens.^? getCommentsForPullRequestResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCommentsForPullRequest where
   type
@@ -184,7 +184,8 @@ instance Core.AWSRequest GetCommentsForPullRequest where
     Response.receiveJSON
       ( \s h x ->
           GetCommentsForPullRequestResponse'
-            Prelude.<$> ( x Data..?> "commentsForPullRequestData"
+            Prelude.<$> ( x
+                            Data..?> "commentsForPullRequestData"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -193,7 +194,8 @@ instance Core.AWSRequest GetCommentsForPullRequest where
 
 instance Prelude.Hashable GetCommentsForPullRequest where
   hashWithSalt _salt GetCommentsForPullRequest' {..} =
-    _salt `Prelude.hashWithSalt` afterCommitId
+    _salt
+      `Prelude.hashWithSalt` afterCommitId
       `Prelude.hashWithSalt` beforeCommitId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

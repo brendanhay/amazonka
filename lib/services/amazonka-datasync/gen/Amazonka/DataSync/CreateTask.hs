@@ -239,7 +239,8 @@ instance Core.AWSRequest CreateTask where
 
 instance Prelude.Hashable CreateTask where
   hashWithSalt _salt CreateTask' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogGroupArn
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
       `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` name

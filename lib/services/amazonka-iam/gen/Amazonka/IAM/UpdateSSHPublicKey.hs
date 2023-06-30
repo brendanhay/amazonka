@@ -153,7 +153,8 @@ instance Core.AWSRequest UpdateSSHPublicKey where
 
 instance Prelude.Hashable UpdateSSHPublicKey where
   hashWithSalt _salt UpdateSSHPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` sSHPublicKeyId
       `Prelude.hashWithSalt` status
 

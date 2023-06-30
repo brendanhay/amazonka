@@ -356,22 +356,22 @@ instance Core.AWSPager DescribeRouteTables where
     | Core.stop
         ( rs
             Lens.^? describeRouteTablesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeRouteTablesResponse_routeTables
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeRouteTables_nextToken
           Lens..~ rs
           Lens.^? describeRouteTablesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRouteTables where
   type
@@ -384,7 +384,9 @@ instance Core.AWSRequest DescribeRouteTables where
       ( \s h x ->
           DescribeRouteTablesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "routeTableSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "routeTableSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -392,7 +394,8 @@ instance Core.AWSRequest DescribeRouteTables where
 
 instance Prelude.Hashable DescribeRouteTables where
   hashWithSalt _salt DescribeRouteTables' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

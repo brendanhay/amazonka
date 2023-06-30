@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     PutDeliverabilityDashboardOption' {..} =
-      _salt `Prelude.hashWithSalt` subscribedDomains
+      _salt
+        `Prelude.hashWithSalt` subscribedDomains
         `Prelude.hashWithSalt` dashboardEnabled
 
 instance

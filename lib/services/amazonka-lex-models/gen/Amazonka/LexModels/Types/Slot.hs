@@ -222,7 +222,8 @@ instance Data.FromJSON Slot where
             Prelude.<*> (x Data..:? "obfuscationSetting")
             Prelude.<*> (x Data..:? "priority")
             Prelude.<*> (x Data..:? "responseCard")
-            Prelude.<*> ( x Data..:? "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..:? "sampleUtterances"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "slotType")
@@ -234,7 +235,8 @@ instance Data.FromJSON Slot where
 
 instance Prelude.Hashable Slot where
   hashWithSalt _salt Slot' {..} =
-    _salt `Prelude.hashWithSalt` defaultValueSpec
+    _salt
+      `Prelude.hashWithSalt` defaultValueSpec
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` obfuscationSetting
       `Prelude.hashWithSalt` priority

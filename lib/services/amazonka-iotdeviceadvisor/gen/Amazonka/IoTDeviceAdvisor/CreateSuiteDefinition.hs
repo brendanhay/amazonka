@@ -114,7 +114,8 @@ instance Core.AWSRequest CreateSuiteDefinition where
 
 instance Prelude.Hashable CreateSuiteDefinition where
   hashWithSalt _salt CreateSuiteDefinition' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` suiteDefinitionConfiguration
 
 instance Prelude.NFData CreateSuiteDefinition where

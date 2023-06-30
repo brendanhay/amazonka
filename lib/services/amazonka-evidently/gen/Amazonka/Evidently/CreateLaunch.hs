@@ -222,7 +222,8 @@ instance Core.AWSRequest CreateLaunch where
 
 instance Prelude.Hashable CreateLaunch where
   hashWithSalt _salt CreateLaunch' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` metricMonitors
       `Prelude.hashWithSalt` randomizationSalt
       `Prelude.hashWithSalt` scheduledSplitsConfig

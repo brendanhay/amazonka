@@ -98,7 +98,8 @@ instance Data.FromJSON InputConfiguration where
 
 instance Prelude.Hashable InputConfiguration where
   hashWithSalt _salt InputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` inputPort
+    _salt
+      `Prelude.hashWithSalt` inputPort
       `Prelude.hashWithSalt` inputIp
       `Prelude.hashWithSalt` interface
 

@@ -156,7 +156,8 @@ instance Core.AWSRequest CreateControl where
 
 instance Prelude.Hashable CreateControl where
   hashWithSalt _salt CreateControl' {..} =
-    _salt `Prelude.hashWithSalt` actionPlanInstructions
+    _salt
+      `Prelude.hashWithSalt` actionPlanInstructions
       `Prelude.hashWithSalt` actionPlanTitle
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags

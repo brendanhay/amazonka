@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateApnsChannel where
 
 instance Prelude.Hashable UpdateApnsChannel where
   hashWithSalt _salt UpdateApnsChannel' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` aPNSChannelRequest
 
 instance Prelude.NFData UpdateApnsChannel where

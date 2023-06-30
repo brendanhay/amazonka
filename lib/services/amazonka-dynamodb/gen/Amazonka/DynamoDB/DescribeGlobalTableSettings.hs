@@ -93,7 +93,8 @@ instance Core.AWSRequest DescribeGlobalTableSettings where
       ( \s h x ->
           DescribeGlobalTableSettingsResponse'
             Prelude.<$> (x Data..?> "GlobalTableName")
-            Prelude.<*> ( x Data..?> "ReplicaSettings"
+            Prelude.<*> ( x
+                            Data..?> "ReplicaSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -132,7 +132,8 @@ instance Data.FromJSON AwsElbLoadBalancerListener where
 
 instance Prelude.Hashable AwsElbLoadBalancerListener where
   hashWithSalt _salt AwsElbLoadBalancerListener' {..} =
-    _salt `Prelude.hashWithSalt` instancePort
+    _salt
+      `Prelude.hashWithSalt` instancePort
       `Prelude.hashWithSalt` instanceProtocol
       `Prelude.hashWithSalt` loadBalancerPort
       `Prelude.hashWithSalt` protocol

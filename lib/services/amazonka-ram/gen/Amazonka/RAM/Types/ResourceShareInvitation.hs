@@ -160,7 +160,8 @@ instance Data.FromJSON ResourceShareInvitation where
             Prelude.<*> (x Data..:? "receiverAccountId")
             Prelude.<*> (x Data..:? "receiverArn")
             Prelude.<*> (x Data..:? "resourceShareArn")
-            Prelude.<*> ( x Data..:? "resourceShareAssociations"
+            Prelude.<*> ( x
+                            Data..:? "resourceShareAssociations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "resourceShareInvitationArn")
@@ -171,7 +172,8 @@ instance Data.FromJSON ResourceShareInvitation where
 
 instance Prelude.Hashable ResourceShareInvitation where
   hashWithSalt _salt ResourceShareInvitation' {..} =
-    _salt `Prelude.hashWithSalt` invitationTimestamp
+    _salt
+      `Prelude.hashWithSalt` invitationTimestamp
       `Prelude.hashWithSalt` receiverAccountId
       `Prelude.hashWithSalt` receiverArn
       `Prelude.hashWithSalt` resourceShareArn

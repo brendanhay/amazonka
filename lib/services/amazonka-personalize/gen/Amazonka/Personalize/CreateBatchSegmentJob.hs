@@ -208,7 +208,8 @@ instance Core.AWSRequest CreateBatchSegmentJob where
 
 instance Prelude.Hashable CreateBatchSegmentJob where
   hashWithSalt _salt CreateBatchSegmentJob' {..} =
-    _salt `Prelude.hashWithSalt` filterArn
+    _salt
+      `Prelude.hashWithSalt` filterArn
       `Prelude.hashWithSalt` numResults
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobName

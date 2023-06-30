@@ -116,7 +116,8 @@ instance Data.FromJSON DefaultVocabulary where
 
 instance Prelude.Hashable DefaultVocabulary where
   hashWithSalt _salt DefaultVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` vocabularyId
       `Prelude.hashWithSalt` vocabularyName

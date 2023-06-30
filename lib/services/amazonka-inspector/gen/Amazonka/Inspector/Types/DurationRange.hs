@@ -67,7 +67,8 @@ durationRange_minSeconds = Lens.lens (\DurationRange' {minSeconds} -> minSeconds
 
 instance Prelude.Hashable DurationRange where
   hashWithSalt _salt DurationRange' {..} =
-    _salt `Prelude.hashWithSalt` maxSeconds
+    _salt
+      `Prelude.hashWithSalt` maxSeconds
       `Prelude.hashWithSalt` minSeconds
 
 instance Prelude.NFData DurationRange where

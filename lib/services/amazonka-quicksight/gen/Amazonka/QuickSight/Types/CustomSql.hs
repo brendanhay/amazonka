@@ -101,7 +101,8 @@ instance Data.FromJSON CustomSql where
 
 instance Prelude.Hashable CustomSql where
   hashWithSalt _salt CustomSql' {..} =
-    _salt `Prelude.hashWithSalt` columns
+    _salt
+      `Prelude.hashWithSalt` columns
       `Prelude.hashWithSalt` dataSourceArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sqlQuery

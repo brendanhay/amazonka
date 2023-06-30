@@ -271,7 +271,8 @@ instance Core.AWSRequest CopySnapshot where
 
 instance Prelude.Hashable CopySnapshot where
   hashWithSalt _salt CopySnapshot' {..} =
-    _salt `Prelude.hashWithSalt` restoreDate
+    _salt
+      `Prelude.hashWithSalt` restoreDate
       `Prelude.hashWithSalt` sourceResourceName
       `Prelude.hashWithSalt` sourceSnapshotName
       `Prelude.hashWithSalt` useLatestRestorableAutoSnapshot

@@ -87,7 +87,8 @@ instance Data.FromJSON EnumerationValue where
 
 instance Prelude.Hashable EnumerationValue where
   hashWithSalt _salt EnumerationValue' {..} =
-    _salt `Prelude.hashWithSalt` synonyms
+    _salt
+      `Prelude.hashWithSalt` synonyms
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EnumerationValue where

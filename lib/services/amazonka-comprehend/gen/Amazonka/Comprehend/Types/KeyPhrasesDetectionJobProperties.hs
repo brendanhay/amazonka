@@ -270,7 +270,8 @@ instance
   hashWithSalt
     _salt
     KeyPhrasesDetectionJobProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      _salt
+        `Prelude.hashWithSalt` dataAccessRoleArn
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` inputDataConfig
         `Prelude.hashWithSalt` jobArn

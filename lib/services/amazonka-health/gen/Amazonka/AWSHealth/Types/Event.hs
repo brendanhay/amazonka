@@ -49,7 +49,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
   { -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
     -- format.
     --
     -- For example, an event ARN might look like the following:
@@ -82,7 +82,7 @@ data Event = Event'
     -- @investigation@ value isn\'t supported at this time.
     eventTypeCategory :: Prelude.Maybe EventTypeCategory,
     -- | The unique identifier for the event type. The format is
-    -- @AWS_SERVICE_DESCRIPTION @; for example,
+    -- @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
     eventTypeCode :: Prelude.Maybe Prelude.Text,
     -- | The most recent date and time that the event was updated.
@@ -109,7 +109,7 @@ data Event = Event'
 -- for backwards compatibility:
 --
 -- 'arn', 'event_arn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -142,7 +142,7 @@ data Event = Event'
 -- @investigation@ value isn\'t supported at this time.
 --
 -- 'eventTypeCode', 'event_eventTypeCode' - The unique identifier for the event type. The format is
--- @AWS_SERVICE_DESCRIPTION @; for example,
+-- @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 --
 -- 'lastUpdatedTime', 'event_lastUpdatedTime' - The most recent date and time that the event was updated.
@@ -174,7 +174,7 @@ newEvent =
     }
 
 -- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -217,7 +217,7 @@ event_eventTypeCategory :: Lens.Lens' Event (Prelude.Maybe EventTypeCategory)
 event_eventTypeCategory = Lens.lens (\Event' {eventTypeCategory} -> eventTypeCategory) (\s@Event' {} a -> s {eventTypeCategory = a} :: Event)
 
 -- | The unique identifier for the event type. The format is
--- @AWS_SERVICE_DESCRIPTION @; for example,
+-- @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 event_eventTypeCode :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventTypeCode = Lens.lens (\Event' {eventTypeCode} -> eventTypeCode) (\s@Event' {} a -> s {eventTypeCode = a} :: Event)
@@ -265,7 +265,8 @@ instance Data.FromJSON Event where
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` eventScopeCode

@@ -86,7 +86,8 @@ taskRunFilterCriteria_taskRunType = Lens.lens (\TaskRunFilterCriteria' {taskRunT
 
 instance Prelude.Hashable TaskRunFilterCriteria where
   hashWithSalt _salt TaskRunFilterCriteria' {..} =
-    _salt `Prelude.hashWithSalt` startedAfter
+    _salt
+      `Prelude.hashWithSalt` startedAfter
       `Prelude.hashWithSalt` startedBefore
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` taskRunType

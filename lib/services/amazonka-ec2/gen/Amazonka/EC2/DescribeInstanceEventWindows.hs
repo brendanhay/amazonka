@@ -251,22 +251,22 @@ instance Core.AWSPager DescribeInstanceEventWindows where
     | Core.stop
         ( rs
             Lens.^? describeInstanceEventWindowsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceEventWindowsResponse_instanceEventWindows
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstanceEventWindows_nextToken
           Lens..~ rs
           Lens.^? describeInstanceEventWindowsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstanceEventWindows where
   type
@@ -278,7 +278,8 @@ instance Core.AWSRequest DescribeInstanceEventWindows where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceEventWindowsResponse'
-            Prelude.<$> ( x Data..@? "instanceEventWindowSet"
+            Prelude.<$> ( x
+                            Data..@? "instanceEventWindowSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -291,7 +292,8 @@ instance
     DescribeInstanceEventWindows
   where
   hashWithSalt _salt DescribeInstanceEventWindows' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` instanceEventWindowIds
       `Prelude.hashWithSalt` maxResults

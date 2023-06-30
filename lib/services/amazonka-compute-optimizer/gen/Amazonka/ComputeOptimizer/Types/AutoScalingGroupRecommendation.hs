@@ -306,15 +306,18 @@ instance Data.FromJSON AutoScalingGroupRecommendation where
             Prelude.<*> (x Data..:? "currentPerformanceRisk")
             Prelude.<*> (x Data..:? "effectiveRecommendationPreferences")
             Prelude.<*> (x Data..:? "finding")
-            Prelude.<*> ( x Data..:? "inferredWorkloadTypes"
+            Prelude.<*> ( x
+                            Data..:? "inferredWorkloadTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "lookBackPeriodInDays")
-            Prelude.<*> ( x Data..:? "recommendationOptions"
+            Prelude.<*> ( x
+                            Data..:? "recommendationOptions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "utilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "utilizationMetrics"
                             Data..!= Prelude.mempty
                         )
       )
@@ -326,7 +329,8 @@ instance
   hashWithSalt
     _salt
     AutoScalingGroupRecommendation' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` autoScalingGroupArn
         `Prelude.hashWithSalt` autoScalingGroupName
         `Prelude.hashWithSalt` currentConfiguration

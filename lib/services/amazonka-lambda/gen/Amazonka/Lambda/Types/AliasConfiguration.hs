@@ -122,7 +122,8 @@ instance Data.FromJSON AliasConfiguration where
 
 instance Prelude.Hashable AliasConfiguration where
   hashWithSalt _salt AliasConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` aliasArn
+    _salt
+      `Prelude.hashWithSalt` aliasArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` functionVersion
       `Prelude.hashWithSalt` name

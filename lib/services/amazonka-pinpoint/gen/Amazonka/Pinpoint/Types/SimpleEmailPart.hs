@@ -65,7 +65,8 @@ simpleEmailPart_data = Lens.lens (\SimpleEmailPart' {data'} -> data') (\s@Simple
 
 instance Prelude.Hashable SimpleEmailPart where
   hashWithSalt _salt SimpleEmailPart' {..} =
-    _salt `Prelude.hashWithSalt` charset
+    _salt
+      `Prelude.hashWithSalt` charset
       `Prelude.hashWithSalt` data'
 
 instance Prelude.NFData SimpleEmailPart where

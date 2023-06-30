@@ -124,7 +124,8 @@ createVehicleRequestItem_decoderManifestArn = Lens.lens (\CreateVehicleRequestIt
 
 instance Prelude.Hashable CreateVehicleRequestItem where
   hashWithSalt _salt CreateVehicleRequestItem' {..} =
-    _salt `Prelude.hashWithSalt` associationBehavior
+    _salt
+      `Prelude.hashWithSalt` associationBehavior
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vehicleName

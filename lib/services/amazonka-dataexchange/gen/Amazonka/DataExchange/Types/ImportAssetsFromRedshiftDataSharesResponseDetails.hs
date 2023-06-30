@@ -90,8 +90,8 @@ instance
       ( \x ->
           ImportAssetsFromRedshiftDataSharesResponseDetails'
             Prelude.<$> (x Data..:? "AssetSources" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..: "DataSetId")
-              Prelude.<*> (x Data..: "RevisionId")
+            Prelude.<*> (x Data..: "DataSetId")
+            Prelude.<*> (x Data..: "RevisionId")
       )
 
 instance
@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetsFromRedshiftDataSharesResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` assetSources
+      _salt
+        `Prelude.hashWithSalt` assetSources
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
 

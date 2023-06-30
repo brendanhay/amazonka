@@ -175,7 +175,8 @@ instance Core.AWSRequest PutIntegration where
           PutIntegrationResponse'
             Prelude.<$> (x Data..?> "IsUnstructured")
             Prelude.<*> (x Data..?> "ObjectTypeName")
-            Prelude.<*> ( x Data..?> "ObjectTypeNames"
+            Prelude.<*> ( x
+                            Data..?> "ObjectTypeNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
@@ -189,7 +190,8 @@ instance Core.AWSRequest PutIntegration where
 
 instance Prelude.Hashable PutIntegration where
   hashWithSalt _salt PutIntegration' {..} =
-    _salt `Prelude.hashWithSalt` flowDefinition
+    _salt
+      `Prelude.hashWithSalt` flowDefinition
       `Prelude.hashWithSalt` objectTypeName
       `Prelude.hashWithSalt` objectTypeNames
       `Prelude.hashWithSalt` tags

@@ -67,7 +67,8 @@ iamInstanceProfileSpecification_name = Lens.lens (\IamInstanceProfileSpecificati
 instance Data.FromXML IamInstanceProfileSpecification where
   parseXML x =
     IamInstanceProfileSpecification'
-      Prelude.<$> (x Data..@? "arn") Prelude.<*> (x Data..@? "name")
+      Prelude.<$> (x Data..@? "arn")
+      Prelude.<*> (x Data..@? "name")
 
 instance
   Prelude.Hashable
@@ -76,7 +77,8 @@ instance
   hashWithSalt
     _salt
     IamInstanceProfileSpecification' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` name
 
 instance

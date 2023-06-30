@@ -109,9 +109,9 @@ instance
       ( \s h x ->
           PutDefaultEncryptionConfigurationResponse'
             Prelude.<$> (x Data..?> "kmsKeyArn")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "encryptionType")
-              Prelude.<*> (x Data..:> "configurationStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "encryptionType")
+            Prelude.<*> (x Data..:> "configurationStatus")
       )
 
 instance
@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     PutDefaultEncryptionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` kmsKeyId
+      _salt
+        `Prelude.hashWithSalt` kmsKeyId
         `Prelude.hashWithSalt` encryptionType
 
 instance

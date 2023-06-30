@@ -68,12 +68,14 @@ instance Data.FromJSON PercentVisibleRange where
       "PercentVisibleRange"
       ( \x ->
           PercentVisibleRange'
-            Prelude.<$> (x Data..:? "From") Prelude.<*> (x Data..:? "To")
+            Prelude.<$> (x Data..:? "From")
+            Prelude.<*> (x Data..:? "To")
       )
 
 instance Prelude.Hashable PercentVisibleRange where
   hashWithSalt _salt PercentVisibleRange' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` to
 
 instance Prelude.NFData PercentVisibleRange where

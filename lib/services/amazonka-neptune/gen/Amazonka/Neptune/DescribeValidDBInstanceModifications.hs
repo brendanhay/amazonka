@@ -95,7 +95,7 @@ instance
       ( \s h x ->
           DescribeValidDBInstanceModificationsResponse'
             Prelude.<$> (x Data..@? "ValidDBInstanceModificationsMessage")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

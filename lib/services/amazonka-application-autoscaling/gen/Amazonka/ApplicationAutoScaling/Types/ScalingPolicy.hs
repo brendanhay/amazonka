@@ -603,7 +603,8 @@ instance Data.FromJSON ScalingPolicy where
 
 instance Prelude.Hashable ScalingPolicy where
   hashWithSalt _salt ScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` alarms
+    _salt
+      `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` stepScalingPolicyConfiguration
       `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
       `Prelude.hashWithSalt` policyARN

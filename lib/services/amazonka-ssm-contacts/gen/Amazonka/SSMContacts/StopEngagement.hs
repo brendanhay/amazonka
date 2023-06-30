@@ -101,7 +101,8 @@ instance Core.AWSRequest StopEngagement where
 
 instance Prelude.Hashable StopEngagement where
   hashWithSalt _salt StopEngagement' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` engagementId
 
 instance Prelude.NFData StopEngagement where

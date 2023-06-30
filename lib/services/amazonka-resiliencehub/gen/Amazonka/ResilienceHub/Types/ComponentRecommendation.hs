@@ -89,7 +89,8 @@ instance Data.FromJSON ComponentRecommendation where
       ( \x ->
           ComponentRecommendation'
             Prelude.<$> (x Data..: "appComponentName")
-            Prelude.<*> ( x Data..:? "configRecommendations"
+            Prelude.<*> ( x
+                            Data..:? "configRecommendations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "recommendationStatus")
@@ -97,7 +98,8 @@ instance Data.FromJSON ComponentRecommendation where
 
 instance Prelude.Hashable ComponentRecommendation where
   hashWithSalt _salt ComponentRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` configRecommendations
       `Prelude.hashWithSalt` recommendationStatus
 

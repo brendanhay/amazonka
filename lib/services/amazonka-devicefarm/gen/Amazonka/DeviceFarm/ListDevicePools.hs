@@ -136,22 +136,22 @@ instance Core.AWSPager ListDevicePools where
     | Core.stop
         ( rs
             Lens.^? listDevicePoolsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDevicePoolsResponse_devicePools
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDevicePools_nextToken
           Lens..~ rs
           Lens.^? listDevicePoolsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDevicePools where
   type
@@ -170,7 +170,8 @@ instance Core.AWSRequest ListDevicePools where
 
 instance Prelude.Hashable ListDevicePools where
   hashWithSalt _salt ListDevicePools' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` arn
 

@@ -132,7 +132,8 @@ instance Core.AWSRequest CreateSnapshot where
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` retentionPeriod
+    _salt
+      `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` namespaceName
       `Prelude.hashWithSalt` snapshotName

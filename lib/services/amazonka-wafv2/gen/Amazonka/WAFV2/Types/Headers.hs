@@ -176,7 +176,8 @@ instance Data.FromJSON Headers where
 
 instance Prelude.Hashable Headers where
   hashWithSalt _salt Headers' {..} =
-    _salt `Prelude.hashWithSalt` matchPattern
+    _salt
+      `Prelude.hashWithSalt` matchPattern
       `Prelude.hashWithSalt` matchScope
       `Prelude.hashWithSalt` oversizeHandling
 

@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketServerSideEncryptionByDefault' {..} =
-      _salt `Prelude.hashWithSalt` kmsMasterKeyID
+      _salt
+        `Prelude.hashWithSalt` kmsMasterKeyID
         `Prelude.hashWithSalt` sSEAlgorithm
 
 instance

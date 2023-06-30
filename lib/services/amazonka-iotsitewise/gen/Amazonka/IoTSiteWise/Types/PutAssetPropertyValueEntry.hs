@@ -119,7 +119,8 @@ putAssetPropertyValueEntry_propertyValues = Lens.lens (\PutAssetPropertyValueEnt
 
 instance Prelude.Hashable PutAssetPropertyValueEntry where
   hashWithSalt _salt PutAssetPropertyValueEntry' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` propertyAlias
       `Prelude.hashWithSalt` propertyId
       `Prelude.hashWithSalt` entryId

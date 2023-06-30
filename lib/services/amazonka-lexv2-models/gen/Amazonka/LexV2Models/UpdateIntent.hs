@@ -234,7 +234,6 @@ updateIntent_dialogCodeHook = Lens.lens (\UpdateIntent' {dialogCodeHook} -> dial
 updateIntent_fulfillmentCodeHook :: Lens.Lens' UpdateIntent (Prelude.Maybe FulfillmentCodeHookSettings)
 updateIntent_fulfillmentCodeHook = Lens.lens (\UpdateIntent' {fulfillmentCodeHook} -> fulfillmentCodeHook) (\s@UpdateIntent' {} a -> s {fulfillmentCodeHook = a} :: UpdateIntent)
 
--- |
 updateIntent_initialResponseSetting :: Lens.Lens' UpdateIntent (Prelude.Maybe InitialResponseSetting)
 updateIntent_initialResponseSetting = Lens.lens (\UpdateIntent' {initialResponseSetting} -> initialResponseSetting) (\s@UpdateIntent' {} a -> s {initialResponseSetting = a} :: UpdateIntent)
 
@@ -324,7 +323,8 @@ instance Core.AWSRequest UpdateIntent where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "parentIntentSignature")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "slotPriorities" Core..!@ Prelude.mempty)
@@ -333,7 +333,8 @@ instance Core.AWSRequest UpdateIntent where
 
 instance Prelude.Hashable UpdateIntent where
   hashWithSalt _salt UpdateIntent' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dialogCodeHook
       `Prelude.hashWithSalt` fulfillmentCodeHook
       `Prelude.hashWithSalt` initialResponseSetting
@@ -590,7 +591,6 @@ updateIntentResponse_dialogCodeHook = Lens.lens (\UpdateIntentResponse' {dialogC
 updateIntentResponse_fulfillmentCodeHook :: Lens.Lens' UpdateIntentResponse (Prelude.Maybe FulfillmentCodeHookSettings)
 updateIntentResponse_fulfillmentCodeHook = Lens.lens (\UpdateIntentResponse' {fulfillmentCodeHook} -> fulfillmentCodeHook) (\s@UpdateIntentResponse' {} a -> s {fulfillmentCodeHook = a} :: UpdateIntentResponse)
 
--- |
 updateIntentResponse_initialResponseSetting :: Lens.Lens' UpdateIntentResponse (Prelude.Maybe InitialResponseSetting)
 updateIntentResponse_initialResponseSetting = Lens.lens (\UpdateIntentResponse' {initialResponseSetting} -> initialResponseSetting) (\s@UpdateIntentResponse' {} a -> s {initialResponseSetting = a} :: UpdateIntentResponse)
 

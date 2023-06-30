@@ -108,22 +108,22 @@ instance Core.AWSPager ListMemberAccounts where
     | Core.stop
         ( rs
             Lens.^? listMemberAccountsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listMemberAccountsResponse_memberAccounts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMemberAccounts_nextToken
           Lens..~ rs
           Lens.^? listMemberAccountsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMemberAccounts where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest ListMemberAccounts where
 
 instance Prelude.Hashable ListMemberAccounts where
   hashWithSalt _salt ListMemberAccounts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMemberAccounts where

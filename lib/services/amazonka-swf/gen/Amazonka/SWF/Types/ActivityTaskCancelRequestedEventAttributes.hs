@@ -91,7 +91,7 @@ instance
       ( \x ->
           ActivityTaskCancelRequestedEventAttributes'
             Prelude.<$> (x Data..: "decisionTaskCompletedEventId")
-              Prelude.<*> (x Data..: "activityId")
+            Prelude.<*> (x Data..: "activityId")
       )
 
 instance

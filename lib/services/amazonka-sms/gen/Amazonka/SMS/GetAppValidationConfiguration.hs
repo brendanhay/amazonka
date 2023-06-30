@@ -89,10 +89,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAppValidationConfigurationResponse'
-            Prelude.<$> ( x Data..?> "appValidationConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "appValidationConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "serverGroupValidationConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "serverGroupValidationConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

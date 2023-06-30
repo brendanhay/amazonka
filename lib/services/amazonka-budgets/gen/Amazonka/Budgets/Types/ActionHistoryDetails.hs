@@ -78,7 +78,8 @@ instance Data.FromJSON ActionHistoryDetails where
 
 instance Prelude.Hashable ActionHistoryDetails where
   hashWithSalt _salt ActionHistoryDetails' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` action
 
 instance Prelude.NFData ActionHistoryDetails where

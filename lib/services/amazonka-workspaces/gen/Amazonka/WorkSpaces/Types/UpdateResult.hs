@@ -84,7 +84,8 @@ instance Data.FromJSON UpdateResult where
 
 instance Prelude.Hashable UpdateResult where
   hashWithSalt _salt UpdateResult' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` updateAvailable
 
 instance Prelude.NFData UpdateResult where

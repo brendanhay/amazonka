@@ -105,7 +105,8 @@ instance Data.FromJSON SpaceDetails where
 
 instance Prelude.Hashable SpaceDetails where
   hashWithSalt _salt SpaceDetails' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` spaceName

@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateTagOption where
 
 instance Prelude.Hashable UpdateTagOption where
   hashWithSalt _salt UpdateTagOption' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` id
 

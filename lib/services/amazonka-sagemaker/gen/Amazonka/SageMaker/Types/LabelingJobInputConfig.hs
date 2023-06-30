@@ -79,7 +79,8 @@ instance Data.FromJSON LabelingJobInputConfig where
 
 instance Prelude.Hashable LabelingJobInputConfig where
   hashWithSalt _salt LabelingJobInputConfig' {..} =
-    _salt `Prelude.hashWithSalt` dataAttributes
+    _salt
+      `Prelude.hashWithSalt` dataAttributes
       `Prelude.hashWithSalt` dataSource
 
 instance Prelude.NFData LabelingJobInputConfig where

@@ -114,7 +114,8 @@ instance Core.AWSRequest BatchDeleteDocument where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteDocumentResponse'
-            Prelude.<$> ( x Data..?> "FailedDocuments"
+            Prelude.<$> ( x
+                            Data..?> "FailedDocuments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

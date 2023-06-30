@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteNodegroup where
 
 instance Prelude.Hashable DeleteNodegroup where
   hashWithSalt _salt DeleteNodegroup' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` nodegroupName
 
 instance Prelude.NFData DeleteNodegroup where

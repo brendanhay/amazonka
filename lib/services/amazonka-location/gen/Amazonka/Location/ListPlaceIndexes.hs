@@ -110,19 +110,19 @@ instance Core.AWSPager ListPlaceIndexes where
     | Core.stop
         ( rs
             Lens.^? listPlaceIndexesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listPlaceIndexesResponse_entries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPlaceIndexes_nextToken
           Lens..~ rs
           Lens.^? listPlaceIndexesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlaceIndexes where
   type
@@ -141,7 +141,8 @@ instance Core.AWSRequest ListPlaceIndexes where
 
 instance Prelude.Hashable ListPlaceIndexes where
   hashWithSalt _salt ListPlaceIndexes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPlaceIndexes where

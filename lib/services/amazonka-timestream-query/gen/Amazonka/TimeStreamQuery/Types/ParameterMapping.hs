@@ -69,12 +69,14 @@ instance Data.FromJSON ParameterMapping where
       "ParameterMapping"
       ( \x ->
           ParameterMapping'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable ParameterMapping where
   hashWithSalt _salt ParameterMapping' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ParameterMapping where

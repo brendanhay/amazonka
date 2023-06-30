@@ -832,12 +832,14 @@ instance Data.FromJSON TableDescription where
       ( \x ->
           TableDescription'
             Prelude.<$> (x Data..:? "ArchivalSummary")
-            Prelude.<*> ( x Data..:? "AttributeDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "AttributeDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BillingModeSummary")
             Prelude.<*> (x Data..:? "CreationDateTime")
-            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "GlobalTableVersion")
@@ -845,7 +847,8 @@ instance Data.FromJSON TableDescription where
             Prelude.<*> (x Data..:? "KeySchema")
             Prelude.<*> (x Data..:? "LatestStreamArn")
             Prelude.<*> (x Data..:? "LatestStreamLabel")
-            Prelude.<*> ( x Data..:? "LocalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "LocalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProvisionedThroughput")
@@ -863,7 +866,8 @@ instance Data.FromJSON TableDescription where
 
 instance Prelude.Hashable TableDescription where
   hashWithSalt _salt TableDescription' {..} =
-    _salt `Prelude.hashWithSalt` archivalSummary
+    _salt
+      `Prelude.hashWithSalt` archivalSummary
       `Prelude.hashWithSalt` attributeDefinitions
       `Prelude.hashWithSalt` billingModeSummary
       `Prelude.hashWithSalt` creationDateTime

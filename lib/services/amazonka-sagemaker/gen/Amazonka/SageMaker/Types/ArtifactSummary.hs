@@ -117,7 +117,8 @@ instance Data.FromJSON ArtifactSummary where
 
 instance Prelude.Hashable ArtifactSummary where
   hashWithSalt _salt ArtifactSummary' {..} =
-    _salt `Prelude.hashWithSalt` artifactArn
+    _salt
+      `Prelude.hashWithSalt` artifactArn
       `Prelude.hashWithSalt` artifactName
       `Prelude.hashWithSalt` artifactType
       `Prelude.hashWithSalt` creationTime

@@ -106,7 +106,8 @@ instance Data.FromJSON VorbisSettings where
 
 instance Prelude.Hashable VorbisSettings where
   hashWithSalt _salt VorbisSettings' {..} =
-    _salt `Prelude.hashWithSalt` channels
+    _salt
+      `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` sampleRate
       `Prelude.hashWithSalt` vbrQuality
 

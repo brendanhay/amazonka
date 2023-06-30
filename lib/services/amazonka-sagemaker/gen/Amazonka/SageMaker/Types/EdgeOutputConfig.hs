@@ -199,7 +199,8 @@ instance Data.FromJSON EdgeOutputConfig where
 
 instance Prelude.Hashable EdgeOutputConfig where
   hashWithSalt _salt EdgeOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` presetDeploymentConfig
       `Prelude.hashWithSalt` presetDeploymentType
       `Prelude.hashWithSalt` s3OutputLocation

@@ -563,7 +563,8 @@ instance Data.FromJSON Connection where
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> ( x Data..:? "ConnectionProperties"
+            Prelude.<$> ( x
+                            Data..:? "ConnectionProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ConnectionType")
@@ -578,7 +579,8 @@ instance Data.FromJSON Connection where
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` connectionProperties
+    _salt
+      `Prelude.hashWithSalt` connectionProperties
       `Prelude.hashWithSalt` connectionType
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description

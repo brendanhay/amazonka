@@ -86,14 +86,16 @@ instance Data.FromJSON EndpointConfiguration where
       ( \x ->
           EndpointConfiguration'
             Prelude.<$> (x Data..:? "types" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "vpcEndpointIds"
+            Prelude.<*> ( x
+                            Data..:? "vpcEndpointIds"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable EndpointConfiguration where
   hashWithSalt _salt EndpointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` types
+    _salt
+      `Prelude.hashWithSalt` types
       `Prelude.hashWithSalt` vpcEndpointIds
 
 instance Prelude.NFData EndpointConfiguration where

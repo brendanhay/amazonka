@@ -76,7 +76,9 @@ instance Data.FromXML IntelligentTieringAndOperator where
   parseXML x =
     IntelligentTieringAndOperator'
       Prelude.<$> (x Data..@? "Prefix")
-      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tag"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
@@ -85,7 +87,8 @@ instance
     IntelligentTieringAndOperator
   where
   hashWithSalt _salt IntelligentTieringAndOperator' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData IntelligentTieringAndOperator where

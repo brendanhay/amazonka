@@ -87,7 +87,8 @@ instance Data.FromJSON InstanceGroupStatus where
 
 instance Prelude.Hashable InstanceGroupStatus where
   hashWithSalt _salt InstanceGroupStatus' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` timeline
 

@@ -145,7 +145,6 @@ newGetStreamKeyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getStreamKeyResponse_streamKey :: Lens.Lens' GetStreamKeyResponse (Prelude.Maybe StreamKey)
 getStreamKeyResponse_streamKey = Lens.lens (\GetStreamKeyResponse' {streamKey} -> streamKey) (\s@GetStreamKeyResponse' {} a -> s {streamKey = a} :: GetStreamKeyResponse)
 

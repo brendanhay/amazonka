@@ -73,7 +73,8 @@ listEventTypesFilter_value = Lens.lens (\ListEventTypesFilter' {value} -> value)
 
 instance Prelude.Hashable ListEventTypesFilter where
   hashWithSalt _salt ListEventTypesFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ListEventTypesFilter where

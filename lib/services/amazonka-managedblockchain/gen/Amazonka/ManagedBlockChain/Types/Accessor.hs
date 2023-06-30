@@ -145,7 +145,8 @@ instance Data.FromJSON Accessor where
 
 instance Prelude.Hashable Accessor where
   hashWithSalt _salt Accessor' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` billingToken
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` id

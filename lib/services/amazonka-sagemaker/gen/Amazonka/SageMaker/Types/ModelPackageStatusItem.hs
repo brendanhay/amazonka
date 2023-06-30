@@ -93,7 +93,8 @@ instance Data.FromJSON ModelPackageStatusItem where
 
 instance Prelude.Hashable ModelPackageStatusItem where
   hashWithSalt _salt ModelPackageStatusItem' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 

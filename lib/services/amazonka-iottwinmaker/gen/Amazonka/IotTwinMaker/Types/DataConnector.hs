@@ -78,7 +78,8 @@ instance Data.FromJSON DataConnector where
 
 instance Prelude.Hashable DataConnector where
   hashWithSalt _salt DataConnector' {..} =
-    _salt `Prelude.hashWithSalt` isNative
+    _salt
+      `Prelude.hashWithSalt` isNative
       `Prelude.hashWithSalt` lambda
 
 instance Prelude.NFData DataConnector where

@@ -108,10 +108,12 @@ instance Core.AWSRequest GetContact where
             Prelude.<*> (x Data..?> "CreatedTimestamp")
             Prelude.<*> (x Data..?> "EmailAddress")
             Prelude.<*> (x Data..?> "LastUpdatedTimestamp")
-            Prelude.<*> ( x Data..?> "TopicDefaultPreferences"
+            Prelude.<*> ( x
+                            Data..?> "TopicDefaultPreferences"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "TopicPreferences"
+            Prelude.<*> ( x
+                            Data..?> "TopicPreferences"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "UnsubscribeAll")
@@ -120,7 +122,8 @@ instance Core.AWSRequest GetContact where
 
 instance Prelude.Hashable GetContact where
   hashWithSalt _salt GetContact' {..} =
-    _salt `Prelude.hashWithSalt` contactListName
+    _salt
+      `Prelude.hashWithSalt` contactListName
       `Prelude.hashWithSalt` emailAddress
 
 instance Prelude.NFData GetContact where

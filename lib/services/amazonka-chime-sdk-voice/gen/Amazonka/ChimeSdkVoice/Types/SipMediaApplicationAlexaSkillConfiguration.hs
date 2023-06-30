@@ -78,7 +78,7 @@ instance
       ( \x ->
           SipMediaApplicationAlexaSkillConfiguration'
             Prelude.<$> (x Data..: "AlexaSkillStatus")
-              Prelude.<*> (x Data..: "AlexaSkillIds")
+            Prelude.<*> (x Data..: "AlexaSkillIds")
       )
 
 instance
@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     SipMediaApplicationAlexaSkillConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` alexaSkillStatus
+      _salt
+        `Prelude.hashWithSalt` alexaSkillStatus
         `Prelude.hashWithSalt` alexaSkillIds
 
 instance

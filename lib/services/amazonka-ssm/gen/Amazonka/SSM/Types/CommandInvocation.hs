@@ -404,7 +404,8 @@ instance Data.FromJSON CommandInvocation where
 
 instance Prelude.Hashable CommandInvocation where
   hashWithSalt _salt CommandInvocation' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchOutputConfig
+    _salt
+      `Prelude.hashWithSalt` cloudWatchOutputConfig
       `Prelude.hashWithSalt` commandId
       `Prelude.hashWithSalt` commandPlugins
       `Prelude.hashWithSalt` comment

@@ -207,7 +207,8 @@ instance
   hashWithSalt
     _salt
     ScheduledUpdateGroupActionRequest' {..} =
-      _salt `Prelude.hashWithSalt` desiredCapacity
+      _salt
+        `Prelude.hashWithSalt` desiredCapacity
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` maxSize
         `Prelude.hashWithSalt` minSize

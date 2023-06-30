@@ -108,22 +108,22 @@ instance Core.AWSPager DescribeConformancePackStatus where
     | Core.stop
         ( rs
             Lens.^? describeConformancePackStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeConformancePackStatusResponse_conformancePackStatusDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeConformancePackStatus_nextToken
           Lens..~ rs
           Lens.^? describeConformancePackStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -138,7 +138,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConformancePackStatusResponse'
-            Prelude.<$> ( x Data..?> "ConformancePackStatusDetails"
+            Prelude.<$> ( x
+                            Data..?> "ConformancePackStatusDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -150,7 +151,8 @@ instance
     DescribeConformancePackStatus
   where
   hashWithSalt _salt DescribeConformancePackStatus' {..} =
-    _salt `Prelude.hashWithSalt` conformancePackNames
+    _salt
+      `Prelude.hashWithSalt` conformancePackNames
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
 

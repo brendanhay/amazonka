@@ -103,7 +103,8 @@ instance Data.FromJSON Identity where
 
 instance Prelude.Hashable Identity where
   hashWithSalt _salt Identity' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` iamRole
       `Prelude.hashWithSalt` iamUser
       `Prelude.hashWithSalt` user

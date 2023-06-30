@@ -78,7 +78,7 @@ instance
       ( \x ->
           AwsCloudFrontDistributionOriginSslProtocols'
             Prelude.<$> (x Data..:? "Items" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Quantity")
+            Prelude.<*> (x Data..:? "Quantity")
       )
 
 instance
@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionOriginSslProtocols' {..} =
-      _salt `Prelude.hashWithSalt` items
+      _salt
+        `Prelude.hashWithSalt` items
         `Prelude.hashWithSalt` quantity
 
 instance

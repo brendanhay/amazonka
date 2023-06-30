@@ -75,7 +75,8 @@ instance Data.FromJSON ClusterOperationStep where
 
 instance Prelude.Hashable ClusterOperationStep where
   hashWithSalt _salt ClusterOperationStep' {..} =
-    _salt `Prelude.hashWithSalt` stepInfo
+    _salt
+      `Prelude.hashWithSalt` stepInfo
       `Prelude.hashWithSalt` stepName
 
 instance Prelude.NFData ClusterOperationStep where

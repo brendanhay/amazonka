@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     CmafPackageCreateOrUpdateParameters' {..} =
-      _salt `Prelude.hashWithSalt` encryption
+      _salt
+        `Prelude.hashWithSalt` encryption
         `Prelude.hashWithSalt` hlsManifests
         `Prelude.hashWithSalt` segmentDurationSeconds
         `Prelude.hashWithSalt` segmentPrefix

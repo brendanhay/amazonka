@@ -104,7 +104,8 @@ instance Data.FromJSON ZookeeperNodeInfo where
 
 instance Prelude.Hashable ZookeeperNodeInfo where
   hashWithSalt _salt ZookeeperNodeInfo' {..} =
-    _salt `Prelude.hashWithSalt` attachedENIId
+    _salt
+      `Prelude.hashWithSalt` attachedENIId
       `Prelude.hashWithSalt` clientVpcIpAddress
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` zookeeperId

@@ -238,7 +238,8 @@ instance
     CreateServiceTemplateVersion
   where
   hashWithSalt _salt CreateServiceTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` majorVersion
       `Prelude.hashWithSalt` supportedComponentSources

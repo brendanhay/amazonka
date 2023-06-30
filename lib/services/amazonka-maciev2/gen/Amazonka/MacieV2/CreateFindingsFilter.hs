@@ -235,7 +235,8 @@ instance Core.AWSRequest CreateFindingsFilter where
 
 instance Prelude.Hashable CreateFindingsFilter where
   hashWithSalt _salt CreateFindingsFilter' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` tags

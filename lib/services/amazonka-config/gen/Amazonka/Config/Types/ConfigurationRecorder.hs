@@ -107,7 +107,8 @@ instance Data.FromJSON ConfigurationRecorder where
 
 instance Prelude.Hashable ConfigurationRecorder where
   hashWithSalt _salt ConfigurationRecorder' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recordingGroup
       `Prelude.hashWithSalt` roleARN
 

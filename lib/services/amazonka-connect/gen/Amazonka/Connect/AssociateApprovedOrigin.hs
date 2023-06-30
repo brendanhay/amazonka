@@ -102,7 +102,8 @@ instance Core.AWSRequest AssociateApprovedOrigin where
 
 instance Prelude.Hashable AssociateApprovedOrigin where
   hashWithSalt _salt AssociateApprovedOrigin' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` origin
 
 instance Prelude.NFData AssociateApprovedOrigin where

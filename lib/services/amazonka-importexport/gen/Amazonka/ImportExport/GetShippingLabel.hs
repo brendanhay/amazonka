@@ -192,7 +192,8 @@ instance Core.AWSRequest GetShippingLabel where
 
 instance Prelude.Hashable GetShippingLabel where
   hashWithSalt _salt GetShippingLabel' {..} =
-    _salt `Prelude.hashWithSalt` aPIVersion
+    _salt
+      `Prelude.hashWithSalt` aPIVersion
       `Prelude.hashWithSalt` city
       `Prelude.hashWithSalt` company
       `Prelude.hashWithSalt` country

@@ -75,7 +75,8 @@ instance Data.FromJSON NumericRangeFilterValue where
 
 instance Prelude.Hashable NumericRangeFilterValue where
   hashWithSalt _salt NumericRangeFilterValue' {..} =
-    _salt `Prelude.hashWithSalt` parameter
+    _salt
+      `Prelude.hashWithSalt` parameter
       `Prelude.hashWithSalt` staticValue
 
 instance Prelude.NFData NumericRangeFilterValue where

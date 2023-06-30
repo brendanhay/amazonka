@@ -131,22 +131,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowsForTargetResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowsForTargetResponse_windowIdentities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeMaintenanceWindowsForTarget_nextToken
           Lens..~ rs
           Lens.^? describeMaintenanceWindowsForTargetResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -162,10 +162,11 @@ instance
       ( \s h x ->
           DescribeMaintenanceWindowsForTargetResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "WindowIdentities"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "WindowIdentities"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -175,7 +176,8 @@ instance
   hashWithSalt
     _salt
     DescribeMaintenanceWindowsForTarget' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` targets
         `Prelude.hashWithSalt` resourceType

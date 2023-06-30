@@ -111,7 +111,8 @@ instance Data.FromJSON Model where
 
 instance Prelude.Hashable Model where
   hashWithSalt _salt Model' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` schema

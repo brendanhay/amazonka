@@ -70,12 +70,14 @@ instance Data.FromJSON Duration where
       "Duration"
       ( \x ->
           Duration'
-            Prelude.<$> (x Data..:? "Unit") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Unit")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Duration where
   hashWithSalt _salt Duration' {..} =
-    _salt `Prelude.hashWithSalt` unit
+    _salt
+      `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Duration where

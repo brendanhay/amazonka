@@ -149,7 +149,8 @@ instance Core.AWSRequest CreateRoutingControl where
 
 instance Prelude.Hashable CreateRoutingControl where
   hashWithSalt _salt CreateRoutingControl' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` routingControlName

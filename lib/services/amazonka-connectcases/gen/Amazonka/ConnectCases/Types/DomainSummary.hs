@@ -90,7 +90,8 @@ instance Data.FromJSON DomainSummary where
 
 instance Prelude.Hashable DomainSummary where
   hashWithSalt _salt DomainSummary' {..} =
-    _salt `Prelude.hashWithSalt` domainArn
+    _salt
+      `Prelude.hashWithSalt` domainArn
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` name
 

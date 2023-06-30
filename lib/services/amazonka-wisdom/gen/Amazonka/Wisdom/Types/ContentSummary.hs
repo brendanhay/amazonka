@@ -201,7 +201,8 @@ instance Data.FromJSON ContentSummary where
 
 instance Prelude.Hashable ContentSummary where
   hashWithSalt _salt ContentSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` contentArn
       `Prelude.hashWithSalt` contentId
       `Prelude.hashWithSalt` contentType

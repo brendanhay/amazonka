@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateAccount where
 
 instance Prelude.Hashable UpdateAccount where
   hashWithSalt _salt UpdateAccount' {..} =
-    _salt `Prelude.hashWithSalt` defaultLicense
+    _salt
+      `Prelude.hashWithSalt` defaultLicense
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` accountId
 

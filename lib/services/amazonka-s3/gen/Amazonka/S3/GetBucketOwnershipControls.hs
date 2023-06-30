@@ -125,7 +125,8 @@ instance Core.AWSRequest GetBucketOwnershipControls where
 
 instance Prelude.Hashable GetBucketOwnershipControls where
   hashWithSalt _salt GetBucketOwnershipControls' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketOwnershipControls where

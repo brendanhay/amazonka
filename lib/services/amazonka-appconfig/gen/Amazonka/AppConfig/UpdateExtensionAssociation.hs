@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateExtensionAssociation where
 
 instance Prelude.Hashable UpdateExtensionAssociation where
   hashWithSalt _salt UpdateExtensionAssociation' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` extensionAssociationId
 
 instance Prelude.NFData UpdateExtensionAssociation where

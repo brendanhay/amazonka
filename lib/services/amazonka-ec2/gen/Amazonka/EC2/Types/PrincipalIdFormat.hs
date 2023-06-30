@@ -68,13 +68,16 @@ instance Data.FromXML PrincipalIdFormat where
   parseXML x =
     PrincipalIdFormat'
       Prelude.<$> (x Data..@? "arn")
-      Prelude.<*> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "statusSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable PrincipalIdFormat where
   hashWithSalt _salt PrincipalIdFormat' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` statuses
 
 instance Prelude.NFData PrincipalIdFormat where

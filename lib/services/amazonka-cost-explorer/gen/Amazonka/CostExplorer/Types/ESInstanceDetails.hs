@@ -109,7 +109,8 @@ instance Data.FromJSON ESInstanceDetails where
 
 instance Prelude.Hashable ESInstanceDetails where
   hashWithSalt _salt ESInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` currentGeneration
+    _salt
+      `Prelude.hashWithSalt` currentGeneration
       `Prelude.hashWithSalt` instanceClass
       `Prelude.hashWithSalt` instanceSize
       `Prelude.hashWithSalt` region

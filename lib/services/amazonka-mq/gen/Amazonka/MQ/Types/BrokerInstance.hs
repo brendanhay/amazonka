@@ -87,7 +87,8 @@ instance Data.FromJSON BrokerInstance where
 
 instance Prelude.Hashable BrokerInstance where
   hashWithSalt _salt BrokerInstance' {..} =
-    _salt `Prelude.hashWithSalt` consoleURL
+    _salt
+      `Prelude.hashWithSalt` consoleURL
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` ipAddress
 

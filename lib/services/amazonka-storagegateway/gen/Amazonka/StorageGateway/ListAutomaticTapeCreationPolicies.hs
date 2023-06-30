@@ -91,10 +91,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAutomaticTapeCreationPoliciesResponse'
-            Prelude.<$> ( x Data..?> "AutomaticTapeCreationPolicyInfos"
+            Prelude.<$> ( x
+                            Data..?> "AutomaticTapeCreationPolicyInfos"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

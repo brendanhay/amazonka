@@ -79,7 +79,8 @@ instance
       "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails"
       ( \x ->
           AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails'
-            Prelude.<$> (x Data..:? "Max") Prelude.<*> (x Data..:? "Min")
+            Prelude.<$> (x Data..:? "Max")
+            Prelude.<*> (x Data..:? "Min")
       )
 
 instance
@@ -89,7 +90,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails' {..} =
-      _salt `Prelude.hashWithSalt` max
+      _salt
+        `Prelude.hashWithSalt` max
         `Prelude.hashWithSalt` min
 
 instance

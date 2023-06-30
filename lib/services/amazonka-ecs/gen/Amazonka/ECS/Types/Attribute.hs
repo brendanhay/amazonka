@@ -131,7 +131,8 @@ instance Data.FromJSON Attribute where
 
 instance Prelude.Hashable Attribute where
   hashWithSalt _salt Attribute' {..} =
-    _salt `Prelude.hashWithSalt` targetId
+    _salt
+      `Prelude.hashWithSalt` targetId
       `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` name

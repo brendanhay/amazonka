@@ -83,8 +83,8 @@ instance
       ( \x ->
           AwsElasticsearchDomainLogPublishingOptions'
             Prelude.<$> (x Data..:? "AuditLogs")
-              Prelude.<*> (x Data..:? "IndexSlowLogs")
-              Prelude.<*> (x Data..:? "SearchSlowLogs")
+            Prelude.<*> (x Data..:? "IndexSlowLogs")
+            Prelude.<*> (x Data..:? "SearchSlowLogs")
       )
 
 instance
@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     AwsElasticsearchDomainLogPublishingOptions' {..} =
-      _salt `Prelude.hashWithSalt` auditLogs
+      _salt
+        `Prelude.hashWithSalt` auditLogs
         `Prelude.hashWithSalt` indexSlowLogs
         `Prelude.hashWithSalt` searchSlowLogs
 

@@ -243,7 +243,8 @@ instance Core.AWSRequest UpdateProduct where
 
 instance Prelude.Hashable UpdateProduct where
   hashWithSalt _salt UpdateProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` addTags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` distributor

@@ -233,7 +233,7 @@ instance
       ( \s h x ->
           StartDBInstanceAutomatedBackupsReplicationResponse'
             Prelude.<$> (x Data..@? "DBInstanceAutomatedBackup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -243,7 +243,8 @@ instance
   hashWithSalt
     _salt
     StartDBInstanceAutomatedBackupsReplication' {..} =
-      _salt `Prelude.hashWithSalt` backupRetentionPeriod
+      _salt
+        `Prelude.hashWithSalt` backupRetentionPeriod
         `Prelude.hashWithSalt` destinationRegion
         `Prelude.hashWithSalt` kmsKeyId
         `Prelude.hashWithSalt` preSignedUrl

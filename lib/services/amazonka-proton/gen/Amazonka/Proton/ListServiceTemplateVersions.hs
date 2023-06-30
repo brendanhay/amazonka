@@ -136,21 +136,21 @@ instance Core.AWSPager ListServiceTemplateVersions where
     | Core.stop
         ( rs
             Lens.^? listServiceTemplateVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listServiceTemplateVersionsResponse_templateVersions
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listServiceTemplateVersions_nextToken
           Lens..~ rs
           Lens.^? listServiceTemplateVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceTemplateVersions where
   type
@@ -164,14 +164,16 @@ instance Core.AWSRequest ListServiceTemplateVersions where
           ListServiceTemplateVersionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "templateVersions"
+            Prelude.<*> ( x
+                            Data..?> "templateVersions"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListServiceTemplateVersions where
   hashWithSalt _salt ListServiceTemplateVersions' {..} =
-    _salt `Prelude.hashWithSalt` majorVersion
+    _salt
+      `Prelude.hashWithSalt` majorVersion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` templateName

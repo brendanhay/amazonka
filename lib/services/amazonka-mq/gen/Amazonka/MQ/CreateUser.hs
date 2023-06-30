@@ -155,7 +155,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` consoleAccess
+    _salt
+      `Prelude.hashWithSalt` consoleAccess
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` brokerId

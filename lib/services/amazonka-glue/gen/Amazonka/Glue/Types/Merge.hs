@@ -109,7 +109,8 @@ instance Data.FromJSON Merge where
 
 instance Prelude.Hashable Merge where
   hashWithSalt _salt Merge' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` primaryKeys

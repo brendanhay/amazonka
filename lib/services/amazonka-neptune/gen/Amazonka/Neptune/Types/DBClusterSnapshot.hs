@@ -307,7 +307,8 @@ instance Data.FromXML DBClusterSnapshot where
   parseXML x =
     DBClusterSnapshot'
       Prelude.<$> (x Data..@? "AllocatedStorage")
-      Prelude.<*> ( x Data..@? "AvailabilityZones"
+      Prelude.<*> ( x
+                      Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
@@ -332,7 +333,8 @@ instance Data.FromXML DBClusterSnapshot where
 
 instance Prelude.Hashable DBClusterSnapshot where
   hashWithSalt _salt DBClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` clusterCreateTime
       `Prelude.hashWithSalt` dbClusterIdentifier

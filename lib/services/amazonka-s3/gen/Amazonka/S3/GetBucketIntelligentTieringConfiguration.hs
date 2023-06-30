@@ -138,7 +138,7 @@ instance
       ( \s h x ->
           GetBucketIntelligentTieringConfigurationResponse'
             Prelude.<$> (Data.parseXML x)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -148,7 +148,8 @@ instance
   hashWithSalt
     _salt
     GetBucketIntelligentTieringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bucket
+      _salt
+        `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
 
 instance

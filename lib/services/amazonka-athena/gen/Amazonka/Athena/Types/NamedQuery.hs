@@ -121,7 +121,8 @@ instance Data.FromJSON NamedQuery where
 
 instance Prelude.Hashable NamedQuery where
   hashWithSalt _salt NamedQuery' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` namedQueryId
       `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` name

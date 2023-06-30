@@ -253,7 +253,8 @@ instance Core.AWSRequest PutManagedRuleSetVersions where
 
 instance Prelude.Hashable PutManagedRuleSetVersions where
   hashWithSalt _salt PutManagedRuleSetVersions' {..} =
-    _salt `Prelude.hashWithSalt` recommendedVersion
+    _salt
+      `Prelude.hashWithSalt` recommendedVersion
       `Prelude.hashWithSalt` versionsToPublish
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope

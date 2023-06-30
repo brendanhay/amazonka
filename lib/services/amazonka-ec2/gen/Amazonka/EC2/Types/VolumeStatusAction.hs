@@ -91,7 +91,8 @@ instance Data.FromXML VolumeStatusAction where
 
 instance Prelude.Hashable VolumeStatusAction where
   hashWithSalt _salt VolumeStatusAction' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventType

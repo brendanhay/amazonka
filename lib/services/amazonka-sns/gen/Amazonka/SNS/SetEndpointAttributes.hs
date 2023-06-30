@@ -143,7 +143,8 @@ instance Core.AWSRequest SetEndpointAttributes where
 
 instance Prelude.Hashable SetEndpointAttributes where
   hashWithSalt _salt SetEndpointAttributes' {..} =
-    _salt `Prelude.hashWithSalt` endpointArn
+    _salt
+      `Prelude.hashWithSalt` endpointArn
       `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData SetEndpointAttributes where

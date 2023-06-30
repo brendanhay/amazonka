@@ -79,7 +79,8 @@ instance
     ComponentPropertyGroupRequest
   where
   hashWithSalt _salt ComponentPropertyGroupRequest' {..} =
-    _salt `Prelude.hashWithSalt` groupType
+    _salt
+      `Prelude.hashWithSalt` groupType
       `Prelude.hashWithSalt` propertyNames
       `Prelude.hashWithSalt` updateType
 

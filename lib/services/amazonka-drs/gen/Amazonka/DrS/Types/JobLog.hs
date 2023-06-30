@@ -86,7 +86,8 @@ instance Data.FromJSON JobLog where
 
 instance Prelude.Hashable JobLog where
   hashWithSalt _salt JobLog' {..} =
-    _salt `Prelude.hashWithSalt` event
+    _salt
+      `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` eventData
       `Prelude.hashWithSalt` logDateTime
 

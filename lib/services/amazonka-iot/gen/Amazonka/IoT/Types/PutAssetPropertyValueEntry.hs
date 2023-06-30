@@ -136,7 +136,8 @@ instance Data.FromJSON PutAssetPropertyValueEntry where
 
 instance Prelude.Hashable PutAssetPropertyValueEntry where
   hashWithSalt _salt PutAssetPropertyValueEntry' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` entryId
       `Prelude.hashWithSalt` propertyAlias
       `Prelude.hashWithSalt` propertyId

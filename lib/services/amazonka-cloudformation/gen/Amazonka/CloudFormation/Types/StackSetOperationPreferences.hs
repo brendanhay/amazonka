@@ -257,7 +257,9 @@ instance Data.FromXML StackSetOperationPreferences where
       Prelude.<*> (x Data..@? "MaxConcurrentCount")
       Prelude.<*> (x Data..@? "MaxConcurrentPercentage")
       Prelude.<*> (x Data..@? "RegionConcurrencyType")
-      Prelude.<*> ( x Data..@? "RegionOrder" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "RegionOrder"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -266,7 +268,8 @@ instance
     StackSetOperationPreferences
   where
   hashWithSalt _salt StackSetOperationPreferences' {..} =
-    _salt `Prelude.hashWithSalt` failureToleranceCount
+    _salt
+      `Prelude.hashWithSalt` failureToleranceCount
       `Prelude.hashWithSalt` failureTolerancePercentage
       `Prelude.hashWithSalt` maxConcurrentCount
       `Prelude.hashWithSalt` maxConcurrentPercentage

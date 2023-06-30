@@ -198,7 +198,8 @@ instance Data.FromXML OriginAccessControlConfig where
 
 instance Prelude.Hashable OriginAccessControlConfig where
   hashWithSalt _salt OriginAccessControlConfig' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` signingProtocol
       `Prelude.hashWithSalt` signingBehavior

@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateResolverDnssecConfig where
 
 instance Prelude.Hashable UpdateResolverDnssecConfig where
   hashWithSalt _salt UpdateResolverDnssecConfig' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` validation
 
 instance Prelude.NFData UpdateResolverDnssecConfig where

@@ -117,7 +117,8 @@ instance Core.AWSRequest GetPrincipalTagAttributeMap where
 
 instance Prelude.Hashable GetPrincipalTagAttributeMap where
   hashWithSalt _salt GetPrincipalTagAttributeMap' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
+    _salt
+      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityProviderName
 
 instance Prelude.NFData GetPrincipalTagAttributeMap where

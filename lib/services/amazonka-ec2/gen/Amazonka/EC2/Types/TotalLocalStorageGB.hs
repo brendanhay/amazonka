@@ -72,11 +72,13 @@ totalLocalStorageGB_min = Lens.lens (\TotalLocalStorageGB' {min} -> min) (\s@Tot
 instance Data.FromXML TotalLocalStorageGB where
   parseXML x =
     TotalLocalStorageGB'
-      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
+      Prelude.<$> (x Data..@? "max")
+      Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable TotalLocalStorageGB where
   hashWithSalt _salt TotalLocalStorageGB' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData TotalLocalStorageGB where

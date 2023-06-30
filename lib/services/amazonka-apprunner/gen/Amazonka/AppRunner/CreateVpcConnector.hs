@@ -152,7 +152,8 @@ instance Core.AWSRequest CreateVpcConnector where
 
 instance Prelude.Hashable CreateVpcConnector where
   hashWithSalt _salt CreateVpcConnector' {..} =
-    _salt `Prelude.hashWithSalt` securityGroups
+    _salt
+      `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcConnectorName
       `Prelude.hashWithSalt` subnets

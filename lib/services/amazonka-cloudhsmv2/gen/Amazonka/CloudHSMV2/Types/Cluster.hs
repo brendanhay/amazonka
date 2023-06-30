@@ -222,7 +222,8 @@ instance Data.FromJSON Cluster where
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` backupPolicy
+    _salt
+      `Prelude.hashWithSalt` backupPolicy
       `Prelude.hashWithSalt` backupRetentionPolicy
       `Prelude.hashWithSalt` certificates
       `Prelude.hashWithSalt` clusterId

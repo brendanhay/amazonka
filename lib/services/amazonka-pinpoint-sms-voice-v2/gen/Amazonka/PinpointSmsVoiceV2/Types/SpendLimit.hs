@@ -129,7 +129,8 @@ instance Data.FromJSON SpendLimit where
 
 instance Prelude.Hashable SpendLimit where
   hashWithSalt _salt SpendLimit' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` enforcedLimit
       `Prelude.hashWithSalt` maxLimit
       `Prelude.hashWithSalt` overridden

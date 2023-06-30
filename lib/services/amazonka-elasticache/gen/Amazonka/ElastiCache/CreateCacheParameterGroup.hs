@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateCacheParameterGroup where
 
 instance Prelude.Hashable CreateCacheParameterGroup where
   hashWithSalt _salt CreateCacheParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` cacheParameterGroupName
       `Prelude.hashWithSalt` cacheParameterGroupFamily
       `Prelude.hashWithSalt` description

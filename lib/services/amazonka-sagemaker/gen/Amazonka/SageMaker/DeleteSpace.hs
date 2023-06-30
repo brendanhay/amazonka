@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteSpace where
 
 instance Prelude.Hashable DeleteSpace where
   hashWithSalt _salt DeleteSpace' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` spaceName
 
 instance Prelude.NFData DeleteSpace where

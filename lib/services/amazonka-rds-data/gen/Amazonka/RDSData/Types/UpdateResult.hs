@@ -58,7 +58,8 @@ instance Data.FromJSON UpdateResult where
       "UpdateResult"
       ( \x ->
           UpdateResult'
-            Prelude.<$> ( x Data..:? "generatedFields"
+            Prelude.<$> ( x
+                            Data..:? "generatedFields"
                             Data..!= Prelude.mempty
                         )
       )

@@ -76,12 +76,14 @@ instance Data.FromJSON Button where
       "Button"
       ( \x ->
           Button'
-            Prelude.<$> (x Data..: "text") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "text")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Button where
   hashWithSalt _salt Button' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Button where

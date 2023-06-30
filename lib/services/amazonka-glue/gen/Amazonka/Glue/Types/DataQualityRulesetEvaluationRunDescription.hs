@@ -93,9 +93,9 @@ instance
       ( \x ->
           DataQualityRulesetEvaluationRunDescription'
             Prelude.<$> (x Data..:? "DataSource")
-              Prelude.<*> (x Data..:? "RunId")
-              Prelude.<*> (x Data..:? "StartedOn")
-              Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "RunId")
+            Prelude.<*> (x Data..:? "StartedOn")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     DataQualityRulesetEvaluationRunDescription' {..} =
-      _salt `Prelude.hashWithSalt` dataSource
+      _salt
+        `Prelude.hashWithSalt` dataSource
         `Prelude.hashWithSalt` runId
         `Prelude.hashWithSalt` startedOn
         `Prelude.hashWithSalt` status

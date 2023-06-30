@@ -78,7 +78,8 @@ instance
     ExperimentS3LogConfiguration
   where
   hashWithSalt _salt ExperimentS3LogConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` prefix
 
 instance Prelude.NFData ExperimentS3LogConfiguration where

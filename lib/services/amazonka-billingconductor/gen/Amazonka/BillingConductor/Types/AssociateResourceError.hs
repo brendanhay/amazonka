@@ -75,7 +75,8 @@ instance Data.FromJSON AssociateResourceError where
 
 instance Prelude.Hashable AssociateResourceError where
   hashWithSalt _salt AssociateResourceError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData AssociateResourceError where

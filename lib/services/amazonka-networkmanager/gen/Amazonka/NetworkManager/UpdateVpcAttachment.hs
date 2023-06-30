@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateVpcAttachment where
 
 instance Prelude.Hashable UpdateVpcAttachment where
   hashWithSalt _salt UpdateVpcAttachment' {..} =
-    _salt `Prelude.hashWithSalt` addSubnetArns
+    _salt
+      `Prelude.hashWithSalt` addSubnetArns
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` removeSubnetArns
       `Prelude.hashWithSalt` attachmentId

@@ -60,7 +60,8 @@ instance Data.FromJSON FindingStatistics where
       "FindingStatistics"
       ( \x ->
           FindingStatistics'
-            Prelude.<$> ( x Data..:? "countBySeverity"
+            Prelude.<$> ( x
+                            Data..:? "countBySeverity"
                             Data..!= Prelude.mempty
                         )
       )

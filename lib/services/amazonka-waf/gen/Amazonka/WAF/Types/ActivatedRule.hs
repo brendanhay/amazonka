@@ -386,7 +386,8 @@ instance Data.FromJSON ActivatedRule where
 
 instance Prelude.Hashable ActivatedRule where
   hashWithSalt _salt ActivatedRule' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` overrideAction
       `Prelude.hashWithSalt` type'

@@ -84,7 +84,8 @@ instance Data.FromJSON ComponentVariant where
 
 instance Prelude.Hashable ComponentVariant where
   hashWithSalt _salt ComponentVariant' {..} =
-    _salt `Prelude.hashWithSalt` overrides
+    _salt
+      `Prelude.hashWithSalt` overrides
       `Prelude.hashWithSalt` variantValues
 
 instance Prelude.NFData ComponentVariant where

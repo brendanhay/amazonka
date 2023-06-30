@@ -86,7 +86,8 @@ instance Data.FromJSON ConnectAttachment where
 
 instance Prelude.Hashable ConnectAttachment where
   hashWithSalt _salt ConnectAttachment' {..} =
-    _salt `Prelude.hashWithSalt` attachment
+    _salt
+      `Prelude.hashWithSalt` attachment
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` transportAttachmentId
 

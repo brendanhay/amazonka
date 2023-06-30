@@ -241,7 +241,8 @@ instance Core.AWSRequest CreateAutoMLJob where
 
 instance Prelude.Hashable CreateAutoMLJob where
   hashWithSalt _salt CreateAutoMLJob' {..} =
-    _salt `Prelude.hashWithSalt` autoMLJobConfig
+    _salt
+      `Prelude.hashWithSalt` autoMLJobConfig
       `Prelude.hashWithSalt` autoMLJobObjective
       `Prelude.hashWithSalt` generateCandidateDefinitionsOnly
       `Prelude.hashWithSalt` modelDeployConfig

@@ -132,7 +132,8 @@ instance Core.AWSRequest DeleteRumMetricsDestination where
 
 instance Prelude.Hashable DeleteRumMetricsDestination where
   hashWithSalt _salt DeleteRumMetricsDestination' {..} =
-    _salt `Prelude.hashWithSalt` destinationArn
+    _salt
+      `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` appMonitorName
       `Prelude.hashWithSalt` destination
 

@@ -111,7 +111,8 @@ instance Data.FromJSON FreeTrialInfo where
 
 instance Prelude.Hashable FreeTrialInfo where
   hashWithSalt _salt FreeTrialInfo' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` type'

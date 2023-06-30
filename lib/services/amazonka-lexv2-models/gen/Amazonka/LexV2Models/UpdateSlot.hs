@@ -278,7 +278,8 @@ instance Core.AWSRequest UpdateSlot where
 
 instance Prelude.Hashable UpdateSlot where
   hashWithSalt _salt UpdateSlot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` multipleValuesSetting
       `Prelude.hashWithSalt` obfuscationSetting
       `Prelude.hashWithSalt` slotTypeId

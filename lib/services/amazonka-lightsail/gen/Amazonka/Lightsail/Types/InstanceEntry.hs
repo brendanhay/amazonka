@@ -226,7 +226,8 @@ instanceEntry_availabilityZone = Lens.lens (\InstanceEntry' {availabilityZone} -
 
 instance Prelude.Hashable InstanceEntry where
   hashWithSalt _salt InstanceEntry' {..} =
-    _salt `Prelude.hashWithSalt` userData
+    _salt
+      `Prelude.hashWithSalt` userData
       `Prelude.hashWithSalt` sourceName
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` portInfoSource

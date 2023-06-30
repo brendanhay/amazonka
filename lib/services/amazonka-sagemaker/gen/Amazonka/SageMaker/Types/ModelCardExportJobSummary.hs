@@ -148,7 +148,8 @@ instance Data.FromJSON ModelCardExportJobSummary where
 
 instance Prelude.Hashable ModelCardExportJobSummary where
   hashWithSalt _salt ModelCardExportJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` modelCardExportJobName
+    _salt
+      `Prelude.hashWithSalt` modelCardExportJobName
       `Prelude.hashWithSalt` modelCardExportJobArn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` modelCardName

@@ -179,7 +179,7 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
     -- | The weekly time range, in Universal Coordinated Time (UTC), during which
     -- system maintenance can occur.
     --
-    -- Format: @ \<day>:HH:MM-\<day>:HH:MM@
+    -- Format: @ @/@\<day>@/@:HH:MM-@/@\<day>@/@:HH:MM@
     --
     -- For the day values, use @mon@ | @tue@ | @wed@ | @thu@ | @fri@ | @sat@ |
     -- @sun@
@@ -353,7 +353,7 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
 -- 'preferredMaintenanceWindow', 'awsRedshiftClusterDetails_preferredMaintenanceWindow' - The weekly time range, in Universal Coordinated Time (UTC), during which
 -- system maintenance can occur.
 --
--- Format: @ \<day>:HH:MM-\<day>:HH:MM@
+-- Format: @ @/@\<day>@/@:HH:MM-@/@\<day>@/@:HH:MM@
 --
 -- For the day values, use @mon@ | @tue@ | @wed@ | @thu@ | @fri@ | @sat@ |
 -- @sun@
@@ -642,7 +642,7 @@ awsRedshiftClusterDetails_pendingModifiedValues = Lens.lens (\AwsRedshiftCluster
 -- | The weekly time range, in Universal Coordinated Time (UTC), during which
 -- system maintenance can occur.
 --
--- Format: @ \<day>:HH:MM-\<day>:HH:MM@
+-- Format: @ @/@\<day>@/@:HH:MM-@/@\<day>@/@:HH:MM@
 --
 -- For the day values, use @mon@ | @tue@ | @wed@ | @thu@ | @fri@ | @sat@ |
 -- @sun@
@@ -697,12 +697,14 @@ instance Data.FromJSON AwsRedshiftClusterDetails where
             Prelude.<*> (x Data..:? "ClusterCreateTime")
             Prelude.<*> (x Data..:? "ClusterIdentifier")
             Prelude.<*> (x Data..:? "ClusterNodes" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ClusterParameterGroups"
+            Prelude.<*> ( x
+                            Data..:? "ClusterParameterGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ClusterPublicKey")
             Prelude.<*> (x Data..:? "ClusterRevisionNumber")
-            Prelude.<*> ( x Data..:? "ClusterSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "ClusterSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ClusterSnapshotCopyStatus")
@@ -710,7 +712,8 @@ instance Data.FromJSON AwsRedshiftClusterDetails where
             Prelude.<*> (x Data..:? "ClusterSubnetGroupName")
             Prelude.<*> (x Data..:? "ClusterVersion")
             Prelude.<*> (x Data..:? "DBName")
-            Prelude.<*> ( x Data..:? "DeferredMaintenanceWindows"
+            Prelude.<*> ( x
+                            Data..:? "DeferredMaintenanceWindows"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ElasticIpStatus")
@@ -739,14 +742,16 @@ instance Data.FromJSON AwsRedshiftClusterDetails where
             Prelude.<*> (x Data..:? "SnapshotScheduleIdentifier")
             Prelude.<*> (x Data..:? "SnapshotScheduleState")
             Prelude.<*> (x Data..:? "VpcId")
-            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "VpcSecurityGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AwsRedshiftClusterDetails where
   hashWithSalt _salt AwsRedshiftClusterDetails' {..} =
-    _salt `Prelude.hashWithSalt` allowVersionUpgrade
+    _salt
+      `Prelude.hashWithSalt` allowVersionUpgrade
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` clusterAvailabilityStatus

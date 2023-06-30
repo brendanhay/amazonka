@@ -179,10 +179,12 @@ instance Data.FromJSON AssessmentTemplate where
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "assessmentTargetArn")
             Prelude.<*> (x Data..: "durationInSeconds")
-            Prelude.<*> ( x Data..:? "rulesPackageArns"
+            Prelude.<*> ( x
+                            Data..:? "rulesPackageArns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "userAttributesForFindings"
+            Prelude.<*> ( x
+                            Data..:? "userAttributesForFindings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "assessmentRunCount")
@@ -191,7 +193,8 @@ instance Data.FromJSON AssessmentTemplate where
 
 instance Prelude.Hashable AssessmentTemplate where
   hashWithSalt _salt AssessmentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` lastAssessmentRunArn
+    _salt
+      `Prelude.hashWithSalt` lastAssessmentRunArn
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` assessmentTargetArn

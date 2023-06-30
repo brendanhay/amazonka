@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     ActivityTaskCompletedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` result
+      _salt
+        `Prelude.hashWithSalt` result
         `Prelude.hashWithSalt` scheduledEventId
         `Prelude.hashWithSalt` startedEventId
 

@@ -162,7 +162,8 @@ instance Data.FromJSON CheckSummary where
 
 instance Prelude.Hashable CheckSummary where
   hashWithSalt _salt CheckSummary' {..} =
-    _salt `Prelude.hashWithSalt` accountSummary
+    _salt
+      `Prelude.hashWithSalt` accountSummary
       `Prelude.hashWithSalt` choiceId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

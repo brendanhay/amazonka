@@ -568,7 +568,8 @@ condition_comparisonOperator = Lens.lens (\Condition' {comparisonOperator} -> co
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` attributeValueList
+    _salt
+      `Prelude.hashWithSalt` attributeValueList
       `Prelude.hashWithSalt` comparisonOperator
 
 instance Prelude.NFData Condition where

@@ -84,7 +84,8 @@ instance Data.FromJSON FailedResource where
 
 instance Prelude.Hashable FailedResource where
   hashWithSalt _salt FailedResource' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` resourceArn
 

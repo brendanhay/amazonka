@@ -101,13 +101,16 @@ instance Data.FromJSON ParameterRanges where
       "ParameterRanges"
       ( \x ->
           ParameterRanges'
-            Prelude.<$> ( x Data..:? "CategoricalParameterRanges"
+            Prelude.<$> ( x
+                            Data..:? "CategoricalParameterRanges"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ContinuousParameterRanges"
+            Prelude.<*> ( x
+                            Data..:? "ContinuousParameterRanges"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "IntegerParameterRanges"
+            Prelude.<*> ( x
+                            Data..:? "IntegerParameterRanges"
                             Data..!= Prelude.mempty
                         )
       )

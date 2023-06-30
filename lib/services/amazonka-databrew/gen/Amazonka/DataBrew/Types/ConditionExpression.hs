@@ -108,7 +108,8 @@ instance Data.FromJSON ConditionExpression where
 
 instance Prelude.Hashable ConditionExpression where
   hashWithSalt _salt ConditionExpression' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` targetColumn
 

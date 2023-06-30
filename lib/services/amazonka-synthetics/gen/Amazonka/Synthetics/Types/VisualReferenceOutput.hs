@@ -83,14 +83,16 @@ instance Data.FromJSON VisualReferenceOutput where
       ( \x ->
           VisualReferenceOutput'
             Prelude.<$> (x Data..:? "BaseCanaryRunId")
-            Prelude.<*> ( x Data..:? "BaseScreenshots"
+            Prelude.<*> ( x
+                            Data..:? "BaseScreenshots"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable VisualReferenceOutput where
   hashWithSalt _salt VisualReferenceOutput' {..} =
-    _salt `Prelude.hashWithSalt` baseCanaryRunId
+    _salt
+      `Prelude.hashWithSalt` baseCanaryRunId
       `Prelude.hashWithSalt` baseScreenshots
 
 instance Prelude.NFData VisualReferenceOutput where

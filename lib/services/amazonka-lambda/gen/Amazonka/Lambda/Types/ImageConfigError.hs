@@ -74,7 +74,8 @@ instance Data.FromJSON ImageConfigError where
 
 instance Prelude.Hashable ImageConfigError where
   hashWithSalt _salt ImageConfigError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ImageConfigError where

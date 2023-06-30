@@ -82,7 +82,8 @@ instance Data.FromJSON SupportedResourceType where
 
 instance Prelude.Hashable SupportedResourceType where
   hashWithSalt _salt SupportedResourceType' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` service
 
 instance Prelude.NFData SupportedResourceType where

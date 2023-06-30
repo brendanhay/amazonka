@@ -115,7 +115,8 @@ instance Data.FromJSON TCPFlagField where
 
 instance Prelude.Hashable TCPFlagField where
   hashWithSalt _salt TCPFlagField' {..} =
-    _salt `Prelude.hashWithSalt` masks
+    _salt
+      `Prelude.hashWithSalt` masks
       `Prelude.hashWithSalt` flags
 
 instance Prelude.NFData TCPFlagField where

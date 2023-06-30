@@ -100,7 +100,8 @@ instance Data.FromJSON S3SourceConfig where
 
 instance Prelude.Hashable S3SourceConfig where
   hashWithSalt _salt S3SourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` fileFormatDescriptor
+    _salt
+      `Prelude.hashWithSalt` fileFormatDescriptor
       `Prelude.hashWithSalt` historicalDataPathList
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` templatedPathList

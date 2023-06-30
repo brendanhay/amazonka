@@ -71,7 +71,8 @@ provisionedCapacity_workerCount = Lens.lens (\ProvisionedCapacity' {workerCount}
 
 instance Prelude.Hashable ProvisionedCapacity where
   hashWithSalt _salt ProvisionedCapacity' {..} =
-    _salt `Prelude.hashWithSalt` mcuCount
+    _salt
+      `Prelude.hashWithSalt` mcuCount
       `Prelude.hashWithSalt` workerCount
 
 instance Prelude.NFData ProvisionedCapacity where

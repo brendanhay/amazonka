@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeResourceServer where
 
 instance Prelude.Hashable DescribeResourceServer where
   hashWithSalt _salt DescribeResourceServer' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData DescribeResourceServer where

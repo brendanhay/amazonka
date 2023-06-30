@@ -56,7 +56,7 @@ data DeleteAccess = DeleteAccess'
     -- Transfer Family. If you know the group name, you can view the SID values
     -- by running the following command using Windows PowerShell.
     --
-    -- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
+    -- @Get-ADGroup -Filter {samAccountName -like \"@/@YourGroupName@/@*\"} -Properties * | Select SamAccountName,ObjectSid@
     --
     -- In that command, replace /YourGroupName/ with the name of your Active
     -- Directory group.
@@ -86,7 +86,7 @@ data DeleteAccess = DeleteAccess'
 -- Transfer Family. If you know the group name, you can view the SID values
 -- by running the following command using Windows PowerShell.
 --
--- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
+-- @Get-ADGroup -Filter {samAccountName -like \"@/@YourGroupName@/@*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
@@ -118,7 +118,7 @@ deleteAccess_serverId = Lens.lens (\DeleteAccess' {serverId} -> serverId) (\s@De
 -- Transfer Family. If you know the group name, you can view the SID values
 -- by running the following command using Windows PowerShell.
 --
--- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
+-- @Get-ADGroup -Filter {samAccountName -like \"@/@YourGroupName@/@*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
@@ -138,7 +138,8 @@ instance Core.AWSRequest DeleteAccess where
 
 instance Prelude.Hashable DeleteAccess where
   hashWithSalt _salt DeleteAccess' {..} =
-    _salt `Prelude.hashWithSalt` serverId
+    _salt
+      `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` externalId
 
 instance Prelude.NFData DeleteAccess where

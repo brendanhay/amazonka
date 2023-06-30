@@ -134,7 +134,8 @@ instance Data.FromJSON RealtimeEndpointInfo where
 
 instance Prelude.Hashable RealtimeEndpointInfo where
   hashWithSalt _salt RealtimeEndpointInfo' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` endpointStatus
       `Prelude.hashWithSalt` endpointUrl
       `Prelude.hashWithSalt` peakRequestsPerSecond

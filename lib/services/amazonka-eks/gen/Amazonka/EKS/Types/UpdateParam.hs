@@ -69,12 +69,14 @@ instance Data.FromJSON UpdateParam where
       "UpdateParam"
       ( \x ->
           UpdateParam'
-            Prelude.<$> (x Data..:? "type") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable UpdateParam where
   hashWithSalt _salt UpdateParam' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData UpdateParam where

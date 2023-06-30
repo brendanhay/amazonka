@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeElasticLoadBalancers where
     Response.receiveJSON
       ( \s h x ->
           DescribeElasticLoadBalancersResponse'
-            Prelude.<$> ( x Data..?> "ElasticLoadBalancers"
+            Prelude.<$> ( x
+                            Data..?> "ElasticLoadBalancers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -120,7 +121,8 @@ instance
     DescribeElasticLoadBalancers
   where
   hashWithSalt _salt DescribeElasticLoadBalancers' {..} =
-    _salt `Prelude.hashWithSalt` layerIds
+    _salt
+      `Prelude.hashWithSalt` layerIds
       `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData DescribeElasticLoadBalancers where

@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     DataQualityRulesetEvaluationRunFilter' {..} =
-      _salt `Prelude.hashWithSalt` startedAfter
+      _salt
+        `Prelude.hashWithSalt` startedAfter
         `Prelude.hashWithSalt` startedBefore
         `Prelude.hashWithSalt` dataSource
 

@@ -283,7 +283,8 @@ instance Data.FromJSON ImportTableDescription where
 
 instance Prelude.Hashable ImportTableDescription where
   hashWithSalt _salt ImportTableDescription' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` cloudWatchLogGroupArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` errorCount

@@ -78,7 +78,8 @@ instance
   hashWithSalt
     _salt
     ConnectedHomeSettingsForUpdate' {..} =
-      _salt `Prelude.hashWithSalt` labels
+      _salt
+        `Prelude.hashWithSalt` labels
         `Prelude.hashWithSalt` minConfidence
 
 instance

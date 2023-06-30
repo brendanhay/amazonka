@@ -206,7 +206,8 @@ instance Core.AWSRequest CreateHealthCheck where
 
 instance Prelude.Hashable CreateHealthCheck where
   hashWithSalt _salt CreateHealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` callerReference
+    _salt
+      `Prelude.hashWithSalt` callerReference
       `Prelude.hashWithSalt` healthCheckConfig
 
 instance Prelude.NFData CreateHealthCheck where

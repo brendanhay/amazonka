@@ -148,7 +148,8 @@ instance Core.AWSRequest GetViolationDetails where
 
 instance Prelude.Hashable GetViolationDetails where
   hashWithSalt _salt GetViolationDetails' {..} =
-    _salt `Prelude.hashWithSalt` policyId
+    _salt
+      `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` memberAccount
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType

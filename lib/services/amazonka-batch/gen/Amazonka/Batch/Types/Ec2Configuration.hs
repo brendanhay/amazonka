@@ -258,7 +258,8 @@ instance Data.FromJSON Ec2Configuration where
 
 instance Prelude.Hashable Ec2Configuration where
   hashWithSalt _salt Ec2Configuration' {..} =
-    _salt `Prelude.hashWithSalt` imageIdOverride
+    _salt
+      `Prelude.hashWithSalt` imageIdOverride
       `Prelude.hashWithSalt` imageKubernetesVersion
       `Prelude.hashWithSalt` imageType
 

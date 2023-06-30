@@ -108,7 +108,8 @@ instance Core.AWSRequest GetSession where
 
 instance Prelude.Hashable GetSession where
   hashWithSalt _salt GetSession' {..} =
-    _salt `Prelude.hashWithSalt` assistantId
+    _salt
+      `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` sessionId
 
 instance Prelude.NFData GetSession where

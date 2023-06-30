@@ -351,7 +351,8 @@ instance Data.FromJSON EmailConfigurationType where
 
 instance Prelude.Hashable EmailConfigurationType where
   hashWithSalt _salt EmailConfigurationType' {..} =
-    _salt `Prelude.hashWithSalt` configurationSet
+    _salt
+      `Prelude.hashWithSalt` configurationSet
       `Prelude.hashWithSalt` emailSendingAccount
       `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` replyToEmailAddress

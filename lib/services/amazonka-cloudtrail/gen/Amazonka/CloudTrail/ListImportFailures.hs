@@ -104,22 +104,22 @@ instance Core.AWSPager ListImportFailures where
     | Core.stop
         ( rs
             Lens.^? listImportFailuresResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listImportFailuresResponse_failures
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listImportFailures_nextToken
           Lens..~ rs
           Lens.^? listImportFailuresResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImportFailures where
   type
@@ -138,7 +138,8 @@ instance Core.AWSRequest ListImportFailures where
 
 instance Prelude.Hashable ListImportFailures where
   hashWithSalt _salt ListImportFailures' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` importId
 

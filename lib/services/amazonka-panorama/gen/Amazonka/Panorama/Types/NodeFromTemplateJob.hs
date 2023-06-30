@@ -116,7 +116,8 @@ instance Data.FromJSON NodeFromTemplateJob where
 
 instance Prelude.Hashable NodeFromTemplateJob where
   hashWithSalt _salt NodeFromTemplateJob' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` nodeName
       `Prelude.hashWithSalt` status

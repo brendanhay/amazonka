@@ -222,7 +222,8 @@ instance Data.FromXML CachePolicyConfig where
 
 instance Prelude.Hashable CachePolicyConfig where
   hashWithSalt _salt CachePolicyConfig' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` defaultTTL
       `Prelude.hashWithSalt` maxTTL
       `Prelude.hashWithSalt` parametersInCacheKeyAndForwardedToOrigin

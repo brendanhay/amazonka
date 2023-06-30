@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     AudioAndDTMFInputSpecification' {..} =
-      _salt `Prelude.hashWithSalt` audioSpecification
+      _salt
+        `Prelude.hashWithSalt` audioSpecification
         `Prelude.hashWithSalt` dtmfSpecification
         `Prelude.hashWithSalt` startTimeoutMs
 

@@ -189,7 +189,8 @@ instance
     PostCommentForComparedCommit
   where
   hashWithSalt _salt PostCommentForComparedCommit' {..} =
-    _salt `Prelude.hashWithSalt` beforeCommitId
+    _salt
+      `Prelude.hashWithSalt` beforeCommitId
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` repositoryName

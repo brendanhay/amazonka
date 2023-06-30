@@ -172,7 +172,8 @@ instance Data.FromJSON Resource where
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` catalog
+    _salt
+      `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` dataCellsFilter
       `Prelude.hashWithSalt` dataLocation
       `Prelude.hashWithSalt` database

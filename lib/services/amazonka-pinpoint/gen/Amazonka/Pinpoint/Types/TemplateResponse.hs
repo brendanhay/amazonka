@@ -221,7 +221,8 @@ instance Data.FromJSON TemplateResponse where
 
 instance Prelude.Hashable TemplateResponse where
   hashWithSalt _salt TemplateResponse' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` templateDescription
       `Prelude.hashWithSalt` version

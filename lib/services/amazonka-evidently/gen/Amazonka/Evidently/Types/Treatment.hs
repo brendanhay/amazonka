@@ -84,7 +84,8 @@ instance Data.FromJSON Treatment where
       ( \x ->
           Treatment'
             Prelude.<$> (x Data..:? "description")
-            Prelude.<*> ( x Data..:? "featureVariations"
+            Prelude.<*> ( x
+                            Data..:? "featureVariations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "name")
@@ -92,7 +93,8 @@ instance Data.FromJSON Treatment where
 
 instance Prelude.Hashable Treatment where
   hashWithSalt _salt Treatment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` featureVariations
       `Prelude.hashWithSalt` name
 

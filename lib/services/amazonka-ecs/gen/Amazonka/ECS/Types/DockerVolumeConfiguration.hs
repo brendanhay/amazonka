@@ -199,7 +199,8 @@ instance Data.FromJSON DockerVolumeConfiguration where
 
 instance Prelude.Hashable DockerVolumeConfiguration where
   hashWithSalt _salt DockerVolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` autoprovision
+    _salt
+      `Prelude.hashWithSalt` autoprovision
       `Prelude.hashWithSalt` driver
       `Prelude.hashWithSalt` driverOpts
       `Prelude.hashWithSalt` labels

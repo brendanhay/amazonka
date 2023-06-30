@@ -110,7 +110,8 @@ instance Core.AWSRequest PutModelPackageGroupPolicy where
 
 instance Prelude.Hashable PutModelPackageGroupPolicy where
   hashWithSalt _salt PutModelPackageGroupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` modelPackageGroupName
+    _salt
+      `Prelude.hashWithSalt` modelPackageGroupName
       `Prelude.hashWithSalt` resourcePolicy
 
 instance Prelude.NFData PutModelPackageGroupPolicy where

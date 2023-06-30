@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     FailedCreateStandbyWorkspacesRequest' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` standbyWorkspaceRequest
 

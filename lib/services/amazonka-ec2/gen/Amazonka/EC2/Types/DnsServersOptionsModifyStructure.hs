@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     DnsServersOptionsModifyStructure' {..} =
-      _salt `Prelude.hashWithSalt` customDnsServers
+      _salt
+        `Prelude.hashWithSalt` customDnsServers
         `Prelude.hashWithSalt` enabled
 
 instance

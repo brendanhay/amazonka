@@ -112,7 +112,8 @@ instance Core.AWSRequest RunStatement where
 
 instance Prelude.Hashable RunStatement where
   hashWithSalt _salt RunStatement' {..} =
-    _salt `Prelude.hashWithSalt` requestOrigin
+    _salt
+      `Prelude.hashWithSalt` requestOrigin
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` code
 

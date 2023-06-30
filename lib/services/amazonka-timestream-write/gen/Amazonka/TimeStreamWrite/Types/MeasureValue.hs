@@ -101,7 +101,8 @@ measureValue_type = Lens.lens (\MeasureValue' {type'} -> type') (\s@MeasureValue
 
 instance Prelude.Hashable MeasureValue where
   hashWithSalt _salt MeasureValue' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` type'
 

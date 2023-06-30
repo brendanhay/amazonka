@@ -98,7 +98,8 @@ instance Data.FromJSON FrameworkMetadata where
 
 instance Prelude.Hashable FrameworkMetadata where
   hashWithSalt _salt FrameworkMetadata' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` logo
       `Prelude.hashWithSalt` name

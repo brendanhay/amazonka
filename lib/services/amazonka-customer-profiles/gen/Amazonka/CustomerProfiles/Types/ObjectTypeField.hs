@@ -97,7 +97,8 @@ instance Data.FromJSON ObjectTypeField where
 
 instance Prelude.Hashable ObjectTypeField where
   hashWithSalt _salt ObjectTypeField' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` target
 

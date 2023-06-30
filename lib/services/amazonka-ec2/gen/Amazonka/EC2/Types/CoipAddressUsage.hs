@@ -91,7 +91,8 @@ instance Data.FromXML CoipAddressUsage where
 
 instance Prelude.Hashable CoipAddressUsage where
   hashWithSalt _salt CoipAddressUsage' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` awsService
       `Prelude.hashWithSalt` coIp

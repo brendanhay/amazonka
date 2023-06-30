@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateDatasetGroup where
 
 instance Prelude.Hashable UpdateDatasetGroup where
   hashWithSalt _salt UpdateDatasetGroup' {..} =
-    _salt `Prelude.hashWithSalt` datasetGroupArn
+    _salt
+      `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` datasetArns
 
 instance Prelude.NFData UpdateDatasetGroup where

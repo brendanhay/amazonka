@@ -113,7 +113,8 @@ instance Data.FromJSON PermissionGroupByUser where
 
 instance Prelude.Hashable PermissionGroupByUser where
   hashWithSalt _salt PermissionGroupByUser' {..} =
-    _salt `Prelude.hashWithSalt` membershipStatus
+    _salt
+      `Prelude.hashWithSalt` membershipStatus
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissionGroupId
 

@@ -239,7 +239,8 @@ instance Core.AWSRequest CreateRoute where
           CreateRouteResponse''
             Prelude.<$> (x Data..?> "apiGatewayManaged")
             Prelude.<*> (x Data..?> "apiKeyRequired")
-            Prelude.<*> ( x Data..?> "authorizationScopes"
+            Prelude.<*> ( x
+                            Data..?> "authorizationScopes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "authorizationType")
@@ -247,7 +248,8 @@ instance Core.AWSRequest CreateRoute where
             Prelude.<*> (x Data..?> "modelSelectionExpression")
             Prelude.<*> (x Data..?> "operationName")
             Prelude.<*> (x Data..?> "requestModels" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "requestParameters"
+            Prelude.<*> ( x
+                            Data..?> "requestParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "routeId")
@@ -259,7 +261,8 @@ instance Core.AWSRequest CreateRoute where
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =
-    _salt `Prelude.hashWithSalt` apiKeyRequired
+    _salt
+      `Prelude.hashWithSalt` apiKeyRequired
       `Prelude.hashWithSalt` authorizationScopes
       `Prelude.hashWithSalt` authorizationType
       `Prelude.hashWithSalt` authorizerId

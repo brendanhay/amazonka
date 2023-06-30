@@ -97,7 +97,8 @@ writeEventStream_destinationStreamArn = Lens.lens (\WriteEventStream' {destinati
 
 instance Prelude.Hashable WriteEventStream where
   hashWithSalt _salt WriteEventStream' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` destinationStreamArn
 
 instance Prelude.NFData WriteEventStream where

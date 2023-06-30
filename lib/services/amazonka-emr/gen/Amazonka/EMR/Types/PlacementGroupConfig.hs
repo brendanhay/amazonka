@@ -102,7 +102,8 @@ instance Data.FromJSON PlacementGroupConfig where
 
 instance Prelude.Hashable PlacementGroupConfig where
   hashWithSalt _salt PlacementGroupConfig' {..} =
-    _salt `Prelude.hashWithSalt` placementStrategy
+    _salt
+      `Prelude.hashWithSalt` placementStrategy
       `Prelude.hashWithSalt` instanceRole
 
 instance Prelude.NFData PlacementGroupConfig where

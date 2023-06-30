@@ -91,7 +91,9 @@ instance Core.AWSRequest DescribeApplications where
       "DescribeApplicationsResult"
       ( \s h x ->
           DescribeApplicationsResponse'
-            Prelude.<$> ( x Data..@? "Applications" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Applications"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

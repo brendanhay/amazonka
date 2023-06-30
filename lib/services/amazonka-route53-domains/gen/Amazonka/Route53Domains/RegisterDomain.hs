@@ -438,7 +438,8 @@ instance Core.AWSRequest RegisterDomain where
 
 instance Prelude.Hashable RegisterDomain where
   hashWithSalt _salt RegisterDomain' {..} =
-    _salt `Prelude.hashWithSalt` autoRenew
+    _salt
+      `Prelude.hashWithSalt` autoRenew
       `Prelude.hashWithSalt` idnLangCode
       `Prelude.hashWithSalt` privacyProtectAdminContact
       `Prelude.hashWithSalt` privacyProtectRegistrantContact

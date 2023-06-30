@@ -95,7 +95,8 @@ instance Core.AWSRequest UpdateGateway where
 
 instance Prelude.Hashable UpdateGateway where
   hashWithSalt _salt UpdateGateway' {..} =
-    _salt `Prelude.hashWithSalt` gatewayId
+    _salt
+      `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` gatewayName
 
 instance Prelude.NFData UpdateGateway where

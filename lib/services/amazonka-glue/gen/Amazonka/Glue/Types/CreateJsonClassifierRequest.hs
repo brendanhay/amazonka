@@ -74,7 +74,8 @@ createJsonClassifierRequest_jsonPath = Lens.lens (\CreateJsonClassifierRequest' 
 
 instance Prelude.Hashable CreateJsonClassifierRequest where
   hashWithSalt _salt CreateJsonClassifierRequest' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` jsonPath
 
 instance Prelude.NFData CreateJsonClassifierRequest where

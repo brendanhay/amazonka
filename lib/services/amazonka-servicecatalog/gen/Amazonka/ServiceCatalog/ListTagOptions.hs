@@ -108,21 +108,22 @@ instance Core.AWSPager ListTagOptions where
     | Core.stop
         ( rs
             Lens.^? listTagOptionsResponse_pageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTagOptionsResponse_tagOptionDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTagOptions_pageToken
           Lens..~ rs
-          Lens.^? listTagOptionsResponse_pageToken Prelude.. Lens._Just
+          Lens.^? listTagOptionsResponse_pageToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTagOptions where
   type
@@ -135,7 +136,8 @@ instance Core.AWSRequest ListTagOptions where
       ( \s h x ->
           ListTagOptionsResponse'
             Prelude.<$> (x Data..?> "PageToken")
-            Prelude.<*> ( x Data..?> "TagOptionDetails"
+            Prelude.<*> ( x
+                            Data..?> "TagOptionDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,7 +145,8 @@ instance Core.AWSRequest ListTagOptions where
 
 instance Prelude.Hashable ListTagOptions where
   hashWithSalt _salt ListTagOptions' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
 

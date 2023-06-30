@@ -70,7 +70,9 @@ instance Core.AWSRequest ListBuckets where
     Response.receiveXML
       ( \s h x ->
           ListBucketsResponse'
-            Prelude.<$> ( x Data..@? "Buckets" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Buckets"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Bucket")
                         )
             Prelude.<*> (x Data..@? "Owner")

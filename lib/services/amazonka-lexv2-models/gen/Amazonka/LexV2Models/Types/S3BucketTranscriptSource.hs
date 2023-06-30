@@ -145,7 +145,8 @@ instance Data.FromJSON S3BucketTranscriptSource where
 
 instance Prelude.Hashable S3BucketTranscriptSource where
   hashWithSalt _salt S3BucketTranscriptSource' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` pathFormat
       `Prelude.hashWithSalt` transcriptFilter
       `Prelude.hashWithSalt` s3BucketName

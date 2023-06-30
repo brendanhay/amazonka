@@ -85,7 +85,8 @@ instance Data.FromJSON ContainerImage where
 
 instance Prelude.Hashable ContainerImage where
   hashWithSalt _salt ContainerImage' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` digest
       `Prelude.hashWithSalt` image
 

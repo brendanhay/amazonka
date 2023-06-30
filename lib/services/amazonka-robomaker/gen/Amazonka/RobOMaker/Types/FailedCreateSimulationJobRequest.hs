@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     FailedCreateSimulationJobRequest' {..} =
-      _salt `Prelude.hashWithSalt` failedAt
+      _salt
+        `Prelude.hashWithSalt` failedAt
         `Prelude.hashWithSalt` failureCode
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` request

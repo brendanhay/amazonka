@@ -125,7 +125,8 @@ instance Core.AWSRequest RemoveUserFromGroup where
 
 instance Prelude.Hashable RemoveUserFromGroup where
   hashWithSalt _salt RemoveUserFromGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData RemoveUserFromGroup where

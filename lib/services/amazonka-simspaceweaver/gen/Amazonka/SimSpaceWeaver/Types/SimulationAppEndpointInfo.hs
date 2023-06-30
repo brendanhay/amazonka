@@ -78,14 +78,16 @@ instance Data.FromJSON SimulationAppEndpointInfo where
       ( \x ->
           SimulationAppEndpointInfo'
             Prelude.<$> (x Data..:? "Address")
-            Prelude.<*> ( x Data..:? "IngressPortMappings"
+            Prelude.<*> ( x
+                            Data..:? "IngressPortMappings"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SimulationAppEndpointInfo where
   hashWithSalt _salt SimulationAppEndpointInfo' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` ingressPortMappings
 
 instance Prelude.NFData SimulationAppEndpointInfo where

@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     UpdateConnectionAuthRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` apiKeyAuthParameters
+      _salt
+        `Prelude.hashWithSalt` apiKeyAuthParameters
         `Prelude.hashWithSalt` basicAuthParameters
         `Prelude.hashWithSalt` invocationHttpParameters
         `Prelude.hashWithSalt` oAuthParameters

@@ -113,7 +113,8 @@ awsEcrContainerAggregation_sortOrder = Lens.lens (\AwsEcrContainerAggregation' {
 
 instance Prelude.Hashable AwsEcrContainerAggregation where
   hashWithSalt _salt AwsEcrContainerAggregation' {..} =
-    _salt `Prelude.hashWithSalt` architectures
+    _salt
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` imageShas
       `Prelude.hashWithSalt` imageTags
       `Prelude.hashWithSalt` repositories

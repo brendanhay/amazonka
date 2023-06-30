@@ -93,7 +93,8 @@ instance Data.FromJSON FrameCaptureSettings where
 
 instance Prelude.Hashable FrameCaptureSettings where
   hashWithSalt _salt FrameCaptureSettings' {..} =
-    _salt `Prelude.hashWithSalt` captureInterval
+    _salt
+      `Prelude.hashWithSalt` captureInterval
       `Prelude.hashWithSalt` captureIntervalUnits
       `Prelude.hashWithSalt` timecodeBurninSettings
 

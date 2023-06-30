@@ -112,7 +112,8 @@ instance Data.FromJSON SimulationAppMetadata where
 
 instance Prelude.Hashable SimulationAppMetadata where
   hashWithSalt _salt SimulationAppMetadata' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` simulation
       `Prelude.hashWithSalt` status

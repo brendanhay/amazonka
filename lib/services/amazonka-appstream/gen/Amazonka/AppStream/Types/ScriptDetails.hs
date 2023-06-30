@@ -105,7 +105,8 @@ instance Data.FromJSON ScriptDetails where
 
 instance Prelude.Hashable ScriptDetails where
   hashWithSalt _salt ScriptDetails' {..} =
-    _salt `Prelude.hashWithSalt` executableParameters
+    _salt
+      `Prelude.hashWithSalt` executableParameters
       `Prelude.hashWithSalt` scriptS3Location
       `Prelude.hashWithSalt` executablePath
       `Prelude.hashWithSalt` timeoutInSeconds

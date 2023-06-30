@@ -113,7 +113,8 @@ instance Core.AWSRequest GenerateMobileSdkReleaseUrl where
 
 instance Prelude.Hashable GenerateMobileSdkReleaseUrl where
   hashWithSalt _salt GenerateMobileSdkReleaseUrl' {..} =
-    _salt `Prelude.hashWithSalt` platform
+    _salt
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` releaseVersion
 
 instance Prelude.NFData GenerateMobileSdkReleaseUrl where

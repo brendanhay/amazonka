@@ -120,7 +120,8 @@ instance Data.FromJSON AggregateResourceIdentifier where
 
 instance Prelude.Hashable AggregateResourceIdentifier where
   hashWithSalt _salt AggregateResourceIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` resourceName
+    _salt
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` sourceAccountId
       `Prelude.hashWithSalt` sourceRegion
       `Prelude.hashWithSalt` resourceId

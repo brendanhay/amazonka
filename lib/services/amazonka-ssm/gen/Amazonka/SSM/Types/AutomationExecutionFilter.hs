@@ -73,7 +73,8 @@ automationExecutionFilter_values = Lens.lens (\AutomationExecutionFilter' {value
 
 instance Prelude.Hashable AutomationExecutionFilter where
   hashWithSalt _salt AutomationExecutionFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData AutomationExecutionFilter where

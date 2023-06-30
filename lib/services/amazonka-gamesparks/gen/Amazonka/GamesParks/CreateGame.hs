@@ -125,7 +125,8 @@ instance Core.AWSRequest CreateGame where
 
 instance Prelude.Hashable CreateGame where
   hashWithSalt _salt CreateGame' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gameName

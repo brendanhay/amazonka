@@ -116,7 +116,8 @@ instance Core.AWSRequest FinalizeDeviceClaim where
 
 instance Prelude.Hashable FinalizeDeviceClaim where
   hashWithSalt _salt FinalizeDeviceClaim' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` deviceId
 
 instance Prelude.NFData FinalizeDeviceClaim where

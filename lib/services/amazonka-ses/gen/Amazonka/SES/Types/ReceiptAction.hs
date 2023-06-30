@@ -150,7 +150,8 @@ instance Data.FromXML ReceiptAction where
 
 instance Prelude.Hashable ReceiptAction where
   hashWithSalt _salt ReceiptAction' {..} =
-    _salt `Prelude.hashWithSalt` addHeaderAction
+    _salt
+      `Prelude.hashWithSalt` addHeaderAction
       `Prelude.hashWithSalt` bounceAction
       `Prelude.hashWithSalt` lambdaAction
       `Prelude.hashWithSalt` s3Action

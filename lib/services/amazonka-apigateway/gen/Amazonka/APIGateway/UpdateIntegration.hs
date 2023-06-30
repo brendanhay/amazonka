@@ -142,7 +142,8 @@ instance Core.AWSRequest UpdateIntegration where
 
 instance Prelude.Hashable UpdateIntegration where
   hashWithSalt _salt UpdateIntegration' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` httpMethod

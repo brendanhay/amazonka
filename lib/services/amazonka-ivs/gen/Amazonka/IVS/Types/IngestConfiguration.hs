@@ -77,7 +77,8 @@ instance Data.FromJSON IngestConfiguration where
 
 instance Prelude.Hashable IngestConfiguration where
   hashWithSalt _salt IngestConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` audio
+    _salt
+      `Prelude.hashWithSalt` audio
       `Prelude.hashWithSalt` video
 
 instance Prelude.NFData IngestConfiguration where

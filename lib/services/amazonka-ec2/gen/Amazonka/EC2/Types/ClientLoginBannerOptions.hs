@@ -89,7 +89,8 @@ clientLoginBannerOptions_enabled = Lens.lens (\ClientLoginBannerOptions' {enable
 
 instance Prelude.Hashable ClientLoginBannerOptions where
   hashWithSalt _salt ClientLoginBannerOptions' {..} =
-    _salt `Prelude.hashWithSalt` bannerText
+    _salt
+      `Prelude.hashWithSalt` bannerText
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData ClientLoginBannerOptions where

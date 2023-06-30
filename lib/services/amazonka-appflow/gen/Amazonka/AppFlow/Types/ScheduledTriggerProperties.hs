@@ -192,7 +192,8 @@ instance Data.FromJSON ScheduledTriggerProperties where
 
 instance Prelude.Hashable ScheduledTriggerProperties where
   hashWithSalt _salt ScheduledTriggerProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataPullMode
+    _salt
+      `Prelude.hashWithSalt` dataPullMode
       `Prelude.hashWithSalt` firstExecutionFrom
       `Prelude.hashWithSalt` flowErrorDeactivationThreshold
       `Prelude.hashWithSalt` scheduleEndTime

@@ -107,7 +107,8 @@ instance Core.AWSRequest DisableClientAuthentication where
 
 instance Prelude.Hashable DisableClientAuthentication where
   hashWithSalt _salt DisableClientAuthentication' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DisableClientAuthentication where

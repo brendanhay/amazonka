@@ -81,18 +81,21 @@ instance Data.FromJSON TaskTemplateConstraints where
       "TaskTemplateConstraints"
       ( \x ->
           TaskTemplateConstraints'
-            Prelude.<$> ( x Data..:? "InvisibleFields"
+            Prelude.<$> ( x
+                            Data..:? "InvisibleFields"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReadOnlyFields" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "RequiredFields"
+            Prelude.<*> ( x
+                            Data..:? "RequiredFields"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TaskTemplateConstraints where
   hashWithSalt _salt TaskTemplateConstraints' {..} =
-    _salt `Prelude.hashWithSalt` invisibleFields
+    _salt
+      `Prelude.hashWithSalt` invisibleFields
       `Prelude.hashWithSalt` readOnlyFields
       `Prelude.hashWithSalt` requiredFields
 

@@ -107,7 +107,8 @@ instance Data.FromJSON AwsEc2LaunchTemplateDetails where
 
 instance Prelude.Hashable AwsEc2LaunchTemplateDetails where
   hashWithSalt _salt AwsEc2LaunchTemplateDetails' {..} =
-    _salt `Prelude.hashWithSalt` defaultVersionNumber
+    _salt
+      `Prelude.hashWithSalt` defaultVersionNumber
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` latestVersionNumber
       `Prelude.hashWithSalt` launchTemplateData

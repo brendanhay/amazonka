@@ -119,7 +119,8 @@ instance Data.FromJSON MetricComparisonComputation where
 
 instance Prelude.Hashable MetricComparisonComputation where
   hashWithSalt _salt MetricComparisonComputation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` computationId
       `Prelude.hashWithSalt` time
       `Prelude.hashWithSalt` fromValue

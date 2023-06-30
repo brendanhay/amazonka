@@ -168,7 +168,8 @@ instance
     PutBucketMetricsConfiguration
   where
   hashWithSalt _salt PutBucketMetricsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` metricsConfiguration

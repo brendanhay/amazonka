@@ -105,7 +105,7 @@ instance
       ( \s h x ->
           PutVoiceConnectorStreamingConfigurationResponse'
             Prelude.<$> (x Data..?> "StreamingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     PutVoiceConnectorStreamingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` voiceConnectorId
+      _salt
+        `Prelude.hashWithSalt` voiceConnectorId
         `Prelude.hashWithSalt` streamingConfiguration
 
 instance

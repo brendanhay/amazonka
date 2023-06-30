@@ -130,7 +130,8 @@ instance Core.AWSRequest PutPolicy where
 
 instance Prelude.Hashable PutPolicy where
   hashWithSalt _salt PutPolicy' {..} =
-    _salt `Prelude.hashWithSalt` tagList
+    _salt
+      `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutPolicy where

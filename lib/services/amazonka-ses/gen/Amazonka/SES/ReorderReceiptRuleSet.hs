@@ -118,7 +118,8 @@ instance Core.AWSRequest ReorderReceiptRuleSet where
 
 instance Prelude.Hashable ReorderReceiptRuleSet where
   hashWithSalt _salt ReorderReceiptRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` ruleSetName
+    _salt
+      `Prelude.hashWithSalt` ruleSetName
       `Prelude.hashWithSalt` ruleNames
 
 instance Prelude.NFData ReorderReceiptRuleSet where

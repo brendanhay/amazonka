@@ -92,12 +92,14 @@ instance Data.FromJSON NotificationChannel where
       "NotificationChannel"
       ( \x ->
           NotificationChannel'
-            Prelude.<$> (x Data..:? "Config") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Config")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable NotificationChannel where
   hashWithSalt _salt NotificationChannel' {..} =
-    _salt `Prelude.hashWithSalt` config
+    _salt
+      `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData NotificationChannel where

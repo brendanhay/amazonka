@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateSipRule where
 
 instance Prelude.Hashable UpdateSipRule where
   hashWithSalt _salt UpdateSipRule' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` targetApplications
       `Prelude.hashWithSalt` sipRuleId
       `Prelude.hashWithSalt` name

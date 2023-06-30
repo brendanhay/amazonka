@@ -226,7 +226,8 @@ instance Core.AWSRequest CreateProvisioningTemplate where
 
 instance Prelude.Hashable CreateProvisioningTemplate where
   hashWithSalt _salt CreateProvisioningTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` preProvisioningHook
       `Prelude.hashWithSalt` tags

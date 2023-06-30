@@ -92,21 +92,21 @@ instance Core.AWSPager ListResponsePlans where
     | Core.stop
         ( rs
             Lens.^? listResponsePlansResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listResponsePlansResponse_responsePlanSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResponsePlans_nextToken
           Lens..~ rs
           Lens.^? listResponsePlansResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResponsePlans where
   type
@@ -120,14 +120,16 @@ instance Core.AWSRequest ListResponsePlans where
           ListResponsePlansResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "responsePlanSummaries"
+            Prelude.<*> ( x
+                            Data..?> "responsePlanSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListResponsePlans where
   hashWithSalt _salt ListResponsePlans' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResponsePlans where

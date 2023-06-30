@@ -75,7 +75,8 @@ instance Data.FromJSON MemberIdArnPair where
 
 instance Prelude.Hashable MemberIdArnPair where
   hashWithSalt _salt MemberIdArnPair' {..} =
-    _salt `Prelude.hashWithSalt` memberArn
+    _salt
+      `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` memberId
 
 instance Prelude.NFData MemberIdArnPair where

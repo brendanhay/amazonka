@@ -106,7 +106,8 @@ instance
     UpdateSubscriptionDefinition
   where
   hashWithSalt _salt UpdateSubscriptionDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` subscriptionDefinitionId
 
 instance Prelude.NFData UpdateSubscriptionDefinition where

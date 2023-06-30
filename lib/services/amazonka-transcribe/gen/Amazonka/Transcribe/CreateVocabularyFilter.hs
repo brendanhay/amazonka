@@ -285,7 +285,8 @@ instance Core.AWSRequest CreateVocabularyFilter where
 
 instance Prelude.Hashable CreateVocabularyFilter where
   hashWithSalt _salt CreateVocabularyFilter' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vocabularyFilterFileUri
       `Prelude.hashWithSalt` words
       `Prelude.hashWithSalt` vocabularyFilterName

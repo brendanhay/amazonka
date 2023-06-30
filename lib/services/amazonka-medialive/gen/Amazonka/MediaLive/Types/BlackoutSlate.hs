@@ -135,7 +135,8 @@ instance Data.FromJSON BlackoutSlate where
 
 instance Prelude.Hashable BlackoutSlate where
   hashWithSalt _salt BlackoutSlate' {..} =
-    _salt `Prelude.hashWithSalt` blackoutSlateImage
+    _salt
+      `Prelude.hashWithSalt` blackoutSlateImage
       `Prelude.hashWithSalt` networkEndBlackout
       `Prelude.hashWithSalt` networkEndBlackoutImage
       `Prelude.hashWithSalt` networkId

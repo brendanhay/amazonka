@@ -220,31 +220,36 @@ instance
       ( \x ->
           NetworkFirewallInvalidRouteConfigurationViolation'
             Prelude.<$> (x Data..:? "ActualFirewallEndpoint")
-              Prelude.<*> (x Data..:? "ActualFirewallSubnetId")
-              Prelude.<*> ( x Data..:? "ActualFirewallSubnetRoutes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "ActualInternetGatewayRoutes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "AffectedSubnets"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "CurrentFirewallSubnetRouteTable")
-              Prelude.<*> (x Data..:? "CurrentInternetGatewayRouteTable")
-              Prelude.<*> (x Data..:? "ExpectedFirewallEndpoint")
-              Prelude.<*> (x Data..:? "ExpectedFirewallSubnetId")
-              Prelude.<*> ( x Data..:? "ExpectedFirewallSubnetRoutes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "ExpectedInternetGatewayRoutes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "InternetGatewayId")
-              Prelude.<*> (x Data..:? "IsRouteTableUsedInDifferentAZ")
-              Prelude.<*> (x Data..:? "RouteTableId")
-              Prelude.<*> (x Data..:? "ViolatingRoute")
-              Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "ActualFirewallSubnetId")
+            Prelude.<*> ( x
+                            Data..:? "ActualFirewallSubnetRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "ActualInternetGatewayRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "AffectedSubnets"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "CurrentFirewallSubnetRouteTable")
+            Prelude.<*> (x Data..:? "CurrentInternetGatewayRouteTable")
+            Prelude.<*> (x Data..:? "ExpectedFirewallEndpoint")
+            Prelude.<*> (x Data..:? "ExpectedFirewallSubnetId")
+            Prelude.<*> ( x
+                            Data..:? "ExpectedFirewallSubnetRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "ExpectedInternetGatewayRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "InternetGatewayId")
+            Prelude.<*> (x Data..:? "IsRouteTableUsedInDifferentAZ")
+            Prelude.<*> (x Data..:? "RouteTableId")
+            Prelude.<*> (x Data..:? "ViolatingRoute")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance
@@ -254,7 +259,8 @@ instance
   hashWithSalt
     _salt
     NetworkFirewallInvalidRouteConfigurationViolation' {..} =
-      _salt `Prelude.hashWithSalt` actualFirewallEndpoint
+      _salt
+        `Prelude.hashWithSalt` actualFirewallEndpoint
         `Prelude.hashWithSalt` actualFirewallSubnetId
         `Prelude.hashWithSalt` actualFirewallSubnetRoutes
         `Prelude.hashWithSalt` actualInternetGatewayRoutes

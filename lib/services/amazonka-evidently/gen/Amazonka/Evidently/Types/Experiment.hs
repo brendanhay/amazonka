@@ -317,7 +317,8 @@ instance Data.FromJSON Experiment where
 
 instance Prelude.Hashable Experiment where
   hashWithSalt _salt Experiment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` execution
       `Prelude.hashWithSalt` metricGoals
       `Prelude.hashWithSalt` onlineAbDefinition

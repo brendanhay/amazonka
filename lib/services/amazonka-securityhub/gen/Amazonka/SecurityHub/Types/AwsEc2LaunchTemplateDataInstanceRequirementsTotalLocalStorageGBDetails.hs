@@ -74,7 +74,8 @@ instance
       "AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails"
       ( \x ->
           AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails'
-            Prelude.<$> (x Data..:? "Max") Prelude.<*> (x Data..:? "Min")
+            Prelude.<$> (x Data..:? "Max")
+            Prelude.<*> (x Data..:? "Min")
       )
 
 instance
@@ -84,7 +85,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails' {..} =
-      _salt `Prelude.hashWithSalt` max
+      _salt
+        `Prelude.hashWithSalt` max
         `Prelude.hashWithSalt` min
 
 instance

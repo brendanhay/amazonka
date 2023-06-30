@@ -106,22 +106,22 @@ instance Core.AWSPager ListQualificationRequests where
     | Core.stop
         ( rs
             Lens.^? listQualificationRequestsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listQualificationRequestsResponse_qualificationRequests
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listQualificationRequests_nextToken
           Lens..~ rs
           Lens.^? listQualificationRequestsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQualificationRequests where
   type
@@ -135,7 +135,8 @@ instance Core.AWSRequest ListQualificationRequests where
           ListQualificationRequestsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "NumResults")
-            Prelude.<*> ( x Data..?> "QualificationRequests"
+            Prelude.<*> ( x
+                            Data..?> "QualificationRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,7 +144,8 @@ instance Core.AWSRequest ListQualificationRequests where
 
 instance Prelude.Hashable ListQualificationRequests where
   hashWithSalt _salt ListQualificationRequests' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` qualificationTypeId
 

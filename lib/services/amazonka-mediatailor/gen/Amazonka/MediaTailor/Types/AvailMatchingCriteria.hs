@@ -121,7 +121,8 @@ instance Data.FromJSON AvailMatchingCriteria where
 
 instance Prelude.Hashable AvailMatchingCriteria where
   hashWithSalt _salt AvailMatchingCriteria' {..} =
-    _salt `Prelude.hashWithSalt` dynamicVariable
+    _salt
+      `Prelude.hashWithSalt` dynamicVariable
       `Prelude.hashWithSalt` operator
 
 instance Prelude.NFData AvailMatchingCriteria where

@@ -248,7 +248,8 @@ instance Data.FromJSON IntentConfirmationSetting where
 
 instance Prelude.Hashable IntentConfirmationSetting where
   hashWithSalt _salt IntentConfirmationSetting' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` codeHook
       `Prelude.hashWithSalt` confirmationConditional
       `Prelude.hashWithSalt` confirmationNextStep

@@ -114,7 +114,8 @@ instance Core.AWSRequest BatchGetCommits where
 
 instance Prelude.Hashable BatchGetCommits where
   hashWithSalt _salt BatchGetCommits' {..} =
-    _salt `Prelude.hashWithSalt` commitIds
+    _salt
+      `Prelude.hashWithSalt` commitIds
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData BatchGetCommits where

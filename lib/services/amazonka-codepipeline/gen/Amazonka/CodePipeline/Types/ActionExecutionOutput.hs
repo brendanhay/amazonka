@@ -91,17 +91,20 @@ instance Data.FromJSON ActionExecutionOutput where
       ( \x ->
           ActionExecutionOutput'
             Prelude.<$> (x Data..:? "executionResult")
-            Prelude.<*> ( x Data..:? "outputArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "outputArtifacts"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "outputVariables"
+            Prelude.<*> ( x
+                            Data..:? "outputVariables"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ActionExecutionOutput where
   hashWithSalt _salt ActionExecutionOutput' {..} =
-    _salt `Prelude.hashWithSalt` executionResult
+    _salt
+      `Prelude.hashWithSalt` executionResult
       `Prelude.hashWithSalt` outputArtifacts
       `Prelude.hashWithSalt` outputVariables
 

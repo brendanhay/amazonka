@@ -183,7 +183,8 @@ createComponentData_variants = Lens.lens (\CreateComponentData' {variants} -> va
 
 instance Prelude.Hashable CreateComponentData where
   hashWithSalt _salt CreateComponentData' {..} =
-    _salt `Prelude.hashWithSalt` children
+    _salt
+      `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` collectionProperties
       `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` schemaVersion

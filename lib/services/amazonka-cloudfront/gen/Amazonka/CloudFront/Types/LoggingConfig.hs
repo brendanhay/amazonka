@@ -151,7 +151,8 @@ instance Data.FromXML LoggingConfig where
 
 instance Prelude.Hashable LoggingConfig where
   hashWithSalt _salt LoggingConfig' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` includeCookies
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` prefix

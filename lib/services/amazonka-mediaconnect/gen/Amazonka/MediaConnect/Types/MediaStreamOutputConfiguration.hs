@@ -109,7 +109,8 @@ instance Data.FromJSON MediaStreamOutputConfiguration where
       "MediaStreamOutputConfiguration"
       ( \x ->
           MediaStreamOutputConfiguration'
-            Prelude.<$> ( x Data..:? "destinationConfigurations"
+            Prelude.<$> ( x
+                            Data..:? "destinationConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "encodingParameters")

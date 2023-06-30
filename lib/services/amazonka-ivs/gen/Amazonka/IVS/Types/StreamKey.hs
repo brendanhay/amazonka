@@ -106,7 +106,8 @@ instance Data.FromJSON StreamKey where
 
 instance Prelude.Hashable StreamKey where
   hashWithSalt _salt StreamKey' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` value

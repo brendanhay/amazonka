@@ -103,7 +103,8 @@ instance Core.AWSRequest DescribeContributorInsights where
     Response.receiveJSON
       ( \s h x ->
           DescribeContributorInsightsResponse'
-            Prelude.<$> ( x Data..?> "ContributorInsightsRuleList"
+            Prelude.<$> ( x
+                            Data..?> "ContributorInsightsRuleList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ContributorInsightsStatus")
@@ -116,7 +117,8 @@ instance Core.AWSRequest DescribeContributorInsights where
 
 instance Prelude.Hashable DescribeContributorInsights where
   hashWithSalt _salt DescribeContributorInsights' {..} =
-    _salt `Prelude.hashWithSalt` indexName
+    _salt
+      `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData DescribeContributorInsights where

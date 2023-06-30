@@ -131,21 +131,21 @@ instance Core.AWSPager ListDefaultVocabularies where
     | Core.stop
         ( rs
             Lens.^? listDefaultVocabulariesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listDefaultVocabulariesResponse_defaultVocabularyList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDefaultVocabularies_nextToken
           Lens..~ rs
           Lens.^? listDefaultVocabulariesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDefaultVocabularies where
   type
@@ -159,14 +159,16 @@ instance Core.AWSRequest ListDefaultVocabularies where
           ListDefaultVocabulariesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "DefaultVocabularyList"
+            Prelude.<*> ( x
+                            Data..?> "DefaultVocabularyList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListDefaultVocabularies where
   hashWithSalt _salt ListDefaultVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

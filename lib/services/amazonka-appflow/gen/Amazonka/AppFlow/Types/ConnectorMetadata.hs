@@ -285,7 +285,8 @@ instance Data.FromJSON ConnectorMetadata where
 
 instance Prelude.Hashable ConnectorMetadata where
   hashWithSalt _salt ConnectorMetadata' {..} =
-    _salt `Prelude.hashWithSalt` amplitude
+    _salt
+      `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` customerProfiles
       `Prelude.hashWithSalt` datadog
       `Prelude.hashWithSalt` dynatrace

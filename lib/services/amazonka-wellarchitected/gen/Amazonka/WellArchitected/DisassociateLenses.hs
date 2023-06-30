@@ -101,7 +101,8 @@ instance Core.AWSRequest DisassociateLenses where
 
 instance Prelude.Hashable DisassociateLenses where
   hashWithSalt _salt DisassociateLenses' {..} =
-    _salt `Prelude.hashWithSalt` workloadId
+    _salt
+      `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAliases
 
 instance Prelude.NFData DisassociateLenses where

@@ -77,7 +77,8 @@ instance Data.FromJSON WordCloudSortConfiguration where
 
 instance Prelude.Hashable WordCloudSortConfiguration where
   hashWithSalt _salt WordCloudSortConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` categoryItemsLimit
+    _salt
+      `Prelude.hashWithSalt` categoryItemsLimit
       `Prelude.hashWithSalt` categorySort
 
 instance Prelude.NFData WordCloudSortConfiguration where

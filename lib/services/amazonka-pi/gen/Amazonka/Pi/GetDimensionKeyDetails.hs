@@ -226,7 +226,8 @@ instance Core.AWSRequest GetDimensionKeyDetails where
 
 instance Prelude.Hashable GetDimensionKeyDetails where
   hashWithSalt _salt GetDimensionKeyDetails' {..} =
-    _salt `Prelude.hashWithSalt` requestedDimensions
+    _salt
+      `Prelude.hashWithSalt` requestedDimensions
       `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` group'

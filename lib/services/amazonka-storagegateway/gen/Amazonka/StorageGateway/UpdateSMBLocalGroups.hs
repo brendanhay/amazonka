@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateSMBLocalGroups where
 
 instance Prelude.Hashable UpdateSMBLocalGroups where
   hashWithSalt _salt UpdateSMBLocalGroups' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` sMBLocalGroups
 
 instance Prelude.NFData UpdateSMBLocalGroups where

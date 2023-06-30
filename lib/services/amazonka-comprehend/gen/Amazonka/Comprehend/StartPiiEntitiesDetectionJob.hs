@@ -230,7 +230,8 @@ instance
     StartPiiEntitiesDetectionJob
   where
   hashWithSalt _salt StartPiiEntitiesDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` redactionConfig
       `Prelude.hashWithSalt` tags

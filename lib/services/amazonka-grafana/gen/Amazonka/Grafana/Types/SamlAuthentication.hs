@@ -80,7 +80,8 @@ instance Data.FromJSON SamlAuthentication where
 
 instance Prelude.Hashable SamlAuthentication where
   hashWithSalt _salt SamlAuthentication' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SamlAuthentication where

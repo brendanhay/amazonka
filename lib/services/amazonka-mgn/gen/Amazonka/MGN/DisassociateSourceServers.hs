@@ -106,7 +106,8 @@ instance Core.AWSRequest DisassociateSourceServers where
 
 instance Prelude.Hashable DisassociateSourceServers where
   hashWithSalt _salt DisassociateSourceServers' {..} =
-    _salt `Prelude.hashWithSalt` applicationID
+    _salt
+      `Prelude.hashWithSalt` applicationID
       `Prelude.hashWithSalt` sourceServerIDs
 
 instance Prelude.NFData DisassociateSourceServers where

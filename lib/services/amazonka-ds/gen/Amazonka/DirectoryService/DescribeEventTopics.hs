@@ -124,7 +124,8 @@ instance Core.AWSRequest DescribeEventTopics where
 
 instance Prelude.Hashable DescribeEventTopics where
   hashWithSalt _salt DescribeEventTopics' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` topicNames
 
 instance Prelude.NFData DescribeEventTopics where

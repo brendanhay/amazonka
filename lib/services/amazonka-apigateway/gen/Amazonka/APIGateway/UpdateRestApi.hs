@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateRestApi where
 
 instance Prelude.Hashable UpdateRestApi where
   hashWithSalt _salt UpdateRestApi' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` restApiId
 
 instance Prelude.NFData UpdateRestApi where

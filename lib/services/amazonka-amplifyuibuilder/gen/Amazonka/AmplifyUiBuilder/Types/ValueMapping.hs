@@ -78,7 +78,8 @@ instance Data.FromJSON ValueMapping where
 
 instance Prelude.Hashable ValueMapping where
   hashWithSalt _salt ValueMapping' {..} =
-    _salt `Prelude.hashWithSalt` displayValue
+    _salt
+      `Prelude.hashWithSalt` displayValue
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ValueMapping where

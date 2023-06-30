@@ -88,7 +88,8 @@ instance Data.FromJSON FormatOptions where
 
 instance Prelude.Hashable FormatOptions where
   hashWithSalt _salt FormatOptions' {..} =
-    _salt `Prelude.hashWithSalt` csv
+    _salt
+      `Prelude.hashWithSalt` csv
       `Prelude.hashWithSalt` excel
       `Prelude.hashWithSalt` json
 

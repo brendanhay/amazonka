@@ -80,7 +80,8 @@ instance Data.FromJSON DateRangeFilter where
 
 instance Prelude.Hashable DateRangeFilter where
   hashWithSalt _salt DateRangeFilter' {..} =
-    _salt `Prelude.hashWithSalt` startDateTime
+    _salt
+      `Prelude.hashWithSalt` startDateTime
       `Prelude.hashWithSalt` endDateTime
 
 instance Prelude.NFData DateRangeFilter where

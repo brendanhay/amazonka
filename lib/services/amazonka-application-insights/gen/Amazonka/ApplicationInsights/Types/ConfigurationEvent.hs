@@ -122,7 +122,8 @@ instance Data.FromJSON ConfigurationEvent where
 
 instance Prelude.Hashable ConfigurationEvent where
   hashWithSalt _salt ConfigurationEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventDetail
+    _salt
+      `Prelude.hashWithSalt` eventDetail
       `Prelude.hashWithSalt` eventResourceName
       `Prelude.hashWithSalt` eventResourceType
       `Prelude.hashWithSalt` eventStatus

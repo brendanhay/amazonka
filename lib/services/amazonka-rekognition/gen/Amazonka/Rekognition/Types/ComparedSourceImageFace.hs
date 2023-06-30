@@ -80,7 +80,8 @@ instance Data.FromJSON ComparedSourceImageFace where
 
 instance Prelude.Hashable ComparedSourceImageFace where
   hashWithSalt _salt ComparedSourceImageFace' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence
 
 instance Prelude.NFData ComparedSourceImageFace where

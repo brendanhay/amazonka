@@ -117,7 +117,8 @@ instance
     DescribeDomainChangeProgress
   where
   hashWithSalt _salt DescribeDomainChangeProgress' {..} =
-    _salt `Prelude.hashWithSalt` changeId
+    _salt
+      `Prelude.hashWithSalt` changeId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DescribeDomainChangeProgress where

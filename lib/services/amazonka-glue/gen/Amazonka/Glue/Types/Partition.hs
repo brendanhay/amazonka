@@ -151,7 +151,8 @@ instance Data.FromJSON Partition where
 
 instance Prelude.Hashable Partition where
   hashWithSalt _salt Partition' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` lastAccessTime

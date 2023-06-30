@@ -301,24 +301,28 @@ instance Data.FromJSON AwsEcsTaskDefinitionDetails where
       "AwsEcsTaskDefinitionDetails"
       ( \x ->
           AwsEcsTaskDefinitionDetails'
-            Prelude.<$> ( x Data..:? "ContainerDefinitions"
+            Prelude.<$> ( x
+                            Data..:? "ContainerDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Cpu")
             Prelude.<*> (x Data..:? "ExecutionRoleArn")
             Prelude.<*> (x Data..:? "Family")
-            Prelude.<*> ( x Data..:? "InferenceAccelerators"
+            Prelude.<*> ( x
+                            Data..:? "InferenceAccelerators"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IpcMode")
             Prelude.<*> (x Data..:? "Memory")
             Prelude.<*> (x Data..:? "NetworkMode")
             Prelude.<*> (x Data..:? "PidMode")
-            Prelude.<*> ( x Data..:? "PlacementConstraints"
+            Prelude.<*> ( x
+                            Data..:? "PlacementConstraints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProxyConfiguration")
-            Prelude.<*> ( x Data..:? "RequiresCompatibilities"
+            Prelude.<*> ( x
+                            Data..:? "RequiresCompatibilities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TaskRoleArn")
@@ -327,7 +331,8 @@ instance Data.FromJSON AwsEcsTaskDefinitionDetails where
 
 instance Prelude.Hashable AwsEcsTaskDefinitionDetails where
   hashWithSalt _salt AwsEcsTaskDefinitionDetails' {..} =
-    _salt `Prelude.hashWithSalt` containerDefinitions
+    _salt
+      `Prelude.hashWithSalt` containerDefinitions
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` family

@@ -94,7 +94,8 @@ instance Data.FromJSON JobTemplateSummary where
 
 instance Prelude.Hashable JobTemplateSummary where
   hashWithSalt _salt JobTemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` jobTemplateArn
       `Prelude.hashWithSalt` jobTemplateId

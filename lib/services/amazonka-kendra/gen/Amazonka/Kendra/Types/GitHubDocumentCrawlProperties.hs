@@ -133,7 +133,8 @@ instance
     GitHubDocumentCrawlProperties
   where
   hashWithSalt _salt GitHubDocumentCrawlProperties' {..} =
-    _salt `Prelude.hashWithSalt` crawlIssue
+    _salt
+      `Prelude.hashWithSalt` crawlIssue
       `Prelude.hashWithSalt` crawlIssueComment
       `Prelude.hashWithSalt` crawlIssueCommentAttachment
       `Prelude.hashWithSalt` crawlPullRequest

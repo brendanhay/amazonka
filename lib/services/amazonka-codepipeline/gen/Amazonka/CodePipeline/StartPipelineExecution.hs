@@ -109,7 +109,8 @@ instance Core.AWSRequest StartPipelineExecution where
 
 instance Prelude.Hashable StartPipelineExecution where
   hashWithSalt _salt StartPipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData StartPipelineExecution where

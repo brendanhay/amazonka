@@ -138,7 +138,8 @@ instance Core.AWSRequest RegisterPackageVersion where
 
 instance Prelude.Hashable RegisterPackageVersion where
   hashWithSalt _salt RegisterPackageVersion' {..} =
-    _salt `Prelude.hashWithSalt` markLatest
+    _salt
+      `Prelude.hashWithSalt` markLatest
       `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` packageId
       `Prelude.hashWithSalt` packageVersion

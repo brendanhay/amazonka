@@ -123,7 +123,8 @@ instance Core.AWSRequest ListJourneys where
 
 instance Prelude.Hashable ListJourneys where
   hashWithSalt _salt ListJourneys' {..} =
-    _salt `Prelude.hashWithSalt` pageSize
+    _salt
+      `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` applicationId
 

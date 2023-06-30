@@ -86,10 +86,12 @@ instance Data.FromJSON AwsElbLoadBalancerPolicies where
       "AwsElbLoadBalancerPolicies"
       ( \x ->
           AwsElbLoadBalancerPolicies'
-            Prelude.<$> ( x Data..:? "AppCookieStickinessPolicies"
+            Prelude.<$> ( x
+                            Data..:? "AppCookieStickinessPolicies"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "LbCookieStickinessPolicies"
+            Prelude.<*> ( x
+                            Data..:? "LbCookieStickinessPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OtherPolicies" Data..!= Prelude.mempty)

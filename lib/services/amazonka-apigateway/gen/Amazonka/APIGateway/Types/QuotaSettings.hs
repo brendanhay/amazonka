@@ -94,7 +94,8 @@ instance Data.FromJSON QuotaSettings where
 
 instance Prelude.Hashable QuotaSettings where
   hashWithSalt _salt QuotaSettings' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` offset
       `Prelude.hashWithSalt` period
 

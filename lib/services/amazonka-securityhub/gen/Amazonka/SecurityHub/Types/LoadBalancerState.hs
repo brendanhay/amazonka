@@ -89,7 +89,8 @@ instance Data.FromJSON LoadBalancerState where
 
 instance Prelude.Hashable LoadBalancerState where
   hashWithSalt _salt LoadBalancerState' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData LoadBalancerState where

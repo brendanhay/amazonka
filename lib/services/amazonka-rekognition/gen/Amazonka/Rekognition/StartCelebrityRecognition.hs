@@ -171,7 +171,8 @@ instance Core.AWSRequest StartCelebrityRecognition where
 
 instance Prelude.Hashable StartCelebrityRecognition where
   hashWithSalt _salt StartCelebrityRecognition' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` notificationChannel
       `Prelude.hashWithSalt` video

@@ -114,7 +114,8 @@ instance Core.AWSRequest ListDataIntegrations where
 
 instance Prelude.Hashable ListDataIntegrations where
   hashWithSalt _salt ListDataIntegrations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDataIntegrations where

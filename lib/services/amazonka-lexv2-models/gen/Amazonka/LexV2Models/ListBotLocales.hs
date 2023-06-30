@@ -166,7 +166,8 @@ instance Core.AWSRequest ListBotLocales where
       ( \s h x ->
           ListBotLocalesResponse'
             Prelude.<$> (x Data..?> "botId")
-            Prelude.<*> ( x Data..?> "botLocaleSummaries"
+            Prelude.<*> ( x
+                            Data..?> "botLocaleSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botVersion")
@@ -176,7 +177,8 @@ instance Core.AWSRequest ListBotLocales where
 
 instance Prelude.Hashable ListBotLocales where
   hashWithSalt _salt ListBotLocales' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

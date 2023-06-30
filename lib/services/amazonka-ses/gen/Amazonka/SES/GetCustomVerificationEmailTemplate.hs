@@ -110,12 +110,12 @@ instance
       ( \s h x ->
           GetCustomVerificationEmailTemplateResponse'
             Prelude.<$> (x Data..@? "FailureRedirectionURL")
-              Prelude.<*> (x Data..@? "FromEmailAddress")
-              Prelude.<*> (x Data..@? "SuccessRedirectionURL")
-              Prelude.<*> (x Data..@? "TemplateContent")
-              Prelude.<*> (x Data..@? "TemplateName")
-              Prelude.<*> (x Data..@? "TemplateSubject")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "FromEmailAddress")
+            Prelude.<*> (x Data..@? "SuccessRedirectionURL")
+            Prelude.<*> (x Data..@? "TemplateContent")
+            Prelude.<*> (x Data..@? "TemplateName")
+            Prelude.<*> (x Data..@? "TemplateSubject")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

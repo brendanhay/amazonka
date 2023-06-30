@@ -69,7 +69,8 @@ accountDetail_accountId = Lens.lens (\AccountDetail' {accountId} -> accountId) (
 
 instance Prelude.Hashable AccountDetail where
   hashWithSalt _salt AccountDetail' {..} =
-    _salt `Prelude.hashWithSalt` email
+    _salt
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData AccountDetail where

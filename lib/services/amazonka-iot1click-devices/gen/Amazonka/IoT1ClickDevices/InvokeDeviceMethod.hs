@@ -113,7 +113,8 @@ instance Core.AWSRequest InvokeDeviceMethod where
 
 instance Prelude.Hashable InvokeDeviceMethod where
   hashWithSalt _salt InvokeDeviceMethod' {..} =
-    _salt `Prelude.hashWithSalt` deviceMethod
+    _salt
+      `Prelude.hashWithSalt` deviceMethod
       `Prelude.hashWithSalt` deviceMethodParameters
       `Prelude.hashWithSalt` deviceId
 

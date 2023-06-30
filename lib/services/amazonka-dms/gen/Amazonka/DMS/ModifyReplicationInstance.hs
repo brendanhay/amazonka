@@ -357,7 +357,8 @@ instance Core.AWSRequest ModifyReplicationInstance where
 
 instance Prelude.Hashable ModifyReplicationInstance where
   hashWithSalt _salt ModifyReplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` allowMajorVersionUpgrade
       `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` autoMinorVersionUpgrade

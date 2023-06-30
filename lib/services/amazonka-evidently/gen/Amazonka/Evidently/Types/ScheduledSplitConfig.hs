@@ -118,7 +118,8 @@ scheduledSplitConfig_startTime = Lens.lens (\ScheduledSplitConfig' {startTime} -
 
 instance Prelude.Hashable ScheduledSplitConfig where
   hashWithSalt _salt ScheduledSplitConfig' {..} =
-    _salt `Prelude.hashWithSalt` segmentOverrides
+    _salt
+      `Prelude.hashWithSalt` segmentOverrides
       `Prelude.hashWithSalt` groupWeights
       `Prelude.hashWithSalt` startTime
 

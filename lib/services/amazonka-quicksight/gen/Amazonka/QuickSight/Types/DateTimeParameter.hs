@@ -66,7 +66,8 @@ dateTimeParameter_values = Lens.lens (\DateTimeParameter' {values} -> values) (\
 
 instance Prelude.Hashable DateTimeParameter where
   hashWithSalt _salt DateTimeParameter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData DateTimeParameter where

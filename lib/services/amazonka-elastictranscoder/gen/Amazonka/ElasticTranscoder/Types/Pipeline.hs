@@ -571,7 +571,8 @@ instance Data.FromJSON Pipeline where
 
 instance Prelude.Hashable Pipeline where
   hashWithSalt _salt Pipeline' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` awsKmsKeyArn
       `Prelude.hashWithSalt` contentConfig
       `Prelude.hashWithSalt` id

@@ -157,7 +157,8 @@ instance Data.FromJSON NodegroupScalingConfig where
 
 instance Prelude.Hashable NodegroupScalingConfig where
   hashWithSalt _salt NodegroupScalingConfig' {..} =
-    _salt `Prelude.hashWithSalt` desiredSize
+    _salt
+      `Prelude.hashWithSalt` desiredSize
       `Prelude.hashWithSalt` maxSize
       `Prelude.hashWithSalt` minSize
 

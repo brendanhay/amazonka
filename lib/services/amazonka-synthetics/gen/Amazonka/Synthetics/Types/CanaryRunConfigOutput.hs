@@ -88,7 +88,8 @@ instance Data.FromJSON CanaryRunConfigOutput where
 
 instance Prelude.Hashable CanaryRunConfigOutput where
   hashWithSalt _salt CanaryRunConfigOutput' {..} =
-    _salt `Prelude.hashWithSalt` activeTracing
+    _salt
+      `Prelude.hashWithSalt` activeTracing
       `Prelude.hashWithSalt` memoryInMB
       `Prelude.hashWithSalt` timeoutInSeconds
 

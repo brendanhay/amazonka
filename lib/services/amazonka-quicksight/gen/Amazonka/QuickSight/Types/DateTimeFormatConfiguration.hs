@@ -87,7 +87,8 @@ instance Data.FromJSON DateTimeFormatConfiguration where
 
 instance Prelude.Hashable DateTimeFormatConfiguration where
   hashWithSalt _salt DateTimeFormatConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dateTimeFormat
+    _salt
+      `Prelude.hashWithSalt` dateTimeFormat
       `Prelude.hashWithSalt` nullValueFormatConfiguration
       `Prelude.hashWithSalt` numericFormatConfiguration
 

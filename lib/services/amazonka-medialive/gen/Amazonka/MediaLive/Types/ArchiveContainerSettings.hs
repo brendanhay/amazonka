@@ -75,7 +75,8 @@ instance Data.FromJSON ArchiveContainerSettings where
 
 instance Prelude.Hashable ArchiveContainerSettings where
   hashWithSalt _salt ArchiveContainerSettings' {..} =
-    _salt `Prelude.hashWithSalt` m2tsSettings
+    _salt
+      `Prelude.hashWithSalt` m2tsSettings
       `Prelude.hashWithSalt` rawSettings
 
 instance Prelude.NFData ArchiveContainerSettings where

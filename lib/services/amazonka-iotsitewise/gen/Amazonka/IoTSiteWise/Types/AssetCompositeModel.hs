@@ -113,7 +113,8 @@ instance Data.FromJSON AssetCompositeModel where
 
 instance Prelude.Hashable AssetCompositeModel where
   hashWithSalt _salt AssetCompositeModel' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

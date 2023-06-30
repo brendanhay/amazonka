@@ -87,7 +87,8 @@ instance Data.FromJSON TableObject where
 
 instance Prelude.Hashable TableObject where
   hashWithSalt _salt TableObject' {..} =
-    _salt `Prelude.hashWithSalt` eTag
+    _salt
+      `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` uri
 

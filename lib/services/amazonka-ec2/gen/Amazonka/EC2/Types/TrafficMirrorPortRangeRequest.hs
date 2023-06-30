@@ -75,7 +75,8 @@ instance
     TrafficMirrorPortRangeRequest
   where
   hashWithSalt _salt TrafficMirrorPortRangeRequest' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` toPort
 
 instance Prelude.NFData TrafficMirrorPortRangeRequest where

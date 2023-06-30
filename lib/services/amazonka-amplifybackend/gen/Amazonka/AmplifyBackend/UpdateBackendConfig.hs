@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdateBackendConfig where
 
 instance Prelude.Hashable UpdateBackendConfig where
   hashWithSalt _salt UpdateBackendConfig' {..} =
-    _salt `Prelude.hashWithSalt` loginAuthConfig
+    _salt
+      `Prelude.hashWithSalt` loginAuthConfig
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData UpdateBackendConfig where

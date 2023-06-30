@@ -77,7 +77,8 @@ s3Location_fileKey = Lens.lens (\S3Location' {fileKey} -> fileKey) (\s@S3Locatio
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` objectVersion
+    _salt
+      `Prelude.hashWithSalt` objectVersion
       `Prelude.hashWithSalt` bucketArn
       `Prelude.hashWithSalt` fileKey
 

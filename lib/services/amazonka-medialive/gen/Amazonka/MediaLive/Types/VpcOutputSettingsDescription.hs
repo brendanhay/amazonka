@@ -102,13 +102,16 @@ instance Data.FromJSON VpcOutputSettingsDescription where
       "VpcOutputSettingsDescription"
       ( \x ->
           VpcOutputSettingsDescription'
-            Prelude.<$> ( x Data..:? "availabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "availabilityZones"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "networkInterfaceIds"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaceIds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
@@ -119,7 +122,8 @@ instance
     VpcOutputSettingsDescription
   where
   hashWithSalt _salt VpcOutputSettingsDescription' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` networkInterfaceIds
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds

@@ -101,21 +101,21 @@ instance Core.AWSPager ListRecordingConfigurations where
     | Core.stop
         ( rs
             Lens.^? listRecordingConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listRecordingConfigurationsResponse_recordingConfigurations
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRecordingConfigurations_nextToken
           Lens..~ rs
           Lens.^? listRecordingConfigurationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecordingConfigurations where
   type
@@ -129,14 +129,16 @@ instance Core.AWSRequest ListRecordingConfigurations where
           ListRecordingConfigurationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "recordingConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "recordingConfigurations"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListRecordingConfigurations where
   hashWithSalt _salt ListRecordingConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRecordingConfigurations where

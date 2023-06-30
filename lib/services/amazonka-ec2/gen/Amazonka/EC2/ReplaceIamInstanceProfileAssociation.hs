@@ -110,7 +110,7 @@ instance
       ( \s h x ->
           ReplaceIamInstanceProfileAssociationResponse'
             Prelude.<$> (x Data..@? "iamInstanceProfileAssociation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     ReplaceIamInstanceProfileAssociation' {..} =
-      _salt `Prelude.hashWithSalt` iamInstanceProfile
+      _salt
+        `Prelude.hashWithSalt` iamInstanceProfile
         `Prelude.hashWithSalt` associationId
 
 instance

@@ -224,7 +224,8 @@ instance Core.AWSRequest CreateAuthorizer where
 
 instance Prelude.Hashable CreateAuthorizer where
   hashWithSalt _salt CreateAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` enableCachingForHttp
+    _salt
+      `Prelude.hashWithSalt` enableCachingForHttp
       `Prelude.hashWithSalt` signingDisabled
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tags

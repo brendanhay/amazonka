@@ -208,7 +208,7 @@ instance
       ( \s h x ->
           CreateInferenceRecommendationsJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "JobArn")
+            Prelude.<*> (x Data..:> "JobArn")
       )
 
 instance
@@ -218,7 +218,8 @@ instance
   hashWithSalt
     _salt
     CreateInferenceRecommendationsJob' {..} =
-      _salt `Prelude.hashWithSalt` jobDescription
+      _salt
+        `Prelude.hashWithSalt` jobDescription
         `Prelude.hashWithSalt` outputConfig
         `Prelude.hashWithSalt` stoppingConditions
         `Prelude.hashWithSalt` tags

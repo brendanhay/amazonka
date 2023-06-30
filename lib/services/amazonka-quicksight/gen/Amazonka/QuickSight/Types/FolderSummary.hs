@@ -115,7 +115,8 @@ instance Data.FromJSON FolderSummary where
 
 instance Prelude.Hashable FolderSummary where
   hashWithSalt _salt FolderSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` folderId
       `Prelude.hashWithSalt` folderType

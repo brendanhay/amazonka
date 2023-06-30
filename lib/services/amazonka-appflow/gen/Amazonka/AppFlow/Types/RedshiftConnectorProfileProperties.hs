@@ -186,7 +186,8 @@ instance
   hashWithSalt
     _salt
     RedshiftConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` bucketPrefix
+      _salt
+        `Prelude.hashWithSalt` bucketPrefix
         `Prelude.hashWithSalt` clusterIdentifier
         `Prelude.hashWithSalt` dataApiRoleArn
         `Prelude.hashWithSalt` databaseName

@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     SalesforceConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` instanceUrl
+      _salt
+        `Prelude.hashWithSalt` instanceUrl
         `Prelude.hashWithSalt` isSandboxEnvironment
 
 instance

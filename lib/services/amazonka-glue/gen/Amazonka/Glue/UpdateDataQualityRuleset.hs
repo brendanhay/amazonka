@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateDataQualityRuleset where
 
 instance Prelude.Hashable UpdateDataQualityRuleset where
   hashWithSalt _salt UpdateDataQualityRuleset' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ruleset
       `Prelude.hashWithSalt` updatedName
       `Prelude.hashWithSalt` name

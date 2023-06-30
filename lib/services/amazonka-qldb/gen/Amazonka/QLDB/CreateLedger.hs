@@ -376,7 +376,8 @@ instance Core.AWSRequest CreateLedger where
 
 instance Prelude.Hashable CreateLedger where
   hashWithSalt _salt CreateLedger' {..} =
-    _salt `Prelude.hashWithSalt` deletionProtection
+    _salt
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

@@ -104,7 +104,8 @@ instance Data.FromJSON RegistryCredential where
 
 instance Prelude.Hashable RegistryCredential where
   hashWithSalt _salt RegistryCredential' {..} =
-    _salt `Prelude.hashWithSalt` credential
+    _salt
+      `Prelude.hashWithSalt` credential
       `Prelude.hashWithSalt` credentialProvider
 
 instance Prelude.NFData RegistryCredential where

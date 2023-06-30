@@ -106,7 +106,8 @@ instance Core.AWSRequest GetDevicesInPlacement where
 
 instance Prelude.Hashable GetDevicesInPlacement where
   hashWithSalt _salt GetDevicesInPlacement' {..} =
-    _salt `Prelude.hashWithSalt` projectName
+    _salt
+      `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` placementName
 
 instance Prelude.NFData GetDevicesInPlacement where

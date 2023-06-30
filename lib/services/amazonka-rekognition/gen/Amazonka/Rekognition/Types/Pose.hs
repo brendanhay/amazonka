@@ -85,7 +85,8 @@ instance Data.FromJSON Pose where
 
 instance Prelude.Hashable Pose where
   hashWithSalt _salt Pose' {..} =
-    _salt `Prelude.hashWithSalt` pitch
+    _salt
+      `Prelude.hashWithSalt` pitch
       `Prelude.hashWithSalt` roll
       `Prelude.hashWithSalt` yaw
 

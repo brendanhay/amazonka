@@ -130,7 +130,6 @@ newCreateRuleGroup pName_ pMetricName_ pChangeToken_ =
       changeToken = pChangeToken_
     }
 
--- |
 createRuleGroup_tags :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.NonEmpty Tag))
 createRuleGroup_tags = Lens.lens (\CreateRuleGroup' {tags} -> tags) (\s@CreateRuleGroup' {} a -> s {tags = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -169,7 +168,8 @@ instance Core.AWSRequest CreateRuleGroup where
 
 instance Prelude.Hashable CreateRuleGroup where
   hashWithSalt _salt CreateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` changeToken

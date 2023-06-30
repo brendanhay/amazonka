@@ -106,7 +106,8 @@ instance Core.AWSRequest PutContactPolicy where
 
 instance Prelude.Hashable PutContactPolicy where
   hashWithSalt _salt PutContactPolicy' {..} =
-    _salt `Prelude.hashWithSalt` contactArn
+    _salt
+      `Prelude.hashWithSalt` contactArn
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutContactPolicy where

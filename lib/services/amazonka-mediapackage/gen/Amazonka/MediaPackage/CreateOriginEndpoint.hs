@@ -287,7 +287,8 @@ instance Core.AWSRequest CreateOriginEndpoint where
 
 instance Prelude.Hashable CreateOriginEndpoint where
   hashWithSalt _salt CreateOriginEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` authorization
+    _salt
+      `Prelude.hashWithSalt` authorization
       `Prelude.hashWithSalt` cmafPackage
       `Prelude.hashWithSalt` dashPackage
       `Prelude.hashWithSalt` description

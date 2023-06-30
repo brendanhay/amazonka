@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFormationStackOutputsDetails' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` outputKey
         `Prelude.hashWithSalt` outputValue
 

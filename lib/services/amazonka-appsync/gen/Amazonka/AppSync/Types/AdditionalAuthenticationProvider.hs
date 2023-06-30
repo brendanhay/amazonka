@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     AdditionalAuthenticationProvider' {..} =
-      _salt `Prelude.hashWithSalt` authenticationType
+      _salt
+        `Prelude.hashWithSalt` authenticationType
         `Prelude.hashWithSalt` lambdaAuthorizerConfig
         `Prelude.hashWithSalt` openIDConnectConfig
         `Prelude.hashWithSalt` userPoolConfig

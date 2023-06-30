@@ -178,7 +178,8 @@ instance Core.AWSRequest GetManagedRuleSet where
 
 instance Prelude.Hashable GetManagedRuleSet where
   hashWithSalt _salt GetManagedRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
 

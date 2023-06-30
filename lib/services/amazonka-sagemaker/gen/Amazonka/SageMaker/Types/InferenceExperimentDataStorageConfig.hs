@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     InferenceExperimentDataStorageConfig' {..} =
-      _salt `Prelude.hashWithSalt` contentType
+      _salt
+        `Prelude.hashWithSalt` contentType
         `Prelude.hashWithSalt` kmsKey
         `Prelude.hashWithSalt` destination
 

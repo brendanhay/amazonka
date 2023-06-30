@@ -140,7 +140,8 @@ instance Data.FromJSON DolbyVision where
 
 instance Prelude.Hashable DolbyVision where
   hashWithSalt _salt DolbyVision' {..} =
-    _salt `Prelude.hashWithSalt` l6Metadata
+    _salt
+      `Prelude.hashWithSalt` l6Metadata
       `Prelude.hashWithSalt` l6Mode
       `Prelude.hashWithSalt` mapping
       `Prelude.hashWithSalt` profile

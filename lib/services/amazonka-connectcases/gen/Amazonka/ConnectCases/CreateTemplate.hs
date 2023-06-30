@@ -155,7 +155,8 @@ instance Core.AWSRequest CreateTemplate where
 
 instance Prelude.Hashable CreateTemplate where
   hashWithSalt _salt CreateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` layoutConfiguration
       `Prelude.hashWithSalt` requiredFields
       `Prelude.hashWithSalt` status

@@ -86,7 +86,8 @@ instance Data.FromJSON FormButton where
 
 instance Prelude.Hashable FormButton where
   hashWithSalt _salt FormButton' {..} =
-    _salt `Prelude.hashWithSalt` children
+    _salt
+      `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` excluded
       `Prelude.hashWithSalt` position
 

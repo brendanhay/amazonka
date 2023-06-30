@@ -115,7 +115,8 @@ instance Data.FromJSON AttendeeCapabilities where
 
 instance Prelude.Hashable AttendeeCapabilities where
   hashWithSalt _salt AttendeeCapabilities' {..} =
-    _salt `Prelude.hashWithSalt` audio
+    _salt
+      `Prelude.hashWithSalt` audio
       `Prelude.hashWithSalt` video
       `Prelude.hashWithSalt` content
 

@@ -86,7 +86,8 @@ instance Data.FromJSON AttachmentReference where
 
 instance Prelude.Hashable AttachmentReference where
   hashWithSalt _salt AttachmentReference' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` value
 

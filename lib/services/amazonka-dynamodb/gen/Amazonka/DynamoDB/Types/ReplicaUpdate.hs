@@ -77,7 +77,8 @@ replicaUpdate_delete = Lens.lens (\ReplicaUpdate' {delete'} -> delete') (\s@Repl
 
 instance Prelude.Hashable ReplicaUpdate where
   hashWithSalt _salt ReplicaUpdate' {..} =
-    _salt `Prelude.hashWithSalt` create
+    _salt
+      `Prelude.hashWithSalt` create
       `Prelude.hashWithSalt` delete'
 
 instance Prelude.NFData ReplicaUpdate where

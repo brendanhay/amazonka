@@ -88,7 +88,8 @@ instance Data.FromJSON RecordFormat where
 
 instance Prelude.Hashable RecordFormat where
   hashWithSalt _salt RecordFormat' {..} =
-    _salt `Prelude.hashWithSalt` mappingParameters
+    _salt
+      `Prelude.hashWithSalt` mappingParameters
       `Prelude.hashWithSalt` recordFormatType
 
 instance Prelude.NFData RecordFormat where

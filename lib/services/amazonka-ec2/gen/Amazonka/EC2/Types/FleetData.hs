@@ -357,7 +357,9 @@ instance Data.FromXML FleetData where
       Prelude.<*> (x Data..@? "clientToken")
       Prelude.<*> (x Data..@? "context")
       Prelude.<*> (x Data..@? "createTime")
-      Prelude.<*> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "errorSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "excessCapacityTerminationPolicy")
@@ -365,18 +367,22 @@ instance Data.FromXML FleetData where
       Prelude.<*> (x Data..@? "fleetState")
       Prelude.<*> (x Data..@? "fulfilledCapacity")
       Prelude.<*> (x Data..@? "fulfilledOnDemandCapacity")
-      Prelude.<*> ( x Data..@? "fleetInstanceSet"
+      Prelude.<*> ( x
+                      Data..@? "fleetInstanceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "launchTemplateConfigs"
+      Prelude.<*> ( x
+                      Data..@? "launchTemplateConfigs"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "onDemandOptions")
       Prelude.<*> (x Data..@? "replaceUnhealthyInstances")
       Prelude.<*> (x Data..@? "spotOptions")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "targetCapacitySpecification")
@@ -387,7 +393,8 @@ instance Data.FromXML FleetData where
 
 instance Prelude.Hashable FleetData where
   hashWithSalt _salt FleetData' {..} =
-    _salt `Prelude.hashWithSalt` activityStatus
+    _salt
+      `Prelude.hashWithSalt` activityStatus
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` createTime

@@ -74,7 +74,8 @@ instance Data.FromJSON WorkflowParameter where
 
 instance Prelude.Hashable WorkflowParameter where
   hashWithSalt _salt WorkflowParameter' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` optional
 
 instance Prelude.NFData WorkflowParameter where

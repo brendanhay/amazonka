@@ -146,7 +146,8 @@ instance Core.AWSRequest DeleteUtterances where
 
 instance Prelude.Hashable DeleteUtterances where
   hashWithSalt _salt DeleteUtterances' {..} =
-    _salt `Prelude.hashWithSalt` localeId
+    _salt
+      `Prelude.hashWithSalt` localeId
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` botId
 

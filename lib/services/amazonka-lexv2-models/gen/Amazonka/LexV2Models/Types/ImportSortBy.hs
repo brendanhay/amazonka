@@ -70,7 +70,8 @@ importSortBy_order = Lens.lens (\ImportSortBy' {order} -> order) (\s@ImportSortB
 
 instance Prelude.Hashable ImportSortBy where
   hashWithSalt _salt ImportSortBy' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData ImportSortBy where

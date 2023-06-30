@@ -117,7 +117,8 @@ instance Core.AWSRequest PutRolePermissionsBoundary where
 
 instance Prelude.Hashable PutRolePermissionsBoundary where
   hashWithSalt _salt PutRolePermissionsBoundary' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` permissionsBoundary
 
 instance Prelude.NFData PutRolePermissionsBoundary where

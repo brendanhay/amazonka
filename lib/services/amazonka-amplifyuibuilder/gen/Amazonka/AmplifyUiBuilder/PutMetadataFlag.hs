@@ -123,7 +123,8 @@ instance Core.AWSRequest PutMetadataFlag where
 
 instance Prelude.Hashable PutMetadataFlag where
   hashWithSalt _salt PutMetadataFlag' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` featureName

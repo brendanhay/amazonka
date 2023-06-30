@@ -464,7 +464,8 @@ image_hypervisor = Lens.lens (\Image' {hypervisor} -> hypervisor) (\s@Image' {} 
 instance Data.FromXML Image where
   parseXML x =
     Image'
-      Prelude.<$> ( x Data..@? "blockDeviceMapping"
+      Prelude.<$> ( x
+                      Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -479,14 +480,18 @@ instance Data.FromXML Image where
       Prelude.<*> (x Data..@? "name")
       Prelude.<*> (x Data..@? "platform")
       Prelude.<*> (x Data..@? "platformDetails")
-      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "productCodes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ramdiskId")
       Prelude.<*> (x Data..@? "rootDeviceName")
       Prelude.<*> (x Data..@? "sriovNetSupport")
       Prelude.<*> (x Data..@? "stateReason")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "tpmSupport")
@@ -504,7 +509,8 @@ instance Data.FromXML Image where
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
+    _salt
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` deprecationTime

@@ -144,7 +144,8 @@ instance Data.FromJSON DataCellsFilter where
 
 instance Prelude.Hashable DataCellsFilter where
   hashWithSalt _salt DataCellsFilter' {..} =
-    _salt `Prelude.hashWithSalt` columnNames
+    _salt
+      `Prelude.hashWithSalt` columnNames
       `Prelude.hashWithSalt` columnWildcard
       `Prelude.hashWithSalt` rowFilter
       `Prelude.hashWithSalt` tableCatalogId

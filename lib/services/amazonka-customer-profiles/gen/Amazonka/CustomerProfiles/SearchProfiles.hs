@@ -251,7 +251,8 @@ instance Core.AWSRequest SearchProfiles where
 
 instance Prelude.Hashable SearchProfiles where
   hashWithSalt _salt SearchProfiles' {..} =
-    _salt `Prelude.hashWithSalt` additionalSearchKeys
+    _salt
+      `Prelude.hashWithSalt` additionalSearchKeys
       `Prelude.hashWithSalt` logicalOperator
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

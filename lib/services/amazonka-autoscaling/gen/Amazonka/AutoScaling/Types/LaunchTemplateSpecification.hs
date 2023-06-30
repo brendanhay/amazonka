@@ -163,7 +163,8 @@ instance Data.FromXML LaunchTemplateSpecification where
 
 instance Prelude.Hashable LaunchTemplateSpecification where
   hashWithSalt _salt LaunchTemplateSpecification' {..} =
-    _salt `Prelude.hashWithSalt` launchTemplateId
+    _salt
+      `Prelude.hashWithSalt` launchTemplateId
       `Prelude.hashWithSalt` launchTemplateName
       `Prelude.hashWithSalt` version
 

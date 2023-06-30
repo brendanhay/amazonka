@@ -88,7 +88,8 @@ instance Data.FromJSON HdfsNameNode where
 
 instance Prelude.Hashable HdfsNameNode where
   hashWithSalt _salt HdfsNameNode' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData HdfsNameNode where

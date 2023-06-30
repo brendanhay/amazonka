@@ -207,7 +207,8 @@ instance Data.FromJSON LoadBalancer where
 
 instance Prelude.Hashable LoadBalancer where
   hashWithSalt _salt LoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` containerName
+    _salt
+      `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` containerPort
       `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` targetGroupArn

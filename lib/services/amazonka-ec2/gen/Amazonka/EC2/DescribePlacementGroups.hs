@@ -204,7 +204,8 @@ instance Core.AWSRequest DescribePlacementGroups where
     Response.receiveXML
       ( \s h x ->
           DescribePlacementGroupsResponse'
-            Prelude.<$> ( x Data..@? "placementGroupSet"
+            Prelude.<$> ( x
+                            Data..@? "placementGroupSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -213,7 +214,8 @@ instance Core.AWSRequest DescribePlacementGroups where
 
 instance Prelude.Hashable DescribePlacementGroups where
   hashWithSalt _salt DescribePlacementGroups' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` groupIds
       `Prelude.hashWithSalt` groupNames

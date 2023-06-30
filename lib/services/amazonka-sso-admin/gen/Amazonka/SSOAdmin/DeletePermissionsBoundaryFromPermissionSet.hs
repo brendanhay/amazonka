@@ -118,7 +118,8 @@ instance
   hashWithSalt
     _salt
     DeletePermissionsBoundaryFromPermissionSet' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` permissionSetArn
 
 instance

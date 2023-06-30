@@ -90,7 +90,8 @@ instance Data.FromJSON SchemaId where
 
 instance Prelude.Hashable SchemaId where
   hashWithSalt _salt SchemaId' {..} =
-    _salt `Prelude.hashWithSalt` registryName
+    _salt
+      `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` schemaName
 

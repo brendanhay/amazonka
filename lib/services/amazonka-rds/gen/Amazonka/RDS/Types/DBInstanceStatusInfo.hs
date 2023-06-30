@@ -102,7 +102,8 @@ instance Data.FromXML DBInstanceStatusInfo where
 
 instance Prelude.Hashable DBInstanceStatusInfo where
   hashWithSalt _salt DBInstanceStatusInfo' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` normal
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusType

@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateSuiteDefinition where
 
 instance Prelude.Hashable UpdateSuiteDefinition where
   hashWithSalt _salt UpdateSuiteDefinition' {..} =
-    _salt `Prelude.hashWithSalt` suiteDefinitionId
+    _salt
+      `Prelude.hashWithSalt` suiteDefinitionId
       `Prelude.hashWithSalt` suiteDefinitionConfiguration
 
 instance Prelude.NFData UpdateSuiteDefinition where

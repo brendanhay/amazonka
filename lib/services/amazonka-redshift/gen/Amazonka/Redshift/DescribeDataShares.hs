@@ -130,22 +130,22 @@ instance Core.AWSPager DescribeDataShares where
     | Core.stop
         ( rs
             Lens.^? describeDataSharesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDataSharesResponse_dataShares
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDataShares_marker
           Lens..~ rs
           Lens.^? describeDataSharesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDataShares where
   type
@@ -158,7 +158,9 @@ instance Core.AWSRequest DescribeDataShares where
       "DescribeDataSharesResult"
       ( \s h x ->
           DescribeDataSharesResponse'
-            Prelude.<$> ( x Data..@? "DataShares" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "DataShares"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -167,7 +169,8 @@ instance Core.AWSRequest DescribeDataShares where
 
 instance Prelude.Hashable DescribeDataShares where
   hashWithSalt _salt DescribeDataShares' {..} =
-    _salt `Prelude.hashWithSalt` dataShareArn
+    _salt
+      `Prelude.hashWithSalt` dataShareArn
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
 

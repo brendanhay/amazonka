@@ -98,7 +98,8 @@ instance Data.FromJSON RevisionDestinationEntry where
 
 instance Prelude.Hashable RevisionDestinationEntry where
   hashWithSalt _salt RevisionDestinationEntry' {..} =
-    _salt `Prelude.hashWithSalt` keyPattern
+    _salt
+      `Prelude.hashWithSalt` keyPattern
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` revisionId
 

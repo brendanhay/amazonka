@@ -66,11 +66,9 @@ newAttribute pName_ pValue_ =
       value = pValue_
     }
 
--- |
 attribute_alternateNameEncoding :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_alternateNameEncoding = Lens.lens (\Attribute' {alternateNameEncoding} -> alternateNameEncoding) (\s@Attribute' {} a -> s {alternateNameEncoding = a} :: Attribute)
 
--- |
 attribute_alternateValueEncoding :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_alternateValueEncoding = Lens.lens (\Attribute' {alternateValueEncoding} -> alternateValueEncoding) (\s@Attribute' {} a -> s {alternateValueEncoding = a} :: Attribute)
 
@@ -92,7 +90,8 @@ instance Data.FromXML Attribute where
 
 instance Prelude.Hashable Attribute where
   hashWithSalt _salt Attribute' {..} =
-    _salt `Prelude.hashWithSalt` alternateNameEncoding
+    _salt
+      `Prelude.hashWithSalt` alternateNameEncoding
       `Prelude.hashWithSalt` alternateValueEncoding
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value

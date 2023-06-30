@@ -230,7 +230,8 @@ instance Core.AWSRequest CreateView where
 
 instance Prelude.Hashable CreateView where
   hashWithSalt _salt CreateView' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includedProperties
       `Prelude.hashWithSalt` tags

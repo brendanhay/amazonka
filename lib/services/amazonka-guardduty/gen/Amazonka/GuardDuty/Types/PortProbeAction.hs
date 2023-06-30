@@ -74,14 +74,16 @@ instance Data.FromJSON PortProbeAction where
       ( \x ->
           PortProbeAction'
             Prelude.<$> (x Data..:? "blocked")
-            Prelude.<*> ( x Data..:? "portProbeDetails"
+            Prelude.<*> ( x
+                            Data..:? "portProbeDetails"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PortProbeAction where
   hashWithSalt _salt PortProbeAction' {..} =
-    _salt `Prelude.hashWithSalt` blocked
+    _salt
+      `Prelude.hashWithSalt` blocked
       `Prelude.hashWithSalt` portProbeDetails
 
 instance Prelude.NFData PortProbeAction where

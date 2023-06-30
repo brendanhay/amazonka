@@ -247,7 +247,8 @@ instance Data.FromJSON ProjectCache where
 
 instance Prelude.Hashable ProjectCache where
   hashWithSalt _salt ProjectCache' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` modes
       `Prelude.hashWithSalt` type'
 

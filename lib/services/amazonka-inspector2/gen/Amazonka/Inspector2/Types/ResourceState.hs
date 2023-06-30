@@ -95,7 +95,8 @@ instance Data.FromJSON ResourceState where
 
 instance Prelude.Hashable ResourceState where
   hashWithSalt _salt ResourceState' {..} =
-    _salt `Prelude.hashWithSalt` lambda
+    _salt
+      `Prelude.hashWithSalt` lambda
       `Prelude.hashWithSalt` ec2
       `Prelude.hashWithSalt` ecr
 

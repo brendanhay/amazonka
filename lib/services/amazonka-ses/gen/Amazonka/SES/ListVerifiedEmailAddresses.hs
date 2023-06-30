@@ -71,7 +71,8 @@ instance Core.AWSRequest ListVerifiedEmailAddresses where
       "ListVerifiedEmailAddressesResult"
       ( \s h x ->
           ListVerifiedEmailAddressesResponse'
-            Prelude.<$> ( x Data..@? "VerifiedEmailAddresses"
+            Prelude.<$> ( x
+                            Data..@? "VerifiedEmailAddresses"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )

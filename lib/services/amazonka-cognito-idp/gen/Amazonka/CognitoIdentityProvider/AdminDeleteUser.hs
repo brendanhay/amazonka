@@ -99,7 +99,8 @@ instance Core.AWSRequest AdminDeleteUser where
 
 instance Prelude.Hashable AdminDeleteUser where
   hashWithSalt _salt AdminDeleteUser' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData AdminDeleteUser where

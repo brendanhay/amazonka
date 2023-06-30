@@ -127,7 +127,8 @@ instance Core.AWSRequest UpdateDiscoverer where
 
 instance Prelude.Hashable UpdateDiscoverer where
   hashWithSalt _salt UpdateDiscoverer' {..} =
-    _salt `Prelude.hashWithSalt` crossAccount
+    _salt
+      `Prelude.hashWithSalt` crossAccount
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` discovererId
 

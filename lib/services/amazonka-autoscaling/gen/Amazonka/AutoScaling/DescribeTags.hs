@@ -123,20 +123,23 @@ instance Core.AWSPager DescribeTags where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describeTagsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeTagsResponse_tags Prelude.. Lens._Just
+            Lens.^? describeTagsResponse_tags
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTags_nextToken
           Lens..~ rs
-          Lens.^? describeTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeTagsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
@@ -148,7 +151,9 @@ instance Core.AWSRequest DescribeTags where
       ( \s h x ->
           DescribeTagsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,7 +161,8 @@ instance Core.AWSRequest DescribeTags where
 
 instance Prelude.Hashable DescribeTags where
   hashWithSalt _salt DescribeTags' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
 

@@ -98,7 +98,8 @@ instance Data.FromJSON InsightResults where
 
 instance Prelude.Hashable InsightResults where
   hashWithSalt _salt InsightResults' {..} =
-    _salt `Prelude.hashWithSalt` insightArn
+    _salt
+      `Prelude.hashWithSalt` insightArn
       `Prelude.hashWithSalt` groupByAttribute
       `Prelude.hashWithSalt` resultValues
 

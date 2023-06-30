@@ -402,7 +402,8 @@ instance Core.AWSRequest ModifyDBInstance where
 
 instance Prelude.Hashable ModifyDBInstance where
   hashWithSalt _salt ModifyDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` cACertificateIdentifier
       `Prelude.hashWithSalt` copyTagsToSnapshot

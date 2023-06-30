@@ -252,7 +252,8 @@ instance Core.AWSRequest UpdateLedger where
 
 instance Prelude.Hashable UpdateLedger where
   hashWithSalt _salt UpdateLedger' {..} =
-    _salt `Prelude.hashWithSalt` deletionProtection
+    _salt
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` name
 

@@ -193,7 +193,8 @@ instance Data.FromXML RollbackConfiguration where
   parseXML x =
     RollbackConfiguration'
       Prelude.<$> (x Data..@? "MonitoringTimeInMinutes")
-      Prelude.<*> ( x Data..@? "RollbackTriggers"
+      Prelude.<*> ( x
+                      Data..@? "RollbackTriggers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )

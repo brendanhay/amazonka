@@ -353,7 +353,8 @@ instance Data.FromJSON MicrosoftSQLServerSettings where
 
 instance Prelude.Hashable MicrosoftSQLServerSettings where
   hashWithSalt _salt MicrosoftSQLServerSettings' {..} =
-    _salt `Prelude.hashWithSalt` bcpPacketSize
+    _salt
+      `Prelude.hashWithSalt` bcpPacketSize
       `Prelude.hashWithSalt` controlTablesFileGroup
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` password

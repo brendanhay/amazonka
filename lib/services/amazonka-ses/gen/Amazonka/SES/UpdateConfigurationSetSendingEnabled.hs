@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     UpdateConfigurationSetSendingEnabled' {..} =
-      _salt `Prelude.hashWithSalt` configurationSetName
+      _salt
+        `Prelude.hashWithSalt` configurationSetName
         `Prelude.hashWithSalt` enabled
 
 instance

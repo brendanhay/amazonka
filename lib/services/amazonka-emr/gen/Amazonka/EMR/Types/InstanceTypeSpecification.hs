@@ -161,7 +161,8 @@ instance Data.FromJSON InstanceTypeSpecification where
             Prelude.<*> (x Data..:? "BidPriceAsPercentageOfOnDemandPrice")
             Prelude.<*> (x Data..:? "Configurations" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CustomAmiId")
-            Prelude.<*> ( x Data..:? "EbsBlockDevices"
+            Prelude.<*> ( x
+                            Data..:? "EbsBlockDevices"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EbsOptimized")
@@ -171,7 +172,8 @@ instance Data.FromJSON InstanceTypeSpecification where
 
 instance Prelude.Hashable InstanceTypeSpecification where
   hashWithSalt _salt InstanceTypeSpecification' {..} =
-    _salt `Prelude.hashWithSalt` bidPrice
+    _salt
+      `Prelude.hashWithSalt` bidPrice
       `Prelude.hashWithSalt` bidPriceAsPercentageOfOnDemandPrice
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` customAmiId

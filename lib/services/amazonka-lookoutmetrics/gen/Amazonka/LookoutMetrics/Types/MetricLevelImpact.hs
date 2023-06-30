@@ -86,7 +86,8 @@ instance Data.FromJSON MetricLevelImpact where
 
 instance Prelude.Hashable MetricLevelImpact where
   hashWithSalt _salt MetricLevelImpact' {..} =
-    _salt `Prelude.hashWithSalt` contributionMatrix
+    _salt
+      `Prelude.hashWithSalt` contributionMatrix
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` numTimeSeries
 

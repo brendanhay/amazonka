@@ -190,7 +190,8 @@ instance Core.AWSRequest StartJobRun where
 
 instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =
-    _salt `Prelude.hashWithSalt` configurationOverrides
+    _salt
+      `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` jobDriver
       `Prelude.hashWithSalt` jobTemplateId

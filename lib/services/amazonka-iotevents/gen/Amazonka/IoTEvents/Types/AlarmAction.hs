@@ -145,7 +145,8 @@ instance Data.FromJSON AlarmAction where
 
 instance Prelude.Hashable AlarmAction where
   hashWithSalt _salt AlarmAction' {..} =
-    _salt `Prelude.hashWithSalt` dynamoDB
+    _salt
+      `Prelude.hashWithSalt` dynamoDB
       `Prelude.hashWithSalt` dynamoDBv2
       `Prelude.hashWithSalt` firehose
       `Prelude.hashWithSalt` iotEvents

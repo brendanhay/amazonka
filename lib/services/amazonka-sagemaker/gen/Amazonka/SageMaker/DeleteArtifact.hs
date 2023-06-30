@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteArtifact where
 
 instance Prelude.Hashable DeleteArtifact where
   hashWithSalt _salt DeleteArtifact' {..} =
-    _salt `Prelude.hashWithSalt` artifactArn
+    _salt
+      `Prelude.hashWithSalt` artifactArn
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData DeleteArtifact where

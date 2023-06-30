@@ -141,22 +141,22 @@ instance Core.AWSPager DescribeEventTypes where
     | Core.stop
         ( rs
             Lens.^? describeEventTypesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEventTypesResponse_eventTypes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEventTypes_nextToken
           Lens..~ rs
           Lens.^? describeEventTypesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEventTypes where
   type
@@ -175,7 +175,8 @@ instance Core.AWSRequest DescribeEventTypes where
 
 instance Prelude.Hashable DescribeEventTypes where
   hashWithSalt _salt DescribeEventTypes' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -224,7 +225,7 @@ data DescribeEventTypesResponse = DescribeEventTypesResponse'
   { -- | A list of event types that match the filter criteria. Event types have a
     -- category (@issue@, @accountNotification@, or @scheduledChange@), a
     -- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a
-    -- code (in the format @AWS_SERVICE_DESCRIPTION @; for example,
+    -- code (in the format @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@).
     eventTypes :: Prelude.Maybe [EventType],
     -- | If the results of a search are large, only a portion of the results are
@@ -249,7 +250,7 @@ data DescribeEventTypesResponse = DescribeEventTypesResponse'
 -- 'eventTypes', 'describeEventTypesResponse_eventTypes' - A list of event types that match the filter criteria. Event types have a
 -- category (@issue@, @accountNotification@, or @scheduledChange@), a
 -- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a
--- code (in the format @AWS_SERVICE_DESCRIPTION @; for example,
+-- code (in the format @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@).
 --
 -- 'nextToken', 'describeEventTypesResponse_nextToken' - If the results of a search are large, only a portion of the results are
@@ -274,7 +275,7 @@ newDescribeEventTypesResponse pHttpStatus_ =
 -- | A list of event types that match the filter criteria. Event types have a
 -- category (@issue@, @accountNotification@, or @scheduledChange@), a
 -- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a
--- code (in the format @AWS_SERVICE_DESCRIPTION @; for example,
+-- code (in the format @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@).
 describeEventTypesResponse_eventTypes :: Lens.Lens' DescribeEventTypesResponse (Prelude.Maybe [EventType])
 describeEventTypesResponse_eventTypes = Lens.lens (\DescribeEventTypesResponse' {eventTypes} -> eventTypes) (\s@DescribeEventTypesResponse' {} a -> s {eventTypes = a} :: DescribeEventTypesResponse) Prelude.. Lens.mapping Lens.coerced

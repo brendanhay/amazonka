@@ -76,7 +76,8 @@ instance Data.FromJSON ResourcesAffected where
 
 instance Prelude.Hashable ResourcesAffected where
   hashWithSalt _salt ResourcesAffected' {..} =
-    _salt `Prelude.hashWithSalt` s3Bucket
+    _salt
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Object
 
 instance Prelude.NFData ResourcesAffected where

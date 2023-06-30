@@ -170,7 +170,8 @@ instance Core.AWSRequest UpdateDataset where
 
 instance Prelude.Hashable UpdateDataset where
   hashWithSalt _salt UpdateDataset' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` datasetDescription
       `Prelude.hashWithSalt` schemaDefinition

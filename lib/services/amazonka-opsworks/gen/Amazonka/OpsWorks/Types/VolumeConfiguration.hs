@@ -193,7 +193,8 @@ instance Data.FromJSON VolumeConfiguration where
 
 instance Prelude.Hashable VolumeConfiguration where
   hashWithSalt _salt VolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` encrypted
+    _salt
+      `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` raidLevel
       `Prelude.hashWithSalt` volumeType

@@ -84,8 +84,8 @@ instance
       ( \x ->
           AwsOpenSearchServiceDomainMasterUserOptionsDetails'
             Prelude.<$> (x Data..:? "MasterUserArn")
-              Prelude.<*> (x Data..:? "MasterUserName")
-              Prelude.<*> (x Data..:? "MasterUserPassword")
+            Prelude.<*> (x Data..:? "MasterUserName")
+            Prelude.<*> (x Data..:? "MasterUserPassword")
       )
 
 instance
@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainMasterUserOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` masterUserArn
+      _salt
+        `Prelude.hashWithSalt` masterUserArn
         `Prelude.hashWithSalt` masterUserName
         `Prelude.hashWithSalt` masterUserPassword
 

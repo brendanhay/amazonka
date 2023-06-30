@@ -96,7 +96,8 @@ instance Data.FromJSON ApplicationPolicyStatement where
       "ApplicationPolicyStatement"
       ( \x ->
           ApplicationPolicyStatement'
-            Prelude.<$> ( x Data..:? "principalOrgIDs"
+            Prelude.<$> ( x
+                            Data..:? "principalOrgIDs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "statementId")
@@ -106,7 +107,8 @@ instance Data.FromJSON ApplicationPolicyStatement where
 
 instance Prelude.Hashable ApplicationPolicyStatement where
   hashWithSalt _salt ApplicationPolicyStatement' {..} =
-    _salt `Prelude.hashWithSalt` principalOrgIDs
+    _salt
+      `Prelude.hashWithSalt` principalOrgIDs
       `Prelude.hashWithSalt` statementId
       `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` actions

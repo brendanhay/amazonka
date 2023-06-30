@@ -92,7 +92,8 @@ instance Data.FromJSON CognitoUserPoolConfig where
 
 instance Prelude.Hashable CognitoUserPoolConfig where
   hashWithSalt _salt CognitoUserPoolConfig' {..} =
-    _salt `Prelude.hashWithSalt` appIdClientRegex
+    _salt
+      `Prelude.hashWithSalt` appIdClientRegex
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` awsRegion
 

@@ -115,22 +115,22 @@ instance Core.AWSPager ListAnnotationStores where
     | Core.stop
         ( rs
             Lens.^? listAnnotationStoresResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAnnotationStoresResponse_annotationStores
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAnnotationStores_nextToken
           Lens..~ rs
           Lens.^? listAnnotationStoresResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnnotationStores where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest ListAnnotationStores where
     Response.receiveJSON
       ( \s h x ->
           ListAnnotationStoresResponse'
-            Prelude.<$> ( x Data..?> "annotationStores"
+            Prelude.<$> ( x
+                            Data..?> "annotationStores"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -151,7 +152,8 @@ instance Core.AWSRequest ListAnnotationStores where
 
 instance Prelude.Hashable ListAnnotationStores where
   hashWithSalt _salt ListAnnotationStores' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` ids
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

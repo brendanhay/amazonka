@@ -241,7 +241,8 @@ instance
     ModifyTrafficMirrorFilterRule
   where
   hashWithSalt _salt ModifyTrafficMirrorFilterRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` destinationPortRange
       `Prelude.hashWithSalt` dryRun

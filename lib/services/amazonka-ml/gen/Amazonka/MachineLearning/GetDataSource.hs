@@ -160,7 +160,8 @@ instance Core.AWSRequest GetDataSource where
 
 instance Prelude.Hashable GetDataSource where
   hashWithSalt _salt GetDataSource' {..} =
-    _salt `Prelude.hashWithSalt` verbose
+    _salt
+      `Prelude.hashWithSalt` verbose
       `Prelude.hashWithSalt` dataSourceId
 
 instance Prelude.NFData GetDataSource where

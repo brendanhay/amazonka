@@ -101,21 +101,22 @@ instance Core.AWSPager ListLegalHolds where
     | Core.stop
         ( rs
             Lens.^? listLegalHoldsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listLegalHoldsResponse_legalHolds
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLegalHolds_nextToken
           Lens..~ rs
-          Lens.^? listLegalHoldsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listLegalHoldsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLegalHolds where
   type
@@ -134,7 +135,8 @@ instance Core.AWSRequest ListLegalHolds where
 
 instance Prelude.Hashable ListLegalHolds where
   hashWithSalt _salt ListLegalHolds' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLegalHolds where

@@ -125,22 +125,22 @@ instance Core.AWSPager ListByteMatchSets where
     | Core.stop
         ( rs
             Lens.^? listByteMatchSetsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listByteMatchSetsResponse_byteMatchSets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listByteMatchSets_nextMarker
           Lens..~ rs
           Lens.^? listByteMatchSetsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListByteMatchSets where
   type
@@ -159,7 +159,8 @@ instance Core.AWSRequest ListByteMatchSets where
 
 instance Prelude.Hashable ListByteMatchSets where
   hashWithSalt _salt ListByteMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListByteMatchSets where

@@ -196,7 +196,8 @@ instance Data.FromJSON LambdaConfigType where
 
 instance Prelude.Hashable LambdaConfigType where
   hashWithSalt _salt LambdaConfigType' {..} =
-    _salt `Prelude.hashWithSalt` createAuthChallenge
+    _salt
+      `Prelude.hashWithSalt` createAuthChallenge
       `Prelude.hashWithSalt` customEmailSender
       `Prelude.hashWithSalt` customMessage
       `Prelude.hashWithSalt` customSMSSender

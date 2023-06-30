@@ -84,7 +84,8 @@ instance Data.FromJSON OTAUpdateSummary where
 
 instance Prelude.Hashable OTAUpdateSummary where
   hashWithSalt _salt OTAUpdateSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` otaUpdateArn
       `Prelude.hashWithSalt` otaUpdateId
 

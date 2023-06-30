@@ -270,7 +270,8 @@ instance
     CreateHyperParameterTuningJob
   where
   hashWithSalt _salt CreateHyperParameterTuningJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` trainingJobDefinition
       `Prelude.hashWithSalt` trainingJobDefinitions
       `Prelude.hashWithSalt` warmStartConfig

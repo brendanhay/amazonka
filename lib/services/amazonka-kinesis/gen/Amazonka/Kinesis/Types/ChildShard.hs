@@ -89,7 +89,8 @@ instance Data.FromJSON ChildShard where
 
 instance Prelude.Hashable ChildShard where
   hashWithSalt _salt ChildShard' {..} =
-    _salt `Prelude.hashWithSalt` shardId
+    _salt
+      `Prelude.hashWithSalt` shardId
       `Prelude.hashWithSalt` parentShards
       `Prelude.hashWithSalt` hashKeyRange
 

@@ -72,7 +72,8 @@ instance
       "AwsElbLoadBalancerAdditionalAttribute"
       ( \x ->
           AwsElbLoadBalancerAdditionalAttribute'
-            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -82,7 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsElbLoadBalancerAdditionalAttribute' {..} =
-      _salt `Prelude.hashWithSalt` key
+      _salt
+        `Prelude.hashWithSalt` key
         `Prelude.hashWithSalt` value
 
 instance

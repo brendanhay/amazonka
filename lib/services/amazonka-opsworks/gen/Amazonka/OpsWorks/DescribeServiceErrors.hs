@@ -134,7 +134,8 @@ instance Core.AWSRequest DescribeServiceErrors where
 
 instance Prelude.Hashable DescribeServiceErrors where
   hashWithSalt _salt DescribeServiceErrors' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` serviceErrorIds
       `Prelude.hashWithSalt` stackId
 

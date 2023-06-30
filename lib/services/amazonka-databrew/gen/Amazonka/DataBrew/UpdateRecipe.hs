@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateRecipe where
 
 instance Prelude.Hashable UpdateRecipe where
   hashWithSalt _salt UpdateRecipe' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` steps
       `Prelude.hashWithSalt` name
 

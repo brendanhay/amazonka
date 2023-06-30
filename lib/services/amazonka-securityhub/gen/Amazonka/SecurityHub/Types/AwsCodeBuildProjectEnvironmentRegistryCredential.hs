@@ -92,7 +92,7 @@ instance
       ( \x ->
           AwsCodeBuildProjectEnvironmentRegistryCredential'
             Prelude.<$> (x Data..:? "Credential")
-              Prelude.<*> (x Data..:? "CredentialProvider")
+            Prelude.<*> (x Data..:? "CredentialProvider")
       )
 
 instance
@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectEnvironmentRegistryCredential' {..} =
-      _salt `Prelude.hashWithSalt` credential
+      _salt
+        `Prelude.hashWithSalt` credential
         `Prelude.hashWithSalt` credentialProvider
 
 instance

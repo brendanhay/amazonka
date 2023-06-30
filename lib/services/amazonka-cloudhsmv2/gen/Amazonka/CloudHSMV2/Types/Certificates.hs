@@ -115,7 +115,8 @@ instance Data.FromJSON Certificates where
 
 instance Prelude.Hashable Certificates where
   hashWithSalt _salt Certificates' {..} =
-    _salt `Prelude.hashWithSalt` awsHardwareCertificate
+    _salt
+      `Prelude.hashWithSalt` awsHardwareCertificate
       `Prelude.hashWithSalt` clusterCertificate
       `Prelude.hashWithSalt` clusterCsr
       `Prelude.hashWithSalt` hsmCertificate

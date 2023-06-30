@@ -67,15 +67,12 @@ newApplicationCredential
         secretId = Data._Sensitive Lens.# pSecretId_
       }
 
--- |
 applicationCredential_databaseName :: Lens.Lens' ApplicationCredential Prelude.Text
 applicationCredential_databaseName = Lens.lens (\ApplicationCredential' {databaseName} -> databaseName) (\s@ApplicationCredential' {} a -> s {databaseName = a} :: ApplicationCredential)
 
--- |
 applicationCredential_credentialType :: Lens.Lens' ApplicationCredential CredentialType
 applicationCredential_credentialType = Lens.lens (\ApplicationCredential' {credentialType} -> credentialType) (\s@ApplicationCredential' {} a -> s {credentialType = a} :: ApplicationCredential)
 
--- |
 applicationCredential_secretId :: Lens.Lens' ApplicationCredential Prelude.Text
 applicationCredential_secretId = Lens.lens (\ApplicationCredential' {secretId} -> secretId) (\s@ApplicationCredential' {} a -> s {secretId = a} :: ApplicationCredential) Prelude.. Data._Sensitive
 
@@ -92,7 +89,8 @@ instance Data.FromJSON ApplicationCredential where
 
 instance Prelude.Hashable ApplicationCredential where
   hashWithSalt _salt ApplicationCredential' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` credentialType
       `Prelude.hashWithSalt` secretId
 

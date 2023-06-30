@@ -139,7 +139,8 @@ instance Data.FromJSON DescribeVaultOutput where
 
 instance Prelude.Hashable DescribeVaultOutput where
   hashWithSalt _salt DescribeVaultOutput' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` lastInventoryDate
       `Prelude.hashWithSalt` numberOfArchives
       `Prelude.hashWithSalt` sizeInBytes

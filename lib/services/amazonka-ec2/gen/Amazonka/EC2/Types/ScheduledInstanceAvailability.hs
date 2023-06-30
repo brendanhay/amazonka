@@ -190,7 +190,8 @@ instance
     ScheduledInstanceAvailability
   where
   hashWithSalt _salt ScheduledInstanceAvailability' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availableInstanceCount
       `Prelude.hashWithSalt` firstSlotStartTime
       `Prelude.hashWithSalt` hourlyPrice

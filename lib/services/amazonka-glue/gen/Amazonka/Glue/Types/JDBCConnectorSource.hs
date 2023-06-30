@@ -158,7 +158,8 @@ instance Data.FromJSON JDBCConnectorSource where
 
 instance Prelude.Hashable JDBCConnectorSource where
   hashWithSalt _salt JDBCConnectorSource' {..} =
-    _salt `Prelude.hashWithSalt` additionalOptions
+    _salt
+      `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` connectionTable
       `Prelude.hashWithSalt` outputSchemas
       `Prelude.hashWithSalt` query

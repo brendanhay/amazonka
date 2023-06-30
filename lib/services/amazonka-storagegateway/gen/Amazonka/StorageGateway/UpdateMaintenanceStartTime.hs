@@ -175,7 +175,8 @@ instance Core.AWSRequest UpdateMaintenanceStartTime where
 
 instance Prelude.Hashable UpdateMaintenanceStartTime where
   hashWithSalt _salt UpdateMaintenanceStartTime' {..} =
-    _salt `Prelude.hashWithSalt` dayOfMonth
+    _salt
+      `Prelude.hashWithSalt` dayOfMonth
       `Prelude.hashWithSalt` dayOfWeek
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` hourOfDay

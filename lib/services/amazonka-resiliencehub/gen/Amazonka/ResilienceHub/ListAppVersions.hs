@@ -132,7 +132,8 @@ instance Core.AWSRequest ListAppVersions where
 
 instance Prelude.Hashable ListAppVersions where
   hashWithSalt _salt ListAppVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appArn
 

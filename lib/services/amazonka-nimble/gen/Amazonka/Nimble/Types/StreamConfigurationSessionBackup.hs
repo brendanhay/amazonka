@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     StreamConfigurationSessionBackup' {..} =
-      _salt `Prelude.hashWithSalt` maxBackupsToRetain
+      _salt
+        `Prelude.hashWithSalt` maxBackupsToRetain
         `Prelude.hashWithSalt` mode
 
 instance

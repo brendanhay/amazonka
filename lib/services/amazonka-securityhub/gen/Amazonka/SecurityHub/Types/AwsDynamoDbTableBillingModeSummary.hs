@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableBillingModeSummary' {..} =
-      _salt `Prelude.hashWithSalt` billingMode
+      _salt
+        `Prelude.hashWithSalt` billingMode
         `Prelude.hashWithSalt` lastUpdateToPayPerRequestDateTime
 
 instance

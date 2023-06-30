@@ -69,7 +69,8 @@ tLEEphemeris_tleData = Lens.lens (\TLEEphemeris' {tleData} -> tleData) (\s@TLEEp
 
 instance Prelude.Hashable TLEEphemeris where
   hashWithSalt _salt TLEEphemeris' {..} =
-    _salt `Prelude.hashWithSalt` s3Object
+    _salt
+      `Prelude.hashWithSalt` s3Object
       `Prelude.hashWithSalt` tleData
 
 instance Prelude.NFData TLEEphemeris where

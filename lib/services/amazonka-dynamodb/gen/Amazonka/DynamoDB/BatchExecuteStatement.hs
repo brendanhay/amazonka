@@ -110,7 +110,8 @@ instance Core.AWSRequest BatchExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           BatchExecuteStatementResponse'
-            Prelude.<$> ( x Data..?> "ConsumedCapacity"
+            Prelude.<$> ( x
+                            Data..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Responses" Core..!@ Prelude.mempty)
@@ -119,7 +120,8 @@ instance Core.AWSRequest BatchExecuteStatement where
 
 instance Prelude.Hashable BatchExecuteStatement where
   hashWithSalt _salt BatchExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` returnConsumedCapacity
+    _salt
+      `Prelude.hashWithSalt` returnConsumedCapacity
       `Prelude.hashWithSalt` statements
 
 instance Prelude.NFData BatchExecuteStatement where

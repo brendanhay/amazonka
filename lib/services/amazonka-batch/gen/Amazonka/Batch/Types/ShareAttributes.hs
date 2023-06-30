@@ -132,7 +132,8 @@ instance Data.FromJSON ShareAttributes where
 
 instance Prelude.Hashable ShareAttributes where
   hashWithSalt _salt ShareAttributes' {..} =
-    _salt `Prelude.hashWithSalt` weightFactor
+    _salt
+      `Prelude.hashWithSalt` weightFactor
       `Prelude.hashWithSalt` shareIdentifier
 
 instance Prelude.NFData ShareAttributes where

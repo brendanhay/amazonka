@@ -201,7 +201,8 @@ instance Data.FromJSON ECSTaskSet where
 
 instance Prelude.Hashable ECSTaskSet where
   hashWithSalt _salt ECSTaskSet' {..} =
-    _salt `Prelude.hashWithSalt` desiredCount
+    _salt
+      `Prelude.hashWithSalt` desiredCount
       `Prelude.hashWithSalt` identifer
       `Prelude.hashWithSalt` pendingCount
       `Prelude.hashWithSalt` runningCount

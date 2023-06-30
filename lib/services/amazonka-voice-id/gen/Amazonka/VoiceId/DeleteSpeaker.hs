@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteSpeaker where
 
 instance Prelude.Hashable DeleteSpeaker where
   hashWithSalt _salt DeleteSpeaker' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` speakerId
 
 instance Prelude.NFData DeleteSpeaker where

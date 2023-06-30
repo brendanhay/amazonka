@@ -133,7 +133,8 @@ instance Data.FromJSON TargetLocation where
 
 instance Prelude.Hashable TargetLocation where
   hashWithSalt _salt TargetLocation' {..} =
-    _salt `Prelude.hashWithSalt` accounts
+    _salt
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` executionRoleName
       `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` targetLocationAlarmConfiguration

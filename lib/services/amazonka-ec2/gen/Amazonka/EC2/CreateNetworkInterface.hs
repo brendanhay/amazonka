@@ -413,7 +413,8 @@ instance Core.AWSRequest CreateNetworkInterface where
 
 instance Prelude.Hashable CreateNetworkInterface where
   hashWithSalt _salt CreateNetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groups

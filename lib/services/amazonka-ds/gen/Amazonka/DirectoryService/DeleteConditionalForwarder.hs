@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteConditionalForwarder where
 
 instance Prelude.Hashable DeleteConditionalForwarder where
   hashWithSalt _salt DeleteConditionalForwarder' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` remoteDomainName
 
 instance Prelude.NFData DeleteConditionalForwarder where

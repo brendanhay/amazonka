@@ -161,22 +161,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeAffectedEntitiesForOrganizationResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAffectedEntitiesForOrganizationResponse_entities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAffectedEntitiesForOrganization_nextToken
           Lens..~ rs
-            Lens.^? describeAffectedEntitiesForOrganizationResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeAffectedEntitiesForOrganizationResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -193,9 +193,9 @@ instance
       ( \s h x ->
           DescribeAffectedEntitiesForOrganizationResponse'
             Prelude.<$> (x Data..?> "entities" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -205,7 +205,8 @@ instance
   hashWithSalt
     _salt
     DescribeAffectedEntitiesForOrganization' {..} =
-      _salt `Prelude.hashWithSalt` locale
+      _salt
+        `Prelude.hashWithSalt` locale
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` organizationEntityFilters

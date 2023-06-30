@@ -406,7 +406,8 @@ instance Data.FromJSON CommandPlugin where
 
 instance Prelude.Hashable CommandPlugin where
   hashWithSalt _salt CommandPlugin' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` outputS3BucketName
       `Prelude.hashWithSalt` outputS3KeyPrefix

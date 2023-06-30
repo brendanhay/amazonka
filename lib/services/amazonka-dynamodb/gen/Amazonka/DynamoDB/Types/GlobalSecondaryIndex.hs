@@ -178,7 +178,8 @@ instance Data.FromJSON GlobalSecondaryIndex where
 
 instance Prelude.Hashable GlobalSecondaryIndex where
   hashWithSalt _salt GlobalSecondaryIndex' {..} =
-    _salt `Prelude.hashWithSalt` provisionedThroughput
+    _salt
+      `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` keySchema
       `Prelude.hashWithSalt` projection

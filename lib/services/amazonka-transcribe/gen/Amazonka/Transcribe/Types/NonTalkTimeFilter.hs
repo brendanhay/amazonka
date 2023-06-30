@@ -129,7 +129,8 @@ instance Data.FromJSON NonTalkTimeFilter where
 
 instance Prelude.Hashable NonTalkTimeFilter where
   hashWithSalt _salt NonTalkTimeFilter' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTimeRange
+    _salt
+      `Prelude.hashWithSalt` absoluteTimeRange
       `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` relativeTimeRange
       `Prelude.hashWithSalt` threshold

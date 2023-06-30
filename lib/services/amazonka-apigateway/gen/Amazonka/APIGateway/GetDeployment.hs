@@ -139,7 +139,8 @@ instance Core.AWSRequest GetDeployment where
 
 instance Prelude.Hashable GetDeployment where
   hashWithSalt _salt GetDeployment' {..} =
-    _salt `Prelude.hashWithSalt` embed
+    _salt
+      `Prelude.hashWithSalt` embed
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` deploymentId
 

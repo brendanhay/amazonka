@@ -225,7 +225,8 @@ connectorProfileCredentials_zendesk = Lens.lens (\ConnectorProfileCredentials' {
 
 instance Prelude.Hashable ConnectorProfileCredentials where
   hashWithSalt _salt ConnectorProfileCredentials' {..} =
-    _salt `Prelude.hashWithSalt` amplitude
+    _salt
+      `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` datadog
       `Prelude.hashWithSalt` dynatrace

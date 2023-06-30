@@ -131,7 +131,8 @@ instance Data.FromJSON TemplateSyncConfig where
 
 instance Prelude.Hashable TemplateSyncConfig where
   hashWithSalt _salt TemplateSyncConfig' {..} =
-    _salt `Prelude.hashWithSalt` subdirectory
+    _salt
+      `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` repositoryProvider

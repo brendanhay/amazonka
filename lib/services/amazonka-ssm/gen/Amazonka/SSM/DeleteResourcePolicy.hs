@@ -129,7 +129,8 @@ instance Core.AWSRequest DeleteResourcePolicy where
 
 instance Prelude.Hashable DeleteResourcePolicy where
   hashWithSalt _salt DeleteResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` policyHash
 

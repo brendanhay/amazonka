@@ -155,7 +155,8 @@ instance Core.AWSRequest DeleteObjectsOnCancel where
 
 instance Prelude.Hashable DeleteObjectsOnCancel where
   hashWithSalt _salt DeleteObjectsOnCancel' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` transactionId

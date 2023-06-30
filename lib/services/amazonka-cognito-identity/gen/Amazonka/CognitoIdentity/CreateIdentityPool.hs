@@ -235,7 +235,8 @@ instance Core.AWSRequest CreateIdentityPool where
 
 instance Prelude.Hashable CreateIdentityPool where
   hashWithSalt _salt CreateIdentityPool' {..} =
-    _salt `Prelude.hashWithSalt` allowClassicFlow
+    _salt
+      `Prelude.hashWithSalt` allowClassicFlow
       `Prelude.hashWithSalt` cognitoIdentityProviders
       `Prelude.hashWithSalt` developerProviderName
       `Prelude.hashWithSalt` identityPoolTags

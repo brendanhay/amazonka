@@ -152,7 +152,8 @@ instance Core.AWSRequest TagResources where
     Response.receiveJSON
       ( \s h x ->
           TagResourcesResponse'
-            Prelude.<$> ( x Data..?> "FailedResourcesMap"
+            Prelude.<$> ( x
+                            Data..?> "FailedResourcesMap"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,7 +161,8 @@ instance Core.AWSRequest TagResources where
 
 instance Prelude.Hashable TagResources where
   hashWithSalt _salt TagResources' {..} =
-    _salt `Prelude.hashWithSalt` resourceARNList
+    _salt
+      `Prelude.hashWithSalt` resourceARNList
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResources where

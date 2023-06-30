@@ -61,7 +61,8 @@ instance Data.FromJSON LaunchOverrides where
       "LaunchOverrides"
       ( \x ->
           LaunchOverrides'
-            Prelude.<$> ( x Data..:? "LaunchCommands"
+            Prelude.<$> ( x
+                            Data..:? "LaunchCommands"
                             Data..!= Prelude.mempty
                         )
       )

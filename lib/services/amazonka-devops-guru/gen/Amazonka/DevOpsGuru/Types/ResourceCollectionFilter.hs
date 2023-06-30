@@ -189,7 +189,8 @@ instance Data.FromJSON ResourceCollectionFilter where
 
 instance Prelude.Hashable ResourceCollectionFilter where
   hashWithSalt _salt ResourceCollectionFilter' {..} =
-    _salt `Prelude.hashWithSalt` cloudFormation
+    _salt
+      `Prelude.hashWithSalt` cloudFormation
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ResourceCollectionFilter where

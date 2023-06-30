@@ -112,7 +112,8 @@ instance Core.AWSRequest AssociatePackage where
 
 instance Prelude.Hashable AssociatePackage where
   hashWithSalt _salt AssociatePackage' {..} =
-    _salt `Prelude.hashWithSalt` packageID
+    _salt
+      `Prelude.hashWithSalt` packageID
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData AssociatePackage where

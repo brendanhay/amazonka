@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateIpRestriction where
 
 instance Prelude.Hashable UpdateIpRestriction where
   hashWithSalt _salt UpdateIpRestriction' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ipRestrictionRuleMap
       `Prelude.hashWithSalt` awsAccountId
 

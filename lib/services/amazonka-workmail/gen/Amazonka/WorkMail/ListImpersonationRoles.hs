@@ -121,7 +121,8 @@ instance Core.AWSRequest ListImpersonationRoles where
 
 instance Prelude.Hashable ListImpersonationRoles where
   hashWithSalt _salt ListImpersonationRoles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` organizationId
 

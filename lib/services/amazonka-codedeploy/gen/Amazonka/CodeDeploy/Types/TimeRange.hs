@@ -76,7 +76,8 @@ timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -
 
 instance Prelude.Hashable TimeRange where
   hashWithSalt _salt TimeRange' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` start
 
 instance Prelude.NFData TimeRange where

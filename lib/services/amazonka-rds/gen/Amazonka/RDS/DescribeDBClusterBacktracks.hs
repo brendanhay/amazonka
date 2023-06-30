@@ -280,22 +280,22 @@ instance Core.AWSPager DescribeDBClusterBacktracks where
     | Core.stop
         ( rs
             Lens.^? describeDBClusterBacktracksResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClusterBacktracksResponse_dbClusterBacktracks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBClusterBacktracks_marker
           Lens..~ rs
           Lens.^? describeDBClusterBacktracksResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterBacktracks where
   type
@@ -308,7 +308,8 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
       "DescribeDBClusterBacktracksResult"
       ( \s h x ->
           DescribeDBClusterBacktracksResponse'
-            Prelude.<$> ( x Data..@? "DBClusterBacktracks"
+            Prelude.<$> ( x
+                            Data..@? "DBClusterBacktracks"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBClusterBacktrack")
                         )
@@ -318,7 +319,8 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
 
 instance Prelude.Hashable DescribeDBClusterBacktracks where
   hashWithSalt _salt DescribeDBClusterBacktracks' {..} =
-    _salt `Prelude.hashWithSalt` backtrackIdentifier
+    _salt
+      `Prelude.hashWithSalt` backtrackIdentifier
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords

@@ -105,7 +105,8 @@ instance Core.AWSRequest SetCognitoEvents where
 
 instance Prelude.Hashable SetCognitoEvents where
   hashWithSalt _salt SetCognitoEvents' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
+    _salt
+      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` events
 
 instance Prelude.NFData SetCognitoEvents where

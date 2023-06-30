@@ -74,12 +74,14 @@ instance Data.FromJSON ColumnMetadata where
       "ColumnMetadata"
       ( \x ->
           ColumnMetadata'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "format")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "format")
       )
 
 instance Prelude.Hashable ColumnMetadata where
   hashWithSalt _salt ColumnMetadata' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` format
 
 instance Prelude.NFData ColumnMetadata where

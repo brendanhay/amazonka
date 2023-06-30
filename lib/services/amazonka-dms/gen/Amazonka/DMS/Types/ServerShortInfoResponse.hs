@@ -85,7 +85,8 @@ instance Data.FromJSON ServerShortInfoResponse where
 
 instance Prelude.Hashable ServerShortInfoResponse where
   hashWithSalt _salt ServerShortInfoResponse' {..} =
-    _salt `Prelude.hashWithSalt` ipAddress
+    _salt
+      `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` serverName
 

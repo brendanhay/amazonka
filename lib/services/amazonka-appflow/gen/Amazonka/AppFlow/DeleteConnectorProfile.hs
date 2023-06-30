@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteConnectorProfile where
 
 instance Prelude.Hashable DeleteConnectorProfile where
   hashWithSalt _salt DeleteConnectorProfile' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` connectorProfileName
 
 instance Prelude.NFData DeleteConnectorProfile where

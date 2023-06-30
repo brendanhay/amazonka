@@ -133,7 +133,8 @@ instance Data.FromJSON TargetInstance where
             Prelude.<*> (x Data..:? "EstimatedMonthlyCost")
             Prelude.<*> (x Data..:? "EstimatedMonthlySavings")
             Prelude.<*> (x Data..:? "ExpectedResourceUtilization")
-            Prelude.<*> ( x Data..:? "PlatformDifferences"
+            Prelude.<*> ( x
+                            Data..:? "PlatformDifferences"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ResourceDetails")
@@ -141,7 +142,8 @@ instance Data.FromJSON TargetInstance where
 
 instance Prelude.Hashable TargetInstance where
   hashWithSalt _salt TargetInstance' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
+    _salt
+      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` defaultTargetInstance
       `Prelude.hashWithSalt` estimatedMonthlyCost
       `Prelude.hashWithSalt` estimatedMonthlySavings

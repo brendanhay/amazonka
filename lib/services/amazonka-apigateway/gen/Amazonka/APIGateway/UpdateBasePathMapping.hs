@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateBasePathMapping where
 
 instance Prelude.Hashable UpdateBasePathMapping where
   hashWithSalt _salt UpdateBasePathMapping' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` basePath
 

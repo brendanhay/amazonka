@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     CustomVerificationEmailTemplate' {..} =
-      _salt `Prelude.hashWithSalt` failureRedirectionURL
+      _salt
+        `Prelude.hashWithSalt` failureRedirectionURL
         `Prelude.hashWithSalt` fromEmailAddress
         `Prelude.hashWithSalt` successRedirectionURL
         `Prelude.hashWithSalt` templateName

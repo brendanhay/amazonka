@@ -152,7 +152,8 @@ instance Data.FromXML SnapshotDetail where
 
 instance Prelude.Hashable SnapshotDetail where
   hashWithSalt _salt SnapshotDetail' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` diskImageSize
       `Prelude.hashWithSalt` format

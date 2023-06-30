@@ -193,7 +193,8 @@ instance Core.AWSRequest DescribeBundleTasks where
     Response.receiveXML
       ( \s h x ->
           DescribeBundleTasksResponse'
-            Prelude.<$> ( x Data..@? "bundleInstanceTasksSet"
+            Prelude.<$> ( x
+                            Data..@? "bundleInstanceTasksSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -202,7 +203,8 @@ instance Core.AWSRequest DescribeBundleTasks where
 
 instance Prelude.Hashable DescribeBundleTasks where
   hashWithSalt _salt DescribeBundleTasks' {..} =
-    _salt `Prelude.hashWithSalt` bundleIds
+    _salt
+      `Prelude.hashWithSalt` bundleIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
 

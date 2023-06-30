@@ -194,7 +194,8 @@ instance Core.AWSRequest ListSlotTypes where
             Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "slotTypeSummaries"
+            Prelude.<*> ( x
+                            Data..?> "slotTypeSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -202,7 +203,8 @@ instance Core.AWSRequest ListSlotTypes where
 
 instance Prelude.Hashable ListSlotTypes where
   hashWithSalt _salt ListSlotTypes' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

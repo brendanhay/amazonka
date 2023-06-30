@@ -113,7 +113,8 @@ instance Data.FromJSON DeploymentAlarms where
 
 instance Prelude.Hashable DeploymentAlarms where
   hashWithSalt _salt DeploymentAlarms' {..} =
-    _salt `Prelude.hashWithSalt` alarmNames
+    _salt
+      `Prelude.hashWithSalt` alarmNames
       `Prelude.hashWithSalt` enable
       `Prelude.hashWithSalt` rollback
 

@@ -114,7 +114,8 @@ instance Data.FromJSON ArchivalSummary where
 
 instance Prelude.Hashable ArchivalSummary where
   hashWithSalt _salt ArchivalSummary' {..} =
-    _salt `Prelude.hashWithSalt` archivalBackupArn
+    _salt
+      `Prelude.hashWithSalt` archivalBackupArn
       `Prelude.hashWithSalt` archivalDateTime
       `Prelude.hashWithSalt` archivalReason
 

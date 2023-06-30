@@ -145,7 +145,8 @@ instance Core.AWSRequest GetFolder where
 
 instance Prelude.Hashable GetFolder where
   hashWithSalt _salt GetFolder' {..} =
-    _salt `Prelude.hashWithSalt` commitSpecifier
+    _salt
+      `Prelude.hashWithSalt` commitSpecifier
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` folderPath
 

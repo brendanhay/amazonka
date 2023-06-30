@@ -113,7 +113,8 @@ instance Core.AWSRequest MoveReplicationTask where
 
 instance Prelude.Hashable MoveReplicationTask where
   hashWithSalt _salt MoveReplicationTask' {..} =
-    _salt `Prelude.hashWithSalt` replicationTaskArn
+    _salt
+      `Prelude.hashWithSalt` replicationTaskArn
       `Prelude.hashWithSalt` targetReplicationInstanceArn
 
 instance Prelude.NFData MoveReplicationTask where

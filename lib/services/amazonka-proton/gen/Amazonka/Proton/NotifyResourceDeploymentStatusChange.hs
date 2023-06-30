@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     NotifyResourceDeploymentStatusChange' {..} =
-      _salt `Prelude.hashWithSalt` deploymentId
+      _salt
+        `Prelude.hashWithSalt` deploymentId
         `Prelude.hashWithSalt` outputs
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` statusMessage

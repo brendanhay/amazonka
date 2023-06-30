@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateDimension where
 
 instance Prelude.Hashable UpdateDimension where
   hashWithSalt _salt UpdateDimension' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` stringValues
 
 instance Prelude.NFData UpdateDimension where

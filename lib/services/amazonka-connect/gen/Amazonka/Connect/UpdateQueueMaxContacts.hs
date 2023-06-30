@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateQueueMaxContacts where
 
 instance Prelude.Hashable UpdateQueueMaxContacts where
   hashWithSalt _salt UpdateQueueMaxContacts' {..} =
-    _salt `Prelude.hashWithSalt` maxContacts
+    _salt
+      `Prelude.hashWithSalt` maxContacts
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId
 

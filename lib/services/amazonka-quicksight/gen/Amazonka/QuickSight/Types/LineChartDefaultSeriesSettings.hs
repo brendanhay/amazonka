@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     LineChartDefaultSeriesSettings' {..} =
-      _salt `Prelude.hashWithSalt` axisBinding
+      _salt
+        `Prelude.hashWithSalt` axisBinding
         `Prelude.hashWithSalt` lineStyleSettings
         `Prelude.hashWithSalt` markerStyleSettings
 

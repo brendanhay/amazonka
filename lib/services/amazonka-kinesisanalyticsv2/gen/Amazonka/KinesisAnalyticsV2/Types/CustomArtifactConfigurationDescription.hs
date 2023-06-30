@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     CustomArtifactConfigurationDescription' {..} =
-      _salt `Prelude.hashWithSalt` artifactType
+      _salt
+        `Prelude.hashWithSalt` artifactType
         `Prelude.hashWithSalt` mavenReferenceDescription
         `Prelude.hashWithSalt` s3ContentLocationDescription
 

@@ -120,7 +120,8 @@ instance Data.FromJSON DeploymentEvent where
       "DeploymentEvent"
       ( \x ->
           DeploymentEvent'
-            Prelude.<$> ( x Data..:? "ActionInvocations"
+            Prelude.<$> ( x
+                            Data..:? "ActionInvocations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
@@ -131,7 +132,8 @@ instance Data.FromJSON DeploymentEvent where
 
 instance Prelude.Hashable DeploymentEvent where
   hashWithSalt _salt DeploymentEvent' {..} =
-    _salt `Prelude.hashWithSalt` actionInvocations
+    _salt
+      `Prelude.hashWithSalt` actionInvocations
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` occurredAt

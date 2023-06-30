@@ -134,7 +134,8 @@ instance Data.FromJSON FormSummary where
 
 instance Prelude.Hashable FormSummary where
   hashWithSalt _salt FormSummary' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` formActionType

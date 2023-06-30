@@ -104,7 +104,8 @@ instance Data.FromJSON TimecodeConfig where
 
 instance Prelude.Hashable TimecodeConfig where
   hashWithSalt _salt TimecodeConfig' {..} =
-    _salt `Prelude.hashWithSalt` syncThreshold
+    _salt
+      `Prelude.hashWithSalt` syncThreshold
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData TimecodeConfig where

@@ -89,47 +89,36 @@ newOperation =
       type' = Prelude.Nothing
     }
 
--- |
 operation_endTime :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
 operation_endTime = Lens.lens (\Operation' {endTime} -> endTime) (\s@Operation' {} a -> s {endTime = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
--- |
 operation_id :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_id = Lens.lens (\Operation' {id} -> id) (\s@Operation' {} a -> s {id = a} :: Operation)
 
--- |
 operation_lastUpdatedTime :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
 operation_lastUpdatedTime = Lens.lens (\Operation' {lastUpdatedTime} -> lastUpdatedTime) (\s@Operation' {} a -> s {lastUpdatedTime = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
--- |
 operation_properties :: Lens.Lens' Operation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 operation_properties = Lens.lens (\Operation' {properties} -> properties) (\s@Operation' {} a -> s {properties = a} :: Operation) Prelude.. Lens.mapping Lens.coerced
 
--- |
 operation_resourceArn :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_resourceArn = Lens.lens (\Operation' {resourceArn} -> resourceArn) (\s@Operation' {} a -> s {resourceArn = a} :: Operation)
 
--- |
 operation_resourceId :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_resourceId = Lens.lens (\Operation' {resourceId} -> resourceId) (\s@Operation' {} a -> s {resourceId = a} :: Operation)
 
--- |
 operation_resourceType :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_resourceType = Lens.lens (\Operation' {resourceType} -> resourceType) (\s@Operation' {} a -> s {resourceType = a} :: Operation)
 
--- |
 operation_startTime :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
 operation_startTime = Lens.lens (\Operation' {startTime} -> startTime) (\s@Operation' {} a -> s {startTime = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
--- |
 operation_status :: Lens.Lens' Operation (Prelude.Maybe OperationStatus)
 operation_status = Lens.lens (\Operation' {status} -> status) (\s@Operation' {} a -> s {status = a} :: Operation)
 
--- |
 operation_statusMessage :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_statusMessage = Lens.lens (\Operation' {statusMessage} -> statusMessage) (\s@Operation' {} a -> s {statusMessage = a} :: Operation)
 
--- |
 operation_type :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_type = Lens.lens (\Operation' {type'} -> type') (\s@Operation' {} a -> s {type' = a} :: Operation)
 
@@ -154,7 +143,8 @@ instance Data.FromJSON Operation where
 
 instance Prelude.Hashable Operation where
   hashWithSalt _salt Operation' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` properties

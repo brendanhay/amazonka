@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     ProtectiveEquipmentSummarizationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` minConfidence
+      _salt
+        `Prelude.hashWithSalt` minConfidence
         `Prelude.hashWithSalt` requiredEquipmentTypes
 
 instance

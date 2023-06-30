@@ -234,7 +234,8 @@ instance Data.FromJSON Datastore where
 
 instance Prelude.Hashable Datastore where
   hashWithSalt _salt Datastore' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` datastorePartitions
       `Prelude.hashWithSalt` fileFormatConfiguration

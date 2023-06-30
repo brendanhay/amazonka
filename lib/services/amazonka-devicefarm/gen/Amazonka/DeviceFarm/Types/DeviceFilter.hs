@@ -375,7 +375,8 @@ instance Data.FromJSON DeviceFilter where
 
 instance Prelude.Hashable DeviceFilter where
   hashWithSalt _salt DeviceFilter' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` values
 

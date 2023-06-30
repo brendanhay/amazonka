@@ -165,7 +165,8 @@ instance Core.AWSRequest CreateCodeReview where
 
 instance Prelude.Hashable CreateCodeReview where
   hashWithSalt _salt CreateCodeReview' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` repositoryAssociationArn
       `Prelude.hashWithSalt` type'

@@ -133,7 +133,8 @@ instance
     ModifyLoadBalancerAttributes
   where
   hashWithSalt _salt ModifyLoadBalancerAttributes' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` loadBalancerAttributes
 
 instance Prelude.NFData ModifyLoadBalancerAttributes where

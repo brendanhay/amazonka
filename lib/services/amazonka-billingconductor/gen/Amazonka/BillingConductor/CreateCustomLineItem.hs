@@ -181,7 +181,8 @@ instance Core.AWSRequest CreateCustomLineItem where
 
 instance Prelude.Hashable CreateCustomLineItem where
   hashWithSalt _salt CreateCustomLineItem' {..} =
-    _salt `Prelude.hashWithSalt` billingPeriodRange
+    _salt
+      `Prelude.hashWithSalt` billingPeriodRange
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

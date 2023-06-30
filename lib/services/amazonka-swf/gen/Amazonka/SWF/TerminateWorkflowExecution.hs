@@ -232,7 +232,8 @@ instance Core.AWSRequest TerminateWorkflowExecution where
 
 instance Prelude.Hashable TerminateWorkflowExecution where
   hashWithSalt _salt TerminateWorkflowExecution' {..} =
-    _salt `Prelude.hashWithSalt` childPolicy
+    _salt
+      `Prelude.hashWithSalt` childPolicy
       `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` runId

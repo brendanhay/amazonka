@@ -70,7 +70,8 @@ instance Data.FromJSON TerminationHealth where
 
 instance Prelude.Hashable TerminationHealth where
   hashWithSalt _salt TerminationHealth' {..} =
-    _salt `Prelude.hashWithSalt` source
+    _salt
+      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData TerminationHealth where

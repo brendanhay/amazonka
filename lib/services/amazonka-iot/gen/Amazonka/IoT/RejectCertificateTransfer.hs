@@ -113,7 +113,8 @@ instance Core.AWSRequest RejectCertificateTransfer where
 
 instance Prelude.Hashable RejectCertificateTransfer where
   hashWithSalt _salt RejectCertificateTransfer' {..} =
-    _salt `Prelude.hashWithSalt` rejectReason
+    _salt
+      `Prelude.hashWithSalt` rejectReason
       `Prelude.hashWithSalt` certificateId
 
 instance Prelude.NFData RejectCertificateTransfer where

@@ -87,7 +87,8 @@ instance Data.FromJSON ReceivedMetadata where
 
 instance Prelude.Hashable ReceivedMetadata where
   hashWithSalt _salt ReceivedMetadata' {..} =
-    _salt `Prelude.hashWithSalt` allowedOperations
+    _salt
+      `Prelude.hashWithSalt` allowedOperations
       `Prelude.hashWithSalt` receivedStatus
       `Prelude.hashWithSalt` receivedStatusReason
 

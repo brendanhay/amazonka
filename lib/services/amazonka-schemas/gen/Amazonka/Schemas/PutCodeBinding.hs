@@ -135,7 +135,8 @@ instance Core.AWSRequest PutCodeBinding where
 
 instance Prelude.Hashable PutCodeBinding where
   hashWithSalt _salt PutCodeBinding' {..} =
-    _salt `Prelude.hashWithSalt` schemaVersion
+    _salt
+      `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` language

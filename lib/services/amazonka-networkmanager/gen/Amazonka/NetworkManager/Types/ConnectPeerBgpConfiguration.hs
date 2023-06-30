@@ -95,7 +95,8 @@ instance Data.FromJSON ConnectPeerBgpConfiguration where
 
 instance Prelude.Hashable ConnectPeerBgpConfiguration where
   hashWithSalt _salt ConnectPeerBgpConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` coreNetworkAddress
+    _salt
+      `Prelude.hashWithSalt` coreNetworkAddress
       `Prelude.hashWithSalt` coreNetworkAsn
       `Prelude.hashWithSalt` peerAddress
       `Prelude.hashWithSalt` peerAsn

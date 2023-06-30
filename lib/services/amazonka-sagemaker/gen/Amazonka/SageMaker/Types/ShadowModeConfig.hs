@@ -90,7 +90,8 @@ instance Data.FromJSON ShadowModeConfig where
 
 instance Prelude.Hashable ShadowModeConfig where
   hashWithSalt _salt ShadowModeConfig' {..} =
-    _salt `Prelude.hashWithSalt` sourceModelVariantName
+    _salt
+      `Prelude.hashWithSalt` sourceModelVariantName
       `Prelude.hashWithSalt` shadowModelVariants
 
 instance Prelude.NFData ShadowModeConfig where

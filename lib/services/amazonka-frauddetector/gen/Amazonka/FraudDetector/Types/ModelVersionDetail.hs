@@ -206,7 +206,8 @@ instance Data.FromJSON ModelVersionDetail where
 
 instance Prelude.Hashable ModelVersionDetail where
   hashWithSalt _salt ModelVersionDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` externalEventsDetail
       `Prelude.hashWithSalt` ingestedEventsDetail

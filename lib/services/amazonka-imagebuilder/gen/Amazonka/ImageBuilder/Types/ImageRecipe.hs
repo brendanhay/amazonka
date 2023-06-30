@@ -202,7 +202,8 @@ instance Data.FromJSON ImageRecipe where
           ImageRecipe'
             Prelude.<$> (x Data..:? "additionalInstanceConfiguration")
             Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> ( x Data..:? "blockDeviceMappings"
+            Prelude.<*> ( x
+                            Data..:? "blockDeviceMappings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "components")

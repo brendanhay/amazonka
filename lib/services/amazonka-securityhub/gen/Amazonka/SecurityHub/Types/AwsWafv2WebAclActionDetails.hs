@@ -78,7 +78,8 @@ instance Data.FromJSON AwsWafv2WebAclActionDetails where
 
 instance Prelude.Hashable AwsWafv2WebAclActionDetails where
   hashWithSalt _salt AwsWafv2WebAclActionDetails' {..} =
-    _salt `Prelude.hashWithSalt` allow
+    _salt
+      `Prelude.hashWithSalt` allow
       `Prelude.hashWithSalt` block
 
 instance Prelude.NFData AwsWafv2WebAclActionDetails where

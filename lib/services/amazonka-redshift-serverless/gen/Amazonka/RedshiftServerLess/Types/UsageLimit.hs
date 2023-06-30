@@ -145,7 +145,8 @@ instance Data.FromJSON UsageLimit where
 
 instance Prelude.Hashable UsageLimit where
   hashWithSalt _salt UsageLimit' {..} =
-    _salt `Prelude.hashWithSalt` amount
+    _salt
+      `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` breachAction
       `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` resourceArn

@@ -97,7 +97,8 @@ instance Data.FromJSON MultiRegionConfiguration where
 
 instance Prelude.Hashable MultiRegionConfiguration where
   hashWithSalt _salt MultiRegionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` multiRegionKeyType
+    _salt
+      `Prelude.hashWithSalt` multiRegionKeyType
       `Prelude.hashWithSalt` primaryKey
       `Prelude.hashWithSalt` replicaKeys
 

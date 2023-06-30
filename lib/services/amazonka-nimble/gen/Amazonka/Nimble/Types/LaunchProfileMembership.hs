@@ -115,7 +115,8 @@ instance Data.FromJSON LaunchProfileMembership where
 
 instance Prelude.Hashable LaunchProfileMembership where
   hashWithSalt _salt LaunchProfileMembership' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` persona
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` sid

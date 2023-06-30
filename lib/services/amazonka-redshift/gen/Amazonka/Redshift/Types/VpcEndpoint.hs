@@ -83,7 +83,8 @@ vpcEndpoint_vpcId = Lens.lens (\VpcEndpoint' {vpcId} -> vpcId) (\s@VpcEndpoint' 
 instance Data.FromXML VpcEndpoint where
   parseXML x =
     VpcEndpoint'
-      Prelude.<$> ( x Data..@? "NetworkInterfaces"
+      Prelude.<$> ( x
+                      Data..@? "NetworkInterfaces"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "NetworkInterface")
                   )
@@ -92,7 +93,8 @@ instance Data.FromXML VpcEndpoint where
 
 instance Prelude.Hashable VpcEndpoint where
   hashWithSalt _salt VpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` networkInterfaces
+    _salt
+      `Prelude.hashWithSalt` networkInterfaces
       `Prelude.hashWithSalt` vpcEndpointId
       `Prelude.hashWithSalt` vpcId
 

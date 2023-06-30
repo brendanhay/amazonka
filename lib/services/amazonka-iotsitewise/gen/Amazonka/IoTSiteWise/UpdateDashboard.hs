@@ -152,7 +152,8 @@ instance Core.AWSRequest UpdateDashboard where
 
 instance Prelude.Hashable UpdateDashboard where
   hashWithSalt _salt UpdateDashboard' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dashboardDescription
       `Prelude.hashWithSalt` dashboardId
       `Prelude.hashWithSalt` dashboardName

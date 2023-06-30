@@ -294,7 +294,8 @@ instance Core.AWSRequest CreateActivation where
 
 instance Prelude.Hashable CreateActivation where
   hashWithSalt _salt CreateActivation' {..} =
-    _salt `Prelude.hashWithSalt` defaultInstanceName
+    _salt
+      `Prelude.hashWithSalt` defaultInstanceName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` registrationLimit

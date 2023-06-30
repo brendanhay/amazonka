@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     UpdateConnectionAliasPermission' {..} =
-      _salt `Prelude.hashWithSalt` aliasId
+      _salt
+        `Prelude.hashWithSalt` aliasId
         `Prelude.hashWithSalt` connectionAliasPermission
 
 instance

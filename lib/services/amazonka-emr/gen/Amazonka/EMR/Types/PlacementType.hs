@@ -89,7 +89,8 @@ placementType_availabilityZones = Lens.lens (\PlacementType' {availabilityZones}
 
 instance Prelude.Hashable PlacementType where
   hashWithSalt _salt PlacementType' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZones
 
 instance Prelude.NFData PlacementType where

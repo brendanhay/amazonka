@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteNotification where
 
 instance Prelude.Hashable DeleteNotification where
   hashWithSalt _salt DeleteNotification' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` notification
 

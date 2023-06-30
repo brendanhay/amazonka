@@ -118,7 +118,8 @@ instance Core.AWSRequest EvaluateSession where
 
 instance Prelude.Hashable EvaluateSession where
   hashWithSalt _salt EvaluateSession' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` sessionNameOrId
 
 instance Prelude.NFData EvaluateSession where

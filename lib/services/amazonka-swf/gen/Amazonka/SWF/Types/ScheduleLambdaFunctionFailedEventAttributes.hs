@@ -135,9 +135,10 @@ instance
       "ScheduleLambdaFunctionFailedEventAttributes"
       ( \x ->
           ScheduleLambdaFunctionFailedEventAttributes'
-            Prelude.<$> (x Data..: "id") Prelude.<*> (x Data..: "name")
-              Prelude.<*> (x Data..: "cause")
-              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "cause")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance
@@ -147,7 +148,8 @@ instance
   hashWithSalt
     _salt
     ScheduleLambdaFunctionFailedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` cause
         `Prelude.hashWithSalt` decisionTaskCompletedEventId

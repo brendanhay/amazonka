@@ -99,7 +99,8 @@ instance Core.AWSRequest DeleteLayerVersion where
 
 instance Prelude.Hashable DeleteLayerVersion where
   hashWithSalt _salt DeleteLayerVersion' {..} =
-    _salt `Prelude.hashWithSalt` layerName
+    _salt
+      `Prelude.hashWithSalt` layerName
       `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData DeleteLayerVersion where

@@ -122,7 +122,8 @@ instance Core.AWSRequest CreateActionTarget where
 
 instance Prelude.Hashable CreateActionTarget where
   hashWithSalt _salt CreateActionTarget' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
 

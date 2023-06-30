@@ -110,7 +110,8 @@ instance Core.AWSRequest CancelArchival where
 
 instance Prelude.Hashable CancelArchival where
   hashWithSalt _salt CancelArchival' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` tapeARN
 
 instance Prelude.NFData CancelArchival where

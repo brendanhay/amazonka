@@ -122,7 +122,8 @@ instance Core.AWSRequest ListRoomMemberships where
       ( \s h x ->
           ListRoomMembershipsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "RoomMemberships"
+            Prelude.<*> ( x
+                            Data..?> "RoomMemberships"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,7 +131,8 @@ instance Core.AWSRequest ListRoomMemberships where
 
 instance Prelude.Hashable ListRoomMemberships where
   hashWithSalt _salt ListRoomMemberships' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` roomId

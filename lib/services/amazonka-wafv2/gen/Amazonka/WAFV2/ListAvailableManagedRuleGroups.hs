@@ -165,7 +165,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailableManagedRuleGroupsResponse'
-            Prelude.<$> ( x Data..?> "ManagedRuleGroups"
+            Prelude.<$> ( x
+                            Data..?> "ManagedRuleGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -179,7 +180,8 @@ instance
   hashWithSalt
     _salt
     ListAvailableManagedRuleGroups' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextMarker
         `Prelude.hashWithSalt` scope
 
@@ -268,7 +270,6 @@ newListAvailableManagedRuleGroupsResponse
         httpStatus = pHttpStatus_
       }
 
--- |
 listAvailableManagedRuleGroupsResponse_managedRuleGroups :: Lens.Lens' ListAvailableManagedRuleGroupsResponse (Prelude.Maybe [ManagedRuleGroupSummary])
 listAvailableManagedRuleGroupsResponse_managedRuleGroups = Lens.lens (\ListAvailableManagedRuleGroupsResponse' {managedRuleGroups} -> managedRuleGroups) (\s@ListAvailableManagedRuleGroupsResponse' {} a -> s {managedRuleGroups = a} :: ListAvailableManagedRuleGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -118,7 +118,8 @@ instance Core.AWSRequest DisconnectUser where
 
 instance Prelude.Hashable DisconnectUser where
   hashWithSalt _salt DisconnectUser' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` roomIdentifier
       `Prelude.hashWithSalt` userId
 

@@ -26,7 +26,8 @@
 -- to view current information about the cluster and its nodes.
 --
 -- Cluster connection requires two steps. First, send a
--- @ RegisterClusterRequest @ to add it to the Amazon EKS control plane.
+-- @ @@RegisterClusterRequest@@ @ to add it to the Amazon EKS control
+-- plane.
 --
 -- Second, a
 -- <https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml Manifest>
@@ -157,7 +158,8 @@ instance Core.AWSRequest RegisterCluster where
 
 instance Prelude.Hashable RegisterCluster where
   hashWithSalt _salt RegisterCluster' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectorConfig

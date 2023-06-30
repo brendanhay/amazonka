@@ -129,7 +129,8 @@ instance
     PutThirdPartyJobFailureResult
   where
   hashWithSalt _salt PutThirdPartyJobFailureResult' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` failureDetails
 

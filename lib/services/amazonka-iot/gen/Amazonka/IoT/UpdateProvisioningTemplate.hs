@@ -167,7 +167,8 @@ instance Core.AWSRequest UpdateProvisioningTemplate where
 
 instance Prelude.Hashable UpdateProvisioningTemplate where
   hashWithSalt _salt UpdateProvisioningTemplate' {..} =
-    _salt `Prelude.hashWithSalt` defaultVersionId
+    _salt
+      `Prelude.hashWithSalt` defaultVersionId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` preProvisioningHook

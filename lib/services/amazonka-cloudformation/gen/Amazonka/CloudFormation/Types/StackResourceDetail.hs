@@ -222,7 +222,8 @@ instance Data.FromXML StackResourceDetail where
 
 instance Prelude.Hashable StackResourceDetail where
   hashWithSalt _salt StackResourceDetail' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` driftInformation
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` moduleInfo

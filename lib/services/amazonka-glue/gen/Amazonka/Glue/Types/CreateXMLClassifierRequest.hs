@@ -93,7 +93,8 @@ createXMLClassifierRequest_name = Lens.lens (\CreateXMLClassifierRequest' {name}
 
 instance Prelude.Hashable CreateXMLClassifierRequest where
   hashWithSalt _salt CreateXMLClassifierRequest' {..} =
-    _salt `Prelude.hashWithSalt` rowTag
+    _salt
+      `Prelude.hashWithSalt` rowTag
       `Prelude.hashWithSalt` classification
       `Prelude.hashWithSalt` name
 

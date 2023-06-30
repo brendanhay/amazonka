@@ -120,22 +120,22 @@ instance Core.AWSPager ListBillingGroups where
     | Core.stop
         ( rs
             Lens.^? listBillingGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBillingGroupsResponse_billingGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBillingGroups_nextToken
           Lens..~ rs
           Lens.^? listBillingGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBillingGroups where
   type
@@ -154,7 +154,8 @@ instance Core.AWSRequest ListBillingGroups where
 
 instance Prelude.Hashable ListBillingGroups where
   hashWithSalt _salt ListBillingGroups' {..} =
-    _salt `Prelude.hashWithSalt` billingPeriod
+    _salt
+      `Prelude.hashWithSalt` billingPeriod
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

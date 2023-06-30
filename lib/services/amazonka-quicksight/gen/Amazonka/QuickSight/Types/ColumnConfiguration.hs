@@ -90,7 +90,8 @@ instance Data.FromJSON ColumnConfiguration where
 
 instance Prelude.Hashable ColumnConfiguration where
   hashWithSalt _salt ColumnConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` formatConfiguration
+    _salt
+      `Prelude.hashWithSalt` formatConfiguration
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` column
 

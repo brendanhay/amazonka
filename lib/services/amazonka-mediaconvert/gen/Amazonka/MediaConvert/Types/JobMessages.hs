@@ -81,7 +81,8 @@ instance Data.FromJSON JobMessages where
 
 instance Prelude.Hashable JobMessages where
   hashWithSalt _salt JobMessages' {..} =
-    _salt `Prelude.hashWithSalt` info
+    _salt
+      `Prelude.hashWithSalt` info
       `Prelude.hashWithSalt` warning
 
 instance Prelude.NFData JobMessages where

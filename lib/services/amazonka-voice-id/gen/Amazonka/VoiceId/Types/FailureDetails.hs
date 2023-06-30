@@ -74,7 +74,8 @@ instance Data.FromJSON FailureDetails where
 
 instance Prelude.Hashable FailureDetails where
   hashWithSalt _salt FailureDetails' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData FailureDetails where

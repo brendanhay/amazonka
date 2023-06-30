@@ -71,7 +71,8 @@ instance Data.FromJSON KafkaVersion where
 
 instance Prelude.Hashable KafkaVersion where
   hashWithSalt _salt KafkaVersion' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData KafkaVersion where

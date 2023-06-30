@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     IdentityVerificationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` verificationToken
+      _salt
+        `Prelude.hashWithSalt` verificationToken
         `Prelude.hashWithSalt` verificationStatus
 
 instance

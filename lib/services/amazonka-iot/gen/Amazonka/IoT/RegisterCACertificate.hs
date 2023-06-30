@@ -230,7 +230,8 @@ instance Core.AWSRequest RegisterCACertificate where
 
 instance Prelude.Hashable RegisterCACertificate where
   hashWithSalt _salt RegisterCACertificate' {..} =
-    _salt `Prelude.hashWithSalt` allowAutoRegistration
+    _salt
+      `Prelude.hashWithSalt` allowAutoRegistration
       `Prelude.hashWithSalt` certificateMode
       `Prelude.hashWithSalt` registrationConfig
       `Prelude.hashWithSalt` setAsActive

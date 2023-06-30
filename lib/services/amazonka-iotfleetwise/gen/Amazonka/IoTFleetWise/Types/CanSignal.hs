@@ -156,7 +156,8 @@ instance Data.FromJSON CanSignal where
 
 instance Prelude.Hashable CanSignal where
   hashWithSalt _salt CanSignal' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` isBigEndian
       `Prelude.hashWithSalt` isSigned

@@ -67,13 +67,13 @@ data TagResource = TagResource'
     -- -   Amazon Web Services account – specify the account ID number.
     --
     -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
-    --     looks similar to: @ou-1a2b-34uvwxyz @
+    --     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
     --
     -- -   Root – specify the root ID that begins with @r-@ and looks similar
-    --     to: @r-1a2b @
+    --     to: @r-@/@1a2b@/@ @
     --
     -- -   Policy – specify the policy ID that begins with @p-@ andlooks
-    --     similar to: @p-12abcdefg3 @
+    --     similar to: @p-@/@12abcdefg3@/@ @
     resourceId :: Prelude.Text,
     -- | A list of tags to add to the specified resource.
     --
@@ -101,13 +101,13 @@ data TagResource = TagResource'
 -- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
---     looks similar to: @ou-1a2b-34uvwxyz @
+--     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
 --
 -- -   Root – specify the root ID that begins with @r-@ and looks similar
---     to: @r-1a2b @
+--     to: @r-@/@1a2b@/@ @
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
---     similar to: @p-12abcdefg3 @
+--     similar to: @p-@/@12abcdefg3@/@ @
 --
 -- 'tags', 'tagResource_tags' - A list of tags to add to the specified resource.
 --
@@ -133,13 +133,13 @@ newTagResource pResourceId_ =
 -- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
---     looks similar to: @ou-1a2b-34uvwxyz @
+--     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
 --
 -- -   Root – specify the root ID that begins with @r-@ and looks similar
---     to: @r-1a2b @
+--     to: @r-@/@1a2b@/@ @
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
---     similar to: @p-12abcdefg3 @
+--     similar to: @p-@/@12abcdefg3@/@ @
 tagResource_resourceId :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\s@TagResource' {} a -> s {resourceId = a} :: TagResource)
 
@@ -161,7 +161,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

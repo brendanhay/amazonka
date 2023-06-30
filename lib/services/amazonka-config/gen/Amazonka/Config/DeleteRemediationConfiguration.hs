@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     DeleteRemediationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
+      _salt
+        `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` configRuleName
 
 instance

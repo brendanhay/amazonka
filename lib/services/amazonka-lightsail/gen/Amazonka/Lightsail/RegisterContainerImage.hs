@@ -195,7 +195,8 @@ instance Core.AWSRequest RegisterContainerImage where
 
 instance Prelude.Hashable RegisterContainerImage where
   hashWithSalt _salt RegisterContainerImage' {..} =
-    _salt `Prelude.hashWithSalt` serviceName
+    _salt
+      `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` digest
 

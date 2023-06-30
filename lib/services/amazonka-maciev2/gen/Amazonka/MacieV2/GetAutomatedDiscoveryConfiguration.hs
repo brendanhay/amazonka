@@ -79,12 +79,12 @@ instance
       ( \s h x ->
           GetAutomatedDiscoveryConfigurationResponse'
             Prelude.<$> (x Data..?> "classificationScopeId")
-              Prelude.<*> (x Data..?> "disabledAt")
-              Prelude.<*> (x Data..?> "firstEnabledAt")
-              Prelude.<*> (x Data..?> "lastUpdatedAt")
-              Prelude.<*> (x Data..?> "sensitivityInspectionTemplateId")
-              Prelude.<*> (x Data..?> "status")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "disabledAt")
+            Prelude.<*> (x Data..?> "firstEnabledAt")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "sensitivityInspectionTemplateId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

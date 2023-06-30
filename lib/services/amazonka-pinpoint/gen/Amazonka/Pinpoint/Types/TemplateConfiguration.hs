@@ -100,7 +100,8 @@ instance Data.FromJSON TemplateConfiguration where
 
 instance Prelude.Hashable TemplateConfiguration where
   hashWithSalt _salt TemplateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` emailTemplate
+    _salt
+      `Prelude.hashWithSalt` emailTemplate
       `Prelude.hashWithSalt` pushTemplate
       `Prelude.hashWithSalt` sMSTemplate
       `Prelude.hashWithSalt` voiceTemplate

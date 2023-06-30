@@ -97,7 +97,9 @@ publicKeyList_quantity = Lens.lens (\PublicKeyList' {quantity} -> quantity) (\s@
 instance Data.FromXML PublicKeyList where
   parseXML x =
     PublicKeyList'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "PublicKeySummary")
                   )
       Prelude.<*> (x Data..@? "NextMarker")
@@ -106,7 +108,8 @@ instance Data.FromXML PublicKeyList where
 
 instance Prelude.Hashable PublicKeyList where
   hashWithSalt _salt PublicKeyList' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` quantity

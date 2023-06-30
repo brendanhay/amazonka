@@ -119,7 +119,8 @@ instance Data.FromJSON ExperimentTemplateTarget where
 
 instance Prelude.Hashable ExperimentTemplateTarget where
   hashWithSalt _salt ExperimentTemplateTarget' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resourceArns
       `Prelude.hashWithSalt` resourceTags

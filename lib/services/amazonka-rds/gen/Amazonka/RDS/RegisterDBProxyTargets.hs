@@ -122,7 +122,9 @@ instance Core.AWSRequest RegisterDBProxyTargets where
       "RegisterDBProxyTargetsResult"
       ( \s h x ->
           RegisterDBProxyTargetsResponse'
-            Prelude.<$> ( x Data..@? "DBProxyTargets" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "DBProxyTargets"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,7 +132,8 @@ instance Core.AWSRequest RegisterDBProxyTargets where
 
 instance Prelude.Hashable RegisterDBProxyTargets where
   hashWithSalt _salt RegisterDBProxyTargets' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterIdentifiers
+    _salt
+      `Prelude.hashWithSalt` dbClusterIdentifiers
       `Prelude.hashWithSalt` dbInstanceIdentifiers
       `Prelude.hashWithSalt` targetGroupName
       `Prelude.hashWithSalt` dbProxyName

@@ -207,7 +207,8 @@ instance Data.FromXML FleetCapacityReservation where
 
 instance Prelude.Hashable FleetCapacityReservation where
   hashWithSalt _salt FleetCapacityReservation' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` capacityReservationId
       `Prelude.hashWithSalt` createDate

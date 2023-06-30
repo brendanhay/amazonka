@@ -67,7 +67,8 @@ vpcConfigInput_subnetIds = Lens.lens (\VpcConfigInput' {subnetIds} -> subnetIds)
 
 instance Prelude.Hashable VpcConfigInput where
   hashWithSalt _salt VpcConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData VpcConfigInput where

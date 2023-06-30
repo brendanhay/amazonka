@@ -140,7 +140,8 @@ instance Core.AWSRequest DeleteCustomMetadata where
 
 instance Prelude.Hashable DeleteCustomMetadata where
   hashWithSalt _salt DeleteCustomMetadata' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` deleteAll
       `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` versionId

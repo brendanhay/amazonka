@@ -87,7 +87,8 @@ instance Data.FromJSON Policy where
 
 instance Prelude.Hashable Policy where
   hashWithSalt _salt Policy' {..} =
-    _salt `Prelude.hashWithSalt` httpInputs
+    _salt
+      `Prelude.hashWithSalt` httpInputs
       `Prelude.hashWithSalt` httpsInputs
       `Prelude.hashWithSalt` s3Inputs
 

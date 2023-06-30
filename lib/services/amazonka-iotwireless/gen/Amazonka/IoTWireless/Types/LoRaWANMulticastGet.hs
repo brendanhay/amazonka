@@ -93,7 +93,8 @@ instance Data.FromJSON LoRaWANMulticastGet where
 
 instance Prelude.Hashable LoRaWANMulticastGet where
   hashWithSalt _salt LoRaWANMulticastGet' {..} =
-    _salt `Prelude.hashWithSalt` dlClass
+    _salt
+      `Prelude.hashWithSalt` dlClass
       `Prelude.hashWithSalt` numberOfDevicesInGroup
       `Prelude.hashWithSalt` numberOfDevicesRequested
       `Prelude.hashWithSalt` rfRegion

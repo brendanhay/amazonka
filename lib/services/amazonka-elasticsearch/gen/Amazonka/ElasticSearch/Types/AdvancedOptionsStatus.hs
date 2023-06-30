@@ -95,7 +95,8 @@ instance Data.FromJSON AdvancedOptionsStatus where
 
 instance Prelude.Hashable AdvancedOptionsStatus where
   hashWithSalt _salt AdvancedOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AdvancedOptionsStatus where

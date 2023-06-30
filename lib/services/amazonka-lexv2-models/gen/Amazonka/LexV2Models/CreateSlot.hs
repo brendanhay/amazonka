@@ -287,7 +287,8 @@ instance Core.AWSRequest CreateSlot where
 
 instance Prelude.Hashable CreateSlot where
   hashWithSalt _salt CreateSlot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` multipleValuesSetting
       `Prelude.hashWithSalt` obfuscationSetting
       `Prelude.hashWithSalt` slotTypeId

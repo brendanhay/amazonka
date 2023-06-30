@@ -261,7 +261,8 @@ instance Data.FromJSON AssessmentEvidenceFolder where
 
 instance Prelude.Hashable AssessmentEvidenceFolder where
   hashWithSalt _salt AssessmentEvidenceFolder' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` assessmentReportSelectionCount
       `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` controlId

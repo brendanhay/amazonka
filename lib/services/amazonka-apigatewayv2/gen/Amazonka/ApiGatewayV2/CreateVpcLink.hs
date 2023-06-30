@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateVpcLink where
           CreateVpcLinkResponse'
             Prelude.<$> (x Data..?> "createdDate")
             Prelude.<*> (x Data..?> "name")
-            Prelude.<*> ( x Data..?> "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..?> "securityGroupIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "subnetIds" Core..!@ Prelude.mempty)
@@ -142,7 +143,8 @@ instance Core.AWSRequest CreateVpcLink where
 
 instance Prelude.Hashable CreateVpcLink where
   hashWithSalt _salt CreateVpcLink' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` name

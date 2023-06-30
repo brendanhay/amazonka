@@ -75,7 +75,9 @@ hostHeaderConditionConfig_values = Lens.lens (\HostHeaderConditionConfig' {value
 instance Data.FromXML HostHeaderConditionConfig where
   parseXML x =
     HostHeaderConditionConfig'
-      Prelude.<$> ( x Data..@? "Values" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Values"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

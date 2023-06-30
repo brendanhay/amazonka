@@ -142,7 +142,8 @@ instance Core.AWSRequest UpdateComponent where
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id

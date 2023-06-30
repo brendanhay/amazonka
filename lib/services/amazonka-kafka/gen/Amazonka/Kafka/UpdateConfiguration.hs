@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateConfiguration where
 
 instance Prelude.Hashable UpdateConfiguration where
   hashWithSalt _salt UpdateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` serverProperties
 

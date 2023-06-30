@@ -116,7 +116,8 @@ partitionInput_values = Lens.lens (\PartitionInput' {values} -> values) (\s@Part
 
 instance Prelude.Hashable PartitionInput where
   hashWithSalt _salt PartitionInput' {..} =
-    _salt `Prelude.hashWithSalt` lastAccessTime
+    _salt
+      `Prelude.hashWithSalt` lastAccessTime
       `Prelude.hashWithSalt` lastAnalyzedTime
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` storageDescriptor

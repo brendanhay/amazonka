@@ -109,7 +109,8 @@ instance Data.FromJSON ThumbnailConfiguration where
 
 instance Prelude.Hashable ThumbnailConfiguration where
   hashWithSalt _salt ThumbnailConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` recordingMode
+    _salt
+      `Prelude.hashWithSalt` recordingMode
       `Prelude.hashWithSalt` targetIntervalSeconds
 
 instance Prelude.NFData ThumbnailConfiguration where

@@ -126,7 +126,8 @@ instance Core.AWSRequest DescribeChangeSet where
 
 instance Prelude.Hashable DescribeChangeSet where
   hashWithSalt _salt DescribeChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` catalog
+    _salt
+      `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` changeSetId
 
 instance Prelude.NFData DescribeChangeSet where

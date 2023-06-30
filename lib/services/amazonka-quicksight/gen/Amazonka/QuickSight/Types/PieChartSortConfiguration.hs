@@ -93,14 +93,16 @@ instance Data.FromJSON PieChartSortConfiguration where
             Prelude.<$> (x Data..:? "CategoryItemsLimit")
             Prelude.<*> (x Data..:? "CategorySort" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "SmallMultiplesLimitConfiguration")
-            Prelude.<*> ( x Data..:? "SmallMultiplesSort"
+            Prelude.<*> ( x
+                            Data..:? "SmallMultiplesSort"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PieChartSortConfiguration where
   hashWithSalt _salt PieChartSortConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` categoryItemsLimit
+    _salt
+      `Prelude.hashWithSalt` categoryItemsLimit
       `Prelude.hashWithSalt` categorySort
       `Prelude.hashWithSalt` smallMultiplesLimitConfiguration
       `Prelude.hashWithSalt` smallMultiplesSort

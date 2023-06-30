@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeUserPoolClient where
 
 instance Prelude.Hashable DescribeUserPoolClient where
   hashWithSalt _salt DescribeUserPoolClient' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` clientId
 
 instance Prelude.NFData DescribeUserPoolClient where

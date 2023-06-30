@@ -183,7 +183,8 @@ instance
   hashWithSalt
     _salt
     AddApplicationReferenceDataSource' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` currentApplicationVersionId
         `Prelude.hashWithSalt` referenceDataSource
 

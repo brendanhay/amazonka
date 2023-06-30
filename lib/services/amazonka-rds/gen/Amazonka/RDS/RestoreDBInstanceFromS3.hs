@@ -1462,7 +1462,8 @@ instance Core.AWSRequest RestoreDBInstanceFromS3 where
 
 instance Prelude.Hashable RestoreDBInstanceFromS3 where
   hashWithSalt _salt RestoreDBInstanceFromS3' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` backupRetentionPeriod

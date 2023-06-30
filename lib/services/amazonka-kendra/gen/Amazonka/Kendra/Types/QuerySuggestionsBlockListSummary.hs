@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     QuerySuggestionsBlockListSummary' {..} =
-      _salt `Prelude.hashWithSalt` createdAt
+      _salt
+        `Prelude.hashWithSalt` createdAt
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` itemCount
         `Prelude.hashWithSalt` name

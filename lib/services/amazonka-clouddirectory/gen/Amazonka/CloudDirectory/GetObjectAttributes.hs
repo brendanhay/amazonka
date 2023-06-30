@@ -146,7 +146,8 @@ instance Core.AWSRequest GetObjectAttributes where
 
 instance Prelude.Hashable GetObjectAttributes where
   hashWithSalt _salt GetObjectAttributes' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
       `Prelude.hashWithSalt` schemaFacet

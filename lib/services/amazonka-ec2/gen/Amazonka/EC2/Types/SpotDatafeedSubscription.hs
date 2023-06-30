@@ -106,7 +106,8 @@ instance Data.FromXML SpotDatafeedSubscription where
 
 instance Prelude.Hashable SpotDatafeedSubscription where
   hashWithSalt _salt SpotDatafeedSubscription' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` fault
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` prefix

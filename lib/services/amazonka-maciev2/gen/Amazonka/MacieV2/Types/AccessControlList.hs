@@ -82,7 +82,8 @@ instance Data.FromJSON AccessControlList where
 
 instance Prelude.Hashable AccessControlList where
   hashWithSalt _salt AccessControlList' {..} =
-    _salt `Prelude.hashWithSalt` allowsPublicReadAccess
+    _salt
+      `Prelude.hashWithSalt` allowsPublicReadAccess
       `Prelude.hashWithSalt` allowsPublicWriteAccess
 
 instance Prelude.NFData AccessControlList where

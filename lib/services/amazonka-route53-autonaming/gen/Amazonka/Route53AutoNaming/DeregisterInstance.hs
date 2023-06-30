@@ -111,7 +111,8 @@ instance Core.AWSRequest DeregisterInstance where
 
 instance Prelude.Hashable DeregisterInstance where
   hashWithSalt _salt DeregisterInstance' {..} =
-    _salt `Prelude.hashWithSalt` serviceId
+    _salt
+      `Prelude.hashWithSalt` serviceId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DeregisterInstance where

@@ -118,7 +118,8 @@ emailChannelRequest_identity = Lens.lens (\EmailChannelRequest' {identity} -> id
 
 instance Prelude.Hashable EmailChannelRequest where
   hashWithSalt _salt EmailChannelRequest' {..} =
-    _salt `Prelude.hashWithSalt` configurationSet
+    _salt
+      `Prelude.hashWithSalt` configurationSet
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` fromAddress

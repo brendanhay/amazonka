@@ -85,7 +85,8 @@ instance Data.FromJSON UplinkEchoConfig where
 
 instance Prelude.Hashable UplinkEchoConfig where
   hashWithSalt _salt UplinkEchoConfig' {..} =
-    _salt `Prelude.hashWithSalt` antennaUplinkConfigArn
+    _salt
+      `Prelude.hashWithSalt` antennaUplinkConfigArn
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData UplinkEchoConfig where

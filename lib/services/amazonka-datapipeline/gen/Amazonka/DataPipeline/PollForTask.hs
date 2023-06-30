@@ -162,7 +162,8 @@ instance Core.AWSRequest PollForTask where
 
 instance Prelude.Hashable PollForTask where
   hashWithSalt _salt PollForTask' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` instanceIdentity
       `Prelude.hashWithSalt` workerGroup
 

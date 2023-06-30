@@ -133,7 +133,8 @@ instance Data.FromJSON PrefixConfig where
       "PrefixConfig"
       ( \x ->
           PrefixConfig'
-            Prelude.<$> ( x Data..:? "pathPrefixHierarchy"
+            Prelude.<$> ( x
+                            Data..:? "pathPrefixHierarchy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "prefixFormat")
@@ -142,7 +143,8 @@ instance Data.FromJSON PrefixConfig where
 
 instance Prelude.Hashable PrefixConfig where
   hashWithSalt _salt PrefixConfig' {..} =
-    _salt `Prelude.hashWithSalt` pathPrefixHierarchy
+    _salt
+      `Prelude.hashWithSalt` pathPrefixHierarchy
       `Prelude.hashWithSalt` prefixFormat
       `Prelude.hashWithSalt` prefixType
 

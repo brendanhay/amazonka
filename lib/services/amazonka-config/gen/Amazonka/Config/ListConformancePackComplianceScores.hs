@@ -202,10 +202,11 @@ instance
       ( \s h x ->
           ListConformancePackComplianceScoresResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..?> "ConformancePackComplianceScores"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ConformancePackComplianceScores"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -215,7 +216,8 @@ instance
   hashWithSalt
     _salt
     ListConformancePackComplianceScores' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` sortBy

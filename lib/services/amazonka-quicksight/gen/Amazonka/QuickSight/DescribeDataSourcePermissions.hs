@@ -122,7 +122,8 @@ instance
     DescribeDataSourcePermissions
   where
   hashWithSalt _salt DescribeDataSourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSourceId
 
 instance Prelude.NFData DescribeDataSourcePermissions where

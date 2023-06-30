@@ -100,7 +100,8 @@ instance Data.FromXML AnalyticsConfiguration where
 
 instance Prelude.Hashable AnalyticsConfiguration where
   hashWithSalt _salt AnalyticsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` storageClassAnalysis
 

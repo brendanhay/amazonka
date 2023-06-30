@@ -89,7 +89,8 @@ instance Data.FromJSON SimpleRuleEvaluation where
 
 instance Prelude.Hashable SimpleRuleEvaluation where
   hashWithSalt _salt SimpleRuleEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` inputPropertyValue
+    _salt
+      `Prelude.hashWithSalt` inputPropertyValue
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` thresholdValue
 

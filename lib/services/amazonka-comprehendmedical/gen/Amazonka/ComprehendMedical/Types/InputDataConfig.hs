@@ -89,7 +89,8 @@ instance Data.FromJSON InputDataConfig where
 
 instance Prelude.Hashable InputDataConfig where
   hashWithSalt _salt InputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` s3Key
+    _salt
+      `Prelude.hashWithSalt` s3Key
       `Prelude.hashWithSalt` s3Bucket
 
 instance Prelude.NFData InputDataConfig where

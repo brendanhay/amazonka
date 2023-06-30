@@ -171,7 +171,8 @@ instance
     CreatePackagingConfiguration
   where
   hashWithSalt _salt CreatePackagingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` cmafPackage
+    _salt
+      `Prelude.hashWithSalt` cmafPackage
       `Prelude.hashWithSalt` dashPackage
       `Prelude.hashWithSalt` hlsPackage
       `Prelude.hashWithSalt` mssPackage

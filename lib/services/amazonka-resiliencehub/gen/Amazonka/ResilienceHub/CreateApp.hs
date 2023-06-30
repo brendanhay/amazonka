@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateApp where
 
 instance Prelude.Hashable CreateApp where
   hashWithSalt _salt CreateApp' {..} =
-    _salt `Prelude.hashWithSalt` assessmentSchedule
+    _salt
+      `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` policyArn

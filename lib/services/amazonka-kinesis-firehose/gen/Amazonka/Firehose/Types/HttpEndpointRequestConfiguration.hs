@@ -86,7 +86,8 @@ instance
       "HttpEndpointRequestConfiguration"
       ( \x ->
           HttpEndpointRequestConfiguration'
-            Prelude.<$> ( x Data..:? "CommonAttributes"
+            Prelude.<$> ( x
+                            Data..:? "CommonAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ContentEncoding")
@@ -99,7 +100,8 @@ instance
   hashWithSalt
     _salt
     HttpEndpointRequestConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` commonAttributes
+      _salt
+        `Prelude.hashWithSalt` commonAttributes
         `Prelude.hashWithSalt` contentEncoding
 
 instance

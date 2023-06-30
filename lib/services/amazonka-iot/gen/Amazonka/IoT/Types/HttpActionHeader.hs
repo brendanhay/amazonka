@@ -69,12 +69,14 @@ instance Data.FromJSON HttpActionHeader where
       "HttpActionHeader"
       ( \x ->
           HttpActionHeader'
-            Prelude.<$> (x Data..: "key") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "key")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable HttpActionHeader where
   hashWithSalt _salt HttpActionHeader' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData HttpActionHeader where

@@ -85,7 +85,8 @@ instance Data.FromJSON AddonIssue where
 
 instance Prelude.Hashable AddonIssue where
   hashWithSalt _salt AddonIssue' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` resourceIds
 

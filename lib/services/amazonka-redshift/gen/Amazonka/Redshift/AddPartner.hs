@@ -134,7 +134,8 @@ instance Core.AWSRequest AddPartner where
 
 instance Prelude.Hashable AddPartner where
   hashWithSalt _salt AddPartner' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` partnerName

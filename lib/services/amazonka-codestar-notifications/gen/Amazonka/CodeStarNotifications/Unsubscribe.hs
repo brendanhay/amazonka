@@ -105,7 +105,8 @@ instance Core.AWSRequest Unsubscribe where
 
 instance Prelude.Hashable Unsubscribe where
   hashWithSalt _salt Unsubscribe' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` targetAddress
 
 instance Prelude.NFData Unsubscribe where

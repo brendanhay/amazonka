@@ -121,7 +121,8 @@ instance Data.FromJSON CustomStepDetails where
 
 instance Prelude.Hashable CustomStepDetails where
   hashWithSalt _salt CustomStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceFileLocation
       `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` timeoutSeconds

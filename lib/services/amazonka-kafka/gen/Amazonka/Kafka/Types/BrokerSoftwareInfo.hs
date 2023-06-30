@@ -91,7 +91,8 @@ instance Data.FromJSON BrokerSoftwareInfo where
 
 instance Prelude.Hashable BrokerSoftwareInfo where
   hashWithSalt _salt BrokerSoftwareInfo' {..} =
-    _salt `Prelude.hashWithSalt` configurationArn
+    _salt
+      `Prelude.hashWithSalt` configurationArn
       `Prelude.hashWithSalt` configurationRevision
       `Prelude.hashWithSalt` kafkaVersion
 

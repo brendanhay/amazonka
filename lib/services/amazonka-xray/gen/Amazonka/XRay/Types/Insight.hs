@@ -189,14 +189,16 @@ instance Data.FromJSON Insight where
             Prelude.<*> (x Data..:? "StartTime")
             Prelude.<*> (x Data..:? "State")
             Prelude.<*> (x Data..:? "Summary")
-            Prelude.<*> ( x Data..:? "TopAnomalousServices"
+            Prelude.<*> ( x
+                            Data..:? "TopAnomalousServices"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Insight where
   hashWithSalt _salt Insight' {..} =
-    _salt `Prelude.hashWithSalt` categories
+    _salt
+      `Prelude.hashWithSalt` categories
       `Prelude.hashWithSalt` clientRequestImpactStatistics
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` groupARN

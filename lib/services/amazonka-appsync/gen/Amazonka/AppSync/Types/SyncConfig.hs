@@ -135,7 +135,8 @@ instance Data.FromJSON SyncConfig where
 
 instance Prelude.Hashable SyncConfig where
   hashWithSalt _salt SyncConfig' {..} =
-    _salt `Prelude.hashWithSalt` conflictDetection
+    _salt
+      `Prelude.hashWithSalt` conflictDetection
       `Prelude.hashWithSalt` conflictHandler
       `Prelude.hashWithSalt` lambdaConflictHandlerConfig
 

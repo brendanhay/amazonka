@@ -92,7 +92,8 @@ instance Data.FromJSON LocalVolumeResourceData where
 
 instance Prelude.Hashable LocalVolumeResourceData where
   hashWithSalt _salt LocalVolumeResourceData' {..} =
-    _salt `Prelude.hashWithSalt` destinationPath
+    _salt
+      `Prelude.hashWithSalt` destinationPath
       `Prelude.hashWithSalt` groupOwnerSetting
       `Prelude.hashWithSalt` sourcePath
 

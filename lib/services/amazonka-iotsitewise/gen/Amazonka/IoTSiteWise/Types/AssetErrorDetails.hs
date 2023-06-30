@@ -91,7 +91,8 @@ instance Data.FromJSON AssetErrorDetails where
 
 instance Prelude.Hashable AssetErrorDetails where
   hashWithSalt _salt AssetErrorDetails' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 

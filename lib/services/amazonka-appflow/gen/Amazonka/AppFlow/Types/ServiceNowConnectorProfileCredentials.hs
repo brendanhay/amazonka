@@ -78,7 +78,8 @@ instance
   hashWithSalt
     _salt
     ServiceNowConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` username
+      _salt
+        `Prelude.hashWithSalt` username
         `Prelude.hashWithSalt` password
 
 instance

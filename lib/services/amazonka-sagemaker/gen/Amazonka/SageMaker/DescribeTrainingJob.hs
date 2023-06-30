@@ -137,10 +137,12 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> (x Data..?> "BillableTimeInSeconds")
             Prelude.<*> (x Data..?> "CheckpointConfig")
             Prelude.<*> (x Data..?> "DebugHookConfig")
-            Prelude.<*> ( x Data..?> "DebugRuleConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "DebugRuleConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "DebugRuleEvaluationStatuses"
+            Prelude.<*> ( x
+                            Data..?> "DebugRuleEvaluationStatuses"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EnableInterContainerTrafficEncryption")
@@ -149,10 +151,12 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> (x Data..?> "Environment" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ExperimentConfig")
             Prelude.<*> (x Data..?> "FailureReason")
-            Prelude.<*> ( x Data..?> "FinalMetricDataList"
+            Prelude.<*> ( x
+                            Data..?> "FinalMetricDataList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "HyperParameters"
+            Prelude.<*> ( x
+                            Data..?> "HyperParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "InputDataConfig")
@@ -160,16 +164,19 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "OutputDataConfig")
             Prelude.<*> (x Data..?> "ProfilerConfig")
-            Prelude.<*> ( x Data..?> "ProfilerRuleConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "ProfilerRuleConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ProfilerRuleEvaluationStatuses"
+            Prelude.<*> ( x
+                            Data..?> "ProfilerRuleEvaluationStatuses"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ProfilingStatus")
             Prelude.<*> (x Data..?> "RetryStrategy")
             Prelude.<*> (x Data..?> "RoleArn")
-            Prelude.<*> ( x Data..?> "SecondaryStatusTransitions"
+            Prelude.<*> ( x
+                            Data..?> "SecondaryStatusTransitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "TensorBoardOutputConfig")

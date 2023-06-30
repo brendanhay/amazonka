@@ -99,7 +99,8 @@ instance Data.FromJSON AllowedRenditionSize where
 
 instance Prelude.Hashable AllowedRenditionSize where
   hashWithSalt _salt AllowedRenditionSize' {..} =
-    _salt `Prelude.hashWithSalt` height
+    _salt
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` required
       `Prelude.hashWithSalt` width
 

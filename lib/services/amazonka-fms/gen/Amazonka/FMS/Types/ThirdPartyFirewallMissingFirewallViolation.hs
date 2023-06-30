@@ -100,9 +100,9 @@ instance
       ( \x ->
           ThirdPartyFirewallMissingFirewallViolation'
             Prelude.<$> (x Data..:? "AvailabilityZone")
-              Prelude.<*> (x Data..:? "TargetViolationReason")
-              Prelude.<*> (x Data..:? "VPC")
-              Prelude.<*> (x Data..:? "ViolationTarget")
+            Prelude.<*> (x Data..:? "TargetViolationReason")
+            Prelude.<*> (x Data..:? "VPC")
+            Prelude.<*> (x Data..:? "ViolationTarget")
       )
 
 instance
@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     ThirdPartyFirewallMissingFirewallViolation' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` targetViolationReason
         `Prelude.hashWithSalt` vpc
         `Prelude.hashWithSalt` violationTarget

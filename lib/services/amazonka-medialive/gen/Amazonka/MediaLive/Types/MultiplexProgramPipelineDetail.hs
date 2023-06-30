@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     MultiplexProgramPipelineDetail' {..} =
-      _salt `Prelude.hashWithSalt` activeChannelPipeline
+      _salt
+        `Prelude.hashWithSalt` activeChannelPipeline
         `Prelude.hashWithSalt` pipelineId
 
 instance

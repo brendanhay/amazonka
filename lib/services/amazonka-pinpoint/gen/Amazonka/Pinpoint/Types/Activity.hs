@@ -217,7 +217,8 @@ instance Data.FromJSON Activity where
 
 instance Prelude.Hashable Activity where
   hashWithSalt _salt Activity' {..} =
-    _salt `Prelude.hashWithSalt` custom
+    _salt
+      `Prelude.hashWithSalt` custom
       `Prelude.hashWithSalt` conditionalSplit
       `Prelude.hashWithSalt` contactCenter
       `Prelude.hashWithSalt` description

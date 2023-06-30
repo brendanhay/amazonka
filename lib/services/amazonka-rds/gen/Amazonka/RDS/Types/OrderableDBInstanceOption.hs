@@ -438,11 +438,13 @@ instance Data.FromXML OrderableDBInstanceOption where
   parseXML x =
     OrderableDBInstanceOption'
       Prelude.<$> (x Data..@? "AvailabilityZoneGroup")
-      Prelude.<*> ( x Data..@? "AvailabilityZones"
+      Prelude.<*> ( x
+                      Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
-      Prelude.<*> ( x Data..@? "AvailableProcessorFeatures"
+      Prelude.<*> ( x
+                      Data..@? "AvailableProcessorFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "AvailableProcessorFeature")
@@ -465,15 +467,18 @@ instance Data.FromXML OrderableDBInstanceOption where
       Prelude.<*> (x Data..@? "OutpostCapable")
       Prelude.<*> (x Data..@? "ReadReplicaCapable")
       Prelude.<*> (x Data..@? "StorageType")
-      Prelude.<*> ( x Data..@? "SupportedActivityStreamModes"
+      Prelude.<*> ( x
+                      Data..@? "SupportedActivityStreamModes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "SupportedEngineModes"
+      Prelude.<*> ( x
+                      Data..@? "SupportedEngineModes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "SupportedNetworkTypes"
+      Prelude.<*> ( x
+                      Data..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -491,7 +496,8 @@ instance Data.FromXML OrderableDBInstanceOption where
 
 instance Prelude.Hashable OrderableDBInstanceOption where
   hashWithSalt _salt OrderableDBInstanceOption' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneGroup
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneGroup
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` availableProcessorFeatures
       `Prelude.hashWithSalt` dbInstanceClass

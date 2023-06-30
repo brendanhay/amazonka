@@ -188,7 +188,8 @@ baselineOverride_sources = Lens.lens (\BaselineOverride' {sources} -> sources) (
 
 instance Prelude.Hashable BaselineOverride where
   hashWithSalt _salt BaselineOverride' {..} =
-    _salt `Prelude.hashWithSalt` approvalRules
+    _salt
+      `Prelude.hashWithSalt` approvalRules
       `Prelude.hashWithSalt` approvedPatches
       `Prelude.hashWithSalt` approvedPatchesComplianceLevel
       `Prelude.hashWithSalt` approvedPatchesEnableNonSecurity

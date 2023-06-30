@@ -139,7 +139,8 @@ instance Data.FromJSON Statistics where
 
 instance Prelude.Hashable Statistics where
   hashWithSalt _salt Statistics' {..} =
-    _salt `Prelude.hashWithSalt` average
+    _salt
+      `Prelude.hashWithSalt` average
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` maximum
       `Prelude.hashWithSalt` minimum

@@ -125,8 +125,8 @@ instance
       ( \s h x ->
           AssociateAwsAccountWithPartnerAccountResponse'
             Prelude.<$> (x Data..?> "Arn")
-              Prelude.<*> (x Data..?> "Sidewalk")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Sidewalk")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -136,7 +136,8 @@ instance
   hashWithSalt
     _salt
     AssociateAwsAccountWithPartnerAccount' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` sidewalk
 

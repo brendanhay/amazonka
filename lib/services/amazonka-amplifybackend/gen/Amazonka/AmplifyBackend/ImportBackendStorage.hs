@@ -137,7 +137,8 @@ instance Core.AWSRequest ImportBackendStorage where
 
 instance Prelude.Hashable ImportBackendStorage where
   hashWithSalt _salt ImportBackendStorage' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` serviceName

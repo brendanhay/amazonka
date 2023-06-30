@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteVpcPeeringConnection where
 
 instance Prelude.Hashable DeleteVpcPeeringConnection where
   hashWithSalt _salt DeleteVpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` vpcPeeringConnectionId
 
 instance Prelude.NFData DeleteVpcPeeringConnection where

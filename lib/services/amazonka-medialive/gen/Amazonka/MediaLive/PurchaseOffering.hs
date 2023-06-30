@@ -165,7 +165,8 @@ instance Core.AWSRequest PurchaseOffering' where
 
 instance Prelude.Hashable PurchaseOffering' where
   hashWithSalt _salt PurchaseOffering'' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` renewalSettings
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` start

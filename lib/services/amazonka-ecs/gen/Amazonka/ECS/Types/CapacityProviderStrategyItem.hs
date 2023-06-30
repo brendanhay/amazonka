@@ -177,7 +177,8 @@ instance
     CapacityProviderStrategyItem
   where
   hashWithSalt _salt CapacityProviderStrategyItem' {..} =
-    _salt `Prelude.hashWithSalt` base
+    _salt
+      `Prelude.hashWithSalt` base
       `Prelude.hashWithSalt` weight
       `Prelude.hashWithSalt` capacityProvider
 

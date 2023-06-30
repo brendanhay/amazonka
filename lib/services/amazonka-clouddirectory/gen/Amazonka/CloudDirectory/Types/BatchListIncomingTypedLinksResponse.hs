@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     BatchListIncomingTypedLinksResponse' {..} =
-      _salt `Prelude.hashWithSalt` linkSpecifiers
+      _salt
+        `Prelude.hashWithSalt` linkSpecifiers
         `Prelude.hashWithSalt` nextToken
 
 instance

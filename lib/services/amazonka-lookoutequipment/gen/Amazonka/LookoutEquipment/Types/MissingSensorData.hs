@@ -83,7 +83,8 @@ instance Data.FromJSON MissingSensorData where
 
 instance Prelude.Hashable MissingSensorData where
   hashWithSalt _salt MissingSensorData' {..} =
-    _salt `Prelude.hashWithSalt` affectedSensorCount
+    _salt
+      `Prelude.hashWithSalt` affectedSensorCount
       `Prelude.hashWithSalt` totalNumberOfMissingValues
 
 instance Prelude.NFData MissingSensorData where

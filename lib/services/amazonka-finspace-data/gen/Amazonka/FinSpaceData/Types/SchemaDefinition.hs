@@ -70,14 +70,16 @@ instance Data.FromJSON SchemaDefinition where
       ( \x ->
           SchemaDefinition'
             Prelude.<$> (x Data..:? "columns" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "primaryKeyColumns"
+            Prelude.<*> ( x
+                            Data..:? "primaryKeyColumns"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SchemaDefinition where
   hashWithSalt _salt SchemaDefinition' {..} =
-    _salt `Prelude.hashWithSalt` columns
+    _salt
+      `Prelude.hashWithSalt` columns
       `Prelude.hashWithSalt` primaryKeyColumns
 
 instance Prelude.NFData SchemaDefinition where

@@ -106,7 +106,7 @@ instance
       ( \s h x ->
           AssociateWirelessGatewayWithCertificateResponse'
             Prelude.<$> (x Data..?> "IotCertificateId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     AssociateWirelessGatewayWithCertificate' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` iotCertificateId
 
 instance

@@ -110,7 +110,8 @@ instance Core.AWSRequest AssignInstance where
 
 instance Prelude.Hashable AssignInstance where
   hashWithSalt _salt AssignInstance' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` layerIds
 
 instance Prelude.NFData AssignInstance where

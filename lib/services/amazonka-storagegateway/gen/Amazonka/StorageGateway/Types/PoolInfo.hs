@@ -153,7 +153,8 @@ instance Data.FromJSON PoolInfo where
 
 instance Prelude.Hashable PoolInfo where
   hashWithSalt _salt PoolInfo' {..} =
-    _salt `Prelude.hashWithSalt` poolARN
+    _salt
+      `Prelude.hashWithSalt` poolARN
       `Prelude.hashWithSalt` poolName
       `Prelude.hashWithSalt` poolStatus
       `Prelude.hashWithSalt` retentionLockTimeInDays

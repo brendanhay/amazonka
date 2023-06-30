@@ -85,7 +85,8 @@ message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
-    _salt `Prelude.hashWithSalt` messageId
+    _salt
+      `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` payload
 
 instance Prelude.NFData Message where

@@ -187,7 +187,8 @@ instance Data.FromJSON CustomMessageActivity where
 
 instance Prelude.Hashable CustomMessageActivity where
   hashWithSalt _salt CustomMessageActivity' {..} =
-    _salt `Prelude.hashWithSalt` deliveryUri
+    _salt
+      `Prelude.hashWithSalt` deliveryUri
       `Prelude.hashWithSalt` endpointTypes
       `Prelude.hashWithSalt` messageConfig
       `Prelude.hashWithSalt` nextActivity

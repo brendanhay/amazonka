@@ -147,7 +147,8 @@ instance Data.FromJSON DataQualitySummary where
 
 instance Prelude.Hashable DataQualitySummary where
   hashWithSalt _salt DataQualitySummary' {..} =
-    _salt `Prelude.hashWithSalt` insufficientSensorData
+    _salt
+      `Prelude.hashWithSalt` insufficientSensorData
       `Prelude.hashWithSalt` missingSensorData
       `Prelude.hashWithSalt` invalidSensorData
       `Prelude.hashWithSalt` unsupportedTimestamps

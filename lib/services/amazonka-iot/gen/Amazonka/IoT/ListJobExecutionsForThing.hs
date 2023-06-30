@@ -71,7 +71,7 @@ data ListJobExecutionsForThing = ListJobExecutionsForThing'
     -- Core sends jobs notifications to MQTT topics that contain the value in
     -- the following format.
     --
-    -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+    -- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
@@ -103,7 +103,7 @@ data ListJobExecutionsForThing = ListJobExecutionsForThing'
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 --
@@ -141,7 +141,7 @@ listJobExecutionsForThing_maxResults = Lens.lens (\ListJobExecutionsForThing' {m
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 listJobExecutionsForThing_namespaceId :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Text)
@@ -165,22 +165,22 @@ instance Core.AWSPager ListJobExecutionsForThing where
     | Core.stop
         ( rs
             Lens.^? listJobExecutionsForThingResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listJobExecutionsForThingResponse_executionSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listJobExecutionsForThing_nextToken
           Lens..~ rs
           Lens.^? listJobExecutionsForThingResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobExecutionsForThing where
   type
@@ -192,7 +192,8 @@ instance Core.AWSRequest ListJobExecutionsForThing where
     Response.receiveJSON
       ( \s h x ->
           ListJobExecutionsForThingResponse'
-            Prelude.<$> ( x Data..?> "executionSummaries"
+            Prelude.<$> ( x
+                            Data..?> "executionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -201,7 +202,8 @@ instance Core.AWSRequest ListJobExecutionsForThing where
 
 instance Prelude.Hashable ListJobExecutionsForThing where
   hashWithSalt _salt ListJobExecutionsForThing' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namespaceId
       `Prelude.hashWithSalt` nextToken

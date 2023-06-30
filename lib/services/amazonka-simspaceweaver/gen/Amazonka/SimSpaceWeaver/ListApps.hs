@@ -141,7 +141,8 @@ instance Core.AWSRequest ListApps where
 
 instance Prelude.Hashable ListApps where
   hashWithSalt _salt ListApps' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` simulation

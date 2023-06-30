@@ -131,7 +131,8 @@ instance Core.AWSRequest ExportSchema where
 
 instance Prelude.Hashable ExportSchema where
   hashWithSalt _salt ExportSchema' {..} =
-    _salt `Prelude.hashWithSalt` schemaVersion
+    _salt
+      `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` type'

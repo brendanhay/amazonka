@@ -68,10 +68,10 @@ data TagResource = TagResource'
   { -- | The ARN of the canary or group that you\'re adding tags to.
     --
     -- The ARN format of a canary is
-    -- @arn:aws:synthetics:Region:account-id:canary:canary-name @.
+    -- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:canary:@/@canary-name@/@ @.
     --
     -- The ARN format of a group is
-    -- @arn:aws:synthetics:Region:account-id:group:group-name @
+    -- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:group:@/@group-name@/@ @
     resourceArn :: Prelude.Text,
     -- | The list of key-value pairs to associate with the resource.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
@@ -89,10 +89,10 @@ data TagResource = TagResource'
 -- 'resourceArn', 'tagResource_resourceArn' - The ARN of the canary or group that you\'re adding tags to.
 --
 -- The ARN format of a canary is
--- @arn:aws:synthetics:Region:account-id:canary:canary-name @.
+-- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:canary:@/@canary-name@/@ @.
 --
 -- The ARN format of a group is
--- @arn:aws:synthetics:Region:account-id:group:group-name @
+-- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:group:@/@group-name@/@ @
 --
 -- 'tags', 'tagResource_tags' - The list of key-value pairs to associate with the resource.
 newTagResource ::
@@ -108,10 +108,10 @@ newTagResource pResourceArn_ =
 -- | The ARN of the canary or group that you\'re adding tags to.
 --
 -- The ARN format of a canary is
--- @arn:aws:synthetics:Region:account-id:canary:canary-name @.
+-- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:canary:@/@canary-name@/@ @.
 --
 -- The ARN format of a group is
--- @arn:aws:synthetics:Region:account-id:group:group-name @
+-- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:group:@/@group-name@/@ @
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
@@ -132,7 +132,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

@@ -103,7 +103,8 @@ instance Data.FromJSON S3ResourceClassification where
 
 instance Prelude.Hashable S3ResourceClassification where
   hashWithSalt _salt S3ResourceClassification' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` classificationType
 

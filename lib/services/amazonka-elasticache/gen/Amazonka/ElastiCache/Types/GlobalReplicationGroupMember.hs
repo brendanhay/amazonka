@@ -109,7 +109,8 @@ instance
     GlobalReplicationGroupMember
   where
   hashWithSalt _salt GlobalReplicationGroupMember' {..} =
-    _salt `Prelude.hashWithSalt` automaticFailover
+    _salt
+      `Prelude.hashWithSalt` automaticFailover
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` replicationGroupRegion
       `Prelude.hashWithSalt` role'

@@ -78,7 +78,8 @@ instance Data.FromJSON AwsCodeBuildProjectVpcConfig where
       "AwsCodeBuildProjectVpcConfig"
       ( \x ->
           AwsCodeBuildProjectVpcConfig'
-            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+            Prelude.<$> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
@@ -90,7 +91,8 @@ instance
     AwsCodeBuildProjectVpcConfig
   where
   hashWithSalt _salt AwsCodeBuildProjectVpcConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnets
       `Prelude.hashWithSalt` vpcId
 

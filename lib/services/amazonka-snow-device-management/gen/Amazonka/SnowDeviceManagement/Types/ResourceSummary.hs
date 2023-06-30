@@ -86,7 +86,8 @@ instance Data.FromJSON ResourceSummary where
 
 instance Prelude.Hashable ResourceSummary where
   hashWithSalt _salt ResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` resourceType
 

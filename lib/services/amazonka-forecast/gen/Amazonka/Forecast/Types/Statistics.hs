@@ -201,7 +201,8 @@ instance Data.FromJSON Statistics where
 
 instance Prelude.Hashable Statistics where
   hashWithSalt _salt Statistics' {..} =
-    _salt `Prelude.hashWithSalt` avg
+    _salt
+      `Prelude.hashWithSalt` avg
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` countDistinct
       `Prelude.hashWithSalt` countDistinctLong

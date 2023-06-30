@@ -121,7 +121,8 @@ instance Data.FromJSON DeploymentOverview where
 
 instance Prelude.Hashable DeploymentOverview where
   hashWithSalt _salt DeploymentOverview' {..} =
-    _salt `Prelude.hashWithSalt` failed
+    _salt
+      `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` inProgress
       `Prelude.hashWithSalt` pending
       `Prelude.hashWithSalt` ready

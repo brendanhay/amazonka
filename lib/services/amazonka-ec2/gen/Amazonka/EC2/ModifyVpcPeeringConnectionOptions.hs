@@ -165,8 +165,8 @@ instance
       ( \s h x ->
           ModifyVpcPeeringConnectionOptionsResponse'
             Prelude.<$> (x Data..@? "accepterPeeringConnectionOptions")
-              Prelude.<*> (x Data..@? "requesterPeeringConnectionOptions")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "requesterPeeringConnectionOptions")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

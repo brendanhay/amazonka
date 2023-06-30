@@ -98,7 +98,8 @@ instance Data.FromJSON Organization where
 
 instance Prelude.Hashable Organization where
   hashWithSalt _salt Organization' {..} =
-    _salt `Prelude.hashWithSalt` asn
+    _salt
+      `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` asnOrg
       `Prelude.hashWithSalt` isp
       `Prelude.hashWithSalt` org

@@ -109,7 +109,8 @@ instance
   hashWithSalt
     _salt
     SectionBasedLayoutConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` headerSections
+      _salt
+        `Prelude.hashWithSalt` headerSections
         `Prelude.hashWithSalt` bodySections
         `Prelude.hashWithSalt` footerSections
         `Prelude.hashWithSalt` canvasSizeOptions

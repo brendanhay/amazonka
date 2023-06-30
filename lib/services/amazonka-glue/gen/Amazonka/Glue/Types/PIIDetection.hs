@@ -166,14 +166,16 @@ instance Data.FromJSON PIIDetection where
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Inputs")
             Prelude.<*> (x Data..: "PiiType")
-            Prelude.<*> ( x Data..:? "EntityTypesToDetect"
+            Prelude.<*> ( x
+                            Data..:? "EntityTypesToDetect"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PIIDetection where
   hashWithSalt _salt PIIDetection' {..} =
-    _salt `Prelude.hashWithSalt` maskValue
+    _salt
+      `Prelude.hashWithSalt` maskValue
       `Prelude.hashWithSalt` outputColumnName
       `Prelude.hashWithSalt` sampleFraction
       `Prelude.hashWithSalt` thresholdFraction

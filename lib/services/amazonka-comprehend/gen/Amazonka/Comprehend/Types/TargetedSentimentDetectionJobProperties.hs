@@ -258,7 +258,8 @@ instance
   hashWithSalt
     _salt
     TargetedSentimentDetectionJobProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      _salt
+        `Prelude.hashWithSalt` dataAccessRoleArn
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` inputDataConfig
         `Prelude.hashWithSalt` jobArn

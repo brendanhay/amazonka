@@ -101,7 +101,8 @@ instance Data.FromJSON StepStatus where
 
 instance Prelude.Hashable StepStatus where
   hashWithSalt _salt StepStatus' {..} =
-    _salt `Prelude.hashWithSalt` failureDetails
+    _salt
+      `Prelude.hashWithSalt` failureDetails
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` timeline

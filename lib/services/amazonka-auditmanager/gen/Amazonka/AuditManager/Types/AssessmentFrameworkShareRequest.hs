@@ -223,7 +223,8 @@ instance
   hashWithSalt
     _salt
     AssessmentFrameworkShareRequest' {..} =
-      _salt `Prelude.hashWithSalt` comment
+      _salt
+        `Prelude.hashWithSalt` comment
         `Prelude.hashWithSalt` complianceType
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` customControlsCount

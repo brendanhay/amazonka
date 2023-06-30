@@ -131,7 +131,8 @@ instance
     CreateAlertManagerDefinition
   where
   hashWithSalt _salt CreateAlertManagerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` workspaceId
 

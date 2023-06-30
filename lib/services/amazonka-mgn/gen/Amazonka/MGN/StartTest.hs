@@ -103,7 +103,8 @@ instance Core.AWSRequest StartTest where
 
 instance Prelude.Hashable StartTest where
   hashWithSalt _salt StartTest' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceServerIDs
 
 instance Prelude.NFData StartTest where

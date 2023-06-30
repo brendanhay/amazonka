@@ -149,7 +149,8 @@ instance Data.FromJSON CommentsForComparedCommit where
 
 instance Prelude.Hashable CommentsForComparedCommit where
   hashWithSalt _salt CommentsForComparedCommit' {..} =
-    _salt `Prelude.hashWithSalt` afterBlobId
+    _salt
+      `Prelude.hashWithSalt` afterBlobId
       `Prelude.hashWithSalt` afterCommitId
       `Prelude.hashWithSalt` beforeBlobId
       `Prelude.hashWithSalt` beforeCommitId

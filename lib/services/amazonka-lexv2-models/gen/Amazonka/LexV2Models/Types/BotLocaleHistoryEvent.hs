@@ -79,7 +79,8 @@ instance Data.FromJSON BotLocaleHistoryEvent where
 
 instance Prelude.Hashable BotLocaleHistoryEvent where
   hashWithSalt _salt BotLocaleHistoryEvent' {..} =
-    _salt `Prelude.hashWithSalt` event
+    _salt
+      `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` eventDate
 
 instance Prelude.NFData BotLocaleHistoryEvent where

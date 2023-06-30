@@ -80,7 +80,8 @@ instance Data.FromJSON RevisionInfo where
 
 instance Prelude.Hashable RevisionInfo where
   hashWithSalt _salt RevisionInfo' {..} =
-    _salt `Prelude.hashWithSalt` genericRevisionInfo
+    _salt
+      `Prelude.hashWithSalt` genericRevisionInfo
       `Prelude.hashWithSalt` revisionLocation
 
 instance Prelude.NFData RevisionInfo where

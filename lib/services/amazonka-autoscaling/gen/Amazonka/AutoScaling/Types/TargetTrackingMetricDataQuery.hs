@@ -192,7 +192,8 @@ instance
     TargetTrackingMetricDataQuery
   where
   hashWithSalt _salt TargetTrackingMetricDataQuery' {..} =
-    _salt `Prelude.hashWithSalt` expression
+    _salt
+      `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` metricStat
       `Prelude.hashWithSalt` returnData

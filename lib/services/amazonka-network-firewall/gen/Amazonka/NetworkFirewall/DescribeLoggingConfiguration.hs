@@ -121,7 +121,8 @@ instance
     DescribeLoggingConfiguration
   where
   hashWithSalt _salt DescribeLoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` firewallArn
+    _salt
+      `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` firewallName
 
 instance Prelude.NFData DescribeLoggingConfiguration where

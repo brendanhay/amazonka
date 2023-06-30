@@ -132,7 +132,8 @@ instance Data.FromJSON ActionExecutionInput where
             Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "namespace")
             Prelude.<*> (x Data..:? "region")
-            Prelude.<*> ( x Data..:? "resolvedConfiguration"
+            Prelude.<*> ( x
+                            Data..:? "resolvedConfiguration"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "roleArn")
@@ -140,7 +141,8 @@ instance Data.FromJSON ActionExecutionInput where
 
 instance Prelude.Hashable ActionExecutionInput where
   hashWithSalt _salt ActionExecutionInput' {..} =
-    _salt `Prelude.hashWithSalt` actionTypeId
+    _salt
+      `Prelude.hashWithSalt` actionTypeId
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` inputArtifacts
       `Prelude.hashWithSalt` namespace

@@ -121,7 +121,8 @@ instance Core.AWSRequest DisableVgwRoutePropagation where
 
 instance Prelude.Hashable DisableVgwRoutePropagation where
   hashWithSalt _salt DisableVgwRoutePropagation' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` routeTableId
 

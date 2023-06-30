@@ -106,7 +106,8 @@ instance Core.AWSRequest PutBackupVaultAccessPolicy where
 
 instance Prelude.Hashable PutBackupVaultAccessPolicy where
   hashWithSalt _salt PutBackupVaultAccessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policy
+    _salt
+      `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` backupVaultName
 
 instance Prelude.NFData PutBackupVaultAccessPolicy where

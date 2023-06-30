@@ -114,7 +114,8 @@ instance Core.AWSRequest StartSchemaCreation where
 
 instance Prelude.Hashable StartSchemaCreation where
   hashWithSalt _salt StartSchemaCreation' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` definition
 
 instance Prelude.NFData StartSchemaCreation where

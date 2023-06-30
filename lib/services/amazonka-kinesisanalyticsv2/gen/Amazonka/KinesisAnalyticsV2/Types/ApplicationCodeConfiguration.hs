@@ -72,7 +72,8 @@ instance
     ApplicationCodeConfiguration
   where
   hashWithSalt _salt ApplicationCodeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` codeContent
+    _salt
+      `Prelude.hashWithSalt` codeContent
       `Prelude.hashWithSalt` codeContentType
 
 instance Prelude.NFData ApplicationCodeConfiguration where

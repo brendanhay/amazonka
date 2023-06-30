@@ -117,7 +117,6 @@ listStreams_exclusiveStartStreamName = Lens.lens (\ListStreams' {exclusiveStartS
 listStreams_limit :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_limit = Lens.lens (\ListStreams' {limit} -> limit) (\s@ListStreams' {} a -> s {limit = a} :: ListStreams)
 
--- |
 listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
 listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
 
@@ -125,18 +124,20 @@ instance Core.AWSPager ListStreams where
   page rq rs
     | Core.stop
         (rs Lens.^. listStreamsResponse_hasMoreStreams) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listStreamsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listStreamsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStreams_nextToken
           Lens..~ rs
-          Lens.^? listStreamsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listStreamsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreams where
   type AWSResponse ListStreams = ListStreamsResponse
@@ -147,7 +148,8 @@ instance Core.AWSRequest ListStreams where
       ( \s h x ->
           ListStreamsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "StreamSummaries"
+            Prelude.<*> ( x
+                            Data..?> "StreamSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -249,11 +251,9 @@ newListStreamsResponse pHttpStatus_ pHasMoreStreams_ =
       hasMoreStreams = pHasMoreStreams_
     }
 
--- |
 listStreamsResponse_nextToken :: Lens.Lens' ListStreamsResponse (Prelude.Maybe Prelude.Text)
 listStreamsResponse_nextToken = Lens.lens (\ListStreamsResponse' {nextToken} -> nextToken) (\s@ListStreamsResponse' {} a -> s {nextToken = a} :: ListStreamsResponse)
 
--- |
 listStreamsResponse_streamSummaries :: Lens.Lens' ListStreamsResponse (Prelude.Maybe [StreamSummary])
 listStreamsResponse_streamSummaries = Lens.lens (\ListStreamsResponse' {streamSummaries} -> streamSummaries) (\s@ListStreamsResponse' {} a -> s {streamSummaries = a} :: ListStreamsResponse) Prelude.. Lens.mapping Lens.coerced
 

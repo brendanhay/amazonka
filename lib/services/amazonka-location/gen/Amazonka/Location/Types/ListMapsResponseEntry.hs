@@ -143,7 +143,8 @@ instance Data.FromJSON ListMapsResponseEntry where
 
 instance Prelude.Hashable ListMapsResponseEntry where
   hashWithSalt _salt ListMapsResponseEntry' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlan
+    _salt
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` description

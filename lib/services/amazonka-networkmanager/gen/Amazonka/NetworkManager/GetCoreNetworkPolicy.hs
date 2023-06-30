@@ -113,7 +113,8 @@ instance Core.AWSRequest GetCoreNetworkPolicy where
 
 instance Prelude.Hashable GetCoreNetworkPolicy where
   hashWithSalt _salt GetCoreNetworkPolicy' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` policyVersionId
       `Prelude.hashWithSalt` coreNetworkId
 

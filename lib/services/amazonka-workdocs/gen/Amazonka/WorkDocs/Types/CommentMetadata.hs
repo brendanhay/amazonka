@@ -106,7 +106,8 @@ instance Data.FromJSON CommentMetadata where
 
 instance Prelude.Hashable CommentMetadata where
   hashWithSalt _salt CommentMetadata' {..} =
-    _salt `Prelude.hashWithSalt` commentId
+    _salt
+      `Prelude.hashWithSalt` commentId
       `Prelude.hashWithSalt` commentStatus
       `Prelude.hashWithSalt` contributor
       `Prelude.hashWithSalt` createdTimestamp

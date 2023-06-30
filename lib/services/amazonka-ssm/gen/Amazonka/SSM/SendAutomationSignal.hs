@@ -166,7 +166,8 @@ instance Core.AWSRequest SendAutomationSignal where
 
 instance Prelude.Hashable SendAutomationSignal where
   hashWithSalt _salt SendAutomationSignal' {..} =
-    _salt `Prelude.hashWithSalt` payload
+    _salt
+      `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` automationExecutionId
       `Prelude.hashWithSalt` signalType
 

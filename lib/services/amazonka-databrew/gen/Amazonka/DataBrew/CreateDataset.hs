@@ -151,7 +151,8 @@ instance Core.AWSRequest CreateDataset where
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` formatOptions
       `Prelude.hashWithSalt` pathOptions
       `Prelude.hashWithSalt` tags

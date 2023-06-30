@@ -121,7 +121,8 @@ instance Data.FromJSON SubscribedRuleGroupSummary where
 
 instance Prelude.Hashable SubscribedRuleGroupSummary where
   hashWithSalt _salt SubscribedRuleGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` ruleGroupId
+    _salt
+      `Prelude.hashWithSalt` ruleGroupId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` metricName
 

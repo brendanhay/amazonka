@@ -107,7 +107,8 @@ instance Core.AWSRequest AddAttributesToFindings where
 
 instance Prelude.Hashable AddAttributesToFindings where
   hashWithSalt _salt AddAttributesToFindings' {..} =
-    _salt `Prelude.hashWithSalt` findingArns
+    _salt
+      `Prelude.hashWithSalt` findingArns
       `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData AddAttributesToFindings where

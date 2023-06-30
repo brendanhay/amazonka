@@ -124,7 +124,8 @@ instance Core.AWSRequest SetVisibleToAllUsers where
 
 instance Prelude.Hashable SetVisibleToAllUsers where
   hashWithSalt _salt SetVisibleToAllUsers' {..} =
-    _salt `Prelude.hashWithSalt` jobFlowIds
+    _salt
+      `Prelude.hashWithSalt` jobFlowIds
       `Prelude.hashWithSalt` visibleToAllUsers
 
 instance Prelude.NFData SetVisibleToAllUsers where

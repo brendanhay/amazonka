@@ -112,7 +112,8 @@ instance Core.AWSRequest InviteUsers where
 
 instance Prelude.Hashable InviteUsers where
   hashWithSalt _salt InviteUsers' {..} =
-    _salt `Prelude.hashWithSalt` userType
+    _salt
+      `Prelude.hashWithSalt` userType
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` userEmailList
 

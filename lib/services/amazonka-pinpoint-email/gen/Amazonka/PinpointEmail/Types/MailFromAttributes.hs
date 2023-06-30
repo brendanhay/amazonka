@@ -162,7 +162,8 @@ instance Data.FromJSON MailFromAttributes where
 
 instance Prelude.Hashable MailFromAttributes where
   hashWithSalt _salt MailFromAttributes' {..} =
-    _salt `Prelude.hashWithSalt` mailFromDomain
+    _salt
+      `Prelude.hashWithSalt` mailFromDomain
       `Prelude.hashWithSalt` mailFromDomainStatus
       `Prelude.hashWithSalt` behaviorOnMxFailure
 

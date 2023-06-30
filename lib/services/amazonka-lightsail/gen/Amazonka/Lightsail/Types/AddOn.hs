@@ -130,7 +130,8 @@ instance Data.FromJSON AddOn where
 
 instance Prelude.Hashable AddOn where
   hashWithSalt _salt AddOn' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextSnapshotTimeOfDay
       `Prelude.hashWithSalt` snapshotTimeOfDay
       `Prelude.hashWithSalt` status

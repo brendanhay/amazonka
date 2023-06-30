@@ -258,7 +258,8 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` checkpointConfig
+    _salt
+      `Prelude.hashWithSalt` checkpointConfig
       `Prelude.hashWithSalt` hyperParameters
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` stoppingCondition

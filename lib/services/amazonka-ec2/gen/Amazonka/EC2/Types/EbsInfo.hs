@@ -104,7 +104,8 @@ instance Data.FromXML EbsInfo where
 
 instance Prelude.Hashable EbsInfo where
   hashWithSalt _salt EbsInfo' {..} =
-    _salt `Prelude.hashWithSalt` ebsOptimizedInfo
+    _salt
+      `Prelude.hashWithSalt` ebsOptimizedInfo
       `Prelude.hashWithSalt` ebsOptimizedSupport
       `Prelude.hashWithSalt` encryptionSupport
       `Prelude.hashWithSalt` nvmeSupport

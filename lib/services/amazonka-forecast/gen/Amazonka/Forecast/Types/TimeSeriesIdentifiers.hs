@@ -86,7 +86,8 @@ instance Data.FromJSON TimeSeriesIdentifiers where
 
 instance Prelude.Hashable TimeSeriesIdentifiers where
   hashWithSalt _salt TimeSeriesIdentifiers' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` schema
 

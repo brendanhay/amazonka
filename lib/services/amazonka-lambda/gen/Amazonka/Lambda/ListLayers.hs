@@ -122,20 +122,23 @@ instance Core.AWSPager ListLayers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listLayersResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listLayersResponse_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listLayersResponse_layers Prelude.. Lens._Just
+            Lens.^? listLayersResponse_layers
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLayers_marker
           Lens..~ rs
-          Lens.^? listLayersResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listLayersResponse_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLayers where
   type AWSResponse ListLayers = ListLayersResponse
@@ -152,7 +155,8 @@ instance Core.AWSRequest ListLayers where
 
 instance Prelude.Hashable ListLayers where
   hashWithSalt _salt ListLayers' {..} =
-    _salt `Prelude.hashWithSalt` compatibleArchitecture
+    _salt
+      `Prelude.hashWithSalt` compatibleArchitecture
       `Prelude.hashWithSalt` compatibleRuntime
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

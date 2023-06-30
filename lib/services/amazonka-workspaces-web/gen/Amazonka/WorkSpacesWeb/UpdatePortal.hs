@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdatePortal where
 
 instance Prelude.Hashable UpdatePortal where
   hashWithSalt _salt UpdatePortal' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` portalArn
 
 instance Prelude.NFData UpdatePortal where

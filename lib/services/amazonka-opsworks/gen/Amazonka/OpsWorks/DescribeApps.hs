@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribeApps where
 
 instance Prelude.Hashable DescribeApps where
   hashWithSalt _salt DescribeApps' {..} =
-    _salt `Prelude.hashWithSalt` appIds
+    _salt
+      `Prelude.hashWithSalt` appIds
       `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData DescribeApps where

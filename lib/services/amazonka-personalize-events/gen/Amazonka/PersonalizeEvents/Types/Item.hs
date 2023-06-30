@@ -92,7 +92,8 @@ item_itemId = Lens.lens (\Item' {itemId} -> itemId) (\s@Item' {} a -> s {itemId 
 
 instance Prelude.Hashable Item where
   hashWithSalt _salt Item' {..} =
-    _salt `Prelude.hashWithSalt` properties
+    _salt
+      `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` itemId
 
 instance Prelude.NFData Item where

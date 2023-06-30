@@ -130,7 +130,8 @@ instance Core.AWSRequest DescribeVpcAttribute where
 
 instance Prelude.Hashable DescribeVpcAttribute where
   hashWithSalt _salt DescribeVpcAttribute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` vpcId
 

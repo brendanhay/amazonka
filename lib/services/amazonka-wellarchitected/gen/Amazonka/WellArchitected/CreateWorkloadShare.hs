@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateWorkloadShare where
 
 instance Prelude.Hashable CreateWorkloadShare where
   hashWithSalt _salt CreateWorkloadShare' {..} =
-    _salt `Prelude.hashWithSalt` workloadId
+    _salt
+      `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` sharedWith
       `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` clientRequestToken

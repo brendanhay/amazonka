@@ -263,7 +263,8 @@ instance Core.AWSRequest DescribeKey where
 
 instance Prelude.Hashable DescribeKey where
   hashWithSalt _salt DescribeKey' {..} =
-    _salt `Prelude.hashWithSalt` grantTokens
+    _salt
+      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData DescribeKey where

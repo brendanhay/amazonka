@@ -142,7 +142,8 @@ instance Core.AWSRequest PutGatewayResponse where
 
 instance Prelude.Hashable PutGatewayResponse where
   hashWithSalt _salt PutGatewayResponse' {..} =
-    _salt `Prelude.hashWithSalt` responseParameters
+    _salt
+      `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` responseTemplates
       `Prelude.hashWithSalt` statusCode
       `Prelude.hashWithSalt` restApiId

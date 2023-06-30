@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateContainerAgent where
 
 instance Prelude.Hashable UpdateContainerAgent where
   hashWithSalt _salt UpdateContainerAgent' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` containerInstance
 
 instance Prelude.NFData UpdateContainerAgent where

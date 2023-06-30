@@ -120,7 +120,8 @@ instance Core.AWSRequest DescribeJournalS3Export where
 
 instance Prelude.Hashable DescribeJournalS3Export where
   hashWithSalt _salt DescribeJournalS3Export' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` exportId
 
 instance Prelude.NFData DescribeJournalS3Export where

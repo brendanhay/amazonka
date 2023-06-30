@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     DeleteNetworkInterfacePermission' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` force
         `Prelude.hashWithSalt` networkInterfacePermissionId
 

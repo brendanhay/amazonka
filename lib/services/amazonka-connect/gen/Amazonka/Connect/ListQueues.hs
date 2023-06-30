@@ -135,21 +135,23 @@ instance Core.AWSPager ListQueues where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listQueuesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listQueuesResponse_queueSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listQueues_nextToken
           Lens..~ rs
-          Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listQueuesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQueues where
   type AWSResponse ListQueues = ListQueuesResponse
@@ -160,7 +162,8 @@ instance Core.AWSRequest ListQueues where
       ( \s h x ->
           ListQueuesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "QueueSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "QueueSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,7 +171,8 @@ instance Core.AWSRequest ListQueues where
 
 instance Prelude.Hashable ListQueues where
   hashWithSalt _salt ListQueues' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queueTypes
       `Prelude.hashWithSalt` instanceId

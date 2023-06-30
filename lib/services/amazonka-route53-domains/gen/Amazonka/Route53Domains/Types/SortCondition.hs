@@ -88,7 +88,8 @@ sortCondition_sortOrder = Lens.lens (\SortCondition' {sortOrder} -> sortOrder) (
 
 instance Prelude.Hashable SortCondition where
   hashWithSalt _salt SortCondition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData SortCondition where

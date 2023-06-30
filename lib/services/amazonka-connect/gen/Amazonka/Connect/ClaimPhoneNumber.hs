@@ -180,7 +180,8 @@ instance Core.AWSRequest ClaimPhoneNumber where
 
 instance Prelude.Hashable ClaimPhoneNumber where
   hashWithSalt _salt ClaimPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` phoneNumberDescription
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targetArn

@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteBranch where
 
 instance Prelude.Hashable DeleteBranch where
   hashWithSalt _salt DeleteBranch' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName
 
 instance Prelude.NFData DeleteBranch where

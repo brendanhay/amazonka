@@ -106,7 +106,8 @@ instance Core.AWSRequest RemoveListenerCertificates where
 
 instance Prelude.Hashable RemoveListenerCertificates where
   hashWithSalt _salt RemoveListenerCertificates' {..} =
-    _salt `Prelude.hashWithSalt` listenerArn
+    _salt
+      `Prelude.hashWithSalt` listenerArn
       `Prelude.hashWithSalt` certificates
 
 instance Prelude.NFData RemoveListenerCertificates where

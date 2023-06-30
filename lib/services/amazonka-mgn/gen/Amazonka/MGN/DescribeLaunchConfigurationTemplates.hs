@@ -113,22 +113,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeLaunchConfigurationTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLaunchConfigurationTemplatesResponse_items
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLaunchConfigurationTemplates_nextToken
           Lens..~ rs
-            Lens.^? describeLaunchConfigurationTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeLaunchConfigurationTemplatesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -144,8 +144,8 @@ instance
       ( \s h x ->
           DescribeLaunchConfigurationTemplatesResponse'
             Prelude.<$> (x Data..?> "items" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

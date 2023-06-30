@@ -76,7 +76,8 @@ instance Data.FromJSON HubContentDependency where
 
 instance Prelude.Hashable HubContentDependency where
   hashWithSalt _salt HubContentDependency' {..} =
-    _salt `Prelude.hashWithSalt` dependencyCopyPath
+    _salt
+      `Prelude.hashWithSalt` dependencyCopyPath
       `Prelude.hashWithSalt` dependencyOriginPath
 
 instance Prelude.NFData HubContentDependency where

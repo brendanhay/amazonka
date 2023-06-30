@@ -158,7 +158,8 @@ instance Core.AWSRequest AssociateTeamMember where
 
 instance Prelude.Hashable AssociateTeamMember where
   hashWithSalt _salt AssociateTeamMember' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` remoteAccessAllowed
       `Prelude.hashWithSalt` projectId
       `Prelude.hashWithSalt` userArn

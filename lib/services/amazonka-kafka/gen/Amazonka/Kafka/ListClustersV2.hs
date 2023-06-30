@@ -125,21 +125,22 @@ instance Core.AWSPager ListClustersV2 where
     | Core.stop
         ( rs
             Lens.^? listClustersV2Response_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listClustersV2Response_clusterInfoList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listClustersV2_nextToken
           Lens..~ rs
-          Lens.^? listClustersV2Response_nextToken Prelude.. Lens._Just
+          Lens.^? listClustersV2Response_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClustersV2 where
   type
@@ -151,7 +152,8 @@ instance Core.AWSRequest ListClustersV2 where
     Response.receiveJSON
       ( \s h x ->
           ListClustersV2Response'
-            Prelude.<$> ( x Data..?> "clusterInfoList"
+            Prelude.<$> ( x
+                            Data..?> "clusterInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -160,7 +162,8 @@ instance Core.AWSRequest ListClustersV2 where
 
 instance Prelude.Hashable ListClustersV2 where
   hashWithSalt _salt ListClustersV2' {..} =
-    _salt `Prelude.hashWithSalt` clusterNameFilter
+    _salt
+      `Prelude.hashWithSalt` clusterNameFilter
       `Prelude.hashWithSalt` clusterTypeFilter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

@@ -570,7 +570,8 @@ instance Data.FromJSON JobRun where
             Prelude.<*> (x Data..:? "MaxCapacity")
             Prelude.<*> (x Data..:? "NotificationProperty")
             Prelude.<*> (x Data..:? "NumberOfWorkers")
-            Prelude.<*> ( x Data..:? "PredecessorRuns"
+            Prelude.<*> ( x
+                            Data..:? "PredecessorRuns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PreviousRunId")
@@ -583,7 +584,8 @@ instance Data.FromJSON JobRun where
 
 instance Prelude.Hashable JobRun where
   hashWithSalt _salt JobRun' {..} =
-    _salt `Prelude.hashWithSalt` allocatedCapacity
+    _salt
+      `Prelude.hashWithSalt` allocatedCapacity
       `Prelude.hashWithSalt` arguments
       `Prelude.hashWithSalt` attempt
       `Prelude.hashWithSalt` completedOn

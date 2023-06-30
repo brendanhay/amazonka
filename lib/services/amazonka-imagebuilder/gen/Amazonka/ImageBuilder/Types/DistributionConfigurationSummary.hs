@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     DistributionConfigurationSummary' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` dateCreated
         `Prelude.hashWithSalt` dateUpdated
         `Prelude.hashWithSalt` description

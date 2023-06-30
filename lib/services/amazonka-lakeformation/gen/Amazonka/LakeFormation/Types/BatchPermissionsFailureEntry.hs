@@ -81,7 +81,8 @@ instance
     BatchPermissionsFailureEntry
   where
   hashWithSalt _salt BatchPermissionsFailureEntry' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` requestEntry
 
 instance Prelude.NFData BatchPermissionsFailureEntry where

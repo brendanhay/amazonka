@@ -76,7 +76,8 @@ instance Data.FromJSON AntipatternSeveritySummary where
 
 instance Prelude.Hashable AntipatternSeveritySummary where
   hashWithSalt _salt AntipatternSeveritySummary' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` severity
 
 instance Prelude.NFData AntipatternSeveritySummary where

@@ -113,7 +113,8 @@ instance Data.FromJSON MappingRule where
 
 instance Prelude.Hashable MappingRule where
   hashWithSalt _salt MappingRule' {..} =
-    _salt `Prelude.hashWithSalt` claim
+    _salt
+      `Prelude.hashWithSalt` claim
       `Prelude.hashWithSalt` matchType
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` roleARN

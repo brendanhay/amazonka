@@ -86,7 +86,8 @@ instance Data.FromJSON Dimensions where
 
 instance Prelude.Hashable Dimensions where
   hashWithSalt _salt Dimensions' {..} =
-    _salt `Prelude.hashWithSalt` channel
+    _salt
+      `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` queue
       `Prelude.hashWithSalt` routingProfile
 

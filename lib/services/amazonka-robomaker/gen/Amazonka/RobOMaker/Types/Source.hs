@@ -95,7 +95,8 @@ instance Data.FromJSON Source where
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` etag
       `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Key

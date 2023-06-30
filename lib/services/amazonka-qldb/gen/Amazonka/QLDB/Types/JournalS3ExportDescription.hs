@@ -209,7 +209,8 @@ instance Data.FromJSON JournalS3ExportDescription where
 
 instance Prelude.Hashable JournalS3ExportDescription where
   hashWithSalt _salt JournalS3ExportDescription' {..} =
-    _salt `Prelude.hashWithSalt` outputFormat
+    _salt
+      `Prelude.hashWithSalt` outputFormat
       `Prelude.hashWithSalt` ledgerName
       `Prelude.hashWithSalt` exportId
       `Prelude.hashWithSalt` exportCreationTime

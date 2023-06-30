@@ -81,7 +81,8 @@ instance Data.FromJSON AutoRollbackConfiguration where
 
 instance Prelude.Hashable AutoRollbackConfiguration where
   hashWithSalt _salt AutoRollbackConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` events
 
 instance Prelude.NFData AutoRollbackConfiguration where

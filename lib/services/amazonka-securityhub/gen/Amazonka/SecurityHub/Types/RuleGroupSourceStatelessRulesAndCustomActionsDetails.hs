@@ -76,9 +76,10 @@ instance
       ( \x ->
           RuleGroupSourceStatelessRulesAndCustomActionsDetails'
             Prelude.<$> (x Data..:? "CustomActions" Data..!= Prelude.mempty)
-              Prelude.<*> ( x Data..:? "StatelessRules"
-                              Data..!= Prelude.mempty
-                          )
+            Prelude.<*> ( x
+                            Data..:? "StatelessRules"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance
@@ -88,7 +89,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatelessRulesAndCustomActionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` customActions
+      _salt
+        `Prelude.hashWithSalt` customActions
         `Prelude.hashWithSalt` statelessRules
 
 instance

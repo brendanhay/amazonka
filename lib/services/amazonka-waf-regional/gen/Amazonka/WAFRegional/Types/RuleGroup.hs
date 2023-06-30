@@ -140,7 +140,8 @@ instance Data.FromJSON RuleGroup where
 
 instance Prelude.Hashable RuleGroup where
   hashWithSalt _salt RuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleGroupId
 

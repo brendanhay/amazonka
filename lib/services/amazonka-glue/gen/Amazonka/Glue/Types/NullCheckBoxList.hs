@@ -88,7 +88,8 @@ instance Data.FromJSON NullCheckBoxList where
 
 instance Prelude.Hashable NullCheckBoxList where
   hashWithSalt _salt NullCheckBoxList' {..} =
-    _salt `Prelude.hashWithSalt` isEmpty
+    _salt
+      `Prelude.hashWithSalt` isEmpty
       `Prelude.hashWithSalt` isNegOne
       `Prelude.hashWithSalt` isNullString
 

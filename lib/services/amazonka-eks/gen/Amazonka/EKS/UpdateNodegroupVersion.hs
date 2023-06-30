@@ -276,7 +276,8 @@ instance Core.AWSRequest UpdateNodegroupVersion where
 
 instance Prelude.Hashable UpdateNodegroupVersion where
   hashWithSalt _salt UpdateNodegroupVersion' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` releaseVersion

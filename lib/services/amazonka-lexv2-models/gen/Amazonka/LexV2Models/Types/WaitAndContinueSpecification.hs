@@ -122,7 +122,8 @@ instance
     WaitAndContinueSpecification
   where
   hashWithSalt _salt WaitAndContinueSpecification' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` stillWaitingResponse
       `Prelude.hashWithSalt` waitingResponse
       `Prelude.hashWithSalt` continueResponse

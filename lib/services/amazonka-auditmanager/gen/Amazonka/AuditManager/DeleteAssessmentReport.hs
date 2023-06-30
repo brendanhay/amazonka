@@ -130,7 +130,8 @@ instance Core.AWSRequest DeleteAssessmentReport where
 
 instance Prelude.Hashable DeleteAssessmentReport where
   hashWithSalt _salt DeleteAssessmentReport' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` assessmentReportId
 
 instance Prelude.NFData DeleteAssessmentReport where

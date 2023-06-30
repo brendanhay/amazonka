@@ -114,7 +114,8 @@ instance Data.FromJSON WavSettings where
 
 instance Prelude.Hashable WavSettings where
   hashWithSalt _salt WavSettings' {..} =
-    _salt `Prelude.hashWithSalt` bitDepth
+    _salt
+      `Prelude.hashWithSalt` bitDepth
       `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` sampleRate

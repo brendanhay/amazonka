@@ -80,7 +80,8 @@ instance Data.FromJSON Status where
 
 instance Prelude.Hashable Status where
   hashWithSalt _salt Status' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData Status where

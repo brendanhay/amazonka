@@ -81,7 +81,8 @@ instance Data.FromXML Stats where
 
 instance Prelude.Hashable Stats where
   hashWithSalt _salt Stats' {..} =
-    _salt `Prelude.hashWithSalt` bytesProcessed
+    _salt
+      `Prelude.hashWithSalt` bytesProcessed
       `Prelude.hashWithSalt` bytesReturned
       `Prelude.hashWithSalt` bytesScanned
 

@@ -107,7 +107,8 @@ instance Core.AWSRequest GetStreamingSessionBackup where
 
 instance Prelude.Hashable GetStreamingSessionBackup where
   hashWithSalt _salt GetStreamingSessionBackup' {..} =
-    _salt `Prelude.hashWithSalt` backupId
+    _salt
+      `Prelude.hashWithSalt` backupId
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetStreamingSessionBackup where

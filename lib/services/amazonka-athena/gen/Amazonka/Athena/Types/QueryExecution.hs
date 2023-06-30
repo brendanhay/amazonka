@@ -210,7 +210,8 @@ instance Data.FromJSON QueryExecution where
 
 instance Prelude.Hashable QueryExecution where
   hashWithSalt _salt QueryExecution' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
+    _salt
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` executionParameters
       `Prelude.hashWithSalt` query
       `Prelude.hashWithSalt` queryExecutionContext

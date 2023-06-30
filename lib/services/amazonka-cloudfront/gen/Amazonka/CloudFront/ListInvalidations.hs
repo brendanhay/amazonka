@@ -126,24 +126,24 @@ instance Core.AWSPager ListInvalidations where
     | Core.stop
         ( rs
             Lens.^. listInvalidationsResponse_invalidationList
-              Prelude.. invalidationList_isTruncated
+            Prelude.. invalidationList_isTruncated
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listInvalidationsResponse_invalidationList
-              Prelude.. invalidationList_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. invalidationList_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInvalidations_marker
           Lens..~ rs
           Lens.^? listInvalidationsResponse_invalidationList
-            Prelude.. invalidationList_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. invalidationList_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInvalidations where
   type
@@ -161,7 +161,8 @@ instance Core.AWSRequest ListInvalidations where
 
 instance Prelude.Hashable ListInvalidations where
   hashWithSalt _salt ListInvalidations' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` distributionId
 

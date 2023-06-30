@@ -68,7 +68,6 @@ analysisError_message = Lens.lens (\AnalysisError' {message} -> message) (\s@Ana
 analysisError_type :: Lens.Lens' AnalysisError (Prelude.Maybe AnalysisErrorType)
 analysisError_type = Lens.lens (\AnalysisError' {type'} -> type') (\s@AnalysisError' {} a -> s {type' = a} :: AnalysisError)
 
--- |
 analysisError_violatedEntities :: Lens.Lens' AnalysisError (Prelude.Maybe [Entity])
 analysisError_violatedEntities = Lens.lens (\AnalysisError' {violatedEntities} -> violatedEntities) (\s@AnalysisError' {} a -> s {violatedEntities = a} :: AnalysisError) Prelude.. Lens.mapping Lens.coerced
 
@@ -80,14 +79,16 @@ instance Data.FromJSON AnalysisError where
           AnalysisError'
             Prelude.<$> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> ( x Data..:? "ViolatedEntities"
+            Prelude.<*> ( x
+                            Data..:? "ViolatedEntities"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AnalysisError where
   hashWithSalt _salt AnalysisError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` violatedEntities
 

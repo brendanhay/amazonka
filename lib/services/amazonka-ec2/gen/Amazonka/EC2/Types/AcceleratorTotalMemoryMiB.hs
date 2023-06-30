@@ -72,11 +72,13 @@ acceleratorTotalMemoryMiB_min = Lens.lens (\AcceleratorTotalMemoryMiB' {min} -> 
 instance Data.FromXML AcceleratorTotalMemoryMiB where
   parseXML x =
     AcceleratorTotalMemoryMiB'
-      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
+      Prelude.<$> (x Data..@? "max")
+      Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable AcceleratorTotalMemoryMiB where
   hashWithSalt _salt AcceleratorTotalMemoryMiB' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData AcceleratorTotalMemoryMiB where

@@ -132,7 +132,8 @@ instance Data.FromJSON AppsListData where
             Prelude.<*> (x Data..:? "LastUpdateTime")
             Prelude.<*> (x Data..:? "ListId")
             Prelude.<*> (x Data..:? "ListUpdateToken")
-            Prelude.<*> ( x Data..:? "PreviousAppsList"
+            Prelude.<*> ( x
+                            Data..:? "PreviousAppsList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "ListName")
@@ -141,7 +142,8 @@ instance Data.FromJSON AppsListData where
 
 instance Prelude.Hashable AppsListData where
   hashWithSalt _salt AppsListData' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` listId
       `Prelude.hashWithSalt` listUpdateToken

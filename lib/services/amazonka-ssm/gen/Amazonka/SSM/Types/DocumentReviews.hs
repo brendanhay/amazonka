@@ -71,7 +71,8 @@ documentReviews_action = Lens.lens (\DocumentReviews' {action} -> action) (\s@Do
 
 instance Prelude.Hashable DocumentReviews where
   hashWithSalt _salt DocumentReviews' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` action
 
 instance Prelude.NFData DocumentReviews where

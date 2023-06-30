@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteBackend where
 
 instance Prelude.Hashable DeleteBackend where
   hashWithSalt _salt DeleteBackend' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
 
 instance Prelude.NFData DeleteBackend where

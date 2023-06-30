@@ -88,7 +88,8 @@ instance Data.FromJSON SNOMEDCTConcept where
 
 instance Prelude.Hashable SNOMEDCTConcept where
   hashWithSalt _salt SNOMEDCTConcept' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` score
 

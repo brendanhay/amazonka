@@ -140,13 +140,15 @@ instance Core.AWSRequest DescribeHubContent where
       ( \s h x ->
           DescribeHubContentResponse'
             Prelude.<$> (x Data..?> "FailureReason")
-            Prelude.<*> ( x Data..?> "HubContentDependencies"
+            Prelude.<*> ( x
+                            Data..?> "HubContentDependencies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "HubContentDescription")
             Prelude.<*> (x Data..?> "HubContentDisplayName")
             Prelude.<*> (x Data..?> "HubContentMarkdown")
-            Prelude.<*> ( x Data..?> "HubContentSearchKeywords"
+            Prelude.<*> ( x
+                            Data..?> "HubContentSearchKeywords"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -164,7 +166,8 @@ instance Core.AWSRequest DescribeHubContent where
 
 instance Prelude.Hashable DescribeHubContent where
   hashWithSalt _salt DescribeHubContent' {..} =
-    _salt `Prelude.hashWithSalt` hubContentVersion
+    _salt
+      `Prelude.hashWithSalt` hubContentVersion
       `Prelude.hashWithSalt` hubName
       `Prelude.hashWithSalt` hubContentType
       `Prelude.hashWithSalt` hubContentName

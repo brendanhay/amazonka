@@ -118,7 +118,8 @@ instance Data.FromXML CacheParameterGroup where
 
 instance Prelude.Hashable CacheParameterGroup where
   hashWithSalt _salt CacheParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` cacheParameterGroupFamily
       `Prelude.hashWithSalt` cacheParameterGroupName
       `Prelude.hashWithSalt` description

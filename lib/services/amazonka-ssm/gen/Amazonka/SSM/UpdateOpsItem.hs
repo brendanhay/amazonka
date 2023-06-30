@@ -367,7 +367,8 @@ instance Core.AWSRequest UpdateOpsItem where
 
 instance Prelude.Hashable UpdateOpsItem where
   hashWithSalt _salt UpdateOpsItem' {..} =
-    _salt `Prelude.hashWithSalt` actualEndTime
+    _salt
+      `Prelude.hashWithSalt` actualEndTime
       `Prelude.hashWithSalt` actualStartTime
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` description

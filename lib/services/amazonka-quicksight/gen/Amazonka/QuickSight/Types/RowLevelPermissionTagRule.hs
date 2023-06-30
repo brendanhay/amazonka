@@ -111,7 +111,8 @@ instance Data.FromJSON RowLevelPermissionTagRule where
 
 instance Prelude.Hashable RowLevelPermissionTagRule where
   hashWithSalt _salt RowLevelPermissionTagRule' {..} =
-    _salt `Prelude.hashWithSalt` matchAllValue
+    _salt
+      `Prelude.hashWithSalt` matchAllValue
       `Prelude.hashWithSalt` tagMultiValueDelimiter
       `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` columnName

@@ -127,7 +127,8 @@ instance Core.AWSRequest GetBucketVersioning where
 
 instance Prelude.Hashable GetBucketVersioning where
   hashWithSalt _salt GetBucketVersioning' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketVersioning where

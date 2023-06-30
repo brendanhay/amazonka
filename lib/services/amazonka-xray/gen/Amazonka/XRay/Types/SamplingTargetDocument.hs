@@ -114,7 +114,8 @@ instance Data.FromJSON SamplingTargetDocument where
 
 instance Prelude.Hashable SamplingTargetDocument where
   hashWithSalt _salt SamplingTargetDocument' {..} =
-    _salt `Prelude.hashWithSalt` fixedRate
+    _salt
+      `Prelude.hashWithSalt` fixedRate
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` reservoirQuota
       `Prelude.hashWithSalt` reservoirQuotaTTL

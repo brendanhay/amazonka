@@ -134,7 +134,8 @@ instance Data.FromJSON AbsoluteTimeRange where
 
 instance Prelude.Hashable AbsoluteTimeRange where
   hashWithSalt _salt AbsoluteTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` first
       `Prelude.hashWithSalt` last
       `Prelude.hashWithSalt` startTime

@@ -103,7 +103,8 @@ instance Core.AWSRequest GetWorkflow where
 
 instance Prelude.Hashable GetWorkflow where
   hashWithSalt _salt GetWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` includeGraph
+    _salt
+      `Prelude.hashWithSalt` includeGraph
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetWorkflow where

@@ -271,7 +271,8 @@ instance Data.FromJSON TrialComponent where
             Prelude.<*> (x Data..:? "LineageGroupArn")
             Prelude.<*> (x Data..:? "MetadataProperties")
             Prelude.<*> (x Data..:? "Metrics" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "OutputArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "OutputArtifacts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
@@ -288,7 +289,8 @@ instance Data.FromJSON TrialComponent where
 
 instance Prelude.Hashable TrialComponent where
   hashWithSalt _salt TrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` endTime

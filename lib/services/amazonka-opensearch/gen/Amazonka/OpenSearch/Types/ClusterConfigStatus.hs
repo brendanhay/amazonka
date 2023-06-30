@@ -80,7 +80,8 @@ instance Data.FromJSON ClusterConfigStatus where
 
 instance Prelude.Hashable ClusterConfigStatus where
   hashWithSalt _salt ClusterConfigStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ClusterConfigStatus where

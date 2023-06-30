@@ -187,7 +187,8 @@ instance Core.AWSRequest ModifyVpnConnection where
 
 instance Prelude.Hashable ModifyVpnConnection where
   hashWithSalt _salt ModifyVpnConnection' {..} =
-    _salt `Prelude.hashWithSalt` customerGatewayId
+    _salt
+      `Prelude.hashWithSalt` customerGatewayId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` transitGatewayId
       `Prelude.hashWithSalt` vpnGatewayId

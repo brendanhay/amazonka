@@ -159,22 +159,22 @@ instance Core.AWSPager DescribeInstanceTypeOfferings where
     | Core.stop
         ( rs
             Lens.^? describeInstanceTypeOfferingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceTypeOfferingsResponse_instanceTypeOfferings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstanceTypeOfferings_nextToken
           Lens..~ rs
           Lens.^? describeInstanceTypeOfferingsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -189,7 +189,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceTypeOfferingsResponse'
-            Prelude.<$> ( x Data..@? "instanceTypeOfferingSet"
+            Prelude.<$> ( x
+                            Data..@? "instanceTypeOfferingSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -202,7 +203,8 @@ instance
     DescribeInstanceTypeOfferings
   where
   hashWithSalt _salt DescribeInstanceTypeOfferings' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` locationType
       `Prelude.hashWithSalt` maxResults

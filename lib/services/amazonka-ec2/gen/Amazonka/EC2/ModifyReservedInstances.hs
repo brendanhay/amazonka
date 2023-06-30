@@ -131,7 +131,8 @@ instance Core.AWSRequest ModifyReservedInstances where
 
 instance Prelude.Hashable ModifyReservedInstances where
   hashWithSalt _salt ModifyReservedInstances' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` reservedInstancesIds
       `Prelude.hashWithSalt` targetConfigurations
 

@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateSignalCatalog where
 
 instance Prelude.Hashable CreateSignalCatalog where
   hashWithSalt _salt CreateSignalCatalog' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` nodes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

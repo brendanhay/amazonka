@@ -69,7 +69,8 @@ nodeSignal_signal = Lens.lens (\NodeSignal' {signal} -> signal) (\s@NodeSignal' 
 
 instance Prelude.Hashable NodeSignal where
   hashWithSalt _salt NodeSignal' {..} =
-    _salt `Prelude.hashWithSalt` nodeInstanceId
+    _salt
+      `Prelude.hashWithSalt` nodeInstanceId
       `Prelude.hashWithSalt` signal
 
 instance Prelude.NFData NodeSignal where

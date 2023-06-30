@@ -65,11 +65,13 @@ queryStringKeyValuePair_value = Lens.lens (\QueryStringKeyValuePair' {value} -> 
 instance Data.FromXML QueryStringKeyValuePair where
   parseXML x =
     QueryStringKeyValuePair'
-      Prelude.<$> (x Data..@? "Key") Prelude.<*> (x Data..@? "Value")
+      Prelude.<$> (x Data..@? "Key")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable QueryStringKeyValuePair where
   hashWithSalt _salt QueryStringKeyValuePair' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData QueryStringKeyValuePair where

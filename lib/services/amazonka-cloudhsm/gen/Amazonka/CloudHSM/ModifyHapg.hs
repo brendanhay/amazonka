@@ -127,7 +127,8 @@ instance Core.AWSRequest ModifyHapg where
 
 instance Prelude.Hashable ModifyHapg where
   hashWithSalt _salt ModifyHapg' {..} =
-    _salt `Prelude.hashWithSalt` label
+    _salt
+      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` partitionSerialList
       `Prelude.hashWithSalt` hapgArn
 

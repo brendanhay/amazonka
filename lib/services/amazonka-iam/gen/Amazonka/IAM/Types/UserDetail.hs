@@ -187,28 +187,36 @@ instance Data.FromXML UserDetail where
   parseXML x =
     UserDetail'
       Prelude.<$> (x Data..@? "Arn")
-      Prelude.<*> ( x Data..@? "AttachedManagedPolicies"
+      Prelude.<*> ( x
+                      Data..@? "AttachedManagedPolicies"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "CreateDate")
-      Prelude.<*> ( x Data..@? "GroupList" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "GroupList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Path")
       Prelude.<*> (x Data..@? "PermissionsBoundary")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "UserId")
       Prelude.<*> (x Data..@? "UserName")
-      Prelude.<*> ( x Data..@? "UserPolicyList" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "UserPolicyList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable UserDetail where
   hashWithSalt _salt UserDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attachedManagedPolicies
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` groupList

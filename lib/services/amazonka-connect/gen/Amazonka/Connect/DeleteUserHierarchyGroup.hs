@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteUserHierarchyGroup where
 
 instance Prelude.Hashable DeleteUserHierarchyGroup where
   hashWithSalt _salt DeleteUserHierarchyGroup' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyGroupId
+    _salt
+      `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DeleteUserHierarchyGroup where

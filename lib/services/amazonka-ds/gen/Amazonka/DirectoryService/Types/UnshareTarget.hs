@@ -67,7 +67,8 @@ unshareTarget_type = Lens.lens (\UnshareTarget' {type'} -> type') (\s@UnshareTar
 
 instance Prelude.Hashable UnshareTarget where
   hashWithSalt _salt UnshareTarget' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData UnshareTarget where

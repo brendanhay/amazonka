@@ -107,7 +107,8 @@ instance Core.AWSRequest AssociateApplicationFleet where
 
 instance Prelude.Hashable AssociateApplicationFleet where
   hashWithSalt _salt AssociateApplicationFleet' {..} =
-    _salt `Prelude.hashWithSalt` fleetName
+    _salt
+      `Prelude.hashWithSalt` fleetName
       `Prelude.hashWithSalt` applicationArn
 
 instance Prelude.NFData AssociateApplicationFleet where

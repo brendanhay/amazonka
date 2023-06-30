@@ -116,7 +116,8 @@ instance Core.AWSRequest EnableControl where
 
 instance Prelude.Hashable EnableControl where
   hashWithSalt _salt EnableControl' {..} =
-    _salt `Prelude.hashWithSalt` controlIdentifier
+    _salt
+      `Prelude.hashWithSalt` controlIdentifier
       `Prelude.hashWithSalt` targetIdentifier
 
 instance Prelude.NFData EnableControl where

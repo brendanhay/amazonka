@@ -108,7 +108,8 @@ instance Core.AWSRequest GetContent where
 
 instance Prelude.Hashable GetContent where
   hashWithSalt _salt GetContent' {..} =
-    _salt `Prelude.hashWithSalt` contentId
+    _salt
+      `Prelude.hashWithSalt` contentId
       `Prelude.hashWithSalt` knowledgeBaseId
 
 instance Prelude.NFData GetContent where

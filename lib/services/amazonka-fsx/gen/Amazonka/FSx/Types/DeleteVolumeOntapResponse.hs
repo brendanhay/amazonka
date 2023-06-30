@@ -75,7 +75,8 @@ instance Data.FromJSON DeleteVolumeOntapResponse where
 
 instance Prelude.Hashable DeleteVolumeOntapResponse where
   hashWithSalt _salt DeleteVolumeOntapResponse' {..} =
-    _salt `Prelude.hashWithSalt` finalBackupId
+    _salt
+      `Prelude.hashWithSalt` finalBackupId
       `Prelude.hashWithSalt` finalBackupTags
 
 instance Prelude.NFData DeleteVolumeOntapResponse where

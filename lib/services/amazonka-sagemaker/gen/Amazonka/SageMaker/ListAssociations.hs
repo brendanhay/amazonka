@@ -204,22 +204,22 @@ instance Core.AWSPager ListAssociations where
     | Core.stop
         ( rs
             Lens.^? listAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAssociationsResponse_associationSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssociations_nextToken
           Lens..~ rs
           Lens.^? listAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssociations where
   type
@@ -231,7 +231,8 @@ instance Core.AWSRequest ListAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListAssociationsResponse'
-            Prelude.<$> ( x Data..?> "AssociationSummaries"
+            Prelude.<$> ( x
+                            Data..?> "AssociationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -240,7 +241,8 @@ instance Core.AWSRequest ListAssociations where
 
 instance Prelude.Hashable ListAssociations where
   hashWithSalt _salt ListAssociations' {..} =
-    _salt `Prelude.hashWithSalt` associationType
+    _salt
+      `Prelude.hashWithSalt` associationType
       `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` destinationArn

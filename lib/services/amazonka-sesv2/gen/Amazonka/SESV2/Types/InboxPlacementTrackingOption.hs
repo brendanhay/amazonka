@@ -84,7 +84,8 @@ instance
     InboxPlacementTrackingOption
   where
   hashWithSalt _salt InboxPlacementTrackingOption' {..} =
-    _salt `Prelude.hashWithSalt` global
+    _salt
+      `Prelude.hashWithSalt` global
       `Prelude.hashWithSalt` trackedIsps
 
 instance Prelude.NFData InboxPlacementTrackingOption where

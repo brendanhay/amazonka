@@ -167,10 +167,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEC2RecommendationProjectedMetricsResponse'
-            Prelude.<$> ( x Data..?> "recommendedOptionProjectedMetrics"
+            Prelude.<$> ( x
+                            Data..?> "recommendedOptionProjectedMetrics"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -189,22 +189,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeLocalGatewayRouteTablesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLocalGatewayRouteTablesResponse_localGatewayRouteTables
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLocalGatewayRouteTables_nextToken
           Lens..~ rs
           Lens.^? describeLocalGatewayRouteTablesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -219,7 +219,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeLocalGatewayRouteTablesResponse'
-            Prelude.<$> ( x Data..@? "localGatewayRouteTableSet"
+            Prelude.<$> ( x
+                            Data..@? "localGatewayRouteTableSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -234,7 +235,8 @@ instance
   hashWithSalt
     _salt
     DescribeLocalGatewayRouteTables' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` localGatewayRouteTableIds
         `Prelude.hashWithSalt` maxResults

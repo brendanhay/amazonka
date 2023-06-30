@@ -90,7 +90,8 @@ instance Data.FromJSON ImportResourceSpecification where
 
 instance Prelude.Hashable ImportResourceSpecification where
   hashWithSalt _salt ImportResourceSpecification' {..} =
-    _salt `Prelude.hashWithSalt` botImportSpecification
+    _salt
+      `Prelude.hashWithSalt` botImportSpecification
       `Prelude.hashWithSalt` botLocaleImportSpecification
       `Prelude.hashWithSalt` customVocabularyImportSpecification
 

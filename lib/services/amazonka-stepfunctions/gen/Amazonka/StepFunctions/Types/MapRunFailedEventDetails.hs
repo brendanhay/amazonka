@@ -75,7 +75,8 @@ instance Data.FromJSON MapRunFailedEventDetails where
 
 instance Prelude.Hashable MapRunFailedEventDetails where
   hashWithSalt _salt MapRunFailedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` cause
+    _salt
+      `Prelude.hashWithSalt` cause
       `Prelude.hashWithSalt` error
 
 instance Prelude.NFData MapRunFailedEventDetails where

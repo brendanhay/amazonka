@@ -191,7 +191,8 @@ instance Core.AWSRequest UpdateSnapshotSchedule where
 
 instance Prelude.Hashable UpdateSnapshotSchedule where
   hashWithSalt _salt UpdateSnapshotSchedule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeARN
       `Prelude.hashWithSalt` startAt

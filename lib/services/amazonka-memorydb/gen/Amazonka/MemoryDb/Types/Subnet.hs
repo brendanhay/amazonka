@@ -77,7 +77,8 @@ instance Data.FromJSON Subnet where
 
 instance Prelude.Hashable Subnet where
   hashWithSalt _salt Subnet' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData Subnet where

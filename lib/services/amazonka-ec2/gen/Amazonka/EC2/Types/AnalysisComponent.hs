@@ -81,7 +81,8 @@ instance Data.FromXML AnalysisComponent where
 
 instance Prelude.Hashable AnalysisComponent where
   hashWithSalt _salt AnalysisComponent' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

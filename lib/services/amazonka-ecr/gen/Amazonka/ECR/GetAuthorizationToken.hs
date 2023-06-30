@@ -101,7 +101,8 @@ instance Core.AWSRequest GetAuthorizationToken where
     Response.receiveJSON
       ( \s h x ->
           GetAuthorizationTokenResponse'
-            Prelude.<$> ( x Data..?> "authorizationData"
+            Prelude.<$> ( x
+                            Data..?> "authorizationData"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

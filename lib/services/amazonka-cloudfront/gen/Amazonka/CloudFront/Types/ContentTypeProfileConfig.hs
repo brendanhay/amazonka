@@ -89,7 +89,8 @@ instance Data.FromXML ContentTypeProfileConfig where
 
 instance Prelude.Hashable ContentTypeProfileConfig where
   hashWithSalt _salt ContentTypeProfileConfig' {..} =
-    _salt `Prelude.hashWithSalt` contentTypeProfiles
+    _salt
+      `Prelude.hashWithSalt` contentTypeProfiles
       `Prelude.hashWithSalt` forwardWhenContentTypeIsUnknown
 
 instance Prelude.NFData ContentTypeProfileConfig where

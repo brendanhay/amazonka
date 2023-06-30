@@ -72,7 +72,8 @@ listJobsFilterCriteria_includes = Lens.lens (\ListJobsFilterCriteria' {includes}
 
 instance Prelude.Hashable ListJobsFilterCriteria where
   hashWithSalt _salt ListJobsFilterCriteria' {..} =
-    _salt `Prelude.hashWithSalt` excludes
+    _salt
+      `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` includes
 
 instance Prelude.NFData ListJobsFilterCriteria where

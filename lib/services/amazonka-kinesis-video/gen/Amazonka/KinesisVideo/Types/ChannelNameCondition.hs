@@ -75,7 +75,8 @@ channelNameCondition_comparisonValue = Lens.lens (\ChannelNameCondition' {compar
 
 instance Prelude.Hashable ChannelNameCondition where
   hashWithSalt _salt ChannelNameCondition' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` comparisonValue
 
 instance Prelude.NFData ChannelNameCondition where

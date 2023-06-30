@@ -111,7 +111,8 @@ instance Data.FromXML NotificationConfiguration where
 
 instance Prelude.Hashable NotificationConfiguration where
   hashWithSalt _salt NotificationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` notificationType
       `Prelude.hashWithSalt` topicARN
 

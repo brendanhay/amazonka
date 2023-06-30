@@ -270,7 +270,8 @@ instance Data.FromJSON AppMonitorConfiguration where
 
 instance Prelude.Hashable AppMonitorConfiguration where
   hashWithSalt _salt AppMonitorConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` allowCookies
+    _salt
+      `Prelude.hashWithSalt` allowCookies
       `Prelude.hashWithSalt` enableXRay
       `Prelude.hashWithSalt` excludedPages
       `Prelude.hashWithSalt` favoritePages

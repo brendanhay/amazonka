@@ -127,7 +127,8 @@ instance Core.AWSRequest ListApplicationVersions where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationVersionsResponse'
-            Prelude.<$> ( x Data..?> "ApplicationVersionSummaries"
+            Prelude.<$> ( x
+                            Data..?> "ApplicationVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -136,7 +137,8 @@ instance Core.AWSRequest ListApplicationVersions where
 
 instance Prelude.Hashable ListApplicationVersions where
   hashWithSalt _salt ListApplicationVersions' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationName
 

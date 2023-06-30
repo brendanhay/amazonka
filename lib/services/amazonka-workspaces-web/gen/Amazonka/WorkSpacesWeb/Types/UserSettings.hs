@@ -158,7 +158,8 @@ instance Data.FromJSON UserSettings where
       "UserSettings"
       ( \x ->
           UserSettings'
-            Prelude.<$> ( x Data..:? "associatedPortalArns"
+            Prelude.<$> ( x
+                            Data..:? "associatedPortalArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "copyAllowed")
@@ -173,7 +174,8 @@ instance Data.FromJSON UserSettings where
 
 instance Prelude.Hashable UserSettings where
   hashWithSalt _salt UserSettings' {..} =
-    _salt `Prelude.hashWithSalt` associatedPortalArns
+    _salt
+      `Prelude.hashWithSalt` associatedPortalArns
       `Prelude.hashWithSalt` copyAllowed
       `Prelude.hashWithSalt` disconnectTimeoutInMinutes
       `Prelude.hashWithSalt` downloadAllowed

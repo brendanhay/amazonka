@@ -134,7 +134,8 @@ instance Data.FromJSON EnvironmentVpc where
 
 instance Prelude.Hashable EnvironmentVpc where
   hashWithSalt _salt EnvironmentVpc' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` cidrBlocks
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` environmentId

@@ -160,7 +160,8 @@ instance Data.FromJSON EbuTtDDestinationSettings where
 
 instance Prelude.Hashable EbuTtDDestinationSettings where
   hashWithSalt _salt EbuTtDDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` copyrightHolder
+    _salt
+      `Prelude.hashWithSalt` copyrightHolder
       `Prelude.hashWithSalt` fillLineGap
       `Prelude.hashWithSalt` fontFamily
       `Prelude.hashWithSalt` styleControl

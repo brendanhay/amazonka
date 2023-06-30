@@ -84,7 +84,8 @@ instance Data.FromJSON TextDetectionResult where
 
 instance Prelude.Hashable TextDetectionResult where
   hashWithSalt _salt TextDetectionResult' {..} =
-    _salt `Prelude.hashWithSalt` textDetection
+    _salt
+      `Prelude.hashWithSalt` textDetection
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData TextDetectionResult where

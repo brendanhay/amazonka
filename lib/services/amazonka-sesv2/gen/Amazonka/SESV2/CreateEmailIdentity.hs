@@ -192,7 +192,8 @@ instance Core.AWSRequest CreateEmailIdentity where
 
 instance Prelude.Hashable CreateEmailIdentity where
   hashWithSalt _salt CreateEmailIdentity' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` dkimSigningAttributes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` emailIdentity

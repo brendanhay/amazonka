@@ -145,7 +145,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAnomalyGroupRelatedMetricsResponse'
-            Prelude.<$> ( x Data..?> "InterMetricImpactList"
+            Prelude.<$> ( x
+                            Data..?> "InterMetricImpactList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -159,7 +160,8 @@ instance
   hashWithSalt
     _salt
     ListAnomalyGroupRelatedMetrics' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` relationshipTypeFilter
         `Prelude.hashWithSalt` anomalyDetectorArn

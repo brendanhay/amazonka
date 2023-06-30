@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteFirewallPolicy where
 
 instance Prelude.Hashable DeleteFirewallPolicy where
   hashWithSalt _salt DeleteFirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` firewallPolicyArn
+    _salt
+      `Prelude.hashWithSalt` firewallPolicyArn
       `Prelude.hashWithSalt` firewallPolicyName
 
 instance Prelude.NFData DeleteFirewallPolicy where

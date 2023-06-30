@@ -604,7 +604,8 @@ instance Core.AWSRequest UpdateMaintenanceWindowTask where
 
 instance Prelude.Hashable UpdateMaintenanceWindowTask where
   hashWithSalt _salt UpdateMaintenanceWindowTask' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` cutoffBehavior
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` loggingInfo

@@ -85,7 +85,8 @@ instance Core.AWSRequest StopDataCollectionByAgentIds where
     Response.receiveJSON
       ( \s h x ->
           StopDataCollectionByAgentIdsResponse'
-            Prelude.<$> ( x Data..?> "agentsConfigurationStatus"
+            Prelude.<$> ( x
+                            Data..?> "agentsConfigurationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

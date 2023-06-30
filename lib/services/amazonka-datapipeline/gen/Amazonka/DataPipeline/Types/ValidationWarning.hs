@@ -76,7 +76,8 @@ instance Data.FromJSON ValidationWarning where
 
 instance Prelude.Hashable ValidationWarning where
   hashWithSalt _salt ValidationWarning' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` warnings
 
 instance Prelude.NFData ValidationWarning where

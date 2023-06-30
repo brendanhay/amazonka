@@ -810,7 +810,8 @@ instance Core.AWSRequest UpdateUserPoolClient where
 
 instance Prelude.Hashable UpdateUserPoolClient where
   hashWithSalt _salt UpdateUserPoolClient' {..} =
-    _salt `Prelude.hashWithSalt` accessTokenValidity
+    _salt
+      `Prelude.hashWithSalt` accessTokenValidity
       `Prelude.hashWithSalt` allowedOAuthFlows
       `Prelude.hashWithSalt` allowedOAuthFlowsUserPoolClient
       `Prelude.hashWithSalt` allowedOAuthScopes

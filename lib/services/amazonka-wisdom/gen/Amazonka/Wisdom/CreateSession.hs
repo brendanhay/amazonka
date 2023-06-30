@@ -142,7 +142,8 @@ instance Core.AWSRequest CreateSession where
 
 instance Prelude.Hashable CreateSession where
   hashWithSalt _salt CreateSession' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assistantId

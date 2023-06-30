@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateWorkspaceBundle where
 
 instance Prelude.Hashable UpdateWorkspaceBundle where
   hashWithSalt _salt UpdateWorkspaceBundle' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` imageId
 
 instance Prelude.NFData UpdateWorkspaceBundle where

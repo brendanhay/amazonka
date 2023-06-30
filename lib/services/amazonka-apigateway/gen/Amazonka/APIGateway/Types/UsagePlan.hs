@@ -156,7 +156,8 @@ instance Data.FromJSON UsagePlan where
 
 instance Prelude.Hashable UsagePlan where
   hashWithSalt _salt UsagePlan' {..} =
-    _salt `Prelude.hashWithSalt` apiStages
+    _salt
+      `Prelude.hashWithSalt` apiStages
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

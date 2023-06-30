@@ -80,12 +80,14 @@ instance Data.FromJSON DiskIopsConfiguration where
       "DiskIopsConfiguration"
       ( \x ->
           DiskIopsConfiguration'
-            Prelude.<$> (x Data..:? "Iops") Prelude.<*> (x Data..:? "Mode")
+            Prelude.<$> (x Data..:? "Iops")
+            Prelude.<*> (x Data..:? "Mode")
       )
 
 instance Prelude.Hashable DiskIopsConfiguration where
   hashWithSalt _salt DiskIopsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` iops
+    _salt
+      `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` mode
 
 instance Prelude.NFData DiskIopsConfiguration where

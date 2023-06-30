@@ -85,7 +85,8 @@ instance Data.FromJSON PackageVersionHistory where
 
 instance Prelude.Hashable PackageVersionHistory where
   hashWithSalt _salt PackageVersionHistory' {..} =
-    _salt `Prelude.hashWithSalt` commitMessage
+    _salt
+      `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` packageVersion
 

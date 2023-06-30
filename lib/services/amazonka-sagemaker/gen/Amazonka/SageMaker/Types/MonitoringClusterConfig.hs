@@ -123,7 +123,8 @@ instance Data.FromJSON MonitoringClusterConfig where
 
 instance Prelude.Hashable MonitoringClusterConfig where
   hashWithSalt _salt MonitoringClusterConfig' {..} =
-    _salt `Prelude.hashWithSalt` volumeKmsKeyId
+    _salt
+      `Prelude.hashWithSalt` volumeKmsKeyId
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` volumeSizeInGB

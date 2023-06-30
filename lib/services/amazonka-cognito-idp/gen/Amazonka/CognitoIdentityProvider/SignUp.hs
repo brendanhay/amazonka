@@ -314,7 +314,8 @@ instance Core.AWSRequest SignUp where
 
 instance Prelude.Hashable SignUp where
   hashWithSalt _salt SignUp' {..} =
-    _salt `Prelude.hashWithSalt` analyticsMetadata
+    _salt
+      `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` secretHash
       `Prelude.hashWithSalt` userAttributes

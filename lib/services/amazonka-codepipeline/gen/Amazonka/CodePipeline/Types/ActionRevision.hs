@@ -102,7 +102,8 @@ instance Data.FromJSON ActionRevision where
 
 instance Prelude.Hashable ActionRevision where
   hashWithSalt _salt ActionRevision' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
+    _salt
+      `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` revisionChangeId
       `Prelude.hashWithSalt` created
 

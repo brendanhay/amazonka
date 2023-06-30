@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     UpdateContinuousDeploymentPolicy' {..} =
-      _salt `Prelude.hashWithSalt` ifMatch
+      _salt
+        `Prelude.hashWithSalt` ifMatch
         `Prelude.hashWithSalt` continuousDeploymentPolicyConfig
         `Prelude.hashWithSalt` id
 

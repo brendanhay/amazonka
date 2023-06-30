@@ -89,7 +89,8 @@ instance Core.AWSRequest BatchGetCustomEntityTypes where
     Response.receiveJSON
       ( \s h x ->
           BatchGetCustomEntityTypesResponse'
-            Prelude.<$> ( x Data..?> "CustomEntityTypes"
+            Prelude.<$> ( x
+                            Data..?> "CustomEntityTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CustomEntityTypesNotFound")

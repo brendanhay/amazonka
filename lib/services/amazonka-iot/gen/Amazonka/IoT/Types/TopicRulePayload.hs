@@ -110,7 +110,8 @@ topicRulePayload_actions = Lens.lens (\TopicRulePayload' {actions} -> actions) (
 
 instance Prelude.Hashable TopicRulePayload where
   hashWithSalt _salt TopicRulePayload' {..} =
-    _salt `Prelude.hashWithSalt` awsIotSqlVersion
+    _salt
+      `Prelude.hashWithSalt` awsIotSqlVersion
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` errorAction
       `Prelude.hashWithSalt` ruleDisabled

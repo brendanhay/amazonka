@@ -232,7 +232,8 @@ instance Data.FromJSON LaunchConfigurationTemplate where
 
 instance Prelude.Hashable LaunchConfigurationTemplate where
   hashWithSalt _salt LaunchConfigurationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` associatePublicIpAddress
       `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` copyPrivateIp

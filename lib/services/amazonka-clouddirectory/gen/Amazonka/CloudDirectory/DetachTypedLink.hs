@@ -102,7 +102,8 @@ instance Core.AWSRequest DetachTypedLink where
 
 instance Prelude.Hashable DetachTypedLink where
   hashWithSalt _salt DetachTypedLink' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` typedLinkSpecifier
 
 instance Prelude.NFData DetachTypedLink where

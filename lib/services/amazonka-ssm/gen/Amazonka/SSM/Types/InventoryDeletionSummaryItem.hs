@@ -89,7 +89,8 @@ instance
     InventoryDeletionSummaryItem
   where
   hashWithSalt _salt InventoryDeletionSummaryItem' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` remainingCount
       `Prelude.hashWithSalt` version
 

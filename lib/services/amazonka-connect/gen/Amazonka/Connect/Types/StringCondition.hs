@@ -76,7 +76,8 @@ stringCondition_value = Lens.lens (\StringCondition' {value} -> value) (\s@Strin
 
 instance Prelude.Hashable StringCondition where
   hashWithSalt _salt StringCondition' {..} =
-    _salt `Prelude.hashWithSalt` comparisonType
+    _salt
+      `Prelude.hashWithSalt` comparisonType
       `Prelude.hashWithSalt` fieldName
       `Prelude.hashWithSalt` value
 

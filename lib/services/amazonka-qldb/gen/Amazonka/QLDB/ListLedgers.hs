@@ -116,7 +116,8 @@ instance Core.AWSRequest ListLedgers where
 
 instance Prelude.Hashable ListLedgers where
   hashWithSalt _salt ListLedgers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLedgers where

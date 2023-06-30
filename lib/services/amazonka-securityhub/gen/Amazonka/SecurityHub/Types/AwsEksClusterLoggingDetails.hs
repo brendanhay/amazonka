@@ -61,7 +61,8 @@ instance Data.FromJSON AwsEksClusterLoggingDetails where
       "AwsEksClusterLoggingDetails"
       ( \x ->
           AwsEksClusterLoggingDetails'
-            Prelude.<$> ( x Data..:? "ClusterLogging"
+            Prelude.<$> ( x
+                            Data..:? "ClusterLogging"
                             Data..!= Prelude.mempty
                         )
       )

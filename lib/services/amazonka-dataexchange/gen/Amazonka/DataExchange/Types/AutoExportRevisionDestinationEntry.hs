@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     AutoExportRevisionDestinationEntry' {..} =
-      _salt `Prelude.hashWithSalt` keyPattern
+      _salt
+        `Prelude.hashWithSalt` keyPattern
         `Prelude.hashWithSalt` bucket
 
 instance

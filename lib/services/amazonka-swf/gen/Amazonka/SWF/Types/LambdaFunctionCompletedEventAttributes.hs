@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionCompletedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` result
+      _salt
+        `Prelude.hashWithSalt` result
         `Prelude.hashWithSalt` scheduledEventId
         `Prelude.hashWithSalt` startedEventId
 

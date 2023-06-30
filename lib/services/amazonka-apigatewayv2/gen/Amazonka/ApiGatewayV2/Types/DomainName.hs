@@ -101,7 +101,8 @@ instance Data.FromJSON DomainName where
       ( \x ->
           DomainName'
             Prelude.<$> (x Data..:? "apiMappingSelectionExpression")
-            Prelude.<*> ( x Data..:? "domainNameConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "domainNameConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "mutualTlsAuthentication")

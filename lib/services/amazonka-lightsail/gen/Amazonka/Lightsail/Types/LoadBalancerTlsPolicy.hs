@@ -118,7 +118,8 @@ instance Data.FromJSON LoadBalancerTlsPolicy where
 
 instance Prelude.Hashable LoadBalancerTlsPolicy where
   hashWithSalt _salt LoadBalancerTlsPolicy' {..} =
-    _salt `Prelude.hashWithSalt` ciphers
+    _salt
+      `Prelude.hashWithSalt` ciphers
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isDefault
       `Prelude.hashWithSalt` name

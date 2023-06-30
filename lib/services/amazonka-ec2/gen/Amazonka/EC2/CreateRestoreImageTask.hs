@@ -181,7 +181,8 @@ instance Core.AWSRequest CreateRestoreImageTask where
 
 instance Prelude.Hashable CreateRestoreImageTask where
   hashWithSalt _salt CreateRestoreImageTask' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` bucket

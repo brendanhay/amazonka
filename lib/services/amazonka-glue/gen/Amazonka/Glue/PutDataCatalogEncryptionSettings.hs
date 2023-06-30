@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     PutDataCatalogEncryptionSettings' {..} =
-      _salt `Prelude.hashWithSalt` catalogId
+      _salt
+        `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` dataCatalogEncryptionSettings
 
 instance

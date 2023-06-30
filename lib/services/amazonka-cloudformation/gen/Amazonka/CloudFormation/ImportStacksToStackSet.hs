@@ -193,7 +193,8 @@ instance Core.AWSRequest ImportStacksToStackSet where
 
 instance Prelude.Hashable ImportStacksToStackSet where
   hashWithSalt _salt ImportStacksToStackSet' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` operationId
       `Prelude.hashWithSalt` operationPreferences
       `Prelude.hashWithSalt` organizationalUnitIds

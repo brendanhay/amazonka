@@ -114,7 +114,8 @@ instance Core.AWSRequest TestRenderTemplate where
 
 instance Prelude.Hashable TestRenderTemplate where
   hashWithSalt _salt TestRenderTemplate' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateData
 
 instance Prelude.NFData TestRenderTemplate where

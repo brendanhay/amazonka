@@ -101,7 +101,8 @@ instance Data.FromXML ActiveInstance where
 
 instance Prelude.Hashable ActiveInstance where
   hashWithSalt _salt ActiveInstance' {..} =
-    _salt `Prelude.hashWithSalt` instanceHealth
+    _salt
+      `Prelude.hashWithSalt` instanceHealth
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` spotInstanceRequestId

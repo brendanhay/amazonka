@@ -165,7 +165,8 @@ sMSMessage_templateId = Lens.lens (\SMSMessage' {templateId} -> templateId) (\s@
 
 instance Prelude.Hashable SMSMessage where
   hashWithSalt _salt SMSMessage' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` keyword
       `Prelude.hashWithSalt` mediaUrl

@@ -154,22 +154,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeMatchmakingConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeMatchmakingConfigurationsResponse_configurations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeMatchmakingConfigurations_nextToken
           Lens..~ rs
           Lens.^? describeMatchmakingConfigurationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -185,8 +185,8 @@ instance
       ( \s h x ->
           DescribeMatchmakingConfigurationsResponse'
             Prelude.<$> (x Data..?> "Configurations" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -196,7 +196,8 @@ instance
   hashWithSalt
     _salt
     DescribeMatchmakingConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` names
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` ruleSetName

@@ -184,7 +184,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateContainerInstancesStateResponse'
-            Prelude.<$> ( x Data..?> "containerInstances"
+            Prelude.<$> ( x
+                            Data..?> "containerInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
@@ -196,7 +197,8 @@ instance
     UpdateContainerInstancesState
   where
   hashWithSalt _salt UpdateContainerInstancesState' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` containerInstances
       `Prelude.hashWithSalt` status
 

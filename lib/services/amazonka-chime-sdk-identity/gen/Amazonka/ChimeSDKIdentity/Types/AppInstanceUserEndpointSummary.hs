@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     AppInstanceUserEndpointSummary' {..} =
-      _salt `Prelude.hashWithSalt` allowMessages
+      _salt
+        `Prelude.hashWithSalt` allowMessages
         `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` endpointId
         `Prelude.hashWithSalt` endpointState

@@ -71,7 +71,8 @@ instance
   hashWithSalt
     _salt
     UpdateConnectionApiKeyAuthRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` apiKeyName
+      _salt
+        `Prelude.hashWithSalt` apiKeyName
         `Prelude.hashWithSalt` apiKeyValue
 
 instance

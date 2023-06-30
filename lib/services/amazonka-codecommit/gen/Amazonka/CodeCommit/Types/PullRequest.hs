@@ -193,7 +193,8 @@ instance Data.FromJSON PullRequest where
             Prelude.<*> (x Data..:? "lastActivityDate")
             Prelude.<*> (x Data..:? "pullRequestId")
             Prelude.<*> (x Data..:? "pullRequestStatus")
-            Prelude.<*> ( x Data..:? "pullRequestTargets"
+            Prelude.<*> ( x
+                            Data..:? "pullRequestTargets"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "revisionId")
@@ -202,7 +203,8 @@ instance Data.FromJSON PullRequest where
 
 instance Prelude.Hashable PullRequest where
   hashWithSalt _salt PullRequest' {..} =
-    _salt `Prelude.hashWithSalt` approvalRules
+    _salt
+      `Prelude.hashWithSalt` approvalRules
       `Prelude.hashWithSalt` authorArn
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` creationDate

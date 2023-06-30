@@ -195,7 +195,8 @@ instance Core.AWSRequest CreateDatasetExportJob where
 
 instance Prelude.Hashable CreateDatasetExportJob where
   hashWithSalt _salt CreateDatasetExportJob' {..} =
-    _salt `Prelude.hashWithSalt` ingestionMode
+    _salt
+      `Prelude.hashWithSalt` ingestionMode
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` datasetArn

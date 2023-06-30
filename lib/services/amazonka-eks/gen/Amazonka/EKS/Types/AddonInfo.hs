@@ -119,7 +119,8 @@ instance Data.FromJSON AddonInfo where
 
 instance Prelude.Hashable AddonInfo where
   hashWithSalt _salt AddonInfo' {..} =
-    _salt `Prelude.hashWithSalt` addonName
+    _salt
+      `Prelude.hashWithSalt` addonName
       `Prelude.hashWithSalt` addonVersions
       `Prelude.hashWithSalt` marketplaceInformation
       `Prelude.hashWithSalt` owner

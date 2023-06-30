@@ -109,7 +109,8 @@ instance Core.AWSRequest AssociateNetworkSettings where
 
 instance Prelude.Hashable AssociateNetworkSettings where
   hashWithSalt _salt AssociateNetworkSettings' {..} =
-    _salt `Prelude.hashWithSalt` networkSettingsArn
+    _salt
+      `Prelude.hashWithSalt` networkSettingsArn
       `Prelude.hashWithSalt` portalArn
 
 instance Prelude.NFData AssociateNetworkSettings where

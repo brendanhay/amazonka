@@ -508,7 +508,8 @@ instance Data.FromJSON CmfcSettings where
 
 instance Prelude.Hashable CmfcSettings where
   hashWithSalt _salt CmfcSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioDuration
+    _salt
+      `Prelude.hashWithSalt` audioDuration
       `Prelude.hashWithSalt` audioGroupId
       `Prelude.hashWithSalt` audioRenditionSets
       `Prelude.hashWithSalt` audioTrackType

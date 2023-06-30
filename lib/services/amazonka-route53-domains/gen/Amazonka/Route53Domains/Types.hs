@@ -256,55 +256,55 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | This error is returned if you call @AssociateDelegationSignerToDomain@
 -- when the specified domain has reached the maximum number of DS records.
 -- You can\'t add any additional DS records unless you delete an existing
 -- one first.
-_DnssecLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DnssecLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DnssecLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -312,14 +312,14 @@ _DnssecLimitExceeded =
 
 -- | The number of domains has exceeded the allowed threshold for the
 -- account.
-_DomainLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DomainLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DomainLimitExceeded =
   Core._MatchServiceError
     defaultService
     "DomainLimitExceeded"
 
 -- | The request is already in progress for the domain.
-_DuplicateRequest :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateRequest :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateRequest =
   Core._MatchServiceError
     defaultService
@@ -330,7 +330,7 @@ _DuplicateRequest =
 -- belong to the account that submitted the request. For
 -- @AcceptDomainTransferFromAnotherAwsAccount@, the password might be
 -- invalid.
-_InvalidInput :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInput :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInput =
   Core._MatchServiceError
     defaultService
@@ -338,21 +338,21 @@ _InvalidInput =
 
 -- | The number of operations or jobs running exceeded the allowed threshold
 -- for the account.
-_OperationLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationLimitExceeded =
   Core._MatchServiceError
     defaultService
     "OperationLimitExceeded"
 
 -- | The top-level domain does not support this operation.
-_TLDRulesViolation :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TLDRulesViolation :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TLDRulesViolation =
   Core._MatchServiceError
     defaultService
     "TLDRulesViolation"
 
 -- | Amazon Route 53 does not support this top-level domain (TLD).
-_UnsupportedTLD :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedTLD :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedTLD =
   Core._MatchServiceError
     defaultService

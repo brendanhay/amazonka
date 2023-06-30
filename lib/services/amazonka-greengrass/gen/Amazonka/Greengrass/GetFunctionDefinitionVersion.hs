@@ -151,7 +151,8 @@ instance
     GetFunctionDefinitionVersion
   where
   hashWithSalt _salt GetFunctionDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` functionDefinitionId
       `Prelude.hashWithSalt` functionDefinitionVersionId
 

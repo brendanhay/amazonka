@@ -108,7 +108,8 @@ instance Data.FromJSON VTLDevice where
 
 instance Prelude.Hashable VTLDevice where
   hashWithSalt _salt VTLDevice' {..} =
-    _salt `Prelude.hashWithSalt` deviceiSCSIAttributes
+    _salt
+      `Prelude.hashWithSalt` deviceiSCSIAttributes
       `Prelude.hashWithSalt` vTLDeviceARN
       `Prelude.hashWithSalt` vTLDeviceProductIdentifier
       `Prelude.hashWithSalt` vTLDeviceType

@@ -80,7 +80,8 @@ instance Data.FromJSON AudioTrackSelection where
 
 instance Prelude.Hashable AudioTrackSelection where
   hashWithSalt _salt AudioTrackSelection' {..} =
-    _salt `Prelude.hashWithSalt` dolbyEDecode
+    _salt
+      `Prelude.hashWithSalt` dolbyEDecode
       `Prelude.hashWithSalt` tracks
 
 instance Prelude.NFData AudioTrackSelection where

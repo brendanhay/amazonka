@@ -145,7 +145,8 @@ instance Core.AWSRequest StartRouteAnalysis where
 
 instance Prelude.Hashable StartRouteAnalysis where
   hashWithSalt _salt StartRouteAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` includeReturnPath
+    _salt
+      `Prelude.hashWithSalt` includeReturnPath
       `Prelude.hashWithSalt` useMiddleboxes
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` source

@@ -115,7 +115,8 @@ instance Data.FromJSON TaskActionDefinition where
 
 instance Prelude.Hashable TaskActionDefinition where
   hashWithSalt _salt TaskActionDefinition' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` references
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` contactFlowId

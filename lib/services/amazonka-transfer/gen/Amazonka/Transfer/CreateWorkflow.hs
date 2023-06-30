@@ -193,7 +193,8 @@ instance Core.AWSRequest CreateWorkflow where
 
 instance Prelude.Hashable CreateWorkflow where
   hashWithSalt _salt CreateWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` onExceptionSteps
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` steps

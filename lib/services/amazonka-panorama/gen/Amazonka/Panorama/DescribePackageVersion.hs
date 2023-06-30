@@ -145,7 +145,8 @@ instance Core.AWSRequest DescribePackageVersion where
 
 instance Prelude.Hashable DescribePackageVersion where
   hashWithSalt _salt DescribePackageVersion' {..} =
-    _salt `Prelude.hashWithSalt` ownerAccount
+    _salt
+      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` patchVersion
       `Prelude.hashWithSalt` packageId
       `Prelude.hashWithSalt` packageVersion

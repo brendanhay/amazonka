@@ -205,22 +205,22 @@ instance Core.AWSPager ListAccountSettings where
     | Core.stop
         ( rs
             Lens.^? listAccountSettingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAccountSettingsResponse_settings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccountSettings_nextToken
           Lens..~ rs
           Lens.^? listAccountSettingsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountSettings where
   type
@@ -239,7 +239,8 @@ instance Core.AWSRequest ListAccountSettings where
 
 instance Prelude.Hashable ListAccountSettings where
   hashWithSalt _salt ListAccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` effectiveSettings
+    _salt
+      `Prelude.hashWithSalt` effectiveSettings
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken

@@ -126,7 +126,8 @@ instance
   hashWithSalt
     _salt
     RegisterDelegatedAdministrator' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` servicePrincipal
 
 instance

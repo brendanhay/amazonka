@@ -289,7 +289,8 @@ instance Data.FromJSON ContainerDefinition where
 
 instance Prelude.Hashable ContainerDefinition where
   hashWithSalt _salt ContainerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` containerHostname
+    _salt
+      `Prelude.hashWithSalt` containerHostname
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` imageConfig

@@ -100,14 +100,16 @@ instance Data.FromJSON Resource where
             Prelude.<*> (x Data..:? "parentId")
             Prelude.<*> (x Data..:? "path")
             Prelude.<*> (x Data..:? "pathPart")
-            Prelude.<*> ( x Data..:? "resourceMethods"
+            Prelude.<*> ( x
+                            Data..:? "resourceMethods"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` parentId
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` pathPart

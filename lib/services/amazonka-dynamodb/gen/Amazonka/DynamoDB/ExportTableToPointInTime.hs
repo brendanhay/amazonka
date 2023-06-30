@@ -246,7 +246,8 @@ instance Core.AWSRequest ExportTableToPointInTime where
 
 instance Prelude.Hashable ExportTableToPointInTime where
   hashWithSalt _salt ExportTableToPointInTime' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` exportFormat
       `Prelude.hashWithSalt` exportTime
       `Prelude.hashWithSalt` s3BucketOwner

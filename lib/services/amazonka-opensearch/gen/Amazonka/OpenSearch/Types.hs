@@ -886,53 +886,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An error occurred because user does not have permissions to access the
 -- resource. Returns HTTP status code 403.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -940,7 +940,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | An error occurred while processing the request.
-_BaseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BaseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BaseException =
   Core._MatchServiceError
     defaultService
@@ -948,7 +948,7 @@ _BaseException =
 
 -- | An error occurred because the client attempts to remove a resource that
 -- is currently in use. Returns HTTP status code 409.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -957,7 +957,7 @@ _ConflictException =
 
 -- | An error occured because the client wanted to access a not supported
 -- operation. Gives http status code of 409.
-_DisabledOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DisabledOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DisabledOperationException =
   Core._MatchServiceError
     defaultService
@@ -967,7 +967,7 @@ _DisabledOperationException =
 -- | The request processing has failed because of an unknown error, exception
 -- or failure (the failure is internal to the service) . Gives http status
 -- code of 500.
-_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
@@ -976,7 +976,7 @@ _InternalException =
 
 -- | The request processing has failed because of invalid pagination token
 -- provided by customer. Returns an HTTP status code of 400.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPaginationTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPaginationTokenException =
   Core._MatchServiceError
     defaultService
@@ -985,7 +985,7 @@ _InvalidPaginationTokenException =
 
 -- | An exception for trying to create or access sub-resource that is either
 -- invalid or not supported. Gives http status code of 409.
-_InvalidTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTypeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTypeException =
   Core._MatchServiceError
     defaultService
@@ -994,7 +994,7 @@ _InvalidTypeException =
 
 -- | An exception for trying to create more than allowed resources or
 -- sub-resources. Gives http status code of 409.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1003,7 +1003,7 @@ _LimitExceededException =
 
 -- | An exception for creating a resource that already exists. Gives http
 -- status code of 400.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -1012,7 +1012,7 @@ _ResourceAlreadyExistsException =
 
 -- | An exception for accessing or deleting a resource that does not exist.
 -- Gives http status code of 400.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1021,7 +1021,7 @@ _ResourceNotFoundException =
 
 -- | An exception for missing \/ invalid input fields. Gives http status code
 -- of 400.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

@@ -576,7 +576,8 @@ instance Core.AWSRequest GenerateDataSet where
 
 instance Prelude.Hashable GenerateDataSet where
   hashWithSalt _salt GenerateDataSet' {..} =
-    _salt `Prelude.hashWithSalt` customerDefinedValues
+    _salt
+      `Prelude.hashWithSalt` customerDefinedValues
       `Prelude.hashWithSalt` destinationS3Prefix
       `Prelude.hashWithSalt` dataSetType
       `Prelude.hashWithSalt` dataSetPublicationDate

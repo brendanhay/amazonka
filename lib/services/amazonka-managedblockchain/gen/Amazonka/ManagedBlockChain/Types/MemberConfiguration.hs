@@ -200,7 +200,8 @@ memberConfiguration_frameworkConfiguration = Lens.lens (\MemberConfiguration' {f
 
 instance Prelude.Hashable MemberConfiguration where
   hashWithSalt _salt MemberConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` logPublishingConfiguration
       `Prelude.hashWithSalt` tags

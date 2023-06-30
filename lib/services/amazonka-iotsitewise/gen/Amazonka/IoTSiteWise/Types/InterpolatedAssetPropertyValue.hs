@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     InterpolatedAssetPropertyValue' {..} =
-      _salt `Prelude.hashWithSalt` timestamp
+      _salt
+        `Prelude.hashWithSalt` timestamp
         `Prelude.hashWithSalt` value
 
 instance

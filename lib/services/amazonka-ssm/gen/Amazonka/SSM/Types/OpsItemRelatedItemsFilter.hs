@@ -85,7 +85,8 @@ opsItemRelatedItemsFilter_operator = Lens.lens (\OpsItemRelatedItemsFilter' {ope
 
 instance Prelude.Hashable OpsItemRelatedItemsFilter where
   hashWithSalt _salt OpsItemRelatedItemsFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

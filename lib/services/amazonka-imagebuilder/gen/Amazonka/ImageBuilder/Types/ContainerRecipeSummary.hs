@@ -136,7 +136,8 @@ instance Data.FromJSON ContainerRecipeSummary where
 
 instance Prelude.Hashable ContainerRecipeSummary where
   hashWithSalt _salt ContainerRecipeSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` containerType
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` name

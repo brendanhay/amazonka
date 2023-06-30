@@ -117,7 +117,8 @@ instance Data.FromJSON RelationalTable where
 
 instance Prelude.Hashable RelationalTable where
   hashWithSalt _salt RelationalTable' {..} =
-    _salt `Prelude.hashWithSalt` catalog
+    _salt
+      `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` dataSourceArn
       `Prelude.hashWithSalt` name

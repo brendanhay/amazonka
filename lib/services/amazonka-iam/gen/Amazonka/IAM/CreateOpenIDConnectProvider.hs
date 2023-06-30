@@ -307,7 +307,9 @@ instance Core.AWSRequest CreateOpenIDConnectProvider where
       ( \s h x ->
           CreateOpenIDConnectProviderResponse'
             Prelude.<$> (x Data..@? "OpenIDConnectProviderArn")
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -315,7 +317,8 @@ instance Core.AWSRequest CreateOpenIDConnectProvider where
 
 instance Prelude.Hashable CreateOpenIDConnectProvider where
   hashWithSalt _salt CreateOpenIDConnectProvider' {..} =
-    _salt `Prelude.hashWithSalt` clientIDList
+    _salt
+      `Prelude.hashWithSalt` clientIDList
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` thumbprintList

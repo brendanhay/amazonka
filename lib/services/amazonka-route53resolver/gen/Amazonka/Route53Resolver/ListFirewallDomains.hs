@@ -144,22 +144,22 @@ instance Core.AWSPager ListFirewallDomains where
     | Core.stop
         ( rs
             Lens.^? listFirewallDomainsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFirewallDomainsResponse_domains
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFirewallDomains_nextToken
           Lens..~ rs
           Lens.^? listFirewallDomainsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFirewallDomains where
   type
@@ -178,7 +178,8 @@ instance Core.AWSRequest ListFirewallDomains where
 
 instance Prelude.Hashable ListFirewallDomains where
   hashWithSalt _salt ListFirewallDomains' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` firewallDomainListId
 

@@ -194,7 +194,8 @@ instance Data.FromJSON UserSettings where
 
 instance Prelude.Hashable UserSettings where
   hashWithSalt _salt UserSettings' {..} =
-    _salt `Prelude.hashWithSalt` canvasAppSettings
+    _salt
+      `Prelude.hashWithSalt` canvasAppSettings
       `Prelude.hashWithSalt` executionRole
       `Prelude.hashWithSalt` jupyterServerAppSettings
       `Prelude.hashWithSalt` kernelGatewayAppSettings

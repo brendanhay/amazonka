@@ -123,7 +123,8 @@ instance Data.FromJSON CoreNetworkChange where
 
 instance Prelude.Hashable CoreNetworkChange where
   hashWithSalt _salt CoreNetworkChange' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` identifierPath
       `Prelude.hashWithSalt` newValues'

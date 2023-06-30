@@ -192,7 +192,8 @@ instance Data.FromJSON ContactData where
 
 instance Prelude.Hashable ContactData where
   hashWithSalt _salt ContactData' {..} =
-    _salt `Prelude.hashWithSalt` contactId
+    _salt
+      `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` contactStatus
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` errorMessage

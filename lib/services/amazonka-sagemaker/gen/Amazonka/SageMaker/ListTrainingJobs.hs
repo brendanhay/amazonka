@@ -227,21 +227,21 @@ instance Core.AWSPager ListTrainingJobs where
     | Core.stop
         ( rs
             Lens.^? listTrainingJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listTrainingJobsResponse_trainingJobSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTrainingJobs_nextToken
           Lens..~ rs
           Lens.^? listTrainingJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrainingJobs where
   type
@@ -255,14 +255,16 @@ instance Core.AWSRequest ListTrainingJobs where
           ListTrainingJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "TrainingJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "TrainingJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListTrainingJobs where
   hashWithSalt _salt ListTrainingJobs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

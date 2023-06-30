@@ -111,7 +111,8 @@ instance Core.AWSRequest SetLocalConsolePassword where
 
 instance Prelude.Hashable SetLocalConsolePassword where
   hashWithSalt _salt SetLocalConsolePassword' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` localConsolePassword
 
 instance Prelude.NFData SetLocalConsolePassword where

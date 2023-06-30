@@ -135,7 +135,8 @@ instance Data.FromJSON MediaPlacement where
 
 instance Prelude.Hashable MediaPlacement where
   hashWithSalt _salt MediaPlacement' {..} =
-    _salt `Prelude.hashWithSalt` audioFallbackUrl
+    _salt
+      `Prelude.hashWithSalt` audioFallbackUrl
       `Prelude.hashWithSalt` audioHostUrl
       `Prelude.hashWithSalt` eventIngestionUrl
       `Prelude.hashWithSalt` screenDataUrl

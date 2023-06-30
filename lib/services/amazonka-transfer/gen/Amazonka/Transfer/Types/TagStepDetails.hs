@@ -115,7 +115,8 @@ instance Data.FromJSON TagStepDetails where
 
 instance Prelude.Hashable TagStepDetails where
   hashWithSalt _salt TagStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceFileLocation
       `Prelude.hashWithSalt` tags
 

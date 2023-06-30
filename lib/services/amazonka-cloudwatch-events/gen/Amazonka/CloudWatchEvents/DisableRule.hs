@@ -97,7 +97,8 @@ instance Core.AWSRequest DisableRule where
 
 instance Prelude.Hashable DisableRule where
   hashWithSalt _salt DisableRule' {..} =
-    _salt `Prelude.hashWithSalt` eventBusName
+    _salt
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DisableRule where

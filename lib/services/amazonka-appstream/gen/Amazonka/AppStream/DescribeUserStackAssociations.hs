@@ -141,23 +141,23 @@ instance Core.AWSPager DescribeUserStackAssociations where
     | Core.stop
         ( rs
             Lens.^? describeUserStackAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeUserStackAssociationsResponse_userStackAssociations
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeUserStackAssociations_nextToken
           Lens..~ rs
           Lens.^? describeUserStackAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -182,7 +182,8 @@ instance
     DescribeUserStackAssociations
   where
   hashWithSalt _salt DescribeUserStackAssociations' {..} =
-    _salt `Prelude.hashWithSalt` authenticationType
+    _salt
+      `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName

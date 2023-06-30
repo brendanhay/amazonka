@@ -201,7 +201,9 @@ instance Core.AWSRequest CreateSAMLProvider where
       ( \s h x ->
           CreateSAMLProviderResponse'
             Prelude.<$> (x Data..@? "SAMLProviderArn")
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -209,7 +211,8 @@ instance Core.AWSRequest CreateSAMLProvider where
 
 instance Prelude.Hashable CreateSAMLProvider where
   hashWithSalt _salt CreateSAMLProvider' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sAMLMetadataDocument
       `Prelude.hashWithSalt` name
 

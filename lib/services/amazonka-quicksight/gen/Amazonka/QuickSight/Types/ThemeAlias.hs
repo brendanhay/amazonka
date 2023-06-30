@@ -84,7 +84,8 @@ instance Data.FromJSON ThemeAlias where
 
 instance Prelude.Hashable ThemeAlias where
   hashWithSalt _salt ThemeAlias' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` themeVersionNumber
 

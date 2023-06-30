@@ -82,7 +82,8 @@ instance Data.FromJSON OutputDataConfig where
 
 instance Prelude.Hashable OutputDataConfig where
   hashWithSalt _salt OutputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` encryptionKey
+    _salt
+      `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData OutputDataConfig where

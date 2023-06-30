@@ -84,7 +84,8 @@ instance Data.FromJSON TransformEncryption where
 
 instance Prelude.Hashable TransformEncryption where
   hashWithSalt _salt TransformEncryption' {..} =
-    _salt `Prelude.hashWithSalt` mlUserDataEncryption
+    _salt
+      `Prelude.hashWithSalt` mlUserDataEncryption
       `Prelude.hashWithSalt` taskRunSecurityConfigurationName
 
 instance Prelude.NFData TransformEncryption where

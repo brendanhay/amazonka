@@ -124,7 +124,8 @@ instance Core.AWSRequest ListChunks where
 
 instance Prelude.Hashable ListChunks where
   hashWithSalt _salt ListChunks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` storageJobId
       `Prelude.hashWithSalt` objectToken

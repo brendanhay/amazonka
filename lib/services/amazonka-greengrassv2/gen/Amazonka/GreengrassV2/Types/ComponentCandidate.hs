@@ -87,7 +87,8 @@ componentCandidate_versionRequirements = Lens.lens (\ComponentCandidate' {versio
 
 instance Prelude.Hashable ComponentCandidate where
   hashWithSalt _salt ComponentCandidate' {..} =
-    _salt `Prelude.hashWithSalt` componentName
+    _salt
+      `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` versionRequirements
 

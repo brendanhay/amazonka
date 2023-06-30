@@ -190,7 +190,8 @@ instance
     SpotProvisioningSpecification
   where
   hashWithSalt _salt SpotProvisioningSpecification' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` blockDurationMinutes
       `Prelude.hashWithSalt` timeoutDurationMinutes
       `Prelude.hashWithSalt` timeoutAction

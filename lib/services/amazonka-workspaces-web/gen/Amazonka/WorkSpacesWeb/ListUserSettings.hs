@@ -105,7 +105,8 @@ instance Core.AWSRequest ListUserSettings where
 
 instance Prelude.Hashable ListUserSettings where
   hashWithSalt _salt ListUserSettings' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListUserSettings where

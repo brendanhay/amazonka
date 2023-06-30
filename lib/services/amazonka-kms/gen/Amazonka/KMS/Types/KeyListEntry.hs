@@ -74,7 +74,8 @@ instance Data.FromJSON KeyListEntry where
 
 instance Prelude.Hashable KeyListEntry where
   hashWithSalt _salt KeyListEntry' {..} =
-    _salt `Prelude.hashWithSalt` keyArn
+    _salt
+      `Prelude.hashWithSalt` keyArn
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData KeyListEntry where

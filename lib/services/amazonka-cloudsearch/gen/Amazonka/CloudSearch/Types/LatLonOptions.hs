@@ -115,7 +115,8 @@ instance Data.FromXML LatLonOptions where
 
 instance Prelude.Hashable LatLonOptions where
   hashWithSalt _salt LatLonOptions' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` facetEnabled
       `Prelude.hashWithSalt` returnEnabled
       `Prelude.hashWithSalt` searchEnabled

@@ -155,7 +155,8 @@ instance Data.FromJSON DomainPackageDetails where
 
 instance Prelude.Hashable DomainPackageDetails where
   hashWithSalt _salt DomainPackageDetails' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` domainPackageStatus
       `Prelude.hashWithSalt` errorDetails
       `Prelude.hashWithSalt` lastUpdated

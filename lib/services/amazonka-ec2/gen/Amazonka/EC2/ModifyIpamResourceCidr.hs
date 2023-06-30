@@ -191,7 +191,8 @@ instance Core.AWSRequest ModifyIpamResourceCidr where
 
 instance Prelude.Hashable ModifyIpamResourceCidr where
   hashWithSalt _salt ModifyIpamResourceCidr' {..} =
-    _salt `Prelude.hashWithSalt` destinationIpamScopeId
+    _salt
+      `Prelude.hashWithSalt` destinationIpamScopeId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceCidr

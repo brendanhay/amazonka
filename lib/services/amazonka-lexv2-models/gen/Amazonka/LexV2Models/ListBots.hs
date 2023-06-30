@@ -156,7 +156,8 @@ instance Core.AWSRequest ListBots where
 
 instance Prelude.Hashable ListBots where
   hashWithSalt _salt ListBots' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

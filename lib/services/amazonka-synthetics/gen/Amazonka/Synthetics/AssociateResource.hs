@@ -113,7 +113,8 @@ instance Core.AWSRequest AssociateResource where
 
 instance Prelude.Hashable AssociateResource where
   hashWithSalt _salt AssociateResource' {..} =
-    _salt `Prelude.hashWithSalt` groupIdentifier
+    _salt
+      `Prelude.hashWithSalt` groupIdentifier
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData AssociateResource where

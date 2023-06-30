@@ -36,8 +36,8 @@ data CanaryScheduleOutput = CanaryScheduleOutput'
     -- | A @rate@ expression or a @cron@ expression that defines how often the
     -- canary is to run.
     --
-    -- For a rate expression, The syntax is @rate(number unit)@. /unit/ can be
-    -- @minute@, @minutes@, or @hour@.
+    -- For a rate expression, The syntax is @rate(@/@number unit@/@)@. /unit/
+    -- can be @minute@, @minutes@, or @hour@.
     --
     -- For example, @rate(1 minute)@ runs the canary once a minute,
     -- @rate(10 minutes)@ runs it once every 10 minutes, and @rate(1 hour)@
@@ -47,8 +47,8 @@ data CanaryScheduleOutput = CanaryScheduleOutput'
     -- Specifying @rate(0 minute)@ or @rate(0 hour)@ is a special value that
     -- causes the canary to run only once when it is started.
     --
-    -- Use @cron(expression)@ to specify a cron expression. For information
-    -- about the syntax for cron expressions, see
+    -- Use @cron(@/@expression@/@)@ to specify a cron expression. For
+    -- information about the syntax for cron expressions, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html Scheduling canary runs using cron>.
     expression :: Prelude.Maybe Prelude.Text
   }
@@ -69,8 +69,8 @@ data CanaryScheduleOutput = CanaryScheduleOutput'
 -- 'expression', 'canaryScheduleOutput_expression' - A @rate@ expression or a @cron@ expression that defines how often the
 -- canary is to run.
 --
--- For a rate expression, The syntax is @rate(number unit)@. /unit/ can be
--- @minute@, @minutes@, or @hour@.
+-- For a rate expression, The syntax is @rate(@/@number unit@/@)@. /unit/
+-- can be @minute@, @minutes@, or @hour@.
 --
 -- For example, @rate(1 minute)@ runs the canary once a minute,
 -- @rate(10 minutes)@ runs it once every 10 minutes, and @rate(1 hour)@
@@ -80,8 +80,8 @@ data CanaryScheduleOutput = CanaryScheduleOutput'
 -- Specifying @rate(0 minute)@ or @rate(0 hour)@ is a special value that
 -- causes the canary to run only once when it is started.
 --
--- Use @cron(expression)@ to specify a cron expression. For information
--- about the syntax for cron expressions, see
+-- Use @cron(@/@expression@/@)@ to specify a cron expression. For
+-- information about the syntax for cron expressions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html Scheduling canary runs using cron>.
 newCanaryScheduleOutput ::
   CanaryScheduleOutput
@@ -101,8 +101,8 @@ canaryScheduleOutput_durationInSeconds = Lens.lens (\CanaryScheduleOutput' {dura
 -- | A @rate@ expression or a @cron@ expression that defines how often the
 -- canary is to run.
 --
--- For a rate expression, The syntax is @rate(number unit)@. /unit/ can be
--- @minute@, @minutes@, or @hour@.
+-- For a rate expression, The syntax is @rate(@/@number unit@/@)@. /unit/
+-- can be @minute@, @minutes@, or @hour@.
 --
 -- For example, @rate(1 minute)@ runs the canary once a minute,
 -- @rate(10 minutes)@ runs it once every 10 minutes, and @rate(1 hour)@
@@ -112,8 +112,8 @@ canaryScheduleOutput_durationInSeconds = Lens.lens (\CanaryScheduleOutput' {dura
 -- Specifying @rate(0 minute)@ or @rate(0 hour)@ is a special value that
 -- causes the canary to run only once when it is started.
 --
--- Use @cron(expression)@ to specify a cron expression. For information
--- about the syntax for cron expressions, see
+-- Use @cron(@/@expression@/@)@ to specify a cron expression. For
+-- information about the syntax for cron expressions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html Scheduling canary runs using cron>.
 canaryScheduleOutput_expression :: Lens.Lens' CanaryScheduleOutput (Prelude.Maybe Prelude.Text)
 canaryScheduleOutput_expression = Lens.lens (\CanaryScheduleOutput' {expression} -> expression) (\s@CanaryScheduleOutput' {} a -> s {expression = a} :: CanaryScheduleOutput)
@@ -130,7 +130,8 @@ instance Data.FromJSON CanaryScheduleOutput where
 
 instance Prelude.Hashable CanaryScheduleOutput where
   hashWithSalt _salt CanaryScheduleOutput' {..} =
-    _salt `Prelude.hashWithSalt` durationInSeconds
+    _salt
+      `Prelude.hashWithSalt` durationInSeconds
       `Prelude.hashWithSalt` expression
 
 instance Prelude.NFData CanaryScheduleOutput where

@@ -103,7 +103,8 @@ visualReferenceInput_baseCanaryRunId = Lens.lens (\VisualReferenceInput' {baseCa
 
 instance Prelude.Hashable VisualReferenceInput where
   hashWithSalt _salt VisualReferenceInput' {..} =
-    _salt `Prelude.hashWithSalt` baseScreenshots
+    _salt
+      `Prelude.hashWithSalt` baseScreenshots
       `Prelude.hashWithSalt` baseCanaryRunId
 
 instance Prelude.NFData VisualReferenceInput where

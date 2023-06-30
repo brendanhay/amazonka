@@ -127,7 +127,8 @@ instance Core.AWSRequest ListAssociatedGroups where
 
 instance Prelude.Hashable ListAssociatedGroups where
   hashWithSalt _salt ListAssociatedGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 

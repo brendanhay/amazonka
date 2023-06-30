@@ -74,7 +74,8 @@ instance Data.FromJSON CanaryRunTimeline where
 
 instance Prelude.Hashable CanaryRunTimeline where
   hashWithSalt _salt CanaryRunTimeline' {..} =
-    _salt `Prelude.hashWithSalt` completed
+    _salt
+      `Prelude.hashWithSalt` completed
       `Prelude.hashWithSalt` started
 
 instance Prelude.NFData CanaryRunTimeline where

@@ -87,7 +87,8 @@ instance Data.FromJSON BaseScreenshot where
       "BaseScreenshot"
       ( \x ->
           BaseScreenshot'
-            Prelude.<$> ( x Data..:? "IgnoreCoordinates"
+            Prelude.<$> ( x
+                            Data..:? "IgnoreCoordinates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "ScreenshotName")
@@ -95,7 +96,8 @@ instance Data.FromJSON BaseScreenshot where
 
 instance Prelude.Hashable BaseScreenshot where
   hashWithSalt _salt BaseScreenshot' {..} =
-    _salt `Prelude.hashWithSalt` ignoreCoordinates
+    _salt
+      `Prelude.hashWithSalt` ignoreCoordinates
       `Prelude.hashWithSalt` screenshotName
 
 instance Prelude.NFData BaseScreenshot where

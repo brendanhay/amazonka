@@ -161,7 +161,8 @@ canaryRunConfigInput_timeoutInSeconds = Lens.lens (\CanaryRunConfigInput' {timeo
 
 instance Prelude.Hashable CanaryRunConfigInput where
   hashWithSalt _salt CanaryRunConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` activeTracing
+    _salt
+      `Prelude.hashWithSalt` activeTracing
       `Prelude.hashWithSalt` environmentVariables
       `Prelude.hashWithSalt` memoryInMB
       `Prelude.hashWithSalt` timeoutInSeconds

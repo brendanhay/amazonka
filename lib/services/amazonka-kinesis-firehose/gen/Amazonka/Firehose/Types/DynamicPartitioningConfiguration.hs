@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     DynamicPartitioningConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` retryOptions
 
 instance

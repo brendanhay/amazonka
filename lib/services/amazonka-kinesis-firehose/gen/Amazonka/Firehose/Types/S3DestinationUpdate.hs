@@ -170,7 +170,8 @@ s3DestinationUpdate_roleARN = Lens.lens (\S3DestinationUpdate' {roleARN} -> role
 
 instance Prelude.Hashable S3DestinationUpdate where
   hashWithSalt _salt S3DestinationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` bucketARN
+    _salt
+      `Prelude.hashWithSalt` bucketARN
       `Prelude.hashWithSalt` bufferingHints
       `Prelude.hashWithSalt` cloudWatchLoggingOptions
       `Prelude.hashWithSalt` compressionFormat

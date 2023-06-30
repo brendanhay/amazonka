@@ -131,7 +131,8 @@ instance Core.AWSRequest ListTagsForDeliveryStream where
 
 instance Prelude.Hashable ListTagsForDeliveryStream where
   hashWithSalt _salt ListTagsForDeliveryStream' {..} =
-    _salt `Prelude.hashWithSalt` exclusiveStartTagKey
+    _salt
+      `Prelude.hashWithSalt` exclusiveStartTagKey
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` deliveryStreamName
 

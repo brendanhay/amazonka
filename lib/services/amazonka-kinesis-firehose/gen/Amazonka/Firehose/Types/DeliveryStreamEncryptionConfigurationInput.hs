@@ -159,7 +159,8 @@ instance
   hashWithSalt
     _salt
     DeliveryStreamEncryptionConfigurationInput' {..} =
-      _salt `Prelude.hashWithSalt` keyARN
+      _salt
+        `Prelude.hashWithSalt` keyARN
         `Prelude.hashWithSalt` keyType
 
 instance

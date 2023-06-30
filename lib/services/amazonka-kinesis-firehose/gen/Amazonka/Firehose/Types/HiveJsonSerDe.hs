@@ -82,7 +82,8 @@ instance Data.FromJSON HiveJsonSerDe where
       "HiveJsonSerDe"
       ( \x ->
           HiveJsonSerDe'
-            Prelude.<$> ( x Data..:? "TimestampFormats"
+            Prelude.<$> ( x
+                            Data..:? "TimestampFormats"
                             Data..!= Prelude.mempty
                         )
       )

@@ -112,7 +112,8 @@ instance Core.AWSRequest UntagDeliveryStream where
 
 instance Prelude.Hashable UntagDeliveryStream where
   hashWithSalt _salt UntagDeliveryStream' {..} =
-    _salt `Prelude.hashWithSalt` deliveryStreamName
+    _salt
+      `Prelude.hashWithSalt` deliveryStreamName
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagDeliveryStream where

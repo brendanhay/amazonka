@@ -237,7 +237,8 @@ vpcConfiguration_securityGroupIds = Lens.lens (\VpcConfiguration' {securityGroup
 
 instance Prelude.Hashable VpcConfiguration where
   hashWithSalt _salt VpcConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` subnetIds
+    _salt
+      `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` securityGroupIds
 

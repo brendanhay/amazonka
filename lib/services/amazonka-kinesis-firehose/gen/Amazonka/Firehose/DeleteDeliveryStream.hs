@@ -144,7 +144,8 @@ instance Core.AWSRequest DeleteDeliveryStream where
 
 instance Prelude.Hashable DeleteDeliveryStream where
   hashWithSalt _salt DeleteDeliveryStream' {..} =
-    _salt `Prelude.hashWithSalt` allowForceDelete
+    _salt
+      `Prelude.hashWithSalt` allowForceDelete
       `Prelude.hashWithSalt` deliveryStreamName
 
 instance Prelude.NFData DeleteDeliveryStream where

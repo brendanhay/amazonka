@@ -200,7 +200,8 @@ instance Core.AWSRequest UpdateRule where
 
 instance Prelude.Hashable UpdateRule where
   hashWithSalt _salt UpdateRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` resourceTags
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` retentionPeriod

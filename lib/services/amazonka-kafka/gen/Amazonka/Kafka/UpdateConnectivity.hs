@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateConnectivity where
 
 instance Prelude.Hashable UpdateConnectivity where
   hashWithSalt _salt UpdateConnectivity' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` connectivityInfo
       `Prelude.hashWithSalt` currentVersion
 

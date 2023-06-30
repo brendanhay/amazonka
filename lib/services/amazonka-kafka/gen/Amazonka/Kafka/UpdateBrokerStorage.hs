@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateBrokerStorage where
 
 instance Prelude.Hashable UpdateBrokerStorage where
   hashWithSalt _salt UpdateBrokerStorage' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` targetBrokerEBSVolumeInfo
       `Prelude.hashWithSalt` currentVersion
 

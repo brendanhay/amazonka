@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateStorage where
 
 instance Prelude.Hashable UpdateStorage where
   hashWithSalt _salt UpdateStorage' {..} =
-    _salt `Prelude.hashWithSalt` provisionedThroughput
+    _salt
+      `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` storageMode
       `Prelude.hashWithSalt` volumeSizeGB
       `Prelude.hashWithSalt` clusterArn

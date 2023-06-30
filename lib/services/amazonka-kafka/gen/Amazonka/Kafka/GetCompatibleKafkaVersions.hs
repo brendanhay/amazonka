@@ -85,7 +85,8 @@ instance Core.AWSRequest GetCompatibleKafkaVersions where
     Response.receiveJSON
       ( \s h x ->
           GetCompatibleKafkaVersionsResponse'
-            Prelude.<$> ( x Data..?> "compatibleKafkaVersions"
+            Prelude.<$> ( x
+                            Data..?> "compatibleKafkaVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

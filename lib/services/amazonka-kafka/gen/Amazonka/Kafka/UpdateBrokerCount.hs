@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateBrokerCount where
 
 instance Prelude.Hashable UpdateBrokerCount where
   hashWithSalt _salt UpdateBrokerCount' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` targetNumberOfBrokerNodes
 

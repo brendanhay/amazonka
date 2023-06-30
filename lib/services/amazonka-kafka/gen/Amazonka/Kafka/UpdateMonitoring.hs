@@ -153,7 +153,8 @@ instance Core.AWSRequest UpdateMonitoring where
 
 instance Prelude.Hashable UpdateMonitoring where
   hashWithSalt _salt UpdateMonitoring' {..} =
-    _salt `Prelude.hashWithSalt` enhancedMonitoring
+    _salt
+      `Prelude.hashWithSalt` enhancedMonitoring
       `Prelude.hashWithSalt` loggingInfo
       `Prelude.hashWithSalt` openMonitoring
       `Prelude.hashWithSalt` clusterArn

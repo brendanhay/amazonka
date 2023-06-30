@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateSecurity where
 
 instance Prelude.Hashable UpdateSecurity where
   hashWithSalt _salt UpdateSecurity' {..} =
-    _salt `Prelude.hashWithSalt` clientAuthentication
+    _salt
+      `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` currentVersion

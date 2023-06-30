@@ -117,7 +117,8 @@ instance Data.FromJSON NodeInfo where
 
 instance Prelude.Hashable NodeInfo where
   hashWithSalt _salt NodeInfo' {..} =
-    _salt `Prelude.hashWithSalt` addedToClusterTime
+    _salt
+      `Prelude.hashWithSalt` addedToClusterTime
       `Prelude.hashWithSalt` brokerNodeInfo
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` nodeARN

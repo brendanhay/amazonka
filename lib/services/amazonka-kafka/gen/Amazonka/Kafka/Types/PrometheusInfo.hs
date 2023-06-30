@@ -76,7 +76,8 @@ instance Data.FromJSON PrometheusInfo where
 
 instance Prelude.Hashable PrometheusInfo where
   hashWithSalt _salt PrometheusInfo' {..} =
-    _salt `Prelude.hashWithSalt` jmxExporter
+    _salt
+      `Prelude.hashWithSalt` jmxExporter
       `Prelude.hashWithSalt` nodeExporter
 
 instance Prelude.NFData PrometheusInfo where

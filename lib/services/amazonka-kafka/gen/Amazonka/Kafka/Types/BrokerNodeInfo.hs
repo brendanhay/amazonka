@@ -118,7 +118,8 @@ instance Data.FromJSON BrokerNodeInfo where
 
 instance Prelude.Hashable BrokerNodeInfo where
   hashWithSalt _salt BrokerNodeInfo' {..} =
-    _salt `Prelude.hashWithSalt` attachedENIId
+    _salt
+      `Prelude.hashWithSalt` attachedENIId
       `Prelude.hashWithSalt` brokerId
       `Prelude.hashWithSalt` clientSubnet
       `Prelude.hashWithSalt` clientVpcIpAddress

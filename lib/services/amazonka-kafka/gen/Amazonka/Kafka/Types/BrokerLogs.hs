@@ -82,7 +82,8 @@ instance Data.FromJSON BrokerLogs where
 
 instance Prelude.Hashable BrokerLogs where
   hashWithSalt _salt BrokerLogs' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` firehose
       `Prelude.hashWithSalt` s3
 

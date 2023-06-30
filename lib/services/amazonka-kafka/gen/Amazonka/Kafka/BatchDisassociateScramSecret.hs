@@ -101,7 +101,8 @@ instance Core.AWSRequest BatchDisassociateScramSecret where
       ( \s h x ->
           BatchDisassociateScramSecretResponse'
             Prelude.<$> (x Data..?> "clusterArn")
-            Prelude.<*> ( x Data..?> "unprocessedScramSecrets"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedScramSecrets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -112,7 +113,8 @@ instance
     BatchDisassociateScramSecret
   where
   hashWithSalt _salt BatchDisassociateScramSecret' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` secretArnList
 
 instance Prelude.NFData BatchDisassociateScramSecret where

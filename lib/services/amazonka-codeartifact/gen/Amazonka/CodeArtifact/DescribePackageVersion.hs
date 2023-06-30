@@ -201,7 +201,8 @@ instance Core.AWSRequest DescribePackageVersion where
 
 instance Prelude.Hashable DescribePackageVersion where
   hashWithSalt _salt DescribePackageVersion' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository

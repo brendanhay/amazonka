@@ -68,12 +68,14 @@ instance Data.FromJSON LicenseInfo where
       "LicenseInfo"
       ( \x ->
           LicenseInfo'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "url")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable LicenseInfo where
   hashWithSalt _salt LicenseInfo' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData LicenseInfo where

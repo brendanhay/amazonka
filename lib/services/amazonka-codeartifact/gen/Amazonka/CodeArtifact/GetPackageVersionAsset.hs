@@ -242,7 +242,8 @@ instance Core.AWSRequest GetPackageVersionAsset where
 
 instance Prelude.Hashable GetPackageVersionAsset where
   hashWithSalt _salt GetPackageVersionAsset' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` packageVersionRevision
       `Prelude.hashWithSalt` domain

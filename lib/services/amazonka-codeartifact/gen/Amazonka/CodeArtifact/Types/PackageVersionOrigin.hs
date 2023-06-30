@@ -95,7 +95,8 @@ instance Data.FromJSON PackageVersionOrigin where
 
 instance Prelude.Hashable PackageVersionOrigin where
   hashWithSalt _salt PackageVersionOrigin' {..} =
-    _salt `Prelude.hashWithSalt` domainEntryPoint
+    _salt
+      `Prelude.hashWithSalt` domainEntryPoint
       `Prelude.hashWithSalt` originType
 
 instance Prelude.NFData PackageVersionOrigin where

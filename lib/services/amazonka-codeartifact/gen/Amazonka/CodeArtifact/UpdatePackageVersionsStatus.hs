@@ -253,7 +253,8 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
       ( \s h x ->
           UpdatePackageVersionsStatusResponse'
             Prelude.<$> (x Data..?> "failedVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "successfulVersions"
+            Prelude.<*> ( x
+                            Data..?> "successfulVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -261,7 +262,8 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
 
 instance Prelude.Hashable UpdatePackageVersionsStatus where
   hashWithSalt _salt UpdatePackageVersionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` expectedStatus
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` versionRevisions

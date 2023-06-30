@@ -120,7 +120,8 @@ instance Data.FromJSON PackageDescription where
 
 instance Prelude.Hashable PackageDescription where
   hashWithSalt _salt PackageDescription' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` originConfiguration

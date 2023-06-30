@@ -154,22 +154,22 @@ instance Core.AWSPager ListRepositoriesInDomain where
     | Core.stop
         ( rs
             Lens.^? listRepositoriesInDomainResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRepositoriesInDomainResponse_repositories
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRepositoriesInDomain_nextToken
           Lens..~ rs
           Lens.^? listRepositoriesInDomainResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRepositoriesInDomain where
   type
@@ -188,7 +188,8 @@ instance Core.AWSRequest ListRepositoriesInDomain where
 
 instance Prelude.Hashable ListRepositoriesInDomain where
   hashWithSalt _salt ListRepositoriesInDomain' {..} =
-    _salt `Prelude.hashWithSalt` administratorAccount
+    _salt
+      `Prelude.hashWithSalt` administratorAccount
       `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

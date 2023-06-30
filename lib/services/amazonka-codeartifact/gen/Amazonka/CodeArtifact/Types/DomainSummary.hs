@@ -121,7 +121,8 @@ instance Data.FromJSON DomainSummary where
 
 instance Prelude.Hashable DomainSummary where
   hashWithSalt _salt DomainSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` name

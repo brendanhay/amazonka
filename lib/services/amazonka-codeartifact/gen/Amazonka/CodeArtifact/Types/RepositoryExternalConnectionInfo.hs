@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     RepositoryExternalConnectionInfo' {..} =
-      _salt `Prelude.hashWithSalt` externalConnectionName
+      _salt
+        `Prelude.hashWithSalt` externalConnectionName
         `Prelude.hashWithSalt` packageFormat
         `Prelude.hashWithSalt` status
 

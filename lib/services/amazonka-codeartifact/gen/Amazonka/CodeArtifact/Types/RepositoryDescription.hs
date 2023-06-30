@@ -157,7 +157,8 @@ instance Data.FromJSON RepositoryDescription where
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "domainName")
             Prelude.<*> (x Data..:? "domainOwner")
-            Prelude.<*> ( x Data..:? "externalConnections"
+            Prelude.<*> ( x
+                            Data..:? "externalConnections"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")
@@ -166,7 +167,8 @@ instance Data.FromJSON RepositoryDescription where
 
 instance Prelude.Hashable RepositoryDescription where
   hashWithSalt _salt RepositoryDescription' {..} =
-    _salt `Prelude.hashWithSalt` administratorAccount
+    _salt
+      `Prelude.hashWithSalt` administratorAccount
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` domainName

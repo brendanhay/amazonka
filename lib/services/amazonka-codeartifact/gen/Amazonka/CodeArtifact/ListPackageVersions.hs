@@ -243,22 +243,22 @@ instance Core.AWSPager ListPackageVersions where
     | Core.stop
         ( rs
             Lens.^? listPackageVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPackageVersionsResponse_versions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPackageVersions_nextToken
           Lens..~ rs
           Lens.^? listPackageVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPackageVersions where
   type
@@ -281,7 +281,8 @@ instance Core.AWSRequest ListPackageVersions where
 
 instance Prelude.Hashable ListPackageVersions where
   hashWithSalt _salt ListPackageVersions' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` nextToken

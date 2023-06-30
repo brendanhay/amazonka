@@ -187,7 +187,8 @@ instance Core.AWSRequest DescribePackage where
 
 instance Prelude.Hashable DescribePackage where
   hashWithSalt _salt DescribePackage' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository

@@ -156,7 +156,8 @@ instance Core.AWSRequest GetAuthorizationToken where
 
 instance Prelude.Hashable GetAuthorizationToken where
   hashWithSalt _salt GetAuthorizationToken' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` domain
 

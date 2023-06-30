@@ -124,7 +124,8 @@ instance Data.FromJSON DeploymentConfigInfo where
 
 instance Prelude.Hashable DeploymentConfigInfo where
   hashWithSalt _salt DeploymentConfigInfo' {..} =
-    _salt `Prelude.hashWithSalt` computePlatform
+    _salt
+      `Prelude.hashWithSalt` computePlatform
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` deploymentConfigId
       `Prelude.hashWithSalt` deploymentConfigName

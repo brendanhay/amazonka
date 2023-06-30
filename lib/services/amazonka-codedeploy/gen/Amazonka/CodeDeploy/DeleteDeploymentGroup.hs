@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteDeploymentGroup where
     Response.receiveJSON
       ( \s h x ->
           DeleteDeploymentGroupResponse'
-            Prelude.<$> ( x Data..?> "hooksNotCleanedUp"
+            Prelude.<$> ( x
+                            Data..?> "hooksNotCleanedUp"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,7 +115,8 @@ instance Core.AWSRequest DeleteDeploymentGroup where
 
 instance Prelude.Hashable DeleteDeploymentGroup where
   hashWithSalt _salt DeleteDeploymentGroup' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` deploymentGroupName
 
 instance Prelude.NFData DeleteDeploymentGroup where

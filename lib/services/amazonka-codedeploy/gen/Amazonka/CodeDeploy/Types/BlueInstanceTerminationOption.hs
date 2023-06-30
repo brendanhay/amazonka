@@ -127,7 +127,8 @@ instance
     BlueInstanceTerminationOption
   where
   hashWithSalt _salt BlueInstanceTerminationOption' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` terminationWaitTimeInMinutes
 
 instance Prelude.NFData BlueInstanceTerminationOption where

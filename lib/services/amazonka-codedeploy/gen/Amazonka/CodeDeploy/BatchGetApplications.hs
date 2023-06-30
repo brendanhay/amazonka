@@ -91,7 +91,8 @@ instance Core.AWSRequest BatchGetApplications where
     Response.receiveJSON
       ( \s h x ->
           BatchGetApplicationsResponse'
-            Prelude.<$> ( x Data..?> "applicationsInfo"
+            Prelude.<$> ( x
+                            Data..?> "applicationsInfo"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

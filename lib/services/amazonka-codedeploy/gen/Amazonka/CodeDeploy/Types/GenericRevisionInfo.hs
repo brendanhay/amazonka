@@ -96,7 +96,8 @@ instance Data.FromJSON GenericRevisionInfo where
       "GenericRevisionInfo"
       ( \x ->
           GenericRevisionInfo'
-            Prelude.<$> ( x Data..:? "deploymentGroups"
+            Prelude.<$> ( x
+                            Data..:? "deploymentGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "description")
@@ -107,7 +108,8 @@ instance Data.FromJSON GenericRevisionInfo where
 
 instance Prelude.Hashable GenericRevisionInfo where
   hashWithSalt _salt GenericRevisionInfo' {..} =
-    _salt `Prelude.hashWithSalt` deploymentGroups
+    _salt
+      `Prelude.hashWithSalt` deploymentGroups
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` firstUsedTime
       `Prelude.hashWithSalt` lastUsedTime

@@ -148,7 +148,8 @@ instance Data.FromJSON LifecycleEvent where
 
 instance Prelude.Hashable LifecycleEvent where
   hashWithSalt _salt LifecycleEvent' {..} =
-    _salt `Prelude.hashWithSalt` diagnostics
+    _salt
+      `Prelude.hashWithSalt` diagnostics
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` lifecycleEventName
       `Prelude.hashWithSalt` startTime

@@ -182,7 +182,8 @@ instance Core.AWSRequest CreateDeploymentConfig where
 
 instance Prelude.Hashable CreateDeploymentConfig where
   hashWithSalt _salt CreateDeploymentConfig' {..} =
-    _salt `Prelude.hashWithSalt` computePlatform
+    _salt
+      `Prelude.hashWithSalt` computePlatform
       `Prelude.hashWithSalt` minimumHealthyHosts
       `Prelude.hashWithSalt` trafficRoutingConfig
       `Prelude.hashWithSalt` deploymentConfigName

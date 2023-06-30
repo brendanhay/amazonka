@@ -375,7 +375,8 @@ instance Core.AWSRequest UpdateDeploymentGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateDeploymentGroupResponse'
-            Prelude.<$> ( x Data..?> "hooksNotCleanedUp"
+            Prelude.<$> ( x
+                            Data..?> "hooksNotCleanedUp"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -383,7 +384,8 @@ instance Core.AWSRequest UpdateDeploymentGroup where
 
 instance Prelude.Hashable UpdateDeploymentGroup where
   hashWithSalt _salt UpdateDeploymentGroup' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` autoRollbackConfiguration
       `Prelude.hashWithSalt` autoScalingGroups
       `Prelude.hashWithSalt` blueGreenDeploymentConfiguration

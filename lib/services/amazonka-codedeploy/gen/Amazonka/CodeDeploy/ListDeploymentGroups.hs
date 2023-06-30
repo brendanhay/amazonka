@@ -104,22 +104,22 @@ instance Core.AWSPager ListDeploymentGroups where
     | Core.stop
         ( rs
             Lens.^? listDeploymentGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDeploymentGroupsResponse_deploymentGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDeploymentGroups_nextToken
           Lens..~ rs
           Lens.^? listDeploymentGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeploymentGroups where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest ListDeploymentGroups where
       ( \s h x ->
           ListDeploymentGroupsResponse'
             Prelude.<$> (x Data..?> "applicationName")
-            Prelude.<*> ( x Data..?> "deploymentGroups"
+            Prelude.<*> ( x
+                            Data..?> "deploymentGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -141,7 +142,8 @@ instance Core.AWSRequest ListDeploymentGroups where
 
 instance Prelude.Hashable ListDeploymentGroups where
   hashWithSalt _salt ListDeploymentGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData ListDeploymentGroups where

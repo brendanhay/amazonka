@@ -67,7 +67,8 @@ instance Data.FromJSON OnPremisesTagSet where
       "OnPremisesTagSet"
       ( \x ->
           OnPremisesTagSet'
-            Prelude.<$> ( x Data..:? "onPremisesTagSetList"
+            Prelude.<$> ( x
+                            Data..:? "onPremisesTagSetList"
                             Data..!= Prelude.mempty
                         )
       )

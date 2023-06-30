@@ -75,7 +75,8 @@ instance Data.FromJSON ECSService where
 
 instance Prelude.Hashable ECSService where
   hashWithSalt _salt ECSService' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData ECSService where

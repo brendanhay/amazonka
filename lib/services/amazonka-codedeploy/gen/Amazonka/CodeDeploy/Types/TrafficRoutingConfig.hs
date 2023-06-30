@@ -114,7 +114,8 @@ instance Data.FromJSON TrafficRoutingConfig where
 
 instance Prelude.Hashable TrafficRoutingConfig where
   hashWithSalt _salt TrafficRoutingConfig' {..} =
-    _salt `Prelude.hashWithSalt` timeBasedCanary
+    _salt
+      `Prelude.hashWithSalt` timeBasedCanary
       `Prelude.hashWithSalt` timeBasedLinear
       `Prelude.hashWithSalt` type'
 

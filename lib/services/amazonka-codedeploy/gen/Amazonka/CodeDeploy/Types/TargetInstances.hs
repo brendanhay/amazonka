@@ -99,7 +99,8 @@ instance Data.FromJSON TargetInstances where
       "TargetInstances"
       ( \x ->
           TargetInstances'
-            Prelude.<$> ( x Data..:? "autoScalingGroups"
+            Prelude.<$> ( x
+                            Data..:? "autoScalingGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ec2TagSet")
@@ -108,7 +109,8 @@ instance Data.FromJSON TargetInstances where
 
 instance Prelude.Hashable TargetInstances where
   hashWithSalt _salt TargetInstances' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroups
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroups
       `Prelude.hashWithSalt` ec2TagSet
       `Prelude.hashWithSalt` tagFilters
 

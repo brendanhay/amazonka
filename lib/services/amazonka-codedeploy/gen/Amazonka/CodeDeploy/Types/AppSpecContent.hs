@@ -116,7 +116,8 @@ instance Data.FromJSON AppSpecContent where
 
 instance Prelude.Hashable AppSpecContent where
   hashWithSalt _salt AppSpecContent' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` sha256
 
 instance Prelude.NFData AppSpecContent where

@@ -82,7 +82,8 @@ instance Data.FromJSON RawString where
 
 instance Prelude.Hashable RawString where
   hashWithSalt _salt RawString' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` sha256
 
 instance Prelude.NFData RawString where

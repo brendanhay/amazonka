@@ -121,7 +121,8 @@ instance Data.FromJSON DeploymentTarget where
 
 instance Prelude.Hashable DeploymentTarget where
   hashWithSalt _salt DeploymentTarget' {..} =
-    _salt `Prelude.hashWithSalt` cloudFormationTarget
+    _salt
+      `Prelude.hashWithSalt` cloudFormationTarget
       `Prelude.hashWithSalt` deploymentTargetType
       `Prelude.hashWithSalt` ecsTarget
       `Prelude.hashWithSalt` instanceTarget

@@ -227,14 +227,16 @@ instance Data.FromJSON Cluster where
             Prelude.<*> (x Data..: "shardCount")
             Prelude.<*> (x Data..: "status")
             Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "vpcSecurityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "vpcSecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` adminUserName
+    _salt
+      `Prelude.hashWithSalt` adminUserName
       `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` clusterEndpoint

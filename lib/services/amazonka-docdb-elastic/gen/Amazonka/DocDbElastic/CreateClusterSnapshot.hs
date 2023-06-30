@@ -117,7 +117,8 @@ instance Core.AWSRequest CreateClusterSnapshot where
 
 instance Prelude.Hashable CreateClusterSnapshot where
   hashWithSalt _salt CreateClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` snapshotName
 

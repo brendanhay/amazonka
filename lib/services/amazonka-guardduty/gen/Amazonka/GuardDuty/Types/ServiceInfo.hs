@@ -197,7 +197,8 @@ instance Data.FromJSON ServiceInfo where
 
 instance Prelude.Hashable ServiceInfo where
   hashWithSalt _salt ServiceInfo' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` archived
       `Prelude.hashWithSalt` count

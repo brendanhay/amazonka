@@ -86,7 +86,8 @@ instance
     MemberDataSourceConfiguration
   where
   hashWithSalt _salt MemberDataSourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` dataSources
 
 instance Prelude.NFData MemberDataSourceConfiguration where

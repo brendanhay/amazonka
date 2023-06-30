@@ -110,7 +110,8 @@ instance Core.AWSRequest GetIPSet where
 
 instance Prelude.Hashable GetIPSet where
   hashWithSalt _salt GetIPSet' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` ipSetId
 
 instance Prelude.NFData GetIPSet where

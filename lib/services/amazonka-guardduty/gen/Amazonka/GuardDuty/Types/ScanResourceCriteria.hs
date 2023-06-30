@@ -83,7 +83,8 @@ instance Data.FromJSON ScanResourceCriteria where
 
 instance Prelude.Hashable ScanResourceCriteria where
   hashWithSalt _salt ScanResourceCriteria' {..} =
-    _salt `Prelude.hashWithSalt` exclude
+    _salt
+      `Prelude.hashWithSalt` exclude
       `Prelude.hashWithSalt` include
 
 instance Prelude.NFData ScanResourceCriteria where

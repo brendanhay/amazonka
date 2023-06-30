@@ -153,7 +153,8 @@ instance
   hashWithSalt
     _salt
     DataSourceConfigurationsResult' {..} =
-      _salt `Prelude.hashWithSalt` kubernetes
+      _salt
+        `Prelude.hashWithSalt` kubernetes
         `Prelude.hashWithSalt` malwareProtection
         `Prelude.hashWithSalt` cloudTrail
         `Prelude.hashWithSalt` dNSLogs

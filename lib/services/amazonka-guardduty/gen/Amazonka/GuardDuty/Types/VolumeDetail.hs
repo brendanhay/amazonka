@@ -124,7 +124,8 @@ instance Data.FromJSON VolumeDetail where
 
 instance Prelude.Hashable VolumeDetail where
   hashWithSalt _salt VolumeDetail' {..} =
-    _salt `Prelude.hashWithSalt` deviceName
+    _salt
+      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` snapshotArn

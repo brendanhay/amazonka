@@ -138,7 +138,8 @@ instance Data.FromJSON Container where
 
 instance Prelude.Hashable Container where
   hashWithSalt _salt Container' {..} =
-    _salt `Prelude.hashWithSalt` containerRuntime
+    _salt
+      `Prelude.hashWithSalt` containerRuntime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` imagePrefix

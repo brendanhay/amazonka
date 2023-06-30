@@ -74,7 +74,8 @@ instance Data.FromJSON TriggerDetails where
 
 instance Prelude.Hashable TriggerDetails where
   hashWithSalt _salt TriggerDetails' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` guardDutyFindingId
 
 instance Prelude.NFData TriggerDetails where

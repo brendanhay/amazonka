@@ -79,7 +79,8 @@ instance Data.FromJSON ThreatIntelligenceDetail where
 
 instance Prelude.Hashable ThreatIntelligenceDetail where
   hashWithSalt _salt ThreatIntelligenceDetail' {..} =
-    _salt `Prelude.hashWithSalt` threatListName
+    _salt
+      `Prelude.hashWithSalt` threatListName
       `Prelude.hashWithSalt` threatNames
 
 instance Prelude.NFData ThreatIntelligenceDetail where

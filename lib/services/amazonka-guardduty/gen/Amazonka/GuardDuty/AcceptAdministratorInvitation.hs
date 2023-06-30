@@ -131,7 +131,8 @@ instance
     AcceptAdministratorInvitation
   where
   hashWithSalt _salt AcceptAdministratorInvitation' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` administratorId
       `Prelude.hashWithSalt` invitationId
 

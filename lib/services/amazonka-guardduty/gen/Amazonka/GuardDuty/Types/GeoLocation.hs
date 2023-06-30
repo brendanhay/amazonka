@@ -68,12 +68,14 @@ instance Data.FromJSON GeoLocation where
       "GeoLocation"
       ( \x ->
           GeoLocation'
-            Prelude.<$> (x Data..:? "lat") Prelude.<*> (x Data..:? "lon")
+            Prelude.<$> (x Data..:? "lat")
+            Prelude.<*> (x Data..:? "lon")
       )
 
 instance Prelude.Hashable GeoLocation where
   hashWithSalt _salt GeoLocation' {..} =
-    _salt `Prelude.hashWithSalt` lat
+    _salt
+      `Prelude.hashWithSalt` lat
       `Prelude.hashWithSalt` lon
 
 instance Prelude.NFData GeoLocation where

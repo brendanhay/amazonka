@@ -100,7 +100,8 @@ instance Core.AWSRequest UnarchiveFindings where
 
 instance Prelude.Hashable UnarchiveFindings where
   hashWithSalt _salt UnarchiveFindings' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` findingIds
 
 instance Prelude.NFData UnarchiveFindings where

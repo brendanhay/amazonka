@@ -94,7 +94,8 @@ instance Data.FromJSON UsageStatistics where
       ( \x ->
           UsageStatistics'
             Prelude.<$> (x Data..:? "sumByAccount" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "sumByDataSource"
+            Prelude.<*> ( x
+                            Data..:? "sumByDataSource"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "sumByResource" Data..!= Prelude.mempty)
@@ -103,7 +104,8 @@ instance Data.FromJSON UsageStatistics where
 
 instance Prelude.Hashable UsageStatistics where
   hashWithSalt _salt UsageStatistics' {..} =
-    _salt `Prelude.hashWithSalt` sumByAccount
+    _salt
+      `Prelude.hashWithSalt` sumByAccount
       `Prelude.hashWithSalt` sumByDataSource
       `Prelude.hashWithSalt` sumByResource
       `Prelude.hashWithSalt` topResources

@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateDetector where
 
 instance Prelude.Hashable UpdateDetector where
   hashWithSalt _salt UpdateDetector' {..} =
-    _salt `Prelude.hashWithSalt` dataSources
+    _salt
+      `Prelude.hashWithSalt` dataSources
       `Prelude.hashWithSalt` enable
       `Prelude.hashWithSalt` findingPublishingFrequency
       `Prelude.hashWithSalt` detectorId

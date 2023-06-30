@@ -74,12 +74,14 @@ instance Data.FromJSON ScanConditionPair where
       "ScanConditionPair"
       ( \x ->
           ScanConditionPair'
-            Prelude.<$> (x Data..:? "value") Prelude.<*> (x Data..: "key")
+            Prelude.<$> (x Data..:? "value")
+            Prelude.<*> (x Data..: "key")
       )
 
 instance Prelude.Hashable ScanConditionPair where
   hashWithSalt _salt ScanConditionPair' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData ScanConditionPair where

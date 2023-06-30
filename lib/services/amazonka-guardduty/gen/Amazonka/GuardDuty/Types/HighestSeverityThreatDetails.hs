@@ -95,7 +95,8 @@ instance
     HighestSeverityThreatDetails
   where
   hashWithSalt _salt HighestSeverityThreatDetails' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` threatName
 

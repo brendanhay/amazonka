@@ -76,7 +76,8 @@ instance Data.FromJSON UsageResourceResult where
 
 instance Prelude.Hashable UsageResourceResult where
   hashWithSalt _salt UsageResourceResult' {..} =
-    _salt `Prelude.hashWithSalt` resource
+    _salt
+      `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` total
 
 instance Prelude.NFData UsageResourceResult where

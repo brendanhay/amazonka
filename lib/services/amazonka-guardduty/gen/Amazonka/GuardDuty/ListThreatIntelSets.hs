@@ -127,21 +127,21 @@ instance Core.AWSPager ListThreatIntelSets where
     | Core.stop
         ( rs
             Lens.^? listThreatIntelSetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listThreatIntelSetsResponse_threatIntelSetIds
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listThreatIntelSets_nextToken
           Lens..~ rs
           Lens.^? listThreatIntelSetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThreatIntelSets where
   type
@@ -155,14 +155,16 @@ instance Core.AWSRequest ListThreatIntelSets where
           ListThreatIntelSetsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "threatIntelSetIds"
+            Prelude.<*> ( x
+                            Data..?> "threatIntelSetIds"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListThreatIntelSets where
   hashWithSalt _salt ListThreatIntelSets' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` detectorId
 

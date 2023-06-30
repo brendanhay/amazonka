@@ -180,7 +180,8 @@ instance Core.AWSRequest CreateThreatIntelSet where
 
 instance Prelude.Hashable CreateThreatIntelSet where
   hashWithSalt _salt CreateThreatIntelSet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` name

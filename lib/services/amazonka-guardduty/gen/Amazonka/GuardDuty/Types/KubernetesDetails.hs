@@ -78,7 +78,8 @@ instance Data.FromJSON KubernetesDetails where
 
 instance Prelude.Hashable KubernetesDetails where
   hashWithSalt _salt KubernetesDetails' {..} =
-    _salt `Prelude.hashWithSalt` kubernetesUserDetails
+    _salt
+      `Prelude.hashWithSalt` kubernetesUserDetails
       `Prelude.hashWithSalt` kubernetesWorkloadDetails
 
 instance Prelude.NFData KubernetesDetails where

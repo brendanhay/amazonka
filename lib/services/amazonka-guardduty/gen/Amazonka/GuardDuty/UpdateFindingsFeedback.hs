@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateFindingsFeedback where
 
 instance Prelude.Hashable UpdateFindingsFeedback where
   hashWithSalt _salt UpdateFindingsFeedback' {..} =
-    _salt `Prelude.hashWithSalt` comments
+    _salt
+      `Prelude.hashWithSalt` comments
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` findingIds
       `Prelude.hashWithSalt` feedback

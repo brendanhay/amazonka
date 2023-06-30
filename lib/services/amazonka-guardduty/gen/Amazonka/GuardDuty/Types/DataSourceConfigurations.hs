@@ -77,7 +77,8 @@ dataSourceConfigurations_s3Logs = Lens.lens (\DataSourceConfigurations' {s3Logs}
 
 instance Prelude.Hashable DataSourceConfigurations where
   hashWithSalt _salt DataSourceConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` kubernetes
+    _salt
+      `Prelude.hashWithSalt` kubernetes
       `Prelude.hashWithSalt` malwareProtection
       `Prelude.hashWithSalt` s3Logs
 

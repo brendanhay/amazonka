@@ -81,7 +81,8 @@ instance Data.FromJSON DefaultServerSideEncryption where
 
 instance Prelude.Hashable DefaultServerSideEncryption where
   hashWithSalt _salt DefaultServerSideEncryption' {..} =
-    _salt `Prelude.hashWithSalt` encryptionType
+    _salt
+      `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` kmsMasterKeyArn
 
 instance Prelude.NFData DefaultServerSideEncryption where

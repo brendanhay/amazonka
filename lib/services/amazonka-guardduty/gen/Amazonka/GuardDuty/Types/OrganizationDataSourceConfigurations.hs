@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     OrganizationDataSourceConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` kubernetes
+      _salt
+        `Prelude.hashWithSalt` kubernetes
         `Prelude.hashWithSalt` malwareProtection
         `Prelude.hashWithSalt` s3Logs
 

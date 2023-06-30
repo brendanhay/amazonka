@@ -94,7 +94,8 @@ instance Data.FromJSON ScanFilePath where
 
 instance Prelude.Hashable ScanFilePath where
   hashWithSalt _salt ScanFilePath' {..} =
-    _salt `Prelude.hashWithSalt` fileName
+    _salt
+      `Prelude.hashWithSalt` fileName
       `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` hash
       `Prelude.hashWithSalt` volumeArn

@@ -75,7 +75,8 @@ instance Data.FromJSON Country where
 
 instance Prelude.Hashable Country where
   hashWithSalt _salt Country' {..} =
-    _salt `Prelude.hashWithSalt` countryCode
+    _salt
+      `Prelude.hashWithSalt` countryCode
       `Prelude.hashWithSalt` countryName
 
 instance Prelude.NFData Country where

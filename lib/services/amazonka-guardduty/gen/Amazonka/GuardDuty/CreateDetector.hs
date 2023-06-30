@@ -138,7 +138,8 @@ instance Core.AWSRequest CreateDetector where
 
 instance Prelude.Hashable CreateDetector where
   hashWithSalt _salt CreateDetector' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dataSources
       `Prelude.hashWithSalt` findingPublishingFrequency
       `Prelude.hashWithSalt` tags

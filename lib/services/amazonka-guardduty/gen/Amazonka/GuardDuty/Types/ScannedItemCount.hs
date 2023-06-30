@@ -84,7 +84,8 @@ instance Data.FromJSON ScannedItemCount where
 
 instance Prelude.Hashable ScannedItemCount where
   hashWithSalt _salt ScannedItemCount' {..} =
-    _salt `Prelude.hashWithSalt` files
+    _salt
+      `Prelude.hashWithSalt` files
       `Prelude.hashWithSalt` totalGb
       `Prelude.hashWithSalt` volumes
 

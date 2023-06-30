@@ -82,7 +82,8 @@ filterCondition_lessThan = Lens.lens (\FilterCondition' {lessThan} -> lessThan) 
 
 instance Prelude.Hashable FilterCondition where
   hashWithSalt _salt FilterCondition' {..} =
-    _salt `Prelude.hashWithSalt` equalsValue
+    _salt
+      `Prelude.hashWithSalt` equalsValue
       `Prelude.hashWithSalt` greaterThan
       `Prelude.hashWithSalt` lessThan
 

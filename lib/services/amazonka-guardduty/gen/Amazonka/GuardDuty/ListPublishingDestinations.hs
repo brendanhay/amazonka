@@ -125,7 +125,8 @@ instance Core.AWSRequest ListPublishingDestinations where
 
 instance Prelude.Hashable ListPublishingDestinations where
   hashWithSalt _salt ListPublishingDestinations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` detectorId
 

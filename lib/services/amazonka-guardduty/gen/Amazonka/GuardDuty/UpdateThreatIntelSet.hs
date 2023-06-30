@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateThreatIntelSet where
 
 instance Prelude.Hashable UpdateThreatIntelSet where
   hashWithSalt _salt UpdateThreatIntelSet' {..} =
-    _salt `Prelude.hashWithSalt` activate
+    _salt
+      `Prelude.hashWithSalt` activate
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` detectorId

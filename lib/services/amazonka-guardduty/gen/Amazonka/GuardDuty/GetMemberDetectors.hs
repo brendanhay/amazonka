@@ -102,14 +102,16 @@ instance Core.AWSRequest GetMemberDetectors where
           GetMemberDetectorsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "members")
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetMemberDetectors where
   hashWithSalt _salt GetMemberDetectors' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData GetMemberDetectors where

@@ -108,7 +108,8 @@ instance Core.AWSRequest DeletePublishingDestination where
 
 instance Prelude.Hashable DeletePublishingDestination where
   hashWithSalt _salt DeletePublishingDestination' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` destinationId
 
 instance Prelude.NFData DeletePublishingDestination where

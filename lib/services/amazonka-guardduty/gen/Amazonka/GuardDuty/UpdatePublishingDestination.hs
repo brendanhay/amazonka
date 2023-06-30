@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdatePublishingDestination where
 
 instance Prelude.Hashable UpdatePublishingDestination where
   hashWithSalt _salt UpdatePublishingDestination' {..} =
-    _salt `Prelude.hashWithSalt` destinationProperties
+    _salt
+      `Prelude.hashWithSalt` destinationProperties
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` destinationId
 

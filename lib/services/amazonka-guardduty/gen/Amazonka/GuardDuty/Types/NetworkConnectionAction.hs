@@ -129,7 +129,8 @@ instance Data.FromJSON NetworkConnectionAction where
 
 instance Prelude.Hashable NetworkConnectionAction where
   hashWithSalt _salt NetworkConnectionAction' {..} =
-    _salt `Prelude.hashWithSalt` blocked
+    _salt
+      `Prelude.hashWithSalt` blocked
       `Prelude.hashWithSalt` connectionDirection
       `Prelude.hashWithSalt` localIpDetails
       `Prelude.hashWithSalt` localPortDetails

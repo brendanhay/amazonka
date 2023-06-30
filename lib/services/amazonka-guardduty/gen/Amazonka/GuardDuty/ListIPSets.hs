@@ -117,17 +117,19 @@ instance Core.AWSPager ListIPSets where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listIPSetsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listIPSetsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. listIPSetsResponse_ipSetIds) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIPSets_nextToken
           Lens..~ rs
-          Lens.^? listIPSetsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listIPSetsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIPSets where
   type AWSResponse ListIPSets = ListIPSetsResponse
@@ -144,7 +146,8 @@ instance Core.AWSRequest ListIPSets where
 
 instance Prelude.Hashable ListIPSets where
   hashWithSalt _salt ListIPSets' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` detectorId
 

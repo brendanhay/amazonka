@@ -106,14 +106,16 @@ instance Core.AWSRequest DisassociateMembers where
       ( \s h x ->
           DisassociateMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DisassociateMembers where
   hashWithSalt _salt DisassociateMembers' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData DisassociateMembers where

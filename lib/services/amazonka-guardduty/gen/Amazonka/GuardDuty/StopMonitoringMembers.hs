@@ -104,14 +104,16 @@ instance Core.AWSRequest StopMonitoringMembers where
       ( \s h x ->
           StopMonitoringMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable StopMonitoringMembers where
   hashWithSalt _salt StopMonitoringMembers' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData StopMonitoringMembers where

@@ -156,14 +156,16 @@ instance Data.FromJSON Resource where
             Prelude.<*> (x Data..:? "instanceDetails")
             Prelude.<*> (x Data..:? "kubernetesDetails")
             Prelude.<*> (x Data..:? "resourceType")
-            Prelude.<*> ( x Data..:? "s3BucketDetails"
+            Prelude.<*> ( x
+                            Data..:? "s3BucketDetails"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyDetails
+    _salt
+      `Prelude.hashWithSalt` accessKeyDetails
       `Prelude.hashWithSalt` containerDetails
       `Prelude.hashWithSalt` ebsVolumeDetails
       `Prelude.hashWithSalt` ecsClusterDetails

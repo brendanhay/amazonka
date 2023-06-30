@@ -100,7 +100,8 @@ instance Core.AWSRequest GetRemainingFreeTrialDays where
       ( \s h x ->
           GetRemainingFreeTrialDaysResponse'
             Prelude.<$> (x Data..?> "accounts" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -108,7 +109,8 @@ instance Core.AWSRequest GetRemainingFreeTrialDays where
 
 instance Prelude.Hashable GetRemainingFreeTrialDays where
   hashWithSalt _salt GetRemainingFreeTrialDays' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData GetRemainingFreeTrialDays where

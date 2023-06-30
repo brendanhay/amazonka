@@ -98,7 +98,8 @@ instance Data.FromJSON BlockPublicAccess where
 
 instance Prelude.Hashable BlockPublicAccess where
   hashWithSalt _salt BlockPublicAccess' {..} =
-    _salt `Prelude.hashWithSalt` blockPublicAcls
+    _salt
+      `Prelude.hashWithSalt` blockPublicAcls
       `Prelude.hashWithSalt` blockPublicPolicy
       `Prelude.hashWithSalt` ignorePublicAcls
       `Prelude.hashWithSalt` restrictPublicBuckets

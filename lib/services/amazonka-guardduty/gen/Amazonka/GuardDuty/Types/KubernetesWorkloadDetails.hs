@@ -130,7 +130,8 @@ instance Data.FromJSON KubernetesWorkloadDetails where
 
 instance Prelude.Hashable KubernetesWorkloadDetails where
   hashWithSalt _salt KubernetesWorkloadDetails' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` hostNetwork
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespace

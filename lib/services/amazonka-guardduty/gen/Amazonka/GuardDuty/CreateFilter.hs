@@ -563,7 +563,8 @@ instance Core.AWSRequest CreateFilter where
 
 instance Prelude.Hashable CreateFilter where
   hashWithSalt _salt CreateFilter' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` rank

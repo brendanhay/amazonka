@@ -236,7 +236,8 @@ instance Core.AWSRequest UpdateJobExecution where
 
 instance Prelude.Hashable UpdateJobExecution where
   hashWithSalt _salt UpdateJobExecution' {..} =
-    _salt `Prelude.hashWithSalt` executionNumber
+    _salt
+      `Prelude.hashWithSalt` executionNumber
       `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` includeJobDocument
       `Prelude.hashWithSalt` includeJobExecutionState

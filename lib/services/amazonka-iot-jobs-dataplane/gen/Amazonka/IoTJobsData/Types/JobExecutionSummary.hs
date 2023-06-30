@@ -130,7 +130,8 @@ instance Data.FromJSON JobExecutionSummary where
 
 instance Prelude.Hashable JobExecutionSummary where
   hashWithSalt _salt JobExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` executionNumber
+    _salt
+      `Prelude.hashWithSalt` executionNumber
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` queuedAt

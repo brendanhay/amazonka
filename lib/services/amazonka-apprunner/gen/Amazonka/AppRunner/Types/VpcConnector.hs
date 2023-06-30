@@ -179,7 +179,8 @@ instance Data.FromJSON VpcConnector where
 
 instance Prelude.Hashable VpcConnector where
   hashWithSalt _salt VpcConnector' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` deletedAt
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` status

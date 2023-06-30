@@ -37,8 +37,8 @@ data CustomDomain = CustomDomain'
     -- or @admin.login.example.com@), or a wildcard (for example,
     -- @*.example.com@).
     domainName :: Prelude.Text,
-    -- | When @true@, the subdomain @www.DomainName @ is associated with the App
-    -- Runner service in addition to the base domain.
+    -- | When @true@, the subdomain @www.@/@DomainName@/@ @ is associated with
+    -- the App Runner service in addition to the base domain.
     enableWWWSubdomain :: Prelude.Bool,
     -- | The current state of the domain name association.
     status :: CustomDomainAssociationStatus
@@ -60,8 +60,8 @@ data CustomDomain = CustomDomain'
 -- or @admin.login.example.com@), or a wildcard (for example,
 -- @*.example.com@).
 --
--- 'enableWWWSubdomain', 'customDomain_enableWWWSubdomain' - When @true@, the subdomain @www.DomainName @ is associated with the App
--- Runner service in addition to the base domain.
+-- 'enableWWWSubdomain', 'customDomain_enableWWWSubdomain' - When @true@, the subdomain @www.@/@DomainName@/@ @ is associated with
+-- the App Runner service in addition to the base domain.
 --
 -- 'status', 'customDomain_status' - The current state of the domain name association.
 newCustomDomain ::
@@ -95,8 +95,8 @@ customDomain_certificateValidationRecords = Lens.lens (\CustomDomain' {certifica
 customDomain_domainName :: Lens.Lens' CustomDomain Prelude.Text
 customDomain_domainName = Lens.lens (\CustomDomain' {domainName} -> domainName) (\s@CustomDomain' {} a -> s {domainName = a} :: CustomDomain)
 
--- | When @true@, the subdomain @www.DomainName @ is associated with the App
--- Runner service in addition to the base domain.
+-- | When @true@, the subdomain @www.@/@DomainName@/@ @ is associated with
+-- the App Runner service in addition to the base domain.
 customDomain_enableWWWSubdomain :: Lens.Lens' CustomDomain Prelude.Bool
 customDomain_enableWWWSubdomain = Lens.lens (\CustomDomain' {enableWWWSubdomain} -> enableWWWSubdomain) (\s@CustomDomain' {} a -> s {enableWWWSubdomain = a} :: CustomDomain)
 
@@ -110,7 +110,8 @@ instance Data.FromJSON CustomDomain where
       "CustomDomain"
       ( \x ->
           CustomDomain'
-            Prelude.<$> ( x Data..:? "CertificateValidationRecords"
+            Prelude.<$> ( x
+                            Data..:? "CertificateValidationRecords"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "DomainName")

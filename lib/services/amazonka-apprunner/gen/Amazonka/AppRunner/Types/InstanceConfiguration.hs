@@ -109,7 +109,8 @@ instance Data.FromJSON InstanceConfiguration where
 
 instance Prelude.Hashable InstanceConfiguration where
   hashWithSalt _salt InstanceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` cpu
+    _salt
+      `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` instanceRoleArn
       `Prelude.hashWithSalt` memory
 

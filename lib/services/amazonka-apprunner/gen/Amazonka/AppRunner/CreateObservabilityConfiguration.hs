@@ -182,7 +182,8 @@ instance
   hashWithSalt
     _salt
     CreateObservabilityConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` traceConfiguration
         `Prelude.hashWithSalt` observabilityConfigurationName
 

@@ -111,7 +111,8 @@ instance Data.FromJSON ImageRepository where
 
 instance Prelude.Hashable ImageRepository where
   hashWithSalt _salt ImageRepository' {..} =
-    _salt `Prelude.hashWithSalt` imageConfiguration
+    _salt
+      `Prelude.hashWithSalt` imageConfiguration
       `Prelude.hashWithSalt` imageIdentifier
       `Prelude.hashWithSalt` imageRepositoryType
 

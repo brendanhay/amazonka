@@ -124,7 +124,8 @@ instance Core.AWSRequest DisassociateCustomDomain where
 
 instance Prelude.Hashable DisassociateCustomDomain where
   hashWithSalt _salt DisassociateCustomDomain' {..} =
-    _salt `Prelude.hashWithSalt` serviceArn
+    _salt
+      `Prelude.hashWithSalt` serviceArn
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DisassociateCustomDomain where

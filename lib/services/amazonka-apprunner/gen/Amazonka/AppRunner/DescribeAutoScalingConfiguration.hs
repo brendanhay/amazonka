@@ -54,8 +54,9 @@ data DescribeAutoScalingConfiguration = DescribeAutoScalingConfiguration'
     -- configuration that you want a description for.
     --
     -- The ARN can be a full auto scaling configuration ARN, or a partial ARN
-    -- ending with either @...\/name @ or @...\/name\/revision @. If a revision
-    -- isn\'t specified, the latest active revision is described.
+    -- ending with either @...\/@/@name@/@ @ or
+    -- @...\/@/@name@/@\/@/@revision@/@ @. If a revision isn\'t specified, the
+    -- latest active revision is described.
     autoScalingConfigurationArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,8 +73,9 @@ data DescribeAutoScalingConfiguration = DescribeAutoScalingConfiguration'
 -- configuration that you want a description for.
 --
 -- The ARN can be a full auto scaling configuration ARN, or a partial ARN
--- ending with either @...\/name @ or @...\/name\/revision @. If a revision
--- isn\'t specified, the latest active revision is described.
+-- ending with either @...\/@/@name@/@ @ or
+-- @...\/@/@name@/@\/@/@revision@/@ @. If a revision isn\'t specified, the
+-- latest active revision is described.
 newDescribeAutoScalingConfiguration ::
   -- | 'autoScalingConfigurationArn'
   Prelude.Text ->
@@ -89,8 +91,9 @@ newDescribeAutoScalingConfiguration
 -- configuration that you want a description for.
 --
 -- The ARN can be a full auto scaling configuration ARN, or a partial ARN
--- ending with either @...\/name @ or @...\/name\/revision @. If a revision
--- isn\'t specified, the latest active revision is described.
+-- ending with either @...\/@/@name@/@ @ or
+-- @...\/@/@name@/@\/@/@revision@/@ @. If a revision isn\'t specified, the
+-- latest active revision is described.
 describeAutoScalingConfiguration_autoScalingConfigurationArn :: Lens.Lens' DescribeAutoScalingConfiguration Prelude.Text
 describeAutoScalingConfiguration_autoScalingConfigurationArn = Lens.lens (\DescribeAutoScalingConfiguration' {autoScalingConfigurationArn} -> autoScalingConfigurationArn) (\s@DescribeAutoScalingConfiguration' {} a -> s {autoScalingConfigurationArn = a} :: DescribeAutoScalingConfiguration)
 

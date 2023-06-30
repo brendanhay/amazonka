@@ -88,7 +88,8 @@ instance Data.FromJSON AuthenticationConfiguration where
 
 instance Prelude.Hashable AuthenticationConfiguration where
   hashWithSalt _salt AuthenticationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accessRoleArn
+    _salt
+      `Prelude.hashWithSalt` accessRoleArn
       `Prelude.hashWithSalt` connectionArn
 
 instance Prelude.NFData AuthenticationConfiguration where

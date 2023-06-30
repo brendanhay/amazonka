@@ -183,7 +183,8 @@ instance
           ListAutoScalingConfigurationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "AutoScalingConfigurationSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "AutoScalingConfigurationSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )

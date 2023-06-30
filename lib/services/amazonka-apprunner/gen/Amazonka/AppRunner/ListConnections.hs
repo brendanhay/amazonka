@@ -138,14 +138,16 @@ instance Core.AWSRequest ListConnections where
           ListConnectionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ConnectionSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "ConnectionSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListConnections where
   hashWithSalt _salt ListConnections' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
+    _salt
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -152,7 +152,8 @@ instance Core.AWSRequest DescribeCustomDomains where
 
 instance Prelude.Hashable DescribeCustomDomains where
   hashWithSalt _salt DescribeCustomDomains' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceArn
 

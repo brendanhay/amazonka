@@ -74,7 +74,8 @@ instance Data.FromJSON DataPoint where
 
 instance Prelude.Hashable DataPoint where
   hashWithSalt _salt DataPoint' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DataPoint where

@@ -174,7 +174,8 @@ instance Core.AWSRequest QueryWhatIfForecast where
 
 instance Prelude.Hashable QueryWhatIfForecast where
   hashWithSalt _salt QueryWhatIfForecast' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` whatIfForecastArn

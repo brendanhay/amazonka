@@ -109,7 +109,8 @@ instance
   hashWithSalt
     _salt
     DeregisterAppInstanceUserEndpoint' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceUserArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` endpointId
 
 instance

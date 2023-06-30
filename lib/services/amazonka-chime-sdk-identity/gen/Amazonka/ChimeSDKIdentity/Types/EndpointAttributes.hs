@@ -77,7 +77,8 @@ instance Data.FromJSON EndpointAttributes where
 
 instance Prelude.Hashable EndpointAttributes where
   hashWithSalt _salt EndpointAttributes' {..} =
-    _salt `Prelude.hashWithSalt` voipDeviceToken
+    _salt
+      `Prelude.hashWithSalt` voipDeviceToken
       `Prelude.hashWithSalt` deviceToken
 
 instance Prelude.NFData EndpointAttributes where

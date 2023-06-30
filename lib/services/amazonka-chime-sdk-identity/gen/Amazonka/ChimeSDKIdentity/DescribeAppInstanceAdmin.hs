@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeAppInstanceAdmin where
 
 instance Prelude.Hashable DescribeAppInstanceAdmin where
   hashWithSalt _salt DescribeAppInstanceAdmin' {..} =
-    _salt `Prelude.hashWithSalt` appInstanceAdminArn
+    _salt
+      `Prelude.hashWithSalt` appInstanceAdminArn
       `Prelude.hashWithSalt` appInstanceArn
 
 instance Prelude.NFData DescribeAppInstanceAdmin where

@@ -129,7 +129,8 @@ instance Core.AWSRequest CreateAppInstance where
 
 instance Prelude.Hashable CreateAppInstance where
   hashWithSalt _salt CreateAppInstance' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken

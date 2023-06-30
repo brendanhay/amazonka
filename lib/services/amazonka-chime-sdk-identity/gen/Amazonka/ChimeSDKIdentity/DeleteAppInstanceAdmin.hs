@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteAppInstanceAdmin where
 
 instance Prelude.Hashable DeleteAppInstanceAdmin where
   hashWithSalt _salt DeleteAppInstanceAdmin' {..} =
-    _salt `Prelude.hashWithSalt` appInstanceAdminArn
+    _salt
+      `Prelude.hashWithSalt` appInstanceAdminArn
       `Prelude.hashWithSalt` appInstanceArn
 
 instance Prelude.NFData DeleteAppInstanceAdmin where

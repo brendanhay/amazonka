@@ -145,7 +145,8 @@ instance
     UpdateAppInstanceUserEndpoint
   where
   hashWithSalt _salt UpdateAppInstanceUserEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` allowMessages
+    _salt
+      `Prelude.hashWithSalt` allowMessages
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` endpointId

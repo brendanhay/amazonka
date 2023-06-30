@@ -217,7 +217,8 @@ instance
   hashWithSalt
     _salt
     RegisterAppInstanceUserEndpoint' {..} =
-      _salt `Prelude.hashWithSalt` allowMessages
+      _salt
+        `Prelude.hashWithSalt` allowMessages
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` type'

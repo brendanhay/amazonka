@@ -215,7 +215,8 @@ instance Data.FromJSON AppInstanceUserEndpoint where
 
 instance Prelude.Hashable AppInstanceUserEndpoint where
   hashWithSalt _salt AppInstanceUserEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` allowMessages
+    _salt
+      `Prelude.hashWithSalt` allowMessages
       `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` endpointAttributes

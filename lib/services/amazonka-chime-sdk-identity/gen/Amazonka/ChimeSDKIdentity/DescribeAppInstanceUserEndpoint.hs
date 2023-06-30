@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     DescribeAppInstanceUserEndpoint' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceUserArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` endpointId
 
 instance

@@ -74,7 +74,8 @@ instance Data.FromJSON Job where
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
+    _salt
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData Job where

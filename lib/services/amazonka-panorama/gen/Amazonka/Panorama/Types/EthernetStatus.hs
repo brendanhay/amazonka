@@ -85,7 +85,8 @@ instance Data.FromJSON EthernetStatus where
 
 instance Prelude.Hashable EthernetStatus where
   hashWithSalt _salt EthernetStatus' {..} =
-    _salt `Prelude.hashWithSalt` connectionStatus
+    _salt
+      `Prelude.hashWithSalt` connectionStatus
       `Prelude.hashWithSalt` hwAddress
       `Prelude.hashWithSalt` ipAddress
 

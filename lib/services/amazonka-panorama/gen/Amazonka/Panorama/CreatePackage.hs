@@ -106,7 +106,8 @@ instance Core.AWSRequest CreatePackage where
 
 instance Prelude.Hashable CreatePackage where
   hashWithSalt _salt CreatePackage' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` packageName
 
 instance Prelude.NFData CreatePackage where

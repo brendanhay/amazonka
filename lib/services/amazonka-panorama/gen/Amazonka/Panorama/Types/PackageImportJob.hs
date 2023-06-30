@@ -116,7 +116,8 @@ instance Data.FromJSON PackageImportJob where
 
 instance Prelude.Hashable PackageImportJob where
   hashWithSalt _salt PackageImportJob' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` jobType
       `Prelude.hashWithSalt` lastUpdatedTime

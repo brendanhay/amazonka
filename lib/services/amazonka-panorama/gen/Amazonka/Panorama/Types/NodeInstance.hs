@@ -129,7 +129,8 @@ instance Data.FromJSON NodeInstance where
 
 instance Prelude.Hashable NodeInstance where
   hashWithSalt _salt NodeInstance' {..} =
-    _salt `Prelude.hashWithSalt` nodeId
+    _salt
+      `Prelude.hashWithSalt` nodeId
       `Prelude.hashWithSalt` nodeName
       `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` packagePatchVersion

@@ -116,7 +116,8 @@ instance Core.AWSRequest CreateJobForDevices where
 
 instance Prelude.Hashable CreateJobForDevices where
   hashWithSalt _salt CreateJobForDevices' {..} =
-    _salt `Prelude.hashWithSalt` deviceJobConfig
+    _salt
+      `Prelude.hashWithSalt` deviceJobConfig
       `Prelude.hashWithSalt` deviceIds
       `Prelude.hashWithSalt` jobType
 

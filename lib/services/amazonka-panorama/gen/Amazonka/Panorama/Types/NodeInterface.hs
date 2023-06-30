@@ -76,7 +76,8 @@ instance Data.FromJSON NodeInterface where
 
 instance Prelude.Hashable NodeInterface where
   hashWithSalt _salt NodeInterface' {..} =
-    _salt `Prelude.hashWithSalt` inputs
+    _salt
+      `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` outputs
 
 instance Prelude.NFData NodeInterface where

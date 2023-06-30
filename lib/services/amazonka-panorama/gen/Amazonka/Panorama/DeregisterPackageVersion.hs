@@ -138,7 +138,8 @@ instance Core.AWSRequest DeregisterPackageVersion where
 
 instance Prelude.Hashable DeregisterPackageVersion where
   hashWithSalt _salt DeregisterPackageVersion' {..} =
-    _salt `Prelude.hashWithSalt` ownerAccount
+    _salt
+      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` updatedLatestPatchVersion
       `Prelude.hashWithSalt` packageId
       `Prelude.hashWithSalt` packageVersion

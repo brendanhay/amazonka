@@ -108,7 +108,8 @@ instance Data.FromJSON PackageImportJobOutput where
 
 instance Prelude.Hashable PackageImportJobOutput where
   hashWithSalt _salt PackageImportJobOutput' {..} =
-    _salt `Prelude.hashWithSalt` outputS3Location
+    _salt
+      `Prelude.hashWithSalt` outputS3Location
       `Prelude.hashWithSalt` packageId
       `Prelude.hashWithSalt` packageVersion
       `Prelude.hashWithSalt` patchVersion

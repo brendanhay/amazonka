@@ -142,7 +142,8 @@ instance Core.AWSRequest CreatePackageImportJob where
 
 instance Prelude.Hashable CreatePackageImportJob where
   hashWithSalt _salt CreatePackageImportJob' {..} =
-    _salt `Prelude.hashWithSalt` jobTags
+    _salt
+      `Prelude.hashWithSalt` jobTags
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` inputConfig
       `Prelude.hashWithSalt` jobType

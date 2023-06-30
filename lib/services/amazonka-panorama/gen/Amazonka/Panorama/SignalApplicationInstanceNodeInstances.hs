@@ -107,7 +107,7 @@ instance
       ( \s h x ->
           SignalApplicationInstanceNodeInstancesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "ApplicationInstanceId")
+            Prelude.<*> (x Data..:> "ApplicationInstanceId")
       )
 
 instance
@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     SignalApplicationInstanceNodeInstances' {..} =
-      _salt `Prelude.hashWithSalt` applicationInstanceId
+      _salt
+        `Prelude.hashWithSalt` applicationInstanceId
         `Prelude.hashWithSalt` nodeSignals
 
 instance

@@ -86,7 +86,8 @@ instance Data.FromJSON NetworkPayload where
 
 instance Prelude.Hashable NetworkPayload where
   hashWithSalt _salt NetworkPayload' {..} =
-    _salt `Prelude.hashWithSalt` ethernet0
+    _salt
+      `Prelude.hashWithSalt` ethernet0
       `Prelude.hashWithSalt` ethernet1
       `Prelude.hashWithSalt` ntp
 

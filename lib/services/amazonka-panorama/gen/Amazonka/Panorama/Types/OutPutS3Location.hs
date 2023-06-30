@@ -78,7 +78,8 @@ instance Data.FromJSON OutPutS3Location where
 
 instance Prelude.Hashable OutPutS3Location where
   hashWithSalt _salt OutPutS3Location' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` objectKey
 
 instance Prelude.NFData OutPutS3Location where

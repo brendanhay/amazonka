@@ -104,7 +104,8 @@ instance Data.FromJSON PackageListItem where
 
 instance Prelude.Hashable PackageListItem where
   hashWithSalt _salt PackageListItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` packageId
       `Prelude.hashWithSalt` packageName

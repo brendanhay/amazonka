@@ -23,9 +23,9 @@
 -- Creates a device and returns a configuration archive. The configuration
 -- archive is a ZIP file that contains a provisioning certificate that is
 -- valid for 5 minutes. Name the configuration archive
--- @certificates-omni_device-name.zip@ and transfer it to the device within
--- 5 minutes. Use the included USB storage device and connect it to the USB
--- 3.0 port next to the HDMI output.
+-- @certificates-omni_@/@device-name@/@.zip@ and transfer it to the device
+-- within 5 minutes. Use the included USB storage device and connect it to
+-- the USB 3.0 port next to the HDMI output.
 module Amazonka.Panorama.ProvisionDevice
   ( -- * Creating a Request
     ProvisionDevice (..),
@@ -135,7 +135,8 @@ instance Core.AWSRequest ProvisionDevice where
 
 instance Prelude.Hashable ProvisionDevice where
   hashWithSalt _salt ProvisionDevice' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` networkingConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

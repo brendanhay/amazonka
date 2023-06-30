@@ -185,14 +185,16 @@ instance Core.AWSRequest ListProtectionGroups where
           ListProtectionGroupsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ProtectionGroups"
+            Prelude.<*> ( x
+                            Data..?> "ProtectionGroups"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListProtectionGroups where
   hashWithSalt _salt ListProtectionGroups' {..} =
-    _salt `Prelude.hashWithSalt` inclusionFilters
+    _salt
+      `Prelude.hashWithSalt` inclusionFilters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
@@ -313,7 +315,6 @@ listProtectionGroupsResponse_nextToken = Lens.lens (\ListProtectionGroupsRespons
 listProtectionGroupsResponse_httpStatus :: Lens.Lens' ListProtectionGroupsResponse Prelude.Int
 listProtectionGroupsResponse_httpStatus = Lens.lens (\ListProtectionGroupsResponse' {httpStatus} -> httpStatus) (\s@ListProtectionGroupsResponse' {} a -> s {httpStatus = a} :: ListProtectionGroupsResponse)
 
--- |
 listProtectionGroupsResponse_protectionGroups :: Lens.Lens' ListProtectionGroupsResponse [ProtectionGroup]
 listProtectionGroupsResponse_protectionGroups = Lens.lens (\ListProtectionGroupsResponse' {protectionGroups} -> protectionGroups) (\s@ListProtectionGroupsResponse' {} a -> s {protectionGroups = a} :: ListProtectionGroupsResponse) Prelude.. Lens.coerced
 

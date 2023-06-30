@@ -189,7 +189,8 @@ instance
   hashWithSalt
     _salt
     ListResourcesInProtectionGroup' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` protectionGroupId
 

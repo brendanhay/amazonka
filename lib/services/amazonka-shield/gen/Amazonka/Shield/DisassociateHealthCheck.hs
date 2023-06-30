@@ -120,7 +120,8 @@ instance Core.AWSRequest DisassociateHealthCheck where
 
 instance Prelude.Hashable DisassociateHealthCheck where
   hashWithSalt _salt DisassociateHealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` protectionId
+    _salt
+      `Prelude.hashWithSalt` protectionId
       `Prelude.hashWithSalt` healthCheckArn
 
 instance Prelude.NFData DisassociateHealthCheck where

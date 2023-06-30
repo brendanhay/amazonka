@@ -83,7 +83,8 @@ inclusionProtectionFilters_resourceTypes = Lens.lens (\InclusionProtectionFilter
 
 instance Prelude.Hashable InclusionProtectionFilters where
   hashWithSalt _salt InclusionProtectionFilters' {..} =
-    _salt `Prelude.hashWithSalt` protectionNames
+    _salt
+      `Prelude.hashWithSalt` protectionNames
       `Prelude.hashWithSalt` resourceArns
       `Prelude.hashWithSalt` resourceTypes
 

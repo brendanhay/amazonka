@@ -114,7 +114,8 @@ instance Data.FromJSON SummarizedCounter where
 
 instance Prelude.Hashable SummarizedCounter where
   hashWithSalt _salt SummarizedCounter' {..} =
-    _salt `Prelude.hashWithSalt` average
+    _salt
+      `Prelude.hashWithSalt` average
       `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` n
       `Prelude.hashWithSalt` name

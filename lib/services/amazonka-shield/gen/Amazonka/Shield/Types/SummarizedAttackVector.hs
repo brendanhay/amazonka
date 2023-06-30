@@ -78,7 +78,8 @@ instance Data.FromJSON SummarizedAttackVector where
 
 instance Prelude.Hashable SummarizedAttackVector where
   hashWithSalt _salt SummarizedAttackVector' {..} =
-    _salt `Prelude.hashWithSalt` vectorCounters
+    _salt
+      `Prelude.hashWithSalt` vectorCounters
       `Prelude.hashWithSalt` vectorType
 
 instance Prelude.NFData SummarizedAttackVector where

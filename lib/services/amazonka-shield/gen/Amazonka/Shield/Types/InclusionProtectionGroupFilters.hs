@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     InclusionProtectionGroupFilters' {..} =
-      _salt `Prelude.hashWithSalt` aggregations
+      _salt
+        `Prelude.hashWithSalt` aggregations
         `Prelude.hashWithSalt` patterns
         `Prelude.hashWithSalt` protectionGroupIds
         `Prelude.hashWithSalt` resourceTypes

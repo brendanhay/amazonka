@@ -98,7 +98,8 @@ instance Data.FromJSON SubResourceSummary where
 
 instance Prelude.Hashable SubResourceSummary where
   hashWithSalt _salt SubResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` attackVectors
+    _salt
+      `Prelude.hashWithSalt` attackVectors
       `Prelude.hashWithSalt` counters
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'

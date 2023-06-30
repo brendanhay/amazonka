@@ -105,7 +105,8 @@ instance Data.FromJSON AttackSummary where
 
 instance Prelude.Hashable AttackSummary where
   hashWithSalt _salt AttackSummary' {..} =
-    _salt `Prelude.hashWithSalt` attackId
+    _salt
+      `Prelude.hashWithSalt` attackId
       `Prelude.hashWithSalt` attackVectors
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` resourceArn

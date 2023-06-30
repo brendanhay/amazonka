@@ -88,7 +88,8 @@ instance Data.FromJSON EmergencyContact where
 
 instance Prelude.Hashable EmergencyContact where
   hashWithSalt _salt EmergencyContact' {..} =
-    _salt `Prelude.hashWithSalt` contactNotes
+    _salt
+      `Prelude.hashWithSalt` contactNotes
       `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` emailAddress
 

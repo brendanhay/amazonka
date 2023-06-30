@@ -99,7 +99,8 @@ instance Data.FromJSON AttackVolume where
 
 instance Prelude.Hashable AttackVolume where
   hashWithSalt _salt AttackVolume' {..} =
-    _salt `Prelude.hashWithSalt` bitsPerSecond
+    _salt
+      `Prelude.hashWithSalt` bitsPerSecond
       `Prelude.hashWithSalt` packetsPerSecond
       `Prelude.hashWithSalt` requestsPerSecond
 

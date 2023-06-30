@@ -134,7 +134,8 @@ instance Data.FromJSON AttackProperty where
           AttackProperty'
             Prelude.<$> (x Data..:? "AttackLayer")
             Prelude.<*> (x Data..:? "AttackPropertyIdentifier")
-            Prelude.<*> ( x Data..:? "TopContributors"
+            Prelude.<*> ( x
+                            Data..:? "TopContributors"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Total")
@@ -143,7 +144,8 @@ instance Data.FromJSON AttackProperty where
 
 instance Prelude.Hashable AttackProperty where
   hashWithSalt _salt AttackProperty' {..} =
-    _salt `Prelude.hashWithSalt` attackLayer
+    _salt
+      `Prelude.hashWithSalt` attackLayer
       `Prelude.hashWithSalt` attackPropertyIdentifier
       `Prelude.hashWithSalt` topContributors
       `Prelude.hashWithSalt` total

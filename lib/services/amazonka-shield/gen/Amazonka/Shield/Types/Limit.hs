@@ -71,12 +71,14 @@ instance Data.FromJSON Limit where
       "Limit"
       ( \x ->
           Limit'
-            Prelude.<$> (x Data..:? "Max") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Max")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Limit where
   hashWithSalt _salt Limit' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Limit where

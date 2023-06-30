@@ -130,7 +130,8 @@ instance Core.AWSRequest GetIdentityResolutionJob where
 
 instance Prelude.Hashable GetIdentityResolutionJob where
   hashWithSalt _salt GetIdentityResolutionJob' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetIdentityResolutionJob where

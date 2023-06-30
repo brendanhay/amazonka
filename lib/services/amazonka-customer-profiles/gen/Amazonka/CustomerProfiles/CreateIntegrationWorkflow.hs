@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateIntegrationWorkflow where
 
 instance Prelude.Hashable CreateIntegrationWorkflow where
   hashWithSalt _salt CreateIntegrationWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` workflowType
       `Prelude.hashWithSalt` integrationConfig

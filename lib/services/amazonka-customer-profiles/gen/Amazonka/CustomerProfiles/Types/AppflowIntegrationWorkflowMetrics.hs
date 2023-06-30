@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     AppflowIntegrationWorkflowMetrics' {..} =
-      _salt `Prelude.hashWithSalt` recordsProcessed
+      _salt
+        `Prelude.hashWithSalt` recordsProcessed
         `Prelude.hashWithSalt` stepsCompleted
         `Prelude.hashWithSalt` totalSteps
 

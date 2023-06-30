@@ -115,7 +115,8 @@ instance Core.AWSRequest ListIdentityResolutionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityResolutionJobsResponse'
-            Prelude.<$> ( x Data..?> "IdentityResolutionJobsList"
+            Prelude.<$> ( x
+                            Data..?> "IdentityResolutionJobsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -124,7 +125,8 @@ instance Core.AWSRequest ListIdentityResolutionJobs where
 
 instance Prelude.Hashable ListIdentityResolutionJobs where
   hashWithSalt _salt ListIdentityResolutionJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 

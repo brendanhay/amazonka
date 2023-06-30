@@ -103,7 +103,8 @@ instance Data.FromJSON ListDomainItem where
 
 instance Prelude.Hashable ListDomainItem where
   hashWithSalt _salt ListDomainItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt

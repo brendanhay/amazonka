@@ -136,7 +136,8 @@ instance Core.AWSRequest GetWorkflowSteps where
 
 instance Prelude.Hashable GetWorkflowSteps where
   hashWithSalt _salt GetWorkflowSteps' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` workflowId

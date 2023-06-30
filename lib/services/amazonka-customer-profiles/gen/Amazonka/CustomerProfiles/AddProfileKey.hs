@@ -151,7 +151,8 @@ instance Core.AWSRequest AddProfileKey where
 
 instance Prelude.Hashable AddProfileKey where
   hashWithSalt _salt AddProfileKey' {..} =
-    _salt `Prelude.hashWithSalt` profileId
+    _salt
+      `Prelude.hashWithSalt` profileId
       `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` domainName

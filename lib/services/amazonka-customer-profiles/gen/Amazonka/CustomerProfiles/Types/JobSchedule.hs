@@ -80,7 +80,8 @@ instance Data.FromJSON JobSchedule where
 
 instance Prelude.Hashable JobSchedule where
   hashWithSalt _salt JobSchedule' {..} =
-    _salt `Prelude.hashWithSalt` dayOfTheWeek
+    _salt
+      `Prelude.hashWithSalt` dayOfTheWeek
       `Prelude.hashWithSalt` time
 
 instance Prelude.NFData JobSchedule where

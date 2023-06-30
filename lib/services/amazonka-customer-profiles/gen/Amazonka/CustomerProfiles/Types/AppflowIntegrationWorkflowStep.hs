@@ -188,7 +188,8 @@ instance
   hashWithSalt
     _salt
     AppflowIntegrationWorkflowStep' {..} =
-      _salt `Prelude.hashWithSalt` flowName
+      _salt
+        `Prelude.hashWithSalt` flowName
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` executionMessage
         `Prelude.hashWithSalt` recordsProcessed

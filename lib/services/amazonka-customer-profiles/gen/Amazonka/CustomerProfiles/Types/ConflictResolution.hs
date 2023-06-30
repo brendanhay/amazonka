@@ -105,7 +105,8 @@ instance Data.FromJSON ConflictResolution where
 
 instance Prelude.Hashable ConflictResolution where
   hashWithSalt _salt ConflictResolution' {..} =
-    _salt `Prelude.hashWithSalt` sourceName
+    _salt
+      `Prelude.hashWithSalt` sourceName
       `Prelude.hashWithSalt` conflictResolvingModel
 
 instance Prelude.NFData ConflictResolution where

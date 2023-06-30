@@ -78,7 +78,8 @@ triggerConfig_triggerType = Lens.lens (\TriggerConfig' {triggerType} -> triggerT
 
 instance Prelude.Hashable TriggerConfig where
   hashWithSalt _salt TriggerConfig' {..} =
-    _salt `Prelude.hashWithSalt` triggerProperties
+    _salt
+      `Prelude.hashWithSalt` triggerProperties
       `Prelude.hashWithSalt` triggerType
 
 instance Prelude.NFData TriggerConfig where

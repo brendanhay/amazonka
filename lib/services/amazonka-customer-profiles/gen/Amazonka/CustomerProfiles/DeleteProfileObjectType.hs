@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteProfileObjectType where
 
 instance Prelude.Hashable DeleteProfileObjectType where
   hashWithSalt _salt DeleteProfileObjectType' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` objectTypeName
 
 instance Prelude.NFData DeleteProfileObjectType where

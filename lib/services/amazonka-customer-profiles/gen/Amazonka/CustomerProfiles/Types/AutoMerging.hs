@@ -123,7 +123,8 @@ instance Data.FromJSON AutoMerging where
 
 instance Prelude.Hashable AutoMerging where
   hashWithSalt _salt AutoMerging' {..} =
-    _salt `Prelude.hashWithSalt` conflictResolution
+    _salt
+      `Prelude.hashWithSalt` conflictResolution
       `Prelude.hashWithSalt` consolidation
       `Prelude.hashWithSalt` minAllowedConfidenceScoreForMerging
       `Prelude.hashWithSalt` enabled

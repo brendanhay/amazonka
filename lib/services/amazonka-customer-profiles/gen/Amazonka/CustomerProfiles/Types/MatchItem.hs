@@ -105,7 +105,8 @@ instance Data.FromJSON MatchItem where
 
 instance Prelude.Hashable MatchItem where
   hashWithSalt _salt MatchItem' {..} =
-    _salt `Prelude.hashWithSalt` confidenceScore
+    _salt
+      `Prelude.hashWithSalt` confidenceScore
       `Prelude.hashWithSalt` matchId
       `Prelude.hashWithSalt` profileIds
 

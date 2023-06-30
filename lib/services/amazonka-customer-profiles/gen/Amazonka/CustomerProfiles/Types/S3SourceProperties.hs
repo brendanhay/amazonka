@@ -70,7 +70,8 @@ s3SourceProperties_bucketName = Lens.lens (\S3SourceProperties' {bucketName} -> 
 
 instance Prelude.Hashable S3SourceProperties where
   hashWithSalt _salt S3SourceProperties' {..} =
-    _salt `Prelude.hashWithSalt` bucketPrefix
+    _salt
+      `Prelude.hashWithSalt` bucketPrefix
       `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData S3SourceProperties where

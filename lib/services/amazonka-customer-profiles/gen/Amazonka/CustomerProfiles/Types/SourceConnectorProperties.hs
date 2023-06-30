@@ -108,7 +108,8 @@ sourceConnectorProperties_zendesk = Lens.lens (\SourceConnectorProperties' {zend
 
 instance Prelude.Hashable SourceConnectorProperties where
   hashWithSalt _salt SourceConnectorProperties' {..} =
-    _salt `Prelude.hashWithSalt` marketo
+    _salt
+      `Prelude.hashWithSalt` marketo
       `Prelude.hashWithSalt` s3
       `Prelude.hashWithSalt` salesforce
       `Prelude.hashWithSalt` serviceNow

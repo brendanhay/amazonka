@@ -91,7 +91,8 @@ instance Data.FromJSON VersionInfo where
 
 instance Prelude.Hashable VersionInfo where
   hashWithSalt _salt VersionInfo' {..} =
-    _salt `Prelude.hashWithSalt` agentHash
+    _salt
+      `Prelude.hashWithSalt` agentHash
       `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` dockerVersion
 

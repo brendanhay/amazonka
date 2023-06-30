@@ -531,7 +531,8 @@ instance Data.FromJSON PortMapping where
 
 instance Prelude.Hashable PortMapping where
   hashWithSalt _salt PortMapping' {..} =
-    _salt `Prelude.hashWithSalt` appProtocol
+    _salt
+      `Prelude.hashWithSalt` appProtocol
       `Prelude.hashWithSalt` containerPort
       `Prelude.hashWithSalt` containerPortRange
       `Prelude.hashWithSalt` hostPort

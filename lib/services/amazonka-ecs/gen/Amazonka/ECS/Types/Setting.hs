@@ -91,7 +91,8 @@ instance Data.FromJSON Setting where
 
 instance Prelude.Hashable Setting where
   hashWithSalt _salt Setting' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` principalArn
       `Prelude.hashWithSalt` value
 

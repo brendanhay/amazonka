@@ -177,7 +177,8 @@ instance Core.AWSRequest DescribeCapacityProviders where
     Response.receiveJSON
       ( \s h x ->
           DescribeCapacityProvidersResponse'
-            Prelude.<$> ( x Data..?> "capacityProviders"
+            Prelude.<$> ( x
+                            Data..?> "capacityProviders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
@@ -187,7 +188,8 @@ instance Core.AWSRequest DescribeCapacityProviders where
 
 instance Prelude.Hashable DescribeCapacityProviders where
   hashWithSalt _salt DescribeCapacityProviders' {..} =
-    _salt `Prelude.hashWithSalt` capacityProviders
+    _salt
+      `Prelude.hashWithSalt` capacityProviders
       `Prelude.hashWithSalt` include
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

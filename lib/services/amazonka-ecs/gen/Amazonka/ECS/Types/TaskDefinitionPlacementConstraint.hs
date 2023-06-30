@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     TaskDefinitionPlacementConstraint' {..} =
-      _salt `Prelude.hashWithSalt` expression
+      _salt
+        `Prelude.hashWithSalt` expression
         `Prelude.hashWithSalt` type'
 
 instance

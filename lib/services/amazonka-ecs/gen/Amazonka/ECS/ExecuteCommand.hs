@@ -167,7 +167,8 @@ instance Core.AWSRequest ExecuteCommand where
 
 instance Prelude.Hashable ExecuteCommand where
   hashWithSalt _salt ExecuteCommand' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` interactive

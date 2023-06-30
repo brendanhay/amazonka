@@ -88,7 +88,8 @@ instance
     InferenceAcceleratorOverride
   where
   hashWithSalt _salt InferenceAcceleratorOverride' {..} =
-    _salt `Prelude.hashWithSalt` deviceName
+    _salt
+      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceType
 
 instance Prelude.NFData InferenceAcceleratorOverride where

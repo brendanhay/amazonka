@@ -117,7 +117,8 @@ instance Core.AWSRequest PutAttributes where
 
 instance Prelude.Hashable PutAttributes where
   hashWithSalt _salt PutAttributes' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData PutAttributes where

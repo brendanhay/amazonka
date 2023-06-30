@@ -84,7 +84,8 @@ instance Data.FromJSON ServiceEvent where
 
 instance Prelude.Hashable ServiceEvent where
   hashWithSalt _salt ServiceEvent' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` message
 

@@ -80,7 +80,8 @@ instance Data.FromJSON HostEntry where
 
 instance Prelude.Hashable HostEntry where
   hashWithSalt _salt HostEntry' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` ipAddress
 
 instance Prelude.NFData HostEntry where

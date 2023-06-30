@@ -387,7 +387,8 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` capacityProviders
+    _salt
+      `Prelude.hashWithSalt` capacityProviders
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` defaultCapacityProviderStrategy

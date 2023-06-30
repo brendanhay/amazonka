@@ -110,7 +110,8 @@ instance
     SubmitAttachmentStateChanges
   where
   hashWithSalt _salt SubmitAttachmentStateChanges' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` attachments
 
 instance Prelude.NFData SubmitAttachmentStateChanges where

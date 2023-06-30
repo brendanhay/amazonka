@@ -101,7 +101,8 @@ instance Data.FromJSON DeploymentCircuitBreaker where
 
 instance Prelude.Hashable DeploymentCircuitBreaker where
   hashWithSalt _salt DeploymentCircuitBreaker' {..} =
-    _salt `Prelude.hashWithSalt` enable
+    _salt
+      `Prelude.hashWithSalt` enable
       `Prelude.hashWithSalt` rollback
 
 instance Prelude.NFData DeploymentCircuitBreaker where

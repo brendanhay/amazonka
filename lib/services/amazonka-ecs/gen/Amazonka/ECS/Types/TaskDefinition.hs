@@ -949,10 +949,12 @@ instance Data.FromJSON TaskDefinition where
       "TaskDefinition"
       ( \x ->
           TaskDefinition'
-            Prelude.<$> ( x Data..:? "compatibilities"
+            Prelude.<$> ( x
+                            Data..:? "compatibilities"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "containerDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "containerDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cpu")
@@ -960,23 +962,27 @@ instance Data.FromJSON TaskDefinition where
             Prelude.<*> (x Data..:? "ephemeralStorage")
             Prelude.<*> (x Data..:? "executionRoleArn")
             Prelude.<*> (x Data..:? "family")
-            Prelude.<*> ( x Data..:? "inferenceAccelerators"
+            Prelude.<*> ( x
+                            Data..:? "inferenceAccelerators"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ipcMode")
             Prelude.<*> (x Data..:? "memory")
             Prelude.<*> (x Data..:? "networkMode")
             Prelude.<*> (x Data..:? "pidMode")
-            Prelude.<*> ( x Data..:? "placementConstraints"
+            Prelude.<*> ( x
+                            Data..:? "placementConstraints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "proxyConfiguration")
             Prelude.<*> (x Data..:? "registeredAt")
             Prelude.<*> (x Data..:? "registeredBy")
-            Prelude.<*> ( x Data..:? "requiresAttributes"
+            Prelude.<*> ( x
+                            Data..:? "requiresAttributes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "requiresCompatibilities"
+            Prelude.<*> ( x
+                            Data..:? "requiresCompatibilities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "revision")
@@ -989,7 +995,8 @@ instance Data.FromJSON TaskDefinition where
 
 instance Prelude.Hashable TaskDefinition where
   hashWithSalt _salt TaskDefinition' {..} =
-    _salt `Prelude.hashWithSalt` compatibilities
+    _salt
+      `Prelude.hashWithSalt` compatibilities
       `Prelude.hashWithSalt` containerDefinitions
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` deregisteredAt

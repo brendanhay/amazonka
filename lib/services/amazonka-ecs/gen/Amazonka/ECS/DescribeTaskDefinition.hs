@@ -121,7 +121,8 @@ instance Core.AWSRequest DescribeTaskDefinition where
 
 instance Prelude.Hashable DescribeTaskDefinition where
   hashWithSalt _salt DescribeTaskDefinition' {..} =
-    _salt `Prelude.hashWithSalt` include
+    _salt
+      `Prelude.hashWithSalt` include
       `Prelude.hashWithSalt` taskDefinition
 
 instance Prelude.NFData DescribeTaskDefinition where

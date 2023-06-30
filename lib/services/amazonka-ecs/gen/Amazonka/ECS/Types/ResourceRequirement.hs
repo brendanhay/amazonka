@@ -109,12 +109,14 @@ instance Data.FromJSON ResourceRequirement where
       "ResourceRequirement"
       ( \x ->
           ResourceRequirement'
-            Prelude.<$> (x Data..: "value") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..: "value")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ResourceRequirement where
   hashWithSalt _salt ResourceRequirement' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ResourceRequirement where

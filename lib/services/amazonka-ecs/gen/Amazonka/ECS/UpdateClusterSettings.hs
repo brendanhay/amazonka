@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateClusterSettings where
 
 instance Prelude.Hashable UpdateClusterSettings where
   hashWithSalt _salt UpdateClusterSettings' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` settings
 
 instance Prelude.NFData UpdateClusterSettings where

@@ -128,7 +128,8 @@ instance
     ServiceConnectServiceResource
   where
   hashWithSalt _salt ServiceConnectServiceResource' {..} =
-    _salt `Prelude.hashWithSalt` discoveryArn
+    _salt
+      `Prelude.hashWithSalt` discoveryArn
       `Prelude.hashWithSalt` discoveryName
 
 instance Prelude.NFData ServiceConnectServiceResource where

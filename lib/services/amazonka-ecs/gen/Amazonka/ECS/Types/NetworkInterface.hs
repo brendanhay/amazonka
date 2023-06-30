@@ -85,7 +85,8 @@ instance Data.FromJSON NetworkInterface where
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` attachmentId
+    _salt
+      `Prelude.hashWithSalt` attachmentId
       `Prelude.hashWithSalt` ipv6Address
       `Prelude.hashWithSalt` privateIpv4Address
 

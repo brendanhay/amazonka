@@ -403,7 +403,8 @@ instance Data.FromJSON Deployment where
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> ( x Data..:? "capacityProviderStrategy"
+            Prelude.<$> ( x
+                            Data..:? "capacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "createdAt")
@@ -419,7 +420,8 @@ instance Data.FromJSON Deployment where
             Prelude.<*> (x Data..:? "rolloutStateReason")
             Prelude.<*> (x Data..:? "runningCount")
             Prelude.<*> (x Data..:? "serviceConnectConfiguration")
-            Prelude.<*> ( x Data..:? "serviceConnectResources"
+            Prelude.<*> ( x
+                            Data..:? "serviceConnectResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "status")

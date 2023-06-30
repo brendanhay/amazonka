@@ -88,12 +88,14 @@ instance Data.FromJSON ClusterSetting where
       "ClusterSetting"
       ( \x ->
           ClusterSetting'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ClusterSetting where
   hashWithSalt _salt ClusterSetting' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ClusterSetting where

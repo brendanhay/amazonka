@@ -102,7 +102,8 @@ instance Data.FromJSON PlacementConstraint where
 
 instance Prelude.Hashable PlacementConstraint where
   hashWithSalt _salt PlacementConstraint' {..} =
-    _salt `Prelude.hashWithSalt` expression
+    _salt
+      `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PlacementConstraint where

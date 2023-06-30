@@ -394,7 +394,8 @@ instance Core.AWSRequest StartTask where
 
 instance Prelude.Hashable StartTask where
   hashWithSalt _salt StartTask' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` enableECSManagedTags
       `Prelude.hashWithSalt` enableExecuteCommand
       `Prelude.hashWithSalt` group'

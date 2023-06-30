@@ -133,7 +133,8 @@ instance Core.AWSRequest UpdateServicePrimaryTaskSet where
 
 instance Prelude.Hashable UpdateServicePrimaryTaskSet where
   hashWithSalt _salt UpdateServicePrimaryTaskSet' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` primaryTaskSet
 

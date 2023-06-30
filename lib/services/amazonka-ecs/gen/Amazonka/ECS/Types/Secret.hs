@@ -131,7 +131,8 @@ instance Data.FromJSON Secret where
 
 instance Prelude.Hashable Secret where
   hashWithSalt _salt Secret' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` valueFrom
 
 instance Prelude.NFData Secret where

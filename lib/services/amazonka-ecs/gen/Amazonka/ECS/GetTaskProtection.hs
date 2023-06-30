@@ -107,7 +107,8 @@ instance Core.AWSRequest GetTaskProtection where
 
 instance Prelude.Hashable GetTaskProtection where
   hashWithSalt _salt GetTaskProtection' {..} =
-    _salt `Prelude.hashWithSalt` tasks
+    _salt
+      `Prelude.hashWithSalt` tasks
       `Prelude.hashWithSalt` cluster
 
 instance Prelude.NFData GetTaskProtection where

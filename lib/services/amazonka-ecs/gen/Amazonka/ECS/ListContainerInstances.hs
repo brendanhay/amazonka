@@ -199,22 +199,22 @@ instance Core.AWSPager ListContainerInstances where
     | Core.stop
         ( rs
             Lens.^? listContainerInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listContainerInstancesResponse_containerInstanceArns
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listContainerInstances_nextToken
           Lens..~ rs
           Lens.^? listContainerInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContainerInstances where
   type
@@ -226,7 +226,8 @@ instance Core.AWSRequest ListContainerInstances where
     Response.receiveJSON
       ( \s h x ->
           ListContainerInstancesResponse'
-            Prelude.<$> ( x Data..?> "containerInstanceArns"
+            Prelude.<$> ( x
+                            Data..?> "containerInstanceArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -235,7 +236,8 @@ instance Core.AWSRequest ListContainerInstances where
 
 instance Prelude.Hashable ListContainerInstances where
   hashWithSalt _salt ListContainerInstances' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

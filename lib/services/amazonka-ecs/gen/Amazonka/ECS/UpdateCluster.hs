@@ -170,7 +170,8 @@ instance Core.AWSRequest UpdateCluster where
 
 instance Prelude.Hashable UpdateCluster where
   hashWithSalt _salt UpdateCluster' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` serviceConnectDefaults
       `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` cluster

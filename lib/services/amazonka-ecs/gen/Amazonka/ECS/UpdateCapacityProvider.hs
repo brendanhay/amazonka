@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateCapacityProvider where
 
 instance Prelude.Hashable UpdateCapacityProvider where
   hashWithSalt _salt UpdateCapacityProvider' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` autoScalingGroupProvider
 
 instance Prelude.NFData UpdateCapacityProvider where

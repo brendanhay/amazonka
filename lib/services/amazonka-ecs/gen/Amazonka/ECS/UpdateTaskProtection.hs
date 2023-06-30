@@ -187,7 +187,8 @@ instance Core.AWSRequest UpdateTaskProtection where
 
 instance Prelude.Hashable UpdateTaskProtection where
   hashWithSalt _salt UpdateTaskProtection' {..} =
-    _salt `Prelude.hashWithSalt` expiresInMinutes
+    _salt
+      `Prelude.hashWithSalt` expiresInMinutes
       `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` tasks
       `Prelude.hashWithSalt` protectionEnabled

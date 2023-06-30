@@ -180,7 +180,8 @@ instance Core.AWSRequest DeregisterContainerInstance where
 
 instance Prelude.Hashable DeregisterContainerInstance where
   hashWithSalt _salt DeregisterContainerInstance' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` containerInstance
 

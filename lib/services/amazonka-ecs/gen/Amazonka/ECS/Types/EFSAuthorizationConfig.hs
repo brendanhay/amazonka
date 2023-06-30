@@ -112,7 +112,8 @@ instance Data.FromJSON EFSAuthorizationConfig where
 
 instance Prelude.Hashable EFSAuthorizationConfig where
   hashWithSalt _salt EFSAuthorizationConfig' {..} =
-    _salt `Prelude.hashWithSalt` accessPointId
+    _salt
+      `Prelude.hashWithSalt` accessPointId
       `Prelude.hashWithSalt` iam
 
 instance Prelude.NFData EFSAuthorizationConfig where

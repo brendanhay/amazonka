@@ -337,7 +337,8 @@ instance Data.FromJSON DeploymentConfiguration where
 
 instance Prelude.Hashable DeploymentConfiguration where
   hashWithSalt _salt DeploymentConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` alarms
+    _salt
+      `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` deploymentCircuitBreaker
       `Prelude.hashWithSalt` maximumPercent
       `Prelude.hashWithSalt` minimumHealthyPercent

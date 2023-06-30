@@ -89,7 +89,8 @@ instance Data.FromJSON ProtectedTask where
 
 instance Prelude.Hashable ProtectedTask where
   hashWithSalt _salt ProtectedTask' {..} =
-    _salt `Prelude.hashWithSalt` expirationDate
+    _salt
+      `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` protectionEnabled
       `Prelude.hashWithSalt` taskArn
 

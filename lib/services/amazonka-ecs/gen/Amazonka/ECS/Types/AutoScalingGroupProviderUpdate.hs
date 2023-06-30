@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     AutoScalingGroupProviderUpdate' {..} =
-      _salt `Prelude.hashWithSalt` managedScaling
+      _salt
+        `Prelude.hashWithSalt` managedScaling
         `Prelude.hashWithSalt` managedTerminationProtection
 
 instance

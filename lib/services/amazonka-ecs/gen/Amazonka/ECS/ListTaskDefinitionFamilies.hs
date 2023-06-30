@@ -198,22 +198,22 @@ instance Core.AWSPager ListTaskDefinitionFamilies where
     | Core.stop
         ( rs
             Lens.^? listTaskDefinitionFamiliesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTaskDefinitionFamiliesResponse_families
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTaskDefinitionFamilies_nextToken
           Lens..~ rs
           Lens.^? listTaskDefinitionFamiliesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTaskDefinitionFamilies where
   type
@@ -232,7 +232,8 @@ instance Core.AWSRequest ListTaskDefinitionFamilies where
 
 instance Prelude.Hashable ListTaskDefinitionFamilies where
   hashWithSalt _salt ListTaskDefinitionFamilies' {..} =
-    _salt `Prelude.hashWithSalt` familyPrefix
+    _salt
+      `Prelude.hashWithSalt` familyPrefix
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status

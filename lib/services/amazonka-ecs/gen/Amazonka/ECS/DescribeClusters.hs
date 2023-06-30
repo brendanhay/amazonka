@@ -159,7 +159,8 @@ instance Core.AWSRequest DescribeClusters where
 
 instance Prelude.Hashable DescribeClusters where
   hashWithSalt _salt DescribeClusters' {..} =
-    _salt `Prelude.hashWithSalt` clusters
+    _salt
+      `Prelude.hashWithSalt` clusters
       `Prelude.hashWithSalt` include
 
 instance Prelude.NFData DescribeClusters where

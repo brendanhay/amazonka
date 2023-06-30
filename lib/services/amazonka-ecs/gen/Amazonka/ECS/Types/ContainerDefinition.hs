@@ -309,10 +309,11 @@ data ContainerDefinition = ContainerDefinition'
     -- | The image used to start a container. This string is passed directly to
     -- the Docker daemon. By default, images in the Docker Hub registry are
     -- available. Other repositories are specified with either
-    -- @ repository-url\/image:tag @ or @ repository-url\/image\@digest @. Up
-    -- to 255 letters (uppercase and lowercase), numbers, hyphens, underscores,
-    -- colons, periods, forward slashes, and number signs are allowed. This
-    -- parameter maps to @Image@ in the
+    -- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @ or
+    -- @ @/@repository-url@/@\/@/@image@/@\@@/@digest@/@ @. Up to 255 letters
+    -- (uppercase and lowercase), numbers, hyphens, underscores, colons,
+    -- periods, forward slashes, and number signs are allowed. This parameter
+    -- maps to @Image@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -999,10 +1000,11 @@ data ContainerDefinition = ContainerDefinition'
 -- 'image', 'containerDefinition_image' - The image used to start a container. This string is passed directly to
 -- the Docker daemon. By default, images in the Docker Hub registry are
 -- available. Other repositories are specified with either
--- @ repository-url\/image:tag @ or @ repository-url\/image\@digest @. Up
--- to 255 letters (uppercase and lowercase), numbers, hyphens, underscores,
--- colons, periods, forward slashes, and number signs are allowed. This
--- parameter maps to @Image@ in the
+-- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @ or
+-- @ @/@repository-url@/@\/@/@image@/@\@@/@digest@/@ @. Up to 255 letters
+-- (uppercase and lowercase), numbers, hyphens, underscores, colons,
+-- periods, forward slashes, and number signs are allowed. This parameter
+-- maps to @Image@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -1754,10 +1756,11 @@ containerDefinition_hostname = Lens.lens (\ContainerDefinition' {hostname} -> ho
 -- | The image used to start a container. This string is passed directly to
 -- the Docker daemon. By default, images in the Docker Hub registry are
 -- available. Other repositories are specified with either
--- @ repository-url\/image:tag @ or @ repository-url\/image\@digest @. Up
--- to 255 letters (uppercase and lowercase), numbers, hyphens, underscores,
--- colons, periods, forward slashes, and number signs are allowed. This
--- parameter maps to @Image@ in the
+-- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @ or
+-- @ @/@repository-url@/@\/@/@image@/@\@@/@digest@/@ @. Up to 255 letters
+-- (uppercase and lowercase), numbers, hyphens, underscores, colons,
+-- periods, forward slashes, and number signs are allowed. This parameter
+-- maps to @Image@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -2225,17 +2228,20 @@ instance Data.FromJSON ContainerDefinition where
             Prelude.<*> (x Data..:? "cpu")
             Prelude.<*> (x Data..:? "dependsOn" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "disableNetworking")
-            Prelude.<*> ( x Data..:? "dnsSearchDomains"
+            Prelude.<*> ( x
+                            Data..:? "dnsSearchDomains"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "dnsServers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "dockerLabels" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "dockerSecurityOptions"
+            Prelude.<*> ( x
+                            Data..:? "dockerSecurityOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "entryPoint" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "environment" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "environmentFiles"
+            Prelude.<*> ( x
+                            Data..:? "environmentFiles"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "essential")
@@ -2257,7 +2263,8 @@ instance Data.FromJSON ContainerDefinition where
             Prelude.<*> (x Data..:? "pseudoTerminal")
             Prelude.<*> (x Data..:? "readonlyRootFilesystem")
             Prelude.<*> (x Data..:? "repositoryCredentials")
-            Prelude.<*> ( x Data..:? "resourceRequirements"
+            Prelude.<*> ( x
+                            Data..:? "resourceRequirements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "secrets" Data..!= Prelude.mempty)
@@ -2272,7 +2279,8 @@ instance Data.FromJSON ContainerDefinition where
 
 instance Prelude.Hashable ContainerDefinition where
   hashWithSalt _salt ContainerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` dependsOn
       `Prelude.hashWithSalt` disableNetworking

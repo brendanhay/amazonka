@@ -140,7 +140,8 @@ instance Core.AWSRequest DeleteAccountSetting where
 
 instance Prelude.Hashable DeleteAccountSetting where
   hashWithSalt _salt DeleteAccountSetting' {..} =
-    _salt `Prelude.hashWithSalt` principalArn
+    _salt
+      `Prelude.hashWithSalt` principalArn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteAccountSetting where

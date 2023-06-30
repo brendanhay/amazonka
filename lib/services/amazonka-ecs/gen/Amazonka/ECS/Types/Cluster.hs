@@ -519,13 +519,15 @@ instance Data.FromJSON Cluster where
             Prelude.<$> (x Data..:? "activeServicesCount")
             Prelude.<*> (x Data..:? "attachments" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "attachmentsStatus")
-            Prelude.<*> ( x Data..:? "capacityProviders"
+            Prelude.<*> ( x
+                            Data..:? "capacityProviders"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "clusterArn")
             Prelude.<*> (x Data..:? "clusterName")
             Prelude.<*> (x Data..:? "configuration")
-            Prelude.<*> ( x Data..:? "defaultCapacityProviderStrategy"
+            Prelude.<*> ( x
+                            Data..:? "defaultCapacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "pendingTasksCount")
@@ -540,7 +542,8 @@ instance Data.FromJSON Cluster where
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` activeServicesCount
+    _salt
+      `Prelude.hashWithSalt` activeServicesCount
       `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` attachmentsStatus
       `Prelude.hashWithSalt` capacityProviders

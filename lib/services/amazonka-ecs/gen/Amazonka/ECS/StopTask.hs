@@ -141,7 +141,8 @@ instance Core.AWSRequest StopTask where
 
 instance Prelude.Hashable StopTask where
   hashWithSalt _salt StopTask' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` task
 

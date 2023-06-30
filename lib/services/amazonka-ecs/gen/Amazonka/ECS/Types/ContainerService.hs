@@ -621,7 +621,8 @@ instance Data.FromJSON ContainerService where
       "ContainerService"
       ( \x ->
           ContainerService'
-            Prelude.<$> ( x Data..:? "capacityProviderStrategy"
+            Prelude.<$> ( x
+                            Data..:? "capacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "clusterArn")
@@ -639,10 +640,12 @@ instance Data.FromJSON ContainerService where
             Prelude.<*> (x Data..:? "loadBalancers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "networkConfiguration")
             Prelude.<*> (x Data..:? "pendingCount")
-            Prelude.<*> ( x Data..:? "placementConstraints"
+            Prelude.<*> ( x
+                            Data..:? "placementConstraints"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "placementStrategy"
+            Prelude.<*> ( x
+                            Data..:? "placementStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "platformFamily")
@@ -653,7 +656,8 @@ instance Data.FromJSON ContainerService where
             Prelude.<*> (x Data..:? "schedulingStrategy")
             Prelude.<*> (x Data..:? "serviceArn")
             Prelude.<*> (x Data..:? "serviceName")
-            Prelude.<*> ( x Data..:? "serviceRegistries"
+            Prelude.<*> ( x
+                            Data..:? "serviceRegistries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "status")

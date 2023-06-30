@@ -128,7 +128,8 @@ instance Data.FromJSON MediaLiveConnectorPipeline where
 
 instance Prelude.Hashable MediaLiveConnectorPipeline where
   hashWithSalt _salt MediaLiveConnectorPipeline' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` mediaPipelineArn
       `Prelude.hashWithSalt` mediaPipelineId
       `Prelude.hashWithSalt` sinks

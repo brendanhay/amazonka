@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     CompositedVideoArtifactsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` layout
+      _salt
+        `Prelude.hashWithSalt` layout
         `Prelude.hashWithSalt` resolution
         `Prelude.hashWithSalt` gridViewConfiguration
 

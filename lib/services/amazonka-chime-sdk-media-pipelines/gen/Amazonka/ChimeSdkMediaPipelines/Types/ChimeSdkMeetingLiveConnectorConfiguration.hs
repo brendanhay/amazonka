@@ -105,9 +105,9 @@ instance
       ( \x ->
           ChimeSdkMeetingLiveConnectorConfiguration'
             Prelude.<$> (x Data..:? "CompositedVideo")
-              Prelude.<*> (x Data..:? "SourceConfiguration")
-              Prelude.<*> (x Data..: "Arn")
-              Prelude.<*> (x Data..: "MuxType")
+            Prelude.<*> (x Data..:? "SourceConfiguration")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "MuxType")
       )
 
 instance
@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     ChimeSdkMeetingLiveConnectorConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` compositedVideo
+      _salt
+        `Prelude.hashWithSalt` compositedVideo
         `Prelude.hashWithSalt` sourceConfiguration
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` muxType

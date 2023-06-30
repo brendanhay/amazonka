@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     CreateMediaConcatenationPipeline' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` sources
         `Prelude.hashWithSalt` sinks

@@ -81,7 +81,8 @@ instance
     ChimeSdkMeetingConfiguration
   where
   hashWithSalt _salt ChimeSdkMeetingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` artifactsConfiguration
+    _salt
+      `Prelude.hashWithSalt` artifactsConfiguration
       `Prelude.hashWithSalt` sourceConfiguration
 
 instance Prelude.NFData ChimeSdkMeetingConfiguration where

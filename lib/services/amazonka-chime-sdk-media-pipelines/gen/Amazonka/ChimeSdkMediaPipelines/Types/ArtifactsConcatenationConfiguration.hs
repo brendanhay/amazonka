@@ -165,7 +165,8 @@ instance
   hashWithSalt
     _salt
     ArtifactsConcatenationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` audio
+      _salt
+        `Prelude.hashWithSalt` audio
         `Prelude.hashWithSalt` video
         `Prelude.hashWithSalt` content
         `Prelude.hashWithSalt` dataChannel

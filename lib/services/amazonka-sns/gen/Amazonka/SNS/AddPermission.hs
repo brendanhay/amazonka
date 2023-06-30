@@ -132,7 +132,8 @@ instance Core.AWSRequest AddPermission where
 
 instance Prelude.Hashable AddPermission where
   hashWithSalt _salt AddPermission' {..} =
-    _salt `Prelude.hashWithSalt` topicArn
+    _salt
+      `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` aWSAccountId
       `Prelude.hashWithSalt` actionName

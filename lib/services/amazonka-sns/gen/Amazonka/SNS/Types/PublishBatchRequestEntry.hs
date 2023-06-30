@@ -380,7 +380,8 @@ publishBatchRequestEntry_message = Lens.lens (\PublishBatchRequestEntry' {messag
 
 instance Prelude.Hashable PublishBatchRequestEntry where
   hashWithSalt _salt PublishBatchRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` messageAttributes
+    _salt
+      `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` messageDeduplicationId
       `Prelude.hashWithSalt` messageGroupId
       `Prelude.hashWithSalt` messageStructure

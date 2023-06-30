@@ -120,7 +120,8 @@ instance Core.AWSRequest CreateSMSSandboxPhoneNumber where
 
 instance Prelude.Hashable CreateSMSSandboxPhoneNumber where
   hashWithSalt _salt CreateSMSSandboxPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` phoneNumber
 
 instance Prelude.NFData CreateSMSSandboxPhoneNumber where

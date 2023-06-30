@@ -449,7 +449,8 @@ instance Core.AWSRequest Subscribe where
 
 instance Prelude.Hashable Subscribe where
   hashWithSalt _salt Subscribe' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` returnSubscriptionArn
       `Prelude.hashWithSalt` topicArn

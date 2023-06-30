@@ -283,7 +283,8 @@ instance Core.AWSRequest SetTopicAttributes where
 
 instance Prelude.Hashable SetTopicAttributes where
   hashWithSalt _salt SetTopicAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributeValue
+    _salt
+      `Prelude.hashWithSalt` attributeValue
       `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` attributeName
 

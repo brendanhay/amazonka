@@ -121,7 +121,8 @@ instance Core.AWSRequest VerifySMSSandboxPhoneNumber where
 
 instance Prelude.Hashable VerifySMSSandboxPhoneNumber where
   hashWithSalt _salt VerifySMSSandboxPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumber
+    _salt
+      `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` oneTimePassword
 
 instance Prelude.NFData VerifySMSSandboxPhoneNumber where

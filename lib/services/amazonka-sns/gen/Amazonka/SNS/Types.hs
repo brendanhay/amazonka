@@ -192,53 +192,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Indicates that the user has been denied access to the requested
 -- resource.
-_AuthorizationErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AuthorizationErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AuthorizationErrorException =
   Core._MatchServiceError
     defaultService
@@ -246,7 +246,7 @@ _AuthorizationErrorException =
     Prelude.. Core.hasStatus 403
 
 -- | Two or more batch entries in the request have the same @Id@.
-_BatchEntryIdsNotDistinctException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BatchEntryIdsNotDistinctException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BatchEntryIdsNotDistinctException =
   Core._MatchServiceError
     defaultService
@@ -255,7 +255,7 @@ _BatchEntryIdsNotDistinctException =
 
 -- | The length of all the batch messages put together is more than the
 -- limit.
-_BatchRequestTooLongException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BatchRequestTooLongException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BatchRequestTooLongException =
   Core._MatchServiceError
     defaultService
@@ -264,7 +264,7 @@ _BatchRequestTooLongException =
 
 -- | Can\'t perform multiple operations on a tag simultaneously. Perform the
 -- operations sequentially.
-_ConcurrentAccessException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentAccessException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentAccessException =
   Core._MatchServiceError
     defaultService
@@ -272,7 +272,7 @@ _ConcurrentAccessException =
     Prelude.. Core.hasStatus 400
 
 -- | The batch request doesn\'t contain any entries.
-_EmptyBatchRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EmptyBatchRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EmptyBatchRequestException =
   Core._MatchServiceError
     defaultService
@@ -280,7 +280,7 @@ _EmptyBatchRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Exception error indicating endpoint disabled.
-_EndpointDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EndpointDisabledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EndpointDisabledException =
   Core._MatchServiceError
     defaultService
@@ -290,7 +290,7 @@ _EndpointDisabledException =
 -- | Indicates that the number of filter polices in your Amazon Web Services
 -- account exceeds the limit. To add more filter polices, submit an Amazon
 -- SNS Limit Increase case in the Amazon Web Services Support Center.
-_FilterPolicyLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FilterPolicyLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FilterPolicyLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -298,7 +298,7 @@ _FilterPolicyLimitExceededException =
     Prelude.. Core.hasStatus 403
 
 -- | Indicates an internal service error.
-_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
@@ -307,7 +307,7 @@ _InternalErrorException =
 
 -- | The @Id@ of a batch entry in a batch request doesn\'t abide by the
 -- specification.
-_InvalidBatchEntryIdException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidBatchEntryIdException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidBatchEntryIdException =
   Core._MatchServiceError
     defaultService
@@ -316,7 +316,7 @@ _InvalidBatchEntryIdException =
 
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -325,7 +325,7 @@ _InvalidParameterException =
 
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
-_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -334,7 +334,7 @@ _InvalidParameterValueException =
 
 -- | The credential signature isn\'t valid. You must use an HTTPS endpoint
 -- and sign your request using Signature Version 4.
-_InvalidSecurityException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSecurityException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSecurityException =
   Core._MatchServiceError
     defaultService
@@ -343,7 +343,7 @@ _InvalidSecurityException =
 
 -- | The ciphertext references a key that doesn\'t exist or that you don\'t
 -- have access to.
-_KMSAccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSAccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSAccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -352,7 +352,7 @@ _KMSAccessDeniedException =
 
 -- | The request was rejected because the specified customer master key (CMK)
 -- isn\'t enabled.
-_KMSDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSDisabledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSDisabledException =
   Core._MatchServiceError
     defaultService
@@ -363,7 +363,7 @@ _KMSDisabledException =
 -- isn\'t valid for this request. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
 -- in the /Key Management Service Developer Guide/.
-_KMSInvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSInvalidStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSInvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -372,7 +372,7 @@ _KMSInvalidStateException =
 
 -- | The request was rejected because the specified entity or resource can\'t
 -- be found.
-_KMSNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -381,7 +381,7 @@ _KMSNotFoundException =
 
 -- | The Amazon Web Services access key ID needs a subscription for the
 -- service.
-_KMSOptInRequired :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSOptInRequired :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSOptInRequired =
   Core._MatchServiceError
     defaultService
@@ -392,7 +392,7 @@ _KMSOptInRequired =
 -- about throttling, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits>
 -- in the /Key Management Service Developer Guide./
-_KMSThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -400,7 +400,7 @@ _KMSThrottlingException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the requested resource does not exist.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError defaultService "NotFound"
     Prelude.. Core.hasStatus 404
@@ -408,13 +408,13 @@ _NotFoundException =
 -- | Indicates that the specified phone number opted out of receiving SMS
 -- messages from your Amazon Web Services account. You can\'t send SMS
 -- messages to phone numbers that opt out.
-_OptedOutException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OptedOutException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OptedOutException =
   Core._MatchServiceError defaultService "OptedOut"
     Prelude.. Core.hasStatus 400
 
 -- | Exception error indicating platform application disabled.
-_PlatformApplicationDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PlatformApplicationDisabledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PlatformApplicationDisabledException =
   Core._MatchServiceError
     defaultService
@@ -423,7 +423,7 @@ _PlatformApplicationDisabledException =
 
 -- | Can’t perform the action on the specified resource. Make sure that the
 -- resource exists.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -432,14 +432,14 @@ _ResourceNotFoundException =
 
 -- | A tag has been added to a resource with the same ARN as a deleted
 -- resource. Wait a short while and then retry the operation.
-_StaleTagException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StaleTagException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StaleTagException =
   Core._MatchServiceError defaultService "StaleTag"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the customer already owns the maximum allowed number of
 -- subscriptions.
-_SubscriptionLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubscriptionLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubscriptionLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -447,7 +447,7 @@ _SubscriptionLimitExceededException =
     Prelude.. Core.hasStatus 403
 
 -- | Can\'t add more than 50 tags to a topic.
-_TagLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TagLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -456,20 +456,20 @@ _TagLimitExceededException =
 
 -- | The request doesn\'t comply with the IAM tag policy. Correct your
 -- request and then retry it.
-_TagPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TagPolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagPolicyException =
   Core._MatchServiceError defaultService "TagPolicy"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the rate at which requests have been submitted for this
 -- action exceeds the limit for your Amazon Web Services account.
-_ThrottledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottledException =
   Core._MatchServiceError defaultService "Throttled"
     Prelude.. Core.hasStatus 429
 
 -- | The batch request contains more entries than permissible.
-_TooManyEntriesInBatchRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyEntriesInBatchRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyEntriesInBatchRequestException =
   Core._MatchServiceError
     defaultService
@@ -478,7 +478,7 @@ _TooManyEntriesInBatchRequestException =
 
 -- | Indicates that the customer already owns the maximum allowed number of
 -- topics.
-_TopicLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TopicLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TopicLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -487,13 +487,13 @@ _TopicLimitExceededException =
 
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
-_UserErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UserErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UserErrorException =
   Core._MatchServiceError defaultService "UserError"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that a parameter in the request is invalid.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService
@@ -502,7 +502,7 @@ _ValidationException =
 
 -- | Indicates that the one-time password (OTP) used for verification is
 -- invalid.
-_VerificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_VerificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _VerificationException =
   Core._MatchServiceError
     defaultService

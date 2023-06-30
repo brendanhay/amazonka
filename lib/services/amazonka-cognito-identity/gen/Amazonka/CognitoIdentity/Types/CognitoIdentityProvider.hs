@@ -115,7 +115,8 @@ instance Data.FromJSON CognitoIdentityProvider where
 
 instance Prelude.Hashable CognitoIdentityProvider where
   hashWithSalt _salt CognitoIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` providerName
       `Prelude.hashWithSalt` serverSideTokenCheck
 

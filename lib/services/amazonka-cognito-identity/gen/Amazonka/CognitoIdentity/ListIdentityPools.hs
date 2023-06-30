@@ -98,22 +98,22 @@ instance Core.AWSPager ListIdentityPools where
     | Core.stop
         ( rs
             Lens.^? listIdentityPoolsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listIdentityPoolsResponse_identityPools
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIdentityPools_nextToken
           Lens..~ rs
           Lens.^? listIdentityPoolsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIdentityPools where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest ListIdentityPools where
 
 instance Prelude.Hashable ListIdentityPools where
   hashWithSalt _salt ListIdentityPools' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListIdentityPools where

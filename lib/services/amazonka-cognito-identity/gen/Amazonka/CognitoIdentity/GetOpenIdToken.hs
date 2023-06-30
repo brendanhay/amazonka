@@ -124,7 +124,8 @@ instance Core.AWSRequest GetOpenIdToken where
 
 instance Prelude.Hashable GetOpenIdToken where
   hashWithSalt _salt GetOpenIdToken' {..} =
-    _salt `Prelude.hashWithSalt` logins
+    _salt
+      `Prelude.hashWithSalt` logins
       `Prelude.hashWithSalt` identityId
 
 instance Prelude.NFData GetOpenIdToken where

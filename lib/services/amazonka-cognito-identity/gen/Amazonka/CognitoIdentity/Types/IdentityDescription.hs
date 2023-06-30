@@ -95,7 +95,8 @@ instance Data.FromJSON IdentityDescription where
 
 instance Prelude.Hashable IdentityDescription where
   hashWithSalt _salt IdentityDescription' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` logins

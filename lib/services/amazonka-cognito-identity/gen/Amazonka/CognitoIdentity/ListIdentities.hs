@@ -138,7 +138,8 @@ instance Core.AWSRequest ListIdentities where
 
 instance Prelude.Hashable ListIdentities where
   hashWithSalt _salt ListIdentities' {..} =
-    _salt `Prelude.hashWithSalt` hideDisabled
+    _salt
+      `Prelude.hashWithSalt` hideDisabled
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` maxResults

@@ -164,7 +164,8 @@ instance Core.AWSRequest GetCredentialsForIdentity where
 
 instance Prelude.Hashable GetCredentialsForIdentity where
   hashWithSalt _salt GetCredentialsForIdentity' {..} =
-    _salt `Prelude.hashWithSalt` customRoleArn
+    _salt
+      `Prelude.hashWithSalt` customRoleArn
       `Prelude.hashWithSalt` logins
       `Prelude.hashWithSalt` identityId
 

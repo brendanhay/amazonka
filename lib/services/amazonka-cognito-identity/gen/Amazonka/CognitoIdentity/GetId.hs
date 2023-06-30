@@ -160,7 +160,8 @@ instance Core.AWSRequest GetId where
 
 instance Prelude.Hashable GetId where
   hashWithSalt _salt GetId' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` logins
       `Prelude.hashWithSalt` identityPoolId
 

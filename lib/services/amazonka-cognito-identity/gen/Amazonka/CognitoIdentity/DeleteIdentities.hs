@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteIdentities where
     Response.receiveJSON
       ( \s h x ->
           DeleteIdentitiesResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedIdentityIds"
+            Prelude.<$> ( x
+                            Data..?> "UnprocessedIdentityIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -215,7 +215,8 @@ instance Core.AWSRequest StartIncident where
 
 instance Prelude.Hashable StartIncident where
   hashWithSalt _salt StartIncident' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` impact
       `Prelude.hashWithSalt` relatedItems
       `Prelude.hashWithSalt` title

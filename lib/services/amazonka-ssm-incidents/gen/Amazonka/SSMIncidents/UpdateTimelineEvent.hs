@@ -194,7 +194,8 @@ instance Core.AWSRequest UpdateTimelineEvent where
 
 instance Prelude.Hashable UpdateTimelineEvent where
   hashWithSalt _salt UpdateTimelineEvent' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` eventData
       `Prelude.hashWithSalt` eventReferences
       `Prelude.hashWithSalt` eventTime

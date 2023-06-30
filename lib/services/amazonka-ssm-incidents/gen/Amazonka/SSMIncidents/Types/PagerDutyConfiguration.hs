@@ -101,7 +101,8 @@ instance Data.FromJSON PagerDutyConfiguration where
 
 instance Prelude.Hashable PagerDutyConfiguration where
   hashWithSalt _salt PagerDutyConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` pagerDutyIncidentConfiguration
       `Prelude.hashWithSalt` secretId
 

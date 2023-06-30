@@ -84,7 +84,8 @@ instance Data.FromJSON ChatChannel where
 
 instance Prelude.Hashable ChatChannel where
   hashWithSalt _salt ChatChannel' {..} =
-    _salt `Prelude.hashWithSalt` chatbotSns
+    _salt
+      `Prelude.hashWithSalt` chatbotSns
       `Prelude.hashWithSalt` empty
 
 instance Prelude.NFData ChatChannel where

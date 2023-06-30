@@ -88,7 +88,8 @@ instance Data.FromJSON ResponsePlanSummary where
 
 instance Prelude.Hashable ResponsePlanSummary where
   hashWithSalt _salt ResponsePlanSummary' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 

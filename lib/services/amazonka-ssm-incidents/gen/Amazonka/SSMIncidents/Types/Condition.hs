@@ -78,7 +78,8 @@ condition_equals = Lens.lens (\Condition' {equals} -> equals) (\s@Condition' {} 
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` after
+    _salt
+      `Prelude.hashWithSalt` after
       `Prelude.hashWithSalt` before
       `Prelude.hashWithSalt` equals
 

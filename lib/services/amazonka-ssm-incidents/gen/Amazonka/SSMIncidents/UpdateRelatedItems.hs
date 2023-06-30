@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateRelatedItems where
 
 instance Prelude.Hashable UpdateRelatedItems where
   hashWithSalt _salt UpdateRelatedItems' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` incidentRecordArn
       `Prelude.hashWithSalt` relatedItemsUpdate
 

@@ -65,7 +65,8 @@ attributeValueList_stringValues = Lens.lens (\AttributeValueList' {stringValues}
 
 instance Prelude.Hashable AttributeValueList where
   hashWithSalt _salt AttributeValueList' {..} =
-    _salt `Prelude.hashWithSalt` integerValues
+    _salt
+      `Prelude.hashWithSalt` integerValues
       `Prelude.hashWithSalt` stringValues
 
 instance Prelude.NFData AttributeValueList where

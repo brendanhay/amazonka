@@ -118,7 +118,8 @@ instance Core.AWSRequest CreateReplicationSet where
 
 instance Prelude.Hashable CreateReplicationSet where
   hashWithSalt _salt CreateReplicationSet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` regions
 

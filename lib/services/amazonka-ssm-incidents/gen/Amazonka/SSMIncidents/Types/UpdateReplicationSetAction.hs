@@ -73,7 +73,8 @@ updateReplicationSetAction_deleteRegionAction = Lens.lens (\UpdateReplicationSet
 
 instance Prelude.Hashable UpdateReplicationSetAction where
   hashWithSalt _salt UpdateReplicationSetAction' {..} =
-    _salt `Prelude.hashWithSalt` addRegionAction
+    _salt
+      `Prelude.hashWithSalt` addRegionAction
       `Prelude.hashWithSalt` deleteRegionAction
 
 instance Prelude.NFData UpdateReplicationSetAction where

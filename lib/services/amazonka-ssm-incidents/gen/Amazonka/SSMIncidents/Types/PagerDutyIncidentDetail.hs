@@ -100,7 +100,8 @@ instance Data.FromJSON PagerDutyIncidentDetail where
 
 instance Prelude.Hashable PagerDutyIncidentDetail where
   hashWithSalt _salt PagerDutyIncidentDetail' {..} =
-    _salt `Prelude.hashWithSalt` autoResolve
+    _salt
+      `Prelude.hashWithSalt` autoResolve
       `Prelude.hashWithSalt` secretId
       `Prelude.hashWithSalt` id
 

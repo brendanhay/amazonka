@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateDeletionProtection where
 
 instance Prelude.Hashable UpdateDeletionProtection where
   hashWithSalt _salt UpdateDeletionProtection' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` deletionProtected
 

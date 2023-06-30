@@ -110,7 +110,8 @@ instance Core.AWSRequest GetTimelineEvent where
 
 instance Prelude.Hashable GetTimelineEvent where
   hashWithSalt _salt GetTimelineEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventId
+    _salt
+      `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` incidentRecordArn
 
 instance Prelude.NFData GetTimelineEvent where

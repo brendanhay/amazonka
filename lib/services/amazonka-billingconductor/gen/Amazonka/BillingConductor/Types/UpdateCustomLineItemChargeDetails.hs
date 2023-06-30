@@ -79,7 +79,8 @@ instance
   hashWithSalt
     _salt
     UpdateCustomLineItemChargeDetails' {..} =
-      _salt `Prelude.hashWithSalt` flat
+      _salt
+        `Prelude.hashWithSalt` flat
         `Prelude.hashWithSalt` percentage
 
 instance

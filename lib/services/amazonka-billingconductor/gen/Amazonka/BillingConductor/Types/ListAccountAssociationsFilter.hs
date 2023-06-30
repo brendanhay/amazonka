@@ -95,7 +95,8 @@ instance
     ListAccountAssociationsFilter
   where
   hashWithSalt _salt ListAccountAssociationsFilter' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` association
 
 instance Prelude.NFData ListAccountAssociationsFilter where

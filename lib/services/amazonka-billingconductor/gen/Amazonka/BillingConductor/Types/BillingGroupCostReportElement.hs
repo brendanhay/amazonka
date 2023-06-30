@@ -123,7 +123,8 @@ instance
     BillingGroupCostReportElement
   where
   hashWithSalt _salt BillingGroupCostReportElement' {..} =
-    _salt `Prelude.hashWithSalt` aWSCost
+    _salt
+      `Prelude.hashWithSalt` aWSCost
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` margin

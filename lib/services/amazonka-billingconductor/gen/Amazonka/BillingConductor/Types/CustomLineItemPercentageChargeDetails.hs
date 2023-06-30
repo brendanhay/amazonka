@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     CustomLineItemPercentageChargeDetails' {..} =
-      _salt `Prelude.hashWithSalt` associatedValues
+      _salt
+        `Prelude.hashWithSalt` associatedValues
         `Prelude.hashWithSalt` percentageValue
 
 instance

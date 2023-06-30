@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     ListCustomLineItemChargeDetails' {..} =
-      _salt `Prelude.hashWithSalt` flat
+      _salt
+        `Prelude.hashWithSalt` flat
         `Prelude.hashWithSalt` percentage
         `Prelude.hashWithSalt` type'
 

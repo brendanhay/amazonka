@@ -68,7 +68,8 @@ listBillingGroupsFilter_pricingPlan = Lens.lens (\ListBillingGroupsFilter' {pric
 
 instance Prelude.Hashable ListBillingGroupsFilter where
   hashWithSalt _salt ListBillingGroupsFilter' {..} =
-    _salt `Prelude.hashWithSalt` arns
+    _salt
+      `Prelude.hashWithSalt` arns
       `Prelude.hashWithSalt` pricingPlan
 
 instance Prelude.NFData ListBillingGroupsFilter where

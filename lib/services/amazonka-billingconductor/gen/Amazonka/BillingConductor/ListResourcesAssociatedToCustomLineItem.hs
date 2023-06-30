@@ -135,22 +135,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listResourcesAssociatedToCustomLineItemResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResourcesAssociatedToCustomLineItemResponse_associatedResources
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResourcesAssociatedToCustomLineItem_nextToken
           Lens..~ rs
-            Lens.^? listResourcesAssociatedToCustomLineItemResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? listResourcesAssociatedToCustomLineItemResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -167,11 +167,12 @@ instance
       ( \s h x ->
           ListResourcesAssociatedToCustomLineItemResponse'
             Prelude.<$> (x Data..?> "Arn")
-              Prelude.<*> ( x Data..?> "AssociatedResources"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "AssociatedResources"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -181,7 +182,8 @@ instance
   hashWithSalt
     _salt
     ListResourcesAssociatedToCustomLineItem' {..} =
-      _salt `Prelude.hashWithSalt` billingPeriod
+      _salt
+        `Prelude.hashWithSalt` billingPeriod
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

@@ -205,7 +205,8 @@ instance Core.AWSRequest CreatePricingRule where
 
 instance Prelude.Hashable CreatePricingRule where
   hashWithSalt _salt CreatePricingRule' {..} =
-    _salt `Prelude.hashWithSalt` billingEntity
+    _salt
+      `Prelude.hashWithSalt` billingEntity
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modifierPercentage

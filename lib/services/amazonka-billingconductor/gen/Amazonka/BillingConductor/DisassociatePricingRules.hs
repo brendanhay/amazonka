@@ -111,7 +111,8 @@ instance Core.AWSRequest DisassociatePricingRules where
 
 instance Prelude.Hashable DisassociatePricingRules where
   hashWithSalt _salt DisassociatePricingRules' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` pricingRuleArns
 
 instance Prelude.NFData DisassociatePricingRules where

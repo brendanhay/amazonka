@@ -168,7 +168,8 @@ instance Data.FromJSON CustomLineItemListElement where
 
 instance Prelude.Hashable CustomLineItemListElement where
   hashWithSalt _salt CustomLineItemListElement' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` associationSize
       `Prelude.hashWithSalt` billingGroupArn
       `Prelude.hashWithSalt` chargeDetails

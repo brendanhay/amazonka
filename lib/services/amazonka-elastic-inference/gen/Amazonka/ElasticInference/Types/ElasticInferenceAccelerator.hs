@@ -112,7 +112,8 @@ instance Data.FromJSON ElasticInferenceAccelerator where
 
 instance Prelude.Hashable ElasticInferenceAccelerator where
   hashWithSalt _salt ElasticInferenceAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorHealth
+    _salt
+      `Prelude.hashWithSalt` acceleratorHealth
       `Prelude.hashWithSalt` acceleratorId
       `Prelude.hashWithSalt` acceleratorType
       `Prelude.hashWithSalt` attachedResource

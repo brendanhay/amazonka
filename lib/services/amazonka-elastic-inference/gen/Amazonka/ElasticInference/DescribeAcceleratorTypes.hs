@@ -70,7 +70,8 @@ instance Core.AWSRequest DescribeAcceleratorTypes where
     Response.receiveJSON
       ( \s h x ->
           DescribeAcceleratorTypesResponse'
-            Prelude.<$> ( x Data..?> "acceleratorTypes"
+            Prelude.<$> ( x
+                            Data..?> "acceleratorTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

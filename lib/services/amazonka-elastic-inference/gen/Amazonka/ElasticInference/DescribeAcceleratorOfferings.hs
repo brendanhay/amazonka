@@ -113,7 +113,8 @@ instance Core.AWSRequest DescribeAcceleratorOfferings where
     Response.receiveJSON
       ( \s h x ->
           DescribeAcceleratorOfferingsResponse'
-            Prelude.<$> ( x Data..?> "acceleratorTypeOfferings"
+            Prelude.<$> ( x
+                            Data..?> "acceleratorTypeOfferings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -124,7 +125,8 @@ instance
     DescribeAcceleratorOfferings
   where
   hashWithSalt _salt DescribeAcceleratorOfferings' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorTypes
+    _salt
+      `Prelude.hashWithSalt` acceleratorTypes
       `Prelude.hashWithSalt` locationType
 
 instance Prelude.NFData DescribeAcceleratorOfferings where

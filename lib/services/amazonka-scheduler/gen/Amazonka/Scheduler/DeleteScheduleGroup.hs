@@ -117,7 +117,8 @@ instance Core.AWSRequest DeleteScheduleGroup where
 
 instance Prelude.Hashable DeleteScheduleGroup where
   hashWithSalt _salt DeleteScheduleGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteScheduleGroup where

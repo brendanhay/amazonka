@@ -132,7 +132,8 @@ instance Core.AWSRequest GetSchedule where
 
 instance Prelude.Hashable GetSchedule where
   hashWithSalt _salt GetSchedule' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetSchedule where

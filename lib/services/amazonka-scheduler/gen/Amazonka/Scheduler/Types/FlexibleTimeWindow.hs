@@ -82,7 +82,8 @@ instance Data.FromJSON FlexibleTimeWindow where
 
 instance Prelude.Hashable FlexibleTimeWindow where
   hashWithSalt _salt FlexibleTimeWindow' {..} =
-    _salt `Prelude.hashWithSalt` maximumWindowInMinutes
+    _salt
+      `Prelude.hashWithSalt` maximumWindowInMinutes
       `Prelude.hashWithSalt` mode
 
 instance Prelude.NFData FlexibleTimeWindow where

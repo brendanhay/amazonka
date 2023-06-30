@@ -346,7 +346,8 @@ instance Core.AWSRequest UpdateSchedule where
 
 instance Prelude.Hashable UpdateSchedule where
   hashWithSalt _salt UpdateSchedule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` groupName

@@ -66,7 +66,8 @@ instance Data.FromJSON SageMakerPipelineParameters where
       "SageMakerPipelineParameters"
       ( \x ->
           SageMakerPipelineParameters'
-            Prelude.<$> ( x Data..:? "PipelineParameterList"
+            Prelude.<$> ( x
+                            Data..:? "PipelineParameterList"
                             Data..!= Prelude.mempty
                         )
       )

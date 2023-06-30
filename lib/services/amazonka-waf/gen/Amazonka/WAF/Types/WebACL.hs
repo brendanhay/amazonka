@@ -173,7 +173,8 @@ instance Data.FromJSON WebACL where
 
 instance Prelude.Hashable WebACL where
   hashWithSalt _salt WebACL' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` webACLArn
       `Prelude.hashWithSalt` webACLId

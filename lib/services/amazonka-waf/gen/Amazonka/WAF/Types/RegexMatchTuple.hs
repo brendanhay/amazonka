@@ -359,7 +359,8 @@ instance Data.FromJSON RegexMatchTuple where
 
 instance Prelude.Hashable RegexMatchTuple where
   hashWithSalt _salt RegexMatchTuple' {..} =
-    _salt `Prelude.hashWithSalt` fieldToMatch
+    _salt
+      `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformation
       `Prelude.hashWithSalt` regexPatternSetId
 

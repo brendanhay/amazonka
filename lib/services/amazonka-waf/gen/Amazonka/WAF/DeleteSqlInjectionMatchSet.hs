@@ -140,7 +140,8 @@ instance Core.AWSRequest DeleteSqlInjectionMatchSet where
 
 instance Prelude.Hashable DeleteSqlInjectionMatchSet where
   hashWithSalt _salt DeleteSqlInjectionMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` sqlInjectionMatchSetId
+    _salt
+      `Prelude.hashWithSalt` sqlInjectionMatchSetId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteSqlInjectionMatchSet where

@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateXssMatchSet where
 
 instance Prelude.Hashable CreateXssMatchSet where
   hashWithSalt _salt CreateXssMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData CreateXssMatchSet where

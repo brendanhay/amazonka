@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteWebACL where
 
 instance Prelude.Hashable DeleteWebACL where
   hashWithSalt _salt DeleteWebACL' {..} =
-    _salt `Prelude.hashWithSalt` webACLId
+    _salt
+      `Prelude.hashWithSalt` webACLId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteWebACL where

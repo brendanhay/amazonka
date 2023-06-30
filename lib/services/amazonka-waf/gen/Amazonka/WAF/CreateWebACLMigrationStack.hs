@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateWebACLMigrationStack where
 
 instance Prelude.Hashable CreateWebACLMigrationStack where
   hashWithSalt _salt CreateWebACLMigrationStack' {..} =
-    _salt `Prelude.hashWithSalt` webACLId
+    _salt
+      `Prelude.hashWithSalt` webACLId
       `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` ignoreUnsupportedType
 

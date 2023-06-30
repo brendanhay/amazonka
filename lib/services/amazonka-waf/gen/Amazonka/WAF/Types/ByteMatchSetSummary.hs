@@ -110,7 +110,8 @@ instance Data.FromJSON ByteMatchSetSummary where
 
 instance Prelude.Hashable ByteMatchSetSummary where
   hashWithSalt _salt ByteMatchSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` byteMatchSetId
+    _salt
+      `Prelude.hashWithSalt` byteMatchSetId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ByteMatchSetSummary where

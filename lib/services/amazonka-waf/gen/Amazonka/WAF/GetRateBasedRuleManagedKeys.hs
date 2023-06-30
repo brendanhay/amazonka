@@ -117,22 +117,22 @@ instance Core.AWSPager GetRateBasedRuleManagedKeys where
     | Core.stop
         ( rs
             Lens.^? getRateBasedRuleManagedKeysResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getRateBasedRuleManagedKeysResponse_managedKeys
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getRateBasedRuleManagedKeys_nextMarker
           Lens..~ rs
           Lens.^? getRateBasedRuleManagedKeysResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRateBasedRuleManagedKeys where
   type
@@ -151,7 +151,8 @@ instance Core.AWSRequest GetRateBasedRuleManagedKeys where
 
 instance Prelude.Hashable GetRateBasedRuleManagedKeys where
   hashWithSalt _salt GetRateBasedRuleManagedKeys' {..} =
-    _salt `Prelude.hashWithSalt` nextMarker
+    _salt
+      `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` ruleId
 
 instance Prelude.NFData GetRateBasedRuleManagedKeys where

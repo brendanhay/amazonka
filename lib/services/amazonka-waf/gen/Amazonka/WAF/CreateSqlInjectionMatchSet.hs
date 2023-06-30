@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateSqlInjectionMatchSet where
 
 instance Prelude.Hashable CreateSqlInjectionMatchSet where
   hashWithSalt _salt CreateSqlInjectionMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData CreateSqlInjectionMatchSet where

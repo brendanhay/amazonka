@@ -131,22 +131,22 @@ instance Core.AWSPager ListSqlInjectionMatchSets where
     | Core.stop
         ( rs
             Lens.^? listSqlInjectionMatchSetsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSqlInjectionMatchSetsResponse_sqlInjectionMatchSets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSqlInjectionMatchSets_nextMarker
           Lens..~ rs
           Lens.^? listSqlInjectionMatchSetsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSqlInjectionMatchSets where
   type
@@ -159,7 +159,8 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
       ( \s h x ->
           ListSqlInjectionMatchSetsResponse'
             Prelude.<$> (x Data..?> "NextMarker")
-            Prelude.<*> ( x Data..?> "SqlInjectionMatchSets"
+            Prelude.<*> ( x
+                            Data..?> "SqlInjectionMatchSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,7 +168,8 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
 
 instance Prelude.Hashable ListSqlInjectionMatchSets where
   hashWithSalt _salt ListSqlInjectionMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListSqlInjectionMatchSets where

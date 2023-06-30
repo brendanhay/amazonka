@@ -102,7 +102,8 @@ instance Data.FromJSON WebACLSummary where
 
 instance Prelude.Hashable WebACLSummary where
   hashWithSalt _salt WebACLSummary' {..} =
-    _salt `Prelude.hashWithSalt` webACLId
+    _salt
+      `Prelude.hashWithSalt` webACLId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData WebACLSummary where

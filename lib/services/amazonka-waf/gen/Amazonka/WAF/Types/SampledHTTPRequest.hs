@@ -146,7 +146,8 @@ instance Data.FromJSON SampledHTTPRequest where
 
 instance Prelude.Hashable SampledHTTPRequest where
   hashWithSalt _salt SampledHTTPRequest' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` ruleWithinRuleGroup
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` request

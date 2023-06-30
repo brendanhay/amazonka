@@ -131,22 +131,22 @@ instance Core.AWSPager ListRegexPatternSets where
     | Core.stop
         ( rs
             Lens.^? listRegexPatternSetsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRegexPatternSetsResponse_regexPatternSets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRegexPatternSets_nextMarker
           Lens..~ rs
           Lens.^? listRegexPatternSetsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRegexPatternSets where
   type
@@ -159,7 +159,8 @@ instance Core.AWSRequest ListRegexPatternSets where
       ( \s h x ->
           ListRegexPatternSetsResponse'
             Prelude.<$> (x Data..?> "NextMarker")
-            Prelude.<*> ( x Data..?> "RegexPatternSets"
+            Prelude.<*> ( x
+                            Data..?> "RegexPatternSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,7 +168,8 @@ instance Core.AWSRequest ListRegexPatternSets where
 
 instance Prelude.Hashable ListRegexPatternSets where
   hashWithSalt _salt ListRegexPatternSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListRegexPatternSets where

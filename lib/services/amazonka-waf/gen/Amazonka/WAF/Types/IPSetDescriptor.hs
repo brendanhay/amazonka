@@ -146,12 +146,14 @@ instance Data.FromJSON IPSetDescriptor where
       "IPSetDescriptor"
       ( \x ->
           IPSetDescriptor'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable IPSetDescriptor where
   hashWithSalt _salt IPSetDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData IPSetDescriptor where

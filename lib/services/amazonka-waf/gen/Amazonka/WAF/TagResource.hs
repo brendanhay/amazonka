@@ -96,11 +96,9 @@ newTagResource pResourceARN_ pTags_ =
       tags = Lens.coerced Lens.# pTags_
     }
 
--- |
 tagResource_resourceARN :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN) (\s@TagResource' {} a -> s {resourceARN = a} :: TagResource)
 
--- |
 tagResource_tags :: Lens.Lens' TagResource (Prelude.NonEmpty Tag)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
@@ -117,7 +115,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

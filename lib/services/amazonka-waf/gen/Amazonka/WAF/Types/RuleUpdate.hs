@@ -86,7 +86,8 @@ ruleUpdate_predicate = Lens.lens (\RuleUpdate' {predicate} -> predicate) (\s@Rul
 
 instance Prelude.Hashable RuleUpdate where
   hashWithSalt _salt RuleUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` predicate
 
 instance Prelude.NFData RuleUpdate where

@@ -193,7 +193,8 @@ instance Core.AWSRequest UpdateGeoMatchSet where
 
 instance Prelude.Hashable UpdateGeoMatchSet where
   hashWithSalt _salt UpdateGeoMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` geoMatchSetId
+    _salt
+      `Prelude.hashWithSalt` geoMatchSetId
       `Prelude.hashWithSalt` changeToken
       `Prelude.hashWithSalt` updates
 

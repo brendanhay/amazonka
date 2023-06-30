@@ -163,7 +163,6 @@ newCreateWebACL
         changeToken = pChangeToken_
       }
 
--- |
 createWebACL_tags :: Lens.Lens' CreateWebACL (Prelude.Maybe (Prelude.NonEmpty Tag))
 createWebACL_tags = Lens.lens (\CreateWebACL' {tags} -> tags) (\s@CreateWebACL' {} a -> s {tags = a} :: CreateWebACL) Prelude.. Lens.mapping Lens.coerced
 
@@ -206,7 +205,8 @@ instance Core.AWSRequest CreateWebACL where
 
 instance Prelude.Hashable CreateWebACL where
   hashWithSalt _salt CreateWebACL' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` defaultAction

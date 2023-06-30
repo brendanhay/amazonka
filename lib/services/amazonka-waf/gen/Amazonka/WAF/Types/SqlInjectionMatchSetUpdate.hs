@@ -97,7 +97,8 @@ sqlInjectionMatchSetUpdate_sqlInjectionMatchTuple = Lens.lens (\SqlInjectionMatc
 
 instance Prelude.Hashable SqlInjectionMatchSetUpdate where
   hashWithSalt _salt SqlInjectionMatchSetUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` sqlInjectionMatchTuple
 
 instance Prelude.NFData SqlInjectionMatchSetUpdate where

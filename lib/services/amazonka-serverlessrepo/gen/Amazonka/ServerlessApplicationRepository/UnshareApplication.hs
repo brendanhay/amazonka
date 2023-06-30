@@ -101,7 +101,8 @@ instance Core.AWSRequest UnshareApplication where
 
 instance Prelude.Hashable UnshareApplication where
   hashWithSalt _salt UnshareApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` organizationId
 
 instance Prelude.NFData UnshareApplication where

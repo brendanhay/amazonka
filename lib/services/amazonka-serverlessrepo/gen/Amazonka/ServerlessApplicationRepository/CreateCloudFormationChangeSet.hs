@@ -427,7 +427,8 @@ instance
     CreateCloudFormationChangeSet
   where
   hashWithSalt _salt CreateCloudFormationChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` changeSetName
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description

@@ -71,7 +71,8 @@ parameterValue_name = Lens.lens (\ParameterValue' {name} -> name) (\s@ParameterV
 
 instance Prelude.Hashable ParameterValue where
   hashWithSalt _salt ParameterValue' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ParameterValue where

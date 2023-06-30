@@ -105,22 +105,22 @@ instance Core.AWSPager ListApplicationVersions where
     | Core.stop
         ( rs
             Lens.^? listApplicationVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApplicationVersionsResponse_versions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listApplicationVersions_nextToken
           Lens..~ rs
           Lens.^? listApplicationVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationVersions where
   type
@@ -139,7 +139,8 @@ instance Core.AWSRequest ListApplicationVersions where
 
 instance Prelude.Hashable ListApplicationVersions where
   hashWithSalt _salt ListApplicationVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxItems
+    _salt
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationId
 

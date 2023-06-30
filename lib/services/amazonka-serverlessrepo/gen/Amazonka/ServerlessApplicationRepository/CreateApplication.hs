@@ -426,7 +426,8 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` homePageUrl
+    _salt
+      `Prelude.hashWithSalt` homePageUrl
       `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` licenseBody
       `Prelude.hashWithSalt` licenseUrl

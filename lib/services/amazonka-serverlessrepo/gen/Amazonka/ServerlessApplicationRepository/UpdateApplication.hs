@@ -227,7 +227,8 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` author
+    _salt
+      `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` homePageUrl
       `Prelude.hashWithSalt` labels

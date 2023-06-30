@@ -123,22 +123,22 @@ instance Core.AWSPager DescribeParameterGroups where
     | Core.stop
         ( rs
             Lens.^? describeParameterGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeParameterGroupsResponse_parameterGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeParameterGroups_nextToken
           Lens..~ rs
           Lens.^? describeParameterGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeParameterGroups where
   type
@@ -151,7 +151,8 @@ instance Core.AWSRequest DescribeParameterGroups where
       ( \s h x ->
           DescribeParameterGroupsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ParameterGroups"
+            Prelude.<*> ( x
+                            Data..?> "ParameterGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,7 +160,8 @@ instance Core.AWSRequest DescribeParameterGroups where
 
 instance Prelude.Hashable DescribeParameterGroups where
   hashWithSalt _salt DescribeParameterGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` parameterGroupName
 

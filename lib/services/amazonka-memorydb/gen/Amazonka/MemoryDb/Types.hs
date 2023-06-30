@@ -477,262 +477,233 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- |
-_ACLAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ACLAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ACLAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "ACLAlreadyExistsFault"
 
--- |
-_ACLNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ACLNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ACLNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ACLNotFoundFault"
 
--- |
-_ACLQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ACLQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ACLQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "ACLQuotaExceededFault"
 
--- |
-_APICallRateForCustomerExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_APICallRateForCustomerExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _APICallRateForCustomerExceededFault =
   Core._MatchServiceError
     defaultService
     "APICallRateForCustomerExceededFault"
 
--- |
-_ClusterAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ClusterAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ClusterAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "ClusterAlreadyExistsFault"
 
--- |
-_ClusterNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ClusterNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ClusterNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ClusterNotFoundFault"
 
--- |
-_ClusterQuotaForCustomerExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ClusterQuotaForCustomerExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ClusterQuotaForCustomerExceededFault =
   Core._MatchServiceError
     defaultService
     "ClusterQuotaForCustomerExceededFault"
 
--- |
-_DefaultUserRequired :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DefaultUserRequired :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DefaultUserRequired =
   Core._MatchServiceError
     defaultService
     "DefaultUserRequired"
 
--- |
-_DuplicateUserNameFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateUserNameFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateUserNameFault =
   Core._MatchServiceError
     defaultService
     "DuplicateUserNameFault"
 
--- |
-_InsufficientClusterCapacityFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InsufficientClusterCapacityFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InsufficientClusterCapacityFault =
   Core._MatchServiceError
     defaultService
     "InsufficientClusterCapacityFault"
 
--- |
-_InvalidACLStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidACLStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidACLStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidACLStateFault"
 
--- |
-_InvalidARNFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidARNFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidARNFault =
   Core._MatchServiceError
     defaultService
     "InvalidARNFault"
 
--- |
-_InvalidClusterStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidClusterStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidClusterStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidClusterStateFault"
 
--- |
-_InvalidCredentialsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidCredentialsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidCredentialsException =
   Core._MatchServiceError
     defaultService
     "InvalidCredentialsException"
 
--- |
-_InvalidKMSKeyFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidKMSKeyFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidKMSKeyFault =
   Core._MatchServiceError
     defaultService
     "InvalidKMSKeyFault"
 
--- |
-_InvalidNodeStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNodeStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNodeStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidNodeStateFault"
 
--- |
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterCombinationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterCombinationException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterCombinationException"
 
--- |
-_InvalidParameterGroupStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterGroupStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterGroupStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidParameterGroupStateFault"
 
--- |
-_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterValueException"
 
--- |
-_InvalidSnapshotStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSnapshotStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSnapshotStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidSnapshotStateFault"
 
--- |
-_InvalidSubnet :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSubnet :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSubnet =
   Core._MatchServiceError
     defaultService
     "InvalidSubnet"
 
--- |
-_InvalidUserStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidUserStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidUserStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidUserStateFault"
 
--- |
-_InvalidVPCNetworkStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidVPCNetworkStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidVPCNetworkStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidVPCNetworkStateFault"
 
--- |
-_NoOperationFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoOperationFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoOperationFault =
   Core._MatchServiceError
     defaultService
     "NoOperationFault"
 
--- |
-_NodeQuotaForClusterExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NodeQuotaForClusterExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NodeQuotaForClusterExceededFault =
   Core._MatchServiceError
     defaultService
     "NodeQuotaForClusterExceededFault"
 
--- |
-_NodeQuotaForCustomerExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NodeQuotaForCustomerExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NodeQuotaForCustomerExceededFault =
   Core._MatchServiceError
     defaultService
     "NodeQuotaForCustomerExceededFault"
 
--- |
-_ParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ParameterGroupAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ParameterGroupAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "ParameterGroupAlreadyExistsFault"
 
--- |
-_ParameterGroupNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ParameterGroupNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ParameterGroupNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ParameterGroupNotFoundFault"
 
--- |
-_ParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ParameterGroupQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ParameterGroupQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "ParameterGroupQuotaExceededFault"
 
 -- | You already have a reservation with the given identifier.
-_ReservedNodeAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReservedNodeAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReservedNodeAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "ReservedNodeAlreadyExistsFault"
 
 -- | The requested node does not exist.
-_ReservedNodeNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReservedNodeNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReservedNodeNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -740,154 +711,134 @@ _ReservedNodeNotFoundFault =
 
 -- | The request cannot be processed because it would exceed the user\'s node
 -- quota.
-_ReservedNodeQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReservedNodeQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReservedNodeQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "ReservedNodeQuotaExceededFault"
 
 -- | The requested node offering does not exist.
-_ReservedNodesOfferingNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReservedNodesOfferingNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReservedNodesOfferingNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ReservedNodesOfferingNotFoundFault"
 
--- |
-_ServiceLinkedRoleNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceLinkedRoleNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceLinkedRoleNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ServiceLinkedRoleNotFoundFault"
 
--- |
-_ServiceUpdateNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUpdateNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUpdateNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ServiceUpdateNotFoundFault"
 
--- |
-_ShardNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ShardNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ShardNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ShardNotFoundFault"
 
--- |
-_ShardsPerClusterQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ShardsPerClusterQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ShardsPerClusterQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "ShardsPerClusterQuotaExceededFault"
 
--- |
-_SnapshotAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SnapshotAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SnapshotAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "SnapshotAlreadyExistsFault"
 
--- |
-_SnapshotNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SnapshotNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SnapshotNotFoundFault =
   Core._MatchServiceError
     defaultService
     "SnapshotNotFoundFault"
 
--- |
-_SnapshotQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SnapshotQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SnapshotQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "SnapshotQuotaExceededFault"
 
--- |
-_SubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetGroupAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetGroupAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "SubnetGroupAlreadyExistsFault"
 
--- |
-_SubnetGroupInUseFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetGroupInUseFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetGroupInUseFault =
   Core._MatchServiceError
     defaultService
     "SubnetGroupInUseFault"
 
--- |
-_SubnetGroupNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetGroupNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetGroupNotFoundFault =
   Core._MatchServiceError
     defaultService
     "SubnetGroupNotFoundFault"
 
--- |
-_SubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetGroupQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetGroupQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "SubnetGroupQuotaExceededFault"
 
--- |
-_SubnetInUse :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetInUse :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetInUse =
   Core._MatchServiceError
     defaultService
     "SubnetInUse"
 
--- |
-_SubnetNotAllowedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetNotAllowedFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetNotAllowedFault =
   Core._MatchServiceError
     defaultService
     "SubnetNotAllowedFault"
 
--- |
-_SubnetQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "SubnetQuotaExceededFault"
 
--- |
-_TagNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TagNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagNotFoundFault =
   Core._MatchServiceError
     defaultService
     "TagNotFoundFault"
 
--- |
-_TagQuotaPerResourceExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TagQuotaPerResourceExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagQuotaPerResourceExceeded =
   Core._MatchServiceError
     defaultService
     "TagQuotaPerResourceExceeded"
 
--- |
-_TestFailoverNotAvailableFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TestFailoverNotAvailableFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TestFailoverNotAvailableFault =
   Core._MatchServiceError
     defaultService
     "TestFailoverNotAvailableFault"
 
--- |
-_UserAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UserAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UserAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "UserAlreadyExistsFault"
 
--- |
-_UserNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UserNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UserNotFoundFault =
   Core._MatchServiceError
     defaultService
     "UserNotFoundFault"
 
--- |
-_UserQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UserQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UserQuotaExceededFault =
   Core._MatchServiceError
     defaultService

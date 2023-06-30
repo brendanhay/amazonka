@@ -82,14 +82,16 @@ instance Data.FromJSON ClusterPendingUpdates where
           ClusterPendingUpdates'
             Prelude.<$> (x Data..:? "ACLs")
             Prelude.<*> (x Data..:? "Resharding")
-            Prelude.<*> ( x Data..:? "ServiceUpdates"
+            Prelude.<*> ( x
+                            Data..:? "ServiceUpdates"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ClusterPendingUpdates where
   hashWithSalt _salt ClusterPendingUpdates' {..} =
-    _salt `Prelude.hashWithSalt` aCLs
+    _salt
+      `Prelude.hashWithSalt` aCLs
       `Prelude.hashWithSalt` resharding
       `Prelude.hashWithSalt` serviceUpdates
 

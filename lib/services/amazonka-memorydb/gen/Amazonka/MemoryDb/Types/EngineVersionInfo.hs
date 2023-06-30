@@ -88,7 +88,8 @@ instance Data.FromJSON EngineVersionInfo where
 
 instance Prelude.Hashable EngineVersionInfo where
   hashWithSalt _salt EngineVersionInfo' {..} =
-    _salt `Prelude.hashWithSalt` enginePatchVersion
+    _salt
+      `Prelude.hashWithSalt` enginePatchVersion
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` parameterGroupFamily
 

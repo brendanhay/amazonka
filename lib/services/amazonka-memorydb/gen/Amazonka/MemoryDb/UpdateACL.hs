@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateACL where
 
 instance Prelude.Hashable UpdateACL where
   hashWithSalt _salt UpdateACL' {..} =
-    _salt `Prelude.hashWithSalt` userNamesToAdd
+    _salt
+      `Prelude.hashWithSalt` userNamesToAdd
       `Prelude.hashWithSalt` userNamesToRemove
       `Prelude.hashWithSalt` aCLName
 

@@ -108,7 +108,8 @@ instance Core.AWSRequest FailoverShard where
 
 instance Prelude.Hashable FailoverShard where
   hashWithSalt _salt FailoverShard' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` shardName
 
 instance Prelude.NFData FailoverShard where

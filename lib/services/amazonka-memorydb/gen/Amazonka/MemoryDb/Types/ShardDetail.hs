@@ -95,7 +95,8 @@ instance Data.FromJSON ShardDetail where
 
 instance Prelude.Hashable ShardDetail where
   hashWithSalt _salt ShardDetail' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` snapshotCreationTime

@@ -368,7 +368,8 @@ instance Data.FromJSON Cluster where
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` aCLName
+    _salt
+      `Prelude.hashWithSalt` aCLName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityMode

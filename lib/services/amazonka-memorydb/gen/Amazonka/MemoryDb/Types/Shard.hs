@@ -110,7 +110,8 @@ instance Data.FromJSON Shard where
 
 instance Prelude.Hashable Shard where
   hashWithSalt _salt Shard' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nodes
       `Prelude.hashWithSalt` numberOfNodes
       `Prelude.hashWithSalt` slots

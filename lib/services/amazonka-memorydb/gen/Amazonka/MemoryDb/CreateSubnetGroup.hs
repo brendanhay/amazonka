@@ -131,7 +131,8 @@ instance Core.AWSRequest CreateSubnetGroup where
 
 instance Prelude.Hashable CreateSubnetGroup where
   hashWithSalt _salt CreateSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subnetGroupName
       `Prelude.hashWithSalt` subnetIds

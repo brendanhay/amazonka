@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteMultiplexProgram where
             Prelude.<$> (x Data..?> "channelId")
             Prelude.<*> (x Data..?> "multiplexProgramSettings")
             Prelude.<*> (x Data..?> "packetIdentifiersMap")
-            Prelude.<*> ( x Data..?> "pipelineDetails"
+            Prelude.<*> ( x
+                            Data..?> "pipelineDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "programName")
@@ -117,7 +118,8 @@ instance Core.AWSRequest DeleteMultiplexProgram where
 
 instance Prelude.Hashable DeleteMultiplexProgram where
   hashWithSalt _salt DeleteMultiplexProgram' {..} =
-    _salt `Prelude.hashWithSalt` multiplexId
+    _salt
+      `Prelude.hashWithSalt` multiplexId
       `Prelude.hashWithSalt` programName
 
 instance Prelude.NFData DeleteMultiplexProgram where

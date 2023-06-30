@@ -370,7 +370,8 @@ instance Data.FromJSON BurnInDestinationSettings where
 
 instance Prelude.Hashable BurnInDestinationSettings where
   hashWithSalt _salt BurnInDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` alignment
+    _salt
+      `Prelude.hashWithSalt` alignment
       `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` backgroundOpacity
       `Prelude.hashWithSalt` font

@@ -116,7 +116,8 @@ instance Core.AWSRequest BatchUpdateSchedule where
 
 instance Prelude.Hashable BatchUpdateSchedule where
   hashWithSalt _salt BatchUpdateSchedule' {..} =
-    _salt `Prelude.hashWithSalt` creates
+    _salt
+      `Prelude.hashWithSalt` creates
       `Prelude.hashWithSalt` deletes
       `Prelude.hashWithSalt` channelId
 

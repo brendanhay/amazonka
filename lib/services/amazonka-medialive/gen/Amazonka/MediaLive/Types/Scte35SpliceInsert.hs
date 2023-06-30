@@ -99,7 +99,8 @@ instance Data.FromJSON Scte35SpliceInsert where
 
 instance Prelude.Hashable Scte35SpliceInsert where
   hashWithSalt _salt Scte35SpliceInsert' {..} =
-    _salt `Prelude.hashWithSalt` adAvailOffset
+    _salt
+      `Prelude.hashWithSalt` adAvailOffset
       `Prelude.hashWithSalt` noRegionalBlackoutFlag
       `Prelude.hashWithSalt` webDeliveryAllowedFlag
 

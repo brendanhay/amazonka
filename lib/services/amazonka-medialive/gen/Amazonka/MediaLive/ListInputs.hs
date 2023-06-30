@@ -91,20 +91,23 @@ instance Core.AWSPager ListInputs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listInputsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listInputsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listInputsResponse_inputs Prelude.. Lens._Just
+            Lens.^? listInputsResponse_inputs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInputs_nextToken
           Lens..~ rs
-          Lens.^? listInputsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listInputsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInputs where
   type AWSResponse ListInputs = ListInputsResponse
@@ -121,7 +124,8 @@ instance Core.AWSRequest ListInputs where
 
 instance Prelude.Hashable ListInputs where
   hashWithSalt _salt ListInputs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInputs where

@@ -180,7 +180,8 @@ instance
   hashWithSalt
     _salt
     MultiplexProgramPacketIdentifiersMap' {..} =
-      _salt `Prelude.hashWithSalt` audioPids
+      _salt
+        `Prelude.hashWithSalt` audioPids
         `Prelude.hashWithSalt` dvbSubPids
         `Prelude.hashWithSalt` dvbTeletextPid
         `Prelude.hashWithSalt` etvPlatformPid

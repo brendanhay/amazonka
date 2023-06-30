@@ -64,7 +64,8 @@ instance
       "BatchScheduleActionCreateResult"
       ( \x ->
           BatchScheduleActionCreateResult'
-            Prelude.<$> ( x Data..:? "scheduleActions"
+            Prelude.<$> ( x
+                            Data..:? "scheduleActions"
                             Data..!= Prelude.mempty
                         )
       )

@@ -102,7 +102,8 @@ instance Core.AWSRequest CreateInputSecurityGroup where
 
 instance Prelude.Hashable CreateInputSecurityGroup where
   hashWithSalt _salt CreateInputSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` whitelistRules
 
 instance Prelude.NFData CreateInputSecurityGroup where

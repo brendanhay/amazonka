@@ -116,7 +116,8 @@ instance Data.FromJSON AutomaticInputFailoverSettings where
       ( \x ->
           AutomaticInputFailoverSettings'
             Prelude.<$> (x Data..:? "errorClearTimeMsec")
-            Prelude.<*> ( x Data..:? "failoverConditions"
+            Prelude.<*> ( x
+                            Data..:? "failoverConditions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "inputPreference")
@@ -130,7 +131,8 @@ instance
   hashWithSalt
     _salt
     AutomaticInputFailoverSettings' {..} =
-      _salt `Prelude.hashWithSalt` errorClearTimeMsec
+      _salt
+        `Prelude.hashWithSalt` errorClearTimeMsec
         `Prelude.hashWithSalt` failoverConditions
         `Prelude.hashWithSalt` inputPreference
         `Prelude.hashWithSalt` secondaryInputId

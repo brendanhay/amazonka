@@ -88,7 +88,8 @@ instance Data.FromJSON OutputGroup where
 
 instance Prelude.Hashable OutputGroup where
   hashWithSalt _salt OutputGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` outputGroupSettings
 

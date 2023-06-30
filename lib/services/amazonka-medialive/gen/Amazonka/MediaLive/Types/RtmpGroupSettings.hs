@@ -180,7 +180,8 @@ instance Data.FromJSON RtmpGroupSettings where
 
 instance Prelude.Hashable RtmpGroupSettings where
   hashWithSalt _salt RtmpGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` adMarkers
+    _salt
+      `Prelude.hashWithSalt` adMarkers
       `Prelude.hashWithSalt` authenticationScheme
       `Prelude.hashWithSalt` cacheFullBehavior
       `Prelude.hashWithSalt` cacheLength

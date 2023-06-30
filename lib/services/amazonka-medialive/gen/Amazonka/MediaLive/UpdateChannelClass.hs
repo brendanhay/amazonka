@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateChannelClass' where
 
 instance Prelude.Hashable UpdateChannelClass' where
   hashWithSalt _salt UpdateChannelClass'' {..} =
-    _salt `Prelude.hashWithSalt` destinations
+    _salt
+      `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` channelClass
 

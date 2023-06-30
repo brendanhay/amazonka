@@ -78,7 +78,8 @@ instance Data.FromJSON StaticKeySettings where
 
 instance Prelude.Hashable StaticKeySettings where
   hashWithSalt _salt StaticKeySettings' {..} =
-    _salt `Prelude.hashWithSalt` keyProviderServer
+    _salt
+      `Prelude.hashWithSalt` keyProviderServer
       `Prelude.hashWithSalt` staticKeyValue
 
 instance Prelude.NFData StaticKeySettings where

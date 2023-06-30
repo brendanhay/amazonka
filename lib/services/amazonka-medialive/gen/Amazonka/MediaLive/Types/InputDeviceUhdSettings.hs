@@ -162,7 +162,8 @@ instance Data.FromJSON InputDeviceUhdSettings where
 
 instance Prelude.Hashable InputDeviceUhdSettings where
   hashWithSalt _salt InputDeviceUhdSettings' {..} =
-    _salt `Prelude.hashWithSalt` activeInput
+    _salt
+      `Prelude.hashWithSalt` activeInput
       `Prelude.hashWithSalt` configuredInput
       `Prelude.hashWithSalt` deviceState
       `Prelude.hashWithSalt` framerate

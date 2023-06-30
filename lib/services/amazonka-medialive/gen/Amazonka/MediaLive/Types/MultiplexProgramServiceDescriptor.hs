@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     MultiplexProgramServiceDescriptor' {..} =
-      _salt `Prelude.hashWithSalt` providerName
+      _salt
+        `Prelude.hashWithSalt` providerName
         `Prelude.hashWithSalt` serviceName
 
 instance

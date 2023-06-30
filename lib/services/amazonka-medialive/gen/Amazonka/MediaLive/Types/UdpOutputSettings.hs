@@ -123,7 +123,8 @@ instance Data.FromJSON UdpOutputSettings where
 
 instance Prelude.Hashable UdpOutputSettings where
   hashWithSalt _salt UdpOutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` bufferMsec
+    _salt
+      `Prelude.hashWithSalt` bufferMsec
       `Prelude.hashWithSalt` fecOutputSettings
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` containerSettings

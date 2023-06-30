@@ -234,18 +234,21 @@ instance Data.FromJSON Input where
       ( \x ->
           Input'
             Prelude.<$> (x Data..:? "arn")
-            Prelude.<*> ( x Data..:? "attachedChannels"
+            Prelude.<*> ( x
+                            Data..:? "attachedChannels"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "destinations" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "inputClass")
             Prelude.<*> (x Data..:? "inputDevices" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "inputPartnerIds"
+            Prelude.<*> ( x
+                            Data..:? "inputPartnerIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "inputSourceType")
-            Prelude.<*> ( x Data..:? "mediaConnectFlows"
+            Prelude.<*> ( x
+                            Data..:? "mediaConnectFlows"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")
@@ -259,7 +262,8 @@ instance Data.FromJSON Input where
 
 instance Prelude.Hashable Input where
   hashWithSalt _salt Input' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attachedChannels
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` id

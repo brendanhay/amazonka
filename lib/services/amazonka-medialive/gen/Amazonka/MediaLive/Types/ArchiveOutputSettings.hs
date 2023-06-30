@@ -93,7 +93,8 @@ instance Data.FromJSON ArchiveOutputSettings where
 
 instance Prelude.Hashable ArchiveOutputSettings where
   hashWithSalt _salt ArchiveOutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` extension
+    _salt
+      `Prelude.hashWithSalt` extension
       `Prelude.hashWithSalt` nameModifier
       `Prelude.hashWithSalt` containerSettings
 

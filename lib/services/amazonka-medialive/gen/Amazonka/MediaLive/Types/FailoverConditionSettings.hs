@@ -97,7 +97,8 @@ instance Data.FromJSON FailoverConditionSettings where
 
 instance Prelude.Hashable FailoverConditionSettings where
   hashWithSalt _salt FailoverConditionSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioSilenceSettings
+    _salt
+      `Prelude.hashWithSalt` audioSilenceSettings
       `Prelude.hashWithSalt` inputLossSettings
       `Prelude.hashWithSalt` videoBlackSettings
 

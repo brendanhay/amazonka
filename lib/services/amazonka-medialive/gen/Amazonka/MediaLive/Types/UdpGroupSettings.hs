@@ -108,7 +108,8 @@ instance Data.FromJSON UdpGroupSettings where
 
 instance Prelude.Hashable UdpGroupSettings where
   hashWithSalt _salt UdpGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` inputLossAction
+    _salt
+      `Prelude.hashWithSalt` inputLossAction
       `Prelude.hashWithSalt` timedMetadataId3Frame
       `Prelude.hashWithSalt` timedMetadataId3Period
 

@@ -207,7 +207,8 @@ instance Data.FromJSON VideoDescription where
 
 instance Prelude.Hashable VideoDescription where
   hashWithSalt _salt VideoDescription' {..} =
-    _salt `Prelude.hashWithSalt` codecSettings
+    _salt
+      `Prelude.hashWithSalt` codecSettings
       `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` respondToAfd
       `Prelude.hashWithSalt` scalingBehavior

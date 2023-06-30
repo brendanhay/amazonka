@@ -82,7 +82,8 @@ instance Data.FromJSON MultiplexVideoSettings where
 
 instance Prelude.Hashable MultiplexVideoSettings where
   hashWithSalt _salt MultiplexVideoSettings' {..} =
-    _salt `Prelude.hashWithSalt` constantBitrate
+    _salt
+      `Prelude.hashWithSalt` constantBitrate
       `Prelude.hashWithSalt` statmuxSettings
 
 instance Prelude.NFData MultiplexVideoSettings where

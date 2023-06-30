@@ -147,7 +147,8 @@ instance Core.AWSRequest CreateMultiplex' where
 
 instance Prelude.Hashable CreateMultiplex' where
   hashWithSalt _salt CreateMultiplex'' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` multiplexSettings
       `Prelude.hashWithSalt` availabilityZones

@@ -97,7 +97,8 @@ instance Data.FromJSON NielsenWatermarksSettings where
 
 instance Prelude.Hashable NielsenWatermarksSettings where
   hashWithSalt _salt NielsenWatermarksSettings' {..} =
-    _salt `Prelude.hashWithSalt` nielsenCbetSettings
+    _salt
+      `Prelude.hashWithSalt` nielsenCbetSettings
       `Prelude.hashWithSalt` nielsenDistributionType
       `Prelude.hashWithSalt` nielsenNaesIiNwSettings
 

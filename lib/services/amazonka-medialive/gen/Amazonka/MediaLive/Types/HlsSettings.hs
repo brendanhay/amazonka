@@ -95,7 +95,8 @@ instance Data.FromJSON HlsSettings where
 
 instance Prelude.Hashable HlsSettings where
   hashWithSalt _salt HlsSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioOnlyHlsSettings
+    _salt
+      `Prelude.hashWithSalt` audioOnlyHlsSettings
       `Prelude.hashWithSalt` fmp4HlsSettings
       `Prelude.hashWithSalt` frameCaptureHlsSettings
       `Prelude.hashWithSalt` standardHlsSettings

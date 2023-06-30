@@ -88,7 +88,8 @@ instance Data.FromJSON DvbSubSourceSettings where
 
 instance Prelude.Hashable DvbSubSourceSettings where
   hashWithSalt _salt DvbSubSourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` ocrLanguage
+    _salt
+      `Prelude.hashWithSalt` ocrLanguage
       `Prelude.hashWithSalt` pid
 
 instance Prelude.NFData DvbSubSourceSettings where

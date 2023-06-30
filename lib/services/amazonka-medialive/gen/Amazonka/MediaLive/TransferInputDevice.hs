@@ -124,7 +124,8 @@ instance Core.AWSRequest TransferInputDevice' where
 
 instance Prelude.Hashable TransferInputDevice' where
   hashWithSalt _salt TransferInputDevice'' {..} =
-    _salt `Prelude.hashWithSalt` targetCustomerId
+    _salt
+      `Prelude.hashWithSalt` targetCustomerId
       `Prelude.hashWithSalt` targetRegion
       `Prelude.hashWithSalt` transferMessage
       `Prelude.hashWithSalt` inputDeviceId

@@ -64,7 +64,8 @@ instance
       "Scte35TimeSignalScheduleActionSettings"
       ( \x ->
           Scte35TimeSignalScheduleActionSettings'
-            Prelude.<$> ( x Data..:? "scte35Descriptors"
+            Prelude.<$> ( x
+                            Data..:? "scte35Descriptors"
                             Data..!= Prelude.mempty
                         )
       )

@@ -95,7 +95,8 @@ instance Data.FromJSON OutputDestinationSettings where
 
 instance Prelude.Hashable OutputDestinationSettings where
   hashWithSalt _salt OutputDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` passwordParam
+    _salt
+      `Prelude.hashWithSalt` passwordParam
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` username

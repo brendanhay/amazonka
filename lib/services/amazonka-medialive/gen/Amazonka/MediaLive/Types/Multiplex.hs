@@ -144,7 +144,8 @@ instance Data.FromJSON Multiplex where
       ( \x ->
           Multiplex'
             Prelude.<$> (x Data..:? "arn")
-            Prelude.<*> ( x Data..:? "availabilityZones"
+            Prelude.<*> ( x
+                            Data..:? "availabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "destinations" Data..!= Prelude.mempty)
@@ -159,7 +160,8 @@ instance Data.FromJSON Multiplex where
 
 instance Prelude.Hashable Multiplex where
   hashWithSalt _salt Multiplex' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` id

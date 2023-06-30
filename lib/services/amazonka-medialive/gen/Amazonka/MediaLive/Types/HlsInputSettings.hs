@@ -138,7 +138,8 @@ instance Data.FromJSON HlsInputSettings where
 
 instance Prelude.Hashable HlsInputSettings where
   hashWithSalt _salt HlsInputSettings' {..} =
-    _salt `Prelude.hashWithSalt` bandwidth
+    _salt
+      `Prelude.hashWithSalt` bandwidth
       `Prelude.hashWithSalt` bufferSegments
       `Prelude.hashWithSalt` retries
       `Prelude.hashWithSalt` retryInterval

@@ -139,7 +139,8 @@ instance Data.FromJSON CaptionDescription where
 
 instance Prelude.Hashable CaptionDescription where
   hashWithSalt _salt CaptionDescription' {..} =
-    _salt `Prelude.hashWithSalt` accessibility
+    _salt
+      `Prelude.hashWithSalt` accessibility
       `Prelude.hashWithSalt` destinationSettings
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` languageDescription

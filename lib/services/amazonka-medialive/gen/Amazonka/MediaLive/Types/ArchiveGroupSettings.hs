@@ -92,7 +92,8 @@ instance Data.FromJSON ArchiveGroupSettings where
 
 instance Prelude.Hashable ArchiveGroupSettings where
   hashWithSalt _salt ArchiveGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` archiveCdnSettings
+    _salt
+      `Prelude.hashWithSalt` archiveCdnSettings
       `Prelude.hashWithSalt` rolloverInterval
       `Prelude.hashWithSalt` destination
 

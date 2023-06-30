@@ -124,7 +124,8 @@ instance Data.FromJSON AudioCodecSettings where
 
 instance Prelude.Hashable AudioCodecSettings where
   hashWithSalt _salt AudioCodecSettings' {..} =
-    _salt `Prelude.hashWithSalt` aacSettings
+    _salt
+      `Prelude.hashWithSalt` aacSettings
       `Prelude.hashWithSalt` ac3Settings
       `Prelude.hashWithSalt` eac3AtmosSettings
       `Prelude.hashWithSalt` eac3Settings

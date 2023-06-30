@@ -85,7 +85,8 @@ instance Data.FromJSON MsSmoothOutputSettings where
 
 instance Prelude.Hashable MsSmoothOutputSettings where
   hashWithSalt _salt MsSmoothOutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` h265PackagingType
+    _salt
+      `Prelude.hashWithSalt` h265PackagingType
       `Prelude.hashWithSalt` nameModifier
 
 instance Prelude.NFData MsSmoothOutputSettings where

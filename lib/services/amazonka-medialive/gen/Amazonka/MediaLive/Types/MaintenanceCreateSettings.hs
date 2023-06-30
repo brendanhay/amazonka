@@ -72,7 +72,8 @@ maintenanceCreateSettings_maintenanceStartTime = Lens.lens (\MaintenanceCreateSe
 
 instance Prelude.Hashable MaintenanceCreateSettings where
   hashWithSalt _salt MaintenanceCreateSettings' {..} =
-    _salt `Prelude.hashWithSalt` maintenanceDay
+    _salt
+      `Prelude.hashWithSalt` maintenanceDay
       `Prelude.hashWithSalt` maintenanceStartTime
 
 instance Prelude.NFData MaintenanceCreateSettings where

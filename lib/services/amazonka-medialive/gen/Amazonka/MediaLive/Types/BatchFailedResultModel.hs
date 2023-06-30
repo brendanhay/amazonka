@@ -94,7 +94,8 @@ instance Data.FromJSON BatchFailedResultModel where
 
 instance Prelude.Hashable BatchFailedResultModel where
   hashWithSalt _salt BatchFailedResultModel' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` message

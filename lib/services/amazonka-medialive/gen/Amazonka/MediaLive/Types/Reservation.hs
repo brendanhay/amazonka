@@ -267,7 +267,8 @@ instance Data.FromJSON Reservation where
 
 instance Prelude.Hashable Reservation where
   hashWithSalt _salt Reservation' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` duration

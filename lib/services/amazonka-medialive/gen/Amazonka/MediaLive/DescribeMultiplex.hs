@@ -96,7 +96,8 @@ instance Core.AWSRequest DescribeMultiplex where
       ( \s h x ->
           DescribeMultiplexResponse'
             Prelude.<$> (x Data..?> "arn")
-            Prelude.<*> ( x Data..?> "availabilityZones"
+            Prelude.<*> ( x
+                            Data..?> "availabilityZones"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)

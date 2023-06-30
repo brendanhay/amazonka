@@ -86,7 +86,8 @@ instance Data.FromJSON Hdr10Settings where
 
 instance Prelude.Hashable Hdr10Settings where
   hashWithSalt _salt Hdr10Settings' {..} =
-    _salt `Prelude.hashWithSalt` maxCll
+    _salt
+      `Prelude.hashWithSalt` maxCll
       `Prelude.hashWithSalt` maxFall
 
 instance Prelude.NFData Hdr10Settings where

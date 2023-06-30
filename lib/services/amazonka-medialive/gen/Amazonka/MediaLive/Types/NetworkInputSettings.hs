@@ -93,7 +93,8 @@ instance Data.FromJSON NetworkInputSettings where
 
 instance Prelude.Hashable NetworkInputSettings where
   hashWithSalt _salt NetworkInputSettings' {..} =
-    _salt `Prelude.hashWithSalt` hlsInputSettings
+    _salt
+      `Prelude.hashWithSalt` hlsInputSettings
       `Prelude.hashWithSalt` serverValidation
 
 instance Prelude.NFData NetworkInputSettings where

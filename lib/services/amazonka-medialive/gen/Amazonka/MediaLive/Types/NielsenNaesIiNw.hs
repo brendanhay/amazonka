@@ -79,7 +79,8 @@ instance Data.FromJSON NielsenNaesIiNw where
 
 instance Prelude.Hashable NielsenNaesIiNw where
   hashWithSalt _salt NielsenNaesIiNw' {..} =
-    _salt `Prelude.hashWithSalt` checkDigitString
+    _salt
+      `Prelude.hashWithSalt` checkDigitString
       `Prelude.hashWithSalt` sid
 
 instance Prelude.NFData NielsenNaesIiNw where

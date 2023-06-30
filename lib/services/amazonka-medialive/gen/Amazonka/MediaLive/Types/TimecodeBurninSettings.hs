@@ -90,7 +90,8 @@ instance Data.FromJSON TimecodeBurninSettings where
 
 instance Prelude.Hashable TimecodeBurninSettings where
   hashWithSalt _salt TimecodeBurninSettings' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` fontSize
 

@@ -83,7 +83,8 @@ instance Data.FromJSON AudioSelector where
 
 instance Prelude.Hashable AudioSelector where
   hashWithSalt _salt AudioSelector' {..} =
-    _salt `Prelude.hashWithSalt` selectorSettings
+    _salt
+      `Prelude.hashWithSalt` selectorSettings
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AudioSelector where

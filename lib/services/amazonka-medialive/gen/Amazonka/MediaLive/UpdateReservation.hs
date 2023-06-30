@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateReservation' where
 
 instance Prelude.Hashable UpdateReservation' where
   hashWithSalt _salt UpdateReservation'' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` renewalSettings
       `Prelude.hashWithSalt` reservationId
 

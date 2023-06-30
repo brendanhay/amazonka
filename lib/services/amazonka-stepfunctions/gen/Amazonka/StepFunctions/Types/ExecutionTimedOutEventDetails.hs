@@ -79,7 +79,8 @@ instance
     ExecutionTimedOutEventDetails
   where
   hashWithSalt _salt ExecutionTimedOutEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` cause
+    _salt
+      `Prelude.hashWithSalt` cause
       `Prelude.hashWithSalt` error
 
 instance Prelude.NFData ExecutionTimedOutEventDetails where

@@ -83,7 +83,8 @@ instance
     ActivitySucceededEventDetails
   where
   hashWithSalt _salt ActivitySucceededEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` output
+    _salt
+      `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` outputDetails
 
 instance Prelude.NFData ActivitySucceededEventDetails where

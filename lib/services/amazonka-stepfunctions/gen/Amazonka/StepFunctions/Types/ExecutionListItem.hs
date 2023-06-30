@@ -213,7 +213,8 @@ instance Data.FromJSON ExecutionListItem where
 
 instance Prelude.Hashable ExecutionListItem where
   hashWithSalt _salt ExecutionListItem' {..} =
-    _salt `Prelude.hashWithSalt` itemCount
+    _salt
+      `Prelude.hashWithSalt` itemCount
       `Prelude.hashWithSalt` mapRunArn
       `Prelude.hashWithSalt` stopDate
       `Prelude.hashWithSalt` executionArn

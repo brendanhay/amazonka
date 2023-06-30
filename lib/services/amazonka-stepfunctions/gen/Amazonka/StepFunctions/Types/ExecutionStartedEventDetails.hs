@@ -95,7 +95,8 @@ instance
     ExecutionStartedEventDetails
   where
   hashWithSalt _salt ExecutionStartedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` input
+    _salt
+      `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` inputDetails
       `Prelude.hashWithSalt` roleArn
 

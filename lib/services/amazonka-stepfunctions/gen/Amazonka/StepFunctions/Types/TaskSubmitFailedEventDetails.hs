@@ -104,7 +104,8 @@ instance
     TaskSubmitFailedEventDetails
   where
   hashWithSalt _salt TaskSubmitFailedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` cause
+    _salt
+      `Prelude.hashWithSalt` cause
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource

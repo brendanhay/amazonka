@@ -93,7 +93,8 @@ instance Data.FromJSON StateEnteredEventDetails where
 
 instance Prelude.Hashable StateEnteredEventDetails where
   hashWithSalt _salt StateEnteredEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` input
+    _salt
+      `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` inputDetails
       `Prelude.hashWithSalt` name
 

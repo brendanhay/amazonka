@@ -78,7 +78,8 @@ instance
     ExecutionAbortedEventDetails
   where
   hashWithSalt _salt ExecutionAbortedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` cause
+    _salt
+      `Prelude.hashWithSalt` cause
       `Prelude.hashWithSalt` error
 
 instance Prelude.NFData ExecutionAbortedEventDetails where

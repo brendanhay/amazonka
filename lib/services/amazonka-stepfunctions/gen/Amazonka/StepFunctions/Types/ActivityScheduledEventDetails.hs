@@ -117,7 +117,8 @@ instance
     ActivityScheduledEventDetails
   where
   hashWithSalt _salt ActivityScheduledEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` heartbeatInSeconds
+    _salt
+      `Prelude.hashWithSalt` heartbeatInSeconds
       `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` inputDetails
       `Prelude.hashWithSalt` timeoutInSeconds

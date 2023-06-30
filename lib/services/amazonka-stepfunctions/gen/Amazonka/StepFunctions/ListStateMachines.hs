@@ -132,19 +132,19 @@ instance Core.AWSPager ListStateMachines where
     | Core.stop
         ( rs
             Lens.^? listStateMachinesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listStateMachinesResponse_stateMachines) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStateMachines_nextToken
           Lens..~ rs
           Lens.^? listStateMachinesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStateMachines where
   type
@@ -163,7 +163,8 @@ instance Core.AWSRequest ListStateMachines where
 
 instance Prelude.Hashable ListStateMachines where
   hashWithSalt _salt ListStateMachines' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStateMachines where

@@ -273,7 +273,8 @@ instance Core.AWSRequest CreateStateMachine where
 
 instance Prelude.Hashable CreateStateMachine where
   hashWithSalt _salt CreateStateMachine' {..} =
-    _salt `Prelude.hashWithSalt` loggingConfiguration
+    _salt
+      `Prelude.hashWithSalt` loggingConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` tracingConfiguration
       `Prelude.hashWithSalt` type'

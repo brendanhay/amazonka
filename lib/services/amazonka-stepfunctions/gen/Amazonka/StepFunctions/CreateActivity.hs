@@ -201,7 +201,8 @@ instance Core.AWSRequest CreateActivity where
 
 instance Prelude.Hashable CreateActivity where
   hashWithSalt _salt CreateActivity' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateActivity where

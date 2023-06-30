@@ -130,7 +130,8 @@ instance Core.AWSRequest GetActivityTask where
 
 instance Prelude.Hashable GetActivityTask where
   hashWithSalt _salt GetActivityTask' {..} =
-    _salt `Prelude.hashWithSalt` workerName
+    _salt
+      `Prelude.hashWithSalt` workerName
       `Prelude.hashWithSalt` activityArn
 
 instance Prelude.NFData GetActivityTask where

@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     ExecutionSucceededEventDetails' {..} =
-      _salt `Prelude.hashWithSalt` output
+      _salt
+        `Prelude.hashWithSalt` output
         `Prelude.hashWithSalt` outputDetails
 
 instance

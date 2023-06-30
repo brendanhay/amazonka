@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateMapRun where
 
 instance Prelude.Hashable UpdateMapRun where
   hashWithSalt _salt UpdateMapRun' {..} =
-    _salt `Prelude.hashWithSalt` maxConcurrency
+    _salt
+      `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` toleratedFailureCount
       `Prelude.hashWithSalt` toleratedFailurePercentage
       `Prelude.hashWithSalt` mapRunArn

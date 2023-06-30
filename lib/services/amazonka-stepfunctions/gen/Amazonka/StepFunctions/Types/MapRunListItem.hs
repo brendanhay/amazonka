@@ -116,7 +116,8 @@ instance Data.FromJSON MapRunListItem where
 
 instance Prelude.Hashable MapRunListItem where
   hashWithSalt _salt MapRunListItem' {..} =
-    _salt `Prelude.hashWithSalt` stopDate
+    _salt
+      `Prelude.hashWithSalt` stopDate
       `Prelude.hashWithSalt` executionArn
       `Prelude.hashWithSalt` mapRunArn
       `Prelude.hashWithSalt` stateMachineArn

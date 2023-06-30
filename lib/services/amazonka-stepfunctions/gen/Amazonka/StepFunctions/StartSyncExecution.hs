@@ -187,7 +187,8 @@ instance Core.AWSRequest StartSyncExecution where
 
 instance Prelude.Hashable StartSyncExecution where
   hashWithSalt _salt StartSyncExecution' {..} =
-    _salt `Prelude.hashWithSalt` input
+    _salt
+      `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` traceHeader
       `Prelude.hashWithSalt` stateMachineArn

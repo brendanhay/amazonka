@@ -157,7 +157,8 @@ instance Core.AWSRequest UpdateStateMachine where
 
 instance Prelude.Hashable UpdateStateMachine where
   hashWithSalt _salt UpdateStateMachine' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` loggingConfiguration
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` tracingConfiguration

@@ -136,7 +136,8 @@ instance Data.FromJSON DescribedSecurityPolicy where
 
 instance Prelude.Hashable DescribedSecurityPolicy where
   hashWithSalt _salt DescribedSecurityPolicy' {..} =
-    _salt `Prelude.hashWithSalt` fips
+    _salt
+      `Prelude.hashWithSalt` fips
       `Prelude.hashWithSalt` sshCiphers
       `Prelude.hashWithSalt` sshKexs
       `Prelude.hashWithSalt` sshMacs

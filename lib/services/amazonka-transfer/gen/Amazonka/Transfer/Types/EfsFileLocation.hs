@@ -74,7 +74,8 @@ instance Data.FromJSON EfsFileLocation where
 
 instance Prelude.Hashable EfsFileLocation where
   hashWithSalt _salt EfsFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemId
+    _salt
+      `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData EfsFileLocation where

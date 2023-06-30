@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateHostKey where
 
 instance Prelude.Hashable UpdateHostKey where
   hashWithSalt _salt UpdateHostKey' {..} =
-    _salt `Prelude.hashWithSalt` serverId
+    _salt
+      `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` hostKeyId
       `Prelude.hashWithSalt` description
 

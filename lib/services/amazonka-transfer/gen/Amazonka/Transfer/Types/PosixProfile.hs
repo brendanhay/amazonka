@@ -93,7 +93,8 @@ instance Data.FromJSON PosixProfile where
 
 instance Prelude.Hashable PosixProfile where
   hashWithSalt _salt PosixProfile' {..} =
-    _salt `Prelude.hashWithSalt` secondaryGids
+    _salt
+      `Prelude.hashWithSalt` secondaryGids
       `Prelude.hashWithSalt` uid
       `Prelude.hashWithSalt` gid
 

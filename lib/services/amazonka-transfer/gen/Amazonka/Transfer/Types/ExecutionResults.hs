@@ -80,7 +80,8 @@ instance Data.FromJSON ExecutionResults where
 
 instance Prelude.Hashable ExecutionResults where
   hashWithSalt _salt ExecutionResults' {..} =
-    _salt `Prelude.hashWithSalt` onExceptionSteps
+    _salt
+      `Prelude.hashWithSalt` onExceptionSteps
       `Prelude.hashWithSalt` steps
 
 instance Prelude.NFData ExecutionResults where

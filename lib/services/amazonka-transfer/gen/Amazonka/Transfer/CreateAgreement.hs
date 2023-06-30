@@ -231,7 +231,8 @@ instance Core.AWSRequest CreateAgreement where
 
 instance Prelude.Hashable CreateAgreement where
   hashWithSalt _salt CreateAgreement' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverId

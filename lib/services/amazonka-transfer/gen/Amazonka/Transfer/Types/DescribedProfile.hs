@@ -142,7 +142,8 @@ instance Data.FromJSON DescribedProfile where
 
 instance Prelude.Hashable DescribedProfile where
   hashWithSalt _salt DescribedProfile' {..} =
-    _salt `Prelude.hashWithSalt` as2Id
+    _salt
+      `Prelude.hashWithSalt` as2Id
       `Prelude.hashWithSalt` certificateIds
       `Prelude.hashWithSalt` profileId
       `Prelude.hashWithSalt` profileType

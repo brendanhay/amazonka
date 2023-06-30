@@ -91,7 +91,8 @@ instance Data.FromJSON UserDetails where
 
 instance Prelude.Hashable UserDetails where
   hashWithSalt _salt UserDetails' {..} =
-    _salt `Prelude.hashWithSalt` sessionId
+    _salt
+      `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` serverId
 

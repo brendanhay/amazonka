@@ -131,7 +131,8 @@ instance Data.FromJSON ListedAgreement where
 
 instance Prelude.Hashable ListedAgreement where
   hashWithSalt _salt ListedAgreement' {..} =
-    _salt `Prelude.hashWithSalt` agreementId
+    _salt
+      `Prelude.hashWithSalt` agreementId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` localProfileId

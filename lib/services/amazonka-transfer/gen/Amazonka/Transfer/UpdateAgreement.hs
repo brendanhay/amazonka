@@ -72,7 +72,7 @@ data UpdateAgreement = UpdateAgreement'
     accessRole :: Prelude.Maybe Prelude.Text,
     -- | To change the landing directory (folder) for files that are transferred,
     -- provide the bucket folder that you want to use; for example,
-    -- @\/DOC-EXAMPLE-BUCKET\/home\/mydirectory @.
+    -- @\/@/@DOC-EXAMPLE-BUCKET@/@\/@/@home@/@\/@/@mydirectory@/@ @.
     baseDirectory :: Prelude.Maybe Prelude.Text,
     -- | To replace the existing description, provide a short description for the
     -- agreement.
@@ -118,7 +118,7 @@ data UpdateAgreement = UpdateAgreement'
 --
 -- 'baseDirectory', 'updateAgreement_baseDirectory' - To change the landing directory (folder) for files that are transferred,
 -- provide the bucket folder that you want to use; for example,
--- @\/DOC-EXAMPLE-BUCKET\/home\/mydirectory @.
+-- @\/@/@DOC-EXAMPLE-BUCKET@/@\/@/@home@/@\/@/@mydirectory@/@ @.
 --
 -- 'description', 'updateAgreement_description' - To replace the existing description, provide a short description for the
 -- agreement.
@@ -172,7 +172,7 @@ updateAgreement_accessRole = Lens.lens (\UpdateAgreement' {accessRole} -> access
 
 -- | To change the landing directory (folder) for files that are transferred,
 -- provide the bucket folder that you want to use; for example,
--- @\/DOC-EXAMPLE-BUCKET\/home\/mydirectory @.
+-- @\/@/@DOC-EXAMPLE-BUCKET@/@\/@/@home@/@\/@/@mydirectory@/@ @.
 updateAgreement_baseDirectory :: Lens.Lens' UpdateAgreement (Prelude.Maybe Prelude.Text)
 updateAgreement_baseDirectory = Lens.lens (\UpdateAgreement' {baseDirectory} -> baseDirectory) (\s@UpdateAgreement' {} a -> s {baseDirectory = a} :: UpdateAgreement)
 
@@ -223,7 +223,8 @@ instance Core.AWSRequest UpdateAgreement where
 
 instance Prelude.Hashable UpdateAgreement where
   hashWithSalt _salt UpdateAgreement' {..} =
-    _salt `Prelude.hashWithSalt` accessRole
+    _salt
+      `Prelude.hashWithSalt` accessRole
       `Prelude.hashWithSalt` baseDirectory
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` localProfileId

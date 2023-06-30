@@ -111,7 +111,8 @@ instance Data.FromJSON SshPublicKey where
 
 instance Prelude.Hashable SshPublicKey where
   hashWithSalt _salt SshPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` dateImported
+    _salt
+      `Prelude.hashWithSalt` dateImported
       `Prelude.hashWithSalt` sshPublicKeyBody
       `Prelude.hashWithSalt` sshPublicKeyId
 

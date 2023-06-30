@@ -246,7 +246,8 @@ instance Data.FromJSON ListedServer where
 
 instance Prelude.Hashable ListedServer where
   hashWithSalt _salt ListedServer' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` identityProviderType
       `Prelude.hashWithSalt` loggingRole

@@ -87,12 +87,14 @@ instance Data.FromJSON S3InputFileLocation where
       "S3InputFileLocation"
       ( \x ->
           S3InputFileLocation'
-            Prelude.<$> (x Data..:? "Bucket") Prelude.<*> (x Data..:? "Key")
+            Prelude.<$> (x Data..:? "Bucket")
+            Prelude.<*> (x Data..:? "Key")
       )
 
 instance Prelude.Hashable S3InputFileLocation where
   hashWithSalt _salt S3InputFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData S3InputFileLocation where

@@ -134,7 +134,8 @@ instance Core.AWSRequest ImportSshPublicKey where
 
 instance Prelude.Hashable ImportSshPublicKey where
   hashWithSalt _salt ImportSshPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` serverId
+    _salt
+      `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` sshPublicKeyBody
       `Prelude.hashWithSalt` userName
 

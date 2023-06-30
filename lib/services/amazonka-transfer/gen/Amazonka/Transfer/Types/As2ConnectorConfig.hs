@@ -177,7 +177,8 @@ instance Data.FromJSON As2ConnectorConfig where
 
 instance Prelude.Hashable As2ConnectorConfig where
   hashWithSalt _salt As2ConnectorConfig' {..} =
-    _salt `Prelude.hashWithSalt` compression
+    _salt
+      `Prelude.hashWithSalt` compression
       `Prelude.hashWithSalt` encryptionAlgorithm
       `Prelude.hashWithSalt` localProfileId
       `Prelude.hashWithSalt` mdnResponse

@@ -78,7 +78,8 @@ instance Data.FromJSON InputFileLocation where
 
 instance Prelude.Hashable InputFileLocation where
   hashWithSalt _salt InputFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` efsFileLocation
+    _salt
+      `Prelude.hashWithSalt` efsFileLocation
       `Prelude.hashWithSalt` s3FileLocation
 
 instance Prelude.NFData InputFileLocation where

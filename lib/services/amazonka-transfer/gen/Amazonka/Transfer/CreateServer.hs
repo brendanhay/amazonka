@@ -784,7 +784,8 @@ instance Core.AWSRequest CreateServer where
 
 instance Prelude.Hashable CreateServer where
   hashWithSalt _salt CreateServer' {..} =
-    _salt `Prelude.hashWithSalt` certificate
+    _salt
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` endpointDetails
       `Prelude.hashWithSalt` endpointType

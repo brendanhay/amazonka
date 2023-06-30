@@ -328,7 +328,8 @@ instance Data.FromJSON ProtocolDetails where
 
 instance Prelude.Hashable ProtocolDetails where
   hashWithSalt _salt ProtocolDetails' {..} =
-    _salt `Prelude.hashWithSalt` as2Transports
+    _salt
+      `Prelude.hashWithSalt` as2Transports
       `Prelude.hashWithSalt` passiveIp
       `Prelude.hashWithSalt` setStatOption
       `Prelude.hashWithSalt` tlsSessionResumptionMode

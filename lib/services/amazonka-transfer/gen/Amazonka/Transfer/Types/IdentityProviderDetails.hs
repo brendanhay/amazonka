@@ -106,7 +106,8 @@ instance Data.FromJSON IdentityProviderDetails where
 
 instance Prelude.Hashable IdentityProviderDetails where
   hashWithSalt _salt IdentityProviderDetails' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` function
       `Prelude.hashWithSalt` invocationRole
       `Prelude.hashWithSalt` url

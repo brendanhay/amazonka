@@ -85,7 +85,8 @@ instance Data.FromJSON ListedWorkflow where
 
 instance Prelude.Hashable ListedWorkflow where
   hashWithSalt _salt ListedWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` workflowId
 

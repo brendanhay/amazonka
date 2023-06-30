@@ -284,7 +284,8 @@ instance Data.FromJSON DescribedUser where
 
 instance Prelude.Hashable DescribedUser where
   hashWithSalt _salt DescribedUser' {..} =
-    _salt `Prelude.hashWithSalt` homeDirectory
+    _salt
+      `Prelude.hashWithSalt` homeDirectory
       `Prelude.hashWithSalt` homeDirectoryMappings
       `Prelude.hashWithSalt` homeDirectoryType
       `Prelude.hashWithSalt` policy

@@ -117,18 +117,20 @@ instance Core.AWSPager ListProfiles where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listProfilesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listProfilesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listProfilesResponse_profiles) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProfiles_nextToken
           Lens..~ rs
-          Lens.^? listProfilesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listProfilesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProfiles where
   type AWSResponse ListProfiles = ListProfilesResponse
@@ -145,7 +147,8 @@ instance Core.AWSRequest ListProfiles where
 
 instance Prelude.Hashable ListProfiles where
   hashWithSalt _salt ListProfiles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` profileType
 

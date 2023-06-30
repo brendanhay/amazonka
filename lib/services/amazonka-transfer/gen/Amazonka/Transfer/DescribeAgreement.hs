@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeAgreement where
 
 instance Prelude.Hashable DescribeAgreement where
   hashWithSalt _salt DescribeAgreement' {..} =
-    _salt `Prelude.hashWithSalt` agreementId
+    _salt
+      `Prelude.hashWithSalt` agreementId
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData DescribeAgreement where

@@ -85,7 +85,8 @@ instance Data.FromJSON BatchGetViewError where
 
 instance Prelude.Hashable BatchGetViewError where
   hashWithSalt _salt BatchGetViewError' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` viewArn
 
 instance Prelude.NFData BatchGetViewError where

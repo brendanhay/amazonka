@@ -130,7 +130,8 @@ instance Data.FromJSON Index where
 
 instance Prelude.Hashable Index where
   hashWithSalt _salt Index' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` type'
 

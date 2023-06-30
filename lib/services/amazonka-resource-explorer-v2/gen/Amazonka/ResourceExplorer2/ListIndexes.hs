@@ -167,20 +167,23 @@ instance Core.AWSPager ListIndexes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listIndexesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listIndexesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listIndexesResponse_indexes Prelude.. Lens._Just
+            Lens.^? listIndexesResponse_indexes
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIndexes_nextToken
           Lens..~ rs
-          Lens.^? listIndexesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listIndexesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIndexes where
   type AWSResponse ListIndexes = ListIndexesResponse
@@ -197,7 +200,8 @@ instance Core.AWSRequest ListIndexes where
 
 instance Prelude.Hashable ListIndexes where
   hashWithSalt _salt ListIndexes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` type'

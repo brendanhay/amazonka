@@ -147,7 +147,8 @@ instance Core.AWSRequest ChannelFlowCallback where
 
 instance Prelude.Hashable ChannelFlowCallback where
   hashWithSalt _salt ChannelFlowCallback' {..} =
-    _salt `Prelude.hashWithSalt` deleteResource
+    _salt
+      `Prelude.hashWithSalt` deleteResource
       `Prelude.hashWithSalt` callbackId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelMessage

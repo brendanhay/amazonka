@@ -86,7 +86,8 @@ instance Data.FromJSON ChannelFlowSummary where
 
 instance Prelude.Hashable ChannelFlowSummary where
   hashWithSalt _salt ChannelFlowSummary' {..} =
-    _salt `Prelude.hashWithSalt` channelFlowArn
+    _salt
+      `Prelude.hashWithSalt` channelFlowArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` processors
 

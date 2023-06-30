@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     GetChannelMembershipPreferences' {..} =
-      _salt `Prelude.hashWithSalt` channelArn
+      _salt
+        `Prelude.hashWithSalt` channelArn
         `Prelude.hashWithSalt` memberArn
         `Prelude.hashWithSalt` chimeBearer
 

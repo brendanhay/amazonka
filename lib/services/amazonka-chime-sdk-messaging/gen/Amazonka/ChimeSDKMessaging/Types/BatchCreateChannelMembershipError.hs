@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     BatchCreateChannelMembershipError' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` memberArn
 

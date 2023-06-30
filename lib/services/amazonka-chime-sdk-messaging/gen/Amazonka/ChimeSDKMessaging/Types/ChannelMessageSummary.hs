@@ -163,7 +163,8 @@ instance Data.FromJSON ChannelMessageSummary where
             Prelude.<*> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "LastEditedTimestamp")
             Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
-            Prelude.<*> ( x Data..:? "MessageAttributes"
+            Prelude.<*> ( x
+                            Data..:? "MessageAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MessageId")
@@ -176,7 +177,8 @@ instance Data.FromJSON ChannelMessageSummary where
 
 instance Prelude.Hashable ChannelMessageSummary where
   hashWithSalt _salt ChannelMessageSummary' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` lastEditedTimestamp
       `Prelude.hashWithSalt` lastUpdatedTimestamp

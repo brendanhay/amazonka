@@ -189,7 +189,8 @@ instance Data.FromJSON ChannelMessage where
             Prelude.<*> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "LastEditedTimestamp")
             Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
-            Prelude.<*> ( x Data..:? "MessageAttributes"
+            Prelude.<*> ( x
+                            Data..:? "MessageAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MessageId")
@@ -204,7 +205,8 @@ instance Data.FromJSON ChannelMessage where
 
 instance Prelude.Hashable ChannelMessage where
   hashWithSalt _salt ChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` lastEditedTimestamp

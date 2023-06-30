@@ -240,7 +240,8 @@ instance Core.AWSRequest CreateChannel where
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
-    _salt `Prelude.hashWithSalt` channelId
+    _salt
+      `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` elasticChannelConfiguration
       `Prelude.hashWithSalt` memberArns
       `Prelude.hashWithSalt` metadata

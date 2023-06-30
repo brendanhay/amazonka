@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateChannelReadMarker where
 
 instance Prelude.Hashable UpdateChannelReadMarker where
   hashWithSalt _salt UpdateChannelReadMarker' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer
 

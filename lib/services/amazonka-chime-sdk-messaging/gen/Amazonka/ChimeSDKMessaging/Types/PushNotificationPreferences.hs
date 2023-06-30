@@ -90,7 +90,8 @@ instance Data.FromJSON PushNotificationPreferences where
 
 instance Prelude.Hashable PushNotificationPreferences where
   hashWithSalt _salt PushNotificationPreferences' {..} =
-    _salt `Prelude.hashWithSalt` filterRule
+    _salt
+      `Prelude.hashWithSalt` filterRule
       `Prelude.hashWithSalt` allowNotifications
 
 instance Prelude.NFData PushNotificationPreferences where

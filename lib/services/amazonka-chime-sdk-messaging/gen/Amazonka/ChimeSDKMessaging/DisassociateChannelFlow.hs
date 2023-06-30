@@ -118,7 +118,8 @@ instance Core.AWSRequest DisassociateChannelFlow where
 
 instance Prelude.Hashable DisassociateChannelFlow where
   hashWithSalt _salt DisassociateChannelFlow' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelFlowArn
       `Prelude.hashWithSalt` chimeBearer
 

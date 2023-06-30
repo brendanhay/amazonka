@@ -142,7 +142,8 @@ instance Core.AWSRequest GetChannelMessage where
 
 instance Prelude.Hashable GetChannelMessage where
   hashWithSalt _salt GetChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` chimeBearer

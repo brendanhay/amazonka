@@ -133,7 +133,8 @@ instance Core.AWSRequest ListSubChannels where
 
 instance Prelude.Hashable ListSubChannels where
   hashWithSalt _salt ListSubChannels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer

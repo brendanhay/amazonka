@@ -135,7 +135,8 @@ instance Core.AWSRequest ListChannelBans where
 
 instance Prelude.Hashable ListChannelBans where
   hashWithSalt _salt ListChannelBans' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer

@@ -129,7 +129,8 @@ instance Core.AWSRequest SearchChannels where
 
 instance Prelude.Hashable SearchChannels where
   hashWithSalt _salt SearchChannels' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` fields

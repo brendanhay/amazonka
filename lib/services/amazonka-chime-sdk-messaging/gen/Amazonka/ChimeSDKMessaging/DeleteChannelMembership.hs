@@ -135,7 +135,8 @@ instance Core.AWSRequest DeleteChannelMembership where
 
 instance Prelude.Hashable DeleteChannelMembership where
   hashWithSalt _salt DeleteChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` chimeBearer

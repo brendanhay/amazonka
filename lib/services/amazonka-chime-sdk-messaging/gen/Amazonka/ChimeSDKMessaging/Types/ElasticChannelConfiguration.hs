@@ -106,7 +106,8 @@ instance Data.FromJSON ElasticChannelConfiguration where
 
 instance Prelude.Hashable ElasticChannelConfiguration where
   hashWithSalt _salt ElasticChannelConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` maximumSubChannels
+    _salt
+      `Prelude.hashWithSalt` maximumSubChannels
       `Prelude.hashWithSalt` targetMembershipsPerSubChannel
       `Prelude.hashWithSalt` minimumMembershipPercentage
 

@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteChannelModerator where
 
 instance Prelude.Hashable DeleteChannelModerator where
   hashWithSalt _salt DeleteChannelModerator' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelModeratorArn
       `Prelude.hashWithSalt` chimeBearer
 

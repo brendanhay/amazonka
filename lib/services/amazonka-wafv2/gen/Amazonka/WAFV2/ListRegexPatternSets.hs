@@ -160,7 +160,8 @@ instance Core.AWSRequest ListRegexPatternSets where
       ( \s h x ->
           ListRegexPatternSetsResponse'
             Prelude.<$> (x Data..?> "NextMarker")
-            Prelude.<*> ( x Data..?> "RegexPatternSets"
+            Prelude.<*> ( x
+                            Data..?> "RegexPatternSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,7 +169,8 @@ instance Core.AWSRequest ListRegexPatternSets where
 
 instance Prelude.Hashable ListRegexPatternSets where
   hashWithSalt _salt ListRegexPatternSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 
@@ -257,7 +259,6 @@ newListRegexPatternSetsResponse pHttpStatus_ =
 listRegexPatternSetsResponse_nextMarker :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe Prelude.Text)
 listRegexPatternSetsResponse_nextMarker = Lens.lens (\ListRegexPatternSetsResponse' {nextMarker} -> nextMarker) (\s@ListRegexPatternSetsResponse' {} a -> s {nextMarker = a} :: ListRegexPatternSetsResponse)
 
--- |
 listRegexPatternSetsResponse_regexPatternSets :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe [RegexPatternSetSummary])
 listRegexPatternSetsResponse_regexPatternSets = Lens.lens (\ListRegexPatternSetsResponse' {regexPatternSets} -> regexPatternSets) (\s@ListRegexPatternSetsResponse' {} a -> s {regexPatternSets = a} :: ListRegexPatternSetsResponse) Prelude.. Lens.mapping Lens.coerced
 

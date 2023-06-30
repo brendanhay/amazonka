@@ -155,7 +155,8 @@ instance Data.FromJSON GeoMatchStatement where
 
 instance Prelude.Hashable GeoMatchStatement where
   hashWithSalt _salt GeoMatchStatement' {..} =
-    _salt `Prelude.hashWithSalt` countryCodes
+    _salt
+      `Prelude.hashWithSalt` countryCodes
       `Prelude.hashWithSalt` forwardedIPConfig
 
 instance Prelude.NFData GeoMatchStatement where

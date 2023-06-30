@@ -152,7 +152,8 @@ instance Data.FromJSON CustomResponse where
 
 instance Prelude.Hashable CustomResponse where
   hashWithSalt _salt CustomResponse' {..} =
-    _salt `Prelude.hashWithSalt` customResponseBodyKey
+    _salt
+      `Prelude.hashWithSalt` customResponseBodyKey
       `Prelude.hashWithSalt` responseHeaders
       `Prelude.hashWithSalt` responseCode
 

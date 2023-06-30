@@ -355,7 +355,8 @@ instance Core.AWSRequest CreateWebACL where
 
 instance Prelude.Hashable CreateWebACL where
   hashWithSalt _salt CreateWebACL' {..} =
-    _salt `Prelude.hashWithSalt` captchaConfig
+    _salt
+      `Prelude.hashWithSalt` captchaConfig
       `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description

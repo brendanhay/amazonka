@@ -148,7 +148,8 @@ instance Core.AWSRequest CheckCapacity where
 
 instance Prelude.Hashable CheckCapacity where
   hashWithSalt _salt CheckCapacity' {..} =
-    _salt `Prelude.hashWithSalt` scope
+    _salt
+      `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData CheckCapacity where

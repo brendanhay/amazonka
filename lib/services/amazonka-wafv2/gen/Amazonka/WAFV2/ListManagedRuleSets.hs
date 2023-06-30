@@ -167,7 +167,8 @@ instance Core.AWSRequest ListManagedRuleSets where
     Response.receiveJSON
       ( \s h x ->
           ListManagedRuleSetsResponse'
-            Prelude.<$> ( x Data..?> "ManagedRuleSets"
+            Prelude.<$> ( x
+                            Data..?> "ManagedRuleSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -176,7 +177,8 @@ instance Core.AWSRequest ListManagedRuleSets where
 
 instance Prelude.Hashable ListManagedRuleSets where
   hashWithSalt _salt ListManagedRuleSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 

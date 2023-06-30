@@ -197,7 +197,8 @@ instance Data.FromJSON IPSetForwardedIPConfig where
 
 instance Prelude.Hashable IPSetForwardedIPConfig where
   hashWithSalt _salt IPSetForwardedIPConfig' {..} =
-    _salt `Prelude.hashWithSalt` headerName
+    _salt
+      `Prelude.hashWithSalt` headerName
       `Prelude.hashWithSalt` fallbackBehavior
       `Prelude.hashWithSalt` position
 

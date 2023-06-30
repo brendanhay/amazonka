@@ -98,7 +98,8 @@ instance Data.FromJSON HeaderMatchPattern where
 
 instance Prelude.Hashable HeaderMatchPattern where
   hashWithSalt _salt HeaderMatchPattern' {..} =
-    _salt `Prelude.hashWithSalt` all
+    _salt
+      `Prelude.hashWithSalt` all
       `Prelude.hashWithSalt` excludedHeaders
       `Prelude.hashWithSalt` includedHeaders
 

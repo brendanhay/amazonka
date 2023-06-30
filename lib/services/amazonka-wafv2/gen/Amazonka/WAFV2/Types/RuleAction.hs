@@ -114,7 +114,8 @@ instance Data.FromJSON RuleAction where
 
 instance Prelude.Hashable RuleAction where
   hashWithSalt _salt RuleAction' {..} =
-    _salt `Prelude.hashWithSalt` allow
+    _salt
+      `Prelude.hashWithSalt` allow
       `Prelude.hashWithSalt` block
       `Prelude.hashWithSalt` captcha
       `Prelude.hashWithSalt` challenge

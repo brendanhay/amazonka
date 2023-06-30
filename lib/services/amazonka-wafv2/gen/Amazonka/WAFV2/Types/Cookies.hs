@@ -173,7 +173,8 @@ instance Data.FromJSON Cookies where
 
 instance Prelude.Hashable Cookies where
   hashWithSalt _salt Cookies' {..} =
-    _salt `Prelude.hashWithSalt` matchPattern
+    _salt
+      `Prelude.hashWithSalt` matchPattern
       `Prelude.hashWithSalt` matchScope
       `Prelude.hashWithSalt` oversizeHandling
 

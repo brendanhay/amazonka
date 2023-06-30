@@ -160,7 +160,8 @@ instance Core.AWSRequest GetRegexPatternSet where
 
 instance Prelude.Hashable GetRegexPatternSet where
   hashWithSalt _salt GetRegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
 
@@ -261,7 +262,6 @@ newGetRegexPatternSetResponse pHttpStatus_ =
 getRegexPatternSetResponse_lockToken :: Lens.Lens' GetRegexPatternSetResponse (Prelude.Maybe Prelude.Text)
 getRegexPatternSetResponse_lockToken = Lens.lens (\GetRegexPatternSetResponse' {lockToken} -> lockToken) (\s@GetRegexPatternSetResponse' {} a -> s {lockToken = a} :: GetRegexPatternSetResponse)
 
--- |
 getRegexPatternSetResponse_regexPatternSet :: Lens.Lens' GetRegexPatternSetResponse (Prelude.Maybe RegexPatternSet)
 getRegexPatternSetResponse_regexPatternSet = Lens.lens (\GetRegexPatternSetResponse' {regexPatternSet} -> regexPatternSet) (\s@GetRegexPatternSetResponse' {} a -> s {regexPatternSet = a} :: GetRegexPatternSetResponse)
 

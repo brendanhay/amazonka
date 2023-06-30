@@ -81,7 +81,8 @@ versionToPublish_forecastedLifetime = Lens.lens (\VersionToPublish' {forecastedL
 
 instance Prelude.Hashable VersionToPublish where
   hashWithSalt _salt VersionToPublish' {..} =
-    _salt `Prelude.hashWithSalt` associatedRuleGroupArn
+    _salt
+      `Prelude.hashWithSalt` associatedRuleGroupArn
       `Prelude.hashWithSalt` forecastedLifetime
 
 instance Prelude.NFData VersionToPublish where

@@ -308,7 +308,8 @@ instance Core.AWSRequest CreateRuleGroup where
 
 instance Prelude.Hashable CreateRuleGroup where
   hashWithSalt _salt CreateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` customResponseBodies
+    _salt
+      `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` tags

@@ -166,7 +166,8 @@ instance Core.AWSRequest ListRuleGroups where
 
 instance Prelude.Hashable ListRuleGroups where
   hashWithSalt _salt ListRuleGroups' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 
@@ -255,7 +256,6 @@ newListRuleGroupsResponse pHttpStatus_ =
 listRuleGroupsResponse_nextMarker :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe Prelude.Text)
 listRuleGroupsResponse_nextMarker = Lens.lens (\ListRuleGroupsResponse' {nextMarker} -> nextMarker) (\s@ListRuleGroupsResponse' {} a -> s {nextMarker = a} :: ListRuleGroupsResponse)
 
--- |
 listRuleGroupsResponse_ruleGroups :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe [RuleGroupSummary])
 listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListRuleGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 

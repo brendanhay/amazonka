@@ -87,7 +87,8 @@ instance Data.FromJSON TagInfoForResource where
 
 instance Prelude.Hashable TagInfoForResource where
   hashWithSalt _salt TagInfoForResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` tagList
 
 instance Prelude.NFData TagInfoForResource where

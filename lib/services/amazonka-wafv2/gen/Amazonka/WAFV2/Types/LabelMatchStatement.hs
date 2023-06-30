@@ -125,12 +125,14 @@ instance Data.FromJSON LabelMatchStatement where
       "LabelMatchStatement"
       ( \x ->
           LabelMatchStatement'
-            Prelude.<$> (x Data..: "Scope") Prelude.<*> (x Data..: "Key")
+            Prelude.<$> (x Data..: "Scope")
+            Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable LabelMatchStatement where
   hashWithSalt _salt LabelMatchStatement' {..} =
-    _salt `Prelude.hashWithSalt` scope
+    _salt
+      `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData LabelMatchStatement where

@@ -193,7 +193,8 @@ instance Core.AWSRequest DeleteRegexPatternSet where
 
 instance Prelude.Hashable DeleteRegexPatternSet where
   hashWithSalt _salt DeleteRegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lockToken

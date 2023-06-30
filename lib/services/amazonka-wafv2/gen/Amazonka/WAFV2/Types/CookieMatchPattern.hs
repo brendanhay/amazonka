@@ -98,7 +98,8 @@ instance Data.FromJSON CookieMatchPattern where
 
 instance Prelude.Hashable CookieMatchPattern where
   hashWithSalt _salt CookieMatchPattern' {..} =
-    _salt `Prelude.hashWithSalt` all
+    _salt
+      `Prelude.hashWithSalt` all
       `Prelude.hashWithSalt` excludedCookies
       `Prelude.hashWithSalt` includedCookies
 

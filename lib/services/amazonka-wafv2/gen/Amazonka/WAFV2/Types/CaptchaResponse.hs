@@ -95,7 +95,8 @@ instance Data.FromJSON CaptchaResponse where
 
 instance Prelude.Hashable CaptchaResponse where
   hashWithSalt _salt CaptchaResponse' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` responseCode
       `Prelude.hashWithSalt` solveTimestamp
 

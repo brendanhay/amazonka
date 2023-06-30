@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     RateBasedStatementManagedKeysIPSet' {..} =
-      _salt `Prelude.hashWithSalt` addresses
+      _salt
+        `Prelude.hashWithSalt` addresses
         `Prelude.hashWithSalt` iPAddressVersion
 
 instance

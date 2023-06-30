@@ -189,7 +189,8 @@ instance Core.AWSRequest DeleteRuleGroup where
 
 instance Prelude.Hashable DeleteRuleGroup where
   hashWithSalt _salt DeleteRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lockToken

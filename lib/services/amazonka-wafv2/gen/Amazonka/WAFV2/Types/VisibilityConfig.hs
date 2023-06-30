@@ -117,7 +117,8 @@ instance Data.FromJSON VisibilityConfig where
 
 instance Prelude.Hashable VisibilityConfig where
   hashWithSalt _salt VisibilityConfig' {..} =
-    _salt `Prelude.hashWithSalt` sampledRequestsEnabled
+    _salt
+      `Prelude.hashWithSalt` sampledRequestsEnabled
       `Prelude.hashWithSalt` cloudWatchMetricsEnabled
       `Prelude.hashWithSalt` metricName
 

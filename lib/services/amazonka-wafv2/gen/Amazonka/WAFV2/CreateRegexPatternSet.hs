@@ -173,7 +173,8 @@ instance Core.AWSRequest CreateRegexPatternSet where
 
 instance Prelude.Hashable CreateRegexPatternSet where
   hashWithSalt _salt CreateRegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope

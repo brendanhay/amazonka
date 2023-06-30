@@ -192,7 +192,8 @@ instance Data.FromJSON LoggingConfiguration where
 
 instance Prelude.Hashable LoggingConfiguration where
   hashWithSalt _salt LoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` loggingFilter
+    _salt
+      `Prelude.hashWithSalt` loggingFilter
       `Prelude.hashWithSalt` managedByFirewallManager
       `Prelude.hashWithSalt` redactedFields
       `Prelude.hashWithSalt` resourceArn

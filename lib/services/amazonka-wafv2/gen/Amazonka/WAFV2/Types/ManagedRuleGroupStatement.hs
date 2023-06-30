@@ -224,7 +224,8 @@ instance Data.FromJSON ManagedRuleGroupStatement where
 
 instance Prelude.Hashable ManagedRuleGroupStatement where
   hashWithSalt _salt ManagedRuleGroupStatement' {..} =
-    _salt `Prelude.hashWithSalt` excludedRules
+    _salt
+      `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` managedRuleGroupConfigs
       `Prelude.hashWithSalt` ruleActionOverrides
       `Prelude.hashWithSalt` scopeDownStatement

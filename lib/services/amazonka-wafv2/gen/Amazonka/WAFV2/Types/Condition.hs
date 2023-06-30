@@ -91,7 +91,8 @@ instance Data.FromJSON Condition where
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` actionCondition
+    _salt
+      `Prelude.hashWithSalt` actionCondition
       `Prelude.hashWithSalt` labelNameCondition
 
 instance Prelude.NFData Condition where

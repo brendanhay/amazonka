@@ -120,7 +120,8 @@ instance Data.FromJSON ManagedRuleGroupSummary where
 
 instance Prelude.Hashable ManagedRuleGroupSummary where
   hashWithSalt _salt ManagedRuleGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` vendorName
       `Prelude.hashWithSalt` versioningSupported

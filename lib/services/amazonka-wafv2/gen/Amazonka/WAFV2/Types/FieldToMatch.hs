@@ -318,7 +318,8 @@ instance Data.FromJSON FieldToMatch where
 
 instance Prelude.Hashable FieldToMatch where
   hashWithSalt _salt FieldToMatch' {..} =
-    _salt `Prelude.hashWithSalt` allQueryArguments
+    _salt
+      `Prelude.hashWithSalt` allQueryArguments
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` cookies
       `Prelude.hashWithSalt` headers

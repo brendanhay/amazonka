@@ -319,7 +319,8 @@ instance Core.AWSRequest UpdateRuleGroup where
 
 instance Prelude.Hashable UpdateRuleGroup where
   hashWithSalt _salt UpdateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` customResponseBodies
+    _salt
+      `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` name

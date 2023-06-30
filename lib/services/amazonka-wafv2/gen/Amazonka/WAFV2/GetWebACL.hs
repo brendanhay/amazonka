@@ -160,7 +160,8 @@ instance Core.AWSRequest GetWebACL where
 
 instance Prelude.Hashable GetWebACL where
   hashWithSalt _salt GetWebACL' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
 

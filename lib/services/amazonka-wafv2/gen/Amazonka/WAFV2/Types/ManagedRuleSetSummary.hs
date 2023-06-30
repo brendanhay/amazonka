@@ -204,7 +204,8 @@ instance Data.FromJSON ManagedRuleSetSummary where
 
 instance Prelude.Hashable ManagedRuleSetSummary where
   hashWithSalt _salt ManagedRuleSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` labelNamespace

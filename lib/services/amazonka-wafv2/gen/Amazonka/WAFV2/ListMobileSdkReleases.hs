@@ -133,7 +133,8 @@ instance Core.AWSRequest ListMobileSdkReleases where
       ( \s h x ->
           ListMobileSdkReleasesResponse'
             Prelude.<$> (x Data..?> "NextMarker")
-            Prelude.<*> ( x Data..?> "ReleaseSummaries"
+            Prelude.<*> ( x
+                            Data..?> "ReleaseSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,7 +142,8 @@ instance Core.AWSRequest ListMobileSdkReleases where
 
 instance Prelude.Hashable ListMobileSdkReleases where
   hashWithSalt _salt ListMobileSdkReleases' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` platform
 

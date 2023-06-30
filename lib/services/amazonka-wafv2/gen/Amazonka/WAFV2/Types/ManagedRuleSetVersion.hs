@@ -181,7 +181,8 @@ instance Data.FromJSON ManagedRuleSetVersion where
 
 instance Prelude.Hashable ManagedRuleSetVersion where
   hashWithSalt _salt ManagedRuleSetVersion' {..} =
-    _salt `Prelude.hashWithSalt` associatedRuleGroupArn
+    _salt
+      `Prelude.hashWithSalt` associatedRuleGroupArn
       `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` expiryTimestamp
       `Prelude.hashWithSalt` forecastedLifetime

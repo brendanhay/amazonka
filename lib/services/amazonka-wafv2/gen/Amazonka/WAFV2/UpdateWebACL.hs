@@ -420,7 +420,8 @@ instance Core.AWSRequest UpdateWebACL where
 
 instance Prelude.Hashable UpdateWebACL where
   hashWithSalt _salt UpdateWebACL' {..} =
-    _salt `Prelude.hashWithSalt` captchaConfig
+    _salt
+      `Prelude.hashWithSalt` captchaConfig
       `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description

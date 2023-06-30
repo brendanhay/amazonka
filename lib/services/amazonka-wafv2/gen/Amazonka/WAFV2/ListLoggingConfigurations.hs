@@ -158,7 +158,8 @@ instance Core.AWSRequest ListLoggingConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListLoggingConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "LoggingConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "LoggingConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -167,7 +168,8 @@ instance Core.AWSRequest ListLoggingConfigurations where
 
 instance Prelude.Hashable ListLoggingConfigurations where
   hashWithSalt _salt ListLoggingConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 
@@ -249,7 +251,6 @@ newListLoggingConfigurationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 listLoggingConfigurationsResponse_loggingConfigurations :: Lens.Lens' ListLoggingConfigurationsResponse (Prelude.Maybe [LoggingConfiguration])
 listLoggingConfigurationsResponse_loggingConfigurations = Lens.lens (\ListLoggingConfigurationsResponse' {loggingConfigurations} -> loggingConfigurations) (\s@ListLoggingConfigurationsResponse' {} a -> s {loggingConfigurations = a} :: ListLoggingConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 

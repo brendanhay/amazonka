@@ -334,7 +334,8 @@ instance Core.AWSRequest UpdateIPSet where
 
 instance Prelude.Hashable UpdateIPSet where
   hashWithSalt _salt UpdateIPSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id

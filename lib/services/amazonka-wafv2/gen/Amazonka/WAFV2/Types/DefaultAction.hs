@@ -78,7 +78,8 @@ instance Data.FromJSON DefaultAction where
 
 instance Prelude.Hashable DefaultAction where
   hashWithSalt _salt DefaultAction' {..} =
-    _salt `Prelude.hashWithSalt` allow
+    _salt
+      `Prelude.hashWithSalt` allow
       `Prelude.hashWithSalt` block
 
 instance Prelude.NFData DefaultAction where

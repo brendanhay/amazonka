@@ -226,7 +226,8 @@ instance
   hashWithSalt
     _salt
     GetRateBasedStatementManagedKeys' {..} =
-      _salt `Prelude.hashWithSalt` ruleGroupRuleName
+      _salt
+        `Prelude.hashWithSalt` ruleGroupRuleName
         `Prelude.hashWithSalt` scope
         `Prelude.hashWithSalt` webACLName
         `Prelude.hashWithSalt` webACLId

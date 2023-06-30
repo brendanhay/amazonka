@@ -158,7 +158,8 @@ instance Core.AWSRequest ModifyDocumentPermission where
 
 instance Prelude.Hashable ModifyDocumentPermission where
   hashWithSalt _salt ModifyDocumentPermission' {..} =
-    _salt `Prelude.hashWithSalt` accountIdsToAdd
+    _salt
+      `Prelude.hashWithSalt` accountIdsToAdd
       `Prelude.hashWithSalt` accountIdsToRemove
       `Prelude.hashWithSalt` sharedDocumentVersion
       `Prelude.hashWithSalt` name

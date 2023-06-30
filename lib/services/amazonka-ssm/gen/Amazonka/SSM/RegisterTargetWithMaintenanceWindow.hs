@@ -278,7 +278,7 @@ instance
       ( \s h x ->
           RegisterTargetWithMaintenanceWindowResponse'
             Prelude.<$> (x Data..?> "WindowTargetId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -288,7 +288,8 @@ instance
   hashWithSalt
     _salt
     RegisterTargetWithMaintenanceWindow' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` ownerInformation

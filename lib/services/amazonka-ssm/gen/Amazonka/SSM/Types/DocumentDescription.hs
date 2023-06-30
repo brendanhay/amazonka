@@ -394,7 +394,8 @@ instance Data.FromJSON DocumentDescription where
       ( \x ->
           DocumentDescription'
             Prelude.<$> (x Data..:? "ApprovedVersion")
-            Prelude.<*> ( x Data..:? "AttachmentsInformation"
+            Prelude.<*> ( x
+                            Data..:? "AttachmentsInformation"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Author")
@@ -429,7 +430,8 @@ instance Data.FromJSON DocumentDescription where
 
 instance Prelude.Hashable DocumentDescription where
   hashWithSalt _salt DocumentDescription' {..} =
-    _salt `Prelude.hashWithSalt` approvedVersion
+    _salt
+      `Prelude.hashWithSalt` approvedVersion
       `Prelude.hashWithSalt` attachmentsInformation
       `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` category

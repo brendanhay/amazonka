@@ -89,7 +89,8 @@ instance Data.FromJSON PatchStatus where
 
 instance Prelude.Hashable PatchStatus where
   hashWithSalt _salt PatchStatus' {..} =
-    _salt `Prelude.hashWithSalt` approvalDate
+    _salt
+      `Prelude.hashWithSalt` approvalDate
       `Prelude.hashWithSalt` complianceLevel
       `Prelude.hashWithSalt` deploymentStatus
 

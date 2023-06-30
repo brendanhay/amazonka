@@ -80,7 +80,8 @@ inventoryGroup_filters = Lens.lens (\InventoryGroup' {filters} -> filters) (\s@I
 
 instance Prelude.Hashable InventoryGroup where
   hashWithSalt _salt InventoryGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData InventoryGroup where

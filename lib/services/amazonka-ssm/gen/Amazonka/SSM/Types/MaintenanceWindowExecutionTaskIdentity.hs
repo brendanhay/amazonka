@@ -177,7 +177,8 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowExecutionTaskIdentity' {..} =
-      _salt `Prelude.hashWithSalt` alarmConfiguration
+      _salt
+        `Prelude.hashWithSalt` alarmConfiguration
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` startTime
         `Prelude.hashWithSalt` status

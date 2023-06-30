@@ -141,7 +141,8 @@ instance Data.FromJSON PatchRule where
 
 instance Prelude.Hashable PatchRule where
   hashWithSalt _salt PatchRule' {..} =
-    _salt `Prelude.hashWithSalt` approveAfterDays
+    _salt
+      `Prelude.hashWithSalt` approveAfterDays
       `Prelude.hashWithSalt` approveUntilDate
       `Prelude.hashWithSalt` complianceLevel
       `Prelude.hashWithSalt` enableNonSecurity

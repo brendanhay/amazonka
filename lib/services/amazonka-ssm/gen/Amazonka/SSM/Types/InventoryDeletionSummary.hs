@@ -89,7 +89,8 @@ instance Data.FromJSON InventoryDeletionSummary where
 
 instance Prelude.Hashable InventoryDeletionSummary where
   hashWithSalt _salt InventoryDeletionSummary' {..} =
-    _salt `Prelude.hashWithSalt` remainingCount
+    _salt
+      `Prelude.hashWithSalt` remainingCount
       `Prelude.hashWithSalt` summaryItems
       `Prelude.hashWithSalt` totalCount
 

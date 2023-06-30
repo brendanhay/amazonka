@@ -159,7 +159,8 @@ instance Data.FromJSON AssociationExecution where
 
 instance Prelude.Hashable AssociationExecution where
   hashWithSalt _salt AssociationExecution' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` associationVersion
       `Prelude.hashWithSalt` createdTime

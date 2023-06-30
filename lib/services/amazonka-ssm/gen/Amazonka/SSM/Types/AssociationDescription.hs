@@ -487,7 +487,8 @@ instance Data.FromJSON AssociationDescription where
 
 instance Prelude.Hashable AssociationDescription where
   hashWithSalt _salt AssociationDescription' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` associationName

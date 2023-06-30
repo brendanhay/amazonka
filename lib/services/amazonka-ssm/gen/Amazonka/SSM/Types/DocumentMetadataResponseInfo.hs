@@ -61,7 +61,8 @@ instance Data.FromJSON DocumentMetadataResponseInfo where
       "DocumentMetadataResponseInfo"
       ( \x ->
           DocumentMetadataResponseInfo'
-            Prelude.<$> ( x Data..:? "ReviewerResponse"
+            Prelude.<$> ( x
+                            Data..:? "ReviewerResponse"
                             Data..!= Prelude.mempty
                         )
       )

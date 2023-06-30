@@ -179,7 +179,8 @@ instance Data.FromJSON Runbook where
 
 instance Prelude.Hashable Runbook where
   hashWithSalt _salt Runbook' {..} =
-    _salt `Prelude.hashWithSalt` documentVersion
+    _salt
+      `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` maxErrors
       `Prelude.hashWithSalt` parameters

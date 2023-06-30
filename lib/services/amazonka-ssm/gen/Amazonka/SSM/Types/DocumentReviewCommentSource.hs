@@ -82,7 +82,8 @@ instance Data.FromJSON DocumentReviewCommentSource where
 
 instance Prelude.Hashable DocumentReviewCommentSource where
   hashWithSalt _salt DocumentReviewCommentSource' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DocumentReviewCommentSource where

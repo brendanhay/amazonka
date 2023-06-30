@@ -100,7 +100,8 @@ instance Data.FromJSON ComplianceExecutionSummary where
 
 instance Prelude.Hashable ComplianceExecutionSummary where
   hashWithSalt _salt ComplianceExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` executionId
+    _salt
+      `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` executionType
       `Prelude.hashWithSalt` executionTime
 

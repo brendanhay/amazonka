@@ -85,7 +85,8 @@ instance Data.FromJSON ReviewInformation where
 
 instance Prelude.Hashable ReviewInformation where
   hashWithSalt _salt ReviewInformation' {..} =
-    _salt `Prelude.hashWithSalt` reviewedTime
+    _salt
+      `Prelude.hashWithSalt` reviewedTime
       `Prelude.hashWithSalt` reviewer
       `Prelude.hashWithSalt` status
 

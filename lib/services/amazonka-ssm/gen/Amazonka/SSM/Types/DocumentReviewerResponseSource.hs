@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     DocumentReviewerResponseSource' {..} =
-      _salt `Prelude.hashWithSalt` comment
+      _salt
+        `Prelude.hashWithSalt` comment
         `Prelude.hashWithSalt` createTime
         `Prelude.hashWithSalt` reviewStatus
         `Prelude.hashWithSalt` reviewer

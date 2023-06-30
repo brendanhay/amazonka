@@ -209,7 +209,8 @@ instance Core.AWSRequest UpdateDocument where
 
 instance Prelude.Hashable UpdateDocument where
   hashWithSalt _salt UpdateDocument' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` documentFormat
       `Prelude.hashWithSalt` documentVersion

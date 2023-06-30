@@ -116,7 +116,8 @@ instance Data.FromJSON MaintenanceWindowExecution where
 
 instance Prelude.Hashable MaintenanceWindowExecution where
   hashWithSalt _salt MaintenanceWindowExecution' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusDetails

@@ -178,7 +178,7 @@ data UpdateAssociation = UpdateAssociation'
     -- from other Amazon Web Services accounts, you must specify the complete
     -- SSM document ARN, in the following format:
     --
-    -- @arn:aws:ssm:region:account-id:document\/document-name @
+    -- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
     --
     -- For example:
     --
@@ -339,7 +339,7 @@ data UpdateAssociation = UpdateAssociation'
 -- from other Amazon Web Services accounts, you must specify the complete
 -- SSM document ARN, in the following format:
 --
--- @arn:aws:ssm:region:account-id:document\/document-name @
+-- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -537,7 +537,7 @@ updateAssociation_maxErrors = Lens.lens (\UpdateAssociation' {maxErrors} -> maxE
 -- from other Amazon Web Services accounts, you must specify the complete
 -- SSM document ARN, in the following format:
 --
--- @arn:aws:ssm:region:account-id:document\/document-name @
+-- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -632,7 +632,8 @@ instance Core.AWSRequest UpdateAssociation where
 
 instance Prelude.Hashable UpdateAssociation where
   hashWithSalt _salt UpdateAssociation' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` associationName
       `Prelude.hashWithSalt` associationVersion

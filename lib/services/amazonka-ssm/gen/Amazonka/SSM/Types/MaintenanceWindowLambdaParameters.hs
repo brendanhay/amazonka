@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowLambdaParameters' {..} =
-      _salt `Prelude.hashWithSalt` clientContext
+      _salt
+        `Prelude.hashWithSalt` clientContext
         `Prelude.hashWithSalt` payload
         `Prelude.hashWithSalt` qualifier
 

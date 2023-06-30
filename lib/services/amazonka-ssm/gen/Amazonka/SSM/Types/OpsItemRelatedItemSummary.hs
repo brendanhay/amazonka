@@ -144,7 +144,8 @@ instance Data.FromJSON OpsItemRelatedItemSummary where
 
 instance Prelude.Hashable OpsItemRelatedItemSummary where
   hashWithSalt _salt OpsItemRelatedItemSummary' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` associationType
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` createdTime

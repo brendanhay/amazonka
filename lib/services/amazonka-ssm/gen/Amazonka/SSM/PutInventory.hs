@@ -104,7 +104,8 @@ instance Core.AWSRequest PutInventory where
 
 instance Prelude.Hashable PutInventory where
   hashWithSalt _salt PutInventory' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` items
 
 instance Prelude.NFData PutInventory where

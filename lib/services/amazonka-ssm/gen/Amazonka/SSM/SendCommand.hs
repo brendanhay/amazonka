@@ -488,7 +488,8 @@ instance Core.AWSRequest SendCommand where
 
 instance Prelude.Hashable SendCommand where
   hashWithSalt _salt SendCommand' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` cloudWatchOutputConfig
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` documentHash

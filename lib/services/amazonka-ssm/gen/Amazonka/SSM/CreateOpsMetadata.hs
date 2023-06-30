@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateOpsMetadata where
 
 instance Prelude.Hashable CreateOpsMetadata where
   hashWithSalt _salt CreateOpsMetadata' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceId
 

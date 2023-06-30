@@ -139,7 +139,8 @@ instance Data.FromJSON InventoryDeletionStatusItem where
 
 instance Prelude.Hashable InventoryDeletionStatusItem where
   hashWithSalt _salt InventoryDeletionStatusItem' {..} =
-    _salt `Prelude.hashWithSalt` deletionId
+    _salt
+      `Prelude.hashWithSalt` deletionId
       `Prelude.hashWithSalt` deletionStartTime
       `Prelude.hashWithSalt` deletionSummary
       `Prelude.hashWithSalt` lastStatus

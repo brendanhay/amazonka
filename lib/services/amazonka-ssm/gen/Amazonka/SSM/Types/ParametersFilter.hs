@@ -69,7 +69,8 @@ parametersFilter_values = Lens.lens (\ParametersFilter' {values} -> values) (\s@
 
 instance Prelude.Hashable ParametersFilter where
   hashWithSalt _salt ParametersFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ParametersFilter where

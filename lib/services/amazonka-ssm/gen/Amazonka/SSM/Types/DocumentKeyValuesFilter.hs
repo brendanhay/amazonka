@@ -133,7 +133,8 @@ documentKeyValuesFilter_values = Lens.lens (\DocumentKeyValuesFilter' {values} -
 
 instance Prelude.Hashable DocumentKeyValuesFilter where
   hashWithSalt _salt DocumentKeyValuesFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData DocumentKeyValuesFilter where

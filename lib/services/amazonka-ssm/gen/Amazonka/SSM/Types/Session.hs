@@ -175,7 +175,8 @@ instance Data.FromJSON Session where
 
 instance Prelude.Hashable Session where
   hashWithSalt _salt Session' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` documentName
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` maxSessionDuration

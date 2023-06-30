@@ -226,7 +226,8 @@ instance Core.AWSRequest UpdateServiceSetting where
 
 instance Prelude.Hashable UpdateServiceSetting where
   hashWithSalt _salt UpdateServiceSetting' {..} =
-    _salt `Prelude.hashWithSalt` settingId
+    _salt
+      `Prelude.hashWithSalt` settingId
       `Prelude.hashWithSalt` settingValue
 
 instance Prelude.NFData UpdateServiceSetting where

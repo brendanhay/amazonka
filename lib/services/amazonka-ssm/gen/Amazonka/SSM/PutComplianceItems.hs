@@ -265,7 +265,8 @@ instance Core.AWSRequest PutComplianceItems where
 
 instance Prelude.Hashable PutComplianceItems where
   hashWithSalt _salt PutComplianceItems' {..} =
-    _salt `Prelude.hashWithSalt` itemContentHash
+    _salt
+      `Prelude.hashWithSalt` itemContentHash
       `Prelude.hashWithSalt` uploadType
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType

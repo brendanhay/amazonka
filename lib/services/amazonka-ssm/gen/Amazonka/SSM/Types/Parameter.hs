@@ -201,7 +201,8 @@ instance Data.FromJSON Parameter where
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` selector

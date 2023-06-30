@@ -138,7 +138,7 @@ data ResumeSessionResponse = ResumeSessionResponse'
     -- | A URL back to SSM Agent on the managed node that the Session Manager
     -- client uses to send commands and receive output from the managed node.
     -- Format:
-    -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
+    -- @wss:\/\/ssmmessages.@__@region@__@.amazonaws.com\/v1\/data-channel\/@__@session-id@__@?stream=(input|output)@.
     --
     -- __region__ represents the Region identifier for an Amazon Web Services
     -- Region supported by Amazon Web Services Systems Manager, such as
@@ -171,7 +171,7 @@ data ResumeSessionResponse = ResumeSessionResponse'
 -- 'streamUrl', 'resumeSessionResponse_streamUrl' - A URL back to SSM Agent on the managed node that the Session Manager
 -- client uses to send commands and receive output from the managed node.
 -- Format:
--- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
+-- @wss:\/\/ssmmessages.@__@region@__@.amazonaws.com\/v1\/data-channel\/@__@session-id@__@?stream=(input|output)@.
 --
 -- __region__ represents the Region identifier for an Amazon Web Services
 -- Region supported by Amazon Web Services Systems Manager, such as
@@ -206,7 +206,7 @@ resumeSessionResponse_sessionId = Lens.lens (\ResumeSessionResponse' {sessionId}
 -- | A URL back to SSM Agent on the managed node that the Session Manager
 -- client uses to send commands and receive output from the managed node.
 -- Format:
--- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
+-- @wss:\/\/ssmmessages.@__@region@__@.amazonaws.com\/v1\/data-channel\/@__@session-id@__@?stream=(input|output)@.
 --
 -- __region__ represents the Region identifier for an Amazon Web Services
 -- Region supported by Amazon Web Services Systems Manager, such as

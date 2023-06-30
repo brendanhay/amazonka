@@ -507,7 +507,7 @@ instance
       ( \s h x ->
           RegisterTaskWithMaintenanceWindowResponse'
             Prelude.<$> (x Data..?> "WindowTaskId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -517,7 +517,8 @@ instance
   hashWithSalt
     _salt
     RegisterTaskWithMaintenanceWindow' {..} =
-      _salt `Prelude.hashWithSalt` alarmConfiguration
+      _salt
+        `Prelude.hashWithSalt` alarmConfiguration
         `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` cutoffBehavior
         `Prelude.hashWithSalt` description

@@ -76,7 +76,8 @@ instance Data.FromJSON CompliantSummary where
 
 instance Prelude.Hashable CompliantSummary where
   hashWithSalt _salt CompliantSummary' {..} =
-    _salt `Prelude.hashWithSalt` compliantCount
+    _salt
+      `Prelude.hashWithSalt` compliantCount
       `Prelude.hashWithSalt` severitySummary
 
 instance Prelude.NFData CompliantSummary where

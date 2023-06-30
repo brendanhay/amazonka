@@ -269,8 +269,8 @@ data PutParameter = PutParameter'
     -- limit of 8 KB.
     --
     -- Parameters can\'t be referenced or nested in the values of other
-    -- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
-    -- parameter value.
+    -- parameters. You can\'t include @{{}}@ or @{{ssm:@/@parameter-name@/@}}@
+    -- in a parameter value.
     value :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -492,8 +492,8 @@ data PutParameter = PutParameter'
 -- limit of 8 KB.
 --
 -- Parameters can\'t be referenced or nested in the values of other
--- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
--- parameter value.
+-- parameters. You can\'t include @{{}}@ or @{{ssm:@/@parameter-name@/@}}@
+-- in a parameter value.
 newPutParameter ::
   -- | 'name'
   Prelude.Text ->
@@ -744,8 +744,8 @@ putParameter_name = Lens.lens (\PutParameter' {name} -> name) (\s@PutParameter' 
 -- limit of 8 KB.
 --
 -- Parameters can\'t be referenced or nested in the values of other
--- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
--- parameter value.
+-- parameters. You can\'t include @{{}}@ or @{{ssm:@/@parameter-name@/@}}@
+-- in a parameter value.
 putParameter_value :: Lens.Lens' PutParameter Prelude.Text
 putParameter_value = Lens.lens (\PutParameter' {value} -> value) (\s@PutParameter' {} a -> s {value = a} :: PutParameter) Prelude.. Data._Sensitive
 
@@ -764,7 +764,8 @@ instance Core.AWSRequest PutParameter where
 
 instance Prelude.Hashable PutParameter where
   hashWithSalt _salt PutParameter' {..} =
-    _salt `Prelude.hashWithSalt` allowedPattern
+    _salt
+      `Prelude.hashWithSalt` allowedPattern
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` keyId

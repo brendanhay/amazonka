@@ -148,20 +148,23 @@ instance Core.AWSPager GetOpsSummary where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getOpsSummaryResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getOpsSummaryResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getOpsSummaryResponse_entities Prelude.. Lens._Just
+            Lens.^? getOpsSummaryResponse_entities
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getOpsSummary_nextToken
           Lens..~ rs
-          Lens.^? getOpsSummaryResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getOpsSummaryResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetOpsSummary where
   type
@@ -180,7 +183,8 @@ instance Core.AWSRequest GetOpsSummary where
 
 instance Prelude.Hashable GetOpsSummary where
   hashWithSalt _salt GetOpsSummary' {..} =
-    _salt `Prelude.hashWithSalt` aggregators
+    _salt
+      `Prelude.hashWithSalt` aggregators
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

@@ -75,7 +75,8 @@ instance Data.FromJSON AccountSharingInfo where
 
 instance Prelude.Hashable AccountSharingInfo where
   hashWithSalt _salt AccountSharingInfo' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` sharedDocumentVersion
 
 instance Prelude.NFData AccountSharingInfo where

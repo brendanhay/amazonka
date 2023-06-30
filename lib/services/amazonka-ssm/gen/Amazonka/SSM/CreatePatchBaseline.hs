@@ -342,7 +342,8 @@ instance Core.AWSRequest CreatePatchBaseline where
 
 instance Prelude.Hashable CreatePatchBaseline where
   hashWithSalt _salt CreatePatchBaseline' {..} =
-    _salt `Prelude.hashWithSalt` approvalRules
+    _salt
+      `Prelude.hashWithSalt` approvalRules
       `Prelude.hashWithSalt` approvedPatches
       `Prelude.hashWithSalt` approvedPatchesComplianceLevel
       `Prelude.hashWithSalt` approvedPatchesEnableNonSecurity

@@ -72,7 +72,8 @@ associationFilter_value = Lens.lens (\AssociationFilter' {value} -> value) (\s@A
 
 instance Prelude.Hashable AssociationFilter where
   hashWithSalt _salt AssociationFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AssociationFilter where

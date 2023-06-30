@@ -199,7 +199,8 @@ instance Data.FromJSON MaintenanceWindowIdentity where
 
 instance Prelude.Hashable MaintenanceWindowIdentity where
   hashWithSalt _salt MaintenanceWindowIdentity' {..} =
-    _salt `Prelude.hashWithSalt` cutoff
+    _salt
+      `Prelude.hashWithSalt` cutoff
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` enabled

@@ -76,7 +76,8 @@ instanceInformationFilter_valueSet = Lens.lens (\InstanceInformationFilter' {val
 
 instance Prelude.Hashable InstanceInformationFilter where
   hashWithSalt _salt InstanceInformationFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` valueSet
 
 instance Prelude.NFData InstanceInformationFilter where

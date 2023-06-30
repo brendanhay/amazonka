@@ -138,7 +138,8 @@ instance
     ResourceDataSyncS3Destination
   where
   hashWithSalt _salt ResourceDataSyncS3Destination' {..} =
-    _salt `Prelude.hashWithSalt` aWSKMSKeyARN
+    _salt
+      `Prelude.hashWithSalt` aWSKMSKeyARN
       `Prelude.hashWithSalt` destinationDataSharing
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` bucketName

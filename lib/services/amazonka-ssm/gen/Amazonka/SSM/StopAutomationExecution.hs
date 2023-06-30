@@ -103,7 +103,8 @@ instance Core.AWSRequest StopAutomationExecution where
 
 instance Prelude.Hashable StopAutomationExecution where
   hashWithSalt _salt StopAutomationExecution' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` automationExecutionId
 
 instance Prelude.NFData StopAutomationExecution where

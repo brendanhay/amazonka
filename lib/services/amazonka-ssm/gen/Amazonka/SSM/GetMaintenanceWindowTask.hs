@@ -143,7 +143,8 @@ instance Core.AWSRequest GetMaintenanceWindowTask where
 
 instance Prelude.Hashable GetMaintenanceWindowTask where
   hashWithSalt _salt GetMaintenanceWindowTask' {..} =
-    _salt `Prelude.hashWithSalt` windowId
+    _salt
+      `Prelude.hashWithSalt` windowId
       `Prelude.hashWithSalt` windowTaskId
 
 instance Prelude.NFData GetMaintenanceWindowTask where

@@ -86,7 +86,8 @@ instance Data.FromJSON FailedCreateAssociation where
 
 instance Prelude.Hashable FailedCreateAssociation where
   hashWithSalt _salt FailedCreateAssociation' {..} =
-    _salt `Prelude.hashWithSalt` entry
+    _salt
+      `Prelude.hashWithSalt` entry
       `Prelude.hashWithSalt` fault
       `Prelude.hashWithSalt` message
 

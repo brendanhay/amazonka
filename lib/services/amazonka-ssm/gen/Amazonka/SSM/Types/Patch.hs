@@ -350,7 +350,8 @@ instance Data.FromJSON Patch where
 
 instance Prelude.Hashable Patch where
   hashWithSalt _salt Patch' {..} =
-    _salt `Prelude.hashWithSalt` advisoryIds
+    _salt
+      `Prelude.hashWithSalt` advisoryIds
       `Prelude.hashWithSalt` arch
       `Prelude.hashWithSalt` bugzillaIds
       `Prelude.hashWithSalt` cVEIds

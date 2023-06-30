@@ -228,7 +228,8 @@ instance Data.FromJSON Association where
 
 instance Prelude.Hashable Association where
   hashWithSalt _salt Association' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` associationName
       `Prelude.hashWithSalt` associationVersion
       `Prelude.hashWithSalt` documentVersion

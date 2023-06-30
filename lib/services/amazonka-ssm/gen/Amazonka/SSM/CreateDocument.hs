@@ -354,7 +354,8 @@ instance Core.AWSRequest CreateDocument where
 
 instance Prelude.Hashable CreateDocument where
   hashWithSalt _salt CreateDocument' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` documentFormat
       `Prelude.hashWithSalt` documentType

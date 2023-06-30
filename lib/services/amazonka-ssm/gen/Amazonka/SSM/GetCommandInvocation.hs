@@ -194,7 +194,8 @@ instance Core.AWSRequest GetCommandInvocation where
 
 instance Prelude.Hashable GetCommandInvocation where
   hashWithSalt _salt GetCommandInvocation' {..} =
-    _salt `Prelude.hashWithSalt` pluginName
+    _salt
+      `Prelude.hashWithSalt` pluginName
       `Prelude.hashWithSalt` commandId
       `Prelude.hashWithSalt` instanceId
 

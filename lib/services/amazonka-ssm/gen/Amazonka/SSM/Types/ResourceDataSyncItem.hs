@@ -170,7 +170,8 @@ instance Data.FromJSON ResourceDataSyncItem where
 
 instance Prelude.Hashable ResourceDataSyncItem where
   hashWithSalt _salt ResourceDataSyncItem' {..} =
-    _salt `Prelude.hashWithSalt` lastStatus
+    _salt
+      `Prelude.hashWithSalt` lastStatus
       `Prelude.hashWithSalt` lastSuccessfulSyncTime
       `Prelude.hashWithSalt` lastSyncStatusMessage
       `Prelude.hashWithSalt` lastSyncTime

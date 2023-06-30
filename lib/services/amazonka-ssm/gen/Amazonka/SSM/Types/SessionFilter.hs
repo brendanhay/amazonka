@@ -159,7 +159,8 @@ sessionFilter_value = Lens.lens (\SessionFilter' {value} -> value) (\s@SessionFi
 
 instance Prelude.Hashable SessionFilter where
   hashWithSalt _salt SessionFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SessionFilter where

@@ -164,7 +164,8 @@ instance Data.FromJSON ServiceSetting where
 
 instance Prelude.Hashable ServiceSetting where
   hashWithSalt _salt ServiceSetting' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` lastModifiedUser
       `Prelude.hashWithSalt` settingId

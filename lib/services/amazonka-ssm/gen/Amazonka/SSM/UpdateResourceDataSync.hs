@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateResourceDataSync where
 
 instance Prelude.Hashable UpdateResourceDataSync where
   hashWithSalt _salt UpdateResourceDataSync' {..} =
-    _salt `Prelude.hashWithSalt` syncName
+    _salt
+      `Prelude.hashWithSalt` syncName
       `Prelude.hashWithSalt` syncType
       `Prelude.hashWithSalt` syncSource
 

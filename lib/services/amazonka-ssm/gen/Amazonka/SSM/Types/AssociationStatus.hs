@@ -102,7 +102,8 @@ instance Data.FromJSON AssociationStatus where
 
 instance Prelude.Hashable AssociationStatus where
   hashWithSalt _salt AssociationStatus' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` date
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` message

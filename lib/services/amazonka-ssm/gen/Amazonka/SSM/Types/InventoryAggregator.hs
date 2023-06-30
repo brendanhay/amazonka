@@ -81,7 +81,8 @@ inventoryAggregator_groups = Lens.lens (\InventoryAggregator' {groups} -> groups
 
 instance Prelude.Hashable InventoryAggregator where
   hashWithSalt _salt InventoryAggregator' {..} =
-    _salt `Prelude.hashWithSalt` aggregators
+    _salt
+      `Prelude.hashWithSalt` aggregators
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` groups
 

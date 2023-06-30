@@ -74,7 +74,8 @@ instance Data.FromJSON OpsEntityItem where
 
 instance Prelude.Hashable OpsEntityItem where
   hashWithSalt _salt OpsEntityItem' {..} =
-    _salt `Prelude.hashWithSalt` captureTime
+    _salt
+      `Prelude.hashWithSalt` captureTime
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData OpsEntityItem where

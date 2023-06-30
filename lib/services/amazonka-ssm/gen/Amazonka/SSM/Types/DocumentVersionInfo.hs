@@ -184,7 +184,8 @@ instance Data.FromJSON DocumentVersionInfo where
 
 instance Prelude.Hashable DocumentVersionInfo where
   hashWithSalt _salt DocumentVersionInfo' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` documentFormat
       `Prelude.hashWithSalt` documentVersion

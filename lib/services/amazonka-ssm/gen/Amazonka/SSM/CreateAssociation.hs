@@ -218,7 +218,7 @@ data CreateAssociation = CreateAssociation'
     -- from other Amazon Web Services accounts, you must specify the complete
     -- SSM document ARN, in the following format:
     --
-    -- @arn:partition:ssm:region:account-id:document\/document-name @
+    -- @arn:@/@partition@/@:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
     --
     -- For example:
     --
@@ -376,7 +376,7 @@ data CreateAssociation = CreateAssociation'
 -- from other Amazon Web Services accounts, you must specify the complete
 -- SSM document ARN, in the following format:
 --
--- @arn:partition:ssm:region:account-id:document\/document-name @
+-- @arn:@/@partition@/@:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -589,7 +589,7 @@ createAssociation_targets = Lens.lens (\CreateAssociation' {targets} -> targets)
 -- from other Amazon Web Services accounts, you must specify the complete
 -- SSM document ARN, in the following format:
 --
--- @arn:partition:ssm:region:account-id:document\/document-name @
+-- @arn:@/@partition@/@:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -617,7 +617,8 @@ instance Core.AWSRequest CreateAssociation where
 
 instance Prelude.Hashable CreateAssociation where
   hashWithSalt _salt CreateAssociation' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` associationName
       `Prelude.hashWithSalt` automationTargetParameterName

@@ -123,7 +123,8 @@ instance Core.AWSRequest DescribeDocument where
 
 instance Prelude.Hashable DescribeDocument where
   hashWithSalt _salt DescribeDocument' {..} =
-    _salt `Prelude.hashWithSalt` documentVersion
+    _salt
+      `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` name
 

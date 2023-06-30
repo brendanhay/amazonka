@@ -85,7 +85,8 @@ instance Data.FromJSON AlarmConfiguration where
 
 instance Prelude.Hashable AlarmConfiguration where
   hashWithSalt _salt AlarmConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` ignorePollAlarmFailure
+    _salt
+      `Prelude.hashWithSalt` ignorePollAlarmFailure
       `Prelude.hashWithSalt` alarms
 
 instance Prelude.NFData AlarmConfiguration where

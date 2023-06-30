@@ -142,7 +142,8 @@ parameterStringFilter_key = Lens.lens (\ParameterStringFilter' {key} -> key) (\s
 
 instance Prelude.Hashable ParameterStringFilter where
   hashWithSalt _salt ParameterStringFilter' {..} =
-    _salt `Prelude.hashWithSalt` option
+    _salt
+      `Prelude.hashWithSalt` option
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` key
 

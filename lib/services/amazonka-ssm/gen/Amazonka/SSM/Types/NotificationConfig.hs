@@ -117,7 +117,8 @@ instance Data.FromJSON NotificationConfig where
       ( \x ->
           NotificationConfig'
             Prelude.<$> (x Data..:? "NotificationArn")
-            Prelude.<*> ( x Data..:? "NotificationEvents"
+            Prelude.<*> ( x
+                            Data..:? "NotificationEvents"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "NotificationType")
@@ -125,7 +126,8 @@ instance Data.FromJSON NotificationConfig where
 
 instance Prelude.Hashable NotificationConfig where
   hashWithSalt _salt NotificationConfig' {..} =
-    _salt `Prelude.hashWithSalt` notificationArn
+    _salt
+      `Prelude.hashWithSalt` notificationArn
       `Prelude.hashWithSalt` notificationEvents
       `Prelude.hashWithSalt` notificationType
 

@@ -287,7 +287,8 @@ instance Data.FromJSON OpsItemSummary where
             Prelude.<*> (x Data..:? "CreatedTime")
             Prelude.<*> (x Data..:? "LastModifiedBy")
             Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> ( x Data..:? "OperationalData"
+            Prelude.<*> ( x
+                            Data..:? "OperationalData"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OpsItemId")
@@ -303,7 +304,8 @@ instance Data.FromJSON OpsItemSummary where
 
 instance Prelude.Hashable OpsItemSummary where
   hashWithSalt _salt OpsItemSummary' {..} =
-    _salt `Prelude.hashWithSalt` actualEndTime
+    _salt
+      `Prelude.hashWithSalt` actualEndTime
       `Prelude.hashWithSalt` actualStartTime
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` createdBy

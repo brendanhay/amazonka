@@ -115,22 +115,22 @@ instance Core.AWSPager DescribeInventoryDeletions where
     | Core.stop
         ( rs
             Lens.^? describeInventoryDeletionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInventoryDeletionsResponse_inventoryDeletions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInventoryDeletions_nextToken
           Lens..~ rs
           Lens.^? describeInventoryDeletionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInventoryDeletions where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest DescribeInventoryDeletions where
     Response.receiveJSON
       ( \s h x ->
           DescribeInventoryDeletionsResponse'
-            Prelude.<$> ( x Data..?> "InventoryDeletions"
+            Prelude.<$> ( x
+                            Data..?> "InventoryDeletions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -151,7 +152,8 @@ instance Core.AWSRequest DescribeInventoryDeletions where
 
 instance Prelude.Hashable DescribeInventoryDeletions where
   hashWithSalt _salt DescribeInventoryDeletions' {..} =
-    _salt `Prelude.hashWithSalt` deletionId
+    _salt
+      `Prelude.hashWithSalt` deletionId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

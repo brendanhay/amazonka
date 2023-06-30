@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateManagedInstanceRole where
 
 instance Prelude.Hashable UpdateManagedInstanceRole where
   hashWithSalt _salt UpdateManagedInstanceRole' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` iamRole
 
 instance Prelude.NFData UpdateManagedInstanceRole where

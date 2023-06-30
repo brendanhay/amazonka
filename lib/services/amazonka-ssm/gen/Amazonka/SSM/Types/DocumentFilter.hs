@@ -66,7 +66,8 @@ documentFilter_value = Lens.lens (\DocumentFilter' {value} -> value) (\s@Documen
 
 instance Prelude.Hashable DocumentFilter where
   hashWithSalt _salt DocumentFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DocumentFilter where

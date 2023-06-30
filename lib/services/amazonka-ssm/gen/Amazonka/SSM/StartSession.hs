@@ -166,7 +166,8 @@ instance Core.AWSRequest StartSession where
 
 instance Prelude.Hashable StartSession where
   hashWithSalt _salt StartSession' {..} =
-    _salt `Prelude.hashWithSalt` documentName
+    _salt
+      `Prelude.hashWithSalt` documentName
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` target
@@ -214,7 +215,7 @@ data StartSessionResponse = StartSessionResponse'
     sessionId :: Prelude.Maybe Prelude.Text,
     -- | A URL back to SSM Agent on the managed node that the Session Manager
     -- client uses to send commands and receive output from the node. Format:
-    -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
+    -- @wss:\/\/ssmmessages.@__@region@__@.amazonaws.com\/v1\/data-channel\/@__@session-id@__@?stream=(input|output)@
     --
     -- __region__ represents the Region identifier for an Amazon Web Services
     -- Region supported by Amazon Web Services Systems Manager, such as
@@ -248,7 +249,7 @@ data StartSessionResponse = StartSessionResponse'
 --
 -- 'streamUrl', 'startSessionResponse_streamUrl' - A URL back to SSM Agent on the managed node that the Session Manager
 -- client uses to send commands and receive output from the node. Format:
--- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
+-- @wss:\/\/ssmmessages.@__@region@__@.amazonaws.com\/v1\/data-channel\/@__@session-id@__@?stream=(input|output)@
 --
 -- __region__ represents the Region identifier for an Amazon Web Services
 -- Region supported by Amazon Web Services Systems Manager, such as
@@ -284,7 +285,7 @@ startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -
 
 -- | A URL back to SSM Agent on the managed node that the Session Manager
 -- client uses to send commands and receive output from the node. Format:
--- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
+-- @wss:\/\/ssmmessages.@__@region@__@.amazonaws.com\/v1\/data-channel\/@__@session-id@__@?stream=(input|output)@
 --
 -- __region__ represents the Region identifier for an Amazon Web Services
 -- Region supported by Amazon Web Services Systems Manager, such as

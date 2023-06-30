@@ -136,7 +136,8 @@ instance Data.FromJSON ProgressCounters where
 
 instance Prelude.Hashable ProgressCounters where
   hashWithSalt _salt ProgressCounters' {..} =
-    _salt `Prelude.hashWithSalt` cancelledSteps
+    _salt
+      `Prelude.hashWithSalt` cancelledSteps
       `Prelude.hashWithSalt` failedSteps
       `Prelude.hashWithSalt` successSteps
       `Prelude.hashWithSalt` timedOutSteps

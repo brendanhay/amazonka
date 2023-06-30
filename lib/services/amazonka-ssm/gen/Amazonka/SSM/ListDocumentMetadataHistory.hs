@@ -156,7 +156,8 @@ instance Core.AWSRequest ListDocumentMetadataHistory where
 
 instance Prelude.Hashable ListDocumentMetadataHistory where
   hashWithSalt _salt ListDocumentMetadataHistory' {..} =
-    _salt `Prelude.hashWithSalt` documentVersion
+    _salt
+      `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name

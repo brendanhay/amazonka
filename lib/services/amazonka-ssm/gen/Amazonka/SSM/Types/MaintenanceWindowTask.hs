@@ -352,7 +352,8 @@ instance Data.FromJSON MaintenanceWindowTask where
 
 instance Prelude.Hashable MaintenanceWindowTask where
   hashWithSalt _salt MaintenanceWindowTask' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` cutoffBehavior
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` loggingInfo

@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateAttendeeCapabilities where
 
 instance Prelude.Hashable UpdateAttendeeCapabilities where
   hashWithSalt _salt UpdateAttendeeCapabilities' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` attendeeId
       `Prelude.hashWithSalt` capabilities
 

@@ -89,7 +89,8 @@ instance Data.FromJSON CreateAttendeeError where
 
 instance Prelude.Hashable CreateAttendeeError where
   hashWithSalt _salt CreateAttendeeError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` externalUserId
 

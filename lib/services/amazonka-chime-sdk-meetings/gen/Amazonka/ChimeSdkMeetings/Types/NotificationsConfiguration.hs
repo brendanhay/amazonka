@@ -75,7 +75,8 @@ notificationsConfiguration_sqsQueueArn = Lens.lens (\NotificationsConfiguration'
 
 instance Prelude.Hashable NotificationsConfiguration where
   hashWithSalt _salt NotificationsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` lambdaFunctionArn
+    _salt
+      `Prelude.hashWithSalt` lambdaFunctionArn
       `Prelude.hashWithSalt` snsTopicArn
       `Prelude.hashWithSalt` sqsQueueArn
 

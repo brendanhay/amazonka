@@ -199,7 +199,8 @@ instance Core.AWSRequest CreateAttendee where
 
 instance Prelude.Hashable CreateAttendee where
   hashWithSalt _salt CreateAttendee' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` externalUserId
 

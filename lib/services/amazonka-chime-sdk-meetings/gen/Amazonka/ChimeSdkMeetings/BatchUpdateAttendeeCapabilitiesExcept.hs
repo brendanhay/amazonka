@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     BatchUpdateAttendeeCapabilitiesExcept' {..} =
-      _salt `Prelude.hashWithSalt` meetingId
+      _salt
+        `Prelude.hashWithSalt` meetingId
         `Prelude.hashWithSalt` excludedAttendeeIds
         `Prelude.hashWithSalt` capabilities
 

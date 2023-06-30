@@ -145,7 +145,8 @@ instance Core.AWSRequest StartDeviceAuthorization where
 
 instance Prelude.Hashable StartDeviceAuthorization where
   hashWithSalt _salt StartDeviceAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` startUrl
 

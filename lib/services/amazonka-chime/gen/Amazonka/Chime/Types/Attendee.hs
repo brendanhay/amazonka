@@ -95,7 +95,8 @@ instance Data.FromJSON Attendee where
 
 instance Prelude.Hashable Attendee where
   hashWithSalt _salt Attendee' {..} =
-    _salt `Prelude.hashWithSalt` attendeeId
+    _salt
+      `Prelude.hashWithSalt` attendeeId
       `Prelude.hashWithSalt` externalUserId
       `Prelude.hashWithSalt` joinToken
 

@@ -191,7 +191,8 @@ instance Data.FromJSON PhoneNumber where
 
 instance Prelude.Hashable PhoneNumber where
   hashWithSalt _salt PhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` associations
+    _salt
+      `Prelude.hashWithSalt` associations
       `Prelude.hashWithSalt` callingName
       `Prelude.hashWithSalt` callingNameStatus
       `Prelude.hashWithSalt` capabilities

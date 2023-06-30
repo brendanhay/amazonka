@@ -105,7 +105,8 @@ instance Data.FromJSON AppInstanceUser where
 
 instance Prelude.Hashable AppInstanceUser where
   hashWithSalt _salt AppInstanceUser' {..} =
-    _salt `Prelude.hashWithSalt` appInstanceUserArn
+    _salt
+      `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` metadata

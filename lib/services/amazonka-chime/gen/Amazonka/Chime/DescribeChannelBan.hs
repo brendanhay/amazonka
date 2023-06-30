@@ -118,7 +118,8 @@ instance Core.AWSRequest DescribeChannelBan where
 
 instance Prelude.Hashable DescribeChannelBan where
   hashWithSalt _salt DescribeChannelBan' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
 

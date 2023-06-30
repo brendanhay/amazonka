@@ -149,7 +149,8 @@ instance Data.FromJSON Bot where
 
 instance Prelude.Hashable Bot where
   hashWithSalt _salt Bot' {..} =
-    _salt `Prelude.hashWithSalt` botEmail
+    _salt
+      `Prelude.hashWithSalt` botEmail
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botType
       `Prelude.hashWithSalt` createdTimestamp

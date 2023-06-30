@@ -127,7 +127,8 @@ instance Core.AWSRequest PutEventsConfiguration where
 
 instance Prelude.Hashable PutEventsConfiguration where
   hashWithSalt _salt PutEventsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` lambdaFunctionArn
+    _salt
+      `Prelude.hashWithSalt` lambdaFunctionArn
       `Prelude.hashWithSalt` outboundEventsHTTPSEndpoint
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` botId

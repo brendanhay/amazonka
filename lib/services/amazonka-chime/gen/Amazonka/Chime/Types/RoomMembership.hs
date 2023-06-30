@@ -105,7 +105,8 @@ instance Data.FromJSON RoomMembership where
 
 instance Prelude.Hashable RoomMembership where
   hashWithSalt _salt RoomMembership' {..} =
-    _salt `Prelude.hashWithSalt` invitedBy
+    _salt
+      `Prelude.hashWithSalt` invitedBy
       `Prelude.hashWithSalt` member
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` roomId

@@ -118,7 +118,8 @@ instance Core.AWSRequest BatchSuspendUser where
 
 instance Prelude.Hashable BatchSuspendUser where
   hashWithSalt _salt BatchSuspendUser' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` userIdList
 
 instance Prelude.NFData BatchSuspendUser where

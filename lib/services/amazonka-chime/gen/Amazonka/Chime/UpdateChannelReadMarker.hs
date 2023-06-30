@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateChannelReadMarker where
 
 instance Prelude.Hashable UpdateChannelReadMarker where
   hashWithSalt _salt UpdateChannelReadMarker' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` channelArn
 
 instance Prelude.NFData UpdateChannelReadMarker where

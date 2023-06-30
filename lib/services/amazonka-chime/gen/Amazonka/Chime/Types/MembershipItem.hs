@@ -65,7 +65,8 @@ membershipItem_role = Lens.lens (\MembershipItem' {role'} -> role') (\s@Membersh
 
 instance Prelude.Hashable MembershipItem where
   hashWithSalt _salt MembershipItem' {..} =
-    _salt `Prelude.hashWithSalt` memberId
+    _salt
+      `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` role'
 
 instance Prelude.NFData MembershipItem where

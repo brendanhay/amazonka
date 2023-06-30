@@ -155,10 +155,12 @@ instance Data.FromJSON Account where
             Prelude.<*> (x Data..:? "AccountType")
             Prelude.<*> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "DefaultLicense")
-            Prelude.<*> ( x Data..:? "SigninDelegateGroups"
+            Prelude.<*> ( x
+                            Data..:? "SigninDelegateGroups"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SupportedLicenses"
+            Prelude.<*> ( x
+                            Data..:? "SupportedLicenses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "AwsAccountId")
@@ -168,7 +170,8 @@ instance Data.FromJSON Account where
 
 instance Prelude.Hashable Account where
   hashWithSalt _salt Account' {..} =
-    _salt `Prelude.hashWithSalt` accountStatus
+    _salt
+      `Prelude.hashWithSalt` accountStatus
       `Prelude.hashWithSalt` accountType
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` defaultLicense

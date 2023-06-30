@@ -83,7 +83,8 @@ instance Data.FromJSON LoggingConfiguration where
 
 instance Prelude.Hashable LoggingConfiguration where
   hashWithSalt _salt LoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` enableMediaMetricLogs
+    _salt
+      `Prelude.hashWithSalt` enableMediaMetricLogs
       `Prelude.hashWithSalt` enableSIPLogs
 
 instance Prelude.NFData LoggingConfiguration where

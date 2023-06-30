@@ -104,7 +104,8 @@ instance Core.AWSRequest RegenerateSecurityToken where
 
 instance Prelude.Hashable RegenerateSecurityToken where
   hashWithSalt _salt RegenerateSecurityToken' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData RegenerateSecurityToken where

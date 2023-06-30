@@ -124,7 +124,8 @@ instance Core.AWSRequest ListProxySessions where
 
 instance Prelude.Hashable ListProxySessions where
   hashWithSalt _salt ListProxySessions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` voiceConnectorId

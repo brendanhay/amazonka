@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     AssociateSigninDelegateGroupsWithAccount' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` signinDelegateGroups
 
 instance

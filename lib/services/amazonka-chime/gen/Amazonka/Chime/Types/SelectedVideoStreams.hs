@@ -79,7 +79,8 @@ instance Data.FromJSON SelectedVideoStreams where
 
 instance Prelude.Hashable SelectedVideoStreams where
   hashWithSalt _salt SelectedVideoStreams' {..} =
-    _salt `Prelude.hashWithSalt` attendeeIds
+    _salt
+      `Prelude.hashWithSalt` attendeeIds
       `Prelude.hashWithSalt` externalUserIds
 
 instance Prelude.NFData SelectedVideoStreams where

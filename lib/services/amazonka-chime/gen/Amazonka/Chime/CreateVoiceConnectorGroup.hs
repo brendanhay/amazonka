@@ -110,7 +110,8 @@ instance Core.AWSRequest CreateVoiceConnectorGroup where
 
 instance Prelude.Hashable CreateVoiceConnectorGroup where
   hashWithSalt _salt CreateVoiceConnectorGroup' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorItems
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorItems
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateVoiceConnectorGroup where

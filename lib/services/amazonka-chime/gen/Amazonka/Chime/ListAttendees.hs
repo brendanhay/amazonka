@@ -117,7 +117,8 @@ instance Core.AWSRequest ListAttendees where
 
 instance Prelude.Hashable ListAttendees where
   hashWithSalt _salt ListAttendees' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` meetingId
 

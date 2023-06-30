@@ -82,7 +82,8 @@ instance
     ContentArtifactsConfiguration
   where
   hashWithSalt _salt ContentArtifactsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` muxType
+    _salt
+      `Prelude.hashWithSalt` muxType
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ContentArtifactsConfiguration where

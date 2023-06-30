@@ -161,7 +161,8 @@ instance Data.FromJSON SipRule where
 
 instance Prelude.Hashable SipRule where
   hashWithSalt _salt SipRule' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sipRuleId

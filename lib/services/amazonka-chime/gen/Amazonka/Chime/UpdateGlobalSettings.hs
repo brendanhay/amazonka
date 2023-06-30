@@ -93,7 +93,8 @@ instance Core.AWSRequest UpdateGlobalSettings where
 
 instance Prelude.Hashable UpdateGlobalSettings where
   hashWithSalt _salt UpdateGlobalSettings' {..} =
-    _salt `Prelude.hashWithSalt` businessCalling
+    _salt
+      `Prelude.hashWithSalt` businessCalling
       `Prelude.hashWithSalt` voiceConnector
 
 instance Prelude.NFData UpdateGlobalSettings where

@@ -107,7 +107,8 @@ instance Data.FromJSON Meeting where
 
 instance Prelude.Hashable Meeting where
   hashWithSalt _salt Meeting' {..} =
-    _salt `Prelude.hashWithSalt` externalMeetingId
+    _salt
+      `Prelude.hashWithSalt` externalMeetingId
       `Prelude.hashWithSalt` mediaPlacement
       `Prelude.hashWithSalt` mediaRegion
       `Prelude.hashWithSalt` meetingId

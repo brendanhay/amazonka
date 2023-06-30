@@ -106,7 +106,8 @@ instance Core.AWSRequest ResetPersonalPIN where
 
 instance Prelude.Hashable ResetPersonalPIN where
   hashWithSalt _salt ResetPersonalPIN' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData ResetPersonalPIN where

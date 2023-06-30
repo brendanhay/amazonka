@@ -91,7 +91,8 @@ instance Data.FromJSON Origination where
 
 instance Prelude.Hashable Origination where
   hashWithSalt _salt Origination' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` routes
 
 instance Prelude.NFData Origination where

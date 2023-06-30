@@ -105,7 +105,8 @@ instance Core.AWSRequest GetEventsConfiguration where
 
 instance Prelude.Hashable GetEventsConfiguration where
   hashWithSalt _salt GetEventsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData GetEventsConfiguration where

@@ -108,7 +108,8 @@ instance Core.AWSRequest StartMeetingTranscription where
 
 instance Prelude.Hashable StartMeetingTranscription where
   hashWithSalt _salt StartMeetingTranscription' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` transcriptionConfiguration
 
 instance Prelude.NFData StartMeetingTranscription where

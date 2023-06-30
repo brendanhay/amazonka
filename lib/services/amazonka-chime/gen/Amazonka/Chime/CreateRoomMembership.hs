@@ -131,7 +131,8 @@ instance Core.AWSRequest CreateRoomMembership where
 
 instance Prelude.Hashable CreateRoomMembership where
   hashWithSalt _salt CreateRoomMembership' {..} =
-    _salt `Prelude.hashWithSalt` role'
+    _salt
+      `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` roomId
       `Prelude.hashWithSalt` memberId

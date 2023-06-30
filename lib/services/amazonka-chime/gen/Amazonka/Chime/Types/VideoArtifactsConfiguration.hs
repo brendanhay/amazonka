@@ -79,7 +79,8 @@ instance Data.FromJSON VideoArtifactsConfiguration where
 
 instance Prelude.Hashable VideoArtifactsConfiguration where
   hashWithSalt _salt VideoArtifactsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` muxType
+    _salt
+      `Prelude.hashWithSalt` muxType
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData VideoArtifactsConfiguration where

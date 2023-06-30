@@ -165,7 +165,8 @@ instance Core.AWSRequest ListChannelMessages where
       ( \s h x ->
           ListChannelMessagesResponse'
             Prelude.<$> (x Data..?> "ChannelArn")
-            Prelude.<*> ( x Data..?> "ChannelMessages"
+            Prelude.<*> ( x
+                            Data..?> "ChannelMessages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -174,7 +175,8 @@ instance Core.AWSRequest ListChannelMessages where
 
 instance Prelude.Hashable ListChannelMessages where
   hashWithSalt _salt ListChannelMessages' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` notAfter

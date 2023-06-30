@@ -184,7 +184,8 @@ instance Core.AWSRequest CreateMeetingWithAttendees where
 
 instance Prelude.Hashable CreateMeetingWithAttendees where
   hashWithSalt _salt CreateMeetingWithAttendees' {..} =
-    _salt `Prelude.hashWithSalt` attendees
+    _salt
+      `Prelude.hashWithSalt` attendees
       `Prelude.hashWithSalt` externalMeetingId
       `Prelude.hashWithSalt` mediaRegion
       `Prelude.hashWithSalt` meetingHostId

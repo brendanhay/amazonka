@@ -94,7 +94,7 @@ instance
       ( \s h x ->
           GetVoiceConnectorEmergencyCallingConfigurationResponse'
             Prelude.<$> (x Data..?> "EmergencyCallingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

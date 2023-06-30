@@ -171,7 +171,8 @@ instance Core.AWSRequest CreateSipRule where
 
 instance Prelude.Hashable CreateSipRule where
   hashWithSalt _salt CreateSipRule' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` triggerType
       `Prelude.hashWithSalt` triggerValue

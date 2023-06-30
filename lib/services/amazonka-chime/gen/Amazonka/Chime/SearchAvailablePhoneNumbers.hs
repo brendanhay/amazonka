@@ -172,7 +172,8 @@ instance Core.AWSRequest SearchAvailablePhoneNumbers where
     Response.receiveJSON
       ( \s h x ->
           SearchAvailablePhoneNumbersResponse'
-            Prelude.<$> ( x Data..?> "E164PhoneNumbers"
+            Prelude.<$> ( x
+                            Data..?> "E164PhoneNumbers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -181,7 +182,8 @@ instance Core.AWSRequest SearchAvailablePhoneNumbers where
 
 instance Prelude.Hashable SearchAvailablePhoneNumbers where
   hashWithSalt _salt SearchAvailablePhoneNumbers' {..} =
-    _salt `Prelude.hashWithSalt` areaCode
+    _salt
+      `Prelude.hashWithSalt` areaCode
       `Prelude.hashWithSalt` city
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` maxResults

@@ -92,7 +92,8 @@ instance Core.AWSRequest UntagMeeting where
 
 instance Prelude.Hashable UntagMeeting where
   hashWithSalt _salt UntagMeeting' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagMeeting where

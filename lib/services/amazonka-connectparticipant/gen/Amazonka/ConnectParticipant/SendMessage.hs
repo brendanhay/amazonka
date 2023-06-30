@@ -165,7 +165,8 @@ instance Core.AWSRequest SendMessage where
 
 instance Prelude.Hashable SendMessage where
   hashWithSalt _salt SendMessage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` connectionToken

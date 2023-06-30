@@ -175,7 +175,8 @@ instance Core.AWSRequest GetTranscript where
 
 instance Prelude.Hashable GetTranscript where
   hashWithSalt _salt GetTranscript' {..} =
-    _salt `Prelude.hashWithSalt` contactId
+    _salt
+      `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` scanDirection

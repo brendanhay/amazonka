@@ -83,7 +83,8 @@ instance Data.FromJSON Websocket where
 
 instance Prelude.Hashable Websocket where
   hashWithSalt _salt Websocket' {..} =
-    _salt `Prelude.hashWithSalt` connectionExpiry
+    _salt
+      `Prelude.hashWithSalt` connectionExpiry
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Websocket where

@@ -123,12 +123,14 @@ instance Data.FromJSON SolutionConfig where
       "SolutionConfig"
       ( \x ->
           SolutionConfig'
-            Prelude.<$> ( x Data..:? "algorithmHyperParameters"
+            Prelude.<$> ( x
+                            Data..:? "algorithmHyperParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "autoMLConfig")
             Prelude.<*> (x Data..:? "eventValueThreshold")
-            Prelude.<*> ( x Data..:? "featureTransformationParameters"
+            Prelude.<*> ( x
+                            Data..:? "featureTransformationParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "hpoConfig")

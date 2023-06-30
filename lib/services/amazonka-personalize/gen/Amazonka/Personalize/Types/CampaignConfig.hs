@@ -78,7 +78,8 @@ instance Data.FromJSON CampaignConfig where
       "CampaignConfig"
       ( \x ->
           CampaignConfig'
-            Prelude.<$> ( x Data..:? "itemExplorationConfig"
+            Prelude.<$> ( x
+                            Data..:? "itemExplorationConfig"
                             Data..!= Prelude.mempty
                         )
       )

@@ -117,7 +117,8 @@ instance Data.FromJSON MetricAttributionSummary where
 
 instance Prelude.Hashable MetricAttributionSummary where
   hashWithSalt _salt MetricAttributionSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` metricAttributionArn

@@ -164,7 +164,8 @@ instance Data.FromJSON EventTracker where
 
 instance Prelude.Hashable EventTracker where
   hashWithSalt _salt EventTracker' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` eventTrackerArn

@@ -76,7 +76,8 @@ instance Data.FromJSON AlgorithmImage where
 
 instance Prelude.Hashable AlgorithmImage where
   hashWithSalt _salt AlgorithmImage' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` dockerURI
 
 instance Prelude.NFData AlgorithmImage where

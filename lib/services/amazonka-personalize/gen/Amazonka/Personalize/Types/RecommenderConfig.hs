@@ -87,7 +87,8 @@ instance Data.FromJSON RecommenderConfig where
       "RecommenderConfig"
       ( \x ->
           RecommenderConfig'
-            Prelude.<$> ( x Data..:? "itemExplorationConfig"
+            Prelude.<$> ( x
+                            Data..:? "itemExplorationConfig"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "minRecommendationRequestsPerSecond")
@@ -95,7 +96,8 @@ instance Data.FromJSON RecommenderConfig where
 
 instance Prelude.Hashable RecommenderConfig where
   hashWithSalt _salt RecommenderConfig' {..} =
-    _salt `Prelude.hashWithSalt` itemExplorationConfig
+    _salt
+      `Prelude.hashWithSalt` itemExplorationConfig
       `Prelude.hashWithSalt` minRecommendationRequestsPerSecond
 
 instance Prelude.NFData RecommenderConfig where

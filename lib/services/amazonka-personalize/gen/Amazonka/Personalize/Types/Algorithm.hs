@@ -155,10 +155,12 @@ instance Data.FromJSON Algorithm where
             Prelude.<*> (x Data..:? "algorithmImage")
             Prelude.<*> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "defaultHyperParameterRanges")
-            Prelude.<*> ( x Data..:? "defaultHyperParameters"
+            Prelude.<*> ( x
+                            Data..:? "defaultHyperParameters"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "defaultResourceConfig"
+            Prelude.<*> ( x
+                            Data..:? "defaultResourceConfig"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
@@ -169,7 +171,8 @@ instance Data.FromJSON Algorithm where
 
 instance Prelude.Hashable Algorithm where
   hashWithSalt _salt Algorithm' {..} =
-    _salt `Prelude.hashWithSalt` algorithmArn
+    _salt
+      `Prelude.hashWithSalt` algorithmArn
       `Prelude.hashWithSalt` algorithmImage
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` defaultHyperParameterRanges

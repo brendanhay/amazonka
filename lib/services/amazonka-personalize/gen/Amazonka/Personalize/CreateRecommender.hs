@@ -218,7 +218,8 @@ instance Core.AWSRequest CreateRecommender where
 
 instance Prelude.Hashable CreateRecommender where
   hashWithSalt _salt CreateRecommender' {..} =
-    _salt `Prelude.hashWithSalt` recommenderConfig
+    _salt
+      `Prelude.hashWithSalt` recommenderConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn

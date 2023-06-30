@@ -235,7 +235,8 @@ instance Core.AWSRequest CreateDatasetImportJob where
 
 instance Prelude.Hashable CreateDatasetImportJob where
   hashWithSalt _salt CreateDatasetImportJob' {..} =
-    _salt `Prelude.hashWithSalt` importMode
+    _salt
+      `Prelude.hashWithSalt` importMode
       `Prelude.hashWithSalt` publishAttributionMetricsToS3
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobName

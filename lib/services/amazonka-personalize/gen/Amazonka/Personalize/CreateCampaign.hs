@@ -194,7 +194,8 @@ instance Core.AWSRequest CreateCampaign where
 
 instance Prelude.Hashable CreateCampaign where
   hashWithSalt _salt CreateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignConfig
+    _salt
+      `Prelude.hashWithSalt` campaignConfig
       `Prelude.hashWithSalt` minProvisionedTPS
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

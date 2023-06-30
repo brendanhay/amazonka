@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateSchema where
 
 instance Prelude.Hashable CreateSchema where
   hashWithSalt _salt CreateSchema' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` schema
 

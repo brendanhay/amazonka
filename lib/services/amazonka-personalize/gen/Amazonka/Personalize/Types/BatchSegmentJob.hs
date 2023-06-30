@@ -219,7 +219,8 @@ instance Data.FromJSON BatchSegmentJob where
 
 instance Prelude.Hashable BatchSegmentJob where
   hashWithSalt _salt BatchSegmentJob' {..} =
-    _salt `Prelude.hashWithSalt` batchSegmentJobArn
+    _salt
+      `Prelude.hashWithSalt` batchSegmentJobArn
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` filterArn

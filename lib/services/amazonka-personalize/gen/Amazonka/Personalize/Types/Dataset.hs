@@ -173,7 +173,8 @@ instance Data.FromJSON Dataset where
 
 instance Prelude.Hashable Dataset where
   hashWithSalt _salt Dataset' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` datasetType

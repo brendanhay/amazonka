@@ -112,7 +112,8 @@ instance Data.FromJSON DatasetSchemaSummary where
 
 instance Prelude.Hashable DatasetSchemaSummary where
   hashWithSalt _salt DatasetSchemaSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` name

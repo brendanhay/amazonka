@@ -85,7 +85,8 @@ instance Data.FromJSON IntegerHyperParameterRange where
 
 instance Prelude.Hashable IntegerHyperParameterRange where
   hashWithSalt _salt IntegerHyperParameterRange' {..} =
-    _salt `Prelude.hashWithSalt` maxValue
+    _salt
+      `Prelude.hashWithSalt` maxValue
       `Prelude.hashWithSalt` minValue
       `Prelude.hashWithSalt` name
 

@@ -84,7 +84,8 @@ instance Data.FromJSON Tag where
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` tagKey
+    _salt
+      `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` tagValue
 
 instance Prelude.NFData Tag where

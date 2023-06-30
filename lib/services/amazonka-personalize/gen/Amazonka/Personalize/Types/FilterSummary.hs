@@ -124,7 +124,8 @@ instance Data.FromJSON FilterSummary where
 
 instance Prelude.Hashable FilterSummary where
   hashWithSalt _salt FilterSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` filterArn

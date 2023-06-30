@@ -96,7 +96,8 @@ instance Data.FromJSON MetricDestinationSummary where
 
 instance Prelude.Hashable MetricDestinationSummary where
   hashWithSalt _salt MetricDestinationSummary' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` iamRoleArn
 

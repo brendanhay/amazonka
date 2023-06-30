@@ -73,7 +73,8 @@ appMonitorDetails_version = Lens.lens (\AppMonitorDetails' {version} -> version)
 
 instance Prelude.Hashable AppMonitorDetails where
   hashWithSalt _salt AppMonitorDetails' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 

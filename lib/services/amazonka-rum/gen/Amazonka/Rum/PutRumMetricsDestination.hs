@@ -163,7 +163,8 @@ instance Core.AWSRequest PutRumMetricsDestination where
 
 instance Prelude.Hashable PutRumMetricsDestination where
   hashWithSalt _salt PutRumMetricsDestination' {..} =
-    _salt `Prelude.hashWithSalt` destinationArn
+    _salt
+      `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` appMonitorName
       `Prelude.hashWithSalt` destination

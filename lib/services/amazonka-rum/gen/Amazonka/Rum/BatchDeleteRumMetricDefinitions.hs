@@ -164,7 +164,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteRumMetricDefinitionsResponse'
-            Prelude.<$> ( x Data..?> "MetricDefinitionIds"
+            Prelude.<$> ( x
+                            Data..?> "MetricDefinitionIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -178,7 +179,8 @@ instance
   hashWithSalt
     _salt
     BatchDeleteRumMetricDefinitions' {..} =
-      _salt `Prelude.hashWithSalt` destinationArn
+      _salt
+        `Prelude.hashWithSalt` destinationArn
         `Prelude.hashWithSalt` appMonitorName
         `Prelude.hashWithSalt` destination
         `Prelude.hashWithSalt` metricDefinitionIds

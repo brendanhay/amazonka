@@ -71,7 +71,8 @@ userDetails_userId = Lens.lens (\UserDetails' {userId} -> userId) (\s@UserDetail
 
 instance Prelude.Hashable UserDetails where
   hashWithSalt _salt UserDetails' {..} =
-    _salt `Prelude.hashWithSalt` sessionId
+    _salt
+      `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData UserDetails where

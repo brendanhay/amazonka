@@ -218,7 +218,8 @@ batchWriteOperation_updateObjectAttributes = Lens.lens (\BatchWriteOperation' {u
 
 instance Prelude.Hashable BatchWriteOperation where
   hashWithSalt _salt BatchWriteOperation' {..} =
-    _salt `Prelude.hashWithSalt` addFacetToObject
+    _salt
+      `Prelude.hashWithSalt` addFacetToObject
       `Prelude.hashWithSalt` attachObject
       `Prelude.hashWithSalt` attachPolicy
       `Prelude.hashWithSalt` attachToIndex

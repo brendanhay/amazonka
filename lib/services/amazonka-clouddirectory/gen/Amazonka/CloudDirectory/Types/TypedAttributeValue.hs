@@ -114,7 +114,8 @@ instance Data.FromJSON TypedAttributeValue where
 
 instance Prelude.Hashable TypedAttributeValue where
   hashWithSalt _salt TypedAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` binaryValue
+    _salt
+      `Prelude.hashWithSalt` binaryValue
       `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` datetimeValue
       `Prelude.hashWithSalt` numberValue

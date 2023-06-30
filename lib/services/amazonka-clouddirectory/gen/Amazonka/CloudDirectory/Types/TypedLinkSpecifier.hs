@@ -108,14 +108,16 @@ instance Data.FromJSON TypedLinkSpecifier where
             Prelude.<$> (x Data..: "TypedLinkFacet")
             Prelude.<*> (x Data..: "SourceObjectReference")
             Prelude.<*> (x Data..: "TargetObjectReference")
-            Prelude.<*> ( x Data..:? "IdentityAttributeValues"
+            Prelude.<*> ( x
+                            Data..:? "IdentityAttributeValues"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TypedLinkSpecifier where
   hashWithSalt _salt TypedLinkSpecifier' {..} =
-    _salt `Prelude.hashWithSalt` typedLinkFacet
+    _salt
+      `Prelude.hashWithSalt` typedLinkFacet
       `Prelude.hashWithSalt` sourceObjectReference
       `Prelude.hashWithSalt` targetObjectReference
       `Prelude.hashWithSalt` identityAttributeValues

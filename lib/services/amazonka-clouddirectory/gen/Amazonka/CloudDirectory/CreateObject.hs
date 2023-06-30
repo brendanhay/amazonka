@@ -146,7 +146,8 @@ instance Core.AWSRequest CreateObject where
 
 instance Prelude.Hashable CreateObject where
   hashWithSalt _salt CreateObject' {..} =
-    _salt `Prelude.hashWithSalt` linkName
+    _salt
+      `Prelude.hashWithSalt` linkName
       `Prelude.hashWithSalt` objectAttributeList
       `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` directoryArn

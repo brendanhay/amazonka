@@ -67,7 +67,8 @@ objectAttributeRange_range = Lens.lens (\ObjectAttributeRange' {range} -> range)
 
 instance Prelude.Hashable ObjectAttributeRange where
   hashWithSalt _salt ObjectAttributeRange' {..} =
-    _salt `Prelude.hashWithSalt` attributeKey
+    _salt
+      `Prelude.hashWithSalt` attributeKey
       `Prelude.hashWithSalt` range
 
 instance Prelude.NFData ObjectAttributeRange where

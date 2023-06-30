@@ -157,22 +157,22 @@ instance Core.AWSPager ListObjectAttributes where
     | Core.stop
         ( rs
             Lens.^? listObjectAttributesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listObjectAttributesResponse_attributes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listObjectAttributes_nextToken
           Lens..~ rs
           Lens.^? listObjectAttributesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectAttributes where
   type
@@ -191,7 +191,8 @@ instance Core.AWSRequest ListObjectAttributes where
 
 instance Prelude.Hashable ListObjectAttributes where
   hashWithSalt _salt ListObjectAttributes' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` facetFilter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

@@ -118,7 +118,8 @@ instance Core.AWSRequest RemoveFacetFromObject where
 
 instance Prelude.Hashable RemoveFacetFromObject where
   hashWithSalt _salt RemoveFacetFromObject' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` schemaFacet
       `Prelude.hashWithSalt` objectReference
 

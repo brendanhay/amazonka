@@ -76,7 +76,8 @@ instance Data.FromJSON BatchReadException where
 
 instance Prelude.Hashable BatchReadException where
   hashWithSalt _salt BatchReadException' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData BatchReadException where

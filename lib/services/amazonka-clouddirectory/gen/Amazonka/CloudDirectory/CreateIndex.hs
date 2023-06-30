@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateIndex where
 
 instance Prelude.Hashable CreateIndex where
   hashWithSalt _salt CreateIndex' {..} =
-    _salt `Prelude.hashWithSalt` linkName
+    _salt
+      `Prelude.hashWithSalt` linkName
       `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` orderedIndexedAttributeList

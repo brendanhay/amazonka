@@ -87,7 +87,8 @@ instance Data.FromJSON PolicyAttachment where
 
 instance Prelude.Hashable PolicyAttachment where
   hashWithSalt _salt PolicyAttachment' {..} =
-    _salt `Prelude.hashWithSalt` objectIdentifier
+    _salt
+      `Prelude.hashWithSalt` objectIdentifier
       `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` policyType
 

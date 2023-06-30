@@ -76,7 +76,8 @@ instance Data.FromJSON Rule where
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Rule where

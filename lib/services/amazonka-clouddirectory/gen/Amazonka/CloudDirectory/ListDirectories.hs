@@ -105,19 +105,19 @@ instance Core.AWSPager ListDirectories where
     | Core.stop
         ( rs
             Lens.^? listDirectoriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listDirectoriesResponse_directories) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDirectories_nextToken
           Lens..~ rs
           Lens.^? listDirectoriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDirectories where
   type
@@ -136,7 +136,8 @@ instance Core.AWSRequest ListDirectories where
 
 instance Prelude.Hashable ListDirectories where
   hashWithSalt _salt ListDirectories' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` state
 

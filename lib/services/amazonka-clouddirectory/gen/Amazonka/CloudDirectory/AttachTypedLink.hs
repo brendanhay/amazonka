@@ -147,7 +147,8 @@ instance Core.AWSRequest AttachTypedLink where
 
 instance Prelude.Hashable AttachTypedLink where
   hashWithSalt _salt AttachTypedLink' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` sourceObjectReference
       `Prelude.hashWithSalt` targetObjectReference
       `Prelude.hashWithSalt` typedLinkFacet

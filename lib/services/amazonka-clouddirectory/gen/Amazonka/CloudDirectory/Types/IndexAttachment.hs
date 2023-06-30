@@ -82,7 +82,8 @@ instance Data.FromJSON IndexAttachment where
       "IndexAttachment"
       ( \x ->
           IndexAttachment'
-            Prelude.<$> ( x Data..:? "IndexedAttributes"
+            Prelude.<$> ( x
+                            Data..:? "IndexedAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ObjectIdentifier")
@@ -90,7 +91,8 @@ instance Data.FromJSON IndexAttachment where
 
 instance Prelude.Hashable IndexAttachment where
   hashWithSalt _salt IndexAttachment' {..} =
-    _salt `Prelude.hashWithSalt` indexedAttributes
+    _salt
+      `Prelude.hashWithSalt` indexedAttributes
       `Prelude.hashWithSalt` objectIdentifier
 
 instance Prelude.NFData IndexAttachment where

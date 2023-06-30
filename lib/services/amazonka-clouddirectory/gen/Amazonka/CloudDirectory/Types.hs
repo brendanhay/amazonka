@@ -864,54 +864,54 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access denied or directory not found. Either you don\'t have permissions
 -- for this directory or the directory does not exist. Try calling
 -- ListDirectories and check your permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -919,14 +919,14 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | A @BatchWrite@ exception has occurred.
-_BatchWriteException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BatchWriteException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BatchWriteException =
   Core._MatchServiceError
     defaultService
     "BatchWriteException"
 
 -- | Cannot list the parents of a Directory root.
-_CannotListParentOfRootException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CannotListParentOfRootException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CannotListParentOfRootException =
   Core._MatchServiceError
     defaultService
@@ -935,7 +935,7 @@ _CannotListParentOfRootException =
 
 -- | Indicates that a Directory could not be created due to a naming
 -- conflict. Choose a different name and try again.
-_DirectoryAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -944,7 +944,7 @@ _DirectoryAlreadyExistsException =
 
 -- | A directory that has been deleted and to which access has been
 -- attempted. Note: The requested resource will eventually cease to exist.
-_DirectoryDeletedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryDeletedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryDeletedException =
   Core._MatchServiceError
     defaultService
@@ -952,7 +952,7 @@ _DirectoryDeletedException =
     Prelude.. Core.hasStatus 400
 
 -- | An operation can only operate on a disabled directory.
-_DirectoryNotDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryNotDisabledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryNotDisabledException =
   Core._MatchServiceError
     defaultService
@@ -960,7 +960,7 @@ _DirectoryNotDisabledException =
     Prelude.. Core.hasStatus 400
 
 -- | Operations are only permitted on enabled directories.
-_DirectoryNotEnabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryNotEnabledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryNotEnabledException =
   Core._MatchServiceError
     defaultService
@@ -968,7 +968,7 @@ _DirectoryNotEnabledException =
     Prelude.. Core.hasStatus 400
 
 -- | A facet with the same name already exists.
-_FacetAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FacetAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FacetAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -977,7 +977,7 @@ _FacetAlreadyExistsException =
 
 -- | Occurs when deleting a facet that contains an attribute that is a target
 -- to an attribute reference in a different facet.
-_FacetInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FacetInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FacetInUseException =
   Core._MatchServiceError
     defaultService
@@ -985,7 +985,7 @@ _FacetInUseException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified Facet could not be found.
-_FacetNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FacetNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FacetNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -994,7 +994,7 @@ _FacetNotFoundException =
 
 -- | The Facet that you provided was not well formed or could not be
 -- validated with the schema.
-_FacetValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FacetValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FacetValidationException =
   Core._MatchServiceError
     defaultService
@@ -1004,7 +1004,7 @@ _FacetValidationException =
 -- | Indicates a failure occurred while performing a check for backward
 -- compatibility between the specified schema and the schema that is
 -- currently applied to the directory.
-_IncompatibleSchemaException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IncompatibleSchemaException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IncompatibleSchemaException =
   Core._MatchServiceError
     defaultService
@@ -1013,7 +1013,7 @@ _IncompatibleSchemaException =
 
 -- | An object has been attempted to be attached to an object that does not
 -- have the appropriate attribute value.
-_IndexedAttributeMissingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IndexedAttributeMissingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IndexedAttributeMissingException =
   Core._MatchServiceError
     defaultService
@@ -1025,7 +1025,7 @@ _IndexedAttributeMissingException =
 -- until it succeeds. Otherwise, go to the
 -- <http://status.aws.amazon.com/ AWS Service Health Dashboard> site to see
 -- if there are any operational issues with the service.
-_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -1033,7 +1033,7 @@ _InternalServiceException =
     Prelude.. Core.hasStatus 500
 
 -- | Indicates that the provided ARN value is not valid.
-_InvalidArnException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidArnException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidArnException =
   Core._MatchServiceError
     defaultService
@@ -1043,7 +1043,7 @@ _InvalidArnException =
 -- | Indicates that an attempt to make an attachment was invalid. For
 -- example, attaching two nodes with a link type that is not applicable to
 -- the nodes or attempting to apply a schema to a directory a second time.
-_InvalidAttachmentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidAttachmentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidAttachmentException =
   Core._MatchServiceError
     defaultService
@@ -1051,7 +1051,7 @@ _InvalidAttachmentException =
     Prelude.. Core.hasStatus 400
 
 -- | An attempt to modify a Facet resulted in an invalid schema exception.
-_InvalidFacetUpdateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidFacetUpdateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidFacetUpdateException =
   Core._MatchServiceError
     defaultService
@@ -1059,7 +1059,7 @@ _InvalidFacetUpdateException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the @NextToken@ value is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -1067,7 +1067,7 @@ _InvalidNextTokenException =
     Prelude.. Core.hasStatus 400
 
 -- | Occurs when any of the rule parameter keys or values are invalid.
-_InvalidRuleException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRuleException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRuleException =
   Core._MatchServiceError
     defaultService
@@ -1075,7 +1075,7 @@ _InvalidRuleException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the provided @SchemaDoc@ value is not valid.
-_InvalidSchemaDocException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSchemaDocException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSchemaDocException =
   Core._MatchServiceError
     defaultService
@@ -1085,7 +1085,7 @@ _InvalidSchemaDocException =
 -- | Can occur for multiple reasons such as when you tag a resource that
 -- doesn’t exist or if you specify a higher number of tags for a resource
 -- than the allowed limit. Allowed limit is 50 tags per resource.
-_InvalidTaggingRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTaggingRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTaggingRequestException =
   Core._MatchServiceError
     defaultService
@@ -1095,7 +1095,7 @@ _InvalidTaggingRequestException =
 -- | Indicates that limits are exceeded. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Limits>
 -- for more information.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1104,7 +1104,7 @@ _LimitExceededException =
 
 -- | Indicates that a link could not be created due to a naming conflict.
 -- Choose a different name and then try again.
-_LinkNameAlreadyInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LinkNameAlreadyInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LinkNameAlreadyInUseException =
   Core._MatchServiceError
     defaultService
@@ -1113,7 +1113,7 @@ _LinkNameAlreadyInUseException =
 
 -- | Indicates that the requested operation can only operate on index
 -- objects.
-_NotIndexException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotIndexException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotIndexException =
   Core._MatchServiceError
     defaultService
@@ -1122,7 +1122,7 @@ _NotIndexException =
 
 -- | Occurs when any invalid operations are performed on an object that is
 -- not a node, such as calling @ListObjectChildren@ for a leaf node object.
-_NotNodeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotNodeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotNodeException =
   Core._MatchServiceError
     defaultService
@@ -1131,7 +1131,7 @@ _NotNodeException =
 
 -- | Indicates that the requested operation can only operate on policy
 -- objects.
-_NotPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotPolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotPolicyException =
   Core._MatchServiceError
     defaultService
@@ -1139,7 +1139,7 @@ _NotPolicyException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the object is not attached to the index.
-_ObjectAlreadyDetachedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ObjectAlreadyDetachedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ObjectAlreadyDetachedException =
   Core._MatchServiceError
     defaultService
@@ -1148,7 +1148,7 @@ _ObjectAlreadyDetachedException =
 
 -- | Indicates that the requested operation cannot be completed because the
 -- object has not been detached from the tree.
-_ObjectNotDetachedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ObjectNotDetachedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ObjectNotDetachedException =
   Core._MatchServiceError
     defaultService
@@ -1156,7 +1156,7 @@ _ObjectNotDetachedException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1170,7 +1170,7 @@ _ResourceNotFoundException =
 -- time to propagate to the host serving the current request. A retry (with
 -- appropriate backoff logic) is the recommended response to this
 -- exception.
-_RetryableConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RetryableConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RetryableConflictException =
   Core._MatchServiceError
     defaultService
@@ -1179,7 +1179,7 @@ _RetryableConflictException =
 
 -- | Indicates that a schema could not be created due to a naming conflict.
 -- Please select a different name and then try again.
-_SchemaAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SchemaAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SchemaAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -1187,7 +1187,7 @@ _SchemaAlreadyExistsException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that a schema is already published.
-_SchemaAlreadyPublishedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SchemaAlreadyPublishedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SchemaAlreadyPublishedException =
   Core._MatchServiceError
     defaultService
@@ -1196,7 +1196,7 @@ _SchemaAlreadyPublishedException =
 
 -- | The object could not be deleted because links still exist. Remove the
 -- links and then try the operation again.
-_StillContainsLinksException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StillContainsLinksException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StillContainsLinksException =
   Core._MatchServiceError
     defaultService
@@ -1204,7 +1204,7 @@ _StillContainsLinksException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the requested index type is not supported.
-_UnsupportedIndexTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedIndexTypeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedIndexTypeException =
   Core._MatchServiceError
     defaultService
@@ -1213,7 +1213,7 @@ _UnsupportedIndexTypeException =
 
 -- | Indicates that your request is malformed in some manner. See the
 -- exception message.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

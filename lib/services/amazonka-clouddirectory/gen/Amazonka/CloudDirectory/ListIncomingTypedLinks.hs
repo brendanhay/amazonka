@@ -167,22 +167,22 @@ instance Core.AWSPager ListIncomingTypedLinks where
     | Core.stop
         ( rs
             Lens.^? listIncomingTypedLinksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listIncomingTypedLinksResponse_linkSpecifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIncomingTypedLinks_nextToken
           Lens..~ rs
           Lens.^? listIncomingTypedLinksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIncomingTypedLinks where
   type
@@ -201,7 +201,8 @@ instance Core.AWSRequest ListIncomingTypedLinks where
 
 instance Prelude.Hashable ListIncomingTypedLinks where
   hashWithSalt _salt ListIncomingTypedLinks' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` filterAttributeRanges
       `Prelude.hashWithSalt` filterTypedLink
       `Prelude.hashWithSalt` maxResults

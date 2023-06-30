@@ -74,7 +74,8 @@ instance
       ( \x ->
           BatchListOutgoingTypedLinksResponse'
             Prelude.<$> (x Data..:? "NextToken")
-            Prelude.<*> ( x Data..:? "TypedLinkSpecifiers"
+            Prelude.<*> ( x
+                            Data..:? "TypedLinkSpecifiers"
                             Data..!= Prelude.mempty
                         )
       )
@@ -86,7 +87,8 @@ instance
   hashWithSalt
     _salt
     BatchListOutgoingTypedLinksResponse' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` typedLinkSpecifiers
 
 instance

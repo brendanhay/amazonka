@@ -167,22 +167,22 @@ instance Core.AWSPager ListOutgoingTypedLinks where
     | Core.stop
         ( rs
             Lens.^? listOutgoingTypedLinksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOutgoingTypedLinksResponse_typedLinkSpecifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listOutgoingTypedLinks_nextToken
           Lens..~ rs
           Lens.^? listOutgoingTypedLinksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOutgoingTypedLinks where
   type
@@ -195,7 +195,8 @@ instance Core.AWSRequest ListOutgoingTypedLinks where
       ( \s h x ->
           ListOutgoingTypedLinksResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "TypedLinkSpecifiers"
+            Prelude.<*> ( x
+                            Data..?> "TypedLinkSpecifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -203,7 +204,8 @@ instance Core.AWSRequest ListOutgoingTypedLinks where
 
 instance Prelude.Hashable ListOutgoingTypedLinks where
   hashWithSalt _salt ListOutgoingTypedLinks' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` filterAttributeRanges
       `Prelude.hashWithSalt` filterTypedLink
       `Prelude.hashWithSalt` maxResults

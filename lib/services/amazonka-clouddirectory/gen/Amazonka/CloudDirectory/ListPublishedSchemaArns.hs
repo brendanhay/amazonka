@@ -108,22 +108,22 @@ instance Core.AWSPager ListPublishedSchemaArns where
     | Core.stop
         ( rs
             Lens.^? listPublishedSchemaArnsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPublishedSchemaArnsResponse_schemaArns
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPublishedSchemaArns_nextToken
           Lens..~ rs
           Lens.^? listPublishedSchemaArnsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPublishedSchemaArns where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest ListPublishedSchemaArns where
 
 instance Prelude.Hashable ListPublishedSchemaArns where
   hashWithSalt _salt ListPublishedSchemaArns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` schemaArn
 

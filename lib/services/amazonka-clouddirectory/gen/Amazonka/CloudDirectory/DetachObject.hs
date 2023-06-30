@@ -124,7 +124,8 @@ instance Core.AWSRequest DetachObject where
 
 instance Prelude.Hashable DetachObject where
   hashWithSalt _salt DetachObject' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` linkName
 

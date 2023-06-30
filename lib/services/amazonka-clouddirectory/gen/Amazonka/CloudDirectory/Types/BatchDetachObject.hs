@@ -88,7 +88,8 @@ batchDetachObject_linkName = Lens.lens (\BatchDetachObject' {linkName} -> linkNa
 
 instance Prelude.Hashable BatchDetachObject where
   hashWithSalt _salt BatchDetachObject' {..} =
-    _salt `Prelude.hashWithSalt` batchReferenceName
+    _salt
+      `Prelude.hashWithSalt` batchReferenceName
       `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` linkName
 

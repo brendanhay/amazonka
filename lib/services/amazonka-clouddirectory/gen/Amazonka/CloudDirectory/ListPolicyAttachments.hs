@@ -142,22 +142,22 @@ instance Core.AWSPager ListPolicyAttachments where
     | Core.stop
         ( rs
             Lens.^? listPolicyAttachmentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPolicyAttachmentsResponse_objectIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPolicyAttachments_nextToken
           Lens..~ rs
           Lens.^? listPolicyAttachmentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicyAttachments where
   type
@@ -170,7 +170,8 @@ instance Core.AWSRequest ListPolicyAttachments where
       ( \s h x ->
           ListPolicyAttachmentsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ObjectIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "ObjectIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -178,7 +179,8 @@ instance Core.AWSRequest ListPolicyAttachments where
 
 instance Prelude.Hashable ListPolicyAttachments where
   hashWithSalt _salt ListPolicyAttachments' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryArn

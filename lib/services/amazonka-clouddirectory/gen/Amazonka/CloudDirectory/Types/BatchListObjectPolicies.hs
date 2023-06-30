@@ -82,7 +82,8 @@ batchListObjectPolicies_objectReference = Lens.lens (\BatchListObjectPolicies' {
 
 instance Prelude.Hashable BatchListObjectPolicies where
   hashWithSalt _salt BatchListObjectPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` objectReference
 

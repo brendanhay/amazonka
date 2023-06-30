@@ -109,7 +109,8 @@ batchCreateIndex_isUnique = Lens.lens (\BatchCreateIndex' {isUnique} -> isUnique
 
 instance Prelude.Hashable BatchCreateIndex where
   hashWithSalt _salt BatchCreateIndex' {..} =
-    _salt `Prelude.hashWithSalt` batchReferenceName
+    _salt
+      `Prelude.hashWithSalt` batchReferenceName
       `Prelude.hashWithSalt` linkName
       `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` orderedIndexedAttributeList

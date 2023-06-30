@@ -119,7 +119,8 @@ instance Core.AWSRequest GetObjectInformation where
 
 instance Prelude.Hashable GetObjectInformation where
   hashWithSalt _salt GetObjectInformation' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
 

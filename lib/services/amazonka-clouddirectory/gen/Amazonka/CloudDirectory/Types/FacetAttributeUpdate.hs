@@ -66,7 +66,8 @@ facetAttributeUpdate_attribute = Lens.lens (\FacetAttributeUpdate' {attribute} -
 
 instance Prelude.Hashable FacetAttributeUpdate where
   hashWithSalt _salt FacetAttributeUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` attribute
 
 instance Prelude.NFData FacetAttributeUpdate where

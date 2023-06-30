@@ -74,7 +74,8 @@ instance
     TypedLinkFacetAttributeUpdate
   where
   hashWithSalt _salt TypedLinkFacetAttributeUpdate' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` action
 
 instance Prelude.NFData TypedLinkFacetAttributeUpdate where

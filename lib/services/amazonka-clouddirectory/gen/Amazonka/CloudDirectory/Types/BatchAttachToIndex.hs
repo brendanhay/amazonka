@@ -74,7 +74,8 @@ batchAttachToIndex_targetReference = Lens.lens (\BatchAttachToIndex' {targetRefe
 
 instance Prelude.Hashable BatchAttachToIndex where
   hashWithSalt _salt BatchAttachToIndex' {..} =
-    _salt `Prelude.hashWithSalt` indexReference
+    _salt
+      `Prelude.hashWithSalt` indexReference
       `Prelude.hashWithSalt` targetReference
 
 instance Prelude.NFData BatchAttachToIndex where

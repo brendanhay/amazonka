@@ -73,7 +73,8 @@ instance
       ( \x ->
           BatchListPolicyAttachmentsResponse'
             Prelude.<$> (x Data..:? "NextToken")
-            Prelude.<*> ( x Data..:? "ObjectIdentifiers"
+            Prelude.<*> ( x
+                            Data..:? "ObjectIdentifiers"
                             Data..!= Prelude.mempty
                         )
       )
@@ -85,7 +86,8 @@ instance
   hashWithSalt
     _salt
     BatchListPolicyAttachmentsResponse' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` objectIdentifiers
 
 instance

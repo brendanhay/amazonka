@@ -93,7 +93,8 @@ instance Data.FromJSON AttributeKey where
 
 instance Prelude.Hashable AttributeKey where
   hashWithSalt _salt AttributeKey' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` facetName
       `Prelude.hashWithSalt` name
 

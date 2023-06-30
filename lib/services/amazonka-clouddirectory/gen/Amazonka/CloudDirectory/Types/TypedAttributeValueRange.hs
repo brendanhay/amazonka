@@ -90,7 +90,8 @@ typedAttributeValueRange_endMode = Lens.lens (\TypedAttributeValueRange' {endMod
 
 instance Prelude.Hashable TypedAttributeValueRange where
   hashWithSalt _salt TypedAttributeValueRange' {..} =
-    _salt `Prelude.hashWithSalt` endValue
+    _salt
+      `Prelude.hashWithSalt` endValue
       `Prelude.hashWithSalt` startValue
       `Prelude.hashWithSalt` startMode
       `Prelude.hashWithSalt` endMode

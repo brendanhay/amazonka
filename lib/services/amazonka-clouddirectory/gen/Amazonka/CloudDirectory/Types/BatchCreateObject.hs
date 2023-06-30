@@ -110,7 +110,8 @@ batchCreateObject_objectAttributeList = Lens.lens (\BatchCreateObject' {objectAt
 
 instance Prelude.Hashable BatchCreateObject where
   hashWithSalt _salt BatchCreateObject' {..} =
-    _salt `Prelude.hashWithSalt` batchReferenceName
+    _salt
+      `Prelude.hashWithSalt` batchReferenceName
       `Prelude.hashWithSalt` linkName
       `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` schemaFacet

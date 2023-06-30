@@ -166,7 +166,8 @@ instance Core.AWSRequest StartPersonTracking where
 
 instance Prelude.Hashable StartPersonTracking where
   hashWithSalt _salt StartPersonTracking' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` notificationChannel
       `Prelude.hashWithSalt` video

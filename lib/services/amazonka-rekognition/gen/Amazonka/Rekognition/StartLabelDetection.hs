@@ -250,7 +250,8 @@ instance Core.AWSRequest StartLabelDetection where
 
 instance Prelude.Hashable StartLabelDetection where
   hashWithSalt _salt StartLabelDetection' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` features
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` minConfidence

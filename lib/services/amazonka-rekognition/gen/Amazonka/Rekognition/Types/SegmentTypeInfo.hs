@@ -77,7 +77,8 @@ instance Data.FromJSON SegmentTypeInfo where
 
 instance Prelude.Hashable SegmentTypeInfo where
   hashWithSalt _salt SegmentTypeInfo' {..} =
-    _salt `Prelude.hashWithSalt` modelVersion
+    _salt
+      `Prelude.hashWithSalt` modelVersion
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SegmentTypeInfo where

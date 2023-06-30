@@ -309,7 +309,8 @@ instance Core.AWSRequest DetectLabels where
 
 instance Prelude.Hashable DetectLabels where
   hashWithSalt _salt DetectLabels' {..} =
-    _salt `Prelude.hashWithSalt` features
+    _salt
+      `Prelude.hashWithSalt` features
       `Prelude.hashWithSalt` maxLabels
       `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` settings

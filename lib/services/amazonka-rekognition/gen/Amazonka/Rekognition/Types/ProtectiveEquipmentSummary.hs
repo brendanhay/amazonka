@@ -108,20 +108,24 @@ instance Data.FromJSON ProtectiveEquipmentSummary where
       "ProtectiveEquipmentSummary"
       ( \x ->
           ProtectiveEquipmentSummary'
-            Prelude.<$> ( x Data..:? "PersonsIndeterminate"
+            Prelude.<$> ( x
+                            Data..:? "PersonsIndeterminate"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "PersonsWithRequiredEquipment"
+            Prelude.<*> ( x
+                            Data..:? "PersonsWithRequiredEquipment"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "PersonsWithoutRequiredEquipment"
+            Prelude.<*> ( x
+                            Data..:? "PersonsWithoutRequiredEquipment"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ProtectiveEquipmentSummary where
   hashWithSalt _salt ProtectiveEquipmentSummary' {..} =
-    _salt `Prelude.hashWithSalt` personsIndeterminate
+    _salt
+      `Prelude.hashWithSalt` personsIndeterminate
       `Prelude.hashWithSalt` personsWithRequiredEquipment
       `Prelude.hashWithSalt` personsWithoutRequiredEquipment
 

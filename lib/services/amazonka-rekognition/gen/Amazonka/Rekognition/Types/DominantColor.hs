@@ -124,7 +124,8 @@ instance Data.FromJSON DominantColor where
 
 instance Prelude.Hashable DominantColor where
   hashWithSalt _salt DominantColor' {..} =
-    _salt `Prelude.hashWithSalt` blue
+    _salt
+      `Prelude.hashWithSalt` blue
       `Prelude.hashWithSalt` cSSColor
       `Prelude.hashWithSalt` green
       `Prelude.hashWithSalt` hexCode

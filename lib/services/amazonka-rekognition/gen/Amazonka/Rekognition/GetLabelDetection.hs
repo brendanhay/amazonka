@@ -251,7 +251,8 @@ instance Core.AWSRequest GetLabelDetection where
 
 instance Prelude.Hashable GetLabelDetection where
   hashWithSalt _salt GetLabelDetection' {..} =
-    _salt `Prelude.hashWithSalt` aggregateBy
+    _salt
+      `Prelude.hashWithSalt` aggregateBy
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

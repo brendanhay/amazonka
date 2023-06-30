@@ -78,7 +78,8 @@ instance Data.FromJSON ShotSegment where
 
 instance Prelude.Hashable ShotSegment where
   hashWithSalt _salt ShotSegment' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` index
 
 instance Prelude.NFData ShotSegment where

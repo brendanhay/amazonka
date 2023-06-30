@@ -79,7 +79,8 @@ instance Data.FromJSON TechnicalCueSegment where
 
 instance Prelude.Hashable TechnicalCueSegment where
   hashWithSalt _salt TechnicalCueSegment' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData TechnicalCueSegment where

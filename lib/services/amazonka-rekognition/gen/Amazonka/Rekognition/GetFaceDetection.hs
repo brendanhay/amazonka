@@ -159,7 +159,8 @@ instance Core.AWSRequest GetFaceDetection where
 
 instance Prelude.Hashable GetFaceDetection where
   hashWithSalt _salt GetFaceDetection' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` jobId
 

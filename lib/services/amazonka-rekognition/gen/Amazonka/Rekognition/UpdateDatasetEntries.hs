@@ -131,7 +131,8 @@ instance Core.AWSRequest UpdateDatasetEntries where
 
 instance Prelude.Hashable UpdateDatasetEntries where
   hashWithSalt _salt UpdateDatasetEntries' {..} =
-    _salt `Prelude.hashWithSalt` datasetArn
+    _salt
+      `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` changes
 
 instance Prelude.NFData UpdateDatasetEntries where

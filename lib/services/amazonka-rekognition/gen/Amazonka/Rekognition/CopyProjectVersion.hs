@@ -255,7 +255,8 @@ instance Core.AWSRequest CopyProjectVersion where
 
 instance Prelude.Hashable CopyProjectVersion where
   hashWithSalt _salt CopyProjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceProjectArn
       `Prelude.hashWithSalt` sourceProjectVersionArn

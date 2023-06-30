@@ -125,7 +125,8 @@ instance Core.AWSRequest CreateCollection where
 
 instance Prelude.Hashable CreateCollection where
   hashWithSalt _salt CreateCollection' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` collectionId
 
 instance Prelude.NFData CreateCollection where

@@ -108,7 +108,8 @@ instance Data.FromJSON ProtectiveEquipmentPerson where
 
 instance Prelude.Hashable ProtectiveEquipmentPerson where
   hashWithSalt _salt ProtectiveEquipmentPerson' {..} =
-    _salt `Prelude.hashWithSalt` bodyParts
+    _salt
+      `Prelude.hashWithSalt` bodyParts
       `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` id

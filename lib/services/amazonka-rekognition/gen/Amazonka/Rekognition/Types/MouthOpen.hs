@@ -78,7 +78,8 @@ instance Data.FromJSON MouthOpen where
 
 instance Prelude.Hashable MouthOpen where
   hashWithSalt _salt MouthOpen' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MouthOpen where

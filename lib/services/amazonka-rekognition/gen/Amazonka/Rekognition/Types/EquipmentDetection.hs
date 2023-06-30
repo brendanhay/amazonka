@@ -102,7 +102,8 @@ instance Data.FromJSON EquipmentDetection where
 
 instance Prelude.Hashable EquipmentDetection where
   hashWithSalt _salt EquipmentDetection' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` coversBodyPart
       `Prelude.hashWithSalt` type'

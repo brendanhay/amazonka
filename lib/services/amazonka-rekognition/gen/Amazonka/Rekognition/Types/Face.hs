@@ -122,7 +122,8 @@ instance Data.FromJSON Face where
 
 instance Prelude.Hashable Face where
   hashWithSalt _salt Face' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` externalImageId
       `Prelude.hashWithSalt` faceId

@@ -75,7 +75,8 @@ instance Data.FromJSON Smile where
 
 instance Prelude.Hashable Smile where
   hashWithSalt _salt Smile' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Smile where

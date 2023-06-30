@@ -73,7 +73,8 @@ startTextDetectionFilters_wordFilter = Lens.lens (\StartTextDetectionFilters' {w
 
 instance Prelude.Hashable StartTextDetectionFilters where
   hashWithSalt _salt StartTextDetectionFilters' {..} =
-    _salt `Prelude.hashWithSalt` regionsOfInterest
+    _salt
+      `Prelude.hashWithSalt` regionsOfInterest
       `Prelude.hashWithSalt` wordFilter
 
 instance Prelude.NFData StartTextDetectionFilters where

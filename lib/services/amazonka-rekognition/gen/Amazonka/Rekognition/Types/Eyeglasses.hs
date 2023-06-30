@@ -78,7 +78,8 @@ instance Data.FromJSON Eyeglasses where
 
 instance Prelude.Hashable Eyeglasses where
   hashWithSalt _salt Eyeglasses' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Eyeglasses where

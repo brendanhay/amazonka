@@ -168,7 +168,8 @@ instance Core.AWSRequest GetTextDetection where
 
 instance Prelude.Hashable GetTextDetection where
   hashWithSalt _salt GetTextDetection' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` jobId
 

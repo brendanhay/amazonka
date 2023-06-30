@@ -81,7 +81,8 @@ notificationChannel_roleArn = Lens.lens (\NotificationChannel' {roleArn} -> role
 
 instance Prelude.Hashable NotificationChannel where
   hashWithSalt _salt NotificationChannel' {..} =
-    _salt `Prelude.hashWithSalt` sNSTopicArn
+    _salt
+      `Prelude.hashWithSalt` sNSTopicArn
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData NotificationChannel where

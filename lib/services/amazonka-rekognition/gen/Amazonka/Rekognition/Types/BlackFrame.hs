@@ -123,7 +123,8 @@ blackFrame_minCoveragePercentage = Lens.lens (\BlackFrame' {minCoveragePercentag
 
 instance Prelude.Hashable BlackFrame where
   hashWithSalt _salt BlackFrame' {..} =
-    _salt `Prelude.hashWithSalt` maxPixelThreshold
+    _salt
+      `Prelude.hashWithSalt` maxPixelThreshold
       `Prelude.hashWithSalt` minCoveragePercentage
 
 instance Prelude.NFData BlackFrame where

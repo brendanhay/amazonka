@@ -90,7 +90,8 @@ instance Data.FromJSON PersonDetection where
 
 instance Prelude.Hashable PersonDetection where
   hashWithSalt _salt PersonDetection' {..} =
-    _salt `Prelude.hashWithSalt` person
+    _salt
+      `Prelude.hashWithSalt` person
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData PersonDetection where

@@ -75,7 +75,8 @@ instance Data.FromJSON EyeOpen where
 
 instance Prelude.Hashable EyeOpen where
   hashWithSalt _salt EyeOpen' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EyeOpen where

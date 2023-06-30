@@ -380,7 +380,8 @@ instance Core.AWSRequest IndexFaces where
 
 instance Prelude.Hashable IndexFaces where
   hashWithSalt _salt IndexFaces' {..} =
-    _salt `Prelude.hashWithSalt` detectionAttributes
+    _salt
+      `Prelude.hashWithSalt` detectionAttributes
       `Prelude.hashWithSalt` externalImageId
       `Prelude.hashWithSalt` maxFaces
       `Prelude.hashWithSalt` qualityFilter

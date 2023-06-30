@@ -154,7 +154,8 @@ instance Core.AWSRequest SearchFaces where
 
 instance Prelude.Hashable SearchFaces where
   hashWithSalt _salt SearchFaces' {..} =
-    _salt `Prelude.hashWithSalt` faceMatchThreshold
+    _salt
+      `Prelude.hashWithSalt` faceMatchThreshold
       `Prelude.hashWithSalt` maxFaces
       `Prelude.hashWithSalt` collectionId
       `Prelude.hashWithSalt` faceId

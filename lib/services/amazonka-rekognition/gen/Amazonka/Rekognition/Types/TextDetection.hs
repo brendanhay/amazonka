@@ -148,7 +148,8 @@ instance Data.FromJSON TextDetection where
 
 instance Prelude.Hashable TextDetection where
   hashWithSalt _salt TextDetection' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` detectedText
       `Prelude.hashWithSalt` geometry
       `Prelude.hashWithSalt` id

@@ -193,7 +193,8 @@ instance Core.AWSRequest GetContentModeration where
       ( \s h x ->
           GetContentModerationResponse'
             Prelude.<$> (x Data..?> "JobStatus")
-            Prelude.<*> ( x Data..?> "ModerationLabels"
+            Prelude.<*> ( x
+                            Data..?> "ModerationLabels"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ModerationModelVersion")
@@ -205,7 +206,8 @@ instance Core.AWSRequest GetContentModeration where
 
 instance Prelude.Hashable GetContentModeration where
   hashWithSalt _salt GetContentModeration' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` jobId

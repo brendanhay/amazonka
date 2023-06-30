@@ -101,28 +101,28 @@ instance Core.AWSPager ListCollections where
     | Core.stop
         ( rs
             Lens.^? listCollectionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCollectionsResponse_collectionIds
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCollectionsResponse_faceModelVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCollections_nextToken
           Lens..~ rs
           Lens.^? listCollectionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCollections where
   type
@@ -135,7 +135,8 @@ instance Core.AWSRequest ListCollections where
       ( \s h x ->
           ListCollectionsResponse'
             Prelude.<$> (x Data..?> "CollectionIds" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "FaceModelVersions"
+            Prelude.<*> ( x
+                            Data..?> "FaceModelVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -144,7 +145,8 @@ instance Core.AWSRequest ListCollections where
 
 instance Prelude.Hashable ListCollections where
   hashWithSalt _salt ListCollections' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCollections where

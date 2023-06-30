@@ -120,7 +120,8 @@ instance Core.AWSRequest DeleteProjectPolicy where
 
 instance Prelude.Hashable DeleteProjectPolicy where
   hashWithSalt _salt DeleteProjectPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyRevisionId
+    _salt
+      `Prelude.hashWithSalt` policyRevisionId
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` policyName
 

@@ -172,7 +172,8 @@ instance Core.AWSRequest DetectFaces where
 
 instance Prelude.Hashable DetectFaces where
   hashWithSalt _salt DetectFaces' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` image
 
 instance Prelude.NFData DetectFaces where

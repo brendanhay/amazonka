@@ -248,7 +248,8 @@ instance Core.AWSRequest SearchFacesByImage where
 
 instance Prelude.Hashable SearchFacesByImage where
   hashWithSalt _salt SearchFacesByImage' {..} =
-    _salt `Prelude.hashWithSalt` faceMatchThreshold
+    _salt
+      `Prelude.hashWithSalt` faceMatchThreshold
       `Prelude.hashWithSalt` maxFaces
       `Prelude.hashWithSalt` qualityFilter
       `Prelude.hashWithSalt` collectionId

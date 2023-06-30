@@ -91,7 +91,8 @@ instance Data.FromJSON Gender where
 
 instance Prelude.Hashable Gender where
   hashWithSalt _salt Gender' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Gender where

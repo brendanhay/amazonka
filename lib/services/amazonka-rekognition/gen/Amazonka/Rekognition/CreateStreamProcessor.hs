@@ -331,7 +331,8 @@ instance Core.AWSRequest CreateStreamProcessor where
 
 instance Prelude.Hashable CreateStreamProcessor where
   hashWithSalt _salt CreateStreamProcessor' {..} =
-    _salt `Prelude.hashWithSalt` dataSharingPreference
+    _salt
+      `Prelude.hashWithSalt` dataSharingPreference
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` notificationChannel
       `Prelude.hashWithSalt` regionsOfInterest

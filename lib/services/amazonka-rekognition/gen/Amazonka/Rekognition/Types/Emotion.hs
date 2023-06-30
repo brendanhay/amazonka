@@ -80,7 +80,8 @@ instance Data.FromJSON Emotion where
 
 instance Prelude.Hashable Emotion where
   hashWithSalt _salt Emotion' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Emotion where

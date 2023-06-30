@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteScalingPolicy where
 
 instance Prelude.Hashable DeleteScalingPolicy where
   hashWithSalt _salt DeleteScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData DeleteScalingPolicy where

@@ -300,7 +300,8 @@ instance Core.AWSRequest CreateGameSessionQueue where
 
 instance Prelude.Hashable CreateGameSessionQueue where
   hashWithSalt _salt CreateGameSessionQueue' {..} =
-    _salt `Prelude.hashWithSalt` customEventData
+    _salt
+      `Prelude.hashWithSalt` customEventData
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` filterConfiguration
       `Prelude.hashWithSalt` notificationTarget

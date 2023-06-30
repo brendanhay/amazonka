@@ -140,7 +140,8 @@ instance Data.FromJSON IpPermission where
 
 instance Prelude.Hashable IpPermission where
   hashWithSalt _salt IpPermission' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` toPort
       `Prelude.hashWithSalt` ipRange
       `Prelude.hashWithSalt` protocol

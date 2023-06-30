@@ -113,7 +113,8 @@ instance Data.FromJSON EC2InstanceLimit where
 
 instance Prelude.Hashable EC2InstanceLimit where
   hashWithSalt _salt EC2InstanceLimit' {..} =
-    _salt `Prelude.hashWithSalt` currentInstances
+    _salt
+      `Prelude.hashWithSalt` currentInstances
       `Prelude.hashWithSalt` eC2InstanceType
       `Prelude.hashWithSalt` instanceLimit
       `Prelude.hashWithSalt` location

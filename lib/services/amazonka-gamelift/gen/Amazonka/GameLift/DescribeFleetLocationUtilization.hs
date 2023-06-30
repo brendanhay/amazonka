@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     DescribeFleetLocationUtilization' {..} =
-      _salt `Prelude.hashWithSalt` fleetId
+      _salt
+        `Prelude.hashWithSalt` fleetId
         `Prelude.hashWithSalt` location
 
 instance

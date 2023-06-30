@@ -169,7 +169,8 @@ instance
     CreateVpcPeeringAuthorization
   where
   hashWithSalt _salt CreateVpcPeeringAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` gameLiftAwsAccountId
+    _salt
+      `Prelude.hashWithSalt` gameLiftAwsAccountId
       `Prelude.hashWithSalt` peerVpcId
 
 instance Prelude.NFData CreateVpcPeeringAuthorization where

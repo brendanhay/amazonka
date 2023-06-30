@@ -142,7 +142,8 @@ instance Data.FromJSON FleetCapacity where
 
 instance Prelude.Hashable FleetCapacity where
   hashWithSalt _salt FleetCapacity' {..} =
-    _salt `Prelude.hashWithSalt` fleetArn
+    _salt
+      `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` instanceCounts
       `Prelude.hashWithSalt` instanceType

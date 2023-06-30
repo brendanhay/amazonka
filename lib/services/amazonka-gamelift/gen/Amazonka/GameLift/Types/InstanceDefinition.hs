@@ -105,7 +105,8 @@ instance Data.FromJSON InstanceDefinition where
 
 instance Prelude.Hashable InstanceDefinition where
   hashWithSalt _salt InstanceDefinition' {..} =
-    _salt `Prelude.hashWithSalt` weightedCapacity
+    _salt
+      `Prelude.hashWithSalt` weightedCapacity
       `Prelude.hashWithSalt` instanceType
 
 instance Prelude.NFData InstanceDefinition where

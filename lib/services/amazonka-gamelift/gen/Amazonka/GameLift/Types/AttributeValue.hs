@@ -106,7 +106,8 @@ instance Data.FromJSON AttributeValue where
 
 instance Prelude.Hashable AttributeValue where
   hashWithSalt _salt AttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` n
+    _salt
+      `Prelude.hashWithSalt` n
       `Prelude.hashWithSalt` s
       `Prelude.hashWithSalt` sdm
       `Prelude.hashWithSalt` sl

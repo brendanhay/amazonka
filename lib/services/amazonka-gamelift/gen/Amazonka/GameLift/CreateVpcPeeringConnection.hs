@@ -177,7 +177,8 @@ instance Core.AWSRequest CreateVpcPeeringConnection where
 
 instance Prelude.Hashable CreateVpcPeeringConnection where
   hashWithSalt _salt CreateVpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` peerVpcAwsAccountId
       `Prelude.hashWithSalt` peerVpcId
 

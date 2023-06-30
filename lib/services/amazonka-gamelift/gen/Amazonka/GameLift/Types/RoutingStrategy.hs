@@ -119,7 +119,8 @@ instance Data.FromJSON RoutingStrategy where
 
 instance Prelude.Hashable RoutingStrategy where
   hashWithSalt _salt RoutingStrategy' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
 

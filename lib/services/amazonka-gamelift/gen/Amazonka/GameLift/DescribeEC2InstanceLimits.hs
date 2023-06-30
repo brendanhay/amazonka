@@ -163,7 +163,8 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeEC2InstanceLimitsResponse'
-            Prelude.<$> ( x Data..?> "EC2InstanceLimits"
+            Prelude.<$> ( x
+                            Data..?> "EC2InstanceLimits"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,7 +172,8 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
 
 instance Prelude.Hashable DescribeEC2InstanceLimits where
   hashWithSalt _salt DescribeEC2InstanceLimits' {..} =
-    _salt `Prelude.hashWithSalt` eC2InstanceType
+    _salt
+      `Prelude.hashWithSalt` eC2InstanceType
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData DescribeEC2InstanceLimits where

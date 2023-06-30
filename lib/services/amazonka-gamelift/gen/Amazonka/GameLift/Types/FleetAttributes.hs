@@ -545,7 +545,8 @@ instance Data.FromJSON FleetAttributes where
 
 instance Prelude.Hashable FleetAttributes where
   hashWithSalt _salt FleetAttributes' {..} =
-    _salt `Prelude.hashWithSalt` anywhereConfiguration
+    _salt
+      `Prelude.hashWithSalt` anywhereConfiguration
       `Prelude.hashWithSalt` buildArn
       `Prelude.hashWithSalt` buildId
       `Prelude.hashWithSalt` certificateConfiguration

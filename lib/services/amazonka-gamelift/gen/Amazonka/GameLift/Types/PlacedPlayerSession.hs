@@ -81,7 +81,8 @@ instance Data.FromJSON PlacedPlayerSession where
 
 instance Prelude.Hashable PlacedPlayerSession where
   hashWithSalt _salt PlacedPlayerSession' {..} =
-    _salt `Prelude.hashWithSalt` playerId
+    _salt
+      `Prelude.hashWithSalt` playerId
       `Prelude.hashWithSalt` playerSessionId
 
 instance Prelude.NFData PlacedPlayerSession where

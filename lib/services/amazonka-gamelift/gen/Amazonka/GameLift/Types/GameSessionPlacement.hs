@@ -421,11 +421,13 @@ instance Data.FromJSON GameSessionPlacement where
             Prelude.<*> (x Data..:? "IpAddress")
             Prelude.<*> (x Data..:? "MatchmakerData")
             Prelude.<*> (x Data..:? "MaximumPlayerSessionCount")
-            Prelude.<*> ( x Data..:? "PlacedPlayerSessions"
+            Prelude.<*> ( x
+                            Data..:? "PlacedPlayerSessions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PlacementId")
-            Prelude.<*> ( x Data..:? "PlayerLatencies"
+            Prelude.<*> ( x
+                            Data..:? "PlayerLatencies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Port")
@@ -435,7 +437,8 @@ instance Data.FromJSON GameSessionPlacement where
 
 instance Prelude.Hashable GameSessionPlacement where
   hashWithSalt _salt GameSessionPlacement' {..} =
-    _salt `Prelude.hashWithSalt` dnsName
+    _salt
+      `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` gameProperties
       `Prelude.hashWithSalt` gameSessionArn

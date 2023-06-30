@@ -169,7 +169,8 @@ instance Core.AWSRequest StartMatchmaking where
 
 instance Prelude.Hashable StartMatchmaking where
   hashWithSalt _salt StartMatchmaking' {..} =
-    _salt `Prelude.hashWithSalt` ticketId
+    _salt
+      `Prelude.hashWithSalt` ticketId
       `Prelude.hashWithSalt` configurationName
       `Prelude.hashWithSalt` players
 

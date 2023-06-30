@@ -172,7 +172,8 @@ instance Core.AWSRequest RegisterCompute where
 
 instance Prelude.Hashable RegisterCompute where
   hashWithSalt _salt RegisterCompute' {..} =
-    _salt `Prelude.hashWithSalt` certificatePath
+    _salt
+      `Prelude.hashWithSalt` certificatePath
       `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` location

@@ -496,7 +496,8 @@ instance Core.AWSRequest CreateGameServerGroup where
 
 instance Prelude.Hashable CreateGameServerGroup where
   hashWithSalt _salt CreateGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingPolicy
+    _salt
+      `Prelude.hashWithSalt` autoScalingPolicy
       `Prelude.hashWithSalt` balancingStrategy
       `Prelude.hashWithSalt` gameServerProtectionPolicy
       `Prelude.hashWithSalt` tags

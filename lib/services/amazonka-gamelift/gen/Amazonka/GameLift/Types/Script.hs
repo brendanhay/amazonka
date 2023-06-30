@@ -177,7 +177,8 @@ instance Data.FromJSON Script where
 
 instance Prelude.Hashable Script where
   hashWithSalt _salt Script' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scriptArn
       `Prelude.hashWithSalt` scriptId

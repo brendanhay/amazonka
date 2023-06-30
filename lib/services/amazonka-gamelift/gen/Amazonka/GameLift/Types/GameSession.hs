@@ -389,7 +389,8 @@ instance Data.FromJSON GameSession where
 
 instance Prelude.Hashable GameSession where
   hashWithSalt _salt GameSession' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` creatorId
       `Prelude.hashWithSalt` currentPlayerSessionCount
       `Prelude.hashWithSalt` dnsName

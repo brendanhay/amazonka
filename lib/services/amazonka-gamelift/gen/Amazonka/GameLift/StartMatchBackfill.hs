@@ -242,7 +242,8 @@ instance Core.AWSRequest StartMatchBackfill where
 
 instance Prelude.Hashable StartMatchBackfill where
   hashWithSalt _salt StartMatchBackfill' {..} =
-    _salt `Prelude.hashWithSalt` gameSessionArn
+    _salt
+      `Prelude.hashWithSalt` gameSessionArn
       `Prelude.hashWithSalt` ticketId
       `Prelude.hashWithSalt` configurationName
       `Prelude.hashWithSalt` players

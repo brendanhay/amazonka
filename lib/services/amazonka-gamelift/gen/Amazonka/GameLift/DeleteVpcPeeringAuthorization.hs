@@ -138,7 +138,8 @@ instance
     DeleteVpcPeeringAuthorization
   where
   hashWithSalt _salt DeleteVpcPeeringAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` gameLiftAwsAccountId
+    _salt
+      `Prelude.hashWithSalt` gameLiftAwsAccountId
       `Prelude.hashWithSalt` peerVpcId
 
 instance Prelude.NFData DeleteVpcPeeringAuthorization where

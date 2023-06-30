@@ -211,7 +211,8 @@ instance Data.FromJSON Compute where
 
 instance Prelude.Hashable Compute where
   hashWithSalt _salt Compute' {..} =
-    _salt `Prelude.hashWithSalt` computeArn
+    _salt
+      `Prelude.hashWithSalt` computeArn
       `Prelude.hashWithSalt` computeName
       `Prelude.hashWithSalt` computeStatus
       `Prelude.hashWithSalt` creationTime

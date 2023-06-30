@@ -142,7 +142,8 @@ instance Core.AWSRequest CreateFleetLocations where
 
 instance Prelude.Hashable CreateFleetLocations where
   hashWithSalt _salt CreateFleetLocations' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` locations
 
 instance Prelude.NFData CreateFleetLocations where

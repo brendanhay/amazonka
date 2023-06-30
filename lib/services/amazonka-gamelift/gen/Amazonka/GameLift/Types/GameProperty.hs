@@ -75,12 +75,14 @@ instance Data.FromJSON GameProperty where
       "GameProperty"
       ( \x ->
           GameProperty'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable GameProperty where
   hashWithSalt _salt GameProperty' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData GameProperty where

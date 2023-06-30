@@ -278,7 +278,8 @@ instance Core.AWSRequest UpdateGameServerGroup where
 
 instance Prelude.Hashable UpdateGameServerGroup where
   hashWithSalt _salt UpdateGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` balancingStrategy
+    _salt
+      `Prelude.hashWithSalt` balancingStrategy
       `Prelude.hashWithSalt` gameServerProtectionPolicy
       `Prelude.hashWithSalt` instanceDefinitions
       `Prelude.hashWithSalt` roleArn

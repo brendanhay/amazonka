@@ -129,7 +129,8 @@ instance Core.AWSRequest ResumeGameServerGroup where
 
 instance Prelude.Hashable ResumeGameServerGroup where
   hashWithSalt _salt ResumeGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupName
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` resumeActions
 
 instance Prelude.NFData ResumeGameServerGroup where

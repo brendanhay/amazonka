@@ -188,7 +188,8 @@ instance Core.AWSRequest RegisterGameServer where
 
 instance Prelude.Hashable RegisterGameServer where
   hashWithSalt _salt RegisterGameServer' {..} =
-    _salt `Prelude.hashWithSalt` connectionInfo
+    _salt
+      `Prelude.hashWithSalt` connectionInfo
       `Prelude.hashWithSalt` gameServerData
       `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` gameServerId

@@ -127,22 +127,22 @@ instance Core.AWSPager DescribeGameSessionQueues where
     | Core.stop
         ( rs
             Lens.^? describeGameSessionQueuesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeGameSessionQueuesResponse_gameSessionQueues
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeGameSessionQueues_nextToken
           Lens..~ rs
           Lens.^? describeGameSessionQueuesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGameSessionQueues where
   type
@@ -154,7 +154,8 @@ instance Core.AWSRequest DescribeGameSessionQueues where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameSessionQueuesResponse'
-            Prelude.<$> ( x Data..?> "GameSessionQueues"
+            Prelude.<$> ( x
+                            Data..?> "GameSessionQueues"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -163,7 +164,8 @@ instance Core.AWSRequest DescribeGameSessionQueues where
 
 instance Prelude.Hashable DescribeGameSessionQueues where
   hashWithSalt _salt DescribeGameSessionQueues' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` nextToken
 

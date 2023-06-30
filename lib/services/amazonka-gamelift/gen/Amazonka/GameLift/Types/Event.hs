@@ -616,7 +616,8 @@ instance Data.FromJSON Event where
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` eventCode
+    _salt
+      `Prelude.hashWithSalt` eventCode
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` message

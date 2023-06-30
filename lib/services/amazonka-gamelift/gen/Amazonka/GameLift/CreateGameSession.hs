@@ -329,7 +329,8 @@ instance Core.AWSRequest CreateGameSession where
 
 instance Prelude.Hashable CreateGameSession where
   hashWithSalt _salt CreateGameSession' {..} =
-    _salt `Prelude.hashWithSalt` aliasId
+    _salt
+      `Prelude.hashWithSalt` aliasId
       `Prelude.hashWithSalt` creatorId
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` gameProperties

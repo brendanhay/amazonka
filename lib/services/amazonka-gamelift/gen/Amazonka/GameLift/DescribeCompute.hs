@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeCompute where
 
 instance Prelude.Hashable DescribeCompute where
   hashWithSalt _salt DescribeCompute' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` computeName
 
 instance Prelude.NFData DescribeCompute where

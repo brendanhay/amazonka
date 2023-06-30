@@ -245,7 +245,8 @@ instance Core.AWSRequest UpdateGameSessionQueue where
 
 instance Prelude.Hashable UpdateGameSessionQueue where
   hashWithSalt _salt UpdateGameSessionQueue' {..} =
-    _salt `Prelude.hashWithSalt` customEventData
+    _salt
+      `Prelude.hashWithSalt` customEventData
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` filterConfiguration
       `Prelude.hashWithSalt` notificationTarget

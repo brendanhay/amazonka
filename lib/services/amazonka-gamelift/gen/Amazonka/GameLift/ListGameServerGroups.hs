@@ -95,22 +95,22 @@ instance Core.AWSPager ListGameServerGroups where
     | Core.stop
         ( rs
             Lens.^? listGameServerGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGameServerGroupsResponse_gameServerGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGameServerGroups_nextToken
           Lens..~ rs
           Lens.^? listGameServerGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGameServerGroups where
   type
@@ -122,7 +122,8 @@ instance Core.AWSRequest ListGameServerGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGameServerGroupsResponse'
-            Prelude.<$> ( x Data..?> "GameServerGroups"
+            Prelude.<$> ( x
+                            Data..?> "GameServerGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -131,7 +132,8 @@ instance Core.AWSRequest ListGameServerGroups where
 
 instance Prelude.Hashable ListGameServerGroups where
   hashWithSalt _salt ListGameServerGroups' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGameServerGroups where

@@ -270,7 +270,8 @@ instance Core.AWSRequest CreateScript where
 
 instance Prelude.Hashable CreateScript where
   hashWithSalt _salt CreateScript' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` storageLocation
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` version

@@ -210,7 +210,8 @@ instance Core.AWSRequest UpdateScript where
 
 instance Prelude.Hashable UpdateScript where
   hashWithSalt _salt UpdateScript' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` storageLocation
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` zipFile

@@ -97,7 +97,8 @@ instance Data.FromJSON LocationAttributes where
 
 instance Prelude.Hashable LocationAttributes where
   hashWithSalt _salt LocationAttributes' {..} =
-    _salt `Prelude.hashWithSalt` locationState
+    _salt
+      `Prelude.hashWithSalt` locationState
       `Prelude.hashWithSalt` stoppedActions
       `Prelude.hashWithSalt` updateStatus
 

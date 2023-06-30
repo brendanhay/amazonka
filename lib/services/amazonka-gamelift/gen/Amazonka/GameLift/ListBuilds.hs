@@ -163,20 +163,23 @@ instance Core.AWSPager ListBuilds where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listBuildsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listBuildsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBuildsResponse_builds Prelude.. Lens._Just
+            Lens.^? listBuildsResponse_builds
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBuilds_nextToken
           Lens..~ rs
-          Lens.^? listBuildsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listBuildsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBuilds where
   type AWSResponse ListBuilds = ListBuildsResponse
@@ -193,7 +196,8 @@ instance Core.AWSRequest ListBuilds where
 
 instance Prelude.Hashable ListBuilds where
   hashWithSalt _salt ListBuilds' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
 

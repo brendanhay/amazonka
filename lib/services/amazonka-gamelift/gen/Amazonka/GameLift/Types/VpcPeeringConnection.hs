@@ -180,7 +180,8 @@ instance Data.FromJSON VpcPeeringConnection where
 
 instance Prelude.Hashable VpcPeeringConnection where
   hashWithSalt _salt VpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` fleetArn
+    _salt
+      `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` gameLiftVpcId
       `Prelude.hashWithSalt` ipV4CidrBlock

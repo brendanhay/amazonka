@@ -374,7 +374,8 @@ instance Data.FromJSON GameServerGroup where
 
 instance Prelude.Hashable GameServerGroup where
   hashWithSalt _salt GameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupArn
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupArn
       `Prelude.hashWithSalt` balancingStrategy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` gameServerGroupArn

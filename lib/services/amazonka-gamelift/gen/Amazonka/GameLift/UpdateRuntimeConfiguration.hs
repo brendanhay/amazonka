@@ -139,7 +139,8 @@ instance Core.AWSRequest UpdateRuntimeConfiguration where
 
 instance Prelude.Hashable UpdateRuntimeConfiguration where
   hashWithSalt _salt UpdateRuntimeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` runtimeConfiguration
 
 instance Prelude.NFData UpdateRuntimeConfiguration where

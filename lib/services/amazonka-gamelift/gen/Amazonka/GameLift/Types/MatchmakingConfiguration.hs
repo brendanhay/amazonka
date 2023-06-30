@@ -414,7 +414,8 @@ instance Data.FromJSON MatchmakingConfiguration where
             Prelude.<*> (x Data..:? "FlexMatchMode")
             Prelude.<*> (x Data..:? "GameProperties" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "GameSessionData")
-            Prelude.<*> ( x Data..:? "GameSessionQueueArns"
+            Prelude.<*> ( x
+                            Data..:? "GameSessionQueueArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")
@@ -426,7 +427,8 @@ instance Data.FromJSON MatchmakingConfiguration where
 
 instance Prelude.Hashable MatchmakingConfiguration where
   hashWithSalt _salt MatchmakingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` acceptanceRequired
+    _salt
+      `Prelude.hashWithSalt` acceptanceRequired
       `Prelude.hashWithSalt` acceptanceTimeoutSeconds
       `Prelude.hashWithSalt` additionalPlayerCount
       `Prelude.hashWithSalt` backfillMode

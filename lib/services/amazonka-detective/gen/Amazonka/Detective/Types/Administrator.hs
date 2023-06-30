@@ -94,7 +94,8 @@ instance Data.FromJSON Administrator where
 
 instance Prelude.Hashable Administrator where
   hashWithSalt _salt Administrator' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` delegationTime
       `Prelude.hashWithSalt` graphArn
 

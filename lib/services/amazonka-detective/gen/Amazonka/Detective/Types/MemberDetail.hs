@@ -413,7 +413,8 @@ instance Data.FromJSON MemberDetail where
           MemberDetail'
             Prelude.<$> (x Data..:? "AccountId")
             Prelude.<*> (x Data..:? "AdministratorId")
-            Prelude.<*> ( x Data..:? "DatasourcePackageIngestStates"
+            Prelude.<*> ( x
+                            Data..:? "DatasourcePackageIngestStates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DisabledReason")
@@ -426,7 +427,8 @@ instance Data.FromJSON MemberDetail where
             Prelude.<*> (x Data..:? "PercentOfGraphUtilizationUpdatedTime")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "UpdatedTime")
-            Prelude.<*> ( x Data..:? "VolumeUsageByDatasourcePackage"
+            Prelude.<*> ( x
+                            Data..:? "VolumeUsageByDatasourcePackage"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VolumeUsageInBytes")
@@ -435,7 +437,8 @@ instance Data.FromJSON MemberDetail where
 
 instance Prelude.Hashable MemberDetail where
   hashWithSalt _salt MemberDetail' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` administratorId
       `Prelude.hashWithSalt` datasourcePackageIngestStates
       `Prelude.hashWithSalt` disabledReason

@@ -113,7 +113,8 @@ instance Core.AWSRequest StartMonitoringMember where
 
 instance Prelude.Hashable StartMonitoringMember where
   hashWithSalt _salt StartMonitoringMember' {..} =
-    _salt `Prelude.hashWithSalt` graphArn
+    _salt
+      `Prelude.hashWithSalt` graphArn
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData StartMonitoringMember where

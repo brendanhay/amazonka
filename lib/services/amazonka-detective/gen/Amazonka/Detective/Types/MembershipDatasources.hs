@@ -81,7 +81,8 @@ instance Data.FromJSON MembershipDatasources where
       ( \x ->
           MembershipDatasources'
             Prelude.<$> (x Data..:? "AccountId")
-            Prelude.<*> ( x Data..:? "DatasourcePackageIngestHistory"
+            Prelude.<*> ( x
+                            Data..:? "DatasourcePackageIngestHistory"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "GraphArn")
@@ -89,7 +90,8 @@ instance Data.FromJSON MembershipDatasources where
 
 instance Prelude.Hashable MembershipDatasources where
   hashWithSalt _salt MembershipDatasources' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` datasourcePackageIngestHistory
       `Prelude.hashWithSalt` graphArn
 

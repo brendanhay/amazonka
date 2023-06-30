@@ -99,7 +99,8 @@ instance Core.AWSRequest UpdateDatasourcePackages where
 
 instance Prelude.Hashable UpdateDatasourcePackages where
   hashWithSalt _salt UpdateDatasourcePackages' {..} =
-    _salt `Prelude.hashWithSalt` graphArn
+    _salt
+      `Prelude.hashWithSalt` graphArn
       `Prelude.hashWithSalt` datasourcePackages
 
 instance Prelude.NFData UpdateDatasourcePackages where

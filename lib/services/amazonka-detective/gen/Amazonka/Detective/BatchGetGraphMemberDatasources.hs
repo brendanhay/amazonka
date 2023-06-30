@@ -109,10 +109,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetGraphMemberDatasourcesResponse'
-            Prelude.<$> ( x Data..?> "MemberDatasources"
+            Prelude.<$> ( x
+                            Data..?> "MemberDatasources"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,7 +127,8 @@ instance
   hashWithSalt
     _salt
     BatchGetGraphMemberDatasources' {..} =
-      _salt `Prelude.hashWithSalt` graphArn
+      _salt
+        `Prelude.hashWithSalt` graphArn
         `Prelude.hashWithSalt` accountIds
 
 instance

@@ -96,7 +96,7 @@ instance
       ( \s h x ->
           DescribeOrganizationConfigurationResponse'
             Prelude.<$> (x Data..?> "AutoEnable")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

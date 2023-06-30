@@ -80,7 +80,8 @@ instance
     DataReplicationInitiationStep
   where
   hashWithSalt _salt DataReplicationInitiationStep' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DataReplicationInitiationStep where

@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     DataReplicationInfoReplicatedDisk' {..} =
-      _salt `Prelude.hashWithSalt` backloggedStorageBytes
+      _salt
+        `Prelude.hashWithSalt` backloggedStorageBytes
         `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` replicatedStorageBytes
         `Prelude.hashWithSalt` rescannedStorageBytes

@@ -87,7 +87,8 @@ instance Data.FromJSON RecoveryInstanceDisk where
 
 instance Prelude.Hashable RecoveryInstanceDisk where
   hashWithSalt _salt RecoveryInstanceDisk' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` ebsVolumeID
       `Prelude.hashWithSalt` internalDeviceName
 

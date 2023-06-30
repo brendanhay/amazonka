@@ -185,7 +185,8 @@ instance Data.FromJSON SourceServer where
 
 instance Prelude.Hashable SourceServer where
   hashWithSalt _salt SourceServer' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataReplicationInfo
       `Prelude.hashWithSalt` lastLaunchResult
       `Prelude.hashWithSalt` lifeCycle

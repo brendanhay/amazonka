@@ -74,7 +74,8 @@ instance Data.FromJSON Disk where
 
 instance Prelude.Hashable Disk where
   hashWithSalt _salt Disk' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` deviceName
 
 instance Prelude.NFData Disk where

@@ -104,10 +104,10 @@ instance
       ( \x ->
           RecoveryInstanceDataReplicationInfoReplicatedDisk'
             Prelude.<$> (x Data..:? "backloggedStorageBytes")
-              Prelude.<*> (x Data..:? "deviceName")
-              Prelude.<*> (x Data..:? "replicatedStorageBytes")
-              Prelude.<*> (x Data..:? "rescannedStorageBytes")
-              Prelude.<*> (x Data..:? "totalStorageBytes")
+            Prelude.<*> (x Data..:? "deviceName")
+            Prelude.<*> (x Data..:? "replicatedStorageBytes")
+            Prelude.<*> (x Data..:? "rescannedStorageBytes")
+            Prelude.<*> (x Data..:? "totalStorageBytes")
       )
 
 instance
@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     RecoveryInstanceDataReplicationInfoReplicatedDisk' {..} =
-      _salt `Prelude.hashWithSalt` backloggedStorageBytes
+      _salt
+        `Prelude.hashWithSalt` backloggedStorageBytes
         `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` replicatedStorageBytes
         `Prelude.hashWithSalt` rescannedStorageBytes

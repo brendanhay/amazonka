@@ -113,7 +113,8 @@ instance Data.FromJSON RecoverySnapshot where
 
 instance Prelude.Hashable RecoverySnapshot where
   hashWithSalt _salt RecoverySnapshot' {..} =
-    _salt `Prelude.hashWithSalt` ebsSnapshots
+    _salt
+      `Prelude.hashWithSalt` ebsSnapshots
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` expectedTimestamp
       `Prelude.hashWithSalt` snapshotID

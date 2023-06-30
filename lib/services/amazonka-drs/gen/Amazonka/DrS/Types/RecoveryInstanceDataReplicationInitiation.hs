@@ -74,7 +74,7 @@ instance
       ( \x ->
           RecoveryInstanceDataReplicationInitiation'
             Prelude.<$> (x Data..:? "startDateTime")
-              Prelude.<*> (x Data..:? "steps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "steps" Data..!= Prelude.mempty)
       )
 
 instance
@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     RecoveryInstanceDataReplicationInitiation' {..} =
-      _salt `Prelude.hashWithSalt` startDateTime
+      _salt
+        `Prelude.hashWithSalt` startDateTime
         `Prelude.hashWithSalt` steps
 
 instance

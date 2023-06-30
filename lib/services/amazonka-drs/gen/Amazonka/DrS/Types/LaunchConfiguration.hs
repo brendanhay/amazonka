@@ -149,7 +149,8 @@ instance Data.FromJSON LaunchConfiguration where
 
 instance Prelude.Hashable LaunchConfiguration where
   hashWithSalt _salt LaunchConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` copyPrivateIp
+    _salt
+      `Prelude.hashWithSalt` copyPrivateIp
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` ec2LaunchTemplateID
       `Prelude.hashWithSalt` launchDisposition

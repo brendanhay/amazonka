@@ -125,7 +125,8 @@ instance Data.FromJSON StagingArea where
 
 instance Prelude.Hashable StagingArea where
   hashWithSalt _salt StagingArea' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` stagingAccountID
       `Prelude.hashWithSalt` stagingSourceServerArn
       `Prelude.hashWithSalt` status

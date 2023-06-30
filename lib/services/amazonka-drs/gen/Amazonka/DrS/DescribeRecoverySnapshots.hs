@@ -125,22 +125,22 @@ instance Core.AWSPager DescribeRecoverySnapshots where
     | Core.stop
         ( rs
             Lens.^? describeRecoverySnapshotsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeRecoverySnapshotsResponse_items
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeRecoverySnapshots_nextToken
           Lens..~ rs
           Lens.^? describeRecoverySnapshotsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRecoverySnapshots where
   type
@@ -159,7 +159,8 @@ instance Core.AWSRequest DescribeRecoverySnapshots where
 
 instance Prelude.Hashable DescribeRecoverySnapshots where
   hashWithSalt _salt DescribeRecoverySnapshots' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` order

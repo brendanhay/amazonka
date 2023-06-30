@@ -85,7 +85,8 @@ instance Data.FromJSON StagingSourceServer where
 
 instance Prelude.Hashable StagingSourceServer where
   hashWithSalt _salt StagingSourceServer' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` tags
 

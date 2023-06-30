@@ -114,7 +114,8 @@ instance Core.AWSRequest StartRecovery where
 
 instance Prelude.Hashable StartRecovery where
   hashWithSalt _salt StartRecovery' {..} =
-    _salt `Prelude.hashWithSalt` isDrill
+    _salt
+      `Prelude.hashWithSalt` isDrill
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceServers
 

@@ -171,7 +171,8 @@ instance Core.AWSRequest UpdateLaunchConfiguration where
 
 instance Prelude.Hashable UpdateLaunchConfiguration where
   hashWithSalt _salt UpdateLaunchConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` copyPrivateIp
+    _salt
+      `Prelude.hashWithSalt` copyPrivateIp
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` launchDisposition
       `Prelude.hashWithSalt` licensing

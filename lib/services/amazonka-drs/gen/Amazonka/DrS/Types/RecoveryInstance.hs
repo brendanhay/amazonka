@@ -201,7 +201,8 @@ instance Data.FromJSON RecoveryInstance where
 
 instance Prelude.Hashable RecoveryInstance where
   hashWithSalt _salt RecoveryInstance' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataReplicationInfo
       `Prelude.hashWithSalt` ec2InstanceID
       `Prelude.hashWithSalt` ec2InstanceState

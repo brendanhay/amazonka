@@ -118,7 +118,8 @@ instance
             Prelude.<*> (x Data..:? "dataReplicationState")
             Prelude.<*> (x Data..:? "etaDateTime")
             Prelude.<*> (x Data..:? "lagDuration")
-            Prelude.<*> ( x Data..:? "replicatedDisks"
+            Prelude.<*> ( x
+                            Data..:? "replicatedDisks"
                             Data..!= Prelude.mempty
                         )
       )
@@ -130,7 +131,8 @@ instance
   hashWithSalt
     _salt
     RecoveryInstanceDataReplicationInfo' {..} =
-      _salt `Prelude.hashWithSalt` dataReplicationError
+      _salt
+        `Prelude.hashWithSalt` dataReplicationError
         `Prelude.hashWithSalt` dataReplicationInitiation
         `Prelude.hashWithSalt` dataReplicationState
         `Prelude.hashWithSalt` etaDateTime

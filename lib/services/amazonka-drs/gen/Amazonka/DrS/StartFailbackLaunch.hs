@@ -109,7 +109,8 @@ instance Core.AWSRequest StartFailbackLaunch where
 
 instance Prelude.Hashable StartFailbackLaunch where
   hashWithSalt _salt StartFailbackLaunch' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` recoveryInstanceIDs
 
 instance Prelude.NFData StartFailbackLaunch where

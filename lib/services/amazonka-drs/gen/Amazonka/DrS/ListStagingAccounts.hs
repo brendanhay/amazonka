@@ -93,22 +93,22 @@ instance Core.AWSPager ListStagingAccounts where
     | Core.stop
         ( rs
             Lens.^? listStagingAccountsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStagingAccountsResponse_accounts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStagingAccounts_nextToken
           Lens..~ rs
           Lens.^? listStagingAccountsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStagingAccounts where
   type
@@ -127,7 +127,8 @@ instance Core.AWSRequest ListStagingAccounts where
 
 instance Prelude.Hashable ListStagingAccounts where
   hashWithSalt _salt ListStagingAccounts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStagingAccounts where

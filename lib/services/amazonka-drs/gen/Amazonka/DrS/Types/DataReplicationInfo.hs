@@ -114,14 +114,16 @@ instance Data.FromJSON DataReplicationInfo where
             Prelude.<*> (x Data..:? "dataReplicationState")
             Prelude.<*> (x Data..:? "etaDateTime")
             Prelude.<*> (x Data..:? "lagDuration")
-            Prelude.<*> ( x Data..:? "replicatedDisks"
+            Prelude.<*> ( x
+                            Data..:? "replicatedDisks"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DataReplicationInfo where
   hashWithSalt _salt DataReplicationInfo' {..} =
-    _salt `Prelude.hashWithSalt` dataReplicationError
+    _salt
+      `Prelude.hashWithSalt` dataReplicationError
       `Prelude.hashWithSalt` dataReplicationInitiation
       `Prelude.hashWithSalt` dataReplicationState
       `Prelude.hashWithSalt` etaDateTime

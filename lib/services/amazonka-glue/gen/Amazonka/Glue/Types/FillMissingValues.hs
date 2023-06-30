@@ -109,7 +109,8 @@ instance Data.FromJSON FillMissingValues where
 
 instance Prelude.Hashable FillMissingValues where
   hashWithSalt _salt FillMissingValues' {..} =
-    _salt `Prelude.hashWithSalt` filledPath
+    _salt
+      `Prelude.hashWithSalt` filledPath
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` imputedPath

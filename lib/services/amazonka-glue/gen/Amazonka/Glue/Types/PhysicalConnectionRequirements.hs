@@ -85,7 +85,8 @@ instance Data.FromJSON PhysicalConnectionRequirements where
       ( \x ->
           PhysicalConnectionRequirements'
             Prelude.<$> (x Data..:? "AvailabilityZone")
-            Prelude.<*> ( x Data..:? "SecurityGroupIdList"
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroupIdList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubnetId")
@@ -98,7 +99,8 @@ instance
   hashWithSalt
     _salt
     PhysicalConnectionRequirements' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` securityGroupIdList
         `Prelude.hashWithSalt` subnetId
 

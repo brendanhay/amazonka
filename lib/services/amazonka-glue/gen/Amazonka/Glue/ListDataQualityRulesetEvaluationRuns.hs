@@ -111,8 +111,8 @@ instance
       ( \s h x ->
           ListDataQualityRulesetEvaluationRunsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "Runs" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Runs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     ListDataQualityRulesetEvaluationRuns' {..} =
-      _salt `Prelude.hashWithSalt` filter'
+      _salt
+        `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 

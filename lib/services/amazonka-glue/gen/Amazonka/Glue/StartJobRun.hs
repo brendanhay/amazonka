@@ -409,7 +409,8 @@ instance Core.AWSRequest StartJobRun where
 
 instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =
-    _salt `Prelude.hashWithSalt` allocatedCapacity
+    _salt
+      `Prelude.hashWithSalt` allocatedCapacity
       `Prelude.hashWithSalt` arguments
       `Prelude.hashWithSalt` executionClass
       `Prelude.hashWithSalt` jobRunId

@@ -292,7 +292,8 @@ instance Data.FromJSON Table where
 
 instance Prelude.Hashable Table where
   hashWithSalt _salt Table' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` databaseName

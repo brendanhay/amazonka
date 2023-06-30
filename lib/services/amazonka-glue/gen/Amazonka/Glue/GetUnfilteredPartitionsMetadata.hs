@@ -175,7 +175,8 @@ instance
       ( \s h x ->
           GetUnfilteredPartitionsMetadataResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "UnfilteredPartitions"
+            Prelude.<*> ( x
+                            Data..?> "UnfilteredPartitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -188,7 +189,8 @@ instance
   hashWithSalt
     _salt
     GetUnfilteredPartitionsMetadata' {..} =
-      _salt `Prelude.hashWithSalt` auditContext
+      _salt
+        `Prelude.hashWithSalt` auditContext
         `Prelude.hashWithSalt` expression
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

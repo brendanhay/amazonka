@@ -151,7 +151,8 @@ instance Data.FromJSON TransformConfigParameter where
 
 instance Prelude.Hashable TransformConfigParameter where
   hashWithSalt _salt TransformConfigParameter' {..} =
-    _salt `Prelude.hashWithSalt` isOptional
+    _salt
+      `Prelude.hashWithSalt` isOptional
       `Prelude.hashWithSalt` listType
       `Prelude.hashWithSalt` validationMessage
       `Prelude.hashWithSalt` validationRule

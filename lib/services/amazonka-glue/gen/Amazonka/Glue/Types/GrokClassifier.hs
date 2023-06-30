@@ -148,7 +148,8 @@ instance Data.FromJSON GrokClassifier where
 
 instance Prelude.Hashable GrokClassifier where
   hashWithSalt _salt GrokClassifier' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` customPatterns
       `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` version

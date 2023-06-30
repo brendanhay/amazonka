@@ -80,7 +80,8 @@ instance Data.FromJSON EvaluationMetrics where
 
 instance Prelude.Hashable EvaluationMetrics where
   hashWithSalt _salt EvaluationMetrics' {..} =
-    _salt `Prelude.hashWithSalt` findMatchesMetrics
+    _salt
+      `Prelude.hashWithSalt` findMatchesMetrics
       `Prelude.hashWithSalt` transformType
 
 instance Prelude.NFData EvaluationMetrics where

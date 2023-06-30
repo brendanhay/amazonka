@@ -133,7 +133,8 @@ instance Data.FromJSON CatalogKinesisSource where
 
 instance Prelude.Hashable CatalogKinesisSource where
   hashWithSalt _salt CatalogKinesisSource' {..} =
-    _salt `Prelude.hashWithSalt` dataPreviewOptions
+    _salt
+      `Prelude.hashWithSalt` dataPreviewOptions
       `Prelude.hashWithSalt` detectSchema
       `Prelude.hashWithSalt` streamingOptions
       `Prelude.hashWithSalt` windowSize

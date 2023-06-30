@@ -80,14 +80,16 @@ instance Data.FromJSON MetadataInfo where
           MetadataInfo'
             Prelude.<$> (x Data..:? "CreatedTime")
             Prelude.<*> (x Data..:? "MetadataValue")
-            Prelude.<*> ( x Data..:? "OtherMetadataValueList"
+            Prelude.<*> ( x
+                            Data..:? "OtherMetadataValueList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable MetadataInfo where
   hashWithSalt _salt MetadataInfo' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` metadataValue
       `Prelude.hashWithSalt` otherMetadataValueList
 

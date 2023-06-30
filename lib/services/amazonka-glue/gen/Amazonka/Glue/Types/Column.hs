@@ -96,7 +96,8 @@ instance Data.FromJSON Column where
 
 instance Prelude.Hashable Column where
   hashWithSalt _salt Column' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name

@@ -135,7 +135,8 @@ instance Data.FromJSON S3Target where
 
 instance Prelude.Hashable S3Target where
   hashWithSalt _salt S3Target' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
+    _salt
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` dlqEventQueueArn
       `Prelude.hashWithSalt` eventQueueArn
       `Prelude.hashWithSalt` exclusions

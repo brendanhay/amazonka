@@ -176,7 +176,8 @@ connectionInput_connectionProperties = Lens.lens (\ConnectionInput' {connectionP
 
 instance Prelude.Hashable ConnectionInput where
   hashWithSalt _salt ConnectionInput' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` matchCriteria
       `Prelude.hashWithSalt` physicalConnectionRequirements
       `Prelude.hashWithSalt` name

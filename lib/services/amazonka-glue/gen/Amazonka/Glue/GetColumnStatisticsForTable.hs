@@ -128,7 +128,8 @@ instance Core.AWSRequest GetColumnStatisticsForTable where
     Response.receiveJSON
       ( \s h x ->
           GetColumnStatisticsForTableResponse'
-            Prelude.<$> ( x Data..?> "ColumnStatisticsList"
+            Prelude.<$> ( x
+                            Data..?> "ColumnStatisticsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
@@ -137,7 +138,8 @@ instance Core.AWSRequest GetColumnStatisticsForTable where
 
 instance Prelude.Hashable GetColumnStatisticsForTable where
   hashWithSalt _salt GetColumnStatisticsForTable' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` columnNames

@@ -68,7 +68,8 @@ catalogEntry_tableName = Lens.lens (\CatalogEntry' {tableName} -> tableName) (\s
 
 instance Prelude.Hashable CatalogEntry where
   hashWithSalt _salt CatalogEntry' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData CatalogEntry where

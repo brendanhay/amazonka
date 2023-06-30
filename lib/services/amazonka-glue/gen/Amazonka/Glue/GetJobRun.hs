@@ -112,7 +112,8 @@ instance Core.AWSRequest GetJobRun where
 
 instance Prelude.Hashable GetJobRun where
   hashWithSalt _salt GetJobRun' {..} =
-    _salt `Prelude.hashWithSalt` predecessorsIncluded
+    _salt
+      `Prelude.hashWithSalt` predecessorsIncluded
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` runId
 

@@ -77,7 +77,8 @@ instance Data.FromJSON SchemaChangePolicy where
 
 instance Prelude.Hashable SchemaChangePolicy where
   hashWithSalt _salt SchemaChangePolicy' {..} =
-    _salt `Prelude.hashWithSalt` deleteBehavior
+    _salt
+      `Prelude.hashWithSalt` deleteBehavior
       `Prelude.hashWithSalt` updateBehavior
 
 instance Prelude.NFData SchemaChangePolicy where

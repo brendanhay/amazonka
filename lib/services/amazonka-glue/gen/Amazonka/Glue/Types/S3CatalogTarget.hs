@@ -124,7 +124,8 @@ instance Data.FromJSON S3CatalogTarget where
 
 instance Prelude.Hashable S3CatalogTarget where
   hashWithSalt _salt S3CatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` partitionKeys
+    _salt
+      `Prelude.hashWithSalt` partitionKeys
       `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs

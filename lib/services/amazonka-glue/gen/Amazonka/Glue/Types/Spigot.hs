@@ -123,7 +123,8 @@ instance Data.FromJSON Spigot where
 
 instance Prelude.Hashable Spigot where
   hashWithSalt _salt Spigot' {..} =
-    _salt `Prelude.hashWithSalt` prob
+    _salt
+      `Prelude.hashWithSalt` prob
       `Prelude.hashWithSalt` topk
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs

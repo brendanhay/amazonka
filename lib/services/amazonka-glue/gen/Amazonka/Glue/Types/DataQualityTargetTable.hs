@@ -78,7 +78,8 @@ instance Data.FromJSON DataQualityTargetTable where
 
 instance Prelude.Hashable DataQualityTargetTable where
   hashWithSalt _salt DataQualityTargetTable' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt
+      `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData DataQualityTargetTable where

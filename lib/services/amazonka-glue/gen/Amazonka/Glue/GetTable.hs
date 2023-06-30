@@ -148,7 +148,8 @@ instance Core.AWSRequest GetTable where
 
 instance Prelude.Hashable GetTable where
   hashWithSalt _salt GetTable' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` queryAsOfTime
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName

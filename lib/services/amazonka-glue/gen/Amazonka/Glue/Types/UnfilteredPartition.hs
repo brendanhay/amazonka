@@ -74,7 +74,8 @@ instance Data.FromJSON UnfilteredPartition where
       "UnfilteredPartition"
       ( \x ->
           UnfilteredPartition'
-            Prelude.<$> ( x Data..:? "AuthorizedColumns"
+            Prelude.<$> ( x
+                            Data..:? "AuthorizedColumns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IsRegisteredWithLakeFormation")
@@ -83,7 +84,8 @@ instance Data.FromJSON UnfilteredPartition where
 
 instance Prelude.Hashable UnfilteredPartition where
   hashWithSalt _salt UnfilteredPartition' {..} =
-    _salt `Prelude.hashWithSalt` authorizedColumns
+    _salt
+      `Prelude.hashWithSalt` authorizedColumns
       `Prelude.hashWithSalt` isRegisteredWithLakeFormation
       `Prelude.hashWithSalt` partition
 

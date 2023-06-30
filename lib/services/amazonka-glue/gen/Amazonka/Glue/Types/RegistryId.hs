@@ -71,7 +71,8 @@ registryId_registryName = Lens.lens (\RegistryId' {registryName} -> registryName
 
 instance Prelude.Hashable RegistryId where
   hashWithSalt _salt RegistryId' {..} =
-    _salt `Prelude.hashWithSalt` registryArn
+    _salt
+      `Prelude.hashWithSalt` registryArn
       `Prelude.hashWithSalt` registryName
 
 instance Prelude.NFData RegistryId where

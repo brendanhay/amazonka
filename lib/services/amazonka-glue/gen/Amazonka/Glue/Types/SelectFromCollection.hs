@@ -91,7 +91,8 @@ instance Data.FromJSON SelectFromCollection where
 
 instance Prelude.Hashable SelectFromCollection where
   hashWithSalt _salt SelectFromCollection' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` index
 

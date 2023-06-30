@@ -114,7 +114,8 @@ instance Data.FromJSON CustomCode where
 
 instance Prelude.Hashable CustomCode where
   hashWithSalt _salt CustomCode' {..} =
-    _salt `Prelude.hashWithSalt` outputSchemas
+    _salt
+      `Prelude.hashWithSalt` outputSchemas
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` code

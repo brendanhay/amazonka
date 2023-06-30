@@ -137,7 +137,8 @@ instance Core.AWSRequest GetUnfilteredTableMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetUnfilteredTableMetadataResponse'
-            Prelude.<$> ( x Data..?> "AuthorizedColumns"
+            Prelude.<$> ( x
+                            Data..?> "AuthorizedColumns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CellFilters" Core..!@ Prelude.mempty)
@@ -148,7 +149,8 @@ instance Core.AWSRequest GetUnfilteredTableMetadata where
 
 instance Prelude.Hashable GetUnfilteredTableMetadata where
   hashWithSalt _salt GetUnfilteredTableMetadata' {..} =
-    _salt `Prelude.hashWithSalt` auditContext
+    _salt
+      `Prelude.hashWithSalt` auditContext
       `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name

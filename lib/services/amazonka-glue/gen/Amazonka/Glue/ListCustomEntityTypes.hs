@@ -96,7 +96,8 @@ instance Core.AWSRequest ListCustomEntityTypes where
     Response.receiveJSON
       ( \s h x ->
           ListCustomEntityTypesResponse'
-            Prelude.<$> ( x Data..?> "CustomEntityTypes"
+            Prelude.<$> ( x
+                            Data..?> "CustomEntityTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -105,7 +106,8 @@ instance Core.AWSRequest ListCustomEntityTypes where
 
 instance Prelude.Hashable ListCustomEntityTypes where
   hashWithSalt _salt ListCustomEntityTypes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCustomEntityTypes where

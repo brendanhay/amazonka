@@ -103,22 +103,22 @@ instance Core.AWSPager GetCrawlerMetrics where
     | Core.stop
         ( rs
             Lens.^? getCrawlerMetricsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getCrawlerMetricsResponse_crawlerMetricsList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getCrawlerMetrics_nextToken
           Lens..~ rs
           Lens.^? getCrawlerMetricsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCrawlerMetrics where
   type
@@ -130,7 +130,8 @@ instance Core.AWSRequest GetCrawlerMetrics where
     Response.receiveJSON
       ( \s h x ->
           GetCrawlerMetricsResponse'
-            Prelude.<$> ( x Data..?> "CrawlerMetricsList"
+            Prelude.<$> ( x
+                            Data..?> "CrawlerMetricsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -139,7 +140,8 @@ instance Core.AWSRequest GetCrawlerMetrics where
 
 instance Prelude.Hashable GetCrawlerMetrics where
   hashWithSalt _salt GetCrawlerMetrics' {..} =
-    _salt `Prelude.hashWithSalt` crawlerNameList
+    _salt
+      `Prelude.hashWithSalt` crawlerNameList
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

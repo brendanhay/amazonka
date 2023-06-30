@@ -94,7 +94,8 @@ instance Data.FromJSON BooleanColumnStatisticsData where
 
 instance Prelude.Hashable BooleanColumnStatisticsData where
   hashWithSalt _salt BooleanColumnStatisticsData' {..} =
-    _salt `Prelude.hashWithSalt` numberOfTrues
+    _salt
+      `Prelude.hashWithSalt` numberOfTrues
       `Prelude.hashWithSalt` numberOfFalses
       `Prelude.hashWithSalt` numberOfNulls
 

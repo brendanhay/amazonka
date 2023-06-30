@@ -139,7 +139,8 @@ instance Data.FromJSON RedshiftTarget where
 
 instance Prelude.Hashable RedshiftTarget where
   hashWithSalt _salt RedshiftTarget' {..} =
-    _salt `Prelude.hashWithSalt` redshiftTmpDir
+    _salt
+      `Prelude.hashWithSalt` redshiftTmpDir
       `Prelude.hashWithSalt` tmpDirIAMRole
       `Prelude.hashWithSalt` upsertRedshiftOptions
       `Prelude.hashWithSalt` name

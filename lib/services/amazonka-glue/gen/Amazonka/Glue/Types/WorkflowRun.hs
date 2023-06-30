@@ -173,14 +173,16 @@ instance Data.FromJSON WorkflowRun where
             Prelude.<*> (x Data..:? "Statistics")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "WorkflowRunId")
-            Prelude.<*> ( x Data..:? "WorkflowRunProperties"
+            Prelude.<*> ( x
+                            Data..:? "WorkflowRunProperties"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable WorkflowRun where
   hashWithSalt _salt WorkflowRun' {..} =
-    _salt `Prelude.hashWithSalt` completedOn
+    _salt
+      `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` graph
       `Prelude.hashWithSalt` name

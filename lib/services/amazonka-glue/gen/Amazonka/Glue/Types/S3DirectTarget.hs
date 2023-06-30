@@ -140,7 +140,8 @@ instance Data.FromJSON S3DirectTarget where
 
 instance Prelude.Hashable S3DirectTarget where
   hashWithSalt _salt S3DirectTarget' {..} =
-    _salt `Prelude.hashWithSalt` compression
+    _salt
+      `Prelude.hashWithSalt` compression
       `Prelude.hashWithSalt` partitionKeys
       `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` name

@@ -90,7 +90,8 @@ instance Data.FromJSON CatalogSource where
 
 instance Prelude.Hashable CatalogSource where
   hashWithSalt _salt CatalogSource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table
 

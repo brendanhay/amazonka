@@ -77,7 +77,8 @@ instance Data.FromJSON SchemaVersionErrorItem where
 
 instance Prelude.Hashable SchemaVersionErrorItem where
   hashWithSalt _salt SchemaVersionErrorItem' {..} =
-    _salt `Prelude.hashWithSalt` errorDetails
+    _salt
+      `Prelude.hashWithSalt` errorDetails
       `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData SchemaVersionErrorItem where

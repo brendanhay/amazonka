@@ -108,7 +108,8 @@ instance Data.FromJSON ColumnStatistics where
 
 instance Prelude.Hashable ColumnStatistics where
   hashWithSalt _salt ColumnStatistics' {..} =
-    _salt `Prelude.hashWithSalt` columnName
+    _salt
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` columnType
       `Prelude.hashWithSalt` analyzedTime
       `Prelude.hashWithSalt` statisticsData

@@ -75,7 +75,8 @@ instance Data.FromJSON Predecessor where
 
 instance Prelude.Hashable Predecessor where
   hashWithSalt _salt Predecessor' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` runId
 
 instance Prelude.NFData Predecessor where

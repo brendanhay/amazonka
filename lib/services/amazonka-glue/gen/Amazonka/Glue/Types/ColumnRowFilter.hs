@@ -70,7 +70,8 @@ instance Data.FromJSON ColumnRowFilter where
 
 instance Prelude.Hashable ColumnRowFilter where
   hashWithSalt _salt ColumnRowFilter' {..} =
-    _salt `Prelude.hashWithSalt` columnName
+    _salt
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` rowFilterExpression
 
 instance Prelude.NFData ColumnRowFilter where

@@ -97,7 +97,8 @@ instance Data.FromJSON BackfillError where
 
 instance Prelude.Hashable BackfillError where
   hashWithSalt _salt BackfillError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` partitions
 
 instance Prelude.NFData BackfillError where

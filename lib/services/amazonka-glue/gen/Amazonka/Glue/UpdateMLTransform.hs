@@ -288,7 +288,8 @@ instance Core.AWSRequest UpdateMLTransform where
 
 instance Prelude.Hashable UpdateMLTransform where
   hashWithSalt _salt UpdateMLTransform' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` glueVersion
       `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` maxRetries

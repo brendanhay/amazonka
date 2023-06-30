@@ -91,7 +91,8 @@ instance Core.AWSRequest BatchGetCrawlers where
       ( \s h x ->
           BatchGetCrawlersResponse'
             Prelude.<$> (x Data..?> "Crawlers" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "CrawlersNotFound"
+            Prelude.<*> ( x
+                            Data..?> "CrawlersNotFound"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

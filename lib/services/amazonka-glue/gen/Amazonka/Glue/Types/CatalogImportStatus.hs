@@ -85,7 +85,8 @@ instance Data.FromJSON CatalogImportStatus where
 
 instance Prelude.Hashable CatalogImportStatus where
   hashWithSalt _salt CatalogImportStatus' {..} =
-    _salt `Prelude.hashWithSalt` importCompleted
+    _salt
+      `Prelude.hashWithSalt` importCompleted
       `Prelude.hashWithSalt` importTime
       `Prelude.hashWithSalt` importedBy
 

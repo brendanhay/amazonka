@@ -146,7 +146,8 @@ instance Data.FromJSON PartitionIndexDescriptor where
 
 instance Prelude.Hashable PartitionIndexDescriptor where
   hashWithSalt _salt PartitionIndexDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` backfillErrors
+    _salt
+      `Prelude.hashWithSalt` backfillErrors
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` indexStatus

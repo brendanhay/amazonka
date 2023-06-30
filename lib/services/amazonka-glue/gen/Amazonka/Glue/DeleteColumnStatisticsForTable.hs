@@ -142,7 +142,8 @@ instance
   hashWithSalt
     _salt
     DeleteColumnStatisticsForTable' {..} =
-      _salt `Prelude.hashWithSalt` catalogId
+      _salt
+        `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` databaseName
         `Prelude.hashWithSalt` tableName
         `Prelude.hashWithSalt` columnName

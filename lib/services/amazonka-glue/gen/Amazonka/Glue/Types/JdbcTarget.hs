@@ -109,7 +109,8 @@ instance Data.FromJSON JdbcTarget where
       ( \x ->
           JdbcTarget'
             Prelude.<$> (x Data..:? "ConnectionName")
-            Prelude.<*> ( x Data..:? "EnableAdditionalMetadata"
+            Prelude.<*> ( x
+                            Data..:? "EnableAdditionalMetadata"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Exclusions" Data..!= Prelude.mempty)
@@ -118,7 +119,8 @@ instance Data.FromJSON JdbcTarget where
 
 instance Prelude.Hashable JdbcTarget where
   hashWithSalt _salt JdbcTarget' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
+    _salt
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` enableAdditionalMetadata
       `Prelude.hashWithSalt` exclusions
       `Prelude.hashWithSalt` path

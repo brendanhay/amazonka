@@ -129,7 +129,8 @@ instance Data.FromJSON GovernedCatalogTarget where
 
 instance Prelude.Hashable GovernedCatalogTarget where
   hashWithSalt _salt GovernedCatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` partitionKeys
+    _salt
+      `Prelude.hashWithSalt` partitionKeys
       `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs

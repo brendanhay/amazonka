@@ -84,7 +84,8 @@ instance Data.FromJSON WorkflowGraph where
 
 instance Prelude.Hashable WorkflowGraph where
   hashWithSalt _salt WorkflowGraph' {..} =
-    _salt `Prelude.hashWithSalt` edges
+    _salt
+      `Prelude.hashWithSalt` edges
       `Prelude.hashWithSalt` nodes
 
 instance Prelude.NFData WorkflowGraph where

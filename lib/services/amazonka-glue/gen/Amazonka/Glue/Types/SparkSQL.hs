@@ -140,7 +140,8 @@ instance Data.FromJSON SparkSQL where
 
 instance Prelude.Hashable SparkSQL where
   hashWithSalt _salt SparkSQL' {..} =
-    _salt `Prelude.hashWithSalt` outputSchemas
+    _salt
+      `Prelude.hashWithSalt` outputSchemas
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` sqlQuery

@@ -68,7 +68,8 @@ partitionIndex_indexName = Lens.lens (\PartitionIndex' {indexName} -> indexName)
 
 instance Prelude.Hashable PartitionIndex where
   hashWithSalt _salt PartitionIndex' {..} =
-    _salt `Prelude.hashWithSalt` keys
+    _salt
+      `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` indexName
 
 instance Prelude.NFData PartitionIndex where

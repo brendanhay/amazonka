@@ -137,7 +137,8 @@ instance Data.FromJSON UserDefinedFunction where
 
 instance Prelude.Hashable UserDefinedFunction where
   hashWithSalt _salt UserDefinedFunction' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` className
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` databaseName

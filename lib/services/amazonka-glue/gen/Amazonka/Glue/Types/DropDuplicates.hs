@@ -89,7 +89,8 @@ instance Data.FromJSON DropDuplicates where
 
 instance Prelude.Hashable DropDuplicates where
   hashWithSalt _salt DropDuplicates' {..} =
-    _salt `Prelude.hashWithSalt` columns
+    _salt
+      `Prelude.hashWithSalt` columns
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
 

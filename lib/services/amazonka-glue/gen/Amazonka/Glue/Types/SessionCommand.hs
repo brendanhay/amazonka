@@ -80,7 +80,8 @@ instance Data.FromJSON SessionCommand where
 
 instance Prelude.Hashable SessionCommand where
   hashWithSalt _salt SessionCommand' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` pythonVersion
 
 instance Prelude.NFData SessionCommand where

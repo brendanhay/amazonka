@@ -141,7 +141,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetColumnStatisticsForPartitionResponse'
-            Prelude.<$> ( x Data..?> "ColumnStatisticsList"
+            Prelude.<$> ( x
+                            Data..?> "ColumnStatisticsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
@@ -155,7 +156,8 @@ instance
   hashWithSalt
     _salt
     GetColumnStatisticsForPartition' {..} =
-      _salt `Prelude.hashWithSalt` catalogId
+      _salt
+        `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` databaseName
         `Prelude.hashWithSalt` tableName
         `Prelude.hashWithSalt` partitionValues

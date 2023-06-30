@@ -98,7 +98,8 @@ instance Data.FromJSON RenameField where
 
 instance Prelude.Hashable RenameField where
   hashWithSalt _salt RenameField' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` sourcePath
       `Prelude.hashWithSalt` targetPath

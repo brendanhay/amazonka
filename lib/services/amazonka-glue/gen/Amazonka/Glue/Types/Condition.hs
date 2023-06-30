@@ -119,7 +119,8 @@ instance Data.FromJSON Condition where
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` crawlState
+    _salt
+      `Prelude.hashWithSalt` crawlState
       `Prelude.hashWithSalt` crawlerName
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` logicalOperator

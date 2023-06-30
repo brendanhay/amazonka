@@ -115,7 +115,8 @@ instance Data.FromJSON RegistryListItem where
 
 instance Prelude.Hashable RegistryListItem where
   hashWithSalt _salt RegistryListItem' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` registryArn
       `Prelude.hashWithSalt` registryName

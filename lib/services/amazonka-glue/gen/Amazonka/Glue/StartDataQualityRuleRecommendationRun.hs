@@ -161,7 +161,7 @@ instance
       ( \s h x ->
           StartDataQualityRuleRecommendationRunResponse'
             Prelude.<$> (x Data..?> "RunId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -171,7 +171,8 @@ instance
   hashWithSalt
     _salt
     StartDataQualityRuleRecommendationRun' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` createdRulesetName
         `Prelude.hashWithSalt` numberOfWorkers
         `Prelude.hashWithSalt` timeout

@@ -719,7 +719,8 @@ instance Data.FromJSON CodeGenConfigurationNode where
 
 instance Prelude.Hashable CodeGenConfigurationNode where
   hashWithSalt _salt CodeGenConfigurationNode' {..} =
-    _salt `Prelude.hashWithSalt` aggregate
+    _salt
+      `Prelude.hashWithSalt` aggregate
       `Prelude.hashWithSalt` applyMapping
       `Prelude.hashWithSalt` athenaConnectorSource
       `Prelude.hashWithSalt` catalogKafkaSource

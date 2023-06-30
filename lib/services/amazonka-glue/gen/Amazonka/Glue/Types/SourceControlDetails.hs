@@ -141,7 +141,8 @@ instance Data.FromJSON SourceControlDetails where
 
 instance Prelude.Hashable SourceControlDetails where
   hashWithSalt _salt SourceControlDetails' {..} =
-    _salt `Prelude.hashWithSalt` authStrategy
+    _salt
+      `Prelude.hashWithSalt` authStrategy
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` folder

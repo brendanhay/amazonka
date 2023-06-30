@@ -119,7 +119,8 @@ instance Data.FromJSON Node where
 
 instance Prelude.Hashable Node where
   hashWithSalt _salt Node' {..} =
-    _salt `Prelude.hashWithSalt` crawlerDetails
+    _salt
+      `Prelude.hashWithSalt` crawlerDetails
       `Prelude.hashWithSalt` jobDetails
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` triggerDetails

@@ -113,7 +113,8 @@ instance Data.FromJSON LastActiveDefinition where
 
 instance Prelude.Hashable LastActiveDefinition where
   hashWithSalt _salt LastActiveDefinition' {..} =
-    _salt `Prelude.hashWithSalt` blueprintLocation
+    _salt
+      `Prelude.hashWithSalt` blueprintLocation
       `Prelude.hashWithSalt` blueprintServiceLocation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastModifiedOn

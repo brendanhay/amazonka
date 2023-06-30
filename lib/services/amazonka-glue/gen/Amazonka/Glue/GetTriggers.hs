@@ -107,20 +107,23 @@ instance Core.AWSPager GetTriggers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getTriggersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getTriggersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getTriggersResponse_triggers Prelude.. Lens._Just
+            Lens.^? getTriggersResponse_triggers
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getTriggers_nextToken
           Lens..~ rs
-          Lens.^? getTriggersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getTriggersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTriggers where
   type AWSResponse GetTriggers = GetTriggersResponse
@@ -137,7 +140,8 @@ instance Core.AWSRequest GetTriggers where
 
 instance Prelude.Hashable GetTriggers where
   hashWithSalt _salt GetTriggers' {..} =
-    _salt `Prelude.hashWithSalt` dependentJobName
+    _salt
+      `Prelude.hashWithSalt` dependentJobName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

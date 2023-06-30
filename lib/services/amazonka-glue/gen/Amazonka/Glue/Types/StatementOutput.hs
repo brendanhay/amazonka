@@ -116,7 +116,8 @@ instance Data.FromJSON StatementOutput where
 
 instance Prelude.Hashable StatementOutput where
   hashWithSalt _salt StatementOutput' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` errorName
       `Prelude.hashWithSalt` errorValue
       `Prelude.hashWithSalt` executionCount

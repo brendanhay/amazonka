@@ -300,7 +300,8 @@ instance Data.FromJSON Crawler where
 
 instance Prelude.Hashable Crawler where
   hashWithSalt _salt Crawler' {..} =
-    _salt `Prelude.hashWithSalt` classifiers
+    _salt
+      `Prelude.hashWithSalt` classifiers
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` crawlElapsedTime
       `Prelude.hashWithSalt` crawlerSecurityConfiguration

@@ -138,7 +138,8 @@ instance Core.AWSRequest CreateCustomEntityType where
 
 instance Prelude.Hashable CreateCustomEntityType where
   hashWithSalt _salt CreateCustomEntityType' {..} =
-    _salt `Prelude.hashWithSalt` contextWords
+    _salt
+      `Prelude.hashWithSalt` contextWords
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` regexString
 

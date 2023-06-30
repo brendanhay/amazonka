@@ -79,7 +79,8 @@ instance Data.FromJSON OtherMetadataValueListItem where
 
 instance Prelude.Hashable OtherMetadataValueListItem where
   hashWithSalt _salt OtherMetadataValueListItem' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` metadataValue
 
 instance Prelude.NFData OtherMetadataValueListItem where

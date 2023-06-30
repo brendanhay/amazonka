@@ -110,7 +110,8 @@ instance Core.AWSRequest GetBlueprint where
 
 instance Prelude.Hashable GetBlueprint where
   hashWithSalt _salt GetBlueprint' {..} =
-    _salt `Prelude.hashWithSalt` includeBlueprint
+    _salt
+      `Prelude.hashWithSalt` includeBlueprint
       `Prelude.hashWithSalt` includeParameterSpec
       `Prelude.hashWithSalt` name
 

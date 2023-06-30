@@ -100,7 +100,8 @@ instance Data.FromJSON DeltaTarget where
 
 instance Prelude.Hashable DeltaTarget where
   hashWithSalt _salt DeltaTarget' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
+    _salt
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` createNativeDeltaTable
       `Prelude.hashWithSalt` deltaTables
       `Prelude.hashWithSalt` writeManifest

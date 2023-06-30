@@ -96,7 +96,8 @@ instance Data.FromJSON DataQualityRuleResult where
 
 instance Prelude.Hashable DataQualityRuleResult where
   hashWithSalt _salt DataQualityRuleResult' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` evaluationMessage
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` result

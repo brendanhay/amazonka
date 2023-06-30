@@ -198,7 +198,8 @@ tableInput_name = Lens.lens (\TableInput' {name} -> name) (\s@TableInput' {} a -
 
 instance Prelude.Hashable TableInput where
   hashWithSalt _salt TableInput' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastAccessTime
       `Prelude.hashWithSalt` lastAnalyzedTime
       `Prelude.hashWithSalt` owner

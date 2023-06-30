@@ -141,7 +141,7 @@ instance
       ( \s h x ->
           UpdateColumnStatisticsForPartitionResponse'
             Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -151,7 +151,8 @@ instance
   hashWithSalt
     _salt
     UpdateColumnStatisticsForPartition' {..} =
-      _salt `Prelude.hashWithSalt` catalogId
+      _salt
+        `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` databaseName
         `Prelude.hashWithSalt` tableName
         `Prelude.hashWithSalt` partitionValues

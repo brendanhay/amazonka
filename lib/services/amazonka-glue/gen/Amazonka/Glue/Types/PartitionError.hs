@@ -70,14 +70,16 @@ instance Data.FromJSON PartitionError where
       ( \x ->
           PartitionError'
             Prelude.<$> (x Data..:? "ErrorDetail")
-            Prelude.<*> ( x Data..:? "PartitionValues"
+            Prelude.<*> ( x
+                            Data..:? "PartitionValues"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PartitionError where
   hashWithSalt _salt PartitionError' {..} =
-    _salt `Prelude.hashWithSalt` errorDetail
+    _salt
+      `Prelude.hashWithSalt` errorDetail
       `Prelude.hashWithSalt` partitionValues
 
 instance Prelude.NFData PartitionError where

@@ -115,7 +115,8 @@ instance Data.FromJSON Crawl where
 
 instance Prelude.Hashable Crawl where
   hashWithSalt _salt Crawl' {..} =
-    _salt `Prelude.hashWithSalt` completedOn
+    _salt
+      `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` logGroup
       `Prelude.hashWithSalt` logStream

@@ -150,7 +150,8 @@ instance Data.FromJSON AthenaConnectorSource where
 
 instance Prelude.Hashable AthenaConnectorSource where
   hashWithSalt _salt AthenaConnectorSource' {..} =
-    _salt `Prelude.hashWithSalt` connectionTable
+    _salt
+      `Prelude.hashWithSalt` connectionTable
       `Prelude.hashWithSalt` outputSchemas
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectionName

@@ -252,7 +252,8 @@ instance Data.FromJSON S3JsonSource where
 
 instance Prelude.Hashable S3JsonSource where
   hashWithSalt _salt S3JsonSource' {..} =
-    _salt `Prelude.hashWithSalt` additionalOptions
+    _salt
+      `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` exclusions
       `Prelude.hashWithSalt` groupFiles

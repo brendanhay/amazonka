@@ -96,7 +96,8 @@ instance Data.FromJSON JobCommand where
 
 instance Prelude.Hashable JobCommand where
   hashWithSalt _salt JobCommand' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` pythonVersion
       `Prelude.hashWithSalt` scriptLocation
 

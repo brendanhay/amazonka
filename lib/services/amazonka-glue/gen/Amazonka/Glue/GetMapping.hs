@@ -110,7 +110,8 @@ instance Core.AWSRequest GetMapping where
 
 instance Prelude.Hashable GetMapping where
   hashWithSalt _salt GetMapping' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` sinks
       `Prelude.hashWithSalt` source
 

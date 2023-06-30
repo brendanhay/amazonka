@@ -126,7 +126,8 @@ instance Data.FromJSON DynamoDBTarget where
 
 instance Prelude.Hashable DynamoDBTarget where
   hashWithSalt _salt DynamoDBTarget' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` scanAll
       `Prelude.hashWithSalt` scanRate
 

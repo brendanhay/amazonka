@@ -151,7 +151,8 @@ instance Core.AWSRequest RegisterSchemaVersion where
 
 instance Prelude.Hashable RegisterSchemaVersion where
   hashWithSalt _salt RegisterSchemaVersion' {..} =
-    _salt `Prelude.hashWithSalt` schemaId
+    _salt
+      `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` schemaDefinition
 
 instance Prelude.NFData RegisterSchemaVersion where

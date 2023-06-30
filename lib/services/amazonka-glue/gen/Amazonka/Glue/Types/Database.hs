@@ -134,7 +134,8 @@ instance Data.FromJSON Database where
       ( \x ->
           Database'
             Prelude.<$> (x Data..:? "CatalogId")
-            Prelude.<*> ( x Data..:? "CreateTableDefaultPermissions"
+            Prelude.<*> ( x
+                            Data..:? "CreateTableDefaultPermissions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreateTime")
@@ -147,7 +148,8 @@ instance Data.FromJSON Database where
 
 instance Prelude.Hashable Database where
   hashWithSalt _salt Database' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` createTableDefaultPermissions
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` description

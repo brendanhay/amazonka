@@ -138,7 +138,8 @@ instance Core.AWSRequest UpdateWorkflow where
 
 instance Prelude.Hashable UpdateWorkflow where
   hashWithSalt _salt UpdateWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` defaultRunProperties
+    _salt
+      `Prelude.hashWithSalt` defaultRunProperties
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxConcurrentRuns
       `Prelude.hashWithSalt` name

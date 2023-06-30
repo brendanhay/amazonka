@@ -124,7 +124,8 @@ instance Data.FromJSON JobBookmarkEntry where
 
 instance Prelude.Hashable JobBookmarkEntry where
   hashWithSalt _salt JobBookmarkEntry' {..} =
-    _salt `Prelude.hashWithSalt` attempt
+    _salt
+      `Prelude.hashWithSalt` attempt
       `Prelude.hashWithSalt` jobBookmark
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` previousRunId

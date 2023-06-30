@@ -91,7 +91,8 @@ instance Data.FromJSON SchemaReference where
 
 instance Prelude.Hashable SchemaReference where
   hashWithSalt _salt SchemaReference' {..} =
-    _salt `Prelude.hashWithSalt` schemaId
+    _salt
+      `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` schemaVersionId
       `Prelude.hashWithSalt` schemaVersionNumber
 

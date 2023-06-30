@@ -74,7 +74,8 @@ auditContext_requestedColumns = Lens.lens (\AuditContext' {requestedColumns} -> 
 
 instance Prelude.Hashable AuditContext where
   hashWithSalt _salt AuditContext' {..} =
-    _salt `Prelude.hashWithSalt` additionalAuditContext
+    _salt
+      `Prelude.hashWithSalt` additionalAuditContext
       `Prelude.hashWithSalt` allColumnsRequested
       `Prelude.hashWithSalt` requestedColumns
 

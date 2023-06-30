@@ -79,7 +79,8 @@ instance Data.FromJSON ColumnImportance where
 
 instance Prelude.Hashable ColumnImportance where
   hashWithSalt _salt ColumnImportance' {..} =
-    _salt `Prelude.hashWithSalt` columnName
+    _salt
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` importance
 
 instance Prelude.NFData ColumnImportance where

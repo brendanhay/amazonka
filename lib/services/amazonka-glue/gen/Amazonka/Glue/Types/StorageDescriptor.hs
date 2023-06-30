@@ -212,7 +212,8 @@ instance Data.FromJSON StorageDescriptor where
       "StorageDescriptor"
       ( \x ->
           StorageDescriptor'
-            Prelude.<$> ( x Data..:? "AdditionalLocations"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalLocations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BucketColumns" Data..!= Prelude.mempty)
@@ -232,7 +233,8 @@ instance Data.FromJSON StorageDescriptor where
 
 instance Prelude.Hashable StorageDescriptor where
   hashWithSalt _salt StorageDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` additionalLocations
+    _salt
+      `Prelude.hashWithSalt` additionalLocations
       `Prelude.hashWithSalt` bucketColumns
       `Prelude.hashWithSalt` columns
       `Prelude.hashWithSalt` compressed

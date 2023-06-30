@@ -134,7 +134,8 @@ instance Core.AWSRequest ListTriggers where
 
 instance Prelude.Hashable ListTriggers where
   hashWithSalt _salt ListTriggers' {..} =
-    _salt `Prelude.hashWithSalt` dependentJobName
+    _salt
+      `Prelude.hashWithSalt` dependentJobName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` tags

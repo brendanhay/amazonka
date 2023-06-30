@@ -84,7 +84,8 @@ instance Data.FromJSON TableIdentifier where
 
 instance Prelude.Hashable TableIdentifier where
   hashWithSalt _salt TableIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
 

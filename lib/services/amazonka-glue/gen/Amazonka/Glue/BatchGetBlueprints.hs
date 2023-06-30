@@ -112,7 +112,8 @@ instance Core.AWSRequest BatchGetBlueprints where
       ( \s h x ->
           BatchGetBlueprintsResponse'
             Prelude.<$> (x Data..?> "Blueprints" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "MissingBlueprints"
+            Prelude.<*> ( x
+                            Data..?> "MissingBlueprints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -120,7 +121,8 @@ instance Core.AWSRequest BatchGetBlueprints where
 
 instance Prelude.Hashable BatchGetBlueprints where
   hashWithSalt _salt BatchGetBlueprints' {..} =
-    _salt `Prelude.hashWithSalt` includeBlueprint
+    _salt
+      `Prelude.hashWithSalt` includeBlueprint
       `Prelude.hashWithSalt` includeParameterSpec
       `Prelude.hashWithSalt` names
 

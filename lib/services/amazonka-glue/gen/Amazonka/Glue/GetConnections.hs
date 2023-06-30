@@ -140,21 +140,22 @@ instance Core.AWSPager GetConnections where
     | Core.stop
         ( rs
             Lens.^? getConnectionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getConnectionsResponse_connectionList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getConnections_nextToken
           Lens..~ rs
-          Lens.^? getConnectionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getConnectionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetConnections where
   type
@@ -173,7 +174,8 @@ instance Core.AWSRequest GetConnections where
 
 instance Prelude.Hashable GetConnections where
   hashWithSalt _salt GetConnections' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` hidePassword
       `Prelude.hashWithSalt` maxResults

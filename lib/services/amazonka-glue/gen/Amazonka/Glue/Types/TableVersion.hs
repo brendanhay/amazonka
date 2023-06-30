@@ -78,7 +78,8 @@ instance Data.FromJSON TableVersion where
 
 instance Prelude.Hashable TableVersion where
   hashWithSalt _salt TableVersion' {..} =
-    _salt `Prelude.hashWithSalt` table
+    _salt
+      `Prelude.hashWithSalt` table
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData TableVersion where

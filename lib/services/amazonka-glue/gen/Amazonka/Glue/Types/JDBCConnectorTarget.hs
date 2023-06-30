@@ -146,7 +146,8 @@ instance Data.FromJSON JDBCConnectorTarget where
       "JDBCConnectorTarget"
       ( \x ->
           JDBCConnectorTarget'
-            Prelude.<$> ( x Data..:? "AdditionalOptions"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
@@ -160,7 +161,8 @@ instance Data.FromJSON JDBCConnectorTarget where
 
 instance Prelude.Hashable JDBCConnectorTarget where
   hashWithSalt _salt JDBCConnectorTarget' {..} =
-    _salt `Prelude.hashWithSalt` additionalOptions
+    _salt
+      `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` outputSchemas
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs

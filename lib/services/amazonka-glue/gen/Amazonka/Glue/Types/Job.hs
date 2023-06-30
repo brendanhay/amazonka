@@ -530,13 +530,15 @@ instance Data.FromJSON Job where
       ( \x ->
           Job'
             Prelude.<$> (x Data..:? "AllocatedCapacity")
-            Prelude.<*> ( x Data..:? "CodeGenConfigurationNodes"
+            Prelude.<*> ( x
+                            Data..:? "CodeGenConfigurationNodes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Command")
             Prelude.<*> (x Data..:? "Connections")
             Prelude.<*> (x Data..:? "CreatedOn")
-            Prelude.<*> ( x Data..:? "DefaultArguments"
+            Prelude.<*> ( x
+                            Data..:? "DefaultArguments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
@@ -548,7 +550,8 @@ instance Data.FromJSON Job where
             Prelude.<*> (x Data..:? "MaxCapacity")
             Prelude.<*> (x Data..:? "MaxRetries")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "NonOverridableArguments"
+            Prelude.<*> ( x
+                            Data..:? "NonOverridableArguments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "NotificationProperty")
@@ -562,7 +565,8 @@ instance Data.FromJSON Job where
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` allocatedCapacity
+    _salt
+      `Prelude.hashWithSalt` allocatedCapacity
       `Prelude.hashWithSalt` codeGenConfigurationNodes
       `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` connections

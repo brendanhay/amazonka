@@ -136,22 +136,22 @@ instance Core.AWSPager GetTableVersions where
     | Core.stop
         ( rs
             Lens.^? getTableVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getTableVersionsResponse_tableVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getTableVersions_nextToken
           Lens..~ rs
           Lens.^? getTableVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTableVersions where
   type
@@ -170,7 +170,8 @@ instance Core.AWSRequest GetTableVersions where
 
 instance Prelude.Hashable GetTableVersions where
   hashWithSalt _salt GetTableVersions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` databaseName

@@ -137,7 +137,8 @@ updateCsvClassifierRequest_name = Lens.lens (\UpdateCsvClassifierRequest' {name}
 
 instance Prelude.Hashable UpdateCsvClassifierRequest where
   hashWithSalt _salt UpdateCsvClassifierRequest' {..} =
-    _salt `Prelude.hashWithSalt` allowSingleColumn
+    _salt
+      `Prelude.hashWithSalt` allowSingleColumn
       `Prelude.hashWithSalt` containsHeader
       `Prelude.hashWithSalt` customDatatypeConfigured
       `Prelude.hashWithSalt` customDatatypes

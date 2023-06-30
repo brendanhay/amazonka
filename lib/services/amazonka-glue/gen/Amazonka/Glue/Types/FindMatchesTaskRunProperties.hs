@@ -88,7 +88,8 @@ instance
     FindMatchesTaskRunProperties
   where
   hashWithSalt _salt FindMatchesTaskRunProperties' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobRunId
 

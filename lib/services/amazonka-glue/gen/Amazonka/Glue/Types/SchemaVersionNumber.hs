@@ -65,7 +65,8 @@ schemaVersionNumber_versionNumber = Lens.lens (\SchemaVersionNumber' {versionNum
 
 instance Prelude.Hashable SchemaVersionNumber where
   hashWithSalt _salt SchemaVersionNumber' {..} =
-    _salt `Prelude.hashWithSalt` latestVersion
+    _salt
+      `Prelude.hashWithSalt` latestVersion
       `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData SchemaVersionNumber where

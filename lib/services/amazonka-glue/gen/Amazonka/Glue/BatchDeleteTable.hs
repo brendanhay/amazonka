@@ -139,7 +139,8 @@ instance Core.AWSRequest BatchDeleteTable where
 
 instance Prelude.Hashable BatchDeleteTable where
   hashWithSalt _salt BatchDeleteTable' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tablesToDelete

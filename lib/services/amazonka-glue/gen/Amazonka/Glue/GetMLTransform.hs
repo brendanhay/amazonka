@@ -114,7 +114,8 @@ instance Core.AWSRequest GetMLTransform where
             Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "EvaluationMetrics")
             Prelude.<*> (x Data..?> "GlueVersion")
-            Prelude.<*> ( x Data..?> "InputRecordTables"
+            Prelude.<*> ( x
+                            Data..?> "InputRecordTables"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "LabelCount")

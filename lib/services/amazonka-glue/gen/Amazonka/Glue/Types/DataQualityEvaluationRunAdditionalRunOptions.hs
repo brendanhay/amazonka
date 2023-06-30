@@ -74,7 +74,7 @@ instance
       ( \x ->
           DataQualityEvaluationRunAdditionalRunOptions'
             Prelude.<$> (x Data..:? "CloudWatchMetricsEnabled")
-              Prelude.<*> (x Data..:? "ResultsS3Prefix")
+            Prelude.<*> (x Data..:? "ResultsS3Prefix")
       )
 
 instance

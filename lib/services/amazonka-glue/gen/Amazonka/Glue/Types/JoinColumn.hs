@@ -73,7 +73,8 @@ instance Data.FromJSON JoinColumn where
 
 instance Prelude.Hashable JoinColumn where
   hashWithSalt _salt JoinColumn' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` keys
 
 instance Prelude.NFData JoinColumn where

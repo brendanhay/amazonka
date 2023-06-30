@@ -118,7 +118,8 @@ instance Core.AWSRequest DeleteDatabase where
 
 instance Prelude.Hashable DeleteDatabase where
   hashWithSalt _salt DeleteDatabase' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteDatabase where

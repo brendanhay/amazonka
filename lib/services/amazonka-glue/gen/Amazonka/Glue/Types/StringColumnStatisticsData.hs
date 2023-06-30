@@ -108,7 +108,8 @@ instance Data.FromJSON StringColumnStatisticsData where
 
 instance Prelude.Hashable StringColumnStatisticsData where
   hashWithSalt _salt StringColumnStatisticsData' {..} =
-    _salt `Prelude.hashWithSalt` maximumLength
+    _salt
+      `Prelude.hashWithSalt` maximumLength
       `Prelude.hashWithSalt` averageLength
       `Prelude.hashWithSalt` numberOfNulls
       `Prelude.hashWithSalt` numberOfDistinctValues

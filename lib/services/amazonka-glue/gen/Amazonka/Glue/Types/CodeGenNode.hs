@@ -99,7 +99,8 @@ instance Data.FromJSON CodeGenNode where
 
 instance Prelude.Hashable CodeGenNode where
   hashWithSalt _salt CodeGenNode' {..} =
-    _salt `Prelude.hashWithSalt` lineNumber
+    _salt
+      `Prelude.hashWithSalt` lineNumber
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` args

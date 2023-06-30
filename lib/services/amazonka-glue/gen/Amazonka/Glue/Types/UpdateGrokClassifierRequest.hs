@@ -88,7 +88,8 @@ updateGrokClassifierRequest_name = Lens.lens (\UpdateGrokClassifierRequest' {nam
 
 instance Prelude.Hashable UpdateGrokClassifierRequest where
   hashWithSalt _salt UpdateGrokClassifierRequest' {..} =
-    _salt `Prelude.hashWithSalt` classification
+    _salt
+      `Prelude.hashWithSalt` classification
       `Prelude.hashWithSalt` customPatterns
       `Prelude.hashWithSalt` grokPattern
       `Prelude.hashWithSalt` name

@@ -91,20 +91,23 @@ instance Core.AWSPager GetCrawlers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getCrawlersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getCrawlersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getCrawlersResponse_crawlers Prelude.. Lens._Just
+            Lens.^? getCrawlersResponse_crawlers
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getCrawlers_nextToken
           Lens..~ rs
-          Lens.^? getCrawlersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getCrawlersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCrawlers where
   type AWSResponse GetCrawlers = GetCrawlersResponse
@@ -121,7 +124,8 @@ instance Core.AWSRequest GetCrawlers where
 
 instance Prelude.Hashable GetCrawlers where
   hashWithSalt _salt GetCrawlers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetCrawlers where

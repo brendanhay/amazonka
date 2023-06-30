@@ -116,7 +116,8 @@ instance Core.AWSRequest StartExportLabelsTaskRun where
 
 instance Prelude.Hashable StartExportLabelsTaskRun where
   hashWithSalt _salt StartExportLabelsTaskRun' {..} =
-    _salt `Prelude.hashWithSalt` transformId
+    _salt
+      `Prelude.hashWithSalt` transformId
       `Prelude.hashWithSalt` outputS3Path
 
 instance Prelude.NFData StartExportLabelsTaskRun where

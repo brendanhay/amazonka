@@ -102,7 +102,8 @@ instance Data.FromJSON DirectSchemaChangePolicy where
 
 instance Prelude.Hashable DirectSchemaChangePolicy where
   hashWithSalt _salt DirectSchemaChangePolicy' {..} =
-    _salt `Prelude.hashWithSalt` database
+    _salt
+      `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` enableUpdateCatalog
       `Prelude.hashWithSalt` table
       `Prelude.hashWithSalt` updateBehavior

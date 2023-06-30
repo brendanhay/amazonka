@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateBlueprint where
 
 instance Prelude.Hashable UpdateBlueprint where
   hashWithSalt _salt UpdateBlueprint' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` blueprintLocation
 

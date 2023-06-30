@@ -184,7 +184,8 @@ instance Data.FromJSON DataQualityResult where
 
 instance Prelude.Hashable DataQualityResult where
   hashWithSalt _salt DataQualityResult' {..} =
-    _salt `Prelude.hashWithSalt` completedOn
+    _salt
+      `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` evaluationContext
       `Prelude.hashWithSalt` jobName

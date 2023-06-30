@@ -101,7 +101,8 @@ instance Data.FromJSON DateColumnStatisticsData where
 
 instance Prelude.Hashable DateColumnStatisticsData where
   hashWithSalt _salt DateColumnStatisticsData' {..} =
-    _salt `Prelude.hashWithSalt` maximumValue
+    _salt
+      `Prelude.hashWithSalt` maximumValue
       `Prelude.hashWithSalt` minimumValue
       `Prelude.hashWithSalt` numberOfNulls
       `Prelude.hashWithSalt` numberOfDistinctValues

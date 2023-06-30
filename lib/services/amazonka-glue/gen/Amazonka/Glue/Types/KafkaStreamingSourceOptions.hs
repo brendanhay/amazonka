@@ -268,7 +268,8 @@ instance Data.FromJSON KafkaStreamingSourceOptions where
 
 instance Prelude.Hashable KafkaStreamingSourceOptions where
   hashWithSalt _salt KafkaStreamingSourceOptions' {..} =
-    _salt `Prelude.hashWithSalt` assign
+    _salt
+      `Prelude.hashWithSalt` assign
       `Prelude.hashWithSalt` bootstrapServers
       `Prelude.hashWithSalt` classification
       `Prelude.hashWithSalt` connectionName

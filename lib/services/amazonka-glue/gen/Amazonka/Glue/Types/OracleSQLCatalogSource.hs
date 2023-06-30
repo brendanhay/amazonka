@@ -90,7 +90,8 @@ instance Data.FromJSON OracleSQLCatalogSource where
 
 instance Prelude.Hashable OracleSQLCatalogSource where
   hashWithSalt _salt OracleSQLCatalogSource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table
 

@@ -78,20 +78,24 @@ instance Data.FromJSON SkewedInfo where
       "SkewedInfo"
       ( \x ->
           SkewedInfo'
-            Prelude.<$> ( x Data..:? "SkewedColumnNames"
+            Prelude.<$> ( x
+                            Data..:? "SkewedColumnNames"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SkewedColumnValueLocationMaps"
+            Prelude.<*> ( x
+                            Data..:? "SkewedColumnValueLocationMaps"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SkewedColumnValues"
+            Prelude.<*> ( x
+                            Data..:? "SkewedColumnValues"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SkewedInfo where
   hashWithSalt _salt SkewedInfo' {..} =
-    _salt `Prelude.hashWithSalt` skewedColumnNames
+    _salt
+      `Prelude.hashWithSalt` skewedColumnNames
       `Prelude.hashWithSalt` skewedColumnValueLocationMaps
       `Prelude.hashWithSalt` skewedColumnValues
 

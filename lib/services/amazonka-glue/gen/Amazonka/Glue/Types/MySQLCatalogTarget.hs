@@ -106,7 +106,8 @@ instance Data.FromJSON MySQLCatalogTarget where
 
 instance Prelude.Hashable MySQLCatalogTarget where
   hashWithSalt _salt MySQLCatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table

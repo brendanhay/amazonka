@@ -126,7 +126,8 @@ instance Data.FromJSON Statement where
 
 instance Prelude.Hashable Statement where
   hashWithSalt _salt Statement' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` output

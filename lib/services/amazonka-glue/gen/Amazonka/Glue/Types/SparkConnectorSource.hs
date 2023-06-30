@@ -124,7 +124,8 @@ instance Data.FromJSON SparkConnectorSource where
       "SparkConnectorSource"
       ( \x ->
           SparkConnectorSource'
-            Prelude.<$> ( x Data..:? "AdditionalOptions"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
@@ -136,7 +137,8 @@ instance Data.FromJSON SparkConnectorSource where
 
 instance Prelude.Hashable SparkConnectorSource where
   hashWithSalt _salt SparkConnectorSource' {..} =
-    _salt `Prelude.hashWithSalt` additionalOptions
+    _salt
+      `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` outputSchemas
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectionName

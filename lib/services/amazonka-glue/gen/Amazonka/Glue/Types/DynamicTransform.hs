@@ -143,7 +143,8 @@ instance Data.FromJSON DynamicTransform where
 
 instance Prelude.Hashable DynamicTransform where
   hashWithSalt _salt DynamicTransform' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` transformName

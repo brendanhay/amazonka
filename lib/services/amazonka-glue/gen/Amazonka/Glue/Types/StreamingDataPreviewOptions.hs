@@ -76,7 +76,8 @@ instance Data.FromJSON StreamingDataPreviewOptions where
 
 instance Prelude.Hashable StreamingDataPreviewOptions where
   hashWithSalt _salt StreamingDataPreviewOptions' {..} =
-    _salt `Prelude.hashWithSalt` pollingTime
+    _salt
+      `Prelude.hashWithSalt` pollingTime
       `Prelude.hashWithSalt` recordPollingLimit
 
 instance Prelude.NFData StreamingDataPreviewOptions where

@@ -136,7 +136,8 @@ instance Core.AWSRequest UpdateStudio where
 
 instance Prelude.Hashable UpdateStudio where
   hashWithSalt _salt UpdateStudio' {..} =
-    _salt `Prelude.hashWithSalt` defaultS3Location
+    _salt
+      `Prelude.hashWithSalt` defaultS3Location
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` subnetIds

@@ -184,7 +184,8 @@ instanceGroupConfig_instanceCount = Lens.lens (\InstanceGroupConfig' {instanceCo
 
 instance Prelude.Hashable InstanceGroupConfig where
   hashWithSalt _salt InstanceGroupConfig' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingPolicy
+    _salt
+      `Prelude.hashWithSalt` autoScalingPolicy
       `Prelude.hashWithSalt` bidPrice
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` customAmiId

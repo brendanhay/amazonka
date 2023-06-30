@@ -193,7 +193,8 @@ instance Data.FromJSON CloudWatchAlarmDefinition where
 
 instance Prelude.Hashable CloudWatchAlarmDefinition where
   hashWithSalt _salt CloudWatchAlarmDefinition' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` evaluationPeriods
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` statistic

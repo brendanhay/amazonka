@@ -135,20 +135,23 @@ instance Core.AWSPager ListSteps where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listStepsResponse_marker Prelude.. Lens._Just
+            Lens.^? listStepsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listStepsResponse_steps Prelude.. Lens._Just
+            Lens.^? listStepsResponse_steps
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSteps_marker
           Lens..~ rs
-          Lens.^? listStepsResponse_marker Prelude.. Lens._Just
+          Lens.^? listStepsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSteps where
   type AWSResponse ListSteps = ListStepsResponse
@@ -165,7 +168,8 @@ instance Core.AWSRequest ListSteps where
 
 instance Prelude.Hashable ListSteps where
   hashWithSalt _salt ListSteps' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` stepIds
       `Prelude.hashWithSalt` stepStates
       `Prelude.hashWithSalt` clusterId

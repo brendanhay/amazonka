@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     InstanceFleetProvisioningSpecifications' {..} =
-      _salt `Prelude.hashWithSalt` onDemandSpecification
+      _salt
+        `Prelude.hashWithSalt` onDemandSpecification
         `Prelude.hashWithSalt` spotSpecification
 
 instance

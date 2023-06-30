@@ -215,7 +215,8 @@ instance Core.AWSRequest StartNotebookExecution where
 
 instance Prelude.Hashable StartNotebookExecution where
   hashWithSalt _salt StartNotebookExecution' {..} =
-    _salt `Prelude.hashWithSalt` notebookExecutionName
+    _salt
+      `Prelude.hashWithSalt` notebookExecutionName
       `Prelude.hashWithSalt` notebookInstanceSecurityGroupId
       `Prelude.hashWithSalt` notebookParams
       `Prelude.hashWithSalt` tags

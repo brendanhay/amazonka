@@ -109,7 +109,8 @@ instanceGroupModifyConfig_instanceGroupId = Lens.lens (\InstanceGroupModifyConfi
 
 instance Prelude.Hashable InstanceGroupModifyConfig where
   hashWithSalt _salt InstanceGroupModifyConfig' {..} =
-    _salt `Prelude.hashWithSalt` configurations
+    _salt
+      `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` eC2InstanceIdsToTerminate
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` reconfigurationType

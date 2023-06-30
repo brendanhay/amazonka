@@ -80,7 +80,8 @@ autoScalingPolicy_rules = Lens.lens (\AutoScalingPolicy' {rules} -> rules) (\s@A
 
 instance Prelude.Hashable AutoScalingPolicy where
   hashWithSalt _salt AutoScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData AutoScalingPolicy where

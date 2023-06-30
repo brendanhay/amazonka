@@ -119,7 +119,8 @@ instance Core.AWSRequest CreateSecurityConfiguration where
 
 instance Prelude.Hashable CreateSecurityConfiguration where
   hashWithSalt _salt CreateSecurityConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` securityConfiguration
 
 instance Prelude.NFData CreateSecurityConfiguration where

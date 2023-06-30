@@ -75,7 +75,8 @@ instance Data.FromJSON InstanceStateChangeReason where
 
 instance Prelude.Hashable InstanceStateChangeReason where
   hashWithSalt _salt InstanceStateChangeReason' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData InstanceStateChangeReason where

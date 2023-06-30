@@ -111,7 +111,8 @@ instance Core.AWSRequest AddInstanceFleet where
 
 instance Prelude.Hashable AddInstanceFleet where
   hashWithSalt _salt AddInstanceFleet' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` instanceFleet
 
 instance Prelude.NFData AddInstanceFleet where

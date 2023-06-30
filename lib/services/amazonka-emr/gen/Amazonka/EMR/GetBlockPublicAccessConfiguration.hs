@@ -77,10 +77,10 @@ instance
       ( \s h x ->
           GetBlockPublicAccessConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "BlockPublicAccessConfiguration")
-              Prelude.<*> ( x
-                              Data..:> "BlockPublicAccessConfigurationMetadata"
-                          )
+            Prelude.<*> (x Data..:> "BlockPublicAccessConfiguration")
+            Prelude.<*> ( x
+                            Data..:> "BlockPublicAccessConfigurationMetadata"
+                        )
       )
 
 instance

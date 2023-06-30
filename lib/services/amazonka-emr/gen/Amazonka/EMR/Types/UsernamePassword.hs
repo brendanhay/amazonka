@@ -80,7 +80,8 @@ instance Data.FromJSON UsernamePassword where
 
 instance Prelude.Hashable UsernamePassword where
   hashWithSalt _salt UsernamePassword' {..} =
-    _salt `Prelude.hashWithSalt` password
+    _salt
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData UsernamePassword where

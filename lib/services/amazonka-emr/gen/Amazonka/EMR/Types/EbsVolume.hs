@@ -74,7 +74,8 @@ instance Data.FromJSON EbsVolume where
 
 instance Prelude.Hashable EbsVolume where
   hashWithSalt _salt EbsVolume' {..} =
-    _salt `Prelude.hashWithSalt` device
+    _salt
+      `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData EbsVolume where

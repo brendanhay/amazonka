@@ -140,7 +140,8 @@ instance Core.AWSRequest ListReleaseLabels where
 
 instance Prelude.Hashable ListReleaseLabels where
   hashWithSalt _salt ListReleaseLabels' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -201,7 +201,8 @@ instance Data.FromJSON NotebookExecutionSummary where
 
 instance Prelude.Hashable NotebookExecutionSummary where
   hashWithSalt _salt NotebookExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` editorId
+    _salt
+      `Prelude.hashWithSalt` editorId
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` notebookExecutionId
       `Prelude.hashWithSalt` notebookExecutionName

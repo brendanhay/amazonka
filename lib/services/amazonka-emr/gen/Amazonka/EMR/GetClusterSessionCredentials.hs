@@ -127,7 +127,8 @@ instance
     GetClusterSessionCredentials
   where
   hashWithSalt _salt GetClusterSessionCredentials' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` executionRoleArn
 
 instance Prelude.NFData GetClusterSessionCredentials where

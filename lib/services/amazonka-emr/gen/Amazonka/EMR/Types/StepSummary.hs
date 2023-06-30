@@ -113,7 +113,8 @@ instance Data.FromJSON StepSummary where
 
 instance Prelude.Hashable StepSummary where
   hashWithSalt _salt StepSummary' {..} =
-    _salt `Prelude.hashWithSalt` actionOnFailure
+    _salt
+      `Prelude.hashWithSalt` actionOnFailure
       `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

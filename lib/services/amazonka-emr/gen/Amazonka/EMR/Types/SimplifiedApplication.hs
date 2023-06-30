@@ -74,7 +74,8 @@ instance Data.FromJSON SimplifiedApplication where
 
 instance Prelude.Hashable SimplifiedApplication where
   hashWithSalt _salt SimplifiedApplication' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData SimplifiedApplication where

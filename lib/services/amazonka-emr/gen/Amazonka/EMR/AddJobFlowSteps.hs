@@ -160,7 +160,8 @@ instance Core.AWSRequest AddJobFlowSteps where
 
 instance Prelude.Hashable AddJobFlowSteps where
   hashWithSalt _salt AddJobFlowSteps' {..} =
-    _salt `Prelude.hashWithSalt` executionRoleArn
+    _salt
+      `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` jobFlowId
       `Prelude.hashWithSalt` steps
 

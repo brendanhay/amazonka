@@ -164,7 +164,8 @@ instanceTypeConfig_instanceType = Lens.lens (\InstanceTypeConfig' {instanceType}
 
 instance Prelude.Hashable InstanceTypeConfig where
   hashWithSalt _salt InstanceTypeConfig' {..} =
-    _salt `Prelude.hashWithSalt` bidPrice
+    _salt
+      `Prelude.hashWithSalt` bidPrice
       `Prelude.hashWithSalt` bidPriceAsPercentageOfOnDemandPrice
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` customAmiId

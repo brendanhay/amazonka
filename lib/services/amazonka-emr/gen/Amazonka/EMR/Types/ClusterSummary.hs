@@ -133,7 +133,8 @@ instance Data.FromJSON ClusterSummary where
 
 instance Prelude.Hashable ClusterSummary where
   hashWithSalt _salt ClusterSummary' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` normalizedInstanceHours

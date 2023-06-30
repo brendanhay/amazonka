@@ -90,7 +90,8 @@ instance Data.FromJSON ClusterStatus where
 
 instance Prelude.Hashable ClusterStatus where
   hashWithSalt _salt ClusterStatus' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` timeline
 

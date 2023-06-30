@@ -87,22 +87,22 @@ instance Core.AWSPager ListSecurityConfigurations where
     | Core.stop
         ( rs
             Lens.^? listSecurityConfigurationsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSecurityConfigurationsResponse_securityConfigurations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSecurityConfigurations_marker
           Lens..~ rs
           Lens.^? listSecurityConfigurationsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityConfigurations where
   type
@@ -115,7 +115,8 @@ instance Core.AWSRequest ListSecurityConfigurations where
       ( \s h x ->
           ListSecurityConfigurationsResponse'
             Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> ( x Data..?> "SecurityConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "SecurityConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

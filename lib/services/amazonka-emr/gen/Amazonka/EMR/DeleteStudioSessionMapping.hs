@@ -158,7 +158,8 @@ instance Core.AWSRequest DeleteStudioSessionMapping where
 
 instance Prelude.Hashable DeleteStudioSessionMapping where
   hashWithSalt _salt DeleteStudioSessionMapping' {..} =
-    _salt `Prelude.hashWithSalt` identityId
+    _salt
+      `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` identityName
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` identityType

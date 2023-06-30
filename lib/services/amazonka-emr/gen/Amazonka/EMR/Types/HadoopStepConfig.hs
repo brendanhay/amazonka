@@ -105,7 +105,8 @@ instance Data.FromJSON HadoopStepConfig where
 
 instance Prelude.Hashable HadoopStepConfig where
   hashWithSalt _salt HadoopStepConfig' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt
+      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` jar
       `Prelude.hashWithSalt` mainClass
       `Prelude.hashWithSalt` properties

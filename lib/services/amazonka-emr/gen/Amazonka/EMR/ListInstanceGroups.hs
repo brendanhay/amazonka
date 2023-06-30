@@ -96,22 +96,22 @@ instance Core.AWSPager ListInstanceGroups where
     | Core.stop
         ( rs
             Lens.^? listInstanceGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInstanceGroupsResponse_instanceGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInstanceGroups_marker
           Lens..~ rs
           Lens.^? listInstanceGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceGroups where
   type
@@ -130,7 +130,8 @@ instance Core.AWSRequest ListInstanceGroups where
 
 instance Prelude.Hashable ListInstanceGroups where
   hashWithSalt _salt ListInstanceGroups' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData ListInstanceGroups where

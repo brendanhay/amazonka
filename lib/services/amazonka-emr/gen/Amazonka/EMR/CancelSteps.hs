@@ -123,7 +123,8 @@ instance Core.AWSRequest CancelSteps where
     Response.receiveJSON
       ( \s h x ->
           CancelStepsResponse'
-            Prelude.<$> ( x Data..?> "CancelStepsInfoList"
+            Prelude.<$> ( x
+                            Data..?> "CancelStepsInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -131,7 +132,8 @@ instance Core.AWSRequest CancelSteps where
 
 instance Prelude.Hashable CancelSteps where
   hashWithSalt _salt CancelSteps' {..} =
-    _salt `Prelude.hashWithSalt` stepCancellationOption
+    _salt
+      `Prelude.hashWithSalt` stepCancellationOption
       `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` stepIds
 

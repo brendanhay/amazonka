@@ -151,7 +151,8 @@ stepConfig_hadoopJarStep = Lens.lens (\StepConfig' {hadoopJarStep} -> hadoopJarS
 
 instance Prelude.Hashable StepConfig where
   hashWithSalt _salt StepConfig' {..} =
-    _salt `Prelude.hashWithSalt` actionOnFailure
+    _salt
+      `Prelude.hashWithSalt` actionOnFailure
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` hadoopJarStep
 

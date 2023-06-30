@@ -115,7 +115,8 @@ instance Data.FromJSON BlockPublicAccessConfiguration where
       "BlockPublicAccessConfiguration"
       ( \x ->
           BlockPublicAccessConfiguration'
-            Prelude.<$> ( x Data..:? "PermittedPublicSecurityGroupRuleRanges"
+            Prelude.<$> ( x
+                            Data..:? "PermittedPublicSecurityGroupRuleRanges"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "BlockPublicSecurityGroupRules")

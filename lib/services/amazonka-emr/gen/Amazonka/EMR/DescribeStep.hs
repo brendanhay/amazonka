@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeStep where
 
 instance Prelude.Hashable DescribeStep where
   hashWithSalt _salt DescribeStep' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` stepId
 
 instance Prelude.NFData DescribeStep where

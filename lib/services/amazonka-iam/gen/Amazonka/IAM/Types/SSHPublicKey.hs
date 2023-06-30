@@ -141,7 +141,8 @@ instance Data.FromXML SSHPublicKey where
 
 instance Prelude.Hashable SSHPublicKey where
   hashWithSalt _salt SSHPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` uploadDate
+    _salt
+      `Prelude.hashWithSalt` uploadDate
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` sSHPublicKeyId
       `Prelude.hashWithSalt` fingerprint

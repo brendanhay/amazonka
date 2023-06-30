@@ -70,11 +70,13 @@ errorDetails_code = Lens.lens (\ErrorDetails' {code} -> code) (\s@ErrorDetails' 
 instance Data.FromXML ErrorDetails where
   parseXML x =
     ErrorDetails'
-      Prelude.<$> (x Data..@ "Message") Prelude.<*> (x Data..@ "Code")
+      Prelude.<$> (x Data..@ "Message")
+      Prelude.<*> (x Data..@ "Code")
 
 instance Prelude.Hashable ErrorDetails where
   hashWithSalt _salt ErrorDetails' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` code
 
 instance Prelude.NFData ErrorDetails where

@@ -209,7 +209,8 @@ instance Core.AWSRequest PutGroupPolicy where
 
 instance Prelude.Hashable PutGroupPolicy where
   hashWithSalt _salt PutGroupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
 

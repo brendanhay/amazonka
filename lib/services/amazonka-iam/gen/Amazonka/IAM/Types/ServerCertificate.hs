@@ -109,7 +109,9 @@ instance Data.FromXML ServerCertificate where
   parseXML x =
     ServerCertificate'
       Prelude.<$> (x Data..@? "CertificateChain")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "ServerCertificateMetadata")
@@ -117,7 +119,8 @@ instance Data.FromXML ServerCertificate where
 
 instance Prelude.Hashable ServerCertificate where
   hashWithSalt _salt ServerCertificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateChain
+    _salt
+      `Prelude.hashWithSalt` certificateChain
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverCertificateMetadata
       `Prelude.hashWithSalt` certificateBody

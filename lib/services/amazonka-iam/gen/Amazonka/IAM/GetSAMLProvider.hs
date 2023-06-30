@@ -112,7 +112,9 @@ instance Core.AWSRequest GetSAMLProvider where
           GetSAMLProviderResponse'
             Prelude.<$> (x Data..@? "CreateDate")
             Prelude.<*> (x Data..@? "SAMLMetadataDocument")
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ValidUntil")

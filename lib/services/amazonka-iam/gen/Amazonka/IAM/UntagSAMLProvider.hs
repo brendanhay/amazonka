@@ -121,7 +121,8 @@ instance Core.AWSRequest UntagSAMLProvider where
 
 instance Prelude.Hashable UntagSAMLProvider where
   hashWithSalt _salt UntagSAMLProvider' {..} =
-    _salt `Prelude.hashWithSalt` sAMLProviderArn
+    _salt
+      `Prelude.hashWithSalt` sAMLProviderArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagSAMLProvider where

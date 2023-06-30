@@ -80,7 +80,8 @@ instance Data.FromXML SAMLProviderListEntry where
 
 instance Prelude.Hashable SAMLProviderListEntry where
   hashWithSalt _salt SAMLProviderListEntry' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` validUntil
 

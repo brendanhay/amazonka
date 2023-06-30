@@ -86,7 +86,8 @@ instance Data.FromXML PolicyGroup where
 
 instance Prelude.Hashable PolicyGroup where
   hashWithSalt _salt PolicyGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData PolicyGroup where

@@ -171,20 +171,23 @@ instance Core.AWSPager ListGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGroupsResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? listGroupsResponse_isTruncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listGroupsResponse_marker Prelude.. Lens._Just
+            Lens.^? listGroupsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGroups_marker
           Lens..~ rs
-          Lens.^? listGroupsResponse_marker Prelude.. Lens._Just
+          Lens.^? listGroupsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroups where
   type AWSResponse ListGroups = ListGroupsResponse
@@ -198,14 +201,17 @@ instance Core.AWSRequest ListGroups where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Groups" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Groups"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListGroups where
   hashWithSalt _salt ListGroups' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` pathPrefix
 

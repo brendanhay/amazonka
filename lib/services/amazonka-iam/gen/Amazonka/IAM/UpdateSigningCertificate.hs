@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdateSigningCertificate where
 
 instance Prelude.Hashable UpdateSigningCertificate where
   hashWithSalt _salt UpdateSigningCertificate' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` certificateId
       `Prelude.hashWithSalt` status
 

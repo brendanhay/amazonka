@@ -94,7 +94,8 @@ instance Data.FromXML LoginProfile where
 
 instance Prelude.Hashable LoginProfile where
   hashWithSalt _salt LoginProfile' {..} =
-    _salt `Prelude.hashWithSalt` passwordResetRequired
+    _salt
+      `Prelude.hashWithSalt` passwordResetRequired
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` createDate
 

@@ -150,7 +150,8 @@ instance
   hashWithSalt
     _salt
     ResetServiceSpecificCredential' {..} =
-      _salt `Prelude.hashWithSalt` userName
+      _salt
+        `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` serviceSpecificCredentialId
 
 instance

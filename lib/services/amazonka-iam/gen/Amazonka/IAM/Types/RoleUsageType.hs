@@ -70,13 +70,16 @@ instance Data.FromXML RoleUsageType where
   parseXML x =
     RoleUsageType'
       Prelude.<$> (x Data..@? "Region")
-      Prelude.<*> ( x Data..@? "Resources" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Resources"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable RoleUsageType where
   hashWithSalt _salt RoleUsageType' {..} =
-    _salt `Prelude.hashWithSalt` region
+    _salt
+      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData RoleUsageType where

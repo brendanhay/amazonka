@@ -154,7 +154,8 @@ instance Core.AWSRequest UpdateRole where
 
 instance Prelude.Hashable UpdateRole where
   hashWithSalt _salt UpdateRole' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxSessionDuration
       `Prelude.hashWithSalt` roleName
 

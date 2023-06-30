@@ -115,7 +115,8 @@ instance Core.AWSRequest UntagInstanceProfile where
 
 instance Prelude.Hashable UntagInstanceProfile where
   hashWithSalt _salt UntagInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` instanceProfileName
+    _salt
+      `Prelude.hashWithSalt` instanceProfileName
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagInstanceProfile where

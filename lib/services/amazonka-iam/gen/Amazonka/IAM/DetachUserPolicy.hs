@@ -130,7 +130,8 @@ instance Core.AWSRequest DetachUserPolicy where
 
 instance Prelude.Hashable DetachUserPolicy where
   hashWithSalt _salt DetachUserPolicy' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData DetachUserPolicy where

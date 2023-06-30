@@ -119,7 +119,8 @@ instance Data.FromXML SigningCertificate where
 
 instance Prelude.Hashable SigningCertificate where
   hashWithSalt _salt SigningCertificate' {..} =
-    _salt `Prelude.hashWithSalt` uploadDate
+    _salt
+      `Prelude.hashWithSalt` uploadDate
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` certificateId
       `Prelude.hashWithSalt` certificateBody

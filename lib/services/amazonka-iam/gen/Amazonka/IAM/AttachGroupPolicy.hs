@@ -134,7 +134,8 @@ instance Core.AWSRequest AttachGroupPolicy where
 
 instance Prelude.Hashable AttachGroupPolicy where
   hashWithSalt _salt AttachGroupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData AttachGroupPolicy where

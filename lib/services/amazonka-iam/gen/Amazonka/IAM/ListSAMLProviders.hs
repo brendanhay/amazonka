@@ -76,7 +76,8 @@ instance Core.AWSRequest ListSAMLProviders where
       "ListSAMLProvidersResult"
       ( \s h x ->
           ListSAMLProvidersResponse'
-            Prelude.<$> ( x Data..@? "SAMLProviderList"
+            Prelude.<$> ( x
+                            Data..@? "SAMLProviderList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )

@@ -190,7 +190,8 @@ instance Core.AWSRequest UpdateServerCertificate where
 
 instance Prelude.Hashable UpdateServerCertificate where
   hashWithSalt _salt UpdateServerCertificate' {..} =
-    _salt `Prelude.hashWithSalt` newPath'
+    _salt
+      `Prelude.hashWithSalt` newPath'
       `Prelude.hashWithSalt` newServerCertificateName'
       `Prelude.hashWithSalt` serverCertificateName
 

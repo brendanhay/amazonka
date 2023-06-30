@@ -159,22 +159,22 @@ instance Core.AWSPager ListPolicyVersions where
     | Core.stop
         ( rs
             Lens.^? listPolicyVersionsResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listPolicyVersionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPolicyVersions_marker
           Lens..~ rs
           Lens.^? listPolicyVersionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicyVersions where
   type
@@ -189,7 +189,9 @@ instance Core.AWSRequest ListPolicyVersions where
           ListPolicyVersionsResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Versions" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Versions"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -197,7 +199,8 @@ instance Core.AWSRequest ListPolicyVersions where
 
 instance Prelude.Hashable ListPolicyVersions where
   hashWithSalt _salt ListPolicyVersions' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` policyArn
 

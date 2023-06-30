@@ -214,7 +214,8 @@ instance Core.AWSRequest CreateVirtualMFADevice where
 
 instance Prelude.Hashable CreateVirtualMFADevice where
   hashWithSalt _salt CreateVirtualMFADevice' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` virtualMFADeviceName
 

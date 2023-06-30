@@ -144,7 +144,8 @@ instance Core.AWSRequest TagMFADevice where
 
 instance Prelude.Hashable TagMFADevice where
   hashWithSalt _salt TagMFADevice' {..} =
-    _salt `Prelude.hashWithSalt` serialNumber
+    _salt
+      `Prelude.hashWithSalt` serialNumber
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagMFADevice where

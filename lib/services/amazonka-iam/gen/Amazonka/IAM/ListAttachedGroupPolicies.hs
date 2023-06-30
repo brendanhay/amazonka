@@ -209,22 +209,22 @@ instance Core.AWSPager ListAttachedGroupPolicies where
     | Core.stop
         ( rs
             Lens.^? listAttachedGroupPoliciesResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listAttachedGroupPoliciesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAttachedGroupPolicies_marker
           Lens..~ rs
           Lens.^? listAttachedGroupPoliciesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedGroupPolicies where
   type
@@ -237,7 +237,8 @@ instance Core.AWSRequest ListAttachedGroupPolicies where
       "ListAttachedGroupPoliciesResult"
       ( \s h x ->
           ListAttachedGroupPoliciesResponse'
-            Prelude.<$> ( x Data..@? "AttachedPolicies"
+            Prelude.<$> ( x
+                            Data..@? "AttachedPolicies"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -248,7 +249,8 @@ instance Core.AWSRequest ListAttachedGroupPolicies where
 
 instance Prelude.Hashable ListAttachedGroupPolicies where
   hashWithSalt _salt ListAttachedGroupPolicies' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` pathPrefix
       `Prelude.hashWithSalt` groupName

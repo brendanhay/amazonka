@@ -139,7 +139,8 @@ instance Core.AWSRequest ChangePassword where
 
 instance Prelude.Hashable ChangePassword where
   hashWithSalt _salt ChangePassword' {..} =
-    _salt `Prelude.hashWithSalt` oldPassword
+    _salt
+      `Prelude.hashWithSalt` oldPassword
       `Prelude.hashWithSalt` newPassword'
 
 instance Prelude.NFData ChangePassword where

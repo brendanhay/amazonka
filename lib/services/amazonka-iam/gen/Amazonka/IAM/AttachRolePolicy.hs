@@ -139,7 +139,8 @@ instance Core.AWSRequest AttachRolePolicy where
 
 instance Prelude.Hashable AttachRolePolicy where
   hashWithSalt _salt AttachRolePolicy' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData AttachRolePolicy where

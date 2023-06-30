@@ -139,7 +139,8 @@ instance Core.AWSRequest UpdateSAMLProvider where
 
 instance Prelude.Hashable UpdateSAMLProvider where
   hashWithSalt _salt UpdateSAMLProvider' {..} =
-    _salt `Prelude.hashWithSalt` sAMLMetadataDocument
+    _salt
+      `Prelude.hashWithSalt` sAMLMetadataDocument
       `Prelude.hashWithSalt` sAMLProviderArn
 
 instance Prelude.NFData UpdateSAMLProvider where

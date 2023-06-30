@@ -137,21 +137,25 @@ instance Data.FromXML GroupDetail where
   parseXML x =
     GroupDetail'
       Prelude.<$> (x Data..@? "Arn")
-      Prelude.<*> ( x Data..@? "AttachedManagedPolicies"
+      Prelude.<*> ( x
+                      Data..@? "AttachedManagedPolicies"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "CreateDate")
       Prelude.<*> (x Data..@? "GroupId")
       Prelude.<*> (x Data..@? "GroupName")
-      Prelude.<*> ( x Data..@? "GroupPolicyList" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "GroupPolicyList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Path")
 
 instance Prelude.Hashable GroupDetail where
   hashWithSalt _salt GroupDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attachedManagedPolicies
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` groupId

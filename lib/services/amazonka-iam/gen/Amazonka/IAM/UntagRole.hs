@@ -111,7 +111,8 @@ instance Core.AWSRequest UntagRole where
 
 instance Prelude.Hashable UntagRole where
   hashWithSalt _salt UntagRole' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagRole where

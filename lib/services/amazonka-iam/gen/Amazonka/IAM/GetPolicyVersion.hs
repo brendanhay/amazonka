@@ -160,7 +160,8 @@ instance Core.AWSRequest GetPolicyVersion where
 
 instance Prelude.Hashable GetPolicyVersion where
   hashWithSalt _salt GetPolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` policyArn
+    _salt
+      `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData GetPolicyVersion where

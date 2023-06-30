@@ -141,7 +141,8 @@ instance Core.AWSRequest TagPolicy where
 
 instance Prelude.Hashable TagPolicy where
   hashWithSalt _salt TagPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyArn
+    _salt
+      `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagPolicy where

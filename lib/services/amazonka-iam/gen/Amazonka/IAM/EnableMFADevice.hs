@@ -218,7 +218,8 @@ instance Core.AWSRequest EnableMFADevice where
 
 instance Prelude.Hashable EnableMFADevice where
   hashWithSalt _salt EnableMFADevice' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` serialNumber
       `Prelude.hashWithSalt` authenticationCode1
       `Prelude.hashWithSalt` authenticationCode2

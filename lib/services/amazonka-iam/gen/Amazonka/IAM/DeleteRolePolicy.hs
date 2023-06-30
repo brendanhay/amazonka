@@ -135,7 +135,8 @@ instance Core.AWSRequest DeleteRolePolicy where
 
 instance Prelude.Hashable DeleteRolePolicy where
   hashWithSalt _salt DeleteRolePolicy' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData DeleteRolePolicy where

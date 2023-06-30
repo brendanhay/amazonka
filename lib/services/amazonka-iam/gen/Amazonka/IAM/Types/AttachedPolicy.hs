@@ -78,7 +78,8 @@ instance Data.FromXML AttachedPolicy where
 
 instance Prelude.Hashable AttachedPolicy where
   hashWithSalt _salt AttachedPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyArn
+    _salt
+      `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData AttachedPolicy where

@@ -154,7 +154,8 @@ instance Data.FromXML PolicyGrantingServiceAccess where
 
 instance Prelude.Hashable PolicyGrantingServiceAccess where
   hashWithSalt _salt PolicyGrantingServiceAccess' {..} =
-    _salt `Prelude.hashWithSalt` entityName
+    _salt
+      `Prelude.hashWithSalt` entityName
       `Prelude.hashWithSalt` entityType
       `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` policyName

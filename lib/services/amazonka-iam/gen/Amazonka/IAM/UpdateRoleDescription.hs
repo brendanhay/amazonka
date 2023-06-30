@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateRoleDescription where
 
 instance Prelude.Hashable UpdateRoleDescription where
   hashWithSalt _salt UpdateRoleDescription' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData UpdateRoleDescription where

@@ -171,7 +171,8 @@ instance Core.AWSRequest ResyncMFADevice where
 
 instance Prelude.Hashable ResyncMFADevice where
   hashWithSalt _salt ResyncMFADevice' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` serialNumber
       `Prelude.hashWithSalt` authenticationCode1
       `Prelude.hashWithSalt` authenticationCode2

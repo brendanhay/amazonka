@@ -118,7 +118,8 @@ instance Core.AWSRequest DisassociateMemberFromGroup where
 
 instance Prelude.Hashable DisassociateMemberFromGroup where
   hashWithSalt _salt DisassociateMemberFromGroup' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` memberId
 

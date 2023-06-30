@@ -175,7 +175,8 @@ instance
     PutMobileDeviceAccessOverride
   where
   hashWithSalt _salt PutMobileDeviceAccessOverride' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` deviceId

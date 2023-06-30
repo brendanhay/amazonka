@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateDefaultMailDomain where
 
 instance Prelude.Hashable UpdateDefaultMailDomain where
   hashWithSalt _salt UpdateDefaultMailDomain' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData UpdateDefaultMailDomain where

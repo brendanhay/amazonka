@@ -136,7 +136,8 @@ instance
   hashWithSalt
     _salt
     PutEmailMonitoringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` organizationId
+      _salt
+        `Prelude.hashWithSalt` organizationId
         `Prelude.hashWithSalt` roleArn
         `Prelude.hashWithSalt` logGroupArn
 

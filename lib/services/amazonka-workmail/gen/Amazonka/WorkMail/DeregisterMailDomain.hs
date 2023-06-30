@@ -106,7 +106,8 @@ instance Core.AWSRequest DeregisterMailDomain where
 
 instance Prelude.Hashable DeregisterMailDomain where
   hashWithSalt _salt DeregisterMailDomain' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DeregisterMailDomain where

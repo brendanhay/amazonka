@@ -84,7 +84,8 @@ ewsAvailabilityProvider_ewsPassword = Lens.lens (\EwsAvailabilityProvider' {ewsP
 
 instance Prelude.Hashable EwsAvailabilityProvider where
   hashWithSalt _salt EwsAvailabilityProvider' {..} =
-    _salt `Prelude.hashWithSalt` ewsEndpoint
+    _salt
+      `Prelude.hashWithSalt` ewsEndpoint
       `Prelude.hashWithSalt` ewsUsername
       `Prelude.hashWithSalt` ewsPassword
 

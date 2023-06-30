@@ -75,7 +75,8 @@ instance Data.FromJSON ImpersonationMatchedRule where
 
 instance Prelude.Hashable ImpersonationMatchedRule where
   hashWithSalt _salt ImpersonationMatchedRule' {..} =
-    _salt `Prelude.hashWithSalt` impersonationRuleId
+    _salt
+      `Prelude.hashWithSalt` impersonationRuleId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ImpersonationMatchedRule where

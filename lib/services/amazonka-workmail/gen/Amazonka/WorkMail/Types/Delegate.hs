@@ -74,12 +74,14 @@ instance Data.FromJSON Delegate where
       "Delegate"
       ( \x ->
           Delegate'
-            Prelude.<$> (x Data..: "Id") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable Delegate where
   hashWithSalt _salt Delegate' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Delegate where

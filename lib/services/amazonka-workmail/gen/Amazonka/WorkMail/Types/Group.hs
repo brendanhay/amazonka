@@ -115,7 +115,8 @@ instance Data.FromJSON Group where
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` disabledDate
+    _salt
+      `Prelude.hashWithSalt` disabledDate
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` enabledDate
       `Prelude.hashWithSalt` id

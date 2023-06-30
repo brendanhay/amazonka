@@ -107,14 +107,16 @@ instance Data.FromJSON Permission where
           Permission'
             Prelude.<$> (x Data..: "GranteeId")
             Prelude.<*> (x Data..: "GranteeType")
-            Prelude.<*> ( x Data..:? "PermissionValues"
+            Prelude.<*> ( x
+                            Data..:? "PermissionValues"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Permission where
   hashWithSalt _salt Permission' {..} =
-    _salt `Prelude.hashWithSalt` granteeId
+    _salt
+      `Prelude.hashWithSalt` granteeId
       `Prelude.hashWithSalt` granteeType
       `Prelude.hashWithSalt` permissionValues
 

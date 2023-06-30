@@ -116,7 +116,8 @@ instance Data.FromJSON Member where
 
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
-    _salt `Prelude.hashWithSalt` disabledDate
+    _salt
+      `Prelude.hashWithSalt` disabledDate
       `Prelude.hashWithSalt` enabledDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

@@ -87,7 +87,8 @@ instance Data.FromJSON DnsRecord where
 
 instance Prelude.Hashable DnsRecord where
   hashWithSalt _salt DnsRecord' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 

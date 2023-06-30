@@ -122,7 +122,8 @@ instance Core.AWSRequest DescribeResource where
 
 instance Prelude.Hashable DescribeResource where
   hashWithSalt _salt DescribeResource' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DescribeResource where

@@ -158,7 +158,8 @@ instance Core.AWSRequest CreateImpersonationRole where
 
 instance Prelude.Hashable CreateImpersonationRole where
   hashWithSalt _salt CreateImpersonationRole' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` name

@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     UpdateAvailabilityConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` ewsProvider
+      _salt
+        `Prelude.hashWithSalt` ewsProvider
         `Prelude.hashWithSalt` lambdaProvider
         `Prelude.hashWithSalt` organizationId
         `Prelude.hashWithSalt` domainName

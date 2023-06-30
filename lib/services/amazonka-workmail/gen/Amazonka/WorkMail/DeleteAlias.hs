@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteAlias where
 
 instance Prelude.Hashable DeleteAlias where
   hashWithSalt _salt DeleteAlias' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` alias
 

@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     DeleteAvailabilityConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` organizationId
+      _salt
+        `Prelude.hashWithSalt` organizationId
         `Prelude.hashWithSalt` domainName
 
 instance

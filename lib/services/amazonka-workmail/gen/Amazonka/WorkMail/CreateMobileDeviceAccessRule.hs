@@ -239,7 +239,8 @@ instance
     CreateMobileDeviceAccessRule
   where
   hashWithSalt _salt CreateMobileDeviceAccessRule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceModels
       `Prelude.hashWithSalt` deviceOperatingSystems

@@ -149,7 +149,8 @@ instance Core.AWSRequest GetAccessControlEffect where
 
 instance Prelude.Hashable GetAccessControlEffect where
   hashWithSalt _salt GetAccessControlEffect' {..} =
-    _salt `Prelude.hashWithSalt` impersonationRoleId
+    _salt
+      `Prelude.hashWithSalt` impersonationRoleId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` ipAddress

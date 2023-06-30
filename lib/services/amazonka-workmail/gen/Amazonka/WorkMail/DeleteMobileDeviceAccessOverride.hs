@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     DeleteMobileDeviceAccessOverride' {..} =
-      _salt `Prelude.hashWithSalt` organizationId
+      _salt
+        `Prelude.hashWithSalt` organizationId
         `Prelude.hashWithSalt` userId
         `Prelude.hashWithSalt` deviceId
 

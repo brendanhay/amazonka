@@ -126,7 +126,8 @@ instance Core.AWSRequest DescribeMailboxExportJob where
 
 instance Prelude.Hashable DescribeMailboxExportJob where
   hashWithSalt _salt DescribeMailboxExportJob' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` organizationId
 
 instance Prelude.NFData DescribeMailboxExportJob where

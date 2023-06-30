@@ -376,53 +376,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The directory is already in use by another WorkMail organization in the
 -- same account and Region.
-_DirectoryInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryInUseException =
   Core._MatchServiceError
     defaultService
@@ -430,7 +430,7 @@ _DirectoryInUseException =
 
 -- | The directory service doesn\'t recognize the credentials supplied by
 -- WorkMail.
-_DirectoryServiceAuthenticationFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryServiceAuthenticationFailedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryServiceAuthenticationFailedException =
   Core._MatchServiceError
     defaultService
@@ -438,7 +438,7 @@ _DirectoryServiceAuthenticationFailedException =
 
 -- | The directory is unavailable. It might be located in another Region or
 -- deleted.
-_DirectoryUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DirectoryUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DirectoryUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -446,7 +446,7 @@ _DirectoryUnavailableException =
 
 -- | The email address that you\'re trying to assign is already created for a
 -- different user, group, or resource.
-_EmailAddressInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EmailAddressInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EmailAddressInUseException =
   Core._MatchServiceError
     defaultService
@@ -454,7 +454,7 @@ _EmailAddressInUseException =
 
 -- | The user, group, or resource that you\'re trying to register is already
 -- registered.
-_EntityAlreadyRegisteredException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EntityAlreadyRegisteredException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntityAlreadyRegisteredException =
   Core._MatchServiceError
     defaultService
@@ -462,7 +462,7 @@ _EntityAlreadyRegisteredException =
 
 -- | The identifier supplied for the user, group, or resource does not exist
 -- in your organization.
-_EntityNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EntityNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntityNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -470,7 +470,7 @@ _EntityNotFoundException =
 
 -- | You are performing an operation on a user, group, or resource that
 -- isn\'t in the expected state, such as trying to delete an active user.
-_EntityStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EntityStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntityStateException =
   Core._MatchServiceError
     defaultService
@@ -479,7 +479,7 @@ _EntityStateException =
 -- | The configuration for a resource isn\'t valid. A resource must either be
 -- able to auto-respond to requests or have at least one delegate
 -- associated that can do so on its behalf.
-_InvalidConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidConfigurationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -489,7 +489,7 @@ _InvalidConfigurationException =
 -- error message lists the invalid setting. For examples of invalid
 -- settings, refer to
 -- <https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html CreateReceiptRule>.
-_InvalidCustomSesConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidCustomSesConfigurationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidCustomSesConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -497,7 +497,7 @@ _InvalidCustomSesConfigurationException =
 
 -- | One or more of the input parameters don\'t match the service\'s
 -- restrictions.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -505,14 +505,14 @@ _InvalidParameterException =
 
 -- | The supplied password doesn\'t match the minimum security constraints,
 -- such as length or use of special characters.
-_InvalidPasswordException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPasswordException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPasswordException =
   Core._MatchServiceError
     defaultService
     "InvalidPasswordException"
 
 -- | The request exceeds the limit of the resource.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -520,14 +520,14 @@ _LimitExceededException =
 
 -- | The domain you\'re trying to change is in use by another user or
 -- organization in your account. See the error message for details.
-_MailDomainInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MailDomainInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MailDomainInUseException =
   Core._MatchServiceError
     defaultService
     "MailDomainInUseException"
 
 -- | The domain specified is not found in your organization.
-_MailDomainNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MailDomainNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MailDomainNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -535,14 +535,14 @@ _MailDomainNotFoundException =
 
 -- | After a domain has been added to the organization, it must be verified.
 -- The domain is not yet verified.
-_MailDomainStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MailDomainStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MailDomainStateException =
   Core._MatchServiceError
     defaultService
     "MailDomainStateException"
 
 -- | The user, group, or resource name isn\'t unique in WorkMail.
-_NameAvailabilityException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NameAvailabilityException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NameAvailabilityException =
   Core._MatchServiceError
     defaultService
@@ -550,7 +550,7 @@ _NameAvailabilityException =
 
 -- | An operation received a valid organization identifier that either
 -- doesn\'t belong or exist in the system.
-_OrganizationNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OrganizationNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OrganizationNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -558,35 +558,35 @@ _OrganizationNotFoundException =
 
 -- | The organization must have a valid state to perform certain operations
 -- on the organization or its members.
-_OrganizationStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OrganizationStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OrganizationStateException =
   Core._MatchServiceError
     defaultService
     "OrganizationStateException"
 
 -- | This user, group, or resource name is not allowed in WorkMail.
-_ReservedNameException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReservedNameException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReservedNameException =
   Core._MatchServiceError
     defaultService
     "ReservedNameException"
 
 -- | The resource cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The resource can have up to 50 user-applied tags.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | You can\'t perform a write operation against a read-only directory.
-_UnsupportedOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService

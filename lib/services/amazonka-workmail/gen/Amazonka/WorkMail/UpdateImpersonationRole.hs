@@ -154,7 +154,8 @@ instance Core.AWSRequest UpdateImpersonationRole where
 
 instance Prelude.Hashable UpdateImpersonationRole where
   hashWithSalt _salt UpdateImpersonationRole' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` impersonationRoleId
       `Prelude.hashWithSalt` name

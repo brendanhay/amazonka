@@ -156,7 +156,8 @@ instance Core.AWSRequest PutMailboxPermissions where
 
 instance Prelude.Hashable PutMailboxPermissions where
   hashWithSalt _salt PutMailboxPermissions' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` granteeId
       `Prelude.hashWithSalt` permissionValues

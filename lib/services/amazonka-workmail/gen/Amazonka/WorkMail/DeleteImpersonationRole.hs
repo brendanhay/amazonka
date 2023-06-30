@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteImpersonationRole where
 
 instance Prelude.Hashable DeleteImpersonationRole where
   hashWithSalt _salt DeleteImpersonationRole' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` impersonationRoleId
 
 instance Prelude.NFData DeleteImpersonationRole where

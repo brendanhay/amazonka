@@ -105,7 +105,8 @@ instance Data.FromJSON ImpersonationRole where
 
 instance Prelude.Hashable ImpersonationRole where
   hashWithSalt _salt ImpersonationRole' {..} =
-    _salt `Prelude.hashWithSalt` dateCreated
+    _salt
+      `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateModified
       `Prelude.hashWithSalt` impersonationRoleId
       `Prelude.hashWithSalt` name

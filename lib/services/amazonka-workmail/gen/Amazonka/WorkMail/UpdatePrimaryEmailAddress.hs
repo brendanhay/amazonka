@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdatePrimaryEmailAddress where
 
 instance Prelude.Hashable UpdatePrimaryEmailAddress where
   hashWithSalt _salt UpdatePrimaryEmailAddress' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` email
 

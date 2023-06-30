@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateResource where
 
 instance Prelude.Hashable UpdateResource where
   hashWithSalt _salt UpdateResource' {..} =
-    _salt `Prelude.hashWithSalt` bookingOptions
+    _salt
+      `Prelude.hashWithSalt` bookingOptions
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` resourceId

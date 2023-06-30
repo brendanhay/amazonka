@@ -110,7 +110,8 @@ instance Core.AWSRequest RenewOffering where
 
 instance Prelude.Hashable RenewOffering where
   hashWithSalt _salt RenewOffering' {..} =
-    _salt `Prelude.hashWithSalt` offeringId
+    _salt
+      `Prelude.hashWithSalt` offeringId
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData RenewOffering where

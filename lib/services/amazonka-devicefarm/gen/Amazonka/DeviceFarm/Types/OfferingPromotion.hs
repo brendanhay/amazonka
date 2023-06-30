@@ -74,7 +74,8 @@ instance Data.FromJSON OfferingPromotion where
 
 instance Prelude.Hashable OfferingPromotion where
   hashWithSalt _salt OfferingPromotion' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData OfferingPromotion where

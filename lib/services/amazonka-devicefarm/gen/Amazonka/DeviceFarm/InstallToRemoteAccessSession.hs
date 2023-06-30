@@ -119,7 +119,8 @@ instance
     InstallToRemoteAccessSession
   where
   hashWithSalt _salt InstallToRemoteAccessSession' {..} =
-    _salt `Prelude.hashWithSalt` remoteAccessSessionArn
+    _salt
+      `Prelude.hashWithSalt` remoteAccessSessionArn
       `Prelude.hashWithSalt` appArn
 
 instance Prelude.NFData InstallToRemoteAccessSession where

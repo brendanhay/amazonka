@@ -494,7 +494,8 @@ instance Data.FromJSON RemoteAccessSession where
 
 instance Prelude.Hashable RemoteAccessSession where
   hashWithSalt _salt RemoteAccessSession' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` billingMethod
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` created

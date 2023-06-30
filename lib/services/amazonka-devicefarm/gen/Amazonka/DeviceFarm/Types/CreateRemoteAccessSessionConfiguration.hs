@@ -73,7 +73,8 @@ instance
   hashWithSalt
     _salt
     CreateRemoteAccessSessionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` billingMethod
+      _salt
+        `Prelude.hashWithSalt` billingMethod
         `Prelude.hashWithSalt` vpceConfigurationArns
 
 instance

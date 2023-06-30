@@ -119,7 +119,8 @@ instance Data.FromJSON TestGridSession where
 
 instance Prelude.Hashable TestGridSession where
   hashWithSalt _salt TestGridSession' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` billingMinutes
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` ended

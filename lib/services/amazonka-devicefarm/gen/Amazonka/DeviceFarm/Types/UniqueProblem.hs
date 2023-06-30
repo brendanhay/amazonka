@@ -75,7 +75,8 @@ instance Data.FromJSON UniqueProblem where
 
 instance Prelude.Hashable UniqueProblem where
   hashWithSalt _salt UniqueProblem' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` problems
 
 instance Prelude.NFData UniqueProblem where

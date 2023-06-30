@@ -107,22 +107,22 @@ instance Core.AWSPager ListRemoteAccessSessions where
     | Core.stop
         ( rs
             Lens.^? listRemoteAccessSessionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRemoteAccessSessionsResponse_remoteAccessSessions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRemoteAccessSessions_nextToken
           Lens..~ rs
           Lens.^? listRemoteAccessSessionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRemoteAccessSessions where
   type
@@ -135,7 +135,8 @@ instance Core.AWSRequest ListRemoteAccessSessions where
       ( \s h x ->
           ListRemoteAccessSessionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "remoteAccessSessions"
+            Prelude.<*> ( x
+                            Data..?> "remoteAccessSessions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,7 +144,8 @@ instance Core.AWSRequest ListRemoteAccessSessions where
 
 instance Prelude.Hashable ListRemoteAccessSessions where
   hashWithSalt _salt ListRemoteAccessSessions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListRemoteAccessSessions where

@@ -157,7 +157,8 @@ scheduleRunConfiguration_vpceConfigurationArns = Lens.lens (\ScheduleRunConfigur
 
 instance Prelude.Hashable ScheduleRunConfiguration where
   hashWithSalt _salt ScheduleRunConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` auxiliaryApps
+    _salt
+      `Prelude.hashWithSalt` auxiliaryApps
       `Prelude.hashWithSalt` billingMethod
       `Prelude.hashWithSalt` customerArtifactPaths
       `Prelude.hashWithSalt` extraDataPackageArn

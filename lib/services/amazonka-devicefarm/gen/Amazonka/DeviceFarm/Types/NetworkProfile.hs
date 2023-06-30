@@ -200,7 +200,8 @@ instance Data.FromJSON NetworkProfile where
 
 instance Prelude.Hashable NetworkProfile where
   hashWithSalt _salt NetworkProfile' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` downlinkBandwidthBits
       `Prelude.hashWithSalt` downlinkDelayMs

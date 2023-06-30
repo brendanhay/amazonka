@@ -161,7 +161,8 @@ instance Core.AWSRequest UpdateInstanceProfile where
 
 instance Prelude.Hashable UpdateInstanceProfile where
   hashWithSalt _salt UpdateInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` excludeAppPackagesFromCleanup
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` packageCleanup

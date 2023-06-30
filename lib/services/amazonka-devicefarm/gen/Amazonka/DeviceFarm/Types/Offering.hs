@@ -101,7 +101,8 @@ instance Data.FromJSON Offering where
             Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "platform")
-            Prelude.<*> ( x Data..:? "recurringCharges"
+            Prelude.<*> ( x
+                            Data..:? "recurringCharges"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "type")
@@ -109,7 +110,8 @@ instance Data.FromJSON Offering where
 
 instance Prelude.Hashable Offering where
   hashWithSalt _salt Offering' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` recurringCharges

@@ -103,22 +103,22 @@ instance Core.AWSPager ListVPCEConfigurations where
     | Core.stop
         ( rs
             Lens.^? listVPCEConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listVPCEConfigurationsResponse_vpceConfigurations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listVPCEConfigurations_nextToken
           Lens..~ rs
           Lens.^? listVPCEConfigurationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVPCEConfigurations where
   type
@@ -131,7 +131,8 @@ instance Core.AWSRequest ListVPCEConfigurations where
       ( \s h x ->
           ListVPCEConfigurationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "vpceConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "vpceConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -139,7 +140,8 @@ instance Core.AWSRequest ListVPCEConfigurations where
 
 instance Prelude.Hashable ListVPCEConfigurations where
   hashWithSalt _salt ListVPCEConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVPCEConfigurations where

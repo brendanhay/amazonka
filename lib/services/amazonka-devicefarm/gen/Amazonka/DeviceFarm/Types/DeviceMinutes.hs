@@ -94,7 +94,8 @@ instance Data.FromJSON DeviceMinutes where
 
 instance Prelude.Hashable DeviceMinutes where
   hashWithSalt _salt DeviceMinutes' {..} =
-    _salt `Prelude.hashWithSalt` metered
+    _salt
+      `Prelude.hashWithSalt` metered
       `Prelude.hashWithSalt` total
       `Prelude.hashWithSalt` unmetered
 

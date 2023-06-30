@@ -232,7 +232,8 @@ instance Core.AWSRequest CreateNetworkProfile where
 
 instance Prelude.Hashable CreateNetworkProfile where
   hashWithSalt _salt CreateNetworkProfile' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` downlinkBandwidthBits
       `Prelude.hashWithSalt` downlinkDelayMs
       `Prelude.hashWithSalt` downlinkJitterMs

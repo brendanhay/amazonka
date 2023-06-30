@@ -161,17 +161,20 @@ instance Data.FromJSON AccountSettings where
             Prelude.<*> (x Data..:? "maxSlots" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "skipAppResign")
             Prelude.<*> (x Data..:? "trialMinutes")
-            Prelude.<*> ( x Data..:? "unmeteredDevices"
+            Prelude.<*> ( x
+                            Data..:? "unmeteredDevices"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "unmeteredRemoteAccessDevices"
+            Prelude.<*> ( x
+                            Data..:? "unmeteredRemoteAccessDevices"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AccountSettings where
   hashWithSalt _salt AccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountNumber
+    _salt
+      `Prelude.hashWithSalt` awsAccountNumber
       `Prelude.hashWithSalt` defaultJobTimeoutMinutes
       `Prelude.hashWithSalt` maxJobTimeoutMinutes
       `Prelude.hashWithSalt` maxSlots

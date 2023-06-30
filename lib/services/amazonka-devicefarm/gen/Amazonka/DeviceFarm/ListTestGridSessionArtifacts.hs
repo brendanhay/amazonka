@@ -128,7 +128,8 @@ instance
     ListTestGridSessionArtifacts
   where
   hashWithSalt _salt ListTestGridSessionArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` maxResult
+    _salt
+      `Prelude.hashWithSalt` maxResult
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` sessionArn

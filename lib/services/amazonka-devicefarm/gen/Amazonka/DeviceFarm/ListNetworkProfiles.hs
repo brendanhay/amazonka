@@ -116,22 +116,22 @@ instance Core.AWSPager ListNetworkProfiles where
     | Core.stop
         ( rs
             Lens.^? listNetworkProfilesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listNetworkProfilesResponse_networkProfiles
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listNetworkProfiles_nextToken
           Lens..~ rs
           Lens.^? listNetworkProfilesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNetworkProfiles where
   type
@@ -143,7 +143,8 @@ instance Core.AWSRequest ListNetworkProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListNetworkProfilesResponse'
-            Prelude.<$> ( x Data..?> "networkProfiles"
+            Prelude.<$> ( x
+                            Data..?> "networkProfiles"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -152,7 +153,8 @@ instance Core.AWSRequest ListNetworkProfiles where
 
 instance Prelude.Hashable ListNetworkProfiles where
   hashWithSalt _salt ListNetworkProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` arn
 

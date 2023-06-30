@@ -315,7 +315,8 @@ instance Core.AWSRequest CreateRemoteAccessSession where
 
 instance Prelude.Hashable CreateRemoteAccessSession where
   hashWithSalt _salt CreateRemoteAccessSession' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` interactionMode

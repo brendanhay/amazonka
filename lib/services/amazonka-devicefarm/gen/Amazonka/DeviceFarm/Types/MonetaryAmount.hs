@@ -79,7 +79,8 @@ instance Data.FromJSON MonetaryAmount where
 
 instance Prelude.Hashable MonetaryAmount where
   hashWithSalt _salt MonetaryAmount' {..} =
-    _salt `Prelude.hashWithSalt` amount
+    _salt
+      `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` currencyCode
 
 instance Prelude.NFData MonetaryAmount where

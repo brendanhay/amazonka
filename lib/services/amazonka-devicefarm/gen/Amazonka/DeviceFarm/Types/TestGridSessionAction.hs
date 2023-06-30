@@ -107,7 +107,8 @@ instance Data.FromJSON TestGridSessionAction where
 
 instance Prelude.Hashable TestGridSessionAction where
   hashWithSalt _salt TestGridSessionAction' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` requestMethod
       `Prelude.hashWithSalt` started

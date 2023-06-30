@@ -152,7 +152,8 @@ instance Core.AWSRequest CreateInstanceProfile where
 
 instance Prelude.Hashable CreateInstanceProfile where
   hashWithSalt _salt CreateInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` excludeAppPackagesFromCleanup
       `Prelude.hashWithSalt` packageCleanup
       `Prelude.hashWithSalt` rebootAfterUse

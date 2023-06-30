@@ -459,7 +459,8 @@ scheduleRunTest_type = Lens.lens (\ScheduleRunTest' {type'} -> type') (\s@Schedu
 
 instance Prelude.Hashable ScheduleRunTest where
   hashWithSalt _salt ScheduleRunTest' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` testPackageArn
       `Prelude.hashWithSalt` testSpecArn

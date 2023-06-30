@@ -406,7 +406,8 @@ instance Data.FromJSON Suite where
 
 instance Prelude.Hashable Suite where
   hashWithSalt _salt Suite' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` counters
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` deviceMinutes

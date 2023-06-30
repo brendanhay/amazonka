@@ -115,7 +115,8 @@ instance Core.AWSRequest ListTestGridSessionActions where
 
 instance Prelude.Hashable ListTestGridSessionActions where
   hashWithSalt _salt ListTestGridSessionActions' {..} =
-    _salt `Prelude.hashWithSalt` maxResult
+    _salt
+      `Prelude.hashWithSalt` maxResult
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sessionArn
 

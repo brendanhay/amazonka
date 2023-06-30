@@ -106,7 +106,8 @@ instance Data.FromJSON OfferingTransaction where
 
 instance Prelude.Hashable OfferingTransaction where
   hashWithSalt _salt OfferingTransaction' {..} =
-    _salt `Prelude.hashWithSalt` cost
+    _salt
+      `Prelude.hashWithSalt` cost
       `Prelude.hashWithSalt` createdOn
       `Prelude.hashWithSalt` offeringPromotionId
       `Prelude.hashWithSalt` offeringStatus

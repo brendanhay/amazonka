@@ -132,8 +132,8 @@ instance
       ( \s h x ->
           ListRealtimeContactAnalysisSegmentsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..?> "Segments" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Segments" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     ListRealtimeContactAnalysisSegments' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` contactId

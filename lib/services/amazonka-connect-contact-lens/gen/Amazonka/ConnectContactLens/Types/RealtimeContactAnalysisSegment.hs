@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     RealtimeContactAnalysisSegment' {..} =
-      _salt `Prelude.hashWithSalt` categories
+      _salt
+        `Prelude.hashWithSalt` categories
         `Prelude.hashWithSalt` transcript
 
 instance

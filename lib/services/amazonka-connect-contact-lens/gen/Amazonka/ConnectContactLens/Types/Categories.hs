@@ -73,17 +73,20 @@ instance Data.FromJSON Categories where
       "Categories"
       ( \x ->
           Categories'
-            Prelude.<$> ( x Data..:? "MatchedCategories"
+            Prelude.<$> ( x
+                            Data..:? "MatchedCategories"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "MatchedDetails"
+            Prelude.<*> ( x
+                            Data..:? "MatchedDetails"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Categories where
   hashWithSalt _salt Categories' {..} =
-    _salt `Prelude.hashWithSalt` matchedCategories
+    _salt
+      `Prelude.hashWithSalt` matchedCategories
       `Prelude.hashWithSalt` matchedDetails
 
 instance Prelude.NFData Categories where

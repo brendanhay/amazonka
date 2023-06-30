@@ -353,7 +353,8 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationCode
+    _salt
+      `Prelude.hashWithSalt` applicationCode
       `Prelude.hashWithSalt` applicationDescription
       `Prelude.hashWithSalt` cloudWatchLoggingOptions
       `Prelude.hashWithSalt` inputs

@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     KinesisFirehoseInputDescription' {..} =
-      _salt `Prelude.hashWithSalt` resourceARN
+      _salt
+        `Prelude.hashWithSalt` resourceARN
         `Prelude.hashWithSalt` roleARN
 
 instance

@@ -80,7 +80,8 @@ kinesisFirehoseOutput_roleARN = Lens.lens (\KinesisFirehoseOutput' {roleARN} -> 
 
 instance Prelude.Hashable KinesisFirehoseOutput where
   hashWithSalt _salt KinesisFirehoseOutput' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` roleARN
 
 instance Prelude.NFData KinesisFirehoseOutput where

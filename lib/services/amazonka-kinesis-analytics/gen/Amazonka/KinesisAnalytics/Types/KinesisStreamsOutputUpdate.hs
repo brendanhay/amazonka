@@ -77,7 +77,8 @@ kinesisStreamsOutputUpdate_roleARNUpdate = Lens.lens (\KinesisStreamsOutputUpdat
 
 instance Prelude.Hashable KinesisStreamsOutputUpdate where
   hashWithSalt _salt KinesisStreamsOutputUpdate' {..} =
-    _salt `Prelude.hashWithSalt` resourceARNUpdate
+    _salt
+      `Prelude.hashWithSalt` resourceARNUpdate
       `Prelude.hashWithSalt` roleARNUpdate
 
 instance Prelude.NFData KinesisStreamsOutputUpdate where

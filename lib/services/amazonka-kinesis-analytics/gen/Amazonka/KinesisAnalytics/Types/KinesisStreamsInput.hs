@@ -76,7 +76,8 @@ kinesisStreamsInput_roleARN = Lens.lens (\KinesisStreamsInput' {roleARN} -> role
 
 instance Prelude.Hashable KinesisStreamsInput where
   hashWithSalt _salt KinesisStreamsInput' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` roleARN
 
 instance Prelude.NFData KinesisStreamsInput where

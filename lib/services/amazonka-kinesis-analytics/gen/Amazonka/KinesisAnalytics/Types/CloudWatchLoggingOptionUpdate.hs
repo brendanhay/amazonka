@@ -87,7 +87,8 @@ instance
     CloudWatchLoggingOptionUpdate
   where
   hashWithSalt _salt CloudWatchLoggingOptionUpdate' {..} =
-    _salt `Prelude.hashWithSalt` logStreamARNUpdate
+    _salt
+      `Prelude.hashWithSalt` logStreamARNUpdate
       `Prelude.hashWithSalt` roleARNUpdate
       `Prelude.hashWithSalt` cloudWatchLoggingOptionId
 

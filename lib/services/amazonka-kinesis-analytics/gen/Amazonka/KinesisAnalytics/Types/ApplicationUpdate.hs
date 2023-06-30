@@ -97,7 +97,8 @@ applicationUpdate_referenceDataSourceUpdates = Lens.lens (\ApplicationUpdate' {r
 
 instance Prelude.Hashable ApplicationUpdate where
   hashWithSalt _salt ApplicationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` applicationCodeUpdate
+    _salt
+      `Prelude.hashWithSalt` applicationCodeUpdate
       `Prelude.hashWithSalt` cloudWatchLoggingOptionUpdates
       `Prelude.hashWithSalt` inputUpdates
       `Prelude.hashWithSalt` outputUpdates

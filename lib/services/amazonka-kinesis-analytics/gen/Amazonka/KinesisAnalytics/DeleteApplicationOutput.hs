@@ -168,7 +168,8 @@ instance Core.AWSRequest DeleteApplicationOutput where
 
 instance Prelude.Hashable DeleteApplicationOutput where
   hashWithSalt _salt DeleteApplicationOutput' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` currentApplicationVersionId
       `Prelude.hashWithSalt` outputId
 

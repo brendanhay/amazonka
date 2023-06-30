@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateEnvironmentMembership where
 
 instance Prelude.Hashable CreateEnvironmentMembership where
   hashWithSalt _salt CreateEnvironmentMembership' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` userArn
       `Prelude.hashWithSalt` permissions
 

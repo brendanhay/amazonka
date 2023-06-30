@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteEnvironmentMembership where
 
 instance Prelude.Hashable DeleteEnvironmentMembership where
   hashWithSalt _salt DeleteEnvironmentMembership' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` userArn
 
 instance Prelude.NFData DeleteEnvironmentMembership where

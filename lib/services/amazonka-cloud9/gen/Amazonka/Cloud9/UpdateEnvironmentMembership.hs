@@ -142,7 +142,8 @@ instance Core.AWSRequest UpdateEnvironmentMembership where
 
 instance Prelude.Hashable UpdateEnvironmentMembership where
   hashWithSalt _salt UpdateEnvironmentMembership' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` userArn
       `Prelude.hashWithSalt` permissions
 

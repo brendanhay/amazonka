@@ -93,7 +93,8 @@ loggingConfigurationInput_workerLogs = Lens.lens (\LoggingConfigurationInput' {w
 
 instance Prelude.Hashable LoggingConfigurationInput where
   hashWithSalt _salt LoggingConfigurationInput' {..} =
-    _salt `Prelude.hashWithSalt` dagProcessingLogs
+    _salt
+      `Prelude.hashWithSalt` dagProcessingLogs
       `Prelude.hashWithSalt` schedulerLogs
       `Prelude.hashWithSalt` taskLogs
       `Prelude.hashWithSalt` webserverLogs

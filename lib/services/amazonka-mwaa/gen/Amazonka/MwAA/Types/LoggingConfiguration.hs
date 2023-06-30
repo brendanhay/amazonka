@@ -116,7 +116,8 @@ instance Data.FromJSON LoggingConfiguration where
 
 instance Prelude.Hashable LoggingConfiguration where
   hashWithSalt _salt LoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dagProcessingLogs
+    _salt
+      `Prelude.hashWithSalt` dagProcessingLogs
       `Prelude.hashWithSalt` schedulerLogs
       `Prelude.hashWithSalt` taskLogs
       `Prelude.hashWithSalt` webserverLogs

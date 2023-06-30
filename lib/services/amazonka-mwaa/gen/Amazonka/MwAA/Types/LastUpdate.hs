@@ -103,7 +103,8 @@ instance Data.FromJSON LastUpdate where
 
 instance Prelude.Hashable LastUpdate where
   hashWithSalt _salt LastUpdate' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` status

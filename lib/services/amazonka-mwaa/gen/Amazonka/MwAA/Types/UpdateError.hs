@@ -75,7 +75,8 @@ instance Data.FromJSON UpdateError where
 
 instance Prelude.Hashable UpdateError where
   hashWithSalt _salt UpdateError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData UpdateError where

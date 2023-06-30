@@ -109,7 +109,8 @@ metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@M
 
 instance Prelude.Hashable MetricDatum where
   hashWithSalt _salt MetricDatum' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` statisticValues
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` value

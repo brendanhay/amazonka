@@ -108,7 +108,8 @@ instance Core.AWSRequest PublishMetrics where
 
 instance Prelude.Hashable PublishMetrics where
   hashWithSalt _salt PublishMetrics' {..} =
-    _salt `Prelude.hashWithSalt` environmentName
+    _salt
+      `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` metricData
 
 instance Prelude.NFData PublishMetrics where

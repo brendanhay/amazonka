@@ -113,7 +113,9 @@ instance Core.AWSRequest GetStatus where
       "GetStatusResult"
       ( \s h x ->
           GetStatusResponse'
-            Prelude.<$> ( x Data..@? "ArtifactList" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "ArtifactList"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Carrier")
@@ -136,7 +138,8 @@ instance Core.AWSRequest GetStatus where
 
 instance Prelude.Hashable GetStatus where
   hashWithSalt _salt GetStatus' {..} =
-    _salt `Prelude.hashWithSalt` aPIVersion
+    _salt
+      `Prelude.hashWithSalt` aPIVersion
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetStatus where

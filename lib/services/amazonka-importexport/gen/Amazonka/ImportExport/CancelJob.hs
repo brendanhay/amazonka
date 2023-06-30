@@ -102,7 +102,8 @@ instance Core.AWSRequest CancelJob where
 
 instance Prelude.Hashable CancelJob where
   hashWithSalt _salt CancelJob' {..} =
-    _salt `Prelude.hashWithSalt` aPIVersion
+    _salt
+      `Prelude.hashWithSalt` aPIVersion
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData CancelJob where

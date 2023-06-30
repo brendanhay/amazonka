@@ -216,7 +216,8 @@ instance Core.AWSRequest GetParametersForImport where
 
 instance Prelude.Hashable GetParametersForImport where
   hashWithSalt _salt GetParametersForImport' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` wrappingAlgorithm
       `Prelude.hashWithSalt` wrappingKeySpec
 

@@ -226,7 +226,8 @@ instance Core.AWSRequest UpdatePrimaryRegion where
 
 instance Prelude.Hashable UpdatePrimaryRegion where
   hashWithSalt _salt UpdatePrimaryRegion' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` primaryRegion
 
 instance Prelude.NFData UpdatePrimaryRegion where

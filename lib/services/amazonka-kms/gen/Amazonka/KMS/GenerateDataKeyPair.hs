@@ -355,7 +355,8 @@ instance Core.AWSRequest GenerateDataKeyPair where
 
 instance Prelude.Hashable GenerateDataKeyPair where
   hashWithSalt _salt GenerateDataKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` encryptionContext
+    _salt
+      `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` keyPairSpec

@@ -179,7 +179,8 @@ instance Core.AWSRequest RetireGrant where
 
 instance Prelude.Hashable RetireGrant where
   hashWithSalt _salt RetireGrant' {..} =
-    _salt `Prelude.hashWithSalt` grantId
+    _salt
+      `Prelude.hashWithSalt` grantId
       `Prelude.hashWithSalt` grantToken
       `Prelude.hashWithSalt` keyId
 

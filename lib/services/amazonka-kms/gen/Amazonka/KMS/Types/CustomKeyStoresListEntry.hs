@@ -732,7 +732,8 @@ instance Data.FromJSON CustomKeyStoresListEntry where
 
 instance Prelude.Hashable CustomKeyStoresListEntry where
   hashWithSalt _salt CustomKeyStoresListEntry' {..} =
-    _salt `Prelude.hashWithSalt` cloudHsmClusterId
+    _salt
+      `Prelude.hashWithSalt` cloudHsmClusterId
       `Prelude.hashWithSalt` connectionErrorCode
       `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` creationDate

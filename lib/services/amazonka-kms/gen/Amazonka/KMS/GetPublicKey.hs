@@ -243,14 +243,16 @@ instance Core.AWSRequest GetPublicKey where
       ( \s h x ->
           GetPublicKeyResponse'
             Prelude.<$> (x Data..?> "CustomerMasterKeySpec")
-            Prelude.<*> ( x Data..?> "EncryptionAlgorithms"
+            Prelude.<*> ( x
+                            Data..?> "EncryptionAlgorithms"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (x Data..?> "KeySpec")
             Prelude.<*> (x Data..?> "KeyUsage")
             Prelude.<*> (x Data..?> "PublicKey")
-            Prelude.<*> ( x Data..?> "SigningAlgorithms"
+            Prelude.<*> ( x
+                            Data..?> "SigningAlgorithms"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -258,7 +260,8 @@ instance Core.AWSRequest GetPublicKey where
 
 instance Prelude.Hashable GetPublicKey where
   hashWithSalt _salt GetPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` grantTokens
+    _salt
+      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData GetPublicKey where

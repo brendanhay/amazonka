@@ -142,7 +142,8 @@ instance Core.AWSRequest GenerateRandom where
 
 instance Prelude.Hashable GenerateRandom where
   hashWithSalt _salt GenerateRandom' {..} =
-    _salt `Prelude.hashWithSalt` customKeyStoreId
+    _salt
+      `Prelude.hashWithSalt` customKeyStoreId
       `Prelude.hashWithSalt` numberOfBytes
 
 instance Prelude.NFData GenerateRandom where

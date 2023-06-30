@@ -190,20 +190,23 @@ instance Core.AWSPager ListRetirableGrants where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGrantsResponse_truncated Prelude.. Lens._Just
+            Lens.^? listGrantsResponse_truncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listGrantsResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listGrantsResponse_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRetirableGrants_marker
           Lens..~ rs
-          Lens.^? listGrantsResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listGrantsResponse_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRetirableGrants where
   type
@@ -217,7 +220,8 @@ instance Core.AWSRequest ListRetirableGrants where
 
 instance Prelude.Hashable ListRetirableGrants where
   hashWithSalt _salt ListRetirableGrants' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` retiringPrincipal
 

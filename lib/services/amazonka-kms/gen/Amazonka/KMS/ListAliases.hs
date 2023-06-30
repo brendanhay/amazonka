@@ -209,20 +209,23 @@ instance Core.AWSPager ListAliases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAliasesResponse_truncated Prelude.. Lens._Just
+            Lens.^? listAliasesResponse_truncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listAliasesResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listAliasesResponse_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAliases_marker
           Lens..~ rs
-          Lens.^? listAliasesResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listAliasesResponse_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAliases where
   type AWSResponse ListAliases = ListAliasesResponse
@@ -240,7 +243,8 @@ instance Core.AWSRequest ListAliases where
 
 instance Prelude.Hashable ListAliases where
   hashWithSalt _salt ListAliases' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
 

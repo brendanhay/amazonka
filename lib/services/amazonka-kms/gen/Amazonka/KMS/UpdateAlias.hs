@@ -228,7 +228,8 @@ instance Core.AWSRequest UpdateAlias where
 
 instance Prelude.Hashable UpdateAlias where
   hashWithSalt _salt UpdateAlias' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` targetKeyId
 
 instance Prelude.NFData UpdateAlias where

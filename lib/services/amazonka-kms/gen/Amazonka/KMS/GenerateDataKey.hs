@@ -394,7 +394,8 @@ instance Core.AWSRequest GenerateDataKey where
 
 instance Prelude.Hashable GenerateDataKey where
   hashWithSalt _salt GenerateDataKey' {..} =
-    _salt `Prelude.hashWithSalt` encryptionContext
+    _salt
+      `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keySpec
       `Prelude.hashWithSalt` numberOfBytes
@@ -511,7 +512,8 @@ newGenerateDataKeyResponse
       { httpStatus = pHttpStatus_,
         keyId = pKeyId_,
         plaintext =
-          Data._Sensitive Prelude.. Data._Base64
+          Data._Sensitive
+            Prelude.. Data._Base64
             Lens.# pPlaintext_,
         ciphertextBlob =
           Data._Base64 Lens.# pCiphertextBlob_

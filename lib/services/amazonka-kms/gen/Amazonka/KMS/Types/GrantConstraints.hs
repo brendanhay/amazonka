@@ -123,10 +123,12 @@ instance Data.FromJSON GrantConstraints where
       "GrantConstraints"
       ( \x ->
           GrantConstraints'
-            Prelude.<$> ( x Data..:? "EncryptionContextEquals"
+            Prelude.<$> ( x
+                            Data..:? "EncryptionContextEquals"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "EncryptionContextSubset"
+            Prelude.<*> ( x
+                            Data..:? "EncryptionContextSubset"
                             Data..!= Prelude.mempty
                         )
       )

@@ -231,7 +231,8 @@ instance Core.AWSRequest CreateAlias where
 
 instance Prelude.Hashable CreateAlias where
   hashWithSalt _salt CreateAlias' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` targetKeyId
 
 instance Prelude.NFData CreateAlias where

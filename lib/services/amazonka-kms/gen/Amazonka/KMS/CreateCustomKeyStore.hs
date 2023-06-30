@@ -278,7 +278,7 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
     -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@ where
     -- @v1@ represents the version of the KMS external key store proxy API.
     -- This path can include an optional prefix between the required elements
-    -- such as @\/prefix\/kms\/xks\/v1@.
+    -- such as @\/@/@prefix@/@\/kms\/xks\/v1@.
     --
     -- __Uniqueness requirements:__
     --
@@ -445,7 +445,7 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
 -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@ where
 -- @v1@ represents the version of the KMS external key store proxy API.
 -- This path can include an optional prefix between the required elements
--- such as @\/prefix\/kms\/xks\/v1@.
+-- such as @\/@/@prefix@/@\/kms\/xks\/v1@.
 --
 -- __Uniqueness requirements:__
 --
@@ -633,7 +633,7 @@ createCustomKeyStore_xksProxyUriEndpoint = Lens.lens (\CreateCustomKeyStore' {xk
 -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@ where
 -- @v1@ represents the version of the KMS external key store proxy API.
 -- This path can include an optional prefix between the required elements
--- such as @\/prefix\/kms\/xks\/v1@.
+-- such as @\/@/@prefix@/@\/kms\/xks\/v1@.
 --
 -- __Uniqueness requirements:__
 --
@@ -682,7 +682,8 @@ instance Core.AWSRequest CreateCustomKeyStore where
 
 instance Prelude.Hashable CreateCustomKeyStore where
   hashWithSalt _salt CreateCustomKeyStore' {..} =
-    _salt `Prelude.hashWithSalt` cloudHsmClusterId
+    _salt
+      `Prelude.hashWithSalt` cloudHsmClusterId
       `Prelude.hashWithSalt` customKeyStoreType
       `Prelude.hashWithSalt` keyStorePassword
       `Prelude.hashWithSalt` trustAnchorCertificate

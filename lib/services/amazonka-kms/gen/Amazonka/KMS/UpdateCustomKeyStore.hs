@@ -237,7 +237,7 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
     -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@, where
     -- @v1@ represents the version of the KMS external key store proxy API. You
     -- can include an optional prefix between the required elements such as
-    -- @\/example\/kms\/xks\/v1@.
+    -- @\/@/@example@/@\/kms\/xks\/v1@.
     --
     -- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
     -- unique in the Amazon Web Services account and Region.
@@ -358,7 +358,7 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
 -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@, where
 -- @v1@ represents the version of the KMS external key store proxy API. You
 -- can include an optional prefix between the required elements such as
--- @\/example\/kms\/xks\/v1@.
+-- @\/@/@example@/@\/kms\/xks\/v1@.
 --
 -- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
 -- unique in the Amazon Web Services account and Region.
@@ -497,7 +497,7 @@ updateCustomKeyStore_xksProxyUriEndpoint = Lens.lens (\UpdateCustomKeyStore' {xk
 -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@, where
 -- @v1@ represents the version of the KMS external key store proxy API. You
 -- can include an optional prefix between the required elements such as
--- @\/example\/kms\/xks\/v1@.
+-- @\/@/@example@/@\/kms\/xks\/v1@.
 --
 -- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
 -- unique in the Amazon Web Services account and Region.
@@ -537,7 +537,8 @@ instance Core.AWSRequest UpdateCustomKeyStore where
 
 instance Prelude.Hashable UpdateCustomKeyStore where
   hashWithSalt _salt UpdateCustomKeyStore' {..} =
-    _salt `Prelude.hashWithSalt` cloudHsmClusterId
+    _salt
+      `Prelude.hashWithSalt` cloudHsmClusterId
       `Prelude.hashWithSalt` keyStorePassword
       `Prelude.hashWithSalt` newCustomKeyStoreName'
       `Prelude.hashWithSalt` xksProxyAuthenticationCredential

@@ -76,14 +76,17 @@ instance Data.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
       Prelude.<$> (x Data..@? "Domain")
-      Prelude.<*> ( x Data..@? "Listeners" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Listeners"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "LoadBalancerName")
 
 instance Prelude.Hashable LoadBalancerDescription where
   hashWithSalt _salt LoadBalancerDescription' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` listeners
       `Prelude.hashWithSalt` loadBalancerName
 

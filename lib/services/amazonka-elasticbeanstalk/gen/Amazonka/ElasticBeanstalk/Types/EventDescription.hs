@@ -145,7 +145,8 @@ instance Data.FromXML EventDescription where
 
 instance Prelude.Hashable EventDescription where
   hashWithSalt _salt EventDescription' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` eventDate
       `Prelude.hashWithSalt` message

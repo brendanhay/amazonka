@@ -108,8 +108,8 @@ instance
       ( \s h x ->
           UpdateApplicationResourceLifecycleResponse'
             Prelude.<$> (x Data..@? "ApplicationName")
-              Prelude.<*> (x Data..@? "ResourceLifecycleConfig")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "ResourceLifecycleConfig")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     UpdateApplicationResourceLifecycle' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` resourceLifecycleConfig
 
 instance

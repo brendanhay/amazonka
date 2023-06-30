@@ -391,7 +391,8 @@ instance Core.AWSRequest CreateEnvironment where
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` cNAMEPrefix
+    _salt
+      `Prelude.hashWithSalt` cNAMEPrefix
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` groupName

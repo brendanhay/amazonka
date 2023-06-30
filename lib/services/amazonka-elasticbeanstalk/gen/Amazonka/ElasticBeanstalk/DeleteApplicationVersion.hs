@@ -120,7 +120,8 @@ instance Core.AWSRequest DeleteApplicationVersion where
 
 instance Prelude.Hashable DeleteApplicationVersion where
   hashWithSalt _salt DeleteApplicationVersion' {..} =
-    _salt `Prelude.hashWithSalt` deleteSourceBundle
+    _salt
+      `Prelude.hashWithSalt` deleteSourceBundle
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` versionLabel
 

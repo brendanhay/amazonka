@@ -101,7 +101,8 @@ instance Data.FromXML ConfigurationOptionSetting where
 
 instance Prelude.Hashable ConfigurationOptionSetting where
   hashWithSalt _salt ConfigurationOptionSetting' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` optionName
       `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` value

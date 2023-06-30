@@ -117,7 +117,8 @@ instance Data.FromXML Deployment where
 
 instance Prelude.Hashable Deployment where
   hashWithSalt _salt Deployment' {..} =
-    _salt `Prelude.hashWithSalt` deploymentId
+    _salt
+      `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` deploymentTime
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` versionLabel

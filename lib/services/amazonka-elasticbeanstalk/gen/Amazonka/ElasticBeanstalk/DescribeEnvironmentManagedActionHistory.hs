@@ -118,23 +118,23 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeEnvironmentManagedActionHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEnvironmentManagedActionHistory_nextToken
           Lens..~ rs
-            Lens.^? describeEnvironmentManagedActionHistoryResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeEnvironmentManagedActionHistoryResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -151,12 +151,13 @@ instance
       "DescribeEnvironmentManagedActionHistoryResult"
       ( \s h x ->
           DescribeEnvironmentManagedActionHistoryResponse'
-            Prelude.<$> ( x Data..@? "ManagedActionHistoryItems"
+            Prelude.<$> ( x
+                            Data..@? "ManagedActionHistoryItems"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList1 "member")
                         )
-              Prelude.<*> (x Data..@? "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -166,7 +167,8 @@ instance
   hashWithSalt
     _salt
     DescribeEnvironmentManagedActionHistory' {..} =
-      _salt `Prelude.hashWithSalt` environmentId
+      _salt
+        `Prelude.hashWithSalt` environmentId
         `Prelude.hashWithSalt` environmentName
         `Prelude.hashWithSalt` maxItems
         `Prelude.hashWithSalt` nextToken

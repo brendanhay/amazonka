@@ -159,7 +159,8 @@ instance
       "DescribeConfigurationSettingsResult"
       ( \s h x ->
           DescribeConfigurationSettingsResponse'
-            Prelude.<$> ( x Data..@? "ConfigurationSettings"
+            Prelude.<$> ( x
+                            Data..@? "ConfigurationSettings"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -171,7 +172,8 @@ instance
     DescribeConfigurationSettings
   where
   hashWithSalt _salt DescribeConfigurationSettings' {..} =
-    _salt `Prelude.hashWithSalt` environmentName
+    _salt
+      `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` applicationName
 

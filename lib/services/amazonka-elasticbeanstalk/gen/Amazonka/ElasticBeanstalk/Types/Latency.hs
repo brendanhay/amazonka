@@ -155,7 +155,8 @@ instance Data.FromXML Latency where
 
 instance Prelude.Hashable Latency where
   hashWithSalt _salt Latency' {..} =
-    _salt `Prelude.hashWithSalt` p10
+    _salt
+      `Prelude.hashWithSalt` p10
       `Prelude.hashWithSalt` p50
       `Prelude.hashWithSalt` p75
       `Prelude.hashWithSalt` p85

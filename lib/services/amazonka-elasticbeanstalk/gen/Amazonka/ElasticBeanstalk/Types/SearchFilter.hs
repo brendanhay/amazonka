@@ -94,7 +94,8 @@ searchFilter_values = Lens.lens (\SearchFilter' {values} -> values) (\s@SearchFi
 
 instance Prelude.Hashable SearchFilter where
   hashWithSalt _salt SearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` values
 

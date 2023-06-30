@@ -126,7 +126,8 @@ instance Data.FromXML ApplicationDescription where
     ApplicationDescription'
       Prelude.<$> (x Data..@? "ApplicationArn")
       Prelude.<*> (x Data..@? "ApplicationName")
-      Prelude.<*> ( x Data..@? "ConfigurationTemplates"
+      Prelude.<*> ( x
+                      Data..@? "ConfigurationTemplates"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -134,13 +135,16 @@ instance Data.FromXML ApplicationDescription where
       Prelude.<*> (x Data..@? "DateUpdated")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "ResourceLifecycleConfig")
-      Prelude.<*> ( x Data..@? "Versions" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Versions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable ApplicationDescription where
   hashWithSalt _salt ApplicationDescription' {..} =
-    _salt `Prelude.hashWithSalt` applicationArn
+    _salt
+      `Prelude.hashWithSalt` applicationArn
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` configurationTemplates
       `Prelude.hashWithSalt` dateCreated

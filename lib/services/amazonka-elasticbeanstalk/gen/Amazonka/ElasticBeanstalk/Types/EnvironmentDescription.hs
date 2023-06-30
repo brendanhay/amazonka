@@ -378,7 +378,8 @@ instance Data.FromXML EnvironmentDescription where
       Prelude.<*> (x Data..@? "EndpointURL")
       Prelude.<*> (x Data..@? "EnvironmentArn")
       Prelude.<*> (x Data..@? "EnvironmentId")
-      Prelude.<*> ( x Data..@? "EnvironmentLinks"
+      Prelude.<*> ( x
+                      Data..@? "EnvironmentLinks"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )

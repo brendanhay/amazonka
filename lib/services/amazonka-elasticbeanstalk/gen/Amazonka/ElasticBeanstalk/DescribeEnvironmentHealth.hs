@@ -136,7 +136,9 @@ instance Core.AWSRequest DescribeEnvironmentHealth where
       ( \s h x ->
           DescribeEnvironmentHealthResponse'
             Prelude.<$> (x Data..@? "ApplicationMetrics")
-            Prelude.<*> ( x Data..@? "Causes" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Causes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Color")
@@ -150,7 +152,8 @@ instance Core.AWSRequest DescribeEnvironmentHealth where
 
 instance Prelude.Hashable DescribeEnvironmentHealth where
   hashWithSalt _salt DescribeEnvironmentHealth' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName
 

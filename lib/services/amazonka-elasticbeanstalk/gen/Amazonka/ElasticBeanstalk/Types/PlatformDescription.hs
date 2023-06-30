@@ -265,13 +265,17 @@ platformDescription_supportedTierList = Lens.lens (\PlatformDescription' {suppor
 instance Data.FromXML PlatformDescription where
   parseXML x =
     PlatformDescription'
-      Prelude.<$> ( x Data..@? "CustomAmiList" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "CustomAmiList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "DateCreated")
       Prelude.<*> (x Data..@? "DateUpdated")
       Prelude.<*> (x Data..@? "Description")
-      Prelude.<*> ( x Data..@? "Frameworks" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Frameworks"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Maintainer")
@@ -286,23 +290,27 @@ instance Data.FromXML PlatformDescription where
       Prelude.<*> (x Data..@? "PlatformOwner")
       Prelude.<*> (x Data..@? "PlatformStatus")
       Prelude.<*> (x Data..@? "PlatformVersion")
-      Prelude.<*> ( x Data..@? "ProgrammingLanguages"
+      Prelude.<*> ( x
+                      Data..@? "ProgrammingLanguages"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "SolutionStackName")
-      Prelude.<*> ( x Data..@? "SupportedAddonList"
+      Prelude.<*> ( x
+                      Data..@? "SupportedAddonList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "SupportedTierList"
+      Prelude.<*> ( x
+                      Data..@? "SupportedTierList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable PlatformDescription where
   hashWithSalt _salt PlatformDescription' {..} =
-    _salt `Prelude.hashWithSalt` customAmiList
+    _salt
+      `Prelude.hashWithSalt` customAmiList
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateUpdated
       `Prelude.hashWithSalt` description

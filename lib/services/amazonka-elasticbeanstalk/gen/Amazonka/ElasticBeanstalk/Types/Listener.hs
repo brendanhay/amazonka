@@ -70,7 +70,8 @@ instance Data.FromXML Listener where
 
 instance Prelude.Hashable Listener where
   hashWithSalt _salt Listener' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` protocol
 
 instance Prelude.NFData Listener where

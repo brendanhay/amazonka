@@ -120,7 +120,8 @@ instance Core.AWSRequest RebuildEnvironment where
 
 instance Prelude.Hashable RebuildEnvironment where
   hashWithSalt _salt RebuildEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData RebuildEnvironment where

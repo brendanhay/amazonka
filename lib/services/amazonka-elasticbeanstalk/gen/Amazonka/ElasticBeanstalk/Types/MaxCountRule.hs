@@ -86,7 +86,8 @@ instance Data.FromXML MaxCountRule where
 
 instance Prelude.Hashable MaxCountRule where
   hashWithSalt _salt MaxCountRule' {..} =
-    _salt `Prelude.hashWithSalt` deleteSourceFromS3
+    _salt
+      `Prelude.hashWithSalt` deleteSourceFromS3
       `Prelude.hashWithSalt` maxCount
       `Prelude.hashWithSalt` enabled
 

@@ -134,7 +134,8 @@ instance Data.FromXML ManagedActionHistoryItem where
 
 instance Prelude.Hashable ManagedActionHistoryItem where
   hashWithSalt _salt ManagedActionHistoryItem' {..} =
-    _salt `Prelude.hashWithSalt` actionDescription
+    _salt
+      `Prelude.hashWithSalt` actionDescription
       `Prelude.hashWithSalt` actionId
       `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` executedTime

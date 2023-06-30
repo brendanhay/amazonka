@@ -153,7 +153,8 @@ instance Data.FromXML InstanceHealthSummary where
 
 instance Prelude.Hashable InstanceHealthSummary where
   hashWithSalt _salt InstanceHealthSummary' {..} =
-    _salt `Prelude.hashWithSalt` degraded
+    _salt
+      `Prelude.hashWithSalt` degraded
       `Prelude.hashWithSalt` info
       `Prelude.hashWithSalt` noData
       `Prelude.hashWithSalt` ok

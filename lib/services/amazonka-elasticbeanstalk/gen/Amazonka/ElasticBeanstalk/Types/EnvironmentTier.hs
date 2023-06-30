@@ -128,7 +128,8 @@ instance Data.FromXML EnvironmentTier where
 
 instance Prelude.Hashable EnvironmentTier where
   hashWithSalt _salt EnvironmentTier' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` version
 

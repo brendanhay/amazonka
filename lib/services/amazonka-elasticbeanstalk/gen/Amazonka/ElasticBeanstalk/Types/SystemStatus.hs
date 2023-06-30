@@ -73,13 +73,16 @@ instance Data.FromXML SystemStatus where
   parseXML x =
     SystemStatus'
       Prelude.<$> (x Data..@? "CPUUtilization")
-      Prelude.<*> ( x Data..@? "LoadAverage" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "LoadAverage"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable SystemStatus where
   hashWithSalt _salt SystemStatus' {..} =
-    _salt `Prelude.hashWithSalt` cPUUtilization
+    _salt
+      `Prelude.hashWithSalt` cPUUtilization
       `Prelude.hashWithSalt` loadAverage
 
 instance Prelude.NFData SystemStatus where

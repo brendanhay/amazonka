@@ -86,7 +86,8 @@ instance Data.FromXML MaxAgeRule where
 
 instance Prelude.Hashable MaxAgeRule where
   hashWithSalt _salt MaxAgeRule' {..} =
-    _salt `Prelude.hashWithSalt` deleteSourceFromS3
+    _salt
+      `Prelude.hashWithSalt` deleteSourceFromS3
       `Prelude.hashWithSalt` maxAgeInDays
       `Prelude.hashWithSalt` enabled
 

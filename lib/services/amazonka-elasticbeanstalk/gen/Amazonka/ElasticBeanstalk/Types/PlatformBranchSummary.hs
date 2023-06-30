@@ -127,14 +127,16 @@ instance Data.FromXML PlatformBranchSummary where
       Prelude.<*> (x Data..@? "BranchOrder")
       Prelude.<*> (x Data..@? "LifecycleState")
       Prelude.<*> (x Data..@? "PlatformName")
-      Prelude.<*> ( x Data..@? "SupportedTierList"
+      Prelude.<*> ( x
+                      Data..@? "SupportedTierList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable PlatformBranchSummary where
   hashWithSalt _salt PlatformBranchSummary' {..} =
-    _salt `Prelude.hashWithSalt` branchName
+    _salt
+      `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` branchOrder
       `Prelude.hashWithSalt` lifecycleState
       `Prelude.hashWithSalt` platformName

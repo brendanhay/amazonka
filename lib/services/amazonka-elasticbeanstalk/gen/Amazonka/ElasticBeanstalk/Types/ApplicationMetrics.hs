@@ -110,7 +110,8 @@ instance Data.FromXML ApplicationMetrics where
 
 instance Prelude.Hashable ApplicationMetrics where
   hashWithSalt _salt ApplicationMetrics' {..} =
-    _salt `Prelude.hashWithSalt` duration
+    _salt
+      `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` latency
       `Prelude.hashWithSalt` requestCount
       `Prelude.hashWithSalt` statusCodes

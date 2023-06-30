@@ -191,18 +191,21 @@ instance Data.FromXML PlatformSummary where
       Prelude.<*> (x Data..@? "PlatformOwner")
       Prelude.<*> (x Data..@? "PlatformStatus")
       Prelude.<*> (x Data..@? "PlatformVersion")
-      Prelude.<*> ( x Data..@? "SupportedAddonList"
+      Prelude.<*> ( x
+                      Data..@? "SupportedAddonList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "SupportedTierList"
+      Prelude.<*> ( x
+                      Data..@? "SupportedTierList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable PlatformSummary where
   hashWithSalt _salt PlatformSummary' {..} =
-    _salt `Prelude.hashWithSalt` operatingSystemName
+    _salt
+      `Prelude.hashWithSalt` operatingSystemName
       `Prelude.hashWithSalt` operatingSystemVersion
       `Prelude.hashWithSalt` platformArn
       `Prelude.hashWithSalt` platformBranchLifecycleState

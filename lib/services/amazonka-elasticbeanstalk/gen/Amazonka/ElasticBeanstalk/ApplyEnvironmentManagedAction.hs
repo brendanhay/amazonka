@@ -130,7 +130,8 @@ instance
     ApplyEnvironmentManagedAction
   where
   hashWithSalt _salt ApplyEnvironmentManagedAction' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` actionId
 

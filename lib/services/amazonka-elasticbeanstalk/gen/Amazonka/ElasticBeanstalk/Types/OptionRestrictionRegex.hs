@@ -74,7 +74,8 @@ instance Data.FromXML OptionRestrictionRegex where
 
 instance Prelude.Hashable OptionRestrictionRegex where
   hashWithSalt _salt OptionRestrictionRegex' {..} =
-    _salt `Prelude.hashWithSalt` label
+    _salt
+      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` pattern'
 
 instance Prelude.NFData OptionRestrictionRegex where

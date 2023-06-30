@@ -140,7 +140,8 @@ localSecondaryIndex_projection = Lens.lens (\LocalSecondaryIndex' {projection} -
 
 instance Prelude.Hashable LocalSecondaryIndex where
   hashWithSalt _salt LocalSecondaryIndex' {..} =
-    _salt `Prelude.hashWithSalt` indexName
+    _salt
+      `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` keySchema
       `Prelude.hashWithSalt` projection
 

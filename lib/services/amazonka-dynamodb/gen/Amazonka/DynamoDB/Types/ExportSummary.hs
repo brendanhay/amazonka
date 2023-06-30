@@ -80,7 +80,8 @@ instance Data.FromJSON ExportSummary where
 
 instance Prelude.Hashable ExportSummary where
   hashWithSalt _salt ExportSummary' {..} =
-    _salt `Prelude.hashWithSalt` exportArn
+    _salt
+      `Prelude.hashWithSalt` exportArn
       `Prelude.hashWithSalt` exportStatus
 
 instance Prelude.NFData ExportSummary where

@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     UpdateGlobalSecondaryIndexAction' {..} =
-      _salt `Prelude.hashWithSalt` indexName
+      _salt
+        `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` provisionedThroughput
 
 instance

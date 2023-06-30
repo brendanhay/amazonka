@@ -128,7 +128,8 @@ instance Core.AWSRequest TransactGetItems where
     Response.receiveJSON
       ( \s h x ->
           TransactGetItemsResponse'
-            Prelude.<$> ( x Data..?> "ConsumedCapacity"
+            Prelude.<$> ( x
+                            Data..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Responses")
@@ -137,7 +138,8 @@ instance Core.AWSRequest TransactGetItems where
 
 instance Prelude.Hashable TransactGetItems where
   hashWithSalt _salt TransactGetItems' {..} =
-    _salt `Prelude.hashWithSalt` returnConsumedCapacity
+    _salt
+      `Prelude.hashWithSalt` returnConsumedCapacity
       `Prelude.hashWithSalt` transactItems
 
 instance Prelude.NFData TransactGetItems where

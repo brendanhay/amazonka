@@ -313,7 +313,8 @@ instance Core.AWSRequest UpdateTable where
 
 instance Prelude.Hashable UpdateTable where
   hashWithSalt _salt UpdateTable' {..} =
-    _salt `Prelude.hashWithSalt` attributeDefinitions
+    _salt
+      `Prelude.hashWithSalt` attributeDefinitions
       `Prelude.hashWithSalt` billingMode
       `Prelude.hashWithSalt` globalSecondaryIndexUpdates
       `Prelude.hashWithSalt` provisionedThroughput

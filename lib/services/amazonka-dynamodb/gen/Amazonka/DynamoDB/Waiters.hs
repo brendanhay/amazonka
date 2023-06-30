@@ -35,7 +35,8 @@ newTableExists =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
-            ( describeTableResponse_table Prelude.. Lens._Just
+            ( describeTableResponse_table
+                Prelude.. Lens._Just
                 Prelude.. tableDescription_tableStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI

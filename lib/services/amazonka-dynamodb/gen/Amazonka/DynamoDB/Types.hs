@@ -1116,81 +1116,81 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "TransactionInProgressException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "still_processing"
+          Prelude.Just "still_processing"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | There is another ongoing conflicting backup control plane operation on
 -- the table. The backup is either being created, deleted or restored to a
 -- table.
-_BackupInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BackupInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BackupInUseException =
   Core._MatchServiceError
     defaultService
     "BackupInUseException"
 
 -- | Backup not found for the given BackupARN.
-_BackupNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BackupNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BackupNotFoundException =
   Core._MatchServiceError
     defaultService
     "BackupNotFoundException"
 
 -- | A condition specified in the operation could not be evaluated.
-_ConditionalCheckFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConditionalCheckFailedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConditionalCheckFailedException =
   Core._MatchServiceError
     defaultService
     "ConditionalCheckFailedException"
 
 -- | Backups have not yet been enabled for this table.
-_ContinuousBackupsUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ContinuousBackupsUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ContinuousBackupsUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -1198,35 +1198,35 @@ _ContinuousBackupsUnavailableException =
 
 -- | There was an attempt to insert an item with the same primary key as an
 -- item that already exists in the DynamoDB table.
-_DuplicateItemException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateItemException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateItemException =
   Core._MatchServiceError
     defaultService
     "DuplicateItemException"
 
 -- | There was a conflict when writing to the specified S3 bucket.
-_ExportConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ExportConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ExportConflictException =
   Core._MatchServiceError
     defaultService
     "ExportConflictException"
 
 -- | The specified export was not found.
-_ExportNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ExportNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ExportNotFoundException =
   Core._MatchServiceError
     defaultService
     "ExportNotFoundException"
 
 -- | The specified global table already exists.
-_GlobalTableAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GlobalTableAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GlobalTableAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "GlobalTableAlreadyExistsException"
 
 -- | The specified global table does not exist.
-_GlobalTableNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GlobalTableNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GlobalTableNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1234,7 +1234,7 @@ _GlobalTableNotFoundException =
 
 -- | DynamoDB rejected the request because you retried a request with a
 -- different payload but with an idempotent token that was already used.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IdempotentParameterMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
@@ -1243,28 +1243,28 @@ _IdempotentParameterMismatchException =
 -- | There was a conflict when importing from the specified S3 source. This
 -- can occur when the current import conflicts with a previous import
 -- request that had the same client token.
-_ImportConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ImportConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ImportConflictException =
   Core._MatchServiceError
     defaultService
     "ImportConflictException"
 
 -- | The specified import was not found.
-_ImportNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ImportNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ImportNotFoundException =
   Core._MatchServiceError
     defaultService
     "ImportNotFoundException"
 
 -- | The operation tried to access a nonexistent index.
-_IndexNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IndexNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IndexNotFoundException =
   Core._MatchServiceError
     defaultService
     "IndexNotFoundException"
 
 -- | An error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -1272,7 +1272,7 @@ _InternalServerError =
 
 -- | The specified @ExportTime@ is outside of the point in time recovery
 -- window.
-_InvalidExportTimeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidExportTimeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidExportTimeException =
   Core._MatchServiceError
     defaultService
@@ -1280,7 +1280,7 @@ _InvalidExportTimeException =
 
 -- | An invalid restore time was specified. RestoreDateTime must be between
 -- EarliestRestorableDateTime and LatestRestorableDateTime.
-_InvalidRestoreTimeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRestoreTimeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRestoreTimeException =
   Core._MatchServiceError
     defaultService
@@ -1288,7 +1288,7 @@ _InvalidRestoreTimeException =
 
 -- | An item collection is too large. This exception is only returned for
 -- tables that have one or more local secondary indexes.
-_ItemCollectionSizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ItemCollectionSizeLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ItemCollectionSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1311,14 +1311,14 @@ _ItemCollectionSizeLimitExceededException =
 -- operations are allowed per account.
 --
 -- There is a soft account quota of 2,500 tables.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | Point in time recovery has not yet been enabled for this source table.
-_PointInTimeRecoveryUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PointInTimeRecoveryUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PointInTimeRecoveryUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -1331,21 +1331,21 @@ _PointInTimeRecoveryUnavailableException =
 -- For more information, go to
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff Error Retries and Exponential Backoff>
 -- in the /Amazon DynamoDB Developer Guide/.
-_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ProvisionedThroughputExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
     "ProvisionedThroughputExceededException"
 
 -- | The specified replica is already part of the global table.
-_ReplicaAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReplicaAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReplicaAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ReplicaAlreadyExistsException"
 
 -- | The specified replica is no longer part of the global table.
-_ReplicaNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReplicaNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReplicaNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1354,7 +1354,7 @@ _ReplicaNotFoundException =
 -- | Throughput exceeds the current throughput quota for your account. Please
 -- contact <https://aws.amazon.com/support Amazon Web Services Support> to
 -- request a quota increase.
-_RequestLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -1363,7 +1363,7 @@ _RequestLimitExceeded =
 -- | The operation conflicts with the resource\'s availability. For example,
 -- you attempted to recreate an existing table, or tried to delete a table
 -- currently in the @CREATING@ state.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -1371,14 +1371,14 @@ _ResourceInUseException =
 
 -- | The operation tried to access a nonexistent table or index. The resource
 -- might not be specified correctly, or its status might not be @ACTIVE@.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | A target table with the specified name already exists.
-_TableAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TableAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TableAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -1386,7 +1386,7 @@ _TableAlreadyExistsException =
 
 -- | A target table with the specified name is either being created or
 -- deleted.
-_TableInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TableInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TableInUseException =
   Core._MatchServiceError
     defaultService
@@ -1395,7 +1395,7 @@ _TableInUseException =
 -- | A source table with the name @TableName@ does not currently exist within
 -- the subscriber\'s account or the subscriber is operating in the wrong
 -- Amazon Web Services Region.
-_TableNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TableNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TableNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1548,7 +1548,7 @@ _TableNotFoundException =
 --
 --         -   The provided expression refers to an attribute that does not
 --             exist in the item.
-_TransactionCanceledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TransactionCanceledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TransactionCanceledException =
   Core._MatchServiceError
     defaultService
@@ -1556,14 +1556,14 @@ _TransactionCanceledException =
 
 -- | Operation was rejected because there is an ongoing transaction for the
 -- item.
-_TransactionConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TransactionConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TransactionConflictException =
   Core._MatchServiceError
     defaultService
     "TransactionConflictException"
 
 -- | The transaction with the given request token is already in progress.
-_TransactionInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TransactionInProgressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TransactionInProgressException =
   Core._MatchServiceError
     defaultService

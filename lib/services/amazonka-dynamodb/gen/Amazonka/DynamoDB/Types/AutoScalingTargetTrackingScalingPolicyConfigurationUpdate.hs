@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {..} =
-      _salt `Prelude.hashWithSalt` disableScaleIn
+      _salt
+        `Prelude.hashWithSalt` disableScaleIn
         `Prelude.hashWithSalt` scaleInCooldown
         `Prelude.hashWithSalt` scaleOutCooldown
         `Prelude.hashWithSalt` targetValue

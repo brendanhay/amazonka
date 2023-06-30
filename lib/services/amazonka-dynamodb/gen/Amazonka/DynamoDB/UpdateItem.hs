@@ -794,7 +794,8 @@ instance Core.AWSRequest UpdateItem where
 
 instance Prelude.Hashable UpdateItem where
   hashWithSalt _salt UpdateItem' {..} =
-    _salt `Prelude.hashWithSalt` attributeUpdates
+    _salt
+      `Prelude.hashWithSalt` attributeUpdates
       `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` conditionalOperator
       `Prelude.hashWithSalt` expected

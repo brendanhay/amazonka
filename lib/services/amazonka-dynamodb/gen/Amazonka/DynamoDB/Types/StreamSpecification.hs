@@ -125,7 +125,8 @@ instance Data.FromJSON StreamSpecification where
 
 instance Prelude.Hashable StreamSpecification where
   hashWithSalt _salt StreamSpecification' {..} =
-    _salt `Prelude.hashWithSalt` streamViewType
+    _salt
+      `Prelude.hashWithSalt` streamViewType
       `Prelude.hashWithSalt` streamEnabled
 
 instance Prelude.NFData StreamSpecification where

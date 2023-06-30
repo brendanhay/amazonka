@@ -242,7 +242,8 @@ instance Core.AWSRequest RestoreTableToPointInTime where
 
 instance Prelude.Hashable RestoreTableToPointInTime where
   hashWithSalt _salt RestoreTableToPointInTime' {..} =
-    _salt `Prelude.hashWithSalt` billingModeOverride
+    _salt
+      `Prelude.hashWithSalt` billingModeOverride
       `Prelude.hashWithSalt` globalSecondaryIndexOverride
       `Prelude.hashWithSalt` localSecondaryIndexOverride
       `Prelude.hashWithSalt` provisionedThroughputOverride

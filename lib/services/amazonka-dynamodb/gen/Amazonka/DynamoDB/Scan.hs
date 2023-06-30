@@ -848,15 +848,17 @@ instance Core.AWSPager Scan where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? scanResponse_lastEvaluatedKey Prelude.. Lens._Just
+            Lens.^? scanResponse_lastEvaluatedKey
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& scan_exclusiveStartKey
           Lens..~ rs
-          Lens.^? scanResponse_lastEvaluatedKey Prelude.. Lens._Just
+          Lens.^? scanResponse_lastEvaluatedKey
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest Scan where
   type AWSResponse Scan = ScanResponse
@@ -869,7 +871,8 @@ instance Core.AWSRequest Scan where
             Prelude.<$> (x Data..?> "ConsumedCapacity")
             Prelude.<*> (x Data..?> "Count")
             Prelude.<*> (x Data..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "LastEvaluatedKey"
+            Prelude.<*> ( x
+                            Data..?> "LastEvaluatedKey"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ScannedCount")
@@ -878,7 +881,8 @@ instance Core.AWSRequest Scan where
 
 instance Prelude.Hashable Scan where
   hashWithSalt _salt Scan' {..} =
-    _salt `Prelude.hashWithSalt` attributesToGet
+    _salt
+      `Prelude.hashWithSalt` attributesToGet
       `Prelude.hashWithSalt` conditionalOperator
       `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` exclusiveStartKey

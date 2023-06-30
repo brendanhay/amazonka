@@ -129,7 +129,8 @@ instance Core.AWSRequest UpdateContributorInsights where
 
 instance Prelude.Hashable UpdateContributorInsights where
   hashWithSalt _salt UpdateContributorInsights' {..} =
-    _salt `Prelude.hashWithSalt` indexName
+    _salt
+      `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` contributorInsightsAction
 

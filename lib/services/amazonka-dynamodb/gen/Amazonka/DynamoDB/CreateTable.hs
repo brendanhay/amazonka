@@ -658,7 +658,8 @@ instance Core.AWSRequest CreateTable where
 
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =
-    _salt `Prelude.hashWithSalt` billingMode
+    _salt
+      `Prelude.hashWithSalt` billingMode
       `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` localSecondaryIndexes
       `Prelude.hashWithSalt` provisionedThroughput

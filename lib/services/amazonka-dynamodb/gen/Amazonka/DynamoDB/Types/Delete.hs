@@ -118,7 +118,8 @@ delete_tableName = Lens.lens (\Delete' {tableName} -> tableName) (\s@Delete' {} 
 
 instance Prelude.Hashable Delete where
   hashWithSalt _salt Delete' {..} =
-    _salt `Prelude.hashWithSalt` conditionExpression
+    _salt
+      `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` expressionAttributeValues
       `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure

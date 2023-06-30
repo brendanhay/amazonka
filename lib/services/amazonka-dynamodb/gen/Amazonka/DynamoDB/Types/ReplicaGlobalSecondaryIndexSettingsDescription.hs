@@ -159,15 +159,15 @@ instance
       ( \x ->
           ReplicaGlobalSecondaryIndexSettingsDescription'
             Prelude.<$> (x Data..:? "IndexStatus")
-              Prelude.<*> ( x
-                              Data..:? "ProvisionedReadCapacityAutoScalingSettings"
-                          )
-              Prelude.<*> (x Data..:? "ProvisionedReadCapacityUnits")
-              Prelude.<*> ( x
-                              Data..:? "ProvisionedWriteCapacityAutoScalingSettings"
-                          )
-              Prelude.<*> (x Data..:? "ProvisionedWriteCapacityUnits")
-              Prelude.<*> (x Data..: "IndexName")
+            Prelude.<*> ( x
+                            Data..:? "ProvisionedReadCapacityAutoScalingSettings"
+                        )
+            Prelude.<*> (x Data..:? "ProvisionedReadCapacityUnits")
+            Prelude.<*> ( x
+                            Data..:? "ProvisionedWriteCapacityAutoScalingSettings"
+                        )
+            Prelude.<*> (x Data..:? "ProvisionedWriteCapacityUnits")
+            Prelude.<*> (x Data..: "IndexName")
       )
 
 instance
@@ -177,7 +177,8 @@ instance
   hashWithSalt
     _salt
     ReplicaGlobalSecondaryIndexSettingsDescription' {..} =
-      _salt `Prelude.hashWithSalt` indexStatus
+      _salt
+        `Prelude.hashWithSalt` indexStatus
         `Prelude.hashWithSalt` provisionedReadCapacityAutoScalingSettings
         `Prelude.hashWithSalt` provisionedReadCapacityUnits
         `Prelude.hashWithSalt` provisionedWriteCapacityAutoScalingSettings

@@ -150,7 +150,8 @@ instance
   hashWithSalt
     _salt
     ProvisionedThroughputDescription' {..} =
-      _salt `Prelude.hashWithSalt` lastDecreaseDateTime
+      _salt
+        `Prelude.hashWithSalt` lastDecreaseDateTime
         `Prelude.hashWithSalt` lastIncreaseDateTime
         `Prelude.hashWithSalt` numberOfDecreasesToday
         `Prelude.hashWithSalt` readCapacityUnits

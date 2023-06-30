@@ -87,7 +87,8 @@ instance Data.FromJSON BatchStatementResponse where
 
 instance Prelude.Hashable BatchStatementResponse where
   hashWithSalt _salt BatchStatementResponse' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` item
       `Prelude.hashWithSalt` tableName
 

@@ -103,7 +103,8 @@ instance Data.FromJSON AttributeDefinition where
 
 instance Prelude.Hashable AttributeDefinition where
   hashWithSalt _salt AttributeDefinition' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` attributeType
 
 instance Prelude.NFData AttributeDefinition where

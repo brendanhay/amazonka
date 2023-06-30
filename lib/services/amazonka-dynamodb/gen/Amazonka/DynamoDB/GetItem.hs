@@ -331,7 +331,8 @@ instance Core.AWSRequest GetItem where
 
 instance Prelude.Hashable GetItem where
   hashWithSalt _salt GetItem' {..} =
-    _salt `Prelude.hashWithSalt` attributesToGet
+    _salt
+      `Prelude.hashWithSalt` attributesToGet
       `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` projectionExpression

@@ -154,7 +154,6 @@ newDescribeTimeToLiveResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 describeTimeToLiveResponse_timeToLiveDescription :: Lens.Lens' DescribeTimeToLiveResponse (Prelude.Maybe TimeToLiveDescription)
 describeTimeToLiveResponse_timeToLiveDescription = Lens.lens (\DescribeTimeToLiveResponse' {timeToLiveDescription} -> timeToLiveDescription) (\s@DescribeTimeToLiveResponse' {} a -> s {timeToLiveDescription = a} :: DescribeTimeToLiveResponse)
 

@@ -113,7 +113,8 @@ instance Data.FromJSON TableAutoScalingDescription where
 
 instance Prelude.Hashable TableAutoScalingDescription where
   hashWithSalt _salt TableAutoScalingDescription' {..} =
-    _salt `Prelude.hashWithSalt` replicas
+    _salt
+      `Prelude.hashWithSalt` replicas
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` tableStatus
 

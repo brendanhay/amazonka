@@ -570,7 +570,8 @@ instance Core.AWSRequest PutItem where
 
 instance Prelude.Hashable PutItem where
   hashWithSalt _salt PutItem' {..} =
-    _salt `Prelude.hashWithSalt` conditionExpression
+    _salt
+      `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` conditionalOperator
       `Prelude.hashWithSalt` expected
       `Prelude.hashWithSalt` expressionAttributeNames

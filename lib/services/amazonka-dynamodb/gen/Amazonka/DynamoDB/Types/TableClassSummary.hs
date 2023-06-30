@@ -81,7 +81,8 @@ instance Data.FromJSON TableClassSummary where
 
 instance Prelude.Hashable TableClassSummary where
   hashWithSalt _salt TableClassSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdateDateTime
+    _salt
+      `Prelude.hashWithSalt` lastUpdateDateTime
       `Prelude.hashWithSalt` tableClass
 
 instance Prelude.NFData TableClassSummary where

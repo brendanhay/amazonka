@@ -194,7 +194,8 @@ instance Data.FromJSON ReplicaSettingsDescription where
       ( \x ->
           ReplicaSettingsDescription'
             Prelude.<$> (x Data..:? "ReplicaBillingModeSummary")
-            Prelude.<*> ( x Data..:? "ReplicaGlobalSecondaryIndexSettings"
+            Prelude.<*> ( x
+                            Data..:? "ReplicaGlobalSecondaryIndexSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x

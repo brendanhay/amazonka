@@ -123,7 +123,8 @@ globalSecondaryIndexUpdate_update = Lens.lens (\GlobalSecondaryIndexUpdate' {upd
 
 instance Prelude.Hashable GlobalSecondaryIndexUpdate where
   hashWithSalt _salt GlobalSecondaryIndexUpdate' {..} =
-    _salt `Prelude.hashWithSalt` create
+    _salt
+      `Prelude.hashWithSalt` create
       `Prelude.hashWithSalt` delete'
       `Prelude.hashWithSalt` update
 

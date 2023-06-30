@@ -92,7 +92,8 @@ instance
     KinesisDataStreamDestination
   where
   hashWithSalt _salt KinesisDataStreamDestination' {..} =
-    _salt `Prelude.hashWithSalt` destinationStatus
+    _salt
+      `Prelude.hashWithSalt` destinationStatus
       `Prelude.hashWithSalt` destinationStatusDescription
       `Prelude.hashWithSalt` streamArn
 

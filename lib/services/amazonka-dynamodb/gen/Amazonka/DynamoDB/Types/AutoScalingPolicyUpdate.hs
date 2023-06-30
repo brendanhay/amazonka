@@ -72,7 +72,8 @@ autoScalingPolicyUpdate_targetTrackingScalingPolicyConfiguration = Lens.lens (\A
 
 instance Prelude.Hashable AutoScalingPolicyUpdate where
   hashWithSalt _salt AutoScalingPolicyUpdate' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt
+      `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
 
 instance Prelude.NFData AutoScalingPolicyUpdate where

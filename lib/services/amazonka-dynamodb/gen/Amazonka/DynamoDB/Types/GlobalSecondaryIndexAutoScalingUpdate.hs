@@ -74,7 +74,8 @@ instance
   hashWithSalt
     _salt
     GlobalSecondaryIndexAutoScalingUpdate' {..} =
-      _salt `Prelude.hashWithSalt` indexName
+      _salt
+        `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` provisionedWriteCapacityAutoScalingUpdate
 
 instance

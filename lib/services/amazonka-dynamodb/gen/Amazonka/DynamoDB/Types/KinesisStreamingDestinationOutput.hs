@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     KinesisStreamingDestinationOutput' {..} =
-      _salt `Prelude.hashWithSalt` destinationStatus
+      _salt
+        `Prelude.hashWithSalt` destinationStatus
         `Prelude.hashWithSalt` streamArn
         `Prelude.hashWithSalt` tableName
 

@@ -267,7 +267,8 @@ instance Data.FromJSON KeysAndAttributes where
           KeysAndAttributes'
             Prelude.<$> (x Data..:? "AttributesToGet")
             Prelude.<*> (x Data..:? "ConsistentRead")
-            Prelude.<*> ( x Data..:? "ExpressionAttributeNames"
+            Prelude.<*> ( x
+                            Data..:? "ExpressionAttributeNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProjectionExpression")
@@ -276,7 +277,8 @@ instance Data.FromJSON KeysAndAttributes where
 
 instance Prelude.Hashable KeysAndAttributes where
   hashWithSalt _salt KeysAndAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributesToGet
+    _salt
+      `Prelude.hashWithSalt` attributesToGet
       `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` projectionExpression

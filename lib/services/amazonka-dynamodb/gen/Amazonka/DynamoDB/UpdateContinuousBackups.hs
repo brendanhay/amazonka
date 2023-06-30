@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateContinuousBackups where
 
 instance Prelude.Hashable UpdateContinuousBackups where
   hashWithSalt _salt UpdateContinuousBackups' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt
+      `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` pointInTimeRecoverySpecification
 
 instance Prelude.NFData UpdateContinuousBackups where

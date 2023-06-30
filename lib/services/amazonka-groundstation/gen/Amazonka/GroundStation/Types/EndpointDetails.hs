@@ -79,7 +79,8 @@ instance Data.FromJSON EndpointDetails where
 
 instance Prelude.Hashable EndpointDetails where
   hashWithSalt _salt EndpointDetails' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` securityDetails
 
 instance Prelude.NFData EndpointDetails where

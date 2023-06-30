@@ -74,7 +74,8 @@ instance Data.FromJSON S3RecordingDetails where
 
 instance Prelude.Hashable S3RecordingDetails where
   hashWithSalt _salt S3RecordingDetails' {..} =
-    _salt `Prelude.hashWithSalt` bucketArn
+    _salt
+      `Prelude.hashWithSalt` bucketArn
       `Prelude.hashWithSalt` keyTemplate
 
 instance Prelude.NFData S3RecordingDetails where

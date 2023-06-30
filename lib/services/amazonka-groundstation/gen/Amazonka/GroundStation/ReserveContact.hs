@@ -150,7 +150,8 @@ instance Core.AWSRequest ReserveContact where
 
 instance Prelude.Hashable ReserveContact where
   hashWithSalt _salt ReserveContact' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` groundStation
       `Prelude.hashWithSalt` missionProfileArn

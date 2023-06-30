@@ -83,7 +83,8 @@ instance Data.FromJSON SecurityDetails where
       ( \x ->
           SecurityDetails'
             Prelude.<$> (x Data..: "roleArn")
-            Prelude.<*> ( x Data..:? "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
@@ -91,7 +92,8 @@ instance Data.FromJSON SecurityDetails where
 
 instance Prelude.Hashable SecurityDetails where
   hashWithSalt _salt SecurityDetails' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 

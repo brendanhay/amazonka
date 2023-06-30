@@ -64,7 +64,8 @@ ephemerisData_tle = Lens.lens (\EphemerisData' {tle} -> tle) (\s@EphemerisData' 
 
 instance Prelude.Hashable EphemerisData where
   hashWithSalt _salt EphemerisData' {..} =
-    _salt `Prelude.hashWithSalt` oem
+    _salt
+      `Prelude.hashWithSalt` oem
       `Prelude.hashWithSalt` tle
 
 instance Prelude.NFData EphemerisData where

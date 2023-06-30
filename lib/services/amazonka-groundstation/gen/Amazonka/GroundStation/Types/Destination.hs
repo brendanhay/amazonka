@@ -99,7 +99,8 @@ instance Data.FromJSON Destination where
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt `Prelude.hashWithSalt` configDetails
+    _salt
+      `Prelude.hashWithSalt` configDetails
       `Prelude.hashWithSalt` configId
       `Prelude.hashWithSalt` configType
       `Prelude.hashWithSalt` dataflowDestinationRegion

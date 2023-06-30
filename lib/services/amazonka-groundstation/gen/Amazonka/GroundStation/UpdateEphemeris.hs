@@ -143,7 +143,8 @@ instance Core.AWSRequest UpdateEphemeris where
 
 instance Prelude.Hashable UpdateEphemeris where
   hashWithSalt _salt UpdateEphemeris' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ephemerisId

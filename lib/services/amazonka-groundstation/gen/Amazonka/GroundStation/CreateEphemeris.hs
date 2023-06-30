@@ -192,7 +192,8 @@ instance Core.AWSRequest CreateEphemeris where
 
 instance Prelude.Hashable CreateEphemeris where
   hashWithSalt _salt CreateEphemeris' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ephemeris
       `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` kmsKeyArn

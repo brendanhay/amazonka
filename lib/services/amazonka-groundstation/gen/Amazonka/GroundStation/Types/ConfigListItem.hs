@@ -95,7 +95,8 @@ instance Data.FromJSON ConfigListItem where
 
 instance Prelude.Hashable ConfigListItem where
   hashWithSalt _salt ConfigListItem' {..} =
-    _salt `Prelude.hashWithSalt` configArn
+    _salt
+      `Prelude.hashWithSalt` configArn
       `Prelude.hashWithSalt` configId
       `Prelude.hashWithSalt` configType
       `Prelude.hashWithSalt` name

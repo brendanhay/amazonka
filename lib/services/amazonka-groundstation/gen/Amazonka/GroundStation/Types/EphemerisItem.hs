@@ -147,7 +147,8 @@ instance Data.FromJSON EphemerisItem where
 
 instance Prelude.Hashable EphemerisItem where
   hashWithSalt _salt EphemerisItem' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ephemerisId
       `Prelude.hashWithSalt` name

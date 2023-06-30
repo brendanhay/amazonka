@@ -130,7 +130,8 @@ instance Data.FromJSON SpectrumConfig where
 
 instance Prelude.Hashable SpectrumConfig where
   hashWithSalt _salt SpectrumConfig' {..} =
-    _salt `Prelude.hashWithSalt` polarization
+    _salt
+      `Prelude.hashWithSalt` polarization
       `Prelude.hashWithSalt` bandwidth
       `Prelude.hashWithSalt` centerFrequency
 

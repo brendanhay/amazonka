@@ -97,21 +97,22 @@ instance Core.AWSPager ListSatellites where
     | Core.stop
         ( rs
             Lens.^? listSatellitesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSatellitesResponse_satellites
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSatellites_nextToken
           Lens..~ rs
-          Lens.^? listSatellitesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSatellitesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSatellites where
   type
@@ -130,7 +131,8 @@ instance Core.AWSRequest ListSatellites where
 
 instance Prelude.Hashable ListSatellites where
   hashWithSalt _salt ListSatellites' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSatellites where

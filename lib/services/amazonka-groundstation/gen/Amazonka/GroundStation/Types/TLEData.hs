@@ -80,7 +80,8 @@ tLEData_validTimeRange = Lens.lens (\TLEData' {validTimeRange} -> validTimeRange
 
 instance Prelude.Hashable TLEData where
   hashWithSalt _salt TLEData' {..} =
-    _salt `Prelude.hashWithSalt` tleLine1
+    _salt
+      `Prelude.hashWithSalt` tleLine1
       `Prelude.hashWithSalt` tleLine2
       `Prelude.hashWithSalt` validTimeRange
 

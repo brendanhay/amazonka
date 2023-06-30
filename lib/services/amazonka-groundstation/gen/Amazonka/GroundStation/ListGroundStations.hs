@@ -107,22 +107,22 @@ instance Core.AWSPager ListGroundStations where
     | Core.stop
         ( rs
             Lens.^? listGroundStationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGroundStationsResponse_groundStationList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGroundStations_nextToken
           Lens..~ rs
           Lens.^? listGroundStationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroundStations where
   type
@@ -134,7 +134,8 @@ instance Core.AWSRequest ListGroundStations where
     Response.receiveJSON
       ( \s h x ->
           ListGroundStationsResponse'
-            Prelude.<$> ( x Data..?> "groundStationList"
+            Prelude.<$> ( x
+                            Data..?> "groundStationList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -143,7 +144,8 @@ instance Core.AWSRequest ListGroundStations where
 
 instance Prelude.Hashable ListGroundStations where
   hashWithSalt _salt ListGroundStations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` satelliteId
 

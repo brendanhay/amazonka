@@ -116,7 +116,8 @@ instance Core.AWSRequest GetConfig where
 
 instance Prelude.Hashable GetConfig where
   hashWithSalt _salt GetConfig' {..} =
-    _salt `Prelude.hashWithSalt` configId
+    _salt
+      `Prelude.hashWithSalt` configId
       `Prelude.hashWithSalt` configType
 
 instance Prelude.NFData GetConfig where

@@ -70,12 +70,14 @@ instance Data.FromJSON Elevation where
       "Elevation"
       ( \x ->
           Elevation'
-            Prelude.<$> (x Data..: "unit") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "unit")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Elevation where
   hashWithSalt _salt Elevation' {..} =
-    _salt `Prelude.hashWithSalt` unit
+    _salt
+      `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Elevation where

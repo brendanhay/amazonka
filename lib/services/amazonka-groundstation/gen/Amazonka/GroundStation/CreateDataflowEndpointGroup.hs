@@ -106,7 +106,8 @@ instance Core.AWSRequest CreateDataflowEndpointGroup where
 
 instance Prelude.Hashable CreateDataflowEndpointGroup where
   hashWithSalt _salt CreateDataflowEndpointGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` endpointDetails
 
 instance Prelude.NFData CreateDataflowEndpointGroup where

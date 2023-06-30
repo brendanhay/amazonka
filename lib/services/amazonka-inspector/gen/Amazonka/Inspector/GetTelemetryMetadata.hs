@@ -92,7 +92,8 @@ instance Core.AWSRequest GetTelemetryMetadata where
       ( \s h x ->
           GetTelemetryMetadataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "telemetryMetadata"
+            Prelude.<*> ( x
+                            Data..?> "telemetryMetadata"
                             Core..!@ Prelude.mempty
                         )
       )

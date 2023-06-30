@@ -111,7 +111,8 @@ instance Core.AWSRequest SubscribeToEvent where
 
 instance Prelude.Hashable SubscribeToEvent where
   hashWithSalt _salt SubscribeToEvent' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` topicArn
 

@@ -122,7 +122,8 @@ instance Data.FromJSON AssessmentTarget where
 
 instance Prelude.Hashable AssessmentTarget where
   hashWithSalt _salt AssessmentTarget' {..} =
-    _salt `Prelude.hashWithSalt` resourceGroupArn
+    _salt
+      `Prelude.hashWithSalt` resourceGroupArn
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdAt

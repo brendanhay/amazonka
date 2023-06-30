@@ -71,12 +71,14 @@ instance Data.FromJSON ResourceGroupTag where
       "ResourceGroupTag"
       ( \x ->
           ResourceGroupTag'
-            Prelude.<$> (x Data..:? "value") Prelude.<*> (x Data..: "key")
+            Prelude.<$> (x Data..:? "value")
+            Prelude.<*> (x Data..: "key")
       )
 
 instance Prelude.Hashable ResourceGroupTag where
   hashWithSalt _salt ResourceGroupTag' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData ResourceGroupTag where

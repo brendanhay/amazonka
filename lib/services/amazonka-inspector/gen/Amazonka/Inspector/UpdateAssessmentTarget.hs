@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdateAssessmentTarget where
 
 instance Prelude.Hashable UpdateAssessmentTarget where
   hashWithSalt _salt UpdateAssessmentTarget' {..} =
-    _salt `Prelude.hashWithSalt` resourceGroupArn
+    _salt
+      `Prelude.hashWithSalt` resourceGroupArn
       `Prelude.hashWithSalt` assessmentTargetArn
       `Prelude.hashWithSalt` assessmentTargetName
 

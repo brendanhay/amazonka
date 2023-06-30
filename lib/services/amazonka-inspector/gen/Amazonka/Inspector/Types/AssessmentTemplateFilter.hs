@@ -99,7 +99,8 @@ assessmentTemplateFilter_rulesPackageArns = Lens.lens (\AssessmentTemplateFilter
 
 instance Prelude.Hashable AssessmentTemplateFilter where
   hashWithSalt _salt AssessmentTemplateFilter' {..} =
-    _salt `Prelude.hashWithSalt` durationRange
+    _salt
+      `Prelude.hashWithSalt` durationRange
       `Prelude.hashWithSalt` namePattern
       `Prelude.hashWithSalt` rulesPackageArns
 

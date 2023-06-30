@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeFindings where
 
 instance Prelude.Hashable DescribeFindings where
   hashWithSalt _salt DescribeFindings' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` findingArns
 
 instance Prelude.NFData DescribeFindings where

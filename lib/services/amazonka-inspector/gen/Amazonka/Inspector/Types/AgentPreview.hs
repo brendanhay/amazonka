@@ -152,7 +152,8 @@ instance Data.FromJSON AgentPreview where
 
 instance Prelude.Hashable AgentPreview where
   hashWithSalt _salt AgentPreview' {..} =
-    _salt `Prelude.hashWithSalt` agentHealth
+    _salt
+      `Prelude.hashWithSalt` agentHealth
       `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` autoScalingGroup
       `Prelude.hashWithSalt` hostname

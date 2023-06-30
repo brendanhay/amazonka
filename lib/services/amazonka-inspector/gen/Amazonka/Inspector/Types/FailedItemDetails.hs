@@ -82,7 +82,8 @@ instance Data.FromJSON FailedItemDetails where
 
 instance Prelude.Hashable FailedItemDetails where
   hashWithSalt _salt FailedItemDetails' {..} =
-    _salt `Prelude.hashWithSalt` failureCode
+    _salt
+      `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` retryable
 
 instance Prelude.NFData FailedItemDetails where

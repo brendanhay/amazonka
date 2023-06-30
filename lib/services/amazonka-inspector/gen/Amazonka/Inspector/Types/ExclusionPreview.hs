@@ -119,7 +119,8 @@ instance Data.FromJSON ExclusionPreview where
 
 instance Prelude.Hashable ExclusionPreview where
   hashWithSalt _salt ExclusionPreview' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` recommendation

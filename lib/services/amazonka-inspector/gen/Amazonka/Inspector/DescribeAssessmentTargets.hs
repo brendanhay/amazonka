@@ -93,7 +93,8 @@ instance Core.AWSRequest DescribeAssessmentTargets where
       ( \s h x ->
           DescribeAssessmentTargetsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "assessmentTargets"
+            Prelude.<*> ( x
+                            Data..?> "assessmentTargets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)

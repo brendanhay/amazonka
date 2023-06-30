@@ -114,7 +114,8 @@ instance Core.AWSRequest UnsubscribeFromEvent where
 
 instance Prelude.Hashable UnsubscribeFromEvent where
   hashWithSalt _salt UnsubscribeFromEvent' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` topicArn
 

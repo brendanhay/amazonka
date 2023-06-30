@@ -76,7 +76,8 @@ instance Data.FromJSON SecurityGroup where
 
 instance Prelude.Hashable SecurityGroup where
   hashWithSalt _salt SecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData SecurityGroup where

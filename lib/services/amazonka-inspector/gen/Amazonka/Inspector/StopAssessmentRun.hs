@@ -106,7 +106,8 @@ instance Core.AWSRequest StopAssessmentRun where
 
 instance Prelude.Hashable StopAssessmentRun where
   hashWithSalt _salt StopAssessmentRun' {..} =
-    _salt `Prelude.hashWithSalt` stopAction
+    _salt
+      `Prelude.hashWithSalt` stopAction
       `Prelude.hashWithSalt` assessmentRunArn
 
 instance Prelude.NFData StopAssessmentRun where

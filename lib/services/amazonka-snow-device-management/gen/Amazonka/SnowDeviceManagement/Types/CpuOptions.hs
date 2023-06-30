@@ -74,7 +74,8 @@ instance Data.FromJSON CpuOptions where
 
 instance Prelude.Hashable CpuOptions where
   hashWithSalt _salt CpuOptions' {..} =
-    _salt `Prelude.hashWithSalt` coreCount
+    _salt
+      `Prelude.hashWithSalt` coreCount
       `Prelude.hashWithSalt` threadsPerCore
 
 instance Prelude.NFData CpuOptions where

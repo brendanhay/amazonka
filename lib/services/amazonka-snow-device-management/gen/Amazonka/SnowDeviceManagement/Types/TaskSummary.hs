@@ -103,7 +103,8 @@ instance Data.FromJSON TaskSummary where
 
 instance Prelude.Hashable TaskSummary where
   hashWithSalt _salt TaskSummary' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` taskArn
       `Prelude.hashWithSalt` taskId

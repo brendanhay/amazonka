@@ -127,7 +127,8 @@ instance Data.FromJSON PhysicalNetworkInterface where
 
 instance Prelude.Hashable PhysicalNetworkInterface where
   hashWithSalt _salt PhysicalNetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` defaultGateway
+    _salt
+      `Prelude.hashWithSalt` defaultGateway
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` ipAddressAssignment
       `Prelude.hashWithSalt` macAddress

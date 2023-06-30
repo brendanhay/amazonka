@@ -95,7 +95,8 @@ instance Data.FromJSON ExecutionSummary where
 
 instance Prelude.Hashable ExecutionSummary where
   hashWithSalt _salt ExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` executionId
+    _salt
+      `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` managedDeviceId
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` taskId

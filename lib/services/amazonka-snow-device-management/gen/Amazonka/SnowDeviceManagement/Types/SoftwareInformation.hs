@@ -88,7 +88,8 @@ instance Data.FromJSON SoftwareInformation where
 
 instance Prelude.Hashable SoftwareInformation where
   hashWithSalt _salt SoftwareInformation' {..} =
-    _salt `Prelude.hashWithSalt` installState
+    _salt
+      `Prelude.hashWithSalt` installState
       `Prelude.hashWithSalt` installedVersion
       `Prelude.hashWithSalt` installingVersion
 

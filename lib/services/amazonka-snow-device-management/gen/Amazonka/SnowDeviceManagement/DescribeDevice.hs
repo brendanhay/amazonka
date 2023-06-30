@@ -99,7 +99,8 @@ instance Core.AWSRequest DescribeDevice where
       ( \s h x ->
           DescribeDeviceResponse'
             Prelude.<$> (x Data..?> "associatedWithJob")
-            Prelude.<*> ( x Data..?> "deviceCapacities"
+            Prelude.<*> ( x
+                            Data..?> "deviceCapacities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "deviceState")
@@ -108,7 +109,8 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<*> (x Data..?> "lastUpdatedAt")
             Prelude.<*> (x Data..?> "managedDeviceArn")
             Prelude.<*> (x Data..?> "managedDeviceId")
-            Prelude.<*> ( x Data..?> "physicalNetworkInterfaces"
+            Prelude.<*> ( x
+                            Data..?> "physicalNetworkInterfaces"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "software")

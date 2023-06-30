@@ -100,7 +100,8 @@ instance Data.FromJSON DeviceSummary where
 
 instance Prelude.Hashable DeviceSummary where
   hashWithSalt _salt DeviceSummary' {..} =
-    _salt `Prelude.hashWithSalt` associatedWithJob
+    _salt
+      `Prelude.hashWithSalt` associatedWithJob
       `Prelude.hashWithSalt` managedDeviceArn
       `Prelude.hashWithSalt` managedDeviceId
       `Prelude.hashWithSalt` tags

@@ -231,7 +231,8 @@ instance Data.FromJSON SensorStatisticsSummary where
 
 instance Prelude.Hashable SensorStatisticsSummary where
   hashWithSalt _salt SensorStatisticsSummary' {..} =
-    _salt `Prelude.hashWithSalt` categoricalValues
+    _salt
+      `Prelude.hashWithSalt` categoricalValues
       `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` dataEndTime
       `Prelude.hashWithSalt` dataExists

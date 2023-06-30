@@ -148,7 +148,8 @@ instance Core.AWSRequest ListInferenceExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListInferenceExecutionsResponse'
-            Prelude.<$> ( x Data..?> "InferenceExecutionSummaries"
+            Prelude.<$> ( x
+                            Data..?> "InferenceExecutionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -157,7 +158,8 @@ instance Core.AWSRequest ListInferenceExecutions where
 
 instance Prelude.Hashable ListInferenceExecutions where
   hashWithSalt _salt ListInferenceExecutions' {..} =
-    _salt `Prelude.hashWithSalt` dataEndTimeBefore
+    _salt
+      `Prelude.hashWithSalt` dataEndTimeBefore
       `Prelude.hashWithSalt` dataStartTimeAfter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

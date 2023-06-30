@@ -81,7 +81,8 @@ instance Data.FromJSON CategoricalValues where
 
 instance Prelude.Hashable CategoricalValues where
   hashWithSalt _salt CategoricalValues' {..} =
-    _salt `Prelude.hashWithSalt` numberOfCategory
+    _salt
+      `Prelude.hashWithSalt` numberOfCategory
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CategoricalValues where

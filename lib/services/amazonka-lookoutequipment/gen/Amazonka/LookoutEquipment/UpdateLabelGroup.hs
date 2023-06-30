@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateLabelGroup where
 
 instance Prelude.Hashable UpdateLabelGroup where
   hashWithSalt _salt UpdateLabelGroup' {..} =
-    _salt `Prelude.hashWithSalt` faultCodes
+    _salt
+      `Prelude.hashWithSalt` faultCodes
       `Prelude.hashWithSalt` labelGroupName
 
 instance Prelude.NFData UpdateLabelGroup where

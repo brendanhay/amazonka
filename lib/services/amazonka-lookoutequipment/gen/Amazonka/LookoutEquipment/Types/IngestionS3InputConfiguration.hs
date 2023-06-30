@@ -106,7 +106,8 @@ instance
     IngestionS3InputConfiguration
   where
   hashWithSalt _salt IngestionS3InputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` keyPattern
+    _salt
+      `Prelude.hashWithSalt` keyPattern
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` bucket
 

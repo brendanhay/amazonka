@@ -158,7 +158,8 @@ instance Core.AWSRequest ListLabels where
 
 instance Prelude.Hashable ListLabels where
   hashWithSalt _salt ListLabels' {..} =
-    _salt `Prelude.hashWithSalt` equipment
+    _salt
+      `Prelude.hashWithSalt` equipment
       `Prelude.hashWithSalt` faultCode
       `Prelude.hashWithSalt` intervalEndTime
       `Prelude.hashWithSalt` intervalStartTime

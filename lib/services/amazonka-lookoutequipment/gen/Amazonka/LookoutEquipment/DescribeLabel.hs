@@ -122,7 +122,8 @@ instance Core.AWSRequest DescribeLabel where
 
 instance Prelude.Hashable DescribeLabel where
   hashWithSalt _salt DescribeLabel' {..} =
-    _salt `Prelude.hashWithSalt` labelGroupName
+    _salt
+      `Prelude.hashWithSalt` labelGroupName
       `Prelude.hashWithSalt` labelId
 
 instance Prelude.NFData DescribeLabel where

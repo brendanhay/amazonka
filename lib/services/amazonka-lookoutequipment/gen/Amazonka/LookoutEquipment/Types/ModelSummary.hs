@@ -116,7 +116,8 @@ instance Data.FromJSON ModelSummary where
 
 instance Prelude.Hashable ModelSummary where
   hashWithSalt _salt ModelSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` modelArn

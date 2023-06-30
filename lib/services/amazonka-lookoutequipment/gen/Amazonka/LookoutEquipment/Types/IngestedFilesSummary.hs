@@ -99,7 +99,8 @@ instance Data.FromJSON IngestedFilesSummary where
 
 instance Prelude.Hashable IngestedFilesSummary where
   hashWithSalt _salt IngestedFilesSummary' {..} =
-    _salt `Prelude.hashWithSalt` discardedFiles
+    _salt
+      `Prelude.hashWithSalt` discardedFiles
       `Prelude.hashWithSalt` totalNumberOfFiles
       `Prelude.hashWithSalt` ingestedNumberOfFiles
 

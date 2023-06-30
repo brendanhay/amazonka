@@ -145,7 +145,8 @@ instance Core.AWSRequest StartDataIngestionJob where
 
 instance Prelude.Hashable StartDataIngestionJob where
   hashWithSalt _salt StartDataIngestionJob' {..} =
-    _salt `Prelude.hashWithSalt` datasetName
+    _salt
+      `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` ingestionInputConfiguration
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` clientToken

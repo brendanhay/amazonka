@@ -102,22 +102,22 @@ instance Core.AWSPager ListResourceProfileArtifacts where
     | Core.stop
         ( rs
             Lens.^? listResourceProfileArtifactsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResourceProfileArtifactsResponse_artifacts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResourceProfileArtifacts_nextToken
           Lens..~ rs
           Lens.^? listResourceProfileArtifactsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceProfileArtifacts where
   type
@@ -139,7 +139,8 @@ instance
     ListResourceProfileArtifacts
   where
   hashWithSalt _salt ListResourceProfileArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListResourceProfileArtifacts where

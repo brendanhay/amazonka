@@ -70,12 +70,14 @@ instance Data.FromJSON ClassificationScopeSummary where
       "ClassificationScopeSummary"
       ( \x ->
           ClassificationScopeSummary'
-            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable ClassificationScopeSummary where
   hashWithSalt _salt ClassificationScopeSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ClassificationScopeSummary where

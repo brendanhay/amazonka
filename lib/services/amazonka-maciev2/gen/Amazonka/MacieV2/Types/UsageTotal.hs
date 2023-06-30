@@ -107,7 +107,8 @@ instance Data.FromJSON UsageTotal where
 
 instance Prelude.Hashable UsageTotal where
   hashWithSalt _salt UsageTotal' {..} =
-    _salt `Prelude.hashWithSalt` currency
+    _salt
+      `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` estimatedCost
       `Prelude.hashWithSalt` type'
 

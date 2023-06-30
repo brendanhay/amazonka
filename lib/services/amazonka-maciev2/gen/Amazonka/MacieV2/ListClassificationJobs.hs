@@ -116,22 +116,22 @@ instance Core.AWSPager ListClassificationJobs where
     | Core.stop
         ( rs
             Lens.^? listClassificationJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listClassificationJobsResponse_items
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listClassificationJobs_nextToken
           Lens..~ rs
           Lens.^? listClassificationJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClassificationJobs where
   type
@@ -150,7 +150,8 @@ instance Core.AWSRequest ListClassificationJobs where
 
 instance Prelude.Hashable ListClassificationJobs where
   hashWithSalt _salt ListClassificationJobs' {..} =
-    _salt `Prelude.hashWithSalt` filterCriteria
+    _salt
+      `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortCriteria

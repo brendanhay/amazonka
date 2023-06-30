@@ -86,7 +86,8 @@ instance Data.FromJSON CriteriaForJob where
 
 instance Prelude.Hashable CriteriaForJob where
   hashWithSalt _salt CriteriaForJob' {..} =
-    _salt `Prelude.hashWithSalt` simpleCriterion
+    _salt
+      `Prelude.hashWithSalt` simpleCriterion
       `Prelude.hashWithSalt` tagCriterion
 
 instance Prelude.NFData CriteriaForJob where

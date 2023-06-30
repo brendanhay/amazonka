@@ -75,12 +75,14 @@ instance Data.FromJSON IpCountry where
       "IpCountry"
       ( \x ->
           IpCountry'
-            Prelude.<$> (x Data..:? "code") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable IpCountry where
   hashWithSalt _salt IpCountry' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData IpCountry where

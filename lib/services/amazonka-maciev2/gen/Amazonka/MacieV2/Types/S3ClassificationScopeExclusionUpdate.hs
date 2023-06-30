@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     S3ClassificationScopeExclusionUpdate' {..} =
-      _salt `Prelude.hashWithSalt` bucketNames
+      _salt
+        `Prelude.hashWithSalt` bucketNames
         `Prelude.hashWithSalt` operation
 
 instance

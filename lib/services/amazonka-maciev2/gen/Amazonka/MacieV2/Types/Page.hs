@@ -86,7 +86,8 @@ instance Data.FromJSON Page where
 
 instance Prelude.Hashable Page where
   hashWithSalt _salt Page' {..} =
-    _salt `Prelude.hashWithSalt` lineRange
+    _salt
+      `Prelude.hashWithSalt` lineRange
       `Prelude.hashWithSalt` offsetRange
       `Prelude.hashWithSalt` pageNumber
 

@@ -197,7 +197,8 @@ instance Data.FromJSON Occurrences where
 
 instance Prelude.Hashable Occurrences where
   hashWithSalt _salt Occurrences' {..} =
-    _salt `Prelude.hashWithSalt` cells
+    _salt
+      `Prelude.hashWithSalt` cells
       `Prelude.hashWithSalt` lineRanges
       `Prelude.hashWithSalt` offsetRanges
       `Prelude.hashWithSalt` pages

@@ -189,7 +189,8 @@ instance Core.AWSRequest UpdateClassificationJob where
 
 instance Prelude.Hashable UpdateClassificationJob where
   hashWithSalt _salt UpdateClassificationJob' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` jobStatus
 
 instance Prelude.NFData UpdateClassificationJob where

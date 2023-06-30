@@ -120,7 +120,8 @@ instance Data.FromJSON AllowListSummary where
 
 instance Prelude.Hashable AllowListSummary where
   hashWithSalt _salt AllowListSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

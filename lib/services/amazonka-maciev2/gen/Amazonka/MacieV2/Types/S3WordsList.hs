@@ -79,7 +79,8 @@ instance Data.FromJSON S3WordsList where
 
 instance Prelude.Hashable S3WordsList where
   hashWithSalt _salt S3WordsList' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` objectKey
 
 instance Prelude.NFData S3WordsList where

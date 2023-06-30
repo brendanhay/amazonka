@@ -72,12 +72,14 @@ instance Data.FromJSON TagCriterionPairForJob where
       "TagCriterionPairForJob"
       ( \x ->
           TagCriterionPairForJob'
-            Prelude.<$> (x Data..:? "key") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable TagCriterionPairForJob where
   hashWithSalt _salt TagCriterionPairForJob' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData TagCriterionPairForJob where

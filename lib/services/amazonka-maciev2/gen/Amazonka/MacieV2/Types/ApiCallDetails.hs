@@ -107,7 +107,8 @@ instance Data.FromJSON ApiCallDetails where
 
 instance Prelude.Hashable ApiCallDetails where
   hashWithSalt _salt ApiCallDetails' {..} =
-    _salt `Prelude.hashWithSalt` api
+    _salt
+      `Prelude.hashWithSalt` api
       `Prelude.hashWithSalt` apiServiceName
       `Prelude.hashWithSalt` firstSeen
       `Prelude.hashWithSalt` lastSeen

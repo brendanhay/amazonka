@@ -586,7 +586,8 @@ instance Data.FromJSON BucketMetadata where
 
 instance Prelude.Hashable BucketMetadata where
   hashWithSalt _salt BucketMetadata' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` allowsUnencryptedObjectUploads
       `Prelude.hashWithSalt` bucketArn
       `Prelude.hashWithSalt` bucketCreatedAt

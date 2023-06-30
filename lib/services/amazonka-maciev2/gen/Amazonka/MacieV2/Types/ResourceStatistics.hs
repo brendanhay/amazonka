@@ -207,7 +207,8 @@ instance Data.FromJSON ResourceStatistics where
 
 instance Prelude.Hashable ResourceStatistics where
   hashWithSalt _salt ResourceStatistics' {..} =
-    _salt `Prelude.hashWithSalt` totalBytesClassified
+    _salt
+      `Prelude.hashWithSalt` totalBytesClassified
       `Prelude.hashWithSalt` totalDetections
       `Prelude.hashWithSalt` totalDetectionsSuppressed
       `Prelude.hashWithSalt` totalItemsClassified

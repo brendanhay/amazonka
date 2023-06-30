@@ -73,7 +73,8 @@ usageStatisticsSortBy_orderBy = Lens.lens (\UsageStatisticsSortBy' {orderBy} -> 
 
 instance Prelude.Hashable UsageStatisticsSortBy where
   hashWithSalt _salt UsageStatisticsSortBy' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData UsageStatisticsSortBy where

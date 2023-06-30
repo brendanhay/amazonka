@@ -124,7 +124,8 @@ instance Data.FromJSON BucketServerSideEncryption where
 
 instance Prelude.Hashable BucketServerSideEncryption where
   hashWithSalt _salt BucketServerSideEncryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsMasterKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsMasterKeyId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData BucketServerSideEncryption where

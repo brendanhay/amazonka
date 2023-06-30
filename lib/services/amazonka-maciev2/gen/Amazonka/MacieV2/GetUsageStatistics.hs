@@ -142,22 +142,22 @@ instance Core.AWSPager GetUsageStatistics where
     | Core.stop
         ( rs
             Lens.^? getUsageStatisticsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getUsageStatisticsResponse_records
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getUsageStatistics_nextToken
           Lens..~ rs
           Lens.^? getUsageStatisticsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUsageStatistics where
   type
@@ -177,7 +177,8 @@ instance Core.AWSRequest GetUsageStatistics where
 
 instance Prelude.Hashable GetUsageStatistics where
   hashWithSalt _salt GetUsageStatistics' {..} =
-    _salt `Prelude.hashWithSalt` filterBy
+    _salt
+      `Prelude.hashWithSalt` filterBy
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

@@ -127,8 +127,8 @@ instance
       ( \x ->
           BucketCountPolicyAllowsUnencryptedObjectUploads'
             Prelude.<$> (x Data..:? "allowsUnencryptedObjectUploads")
-              Prelude.<*> (x Data..:? "deniesUnencryptedObjectUploads")
-              Prelude.<*> (x Data..:? "unknown")
+            Prelude.<*> (x Data..:? "deniesUnencryptedObjectUploads")
+            Prelude.<*> (x Data..:? "unknown")
       )
 
 instance

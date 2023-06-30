@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     BucketCountByEffectivePermission' {..} =
-      _salt `Prelude.hashWithSalt` publiclyAccessible
+      _salt
+        `Prelude.hashWithSalt` publiclyAccessible
         `Prelude.hashWithSalt` publiclyReadable
         `Prelude.hashWithSalt` publiclyWritable
         `Prelude.hashWithSalt` unknown

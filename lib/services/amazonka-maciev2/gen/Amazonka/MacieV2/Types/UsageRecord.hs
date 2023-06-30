@@ -120,7 +120,8 @@ instance Data.FromJSON UsageRecord where
 
 instance Prelude.Hashable UsageRecord where
   hashWithSalt _salt UsageRecord' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` automatedDiscoveryFreeTrialStartDate
       `Prelude.hashWithSalt` freeTrialStartDate
       `Prelude.hashWithSalt` usage

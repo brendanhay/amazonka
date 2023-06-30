@@ -219,7 +219,8 @@ instance Data.FromJSON AllowListStatus where
 
 instance Prelude.Hashable AllowListStatus where
   hashWithSalt _salt AllowListStatus' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` code
 
 instance Prelude.NFData AllowListStatus where

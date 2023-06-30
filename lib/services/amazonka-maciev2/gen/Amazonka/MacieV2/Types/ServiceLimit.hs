@@ -91,7 +91,8 @@ instance Data.FromJSON ServiceLimit where
 
 instance Prelude.Hashable ServiceLimit where
   hashWithSalt _salt ServiceLimit' {..} =
-    _salt `Prelude.hashWithSalt` isServiceLimited
+    _salt
+      `Prelude.hashWithSalt` isServiceLimited
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` value
 

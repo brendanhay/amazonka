@@ -111,7 +111,8 @@ instance Data.FromJSON SensitiveDataItem where
 
 instance Prelude.Hashable SensitiveDataItem where
   hashWithSalt _salt SensitiveDataItem' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` detections
       `Prelude.hashWithSalt` totalCount
 

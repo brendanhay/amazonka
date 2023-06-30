@@ -77,7 +77,8 @@ instance
     SearchResourcesBucketCriteria
   where
   hashWithSalt _salt SearchResourcesBucketCriteria' {..} =
-    _salt `Prelude.hashWithSalt` excludes
+    _salt
+      `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` includes
 
 instance Prelude.NFData SearchResourcesBucketCriteria where

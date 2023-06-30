@@ -114,7 +114,8 @@ instance
     BucketCountBySharedAccessType
   where
   hashWithSalt _salt BucketCountBySharedAccessType' {..} =
-    _salt `Prelude.hashWithSalt` external
+    _salt
+      `Prelude.hashWithSalt` external
       `Prelude.hashWithSalt` internal
       `Prelude.hashWithSalt` notShared
       `Prelude.hashWithSalt` unknown

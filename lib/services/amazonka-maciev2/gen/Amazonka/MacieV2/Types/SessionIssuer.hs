@@ -123,7 +123,8 @@ instance Data.FromJSON SessionIssuer where
 
 instance Prelude.Hashable SessionIssuer where
   hashWithSalt _salt SessionIssuer' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` type'

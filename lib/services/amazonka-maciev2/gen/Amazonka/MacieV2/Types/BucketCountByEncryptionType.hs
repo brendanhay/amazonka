@@ -120,7 +120,8 @@ instance Data.FromJSON BucketCountByEncryptionType where
 
 instance Prelude.Hashable BucketCountByEncryptionType where
   hashWithSalt _salt BucketCountByEncryptionType' {..} =
-    _salt `Prelude.hashWithSalt` kmsManaged
+    _salt
+      `Prelude.hashWithSalt` kmsManaged
       `Prelude.hashWithSalt` s3Managed
       `Prelude.hashWithSalt` unencrypted
       `Prelude.hashWithSalt` unknown

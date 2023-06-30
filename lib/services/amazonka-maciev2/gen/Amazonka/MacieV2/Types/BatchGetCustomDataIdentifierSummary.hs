@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     BatchGetCustomDataIdentifierSummary' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` createdAt
         `Prelude.hashWithSalt` deleted
         `Prelude.hashWithSalt` description

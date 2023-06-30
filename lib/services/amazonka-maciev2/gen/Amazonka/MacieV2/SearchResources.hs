@@ -122,22 +122,22 @@ instance Core.AWSPager SearchResources where
     | Core.stop
         ( rs
             Lens.^? searchResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchResourcesResponse_matchingResources
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchResources_nextToken
           Lens..~ rs
           Lens.^? searchResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchResources where
   type
@@ -149,7 +149,8 @@ instance Core.AWSRequest SearchResources where
     Response.receiveJSON
       ( \s h x ->
           SearchResourcesResponse'
-            Prelude.<$> ( x Data..?> "matchingResources"
+            Prelude.<$> ( x
+                            Data..?> "matchingResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -158,7 +159,8 @@ instance Core.AWSRequest SearchResources where
 
 instance Prelude.Hashable SearchResources where
   hashWithSalt _salt SearchResources' {..} =
-    _salt `Prelude.hashWithSalt` bucketCriteria
+    _salt
+      `Prelude.hashWithSalt` bucketCriteria
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortCriteria

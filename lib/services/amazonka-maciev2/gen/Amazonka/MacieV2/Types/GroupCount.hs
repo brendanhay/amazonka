@@ -78,7 +78,8 @@ instance Data.FromJSON GroupCount where
 
 instance Prelude.Hashable GroupCount where
   hashWithSalt _salt GroupCount' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` groupKey
 
 instance Prelude.NFData GroupCount where

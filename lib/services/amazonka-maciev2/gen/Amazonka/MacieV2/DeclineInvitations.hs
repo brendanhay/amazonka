@@ -86,7 +86,8 @@ instance Core.AWSRequest DeclineInvitations where
     Response.receiveJSON
       ( \s h x ->
           DeclineInvitationsResponse'
-            Prelude.<$> ( x Data..?> "unprocessedAccounts"
+            Prelude.<$> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

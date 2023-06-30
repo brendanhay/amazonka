@@ -106,7 +106,8 @@ instance Data.FromJSON CustomDetection where
 
 instance Prelude.Hashable CustomDetection where
   hashWithSalt _salt CustomDetection' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` occurrences

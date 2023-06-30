@@ -75,7 +75,8 @@ instance Data.FromJSON S3BucketOwner where
 
 instance Prelude.Hashable S3BucketOwner where
   hashWithSalt _salt S3BucketOwner' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData S3BucketOwner where

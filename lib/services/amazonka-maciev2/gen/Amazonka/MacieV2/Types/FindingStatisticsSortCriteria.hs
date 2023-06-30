@@ -86,7 +86,8 @@ instance
     FindingStatisticsSortCriteria
   where
   hashWithSalt _salt FindingStatisticsSortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData FindingStatisticsSortCriteria where

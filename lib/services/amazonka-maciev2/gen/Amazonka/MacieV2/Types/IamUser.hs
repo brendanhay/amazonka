@@ -104,7 +104,8 @@ instance Data.FromJSON IamUser where
 
 instance Prelude.Hashable IamUser where
   hashWithSalt _salt IamUser' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` userName

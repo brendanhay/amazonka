@@ -97,7 +97,8 @@ instance Data.FromJSON Range where
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` startColumn
 

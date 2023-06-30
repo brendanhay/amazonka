@@ -74,7 +74,8 @@ searchResourcesTagCriterion_tagValues = Lens.lens (\SearchResourcesTagCriterion'
 
 instance Prelude.Hashable SearchResourcesTagCriterion where
   hashWithSalt _salt SearchResourcesTagCriterion' {..} =
-    _salt `Prelude.hashWithSalt` comparator
+    _salt
+      `Prelude.hashWithSalt` comparator
       `Prelude.hashWithSalt` tagValues
 
 instance Prelude.NFData SearchResourcesTagCriterion where

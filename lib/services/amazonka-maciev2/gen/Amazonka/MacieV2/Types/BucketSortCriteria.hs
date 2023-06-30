@@ -82,7 +82,8 @@ bucketSortCriteria_orderBy = Lens.lens (\BucketSortCriteria' {orderBy} -> orderB
 
 instance Prelude.Hashable BucketSortCriteria where
   hashWithSalt _salt BucketSortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData BucketSortCriteria where

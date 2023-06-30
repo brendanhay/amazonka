@@ -107,7 +107,8 @@ instance Data.FromJSON CustomDataIdentifierSummary where
 
 instance Prelude.Hashable CustomDataIdentifierSummary where
   hashWithSalt _salt CustomDataIdentifierSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

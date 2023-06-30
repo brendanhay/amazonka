@@ -195,7 +195,8 @@ instance
     PipeTargetBatchJobParameters
   where
   hashWithSalt _salt PipeTargetBatchJobParameters' {..} =
-    _salt `Prelude.hashWithSalt` arrayProperties
+    _salt
+      `Prelude.hashWithSalt` arrayProperties
       `Prelude.hashWithSalt` containerOverrides
       `Prelude.hashWithSalt` dependsOn
       `Prelude.hashWithSalt` parameters

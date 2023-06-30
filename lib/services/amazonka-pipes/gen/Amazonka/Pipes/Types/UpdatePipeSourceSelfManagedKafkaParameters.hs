@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     UpdatePipeSourceSelfManagedKafkaParameters' {..} =
-      _salt `Prelude.hashWithSalt` batchSize
+      _salt
+        `Prelude.hashWithSalt` batchSize
         `Prelude.hashWithSalt` credentials
         `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
         `Prelude.hashWithSalt` serverRootCaCertificate

@@ -201,7 +201,8 @@ instance Data.FromJSON PipeTargetParameters where
 
 instance Prelude.Hashable PipeTargetParameters where
   hashWithSalt _salt PipeTargetParameters' {..} =
-    _salt `Prelude.hashWithSalt` batchJobParameters
+    _salt
+      `Prelude.hashWithSalt` batchJobParameters
       `Prelude.hashWithSalt` cloudWatchLogsParameters
       `Prelude.hashWithSalt` ecsTaskParameters
       `Prelude.hashWithSalt` eventBridgeEventBusParameters

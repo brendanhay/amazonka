@@ -179,20 +179,23 @@ instance Data.FromJSON EcsContainerOverride where
             Prelude.<$> (x Data..:? "Command" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Cpu")
             Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "EnvironmentFiles"
+            Prelude.<*> ( x
+                            Data..:? "EnvironmentFiles"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Memory")
             Prelude.<*> (x Data..:? "MemoryReservation")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "ResourceRequirements"
+            Prelude.<*> ( x
+                            Data..:? "ResourceRequirements"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable EcsContainerOverride where
   hashWithSalt _salt EcsContainerOverride' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` environmentFiles

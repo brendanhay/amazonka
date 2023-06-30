@@ -176,7 +176,8 @@ instance
   hashWithSalt
     _salt
     PipeSourceDynamoDBStreamParameters' {..} =
-      _salt `Prelude.hashWithSalt` batchSize
+      _salt
+        `Prelude.hashWithSalt` batchSize
         `Prelude.hashWithSalt` deadLetterConfig
         `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
         `Prelude.hashWithSalt` maximumRecordAgeInSeconds

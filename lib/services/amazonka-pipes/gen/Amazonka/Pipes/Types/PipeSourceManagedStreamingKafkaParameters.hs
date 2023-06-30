@@ -119,11 +119,11 @@ instance
       ( \x ->
           PipeSourceManagedStreamingKafkaParameters'
             Prelude.<$> (x Data..:? "BatchSize")
-              Prelude.<*> (x Data..:? "ConsumerGroupID")
-              Prelude.<*> (x Data..:? "Credentials")
-              Prelude.<*> (x Data..:? "MaximumBatchingWindowInSeconds")
-              Prelude.<*> (x Data..:? "StartingPosition")
-              Prelude.<*> (x Data..: "TopicName")
+            Prelude.<*> (x Data..:? "ConsumerGroupID")
+            Prelude.<*> (x Data..:? "Credentials")
+            Prelude.<*> (x Data..:? "MaximumBatchingWindowInSeconds")
+            Prelude.<*> (x Data..:? "StartingPosition")
+            Prelude.<*> (x Data..: "TopicName")
       )
 
 instance
@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     PipeSourceManagedStreamingKafkaParameters' {..} =
-      _salt `Prelude.hashWithSalt` batchSize
+      _salt
+        `Prelude.hashWithSalt` batchSize
         `Prelude.hashWithSalt` consumerGroupID
         `Prelude.hashWithSalt` credentials
         `Prelude.hashWithSalt` maximumBatchingWindowInSeconds

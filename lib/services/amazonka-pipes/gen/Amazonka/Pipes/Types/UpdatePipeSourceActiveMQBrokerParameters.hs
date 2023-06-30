@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     UpdatePipeSourceActiveMQBrokerParameters' {..} =
-      _salt `Prelude.hashWithSalt` batchSize
+      _salt
+        `Prelude.hashWithSalt` batchSize
         `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
         `Prelude.hashWithSalt` credentials
 

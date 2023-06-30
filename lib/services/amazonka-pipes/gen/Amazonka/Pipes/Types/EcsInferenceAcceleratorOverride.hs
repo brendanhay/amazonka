@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     EcsInferenceAcceleratorOverride' {..} =
-      _salt `Prelude.hashWithSalt` deviceName
+      _salt
+        `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` deviceType
 
 instance

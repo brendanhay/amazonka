@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     UpdatePipeSourceManagedStreamingKafkaParameters' {..} =
-      _salt `Prelude.hashWithSalt` batchSize
+      _salt
+        `Prelude.hashWithSalt` batchSize
         `Prelude.hashWithSalt` credentials
         `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
 

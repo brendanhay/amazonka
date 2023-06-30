@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     PipeSourceRabbitMQBrokerParameters' {..} =
-      _salt `Prelude.hashWithSalt` batchSize
+      _salt
+        `Prelude.hashWithSalt` batchSize
         `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
         `Prelude.hashWithSalt` virtualHost
         `Prelude.hashWithSalt` credentials

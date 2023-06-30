@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     PipeTargetCloudWatchLogsParameters' {..} =
-      _salt `Prelude.hashWithSalt` logStreamName
+      _salt
+        `Prelude.hashWithSalt` logStreamName
         `Prelude.hashWithSalt` timestamp
 
 instance

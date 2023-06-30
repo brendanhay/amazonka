@@ -109,12 +109,14 @@ instance Data.FromJSON EcsResourceRequirement where
       "EcsResourceRequirement"
       ( \x ->
           EcsResourceRequirement'
-            Prelude.<$> (x Data..: "type") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "type")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable EcsResourceRequirement where
   hashWithSalt _salt EcsResourceRequirement' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EcsResourceRequirement where

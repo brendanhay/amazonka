@@ -91,7 +91,8 @@ instance Data.FromJSON KMSKeyDetails where
 
 instance Prelude.Hashable KMSKeyDetails where
   hashWithSalt _salt KMSKeyDetails' {..} =
-    _salt `Prelude.hashWithSalt` encryptionOption
+    _salt
+      `Prelude.hashWithSalt` encryptionOption
       `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData KMSKeyDetails where

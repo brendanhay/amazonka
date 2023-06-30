@@ -146,7 +146,8 @@ instance Data.FromJSON RecommendationFeedback where
 
 instance Prelude.Hashable RecommendationFeedback where
   hashWithSalt _salt RecommendationFeedback' {..} =
-    _salt `Prelude.hashWithSalt` codeReviewArn
+    _salt
+      `Prelude.hashWithSalt` codeReviewArn
       `Prelude.hashWithSalt` createdTimeStamp
       `Prelude.hashWithSalt` lastUpdatedTimeStamp
       `Prelude.hashWithSalt` reactions

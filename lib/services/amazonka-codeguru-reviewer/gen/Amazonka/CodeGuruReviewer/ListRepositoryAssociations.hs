@@ -288,22 +288,22 @@ instance Core.AWSPager ListRepositoryAssociations where
     | Core.stop
         ( rs
             Lens.^? listRepositoryAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRepositoryAssociationsResponse_repositoryAssociationSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRepositoryAssociations_nextToken
           Lens..~ rs
           Lens.^? listRepositoryAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRepositoryAssociations where
   type
@@ -316,7 +316,8 @@ instance Core.AWSRequest ListRepositoryAssociations where
       ( \s h x ->
           ListRepositoryAssociationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "RepositoryAssociationSummaries"
+            Prelude.<*> ( x
+                            Data..?> "RepositoryAssociationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -324,7 +325,8 @@ instance Core.AWSRequest ListRepositoryAssociations where
 
 instance Prelude.Hashable ListRepositoryAssociations where
   hashWithSalt _salt ListRepositoryAssociations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` owners

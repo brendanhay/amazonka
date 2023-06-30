@@ -107,7 +107,8 @@ thirdPartySourceRepository_owner = Lens.lens (\ThirdPartySourceRepository' {owne
 
 instance Prelude.Hashable ThirdPartySourceRepository where
   hashWithSalt _salt ThirdPartySourceRepository' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` owner
 

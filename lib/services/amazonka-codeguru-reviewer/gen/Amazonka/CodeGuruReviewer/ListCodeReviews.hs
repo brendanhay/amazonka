@@ -195,7 +195,8 @@ instance Core.AWSRequest ListCodeReviews where
     Response.receiveJSON
       ( \s h x ->
           ListCodeReviewsResponse'
-            Prelude.<$> ( x Data..?> "CodeReviewSummaries"
+            Prelude.<$> ( x
+                            Data..?> "CodeReviewSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -204,7 +205,8 @@ instance Core.AWSRequest ListCodeReviews where
 
 instance Prelude.Hashable ListCodeReviews where
   hashWithSalt _salt ListCodeReviews' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` providerTypes
       `Prelude.hashWithSalt` repositoryNames

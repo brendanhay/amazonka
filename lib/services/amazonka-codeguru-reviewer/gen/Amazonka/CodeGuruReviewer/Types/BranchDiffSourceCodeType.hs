@@ -84,7 +84,8 @@ instance Data.FromJSON BranchDiffSourceCodeType where
 
 instance Prelude.Hashable BranchDiffSourceCodeType where
   hashWithSalt _salt BranchDiffSourceCodeType' {..} =
-    _salt `Prelude.hashWithSalt` sourceBranchName
+    _salt
+      `Prelude.hashWithSalt` sourceBranchName
       `Prelude.hashWithSalt` destinationBranchName
 
 instance Prelude.NFData BranchDiffSourceCodeType where

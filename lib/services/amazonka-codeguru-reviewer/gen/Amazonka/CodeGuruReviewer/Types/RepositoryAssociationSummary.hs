@@ -277,7 +277,8 @@ instance
     RepositoryAssociationSummary
   where
   hashWithSalt _salt RepositoryAssociationSummary' {..} =
-    _salt `Prelude.hashWithSalt` associationArn
+    _salt
+      `Prelude.hashWithSalt` associationArn
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` lastUpdatedTimeStamp

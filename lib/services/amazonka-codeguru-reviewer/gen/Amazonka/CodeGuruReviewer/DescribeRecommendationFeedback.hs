@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     DescribeRecommendationFeedback' {..} =
-      _salt `Prelude.hashWithSalt` userId
+      _salt
+        `Prelude.hashWithSalt` userId
         `Prelude.hashWithSalt` codeReviewArn
         `Prelude.hashWithSalt` recommendationId
 

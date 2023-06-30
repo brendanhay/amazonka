@@ -203,7 +203,8 @@ instance Core.AWSRequest AssociateRepository where
 
 instance Prelude.Hashable AssociateRepository where
   hashWithSalt _salt AssociateRepository' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` kmsKeyDetails
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` repository

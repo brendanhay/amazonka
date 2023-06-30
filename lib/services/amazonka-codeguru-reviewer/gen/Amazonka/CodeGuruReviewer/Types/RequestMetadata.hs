@@ -121,7 +121,8 @@ instance Data.FromJSON RequestMetadata where
 
 instance Prelude.Hashable RequestMetadata where
   hashWithSalt _salt RequestMetadata' {..} =
-    _salt `Prelude.hashWithSalt` eventInfo
+    _salt
+      `Prelude.hashWithSalt` eventInfo
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` requester
       `Prelude.hashWithSalt` vendorName

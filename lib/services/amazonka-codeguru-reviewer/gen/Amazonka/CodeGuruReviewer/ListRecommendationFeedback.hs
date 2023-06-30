@@ -174,7 +174,8 @@ instance Core.AWSRequest ListRecommendationFeedback where
       ( \s h x ->
           ListRecommendationFeedbackResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "RecommendationFeedbackSummaries"
+            Prelude.<*> ( x
+                            Data..?> "RecommendationFeedbackSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,7 +183,8 @@ instance Core.AWSRequest ListRecommendationFeedback where
 
 instance Prelude.Hashable ListRecommendationFeedback where
   hashWithSalt _salt ListRecommendationFeedback' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` recommendationIds
       `Prelude.hashWithSalt` userIds

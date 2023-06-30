@@ -86,7 +86,8 @@ instance Data.FromJSON S3RepositoryDetails where
 
 instance Prelude.Hashable S3RepositoryDetails where
   hashWithSalt _salt S3RepositoryDetails' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` codeArtifacts
 
 instance Prelude.NFData S3RepositoryDetails where

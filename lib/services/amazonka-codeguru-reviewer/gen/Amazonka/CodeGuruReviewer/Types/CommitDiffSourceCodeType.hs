@@ -95,7 +95,8 @@ instance Data.FromJSON CommitDiffSourceCodeType where
 
 instance Prelude.Hashable CommitDiffSourceCodeType where
   hashWithSalt _salt CommitDiffSourceCodeType' {..} =
-    _salt `Prelude.hashWithSalt` destinationCommit
+    _salt
+      `Prelude.hashWithSalt` destinationCommit
       `Prelude.hashWithSalt` mergeBaseCommit
       `Prelude.hashWithSalt` sourceCommit
 

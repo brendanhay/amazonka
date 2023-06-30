@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateServer where
 
 instance Prelude.Hashable UpdateServer where
   hashWithSalt _salt UpdateServer' {..} =
-    _salt `Prelude.hashWithSalt` backupRetentionCount
+    _salt
+      `Prelude.hashWithSalt` backupRetentionCount
       `Prelude.hashWithSalt` disableAutomatedBackup
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` preferredMaintenanceWindow

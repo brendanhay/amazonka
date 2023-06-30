@@ -26,13 +26,13 @@
 -- On a Chef server: This command is an alternative to @knife bootstrap@.
 --
 -- Example (Chef):
--- @aws opsworks-cm associate-node --server-name MyServer --node-name MyManagedNode --engine-attributes \"Name=CHEF_ORGANIZATION,Value=default\" \"Name=CHEF_NODE_PUBLIC_KEY,Value=public-key-pem\"@
+-- @aws opsworks-cm associate-node --server-name @/@MyServer@/@ --node-name @/@MyManagedNode@/@ --engine-attributes \"Name=@/@CHEF_ORGANIZATION@/@,Value=default\" \"Name=@/@CHEF_NODE_PUBLIC_KEY@/@,Value=@/@public-key-pem@/@\"@
 --
 -- On a Puppet server, this command is an alternative to the
 -- @puppet cert sign@ command that signs a Puppet node CSR.
 --
 -- Example (Puppet):
--- @aws opsworks-cm associate-node --server-name MyServer --node-name MyManagedNode --engine-attributes \"Name=PUPPET_NODE_CSR,Value=csr-pem\"@
+-- @aws opsworks-cm associate-node --server-name @/@MyServer@/@ --node-name @/@MyManagedNode@/@ --engine-attributes \"Name=@/@PUPPET_NODE_CSR@/@,Value=@/@csr-pem@/@\"@
 --
 -- A node can can only be associated with servers that are in a @HEALTHY@
 -- state. Otherwise, an @InvalidStateException@ is thrown. A
@@ -176,7 +176,8 @@ instance Core.AWSRequest AssociateNode where
 
 instance Prelude.Hashable AssociateNode where
   hashWithSalt _salt AssociateNode' {..} =
-    _salt `Prelude.hashWithSalt` serverName
+    _salt
+      `Prelude.hashWithSalt` serverName
       `Prelude.hashWithSalt` nodeName
       `Prelude.hashWithSalt` engineAttributes
 

@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     EvaluatePullRequestApprovalRules' {..} =
-      _salt `Prelude.hashWithSalt` pullRequestId
+      _salt
+        `Prelude.hashWithSalt` pullRequestId
         `Prelude.hashWithSalt` revisionId
 
 instance

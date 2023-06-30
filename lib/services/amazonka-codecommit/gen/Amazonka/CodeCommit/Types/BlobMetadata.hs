@@ -111,7 +111,8 @@ instance Data.FromJSON BlobMetadata where
 
 instance Prelude.Hashable BlobMetadata where
   hashWithSalt _salt BlobMetadata' {..} =
-    _salt `Prelude.hashWithSalt` blobId
+    _salt
+      `Prelude.hashWithSalt` blobId
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` path
 

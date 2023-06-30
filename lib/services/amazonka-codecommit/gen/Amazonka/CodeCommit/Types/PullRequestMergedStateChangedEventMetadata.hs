@@ -85,8 +85,8 @@ instance
       ( \x ->
           PullRequestMergedStateChangedEventMetadata'
             Prelude.<$> (x Data..:? "destinationReference")
-              Prelude.<*> (x Data..:? "mergeMetadata")
-              Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "mergeMetadata")
+            Prelude.<*> (x Data..:? "repositoryName")
       )
 
 instance
@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     PullRequestMergedStateChangedEventMetadata' {..} =
-      _salt `Prelude.hashWithSalt` destinationReference
+      _salt
+        `Prelude.hashWithSalt` destinationReference
         `Prelude.hashWithSalt` mergeMetadata
         `Prelude.hashWithSalt` repositoryName
 

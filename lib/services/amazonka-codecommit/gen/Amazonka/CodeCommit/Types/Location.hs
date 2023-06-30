@@ -92,7 +92,8 @@ instance Data.FromJSON Location where
 
 instance Prelude.Hashable Location where
   hashWithSalt _salt Location' {..} =
-    _salt `Prelude.hashWithSalt` filePath
+    _salt
+      `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` filePosition
       `Prelude.hashWithSalt` relativeFileVersion
 

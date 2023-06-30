@@ -198,7 +198,8 @@ instance Data.FromJSON PullRequestEvent where
 
 instance Prelude.Hashable PullRequestEvent where
   hashWithSalt _salt PullRequestEvent' {..} =
-    _salt `Prelude.hashWithSalt` actorArn
+    _salt
+      `Prelude.hashWithSalt` actorArn
       `Prelude.hashWithSalt` approvalRuleEventMetadata
       `Prelude.hashWithSalt` approvalRuleOverriddenEventMetadata
       `Prelude.hashWithSalt` approvalStateChangedEventMetadata

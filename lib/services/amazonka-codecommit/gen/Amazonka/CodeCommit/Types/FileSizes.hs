@@ -84,7 +84,8 @@ instance Data.FromJSON FileSizes where
 
 instance Prelude.Hashable FileSizes where
   hashWithSalt _salt FileSizes' {..} =
-    _salt `Prelude.hashWithSalt` base
+    _salt
+      `Prelude.hashWithSalt` base
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` source
 

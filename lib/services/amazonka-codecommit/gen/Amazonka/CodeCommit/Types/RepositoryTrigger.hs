@@ -136,7 +136,8 @@ instance Data.FromJSON RepositoryTrigger where
 
 instance Prelude.Hashable RepositoryTrigger where
   hashWithSalt _salt RepositoryTrigger' {..} =
-    _salt `Prelude.hashWithSalt` branches
+    _salt
+      `Prelude.hashWithSalt` branches
       `Prelude.hashWithSalt` customData
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` destinationArn

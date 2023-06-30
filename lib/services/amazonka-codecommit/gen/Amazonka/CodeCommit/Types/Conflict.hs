@@ -79,7 +79,8 @@ instance Data.FromJSON Conflict where
 
 instance Prelude.Hashable Conflict where
   hashWithSalt _salt Conflict' {..} =
-    _salt `Prelude.hashWithSalt` conflictMetadata
+    _salt
+      `Prelude.hashWithSalt` conflictMetadata
       `Prelude.hashWithSalt` mergeHunks
 
 instance Prelude.NFData Conflict where

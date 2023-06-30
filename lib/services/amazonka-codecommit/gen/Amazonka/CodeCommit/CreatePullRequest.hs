@@ -156,7 +156,8 @@ instance Core.AWSRequest CreatePullRequest where
 
 instance Prelude.Hashable CreatePullRequest where
   hashWithSalt _salt CreatePullRequest' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` targets

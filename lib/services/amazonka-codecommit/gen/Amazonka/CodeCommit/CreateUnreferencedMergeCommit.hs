@@ -266,7 +266,8 @@ instance
     CreateUnreferencedMergeCommit
   where
   hashWithSalt _salt CreateUnreferencedMergeCommit' {..} =
-    _salt `Prelude.hashWithSalt` authorName
+    _salt
+      `Prelude.hashWithSalt` authorName
       `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolution

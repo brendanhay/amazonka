@@ -83,7 +83,8 @@ target_sourceReference = Lens.lens (\Target' {sourceReference} -> sourceReferenc
 
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` destinationReference
+    _salt
+      `Prelude.hashWithSalt` destinationReference
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` sourceReference
 

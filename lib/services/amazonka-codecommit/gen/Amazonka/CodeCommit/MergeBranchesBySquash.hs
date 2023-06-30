@@ -248,7 +248,8 @@ instance Core.AWSRequest MergeBranchesBySquash where
 
 instance Prelude.Hashable MergeBranchesBySquash where
   hashWithSalt _salt MergeBranchesBySquash' {..} =
-    _salt `Prelude.hashWithSalt` authorName
+    _salt
+      `Prelude.hashWithSalt` authorName
       `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolution

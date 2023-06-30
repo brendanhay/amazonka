@@ -90,7 +90,8 @@ instance Data.FromJSON BatchGetCommitsError where
 
 instance Prelude.Hashable BatchGetCommitsError where
   hashWithSalt _salt BatchGetCommitsError' {..} =
-    _salt `Prelude.hashWithSalt` commitId
+    _salt
+      `Prelude.hashWithSalt` commitId
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
 

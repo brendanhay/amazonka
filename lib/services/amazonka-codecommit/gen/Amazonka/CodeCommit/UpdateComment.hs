@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateComment where
 
 instance Prelude.Hashable UpdateComment where
   hashWithSalt _salt UpdateComment' {..} =
-    _salt `Prelude.hashWithSalt` commentId
+    _salt
+      `Prelude.hashWithSalt` commentId
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData UpdateComment where

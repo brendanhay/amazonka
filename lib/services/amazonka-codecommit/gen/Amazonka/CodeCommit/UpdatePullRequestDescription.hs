@@ -116,7 +116,8 @@ instance
     UpdatePullRequestDescription
   where
   hashWithSalt _salt UpdatePullRequestDescription' {..} =
-    _salt `Prelude.hashWithSalt` pullRequestId
+    _salt
+      `Prelude.hashWithSalt` pullRequestId
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData UpdatePullRequestDescription where

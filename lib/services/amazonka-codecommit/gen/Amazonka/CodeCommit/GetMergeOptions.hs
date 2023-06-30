@@ -179,7 +179,8 @@ instance Core.AWSRequest GetMergeOptions where
 
 instance Prelude.Hashable GetMergeOptions where
   hashWithSalt _salt GetMergeOptions' {..} =
-    _salt `Prelude.hashWithSalt` conflictDetailLevel
+    _salt
+      `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolutionStrategy
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` sourceCommitSpecifier

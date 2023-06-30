@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     ApprovalStateChangedEventMetadata' {..} =
-      _salt `Prelude.hashWithSalt` approvalStatus
+      _salt
+        `Prelude.hashWithSalt` approvalStatus
         `Prelude.hashWithSalt` revisionId
 
 instance

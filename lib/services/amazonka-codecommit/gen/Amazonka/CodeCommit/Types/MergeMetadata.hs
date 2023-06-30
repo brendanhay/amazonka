@@ -96,7 +96,8 @@ instance Data.FromJSON MergeMetadata where
 
 instance Prelude.Hashable MergeMetadata where
   hashWithSalt _salt MergeMetadata' {..} =
-    _salt `Prelude.hashWithSalt` isMerged
+    _salt
+      `Prelude.hashWithSalt` isMerged
       `Prelude.hashWithSalt` mergeCommitId
       `Prelude.hashWithSalt` mergeOption
       `Prelude.hashWithSalt` mergedBy

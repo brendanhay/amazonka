@@ -74,7 +74,8 @@ instance Data.FromJSON BranchInfo where
 
 instance Prelude.Hashable BranchInfo where
   hashWithSalt _salt BranchInfo' {..} =
-    _salt `Prelude.hashWithSalt` branchName
+    _salt
+      `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` commitId
 
 instance Prelude.NFData BranchInfo where

@@ -95,7 +95,8 @@ instance Data.FromJSON Difference where
 
 instance Prelude.Hashable Difference where
   hashWithSalt _salt Difference' {..} =
-    _salt `Prelude.hashWithSalt` afterBlob
+    _salt
+      `Prelude.hashWithSalt` afterBlob
       `Prelude.hashWithSalt` beforeBlob
       `Prelude.hashWithSalt` changeType
 

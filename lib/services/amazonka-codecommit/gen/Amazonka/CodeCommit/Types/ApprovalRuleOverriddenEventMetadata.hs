@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     ApprovalRuleOverriddenEventMetadata' {..} =
-      _salt `Prelude.hashWithSalt` overrideStatus
+      _salt
+        `Prelude.hashWithSalt` overrideStatus
         `Prelude.hashWithSalt` revisionId
 
 instance

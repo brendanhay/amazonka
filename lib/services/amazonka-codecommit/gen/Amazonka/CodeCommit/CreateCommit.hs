@@ -211,7 +211,8 @@ instance Core.AWSRequest CreateCommit where
 
 instance Prelude.Hashable CreateCommit where
   hashWithSalt _salt CreateCommit' {..} =
-    _salt `Prelude.hashWithSalt` authorName
+    _salt
+      `Prelude.hashWithSalt` authorName
       `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` deleteFiles
       `Prelude.hashWithSalt` email

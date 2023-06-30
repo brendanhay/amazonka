@@ -105,7 +105,8 @@ instance Core.AWSRequest GetBlob where
 
 instance Prelude.Hashable GetBlob where
   hashWithSalt _salt GetBlob' {..} =
-    _salt `Prelude.hashWithSalt` repositoryName
+    _salt
+      `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` blobId
 
 instance Prelude.NFData GetBlob where

@@ -103,10 +103,12 @@ instance Core.AWSRequest TestRepositoryTriggers where
     Response.receiveJSON
       ( \s h x ->
           TestRepositoryTriggersResponse'
-            Prelude.<$> ( x Data..?> "failedExecutions"
+            Prelude.<$> ( x
+                            Data..?> "failedExecutions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "successfulExecutions"
+            Prelude.<*> ( x
+                            Data..?> "successfulExecutions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,7 +116,8 @@ instance Core.AWSRequest TestRepositoryTriggers where
 
 instance Prelude.Hashable TestRepositoryTriggers where
   hashWithSalt _salt TestRepositoryTriggers' {..} =
-    _salt `Prelude.hashWithSalt` repositoryName
+    _salt
+      `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` triggers
 
 instance Prelude.NFData TestRepositoryTriggers where

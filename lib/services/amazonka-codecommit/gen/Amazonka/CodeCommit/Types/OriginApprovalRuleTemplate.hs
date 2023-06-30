@@ -76,7 +76,8 @@ instance Data.FromJSON OriginApprovalRuleTemplate where
 
 instance Prelude.Hashable OriginApprovalRuleTemplate where
   hashWithSalt _salt OriginApprovalRuleTemplate' {..} =
-    _salt `Prelude.hashWithSalt` approvalRuleTemplateId
+    _salt
+      `Prelude.hashWithSalt` approvalRuleTemplateId
       `Prelude.hashWithSalt` approvalRuleTemplateName
 
 instance Prelude.NFData OriginApprovalRuleTemplate where

@@ -102,9 +102,9 @@ instance
       ( \x ->
           PullRequestSourceReferenceUpdatedEventMetadata'
             Prelude.<$> (x Data..:? "afterCommitId")
-              Prelude.<*> (x Data..:? "beforeCommitId")
-              Prelude.<*> (x Data..:? "mergeBase")
-              Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "beforeCommitId")
+            Prelude.<*> (x Data..:? "mergeBase")
+            Prelude.<*> (x Data..:? "repositoryName")
       )
 
 instance
@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     PullRequestSourceReferenceUpdatedEventMetadata' {..} =
-      _salt `Prelude.hashWithSalt` afterCommitId
+      _salt
+        `Prelude.hashWithSalt` afterCommitId
         `Prelude.hashWithSalt` beforeCommitId
         `Prelude.hashWithSalt` mergeBase
         `Prelude.hashWithSalt` repositoryName

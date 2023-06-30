@@ -106,7 +106,8 @@ putFileEntry_filePath = Lens.lens (\PutFileEntry' {filePath} -> filePath) (\s@Pu
 
 instance Prelude.Hashable PutFileEntry where
   hashWithSalt _salt PutFileEntry' {..} =
-    _salt `Prelude.hashWithSalt` fileContent
+    _salt
+      `Prelude.hashWithSalt` fileContent
       `Prelude.hashWithSalt` fileMode
       `Prelude.hashWithSalt` sourceFile
       `Prelude.hashWithSalt` filePath

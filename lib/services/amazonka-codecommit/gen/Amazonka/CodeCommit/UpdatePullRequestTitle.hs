@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdatePullRequestTitle where
 
 instance Prelude.Hashable UpdatePullRequestTitle where
   hashWithSalt _salt UpdatePullRequestTitle' {..} =
-    _salt `Prelude.hashWithSalt` pullRequestId
+    _salt
+      `Prelude.hashWithSalt` pullRequestId
       `Prelude.hashWithSalt` title
 
 instance Prelude.NFData UpdatePullRequestTitle where

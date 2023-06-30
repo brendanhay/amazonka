@@ -105,7 +105,8 @@ instance Core.AWSRequest GetCommit where
 
 instance Prelude.Hashable GetCommit where
   hashWithSalt _salt GetCommit' {..} =
-    _salt `Prelude.hashWithSalt` repositoryName
+    _salt
+      `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` commitId
 
 instance Prelude.NFData GetCommit where

@@ -121,10 +121,11 @@ instance
       ( \s h x ->
           BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..?> "disassociatedRepositoryNames"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..?> "disassociatedRepositoryNames"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
       )
 
 instance

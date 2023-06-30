@@ -154,7 +154,8 @@ instance Data.FromJSON RepositoryMetadata where
 
 instance Prelude.Hashable RepositoryMetadata where
   hashWithSalt _salt RepositoryMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` cloneUrlHttp
       `Prelude.hashWithSalt` cloneUrlSsh

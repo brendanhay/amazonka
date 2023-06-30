@@ -109,7 +109,8 @@ instance Core.AWSRequest PutRepositoryTriggers where
 
 instance Prelude.Hashable PutRepositoryTriggers where
   hashWithSalt _salt PutRepositoryTriggers' {..} =
-    _salt `Prelude.hashWithSalt` repositoryName
+    _salt
+      `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` triggers
 
 instance Prelude.NFData PutRepositoryTriggers where

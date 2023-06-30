@@ -205,7 +205,8 @@ instance Core.AWSRequest CreateWorkflowStep where
 
 instance Prelude.Hashable CreateWorkflowStep where
   hashWithSalt _salt CreateWorkflowStep' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` previous

@@ -193,7 +193,8 @@ instance Data.FromJSON WorkflowStepSummary where
 
 instance Prelude.Hashable WorkflowStepSummary where
   hashWithSalt _salt WorkflowStepSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` noOfSrvCompleted

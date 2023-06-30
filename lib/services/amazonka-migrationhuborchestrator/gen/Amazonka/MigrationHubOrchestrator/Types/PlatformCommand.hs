@@ -74,7 +74,8 @@ instance Data.FromJSON PlatformCommand where
 
 instance Prelude.Hashable PlatformCommand where
   hashWithSalt _salt PlatformCommand' {..} =
-    _salt `Prelude.hashWithSalt` linux
+    _salt
+      `Prelude.hashWithSalt` linux
       `Prelude.hashWithSalt` windows
 
 instance Prelude.NFData PlatformCommand where

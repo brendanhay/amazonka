@@ -96,7 +96,8 @@ instance Data.FromJSON WorkflowStepOutput where
 
 instance Prelude.Hashable WorkflowStepOutput where
   hashWithSalt _salt WorkflowStepOutput' {..} =
-    _salt `Prelude.hashWithSalt` dataType
+    _salt
+      `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` required
       `Prelude.hashWithSalt` value

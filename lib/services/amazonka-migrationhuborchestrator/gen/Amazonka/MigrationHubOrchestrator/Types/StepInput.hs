@@ -89,10 +89,12 @@ instance Data.FromJSON StepInput where
       ( \x ->
           StepInput'
             Prelude.<$> (x Data..:? "integerValue")
-            Prelude.<*> ( x Data..:? "listOfStringsValue"
+            Prelude.<*> ( x
+                            Data..:? "listOfStringsValue"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "mapOfStringValue"
+            Prelude.<*> ( x
+                            Data..:? "mapOfStringValue"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "stringValue")
@@ -100,7 +102,8 @@ instance Data.FromJSON StepInput where
 
 instance Prelude.Hashable StepInput where
   hashWithSalt _salt StepInput' {..} =
-    _salt `Prelude.hashWithSalt` integerValue
+    _salt
+      `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` listOfStringsValue
       `Prelude.hashWithSalt` mapOfStringValue
       `Prelude.hashWithSalt` stringValue

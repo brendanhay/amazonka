@@ -126,7 +126,8 @@ instance Core.AWSRequest GetWorkflowStepGroup where
 
 instance Prelude.Hashable GetWorkflowStepGroup where
   hashWithSalt _salt GetWorkflowStepGroup' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` workflowId
 
 instance Prelude.NFData GetWorkflowStepGroup where

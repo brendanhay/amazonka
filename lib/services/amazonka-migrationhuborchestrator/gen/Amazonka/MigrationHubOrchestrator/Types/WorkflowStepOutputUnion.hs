@@ -79,7 +79,8 @@ instance Data.FromJSON WorkflowStepOutputUnion where
       ( \x ->
           WorkflowStepOutputUnion'
             Prelude.<$> (x Data..:? "integerValue")
-            Prelude.<*> ( x Data..:? "listOfStringValue"
+            Prelude.<*> ( x
+                            Data..:? "listOfStringValue"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "stringValue")
@@ -87,7 +88,8 @@ instance Data.FromJSON WorkflowStepOutputUnion where
 
 instance Prelude.Hashable WorkflowStepOutputUnion where
   hashWithSalt _salt WorkflowStepOutputUnion' {..} =
-    _salt `Prelude.hashWithSalt` integerValue
+    _salt
+      `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` listOfStringValue
       `Prelude.hashWithSalt` stringValue
 

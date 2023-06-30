@@ -116,21 +116,21 @@ instance Core.AWSPager ListWorkflowSteps where
     | Core.stop
         ( rs
             Lens.^? listWorkflowStepsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listWorkflowStepsResponse_workflowStepsSummary
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWorkflowSteps_nextToken
           Lens..~ rs
           Lens.^? listWorkflowStepsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkflowSteps where
   type
@@ -144,14 +144,16 @@ instance Core.AWSRequest ListWorkflowSteps where
           ListWorkflowStepsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "workflowStepsSummary"
+            Prelude.<*> ( x
+                            Data..?> "workflowStepsSummary"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListWorkflowSteps where
   hashWithSalt _salt ListWorkflowSteps' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` stepGroupId

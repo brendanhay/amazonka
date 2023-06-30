@@ -91,20 +91,23 @@ instance Core.AWSPager ListPlugins where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPluginsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listPluginsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPluginsResponse_plugins Prelude.. Lens._Just
+            Lens.^? listPluginsResponse_plugins
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPlugins_nextToken
           Lens..~ rs
-          Lens.^? listPluginsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPluginsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlugins where
   type AWSResponse ListPlugins = ListPluginsResponse
@@ -121,7 +124,8 @@ instance Core.AWSRequest ListPlugins where
 
 instance Prelude.Hashable ListPlugins where
   hashWithSalt _salt ListPlugins' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPlugins where

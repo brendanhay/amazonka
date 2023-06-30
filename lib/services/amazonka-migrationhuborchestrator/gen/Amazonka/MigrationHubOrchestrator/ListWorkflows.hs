@@ -132,20 +132,22 @@ instance Core.AWSPager ListWorkflows where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listWorkflowsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listWorkflowsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listWorkflowsResponse_migrationWorkflowSummary
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWorkflows_nextToken
           Lens..~ rs
-          Lens.^? listWorkflowsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listWorkflowsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkflows where
   type
@@ -159,7 +161,8 @@ instance Core.AWSRequest ListWorkflows where
           ListWorkflowsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "migrationWorkflowSummary"
+            Prelude.<*> ( x
+                            Data..?> "migrationWorkflowSummary"
                             Core..!@ Prelude.mempty
                         )
       )

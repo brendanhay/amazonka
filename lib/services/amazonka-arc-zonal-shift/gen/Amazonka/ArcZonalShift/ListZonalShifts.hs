@@ -142,21 +142,22 @@ instance Core.AWSPager ListZonalShifts where
     | Core.stop
         ( rs
             Lens.^? listZonalShiftsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listZonalShiftsResponse_items Prelude.. Lens._Just
+            Lens.^? listZonalShiftsResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listZonalShifts_nextToken
           Lens..~ rs
           Lens.^? listZonalShiftsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListZonalShifts where
   type
@@ -175,7 +176,8 @@ instance Core.AWSRequest ListZonalShifts where
 
 instance Prelude.Hashable ListZonalShifts where
   hashWithSalt _salt ListZonalShifts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
 

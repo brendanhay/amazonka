@@ -173,7 +173,8 @@ instance Core.AWSRequest UpdateZonalShift where
 
 instance Prelude.Hashable UpdateZonalShift where
   hashWithSalt _salt UpdateZonalShift' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` expiresIn
       `Prelude.hashWithSalt` zonalShiftId
 

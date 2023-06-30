@@ -249,7 +249,8 @@ instance Data.FromJSON ZonalShiftSummary where
 
 instance Prelude.Hashable ZonalShiftSummary where
   hashWithSalt _salt ZonalShiftSummary' {..} =
-    _salt `Prelude.hashWithSalt` awayFrom
+    _salt
+      `Prelude.hashWithSalt` awayFrom
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` expiryTime
       `Prelude.hashWithSalt` resourceIdentifier

@@ -89,14 +89,16 @@ instance Data.FromJSON ManagedResourceSummary where
           ManagedResourceSummary'
             Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> ( x Data..:? "availabilityZones"
+            Prelude.<*> ( x
+                            Data..:? "availabilityZones"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ManagedResourceSummary where
   hashWithSalt _salt ManagedResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` availabilityZones
 

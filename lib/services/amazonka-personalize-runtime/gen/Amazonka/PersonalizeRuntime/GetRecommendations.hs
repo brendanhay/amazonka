@@ -274,7 +274,8 @@ instance Core.AWSRequest GetRecommendations where
 
 instance Prelude.Hashable GetRecommendations where
   hashWithSalt _salt GetRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` campaignArn
+    _salt
+      `Prelude.hashWithSalt` campaignArn
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` filterArn
       `Prelude.hashWithSalt` filterValues

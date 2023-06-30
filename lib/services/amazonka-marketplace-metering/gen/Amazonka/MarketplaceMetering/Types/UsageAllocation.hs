@@ -83,7 +83,8 @@ instance Data.FromJSON UsageAllocation where
 
 instance Prelude.Hashable UsageAllocation where
   hashWithSalt _salt UsageAllocation' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` allocatedUsageQuantity
 
 instance Prelude.NFData UsageAllocation where

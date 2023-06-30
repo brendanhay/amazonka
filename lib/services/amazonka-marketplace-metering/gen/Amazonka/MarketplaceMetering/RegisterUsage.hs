@@ -160,7 +160,8 @@ instance Core.AWSRequest RegisterUsage where
 
 instance Prelude.Hashable RegisterUsage where
   hashWithSalt _salt RegisterUsage' {..} =
-    _salt `Prelude.hashWithSalt` nonce
+    _salt
+      `Prelude.hashWithSalt` nonce
       `Prelude.hashWithSalt` productCode
       `Prelude.hashWithSalt` publicKeyVersion
 

@@ -151,7 +151,8 @@ instance Data.FromJSON UsageRecordResult where
 
 instance Prelude.Hashable UsageRecordResult where
   hashWithSalt _salt UsageRecordResult' {..} =
-    _salt `Prelude.hashWithSalt` meteringRecordId
+    _salt
+      `Prelude.hashWithSalt` meteringRecordId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` usageRecord
 

@@ -124,7 +124,8 @@ instance Data.FromJSON RunGroupListItem where
 
 instance Prelude.Hashable RunGroupListItem where
   hashWithSalt _salt RunGroupListItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` maxCpus

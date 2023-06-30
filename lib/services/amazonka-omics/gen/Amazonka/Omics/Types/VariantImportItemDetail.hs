@@ -79,7 +79,8 @@ instance Data.FromJSON VariantImportItemDetail where
 
 instance Prelude.Hashable VariantImportItemDetail where
   hashWithSalt _salt VariantImportItemDetail' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
+    _salt
+      `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData VariantImportItemDetail where

@@ -127,7 +127,8 @@ instance Core.AWSRequest GetWorkflow where
             Prelude.<*> (x Data..?> "id")
             Prelude.<*> (x Data..?> "main")
             Prelude.<*> (x Data..?> "name")
-            Prelude.<*> ( x Data..?> "parameterTemplate"
+            Prelude.<*> ( x
+                            Data..?> "parameterTemplate"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "status")
@@ -140,7 +141,8 @@ instance Core.AWSRequest GetWorkflow where
 
 instance Prelude.Hashable GetWorkflow where
   hashWithSalt _salt GetWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` export'
+    _salt
+      `Prelude.hashWithSalt` export'
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` id
 

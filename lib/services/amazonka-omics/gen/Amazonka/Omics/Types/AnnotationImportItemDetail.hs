@@ -80,7 +80,8 @@ instance Data.FromJSON AnnotationImportItemDetail where
 
 instance Prelude.Hashable AnnotationImportItemDetail where
   hashWithSalt _salt AnnotationImportItemDetail' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
+    _salt
+      `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData AnnotationImportItemDetail where

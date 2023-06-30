@@ -117,7 +117,8 @@ instance Core.AWSRequest GetRunTask where
 
 instance Prelude.Hashable GetRunTask where
   hashWithSalt _salt GetRunTask' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` taskId
 
 instance Prelude.NFData GetRunTask where

@@ -146,7 +146,8 @@ instance Core.AWSRequest CreateReferenceStore where
 
 instance Prelude.Hashable CreateReferenceStore where
   hashWithSalt _salt CreateReferenceStore' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` sseConfig
       `Prelude.hashWithSalt` tags

@@ -131,7 +131,8 @@ instance Data.FromJSON ExportReadSetJobDetail where
 
 instance Prelude.Hashable ExportReadSetJobDetail where
   hashWithSalt _salt ExportReadSetJobDetail' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` id

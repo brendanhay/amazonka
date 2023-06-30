@@ -75,7 +75,8 @@ activateReadSetFilter_status = Lens.lens (\ActivateReadSetFilter' {status} -> st
 
 instance Prelude.Hashable ActivateReadSetFilter where
   hashWithSalt _salt ActivateReadSetFilter' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` status
 

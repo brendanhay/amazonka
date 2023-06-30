@@ -118,7 +118,8 @@ instance Data.FromJSON ImportReferenceSourceItem where
 
 instance Prelude.Hashable ImportReferenceSourceItem where
   hashWithSalt _salt ImportReferenceSourceItem' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceFile
       `Prelude.hashWithSalt` statusMessage

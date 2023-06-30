@@ -115,22 +115,22 @@ instance Core.AWSPager ListVariantStores where
     | Core.stop
         ( rs
             Lens.^? listVariantStoresResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listVariantStoresResponse_variantStores
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listVariantStores_nextToken
           Lens..~ rs
           Lens.^? listVariantStoresResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVariantStores where
   type
@@ -149,7 +149,8 @@ instance Core.AWSRequest ListVariantStores where
 
 instance Prelude.Hashable ListVariantStores where
   hashWithSalt _salt ListVariantStores' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` ids
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

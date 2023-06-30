@@ -94,7 +94,8 @@ instance Data.FromJSON SequenceInformation where
 
 instance Prelude.Hashable SequenceInformation where
   hashWithSalt _salt SequenceInformation' {..} =
-    _salt `Prelude.hashWithSalt` alignment
+    _salt
+      `Prelude.hashWithSalt` alignment
       `Prelude.hashWithSalt` generatedFrom
       `Prelude.hashWithSalt` totalBaseCount
       `Prelude.hashWithSalt` totalReadCount

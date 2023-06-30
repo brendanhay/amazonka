@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateVariantStore where
 
 instance Prelude.Hashable UpdateVariantStore where
   hashWithSalt _salt UpdateVariantStore' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateVariantStore where

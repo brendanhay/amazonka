@@ -141,7 +141,8 @@ instance Core.AWSRequest StartReferenceImportJob where
 
 instance Prelude.Hashable StartReferenceImportJob where
   hashWithSalt _salt StartReferenceImportJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` referenceStoreId
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` sources

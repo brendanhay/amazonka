@@ -163,7 +163,8 @@ instance Data.FromJSON ReferenceListItem where
 
 instance Prelude.Hashable ReferenceListItem where
   hashWithSalt _salt ReferenceListItem' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` arn

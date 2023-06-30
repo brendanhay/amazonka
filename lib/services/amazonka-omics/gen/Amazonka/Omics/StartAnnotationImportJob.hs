@@ -140,7 +140,8 @@ instance Core.AWSRequest StartAnnotationImportJob where
 
 instance Prelude.Hashable StartAnnotationImportJob where
   hashWithSalt _salt StartAnnotationImportJob' {..} =
-    _salt `Prelude.hashWithSalt` formatOptions
+    _salt
+      `Prelude.hashWithSalt` formatOptions
       `Prelude.hashWithSalt` runLeftNormalization
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` items

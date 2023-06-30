@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateSequenceStore where
 
 instance Prelude.Hashable CreateSequenceStore where
   hashWithSalt _salt CreateSequenceStore' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` sseConfig
       `Prelude.hashWithSalt` tags

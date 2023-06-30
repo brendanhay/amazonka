@@ -116,7 +116,8 @@ instance Core.AWSRequest GetReadSetActivationJob where
 
 instance Prelude.Hashable GetReadSetActivationJob where
   hashWithSalt _salt GetReadSetActivationJob' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` sequenceStoreId
 
 instance Prelude.NFData GetReadSetActivationJob where

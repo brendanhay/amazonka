@@ -90,7 +90,8 @@ instance Data.FromJSON ActivateReadSetSourceItem where
 
 instance Prelude.Hashable ActivateReadSetSourceItem where
   hashWithSalt _salt ActivateReadSetSourceItem' {..} =
-    _salt `Prelude.hashWithSalt` statusMessage
+    _salt
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` readSetId
       `Prelude.hashWithSalt` status
 

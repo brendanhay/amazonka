@@ -128,7 +128,8 @@ instance Core.AWSRequest GetReadSetMetadata where
 
 instance Prelude.Hashable GetReadSetMetadata where
   hashWithSalt _salt GetReadSetMetadata' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` sequenceStoreId
 
 instance Prelude.NFData GetReadSetMetadata where

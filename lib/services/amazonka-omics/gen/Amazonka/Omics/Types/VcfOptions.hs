@@ -74,7 +74,8 @@ instance Data.FromJSON VcfOptions where
 
 instance Prelude.Hashable VcfOptions where
   hashWithSalt _salt VcfOptions' {..} =
-    _salt `Prelude.hashWithSalt` ignoreFilterField
+    _salt
+      `Prelude.hashWithSalt` ignoreFilterField
       `Prelude.hashWithSalt` ignoreQualField
 
 instance Prelude.NFData VcfOptions where

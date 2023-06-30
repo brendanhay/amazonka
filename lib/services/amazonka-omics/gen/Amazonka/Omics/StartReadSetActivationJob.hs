@@ -126,7 +126,8 @@ instance Core.AWSRequest StartReadSetActivationJob where
 
 instance Prelude.Hashable StartReadSetActivationJob where
   hashWithSalt _salt StartReadSetActivationJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` sequenceStoreId
       `Prelude.hashWithSalt` sources
 

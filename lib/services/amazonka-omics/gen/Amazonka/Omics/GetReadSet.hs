@@ -124,7 +124,8 @@ instance Core.AWSRequest GetReadSet where
 
 instance Prelude.Hashable GetReadSet where
   hashWithSalt _salt GetReadSet' {..} =
-    _salt `Prelude.hashWithSalt` file
+    _salt
+      `Prelude.hashWithSalt` file
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` partNumber
       `Prelude.hashWithSalt` sequenceStoreId

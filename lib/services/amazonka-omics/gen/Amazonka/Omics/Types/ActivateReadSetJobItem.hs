@@ -118,7 +118,8 @@ instance Data.FromJSON ActivateReadSetJobItem where
 
 instance Prelude.Hashable ActivateReadSetJobItem where
   hashWithSalt _salt ActivateReadSetJobItem' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` sequenceStoreId

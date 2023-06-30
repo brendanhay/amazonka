@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateRunGroup where
 
 instance Prelude.Hashable UpdateRunGroup where
   hashWithSalt _salt UpdateRunGroup' {..} =
-    _salt `Prelude.hashWithSalt` maxCpus
+    _salt
+      `Prelude.hashWithSalt` maxCpus
       `Prelude.hashWithSalt` maxDuration
       `Prelude.hashWithSalt` maxRuns
       `Prelude.hashWithSalt` name

@@ -361,37 +361,43 @@ newRunCompleted =
         [ Core.matchAll
             "COMPLETED"
             Core.AcceptSuccess
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PENDING"
             Core.AcceptRetry
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STARTING"
             Core.AcceptRetry
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "RUNNING"
             Core.AcceptRetry
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STOPPING"
             Core.AcceptRetry
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
         ]
@@ -408,31 +414,36 @@ newRunRunning =
         [ Core.matchAll
             "RUNNING"
             Core.AcceptSuccess
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PENDING"
             Core.AcceptRetry
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STARTING"
             Core.AcceptRetry
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CANCELLED"
             Core.AcceptFailure
-            ( getRunResponse_status Prelude.. Lens._Just
+            ( getRunResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
         ]
@@ -449,37 +460,43 @@ newTaskCompleted =
         [ Core.matchAll
             "COMPLETED"
             Core.AcceptSuccess
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PENDING"
             Core.AcceptRetry
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STARTING"
             Core.AcceptRetry
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "RUNNING"
             Core.AcceptRetry
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STOPPING"
             Core.AcceptRetry
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
         ]
@@ -496,31 +513,36 @@ newTaskRunning =
         [ Core.matchAll
             "RUNNING"
             Core.AcceptSuccess
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PENDING"
             Core.AcceptRetry
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STARTING"
             Core.AcceptRetry
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CANCELLED"
             Core.AcceptFailure
-            ( getRunTaskResponse_status Prelude.. Lens._Just
+            ( getRunTaskResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
         ]
@@ -639,25 +661,29 @@ newWorkflowActive =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
-            ( getWorkflowResponse_status Prelude.. Lens._Just
+            ( getWorkflowResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATING"
             Core.AcceptRetry
-            ( getWorkflowResponse_status Prelude.. Lens._Just
+            ( getWorkflowResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATING"
             Core.AcceptRetry
-            ( getWorkflowResponse_status Prelude.. Lens._Just
+            ( getWorkflowResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( getWorkflowResponse_status Prelude.. Lens._Just
+            ( getWorkflowResponse_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
         ]

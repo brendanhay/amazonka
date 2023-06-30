@@ -201,7 +201,8 @@ instance Data.FromJSON VariantStoreItem where
 
 instance Prelude.Hashable VariantStoreItem where
   hashWithSalt _salt VariantStoreItem' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

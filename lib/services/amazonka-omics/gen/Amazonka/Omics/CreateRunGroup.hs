@@ -146,7 +146,8 @@ instance Core.AWSRequest CreateRunGroup where
 
 instance Prelude.Hashable CreateRunGroup where
   hashWithSalt _salt CreateRunGroup' {..} =
-    _salt `Prelude.hashWithSalt` maxCpus
+    _salt
+      `Prelude.hashWithSalt` maxCpus
       `Prelude.hashWithSalt` maxDuration
       `Prelude.hashWithSalt` maxRuns
       `Prelude.hashWithSalt` name

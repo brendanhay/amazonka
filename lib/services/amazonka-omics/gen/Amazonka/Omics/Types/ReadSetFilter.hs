@@ -92,7 +92,8 @@ readSetFilter_status = Lens.lens (\ReadSetFilter' {status} -> status) (\s@ReadSe
 
 instance Prelude.Hashable ReadSetFilter where
   hashWithSalt _salt ReadSetFilter' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` referenceArn

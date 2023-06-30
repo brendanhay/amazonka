@@ -215,7 +215,8 @@ instance Data.FromJSON AnnotationStoreItem where
 
 instance Prelude.Hashable AnnotationStoreItem where
   hashWithSalt _salt AnnotationStoreItem' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

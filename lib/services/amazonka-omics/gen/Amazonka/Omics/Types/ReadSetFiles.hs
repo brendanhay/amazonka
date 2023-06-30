@@ -85,7 +85,8 @@ instance Data.FromJSON ReadSetFiles where
 
 instance Prelude.Hashable ReadSetFiles where
   hashWithSalt _salt ReadSetFiles' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt
+      `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` source1
       `Prelude.hashWithSalt` source2
 

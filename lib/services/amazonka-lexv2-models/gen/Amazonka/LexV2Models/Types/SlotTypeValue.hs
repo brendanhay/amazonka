@@ -76,7 +76,8 @@ instance Data.FromJSON SlotTypeValue where
 
 instance Prelude.Hashable SlotTypeValue where
   hashWithSalt _salt SlotTypeValue' {..} =
-    _salt `Prelude.hashWithSalt` sampleValue
+    _salt
+      `Prelude.hashWithSalt` sampleValue
       `Prelude.hashWithSalt` synonyms
 
 instance Prelude.NFData SlotTypeValue where

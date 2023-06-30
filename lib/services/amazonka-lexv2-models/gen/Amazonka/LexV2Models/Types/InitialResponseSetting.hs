@@ -96,7 +96,8 @@ instance Data.FromJSON InitialResponseSetting where
 
 instance Prelude.Hashable InitialResponseSetting where
   hashWithSalt _salt InitialResponseSetting' {..} =
-    _salt `Prelude.hashWithSalt` codeHook
+    _salt
+      `Prelude.hashWithSalt` codeHook
       `Prelude.hashWithSalt` conditional
       `Prelude.hashWithSalt` initialResponse
       `Prelude.hashWithSalt` nextStep

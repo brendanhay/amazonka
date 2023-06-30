@@ -80,7 +80,8 @@ instance Data.FromJSON BuiltInSlotTypeSummary where
 
 instance Prelude.Hashable BuiltInSlotTypeSummary where
   hashWithSalt _salt BuiltInSlotTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` slotTypeSignature
 
 instance Prelude.NFData BuiltInSlotTypeSummary where

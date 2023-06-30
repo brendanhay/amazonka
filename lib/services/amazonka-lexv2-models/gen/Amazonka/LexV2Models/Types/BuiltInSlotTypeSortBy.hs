@@ -70,7 +70,8 @@ builtInSlotTypeSortBy_order = Lens.lens (\BuiltInSlotTypeSortBy' {order} -> orde
 
 instance Prelude.Hashable BuiltInSlotTypeSortBy where
   hashWithSalt _salt BuiltInSlotTypeSortBy' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData BuiltInSlotTypeSortBy where

@@ -470,7 +470,8 @@ instance Core.AWSRequest CreateIntent where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "parentIntentSignature")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -478,7 +479,8 @@ instance Core.AWSRequest CreateIntent where
 
 instance Prelude.Hashable CreateIntent where
   hashWithSalt _salt CreateIntent' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dialogCodeHook
       `Prelude.hashWithSalt` fulfillmentCodeHook
       `Prelude.hashWithSalt` initialResponseSetting

@@ -179,7 +179,8 @@ instance
   hashWithSalt
     _salt
     PostFulfillmentStatusSpecification' {..} =
-      _salt `Prelude.hashWithSalt` failureConditional
+      _salt
+        `Prelude.hashWithSalt` failureConditional
         `Prelude.hashWithSalt` failureNextStep
         `Prelude.hashWithSalt` failureResponse
         `Prelude.hashWithSalt` successConditional

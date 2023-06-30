@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     FulfillmentUpdateResponseSpecification' {..} =
-      _salt `Prelude.hashWithSalt` allowInterrupt
+      _salt
+        `Prelude.hashWithSalt` allowInterrupt
         `Prelude.hashWithSalt` frequencyInSeconds
         `Prelude.hashWithSalt` messageGroups
 

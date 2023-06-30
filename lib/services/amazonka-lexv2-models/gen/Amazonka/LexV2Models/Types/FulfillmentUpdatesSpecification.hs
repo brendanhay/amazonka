@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     FulfillmentUpdatesSpecification' {..} =
-      _salt `Prelude.hashWithSalt` startResponse
+      _salt
+        `Prelude.hashWithSalt` startResponse
         `Prelude.hashWithSalt` timeoutInSeconds
         `Prelude.hashWithSalt` updateResponse
         `Prelude.hashWithSalt` active

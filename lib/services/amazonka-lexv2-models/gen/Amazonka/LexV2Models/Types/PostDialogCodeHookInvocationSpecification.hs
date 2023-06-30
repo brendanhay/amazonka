@@ -162,14 +162,14 @@ instance
       ( \x ->
           PostDialogCodeHookInvocationSpecification'
             Prelude.<$> (x Data..:? "failureConditional")
-              Prelude.<*> (x Data..:? "failureNextStep")
-              Prelude.<*> (x Data..:? "failureResponse")
-              Prelude.<*> (x Data..:? "successConditional")
-              Prelude.<*> (x Data..:? "successNextStep")
-              Prelude.<*> (x Data..:? "successResponse")
-              Prelude.<*> (x Data..:? "timeoutConditional")
-              Prelude.<*> (x Data..:? "timeoutNextStep")
-              Prelude.<*> (x Data..:? "timeoutResponse")
+            Prelude.<*> (x Data..:? "failureNextStep")
+            Prelude.<*> (x Data..:? "failureResponse")
+            Prelude.<*> (x Data..:? "successConditional")
+            Prelude.<*> (x Data..:? "successNextStep")
+            Prelude.<*> (x Data..:? "successResponse")
+            Prelude.<*> (x Data..:? "timeoutConditional")
+            Prelude.<*> (x Data..:? "timeoutNextStep")
+            Prelude.<*> (x Data..:? "timeoutResponse")
       )
 
 instance
@@ -179,7 +179,8 @@ instance
   hashWithSalt
     _salt
     PostDialogCodeHookInvocationSpecification' {..} =
-      _salt `Prelude.hashWithSalt` failureConditional
+      _salt
+        `Prelude.hashWithSalt` failureConditional
         `Prelude.hashWithSalt` failureNextStep
         `Prelude.hashWithSalt` failureResponse
         `Prelude.hashWithSalt` successConditional

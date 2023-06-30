@@ -220,7 +220,8 @@ instance Core.AWSRequest CreateBot where
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
             Prelude.<*> (x Data..?> "roleArn")
-            Prelude.<*> ( x Data..?> "testBotAliasTags"
+            Prelude.<*> ( x
+                            Data..?> "testBotAliasTags"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -228,7 +229,8 @@ instance Core.AWSRequest CreateBot where
 
 instance Prelude.Hashable CreateBot where
   hashWithSalt _salt CreateBot' {..} =
-    _salt `Prelude.hashWithSalt` botTags
+    _salt
+      `Prelude.hashWithSalt` botTags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` testBotAliasTags
       `Prelude.hashWithSalt` botName

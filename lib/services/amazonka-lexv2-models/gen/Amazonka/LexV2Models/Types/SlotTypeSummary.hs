@@ -154,7 +154,8 @@ instance Data.FromJSON SlotTypeSummary where
 
 instance Prelude.Hashable SlotTypeSummary where
   hashWithSalt _salt SlotTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` parentSlotTypeSignature
       `Prelude.hashWithSalt` slotTypeCategory

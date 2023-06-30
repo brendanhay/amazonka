@@ -95,7 +95,8 @@ exportFilter_operator = Lens.lens (\ExportFilter' {operator} -> operator) (\s@Ex
 
 instance Prelude.Hashable ExportFilter where
   hashWithSalt _salt ExportFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

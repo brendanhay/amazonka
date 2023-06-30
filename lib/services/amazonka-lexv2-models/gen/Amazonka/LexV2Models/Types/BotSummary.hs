@@ -129,7 +129,8 @@ instance Data.FromJSON BotSummary where
 
 instance Prelude.Hashable BotSummary where
   hashWithSalt _salt BotSummary' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` botStatus
       `Prelude.hashWithSalt` description

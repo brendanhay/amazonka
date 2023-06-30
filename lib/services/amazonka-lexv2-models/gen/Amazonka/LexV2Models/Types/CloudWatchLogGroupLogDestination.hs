@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     CloudWatchLogGroupLogDestination' {..} =
-      _salt `Prelude.hashWithSalt` cloudWatchLogGroupArn
+      _salt
+        `Prelude.hashWithSalt` cloudWatchLogGroupArn
         `Prelude.hashWithSalt` logPrefix
 
 instance

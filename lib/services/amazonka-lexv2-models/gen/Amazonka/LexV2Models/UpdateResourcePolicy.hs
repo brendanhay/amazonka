@@ -157,7 +157,8 @@ instance Core.AWSRequest UpdateResourcePolicy where
 
 instance Prelude.Hashable UpdateResourcePolicy where
   hashWithSalt _salt UpdateResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` expectedRevisionId
+    _salt
+      `Prelude.hashWithSalt` expectedRevisionId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` policy
 

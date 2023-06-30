@@ -72,7 +72,8 @@ associatedTranscriptFilter_values = Lens.lens (\AssociatedTranscriptFilter' {val
 
 instance Prelude.Hashable AssociatedTranscriptFilter where
   hashWithSalt _salt AssociatedTranscriptFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData AssociatedTranscriptFilter where

@@ -74,7 +74,8 @@ aggregatedUtterancesSortBy_order = Lens.lens (\AggregatedUtterancesSortBy' {orde
 
 instance Prelude.Hashable AggregatedUtterancesSortBy where
   hashWithSalt _salt AggregatedUtterancesSortBy' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData AggregatedUtterancesSortBy where

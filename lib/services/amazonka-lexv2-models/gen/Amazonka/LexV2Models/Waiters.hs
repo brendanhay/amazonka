@@ -72,25 +72,29 @@ newBotAvailable =
         [ Core.matchAll
             "Available"
             Core.AcceptSuccess
-            ( describeBotResponse_botStatus Prelude.. Lens._Just
+            ( describeBotResponse_botStatus
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
-            ( describeBotResponse_botStatus Prelude.. Lens._Just
+            ( describeBotResponse_botStatus
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
-            ( describeBotResponse_botStatus Prelude.. Lens._Just
+            ( describeBotResponse_botStatus
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Inactive"
             Core.AcceptFailure
-            ( describeBotResponse_botStatus Prelude.. Lens._Just
+            ( describeBotResponse_botStatus
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
         ]

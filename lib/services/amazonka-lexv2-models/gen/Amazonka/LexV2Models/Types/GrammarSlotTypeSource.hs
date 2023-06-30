@@ -92,7 +92,8 @@ instance Data.FromJSON GrammarSlotTypeSource where
 
 instance Prelude.Hashable GrammarSlotTypeSource where
   hashWithSalt _salt GrammarSlotTypeSource' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` s3ObjectKey
 

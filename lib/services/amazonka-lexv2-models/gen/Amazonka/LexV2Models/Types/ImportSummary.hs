@@ -143,7 +143,8 @@ instance Data.FromJSON ImportSummary where
 
 instance Prelude.Hashable ImportSummary where
   hashWithSalt _salt ImportSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` importId
       `Prelude.hashWithSalt` importStatus
       `Prelude.hashWithSalt` importedResourceId

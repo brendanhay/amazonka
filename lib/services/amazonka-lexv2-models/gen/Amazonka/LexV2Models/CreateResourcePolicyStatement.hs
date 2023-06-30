@@ -239,7 +239,8 @@ instance
     CreateResourcePolicyStatement
   where
   hashWithSalt _salt CreateResourcePolicyStatement' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` expectedRevisionId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` statementId

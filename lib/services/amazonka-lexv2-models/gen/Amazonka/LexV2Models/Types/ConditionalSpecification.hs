@@ -116,7 +116,8 @@ instance Data.FromJSON ConditionalSpecification where
 
 instance Prelude.Hashable ConditionalSpecification where
   hashWithSalt _salt ConditionalSpecification' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` conditionalBranches
       `Prelude.hashWithSalt` defaultBranch
 

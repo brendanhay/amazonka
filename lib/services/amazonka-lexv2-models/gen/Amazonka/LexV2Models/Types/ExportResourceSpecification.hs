@@ -91,7 +91,8 @@ instance Data.FromJSON ExportResourceSpecification where
 
 instance Prelude.Hashable ExportResourceSpecification where
   hashWithSalt _salt ExportResourceSpecification' {..} =
-    _salt `Prelude.hashWithSalt` botExportSpecification
+    _salt
+      `Prelude.hashWithSalt` botExportSpecification
       `Prelude.hashWithSalt` botLocaleExportSpecification
       `Prelude.hashWithSalt` customVocabularyExportSpecification
 

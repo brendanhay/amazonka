@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteResourcePolicy where
 
 instance Prelude.Hashable DeleteResourcePolicy where
   hashWithSalt _salt DeleteResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` expectedRevisionId
+    _salt
+      `Prelude.hashWithSalt` expectedRevisionId
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData DeleteResourcePolicy where

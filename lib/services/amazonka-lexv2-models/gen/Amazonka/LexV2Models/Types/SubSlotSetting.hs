@@ -74,14 +74,16 @@ instance Data.FromJSON SubSlotSetting where
       ( \x ->
           SubSlotSetting'
             Prelude.<$> (x Data..:? "expression")
-            Prelude.<*> ( x Data..:? "slotSpecifications"
+            Prelude.<*> ( x
+                            Data..:? "slotSpecifications"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SubSlotSetting where
   hashWithSalt _salt SubSlotSetting' {..} =
-    _salt `Prelude.hashWithSalt` expression
+    _salt
+      `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` slotSpecifications
 
 instance Prelude.NFData SubSlotSetting where

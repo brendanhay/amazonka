@@ -84,7 +84,8 @@ instance Data.FromJSON AudioSpecification where
 
 instance Prelude.Hashable AudioSpecification where
   hashWithSalt _salt AudioSpecification' {..} =
-    _salt `Prelude.hashWithSalt` maxLengthMs
+    _salt
+      `Prelude.hashWithSalt` maxLengthMs
       `Prelude.hashWithSalt` endTimeoutMs
 
 instance Prelude.NFData AudioSpecification where

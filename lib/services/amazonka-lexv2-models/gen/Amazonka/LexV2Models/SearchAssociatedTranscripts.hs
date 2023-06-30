@@ -212,7 +212,8 @@ instance Core.AWSRequest SearchAssociatedTranscripts where
     Response.receiveJSON
       ( \s h x ->
           SearchAssociatedTranscriptsResponse'
-            Prelude.<$> ( x Data..?> "associatedTranscripts"
+            Prelude.<$> ( x
+                            Data..?> "associatedTranscripts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botId")
@@ -226,7 +227,8 @@ instance Core.AWSRequest SearchAssociatedTranscripts where
 
 instance Prelude.Hashable SearchAssociatedTranscripts where
   hashWithSalt _salt SearchAssociatedTranscripts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextIndex
       `Prelude.hashWithSalt` searchOrder
       `Prelude.hashWithSalt` botId

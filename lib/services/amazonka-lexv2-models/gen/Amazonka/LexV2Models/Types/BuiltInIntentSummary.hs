@@ -80,7 +80,8 @@ instance Data.FromJSON BuiltInIntentSummary where
 
 instance Prelude.Hashable BuiltInIntentSummary where
   hashWithSalt _salt BuiltInIntentSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` intentSignature
 
 instance Prelude.NFData BuiltInIntentSummary where

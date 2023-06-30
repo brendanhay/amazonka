@@ -120,7 +120,8 @@ instance Data.FromJSON ExportSummary where
 
 instance Prelude.Hashable ExportSummary where
   hashWithSalt _salt ExportSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` exportId
       `Prelude.hashWithSalt` exportStatus
       `Prelude.hashWithSalt` fileFormat

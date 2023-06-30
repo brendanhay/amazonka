@@ -80,7 +80,8 @@ instance Data.FromJSON AudioLogSetting where
 
 instance Prelude.Hashable AudioLogSetting where
   hashWithSalt _salt AudioLogSetting' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData AudioLogSetting where

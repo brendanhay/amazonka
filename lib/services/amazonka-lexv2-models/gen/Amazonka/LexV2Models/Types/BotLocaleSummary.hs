@@ -121,7 +121,8 @@ instance Data.FromJSON BotLocaleSummary where
 
 instance Prelude.Hashable BotLocaleSummary where
   hashWithSalt _salt BotLocaleSummary' {..} =
-    _salt `Prelude.hashWithSalt` botLocaleStatus
+    _salt
+      `Prelude.hashWithSalt` botLocaleStatus
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastBuildSubmittedDateTime
       `Prelude.hashWithSalt` lastUpdatedDateTime

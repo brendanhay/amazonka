@@ -90,7 +90,8 @@ slotFilter_operator = Lens.lens (\SlotFilter' {operator} -> operator) (\s@SlotFi
 
 instance Prelude.Hashable SlotFilter where
   hashWithSalt _salt SlotFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

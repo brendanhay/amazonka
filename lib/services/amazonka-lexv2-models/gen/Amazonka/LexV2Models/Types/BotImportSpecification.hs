@@ -154,7 +154,8 @@ instance Data.FromJSON BotImportSpecification where
           BotImportSpecification'
             Prelude.<$> (x Data..:? "botTags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "idleSessionTTLInSeconds")
-            Prelude.<*> ( x Data..:? "testBotAliasTags"
+            Prelude.<*> ( x
+                            Data..:? "testBotAliasTags"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "botName")
@@ -164,7 +165,8 @@ instance Data.FromJSON BotImportSpecification where
 
 instance Prelude.Hashable BotImportSpecification where
   hashWithSalt _salt BotImportSpecification' {..} =
-    _salt `Prelude.hashWithSalt` botTags
+    _salt
+      `Prelude.hashWithSalt` botTags
       `Prelude.hashWithSalt` idleSessionTTLInSeconds
       `Prelude.hashWithSalt` testBotAliasTags
       `Prelude.hashWithSalt` botName

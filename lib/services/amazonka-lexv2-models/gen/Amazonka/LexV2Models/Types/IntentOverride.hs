@@ -81,7 +81,8 @@ instance Data.FromJSON IntentOverride where
 
 instance Prelude.Hashable IntentOverride where
   hashWithSalt _salt IntentOverride' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` slots
 
 instance Prelude.NFData IntentOverride where

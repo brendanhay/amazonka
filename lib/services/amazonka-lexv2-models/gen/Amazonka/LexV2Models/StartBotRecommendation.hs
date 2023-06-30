@@ -176,7 +176,8 @@ instance Core.AWSRequest StartBotRecommendation where
 
 instance Prelude.Hashable StartBotRecommendation where
   hashWithSalt _salt StartBotRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` encryptionSetting
+    _salt
+      `Prelude.hashWithSalt` encryptionSetting
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId

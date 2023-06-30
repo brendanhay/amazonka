@@ -96,7 +96,8 @@ aggregatedUtterancesFilter_operator = Lens.lens (\AggregatedUtterancesFilter' {o
 
 instance Prelude.Hashable AggregatedUtterancesFilter where
   hashWithSalt _salt AggregatedUtterancesFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

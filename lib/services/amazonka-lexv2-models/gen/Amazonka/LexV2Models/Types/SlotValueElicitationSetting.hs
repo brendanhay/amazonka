@@ -133,7 +133,8 @@ instance Data.FromJSON SlotValueElicitationSetting where
           SlotValueElicitationSetting'
             Prelude.<$> (x Data..:? "defaultValueSpecification")
             Prelude.<*> (x Data..:? "promptSpecification")
-            Prelude.<*> ( x Data..:? "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..:? "sampleUtterances"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "slotCaptureSetting")

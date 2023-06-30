@@ -115,7 +115,8 @@ instance Data.FromJSON SubSlotValueElicitationSetting where
       ( \x ->
           SubSlotValueElicitationSetting'
             Prelude.<$> (x Data..:? "defaultValueSpecification")
-            Prelude.<*> ( x Data..:? "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..:? "sampleUtterances"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "waitAndContinueSpecification")

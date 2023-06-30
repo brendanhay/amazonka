@@ -170,7 +170,8 @@ instance Core.AWSRequest DescribeIntent where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "parentIntentSignature")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "slotPriorities" Core..!@ Prelude.mempty)
@@ -179,7 +180,8 @@ instance Core.AWSRequest DescribeIntent where
 
 instance Prelude.Hashable DescribeIntent where
   hashWithSalt _salt DescribeIntent' {..} =
-    _salt `Prelude.hashWithSalt` intentId
+    _salt
+      `Prelude.hashWithSalt` intentId
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
@@ -378,7 +380,6 @@ describeIntentResponse_dialogCodeHook = Lens.lens (\DescribeIntentResponse' {dia
 describeIntentResponse_fulfillmentCodeHook :: Lens.Lens' DescribeIntentResponse (Prelude.Maybe FulfillmentCodeHookSettings)
 describeIntentResponse_fulfillmentCodeHook = Lens.lens (\DescribeIntentResponse' {fulfillmentCodeHook} -> fulfillmentCodeHook) (\s@DescribeIntentResponse' {} a -> s {fulfillmentCodeHook = a} :: DescribeIntentResponse)
 
--- |
 describeIntentResponse_initialResponseSetting :: Lens.Lens' DescribeIntentResponse (Prelude.Maybe InitialResponseSetting)
 describeIntentResponse_initialResponseSetting = Lens.lens (\DescribeIntentResponse' {initialResponseSetting} -> initialResponseSetting) (\s@DescribeIntentResponse' {} a -> s {initialResponseSetting = a} :: DescribeIntentResponse)
 

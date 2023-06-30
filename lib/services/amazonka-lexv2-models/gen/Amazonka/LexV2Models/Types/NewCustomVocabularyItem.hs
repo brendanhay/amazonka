@@ -85,7 +85,8 @@ newCustomVocabularyItem_phrase = Lens.lens (\NewCustomVocabularyItem' {phrase} -
 
 instance Prelude.Hashable NewCustomVocabularyItem where
   hashWithSalt _salt NewCustomVocabularyItem' {..} =
-    _salt `Prelude.hashWithSalt` displayAs
+    _salt
+      `Prelude.hashWithSalt` displayAs
       `Prelude.hashWithSalt` weight
       `Prelude.hashWithSalt` phrase
 

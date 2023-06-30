@@ -90,7 +90,8 @@ botLocaleFilter_operator = Lens.lens (\BotLocaleFilter' {operator} -> operator) 
 
 instance Prelude.Hashable BotLocaleFilter where
   hashWithSalt _salt BotLocaleFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

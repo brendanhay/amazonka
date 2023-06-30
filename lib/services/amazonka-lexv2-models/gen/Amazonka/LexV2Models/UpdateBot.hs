@@ -208,7 +208,8 @@ instance Core.AWSRequest UpdateBot where
 
 instance Prelude.Hashable UpdateBot where
   hashWithSalt _salt UpdateBot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` roleArn

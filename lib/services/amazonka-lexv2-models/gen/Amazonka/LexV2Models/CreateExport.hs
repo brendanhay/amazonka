@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateExport where
 
 instance Prelude.Hashable CreateExport where
   hashWithSalt _salt CreateExport' {..} =
-    _salt `Prelude.hashWithSalt` filePassword
+    _salt
+      `Prelude.hashWithSalt` filePassword
       `Prelude.hashWithSalt` resourceSpecification
       `Prelude.hashWithSalt` fileFormat
 

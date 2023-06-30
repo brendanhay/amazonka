@@ -135,7 +135,8 @@ instance Core.AWSRequest DescribeFileCaches where
 
 instance Prelude.Hashable DescribeFileCaches where
   hashWithSalt _salt DescribeFileCaches' {..} =
-    _salt `Prelude.hashWithSalt` fileCacheIds
+    _salt
+      `Prelude.hashWithSalt` fileCacheIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -504,7 +504,8 @@ instance Data.FromJSON DataRepositoryAssociation where
             Prelude.<*> (x Data..:? "BatchImportMetaDataOnCreate")
             Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "DataRepositoryPath")
-            Prelude.<*> ( x Data..:? "DataRepositorySubdirectories"
+            Prelude.<*> ( x
+                            Data..:? "DataRepositorySubdirectories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FailureDetails")
@@ -522,7 +523,8 @@ instance Data.FromJSON DataRepositoryAssociation where
 
 instance Prelude.Hashable DataRepositoryAssociation where
   hashWithSalt _salt DataRepositoryAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` batchImportMetaDataOnCreate
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dataRepositoryPath

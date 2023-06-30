@@ -125,7 +125,8 @@ instance Data.FromJSON LustreLogConfiguration where
 
 instance Prelude.Hashable LustreLogConfiguration where
   hashWithSalt _salt LustreLogConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` level
 
 instance Prelude.NFData LustreLogConfiguration where

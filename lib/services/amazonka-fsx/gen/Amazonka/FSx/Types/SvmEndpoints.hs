@@ -106,7 +106,8 @@ instance Data.FromJSON SvmEndpoints where
 
 instance Prelude.Hashable SvmEndpoints where
   hashWithSalt _salt SvmEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` iscsi
+    _salt
+      `Prelude.hashWithSalt` iscsi
       `Prelude.hashWithSalt` management
       `Prelude.hashWithSalt` nfs
       `Prelude.hashWithSalt` smb

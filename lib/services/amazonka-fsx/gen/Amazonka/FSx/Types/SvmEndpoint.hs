@@ -76,7 +76,8 @@ instance Data.FromJSON SvmEndpoint where
 
 instance Prelude.Hashable SvmEndpoint where
   hashWithSalt _salt SvmEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` dNSName
+    _salt
+      `Prelude.hashWithSalt` dNSName
       `Prelude.hashWithSalt` ipAddresses
 
 instance Prelude.NFData SvmEndpoint where

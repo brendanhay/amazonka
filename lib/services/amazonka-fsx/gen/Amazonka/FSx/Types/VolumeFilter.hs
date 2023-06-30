@@ -70,7 +70,8 @@ volumeFilter_values = Lens.lens (\VolumeFilter' {values} -> values) (\s@VolumeFi
 
 instance Prelude.Hashable VolumeFilter where
   hashWithSalt _salt VolumeFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData VolumeFilter where

@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     SelfManagedActiveDirectoryConfigurationUpdates' {..} =
-      _salt `Prelude.hashWithSalt` dnsIps
+      _salt
+        `Prelude.hashWithSalt` dnsIps
         `Prelude.hashWithSalt` password
         `Prelude.hashWithSalt` userName
 

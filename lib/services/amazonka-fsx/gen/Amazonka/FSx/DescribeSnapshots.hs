@@ -154,7 +154,8 @@ instance Core.AWSRequest DescribeSnapshots where
 
 instance Prelude.Hashable DescribeSnapshots where
   hashWithSalt _salt DescribeSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` snapshotIds

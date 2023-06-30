@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateSnapshot where
 
 instance Prelude.Hashable UpdateSnapshot where
   hashWithSalt _salt UpdateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` snapshotId
 

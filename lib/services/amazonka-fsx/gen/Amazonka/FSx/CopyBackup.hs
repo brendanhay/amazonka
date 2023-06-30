@@ -209,7 +209,8 @@ instance Core.AWSRequest CopyBackup where
 
 instance Prelude.Hashable CopyBackup where
   hashWithSalt _salt CopyBackup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` sourceRegion

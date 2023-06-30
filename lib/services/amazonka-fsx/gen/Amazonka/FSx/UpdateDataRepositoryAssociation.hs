@@ -168,7 +168,8 @@ instance
   hashWithSalt
     _salt
     UpdateDataRepositoryAssociation' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` importedFileChunkSize
         `Prelude.hashWithSalt` s3
         `Prelude.hashWithSalt` associationId

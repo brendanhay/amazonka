@@ -320,7 +320,8 @@ instance Core.AWSRequest CreateFileCache where
 
 instance Prelude.Hashable CreateFileCache where
   hashWithSalt _salt CreateFileCache' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` copyTagsToDataRepositoryAssociations
       `Prelude.hashWithSalt` dataRepositoryAssociations
       `Prelude.hashWithSalt` kmsKeyId

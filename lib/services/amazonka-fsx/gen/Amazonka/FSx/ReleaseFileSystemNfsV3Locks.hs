@@ -102,7 +102,8 @@ instance Core.AWSRequest ReleaseFileSystemNfsV3Locks where
 
 instance Prelude.Hashable ReleaseFileSystemNfsV3Locks where
   hashWithSalt _salt ReleaseFileSystemNfsV3Locks' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileSystemId
 
 instance Prelude.NFData ReleaseFileSystemNfsV3Locks where

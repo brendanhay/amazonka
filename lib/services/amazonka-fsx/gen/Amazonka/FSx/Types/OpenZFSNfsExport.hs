@@ -65,7 +65,8 @@ instance Data.FromJSON OpenZFSNfsExport where
       "OpenZFSNfsExport"
       ( \x ->
           OpenZFSNfsExport'
-            Prelude.<$> ( x Data..:? "ClientConfigurations"
+            Prelude.<$> ( x
+                            Data..:? "ClientConfigurations"
                             Data..!= Prelude.mempty
                         )
       )

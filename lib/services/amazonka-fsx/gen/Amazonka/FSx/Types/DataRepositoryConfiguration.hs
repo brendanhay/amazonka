@@ -283,7 +283,8 @@ instance Data.FromJSON DataRepositoryConfiguration where
 
 instance Prelude.Hashable DataRepositoryConfiguration where
   hashWithSalt _salt DataRepositoryConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` autoImportPolicy
+    _salt
+      `Prelude.hashWithSalt` autoImportPolicy
       `Prelude.hashWithSalt` exportPath
       `Prelude.hashWithSalt` failureDetails
       `Prelude.hashWithSalt` importPath

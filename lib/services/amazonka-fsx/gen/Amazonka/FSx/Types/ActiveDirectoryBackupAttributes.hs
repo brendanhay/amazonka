@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     ActiveDirectoryBackupAttributes' {..} =
-      _salt `Prelude.hashWithSalt` activeDirectoryId
+      _salt
+        `Prelude.hashWithSalt` activeDirectoryId
         `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` resourceARN
 

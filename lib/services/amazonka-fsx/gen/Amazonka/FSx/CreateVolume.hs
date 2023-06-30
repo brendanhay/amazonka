@@ -143,7 +143,8 @@ instance Core.AWSRequest CreateVolume where
 
 instance Prelude.Hashable CreateVolume where
   hashWithSalt _salt CreateVolume' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` ontapConfiguration
       `Prelude.hashWithSalt` openZFSConfiguration
       `Prelude.hashWithSalt` tags

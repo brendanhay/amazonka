@@ -228,7 +228,8 @@ instance Core.AWSRequest CreateDataRepositoryTask where
 
 instance Prelude.Hashable CreateDataRepositoryTask where
   hashWithSalt _salt CreateDataRepositoryTask' {..} =
-    _salt `Prelude.hashWithSalt` capacityToRelease
+    _salt
+      `Prelude.hashWithSalt` capacityToRelease
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` paths
       `Prelude.hashWithSalt` tags

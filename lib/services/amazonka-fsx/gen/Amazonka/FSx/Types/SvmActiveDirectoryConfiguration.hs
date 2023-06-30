@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     SvmActiveDirectoryConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` netBiosName
+      _salt
+        `Prelude.hashWithSalt` netBiosName
         `Prelude.hashWithSalt` selfManagedActiveDirectoryConfiguration
 
 instance

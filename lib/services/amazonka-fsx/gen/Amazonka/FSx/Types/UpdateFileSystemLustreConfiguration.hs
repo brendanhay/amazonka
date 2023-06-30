@@ -257,7 +257,8 @@ instance
   hashWithSalt
     _salt
     UpdateFileSystemLustreConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoImportPolicy
+      _salt
+        `Prelude.hashWithSalt` autoImportPolicy
         `Prelude.hashWithSalt` automaticBackupRetentionDays
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
         `Prelude.hashWithSalt` dataCompressionType

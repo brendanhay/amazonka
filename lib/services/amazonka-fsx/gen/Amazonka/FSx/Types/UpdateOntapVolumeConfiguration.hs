@@ -208,7 +208,8 @@ instance
   hashWithSalt
     _salt
     UpdateOntapVolumeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` copyTagsToBackups
+      _salt
+        `Prelude.hashWithSalt` copyTagsToBackups
         `Prelude.hashWithSalt` junctionPath
         `Prelude.hashWithSalt` securityStyle
         `Prelude.hashWithSalt` sizeInMegabytes

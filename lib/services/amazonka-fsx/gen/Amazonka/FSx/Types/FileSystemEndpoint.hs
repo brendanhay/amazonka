@@ -76,7 +76,8 @@ instance Data.FromJSON FileSystemEndpoint where
 
 instance Prelude.Hashable FileSystemEndpoint where
   hashWithSalt _salt FileSystemEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` dNSName
+    _salt
+      `Prelude.hashWithSalt` dNSName
       `Prelude.hashWithSalt` ipAddresses
 
 instance Prelude.NFData FileSystemEndpoint where

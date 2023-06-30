@@ -111,21 +111,22 @@ instance Core.AWSPager DescribeVolumes where
     | Core.stop
         ( rs
             Lens.^? describeVolumesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeVolumesResponse_volumes Prelude.. Lens._Just
+            Lens.^? describeVolumesResponse_volumes
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVolumes_nextToken
           Lens..~ rs
           Lens.^? describeVolumesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumes where
   type
@@ -144,7 +145,8 @@ instance Core.AWSRequest DescribeVolumes where
 
 instance Prelude.Hashable DescribeVolumes where
   hashWithSalt _salt DescribeVolumes' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` volumeIds

@@ -148,7 +148,8 @@ instance Core.AWSRequest CreateAssistantAssociation where
 
 instance Prelude.Hashable CreateAssistantAssociation where
   hashWithSalt _salt CreateAssistantAssociation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` association

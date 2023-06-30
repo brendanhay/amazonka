@@ -106,7 +106,8 @@ instance Data.FromJSON SessionSummary where
 
 instance Prelude.Hashable SessionSummary where
   hashWithSalt _salt SessionSummary' {..} =
-    _salt `Prelude.hashWithSalt` assistantArn
+    _salt
+      `Prelude.hashWithSalt` assistantArn
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` sessionArn
       `Prelude.hashWithSalt` sessionId

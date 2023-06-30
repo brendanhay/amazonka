@@ -127,7 +127,8 @@ instance
       ( \s h x ->
           NotifyRecommendationsReceivedResponse'
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "recommendationIds"
+            Prelude.<*> ( x
+                            Data..?> "recommendationIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,7 +139,8 @@ instance
     NotifyRecommendationsReceived
   where
   hashWithSalt _salt NotifyRecommendationsReceived' {..} =
-    _salt `Prelude.hashWithSalt` assistantId
+    _salt
+      `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` recommendationIds
       `Prelude.hashWithSalt` sessionId
 

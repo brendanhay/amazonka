@@ -112,7 +112,8 @@ instance Data.FromJSON RecommendationData where
 
 instance Prelude.Hashable RecommendationData where
   hashWithSalt _salt RecommendationData' {..} =
-    _salt `Prelude.hashWithSalt` relevanceLevel
+    _salt
+      `Prelude.hashWithSalt` relevanceLevel
       `Prelude.hashWithSalt` relevanceScore
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` document

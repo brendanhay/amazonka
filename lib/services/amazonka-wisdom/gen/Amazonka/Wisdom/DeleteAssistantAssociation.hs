@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteAssistantAssociation where
 
 instance Prelude.Hashable DeleteAssistantAssociation where
   hashWithSalt _salt DeleteAssistantAssociation' {..} =
-    _salt `Prelude.hashWithSalt` assistantAssociationId
+    _salt
+      `Prelude.hashWithSalt` assistantAssociationId
       `Prelude.hashWithSalt` assistantId
 
 instance Prelude.NFData DeleteAssistantAssociation where

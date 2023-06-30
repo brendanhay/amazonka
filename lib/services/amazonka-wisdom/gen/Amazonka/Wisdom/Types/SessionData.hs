@@ -110,7 +110,8 @@ instance Data.FromJSON SessionData where
 
 instance Prelude.Hashable SessionData where
   hashWithSalt _salt SessionData' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sessionArn

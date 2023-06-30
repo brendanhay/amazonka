@@ -113,7 +113,8 @@ instance Core.AWSRequest GetAssistantAssociation where
 
 instance Prelude.Hashable GetAssistantAssociation where
   hashWithSalt _salt GetAssistantAssociation' {..} =
-    _salt `Prelude.hashWithSalt` assistantAssociationId
+    _salt
+      `Prelude.hashWithSalt` assistantAssociationId
       `Prelude.hashWithSalt` assistantId
 
 instance Prelude.NFData GetAssistantAssociation where

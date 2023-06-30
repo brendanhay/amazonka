@@ -94,7 +94,8 @@ instance Data.FromJSON ContentReference where
 
 instance Prelude.Hashable ContentReference where
   hashWithSalt _salt ContentReference' {..} =
-    _salt `Prelude.hashWithSalt` contentArn
+    _salt
+      `Prelude.hashWithSalt` contentArn
       `Prelude.hashWithSalt` contentId
       `Prelude.hashWithSalt` knowledgeBaseArn
       `Prelude.hashWithSalt` knowledgeBaseId

@@ -204,7 +204,8 @@ instance Core.AWSRequest CreateContent where
 
 instance Prelude.Hashable CreateContent where
   hashWithSalt _salt CreateContent' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` overrideLinkOutUri
       `Prelude.hashWithSalt` tags

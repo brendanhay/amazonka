@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     UpdateKnowledgeBaseTemplateUri' {..} =
-      _salt `Prelude.hashWithSalt` knowledgeBaseId
+      _salt
+        `Prelude.hashWithSalt` knowledgeBaseId
         `Prelude.hashWithSalt` templateUri
 
 instance

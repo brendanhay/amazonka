@@ -147,7 +147,8 @@ instance Core.AWSRequest CreateAssistant where
 
 instance Prelude.Hashable CreateAssistant where
   hashWithSalt _salt CreateAssistant' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
       `Prelude.hashWithSalt` tags

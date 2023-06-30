@@ -133,20 +133,23 @@ instance Core.AWSPager GetApiKeys where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getApiKeysResponse_position Prelude.. Lens._Just
+            Lens.^? getApiKeysResponse_position
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getApiKeysResponse_items Prelude.. Lens._Just
+            Lens.^? getApiKeysResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getApiKeys_position
           Lens..~ rs
-          Lens.^? getApiKeysResponse_position Prelude.. Lens._Just
+          Lens.^? getApiKeysResponse_position
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetApiKeys where
   type AWSResponse GetApiKeys = GetApiKeysResponse
@@ -164,7 +167,8 @@ instance Core.AWSRequest GetApiKeys where
 
 instance Prelude.Hashable GetApiKeys where
   hashWithSalt _salt GetApiKeys' {..} =
-    _salt `Prelude.hashWithSalt` customerId
+    _salt
+      `Prelude.hashWithSalt` customerId
       `Prelude.hashWithSalt` includeValues
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nameQuery

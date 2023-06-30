@@ -87,7 +87,8 @@ instance Data.FromJSON SdkType where
       "SdkType"
       ( \x ->
           SdkType'
-            Prelude.<$> ( x Data..:? "configurationProperties"
+            Prelude.<$> ( x
+                            Data..:? "configurationProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "description")

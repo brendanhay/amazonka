@@ -189,7 +189,8 @@ instance Data.FromJSON DocumentationPartLocation where
 
 instance Prelude.Hashable DocumentationPartLocation where
   hashWithSalt _salt DocumentationPartLocation' {..} =
-    _salt `Prelude.hashWithSalt` method
+    _salt
+      `Prelude.hashWithSalt` method
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` statusCode

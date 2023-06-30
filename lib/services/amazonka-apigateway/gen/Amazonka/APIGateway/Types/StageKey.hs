@@ -65,7 +65,8 @@ stageKey_stageName = Lens.lens (\StageKey' {stageName} -> stageName) (\s@StageKe
 
 instance Prelude.Hashable StageKey where
   hashWithSalt _salt StageKey' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData StageKey where

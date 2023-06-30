@@ -128,7 +128,8 @@ instance Core.AWSRequest ImportApiKeys where
 
 instance Prelude.Hashable ImportApiKeys where
   hashWithSalt _salt ImportApiKeys' {..} =
-    _salt `Prelude.hashWithSalt` failOnWarnings
+    _salt
+      `Prelude.hashWithSalt` failOnWarnings
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` format
 

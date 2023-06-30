@@ -108,7 +108,8 @@ instance Core.AWSRequest GetUsagePlanKey where
 
 instance Prelude.Hashable GetUsagePlanKey where
   hashWithSalt _salt GetUsagePlanKey' {..} =
-    _salt `Prelude.hashWithSalt` usagePlanId
+    _salt
+      `Prelude.hashWithSalt` usagePlanId
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData GetUsagePlanKey where

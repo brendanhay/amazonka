@@ -105,7 +105,8 @@ instance Core.AWSRequest GetGatewayResponse where
 
 instance Prelude.Hashable GetGatewayResponse where
   hashWithSalt _salt GetGatewayResponse' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` responseType
 
 instance Prelude.NFData GetGatewayResponse where

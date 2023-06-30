@@ -138,7 +138,8 @@ instance Core.AWSRequest CreateBasePathMapping where
 
 instance Prelude.Hashable CreateBasePathMapping where
   hashWithSalt _salt CreateBasePathMapping' {..} =
-    _salt `Prelude.hashWithSalt` basePath
+    _salt
+      `Prelude.hashWithSalt` basePath
       `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` restApiId

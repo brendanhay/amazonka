@@ -105,7 +105,8 @@ instance Core.AWSRequest GetDocumentationVersion where
 
 instance Prelude.Hashable GetDocumentationVersion where
   hashWithSalt _salt GetDocumentationVersion' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` documentationVersion
 
 instance Prelude.NFData GetDocumentationVersion where

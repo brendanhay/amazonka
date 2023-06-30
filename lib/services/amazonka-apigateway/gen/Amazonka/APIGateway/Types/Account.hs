@@ -98,7 +98,8 @@ instance Data.FromJSON Account where
 
 instance Prelude.Hashable Account where
   hashWithSalt _salt Account' {..} =
-    _salt `Prelude.hashWithSalt` apiKeyVersion
+    _salt
+      `Prelude.hashWithSalt` apiKeyVersion
       `Prelude.hashWithSalt` cloudwatchRoleArn
       `Prelude.hashWithSalt` features
       `Prelude.hashWithSalt` throttleSettings

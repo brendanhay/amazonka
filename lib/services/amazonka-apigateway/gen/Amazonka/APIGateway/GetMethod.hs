@@ -121,7 +121,8 @@ instance Core.AWSRequest GetMethod where
 
 instance Prelude.Hashable GetMethod where
   hashWithSalt _salt GetMethod' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` httpMethod
 

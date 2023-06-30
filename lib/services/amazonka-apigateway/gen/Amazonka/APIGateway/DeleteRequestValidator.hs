@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteRequestValidator where
 
 instance Prelude.Hashable DeleteRequestValidator where
   hashWithSalt _salt DeleteRequestValidator' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` requestValidatorId
 
 instance Prelude.NFData DeleteRequestValidator where

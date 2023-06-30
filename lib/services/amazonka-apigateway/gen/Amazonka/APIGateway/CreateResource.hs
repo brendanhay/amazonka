@@ -115,7 +115,8 @@ instance Core.AWSRequest CreateResource where
 
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` parentId
       `Prelude.hashWithSalt` pathPart
 

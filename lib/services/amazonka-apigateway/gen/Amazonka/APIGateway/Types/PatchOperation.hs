@@ -147,7 +147,8 @@ patchOperation_value = Lens.lens (\PatchOperation' {value} -> value) (\s@PatchOp
 
 instance Prelude.Hashable PatchOperation where
   hashWithSalt _salt PatchOperation' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` op
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` value

@@ -124,22 +124,22 @@ instance Core.AWSPager GetGatewayResponses where
     | Core.stop
         ( rs
             Lens.^? getGatewayResponsesResponse_position
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getGatewayResponsesResponse_items
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getGatewayResponses_position
           Lens..~ rs
           Lens.^? getGatewayResponsesResponse_position
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetGatewayResponses where
   type
@@ -158,7 +158,8 @@ instance Core.AWSRequest GetGatewayResponses where
 
 instance Prelude.Hashable GetGatewayResponses where
   hashWithSalt _salt GetGatewayResponses' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` restApiId
 

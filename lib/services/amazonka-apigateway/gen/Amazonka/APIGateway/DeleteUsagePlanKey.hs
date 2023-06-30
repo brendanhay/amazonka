@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteUsagePlanKey where
 
 instance Prelude.Hashable DeleteUsagePlanKey where
   hashWithSalt _salt DeleteUsagePlanKey' {..} =
-    _salt `Prelude.hashWithSalt` usagePlanId
+    _salt
+      `Prelude.hashWithSalt` usagePlanId
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData DeleteUsagePlanKey where

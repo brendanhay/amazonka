@@ -173,7 +173,8 @@ instance Core.AWSRequest GetExport where
 
 instance Prelude.Hashable GetExport where
   hashWithSalt _salt GetExport' {..} =
-    _salt `Prelude.hashWithSalt` accepts
+    _salt
+      `Prelude.hashWithSalt` accepts
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` stageName

@@ -136,20 +136,23 @@ instance Core.AWSPager GetResources where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getResourcesResponse_position Prelude.. Lens._Just
+            Lens.^? getResourcesResponse_position
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getResourcesResponse_items Prelude.. Lens._Just
+            Lens.^? getResourcesResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getResources_position
           Lens..~ rs
-          Lens.^? getResourcesResponse_position Prelude.. Lens._Just
+          Lens.^? getResourcesResponse_position
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResources where
   type AWSResponse GetResources = GetResourcesResponse
@@ -166,7 +169,8 @@ instance Core.AWSRequest GetResources where
 
 instance Prelude.Hashable GetResources where
   hashWithSalt _salt GetResources' {..} =
-    _salt `Prelude.hashWithSalt` embed
+    _salt
+      `Prelude.hashWithSalt` embed
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` restApiId

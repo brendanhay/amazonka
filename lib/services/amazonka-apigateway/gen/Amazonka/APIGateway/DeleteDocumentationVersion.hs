@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteDocumentationVersion where
 
 instance Prelude.Hashable DeleteDocumentationVersion where
   hashWithSalt _salt DeleteDocumentationVersion' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` documentationVersion
 
 instance Prelude.NFData DeleteDocumentationVersion where

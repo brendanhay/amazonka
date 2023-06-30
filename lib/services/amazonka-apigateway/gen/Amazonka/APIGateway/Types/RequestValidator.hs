@@ -100,7 +100,8 @@ instance Data.FromJSON RequestValidator where
 
 instance Prelude.Hashable RequestValidator where
   hashWithSalt _salt RequestValidator' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` validateRequestBody
       `Prelude.hashWithSalt` validateRequestParameters

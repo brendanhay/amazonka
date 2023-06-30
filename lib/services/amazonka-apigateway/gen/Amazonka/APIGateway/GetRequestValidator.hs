@@ -106,7 +106,8 @@ instance Core.AWSRequest GetRequestValidator where
 
 instance Prelude.Hashable GetRequestValidator where
   hashWithSalt _salt GetRequestValidator' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` requestValidatorId
 
 instance Prelude.NFData GetRequestValidator where

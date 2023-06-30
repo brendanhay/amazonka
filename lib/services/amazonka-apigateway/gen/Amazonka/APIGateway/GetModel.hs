@@ -120,7 +120,8 @@ instance Core.AWSRequest GetModel where
 
 instance Prelude.Hashable GetModel where
   hashWithSalt _salt GetModel' {..} =
-    _salt `Prelude.hashWithSalt` flatten
+    _salt
+      `Prelude.hashWithSalt` flatten
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` modelName
 

@@ -126,7 +126,8 @@ instance Core.AWSRequest CreateDocumentationVersion where
 
 instance Prelude.Hashable CreateDocumentationVersion where
   hashWithSalt _salt CreateDocumentationVersion' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` documentationVersion

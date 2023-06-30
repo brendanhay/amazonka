@@ -111,7 +111,8 @@ instance Data.FromJSON SdkConfigurationProperty where
 
 instance Prelude.Hashable SdkConfigurationProperty where
   hashWithSalt _salt SdkConfigurationProperty' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` friendlyName
       `Prelude.hashWithSalt` name

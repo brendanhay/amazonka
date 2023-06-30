@@ -203,7 +203,8 @@ instance Core.AWSRequest TestInvokeMethod where
             Prelude.<*> (x Data..?> "headers" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "latency")
             Prelude.<*> (x Data..?> "log")
-            Prelude.<*> ( x Data..?> "multiValueHeaders"
+            Prelude.<*> ( x
+                            Data..?> "multiValueHeaders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "status")
@@ -212,7 +213,8 @@ instance Core.AWSRequest TestInvokeMethod where
 
 instance Prelude.Hashable TestInvokeMethod where
   hashWithSalt _salt TestInvokeMethod' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` clientCertificateId
       `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` multiValueHeaders

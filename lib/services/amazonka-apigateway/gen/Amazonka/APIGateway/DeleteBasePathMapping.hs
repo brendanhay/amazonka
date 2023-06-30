@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteBasePathMapping where
 
 instance Prelude.Hashable DeleteBasePathMapping where
   hashWithSalt _salt DeleteBasePathMapping' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` basePath
 
 instance Prelude.NFData DeleteBasePathMapping where

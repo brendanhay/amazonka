@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateGatewayResponse where
 
 instance Prelude.Hashable UpdateGatewayResponse where
   hashWithSalt _salt UpdateGatewayResponse' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` responseType
 

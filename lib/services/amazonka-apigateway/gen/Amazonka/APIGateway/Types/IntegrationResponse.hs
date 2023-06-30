@@ -178,10 +178,12 @@ instance Data.FromJSON IntegrationResponse where
       ( \x ->
           IntegrationResponse'
             Prelude.<$> (x Data..:? "contentHandling")
-            Prelude.<*> ( x Data..:? "responseParameters"
+            Prelude.<*> ( x
+                            Data..:? "responseParameters"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "responseTemplates"
+            Prelude.<*> ( x
+                            Data..:? "responseTemplates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "selectionPattern")
@@ -190,7 +192,8 @@ instance Data.FromJSON IntegrationResponse where
 
 instance Prelude.Hashable IntegrationResponse where
   hashWithSalt _salt IntegrationResponse' {..} =
-    _salt `Prelude.hashWithSalt` contentHandling
+    _salt
+      `Prelude.hashWithSalt` contentHandling
       `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` responseTemplates
       `Prelude.hashWithSalt` selectionPattern

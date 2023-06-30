@@ -232,7 +232,8 @@ instance Core.AWSRequest CreateStage where
 
 instance Prelude.Hashable CreateStage where
   hashWithSalt _salt CreateStage' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterEnabled
+    _salt
+      `Prelude.hashWithSalt` cacheClusterEnabled
       `Prelude.hashWithSalt` cacheClusterSize
       `Prelude.hashWithSalt` canarySettings
       `Prelude.hashWithSalt` description

@@ -108,7 +108,8 @@ instance Core.AWSRequest GetAuthorizer where
 
 instance Prelude.Hashable GetAuthorizer where
   hashWithSalt _salt GetAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` authorizerId
 
 instance Prelude.NFData GetAuthorizer where

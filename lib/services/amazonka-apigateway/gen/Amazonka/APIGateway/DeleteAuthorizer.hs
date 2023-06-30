@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteAuthorizer where
 
 instance Prelude.Hashable DeleteAuthorizer where
   hashWithSalt _salt DeleteAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` authorizerId
 
 instance Prelude.NFData DeleteAuthorizer where

@@ -131,7 +131,8 @@ instance Core.AWSRequest GetResource where
 
 instance Prelude.Hashable GetResource where
   hashWithSalt _salt GetResource' {..} =
-    _salt `Prelude.hashWithSalt` embed
+    _salt
+      `Prelude.hashWithSalt` embed
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId
 

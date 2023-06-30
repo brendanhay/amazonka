@@ -201,7 +201,8 @@ instance Core.AWSRequest TestInvokeAuthorizer where
 
 instance Prelude.Hashable TestInvokeAuthorizer where
   hashWithSalt _salt TestInvokeAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` additionalContext
+    _salt
+      `Prelude.hashWithSalt` additionalContext
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` multiValueHeaders

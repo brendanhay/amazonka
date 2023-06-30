@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteDocumentationPart where
 
 instance Prelude.Hashable DeleteDocumentationPart where
   hashWithSalt _salt DeleteDocumentationPart' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` documentationPartId
 
 instance Prelude.NFData DeleteDocumentationPart where

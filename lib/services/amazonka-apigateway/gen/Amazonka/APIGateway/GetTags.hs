@@ -118,7 +118,8 @@ instance Core.AWSRequest GetTags where
 
 instance Prelude.Hashable GetTags where
   hashWithSalt _salt GetTags' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` resourceArn
 

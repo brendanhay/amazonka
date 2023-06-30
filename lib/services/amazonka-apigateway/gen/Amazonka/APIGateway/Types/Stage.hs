@@ -263,7 +263,8 @@ instance Data.FromJSON Stage where
 
 instance Prelude.Hashable Stage where
   hashWithSalt _salt Stage' {..} =
-    _salt `Prelude.hashWithSalt` accessLogSettings
+    _salt
+      `Prelude.hashWithSalt` accessLogSettings
       `Prelude.hashWithSalt` cacheClusterEnabled
       `Prelude.hashWithSalt` cacheClusterSize
       `Prelude.hashWithSalt` cacheClusterStatus

@@ -147,7 +147,8 @@ instance
     SendSerialConsoleSSHPublicKey
   where
   hashWithSalt _salt SendSerialConsoleSSHPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` serialPort
+    _salt
+      `Prelude.hashWithSalt` serialPort
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` sSHPublicKey
 

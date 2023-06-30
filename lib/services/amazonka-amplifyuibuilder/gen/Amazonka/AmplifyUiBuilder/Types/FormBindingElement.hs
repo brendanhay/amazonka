@@ -78,7 +78,8 @@ instance Data.FromJSON FormBindingElement where
 
 instance Prelude.Hashable FormBindingElement where
   hashWithSalt _salt FormBindingElement' {..} =
-    _salt `Prelude.hashWithSalt` element
+    _salt
+      `Prelude.hashWithSalt` element
       `Prelude.hashWithSalt` property
 
 instance Prelude.NFData FormBindingElement where

@@ -161,7 +161,8 @@ instance Data.FromJSON Theme where
 
 instance Prelude.Hashable Theme where
   hashWithSalt _salt Theme' {..} =
-    _salt `Prelude.hashWithSalt` modifiedAt
+    _salt
+      `Prelude.hashWithSalt` modifiedAt
       `Prelude.hashWithSalt` overrides
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appId

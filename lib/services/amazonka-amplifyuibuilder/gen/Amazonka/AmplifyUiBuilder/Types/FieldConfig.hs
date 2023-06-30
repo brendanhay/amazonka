@@ -110,7 +110,8 @@ instance Data.FromJSON FieldConfig where
 
 instance Prelude.Hashable FieldConfig where
   hashWithSalt _salt FieldConfig' {..} =
-    _salt `Prelude.hashWithSalt` excluded
+    _salt
+      `Prelude.hashWithSalt` excluded
       `Prelude.hashWithSalt` inputType
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` position

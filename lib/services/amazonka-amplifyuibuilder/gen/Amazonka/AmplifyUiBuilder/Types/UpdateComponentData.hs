@@ -180,7 +180,8 @@ updateComponentData_variants = Lens.lens (\UpdateComponentData' {variants} -> va
 
 instance Prelude.Hashable UpdateComponentData where
   hashWithSalt _salt UpdateComponentData' {..} =
-    _salt `Prelude.hashWithSalt` bindingProperties
+    _salt
+      `Prelude.hashWithSalt` bindingProperties
       `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` collectionProperties
       `Prelude.hashWithSalt` componentType

@@ -214,7 +214,8 @@ instance Data.FromJSON FieldInputConfig where
 
 instance Prelude.Hashable FieldInputConfig where
   hashWithSalt _salt FieldInputConfig' {..} =
-    _salt `Prelude.hashWithSalt` defaultChecked
+    _salt
+      `Prelude.hashWithSalt` defaultChecked
       `Prelude.hashWithSalt` defaultCountryCode
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` descriptiveText

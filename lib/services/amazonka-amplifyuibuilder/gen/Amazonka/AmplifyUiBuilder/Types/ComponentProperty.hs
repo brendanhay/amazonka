@@ -227,7 +227,8 @@ instance Data.FromJSON ComponentProperty where
 
 instance Prelude.Hashable ComponentProperty where
   hashWithSalt _salt ComponentProperty' {..} =
-    _salt `Prelude.hashWithSalt` bindingProperties
+    _salt
+      `Prelude.hashWithSalt` bindingProperties
       `Prelude.hashWithSalt` bindings
       `Prelude.hashWithSalt` collectionBindingProperties
       `Prelude.hashWithSalt` componentName

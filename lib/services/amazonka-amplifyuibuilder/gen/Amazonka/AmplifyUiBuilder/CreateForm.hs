@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateForm where
 
 instance Prelude.Hashable CreateForm where
   hashWithSalt _salt CreateForm' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` formToCreate

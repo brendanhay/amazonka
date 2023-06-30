@@ -107,19 +107,19 @@ instance Core.AWSPager ExportComponents where
     | Core.stop
         ( rs
             Lens.^? exportComponentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. exportComponentsResponse_entities) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& exportComponents_nextToken
           Lens..~ rs
           Lens.^? exportComponentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ExportComponents where
   type
@@ -138,7 +138,8 @@ instance Core.AWSRequest ExportComponents where
 
 instance Prelude.Hashable ExportComponents where
   hashWithSalt _salt ExportComponents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
 

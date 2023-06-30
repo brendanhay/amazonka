@@ -204,7 +204,8 @@ instance Data.FromJSON Form where
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "schemaVersion")
-            Prelude.<*> ( x Data..:? "sectionalElements"
+            Prelude.<*> ( x
+                            Data..:? "sectionalElements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "style")
@@ -212,7 +213,8 @@ instance Data.FromJSON Form where
 
 instance Prelude.Hashable Form where
   hashWithSalt _salt Form' {..} =
-    _salt `Prelude.hashWithSalt` cta
+    _salt
+      `Prelude.hashWithSalt` cta
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` dataType

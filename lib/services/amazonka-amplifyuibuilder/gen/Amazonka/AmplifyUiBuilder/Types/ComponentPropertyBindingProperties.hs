@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     ComponentPropertyBindingProperties' {..} =
-      _salt `Prelude.hashWithSalt` field
+      _salt
+        `Prelude.hashWithSalt` field
         `Prelude.hashWithSalt` property
 
 instance

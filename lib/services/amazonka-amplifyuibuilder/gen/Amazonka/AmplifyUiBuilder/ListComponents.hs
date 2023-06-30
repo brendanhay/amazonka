@@ -117,18 +117,19 @@ instance Core.AWSPager ListComponents where
     | Core.stop
         ( rs
             Lens.^? listComponentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listComponentsResponse_entities) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listComponents_nextToken
           Lens..~ rs
-          Lens.^? listComponentsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listComponentsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComponents where
   type
@@ -147,7 +148,8 @@ instance Core.AWSRequest ListComponents where
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName

@@ -131,7 +131,8 @@ instance Data.FromJSON ComponentConditionProperty where
 
 instance Prelude.Hashable ComponentConditionProperty where
   hashWithSalt _salt ComponentConditionProperty' {..} =
-    _salt `Prelude.hashWithSalt` else'
+    _salt
+      `Prelude.hashWithSalt` else'
       `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` operand
       `Prelude.hashWithSalt` operandType

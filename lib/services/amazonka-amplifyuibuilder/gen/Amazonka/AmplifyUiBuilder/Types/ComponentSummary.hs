@@ -120,7 +120,8 @@ instance Data.FromJSON ComponentSummary where
 
 instance Prelude.Hashable ComponentSummary where
   hashWithSalt _salt ComponentSummary' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id

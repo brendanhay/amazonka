@@ -96,7 +96,8 @@ instance Data.FromJSON FormCTA where
 
 instance Prelude.Hashable FormCTA where
   hashWithSalt _salt FormCTA' {..} =
-    _salt `Prelude.hashWithSalt` cancel
+    _salt
+      `Prelude.hashWithSalt` cancel
       `Prelude.hashWithSalt` clear
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` submit

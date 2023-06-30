@@ -130,7 +130,8 @@ updateFormData_style = Lens.lens (\UpdateFormData' {style} -> style) (\s@UpdateF
 
 instance Prelude.Hashable UpdateFormData where
   hashWithSalt _salt UpdateFormData' {..} =
-    _salt `Prelude.hashWithSalt` cta
+    _salt
+      `Prelude.hashWithSalt` cta
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` formActionType

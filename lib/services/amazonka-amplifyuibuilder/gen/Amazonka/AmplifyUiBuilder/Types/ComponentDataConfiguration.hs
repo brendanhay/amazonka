@@ -109,7 +109,8 @@ instance Data.FromJSON ComponentDataConfiguration where
 
 instance Prelude.Hashable ComponentDataConfiguration where
   hashWithSalt _salt ComponentDataConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` identifiers
+    _salt
+      `Prelude.hashWithSalt` identifiers
       `Prelude.hashWithSalt` predicate
       `Prelude.hashWithSalt` sort
       `Prelude.hashWithSalt` model

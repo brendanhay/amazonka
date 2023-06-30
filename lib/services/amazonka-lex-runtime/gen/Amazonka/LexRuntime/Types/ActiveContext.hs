@@ -96,7 +96,8 @@ instance Data.FromJSON ActiveContext where
 
 instance Prelude.Hashable ActiveContext where
   hashWithSalt _salt ActiveContext' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timeToLive
       `Prelude.hashWithSalt` parameters
 

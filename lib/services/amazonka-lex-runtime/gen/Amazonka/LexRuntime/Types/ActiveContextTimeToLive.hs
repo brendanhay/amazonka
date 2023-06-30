@@ -87,7 +87,8 @@ instance Data.FromJSON ActiveContextTimeToLive where
 
 instance Prelude.Hashable ActiveContextTimeToLive where
   hashWithSalt _salt ActiveContextTimeToLive' {..} =
-    _salt `Prelude.hashWithSalt` timeToLiveInSeconds
+    _salt
+      `Prelude.hashWithSalt` timeToLiveInSeconds
       `Prelude.hashWithSalt` turnsToLive
 
 instance Prelude.NFData ActiveContextTimeToLive where

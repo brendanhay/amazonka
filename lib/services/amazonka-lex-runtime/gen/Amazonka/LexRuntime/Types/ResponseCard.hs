@@ -83,7 +83,8 @@ instance Data.FromJSON ResponseCard where
       ( \x ->
           ResponseCard'
             Prelude.<$> (x Data..:? "contentType")
-            Prelude.<*> ( x Data..:? "genericAttachments"
+            Prelude.<*> ( x
+                            Data..:? "genericAttachments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "version")
@@ -91,7 +92,8 @@ instance Data.FromJSON ResponseCard where
 
 instance Prelude.Hashable ResponseCard where
   hashWithSalt _salt ResponseCard' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` genericAttachments
       `Prelude.hashWithSalt` version
 

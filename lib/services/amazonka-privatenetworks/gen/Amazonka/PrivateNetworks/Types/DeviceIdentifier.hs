@@ -154,7 +154,8 @@ instance Data.FromJSON DeviceIdentifier where
 
 instance Prelude.Hashable DeviceIdentifier where
   hashWithSalt _salt DeviceIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` deviceIdentifierArn
       `Prelude.hashWithSalt` iccid
       `Prelude.hashWithSalt` imsi

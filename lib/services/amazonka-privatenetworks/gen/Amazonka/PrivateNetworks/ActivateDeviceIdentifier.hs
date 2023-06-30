@@ -111,7 +111,8 @@ instance Core.AWSRequest ActivateDeviceIdentifier where
 
 instance Prelude.Hashable ActivateDeviceIdentifier where
   hashWithSalt _salt ActivateDeviceIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` deviceIdentifierArn
 
 instance Prelude.NFData ActivateDeviceIdentifier where

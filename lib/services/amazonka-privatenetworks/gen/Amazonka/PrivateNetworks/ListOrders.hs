@@ -145,20 +145,23 @@ instance Core.AWSPager ListOrders where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listOrdersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listOrdersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listOrdersResponse_orders Prelude.. Lens._Just
+            Lens.^? listOrdersResponse_orders
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listOrders_startToken
           Lens..~ rs
-          Lens.^? listOrdersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listOrdersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOrders where
   type AWSResponse ListOrders = ListOrdersResponse
@@ -175,7 +178,8 @@ instance Core.AWSRequest ListOrders where
 
 instance Prelude.Hashable ListOrders where
   hashWithSalt _salt ListOrders' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` startToken
       `Prelude.hashWithSalt` networkArn

@@ -181,7 +181,8 @@ instance Data.FromJSON NetworkSite where
 
 instance Prelude.Hashable NetworkSite where
   hashWithSalt _salt NetworkSite' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` currentPlan

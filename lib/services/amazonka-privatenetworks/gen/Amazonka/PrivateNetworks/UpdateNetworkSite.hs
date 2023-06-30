@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateNetworkSite where
 
 instance Prelude.Hashable UpdateNetworkSite where
   hashWithSalt _salt UpdateNetworkSite' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` networkSiteArn
 

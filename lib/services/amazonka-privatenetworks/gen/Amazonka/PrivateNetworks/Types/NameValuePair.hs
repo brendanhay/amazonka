@@ -70,12 +70,14 @@ instance Data.FromJSON NameValuePair where
       "NameValuePair"
       ( \x ->
           NameValuePair'
-            Prelude.<$> (x Data..:? "value") Prelude.<*> (x Data..: "name")
+            Prelude.<$> (x Data..:? "value")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable NameValuePair where
   hashWithSalt _salt NameValuePair' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData NameValuePair where

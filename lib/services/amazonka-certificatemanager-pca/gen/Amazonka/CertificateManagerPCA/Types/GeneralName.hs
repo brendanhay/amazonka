@@ -142,7 +142,8 @@ instance Data.FromJSON GeneralName where
 
 instance Prelude.Hashable GeneralName where
   hashWithSalt _salt GeneralName' {..} =
-    _salt `Prelude.hashWithSalt` directoryName
+    _salt
+      `Prelude.hashWithSalt` directoryName
       `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` ediPartyName
       `Prelude.hashWithSalt` ipAddress

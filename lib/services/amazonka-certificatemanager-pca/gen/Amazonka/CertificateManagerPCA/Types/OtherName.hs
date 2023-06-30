@@ -72,12 +72,14 @@ instance Data.FromJSON OtherName where
       "OtherName"
       ( \x ->
           OtherName'
-            Prelude.<$> (x Data..: "TypeId") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "TypeId")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable OtherName where
   hashWithSalt _salt OtherName' {..} =
-    _salt `Prelude.hashWithSalt` typeId
+    _salt
+      `Prelude.hashWithSalt` typeId
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData OtherName where

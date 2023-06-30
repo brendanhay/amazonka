@@ -72,7 +72,8 @@ apiPassthrough_subject = Lens.lens (\ApiPassthrough' {subject} -> subject) (\s@A
 
 instance Prelude.Hashable ApiPassthrough where
   hashWithSalt _salt ApiPassthrough' {..} =
-    _salt `Prelude.hashWithSalt` extensions
+    _salt
+      `Prelude.hashWithSalt` extensions
       `Prelude.hashWithSalt` subject
 
 instance Prelude.NFData ApiPassthrough where

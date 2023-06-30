@@ -86,7 +86,8 @@ instance Data.FromJSON AccessMethod where
 
 instance Prelude.Hashable AccessMethod where
   hashWithSalt _salt AccessMethod' {..} =
-    _salt `Prelude.hashWithSalt` accessMethodType
+    _salt
+      `Prelude.hashWithSalt` accessMethodType
       `Prelude.hashWithSalt` customObjectIdentifier
 
 instance Prelude.NFData AccessMethod where

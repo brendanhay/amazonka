@@ -361,7 +361,8 @@ instance Core.AWSRequest CreateCertificateAuthority where
 
 instance Prelude.Hashable CreateCertificateAuthority where
   hashWithSalt _salt CreateCertificateAuthority' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
+    _salt
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` keyStorageSecurityStandard
       `Prelude.hashWithSalt` revocationConfiguration
       `Prelude.hashWithSalt` tags
@@ -428,7 +429,7 @@ data CreateCertificateAuthorityResponse = CreateCertificateAuthorityResponse'
   { -- | If successful, the Amazon Resource Name (ARN) of the certificate
     -- authority (CA). This is of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
     certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -446,7 +447,7 @@ data CreateCertificateAuthorityResponse = CreateCertificateAuthorityResponse'
 -- 'certificateAuthorityArn', 'createCertificateAuthorityResponse_certificateAuthorityArn' - If successful, the Amazon Resource Name (ARN) of the certificate
 -- authority (CA). This is of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 --
 -- 'httpStatus', 'createCertificateAuthorityResponse_httpStatus' - The response's http status code.
 newCreateCertificateAuthorityResponse ::
@@ -463,7 +464,7 @@ newCreateCertificateAuthorityResponse pHttpStatus_ =
 -- | If successful, the Amazon Resource Name (ARN) of the certificate
 -- authority (CA). This is of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 createCertificateAuthorityResponse_certificateAuthorityArn :: Lens.Lens' CreateCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
 createCertificateAuthorityResponse_certificateAuthorityArn = Lens.lens (\CreateCertificateAuthorityResponse' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@CreateCertificateAuthorityResponse' {} a -> s {certificateAuthorityArn = a} :: CreateCertificateAuthorityResponse)
 

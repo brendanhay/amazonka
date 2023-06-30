@@ -83,7 +83,7 @@ data DeletePermission = DeletePermission'
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action. This must have the following form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
     certificateAuthorityArn :: Prelude.Text,
     -- | The Amazon Web Services service or identity that will have its CA
     -- permissions revoked. At this time, the only valid service principal is
@@ -107,7 +107,7 @@ data DeletePermission = DeletePermission'
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. This must have the following form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 --
 -- 'principal', 'deletePermission_principal' - The Amazon Web Services service or identity that will have its CA
 -- permissions revoked. At this time, the only valid service principal is
@@ -136,7 +136,7 @@ deletePermission_sourceAccount = Lens.lens (\DeletePermission' {sourceAccount} -
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. This must have the following form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 deletePermission_certificateAuthorityArn :: Lens.Lens' DeletePermission Prelude.Text
 deletePermission_certificateAuthorityArn = Lens.lens (\DeletePermission' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@DeletePermission' {} a -> s {certificateAuthorityArn = a} :: DeletePermission)
 
@@ -157,7 +157,8 @@ instance Core.AWSRequest DeletePermission where
 
 instance Prelude.Hashable DeletePermission where
   hashWithSalt _salt DeletePermission' {..} =
-    _salt `Prelude.hashWithSalt` sourceAccount
+    _salt
+      `Prelude.hashWithSalt` sourceAccount
       `Prelude.hashWithSalt` certificateAuthorityArn
       `Prelude.hashWithSalt` principal
 

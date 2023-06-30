@@ -144,7 +144,8 @@ instance
   hashWithSalt
     _salt
     CertificateAuthorityConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` csrExtensions
+      _salt
+        `Prelude.hashWithSalt` csrExtensions
         `Prelude.hashWithSalt` keyAlgorithm
         `Prelude.hashWithSalt` signingAlgorithm
         `Prelude.hashWithSalt` subject

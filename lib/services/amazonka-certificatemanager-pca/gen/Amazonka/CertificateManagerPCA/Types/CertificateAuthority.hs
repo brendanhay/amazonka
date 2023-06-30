@@ -48,7 +48,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCertificateAuthority' smart constructor.
 data CertificateAuthority = CertificateAuthority'
   { -- | Amazon Resource Name (ARN) for your private certificate authority (CA).
-    -- The format is @ 12345678-1234-1234-1234-123456789012 @.
+    -- The format is @ @/@12345678-1234-1234-1234-123456789012@/@ @.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Your private CA configuration.
     certificateAuthorityConfiguration :: Prelude.Maybe CertificateAuthorityConfiguration,
@@ -110,7 +110,7 @@ data CertificateAuthority = CertificateAuthority'
 -- for backwards compatibility:
 --
 -- 'arn', 'certificateAuthority_arn' - Amazon Resource Name (ARN) for your private certificate authority (CA).
--- The format is @ 12345678-1234-1234-1234-123456789012 @.
+-- The format is @ @/@12345678-1234-1234-1234-123456789012@/@ @.
 --
 -- 'certificateAuthorityConfiguration', 'certificateAuthority_certificateAuthorityConfiguration' - Your private CA configuration.
 --
@@ -181,7 +181,7 @@ newCertificateAuthority =
     }
 
 -- | Amazon Resource Name (ARN) for your private certificate authority (CA).
--- The format is @ 12345678-1234-1234-1234-123456789012 @.
+-- The format is @ @/@12345678-1234-1234-1234-123456789012@/@ @.
 certificateAuthority_arn :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.Text)
 certificateAuthority_arn = Lens.lens (\CertificateAuthority' {arn} -> arn) (\s@CertificateAuthority' {} a -> s {arn = a} :: CertificateAuthority)
 
@@ -286,7 +286,8 @@ instance Data.FromJSON CertificateAuthority where
 
 instance Prelude.Hashable CertificateAuthority where
   hashWithSalt _salt CertificateAuthority' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` certificateAuthorityConfiguration
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` failureReason

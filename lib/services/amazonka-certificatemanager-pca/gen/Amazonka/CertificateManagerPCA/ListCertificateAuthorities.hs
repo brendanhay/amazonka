@@ -126,22 +126,22 @@ instance Core.AWSPager ListCertificateAuthorities where
     | Core.stop
         ( rs
             Lens.^? listCertificateAuthoritiesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCertificateAuthoritiesResponse_certificateAuthorities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCertificateAuthorities_nextToken
           Lens..~ rs
           Lens.^? listCertificateAuthoritiesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCertificateAuthorities where
   type
@@ -153,7 +153,8 @@ instance Core.AWSRequest ListCertificateAuthorities where
     Response.receiveJSON
       ( \s h x ->
           ListCertificateAuthoritiesResponse'
-            Prelude.<$> ( x Data..?> "CertificateAuthorities"
+            Prelude.<$> ( x
+                            Data..?> "CertificateAuthorities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -162,7 +163,8 @@ instance Core.AWSRequest ListCertificateAuthorities where
 
 instance Prelude.Hashable ListCertificateAuthorities where
   hashWithSalt _salt ListCertificateAuthorities' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceOwner
 

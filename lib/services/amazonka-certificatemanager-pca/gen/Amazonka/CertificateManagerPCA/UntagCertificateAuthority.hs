@@ -58,7 +58,7 @@ data UntagCertificateAuthority = UntagCertificateAuthority'
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
     certificateAuthorityArn :: Prelude.Text,
     -- | List of tags to be removed from the CA.
     tags :: Prelude.NonEmpty Tag
@@ -77,7 +77,7 @@ data UntagCertificateAuthority = UntagCertificateAuthority'
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 --
 -- 'tags', 'untagCertificateAuthority_tags' - List of tags to be removed from the CA.
 newUntagCertificateAuthority ::
@@ -99,7 +99,7 @@ newUntagCertificateAuthority
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 untagCertificateAuthority_certificateAuthorityArn :: Lens.Lens' UntagCertificateAuthority Prelude.Text
 untagCertificateAuthority_certificateAuthorityArn = Lens.lens (\UntagCertificateAuthority' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@UntagCertificateAuthority' {} a -> s {certificateAuthorityArn = a} :: UntagCertificateAuthority)
 

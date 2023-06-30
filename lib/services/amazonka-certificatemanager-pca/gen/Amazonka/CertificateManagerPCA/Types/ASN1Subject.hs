@@ -276,7 +276,8 @@ instance Data.FromJSON ASN1Subject where
 
 instance Prelude.Hashable ASN1Subject where
   hashWithSalt _salt ASN1Subject' {..} =
-    _salt `Prelude.hashWithSalt` commonName
+    _salt
+      `Prelude.hashWithSalt` commonName
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` customAttributes
       `Prelude.hashWithSalt` distinguishedNameQualifier

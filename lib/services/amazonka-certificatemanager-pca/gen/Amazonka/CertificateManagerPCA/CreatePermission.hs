@@ -81,7 +81,7 @@ data CreatePermission = CreatePermission'
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action. This must have the following form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
     certificateAuthorityArn :: Prelude.Text,
     -- | The Amazon Web Services service or identity that receives the
     -- permission. At this time, the only valid principal is
@@ -109,7 +109,7 @@ data CreatePermission = CreatePermission'
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. This must have the following form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 --
 -- 'principal', 'createPermission_principal' - The Amazon Web Services service or identity that receives the
 -- permission. At this time, the only valid principal is
@@ -146,7 +146,7 @@ createPermission_sourceAccount = Lens.lens (\CreatePermission' {sourceAccount} -
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. This must have the following form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 createPermission_certificateAuthorityArn :: Lens.Lens' CreatePermission Prelude.Text
 createPermission_certificateAuthorityArn = Lens.lens (\CreatePermission' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@CreatePermission' {} a -> s {certificateAuthorityArn = a} :: CreatePermission)
 
@@ -173,7 +173,8 @@ instance Core.AWSRequest CreatePermission where
 
 instance Prelude.Hashable CreatePermission where
   hashWithSalt _salt CreatePermission' {..} =
-    _salt `Prelude.hashWithSalt` sourceAccount
+    _salt
+      `Prelude.hashWithSalt` sourceAccount
       `Prelude.hashWithSalt` certificateAuthorityArn
       `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` actions

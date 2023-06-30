@@ -79,7 +79,7 @@ data DescribeCertificateAuthority = DescribeCertificateAuthority'
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
     certificateAuthorityArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,7 +96,7 @@ data DescribeCertificateAuthority = DescribeCertificateAuthority'
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 newDescribeCertificateAuthority ::
   -- | 'certificateAuthorityArn'
   Prelude.Text ->
@@ -112,7 +112,7 @@ newDescribeCertificateAuthority
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 describeCertificateAuthority_certificateAuthorityArn :: Lens.Lens' DescribeCertificateAuthority Prelude.Text
 describeCertificateAuthority_certificateAuthorityArn = Lens.lens (\DescribeCertificateAuthority' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@DescribeCertificateAuthority' {} a -> s {certificateAuthorityArn = a} :: DescribeCertificateAuthority)
 

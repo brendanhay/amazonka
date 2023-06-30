@@ -83,7 +83,8 @@ policyInformation_certPolicyId = Lens.lens (\PolicyInformation' {certPolicyId} -
 
 instance Prelude.Hashable PolicyInformation where
   hashWithSalt _salt PolicyInformation' {..} =
-    _salt `Prelude.hashWithSalt` policyQualifiers
+    _salt
+      `Prelude.hashWithSalt` policyQualifiers
       `Prelude.hashWithSalt` certPolicyId
 
 instance Prelude.NFData PolicyInformation where

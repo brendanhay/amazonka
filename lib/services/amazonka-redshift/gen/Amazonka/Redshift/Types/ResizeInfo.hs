@@ -71,7 +71,8 @@ instance Data.FromXML ResizeInfo where
 
 instance Prelude.Hashable ResizeInfo where
   hashWithSalt _salt ResizeInfo' {..} =
-    _salt `Prelude.hashWithSalt` allowCancelResize
+    _salt
+      `Prelude.hashWithSalt` allowCancelResize
       `Prelude.hashWithSalt` resizeType
 
 instance Prelude.NFData ResizeInfo where

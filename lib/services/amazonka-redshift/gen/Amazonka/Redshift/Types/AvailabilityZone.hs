@@ -59,7 +59,6 @@ newAvailabilityZone =
 availabilityZone_name :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_name = Lens.lens (\AvailabilityZone' {name} -> name) (\s@AvailabilityZone' {} a -> s {name = a} :: AvailabilityZone)
 
--- |
 availabilityZone_supportedPlatforms :: Lens.Lens' AvailabilityZone (Prelude.Maybe [SupportedPlatform])
 availabilityZone_supportedPlatforms = Lens.lens (\AvailabilityZone' {supportedPlatforms} -> supportedPlatforms) (\s@AvailabilityZone' {} a -> s {supportedPlatforms = a} :: AvailabilityZone) Prelude.. Lens.mapping Lens.coerced
 
@@ -67,14 +66,16 @@ instance Data.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
       Prelude.<$> (x Data..@? "Name")
-      Prelude.<*> ( x Data..@? "SupportedPlatforms"
+      Prelude.<*> ( x
+                      Data..@? "SupportedPlatforms"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "SupportedPlatform")
                   )
 
 instance Prelude.Hashable AvailabilityZone where
   hashWithSalt _salt AvailabilityZone' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` supportedPlatforms
 
 instance Prelude.NFData AvailabilityZone where

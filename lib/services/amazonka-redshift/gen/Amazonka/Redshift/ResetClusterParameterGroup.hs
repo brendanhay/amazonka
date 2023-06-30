@@ -137,7 +137,8 @@ instance Core.AWSRequest ResetClusterParameterGroup where
 
 instance Prelude.Hashable ResetClusterParameterGroup where
   hashWithSalt _salt ResetClusterParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resetAllParameters
       `Prelude.hashWithSalt` parameterGroupName
 

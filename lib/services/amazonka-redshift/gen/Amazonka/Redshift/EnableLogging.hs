@@ -220,7 +220,8 @@ instance Core.AWSRequest EnableLogging where
 
 instance Prelude.Hashable EnableLogging where
   hashWithSalt _salt EnableLogging' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` logDestinationType
       `Prelude.hashWithSalt` logExports
       `Prelude.hashWithSalt` s3KeyPrefix

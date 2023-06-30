@@ -204,7 +204,9 @@ instance Data.FromXML ScheduledAction where
     ScheduledAction'
       Prelude.<$> (x Data..@? "EndTime")
       Prelude.<*> (x Data..@? "IamRole")
-      Prelude.<*> ( x Data..@? "NextInvocations" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "NextInvocations"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ScheduledActionTime")
                   )
       Prelude.<*> (x Data..@? "Schedule")
@@ -216,7 +218,8 @@ instance Data.FromXML ScheduledAction where
 
 instance Prelude.Hashable ScheduledAction where
   hashWithSalt _salt ScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` iamRole
       `Prelude.hashWithSalt` nextInvocations
       `Prelude.hashWithSalt` schedule

@@ -156,7 +156,8 @@ instance Core.AWSRequest ModifyClusterMaintenance where
 
 instance Prelude.Hashable ModifyClusterMaintenance where
   hashWithSalt _salt ModifyClusterMaintenance' {..} =
-    _salt `Prelude.hashWithSalt` deferMaintenance
+    _salt
+      `Prelude.hashWithSalt` deferMaintenance
       `Prelude.hashWithSalt` deferMaintenanceDuration
       `Prelude.hashWithSalt` deferMaintenanceEndTime
       `Prelude.hashWithSalt` deferMaintenanceIdentifier

@@ -850,7 +850,8 @@ instance Core.AWSRequest ModifyCluster where
 
 instance Prelude.Hashable ModifyCluster where
   hashWithSalt _salt ModifyCluster' {..} =
-    _salt `Prelude.hashWithSalt` allowVersionUpgrade
+    _salt
+      `Prelude.hashWithSalt` allowVersionUpgrade
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneRelocation

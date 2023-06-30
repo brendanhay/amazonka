@@ -47,7 +47,6 @@ newSupportedPlatform ::
 newSupportedPlatform =
   SupportedPlatform' {name = Prelude.Nothing}
 
--- |
 supportedPlatform_name :: Lens.Lens' SupportedPlatform (Prelude.Maybe Prelude.Text)
 supportedPlatform_name = Lens.lens (\SupportedPlatform' {name} -> name) (\s@SupportedPlatform' {} a -> s {name = a} :: SupportedPlatform)
 

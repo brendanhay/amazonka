@@ -170,7 +170,8 @@ instance Core.AWSRequest CreateSnapshotCopyGrant where
 
 instance Prelude.Hashable CreateSnapshotCopyGrant where
   hashWithSalt _salt CreateSnapshotCopyGrant' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` snapshotCopyGrantName
 

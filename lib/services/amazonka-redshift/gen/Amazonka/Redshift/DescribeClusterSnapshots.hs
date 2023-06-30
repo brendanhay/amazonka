@@ -358,7 +358,6 @@ describeClusterSnapshots_snapshotIdentifier = Lens.lens (\DescribeClusterSnapsho
 describeClusterSnapshots_snapshotType :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
 describeClusterSnapshots_snapshotType = Lens.lens (\DescribeClusterSnapshots' {snapshotType} -> snapshotType) (\s@DescribeClusterSnapshots' {} a -> s {snapshotType = a} :: DescribeClusterSnapshots)
 
--- |
 describeClusterSnapshots_sortingEntities :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [SnapshotSortingEntity])
 describeClusterSnapshots_sortingEntities = Lens.lens (\DescribeClusterSnapshots' {sortingEntities} -> sortingEntities) (\s@DescribeClusterSnapshots' {} a -> s {sortingEntities = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens.coerced
 
@@ -394,22 +393,22 @@ instance Core.AWSPager DescribeClusterSnapshots where
     | Core.stop
         ( rs
             Lens.^? describeClusterSnapshotsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterSnapshotsResponse_snapshots
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClusterSnapshots_marker
           Lens..~ rs
           Lens.^? describeClusterSnapshotsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterSnapshots where
   type
@@ -423,7 +422,9 @@ instance Core.AWSRequest DescribeClusterSnapshots where
       ( \s h x ->
           DescribeClusterSnapshotsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Snapshots" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Snapshots"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Snapshot")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -431,7 +432,8 @@ instance Core.AWSRequest DescribeClusterSnapshots where
 
 instance Prelude.Hashable DescribeClusterSnapshots where
   hashWithSalt _salt DescribeClusterSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` clusterExists
+    _salt
+      `Prelude.hashWithSalt` clusterExists
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` marker

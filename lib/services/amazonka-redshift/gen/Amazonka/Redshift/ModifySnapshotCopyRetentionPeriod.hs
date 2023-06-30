@@ -213,7 +213,7 @@ instance
       ( \s h x ->
           ModifySnapshotCopyRetentionPeriodResponse'
             Prelude.<$> (x Data..@? "Cluster")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -223,7 +223,8 @@ instance
   hashWithSalt
     _salt
     ModifySnapshotCopyRetentionPeriod' {..} =
-      _salt `Prelude.hashWithSalt` manual
+      _salt
+        `Prelude.hashWithSalt` manual
         `Prelude.hashWithSalt` clusterIdentifier
         `Prelude.hashWithSalt` retentionPeriod
 

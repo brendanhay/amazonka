@@ -69,7 +69,8 @@ snapshotSortingEntity_attribute = Lens.lens (\SnapshotSortingEntity' {attribute}
 
 instance Prelude.Hashable SnapshotSortingEntity where
   hashWithSalt _salt SnapshotSortingEntity' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` attribute
 
 instance Prelude.NFData SnapshotSortingEntity where

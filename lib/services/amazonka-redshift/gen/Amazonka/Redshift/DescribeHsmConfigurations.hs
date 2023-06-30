@@ -219,22 +219,22 @@ instance Core.AWSPager DescribeHsmConfigurations where
     | Core.stop
         ( rs
             Lens.^? describeHsmConfigurationsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeHsmConfigurationsResponse_hsmConfigurations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeHsmConfigurations_marker
           Lens..~ rs
           Lens.^? describeHsmConfigurationsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeHsmConfigurations where
   type
@@ -247,7 +247,8 @@ instance Core.AWSRequest DescribeHsmConfigurations where
       "DescribeHsmConfigurationsResult"
       ( \s h x ->
           DescribeHsmConfigurationsResponse'
-            Prelude.<$> ( x Data..@? "HsmConfigurations"
+            Prelude.<$> ( x
+                            Data..@? "HsmConfigurations"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "HsmConfiguration")
                         )

@@ -71,7 +71,8 @@ scheduledActionFilter_values = Lens.lens (\ScheduledActionFilter' {values} -> va
 
 instance Prelude.Hashable ScheduledActionFilter where
   hashWithSalt _salt ScheduledActionFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ScheduledActionFilter where

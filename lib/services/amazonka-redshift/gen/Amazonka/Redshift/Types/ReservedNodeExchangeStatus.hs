@@ -151,7 +151,8 @@ instance Data.FromXML ReservedNodeExchangeStatus where
 
 instance Prelude.Hashable ReservedNodeExchangeStatus where
   hashWithSalt _salt ReservedNodeExchangeStatus' {..} =
-    _salt `Prelude.hashWithSalt` requestTime
+    _salt
+      `Prelude.hashWithSalt` requestTime
       `Prelude.hashWithSalt` reservedNodeExchangeRequestId
       `Prelude.hashWithSalt` sourceReservedNodeCount
       `Prelude.hashWithSalt` sourceReservedNodeId

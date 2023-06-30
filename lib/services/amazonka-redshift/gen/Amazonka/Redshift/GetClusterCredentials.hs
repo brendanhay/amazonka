@@ -378,7 +378,8 @@ instance Core.AWSRequest GetClusterCredentials where
 
 instance Prelude.Hashable GetClusterCredentials where
   hashWithSalt _salt GetClusterCredentials' {..} =
-    _salt `Prelude.hashWithSalt` autoCreate
+    _salt
+      `Prelude.hashWithSalt` autoCreate
       `Prelude.hashWithSalt` dbGroups
       `Prelude.hashWithSalt` dbName
       `Prelude.hashWithSalt` durationSeconds

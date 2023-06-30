@@ -78,14 +78,16 @@ instance Data.FromXML UpdateTarget where
     UpdateTarget'
       Prelude.<$> (x Data..@? "DatabaseVersion")
       Prelude.<*> (x Data..@? "MaintenanceTrackName")
-      Prelude.<*> ( x Data..@? "SupportedOperations"
+      Prelude.<*> ( x
+                      Data..@? "SupportedOperations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "SupportedOperation")
                   )
 
 instance Prelude.Hashable UpdateTarget where
   hashWithSalt _salt UpdateTarget' {..} =
-    _salt `Prelude.hashWithSalt` databaseVersion
+    _salt
+      `Prelude.hashWithSalt` databaseVersion
       `Prelude.hashWithSalt` maintenanceTrackName
       `Prelude.hashWithSalt` supportedOperations
 

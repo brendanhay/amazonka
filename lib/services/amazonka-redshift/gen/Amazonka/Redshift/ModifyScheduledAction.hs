@@ -184,7 +184,8 @@ instance Core.AWSRequest ModifyScheduledAction where
 
 instance Prelude.Hashable ModifyScheduledAction where
   hashWithSalt _salt ModifyScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` enable
+    _salt
+      `Prelude.hashWithSalt` enable
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` iamRole
       `Prelude.hashWithSalt` schedule

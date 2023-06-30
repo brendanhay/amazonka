@@ -210,22 +210,22 @@ instance Core.AWSPager DescribeClusterSubnetGroups where
     | Core.stop
         ( rs
             Lens.^? describeClusterSubnetGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterSubnetGroupsResponse_clusterSubnetGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClusterSubnetGroups_marker
           Lens..~ rs
           Lens.^? describeClusterSubnetGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterSubnetGroups where
   type
@@ -238,7 +238,8 @@ instance Core.AWSRequest DescribeClusterSubnetGroups where
       "DescribeClusterSubnetGroupsResult"
       ( \s h x ->
           DescribeClusterSubnetGroupsResponse'
-            Prelude.<$> ( x Data..@? "ClusterSubnetGroups"
+            Prelude.<$> ( x
+                            Data..@? "ClusterSubnetGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ClusterSubnetGroup")
                         )
@@ -248,7 +249,8 @@ instance Core.AWSRequest DescribeClusterSubnetGroups where
 
 instance Prelude.Hashable DescribeClusterSubnetGroups where
   hashWithSalt _salt DescribeClusterSubnetGroups' {..} =
-    _salt `Prelude.hashWithSalt` clusterSubnetGroupName
+    _salt
+      `Prelude.hashWithSalt` clusterSubnetGroupName
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` tagKeys

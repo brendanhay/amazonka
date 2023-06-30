@@ -194,7 +194,8 @@ instance Core.AWSRequest CreateHsmConfiguration where
 
 instance Prelude.Hashable CreateHsmConfiguration where
   hashWithSalt _salt CreateHsmConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` hsmConfigurationIdentifier
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` hsmIpAddress

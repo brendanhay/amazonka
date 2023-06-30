@@ -847,7 +847,8 @@ instance Core.AWSRequest RestoreFromClusterSnapshot where
 
 instance Prelude.Hashable RestoreFromClusterSnapshot where
   hashWithSalt _salt RestoreFromClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` allowVersionUpgrade
       `Prelude.hashWithSalt` aquaConfigurationStatus
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod

@@ -131,7 +131,8 @@ instance Core.AWSRequest ModifyClusterParameterGroup where
 
 instance Prelude.Hashable ModifyClusterParameterGroup where
   hashWithSalt _salt ModifyClusterParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` parameterGroupName
+    _salt
+      `Prelude.hashWithSalt` parameterGroupName
       `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData ModifyClusterParameterGroup where

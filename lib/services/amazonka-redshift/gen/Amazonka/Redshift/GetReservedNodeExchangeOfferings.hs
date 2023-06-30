@@ -120,22 +120,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getReservedNodeExchangeOfferingsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getReservedNodeExchangeOfferings_marker
           Lens..~ rs
           Lens.^? getReservedNodeExchangeOfferingsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -152,7 +152,8 @@ instance
       ( \s h x ->
           GetReservedNodeExchangeOfferingsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "ReservedNodeOfferings"
+            Prelude.<*> ( x
+                            Data..@? "ReservedNodeOfferings"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ReservedNodeOffering")
                         )
@@ -166,7 +167,8 @@ instance
   hashWithSalt
     _salt
     GetReservedNodeExchangeOfferings' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` reservedNodeId
 

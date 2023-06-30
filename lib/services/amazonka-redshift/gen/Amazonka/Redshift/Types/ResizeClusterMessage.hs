@@ -136,7 +136,8 @@ instance Data.FromXML ResizeClusterMessage where
 
 instance Prelude.Hashable ResizeClusterMessage where
   hashWithSalt _salt ResizeClusterMessage' {..} =
-    _salt `Prelude.hashWithSalt` classic
+    _salt
+      `Prelude.hashWithSalt` classic
       `Prelude.hashWithSalt` clusterType
       `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` numberOfNodes

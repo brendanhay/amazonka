@@ -120,7 +120,8 @@ instance
     ModifyClusterSnapshotSchedule
   where
   hashWithSalt _salt ModifyClusterSnapshotSchedule' {..} =
-    _salt `Prelude.hashWithSalt` disassociateSchedule
+    _salt
+      `Prelude.hashWithSalt` disassociateSchedule
       `Prelude.hashWithSalt` scheduleIdentifier
       `Prelude.hashWithSalt` clusterIdentifier
 

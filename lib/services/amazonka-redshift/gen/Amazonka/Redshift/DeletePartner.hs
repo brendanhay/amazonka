@@ -133,7 +133,8 @@ instance Core.AWSRequest DeletePartner where
 
 instance Prelude.Hashable DeletePartner where
   hashWithSalt _salt DeletePartner' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` partnerName

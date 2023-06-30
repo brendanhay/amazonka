@@ -208,22 +208,22 @@ instance Core.AWSPager DescribeSnapshotCopyGrants where
     | Core.stop
         ( rs
             Lens.^? describeSnapshotCopyGrantsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSnapshotCopyGrantsResponse_snapshotCopyGrants
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSnapshotCopyGrants_marker
           Lens..~ rs
           Lens.^? describeSnapshotCopyGrantsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshotCopyGrants where
   type
@@ -237,7 +237,8 @@ instance Core.AWSRequest DescribeSnapshotCopyGrants where
       ( \s h x ->
           DescribeSnapshotCopyGrantsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "SnapshotCopyGrants"
+            Prelude.<*> ( x
+                            Data..@? "SnapshotCopyGrants"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "SnapshotCopyGrant")
                         )
@@ -246,7 +247,8 @@ instance Core.AWSRequest DescribeSnapshotCopyGrants where
 
 instance Prelude.Hashable DescribeSnapshotCopyGrants where
   hashWithSalt _salt DescribeSnapshotCopyGrants' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` snapshotCopyGrantName
       `Prelude.hashWithSalt` tagKeys

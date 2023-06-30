@@ -108,14 +108,19 @@ instance Data.FromXML ClusterSecurityGroup where
     ClusterSecurityGroup'
       Prelude.<$> (x Data..@? "ClusterSecurityGroupName")
       Prelude.<*> (x Data..@? "Description")
-      Prelude.<*> ( x Data..@? "EC2SecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "EC2SecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EC2SecurityGroup")
                   )
-      Prelude.<*> ( x Data..@? "IPRanges" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "IPRanges"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "IPRange")
                   )
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 

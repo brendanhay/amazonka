@@ -110,7 +110,8 @@ instance Data.FromXML DataShareAssociation where
 
 instance Prelude.Hashable DataShareAssociation where
   hashWithSalt _salt DataShareAssociation' {..} =
-    _salt `Prelude.hashWithSalt` consumerIdentifier
+    _salt
+      `Prelude.hashWithSalt` consumerIdentifier
       `Prelude.hashWithSalt` consumerRegion
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` status

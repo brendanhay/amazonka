@@ -161,7 +161,8 @@ instance Core.AWSRequest CreateClusterSecurityGroup where
 
 instance Prelude.Hashable CreateClusterSecurityGroup where
   hashWithSalt _salt CreateClusterSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clusterSecurityGroupName
       `Prelude.hashWithSalt` description
 

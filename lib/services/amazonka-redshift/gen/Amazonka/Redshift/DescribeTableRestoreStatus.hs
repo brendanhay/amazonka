@@ -148,22 +148,22 @@ instance Core.AWSPager DescribeTableRestoreStatus where
     | Core.stop
         ( rs
             Lens.^? describeTableRestoreStatusResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTableRestoreStatusResponse_tableRestoreStatusDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTableRestoreStatus_marker
           Lens..~ rs
           Lens.^? describeTableRestoreStatusResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTableRestoreStatus where
   type
@@ -177,7 +177,8 @@ instance Core.AWSRequest DescribeTableRestoreStatus where
       ( \s h x ->
           DescribeTableRestoreStatusResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "TableRestoreStatusDetails"
+            Prelude.<*> ( x
+                            Data..@? "TableRestoreStatusDetails"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "TableRestoreStatus")
                         )
@@ -186,7 +187,8 @@ instance Core.AWSRequest DescribeTableRestoreStatus where
 
 instance Prelude.Hashable DescribeTableRestoreStatus where
   hashWithSalt _salt DescribeTableRestoreStatus' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` tableRestoreRequestId

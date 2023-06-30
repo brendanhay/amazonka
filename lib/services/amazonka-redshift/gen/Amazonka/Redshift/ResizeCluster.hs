@@ -197,7 +197,8 @@ instance Core.AWSRequest ResizeCluster where
 
 instance Prelude.Hashable ResizeCluster where
   hashWithSalt _salt ResizeCluster' {..} =
-    _salt `Prelude.hashWithSalt` classic
+    _salt
+      `Prelude.hashWithSalt` classic
       `Prelude.hashWithSalt` clusterType
       `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` numberOfNodes

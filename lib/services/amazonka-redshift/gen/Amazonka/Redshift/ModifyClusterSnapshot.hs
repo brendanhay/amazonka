@@ -137,7 +137,8 @@ instance Core.AWSRequest ModifyClusterSnapshot where
 
 instance Prelude.Hashable ModifyClusterSnapshot where
   hashWithSalt _salt ModifyClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
       `Prelude.hashWithSalt` snapshotIdentifier
 

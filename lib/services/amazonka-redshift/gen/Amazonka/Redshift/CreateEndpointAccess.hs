@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateEndpointAccess where
 
 instance Prelude.Hashable CreateEndpointAccess where
   hashWithSalt _salt CreateEndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` resourceOwner
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` endpointName

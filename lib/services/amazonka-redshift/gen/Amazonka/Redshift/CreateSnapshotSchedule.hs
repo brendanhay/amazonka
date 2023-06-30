@@ -110,11 +110,9 @@ newCreateSnapshotSchedule =
       tags = Prelude.Nothing
     }
 
--- |
 createSnapshotSchedule_dryRun :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Bool)
 createSnapshotSchedule_dryRun = Lens.lens (\CreateSnapshotSchedule' {dryRun} -> dryRun) (\s@CreateSnapshotSchedule' {} a -> s {dryRun = a} :: CreateSnapshotSchedule)
 
--- |
 createSnapshotSchedule_nextInvocations :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Int)
 createSnapshotSchedule_nextInvocations = Lens.lens (\CreateSnapshotSchedule' {nextInvocations} -> nextInvocations) (\s@CreateSnapshotSchedule' {} a -> s {nextInvocations = a} :: CreateSnapshotSchedule)
 
@@ -150,7 +148,8 @@ instance Core.AWSRequest CreateSnapshotSchedule where
 
 instance Prelude.Hashable CreateSnapshotSchedule where
   hashWithSalt _salt CreateSnapshotSchedule' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` nextInvocations
       `Prelude.hashWithSalt` scheduleDefinitions
       `Prelude.hashWithSalt` scheduleDescription

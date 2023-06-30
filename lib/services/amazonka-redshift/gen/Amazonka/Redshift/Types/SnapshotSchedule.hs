@@ -95,7 +95,6 @@ snapshotSchedule_associatedClusterCount = Lens.lens (\SnapshotSchedule' {associa
 snapshotSchedule_associatedClusters :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [ClusterAssociatedToSchedule])
 snapshotSchedule_associatedClusters = Lens.lens (\SnapshotSchedule' {associatedClusters} -> associatedClusters) (\s@SnapshotSchedule' {} a -> s {associatedClusters = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens.coerced
 
--- |
 snapshotSchedule_nextInvocations :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Prelude.UTCTime])
 snapshotSchedule_nextInvocations = Lens.lens (\SnapshotSchedule' {nextInvocations} -> nextInvocations) (\s@SnapshotSchedule' {} a -> s {nextInvocations = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens.coerced
 
@@ -119,27 +118,34 @@ instance Data.FromXML SnapshotSchedule where
   parseXML x =
     SnapshotSchedule'
       Prelude.<$> (x Data..@? "AssociatedClusterCount")
-      Prelude.<*> ( x Data..@? "AssociatedClusters"
+      Prelude.<*> ( x
+                      Data..@? "AssociatedClusters"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "ClusterAssociatedToSchedule")
                   )
-      Prelude.<*> ( x Data..@? "NextInvocations" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "NextInvocations"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "SnapshotTime")
                   )
-      Prelude.<*> ( x Data..@? "ScheduleDefinitions"
+      Prelude.<*> ( x
+                      Data..@? "ScheduleDefinitions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ScheduleDefinition")
                   )
       Prelude.<*> (x Data..@? "ScheduleDescription")
       Prelude.<*> (x Data..@? "ScheduleIdentifier")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
 instance Prelude.Hashable SnapshotSchedule where
   hashWithSalt _salt SnapshotSchedule' {..} =
-    _salt `Prelude.hashWithSalt` associatedClusterCount
+    _salt
+      `Prelude.hashWithSalt` associatedClusterCount
       `Prelude.hashWithSalt` associatedClusters
       `Prelude.hashWithSalt` nextInvocations
       `Prelude.hashWithSalt` scheduleDefinitions

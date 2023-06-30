@@ -151,22 +151,22 @@ instance Core.AWSPager DescribeEndpointAccess where
     | Core.stop
         ( rs
             Lens.^? describeEndpointAccessResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEndpointAccessResponse_endpointAccessList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEndpointAccess_marker
           Lens..~ rs
           Lens.^? describeEndpointAccessResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEndpointAccess where
   type
@@ -179,7 +179,8 @@ instance Core.AWSRequest DescribeEndpointAccess where
       "DescribeEndpointAccessResult"
       ( \s h x ->
           DescribeEndpointAccessResponse'
-            Prelude.<$> ( x Data..@? "EndpointAccessList"
+            Prelude.<$> ( x
+                            Data..@? "EndpointAccessList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -189,7 +190,8 @@ instance Core.AWSRequest DescribeEndpointAccess where
 
 instance Prelude.Hashable DescribeEndpointAccess where
   hashWithSalt _salt DescribeEndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords

@@ -75,7 +75,8 @@ instance
   hashWithSalt
     _salt
     PartnerIntegrationOutputMessage' {..} =
-      _salt `Prelude.hashWithSalt` databaseName
+      _salt
+        `Prelude.hashWithSalt` databaseName
         `Prelude.hashWithSalt` partnerName
 
 instance

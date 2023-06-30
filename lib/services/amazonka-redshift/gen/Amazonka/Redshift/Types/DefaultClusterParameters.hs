@@ -96,13 +96,16 @@ instance Data.FromXML DefaultClusterParameters where
     DefaultClusterParameters'
       Prelude.<$> (x Data..@? "Marker")
       Prelude.<*> (x Data..@? "ParameterGroupFamily")
-      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Parameters"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 
 instance Prelude.Hashable DefaultClusterParameters where
   hashWithSalt _salt DefaultClusterParameters' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` parameterGroupFamily
       `Prelude.hashWithSalt` parameters
 

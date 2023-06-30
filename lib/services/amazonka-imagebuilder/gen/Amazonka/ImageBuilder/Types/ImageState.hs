@@ -75,7 +75,8 @@ instance Data.FromJSON ImageState where
 
 instance Prelude.Hashable ImageState where
   hashWithSalt _salt ImageState' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ImageState where

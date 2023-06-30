@@ -179,7 +179,8 @@ instance Core.AWSRequest ListImages where
     Response.receiveJSON
       ( \s h x ->
           ListImagesResponse'
-            Prelude.<$> ( x Data..?> "imageVersionList"
+            Prelude.<$> ( x
+                            Data..?> "imageVersionList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -189,7 +190,8 @@ instance Core.AWSRequest ListImages where
 
 instance Prelude.Hashable ListImages where
   hashWithSalt _salt ListImages' {..} =
-    _salt `Prelude.hashWithSalt` byName
+    _salt
+      `Prelude.hashWithSalt` byName
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includeDeprecated
       `Prelude.hashWithSalt` maxResults

@@ -81,7 +81,8 @@ instance Data.FromJSON ComponentConfiguration where
 
 instance Prelude.Hashable ComponentConfiguration where
   hashWithSalt _salt ComponentConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` componentArn
 
 instance Prelude.NFData ComponentConfiguration where

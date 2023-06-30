@@ -120,7 +120,8 @@ instance Core.AWSRequest PutContainerRecipePolicy where
 
 instance Prelude.Hashable PutContainerRecipePolicy where
   hashWithSalt _salt PutContainerRecipePolicy' {..} =
-    _salt `Prelude.hashWithSalt` containerRecipeArn
+    _salt
+      `Prelude.hashWithSalt` containerRecipeArn
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutContainerRecipePolicy where

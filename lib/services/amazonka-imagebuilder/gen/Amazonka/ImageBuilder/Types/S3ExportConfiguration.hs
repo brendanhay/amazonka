@@ -138,7 +138,8 @@ instance Data.FromJSON S3ExportConfiguration where
 
 instance Prelude.Hashable S3ExportConfiguration where
   hashWithSalt _salt S3ExportConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` s3Prefix
+    _salt
+      `Prelude.hashWithSalt` s3Prefix
       `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` diskImageFormat
       `Prelude.hashWithSalt` s3Bucket

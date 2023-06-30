@@ -398,7 +398,8 @@ instance Data.FromJSON Image where
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` containerRecipe
       `Prelude.hashWithSalt` dateCreated

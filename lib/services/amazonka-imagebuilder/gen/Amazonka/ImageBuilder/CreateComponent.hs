@@ -298,7 +298,8 @@ instance Core.AWSRequest CreateComponent where
 
 instance Prelude.Hashable CreateComponent where
   hashWithSalt _salt CreateComponent' {..} =
-    _salt `Prelude.hashWithSalt` changeDescription
+    _salt
+      `Prelude.hashWithSalt` changeDescription
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId

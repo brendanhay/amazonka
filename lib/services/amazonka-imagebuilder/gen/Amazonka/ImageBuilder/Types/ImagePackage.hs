@@ -80,7 +80,8 @@ instance Data.FromJSON ImagePackage where
 
 instance Prelude.Hashable ImagePackage where
   hashWithSalt _salt ImagePackage' {..} =
-    _salt `Prelude.hashWithSalt` packageName
+    _salt
+      `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` packageVersion
 
 instance Prelude.NFData ImagePackage where

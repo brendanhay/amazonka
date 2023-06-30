@@ -117,7 +117,8 @@ instance Data.FromJSON Ami where
 
 instance Prelude.Hashable Ami where
   hashWithSalt _salt Ami' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` name

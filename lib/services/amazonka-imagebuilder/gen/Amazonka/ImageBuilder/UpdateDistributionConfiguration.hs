@@ -144,7 +144,8 @@ instance
   hashWithSalt
     _salt
     UpdateDistributionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` distributionConfigurationArn
         `Prelude.hashWithSalt` distributions
         `Prelude.hashWithSalt` clientToken

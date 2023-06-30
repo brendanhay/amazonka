@@ -83,7 +83,8 @@ instance Data.FromJSON ImageTestsConfiguration where
 
 instance Prelude.Hashable ImageTestsConfiguration where
   hashWithSalt _salt ImageTestsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` imageTestsEnabled
+    _salt
+      `Prelude.hashWithSalt` imageTestsEnabled
       `Prelude.hashWithSalt` timeoutMinutes
 
 instance Prelude.NFData ImageTestsConfiguration where

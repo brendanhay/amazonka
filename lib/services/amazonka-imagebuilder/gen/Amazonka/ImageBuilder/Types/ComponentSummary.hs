@@ -186,7 +186,8 @@ instance Data.FromJSON ComponentSummary where
 
 instance Prelude.Hashable ComponentSummary where
   hashWithSalt _salt ComponentSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` changeDescription
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` description

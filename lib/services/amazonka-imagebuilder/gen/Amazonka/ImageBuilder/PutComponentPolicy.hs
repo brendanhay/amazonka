@@ -115,7 +115,8 @@ instance Core.AWSRequest PutComponentPolicy where
 
 instance Prelude.Hashable PutComponentPolicy where
   hashWithSalt _salt PutComponentPolicy' {..} =
-    _salt `Prelude.hashWithSalt` componentArn
+    _salt
+      `Prelude.hashWithSalt` componentArn
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutComponentPolicy where

@@ -301,9 +301,9 @@ instance
       ( \s h x ->
           UpdateInfrastructureConfigurationResponse'
             Prelude.<$> (x Data..?> "clientToken")
-              Prelude.<*> (x Data..?> "infrastructureConfigurationArn")
-              Prelude.<*> (x Data..?> "requestId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "infrastructureConfigurationArn")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -313,7 +313,8 @@ instance
   hashWithSalt
     _salt
     UpdateInfrastructureConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` instanceMetadataOptions
         `Prelude.hashWithSalt` instanceTypes
         `Prelude.hashWithSalt` keyPair

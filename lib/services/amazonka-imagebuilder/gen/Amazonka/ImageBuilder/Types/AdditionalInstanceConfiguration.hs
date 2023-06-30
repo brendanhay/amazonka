@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     AdditionalInstanceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` systemsManagerAgent
+      _salt
+        `Prelude.hashWithSalt` systemsManagerAgent
         `Prelude.hashWithSalt` userDataOverride
 
 instance

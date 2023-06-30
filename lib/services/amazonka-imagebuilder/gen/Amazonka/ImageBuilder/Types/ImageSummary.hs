@@ -209,7 +209,8 @@ instance Data.FromJSON ImageSummary where
 
 instance Prelude.Hashable ImageSummary where
   hashWithSalt _salt ImageSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` name

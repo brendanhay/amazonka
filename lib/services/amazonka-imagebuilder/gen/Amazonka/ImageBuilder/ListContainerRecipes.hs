@@ -152,7 +152,8 @@ instance Core.AWSRequest ListContainerRecipes where
     Response.receiveJSON
       ( \s h x ->
           ListContainerRecipesResponse'
-            Prelude.<$> ( x Data..?> "containerRecipeSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "containerRecipeSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -162,7 +163,8 @@ instance Core.AWSRequest ListContainerRecipes where
 
 instance Prelude.Hashable ListContainerRecipes where
   hashWithSalt _salt ListContainerRecipes' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` owner

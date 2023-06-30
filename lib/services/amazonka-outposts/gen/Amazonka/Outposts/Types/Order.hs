@@ -169,7 +169,8 @@ instance Data.FromJSON Order where
 
 instance Prelude.Hashable Order where
   hashWithSalt _salt Order' {..} =
-    _salt `Prelude.hashWithSalt` lineItems
+    _salt
+      `Prelude.hashWithSalt` lineItems
       `Prelude.hashWithSalt` orderFulfilledDate
       `Prelude.hashWithSalt` orderId
       `Prelude.hashWithSalt` orderSubmissionDate

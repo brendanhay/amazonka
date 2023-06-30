@@ -117,7 +117,8 @@ instance Core.AWSRequest GetOutpostInstanceTypes where
 
 instance Prelude.Hashable GetOutpostInstanceTypes where
   hashWithSalt _salt GetOutpostInstanceTypes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` outpostId
 

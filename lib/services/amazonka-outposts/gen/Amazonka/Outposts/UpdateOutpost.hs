@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateOutpost where
 
 instance Prelude.Hashable UpdateOutpost where
   hashWithSalt _salt UpdateOutpost' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` supportedHardwareType
       `Prelude.hashWithSalt` outpostId

@@ -136,7 +136,8 @@ instance Core.AWSRequest ListSites where
 
 instance Prelude.Hashable ListSites where
   hashWithSalt _salt ListSites' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` operatingAddressCityFilter
       `Prelude.hashWithSalt` operatingAddressCountryCodeFilter

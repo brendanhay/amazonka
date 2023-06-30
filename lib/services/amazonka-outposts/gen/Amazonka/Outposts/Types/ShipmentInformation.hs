@@ -76,7 +76,8 @@ instance Data.FromJSON ShipmentInformation where
 
 instance Prelude.Hashable ShipmentInformation where
   hashWithSalt _salt ShipmentInformation' {..} =
-    _salt `Prelude.hashWithSalt` shipmentCarrier
+    _salt
+      `Prelude.hashWithSalt` shipmentCarrier
       `Prelude.hashWithSalt` shipmentTrackingNumber
 
 instance Prelude.NFData ShipmentInformation where

@@ -84,7 +84,8 @@ instance Data.FromJSON EC2Capacity where
 
 instance Prelude.Hashable EC2Capacity where
   hashWithSalt _salt EC2Capacity' {..} =
-    _salt `Prelude.hashWithSalt` family
+    _salt
+      `Prelude.hashWithSalt` family
       `Prelude.hashWithSalt` maxSize
       `Prelude.hashWithSalt` quantity
 

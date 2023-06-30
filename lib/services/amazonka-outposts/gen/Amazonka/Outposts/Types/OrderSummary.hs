@@ -159,7 +159,8 @@ instance Data.FromJSON OrderSummary where
       "OrderSummary"
       ( \x ->
           OrderSummary'
-            Prelude.<$> ( x Data..:? "LineItemCountsByStatus"
+            Prelude.<$> ( x
+                            Data..:? "LineItemCountsByStatus"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OrderFulfilledDate")
@@ -172,7 +173,8 @@ instance Data.FromJSON OrderSummary where
 
 instance Prelude.Hashable OrderSummary where
   hashWithSalt _salt OrderSummary' {..} =
-    _salt `Prelude.hashWithSalt` lineItemCountsByStatus
+    _salt
+      `Prelude.hashWithSalt` lineItemCountsByStatus
       `Prelude.hashWithSalt` orderFulfilledDate
       `Prelude.hashWithSalt` orderId
       `Prelude.hashWithSalt` orderSubmissionDate

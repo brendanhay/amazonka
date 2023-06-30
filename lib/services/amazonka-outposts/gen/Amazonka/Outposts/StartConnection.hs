@@ -146,7 +146,8 @@ instance Core.AWSRequest StartConnection where
 
 instance Prelude.Hashable StartConnection where
   hashWithSalt _salt StartConnection' {..} =
-    _salt `Prelude.hashWithSalt` deviceSerialNumber
+    _salt
+      `Prelude.hashWithSalt` deviceSerialNumber
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` clientPublicKey
       `Prelude.hashWithSalt` networkInterfaceDeviceIndex

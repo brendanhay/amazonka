@@ -178,7 +178,8 @@ instance Data.FromJSON RackPhysicalProperties where
 
 instance Prelude.Hashable RackPhysicalProperties where
   hashWithSalt _salt RackPhysicalProperties' {..} =
-    _salt `Prelude.hashWithSalt` fiberOpticCableType
+    _salt
+      `Prelude.hashWithSalt` fiberOpticCableType
       `Prelude.hashWithSalt` maximumSupportedWeightLbs
       `Prelude.hashWithSalt` opticalStandard
       `Prelude.hashWithSalt` powerConnector

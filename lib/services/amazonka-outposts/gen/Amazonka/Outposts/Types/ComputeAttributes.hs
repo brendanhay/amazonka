@@ -111,7 +111,8 @@ instance Data.FromJSON ComputeAttributes where
 
 instance Prelude.Hashable ComputeAttributes where
   hashWithSalt _salt ComputeAttributes' {..} =
-    _salt `Prelude.hashWithSalt` hostId
+    _salt
+      `Prelude.hashWithSalt` hostId
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ComputeAttributes where

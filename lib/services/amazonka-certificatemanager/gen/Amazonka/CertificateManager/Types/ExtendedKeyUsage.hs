@@ -131,12 +131,14 @@ instance Data.FromJSON ExtendedKeyUsage where
       "ExtendedKeyUsage"
       ( \x ->
           ExtendedKeyUsage'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "OID")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OID")
       )
 
 instance Prelude.Hashable ExtendedKeyUsage where
   hashWithSalt _salt ExtendedKeyUsage' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` oid
 
 instance Prelude.NFData ExtendedKeyUsage where

@@ -163,22 +163,22 @@ instance Core.AWSPager ListCertificates where
     | Core.stop
         ( rs
             Lens.^? listCertificatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCertificatesResponse_certificateSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCertificates_nextToken
           Lens..~ rs
           Lens.^? listCertificatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCertificates where
   type
@@ -190,7 +190,8 @@ instance Core.AWSRequest ListCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            Prelude.<$> ( x Data..?> "CertificateSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "CertificateSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -199,7 +200,8 @@ instance Core.AWSRequest ListCertificates where
 
 instance Prelude.Hashable ListCertificates where
   hashWithSalt _salt ListCertificates' {..} =
-    _salt `Prelude.hashWithSalt` certificateStatuses
+    _salt
+      `Prelude.hashWithSalt` certificateStatuses
       `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` nextToken

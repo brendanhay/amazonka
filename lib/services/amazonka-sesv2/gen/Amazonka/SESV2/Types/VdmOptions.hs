@@ -83,7 +83,8 @@ instance Data.FromJSON VdmOptions where
 
 instance Prelude.Hashable VdmOptions where
   hashWithSalt _salt VdmOptions' {..} =
-    _salt `Prelude.hashWithSalt` dashboardOptions
+    _salt
+      `Prelude.hashWithSalt` dashboardOptions
       `Prelude.hashWithSalt` guardianOptions
 
 instance Prelude.NFData VdmOptions where

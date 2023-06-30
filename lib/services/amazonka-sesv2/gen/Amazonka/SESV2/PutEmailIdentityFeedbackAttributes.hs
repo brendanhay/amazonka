@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     PutEmailIdentityFeedbackAttributes' {..} =
-      _salt `Prelude.hashWithSalt` emailForwardingEnabled
+      _salt
+        `Prelude.hashWithSalt` emailForwardingEnabled
         `Prelude.hashWithSalt` emailIdentity
 
 instance

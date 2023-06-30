@@ -79,7 +79,8 @@ instance Data.FromJSON IspPlacement where
 
 instance Prelude.Hashable IspPlacement where
   hashWithSalt _salt IspPlacement' {..} =
-    _salt `Prelude.hashWithSalt` ispName
+    _salt
+      `Prelude.hashWithSalt` ispName
       `Prelude.hashWithSalt` placementStatistics
 
 instance Prelude.NFData IspPlacement where

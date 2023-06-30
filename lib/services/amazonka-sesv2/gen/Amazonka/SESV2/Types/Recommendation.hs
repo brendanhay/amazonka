@@ -136,7 +136,8 @@ instance Data.FromJSON Recommendation where
 
 instance Prelude.Hashable Recommendation where
   hashWithSalt _salt Recommendation' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` impact
       `Prelude.hashWithSalt` lastUpdatedTimestamp

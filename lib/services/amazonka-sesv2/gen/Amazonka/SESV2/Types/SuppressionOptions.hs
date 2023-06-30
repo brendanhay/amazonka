@@ -92,7 +92,8 @@ instance Data.FromJSON SuppressionOptions where
       "SuppressionOptions"
       ( \x ->
           SuppressionOptions'
-            Prelude.<$> ( x Data..:? "SuppressedReasons"
+            Prelude.<$> ( x
+                            Data..:? "SuppressedReasons"
                             Data..!= Prelude.mempty
                         )
       )

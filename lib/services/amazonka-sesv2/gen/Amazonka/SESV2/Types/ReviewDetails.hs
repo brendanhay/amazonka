@@ -114,7 +114,8 @@ instance Data.FromJSON ReviewDetails where
 
 instance Prelude.Hashable ReviewDetails where
   hashWithSalt _salt ReviewDetails' {..} =
-    _salt `Prelude.hashWithSalt` caseId
+    _salt
+      `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ReviewDetails where

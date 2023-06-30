@@ -97,7 +97,8 @@ instance Data.FromJSON DedicatedIpPool where
 
 instance Prelude.Hashable DedicatedIpPool where
   hashWithSalt _salt DedicatedIpPool' {..} =
-    _salt `Prelude.hashWithSalt` poolName
+    _salt
+      `Prelude.hashWithSalt` poolName
       `Prelude.hashWithSalt` scalingMode
 
 instance Prelude.NFData DedicatedIpPool where

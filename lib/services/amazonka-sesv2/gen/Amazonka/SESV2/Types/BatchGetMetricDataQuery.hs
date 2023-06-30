@@ -254,7 +254,8 @@ batchGetMetricDataQuery_endDate = Lens.lens (\BatchGetMetricDataQuery' {endDate}
 
 instance Prelude.Hashable BatchGetMetricDataQuery where
   hashWithSalt _salt BatchGetMetricDataQuery' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` metric

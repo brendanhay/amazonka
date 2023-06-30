@@ -66,7 +66,8 @@ instance Data.FromJSON CloudWatchDestination where
       "CloudWatchDestination"
       ( \x ->
           CloudWatchDestination'
-            Prelude.<$> ( x Data..:? "DimensionConfigurations"
+            Prelude.<$> ( x
+                            Data..:? "DimensionConfigurations"
                             Data..!= Prelude.mempty
                         )
       )

@@ -100,7 +100,8 @@ instance Data.FromJSON ContactListDestination where
 
 instance Prelude.Hashable ContactListDestination where
   hashWithSalt _salt ContactListDestination' {..} =
-    _salt `Prelude.hashWithSalt` contactListName
+    _salt
+      `Prelude.hashWithSalt` contactListName
       `Prelude.hashWithSalt` contactListImportAction
 
 instance Prelude.NFData ContactListDestination where

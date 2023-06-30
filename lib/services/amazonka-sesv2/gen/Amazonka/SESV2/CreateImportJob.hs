@@ -110,7 +110,8 @@ instance Core.AWSRequest CreateImportJob where
 
 instance Prelude.Hashable CreateImportJob where
   hashWithSalt _salt CreateImportJob' {..} =
-    _salt `Prelude.hashWithSalt` importDestination
+    _salt
+      `Prelude.hashWithSalt` importDestination
       `Prelude.hashWithSalt` importDataSource
 
 instance Prelude.NFData CreateImportJob where

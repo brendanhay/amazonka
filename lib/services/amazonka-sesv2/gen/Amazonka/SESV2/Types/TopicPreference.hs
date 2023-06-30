@@ -82,7 +82,8 @@ instance Data.FromJSON TopicPreference where
 
 instance Prelude.Hashable TopicPreference where
   hashWithSalt _salt TopicPreference' {..} =
-    _salt `Prelude.hashWithSalt` topicName
+    _salt
+      `Prelude.hashWithSalt` topicName
       `Prelude.hashWithSalt` subscriptionStatus
 
 instance Prelude.NFData TopicPreference where

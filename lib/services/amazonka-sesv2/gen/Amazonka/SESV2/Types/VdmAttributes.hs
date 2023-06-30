@@ -111,7 +111,8 @@ instance Data.FromJSON VdmAttributes where
 
 instance Prelude.Hashable VdmAttributes where
   hashWithSalt _salt VdmAttributes' {..} =
-    _salt `Prelude.hashWithSalt` dashboardAttributes
+    _salt
+      `Prelude.hashWithSalt` dashboardAttributes
       `Prelude.hashWithSalt` guardianAttributes
       `Prelude.hashWithSalt` vdmEnabled
 

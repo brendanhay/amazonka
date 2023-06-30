@@ -136,7 +136,8 @@ instance Core.AWSRequest ListRecommendations where
       ( \s h x ->
           ListRecommendationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "Recommendations"
+            Prelude.<*> ( x
+                            Data..?> "Recommendations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,7 +145,8 @@ instance Core.AWSRequest ListRecommendations where
 
 instance Prelude.Hashable ListRecommendations where
   hashWithSalt _salt ListRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 

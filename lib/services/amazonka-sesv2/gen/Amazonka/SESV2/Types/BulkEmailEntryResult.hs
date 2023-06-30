@@ -245,7 +245,8 @@ instance Data.FromJSON BulkEmailEntryResult where
 
 instance Prelude.Hashable BulkEmailEntryResult where
   hashWithSalt _salt BulkEmailEntryResult' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` status
 

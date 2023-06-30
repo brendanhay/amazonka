@@ -109,7 +109,8 @@ instance Data.FromJSON Topic where
 
 instance Prelude.Hashable Topic where
   hashWithSalt _salt Topic' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` topicName
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` defaultSubscriptionStatus

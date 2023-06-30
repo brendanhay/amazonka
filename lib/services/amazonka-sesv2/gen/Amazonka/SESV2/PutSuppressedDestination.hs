@@ -112,7 +112,8 @@ instance Core.AWSRequest PutSuppressedDestination where
 
 instance Prelude.Hashable PutSuppressedDestination where
   hashWithSalt _salt PutSuppressedDestination' {..} =
-    _salt `Prelude.hashWithSalt` emailAddress
+    _salt
+      `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData PutSuppressedDestination where

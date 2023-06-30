@@ -199,7 +199,8 @@ instance
   hashWithSalt
     _salt
     UpdateCustomVerificationEmailTemplate' {..} =
-      _salt `Prelude.hashWithSalt` templateName
+      _salt
+        `Prelude.hashWithSalt` templateName
         `Prelude.hashWithSalt` fromEmailAddress
         `Prelude.hashWithSalt` templateSubject
         `Prelude.hashWithSalt` templateContent

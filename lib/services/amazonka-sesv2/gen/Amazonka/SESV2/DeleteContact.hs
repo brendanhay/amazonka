@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteContact where
 
 instance Prelude.Hashable DeleteContact where
   hashWithSalt _salt DeleteContact' {..} =
-    _salt `Prelude.hashWithSalt` contactListName
+    _salt
+      `Prelude.hashWithSalt` contactListName
       `Prelude.hashWithSalt` emailAddress
 
 instance Prelude.NFData DeleteContact where

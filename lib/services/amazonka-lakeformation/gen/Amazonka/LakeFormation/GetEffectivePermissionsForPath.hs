@@ -151,7 +151,8 @@ instance
   hashWithSalt
     _salt
     GetEffectivePermissionsForPath' {..} =
-      _salt `Prelude.hashWithSalt` catalogId
+      _salt
+        `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` resourceArn

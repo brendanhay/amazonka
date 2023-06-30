@@ -95,7 +95,8 @@ instance Data.FromJSON DataCellsFilterResource where
 
 instance Prelude.Hashable DataCellsFilterResource where
   hashWithSalt _salt DataCellsFilterResource' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tableCatalogId
       `Prelude.hashWithSalt` tableName

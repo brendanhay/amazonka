@@ -111,7 +111,8 @@ instance Core.AWSRequest StartQueryPlanning where
 
 instance Prelude.Hashable StartQueryPlanning where
   hashWithSalt _salt StartQueryPlanning' {..} =
-    _salt `Prelude.hashWithSalt` queryPlanningContext
+    _salt
+      `Prelude.hashWithSalt` queryPlanningContext
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData StartQueryPlanning where

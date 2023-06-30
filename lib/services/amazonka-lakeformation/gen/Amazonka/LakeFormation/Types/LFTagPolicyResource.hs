@@ -100,7 +100,8 @@ instance Data.FromJSON LFTagPolicyResource where
 
 instance Prelude.Hashable LFTagPolicyResource where
   hashWithSalt _salt LFTagPolicyResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` expression
 

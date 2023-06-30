@@ -102,7 +102,8 @@ instance Data.FromJSON BatchPermissionsRequestEntry where
       ( \x ->
           BatchPermissionsRequestEntry'
             Prelude.<$> (x Data..:? "Permissions" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "PermissionsWithGrantOption"
+            Prelude.<*> ( x
+                            Data..:? "PermissionsWithGrantOption"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Principal")
@@ -115,7 +116,8 @@ instance
     BatchPermissionsRequestEntry
   where
   hashWithSalt _salt BatchPermissionsRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` permissions
+    _salt
+      `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` permissionsWithGrantOption
       `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resource

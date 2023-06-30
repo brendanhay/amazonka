@@ -147,7 +147,8 @@ instance Core.AWSRequest RegisterResource where
 
 instance Prelude.Hashable RegisterResource where
   hashWithSalt _salt RegisterResource' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` useServiceLinkedRole
       `Prelude.hashWithSalt` resourceArn
 

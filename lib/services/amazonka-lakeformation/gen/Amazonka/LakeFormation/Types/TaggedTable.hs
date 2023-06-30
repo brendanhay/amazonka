@@ -90,7 +90,8 @@ instance Data.FromJSON TaggedTable where
       ( \x ->
           TaggedTable'
             Prelude.<$> (x Data..:? "LFTagOnDatabase")
-            Prelude.<*> ( x Data..:? "LFTagsOnColumns"
+            Prelude.<*> ( x
+                            Data..:? "LFTagsOnColumns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LFTagsOnTable")
@@ -99,7 +100,8 @@ instance Data.FromJSON TaggedTable where
 
 instance Prelude.Hashable TaggedTable where
   hashWithSalt _salt TaggedTable' {..} =
-    _salt `Prelude.hashWithSalt` lFTagOnDatabase
+    _salt
+      `Prelude.hashWithSalt` lFTagOnDatabase
       `Prelude.hashWithSalt` lFTagsOnColumns
       `Prelude.hashWithSalt` lFTagsOnTable
       `Prelude.hashWithSalt` table

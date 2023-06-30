@@ -106,7 +106,8 @@ addObjectInput_size = Lens.lens (\AddObjectInput' {size} -> size) (\s@AddObjectI
 
 instance Prelude.Hashable AddObjectInput where
   hashWithSalt _salt AddObjectInput' {..} =
-    _salt `Prelude.hashWithSalt` partitionValues
+    _salt
+      `Prelude.hashWithSalt` partitionValues
       `Prelude.hashWithSalt` uri
       `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` size

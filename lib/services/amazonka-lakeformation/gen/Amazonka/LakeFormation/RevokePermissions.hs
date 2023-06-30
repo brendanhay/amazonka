@@ -151,7 +151,8 @@ instance Core.AWSRequest RevokePermissions where
 
 instance Prelude.Hashable RevokePermissions where
   hashWithSalt _salt RevokePermissions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` permissionsWithGrantOption
       `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resource

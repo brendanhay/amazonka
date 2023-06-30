@@ -171,7 +171,8 @@ instance Core.AWSRequest AssumeDecoratedRoleWithSAML where
 
 instance Prelude.Hashable AssumeDecoratedRoleWithSAML where
   hashWithSalt _salt AssumeDecoratedRoleWithSAML' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` sAMLAssertion
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` principalArn

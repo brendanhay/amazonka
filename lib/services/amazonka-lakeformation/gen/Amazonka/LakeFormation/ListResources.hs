@@ -113,7 +113,8 @@ instance Core.AWSRequest ListResources where
       ( \s h x ->
           ListResourcesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ResourceInfoList"
+            Prelude.<*> ( x
+                            Data..?> "ResourceInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,7 +122,8 @@ instance Core.AWSRequest ListResources where
 
 instance Prelude.Hashable ListResources where
   hashWithSalt _salt ListResources' {..} =
-    _salt `Prelude.hashWithSalt` filterConditionList
+    _salt
+      `Prelude.hashWithSalt` filterConditionList
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteLFTag where
 
 instance Prelude.Hashable DeleteLFTag where
   hashWithSalt _salt DeleteLFTag' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` tagKey
 
 instance Prelude.NFData DeleteLFTag where

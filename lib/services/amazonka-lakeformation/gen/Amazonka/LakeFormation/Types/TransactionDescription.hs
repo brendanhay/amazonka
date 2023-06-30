@@ -99,7 +99,8 @@ instance Data.FromJSON TransactionDescription where
 
 instance Prelude.Hashable TransactionDescription where
   hashWithSalt _salt TransactionDescription' {..} =
-    _salt `Prelude.hashWithSalt` transactionEndTime
+    _salt
+      `Prelude.hashWithSalt` transactionEndTime
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` transactionStartTime
       `Prelude.hashWithSalt` transactionStatus

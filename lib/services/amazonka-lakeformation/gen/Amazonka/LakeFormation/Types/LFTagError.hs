@@ -77,7 +77,8 @@ instance Data.FromJSON LFTagError where
 
 instance Prelude.Hashable LFTagError where
   hashWithSalt _salt LFTagError' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` lFTag
 
 instance Prelude.NFData LFTagError where

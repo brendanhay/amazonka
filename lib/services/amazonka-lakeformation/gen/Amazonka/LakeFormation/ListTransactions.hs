@@ -136,7 +136,8 @@ instance Core.AWSRequest ListTransactions where
 
 instance Prelude.Hashable ListTransactions where
   hashWithSalt _salt ListTransactions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` statusFilter

@@ -66,7 +66,8 @@ writeOperation_deleteObject = Lens.lens (\WriteOperation' {deleteObject} -> dele
 
 instance Prelude.Hashable WriteOperation where
   hashWithSalt _salt WriteOperation' {..} =
-    _salt `Prelude.hashWithSalt` addObject
+    _salt
+      `Prelude.hashWithSalt` addObject
       `Prelude.hashWithSalt` deleteObject
 
 instance Prelude.NFData WriteOperation where

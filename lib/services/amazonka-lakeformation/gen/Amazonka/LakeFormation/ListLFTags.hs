@@ -135,21 +135,24 @@ instance Core.AWSPager ListLFTags where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listLFTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listLFTagsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listLFTagsResponse_lFTags Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Lens.^? listLFTagsResponse_lFTags
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLFTags_nextToken
           Lens..~ rs
-          Lens.^? listLFTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listLFTagsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLFTags where
   type AWSResponse ListLFTags = ListLFTagsResponse
@@ -166,7 +169,8 @@ instance Core.AWSRequest ListLFTags where
 
 instance Prelude.Hashable ListLFTags where
   hashWithSalt _salt ListLFTags' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceShareType

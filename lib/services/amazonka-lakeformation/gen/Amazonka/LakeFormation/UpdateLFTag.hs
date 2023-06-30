@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateLFTag where
 
 instance Prelude.Hashable UpdateLFTag where
   hashWithSalt _salt UpdateLFTag' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` tagValuesToAdd
       `Prelude.hashWithSalt` tagValuesToDelete
       `Prelude.hashWithSalt` tagKey

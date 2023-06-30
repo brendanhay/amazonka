@@ -145,7 +145,8 @@ instance Core.AWSRequest UpdateTableObjects where
 
 instance Prelude.Hashable UpdateTableObjects where
   hashWithSalt _salt UpdateTableObjects' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName

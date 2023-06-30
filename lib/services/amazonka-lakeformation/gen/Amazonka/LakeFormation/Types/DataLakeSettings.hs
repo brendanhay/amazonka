@@ -278,21 +278,26 @@ instance Data.FromJSON DataLakeSettings where
       ( \x ->
           DataLakeSettings'
             Prelude.<$> (x Data..:? "AllowExternalDataFiltering")
-            Prelude.<*> ( x Data..:? "AuthorizedSessionTagValueList"
+            Prelude.<*> ( x
+                            Data..:? "AuthorizedSessionTagValueList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "CreateDatabaseDefaultPermissions"
+            Prelude.<*> ( x
+                            Data..:? "CreateDatabaseDefaultPermissions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "CreateTableDefaultPermissions"
+            Prelude.<*> ( x
+                            Data..:? "CreateTableDefaultPermissions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DataLakeAdmins" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ExternalDataFilteringAllowList"
+            Prelude.<*> ( x
+                            Data..:? "ExternalDataFilteringAllowList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "TrustedResourceOwners"
+            Prelude.<*> ( x
+                            Data..:? "TrustedResourceOwners"
                             Data..!= Prelude.mempty
                         )
       )

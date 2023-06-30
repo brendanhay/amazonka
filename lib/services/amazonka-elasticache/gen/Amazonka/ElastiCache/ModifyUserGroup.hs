@@ -113,7 +113,8 @@ instance Core.AWSRequest ModifyUserGroup where
 
 instance Prelude.Hashable ModifyUserGroup where
   hashWithSalt _salt ModifyUserGroup' {..} =
-    _salt `Prelude.hashWithSalt` userIdsToAdd
+    _salt
+      `Prelude.hashWithSalt` userIdsToAdd
       `Prelude.hashWithSalt` userIdsToRemove
       `Prelude.hashWithSalt` userGroupId
 

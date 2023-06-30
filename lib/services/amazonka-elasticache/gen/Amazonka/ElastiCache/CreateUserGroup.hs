@@ -130,7 +130,8 @@ instance Core.AWSRequest CreateUserGroup where
 
 instance Prelude.Hashable CreateUserGroup where
   hashWithSalt _salt CreateUserGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userIds
       `Prelude.hashWithSalt` userGroupId
       `Prelude.hashWithSalt` engine

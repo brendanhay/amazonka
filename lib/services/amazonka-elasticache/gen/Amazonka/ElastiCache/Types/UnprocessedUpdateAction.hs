@@ -105,7 +105,8 @@ instance Data.FromXML UnprocessedUpdateAction where
 
 instance Prelude.Hashable UnprocessedUpdateAction where
   hashWithSalt _salt UnprocessedUpdateAction' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorType
       `Prelude.hashWithSalt` replicationGroupId

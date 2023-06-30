@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     PendingLogDeliveryConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` destinationDetails
+      _salt
+        `Prelude.hashWithSalt` destinationDetails
         `Prelude.hashWithSalt` destinationType
         `Prelude.hashWithSalt` logFormat
         `Prelude.hashWithSalt` logType

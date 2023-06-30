@@ -104,14 +104,17 @@ engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> paramete
 instance Data.FromXML EngineDefaults where
   parseXML x =
     EngineDefaults'
-      Prelude.<$> ( x Data..@? "CacheNodeTypeSpecificParameters"
+      Prelude.<$> ( x
+                      Data..@? "CacheNodeTypeSpecificParameters"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "CacheNodeTypeSpecificParameter")
                   )
       Prelude.<*> (x Data..@? "CacheParameterGroupFamily")
       Prelude.<*> (x Data..@? "Marker")
-      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Parameters"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 

@@ -109,7 +109,8 @@ instance Core.AWSRequest CompleteMigration where
 
 instance Prelude.Hashable CompleteMigration where
   hashWithSalt _salt CompleteMigration' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` replicationGroupId
 
 instance Prelude.NFData CompleteMigration where

@@ -204,7 +204,8 @@ instance Core.AWSRequest DecreaseReplicaCount where
 
 instance Prelude.Hashable DecreaseReplicaCount where
   hashWithSalt _salt DecreaseReplicaCount' {..} =
-    _salt `Prelude.hashWithSalt` newReplicaCount'
+    _salt
+      `Prelude.hashWithSalt` newReplicaCount'
       `Prelude.hashWithSalt` replicaConfiguration
       `Prelude.hashWithSalt` replicasToRemove
       `Prelude.hashWithSalt` replicationGroupId

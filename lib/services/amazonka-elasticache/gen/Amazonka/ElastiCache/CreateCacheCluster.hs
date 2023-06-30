@@ -1118,7 +1118,8 @@ instance Core.AWSRequest CreateCacheCluster where
 
 instance Prelude.Hashable CreateCacheCluster where
   hashWithSalt _salt CreateCacheCluster' {..} =
-    _salt `Prelude.hashWithSalt` aZMode
+    _salt
+      `Prelude.hashWithSalt` aZMode
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` cacheNodeType

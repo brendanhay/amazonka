@@ -188,22 +188,22 @@ instance Core.AWSPager DescribeUpdateActions where
     | Core.stop
         ( rs
             Lens.^? describeUpdateActionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeUpdateActionsResponse_updateActions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeUpdateActions_marker
           Lens..~ rs
           Lens.^? describeUpdateActionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUpdateActions where
   type
@@ -217,7 +217,9 @@ instance Core.AWSRequest DescribeUpdateActions where
       ( \s h x ->
           DescribeUpdateActionsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "UpdateActions" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "UpdateActions"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "UpdateAction")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -225,7 +227,8 @@ instance Core.AWSRequest DescribeUpdateActions where
 
 instance Prelude.Hashable DescribeUpdateActions where
   hashWithSalt _salt DescribeUpdateActions' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterIds
+    _salt
+      `Prelude.hashWithSalt` cacheClusterIds
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords

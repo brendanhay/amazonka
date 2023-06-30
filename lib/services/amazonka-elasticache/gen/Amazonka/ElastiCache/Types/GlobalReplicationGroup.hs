@@ -225,13 +225,16 @@ instance Data.FromXML GlobalReplicationGroup where
       Prelude.<*> (x Data..@? "ClusterEnabled")
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EngineVersion")
-      Prelude.<*> ( x Data..@? "GlobalNodeGroups"
+      Prelude.<*> ( x
+                      Data..@? "GlobalNodeGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "GlobalNodeGroup")
                   )
       Prelude.<*> (x Data..@? "GlobalReplicationGroupDescription")
       Prelude.<*> (x Data..@? "GlobalReplicationGroupId")
-      Prelude.<*> ( x Data..@? "Members" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Members"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "GlobalReplicationGroupMember")
                   )
@@ -240,7 +243,8 @@ instance Data.FromXML GlobalReplicationGroup where
 
 instance Prelude.Hashable GlobalReplicationGroup where
   hashWithSalt _salt GlobalReplicationGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` atRestEncryptionEnabled
       `Prelude.hashWithSalt` authTokenEnabled
       `Prelude.hashWithSalt` cacheNodeType

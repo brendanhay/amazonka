@@ -966,7 +966,8 @@ instance Core.AWSRequest ModifyCacheCluster where
 
 instance Prelude.Hashable ModifyCacheCluster where
   hashWithSalt _salt ModifyCacheCluster' {..} =
-    _salt `Prelude.hashWithSalt` aZMode
+    _salt
+      `Prelude.hashWithSalt` aZMode
       `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` authTokenUpdateStrategy

@@ -148,7 +148,8 @@ instance
     ReplicationGroupPendingModifiedValues'
       Prelude.<$> (x Data..@? "AuthTokenStatus")
       Prelude.<*> (x Data..@? "AutomaticFailoverStatus")
-      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
+      Prelude.<*> ( x
+                      Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -165,7 +166,8 @@ instance
   hashWithSalt
     _salt
     ReplicationGroupPendingModifiedValues' {..} =
-      _salt `Prelude.hashWithSalt` authTokenStatus
+      _salt
+        `Prelude.hashWithSalt` authTokenStatus
         `Prelude.hashWithSalt` automaticFailoverStatus
         `Prelude.hashWithSalt` logDeliveryConfigurations
         `Prelude.hashWithSalt` primaryClusterId

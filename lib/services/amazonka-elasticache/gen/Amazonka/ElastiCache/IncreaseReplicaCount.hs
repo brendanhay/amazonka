@@ -155,7 +155,8 @@ instance Core.AWSRequest IncreaseReplicaCount where
 
 instance Prelude.Hashable IncreaseReplicaCount where
   hashWithSalt _salt IncreaseReplicaCount' {..} =
-    _salt `Prelude.hashWithSalt` newReplicaCount'
+    _salt
+      `Prelude.hashWithSalt` newReplicaCount'
       `Prelude.hashWithSalt` replicaConfiguration
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` applyImmediately

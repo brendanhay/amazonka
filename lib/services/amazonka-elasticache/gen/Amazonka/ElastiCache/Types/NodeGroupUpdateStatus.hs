@@ -68,7 +68,8 @@ instance Data.FromXML NodeGroupUpdateStatus where
   parseXML x =
     NodeGroupUpdateStatus'
       Prelude.<$> (x Data..@? "NodeGroupId")
-      Prelude.<*> ( x Data..@? "NodeGroupMemberUpdateStatus"
+      Prelude.<*> ( x
+                      Data..@? "NodeGroupMemberUpdateStatus"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "NodeGroupMemberUpdateStatus")
@@ -76,7 +77,8 @@ instance Data.FromXML NodeGroupUpdateStatus where
 
 instance Prelude.Hashable NodeGroupUpdateStatus where
   hashWithSalt _salt NodeGroupUpdateStatus' {..} =
-    _salt `Prelude.hashWithSalt` nodeGroupId
+    _salt
+      `Prelude.hashWithSalt` nodeGroupId
       `Prelude.hashWithSalt` nodeGroupMemberUpdateStatus
 
 instance Prelude.NFData NodeGroupUpdateStatus where

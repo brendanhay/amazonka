@@ -125,19 +125,23 @@ instance Data.FromXML UserGroup where
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "MinimumEngineVersion")
       Prelude.<*> (x Data..@? "PendingChanges")
-      Prelude.<*> ( x Data..@? "ReplicationGroups"
+      Prelude.<*> ( x
+                      Data..@? "ReplicationGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "UserGroupId")
-      Prelude.<*> ( x Data..@? "UserIds" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "UserIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable UserGroup where
   hashWithSalt _salt UserGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` minimumEngineVersion
       `Prelude.hashWithSalt` pendingChanges

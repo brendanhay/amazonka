@@ -144,7 +144,8 @@ instance Core.AWSRequest ModifyUser where
 
 instance Prelude.Hashable ModifyUser where
   hashWithSalt _salt ModifyUser' {..} =
-    _salt `Prelude.hashWithSalt` accessString
+    _salt
+      `Prelude.hashWithSalt` accessString
       `Prelude.hashWithSalt` appendAccessString
       `Prelude.hashWithSalt` authenticationMode
       `Prelude.hashWithSalt` noPasswordRequired

@@ -100,14 +100,16 @@ instance Data.FromXML Subnet where
       Prelude.<$> (x Data..@? "SubnetAvailabilityZone")
       Prelude.<*> (x Data..@? "SubnetIdentifier")
       Prelude.<*> (x Data..@? "SubnetOutpost")
-      Prelude.<*> ( x Data..@? "SupportedNetworkTypes"
+      Prelude.<*> ( x
+                      Data..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable Subnet where
   hashWithSalt _salt Subnet' {..} =
-    _salt `Prelude.hashWithSalt` subnetAvailabilityZone
+    _salt
+      `Prelude.hashWithSalt` subnetAvailabilityZone
       `Prelude.hashWithSalt` subnetIdentifier
       `Prelude.hashWithSalt` subnetOutpost
       `Prelude.hashWithSalt` supportedNetworkTypes

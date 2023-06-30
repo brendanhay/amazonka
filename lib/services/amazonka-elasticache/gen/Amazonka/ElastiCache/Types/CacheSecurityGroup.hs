@@ -105,7 +105,8 @@ instance Data.FromXML CacheSecurityGroup where
       Prelude.<$> (x Data..@? "ARN")
       Prelude.<*> (x Data..@? "CacheSecurityGroupName")
       Prelude.<*> (x Data..@? "Description")
-      Prelude.<*> ( x Data..@? "EC2SecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "EC2SecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EC2SecurityGroup")
                   )
@@ -113,7 +114,8 @@ instance Data.FromXML CacheSecurityGroup where
 
 instance Prelude.Hashable CacheSecurityGroup where
   hashWithSalt _salt CacheSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` cacheSecurityGroupName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eC2SecurityGroups

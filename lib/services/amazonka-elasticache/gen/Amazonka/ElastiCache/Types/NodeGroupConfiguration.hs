@@ -140,12 +140,14 @@ instance Data.FromXML NodeGroupConfiguration where
       Prelude.<$> (x Data..@? "NodeGroupId")
       Prelude.<*> (x Data..@? "PrimaryAvailabilityZone")
       Prelude.<*> (x Data..@? "PrimaryOutpostArn")
-      Prelude.<*> ( x Data..@? "ReplicaAvailabilityZones"
+      Prelude.<*> ( x
+                      Data..@? "ReplicaAvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
       Prelude.<*> (x Data..@? "ReplicaCount")
-      Prelude.<*> ( x Data..@? "ReplicaOutpostArns"
+      Prelude.<*> ( x
+                      Data..@? "ReplicaOutpostArns"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OutpostArn")
                   )
@@ -153,7 +155,8 @@ instance Data.FromXML NodeGroupConfiguration where
 
 instance Prelude.Hashable NodeGroupConfiguration where
   hashWithSalt _salt NodeGroupConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` nodeGroupId
+    _salt
+      `Prelude.hashWithSalt` nodeGroupId
       `Prelude.hashWithSalt` primaryAvailabilityZone
       `Prelude.hashWithSalt` primaryOutpostArn
       `Prelude.hashWithSalt` replicaAvailabilityZones

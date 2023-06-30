@@ -174,7 +174,7 @@ instance
       ( \s h x ->
           DecreaseNodeGroupsInGlobalReplicationGroupResponse'
             Prelude.<$> (x Data..@? "GlobalReplicationGroup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

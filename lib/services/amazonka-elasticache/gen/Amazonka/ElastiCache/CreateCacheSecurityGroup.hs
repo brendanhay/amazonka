@@ -147,7 +147,8 @@ instance Core.AWSRequest CreateCacheSecurityGroup where
 
 instance Prelude.Hashable CreateCacheSecurityGroup where
   hashWithSalt _salt CreateCacheSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` cacheSecurityGroupName
       `Prelude.hashWithSalt` description
 

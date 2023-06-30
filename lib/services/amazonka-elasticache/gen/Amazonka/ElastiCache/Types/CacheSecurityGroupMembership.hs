@@ -80,7 +80,8 @@ instance
     CacheSecurityGroupMembership
   where
   hashWithSalt _salt CacheSecurityGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` cacheSecurityGroupName
+    _salt
+      `Prelude.hashWithSalt` cacheSecurityGroupName
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CacheSecurityGroupMembership where

@@ -148,22 +148,22 @@ instance Core.AWSPager DescribeReplicationGroups where
     | Core.stop
         ( rs
             Lens.^? describeReplicationGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReplicationGroupsResponse_replicationGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReplicationGroups_marker
           Lens..~ rs
           Lens.^? describeReplicationGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReplicationGroups where
   type
@@ -177,7 +177,8 @@ instance Core.AWSRequest DescribeReplicationGroups where
       ( \s h x ->
           DescribeReplicationGroupsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "ReplicationGroups"
+            Prelude.<*> ( x
+                            Data..@? "ReplicationGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ReplicationGroup")
                         )
@@ -186,7 +187,8 @@ instance Core.AWSRequest DescribeReplicationGroups where
 
 instance Prelude.Hashable DescribeReplicationGroups where
   hashWithSalt _salt DescribeReplicationGroups' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` replicationGroupId
 

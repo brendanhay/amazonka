@@ -134,22 +134,22 @@ instance Core.AWSPager DescribeCacheParameterGroups where
     | Core.stop
         ( rs
             Lens.^? describeCacheParameterGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCacheParameterGroupsResponse_cacheParameterGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCacheParameterGroups_marker
           Lens..~ rs
           Lens.^? describeCacheParameterGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheParameterGroups where
   type
@@ -162,7 +162,8 @@ instance Core.AWSRequest DescribeCacheParameterGroups where
       "DescribeCacheParameterGroupsResult"
       ( \s h x ->
           DescribeCacheParameterGroupsResponse'
-            Prelude.<$> ( x Data..@? "CacheParameterGroups"
+            Prelude.<$> ( x
+                            Data..@? "CacheParameterGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "CacheParameterGroup")
                         )

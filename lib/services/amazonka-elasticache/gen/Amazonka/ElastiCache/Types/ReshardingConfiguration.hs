@@ -69,7 +69,8 @@ reshardingConfiguration_preferredAvailabilityZones = Lens.lens (\ReshardingConfi
 
 instance Prelude.Hashable ReshardingConfiguration where
   hashWithSalt _salt ReshardingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` nodeGroupId
+    _salt
+      `Prelude.hashWithSalt` nodeGroupId
       `Prelude.hashWithSalt` preferredAvailabilityZones
 
 instance Prelude.NFData ReshardingConfiguration where

@@ -83,7 +83,8 @@ instance Data.FromJSON VpcOptions where
 
 instance Prelude.Hashable VpcOptions where
   hashWithSalt _salt VpcOptions' {..} =
-    _salt `Prelude.hashWithSalt` applianceModeSupport
+    _salt
+      `Prelude.hashWithSalt` applianceModeSupport
       `Prelude.hashWithSalt` ipv6Support
 
 instance Prelude.NFData VpcOptions where

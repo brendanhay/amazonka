@@ -121,7 +121,8 @@ instance Core.AWSRequest AssociateLink where
 
 instance Prelude.Hashable AssociateLink where
   hashWithSalt _salt AssociateLink' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` linkId
 

@@ -144,7 +144,8 @@ instance Core.AWSRequest CreateVpcAttachment where
 
 instance Prelude.Hashable CreateVpcAttachment where
   hashWithSalt _salt CreateVpcAttachment' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` coreNetworkId

@@ -102,7 +102,8 @@ instance Core.AWSRequest UpdateCoreNetwork where
 
 instance Prelude.Hashable UpdateCoreNetwork where
   hashWithSalt _salt UpdateCoreNetwork' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` coreNetworkId
 
 instance Prelude.NFData UpdateCoreNetwork where

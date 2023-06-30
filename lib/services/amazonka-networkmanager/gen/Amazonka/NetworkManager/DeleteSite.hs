@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteSite where
 
 instance Prelude.Hashable DeleteSite where
   hashWithSalt _salt DeleteSite' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` siteId
 
 instance Prelude.NFData DeleteSite where

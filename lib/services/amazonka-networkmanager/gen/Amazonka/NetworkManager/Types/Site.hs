@@ -137,7 +137,8 @@ instance Data.FromJSON Site where
 
 instance Prelude.Hashable Site where
   hashWithSalt _salt Site' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` location

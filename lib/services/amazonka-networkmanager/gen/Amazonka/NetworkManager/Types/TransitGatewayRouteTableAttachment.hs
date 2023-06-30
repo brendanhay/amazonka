@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayRouteTableAttachment' {..} =
-      _salt `Prelude.hashWithSalt` attachment
+      _salt
+        `Prelude.hashWithSalt` attachment
         `Prelude.hashWithSalt` peeringId
         `Prelude.hashWithSalt` transitGatewayRouteTableArn
 

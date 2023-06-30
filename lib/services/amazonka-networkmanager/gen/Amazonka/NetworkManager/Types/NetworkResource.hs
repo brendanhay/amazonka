@@ -264,7 +264,8 @@ instance Data.FromJSON NetworkResource where
 
 instance Prelude.Hashable NetworkResource where
   hashWithSalt _salt NetworkResource' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` definition

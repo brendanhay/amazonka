@@ -76,7 +76,8 @@ instance Data.FromJSON SiteToSiteVpnAttachment where
 
 instance Prelude.Hashable SiteToSiteVpnAttachment where
   hashWithSalt _salt SiteToSiteVpnAttachment' {..} =
-    _salt `Prelude.hashWithSalt` attachment
+    _salt
+      `Prelude.hashWithSalt` attachment
       `Prelude.hashWithSalt` vpnConnectionArn
 
 instance Prelude.NFData SiteToSiteVpnAttachment where

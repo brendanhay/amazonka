@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteDevice where
 
 instance Prelude.Hashable DeleteDevice where
   hashWithSalt _salt DeleteDevice' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` deviceId
 
 instance Prelude.NFData DeleteDevice where

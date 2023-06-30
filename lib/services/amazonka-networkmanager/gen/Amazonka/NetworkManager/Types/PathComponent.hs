@@ -86,7 +86,8 @@ instance Data.FromJSON PathComponent where
 
 instance Prelude.Hashable PathComponent where
   hashWithSalt _salt PathComponent' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidrBlock
+    _salt
+      `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` sequence
 

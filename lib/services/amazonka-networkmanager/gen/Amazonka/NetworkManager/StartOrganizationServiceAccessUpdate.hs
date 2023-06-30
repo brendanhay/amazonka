@@ -96,7 +96,7 @@ instance
       ( \s h x ->
           StartOrganizationServiceAccessUpdateResponse'
             Prelude.<$> (x Data..?> "OrganizationStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

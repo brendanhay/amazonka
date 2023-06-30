@@ -133,7 +133,8 @@ instance Core.AWSRequest CreateCoreNetwork where
 
 instance Prelude.Hashable CreateCoreNetwork where
   hashWithSalt _salt CreateCoreNetwork' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` tags

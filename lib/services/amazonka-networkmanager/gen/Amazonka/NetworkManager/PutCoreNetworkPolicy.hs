@@ -139,7 +139,8 @@ instance Core.AWSRequest PutCoreNetworkPolicy where
 
 instance Prelude.Hashable PutCoreNetworkPolicy where
   hashWithSalt _salt PutCoreNetworkPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` latestVersionId
       `Prelude.hashWithSalt` coreNetworkId

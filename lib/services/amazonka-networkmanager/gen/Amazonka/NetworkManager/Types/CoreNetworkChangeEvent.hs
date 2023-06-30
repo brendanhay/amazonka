@@ -125,7 +125,8 @@ instance Data.FromJSON CoreNetworkChangeEvent where
 
 instance Prelude.Hashable CoreNetworkChangeEvent where
   hashWithSalt _salt CoreNetworkChangeEvent' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` identifierPath
       `Prelude.hashWithSalt` status

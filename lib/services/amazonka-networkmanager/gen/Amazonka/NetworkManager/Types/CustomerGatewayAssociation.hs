@@ -107,7 +107,8 @@ instance Data.FromJSON CustomerGatewayAssociation where
 
 instance Prelude.Hashable CustomerGatewayAssociation where
   hashWithSalt _salt CustomerGatewayAssociation' {..} =
-    _salt `Prelude.hashWithSalt` customerGatewayArn
+    _salt
+      `Prelude.hashWithSalt` customerGatewayArn
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` linkId

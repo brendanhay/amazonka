@@ -107,7 +107,8 @@ instance Core.AWSRequest DisassociateConnectPeer where
 
 instance Prelude.Hashable DisassociateConnectPeer where
   hashWithSalt _salt DisassociateConnectPeer' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` connectPeerId
 
 instance Prelude.NFData DisassociateConnectPeer where

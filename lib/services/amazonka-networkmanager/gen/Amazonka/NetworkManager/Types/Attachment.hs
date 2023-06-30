@@ -198,7 +198,8 @@ instance Data.FromJSON Attachment where
 
 instance Prelude.Hashable Attachment where
   hashWithSalt _salt Attachment' {..} =
-    _salt `Prelude.hashWithSalt` attachmentId
+    _salt
+      `Prelude.hashWithSalt` attachmentId
       `Prelude.hashWithSalt` attachmentPolicyRuleNumber
       `Prelude.hashWithSalt` attachmentType
       `Prelude.hashWithSalt` coreNetworkArn

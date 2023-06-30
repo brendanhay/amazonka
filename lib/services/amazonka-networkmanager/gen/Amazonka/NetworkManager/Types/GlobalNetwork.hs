@@ -118,7 +118,8 @@ instance Data.FromJSON GlobalNetwork where
 
 instance Prelude.Hashable GlobalNetwork where
   hashWithSalt _salt GlobalNetwork' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` globalNetworkArn
       `Prelude.hashWithSalt` globalNetworkId

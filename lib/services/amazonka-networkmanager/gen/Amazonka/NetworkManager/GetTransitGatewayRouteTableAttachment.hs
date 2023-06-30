@@ -93,7 +93,7 @@ instance
       ( \s h x ->
           GetTransitGatewayRouteTableAttachmentResponse'
             Prelude.<$> (x Data..?> "TransitGatewayRouteTableAttachment")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -101,7 +101,8 @@ instance
     CoreNetworkChangeEventValues
   where
   hashWithSalt _salt CoreNetworkChangeEventValues' {..} =
-    _salt `Prelude.hashWithSalt` attachmentId
+    _salt
+      `Prelude.hashWithSalt` attachmentId
       `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` edgeLocation
       `Prelude.hashWithSalt` segmentName

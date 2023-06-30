@@ -137,7 +137,7 @@ instance
       ( \s h x ->
           AssociateTransitGatewayConnectPeerResponse'
             Prelude.<$> (x Data..?> "TransitGatewayConnectPeerAssociation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     AssociateTransitGatewayConnectPeer' {..} =
-      _salt `Prelude.hashWithSalt` linkId
+      _salt
+        `Prelude.hashWithSalt` linkId
         `Prelude.hashWithSalt` globalNetworkId
         `Prelude.hashWithSalt` transitGatewayConnectPeerArn
         `Prelude.hashWithSalt` deviceId

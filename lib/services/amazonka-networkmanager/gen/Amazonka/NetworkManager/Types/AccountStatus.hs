@@ -75,7 +75,8 @@ instance Data.FromJSON AccountStatus where
 
 instance Prelude.Hashable AccountStatus where
   hashWithSalt _salt AccountStatus' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` sLRDeploymentStatus
 
 instance Prelude.NFData AccountStatus where

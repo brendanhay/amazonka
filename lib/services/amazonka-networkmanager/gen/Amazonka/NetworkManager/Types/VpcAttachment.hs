@@ -86,7 +86,8 @@ instance Data.FromJSON VpcAttachment where
 
 instance Prelude.Hashable VpcAttachment where
   hashWithSalt _salt VpcAttachment' {..} =
-    _salt `Prelude.hashWithSalt` attachment
+    _salt
+      `Prelude.hashWithSalt` attachment
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` subnetArns
 

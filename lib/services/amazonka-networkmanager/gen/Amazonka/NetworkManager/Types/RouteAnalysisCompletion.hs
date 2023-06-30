@@ -171,7 +171,8 @@ instance Data.FromJSON RouteAnalysisCompletion where
 
 instance Prelude.Hashable RouteAnalysisCompletion where
   hashWithSalt _salt RouteAnalysisCompletion' {..} =
-    _salt `Prelude.hashWithSalt` reasonCode
+    _salt
+      `Prelude.hashWithSalt` reasonCode
       `Prelude.hashWithSalt` reasonContext
       `Prelude.hashWithSalt` resultCode
 

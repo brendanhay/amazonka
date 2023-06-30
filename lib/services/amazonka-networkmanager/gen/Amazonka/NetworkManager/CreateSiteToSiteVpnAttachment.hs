@@ -137,7 +137,8 @@ instance
     CreateSiteToSiteVpnAttachment
   where
   hashWithSalt _salt CreateSiteToSiteVpnAttachment' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` vpnConnectionArn

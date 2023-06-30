@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateConnectAttachment where
 
 instance Prelude.Hashable CreateConnectAttachment where
   hashWithSalt _salt CreateConnectAttachment' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` edgeLocation

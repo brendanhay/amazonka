@@ -178,7 +178,8 @@ instance Core.AWSRequest CreateLink where
 
 instance Prelude.Hashable CreateLink where
   hashWithSalt _salt CreateLink' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'

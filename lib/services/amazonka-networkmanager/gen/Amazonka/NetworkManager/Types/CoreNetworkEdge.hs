@@ -79,14 +79,16 @@ instance Data.FromJSON CoreNetworkEdge where
           CoreNetworkEdge'
             Prelude.<$> (x Data..:? "Asn")
             Prelude.<*> (x Data..:? "EdgeLocation")
-            Prelude.<*> ( x Data..:? "InsideCidrBlocks"
+            Prelude.<*> ( x
+                            Data..:? "InsideCidrBlocks"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CoreNetworkEdge where
   hashWithSalt _salt CoreNetworkEdge' {..} =
-    _salt `Prelude.hashWithSalt` asn
+    _salt
+      `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` edgeLocation
       `Prelude.hashWithSalt` insideCidrBlocks
 

@@ -86,7 +86,8 @@ instance Data.FromJSON ConnectionHealth where
 
 instance Prelude.Hashable ConnectionHealth where
   hashWithSalt _salt ConnectionHealth' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` type'
 

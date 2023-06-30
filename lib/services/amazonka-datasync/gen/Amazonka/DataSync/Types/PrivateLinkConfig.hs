@@ -126,7 +126,8 @@ instance Data.FromJSON PrivateLinkConfig where
 
 instance Prelude.Hashable PrivateLinkConfig where
   hashWithSalt _salt PrivateLinkConfig' {..} =
-    _salt `Prelude.hashWithSalt` privateLinkEndpoint
+    _salt
+      `Prelude.hashWithSalt` privateLinkEndpoint
       `Prelude.hashWithSalt` securityGroupArns
       `Prelude.hashWithSalt` subnetArns
       `Prelude.hashWithSalt` vpcEndpointId

@@ -170,7 +170,8 @@ instance Core.AWSRequest StartTaskExecution where
 
 instance Prelude.Hashable StartTaskExecution where
   hashWithSalt _salt StartTaskExecution' {..} =
-    _salt `Prelude.hashWithSalt` excludes
+    _salt
+      `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` overrideOptions
       `Prelude.hashWithSalt` tags

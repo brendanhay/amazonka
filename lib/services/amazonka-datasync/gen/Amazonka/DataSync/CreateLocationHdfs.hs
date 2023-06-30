@@ -343,7 +343,8 @@ instance Core.AWSRequest CreateLocationHdfs where
 
 instance Prelude.Hashable CreateLocationHdfs where
   hashWithSalt _salt CreateLocationHdfs' {..} =
-    _salt `Prelude.hashWithSalt` blockSize
+    _salt
+      `Prelude.hashWithSalt` blockSize
       `Prelude.hashWithSalt` kerberosKeytab
       `Prelude.hashWithSalt` kerberosKrb5Conf
       `Prelude.hashWithSalt` kerberosPrincipal

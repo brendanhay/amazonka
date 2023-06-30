@@ -166,7 +166,8 @@ instance Data.FromJSON TaskExecutionResultDetail where
 
 instance Prelude.Hashable TaskExecutionResultDetail where
   hashWithSalt _salt TaskExecutionResultDetail' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorDetail
       `Prelude.hashWithSalt` prepareDuration
       `Prelude.hashWithSalt` prepareStatus

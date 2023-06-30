@@ -204,7 +204,8 @@ instance Core.AWSRequest CreateLocationS3 where
 
 instance Prelude.Hashable CreateLocationS3 where
   hashWithSalt _salt CreateLocationS3' {..} =
-    _salt `Prelude.hashWithSalt` agentArns
+    _salt
+      `Prelude.hashWithSalt` agentArns
       `Prelude.hashWithSalt` s3StorageClass
       `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` tags

@@ -97,7 +97,8 @@ locationFilter_operator = Lens.lens (\LocationFilter' {operator} -> operator) (\
 
 instance Prelude.Hashable LocationFilter where
   hashWithSalt _salt LocationFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

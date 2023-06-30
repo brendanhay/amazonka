@@ -122,7 +122,8 @@ instance Data.FromJSON Ec2Config where
 
 instance Prelude.Hashable Ec2Config where
   hashWithSalt _salt Ec2Config' {..} =
-    _salt `Prelude.hashWithSalt` subnetArn
+    _salt
+      `Prelude.hashWithSalt` subnetArn
       `Prelude.hashWithSalt` securityGroupArns
 
 instance Prelude.NFData Ec2Config where

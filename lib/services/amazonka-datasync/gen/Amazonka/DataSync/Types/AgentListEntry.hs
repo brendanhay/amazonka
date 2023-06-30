@@ -88,7 +88,8 @@ instance Data.FromJSON AgentListEntry where
 
 instance Prelude.Hashable AgentListEntry where
   hashWithSalt _salt AgentListEntry' {..} =
-    _salt `Prelude.hashWithSalt` agentArn
+    _salt
+      `Prelude.hashWithSalt` agentArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 

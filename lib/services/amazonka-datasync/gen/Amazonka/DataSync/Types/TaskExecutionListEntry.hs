@@ -79,7 +79,8 @@ instance Data.FromJSON TaskExecutionListEntry where
 
 instance Prelude.Hashable TaskExecutionListEntry where
   hashWithSalt _salt TaskExecutionListEntry' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` taskExecutionArn
 
 instance Prelude.NFData TaskExecutionListEntry where

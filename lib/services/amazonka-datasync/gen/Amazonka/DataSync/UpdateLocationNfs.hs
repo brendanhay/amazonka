@@ -199,7 +199,8 @@ instance Core.AWSRequest UpdateLocationNfs where
 
 instance Prelude.Hashable UpdateLocationNfs where
   hashWithSalt _salt UpdateLocationNfs' {..} =
-    _salt `Prelude.hashWithSalt` mountOptions
+    _salt
+      `Prelude.hashWithSalt` mountOptions
       `Prelude.hashWithSalt` onPremConfig
       `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` locationArn

@@ -272,7 +272,8 @@ instance Core.AWSRequest UpdateLocationHdfs where
 
 instance Prelude.Hashable UpdateLocationHdfs where
   hashWithSalt _salt UpdateLocationHdfs' {..} =
-    _salt `Prelude.hashWithSalt` agentArns
+    _salt
+      `Prelude.hashWithSalt` agentArns
       `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` blockSize
       `Prelude.hashWithSalt` kerberosKeytab

@@ -72,7 +72,8 @@ instance Core.AWSRequest DescribeVirtualGateways where
     Response.receiveJSON
       ( \s h x ->
           DescribeVirtualGatewaysResponse'
-            Prelude.<$> ( x Data..?> "virtualGateways"
+            Prelude.<$> ( x
+                            Data..?> "virtualGateways"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

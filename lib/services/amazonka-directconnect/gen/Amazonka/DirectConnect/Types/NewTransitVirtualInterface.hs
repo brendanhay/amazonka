@@ -169,7 +169,8 @@ newTransitVirtualInterface_vlan = Lens.lens (\NewTransitVirtualInterface' {vlan}
 
 instance Prelude.Hashable NewTransitVirtualInterface where
   hashWithSalt _salt NewTransitVirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` authKey

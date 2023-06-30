@@ -96,7 +96,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "directConnectGatewayAssociationProposal"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

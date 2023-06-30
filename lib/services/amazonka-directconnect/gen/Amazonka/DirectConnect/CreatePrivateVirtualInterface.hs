@@ -149,7 +149,8 @@ instance
     CreatePrivateVirtualInterface
   where
   hashWithSalt _salt CreatePrivateVirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` newPrivateVirtualInterface'
 
 instance Prelude.NFData CreatePrivateVirtualInterface where

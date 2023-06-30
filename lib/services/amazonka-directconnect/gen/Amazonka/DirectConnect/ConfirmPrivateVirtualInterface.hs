@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     ConfirmPrivateVirtualInterface' {..} =
-      _salt `Prelude.hashWithSalt` directConnectGatewayId
+      _salt
+        `Prelude.hashWithSalt` directConnectGatewayId
         `Prelude.hashWithSalt` virtualGatewayId
         `Prelude.hashWithSalt` virtualInterfaceId
 

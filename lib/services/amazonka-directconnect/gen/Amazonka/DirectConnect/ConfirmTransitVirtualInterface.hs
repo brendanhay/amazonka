@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     ConfirmTransitVirtualInterface' {..} =
-      _salt `Prelude.hashWithSalt` virtualInterfaceId
+      _salt
+        `Prelude.hashWithSalt` virtualInterfaceId
         `Prelude.hashWithSalt` directConnectGatewayId
 
 instance

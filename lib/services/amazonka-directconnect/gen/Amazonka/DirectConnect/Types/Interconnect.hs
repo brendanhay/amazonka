@@ -267,7 +267,8 @@ instance Data.FromJSON Interconnect where
 
 instance Prelude.Hashable Interconnect where
   hashWithSalt _salt Interconnect' {..} =
-    _salt `Prelude.hashWithSalt` awsDevice
+    _salt
+      `Prelude.hashWithSalt` awsDevice
       `Prelude.hashWithSalt` awsDeviceV2
       `Prelude.hashWithSalt` awsLogicalDeviceId
       `Prelude.hashWithSalt` bandwidth

@@ -126,7 +126,8 @@ instance Core.AWSRequest DeleteBGPPeer where
 
 instance Prelude.Hashable DeleteBGPPeer where
   hashWithSalt _salt DeleteBGPPeer' {..} =
-    _salt `Prelude.hashWithSalt` asn
+    _salt
+      `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` bgpPeerId
       `Prelude.hashWithSalt` customerAddress
       `Prelude.hashWithSalt` virtualInterfaceId

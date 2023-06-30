@@ -158,7 +158,8 @@ instance
       ( \s h x ->
           ListVirtualInterfaceTestHistoryResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "virtualInterfaceTestHistory"
+            Prelude.<*> ( x
+                            Data..?> "virtualInterfaceTestHistory"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,7 +172,8 @@ instance
   hashWithSalt
     _salt
     ListVirtualInterfaceTestHistory' {..} =
-      _salt `Prelude.hashWithSalt` bgpPeers
+      _salt
+        `Prelude.hashWithSalt` bgpPeers
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` status

@@ -115,7 +115,8 @@ instance Core.AWSRequest CreateBGPPeer where
 
 instance Prelude.Hashable CreateBGPPeer where
   hashWithSalt _salt CreateBGPPeer' {..} =
-    _salt `Prelude.hashWithSalt` newBGPPeer'
+    _salt
+      `Prelude.hashWithSalt` newBGPPeer'
       `Prelude.hashWithSalt` virtualInterfaceId
 
 instance Prelude.NFData CreateBGPPeer where

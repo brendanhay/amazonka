@@ -232,7 +232,8 @@ instance Data.FromJSON BGPPeer where
 
 instance Prelude.Hashable BGPPeer where
   hashWithSalt _salt BGPPeer' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` authKey

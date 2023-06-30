@@ -138,7 +138,8 @@ instance
     CreatePublicVirtualInterface
   where
   hashWithSalt _salt CreatePublicVirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` newPublicVirtualInterface'
 
 instance Prelude.NFData CreatePublicVirtualInterface where

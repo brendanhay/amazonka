@@ -137,7 +137,8 @@ instance Core.AWSRequest StartBgpFailoverTest where
 
 instance Prelude.Hashable StartBgpFailoverTest where
   hashWithSalt _salt StartBgpFailoverTest' {..} =
-    _salt `Prelude.hashWithSalt` bgpPeers
+    _salt
+      `Prelude.hashWithSalt` bgpPeers
       `Prelude.hashWithSalt` testDurationInMinutes
       `Prelude.hashWithSalt` virtualInterfaceId
 

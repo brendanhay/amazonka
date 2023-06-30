@@ -129,7 +129,8 @@ instance Core.AWSRequest DescribeLoa where
 
 instance Prelude.Hashable DescribeLoa where
   hashWithSalt _salt DescribeLoa' {..} =
-    _salt `Prelude.hashWithSalt` loaContentType
+    _salt
+      `Prelude.hashWithSalt` loaContentType
       `Prelude.hashWithSalt` providerName
       `Prelude.hashWithSalt` connectionId
 

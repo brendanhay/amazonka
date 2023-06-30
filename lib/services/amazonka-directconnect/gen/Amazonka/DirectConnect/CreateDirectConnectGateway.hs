@@ -121,7 +121,8 @@ instance Core.AWSRequest CreateDirectConnectGateway where
 
 instance Prelude.Hashable CreateDirectConnectGateway where
   hashWithSalt _salt CreateDirectConnectGateway' {..} =
-    _salt `Prelude.hashWithSalt` amazonSideAsn
+    _salt
+      `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` directConnectGatewayName
 
 instance Prelude.NFData CreateDirectConnectGateway where

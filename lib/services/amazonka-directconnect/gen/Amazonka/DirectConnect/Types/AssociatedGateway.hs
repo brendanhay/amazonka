@@ -98,7 +98,8 @@ instance Data.FromJSON AssociatedGateway where
 
 instance Prelude.Hashable AssociatedGateway where
   hashWithSalt _salt AssociatedGateway' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` type'

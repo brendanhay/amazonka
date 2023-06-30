@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateDirectConnectGateway where
 
 instance Prelude.Hashable UpdateDirectConnectGateway where
   hashWithSalt _salt UpdateDirectConnectGateway' {..} =
-    _salt `Prelude.hashWithSalt` directConnectGatewayId
+    _salt
+      `Prelude.hashWithSalt` directConnectGatewayId
       `Prelude.hashWithSalt` newDirectConnectGatewayName'
 
 instance Prelude.NFData UpdateDirectConnectGateway where

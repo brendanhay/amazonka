@@ -207,7 +207,8 @@ instance Core.AWSRequest CreateConnection where
 
 instance Prelude.Hashable CreateConnection where
   hashWithSalt _salt CreateConnection' {..} =
-    _salt `Prelude.hashWithSalt` lagId
+    _salt
+      `Prelude.hashWithSalt` lagId
       `Prelude.hashWithSalt` providerName
       `Prelude.hashWithSalt` requestMACSec
       `Prelude.hashWithSalt` tags

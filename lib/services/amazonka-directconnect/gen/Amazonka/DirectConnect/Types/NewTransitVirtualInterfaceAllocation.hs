@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     NewTransitVirtualInterfaceAllocation' {..} =
-      _salt `Prelude.hashWithSalt` addressFamily
+      _salt
+        `Prelude.hashWithSalt` addressFamily
         `Prelude.hashWithSalt` amazonAddress
         `Prelude.hashWithSalt` asn
         `Prelude.hashWithSalt` authKey

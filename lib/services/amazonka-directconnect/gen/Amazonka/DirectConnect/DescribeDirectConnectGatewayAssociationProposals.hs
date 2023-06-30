@@ -154,8 +154,8 @@ instance
                             Data..?> "directConnectGatewayAssociationProposals"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -165,7 +165,8 @@ instance
   hashWithSalt
     _salt
     DescribeDirectConnectGatewayAssociationProposals' {..} =
-      _salt `Prelude.hashWithSalt` associatedGatewayId
+      _salt
+        `Prelude.hashWithSalt` associatedGatewayId
         `Prelude.hashWithSalt` directConnectGatewayId
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

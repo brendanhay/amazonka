@@ -141,7 +141,8 @@ sqlParameter_value = Lens.lens (\SqlParameter' {value} -> value) (\s@SqlParamete
 
 instance Prelude.Hashable SqlParameter where
   hashWithSalt _salt SqlParameter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` typeHint
       `Prelude.hashWithSalt` value
 

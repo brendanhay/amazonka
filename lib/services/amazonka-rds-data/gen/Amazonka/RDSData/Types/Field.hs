@@ -133,7 +133,8 @@ instance Data.FromJSON Field where
 
 instance Prelude.Hashable Field where
   hashWithSalt _salt Field' {..} =
-    _salt `Prelude.hashWithSalt` arrayValue
+    _salt
+      `Prelude.hashWithSalt` arrayValue
       `Prelude.hashWithSalt` blobValue
       `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` doubleValue

@@ -100,7 +100,8 @@ resultSetOptions_longReturnType = Lens.lens (\ResultSetOptions' {longReturnType}
 
 instance Prelude.Hashable ResultSetOptions where
   hashWithSalt _salt ResultSetOptions' {..} =
-    _salt `Prelude.hashWithSalt` decimalReturnType
+    _salt
+      `Prelude.hashWithSalt` decimalReturnType
       `Prelude.hashWithSalt` longReturnType
 
 instance Prelude.NFData ResultSetOptions where

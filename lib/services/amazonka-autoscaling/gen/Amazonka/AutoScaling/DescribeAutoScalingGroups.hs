@@ -142,21 +142,21 @@ instance Core.AWSPager DescribeAutoScalingGroups where
     | Core.stop
         ( rs
             Lens.^? describeAutoScalingGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. describeAutoScalingGroupsResponse_autoScalingGroups
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAutoScalingGroups_nextToken
           Lens..~ rs
           Lens.^? describeAutoScalingGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAutoScalingGroups where
   type
@@ -171,7 +171,8 @@ instance Core.AWSRequest DescribeAutoScalingGroups where
           DescribeAutoScalingGroupsResponse'
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "AutoScalingGroups"
+            Prelude.<*> ( x
+                            Data..@? "AutoScalingGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
@@ -179,7 +180,8 @@ instance Core.AWSRequest DescribeAutoScalingGroups where
 
 instance Prelude.Hashable DescribeAutoScalingGroups where
   hashWithSalt _salt DescribeAutoScalingGroups' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupNames
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupNames
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken

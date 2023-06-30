@@ -76,7 +76,8 @@ instance Core.AWSRequest DescribeLifecycleHookTypes where
       "DescribeLifecycleHookTypesResult"
       ( \s h x ->
           DescribeLifecycleHookTypesResponse'
-            Prelude.<$> ( x Data..@? "LifecycleHookTypes"
+            Prelude.<$> ( x
+                            Data..@? "LifecycleHookTypes"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )

@@ -865,53 +865,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The request failed because an active instance refresh for the specified
 -- Auto Scaling group was not found.
-_ActiveInstanceRefreshNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ActiveInstanceRefreshNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ActiveInstanceRefreshNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -920,7 +920,7 @@ _ActiveInstanceRefreshNotFoundFault =
 
 -- | You already have an Auto Scaling group or launch configuration with this
 -- name.
-_AlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -929,7 +929,7 @@ _AlreadyExistsFault =
 
 -- | The request failed because an active instance refresh operation already
 -- exists for the specified Auto Scaling group.
-_InstanceRefreshInProgressFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InstanceRefreshInProgressFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InstanceRefreshInProgressFault =
   Core._MatchServiceError
     defaultService
@@ -937,7 +937,7 @@ _InstanceRefreshInProgressFault =
     Prelude.. Core.hasStatus 400
 
 -- | The @NextToken@ value is not valid.
-_InvalidNextToken :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextToken :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextToken =
   Core._MatchServiceError
     defaultService
@@ -949,7 +949,7 @@ _InvalidNextToken =
 -- lifecycle hooks). For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html DescribeAccountLimits>
 -- in the /Amazon EC2 Auto Scaling API Reference/.
-_LimitExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededFault =
   Core._MatchServiceError
     defaultService
@@ -958,7 +958,7 @@ _LimitExceededFault =
 
 -- | You already have a pending update to an Amazon EC2 Auto Scaling resource
 -- (for example, an Auto Scaling group, instance, or load balancer).
-_ResourceContentionFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceContentionFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceContentionFault =
   Core._MatchServiceError
     defaultService
@@ -966,7 +966,7 @@ _ResourceContentionFault =
     Prelude.. Core.hasStatus 500
 
 -- | The operation can\'t be performed because the resource is in use.
-_ResourceInUseFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseFault =
   Core._MatchServiceError
     defaultService
@@ -975,7 +975,7 @@ _ResourceInUseFault =
 
 -- | The operation can\'t be performed because there are scaling activities
 -- in progress.
-_ScalingActivityInProgressFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ScalingActivityInProgressFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ScalingActivityInProgressFault =
   Core._MatchServiceError
     defaultService
@@ -983,7 +983,7 @@ _ScalingActivityInProgressFault =
     Prelude.. Core.hasStatus 400
 
 -- | The service-linked role is not yet ready for use.
-_ServiceLinkedRoleFailure :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceLinkedRoleFailure :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceLinkedRoleFailure =
   Core._MatchServiceError
     defaultService

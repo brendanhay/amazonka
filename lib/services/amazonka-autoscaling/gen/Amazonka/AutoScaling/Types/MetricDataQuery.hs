@@ -192,7 +192,8 @@ instance Data.FromXML MetricDataQuery where
 
 instance Prelude.Hashable MetricDataQuery where
   hashWithSalt _salt MetricDataQuery' {..} =
-    _salt `Prelude.hashWithSalt` expression
+    _salt
+      `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` metricStat
       `Prelude.hashWithSalt` returnData

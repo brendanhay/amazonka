@@ -66,11 +66,13 @@ memoryGiBPerVCpuRequest_min = Lens.lens (\MemoryGiBPerVCpuRequest' {min} -> min)
 instance Data.FromXML MemoryGiBPerVCpuRequest where
   parseXML x =
     MemoryGiBPerVCpuRequest'
-      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
+      Prelude.<$> (x Data..@? "Max")
+      Prelude.<*> (x Data..@? "Min")
 
 instance Prelude.Hashable MemoryGiBPerVCpuRequest where
   hashWithSalt _salt MemoryGiBPerVCpuRequest' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData MemoryGiBPerVCpuRequest where

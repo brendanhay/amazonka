@@ -128,7 +128,8 @@ instance Core.AWSRequest SetInstanceProtection where
 
 instance Prelude.Hashable SetInstanceProtection where
   hashWithSalt _salt SetInstanceProtection' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` protectedFromScaleIn
 

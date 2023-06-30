@@ -164,11 +164,15 @@ customizedMetricSpecification_unit = Lens.lens (\CustomizedMetricSpecification' 
 instance Data.FromXML CustomizedMetricSpecification where
   parseXML x =
     CustomizedMetricSpecification'
-      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Dimensions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MetricName")
-      Prelude.<*> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Metrics"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Namespace")
@@ -180,7 +184,8 @@ instance
     CustomizedMetricSpecification
   where
   hashWithSalt _salt CustomizedMetricSpecification' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` metrics
       `Prelude.hashWithSalt` namespace

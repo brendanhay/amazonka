@@ -74,7 +74,8 @@ instance Data.FromXML DesiredConfiguration where
 
 instance Prelude.Hashable DesiredConfiguration where
   hashWithSalt _salt DesiredConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` launchTemplate
+    _salt
+      `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` mixedInstancesPolicy
 
 instance Prelude.NFData DesiredConfiguration where

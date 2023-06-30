@@ -131,7 +131,9 @@ instance Core.AWSRequest DetachInstances where
       "DetachInstancesResult"
       ( \s h x ->
           DetachInstancesResponse'
-            Prelude.<$> ( x Data..@? "Activities" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Activities"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -139,7 +141,8 @@ instance Core.AWSRequest DetachInstances where
 
 instance Prelude.Hashable DetachInstances where
   hashWithSalt _salt DetachInstances' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` shouldDecrementDesiredCapacity
 

@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     InstanceRefreshWarmPoolProgress' {..} =
-      _salt `Prelude.hashWithSalt` instancesToUpdate
+      _salt
+        `Prelude.hashWithSalt` instancesToUpdate
         `Prelude.hashWithSalt` percentageComplete
 
 instance

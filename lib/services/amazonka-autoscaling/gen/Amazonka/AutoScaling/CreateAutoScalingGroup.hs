@@ -881,7 +881,8 @@ instance Core.AWSRequest CreateAutoScalingGroup where
 
 instance Prelude.Hashable CreateAutoScalingGroup where
   hashWithSalt _salt CreateAutoScalingGroup' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` capacityRebalance
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` defaultCooldown

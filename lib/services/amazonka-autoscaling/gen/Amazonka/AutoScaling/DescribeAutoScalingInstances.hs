@@ -122,22 +122,22 @@ instance Core.AWSPager DescribeAutoScalingInstances where
     | Core.stop
         ( rs
             Lens.^? describeAutoScalingInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAutoScalingInstancesResponse_autoScalingInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAutoScalingInstances_nextToken
           Lens..~ rs
           Lens.^? describeAutoScalingInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAutoScalingInstances where
   type
@@ -150,7 +150,8 @@ instance Core.AWSRequest DescribeAutoScalingInstances where
       "DescribeAutoScalingInstancesResult"
       ( \s h x ->
           DescribeAutoScalingInstancesResponse'
-            Prelude.<$> ( x Data..@? "AutoScalingInstances"
+            Prelude.<$> ( x
+                            Data..@? "AutoScalingInstances"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -163,7 +164,8 @@ instance
     DescribeAutoScalingInstances
   where
   hashWithSalt _salt DescribeAutoScalingInstances' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
 

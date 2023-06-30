@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteWarmPool where
 
 instance Prelude.Hashable DeleteWarmPool where
   hashWithSalt _salt DeleteWarmPool' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData DeleteWarmPool where

@@ -312,7 +312,8 @@ instance Core.AWSRequest PutLifecycleHook where
 
 instance Prelude.Hashable PutLifecycleHook where
   hashWithSalt _salt PutLifecycleHook' {..} =
-    _salt `Prelude.hashWithSalt` defaultResult
+    _salt
+      `Prelude.hashWithSalt` defaultResult
       `Prelude.hashWithSalt` heartbeatTimeout
       `Prelude.hashWithSalt` lifecycleTransition
       `Prelude.hashWithSalt` notificationMetadata

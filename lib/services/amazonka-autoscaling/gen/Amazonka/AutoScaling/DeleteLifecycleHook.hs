@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteLifecycleHook where
 
 instance Prelude.Hashable DeleteLifecycleHook where
   hashWithSalt _salt DeleteLifecycleHook' {..} =
-    _salt `Prelude.hashWithSalt` lifecycleHookName
+    _salt
+      `Prelude.hashWithSalt` lifecycleHookName
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData DeleteLifecycleHook where

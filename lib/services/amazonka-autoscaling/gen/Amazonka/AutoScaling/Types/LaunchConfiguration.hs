@@ -412,12 +412,14 @@ instance Data.FromXML LaunchConfiguration where
   parseXML x =
     LaunchConfiguration'
       Prelude.<$> (x Data..@? "AssociatePublicIpAddress")
-      Prelude.<*> ( x Data..@? "BlockDeviceMappings"
+      Prelude.<*> ( x
+                      Data..@? "BlockDeviceMappings"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ClassicLinkVPCId")
-      Prelude.<*> ( x Data..@? "ClassicLinkVPCSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "ClassicLinkVPCSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -430,7 +432,9 @@ instance Data.FromXML LaunchConfiguration where
       Prelude.<*> (x Data..@? "MetadataOptions")
       Prelude.<*> (x Data..@? "PlacementTenancy")
       Prelude.<*> (x Data..@? "RamdiskId")
-      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "SecurityGroups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "SpotPrice")

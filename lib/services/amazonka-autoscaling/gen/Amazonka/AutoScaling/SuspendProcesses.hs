@@ -164,7 +164,8 @@ instance Core.AWSRequest SuspendProcesses where
 
 instance Prelude.Hashable SuspendProcesses where
   hashWithSalt _salt SuspendProcesses' {..} =
-    _salt `Prelude.hashWithSalt` scalingProcesses
+    _salt
+      `Prelude.hashWithSalt` scalingProcesses
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData SuspendProcesses where

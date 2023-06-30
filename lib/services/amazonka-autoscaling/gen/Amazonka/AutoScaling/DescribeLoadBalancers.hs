@@ -140,22 +140,22 @@ instance Core.AWSPager DescribeLoadBalancers where
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_loadBalancers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLoadBalancers_nextToken
           Lens..~ rs
           Lens.^? describeLoadBalancersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLoadBalancers where
   type
@@ -168,7 +168,9 @@ instance Core.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Prelude.<$> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "LoadBalancers"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -177,7 +179,8 @@ instance Core.AWSRequest DescribeLoadBalancers where
 
 instance Prelude.Hashable DescribeLoadBalancers where
   hashWithSalt _salt DescribeLoadBalancers' {..} =
-    _salt `Prelude.hashWithSalt` maxRecords
+    _salt
+      `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` autoScalingGroupName
 

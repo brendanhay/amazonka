@@ -102,7 +102,8 @@ instance Core.AWSRequest BatchDeleteScheduledAction where
       "BatchDeleteScheduledActionResult"
       ( \s h x ->
           BatchDeleteScheduledActionResponse'
-            Prelude.<$> ( x Data..@? "FailedScheduledActions"
+            Prelude.<$> ( x
+                            Data..@? "FailedScheduledActions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -111,7 +112,8 @@ instance Core.AWSRequest BatchDeleteScheduledAction where
 
 instance Prelude.Hashable BatchDeleteScheduledAction where
   hashWithSalt _salt BatchDeleteScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` scheduledActionNames
 
 instance Prelude.NFData BatchDeleteScheduledAction where

@@ -67,7 +67,8 @@ instance
   where
   parseXML x =
     PredictiveScalingCustomizedScalingMetric'
-      Prelude.<$> ( x Data..@? "MetricDataQueries"
+      Prelude.<$> ( x
+                      Data..@? "MetricDataQueries"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )

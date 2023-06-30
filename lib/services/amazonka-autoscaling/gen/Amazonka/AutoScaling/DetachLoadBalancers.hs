@@ -115,7 +115,8 @@ instance Core.AWSRequest DetachLoadBalancers where
 
 instance Prelude.Hashable DetachLoadBalancers where
   hashWithSalt _salt DetachLoadBalancers' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` loadBalancerNames
 
 instance Prelude.NFData DetachLoadBalancers where

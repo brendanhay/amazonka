@@ -119,7 +119,9 @@ instance Core.AWSRequest DescribeWarmPool where
       "DescribeWarmPoolResult"
       ( \s h x ->
           DescribeWarmPoolResponse'
-            Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Instances"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -129,7 +131,8 @@ instance Core.AWSRequest DescribeWarmPool where
 
 instance Prelude.Hashable DescribeWarmPool where
   hashWithSalt _salt DescribeWarmPool' {..} =
-    _salt `Prelude.hashWithSalt` maxRecords
+    _salt
+      `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` autoScalingGroupName
 

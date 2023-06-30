@@ -113,7 +113,8 @@ instance Data.FromXML TargetTrackingMetricStat where
 
 instance Prelude.Hashable TargetTrackingMetricStat where
   hashWithSalt _salt TargetTrackingMetricStat' {..} =
-    _salt `Prelude.hashWithSalt` unit
+    _salt
+      `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` stat
 

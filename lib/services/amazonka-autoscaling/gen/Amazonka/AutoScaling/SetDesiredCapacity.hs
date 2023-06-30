@@ -129,7 +129,8 @@ instance Core.AWSRequest SetDesiredCapacity where
 
 instance Prelude.Hashable SetDesiredCapacity where
   hashWithSalt _salt SetDesiredCapacity' {..} =
-    _salt `Prelude.hashWithSalt` honorCooldown
+    _salt
+      `Prelude.hashWithSalt` honorCooldown
       `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` desiredCapacity
 

@@ -131,7 +131,8 @@ instance Core.AWSRequest DetachTrafficSources where
 
 instance Prelude.Hashable DetachTrafficSources where
   hashWithSalt _salt DetachTrafficSources' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` trafficSources
 
 instance Prelude.NFData DetachTrafficSources where

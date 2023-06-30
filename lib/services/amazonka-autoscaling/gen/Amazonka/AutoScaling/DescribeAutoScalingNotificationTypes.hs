@@ -74,11 +74,12 @@ instance
       "DescribeAutoScalingNotificationTypesResult"
       ( \s h x ->
           DescribeAutoScalingNotificationTypesResponse'
-            Prelude.<$> ( x Data..@? "AutoScalingNotificationTypes"
+            Prelude.<$> ( x
+                            Data..@? "AutoScalingNotificationTypes"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

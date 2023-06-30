@@ -151,7 +151,8 @@ instance Data.FromXML InstanceMetadataOptions where
 
 instance Prelude.Hashable InstanceMetadataOptions where
   hashWithSalt _salt InstanceMetadataOptions' {..} =
-    _salt `Prelude.hashWithSalt` httpEndpoint
+    _salt
+      `Prelude.hashWithSalt` httpEndpoint
       `Prelude.hashWithSalt` httpPutResponseHopLimit
       `Prelude.hashWithSalt` httpTokens
 

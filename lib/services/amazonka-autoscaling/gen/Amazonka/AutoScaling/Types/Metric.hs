@@ -103,7 +103,9 @@ metric_metricName = Lens.lens (\Metric' {metricName} -> metricName) (\s@Metric' 
 instance Data.FromXML Metric where
   parseXML x =
     Metric'
-      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Dimensions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "Namespace")
@@ -111,7 +113,8 @@ instance Data.FromXML Metric where
 
 instance Prelude.Hashable Metric where
   hashWithSalt _salt Metric' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` metricName
 

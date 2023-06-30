@@ -113,21 +113,21 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeNotificationConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. describeNotificationConfigurationsResponse_notificationConfigurations
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNotificationConfigurations_nextToken
           Lens..~ rs
           Lens.^? describeNotificationConfigurationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -144,11 +144,12 @@ instance
       ( \s h x ->
           DescribeNotificationConfigurationsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..@? "NotificationConfigurations"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Data.parseXMLList "member"
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "NotificationConfigurations"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
+                        )
       )
 
 instance
@@ -158,7 +159,8 @@ instance
   hashWithSalt
     _salt
     DescribeNotificationConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` autoScalingGroupNames
+      _salt
+        `Prelude.hashWithSalt` autoScalingGroupNames
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` nextToken
 

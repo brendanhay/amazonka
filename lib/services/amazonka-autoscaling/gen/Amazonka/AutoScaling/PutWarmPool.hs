@@ -219,7 +219,8 @@ instance Core.AWSRequest PutWarmPool where
 
 instance Prelude.Hashable PutWarmPool where
   hashWithSalt _salt PutWarmPool' {..} =
-    _salt `Prelude.hashWithSalt` instanceReusePolicy
+    _salt
+      `Prelude.hashWithSalt` instanceReusePolicy
       `Prelude.hashWithSalt` maxGroupPreparedCapacity
       `Prelude.hashWithSalt` minSize
       `Prelude.hashWithSalt` poolState

@@ -193,7 +193,8 @@ lifecycleHookSpecification_lifecycleTransition = Lens.lens (\LifecycleHookSpecif
 
 instance Prelude.Hashable LifecycleHookSpecification where
   hashWithSalt _salt LifecycleHookSpecification' {..} =
-    _salt `Prelude.hashWithSalt` defaultResult
+    _salt
+      `Prelude.hashWithSalt` defaultResult
       `Prelude.hashWithSalt` heartbeatTimeout
       `Prelude.hashWithSalt` notificationMetadata
       `Prelude.hashWithSalt` notificationTargetARN

@@ -119,21 +119,21 @@ instance Core.AWSPager DescribeLaunchConfigurations where
     | Core.stop
         ( rs
             Lens.^? describeLaunchConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. describeLaunchConfigurationsResponse_launchConfigurations
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLaunchConfigurations_nextToken
           Lens..~ rs
           Lens.^? describeLaunchConfigurationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLaunchConfigurations where
   type
@@ -148,7 +148,8 @@ instance Core.AWSRequest DescribeLaunchConfigurations where
           DescribeLaunchConfigurationsResponse'
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "LaunchConfigurations"
+            Prelude.<*> ( x
+                            Data..@? "LaunchConfigurations"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )

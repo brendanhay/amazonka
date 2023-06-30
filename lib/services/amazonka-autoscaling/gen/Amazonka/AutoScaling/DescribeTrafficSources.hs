@@ -138,7 +138,9 @@ instance Core.AWSRequest DescribeTrafficSources where
       ( \s h x ->
           DescribeTrafficSourcesResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "TrafficSources" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "TrafficSources"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,7 +148,8 @@ instance Core.AWSRequest DescribeTrafficSources where
 
 instance Prelude.Hashable DescribeTrafficSources where
   hashWithSalt _salt DescribeTrafficSources' {..} =
-    _salt `Prelude.hashWithSalt` maxRecords
+    _salt
+      `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` trafficSourceType

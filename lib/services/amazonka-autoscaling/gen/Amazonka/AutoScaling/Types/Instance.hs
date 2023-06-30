@@ -187,7 +187,8 @@ instance Data.FromXML Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` launchConfigurationName
       `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` weightedCapacity

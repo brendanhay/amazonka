@@ -186,7 +186,8 @@ instance Data.FromXML LifecycleHook where
 
 instance Prelude.Hashable LifecycleHook where
   hashWithSalt _salt LifecycleHook' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` defaultResult
       `Prelude.hashWithSalt` globalTimeout
       `Prelude.hashWithSalt` heartbeatTimeout

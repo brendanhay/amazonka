@@ -613,7 +613,8 @@ instance Core.AWSRequest UpdateAutoScalingGroup where
 
 instance Prelude.Hashable UpdateAutoScalingGroup where
   hashWithSalt _salt UpdateAutoScalingGroup' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` capacityRebalance
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` defaultCooldown

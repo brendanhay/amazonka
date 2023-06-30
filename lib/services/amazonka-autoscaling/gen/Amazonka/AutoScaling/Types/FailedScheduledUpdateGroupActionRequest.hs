@@ -84,8 +84,8 @@ instance
   parseXML x =
     FailedScheduledUpdateGroupActionRequest'
       Prelude.<$> (x Data..@? "ErrorCode")
-        Prelude.<*> (x Data..@? "ErrorMessage")
-        Prelude.<*> (x Data..@ "ScheduledActionName")
+      Prelude.<*> (x Data..@? "ErrorMessage")
+      Prelude.<*> (x Data..@ "ScheduledActionName")
 
 instance
   Prelude.Hashable
@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     FailedScheduledUpdateGroupActionRequest' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` scheduledActionName
 

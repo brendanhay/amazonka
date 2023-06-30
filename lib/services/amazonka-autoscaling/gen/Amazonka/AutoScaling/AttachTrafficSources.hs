@@ -135,7 +135,8 @@ instance Core.AWSRequest AttachTrafficSources where
 
 instance Prelude.Hashable AttachTrafficSources where
   hashWithSalt _salt AttachTrafficSources' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` trafficSources
 
 instance Prelude.NFData AttachTrafficSources where

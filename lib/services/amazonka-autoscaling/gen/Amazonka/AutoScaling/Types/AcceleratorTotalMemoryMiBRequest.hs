@@ -70,7 +70,8 @@ instance
   where
   parseXML x =
     AcceleratorTotalMemoryMiBRequest'
-      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
+      Prelude.<$> (x Data..@? "Max")
+      Prelude.<*> (x Data..@? "Min")
 
 instance
   Prelude.Hashable
@@ -79,7 +80,8 @@ instance
   hashWithSalt
     _salt
     AcceleratorTotalMemoryMiBRequest' {..} =
-      _salt `Prelude.hashWithSalt` max
+      _salt
+        `Prelude.hashWithSalt` max
         `Prelude.hashWithSalt` min
 
 instance

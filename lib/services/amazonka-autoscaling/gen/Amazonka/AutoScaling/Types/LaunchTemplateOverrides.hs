@@ -267,7 +267,8 @@ instance Data.FromXML LaunchTemplateOverrides where
 
 instance Prelude.Hashable LaunchTemplateOverrides where
   hashWithSalt _salt LaunchTemplateOverrides' {..} =
-    _salt `Prelude.hashWithSalt` instanceRequirements
+    _salt
+      `Prelude.hashWithSalt` instanceRequirements
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` launchTemplateSpecification
       `Prelude.hashWithSalt` weightedCapacity

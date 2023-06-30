@@ -71,7 +71,8 @@ instance
   hashWithSalt
     _salt
     SavingsPlanOfferingRateFilterElement' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` values
 
 instance

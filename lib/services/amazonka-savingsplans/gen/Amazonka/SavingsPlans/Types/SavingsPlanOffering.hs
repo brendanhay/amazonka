@@ -169,7 +169,8 @@ instance Data.FromJSON SavingsPlanOffering where
 
 instance Prelude.Hashable SavingsPlanOffering where
   hashWithSalt _salt SavingsPlanOffering' {..} =
-    _salt `Prelude.hashWithSalt` currency
+    _salt
+      `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` offeringId

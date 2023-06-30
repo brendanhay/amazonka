@@ -72,7 +72,8 @@ instance
       "SavingsPlanOfferingRateProperty"
       ( \x ->
           SavingsPlanOfferingRateProperty'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance
@@ -82,7 +83,8 @@ instance
   hashWithSalt
     _salt
     SavingsPlanOfferingRateProperty' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` value
 
 instance

@@ -164,7 +164,8 @@ instance Core.AWSRequest CreateSavingsPlan where
 
 instance Prelude.Hashable CreateSavingsPlan where
   hashWithSalt _salt CreateSavingsPlan' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` purchaseTime
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` upfrontPaymentAmount

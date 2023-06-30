@@ -145,7 +145,8 @@ instance Core.AWSRequest DescribeSavingsPlans where
 
 instance Prelude.Hashable DescribeSavingsPlans where
   hashWithSalt _salt DescribeSavingsPlans' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` savingsPlanArns

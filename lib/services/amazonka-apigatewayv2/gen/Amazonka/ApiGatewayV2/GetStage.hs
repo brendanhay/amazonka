@@ -128,7 +128,8 @@ instance Core.AWSRequest GetStage where
 
 instance Prelude.Hashable GetStage where
   hashWithSalt _salt GetStage' {..} =
-    _salt `Prelude.hashWithSalt` stageName
+    _salt
+      `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData GetStage where

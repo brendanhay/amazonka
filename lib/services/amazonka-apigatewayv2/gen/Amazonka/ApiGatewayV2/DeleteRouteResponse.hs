@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteRouteResponse where
 
 instance Prelude.Hashable DeleteRouteResponse where
   hashWithSalt _salt DeleteRouteResponse' {..} =
-    _salt `Prelude.hashWithSalt` routeResponseId
+    _salt
+      `Prelude.hashWithSalt` routeResponseId
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` routeId
 

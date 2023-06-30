@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteAccessLogSettings where
 
 instance Prelude.Hashable DeleteAccessLogSettings where
   hashWithSalt _salt DeleteAccessLogSettings' {..} =
-    _salt `Prelude.hashWithSalt` stageName
+    _salt
+      `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData DeleteAccessLogSettings where

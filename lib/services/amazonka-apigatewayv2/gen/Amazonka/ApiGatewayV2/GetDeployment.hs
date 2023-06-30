@@ -114,7 +114,8 @@ instance Core.AWSRequest GetDeployment where
 
 instance Prelude.Hashable GetDeployment where
   hashWithSalt _salt GetDeployment' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` deploymentId
 
 instance Prelude.NFData GetDeployment where

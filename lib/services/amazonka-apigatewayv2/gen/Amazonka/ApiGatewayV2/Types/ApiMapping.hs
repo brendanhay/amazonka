@@ -98,7 +98,8 @@ instance Data.FromJSON ApiMapping where
 
 instance Prelude.Hashable ApiMapping where
   hashWithSalt _salt ApiMapping' {..} =
-    _salt `Prelude.hashWithSalt` apiMappingId
+    _salt
+      `Prelude.hashWithSalt` apiMappingId
       `Prelude.hashWithSalt` apiMappingKey
       `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` apiId

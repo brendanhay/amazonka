@@ -225,7 +225,8 @@ instance Data.FromJSON Stage where
 
 instance Prelude.Hashable Stage where
   hashWithSalt _salt Stage' {..} =
-    _salt `Prelude.hashWithSalt` accessLogSettings
+    _salt
+      `Prelude.hashWithSalt` accessLogSettings
       `Prelude.hashWithSalt` apiGatewayManaged
       `Prelude.hashWithSalt` autoDeploy
       `Prelude.hashWithSalt` clientCertificateId

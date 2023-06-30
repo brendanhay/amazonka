@@ -185,10 +185,12 @@ instance Data.FromJSON IntegrationResponse where
           IntegrationResponse'
             Prelude.<$> (x Data..:? "contentHandlingStrategy")
             Prelude.<*> (x Data..:? "integrationResponseId")
-            Prelude.<*> ( x Data..:? "responseParameters"
+            Prelude.<*> ( x
+                            Data..:? "responseParameters"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "responseTemplates"
+            Prelude.<*> ( x
+                            Data..:? "responseTemplates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "templateSelectionExpression")

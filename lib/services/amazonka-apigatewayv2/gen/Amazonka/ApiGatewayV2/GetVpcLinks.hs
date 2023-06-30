@@ -103,7 +103,8 @@ instance Core.AWSRequest GetVpcLinks where
 
 instance Prelude.Hashable GetVpcLinks where
   hashWithSalt _salt GetVpcLinks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetVpcLinks where

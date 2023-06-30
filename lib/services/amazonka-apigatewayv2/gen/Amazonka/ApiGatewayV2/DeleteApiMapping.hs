@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteApiMapping where
 
 instance Prelude.Hashable DeleteApiMapping where
   hashWithSalt _salt DeleteApiMapping' {..} =
-    _salt `Prelude.hashWithSalt` apiMappingId
+    _salt
+      `Prelude.hashWithSalt` apiMappingId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DeleteApiMapping where

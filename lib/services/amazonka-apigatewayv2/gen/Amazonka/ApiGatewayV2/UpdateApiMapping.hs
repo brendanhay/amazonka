@@ -147,7 +147,8 @@ instance Core.AWSRequest UpdateApiMapping where
 
 instance Prelude.Hashable UpdateApiMapping where
   hashWithSalt _salt UpdateApiMapping' {..} =
-    _salt `Prelude.hashWithSalt` apiMappingKey
+    _salt
+      `Prelude.hashWithSalt` apiMappingKey
       `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` apiMappingId
       `Prelude.hashWithSalt` apiId

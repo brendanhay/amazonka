@@ -165,7 +165,8 @@ instance Core.AWSRequest ExportApi where
 
 instance Prelude.Hashable ExportApi where
   hashWithSalt _salt ExportApi' {..} =
-    _salt `Prelude.hashWithSalt` exportVersion
+    _salt
+      `Prelude.hashWithSalt` exportVersion
       `Prelude.hashWithSalt` includeExtensions
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` specification

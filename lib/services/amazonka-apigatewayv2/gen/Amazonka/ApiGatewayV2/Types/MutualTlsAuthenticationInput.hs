@@ -84,7 +84,8 @@ instance
     MutualTlsAuthenticationInput
   where
   hashWithSalt _salt MutualTlsAuthenticationInput' {..} =
-    _salt `Prelude.hashWithSalt` truststoreUri
+    _salt
+      `Prelude.hashWithSalt` truststoreUri
       `Prelude.hashWithSalt` truststoreVersion
 
 instance Prelude.NFData MutualTlsAuthenticationInput where

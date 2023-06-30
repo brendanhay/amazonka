@@ -198,7 +198,8 @@ instance Data.FromJSON DomainNameConfiguration where
 
 instance Prelude.Hashable DomainNameConfiguration where
   hashWithSalt _salt DomainNameConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` apiGatewayDomainName
+    _salt
+      `Prelude.hashWithSalt` apiGatewayDomainName
       `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateName
       `Prelude.hashWithSalt` certificateUploadDate

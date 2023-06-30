@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteStage where
 
 instance Prelude.Hashable DeleteStage where
   hashWithSalt _salt DeleteStage' {..} =
-    _salt `Prelude.hashWithSalt` stageName
+    _salt
+      `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData DeleteStage where

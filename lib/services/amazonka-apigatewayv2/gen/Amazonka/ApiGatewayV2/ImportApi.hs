@@ -160,7 +160,8 @@ instance Core.AWSRequest ImportApi where
 
 instance Prelude.Hashable ImportApi where
   hashWithSalt _salt ImportApi' {..} =
-    _salt `Prelude.hashWithSalt` basepath
+    _salt
+      `Prelude.hashWithSalt` basepath
       `Prelude.hashWithSalt` failOnWarnings
       `Prelude.hashWithSalt` body
 

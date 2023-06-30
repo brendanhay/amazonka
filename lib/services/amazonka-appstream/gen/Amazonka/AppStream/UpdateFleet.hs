@@ -729,7 +729,8 @@ instance Core.AWSRequest UpdateFleet where
 
 instance Prelude.Hashable UpdateFleet where
   hashWithSalt _salt UpdateFleet' {..} =
-    _salt `Prelude.hashWithSalt` attributesToDelete
+    _salt
+      `Prelude.hashWithSalt` attributesToDelete
       `Prelude.hashWithSalt` computeCapacity
       `Prelude.hashWithSalt` deleteVpcConfig
       `Prelude.hashWithSalt` description

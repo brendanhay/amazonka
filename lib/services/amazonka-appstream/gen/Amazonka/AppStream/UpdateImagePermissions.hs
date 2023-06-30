@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateImagePermissions where
 
 instance Prelude.Hashable UpdateImagePermissions where
   hashWithSalt _salt UpdateImagePermissions' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sharedAccountId
       `Prelude.hashWithSalt` imagePermissions
 

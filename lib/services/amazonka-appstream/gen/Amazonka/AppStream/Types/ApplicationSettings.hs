@@ -79,7 +79,8 @@ applicationSettings_enabled = Lens.lens (\ApplicationSettings' {enabled} -> enab
 
 instance Prelude.Hashable ApplicationSettings where
   hashWithSalt _salt ApplicationSettings' {..} =
-    _salt `Prelude.hashWithSalt` settingsGroup
+    _salt
+      `Prelude.hashWithSalt` settingsGroup
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData ApplicationSettings where

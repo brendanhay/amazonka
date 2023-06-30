@@ -86,7 +86,8 @@ instance Data.FromJSON SharedImagePermissions where
 
 instance Prelude.Hashable SharedImagePermissions where
   hashWithSalt _salt SharedImagePermissions' {..} =
-    _salt `Prelude.hashWithSalt` sharedAccountId
+    _salt
+      `Prelude.hashWithSalt` sharedAccountId
       `Prelude.hashWithSalt` imagePermissions
 
 instance Prelude.NFData SharedImagePermissions where

@@ -103,7 +103,8 @@ instance
       ( \s h x ->
           DescribeUsageReportSubscriptionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "UsageReportSubscriptions"
+            Prelude.<*> ( x
+                            Data..?> "UsageReportSubscriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -116,7 +117,8 @@ instance
   hashWithSalt
     _salt
     DescribeUsageReportSubscriptions' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 
 instance

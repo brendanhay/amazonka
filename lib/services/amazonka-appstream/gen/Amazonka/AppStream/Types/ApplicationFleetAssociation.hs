@@ -81,7 +81,8 @@ instance Data.FromJSON ApplicationFleetAssociation where
 
 instance Prelude.Hashable ApplicationFleetAssociation where
   hashWithSalt _salt ApplicationFleetAssociation' {..} =
-    _salt `Prelude.hashWithSalt` fleetName
+    _salt
+      `Prelude.hashWithSalt` fleetName
       `Prelude.hashWithSalt` applicationArn
 
 instance Prelude.NFData ApplicationFleetAssociation where

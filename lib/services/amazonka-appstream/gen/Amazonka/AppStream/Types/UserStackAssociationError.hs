@@ -94,7 +94,8 @@ instance Data.FromJSON UserStackAssociationError where
 
 instance Prelude.Hashable UserStackAssociationError where
   hashWithSalt _salt UserStackAssociationError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` userStackAssociation
 

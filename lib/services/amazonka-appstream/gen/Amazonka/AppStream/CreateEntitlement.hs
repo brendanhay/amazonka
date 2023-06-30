@@ -148,7 +148,8 @@ instance Core.AWSRequest CreateEntitlement where
 
 instance Prelude.Hashable CreateEntitlement where
   hashWithSalt _salt CreateEntitlement' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` appVisibility

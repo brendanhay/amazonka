@@ -144,7 +144,8 @@ instance Data.FromJSON Entitlement where
 
 instance Prelude.Hashable Entitlement where
   hashWithSalt _salt Entitlement' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` name

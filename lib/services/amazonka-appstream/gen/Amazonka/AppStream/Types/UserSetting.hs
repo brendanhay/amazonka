@@ -81,7 +81,8 @@ instance Data.FromJSON UserSetting where
 
 instance Prelude.Hashable UserSetting where
   hashWithSalt _salt UserSetting' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` permission
 
 instance Prelude.NFData UserSetting where

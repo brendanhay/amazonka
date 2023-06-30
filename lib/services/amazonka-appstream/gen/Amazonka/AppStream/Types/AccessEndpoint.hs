@@ -83,7 +83,8 @@ instance Data.FromJSON AccessEndpoint where
 
 instance Prelude.Hashable AccessEndpoint where
   hashWithSalt _salt AccessEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` vpceId
+    _salt
+      `Prelude.hashWithSalt` vpceId
       `Prelude.hashWithSalt` endpointType
 
 instance Prelude.NFData AccessEndpoint where

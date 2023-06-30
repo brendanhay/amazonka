@@ -565,73 +565,73 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An API error occurred. Wait a few minutes and try again.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | The entitlement already exists.
-_EntitlementAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EntitlementAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntitlementAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "EntitlementAlreadyExistsException"
 
 -- | The entitlement can\'t be found.
-_EntitlementNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EntitlementNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntitlementNotFoundException =
   Core._MatchServiceError
     defaultService
     "EntitlementNotFoundException"
 
 -- | The image can\'t be updated because it\'s not compatible for updates.
-_IncompatibleImageException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IncompatibleImageException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IncompatibleImageException =
   Core._MatchServiceError
     defaultService
@@ -639,7 +639,7 @@ _IncompatibleImageException =
 
 -- | The resource cannot be created because your AWS account is suspended.
 -- For assistance, contact AWS Support.
-_InvalidAccountStatusException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidAccountStatusException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidAccountStatusException =
   Core._MatchServiceError
     defaultService
@@ -647,28 +647,28 @@ _InvalidAccountStatusException =
 
 -- | Indicates an incorrect combination of parameters, or a missing
 -- parameter.
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterCombinationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterCombinationException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterCombinationException"
 
 -- | The specified role is invalid.
-_InvalidRoleException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRoleException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRoleException =
   Core._MatchServiceError
     defaultService
     "InvalidRoleException"
 
 -- | The requested limit exceeds the permitted limit for an account.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The attempted operation is not permitted.
-_OperationNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationNotPermittedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
@@ -677,35 +677,35 @@ _OperationNotPermittedException =
 -- | AppStream 2.0 can’t process the request right now because the Describe
 -- calls from your AWS account are being throttled by Amazon EC2. Try again
 -- later.
-_RequestLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestLimitExceededException =
   Core._MatchServiceError
     defaultService
     "RequestLimitExceededException"
 
 -- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
 
 -- | The specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
 -- | The specified resource exists and is not in use, but isn\'t available.
-_ResourceNotAvailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotAvailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotAvailableException =
   Core._MatchServiceError
     defaultService
     "ResourceNotAvailableException"
 
 -- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

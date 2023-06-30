@@ -270,60 +270,60 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Another modification is being made. That modification must complete
 -- before you can make your change.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | There was a conflict processing the request. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -335,14 +335,14 @@ _ConflictException =
 -- Translate again. For more information, see the
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html DetectDominantLanguage>
 -- operation in the /Amazon Comprehend Developer Guide/.
-_DetectedLanguageLowConfidenceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DetectedLanguageLowConfidenceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DetectedLanguageLowConfidenceException =
   Core._MatchServiceError
     defaultService
     "DetectedLanguageLowConfidenceException"
 
 -- | An internal server error occurred. Retry your request.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -350,7 +350,7 @@ _InternalServerException =
 
 -- | The filter specified for the operation is not valid. Specify a different
 -- filter.
-_InvalidFilterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidFilterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidFilterException =
   Core._MatchServiceError
     defaultService
@@ -358,7 +358,7 @@ _InvalidFilterException =
 
 -- | The value of the parameter is not valid. Review the value of the
 -- parameter you are using to correct it, and then retry your operation.
-_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -366,7 +366,7 @@ _InvalidParameterValueException =
 
 -- | The request that you made is not valid. Check your request to determine
 -- why it\'s not valid and then retry the request.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -374,7 +374,7 @@ _InvalidRequestException =
 
 -- | The specified limit has been exceeded. Review your request and retry it
 -- with a quantity below the stated limit.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -383,7 +383,7 @@ _LimitExceededException =
 -- | The resource you are looking for has not been found. Review the resource
 -- you\'re looking for and see if a different resource will accomplish your
 -- needs before retrying the revised request.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -391,7 +391,7 @@ _ResourceNotFoundException =
 
 -- | The Amazon Translate service is temporarily unavailable. Wait a bit and
 -- then retry your request.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -399,7 +399,7 @@ _ServiceUnavailableException =
 
 -- | The size of the text you submitted exceeds the size limit. Reduce the
 -- size of the text or use a smaller document and then retry your request.
-_TextSizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TextSizeLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TextSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -407,21 +407,21 @@ _TextSizeLimitExceededException =
 
 -- | You have made too many requests within a short period of time. Wait for
 -- a short time and then try your request again.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
     "TooManyRequestsException"
 
 -- | You have added too many tags to this resource. The maximum is 50 tags.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | Requested display language code is not supported.
-_UnsupportedDisplayLanguageCodeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedDisplayLanguageCodeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedDisplayLanguageCodeException =
   Core._MatchServiceError
     defaultService
@@ -431,7 +431,7 @@ _UnsupportedDisplayLanguageCodeException =
 -- source text into the requested target language. For more information,
 -- see
 -- <https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html Error messages>.
-_UnsupportedLanguagePairException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedLanguagePairException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedLanguagePairException =
   Core._MatchServiceError
     defaultService

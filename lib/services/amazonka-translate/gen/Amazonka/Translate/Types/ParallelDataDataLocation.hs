@@ -121,7 +121,8 @@ instance Data.FromJSON ParallelDataDataLocation where
 
 instance Prelude.Hashable ParallelDataDataLocation where
   hashWithSalt _salt ParallelDataDataLocation' {..} =
-    _salt `Prelude.hashWithSalt` repositoryType
+    _salt
+      `Prelude.hashWithSalt` repositoryType
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData ParallelDataDataLocation where

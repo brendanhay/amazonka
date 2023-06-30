@@ -76,12 +76,14 @@ instance Data.FromJSON EncryptionKey where
       "EncryptionKey"
       ( \x ->
           EncryptionKey'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Id")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable EncryptionKey where
   hashWithSalt _salt EncryptionKey' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData EncryptionKey where

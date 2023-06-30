@@ -164,7 +164,8 @@ instance Data.FromJSON TranslationSettings where
 
 instance Prelude.Hashable TranslationSettings where
   hashWithSalt _salt TranslationSettings' {..} =
-    _salt `Prelude.hashWithSalt` formality
+    _salt
+      `Prelude.hashWithSalt` formality
       `Prelude.hashWithSalt` profanity
 
 instance Prelude.NFData TranslationSettings where

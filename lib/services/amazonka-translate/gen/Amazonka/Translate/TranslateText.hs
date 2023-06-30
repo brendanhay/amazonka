@@ -200,7 +200,8 @@ instance Core.AWSRequest TranslateText where
       ( \s h x ->
           TranslateTextResponse'
             Prelude.<$> (x Data..?> "AppliedSettings")
-            Prelude.<*> ( x Data..?> "AppliedTerminologies"
+            Prelude.<*> ( x
+                            Data..?> "AppliedTerminologies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -211,7 +212,8 @@ instance Core.AWSRequest TranslateText where
 
 instance Prelude.Hashable TranslateText where
   hashWithSalt _salt TranslateText' {..} =
-    _salt `Prelude.hashWithSalt` settings
+    _salt
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` terminologyNames
       `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` sourceLanguageCode

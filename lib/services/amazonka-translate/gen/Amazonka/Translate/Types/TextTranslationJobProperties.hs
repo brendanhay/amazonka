@@ -233,14 +233,16 @@ instance Data.FromJSON TextTranslationJobProperties where
             Prelude.<*> (x Data..:? "JobStatus")
             Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "OutputDataConfig")
-            Prelude.<*> ( x Data..:? "ParallelDataNames"
+            Prelude.<*> ( x
+                            Data..:? "ParallelDataNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Settings")
             Prelude.<*> (x Data..:? "SourceLanguageCode")
             Prelude.<*> (x Data..:? "SubmittedTime")
             Prelude.<*> (x Data..:? "TargetLanguageCodes")
-            Prelude.<*> ( x Data..:? "TerminologyNames"
+            Prelude.<*> ( x
+                            Data..:? "TerminologyNames"
                             Data..!= Prelude.mempty
                         )
       )
@@ -250,7 +252,8 @@ instance
     TextTranslationJobProperties
   where
   hashWithSalt _salt TextTranslationJobProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` jobDetails

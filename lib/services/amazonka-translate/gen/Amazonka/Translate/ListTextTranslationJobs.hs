@@ -115,7 +115,8 @@ instance Core.AWSRequest ListTextTranslationJobs where
       ( \s h x ->
           ListTextTranslationJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "TextTranslationJobPropertiesList"
+            Prelude.<*> ( x
+                            Data..?> "TextTranslationJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -123,7 +124,8 @@ instance Core.AWSRequest ListTextTranslationJobs where
 
 instance Prelude.Hashable ListTextTranslationJobs where
   hashWithSalt _salt ListTextTranslationJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

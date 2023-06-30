@@ -151,7 +151,8 @@ instance Core.AWSRequest DisassociateCreatedArtifact where
 
 instance Prelude.Hashable DisassociateCreatedArtifact where
   hashWithSalt _salt DisassociateCreatedArtifact' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` migrationTaskName
       `Prelude.hashWithSalt` createdArtifactName

@@ -100,22 +100,22 @@ instance Core.AWSPager ListProgressUpdateStreams where
     | Core.stop
         ( rs
             Lens.^? listProgressUpdateStreamsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProgressUpdateStreams_nextToken
           Lens..~ rs
           Lens.^? listProgressUpdateStreamsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProgressUpdateStreams where
   type
@@ -128,7 +128,8 @@ instance Core.AWSRequest ListProgressUpdateStreams where
       ( \s h x ->
           ListProgressUpdateStreamsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ProgressUpdateStreamSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "ProgressUpdateStreamSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,7 +137,8 @@ instance Core.AWSRequest ListProgressUpdateStreams where
 
 instance Prelude.Hashable ListProgressUpdateStreams where
   hashWithSalt _salt ListProgressUpdateStreams' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProgressUpdateStreams where

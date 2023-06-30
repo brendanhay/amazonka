@@ -135,7 +135,8 @@ instance Core.AWSRequest AssociateDiscoveredResource where
 
 instance Prelude.Hashable AssociateDiscoveredResource where
   hashWithSalt _salt AssociateDiscoveredResource' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` migrationTaskName
       `Prelude.hashWithSalt` discoveredResource

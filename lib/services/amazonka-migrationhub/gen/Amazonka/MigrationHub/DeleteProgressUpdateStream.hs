@@ -131,7 +131,8 @@ instance Core.AWSRequest DeleteProgressUpdateStream where
 
 instance Prelude.Hashable DeleteProgressUpdateStream where
   hashWithSalt _salt DeleteProgressUpdateStream' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` progressUpdateStreamName
 
 instance Prelude.NFData DeleteProgressUpdateStream where

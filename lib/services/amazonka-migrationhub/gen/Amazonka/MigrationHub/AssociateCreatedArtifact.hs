@@ -149,7 +149,8 @@ instance Core.AWSRequest AssociateCreatedArtifact where
 
 instance Prelude.Hashable AssociateCreatedArtifact where
   hashWithSalt _salt AssociateCreatedArtifact' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` migrationTaskName
       `Prelude.hashWithSalt` createdArtifact

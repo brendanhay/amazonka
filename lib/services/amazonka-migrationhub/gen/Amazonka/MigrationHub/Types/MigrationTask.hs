@@ -108,7 +108,8 @@ instance Data.FromJSON MigrationTask where
           MigrationTask'
             Prelude.<$> (x Data..:? "MigrationTaskName")
             Prelude.<*> (x Data..:? "ProgressUpdateStream")
-            Prelude.<*> ( x Data..:? "ResourceAttributeList"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAttributeList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Task")
@@ -117,7 +118,8 @@ instance Data.FromJSON MigrationTask where
 
 instance Prelude.Hashable MigrationTask where
   hashWithSalt _salt MigrationTask' {..} =
-    _salt `Prelude.hashWithSalt` migrationTaskName
+    _salt
+      `Prelude.hashWithSalt` migrationTaskName
       `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` resourceAttributeList
       `Prelude.hashWithSalt` task

@@ -138,52 +138,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -191,14 +191,14 @@ _AccessDeniedException =
 
 -- | Exception raised to indicate a successfully authorized action when the
 -- @DryRun@ flag is set to \"true\".
-_DryRunOperation :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DryRunOperation :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DryRunOperation =
   Core._MatchServiceError
     defaultService
     "DryRunOperation"
 
 -- | The home region is not set. Set the home region to continue.
-_HomeRegionNotSetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_HomeRegionNotSetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _HomeRegionNotSetException =
   Core._MatchServiceError
     defaultService
@@ -206,7 +206,7 @@ _HomeRegionNotSetException =
 
 -- | Exception raised when an internal, configuration, or dependency error is
 -- encountered.
-_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -214,7 +214,7 @@ _InternalServerError =
 
 -- | Exception raised when the provided input violates a policy constraint or
 -- is entered in the wrong format or data type.
-_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -224,7 +224,7 @@ _InvalidInputException =
 -- Service (Application Discovery Service); most likely due to a
 -- misconfigured policy or the @migrationhub-discovery@ role is missing or
 -- not configured correctly.
-_PolicyErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PolicyErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PolicyErrorException =
   Core._MatchServiceError
     defaultService
@@ -234,7 +234,7 @@ _PolicyErrorException =
 -- Discovery Service configuration, update stream, migration task, etc.)
 -- that does not exist in Application Discovery Service (Application
 -- Discovery Service) or in Migration Hub\'s repository.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -242,14 +242,14 @@ _ResourceNotFoundException =
 
 -- | Exception raised when there is an internal, configuration, or dependency
 -- error encountered.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -257,7 +257,7 @@ _ThrottlingException =
 
 -- | Exception raised to indicate a request was not authorized when the
 -- @DryRun@ flag is set to \"true\".
-_UnauthorizedOperation :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedOperation :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedOperation =
   Core._MatchServiceError
     defaultService

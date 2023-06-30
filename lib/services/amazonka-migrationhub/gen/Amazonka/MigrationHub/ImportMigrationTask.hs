@@ -125,7 +125,8 @@ instance Core.AWSRequest ImportMigrationTask where
 
 instance Prelude.Hashable ImportMigrationTask where
   hashWithSalt _salt ImportMigrationTask' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` migrationTaskName
 

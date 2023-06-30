@@ -114,7 +114,8 @@ instance Data.FromJSON TableDataImportJobMetadata where
 
 instance Prelude.Hashable TableDataImportJobMetadata where
   hashWithSalt _salt TableDataImportJobMetadata' {..} =
-    _salt `Prelude.hashWithSalt` submitter
+    _salt
+      `Prelude.hashWithSalt` submitter
       `Prelude.hashWithSalt` submitTime
       `Prelude.hashWithSalt` importOptions
       `Prelude.hashWithSalt` dataSource

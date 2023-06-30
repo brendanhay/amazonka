@@ -128,7 +128,8 @@ upsertRowData_cellsToUpdate = Lens.lens (\UpsertRowData' {cellsToUpdate} -> cell
 
 instance Prelude.Hashable UpsertRowData where
   hashWithSalt _salt UpsertRowData' {..} =
-    _salt `Prelude.hashWithSalt` batchItemId
+    _salt
+      `Prelude.hashWithSalt` batchItemId
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` cellsToUpdate
 

@@ -157,7 +157,8 @@ instance Core.AWSRequest DescribeTableDataImportJob where
 
 instance Prelude.Hashable DescribeTableDataImportJob where
   hashWithSalt _salt DescribeTableDataImportJob' {..} =
-    _salt `Prelude.hashWithSalt` workbookId
+    _salt
+      `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` tableId
       `Prelude.hashWithSalt` jobId
 

@@ -91,7 +91,8 @@ instance Data.FromJSON DataItem where
 
 instance Prelude.Hashable DataItem where
   hashWithSalt _salt DataItem' {..} =
-    _salt `Prelude.hashWithSalt` formattedValue
+    _salt
+      `Prelude.hashWithSalt` formattedValue
       `Prelude.hashWithSalt` overrideFormat
       `Prelude.hashWithSalt` rawValue
 

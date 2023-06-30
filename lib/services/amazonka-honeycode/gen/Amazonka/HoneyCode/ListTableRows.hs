@@ -168,17 +168,19 @@ instance Core.AWSPager ListTableRows where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTableRowsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTableRowsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. listTableRowsResponse_rows) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTableRows_nextToken
           Lens..~ rs
-          Lens.^? listTableRowsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTableRowsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTableRows where
   type
@@ -200,7 +202,8 @@ instance Core.AWSRequest ListTableRows where
 
 instance Prelude.Hashable ListTableRows where
   hashWithSalt _salt ListTableRows' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` rowIds
       `Prelude.hashWithSalt` workbookId

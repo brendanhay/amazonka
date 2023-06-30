@@ -209,7 +209,8 @@ instance Core.AWSRequest InvokeScreenAutomation where
 
 instance Prelude.Hashable InvokeScreenAutomation where
   hashWithSalt _salt InvokeScreenAutomation' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` rowId
       `Prelude.hashWithSalt` variables
       `Prelude.hashWithSalt` workbookId

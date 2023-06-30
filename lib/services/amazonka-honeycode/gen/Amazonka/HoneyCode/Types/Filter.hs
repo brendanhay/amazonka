@@ -91,7 +91,8 @@ filter_formula = Lens.lens (\Filter' {formula} -> formula) (\s@Filter' {} a -> s
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` contextRowId
+    _salt
+      `Prelude.hashWithSalt` contextRowId
       `Prelude.hashWithSalt` formula
 
 instance Prelude.NFData Filter where

@@ -92,7 +92,8 @@ instance Data.FromJSON UpsertRowsResult where
 
 instance Prelude.Hashable UpsertRowsResult where
   hashWithSalt _salt UpsertRowsResult' {..} =
-    _salt `Prelude.hashWithSalt` rowIds
+    _salt
+      `Prelude.hashWithSalt` rowIds
       `Prelude.hashWithSalt` upsertAction
 
 instance Prelude.NFData UpsertRowsResult where

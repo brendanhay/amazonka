@@ -75,7 +75,8 @@ instance Data.FromJSON ResultRow where
 
 instance Prelude.Hashable ResultRow where
   hashWithSalt _salt ResultRow' {..} =
-    _salt `Prelude.hashWithSalt` rowId
+    _salt
+      `Prelude.hashWithSalt` rowId
       `Prelude.hashWithSalt` dataItems
 
 instance Prelude.NFData ResultRow where

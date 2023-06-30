@@ -142,7 +142,8 @@ instance Data.FromJSON ControlMappingSource where
 
 instance Prelude.Hashable ControlMappingSource where
   hashWithSalt _salt ControlMappingSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceDescription
+    _salt
+      `Prelude.hashWithSalt` sourceDescription
       `Prelude.hashWithSalt` sourceFrequency
       `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` sourceKeyword

@@ -115,7 +115,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEvidenceFoldersByAssessmentResponse'
-            Prelude.<$> ( x Data..?> "evidenceFolders"
+            Prelude.<$> ( x
+                            Data..?> "evidenceFolders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -129,7 +130,8 @@ instance
   hashWithSalt
     _salt
     GetEvidenceFoldersByAssessment' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` assessmentId
 

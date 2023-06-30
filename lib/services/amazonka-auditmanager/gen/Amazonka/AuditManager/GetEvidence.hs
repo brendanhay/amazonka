@@ -130,7 +130,8 @@ instance Core.AWSRequest GetEvidence where
 
 instance Prelude.Hashable GetEvidence where
   hashWithSalt _salt GetEvidence' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` controlSetId
       `Prelude.hashWithSalt` evidenceFolderId
       `Prelude.hashWithSalt` evidenceId

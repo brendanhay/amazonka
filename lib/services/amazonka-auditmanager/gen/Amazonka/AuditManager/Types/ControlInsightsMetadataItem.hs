@@ -103,7 +103,8 @@ instance Data.FromJSON ControlInsightsMetadataItem where
 
 instance Prelude.Hashable ControlInsightsMetadataItem where
   hashWithSalt _salt ControlInsightsMetadataItem' {..} =
-    _salt `Prelude.hashWithSalt` evidenceInsights
+    _salt
+      `Prelude.hashWithSalt` evidenceInsights
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` name

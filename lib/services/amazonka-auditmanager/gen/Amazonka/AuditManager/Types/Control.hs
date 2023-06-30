@@ -212,7 +212,8 @@ instance Data.FromJSON Control where
 
 instance Prelude.Hashable Control where
   hashWithSalt _salt Control' {..} =
-    _salt `Prelude.hashWithSalt` actionPlanInstructions
+    _salt
+      `Prelude.hashWithSalt` actionPlanInstructions
       `Prelude.hashWithSalt` actionPlanTitle
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` controlMappingSources

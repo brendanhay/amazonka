@@ -121,7 +121,8 @@ createControlMappingSource_troubleshootingText = Lens.lens (\CreateControlMappin
 
 instance Prelude.Hashable CreateControlMappingSource where
   hashWithSalt _salt CreateControlMappingSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceDescription
+    _salt
+      `Prelude.hashWithSalt` sourceDescription
       `Prelude.hashWithSalt` sourceFrequency
       `Prelude.hashWithSalt` sourceKeyword
       `Prelude.hashWithSalt` sourceName

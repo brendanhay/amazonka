@@ -137,7 +137,8 @@ instance Data.FromJSON AssessmentReportMetadata where
 
 instance Prelude.Hashable AssessmentReportMetadata where
   hashWithSalt _salt AssessmentReportMetadata' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` creationTime

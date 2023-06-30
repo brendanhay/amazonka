@@ -80,7 +80,8 @@ instance
     AssessmentReportsDestination
   where
   hashWithSalt _salt AssessmentReportsDestination' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationType
 
 instance Prelude.NFData AssessmentReportsDestination where

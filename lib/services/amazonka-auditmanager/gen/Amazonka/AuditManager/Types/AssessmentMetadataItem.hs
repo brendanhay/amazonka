@@ -142,7 +142,8 @@ instance Data.FromJSON AssessmentMetadataItem where
 
 instance Prelude.Hashable AssessmentMetadataItem where
   hashWithSalt _salt AssessmentMetadataItem' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` delegations
       `Prelude.hashWithSalt` id

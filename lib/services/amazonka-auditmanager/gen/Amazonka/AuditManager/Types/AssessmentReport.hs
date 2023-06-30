@@ -149,7 +149,8 @@ instance Data.FromJSON AssessmentReport where
 
 instance Prelude.Hashable AssessmentReport where
   hashWithSalt _salt AssessmentReport' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` awsAccountId

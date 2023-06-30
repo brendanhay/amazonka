@@ -148,7 +148,8 @@ instance Core.AWSRequest UpdateAssessment where
 
 instance Prelude.Hashable UpdateAssessment where
   hashWithSalt _salt UpdateAssessment' {..} =
-    _salt `Prelude.hashWithSalt` assessmentDescription
+    _salt
+      `Prelude.hashWithSalt` assessmentDescription
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` assessmentReportsDestination
       `Prelude.hashWithSalt` roles

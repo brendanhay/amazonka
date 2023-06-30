@@ -88,7 +88,8 @@ instance Data.FromJSON AWSAccount where
 
 instance Prelude.Hashable AWSAccount where
   hashWithSalt _salt AWSAccount' {..} =
-    _salt `Prelude.hashWithSalt` emailAddress
+    _salt
+      `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

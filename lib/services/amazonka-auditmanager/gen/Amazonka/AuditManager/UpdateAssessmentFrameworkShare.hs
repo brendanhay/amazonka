@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     UpdateAssessmentFrameworkShare' {..} =
-      _salt `Prelude.hashWithSalt` requestId
+      _salt
+        `Prelude.hashWithSalt` requestId
         `Prelude.hashWithSalt` requestType
         `Prelude.hashWithSalt` action
 

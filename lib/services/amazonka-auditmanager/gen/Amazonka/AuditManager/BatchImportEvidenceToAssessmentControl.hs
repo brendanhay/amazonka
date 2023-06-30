@@ -157,7 +157,7 @@ instance
       ( \s h x ->
           BatchImportEvidenceToAssessmentControlResponse'
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -167,7 +167,8 @@ instance
   hashWithSalt
     _salt
     BatchImportEvidenceToAssessmentControl' {..} =
-      _salt `Prelude.hashWithSalt` assessmentId
+      _salt
+        `Prelude.hashWithSalt` assessmentId
         `Prelude.hashWithSalt` controlSetId
         `Prelude.hashWithSalt` controlId
         `Prelude.hashWithSalt` manualEvidence

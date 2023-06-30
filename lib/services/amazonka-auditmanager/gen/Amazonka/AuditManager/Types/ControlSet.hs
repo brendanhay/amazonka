@@ -88,7 +88,8 @@ instance Data.FromJSON ControlSet where
 
 instance Prelude.Hashable ControlSet where
   hashWithSalt _salt ControlSet' {..} =
-    _salt `Prelude.hashWithSalt` controls
+    _salt
+      `Prelude.hashWithSalt` controls
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

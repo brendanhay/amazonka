@@ -73,7 +73,8 @@ instance Core.AWSRequest GetServicesInScope where
     Response.receiveJSON
       ( \s h x ->
           GetServicesInScopeResponse'
-            Prelude.<$> ( x Data..?> "serviceMetadata"
+            Prelude.<$> ( x
+                            Data..?> "serviceMetadata"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -75,7 +75,8 @@ instance Data.FromJSON URL where
 
 instance Prelude.Hashable URL where
   hashWithSalt _salt URL' {..} =
-    _salt `Prelude.hashWithSalt` hyperlinkName
+    _salt
+      `Prelude.hashWithSalt` hyperlinkName
       `Prelude.hashWithSalt` link
 
 instance Prelude.NFData URL where

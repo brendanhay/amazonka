@@ -200,7 +200,8 @@ instance Data.FromJSON Framework where
 
 instance Prelude.Hashable Framework where
   hashWithSalt _salt Framework' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` controlSets
       `Prelude.hashWithSalt` controlSources

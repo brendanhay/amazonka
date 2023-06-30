@@ -101,7 +101,8 @@ instance Core.AWSRequest RegisterAccount where
 
 instance Prelude.Hashable RegisterAccount where
   hashWithSalt _salt RegisterAccount' {..} =
-    _salt `Prelude.hashWithSalt` delegatedAdminAccount
+    _salt
+      `Prelude.hashWithSalt` delegatedAdminAccount
       `Prelude.hashWithSalt` kmsKey
 
 instance Prelude.NFData RegisterAccount where

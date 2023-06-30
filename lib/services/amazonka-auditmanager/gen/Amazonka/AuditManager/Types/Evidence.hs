@@ -263,7 +263,8 @@ instance Data.FromJSON Evidence where
             Prelude.<*> (x Data..:? "evidenceFolderId")
             Prelude.<*> (x Data..:? "iamId")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> ( x Data..:? "resourcesIncluded"
+            Prelude.<*> ( x
+                            Data..:? "resourcesIncluded"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "time")

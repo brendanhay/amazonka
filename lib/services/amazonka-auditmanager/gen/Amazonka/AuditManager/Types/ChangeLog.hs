@@ -116,7 +116,8 @@ instance Data.FromJSON ChangeLog where
 
 instance Prelude.Hashable ChangeLog where
   hashWithSalt _salt ChangeLog' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` objectName

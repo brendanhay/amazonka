@@ -193,7 +193,8 @@ instance Data.FromJSON Delegation where
 
 instance Prelude.Hashable Delegation where
   hashWithSalt _salt Delegation' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` controlSetId

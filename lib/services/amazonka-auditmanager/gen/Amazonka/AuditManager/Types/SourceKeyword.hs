@@ -217,7 +217,8 @@ instance Data.FromJSON SourceKeyword where
 
 instance Prelude.Hashable SourceKeyword where
   hashWithSalt _salt SourceKeyword' {..} =
-    _salt `Prelude.hashWithSalt` keywordInputType
+    _salt
+      `Prelude.hashWithSalt` keywordInputType
       `Prelude.hashWithSalt` keywordValue
 
 instance Prelude.NFData SourceKeyword where

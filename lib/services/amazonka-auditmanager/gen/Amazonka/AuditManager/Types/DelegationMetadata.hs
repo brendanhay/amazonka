@@ -125,7 +125,8 @@ instance Data.FromJSON DelegationMetadata where
 
 instance Prelude.Hashable DelegationMetadata where
   hashWithSalt _salt DelegationMetadata' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` controlSetName
       `Prelude.hashWithSalt` creationTime

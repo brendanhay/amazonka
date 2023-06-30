@@ -140,7 +140,8 @@ instance Data.FromJSON AssessmentControl where
             Prelude.<*> (x Data..:? "comments" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "evidenceCount")
-            Prelude.<*> ( x Data..:? "evidenceSources"
+            Prelude.<*> ( x
+                            Data..:? "evidenceSources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "id")

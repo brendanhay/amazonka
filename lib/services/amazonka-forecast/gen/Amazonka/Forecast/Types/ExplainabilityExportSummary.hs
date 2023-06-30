@@ -188,7 +188,8 @@ instance Data.FromJSON ExplainabilityExportSummary where
 
 instance Prelude.Hashable ExplainabilityExportSummary where
   hashWithSalt _salt ExplainabilityExportSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` explainabilityExportArn
       `Prelude.hashWithSalt` explainabilityExportName

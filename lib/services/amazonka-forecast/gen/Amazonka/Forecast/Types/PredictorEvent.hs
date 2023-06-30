@@ -83,7 +83,8 @@ instance Data.FromJSON PredictorEvent where
 
 instance Prelude.Hashable PredictorEvent where
   hashWithSalt _salt PredictorEvent' {..} =
-    _salt `Prelude.hashWithSalt` datetime
+    _salt
+      `Prelude.hashWithSalt` datetime
       `Prelude.hashWithSalt` detail
 
 instance Prelude.NFData PredictorEvent where

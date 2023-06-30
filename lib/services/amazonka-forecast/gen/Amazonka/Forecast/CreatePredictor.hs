@@ -615,7 +615,8 @@ instance Core.AWSRequest CreatePredictor where
 
 instance Prelude.Hashable CreatePredictor where
   hashWithSalt _salt CreatePredictor' {..} =
-    _salt `Prelude.hashWithSalt` algorithmArn
+    _salt
+      `Prelude.hashWithSalt` algorithmArn
       `Prelude.hashWithSalt` autoMLOverrideStrategy
       `Prelude.hashWithSalt` encryptionConfig
       `Prelude.hashWithSalt` evaluationParameters

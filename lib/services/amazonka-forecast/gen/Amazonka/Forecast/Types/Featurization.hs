@@ -116,7 +116,8 @@ instance Data.FromJSON Featurization where
 
 instance Prelude.Hashable Featurization where
   hashWithSalt _salt Featurization' {..} =
-    _salt `Prelude.hashWithSalt` featurizationPipeline
+    _salt
+      `Prelude.hashWithSalt` featurizationPipeline
       `Prelude.hashWithSalt` attributeName
 
 instance Prelude.NFData Featurization where

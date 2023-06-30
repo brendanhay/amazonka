@@ -202,7 +202,8 @@ instance Data.FromJSON DatasetImportJobSummary where
 
 instance Prelude.Hashable DatasetImportJobSummary where
   hashWithSalt _salt DatasetImportJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` datasetImportJobArn
       `Prelude.hashWithSalt` datasetImportJobName

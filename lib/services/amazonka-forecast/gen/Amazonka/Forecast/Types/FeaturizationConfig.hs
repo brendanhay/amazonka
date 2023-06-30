@@ -174,7 +174,8 @@ instance Data.FromJSON FeaturizationConfig where
 
 instance Prelude.Hashable FeaturizationConfig where
   hashWithSalt _salt FeaturizationConfig' {..} =
-    _salt `Prelude.hashWithSalt` featurizations
+    _salt
+      `Prelude.hashWithSalt` featurizations
       `Prelude.hashWithSalt` forecastDimensions
       `Prelude.hashWithSalt` forecastFrequency
 

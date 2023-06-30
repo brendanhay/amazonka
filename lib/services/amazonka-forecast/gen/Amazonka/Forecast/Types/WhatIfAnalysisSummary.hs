@@ -197,7 +197,8 @@ instance Data.FromJSON WhatIfAnalysisSummary where
 
 instance Prelude.Hashable WhatIfAnalysisSummary where
   hashWithSalt _salt WhatIfAnalysisSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` forecastArn
       `Prelude.hashWithSalt` lastModificationTime
       `Prelude.hashWithSalt` message

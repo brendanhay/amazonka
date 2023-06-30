@@ -219,7 +219,8 @@ instance Data.FromJSON PredictorSummary where
 
 instance Prelude.Hashable PredictorSummary where
   hashWithSalt _salt PredictorSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` isAutoPredictor
       `Prelude.hashWithSalt` lastModificationTime

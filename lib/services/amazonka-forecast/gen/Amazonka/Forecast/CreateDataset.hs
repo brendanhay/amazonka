@@ -350,7 +350,8 @@ instance Core.AWSRequest CreateDataset where
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
-    _salt `Prelude.hashWithSalt` dataFrequency
+    _salt
+      `Prelude.hashWithSalt` dataFrequency
       `Prelude.hashWithSalt` encryptionConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` datasetName

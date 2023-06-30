@@ -198,7 +198,8 @@ instance Core.AWSRequest CreateWhatIfForecast where
 
 instance Prelude.Hashable CreateWhatIfForecast where
   hashWithSalt _salt CreateWhatIfForecast' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeSeriesReplacementsDataSource
       `Prelude.hashWithSalt` timeSeriesTransformations
       `Prelude.hashWithSalt` whatIfForecastName

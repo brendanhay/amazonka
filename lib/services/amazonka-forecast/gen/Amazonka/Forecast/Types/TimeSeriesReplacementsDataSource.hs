@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     TimeSeriesReplacementsDataSource' {..} =
-      _salt `Prelude.hashWithSalt` format
+      _salt
+        `Prelude.hashWithSalt` format
         `Prelude.hashWithSalt` timestampFormat
         `Prelude.hashWithSalt` s3Config
         `Prelude.hashWithSalt` schema

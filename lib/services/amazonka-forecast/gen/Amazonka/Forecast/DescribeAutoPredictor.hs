@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeAutoPredictor where
           DescribeAutoPredictorResponse'
             Prelude.<$> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "DataConfig")
-            Prelude.<*> ( x Data..?> "DatasetImportJobArns"
+            Prelude.<*> ( x
+                            Data..?> "DatasetImportJobArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EncryptionConfig")

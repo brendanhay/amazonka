@@ -110,7 +110,8 @@ instance Core.AWSRequest GetAccuracyMetrics where
             Prelude.<$> (x Data..?> "AutoMLOverrideStrategy")
             Prelude.<*> (x Data..?> "IsAutoPredictor")
             Prelude.<*> (x Data..?> "OptimizationMetric")
-            Prelude.<*> ( x Data..?> "PredictorEvaluationResults"
+            Prelude.<*> ( x
+                            Data..?> "PredictorEvaluationResults"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

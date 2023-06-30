@@ -105,7 +105,8 @@ instance Data.FromJSON ErrorMetric where
 
 instance Prelude.Hashable ErrorMetric where
   hashWithSalt _salt ErrorMetric' {..} =
-    _salt `Prelude.hashWithSalt` forecastType
+    _salt
+      `Prelude.hashWithSalt` forecastType
       `Prelude.hashWithSalt` mape
       `Prelude.hashWithSalt` mase
       `Prelude.hashWithSalt` rmse

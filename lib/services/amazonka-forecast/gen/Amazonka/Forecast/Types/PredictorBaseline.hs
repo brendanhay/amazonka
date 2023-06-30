@@ -71,7 +71,8 @@ instance Data.FromJSON PredictorBaseline where
       "PredictorBaseline"
       ( \x ->
           PredictorBaseline'
-            Prelude.<$> ( x Data..:? "BaselineMetrics"
+            Prelude.<$> ( x
+                            Data..:? "BaselineMetrics"
                             Data..!= Prelude.mempty
                         )
       )

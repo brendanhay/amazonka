@@ -359,7 +359,8 @@ instance Core.AWSRequest CreateExplainability where
 
 instance Prelude.Hashable CreateExplainability where
   hashWithSalt _salt CreateExplainability' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` enableVisualization
       `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` schema

@@ -70,12 +70,14 @@ instance Data.FromJSON ReferencePredictorSummary where
       "ReferencePredictorSummary"
       ( \x ->
           ReferencePredictorSummary'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "State")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable ReferencePredictorSummary where
   hashWithSalt _salt ReferencePredictorSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ReferencePredictorSummary where

@@ -177,14 +177,16 @@ instance Data.FromJSON AttributeConfig where
       ( \x ->
           AttributeConfig'
             Prelude.<$> (x Data..: "AttributeName")
-            Prelude.<*> ( x Data..:? "Transformations"
+            Prelude.<*> ( x
+                            Data..:? "Transformations"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AttributeConfig where
   hashWithSalt _salt AttributeConfig' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` transformations
 
 instance Prelude.NFData AttributeConfig where

@@ -176,22 +176,22 @@ instance Core.AWSPager ListWhatIfAnalyses where
     | Core.stop
         ( rs
             Lens.^? listWhatIfAnalysesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listWhatIfAnalysesResponse_whatIfAnalyses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWhatIfAnalyses_nextToken
           Lens..~ rs
           Lens.^? listWhatIfAnalysesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWhatIfAnalyses where
   type
@@ -210,7 +210,8 @@ instance Core.AWSRequest ListWhatIfAnalyses where
 
 instance Prelude.Hashable ListWhatIfAnalyses where
   hashWithSalt _salt ListWhatIfAnalyses' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

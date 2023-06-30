@@ -226,7 +226,8 @@ instance Core.AWSRequest CreateExplainabilityExport where
 
 instance Prelude.Hashable CreateExplainabilityExport where
   hashWithSalt _salt CreateExplainabilityExport' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` explainabilityExportName
       `Prelude.hashWithSalt` explainabilityArn

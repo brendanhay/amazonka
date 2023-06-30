@@ -111,7 +111,8 @@ instance Data.FromJSON DatasetGroupSummary where
 
 instance Prelude.Hashable DatasetGroupSummary where
   hashWithSalt _salt DatasetGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` datasetGroupName
       `Prelude.hashWithSalt` lastModificationTime

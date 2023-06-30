@@ -86,7 +86,8 @@ instance Data.FromJSON InputDataConfig where
 
 instance Prelude.Hashable InputDataConfig where
   hashWithSalt _salt InputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` supplementaryFeatures
+    _salt
+      `Prelude.hashWithSalt` supplementaryFeatures
       `Prelude.hashWithSalt` datasetGroupArn
 
 instance Prelude.NFData InputDataConfig where

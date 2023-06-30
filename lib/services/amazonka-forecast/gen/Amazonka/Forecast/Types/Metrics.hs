@@ -108,7 +108,8 @@ instance Data.FromJSON Metrics where
             Prelude.<$> (x Data..:? "AverageWeightedQuantileLoss")
             Prelude.<*> (x Data..:? "ErrorMetrics" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "RMSE")
-            Prelude.<*> ( x Data..:? "WeightedQuantileLosses"
+            Prelude.<*> ( x
+                            Data..:? "WeightedQuantileLosses"
                             Data..!= Prelude.mempty
                         )
       )

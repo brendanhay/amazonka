@@ -176,22 +176,22 @@ instance Core.AWSPager ListWhatIfForecasts where
     | Core.stop
         ( rs
             Lens.^? listWhatIfForecastsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listWhatIfForecastsResponse_whatIfForecasts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWhatIfForecasts_nextToken
           Lens..~ rs
           Lens.^? listWhatIfForecastsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWhatIfForecasts where
   type
@@ -204,7 +204,8 @@ instance Core.AWSRequest ListWhatIfForecasts where
       ( \s h x ->
           ListWhatIfForecastsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "WhatIfForecasts"
+            Prelude.<*> ( x
+                            Data..?> "WhatIfForecasts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -212,7 +213,8 @@ instance Core.AWSRequest ListWhatIfForecasts where
 
 instance Prelude.Hashable ListWhatIfForecasts where
   hashWithSalt _salt ListWhatIfForecasts' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

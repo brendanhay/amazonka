@@ -113,7 +113,8 @@ instance Data.FromJSON TestWindowSummary where
 
 instance Prelude.Hashable TestWindowSummary where
   hashWithSalt _salt TestWindowSummary' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` testWindowEnd
       `Prelude.hashWithSalt` testWindowStart

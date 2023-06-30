@@ -421,7 +421,8 @@ instance Core.AWSRequest CreateDatasetImportJob where
 
 instance Prelude.Hashable CreateDatasetImportJob where
   hashWithSalt _salt CreateDatasetImportJob' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` geolocationFormat
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeZone

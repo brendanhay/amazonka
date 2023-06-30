@@ -107,7 +107,8 @@ instance Data.FromJSON TimeSeriesCondition where
 
 instance Prelude.Hashable TimeSeriesCondition where
   hashWithSalt _salt TimeSeriesCondition' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` attributeValue
       `Prelude.hashWithSalt` condition
 

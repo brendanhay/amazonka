@@ -187,7 +187,8 @@ instance Core.AWSRequest CreateWhatIfForecastExport where
 
 instance Prelude.Hashable CreateWhatIfForecastExport where
   hashWithSalt _salt CreateWhatIfForecastExport' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` whatIfForecastExportName
       `Prelude.hashWithSalt` whatIfForecastArns

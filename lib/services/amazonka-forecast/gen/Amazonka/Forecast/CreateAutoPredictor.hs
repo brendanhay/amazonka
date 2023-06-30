@@ -466,7 +466,8 @@ instance Core.AWSRequest CreateAutoPredictor where
 
 instance Prelude.Hashable CreateAutoPredictor where
   hashWithSalt _salt CreateAutoPredictor' {..} =
-    _salt `Prelude.hashWithSalt` dataConfig
+    _salt
+      `Prelude.hashWithSalt` dataConfig
       `Prelude.hashWithSalt` encryptionConfig
       `Prelude.hashWithSalt` explainPredictor
       `Prelude.hashWithSalt` forecastDimensions

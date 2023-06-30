@@ -90,7 +90,8 @@ instance Data.FromJSON SchemaAttribute where
 
 instance Prelude.Hashable SchemaAttribute where
   hashWithSalt _salt SchemaAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` attributeType
 
 instance Prelude.NFData SchemaAttribute where

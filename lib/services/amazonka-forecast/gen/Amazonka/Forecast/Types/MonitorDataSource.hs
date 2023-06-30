@@ -94,7 +94,8 @@ instance Data.FromJSON MonitorDataSource where
 
 instance Prelude.Hashable MonitorDataSource where
   hashWithSalt _salt MonitorDataSource' {..} =
-    _salt `Prelude.hashWithSalt` datasetImportJobArn
+    _salt
+      `Prelude.hashWithSalt` datasetImportJobArn
       `Prelude.hashWithSalt` forecastArn
       `Prelude.hashWithSalt` predictorArn
 

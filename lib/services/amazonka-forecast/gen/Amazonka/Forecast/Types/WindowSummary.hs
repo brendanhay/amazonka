@@ -122,7 +122,8 @@ instance Data.FromJSON WindowSummary where
 
 instance Prelude.Hashable WindowSummary where
   hashWithSalt _salt WindowSummary' {..} =
-    _salt `Prelude.hashWithSalt` evaluationType
+    _salt
+      `Prelude.hashWithSalt` evaluationType
       `Prelude.hashWithSalt` itemCount
       `Prelude.hashWithSalt` metrics
       `Prelude.hashWithSalt` testWindowEnd

@@ -81,7 +81,8 @@ instance Data.FromJSON EventCategoryGroup where
       "EventCategoryGroup"
       ( \x ->
           EventCategoryGroup'
-            Prelude.<$> ( x Data..:? "EventCategories"
+            Prelude.<$> ( x
+                            Data..:? "EventCategories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SourceType")
@@ -89,7 +90,8 @@ instance Data.FromJSON EventCategoryGroup where
 
 instance Prelude.Hashable EventCategoryGroup where
   hashWithSalt _salt EventCategoryGroup' {..} =
-    _salt `Prelude.hashWithSalt` eventCategories
+    _salt
+      `Prelude.hashWithSalt` eventCategories
       `Prelude.hashWithSalt` sourceType
 
 instance Prelude.NFData EventCategoryGroup where

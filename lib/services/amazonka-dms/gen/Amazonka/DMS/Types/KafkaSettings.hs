@@ -34,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 data KafkaSettings = KafkaSettings'
   { -- | A comma-separated list of one or more broker locations in your Kafka
     -- cluster that host your Kafka instance. Specify each broker location in
-    -- the form @ broker-hostname-or-ip:port @. For example,
+    -- the form @ @/@broker-hostname-or-ip@/@:@/@port@/@ @. For example,
     -- @\"ec2-12-345-678-901.compute-1.amazonaws.com:2345\"@. For more
     -- information and examples of specifying a list of broker locations, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html Using Apache Kafka as a target for Database Migration Service>
@@ -122,7 +122,7 @@ data KafkaSettings = KafkaSettings'
 --
 -- 'broker', 'kafkaSettings_broker' - A comma-separated list of one or more broker locations in your Kafka
 -- cluster that host your Kafka instance. Specify each broker location in
--- the form @ broker-hostname-or-ip:port @. For example,
+-- the form @ @/@broker-hostname-or-ip@/@:@/@port@/@ @. For example,
 -- @\"ec2-12-345-678-901.compute-1.amazonaws.com:2345\"@. For more
 -- information and examples of specifying a list of broker locations, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html Using Apache Kafka as a target for Database Migration Service>
@@ -222,7 +222,7 @@ newKafkaSettings =
 
 -- | A comma-separated list of one or more broker locations in your Kafka
 -- cluster that host your Kafka instance. Specify each broker location in
--- the form @ broker-hostname-or-ip:port @. For example,
+-- the form @ @/@broker-hostname-or-ip@/@:@/@port@/@ @. For example,
 -- @\"ec2-12-345-678-901.compute-1.amazonaws.com:2345\"@. For more
 -- information and examples of specifying a list of broker locations, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html Using Apache Kafka as a target for Database Migration Service>
@@ -361,7 +361,8 @@ instance Data.FromJSON KafkaSettings where
 
 instance Prelude.Hashable KafkaSettings where
   hashWithSalt _salt KafkaSettings' {..} =
-    _salt `Prelude.hashWithSalt` broker
+    _salt
+      `Prelude.hashWithSalt` broker
       `Prelude.hashWithSalt` includeControlDetails
       `Prelude.hashWithSalt` includeNullAndEmpty
       `Prelude.hashWithSalt` includePartitionValue

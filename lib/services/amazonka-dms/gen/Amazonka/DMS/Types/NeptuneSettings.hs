@@ -183,7 +183,8 @@ instance Data.FromJSON NeptuneSettings where
 
 instance Prelude.Hashable NeptuneSettings where
   hashWithSalt _salt NeptuneSettings' {..} =
-    _salt `Prelude.hashWithSalt` errorRetryDuration
+    _salt
+      `Prelude.hashWithSalt` errorRetryDuration
       `Prelude.hashWithSalt` iamAuthEnabled
       `Prelude.hashWithSalt` maxFileSize
       `Prelude.hashWithSalt` maxRetryCount

@@ -113,7 +113,8 @@ instance Core.AWSRequest RefreshSchemas where
 
 instance Prelude.Hashable RefreshSchemas where
   hashWithSalt _salt RefreshSchemas' {..} =
-    _salt `Prelude.hashWithSalt` endpointArn
+    _salt
+      `Prelude.hashWithSalt` endpointArn
       `Prelude.hashWithSalt` replicationInstanceArn
 
 instance Prelude.NFData RefreshSchemas where

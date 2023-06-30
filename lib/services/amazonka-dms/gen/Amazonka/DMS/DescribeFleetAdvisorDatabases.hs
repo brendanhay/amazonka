@@ -179,7 +179,8 @@ instance
     DescribeFleetAdvisorDatabases
   where
   hashWithSalt _salt DescribeFleetAdvisorDatabases' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
 

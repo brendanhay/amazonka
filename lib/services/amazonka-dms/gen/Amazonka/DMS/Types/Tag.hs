@@ -118,7 +118,8 @@ instance Data.FromJSON Tag where
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` value
 

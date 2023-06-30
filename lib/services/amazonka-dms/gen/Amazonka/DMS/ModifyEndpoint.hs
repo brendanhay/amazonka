@@ -732,7 +732,8 @@ instance Core.AWSRequest ModifyEndpoint where
 
 instance Prelude.Hashable ModifyEndpoint where
   hashWithSalt _salt ModifyEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` dmsTransferSettings
       `Prelude.hashWithSalt` docDbSettings

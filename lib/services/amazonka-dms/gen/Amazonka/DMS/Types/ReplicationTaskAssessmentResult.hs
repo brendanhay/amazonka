@@ -162,7 +162,8 @@ instance
   hashWithSalt
     _salt
     ReplicationTaskAssessmentResult' {..} =
-      _salt `Prelude.hashWithSalt` assessmentResults
+      _salt
+        `Prelude.hashWithSalt` assessmentResults
         `Prelude.hashWithSalt` assessmentResultsFile
         `Prelude.hashWithSalt` assessmentStatus
         `Prelude.hashWithSalt` replicationTaskArn

@@ -142,22 +142,22 @@ instance Core.AWSPager DescribeReplicationInstances where
     | Core.stop
         ( rs
             Lens.^? describeReplicationInstancesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReplicationInstancesResponse_replicationInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReplicationInstances_marker
           Lens..~ rs
           Lens.^? describeReplicationInstancesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReplicationInstances where
   type
@@ -170,7 +170,8 @@ instance Core.AWSRequest DescribeReplicationInstances where
       ( \s h x ->
           DescribeReplicationInstancesResponse'
             Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> ( x Data..?> "ReplicationInstances"
+            Prelude.<*> ( x
+                            Data..?> "ReplicationInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -181,7 +182,8 @@ instance
     DescribeReplicationInstances
   where
   hashWithSalt _salt DescribeReplicationInstances' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
 

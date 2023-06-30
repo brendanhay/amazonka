@@ -305,7 +305,7 @@ instance
       ( \s h x ->
           StartReplicationTaskAssessmentRunResponse'
             Prelude.<$> (x Data..?> "ReplicationTaskAssessmentRun")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -315,7 +315,8 @@ instance
   hashWithSalt
     _salt
     StartReplicationTaskAssessmentRun' {..} =
-      _salt `Prelude.hashWithSalt` exclude
+      _salt
+        `Prelude.hashWithSalt` exclude
         `Prelude.hashWithSalt` includeOnly
         `Prelude.hashWithSalt` resultEncryptionMode
         `Prelude.hashWithSalt` resultKmsKeyArn

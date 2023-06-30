@@ -274,7 +274,6 @@ gcpMySQLSettings_parallelLoadThreads = Lens.lens (\GcpMySQLSettings' {parallelLo
 gcpMySQLSettings_password :: Lens.Lens' GcpMySQLSettings (Prelude.Maybe Prelude.Text)
 gcpMySQLSettings_password = Lens.lens (\GcpMySQLSettings' {password} -> password) (\s@GcpMySQLSettings' {} a -> s {password = a} :: GcpMySQLSettings) Prelude.. Lens.mapping Data._Sensitive
 
--- |
 gcpMySQLSettings_port :: Lens.Lens' GcpMySQLSettings (Prelude.Maybe Prelude.Int)
 gcpMySQLSettings_port = Lens.lens (\GcpMySQLSettings' {port} -> port) (\s@GcpMySQLSettings' {} a -> s {port = a} :: GcpMySQLSettings)
 
@@ -348,7 +347,8 @@ instance Data.FromJSON GcpMySQLSettings where
 
 instance Prelude.Hashable GcpMySQLSettings where
   hashWithSalt _salt GcpMySQLSettings' {..} =
-    _salt `Prelude.hashWithSalt` afterConnectScript
+    _salt
+      `Prelude.hashWithSalt` afterConnectScript
       `Prelude.hashWithSalt` cleanSourceMetadataOnMismatch
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` eventsPollInterval

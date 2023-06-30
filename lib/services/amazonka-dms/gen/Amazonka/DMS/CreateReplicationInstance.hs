@@ -466,7 +466,8 @@ instance Core.AWSRequest CreateReplicationInstance where
 
 instance Prelude.Hashable CreateReplicationInstance where
   hashWithSalt _salt CreateReplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` dnsNameServers

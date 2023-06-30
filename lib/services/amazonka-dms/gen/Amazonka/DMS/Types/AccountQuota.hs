@@ -85,7 +85,8 @@ instance Data.FromJSON AccountQuota where
 
 instance Prelude.Hashable AccountQuota where
   hashWithSalt _salt AccountQuota' {..} =
-    _salt `Prelude.hashWithSalt` accountQuotaName
+    _salt
+      `Prelude.hashWithSalt` accountQuotaName
       `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` used
 

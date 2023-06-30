@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     DescribeFleetAdvisorLsaAnalysis' {..} =
-      _salt `Prelude.hashWithSalt` maxRecords
+      _salt
+        `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` nextToken
 
 instance

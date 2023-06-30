@@ -77,7 +77,8 @@ instance Data.FromJSON DmsTransferSettings where
 
 instance Prelude.Hashable DmsTransferSettings where
   hashWithSalt _salt DmsTransferSettings' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` serviceAccessRoleArn
 
 instance Prelude.NFData DmsTransferSettings where

@@ -105,7 +105,8 @@ instance Data.FromJSON SchemaShortInfoResponse where
 
 instance Prelude.Hashable SchemaShortInfoResponse where
   hashWithSalt _salt SchemaShortInfoResponse' {..} =
-    _salt `Prelude.hashWithSalt` databaseId
+    _salt
+      `Prelude.hashWithSalt` databaseId
       `Prelude.hashWithSalt` databaseIpAddress
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` schemaId

@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     FleetAdvisorLsaAnalysisResponse' {..} =
-      _salt `Prelude.hashWithSalt` lsaAnalysisId
+      _salt
+        `Prelude.hashWithSalt` lsaAnalysisId
         `Prelude.hashWithSalt` status
 
 instance

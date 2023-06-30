@@ -423,7 +423,8 @@ instance Data.FromJSON PostgreSQLSettings where
 
 instance Prelude.Hashable PostgreSQLSettings where
   hashWithSalt _salt PostgreSQLSettings' {..} =
-    _salt `Prelude.hashWithSalt` afterConnectScript
+    _salt
+      `Prelude.hashWithSalt` afterConnectScript
       `Prelude.hashWithSalt` captureDdls
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` ddlArtifactsSchema

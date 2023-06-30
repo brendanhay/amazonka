@@ -129,8 +129,9 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     -- DMS uses this identifier to name the default Amazon S3 bucket for
     -- storing task assessment reports in a given Amazon Web Services Region.
     -- The format of this S3 bucket name is the following:
-    -- @dms-AccountNumber-UniqueAccountIdentifier.@ Here is an example name for
-    -- this default S3 bucket: @dms-111122223333-c44445555666@.
+    -- @dms-@/@AccountNumber@/@-@/@UniqueAccountIdentifier@/@.@ Here is an
+    -- example name for this default S3 bucket:
+    -- @dms-111122223333-c44445555666@.
     --
     -- DMS supports the @UniqueAccountIdentifier@ parameter in versions 3.1.4
     -- and later.
@@ -156,8 +157,9 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 -- DMS uses this identifier to name the default Amazon S3 bucket for
 -- storing task assessment reports in a given Amazon Web Services Region.
 -- The format of this S3 bucket name is the following:
--- @dms-AccountNumber-UniqueAccountIdentifier.@ Here is an example name for
--- this default S3 bucket: @dms-111122223333-c44445555666@.
+-- @dms-@/@AccountNumber@/@-@/@UniqueAccountIdentifier@/@.@ Here is an
+-- example name for this default S3 bucket:
+-- @dms-111122223333-c44445555666@.
 --
 -- DMS supports the @UniqueAccountIdentifier@ parameter in versions 3.1.4
 -- and later.
@@ -186,8 +188,9 @@ describeAccountAttributesResponse_accountQuotas = Lens.lens (\DescribeAccountAtt
 -- DMS uses this identifier to name the default Amazon S3 bucket for
 -- storing task assessment reports in a given Amazon Web Services Region.
 -- The format of this S3 bucket name is the following:
--- @dms-AccountNumber-UniqueAccountIdentifier.@ Here is an example name for
--- this default S3 bucket: @dms-111122223333-c44445555666@.
+-- @dms-@/@AccountNumber@/@-@/@UniqueAccountIdentifier@/@.@ Here is an
+-- example name for this default S3 bucket:
+-- @dms-111122223333-c44445555666@.
 --
 -- DMS supports the @UniqueAccountIdentifier@ parameter in versions 3.1.4
 -- and later.

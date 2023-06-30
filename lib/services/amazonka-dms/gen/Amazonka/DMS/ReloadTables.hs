@@ -135,7 +135,8 @@ instance Core.AWSRequest ReloadTables where
 
 instance Prelude.Hashable ReloadTables where
   hashWithSalt _salt ReloadTables' {..} =
-    _salt `Prelude.hashWithSalt` reloadOption
+    _salt
+      `Prelude.hashWithSalt` reloadOption
       `Prelude.hashWithSalt` replicationTaskArn
       `Prelude.hashWithSalt` tablesToReload
 

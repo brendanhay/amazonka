@@ -141,11 +141,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetAdvisorSchemaObjectSummaryResponse'
-            Prelude.<$> ( x Data..?> "FleetAdvisorSchemaObjects"
+            Prelude.<$> ( x
+                            Data..?> "FleetAdvisorSchemaObjects"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -155,7 +156,8 @@ instance
   hashWithSalt
     _salt
     DescribeFleetAdvisorSchemaObjectSummary' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` nextToken
 

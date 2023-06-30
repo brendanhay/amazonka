@@ -205,11 +205,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicableIndividualAssessmentsResponse'
-            Prelude.<$> ( x Data..?> "IndividualAssessmentNames"
+            Prelude.<$> ( x
+                            Data..?> "IndividualAssessmentNames"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "Marker")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -219,7 +220,8 @@ instance
   hashWithSalt
     _salt
     DescribeApplicableIndividualAssessments' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` migrationType
         `Prelude.hashWithSalt` replicationInstanceArn

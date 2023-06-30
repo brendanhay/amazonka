@@ -178,7 +178,8 @@ instance Data.FromJSON OrderableReplicationInstance where
       "OrderableReplicationInstance"
       ( \x ->
           OrderableReplicationInstance'
-            Prelude.<$> ( x Data..:? "AvailabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DefaultAllocatedStorage")
@@ -196,7 +197,8 @@ instance
     OrderableReplicationInstance
   where
   hashWithSalt _salt OrderableReplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` defaultAllocatedStorage
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` includedAllocatedStorage

@@ -123,7 +123,8 @@ instance Core.AWSRequest DescribeEndpointSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointSettingsResponse'
-            Prelude.<$> ( x Data..?> "EndpointSettings"
+            Prelude.<$> ( x
+                            Data..?> "EndpointSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Marker")
@@ -132,7 +133,8 @@ instance Core.AWSRequest DescribeEndpointSettings where
 
 instance Prelude.Hashable DescribeEndpointSettings where
   hashWithSalt _salt DescribeEndpointSettings' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` engineName
 

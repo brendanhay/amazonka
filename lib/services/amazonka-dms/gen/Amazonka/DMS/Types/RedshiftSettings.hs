@@ -664,7 +664,8 @@ instance Data.FromJSON RedshiftSettings where
 
 instance Prelude.Hashable RedshiftSettings where
   hashWithSalt _salt RedshiftSettings' {..} =
-    _salt `Prelude.hashWithSalt` acceptAnyDate
+    _salt
+      `Prelude.hashWithSalt` acceptAnyDate
       `Prelude.hashWithSalt` afterConnectScript
       `Prelude.hashWithSalt` bucketFolder
       `Prelude.hashWithSalt` bucketName

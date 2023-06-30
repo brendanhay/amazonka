@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeEventCategories where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventCategoriesResponse'
-            Prelude.<$> ( x Data..?> "EventCategoryGroupList"
+            Prelude.<$> ( x
+                            Data..?> "EventCategoryGroupList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,7 +115,8 @@ instance Core.AWSRequest DescribeEventCategories where
 
 instance Prelude.Hashable DescribeEventCategories where
   hashWithSalt _salt DescribeEventCategories' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` sourceType
 
 instance Prelude.NFData DescribeEventCategories where

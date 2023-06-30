@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     ReplicationPendingModifiedValues' {..} =
-      _salt `Prelude.hashWithSalt` allocatedStorage
+      _salt
+        `Prelude.hashWithSalt` allocatedStorage
         `Prelude.hashWithSalt` engineVersion
         `Prelude.hashWithSalt` multiAZ
         `Prelude.hashWithSalt` networkType

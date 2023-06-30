@@ -175,7 +175,8 @@ instance Data.FromJSON RedisSettings where
 
 instance Prelude.Hashable RedisSettings where
   hashWithSalt _salt RedisSettings' {..} =
-    _salt `Prelude.hashWithSalt` authPassword
+    _salt
+      `Prelude.hashWithSalt` authPassword
       `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` authUserName
       `Prelude.hashWithSalt` sslCaCertificateArn

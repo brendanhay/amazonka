@@ -299,7 +299,8 @@ instance
     ReplicationTaskAssessmentRun
   where
   hashWithSalt _salt ReplicationTaskAssessmentRun' {..} =
-    _salt `Prelude.hashWithSalt` assessmentProgress
+    _salt
+      `Prelude.hashWithSalt` assessmentProgress
       `Prelude.hashWithSalt` assessmentRunName
       `Prelude.hashWithSalt` lastFailureMessage
       `Prelude.hashWithSalt` replicationTaskArn

@@ -139,22 +139,22 @@ instance Core.AWSPager DescribeConnections where
     | Core.stop
         ( rs
             Lens.^? describeConnectionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeConnectionsResponse_connections
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeConnections_marker
           Lens..~ rs
           Lens.^? describeConnectionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeConnections where
   type
@@ -173,7 +173,8 @@ instance Core.AWSRequest DescribeConnections where
 
 instance Prelude.Hashable DescribeConnections where
   hashWithSalt _salt DescribeConnections' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
 

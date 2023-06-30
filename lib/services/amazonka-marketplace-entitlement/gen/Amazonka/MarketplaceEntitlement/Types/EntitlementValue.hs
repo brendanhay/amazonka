@@ -107,7 +107,8 @@ instance Data.FromJSON EntitlementValue where
 
 instance Prelude.Hashable EntitlementValue where
   hashWithSalt _salt EntitlementValue' {..} =
-    _salt `Prelude.hashWithSalt` booleanValue
+    _salt
+      `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` stringValue

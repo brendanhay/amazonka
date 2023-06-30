@@ -193,7 +193,8 @@ instance Data.FromJSON SourceDetail where
 
 instance Prelude.Hashable SourceDetail where
   hashWithSalt _salt SourceDetail' {..} =
-    _salt `Prelude.hashWithSalt` eventSource
+    _salt
+      `Prelude.hashWithSalt` eventSource
       `Prelude.hashWithSalt` maximumExecutionFrequency
       `Prelude.hashWithSalt` messageType
 

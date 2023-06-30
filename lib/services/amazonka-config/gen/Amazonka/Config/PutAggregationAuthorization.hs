@@ -118,7 +118,8 @@ instance Core.AWSRequest PutAggregationAuthorization where
 
 instance Prelude.Hashable PutAggregationAuthorization where
   hashWithSalt _salt PutAggregationAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` authorizedAccountId
       `Prelude.hashWithSalt` authorizedAwsRegion
 

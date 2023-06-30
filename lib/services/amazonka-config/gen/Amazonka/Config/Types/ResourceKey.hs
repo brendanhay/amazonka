@@ -80,7 +80,8 @@ instance Data.FromJSON ResourceKey where
 
 instance Prelude.Hashable ResourceKey where
   hashWithSalt _salt ResourceKey' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ResourceKey where

@@ -190,7 +190,8 @@ instance Core.AWSRequest GetDiscoveredResourceCounts where
 
 instance Prelude.Hashable GetDiscoveredResourceCounts where
   hashWithSalt _salt GetDiscoveredResourceCounts' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceTypes
 

@@ -99,7 +99,8 @@ instance Core.AWSRequest DeleteResourceConfig where
 
 instance Prelude.Hashable DeleteResourceConfig where
   hashWithSalt _salt DeleteResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DeleteResourceConfig where

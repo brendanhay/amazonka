@@ -151,7 +151,8 @@ instance Data.FromJSON AggregatedSourceStatus where
 
 instance Prelude.Hashable AggregatedSourceStatus where
   hashWithSalt _salt AggregatedSourceStatus' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` lastErrorCode
       `Prelude.hashWithSalt` lastErrorMessage
       `Prelude.hashWithSalt` lastUpdateStatus

@@ -81,7 +81,8 @@ instance Data.FromJSON GroupedResourceCount where
 
 instance Prelude.Hashable GroupedResourceCount where
   hashWithSalt _salt GroupedResourceCount' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` resourceCount
 
 instance Prelude.NFData GroupedResourceCount where

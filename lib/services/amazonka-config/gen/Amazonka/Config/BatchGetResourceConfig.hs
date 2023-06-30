@@ -100,7 +100,8 @@ instance Core.AWSRequest BatchGetResourceConfig where
     Response.receiveJSON
       ( \s h x ->
           BatchGetResourceConfigResponse'
-            Prelude.<$> ( x Data..?> "baseConfigurationItems"
+            Prelude.<$> ( x
+                            Data..?> "baseConfigurationItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "unprocessedResourceKeys")

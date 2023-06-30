@@ -151,12 +151,13 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAggregateConfigRuleComplianceSummaryResponse'
-            Prelude.<$> ( x Data..?> "AggregateComplianceCounts"
+            Prelude.<$> ( x
+                            Data..?> "AggregateComplianceCounts"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "GroupByKey")
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "GroupByKey")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -166,7 +167,8 @@ instance
   hashWithSalt
     _salt
     GetAggregateConfigRuleComplianceSummary' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` groupByKey
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken

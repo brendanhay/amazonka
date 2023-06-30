@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     ComplianceSummaryByResourceType' {..} =
-      _salt `Prelude.hashWithSalt` complianceSummary
+      _salt
+        `Prelude.hashWithSalt` complianceSummary
         `Prelude.hashWithSalt` resourceType
 
 instance

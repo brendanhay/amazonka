@@ -106,7 +106,8 @@ instance Data.FromJSON RemediationExecutionStep where
 
 instance Prelude.Hashable RemediationExecutionStep where
   hashWithSalt _salt RemediationExecutionStep' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` state

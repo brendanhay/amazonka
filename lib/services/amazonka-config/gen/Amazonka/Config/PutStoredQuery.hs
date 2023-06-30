@@ -120,7 +120,8 @@ instance Core.AWSRequest PutStoredQuery where
 
 instance Prelude.Hashable PutStoredQuery where
   hashWithSalt _salt PutStoredQuery' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` storedQuery
 
 instance Prelude.NFData PutStoredQuery where

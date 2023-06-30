@@ -145,7 +145,8 @@ instance Data.FromJSON OrganizationConfigRule where
       "OrganizationConfigRule"
       ( \x ->
           OrganizationConfigRule'
-            Prelude.<$> ( x Data..:? "ExcludedAccounts"
+            Prelude.<$> ( x
+                            Data..:? "ExcludedAccounts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LastUpdateTime")
@@ -158,7 +159,8 @@ instance Data.FromJSON OrganizationConfigRule where
 
 instance Prelude.Hashable OrganizationConfigRule where
   hashWithSalt _salt OrganizationConfigRule' {..} =
-    _salt `Prelude.hashWithSalt` excludedAccounts
+    _salt
+      `Prelude.hashWithSalt` excludedAccounts
       `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` organizationCustomPolicyRuleMetadata
       `Prelude.hashWithSalt` organizationCustomRuleMetadata

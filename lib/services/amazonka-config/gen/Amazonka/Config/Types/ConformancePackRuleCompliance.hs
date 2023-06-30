@@ -108,7 +108,8 @@ instance
     ConformancePackRuleCompliance
   where
   hashWithSalt _salt ConformancePackRuleCompliance' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` controls
 

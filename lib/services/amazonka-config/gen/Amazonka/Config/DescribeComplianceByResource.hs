@@ -183,22 +183,22 @@ instance Core.AWSPager DescribeComplianceByResource where
     | Core.stop
         ( rs
             Lens.^? describeComplianceByResourceResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeComplianceByResourceResponse_complianceByResources
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeComplianceByResource_nextToken
           Lens..~ rs
           Lens.^? describeComplianceByResourceResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeComplianceByResource where
   type
@@ -210,7 +210,8 @@ instance Core.AWSRequest DescribeComplianceByResource where
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByResourceResponse'
-            Prelude.<$> ( x Data..?> "ComplianceByResources"
+            Prelude.<$> ( x
+                            Data..?> "ComplianceByResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -222,7 +223,8 @@ instance
     DescribeComplianceByResource
   where
   hashWithSalt _salt DescribeComplianceByResource' {..} =
-    _salt `Prelude.hashWithSalt` complianceTypes
+    _salt
+      `Prelude.hashWithSalt` complianceTypes
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId

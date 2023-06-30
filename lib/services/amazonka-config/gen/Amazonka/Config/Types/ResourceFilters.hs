@@ -83,7 +83,8 @@ resourceFilters_resourceName = Lens.lens (\ResourceFilters' {resourceName} -> re
 
 instance Prelude.Hashable ResourceFilters where
   hashWithSalt _salt ResourceFilters' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceName

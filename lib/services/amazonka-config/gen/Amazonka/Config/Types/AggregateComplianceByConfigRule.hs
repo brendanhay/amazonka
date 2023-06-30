@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     AggregateComplianceByConfigRule' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` awsRegion
         `Prelude.hashWithSalt` compliance
         `Prelude.hashWithSalt` configRuleName

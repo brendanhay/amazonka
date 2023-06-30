@@ -77,7 +77,7 @@ instance
       ( \x ->
           AggregateConformancePackComplianceSummary'
             Prelude.<$> (x Data..:? "ComplianceSummary")
-              Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "GroupName")
       )
 
 instance
@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     AggregateConformancePackComplianceSummary' {..} =
-      _salt `Prelude.hashWithSalt` complianceSummary
+      _salt
+        `Prelude.hashWithSalt` complianceSummary
         `Prelude.hashWithSalt` groupName
 
 instance

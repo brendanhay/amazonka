@@ -108,7 +108,8 @@ instance Data.FromJSON RemediationExecutionStatus where
 
 instance Prelude.Hashable RemediationExecutionStatus where
   hashWithSalt _salt RemediationExecutionStatus' {..} =
-    _salt `Prelude.hashWithSalt` invocationTime
+    _salt
+      `Prelude.hashWithSalt` invocationTime
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` resourceKey
       `Prelude.hashWithSalt` state

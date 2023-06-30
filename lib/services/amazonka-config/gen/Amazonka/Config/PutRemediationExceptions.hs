@@ -146,7 +146,8 @@ instance Core.AWSRequest PutRemediationExceptions where
 
 instance Prelude.Hashable PutRemediationExceptions where
   hashWithSalt _salt PutRemediationExceptions' {..} =
-    _salt `Prelude.hashWithSalt` expirationTime
+    _salt
+      `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` resourceKeys

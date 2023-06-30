@@ -109,7 +109,8 @@ instance Data.FromJSON CustomPolicyDetails where
 
 instance Prelude.Hashable CustomPolicyDetails where
   hashWithSalt _salt CustomPolicyDetails' {..} =
-    _salt `Prelude.hashWithSalt` enableDebugLogDelivery
+    _salt
+      `Prelude.hashWithSalt` enableDebugLogDelivery
       `Prelude.hashWithSalt` policyRuntime
       `Prelude.hashWithSalt` policyText
 

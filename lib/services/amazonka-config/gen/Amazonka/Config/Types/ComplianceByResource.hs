@@ -92,7 +92,8 @@ instance Data.FromJSON ComplianceByResource where
 
 instance Prelude.Hashable ComplianceByResource where
   hashWithSalt _salt ComplianceByResource' {..} =
-    _salt `Prelude.hashWithSalt` compliance
+    _salt
+      `Prelude.hashWithSalt` compliance
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
 

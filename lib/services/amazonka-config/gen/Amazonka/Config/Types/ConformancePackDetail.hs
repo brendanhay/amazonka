@@ -166,7 +166,8 @@ instance Data.FromJSON ConformancePackDetail where
       "ConformancePackDetail"
       ( \x ->
           ConformancePackDetail'
-            Prelude.<$> ( x Data..:? "ConformancePackInputParameters"
+            Prelude.<$> ( x
+                            Data..:? "ConformancePackInputParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedBy")

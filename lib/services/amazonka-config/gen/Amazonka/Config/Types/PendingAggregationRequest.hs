@@ -76,7 +76,8 @@ instance Data.FromJSON PendingAggregationRequest where
 
 instance Prelude.Hashable PendingAggregationRequest where
   hashWithSalt _salt PendingAggregationRequest' {..} =
-    _salt `Prelude.hashWithSalt` requesterAccountId
+    _salt
+      `Prelude.hashWithSalt` requesterAccountId
       `Prelude.hashWithSalt` requesterAwsRegion
 
 instance Prelude.NFData PendingAggregationRequest where

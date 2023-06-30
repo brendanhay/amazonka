@@ -148,7 +148,8 @@ instance
       ( \s h x ->
           DescribeRemediationExceptionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "RemediationExceptions"
+            Prelude.<*> ( x
+                            Data..?> "RemediationExceptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,7 +160,8 @@ instance
     DescribeRemediationExceptions
   where
   hashWithSalt _salt DescribeRemediationExceptions' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceKeys
       `Prelude.hashWithSalt` configRuleName

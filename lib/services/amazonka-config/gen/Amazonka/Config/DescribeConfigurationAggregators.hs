@@ -115,22 +115,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeConfigurationAggregatorsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeConfigurationAggregatorsResponse_configurationAggregators
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeConfigurationAggregators_nextToken
           Lens..~ rs
           Lens.^? describeConfigurationAggregatorsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -145,7 +145,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationAggregatorsResponse'
-            Prelude.<$> ( x Data..?> "ConfigurationAggregators"
+            Prelude.<$> ( x
+                            Data..?> "ConfigurationAggregators"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")

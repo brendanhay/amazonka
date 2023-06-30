@@ -87,7 +87,8 @@ instance
     ConformancePackInputParameter
   where
   hashWithSalt _salt ConformancePackInputParameter' {..} =
-    _salt `Prelude.hashWithSalt` parameterName
+    _salt
+      `Prelude.hashWithSalt` parameterName
       `Prelude.hashWithSalt` parameterValue
 
 instance Prelude.NFData ConformancePackInputParameter where

@@ -87,7 +87,8 @@ instance Data.FromJSON AccountAggregationSource where
 
 instance Prelude.Hashable AccountAggregationSource where
   hashWithSalt _salt AccountAggregationSource' {..} =
-    _salt `Prelude.hashWithSalt` allAwsRegions
+    _salt
+      `Prelude.hashWithSalt` allAwsRegions
       `Prelude.hashWithSalt` awsRegions
       `Prelude.hashWithSalt` accountIds
 

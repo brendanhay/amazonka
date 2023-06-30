@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     ConformancePackEvaluationFilters' {..} =
-      _salt `Prelude.hashWithSalt` complianceType
+      _salt
+        `Prelude.hashWithSalt` complianceType
         `Prelude.hashWithSalt` configRuleNames
         `Prelude.hashWithSalt` resourceIds
         `Prelude.hashWithSalt` resourceType

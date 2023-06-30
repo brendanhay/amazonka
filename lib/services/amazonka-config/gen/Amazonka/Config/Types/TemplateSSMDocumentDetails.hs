@@ -107,7 +107,8 @@ instance Data.FromJSON TemplateSSMDocumentDetails where
 
 instance Prelude.Hashable TemplateSSMDocumentDetails where
   hashWithSalt _salt TemplateSSMDocumentDetails' {..} =
-    _salt `Prelude.hashWithSalt` documentVersion
+    _salt
+      `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` documentName
 
 instance Prelude.NFData TemplateSSMDocumentDetails where

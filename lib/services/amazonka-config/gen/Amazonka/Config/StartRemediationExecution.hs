@@ -122,7 +122,8 @@ instance Core.AWSRequest StartRemediationExecution where
 
 instance Prelude.Hashable StartRemediationExecution where
   hashWithSalt _salt StartRemediationExecution' {..} =
-    _salt `Prelude.hashWithSalt` configRuleName
+    _salt
+      `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` resourceKeys
 
 instance Prelude.NFData StartRemediationExecution where

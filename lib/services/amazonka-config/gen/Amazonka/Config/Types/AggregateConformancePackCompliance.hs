@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     AggregateConformancePackCompliance' {..} =
-      _salt `Prelude.hashWithSalt` complianceType
+      _salt
+        `Prelude.hashWithSalt` complianceType
         `Prelude.hashWithSalt` compliantRuleCount
         `Prelude.hashWithSalt` nonCompliantRuleCount
         `Prelude.hashWithSalt` totalRuleCount

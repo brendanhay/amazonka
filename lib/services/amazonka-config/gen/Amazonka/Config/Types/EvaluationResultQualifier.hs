@@ -98,7 +98,8 @@ instance Data.FromJSON EvaluationResultQualifier where
 
 instance Prelude.Hashable EvaluationResultQualifier where
   hashWithSalt _salt EvaluationResultQualifier' {..} =
-    _salt `Prelude.hashWithSalt` configRuleName
+    _salt
+      `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` evaluationMode
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType

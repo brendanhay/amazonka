@@ -132,7 +132,8 @@ instance Core.AWSRequest PutConfigRule where
 
 instance Prelude.Hashable PutConfigRule where
   hashWithSalt _salt PutConfigRule' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` configRule
 
 instance Prelude.NFData PutConfigRule where

@@ -196,7 +196,8 @@ instance Core.AWSRequest PutResourceConfig where
 
 instance Prelude.Hashable PutResourceConfig where
   hashWithSalt _salt PutResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` resourceName
+    _salt
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` schemaVersionId

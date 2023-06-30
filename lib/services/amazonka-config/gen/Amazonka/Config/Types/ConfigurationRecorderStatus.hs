@@ -136,7 +136,8 @@ instance Data.FromJSON ConfigurationRecorderStatus where
 
 instance Prelude.Hashable ConfigurationRecorderStatus where
   hashWithSalt _salt ConfigurationRecorderStatus' {..} =
-    _salt `Prelude.hashWithSalt` lastErrorCode
+    _salt
+      `Prelude.hashWithSalt` lastErrorCode
       `Prelude.hashWithSalt` lastErrorMessage
       `Prelude.hashWithSalt` lastStartTime
       `Prelude.hashWithSalt` lastStatus

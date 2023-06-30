@@ -95,7 +95,8 @@ instance Data.FromJSON Relationship where
 
 instance Prelude.Hashable Relationship where
   hashWithSalt _salt Relationship' {..} =
-    _salt `Prelude.hashWithSalt` relationshipName
+    _salt
+      `Prelude.hashWithSalt` relationshipName
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType

@@ -77,7 +77,8 @@ instance Data.FromJSON AggregateComplianceCount where
 
 instance Prelude.Hashable AggregateComplianceCount where
   hashWithSalt _salt AggregateComplianceCount' {..} =
-    _salt `Prelude.hashWithSalt` complianceSummary
+    _salt
+      `Prelude.hashWithSalt` complianceSummary
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData AggregateComplianceCount where

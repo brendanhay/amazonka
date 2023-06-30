@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteOptedOutNumber where
 
 instance Prelude.Hashable DeleteOptedOutNumber where
   hashWithSalt _salt DeleteOptedOutNumber' {..} =
-    _salt `Prelude.hashWithSalt` optOutListName
+    _salt
+      `Prelude.hashWithSalt` optOutListName
       `Prelude.hashWithSalt` optedOutNumber
 
 instance Prelude.NFData DeleteOptedOutNumber where

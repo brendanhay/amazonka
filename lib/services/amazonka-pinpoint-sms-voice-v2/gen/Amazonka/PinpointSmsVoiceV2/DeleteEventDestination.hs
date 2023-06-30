@@ -126,7 +126,8 @@ instance Core.AWSRequest DeleteEventDestination where
 
 instance Prelude.Hashable DeleteEventDestination where
   hashWithSalt _salt DeleteEventDestination' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` eventDestinationName
 
 instance Prelude.NFData DeleteEventDestination where

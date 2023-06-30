@@ -130,20 +130,23 @@ instance Core.AWSPager DescribePools where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describePoolsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describePoolsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describePoolsResponse_pools Prelude.. Lens._Just
+            Lens.^? describePoolsResponse_pools
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describePools_nextToken
           Lens..~ rs
-          Lens.^? describePoolsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describePoolsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePools where
   type
@@ -162,7 +165,8 @@ instance Core.AWSRequest DescribePools where
 
 instance Prelude.Hashable DescribePools where
   hashWithSalt _salt DescribePools' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` poolIds

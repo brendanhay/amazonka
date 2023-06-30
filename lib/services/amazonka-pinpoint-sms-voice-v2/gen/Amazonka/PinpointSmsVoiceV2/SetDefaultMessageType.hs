@@ -127,7 +127,8 @@ instance Core.AWSRequest SetDefaultMessageType where
 
 instance Prelude.Hashable SetDefaultMessageType where
   hashWithSalt _salt SetDefaultMessageType' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` messageType
 
 instance Prelude.NFData SetDefaultMessageType where

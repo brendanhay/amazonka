@@ -99,7 +99,8 @@ instance Data.FromJSON OptedOutNumberInformation where
 
 instance Prelude.Hashable OptedOutNumberInformation where
   hashWithSalt _salt OptedOutNumberInformation' {..} =
-    _salt `Prelude.hashWithSalt` optedOutNumber
+    _salt
+      `Prelude.hashWithSalt` optedOutNumber
       `Prelude.hashWithSalt` optedOutTimestamp
       `Prelude.hashWithSalt` endUserOptedOut
 

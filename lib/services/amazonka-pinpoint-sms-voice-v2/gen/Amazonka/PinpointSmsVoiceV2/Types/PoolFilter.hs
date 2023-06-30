@@ -69,7 +69,8 @@ poolFilter_values = Lens.lens (\PoolFilter' {values} -> values) (\s@PoolFilter' 
 
 instance Prelude.Hashable PoolFilter where
   hashWithSalt _salt PoolFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData PoolFilter where

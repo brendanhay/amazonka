@@ -199,7 +199,8 @@ instance Core.AWSRequest CreateEventDestination where
 
 instance Prelude.Hashable CreateEventDestination where
   hashWithSalt _salt CreateEventDestination' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` cloudWatchLogsDestination
       `Prelude.hashWithSalt` kinesisFirehoseDestination
       `Prelude.hashWithSalt` snsDestination

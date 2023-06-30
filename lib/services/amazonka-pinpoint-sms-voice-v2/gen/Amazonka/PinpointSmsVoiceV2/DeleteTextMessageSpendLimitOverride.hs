@@ -78,7 +78,7 @@ instance
       ( \s h x ->
           DeleteTextMessageSpendLimitOverrideResponse'
             Prelude.<$> (x Data..?> "MonthlyLimit")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

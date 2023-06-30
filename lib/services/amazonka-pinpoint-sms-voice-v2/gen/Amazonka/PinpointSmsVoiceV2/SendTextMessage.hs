@@ -236,7 +236,8 @@ instance Core.AWSRequest SendTextMessage where
 
 instance Prelude.Hashable SendTextMessage where
   hashWithSalt _salt SendTextMessage' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` destinationCountryParameters
       `Prelude.hashWithSalt` dryRun

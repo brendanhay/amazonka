@@ -171,7 +171,8 @@ instance
   hashWithSalt
     _salt
     DisassociateOriginationIdentity' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` poolId
         `Prelude.hashWithSalt` originationIdentity
         `Prelude.hashWithSalt` isoCountryCode

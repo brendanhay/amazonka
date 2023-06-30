@@ -74,7 +74,8 @@ senderIdAndCountry_isoCountryCode = Lens.lens (\SenderIdAndCountry' {isoCountryC
 
 instance Prelude.Hashable SenderIdAndCountry where
   hashWithSalt _salt SenderIdAndCountry' {..} =
-    _salt `Prelude.hashWithSalt` senderId
+    _salt
+      `Prelude.hashWithSalt` senderId
       `Prelude.hashWithSalt` isoCountryCode
 
 instance Prelude.NFData SenderIdAndCountry where

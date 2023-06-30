@@ -229,7 +229,8 @@ instance Core.AWSRequest SendVoiceMessage where
 
 instance Prelude.Hashable SendVoiceMessage where
   hashWithSalt _salt SendVoiceMessage' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxPricePerMinute

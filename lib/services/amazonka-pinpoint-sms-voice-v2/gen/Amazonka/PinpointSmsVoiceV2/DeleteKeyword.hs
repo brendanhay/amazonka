@@ -130,7 +130,8 @@ instance Core.AWSRequest DeleteKeyword where
 
 instance Prelude.Hashable DeleteKeyword where
   hashWithSalt _salt DeleteKeyword' {..} =
-    _salt `Prelude.hashWithSalt` originationIdentity
+    _salt
+      `Prelude.hashWithSalt` originationIdentity
       `Prelude.hashWithSalt` keyword
 
 instance Prelude.NFData DeleteKeyword where

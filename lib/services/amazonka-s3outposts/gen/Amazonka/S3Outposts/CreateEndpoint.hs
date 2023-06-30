@@ -171,7 +171,8 @@ instance Core.AWSRequest CreateEndpoint where
 
 instance Prelude.Hashable CreateEndpoint where
   hashWithSalt _salt CreateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` accessType
+    _salt
+      `Prelude.hashWithSalt` accessType
       `Prelude.hashWithSalt` customerOwnedIpv4Pool
       `Prelude.hashWithSalt` outpostId
       `Prelude.hashWithSalt` subnetId

@@ -107,7 +107,8 @@ instance Data.FromJSON VmwareToAwsTagMapping where
 
 instance Prelude.Hashable VmwareToAwsTagMapping where
   hashWithSalt _salt VmwareToAwsTagMapping' {..} =
-    _salt `Prelude.hashWithSalt` awsTagKey
+    _salt
+      `Prelude.hashWithSalt` awsTagKey
       `Prelude.hashWithSalt` awsTagValue
       `Prelude.hashWithSalt` vmwareCategory
       `Prelude.hashWithSalt` vmwareTagName

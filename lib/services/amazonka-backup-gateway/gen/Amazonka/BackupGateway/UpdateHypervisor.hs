@@ -150,7 +150,8 @@ instance Core.AWSRequest UpdateHypervisor where
 
 instance Prelude.Hashable UpdateHypervisor where
   hashWithSalt _salt UpdateHypervisor' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` logGroupArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` password

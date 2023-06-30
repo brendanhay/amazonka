@@ -120,7 +120,8 @@ instance Data.FromJSON VirtualMachine where
 
 instance Prelude.Hashable VirtualMachine where
   hashWithSalt _salt VirtualMachine' {..} =
-    _salt `Prelude.hashWithSalt` hostName
+    _salt
+      `Prelude.hashWithSalt` hostName
       `Prelude.hashWithSalt` hypervisorId
       `Prelude.hashWithSalt` lastBackupDate
       `Prelude.hashWithSalt` name

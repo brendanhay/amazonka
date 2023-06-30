@@ -103,7 +103,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetBandwidthRateLimitScheduleResponse'
-            Prelude.<$> ( x Data..?> "BandwidthRateLimitIntervals"
+            Prelude.<$> ( x
+                            Data..?> "BandwidthRateLimitIntervals"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "GatewayArn")

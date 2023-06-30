@@ -553,7 +553,8 @@ instance Data.FromJSON ScalableTarget where
 
 instance Prelude.Hashable ScalableTarget where
   hashWithSalt _salt ScalableTarget' {..} =
-    _salt `Prelude.hashWithSalt` suspendedState
+    _salt
+      `Prelude.hashWithSalt` suspendedState
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension

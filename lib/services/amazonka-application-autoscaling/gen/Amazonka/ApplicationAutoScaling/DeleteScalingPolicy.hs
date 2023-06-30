@@ -537,7 +537,8 @@ instance Core.AWSRequest DeleteScalingPolicy where
 
 instance Prelude.Hashable DeleteScalingPolicy where
   hashWithSalt _salt DeleteScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt
+      `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension

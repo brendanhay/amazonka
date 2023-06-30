@@ -532,7 +532,8 @@ instance Core.AWSRequest DeleteScheduledAction where
 
 instance Prelude.Hashable DeleteScheduledAction where
   hashWithSalt _salt DeleteScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` serviceNamespace
+    _salt
+      `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` scheduledActionName
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension

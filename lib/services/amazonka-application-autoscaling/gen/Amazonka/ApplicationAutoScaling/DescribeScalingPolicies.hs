@@ -565,22 +565,22 @@ instance Core.AWSPager DescribeScalingPolicies where
     | Core.stop
         ( rs
             Lens.^? describeScalingPoliciesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScalingPoliciesResponse_scalingPolicies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScalingPolicies_nextToken
           Lens..~ rs
           Lens.^? describeScalingPoliciesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingPolicies where
   type
@@ -593,7 +593,8 @@ instance Core.AWSRequest DescribeScalingPolicies where
       ( \s h x ->
           DescribeScalingPoliciesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ScalingPolicies"
+            Prelude.<*> ( x
+                            Data..?> "ScalingPolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -601,7 +602,8 @@ instance Core.AWSRequest DescribeScalingPolicies where
 
 instance Prelude.Hashable DescribeScalingPolicies where
   hashWithSalt _salt DescribeScalingPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` policyNames
       `Prelude.hashWithSalt` resourceId

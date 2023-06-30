@@ -166,7 +166,8 @@ instance
     PredefinedMetricSpecification
   where
   hashWithSalt _salt PredefinedMetricSpecification' {..} =
-    _salt `Prelude.hashWithSalt` resourceLabel
+    _salt
+      `Prelude.hashWithSalt` resourceLabel
       `Prelude.hashWithSalt` predefinedMetricType
 
 instance Prelude.NFData PredefinedMetricSpecification where

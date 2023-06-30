@@ -180,7 +180,8 @@ instance
     CustomizedMetricSpecification
   where
   hashWithSalt _salt CustomizedMetricSpecification' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` namespace

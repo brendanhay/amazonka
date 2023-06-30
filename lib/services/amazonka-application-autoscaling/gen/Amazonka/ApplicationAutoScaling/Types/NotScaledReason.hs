@@ -135,7 +135,8 @@ instance Data.FromJSON NotScaledReason where
 
 instance Prelude.Hashable NotScaledReason where
   hashWithSalt _salt NotScaledReason' {..} =
-    _salt `Prelude.hashWithSalt` currentCapacity
+    _salt
+      `Prelude.hashWithSalt` currentCapacity
       `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` minCapacity
       `Prelude.hashWithSalt` code

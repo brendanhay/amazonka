@@ -75,7 +75,8 @@ instance Data.FromJSON ExpenseType where
 
 instance Prelude.Hashable ExpenseType where
   hashWithSalt _salt ExpenseType' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` text
 
 instance Prelude.NFData ExpenseType where

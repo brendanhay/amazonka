@@ -84,7 +84,8 @@ instance Data.FromJSON PageClassification where
 
 instance Prelude.Hashable PageClassification where
   hashWithSalt _salt PageClassification' {..} =
-    _salt `Prelude.hashWithSalt` pageType
+    _salt
+      `Prelude.hashWithSalt` pageType
       `Prelude.hashWithSalt` pageNumber
 
 instance Prelude.NFData PageClassification where

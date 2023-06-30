@@ -241,7 +241,8 @@ instance Core.AWSRequest StartDocumentAnalysis where
 
 instance Prelude.Hashable StartDocumentAnalysis where
   hashWithSalt _salt StartDocumentAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` notificationChannel

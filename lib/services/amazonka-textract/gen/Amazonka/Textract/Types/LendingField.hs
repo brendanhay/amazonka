@@ -80,14 +80,16 @@ instance Data.FromJSON LendingField where
           LendingField'
             Prelude.<$> (x Data..:? "KeyDetection")
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> ( x Data..:? "ValueDetections"
+            Prelude.<*> ( x
+                            Data..:? "ValueDetections"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LendingField where
   hashWithSalt _salt LendingField' {..} =
-    _salt `Prelude.hashWithSalt` keyDetection
+    _salt
+      `Prelude.hashWithSalt` keyDetection
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` valueDetections
 

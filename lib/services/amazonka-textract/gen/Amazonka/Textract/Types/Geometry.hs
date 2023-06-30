@@ -84,7 +84,8 @@ instance Data.FromJSON Geometry where
 
 instance Prelude.Hashable Geometry where
   hashWithSalt _salt Geometry' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` polygon
 
 instance Prelude.NFData Geometry where

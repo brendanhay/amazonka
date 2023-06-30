@@ -79,7 +79,8 @@ instance Data.FromJSON ExpenseGroupProperty where
 
 instance Prelude.Hashable ExpenseGroupProperty where
   hashWithSalt _salt ExpenseGroupProperty' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` types
 
 instance Prelude.NFData ExpenseGroupProperty where

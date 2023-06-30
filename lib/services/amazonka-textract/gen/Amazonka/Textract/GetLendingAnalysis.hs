@@ -154,7 +154,8 @@ instance Core.AWSRequest GetLendingAnalysis where
 
 instance Prelude.Hashable GetLendingAnalysis where
   hashWithSalt _salt GetLendingAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` jobId
 

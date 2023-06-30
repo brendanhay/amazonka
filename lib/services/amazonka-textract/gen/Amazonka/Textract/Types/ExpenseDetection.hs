@@ -85,7 +85,8 @@ instance Data.FromJSON ExpenseDetection where
 
 instance Prelude.Hashable ExpenseDetection where
   hashWithSalt _salt ExpenseDetection' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` geometry
       `Prelude.hashWithSalt` text
 

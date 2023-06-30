@@ -101,7 +101,8 @@ instance Data.FromJSON LendingDetection where
 
 instance Prelude.Hashable LendingDetection where
   hashWithSalt _salt LendingDetection' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` geometry
       `Prelude.hashWithSalt` selectionStatus
       `Prelude.hashWithSalt` text

@@ -91,7 +91,8 @@ outputConfig_s3Bucket = Lens.lens (\OutputConfig' {s3Bucket} -> s3Bucket) (\s@Ou
 
 instance Prelude.Hashable OutputConfig where
   hashWithSalt _salt OutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` s3Prefix
+    _salt
+      `Prelude.hashWithSalt` s3Prefix
       `Prelude.hashWithSalt` s3Bucket
 
 instance Prelude.NFData OutputConfig where

@@ -101,7 +101,8 @@ instance Data.FromJSON Relationship where
 
 instance Prelude.Hashable Relationship where
   hashWithSalt _salt Relationship' {..} =
-    _salt `Prelude.hashWithSalt` ids
+    _salt
+      `Prelude.hashWithSalt` ids
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Relationship where

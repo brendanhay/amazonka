@@ -76,7 +76,8 @@ instance Data.FromJSON Warning where
 
 instance Prelude.Hashable Warning where
   hashWithSalt _salt Warning' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` pages
 
 instance Prelude.NFData Warning where

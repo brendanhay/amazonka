@@ -106,7 +106,8 @@ instance Data.FromJSON ExpenseDocument where
 
 instance Prelude.Hashable ExpenseDocument where
   hashWithSalt _salt ExpenseDocument' {..} =
-    _salt `Prelude.hashWithSalt` blocks
+    _salt
+      `Prelude.hashWithSalt` blocks
       `Prelude.hashWithSalt` expenseIndex
       `Prelude.hashWithSalt` lineItemGroups
       `Prelude.hashWithSalt` summaryFields

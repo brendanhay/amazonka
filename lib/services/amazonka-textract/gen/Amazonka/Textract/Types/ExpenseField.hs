@@ -125,7 +125,8 @@ instance Data.FromJSON ExpenseField where
       ( \x ->
           ExpenseField'
             Prelude.<$> (x Data..:? "Currency")
-            Prelude.<*> ( x Data..:? "GroupProperties"
+            Prelude.<*> ( x
+                            Data..:? "GroupProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LabelDetection")
@@ -136,7 +137,8 @@ instance Data.FromJSON ExpenseField where
 
 instance Prelude.Hashable ExpenseField where
   hashWithSalt _salt ExpenseField' {..} =
-    _salt `Prelude.hashWithSalt` currency
+    _salt
+      `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` groupProperties
       `Prelude.hashWithSalt` labelDetection
       `Prelude.hashWithSalt` pageNumber

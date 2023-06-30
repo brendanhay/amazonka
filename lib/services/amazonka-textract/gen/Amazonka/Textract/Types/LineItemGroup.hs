@@ -83,7 +83,8 @@ instance Data.FromJSON LineItemGroup where
 
 instance Prelude.Hashable LineItemGroup where
   hashWithSalt _salt LineItemGroup' {..} =
-    _salt `Prelude.hashWithSalt` lineItemGroupIndex
+    _salt
+      `Prelude.hashWithSalt` lineItemGroupIndex
       `Prelude.hashWithSalt` lineItems
 
 instance Prelude.NFData LineItemGroup where

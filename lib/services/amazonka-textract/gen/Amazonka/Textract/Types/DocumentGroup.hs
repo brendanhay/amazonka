@@ -96,19 +96,22 @@ instance Data.FromJSON DocumentGroup where
       "DocumentGroup"
       ( \x ->
           DocumentGroup'
-            Prelude.<$> ( x Data..:? "DetectedSignatures"
+            Prelude.<$> ( x
+                            Data..:? "DetectedSignatures"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SplitDocuments" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> ( x Data..:? "UndetectedSignatures"
+            Prelude.<*> ( x
+                            Data..:? "UndetectedSignatures"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DocumentGroup where
   hashWithSalt _salt DocumentGroup' {..} =
-    _salt `Prelude.hashWithSalt` detectedSignatures
+    _salt
+      `Prelude.hashWithSalt` detectedSignatures
       `Prelude.hashWithSalt` splitDocuments
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` undetectedSignatures

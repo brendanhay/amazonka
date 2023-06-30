@@ -138,7 +138,8 @@ instance Data.FromJSON Query where
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` pages
       `Prelude.hashWithSalt` text
 

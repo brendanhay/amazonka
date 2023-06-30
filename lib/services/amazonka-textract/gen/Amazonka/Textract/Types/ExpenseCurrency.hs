@@ -146,7 +146,8 @@ instance Data.FromJSON ExpenseCurrency where
 
 instance Prelude.Hashable ExpenseCurrency where
   hashWithSalt _salt ExpenseCurrency' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` confidence
 
 instance Prelude.NFData ExpenseCurrency where

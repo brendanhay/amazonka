@@ -52,7 +52,6 @@ newQueriesConfig pQueries_ =
         Lens.coerced Lens.# pQueries_
     }
 
--- |
 queriesConfig_queries :: Lens.Lens' QueriesConfig (Prelude.NonEmpty Query)
 queriesConfig_queries = Lens.lens (\QueriesConfig' {queries} -> queries) (\s@QueriesConfig' {} a -> s {queries = a} :: QueriesConfig) Prelude.. Lens.coerced
 

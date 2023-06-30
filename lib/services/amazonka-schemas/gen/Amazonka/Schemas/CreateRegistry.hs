@@ -118,7 +118,8 @@ instance Core.AWSRequest CreateRegistry where
 
 instance Prelude.Hashable CreateRegistry where
   hashWithSalt _salt CreateRegistry' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` registryName
 

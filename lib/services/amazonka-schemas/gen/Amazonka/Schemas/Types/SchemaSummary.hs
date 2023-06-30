@@ -104,7 +104,8 @@ instance Data.FromJSON SchemaSummary where
 
 instance Prelude.Hashable SchemaSummary where
   hashWithSalt _salt SchemaSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModified
+    _salt
+      `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` tags

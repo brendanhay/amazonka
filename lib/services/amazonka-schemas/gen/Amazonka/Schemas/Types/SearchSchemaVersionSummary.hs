@@ -84,7 +84,8 @@ instance Data.FromJSON SearchSchemaVersionSummary where
 
 instance Prelude.Hashable SearchSchemaVersionSummary where
   hashWithSalt _salt SearchSchemaVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` type'
 

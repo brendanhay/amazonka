@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateDiscoverer where
 
 instance Prelude.Hashable CreateDiscoverer where
   hashWithSalt _salt CreateDiscoverer' {..} =
-    _salt `Prelude.hashWithSalt` crossAccount
+    _salt
+      `Prelude.hashWithSalt` crossAccount
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceArn

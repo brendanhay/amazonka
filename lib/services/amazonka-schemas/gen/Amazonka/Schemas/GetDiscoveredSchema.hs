@@ -110,7 +110,8 @@ instance Core.AWSRequest GetDiscoveredSchema where
 
 instance Prelude.Hashable GetDiscoveredSchema where
   hashWithSalt _salt GetDiscoveredSchema' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` events
 
 instance Prelude.NFData GetDiscoveredSchema where

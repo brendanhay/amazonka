@@ -389,11 +389,13 @@ instance Data.FromJSON SharePointConfiguration where
             Prelude.<*> (x Data..:? "CrawlAttachments")
             Prelude.<*> (x Data..:? "DisableLocalGroups")
             Prelude.<*> (x Data..:? "DocumentTitleFieldName")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProxyConfiguration")
@@ -407,7 +409,8 @@ instance Data.FromJSON SharePointConfiguration where
 
 instance Prelude.Hashable SharePointConfiguration where
   hashWithSalt _salt SharePointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authenticationType
+    _salt
+      `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` crawlAttachments
       `Prelude.hashWithSalt` disableLocalGroups
       `Prelude.hashWithSalt` documentTitleFieldName

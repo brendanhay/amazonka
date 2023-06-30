@@ -141,7 +141,8 @@ instance Data.FromJSON IndexConfigurationSummary where
 
 instance Prelude.Hashable IndexConfigurationSummary where
   hashWithSalt _salt IndexConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` edition
+    _salt
+      `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdAt

@@ -106,7 +106,8 @@ instance Data.FromJSON Highlight where
 
 instance Prelude.Hashable Highlight where
   hashWithSalt _salt Highlight' {..} =
-    _salt `Prelude.hashWithSalt` topAnswer
+    _salt
+      `Prelude.hashWithSalt` topAnswer
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` endOffset

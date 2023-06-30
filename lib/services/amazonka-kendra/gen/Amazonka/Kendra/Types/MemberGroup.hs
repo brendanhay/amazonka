@@ -69,7 +69,8 @@ memberGroup_groupId = Lens.lens (\MemberGroup' {groupId} -> groupId) (\s@MemberG
 
 instance Prelude.Hashable MemberGroup where
   hashWithSalt _salt MemberGroup' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceId
+    _salt
+      `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData MemberGroup where

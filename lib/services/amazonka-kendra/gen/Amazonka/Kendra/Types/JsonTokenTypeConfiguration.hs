@@ -81,7 +81,8 @@ instance Data.FromJSON JsonTokenTypeConfiguration where
 
 instance Prelude.Hashable JsonTokenTypeConfiguration where
   hashWithSalt _salt JsonTokenTypeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` userNameAttributeField
+    _salt
+      `Prelude.hashWithSalt` userNameAttributeField
       `Prelude.hashWithSalt` groupAttributeField
 
 instance Prelude.NFData JsonTokenTypeConfiguration where

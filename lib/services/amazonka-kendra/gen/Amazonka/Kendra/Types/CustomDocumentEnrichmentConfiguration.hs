@@ -140,7 +140,8 @@ instance
       "CustomDocumentEnrichmentConfiguration"
       ( \x ->
           CustomDocumentEnrichmentConfiguration'
-            Prelude.<$> ( x Data..:? "InlineConfigurations"
+            Prelude.<$> ( x
+                            Data..:? "InlineConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PostExtractionHookConfiguration")
@@ -155,7 +156,8 @@ instance
   hashWithSalt
     _salt
     CustomDocumentEnrichmentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` inlineConfigurations
+      _salt
+        `Prelude.hashWithSalt` inlineConfigurations
         `Prelude.hashWithSalt` postExtractionHookConfiguration
         `Prelude.hashWithSalt` preExtractionHookConfiguration
         `Prelude.hashWithSalt` roleArn

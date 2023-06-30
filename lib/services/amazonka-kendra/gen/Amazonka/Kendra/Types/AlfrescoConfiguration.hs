@@ -327,10 +327,12 @@ instance Data.FromJSON AlfrescoConfiguration where
             Prelude.<*> (x Data..:? "CrawlSystemFolders")
             Prelude.<*> (x Data..:? "DocumentLibraryFieldMappings")
             Prelude.<*> (x Data..:? "EntityFilter")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VpcConfiguration")
@@ -343,7 +345,8 @@ instance Data.FromJSON AlfrescoConfiguration where
 
 instance Prelude.Hashable AlfrescoConfiguration where
   hashWithSalt _salt AlfrescoConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` blogFieldMappings
+    _salt
+      `Prelude.hashWithSalt` blogFieldMappings
       `Prelude.hashWithSalt` crawlComments
       `Prelude.hashWithSalt` crawlSystemFolders
       `Prelude.hashWithSalt` documentLibraryFieldMappings

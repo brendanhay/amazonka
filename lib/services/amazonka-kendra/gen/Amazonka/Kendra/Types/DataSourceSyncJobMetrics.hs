@@ -122,7 +122,8 @@ instance Data.FromJSON DataSourceSyncJobMetrics where
 
 instance Prelude.Hashable DataSourceSyncJobMetrics where
   hashWithSalt _salt DataSourceSyncJobMetrics' {..} =
-    _salt `Prelude.hashWithSalt` documentsAdded
+    _salt
+      `Prelude.hashWithSalt` documentsAdded
       `Prelude.hashWithSalt` documentsDeleted
       `Prelude.hashWithSalt` documentsFailed
       `Prelude.hashWithSalt` documentsModified

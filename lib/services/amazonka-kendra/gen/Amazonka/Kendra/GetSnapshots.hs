@@ -217,7 +217,8 @@ instance Core.AWSRequest GetSnapshots where
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "SnapShotTimeFilter")
             Prelude.<*> (x Data..?> "SnapshotsData" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "SnapshotsDataHeader"
+            Prelude.<*> ( x
+                            Data..?> "SnapshotsDataHeader"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -225,7 +226,8 @@ instance Core.AWSRequest GetSnapshots where
 
 instance Prelude.Hashable GetSnapshots where
   hashWithSalt _salt GetSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` interval

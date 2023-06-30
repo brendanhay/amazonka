@@ -125,7 +125,8 @@ instance Data.FromJSON OnPremiseConfiguration where
 
 instance Prelude.Hashable OnPremiseConfiguration where
   hashWithSalt _salt OnPremiseConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` hostUrl
+    _salt
+      `Prelude.hashWithSalt` hostUrl
       `Prelude.hashWithSalt` organizationName
       `Prelude.hashWithSalt` sslCertificateS3Path
 

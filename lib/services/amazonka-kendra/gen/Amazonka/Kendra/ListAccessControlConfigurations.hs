@@ -125,7 +125,8 @@ instance
           ListAccessControlConfigurationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "AccessControlConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "AccessControlConfigurations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -137,7 +138,8 @@ instance
   hashWithSalt
     _salt
     ListAccessControlConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` indexId
 

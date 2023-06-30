@@ -370,14 +370,17 @@ instance Data.FromJSON JiraConfiguration where
           JiraConfiguration'
             Prelude.<$> (x Data..:? "AttachmentFieldMappings")
             Prelude.<*> (x Data..:? "CommentFieldMappings")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IssueFieldMappings")
-            Prelude.<*> ( x Data..:? "IssueSubEntityFilter"
+            Prelude.<*> ( x
+                            Data..:? "IssueSubEntityFilter"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IssueType" Data..!= Prelude.mempty)

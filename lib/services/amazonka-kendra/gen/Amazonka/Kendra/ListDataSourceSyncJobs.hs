@@ -165,7 +165,8 @@ instance Core.AWSRequest ListDataSourceSyncJobs where
 
 instance Prelude.Hashable ListDataSourceSyncJobs where
   hashWithSalt _salt ListDataSourceSyncJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTimeFilter
       `Prelude.hashWithSalt` statusFilter

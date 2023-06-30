@@ -350,7 +350,8 @@ instance Core.AWSRequest Query where
             Prelude.<$> (x Data..?> "FacetResults" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "QueryId")
             Prelude.<*> (x Data..?> "ResultItems" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "SpellCorrectedQueries"
+            Prelude.<*> ( x
+                            Data..?> "SpellCorrectedQueries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "TotalNumberOfResults")
@@ -360,7 +361,8 @@ instance Core.AWSRequest Query where
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =
-    _salt `Prelude.hashWithSalt` attributeFilter
+    _salt
+      `Prelude.hashWithSalt` attributeFilter
       `Prelude.hashWithSalt` documentRelevanceOverrideConfigurations
       `Prelude.hashWithSalt` facets
       `Prelude.hashWithSalt` pageNumber

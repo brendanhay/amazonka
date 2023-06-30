@@ -84,8 +84,8 @@ instance
       ( \x ->
           BatchDeleteDocumentResponseFailedDocument'
             Prelude.<$> (x Data..:? "ErrorCode")
-              Prelude.<*> (x Data..:? "ErrorMessage")
-              Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance
@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     BatchDeleteDocumentResponseFailedDocument' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` id
 

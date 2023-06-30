@@ -105,7 +105,8 @@ instance Data.FromJSON ThesaurusSummary where
 
 instance Prelude.Hashable ThesaurusSummary where
   hashWithSalt _salt ThesaurusSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

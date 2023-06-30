@@ -232,11 +232,13 @@ instance Data.FromJSON FsxConfiguration where
       "FsxConfiguration"
       ( \x ->
           FsxConfiguration'
-            Prelude.<$> ( x Data..:? "ExclusionPatterns"
+            Prelude.<$> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SecretArn")
@@ -247,7 +249,8 @@ instance Data.FromJSON FsxConfiguration where
 
 instance Prelude.Hashable FsxConfiguration where
   hashWithSalt _salt FsxConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` exclusionPatterns
+    _salt
+      `Prelude.hashWithSalt` exclusionPatterns
       `Prelude.hashWithSalt` fieldMappings
       `Prelude.hashWithSalt` inclusionPatterns
       `Prelude.hashWithSalt` secretArn

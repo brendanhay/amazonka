@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     ConfluencePageToIndexFieldMapping' {..} =
-      _salt `Prelude.hashWithSalt` dataSourceFieldName
+      _salt
+        `Prelude.hashWithSalt` dataSourceFieldName
         `Prelude.hashWithSalt` dateFieldFormat
         `Prelude.hashWithSalt` indexFieldName
 

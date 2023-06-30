@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     DocumentAttributeValueCountPair' {..} =
-      _salt `Prelude.hashWithSalt` count
+      _salt
+        `Prelude.hashWithSalt` count
         `Prelude.hashWithSalt` documentAttributeValue
         `Prelude.hashWithSalt` facetResults
 

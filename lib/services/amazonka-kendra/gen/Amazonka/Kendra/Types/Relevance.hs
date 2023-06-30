@@ -204,14 +204,16 @@ instance Data.FromJSON Relevance where
             Prelude.<*> (x Data..:? "Freshness")
             Prelude.<*> (x Data..:? "Importance")
             Prelude.<*> (x Data..:? "RankOrder")
-            Prelude.<*> ( x Data..:? "ValueImportanceMap"
+            Prelude.<*> ( x
+                            Data..:? "ValueImportanceMap"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Relevance where
   hashWithSalt _salt Relevance' {..} =
-    _salt `Prelude.hashWithSalt` duration
+    _salt
+      `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` freshness
       `Prelude.hashWithSalt` importance
       `Prelude.hashWithSalt` rankOrder

@@ -303,7 +303,8 @@ instance Data.FromJSON DataSourceConfiguration where
 
 instance Prelude.Hashable DataSourceConfiguration where
   hashWithSalt _salt DataSourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` alfrescoConfiguration
+    _salt
+      `Prelude.hashWithSalt` alfrescoConfiguration
       `Prelude.hashWithSalt` boxConfiguration
       `Prelude.hashWithSalt` confluenceConfiguration
       `Prelude.hashWithSalt` databaseConfiguration

@@ -130,7 +130,8 @@ instance Core.AWSRequest BatchGetDocumentStatus where
     Response.receiveJSON
       ( \s h x ->
           BatchGetDocumentStatusResponse'
-            Prelude.<$> ( x Data..?> "DocumentStatusList"
+            Prelude.<$> ( x
+                            Data..?> "DocumentStatusList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
@@ -139,7 +140,8 @@ instance Core.AWSRequest BatchGetDocumentStatus where
 
 instance Prelude.Hashable BatchGetDocumentStatus where
   hashWithSalt _salt BatchGetDocumentStatus' {..} =
-    _salt `Prelude.hashWithSalt` indexId
+    _salt
+      `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` documentInfoList
 
 instance Prelude.NFData BatchGetDocumentStatus where

@@ -122,7 +122,7 @@ instance
       ( \s h x ->
           DisassociateEntitiesFromExperienceResponse'
             Prelude.<$> (x Data..?> "FailedEntityList")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     DisassociateEntitiesFromExperience' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` entityList
 

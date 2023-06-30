@@ -186,7 +186,8 @@ attributeFilter_orAllFilters = Lens.lens (\AttributeFilter' {orAllFilters} -> or
 
 instance Prelude.Hashable AttributeFilter where
   hashWithSalt _salt AttributeFilter' {..} =
-    _salt `Prelude.hashWithSalt` andAllFilters
+    _salt
+      `Prelude.hashWithSalt` andAllFilters
       `Prelude.hashWithSalt` containsAll
       `Prelude.hashWithSalt` containsAny
       `Prelude.hashWithSalt` equalsTo

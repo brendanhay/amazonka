@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeExperience where
 
 instance Prelude.Hashable DescribeExperience where
   hashWithSalt _salt DescribeExperience' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DescribeExperience where

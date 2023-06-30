@@ -346,18 +346,22 @@ instance Data.FromJSON SlackConfiguration where
           SlackConfiguration'
             Prelude.<$> (x Data..:? "CrawlBotMessage")
             Prelude.<*> (x Data..:? "ExcludeArchived")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LookBackPeriod")
-            Prelude.<*> ( x Data..:? "PrivateChannelFilter"
+            Prelude.<*> ( x
+                            Data..:? "PrivateChannelFilter"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "PublicChannelFilter"
+            Prelude.<*> ( x
+                            Data..:? "PublicChannelFilter"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "UseChangeLog")
@@ -370,7 +374,8 @@ instance Data.FromJSON SlackConfiguration where
 
 instance Prelude.Hashable SlackConfiguration where
   hashWithSalt _salt SlackConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` crawlBotMessage
+    _salt
+      `Prelude.hashWithSalt` crawlBotMessage
       `Prelude.hashWithSalt` excludeArchived
       `Prelude.hashWithSalt` exclusionPatterns
       `Prelude.hashWithSalt` fieldMappings

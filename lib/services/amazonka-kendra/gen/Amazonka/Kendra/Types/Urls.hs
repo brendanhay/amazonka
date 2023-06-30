@@ -117,7 +117,8 @@ instance Data.FromJSON Urls where
 
 instance Prelude.Hashable Urls where
   hashWithSalt _salt Urls' {..} =
-    _salt `Prelude.hashWithSalt` seedUrlConfiguration
+    _salt
+      `Prelude.hashWithSalt` seedUrlConfiguration
       `Prelude.hashWithSalt` siteMapsConfiguration
 
 instance Prelude.NFData Urls where

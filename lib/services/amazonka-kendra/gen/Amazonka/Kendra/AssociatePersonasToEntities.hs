@@ -135,7 +135,8 @@ instance Core.AWSRequest AssociatePersonasToEntities where
 
 instance Prelude.Hashable AssociatePersonasToEntities where
   hashWithSalt _salt AssociatePersonasToEntities' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` personas
 

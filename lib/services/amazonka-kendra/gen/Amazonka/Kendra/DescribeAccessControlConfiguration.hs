@@ -113,14 +113,15 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAccessControlConfigurationResponse'
-            Prelude.<$> ( x Data..?> "AccessControlList"
+            Prelude.<$> ( x
+                            Data..?> "AccessControlList"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "Description")
-              Prelude.<*> (x Data..?> "ErrorMessage")
-              Prelude.<*> (x Data..?> "HierarchicalAccessControlList")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "Name")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "HierarchicalAccessControlList")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance
@@ -130,7 +131,8 @@ instance
   hashWithSalt
     _salt
     DescribeAccessControlConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` indexId
+      _salt
+        `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` id
 
 instance

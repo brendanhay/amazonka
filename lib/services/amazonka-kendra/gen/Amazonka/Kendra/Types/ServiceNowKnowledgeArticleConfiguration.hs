@@ -209,12 +209,14 @@ instance
           ServiceNowKnowledgeArticleConfiguration'
             Prelude.<$> (x Data..:? "CrawlAttachments")
             Prelude.<*> (x Data..:? "DocumentTitleFieldName")
-            Prelude.<*> ( x Data..:? "ExcludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExcludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
             Prelude.<*> (x Data..:? "FilterQuery")
-            Prelude.<*> ( x Data..:? "IncludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "IncludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "DocumentDataFieldName")
@@ -227,7 +229,8 @@ instance
   hashWithSalt
     _salt
     ServiceNowKnowledgeArticleConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` crawlAttachments
+      _salt
+        `Prelude.hashWithSalt` crawlAttachments
         `Prelude.hashWithSalt` documentTitleFieldName
         `Prelude.hashWithSalt` excludeAttachmentFilePatterns
         `Prelude.hashWithSalt` fieldMappings

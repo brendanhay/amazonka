@@ -94,7 +94,8 @@ instance
     DataSourceSyncJobMetricTarget
   where
   hashWithSalt _salt DataSourceSyncJobMetricTarget' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceSyncJobId
+    _salt
+      `Prelude.hashWithSalt` dataSourceSyncJobId
       `Prelude.hashWithSalt` dataSourceId
 
 instance Prelude.NFData DataSourceSyncJobMetricTarget where

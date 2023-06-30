@@ -168,7 +168,8 @@ instance Data.FromJSON DataSourceSyncJob where
 
 instance Prelude.Hashable DataSourceSyncJob where
   hashWithSalt _salt DataSourceSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceErrorCode
+    _salt
+      `Prelude.hashWithSalt` dataSourceErrorCode
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage

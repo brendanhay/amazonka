@@ -131,7 +131,8 @@ instance Data.FromJSON SeedUrlConfiguration where
 
 instance Prelude.Hashable SeedUrlConfiguration where
   hashWithSalt _salt SeedUrlConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` webCrawlerMode
+    _salt
+      `Prelude.hashWithSalt` webCrawlerMode
       `Prelude.hashWithSalt` seedUrls
 
 instance Prelude.NFData SeedUrlConfiguration where

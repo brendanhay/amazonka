@@ -128,7 +128,8 @@ facet_maxResults = Lens.lens (\Facet' {maxResults} -> maxResults) (\s@Facet' {} 
 
 instance Prelude.Hashable Facet where
   hashWithSalt _salt Facet' {..} =
-    _salt `Prelude.hashWithSalt` documentAttributeKey
+    _salt
+      `Prelude.hashWithSalt` documentAttributeKey
       `Prelude.hashWithSalt` facets
       `Prelude.hashWithSalt` maxResults
 

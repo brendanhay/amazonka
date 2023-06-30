@@ -221,7 +221,8 @@ instance Core.AWSRequest UpdateDataSource where
 
 instance Prelude.Hashable UpdateDataSource where
   hashWithSalt _salt UpdateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` customDocumentEnrichmentConfiguration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` languageCode

@@ -142,7 +142,8 @@ instance Data.FromJSON DocumentAttributeCondition where
 
 instance Prelude.Hashable DocumentAttributeCondition where
   hashWithSalt _salt DocumentAttributeCondition' {..} =
-    _salt `Prelude.hashWithSalt` conditionOnValue
+    _salt
+      `Prelude.hashWithSalt` conditionOnValue
       `Prelude.hashWithSalt` conditionDocumentAttributeKey
       `Prelude.hashWithSalt` operator
 

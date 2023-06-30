@@ -115,7 +115,8 @@ instance Core.AWSRequest ListThesauri where
       ( \s h x ->
           ListThesauriResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ThesaurusSummaryItems"
+            Prelude.<*> ( x
+                            Data..?> "ThesaurusSummaryItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -123,7 +124,8 @@ instance Core.AWSRequest ListThesauri where
 
 instance Prelude.Hashable ListThesauri where
   hashWithSalt _salt ListThesauri' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
 

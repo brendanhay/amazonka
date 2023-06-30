@@ -104,7 +104,8 @@ instance Data.FromJSON EntityDisplayData where
 
 instance Prelude.Hashable EntityDisplayData where
   hashWithSalt _salt EntityDisplayData' {..} =
-    _salt `Prelude.hashWithSalt` firstName
+    _salt
+      `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` identifiedUserName
       `Prelude.hashWithSalt` lastName

@@ -131,7 +131,8 @@ instance Data.FromJSON CapacityUnitsConfiguration where
 
 instance Prelude.Hashable CapacityUnitsConfiguration where
   hashWithSalt _salt CapacityUnitsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` storageCapacityUnits
+    _salt
+      `Prelude.hashWithSalt` storageCapacityUnits
       `Prelude.hashWithSalt` queryCapacityUnits
 
 instance Prelude.NFData CapacityUnitsConfiguration where

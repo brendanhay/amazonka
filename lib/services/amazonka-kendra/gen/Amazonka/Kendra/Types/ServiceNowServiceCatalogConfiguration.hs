@@ -182,11 +182,13 @@ instance
           ServiceNowServiceCatalogConfiguration'
             Prelude.<$> (x Data..:? "CrawlAttachments")
             Prelude.<*> (x Data..:? "DocumentTitleFieldName")
-            Prelude.<*> ( x Data..:? "ExcludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExcludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> ( x Data..:? "IncludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "IncludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "DocumentDataFieldName")
@@ -199,7 +201,8 @@ instance
   hashWithSalt
     _salt
     ServiceNowServiceCatalogConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` crawlAttachments
+      _salt
+        `Prelude.hashWithSalt` crawlAttachments
         `Prelude.hashWithSalt` documentTitleFieldName
         `Prelude.hashWithSalt` excludeAttachmentFilePatterns
         `Prelude.hashWithSalt` fieldMappings

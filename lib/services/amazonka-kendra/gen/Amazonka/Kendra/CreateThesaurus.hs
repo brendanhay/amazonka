@@ -181,7 +181,8 @@ instance Core.AWSRequest CreateThesaurus where
 
 instance Prelude.Hashable CreateThesaurus where
   hashWithSalt _salt CreateThesaurus' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` indexId

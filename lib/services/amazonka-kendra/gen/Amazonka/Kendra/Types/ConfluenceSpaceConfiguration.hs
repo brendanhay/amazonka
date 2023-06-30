@@ -169,7 +169,8 @@ instance
     ConfluenceSpaceConfiguration
   where
   hashWithSalt _salt ConfluenceSpaceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` crawlArchivedSpaces
+    _salt
+      `Prelude.hashWithSalt` crawlArchivedSpaces
       `Prelude.hashWithSalt` crawlPersonalSpaces
       `Prelude.hashWithSalt` excludeSpaces
       `Prelude.hashWithSalt` includeSpaces

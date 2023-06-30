@@ -142,7 +142,8 @@ instance Data.FromJSON FaqSummary where
 
 instance Prelude.Hashable FaqSummary where
   hashWithSalt _salt FaqSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` fileFormat
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` languageCode

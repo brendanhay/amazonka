@@ -342,7 +342,8 @@ instance Core.AWSRequest CreateDataSource where
 
 instance Prelude.Hashable CreateDataSource where
   hashWithSalt _salt CreateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` customDocumentEnrichmentConfiguration
       `Prelude.hashWithSalt` description

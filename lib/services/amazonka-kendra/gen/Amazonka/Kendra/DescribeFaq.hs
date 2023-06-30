@@ -121,7 +121,8 @@ instance Core.AWSRequest DescribeFaq where
 
 instance Prelude.Hashable DescribeFaq where
   hashWithSalt _salt DescribeFaq' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DescribeFaq where

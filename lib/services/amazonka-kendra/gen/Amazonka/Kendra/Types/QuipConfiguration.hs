@@ -284,11 +284,13 @@ instance Data.FromJSON QuipConfiguration where
             Prelude.<*> (x Data..:? "CrawlAttachments")
             Prelude.<*> (x Data..:? "CrawlChatRooms")
             Prelude.<*> (x Data..:? "CrawlFileComments")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FolderIds" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MessageFieldMappings")

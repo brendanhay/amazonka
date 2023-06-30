@@ -121,7 +121,8 @@ documentInfo_documentId = Lens.lens (\DocumentInfo' {documentId} -> documentId) 
 
 instance Prelude.Hashable DocumentInfo where
   hashWithSalt _salt DocumentInfo' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` documentId
 
 instance Prelude.NFData DocumentInfo where

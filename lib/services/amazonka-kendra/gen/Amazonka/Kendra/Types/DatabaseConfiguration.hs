@@ -138,7 +138,8 @@ instance Data.FromJSON DatabaseConfiguration where
 
 instance Prelude.Hashable DatabaseConfiguration where
   hashWithSalt _salt DatabaseConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` aclConfiguration
+    _salt
+      `Prelude.hashWithSalt` aclConfiguration
       `Prelude.hashWithSalt` sqlConfiguration
       `Prelude.hashWithSalt` vpcConfiguration
       `Prelude.hashWithSalt` databaseEngineType

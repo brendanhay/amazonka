@@ -111,7 +111,8 @@ userContext_userId = Lens.lens (\UserContext' {userId} -> userId) (\s@UserContex
 
 instance Prelude.Hashable UserContext where
   hashWithSalt _salt UserContext' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceGroups
+    _salt
+      `Prelude.hashWithSalt` dataSourceGroups
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` userId

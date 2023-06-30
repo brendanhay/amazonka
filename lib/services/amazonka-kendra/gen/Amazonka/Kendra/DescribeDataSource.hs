@@ -129,7 +129,8 @@ instance Core.AWSRequest DescribeDataSource where
 
 instance Prelude.Hashable DescribeDataSource where
   hashWithSalt _salt DescribeDataSource' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DescribeDataSource where

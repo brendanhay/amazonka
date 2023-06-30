@@ -99,7 +99,8 @@ instance Core.AWSRequest ListIndices where
     Response.receiveJSON
       ( \s h x ->
           ListIndicesResponse'
-            Prelude.<$> ( x Data..?> "IndexConfigurationSummaryItems"
+            Prelude.<$> ( x
+                            Data..?> "IndexConfigurationSummaryItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -108,7 +109,8 @@ instance Core.AWSRequest ListIndices where
 
 instance Prelude.Hashable ListIndices where
   hashWithSalt _salt ListIndices' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListIndices where

@@ -132,7 +132,8 @@ instance Core.AWSRequest RotateTunnelAccessToken where
 
 instance Prelude.Hashable RotateTunnelAccessToken where
   hashWithSalt _salt RotateTunnelAccessToken' {..} =
-    _salt `Prelude.hashWithSalt` destinationConfig
+    _salt
+      `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` tunnelId
       `Prelude.hashWithSalt` clientMode
 

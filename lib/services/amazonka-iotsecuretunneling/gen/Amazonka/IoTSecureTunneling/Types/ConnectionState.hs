@@ -78,7 +78,8 @@ instance Data.FromJSON ConnectionState where
 
 instance Prelude.Hashable ConnectionState where
   hashWithSalt _salt ConnectionState' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedAt
+    _salt
+      `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ConnectionState where

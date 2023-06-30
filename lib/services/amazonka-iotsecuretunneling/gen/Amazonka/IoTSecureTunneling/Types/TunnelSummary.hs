@@ -115,7 +115,8 @@ instance Data.FromJSON TunnelSummary where
 
 instance Prelude.Hashable TunnelSummary where
   hashWithSalt _salt TunnelSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` status

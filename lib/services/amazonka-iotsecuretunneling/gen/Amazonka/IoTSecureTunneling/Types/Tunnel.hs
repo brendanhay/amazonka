@@ -175,7 +175,8 @@ instance Data.FromJSON Tunnel where
 
 instance Prelude.Hashable Tunnel where
   hashWithSalt _salt Tunnel' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` destinationConnectionState

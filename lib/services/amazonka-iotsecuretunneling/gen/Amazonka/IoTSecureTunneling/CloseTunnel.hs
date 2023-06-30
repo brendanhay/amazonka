@@ -107,7 +107,8 @@ instance Core.AWSRequest CloseTunnel where
 
 instance Prelude.Hashable CloseTunnel where
   hashWithSalt _salt CloseTunnel' {..} =
-    _salt `Prelude.hashWithSalt` delete'
+    _salt
+      `Prelude.hashWithSalt` delete'
       `Prelude.hashWithSalt` tunnelId
 
 instance Prelude.NFData CloseTunnel where

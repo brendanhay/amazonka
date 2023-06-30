@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     AssociateTagOptionWithResource' {..} =
-      _salt `Prelude.hashWithSalt` resourceId
+      _salt
+        `Prelude.hashWithSalt` resourceId
         `Prelude.hashWithSalt` tagOptionId
 
 instance

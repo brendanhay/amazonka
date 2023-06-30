@@ -125,7 +125,8 @@ instance
     ProvisioningArtifactParameter
   where
   hashWithSalt _salt ProvisioningArtifactParameter' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isNoEcho
       `Prelude.hashWithSalt` parameterConstraints

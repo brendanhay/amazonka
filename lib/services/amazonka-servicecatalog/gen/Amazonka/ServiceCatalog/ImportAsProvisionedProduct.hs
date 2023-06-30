@@ -209,7 +209,8 @@ instance Core.AWSRequest ImportAsProvisionedProduct where
 
 instance Prelude.Hashable ImportAsProvisionedProduct where
   hashWithSalt _salt ImportAsProvisionedProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` provisioningArtifactId
       `Prelude.hashWithSalt` provisionedProductName

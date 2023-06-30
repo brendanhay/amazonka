@@ -70,14 +70,16 @@ instance Data.FromJSON ShareDetails where
       ( \x ->
           ShareDetails'
             Prelude.<$> (x Data..:? "ShareErrors" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "SuccessfulShares"
+            Prelude.<*> ( x
+                            Data..:? "SuccessfulShares"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ShareDetails where
   hashWithSalt _salt ShareDetails' {..} =
-    _salt `Prelude.hashWithSalt` shareErrors
+    _salt
+      `Prelude.hashWithSalt` shareErrors
       `Prelude.hashWithSalt` successfulShares
 
 instance Prelude.NFData ShareDetails where

@@ -199,21 +199,26 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeProvisioningParametersResponse'
-            Prelude.<$> ( x Data..?> "ConstraintSummaries"
+            Prelude.<$> ( x
+                            Data..?> "ConstraintSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ProvisioningArtifactOutputKeys"
+            Prelude.<*> ( x
+                            Data..?> "ProvisioningArtifactOutputKeys"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ProvisioningArtifactOutputs"
+            Prelude.<*> ( x
+                            Data..?> "ProvisioningArtifactOutputs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ProvisioningArtifactParameters"
+            Prelude.<*> ( x
+                            Data..?> "ProvisioningArtifactParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ProvisioningArtifactPreferences")
             Prelude.<*> (x Data..?> "TagOptions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "UsageInstructions"
+            Prelude.<*> ( x
+                            Data..?> "UsageInstructions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -226,7 +231,8 @@ instance
   hashWithSalt
     _salt
     DescribeProvisioningParameters' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` pathId
         `Prelude.hashWithSalt` pathName
         `Prelude.hashWithSalt` productId

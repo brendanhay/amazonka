@@ -132,7 +132,8 @@ instance Data.FromJSON ResourceChange where
 
 instance Prelude.Hashable ResourceChange where
   hashWithSalt _salt ResourceChange' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` logicalResourceId
       `Prelude.hashWithSalt` physicalResourceId

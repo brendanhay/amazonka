@@ -260,7 +260,8 @@ instance Data.FromJSON RecordDetail where
 
 instance Prelude.Hashable RecordDetail where
   hashWithSalt _salt RecordDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` launchRoleArn
       `Prelude.hashWithSalt` pathId
       `Prelude.hashWithSalt` productId

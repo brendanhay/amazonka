@@ -201,7 +201,8 @@ instance Core.AWSRequest CopyProduct where
 
 instance Prelude.Hashable CopyProduct where
   hashWithSalt _salt CopyProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` copyOptions
       `Prelude.hashWithSalt` sourceProvisioningArtifactIdentifiers
       `Prelude.hashWithSalt` targetProductId

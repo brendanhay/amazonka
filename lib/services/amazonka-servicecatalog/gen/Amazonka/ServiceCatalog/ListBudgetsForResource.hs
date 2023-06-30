@@ -146,7 +146,8 @@ instance Core.AWSRequest ListBudgetsForResource where
 
 instance Prelude.Hashable ListBudgetsForResource where
   hashWithSalt _salt ListBudgetsForResource' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` resourceId

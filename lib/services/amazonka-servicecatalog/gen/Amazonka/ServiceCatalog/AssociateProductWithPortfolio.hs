@@ -151,7 +151,8 @@ instance
     AssociateProductWithPortfolio
   where
   hashWithSalt _salt AssociateProductWithPortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` sourcePortfolioId
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` portfolioId

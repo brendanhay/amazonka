@@ -84,7 +84,8 @@ instance Data.FromJSON Principal where
 
 instance Prelude.Hashable Principal where
   hashWithSalt _salt Principal' {..} =
-    _salt `Prelude.hashWithSalt` principalARN
+    _salt
+      `Prelude.hashWithSalt` principalARN
       `Prelude.hashWithSalt` principalType
 
 instance Prelude.NFData Principal where

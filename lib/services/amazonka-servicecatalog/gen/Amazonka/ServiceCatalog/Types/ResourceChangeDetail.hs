@@ -93,7 +93,8 @@ instance Data.FromJSON ResourceChangeDetail where
 
 instance Prelude.Hashable ResourceChangeDetail where
   hashWithSalt _salt ResourceChangeDetail' {..} =
-    _salt `Prelude.hashWithSalt` causingEntity
+    _salt
+      `Prelude.hashWithSalt` causingEntity
       `Prelude.hashWithSalt` evaluation
       `Prelude.hashWithSalt` target
 

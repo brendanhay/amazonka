@@ -161,7 +161,8 @@ instance
   hashWithSalt
     _salt
     DisassociateServiceActionFromProvisioningArtifact' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` productId
         `Prelude.hashWithSalt` provisioningArtifactId
         `Prelude.hashWithSalt` serviceActionId

@@ -135,7 +135,8 @@ instance
     DeleteProvisionedProductPlan
   where
   hashWithSalt _salt DeleteProvisionedProductPlan' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` ignoreErrors
       `Prelude.hashWithSalt` planId
 

@@ -318,7 +318,8 @@ instance Core.AWSRequest UpdateConstraint where
 
 instance Prelude.Hashable UpdateConstraint where
   hashWithSalt _salt UpdateConstraint' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` id

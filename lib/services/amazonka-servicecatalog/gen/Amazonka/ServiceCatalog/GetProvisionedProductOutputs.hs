@@ -178,7 +178,8 @@ instance
     GetProvisionedProductOutputs
   where
   hashWithSalt _salt GetProvisionedProductOutputs' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` outputKeys
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken

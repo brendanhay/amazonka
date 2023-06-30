@@ -161,10 +161,12 @@ instance Core.AWSRequest SearchProducts where
       ( \s h x ->
           SearchProductsResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "ProductViewAggregations"
+            Prelude.<*> ( x
+                            Data..?> "ProductViewAggregations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ProductViewSummaries"
+            Prelude.<*> ( x
+                            Data..?> "ProductViewSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,7 +174,8 @@ instance Core.AWSRequest SearchProducts where
 
 instance Prelude.Hashable SearchProducts where
   hashWithSalt _salt SearchProducts' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken

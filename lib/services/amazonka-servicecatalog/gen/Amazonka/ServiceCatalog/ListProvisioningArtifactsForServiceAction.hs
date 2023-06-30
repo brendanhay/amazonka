@@ -142,22 +142,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listProvisioningArtifactsForServiceActionResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProvisioningArtifactsForServiceAction_pageToken
           Lens..~ rs
-            Lens.^? listProvisioningArtifactsForServiceActionResponse_nextPageToken
-              Prelude.. Lens._Just
+          Lens.^? listProvisioningArtifactsForServiceActionResponse_nextPageToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -174,10 +174,11 @@ instance
       ( \s h x ->
           ListProvisioningArtifactsForServiceActionResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-              Prelude.<*> ( x Data..?> "ProvisioningArtifactViews"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ProvisioningArtifactViews"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -187,7 +188,8 @@ instance
   hashWithSalt
     _salt
     ListProvisioningArtifactsForServiceAction' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` pageSize
         `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` serviceActionId

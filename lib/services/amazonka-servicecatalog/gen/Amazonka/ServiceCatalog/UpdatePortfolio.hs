@@ -174,7 +174,8 @@ instance Core.AWSRequest UpdatePortfolio where
 
 instance Prelude.Hashable UpdatePortfolio where
   hashWithSalt _salt UpdatePortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` addTags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName

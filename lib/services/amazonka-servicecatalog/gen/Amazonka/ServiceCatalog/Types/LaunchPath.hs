@@ -68,12 +68,14 @@ instance Data.FromJSON LaunchPath where
       "LaunchPath"
       ( \x ->
           LaunchPath'
-            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable LaunchPath where
   hashWithSalt _salt LaunchPath' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData LaunchPath where

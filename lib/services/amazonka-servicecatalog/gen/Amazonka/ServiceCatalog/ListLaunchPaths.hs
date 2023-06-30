@@ -137,22 +137,22 @@ instance Core.AWSPager ListLaunchPaths where
     | Core.stop
         ( rs
             Lens.^? listLaunchPathsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listLaunchPathsResponse_launchPathSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLaunchPaths_pageToken
           Lens..~ rs
           Lens.^? listLaunchPathsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLaunchPaths where
   type
@@ -164,7 +164,8 @@ instance Core.AWSRequest ListLaunchPaths where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchPathsResponse'
-            Prelude.<$> ( x Data..?> "LaunchPathSummaries"
+            Prelude.<$> ( x
+                            Data..?> "LaunchPathSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextPageToken")
@@ -173,7 +174,8 @@ instance Core.AWSRequest ListLaunchPaths where
 
 instance Prelude.Hashable ListLaunchPaths where
   hashWithSalt _salt ListLaunchPaths' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` productId

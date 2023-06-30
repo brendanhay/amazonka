@@ -86,7 +86,8 @@ instance Data.FromJSON RecordOutput where
 
 instance Prelude.Hashable RecordOutput where
   hashWithSalt _salt RecordOutput' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` outputKey
       `Prelude.hashWithSalt` outputValue
 

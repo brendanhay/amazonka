@@ -123,7 +123,8 @@ instance Core.AWSRequest DeletePortfolio where
 
 instance Prelude.Hashable DeletePortfolio where
   hashWithSalt _salt DeletePortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeletePortfolio where

@@ -143,7 +143,8 @@ instance Data.FromJSON StackInstance where
 
 instance Prelude.Hashable StackInstance where
   hashWithSalt _salt StackInstance' {..} =
-    _salt `Prelude.hashWithSalt` account
+    _salt
+      `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` stackInstanceStatus
 

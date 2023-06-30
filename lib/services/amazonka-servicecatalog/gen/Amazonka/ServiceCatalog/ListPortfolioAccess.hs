@@ -166,7 +166,8 @@ instance Core.AWSRequest ListPortfolioAccess where
 
 instance Prelude.Hashable ListPortfolioAccess where
   hashWithSalt _salt ListPortfolioAccess' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` organizationParentId
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken

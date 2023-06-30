@@ -84,7 +84,8 @@ instance Data.FromJSON ShareError where
 
 instance Prelude.Hashable ShareError where
   hashWithSalt _salt ShareError' {..} =
-    _salt `Prelude.hashWithSalt` accounts
+    _salt
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` message
 

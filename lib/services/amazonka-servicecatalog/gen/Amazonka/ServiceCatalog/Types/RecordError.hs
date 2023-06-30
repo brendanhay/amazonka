@@ -74,7 +74,8 @@ instance Data.FromJSON RecordError where
 
 instance Prelude.Hashable RecordError where
   hashWithSalt _salt RecordError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData RecordError where

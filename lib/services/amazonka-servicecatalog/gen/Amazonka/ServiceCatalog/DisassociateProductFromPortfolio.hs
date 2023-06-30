@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     DisassociateProductFromPortfolio' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` productId
         `Prelude.hashWithSalt` portfolioId
 

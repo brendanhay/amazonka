@@ -137,10 +137,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeServiceActionExecutionParametersResponse'
-            Prelude.<$> ( x Data..?> "ServiceActionParameters"
+            Prelude.<$> ( x
+                            Data..?> "ServiceActionParameters"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -150,7 +151,8 @@ instance
   hashWithSalt
     _salt
     DescribeServiceActionExecutionParameters' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` provisionedProductId
         `Prelude.hashWithSalt` serviceActionId
 

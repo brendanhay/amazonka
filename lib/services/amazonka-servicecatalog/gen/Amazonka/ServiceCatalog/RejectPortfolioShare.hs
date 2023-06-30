@@ -165,7 +165,8 @@ instance Core.AWSRequest RejectPortfolioShare where
 
 instance Prelude.Hashable RejectPortfolioShare where
   hashWithSalt _salt RejectPortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` portfolioShareType
       `Prelude.hashWithSalt` portfolioId
 

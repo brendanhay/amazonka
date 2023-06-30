@@ -136,22 +136,22 @@ instance Core.AWSPager ListPortfoliosForProduct where
     | Core.stop
         ( rs
             Lens.^? listPortfoliosForProductResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPortfoliosForProductResponse_portfolioDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPortfoliosForProduct_pageToken
           Lens..~ rs
           Lens.^? listPortfoliosForProductResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPortfoliosForProduct where
   type
@@ -164,7 +164,8 @@ instance Core.AWSRequest ListPortfoliosForProduct where
       ( \s h x ->
           ListPortfoliosForProductResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "PortfolioDetails"
+            Prelude.<*> ( x
+                            Data..?> "PortfolioDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,7 +173,8 @@ instance Core.AWSRequest ListPortfoliosForProduct where
 
 instance Prelude.Hashable ListPortfoliosForProduct where
   hashWithSalt _salt ListPortfoliosForProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` productId

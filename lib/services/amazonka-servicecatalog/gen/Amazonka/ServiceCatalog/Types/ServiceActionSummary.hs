@@ -96,7 +96,8 @@ instance Data.FromJSON ServiceActionSummary where
 
 instance Prelude.Hashable ServiceActionSummary where
   hashWithSalt _salt ServiceActionSummary' {..} =
-    _salt `Prelude.hashWithSalt` definitionType
+    _salt
+      `Prelude.hashWithSalt` definitionType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

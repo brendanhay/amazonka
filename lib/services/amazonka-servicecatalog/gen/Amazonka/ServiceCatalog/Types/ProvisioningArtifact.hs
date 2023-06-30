@@ -110,7 +110,8 @@ instance Data.FromJSON ProvisioningArtifact where
 
 instance Prelude.Hashable ProvisioningArtifact where
   hashWithSalt _salt ProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` guidance
       `Prelude.hashWithSalt` id

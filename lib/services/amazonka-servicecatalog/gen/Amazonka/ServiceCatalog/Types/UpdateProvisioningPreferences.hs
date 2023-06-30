@@ -381,7 +381,8 @@ instance
     UpdateProvisioningPreferences
   where
   hashWithSalt _salt UpdateProvisioningPreferences' {..} =
-    _salt `Prelude.hashWithSalt` stackSetAccounts
+    _salt
+      `Prelude.hashWithSalt` stackSetAccounts
       `Prelude.hashWithSalt` stackSetFailureToleranceCount
       `Prelude.hashWithSalt` stackSetFailureTolerancePercentage
       `Prelude.hashWithSalt` stackSetMaxConcurrencyCount

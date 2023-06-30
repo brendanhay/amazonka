@@ -140,7 +140,8 @@ instance Core.AWSRequest DeleteProvisioningArtifact where
 
 instance Prelude.Hashable DeleteProvisioningArtifact where
   hashWithSalt _salt DeleteProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` provisioningArtifactId
 

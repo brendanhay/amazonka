@@ -196,7 +196,8 @@ instance Core.AWSRequest TerminateProvisionedProduct where
 
 instance Prelude.Hashable TerminateProvisionedProduct where
   hashWithSalt _salt TerminateProvisionedProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` ignoreErrors
       `Prelude.hashWithSalt` provisionedProductId
       `Prelude.hashWithSalt` provisionedProductName

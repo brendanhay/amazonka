@@ -220,7 +220,8 @@ instance Core.AWSRequest UpdateProvisioningArtifact where
 
 instance Prelude.Hashable UpdateProvisioningArtifact where
   hashWithSalt _salt UpdateProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` guidance

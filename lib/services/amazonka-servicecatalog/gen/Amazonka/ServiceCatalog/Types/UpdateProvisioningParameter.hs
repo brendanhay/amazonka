@@ -87,7 +87,8 @@ instance Data.FromJSON UpdateProvisioningParameter where
 
 instance Prelude.Hashable UpdateProvisioningParameter where
   hashWithSalt _salt UpdateProvisioningParameter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` usePreviousValue
       `Prelude.hashWithSalt` value
 

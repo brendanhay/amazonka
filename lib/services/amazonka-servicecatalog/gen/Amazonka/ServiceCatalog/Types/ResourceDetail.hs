@@ -104,7 +104,8 @@ instance Data.FromJSON ResourceDetail where
 
 instance Prelude.Hashable ResourceDetail where
   hashWithSalt _salt ResourceDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

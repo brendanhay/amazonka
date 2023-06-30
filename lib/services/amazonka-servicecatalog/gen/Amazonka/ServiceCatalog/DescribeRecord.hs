@@ -161,7 +161,8 @@ instance Core.AWSRequest DescribeRecord where
 
 instance Prelude.Hashable DescribeRecord where
   hashWithSalt _salt DescribeRecord' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` id

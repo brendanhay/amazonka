@@ -151,7 +151,8 @@ instance Core.AWSRequest UpdateServiceAction where
 
 instance Prelude.Hashable UpdateServiceAction where
   hashWithSalt _salt UpdateServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

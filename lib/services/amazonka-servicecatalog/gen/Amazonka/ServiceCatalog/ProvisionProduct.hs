@@ -274,7 +274,8 @@ instance Core.AWSRequest ProvisionProduct where
 
 instance Prelude.Hashable ProvisionProduct where
   hashWithSalt _salt ProvisionProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` notificationArns
       `Prelude.hashWithSalt` pathId
       `Prelude.hashWithSalt` pathName

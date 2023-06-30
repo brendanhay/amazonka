@@ -269,7 +269,8 @@ instance Core.AWSRequest UpdateProvisionedProduct where
 
 instance Prelude.Hashable UpdateProvisionedProduct where
   hashWithSalt _salt UpdateProvisionedProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pathId
       `Prelude.hashWithSalt` pathName
       `Prelude.hashWithSalt` productId

@@ -136,22 +136,22 @@ instance Core.AWSPager ScanProvisionedProducts where
     | Core.stop
         ( rs
             Lens.^? scanProvisionedProductsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? scanProvisionedProductsResponse_provisionedProducts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& scanProvisionedProducts_pageToken
           Lens..~ rs
           Lens.^? scanProvisionedProductsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ScanProvisionedProducts where
   type
@@ -164,7 +164,8 @@ instance Core.AWSRequest ScanProvisionedProducts where
       ( \s h x ->
           ScanProvisionedProductsResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "ProvisionedProducts"
+            Prelude.<*> ( x
+                            Data..?> "ProvisionedProducts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,7 +173,8 @@ instance Core.AWSRequest ScanProvisionedProducts where
 
 instance Prelude.Hashable ScanProvisionedProducts where
   hashWithSalt _salt ScanProvisionedProducts' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` accessLevelFilter
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken

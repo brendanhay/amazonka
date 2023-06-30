@@ -196,7 +196,8 @@ instance
   hashWithSalt
     _salt
     AssociatePrincipalWithPortfolio' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` portfolioId
         `Prelude.hashWithSalt` principalARN
         `Prelude.hashWithSalt` principalType

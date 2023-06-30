@@ -121,7 +121,8 @@ instance Data.FromJSON SourceConnectionDetail where
 
 instance Prelude.Hashable SourceConnectionDetail where
   hashWithSalt _salt SourceConnectionDetail' {..} =
-    _salt `Prelude.hashWithSalt` connectionParameters
+    _salt
+      `Prelude.hashWithSalt` connectionParameters
       `Prelude.hashWithSalt` lastSync
       `Prelude.hashWithSalt` type'
 

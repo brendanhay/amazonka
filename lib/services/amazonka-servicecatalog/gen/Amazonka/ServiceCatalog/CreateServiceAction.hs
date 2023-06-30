@@ -252,7 +252,8 @@ instance Core.AWSRequest CreateServiceAction where
 
 instance Prelude.Hashable CreateServiceAction where
   hashWithSalt _salt CreateServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` definitionType

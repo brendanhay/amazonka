@@ -177,7 +177,8 @@ instance Core.AWSRequest CreatePortfolio where
 
 instance Prelude.Hashable CreatePortfolio where
   hashWithSalt _salt CreatePortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` displayName

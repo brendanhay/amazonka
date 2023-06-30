@@ -148,7 +148,8 @@ instance
     ExecuteProvisionedProductPlan
   where
   hashWithSalt _salt ExecuteProvisionedProductPlan' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` planId
       `Prelude.hashWithSalt` idempotencyToken
 

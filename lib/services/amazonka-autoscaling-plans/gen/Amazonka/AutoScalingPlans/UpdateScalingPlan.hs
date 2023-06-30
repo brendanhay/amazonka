@@ -155,7 +155,8 @@ instance Core.AWSRequest UpdateScalingPlan where
 
 instance Prelude.Hashable UpdateScalingPlan where
   hashWithSalt _salt UpdateScalingPlan' {..} =
-    _salt `Prelude.hashWithSalt` applicationSource
+    _salt
+      `Prelude.hashWithSalt` applicationSource
       `Prelude.hashWithSalt` scalingInstructions
       `Prelude.hashWithSalt` scalingPlanName
       `Prelude.hashWithSalt` scalingPlanVersion

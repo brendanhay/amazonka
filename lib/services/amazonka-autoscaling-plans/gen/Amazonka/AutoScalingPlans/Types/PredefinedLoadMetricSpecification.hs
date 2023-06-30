@@ -166,7 +166,8 @@ instance
   hashWithSalt
     _salt
     PredefinedLoadMetricSpecification' {..} =
-      _salt `Prelude.hashWithSalt` resourceLabel
+      _salt
+        `Prelude.hashWithSalt` resourceLabel
         `Prelude.hashWithSalt` predefinedLoadMetricType
 
 instance

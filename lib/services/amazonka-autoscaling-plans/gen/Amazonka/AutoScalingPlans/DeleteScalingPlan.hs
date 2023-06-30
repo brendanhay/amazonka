@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteScalingPlan where
 
 instance Prelude.Hashable DeleteScalingPlan where
   hashWithSalt _salt DeleteScalingPlan' {..} =
-    _salt `Prelude.hashWithSalt` scalingPlanName
+    _salt
+      `Prelude.hashWithSalt` scalingPlanName
       `Prelude.hashWithSalt` scalingPlanVersion
 
 instance Prelude.NFData DeleteScalingPlan where

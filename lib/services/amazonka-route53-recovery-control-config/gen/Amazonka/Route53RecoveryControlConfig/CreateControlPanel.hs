@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateControlPanel where
 
 instance Prelude.Hashable CreateControlPanel where
   hashWithSalt _salt CreateControlPanel' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` controlPanelName

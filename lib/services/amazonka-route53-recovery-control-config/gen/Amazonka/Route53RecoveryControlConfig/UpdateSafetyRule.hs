@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateSafetyRule where
 
 instance Prelude.Hashable UpdateSafetyRule where
   hashWithSalt _salt UpdateSafetyRule' {..} =
-    _salt `Prelude.hashWithSalt` assertionRuleUpdate
+    _salt
+      `Prelude.hashWithSalt` assertionRuleUpdate
       `Prelude.hashWithSalt` gatingRuleUpdate
 
 instance Prelude.NFData UpdateSafetyRule where

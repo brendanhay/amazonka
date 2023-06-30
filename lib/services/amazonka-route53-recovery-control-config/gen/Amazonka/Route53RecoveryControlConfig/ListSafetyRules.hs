@@ -105,22 +105,22 @@ instance Core.AWSPager ListSafetyRules where
     | Core.stop
         ( rs
             Lens.^? listSafetyRulesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSafetyRulesResponse_safetyRules
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSafetyRules_nextToken
           Lens..~ rs
           Lens.^? listSafetyRulesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSafetyRules where
   type
@@ -139,7 +139,8 @@ instance Core.AWSRequest ListSafetyRules where
 
 instance Prelude.Hashable ListSafetyRules where
   hashWithSalt _salt ListSafetyRules' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` controlPanelArn
 

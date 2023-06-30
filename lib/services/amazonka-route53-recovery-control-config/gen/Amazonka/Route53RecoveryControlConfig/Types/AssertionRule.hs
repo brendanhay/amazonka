@@ -184,7 +184,8 @@ instance Data.FromJSON AssertionRule where
             Prelude.<$> (x Data..: "Status")
             Prelude.<*> (x Data..: "ControlPanelArn")
             Prelude.<*> (x Data..: "SafetyRuleArn")
-            Prelude.<*> ( x Data..:? "AssertedControls"
+            Prelude.<*> ( x
+                            Data..:? "AssertedControls"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "RuleConfig")
@@ -194,7 +195,8 @@ instance Data.FromJSON AssertionRule where
 
 instance Prelude.Hashable AssertionRule where
   hashWithSalt _salt AssertionRule' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` safetyRuleArn
       `Prelude.hashWithSalt` assertedControls

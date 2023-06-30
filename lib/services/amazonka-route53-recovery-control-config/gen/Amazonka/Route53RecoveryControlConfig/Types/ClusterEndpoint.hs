@@ -87,7 +87,8 @@ instance Data.FromJSON ClusterEndpoint where
 
 instance Prelude.Hashable ClusterEndpoint where
   hashWithSalt _salt ClusterEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` region
 
 instance Prelude.NFData ClusterEndpoint where

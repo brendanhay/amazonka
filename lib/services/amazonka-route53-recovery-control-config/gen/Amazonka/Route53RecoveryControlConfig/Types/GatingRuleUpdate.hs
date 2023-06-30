@@ -96,7 +96,8 @@ gatingRuleUpdate_name = Lens.lens (\GatingRuleUpdate' {name} -> name) (\s@Gating
 
 instance Prelude.Hashable GatingRuleUpdate where
   hashWithSalt _salt GatingRuleUpdate' {..} =
-    _salt `Prelude.hashWithSalt` safetyRuleArn
+    _salt
+      `Prelude.hashWithSalt` safetyRuleArn
       `Prelude.hashWithSalt` waitPeriodMs
       `Prelude.hashWithSalt` name
 

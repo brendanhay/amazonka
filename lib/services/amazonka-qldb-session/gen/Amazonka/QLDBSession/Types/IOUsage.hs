@@ -74,7 +74,8 @@ instance Data.FromJSON IOUsage where
 
 instance Prelude.Hashable IOUsage where
   hashWithSalt _salt IOUsage' {..} =
-    _salt `Prelude.hashWithSalt` readIOs
+    _salt
+      `Prelude.hashWithSalt` readIOs
       `Prelude.hashWithSalt` writeIOs
 
 instance Prelude.NFData IOUsage where

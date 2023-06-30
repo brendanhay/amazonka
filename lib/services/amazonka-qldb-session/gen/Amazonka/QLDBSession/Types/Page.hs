@@ -75,7 +75,8 @@ instance Data.FromJSON Page where
 
 instance Prelude.Hashable Page where
   hashWithSalt _salt Page' {..} =
-    _salt `Prelude.hashWithSalt` nextPageToken
+    _salt
+      `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Page where

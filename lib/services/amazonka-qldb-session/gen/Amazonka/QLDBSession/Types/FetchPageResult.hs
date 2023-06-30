@@ -87,7 +87,8 @@ instance Data.FromJSON FetchPageResult where
 
 instance Prelude.Hashable FetchPageResult where
   hashWithSalt _salt FetchPageResult' {..} =
-    _salt `Prelude.hashWithSalt` consumedIOs
+    _salt
+      `Prelude.hashWithSalt` consumedIOs
       `Prelude.hashWithSalt` page
       `Prelude.hashWithSalt` timingInformation
 

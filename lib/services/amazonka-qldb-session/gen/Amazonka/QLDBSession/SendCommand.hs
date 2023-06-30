@@ -203,7 +203,8 @@ instance Core.AWSRequest SendCommand where
 
 instance Prelude.Hashable SendCommand where
   hashWithSalt _salt SendCommand' {..} =
-    _salt `Prelude.hashWithSalt` abortTransaction
+    _salt
+      `Prelude.hashWithSalt` abortTransaction
       `Prelude.hashWithSalt` commitTransaction
       `Prelude.hashWithSalt` endSession
       `Prelude.hashWithSalt` executeStatement

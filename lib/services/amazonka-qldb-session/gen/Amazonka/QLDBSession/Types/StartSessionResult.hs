@@ -78,7 +78,8 @@ instance Data.FromJSON StartSessionResult where
 
 instance Prelude.Hashable StartSessionResult where
   hashWithSalt _salt StartSessionResult' {..} =
-    _salt `Prelude.hashWithSalt` sessionToken
+    _salt
+      `Prelude.hashWithSalt` sessionToken
       `Prelude.hashWithSalt` timingInformation
 
 instance Prelude.NFData StartSessionResult where

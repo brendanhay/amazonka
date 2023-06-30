@@ -103,7 +103,8 @@ commitTransactionRequest_commitDigest = Lens.lens (\CommitTransactionRequest' {c
 
 instance Prelude.Hashable CommitTransactionRequest where
   hashWithSalt _salt CommitTransactionRequest' {..} =
-    _salt `Prelude.hashWithSalt` transactionId
+    _salt
+      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` commitDigest
 
 instance Prelude.NFData CommitTransactionRequest where

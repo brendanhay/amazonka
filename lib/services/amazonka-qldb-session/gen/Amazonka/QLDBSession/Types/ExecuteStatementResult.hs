@@ -88,7 +88,8 @@ instance Data.FromJSON ExecuteStatementResult where
 
 instance Prelude.Hashable ExecuteStatementResult where
   hashWithSalt _salt ExecuteStatementResult' {..} =
-    _salt `Prelude.hashWithSalt` consumedIOs
+    _salt
+      `Prelude.hashWithSalt` consumedIOs
       `Prelude.hashWithSalt` firstPage
       `Prelude.hashWithSalt` timingInformation
 

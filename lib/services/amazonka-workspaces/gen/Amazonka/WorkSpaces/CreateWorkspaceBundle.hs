@@ -177,7 +177,8 @@ instance Core.AWSRequest CreateWorkspaceBundle where
 
 instance Prelude.Hashable CreateWorkspaceBundle where
   hashWithSalt _salt CreateWorkspaceBundle' {..} =
-    _salt `Prelude.hashWithSalt` rootStorage
+    _salt
+      `Prelude.hashWithSalt` rootStorage
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` bundleName
       `Prelude.hashWithSalt` bundleDescription

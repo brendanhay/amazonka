@@ -97,7 +97,8 @@ instance Core.AWSRequest CreateWorkspaces where
       ( \s h x ->
           CreateWorkspacesResponse'
             Prelude.<$> (x Data..?> "FailedRequests" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "PendingRequests"
+            Prelude.<*> ( x
+                            Data..?> "PendingRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

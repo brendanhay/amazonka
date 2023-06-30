@@ -103,7 +103,8 @@ instance Core.AWSRequest AuthorizeIpRules where
 
 instance Prelude.Hashable AuthorizeIpRules where
   hashWithSalt _salt AuthorizeIpRules' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` userRules
 
 instance Prelude.NFData AuthorizeIpRules where

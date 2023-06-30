@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteConnectClientAddIn where
 
 instance Prelude.Hashable DeleteConnectClientAddIn where
   hashWithSalt _salt DeleteConnectClientAddIn' {..} =
-    _salt `Prelude.hashWithSalt` addInId
+    _salt
+      `Prelude.hashWithSalt` addInId
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DeleteConnectClientAddIn where

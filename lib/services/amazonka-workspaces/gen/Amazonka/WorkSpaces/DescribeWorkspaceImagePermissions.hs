@@ -117,11 +117,12 @@ instance
       ( \s h x ->
           DescribeWorkspaceImagePermissionsResponse'
             Prelude.<$> (x Data..?> "ImageId")
-              Prelude.<*> ( x Data..?> "ImagePermissions"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ImagePermissions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -131,7 +132,8 @@ instance
   hashWithSalt
     _salt
     DescribeWorkspaceImagePermissions' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` imageId
 

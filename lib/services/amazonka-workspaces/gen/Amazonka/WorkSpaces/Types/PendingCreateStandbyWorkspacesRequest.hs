@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     PendingCreateStandbyWorkspacesRequest' {..} =
-      _salt `Prelude.hashWithSalt` directoryId
+      _salt
+        `Prelude.hashWithSalt` directoryId
         `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` workspaceId

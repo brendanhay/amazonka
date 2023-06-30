@@ -112,7 +112,8 @@ instance Core.AWSRequest ModifyWorkspaceProperties where
 
 instance Prelude.Hashable ModifyWorkspaceProperties where
   hashWithSalt _salt ModifyWorkspaceProperties' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` workspaceProperties
 
 instance Prelude.NFData ModifyWorkspaceProperties where

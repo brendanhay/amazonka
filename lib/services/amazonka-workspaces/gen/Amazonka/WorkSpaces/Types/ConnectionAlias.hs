@@ -117,7 +117,8 @@ instance Data.FromJSON ConnectionAlias where
 
 instance Prelude.Hashable ConnectionAlias where
   hashWithSalt _salt ConnectionAlias' {..} =
-    _salt `Prelude.hashWithSalt` aliasId
+    _salt
+      `Prelude.hashWithSalt` aliasId
       `Prelude.hashWithSalt` associations
       `Prelude.hashWithSalt` connectionString
       `Prelude.hashWithSalt` ownerAccountId

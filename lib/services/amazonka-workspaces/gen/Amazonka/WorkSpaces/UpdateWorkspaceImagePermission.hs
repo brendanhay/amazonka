@@ -166,7 +166,8 @@ instance
   hashWithSalt
     _salt
     UpdateWorkspaceImagePermission' {..} =
-      _salt `Prelude.hashWithSalt` imageId
+      _salt
+        `Prelude.hashWithSalt` imageId
         `Prelude.hashWithSalt` allowCopyImage
         `Prelude.hashWithSalt` sharedAccountId
 

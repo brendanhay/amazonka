@@ -95,7 +95,8 @@ instance Data.FromJSON ClientProperties where
 
 instance Prelude.Hashable ClientProperties where
   hashWithSalt _salt ClientProperties' {..} =
-    _salt `Prelude.hashWithSalt` logUploadEnabled
+    _salt
+      `Prelude.hashWithSalt` logUploadEnabled
       `Prelude.hashWithSalt` reconnectEnabled
 
 instance Prelude.NFData ClientProperties where

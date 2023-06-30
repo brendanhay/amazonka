@@ -100,7 +100,8 @@ instance Core.AWSRequest RevokeIpRules where
 
 instance Prelude.Hashable RevokeIpRules where
   hashWithSalt _salt RevokeIpRules' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` userRules
 
 instance Prelude.NFData RevokeIpRules where

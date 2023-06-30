@@ -99,7 +99,8 @@ instance Data.FromJSON RelatedWorkspaceProperties where
 
 instance Prelude.Hashable RelatedWorkspaceProperties where
   hashWithSalt _salt RelatedWorkspaceProperties' {..} =
-    _salt `Prelude.hashWithSalt` region
+    _salt
+      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` workspaceId

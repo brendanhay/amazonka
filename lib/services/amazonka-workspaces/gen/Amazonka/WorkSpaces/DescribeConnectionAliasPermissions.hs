@@ -119,9 +119,9 @@ instance
       ( \s h x ->
           DescribeConnectionAliasPermissionsResponse'
             Prelude.<$> (x Data..?> "AliasId")
-              Prelude.<*> (x Data..?> "ConnectionAliasPermissions")
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ConnectionAliasPermissions")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     DescribeConnectionAliasPermissions' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` aliasId
 

@@ -204,7 +204,8 @@ instance Core.AWSRequest RegisterWorkspaceDirectory where
 
 instance Prelude.Hashable RegisterWorkspaceDirectory where
   hashWithSalt _salt RegisterWorkspaceDirectory' {..} =
-    _salt `Prelude.hashWithSalt` enableSelfService
+    _salt
+      `Prelude.hashWithSalt` enableSelfService
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` tenancy

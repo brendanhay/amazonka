@@ -88,7 +88,8 @@ instance Core.AWSRequest DescribeClientProperties where
     Response.receiveJSON
       ( \s h x ->
           DescribeClientPropertiesResponse'
-            Prelude.<$> ( x Data..?> "ClientPropertiesList"
+            Prelude.<$> ( x
+                            Data..?> "ClientPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

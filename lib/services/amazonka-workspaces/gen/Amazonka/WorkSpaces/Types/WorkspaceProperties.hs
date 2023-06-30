@@ -185,7 +185,8 @@ instance Data.FromJSON WorkspaceProperties where
 
 instance Prelude.Hashable WorkspaceProperties where
   hashWithSalt _salt WorkspaceProperties' {..} =
-    _salt `Prelude.hashWithSalt` computeTypeName
+    _salt
+      `Prelude.hashWithSalt` computeTypeName
       `Prelude.hashWithSalt` protocols
       `Prelude.hashWithSalt` rootVolumeSizeGib
       `Prelude.hashWithSalt` runningMode

@@ -94,7 +94,8 @@ instance Data.FromJSON ConnectClientAddIn where
 
 instance Prelude.Hashable ConnectClientAddIn where
   hashWithSalt _salt ConnectClientAddIn' {..} =
-    _salt `Prelude.hashWithSalt` addInId
+    _salt
+      `Prelude.hashWithSalt` addInId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` url

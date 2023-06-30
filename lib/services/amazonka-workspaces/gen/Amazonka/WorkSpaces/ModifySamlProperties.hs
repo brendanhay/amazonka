@@ -138,7 +138,8 @@ instance Core.AWSRequest ModifySamlProperties where
 
 instance Prelude.Hashable ModifySamlProperties where
   hashWithSalt _salt ModifySamlProperties' {..} =
-    _salt `Prelude.hashWithSalt` propertiesToDelete
+    _salt
+      `Prelude.hashWithSalt` propertiesToDelete
       `Prelude.hashWithSalt` samlProperties
       `Prelude.hashWithSalt` resourceId
 

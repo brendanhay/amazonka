@@ -76,7 +76,8 @@ instance Data.FromJSON ModificationState where
 
 instance Prelude.Hashable ModificationState where
   hashWithSalt _salt ModificationState' {..} =
-    _salt `Prelude.hashWithSalt` resource
+    _salt
+      `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ModificationState where

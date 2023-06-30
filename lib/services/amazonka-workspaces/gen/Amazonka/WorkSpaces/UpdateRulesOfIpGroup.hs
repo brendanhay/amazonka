@@ -101,7 +101,8 @@ instance Core.AWSRequest UpdateRulesOfIpGroup where
 
 instance Prelude.Hashable UpdateRulesOfIpGroup where
   hashWithSalt _salt UpdateRulesOfIpGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` userRules
 
 instance Prelude.NFData UpdateRulesOfIpGroup where

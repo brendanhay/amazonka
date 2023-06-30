@@ -95,7 +95,8 @@ instance Data.FromJSON WorkspacesIpGroup where
 
 instance Prelude.Hashable WorkspacesIpGroup where
   hashWithSalt _salt WorkspacesIpGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupDesc
+    _salt
+      `Prelude.hashWithSalt` groupDesc
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` userRules

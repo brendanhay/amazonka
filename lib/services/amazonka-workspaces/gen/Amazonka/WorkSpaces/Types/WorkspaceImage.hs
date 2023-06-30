@@ -183,7 +183,8 @@ instance Data.FromJSON WorkspaceImage where
 
 instance Prelude.Hashable WorkspaceImage where
   hashWithSalt _salt WorkspaceImage' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage

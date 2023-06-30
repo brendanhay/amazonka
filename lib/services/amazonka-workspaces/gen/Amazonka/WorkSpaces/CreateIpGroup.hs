@@ -135,7 +135,8 @@ instance Core.AWSRequest CreateIpGroup where
 
 instance Prelude.Hashable CreateIpGroup where
   hashWithSalt _salt CreateIpGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupDesc
+    _salt
+      `Prelude.hashWithSalt` groupDesc
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userRules
       `Prelude.hashWithSalt` groupName

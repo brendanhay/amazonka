@@ -119,7 +119,8 @@ instance Core.AWSRequest DescribeConnectClientAddIns where
 
 instance Prelude.Hashable DescribeConnectClientAddIns where
   hashWithSalt _salt DescribeConnectClientAddIns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId
 

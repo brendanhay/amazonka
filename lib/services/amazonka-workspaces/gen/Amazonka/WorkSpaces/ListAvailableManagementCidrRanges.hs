@@ -130,22 +130,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listAvailableManagementCidrRangesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAvailableManagementCidrRangesResponse_managementCidrRanges
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAvailableManagementCidrRanges_nextToken
           Lens..~ rs
           Lens.^? listAvailableManagementCidrRangesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -160,11 +160,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailableManagementCidrRangesResponse'
-            Prelude.<$> ( x Data..?> "ManagementCidrRanges"
+            Prelude.<$> ( x
+                            Data..?> "ManagementCidrRanges"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -174,7 +175,8 @@ instance
   hashWithSalt
     _salt
     ListAvailableManagementCidrRanges' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` managementCidrRangeConstraint
 

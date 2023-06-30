@@ -121,7 +121,8 @@ instance Core.AWSRequest CreateConnectClientAddIn where
 
 instance Prelude.Hashable CreateConnectClientAddIn where
   hashWithSalt _salt CreateConnectClientAddIn' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` url
 

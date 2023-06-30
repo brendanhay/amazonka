@@ -204,7 +204,8 @@ instance Data.FromJSON FileSourceSettings where
 
 instance Prelude.Hashable FileSourceSettings where
   hashWithSalt _salt FileSourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` convert608To708
+    _salt
+      `Prelude.hashWithSalt` convert608To708
       `Prelude.hashWithSalt` framerate
       `Prelude.hashWithSalt` sourceFile
       `Prelude.hashWithSalt` timeDelta

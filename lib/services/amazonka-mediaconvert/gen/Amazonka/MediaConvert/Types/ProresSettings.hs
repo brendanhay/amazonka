@@ -506,7 +506,8 @@ instance Data.FromJSON ProresSettings where
 
 instance Prelude.Hashable ProresSettings where
   hashWithSalt _salt ProresSettings' {..} =
-    _salt `Prelude.hashWithSalt` chromaSampling
+    _salt
+      `Prelude.hashWithSalt` chromaSampling
       `Prelude.hashWithSalt` codecProfile
       `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` framerateConversionAlgorithm

@@ -268,7 +268,8 @@ instance Data.FromJSON Hdr10Metadata where
 
 instance Prelude.Hashable Hdr10Metadata where
   hashWithSalt _salt Hdr10Metadata' {..} =
-    _salt `Prelude.hashWithSalt` bluePrimaryX
+    _salt
+      `Prelude.hashWithSalt` bluePrimaryX
       `Prelude.hashWithSalt` bluePrimaryY
       `Prelude.hashWithSalt` greenPrimaryX
       `Prelude.hashWithSalt` greenPrimaryY

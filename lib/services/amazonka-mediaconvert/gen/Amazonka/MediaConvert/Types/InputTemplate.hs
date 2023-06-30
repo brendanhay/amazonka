@@ -457,11 +457,13 @@ instance Data.FromJSON InputTemplate where
       "InputTemplate"
       ( \x ->
           InputTemplate'
-            Prelude.<$> ( x Data..:? "audioSelectorGroups"
+            Prelude.<$> ( x
+                            Data..:? "audioSelectorGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "audioSelectors" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "captionSelectors"
+            Prelude.<*> ( x
+                            Data..:? "captionSelectors"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "crop")
@@ -483,7 +485,8 @@ instance Data.FromJSON InputTemplate where
 
 instance Prelude.Hashable InputTemplate where
   hashWithSalt _salt InputTemplate' {..} =
-    _salt `Prelude.hashWithSalt` audioSelectorGroups
+    _salt
+      `Prelude.hashWithSalt` audioSelectorGroups
       `Prelude.hashWithSalt` audioSelectors
       `Prelude.hashWithSalt` captionSelectors
       `Prelude.hashWithSalt` crop

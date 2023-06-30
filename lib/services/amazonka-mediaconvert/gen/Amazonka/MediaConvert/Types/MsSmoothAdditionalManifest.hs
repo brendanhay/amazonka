@@ -90,14 +90,16 @@ instance Data.FromJSON MsSmoothAdditionalManifest where
       ( \x ->
           MsSmoothAdditionalManifest'
             Prelude.<$> (x Data..:? "manifestNameModifier")
-            Prelude.<*> ( x Data..:? "selectedOutputs"
+            Prelude.<*> ( x
+                            Data..:? "selectedOutputs"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable MsSmoothAdditionalManifest where
   hashWithSalt _salt MsSmoothAdditionalManifest' {..} =
-    _salt `Prelude.hashWithSalt` manifestNameModifier
+    _salt
+      `Prelude.hashWithSalt` manifestNameModifier
       `Prelude.hashWithSalt` selectedOutputs
 
 instance Prelude.NFData MsSmoothAdditionalManifest where

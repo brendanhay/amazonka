@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateQueue where
 
 instance Prelude.Hashable UpdateQueue where
   hashWithSalt _salt UpdateQueue' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reservationPlanSettings
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` name

@@ -102,7 +102,8 @@ instance Data.FromJSON TeletextDestinationSettings where
 
 instance Prelude.Hashable TeletextDestinationSettings where
   hashWithSalt _salt TeletextDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` pageNumber
+    _salt
+      `Prelude.hashWithSalt` pageNumber
       `Prelude.hashWithSalt` pageTypes
 
 instance Prelude.NFData TeletextDestinationSettings where

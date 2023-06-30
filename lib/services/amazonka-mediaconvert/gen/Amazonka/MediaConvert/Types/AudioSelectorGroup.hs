@@ -73,7 +73,8 @@ instance Data.FromJSON AudioSelectorGroup where
       "AudioSelectorGroup"
       ( \x ->
           AudioSelectorGroup'
-            Prelude.<$> ( x Data..:? "audioSelectorNames"
+            Prelude.<$> ( x
+                            Data..:? "audioSelectorNames"
                             Data..!= Prelude.mempty
                         )
       )

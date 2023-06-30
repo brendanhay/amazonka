@@ -428,19 +428,22 @@ instance Data.FromJSON Job where
             Prelude.<*> (x Data..:? "currentPhase")
             Prelude.<*> (x Data..:? "errorCode")
             Prelude.<*> (x Data..:? "errorMessage")
-            Prelude.<*> ( x Data..:? "hopDestinations"
+            Prelude.<*> ( x
+                            Data..:? "hopDestinations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "jobPercentComplete")
             Prelude.<*> (x Data..:? "jobTemplate")
             Prelude.<*> (x Data..:? "messages")
-            Prelude.<*> ( x Data..:? "outputGroupDetails"
+            Prelude.<*> ( x
+                            Data..:? "outputGroupDetails"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "priority")
             Prelude.<*> (x Data..:? "queue")
-            Prelude.<*> ( x Data..:? "queueTransitions"
+            Prelude.<*> ( x
+                            Data..:? "queueTransitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "retryCount")
@@ -455,7 +458,8 @@ instance Data.FromJSON Job where
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` accelerationSettings
+    _salt
+      `Prelude.hashWithSalt` accelerationSettings
       `Prelude.hashWithSalt` accelerationStatus
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` billingTagsSource

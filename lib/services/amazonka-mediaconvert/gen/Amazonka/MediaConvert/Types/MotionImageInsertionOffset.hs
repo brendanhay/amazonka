@@ -82,7 +82,8 @@ instance Data.FromJSON MotionImageInsertionOffset where
 
 instance Prelude.Hashable MotionImageInsertionOffset where
   hashWithSalt _salt MotionImageInsertionOffset' {..} =
-    _salt `Prelude.hashWithSalt` imageX
+    _salt
+      `Prelude.hashWithSalt` imageX
       `Prelude.hashWithSalt` imageY
 
 instance Prelude.NFData MotionImageInsertionOffset where

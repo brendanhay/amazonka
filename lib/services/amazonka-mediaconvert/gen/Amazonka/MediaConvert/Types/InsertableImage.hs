@@ -240,7 +240,8 @@ instance Data.FromJSON InsertableImage where
 
 instance Prelude.Hashable InsertableImage where
   hashWithSalt _salt InsertableImage' {..} =
-    _salt `Prelude.hashWithSalt` duration
+    _salt
+      `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` fadeIn
       `Prelude.hashWithSalt` fadeOut
       `Prelude.hashWithSalt` height

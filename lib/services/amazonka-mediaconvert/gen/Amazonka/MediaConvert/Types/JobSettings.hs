@@ -317,7 +317,8 @@ instance Data.FromJSON JobSettings where
 
 instance Prelude.Hashable JobSettings where
   hashWithSalt _salt JobSettings' {..} =
-    _salt `Prelude.hashWithSalt` adAvailOffset
+    _salt
+      `Prelude.hashWithSalt` adAvailOffset
       `Prelude.hashWithSalt` availBlanking
       `Prelude.hashWithSalt` esam
       `Prelude.hashWithSalt` extendedDataServices

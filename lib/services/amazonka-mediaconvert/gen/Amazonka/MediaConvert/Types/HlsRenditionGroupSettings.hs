@@ -94,7 +94,8 @@ instance Data.FromJSON HlsRenditionGroupSettings where
 
 instance Prelude.Hashable HlsRenditionGroupSettings where
   hashWithSalt _salt HlsRenditionGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` renditionGroupId
+    _salt
+      `Prelude.hashWithSalt` renditionGroupId
       `Prelude.hashWithSalt` renditionLanguageCode
       `Prelude.hashWithSalt` renditionName
 

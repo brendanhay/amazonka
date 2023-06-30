@@ -192,7 +192,8 @@ instance Data.FromJSON TimecodeConfig where
 
 instance Prelude.Hashable TimecodeConfig where
   hashWithSalt _salt TimecodeConfig' {..} =
-    _salt `Prelude.hashWithSalt` anchor
+    _salt
+      `Prelude.hashWithSalt` anchor
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` timestampOffset

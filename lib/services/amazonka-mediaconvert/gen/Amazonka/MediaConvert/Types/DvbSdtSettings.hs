@@ -126,7 +126,8 @@ instance Data.FromJSON DvbSdtSettings where
 
 instance Prelude.Hashable DvbSdtSettings where
   hashWithSalt _salt DvbSdtSettings' {..} =
-    _salt `Prelude.hashWithSalt` outputSdt
+    _salt
+      `Prelude.hashWithSalt` outputSdt
       `Prelude.hashWithSalt` sdtInterval
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` serviceProviderName

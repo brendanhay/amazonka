@@ -115,7 +115,8 @@ reservationPlanSettings_renewalType = Lens.lens (\ReservationPlanSettings' {rene
 
 instance Prelude.Hashable ReservationPlanSettings where
   hashWithSalt _salt ReservationPlanSettings' {..} =
-    _salt `Prelude.hashWithSalt` commitment
+    _salt
+      `Prelude.hashWithSalt` commitment
       `Prelude.hashWithSalt` reservedSlots
       `Prelude.hashWithSalt` renewalType
 

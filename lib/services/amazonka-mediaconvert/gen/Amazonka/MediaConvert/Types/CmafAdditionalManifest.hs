@@ -100,14 +100,16 @@ instance Data.FromJSON CmafAdditionalManifest where
       ( \x ->
           CmafAdditionalManifest'
             Prelude.<$> (x Data..:? "manifestNameModifier")
-            Prelude.<*> ( x Data..:? "selectedOutputs"
+            Prelude.<*> ( x
+                            Data..:? "selectedOutputs"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CmafAdditionalManifest where
   hashWithSalt _salt CmafAdditionalManifest' {..} =
-    _salt `Prelude.hashWithSalt` manifestNameModifier
+    _salt
+      `Prelude.hashWithSalt` manifestNameModifier
       `Prelude.hashWithSalt` selectedOutputs
 
 instance Prelude.NFData CmafAdditionalManifest where

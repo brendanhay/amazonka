@@ -356,7 +356,8 @@ instance Data.FromJSON Vc3Settings where
 
 instance Prelude.Hashable Vc3Settings where
   hashWithSalt _salt Vc3Settings' {..} =
-    _salt `Prelude.hashWithSalt` framerateControl
+    _salt
+      `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` framerateConversionAlgorithm
       `Prelude.hashWithSalt` framerateDenominator
       `Prelude.hashWithSalt` framerateNumerator

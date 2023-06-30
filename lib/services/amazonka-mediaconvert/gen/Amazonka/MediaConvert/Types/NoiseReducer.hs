@@ -120,7 +120,8 @@ instance Data.FromJSON NoiseReducer where
 
 instance Prelude.Hashable NoiseReducer where
   hashWithSalt _salt NoiseReducer' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` filterSettings
       `Prelude.hashWithSalt` spatialFilterSettings
       `Prelude.hashWithSalt` temporalFilterSettings

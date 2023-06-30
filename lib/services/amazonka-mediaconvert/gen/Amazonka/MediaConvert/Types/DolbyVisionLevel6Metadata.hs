@@ -85,7 +85,8 @@ instance Data.FromJSON DolbyVisionLevel6Metadata where
 
 instance Prelude.Hashable DolbyVisionLevel6Metadata where
   hashWithSalt _salt DolbyVisionLevel6Metadata' {..} =
-    _salt `Prelude.hashWithSalt` maxCll
+    _salt
+      `Prelude.hashWithSalt` maxCll
       `Prelude.hashWithSalt` maxFall
 
 instance Prelude.NFData DolbyVisionLevel6Metadata where

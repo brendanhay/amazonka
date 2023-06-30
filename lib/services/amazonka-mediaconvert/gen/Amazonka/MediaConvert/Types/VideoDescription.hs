@@ -403,7 +403,8 @@ instance Data.FromJSON VideoDescription where
 
 instance Prelude.Hashable VideoDescription where
   hashWithSalt _salt VideoDescription' {..} =
-    _salt `Prelude.hashWithSalt` afdSignaling
+    _salt
+      `Prelude.hashWithSalt` afdSignaling
       `Prelude.hashWithSalt` antiAlias
       `Prelude.hashWithSalt` codecSettings
       `Prelude.hashWithSalt` colorMetadata

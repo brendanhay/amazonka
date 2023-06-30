@@ -379,7 +379,8 @@ instance Data.FromJSON VideoSelector where
 
 instance Prelude.Hashable VideoSelector where
   hashWithSalt _salt VideoSelector' {..} =
-    _salt `Prelude.hashWithSalt` alphaBehavior
+    _salt
+      `Prelude.hashWithSalt` alphaBehavior
       `Prelude.hashWithSalt` colorSpace
       `Prelude.hashWithSalt` colorSpaceUsage
       `Prelude.hashWithSalt` embeddedTimecodeOverride

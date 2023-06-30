@@ -163,7 +163,8 @@ instance Data.FromJSON CaptionDescriptionPreset where
 
 instance Prelude.Hashable CaptionDescriptionPreset where
   hashWithSalt _salt CaptionDescriptionPreset' {..} =
-    _salt `Prelude.hashWithSalt` customLanguageCode
+    _salt
+      `Prelude.hashWithSalt` customLanguageCode
       `Prelude.hashWithSalt` destinationSettings
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` languageDescription

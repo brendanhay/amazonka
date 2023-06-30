@@ -641,12 +641,14 @@ instance Data.FromJSON HlsGroupSettings where
       ( \x ->
           HlsGroupSettings'
             Prelude.<$> (x Data..:? "adMarkers" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "additionalManifests"
+            Prelude.<*> ( x
+                            Data..:? "additionalManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "audioOnlyHeader")
             Prelude.<*> (x Data..:? "baseUrl")
-            Prelude.<*> ( x Data..:? "captionLanguageMappings"
+            Prelude.<*> ( x
+                            Data..:? "captionLanguageMappings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "captionLanguageSetting")
@@ -679,7 +681,8 @@ instance Data.FromJSON HlsGroupSettings where
 
 instance Prelude.Hashable HlsGroupSettings where
   hashWithSalt _salt HlsGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` adMarkers
+    _salt
+      `Prelude.hashWithSalt` adMarkers
       `Prelude.hashWithSalt` additionalManifests
       `Prelude.hashWithSalt` audioOnlyHeader
       `Prelude.hashWithSalt` baseUrl

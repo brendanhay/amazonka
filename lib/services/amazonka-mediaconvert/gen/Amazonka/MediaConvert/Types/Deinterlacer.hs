@@ -138,7 +138,8 @@ instance Data.FromJSON Deinterlacer where
 
 instance Prelude.Hashable Deinterlacer where
   hashWithSalt _salt Deinterlacer' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` control
       `Prelude.hashWithSalt` mode
 

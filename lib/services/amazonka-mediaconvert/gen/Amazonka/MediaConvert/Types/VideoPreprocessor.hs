@@ -181,7 +181,8 @@ instance Data.FromJSON VideoPreprocessor where
 
 instance Prelude.Hashable VideoPreprocessor where
   hashWithSalt _salt VideoPreprocessor' {..} =
-    _salt `Prelude.hashWithSalt` colorCorrector
+    _salt
+      `Prelude.hashWithSalt` colorCorrector
       `Prelude.hashWithSalt` deinterlacer
       `Prelude.hashWithSalt` dolbyVision
       `Prelude.hashWithSalt` hdr10Plus

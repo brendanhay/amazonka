@@ -100,7 +100,8 @@ instance Data.FromJSON CaptionSourceFramerate where
 
 instance Prelude.Hashable CaptionSourceFramerate where
   hashWithSalt _salt CaptionSourceFramerate' {..} =
-    _salt `Prelude.hashWithSalt` framerateDenominator
+    _salt
+      `Prelude.hashWithSalt` framerateDenominator
       `Prelude.hashWithSalt` framerateNumerator
 
 instance Prelude.NFData CaptionSourceFramerate where

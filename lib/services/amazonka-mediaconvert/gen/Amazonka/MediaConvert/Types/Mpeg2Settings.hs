@@ -952,7 +952,8 @@ instance Data.FromJSON Mpeg2Settings where
 
 instance Prelude.Hashable Mpeg2Settings where
   hashWithSalt _salt Mpeg2Settings' {..} =
-    _salt `Prelude.hashWithSalt` adaptiveQuantization
+    _salt
+      `Prelude.hashWithSalt` adaptiveQuantization
       `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` codecLevel
       `Prelude.hashWithSalt` codecProfile

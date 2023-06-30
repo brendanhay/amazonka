@@ -167,7 +167,8 @@ instance
   hashWithSalt
     _salt
     HlsImageBasedTrickPlaySettings' {..} =
-      _salt `Prelude.hashWithSalt` intervalCadence
+      _salt
+        `Prelude.hashWithSalt` intervalCadence
         `Prelude.hashWithSalt` thumbnailHeight
         `Prelude.hashWithSalt` thumbnailInterval
         `Prelude.hashWithSalt` thumbnailWidth

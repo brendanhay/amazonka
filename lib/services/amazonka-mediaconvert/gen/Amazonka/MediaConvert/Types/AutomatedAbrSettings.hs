@@ -147,7 +147,8 @@ instance Data.FromJSON AutomatedAbrSettings where
 
 instance Prelude.Hashable AutomatedAbrSettings where
   hashWithSalt _salt AutomatedAbrSettings' {..} =
-    _salt `Prelude.hashWithSalt` maxAbrBitrate
+    _salt
+      `Prelude.hashWithSalt` maxAbrBitrate
       `Prelude.hashWithSalt` maxRenditions
       `Prelude.hashWithSalt` minAbrBitrate
       `Prelude.hashWithSalt` rules

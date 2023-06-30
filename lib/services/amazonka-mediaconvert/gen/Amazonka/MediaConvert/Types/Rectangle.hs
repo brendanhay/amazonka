@@ -100,7 +100,8 @@ instance Data.FromJSON Rectangle where
 
 instance Prelude.Hashable Rectangle where
   hashWithSalt _salt Rectangle' {..} =
-    _salt `Prelude.hashWithSalt` height
+    _salt
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` width
       `Prelude.hashWithSalt` x
       `Prelude.hashWithSalt` y

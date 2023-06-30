@@ -282,7 +282,8 @@ instance Data.FromJSON Ac3Settings where
 
 instance Prelude.Hashable Ac3Settings where
   hashWithSalt _salt Ac3Settings' {..} =
-    _salt `Prelude.hashWithSalt` bitrate
+    _salt
+      `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` bitstreamMode
       `Prelude.hashWithSalt` codingMode
       `Prelude.hashWithSalt` dialnorm

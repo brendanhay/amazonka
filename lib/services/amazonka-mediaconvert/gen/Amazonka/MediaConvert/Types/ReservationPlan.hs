@@ -151,7 +151,8 @@ instance Data.FromJSON ReservationPlan where
 
 instance Prelude.Hashable ReservationPlan where
   hashWithSalt _salt ReservationPlan' {..} =
-    _salt `Prelude.hashWithSalt` commitment
+    _salt
+      `Prelude.hashWithSalt` commitment
       `Prelude.hashWithSalt` expiresAt
       `Prelude.hashWithSalt` purchasedAt
       `Prelude.hashWithSalt` renewalType

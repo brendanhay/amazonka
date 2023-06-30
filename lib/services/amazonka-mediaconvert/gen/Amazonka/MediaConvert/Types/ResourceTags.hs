@@ -75,7 +75,8 @@ instance Data.FromJSON ResourceTags where
 
 instance Prelude.Hashable ResourceTags where
   hashWithSalt _salt ResourceTags' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ResourceTags where

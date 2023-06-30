@@ -239,7 +239,8 @@ instance Data.FromJSON VideoCodecSettings where
 
 instance Prelude.Hashable VideoCodecSettings where
   hashWithSalt _salt VideoCodecSettings' {..} =
-    _salt `Prelude.hashWithSalt` av1Settings
+    _salt
+      `Prelude.hashWithSalt` av1Settings
       `Prelude.hashWithSalt` avcIntraSettings
       `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` frameCaptureSettings

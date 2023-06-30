@@ -574,7 +574,8 @@ instance Data.FromJSON XavcSettings where
 
 instance Prelude.Hashable XavcSettings where
   hashWithSalt _salt XavcSettings' {..} =
-    _salt `Prelude.hashWithSalt` adaptiveQuantization
+    _salt
+      `Prelude.hashWithSalt` adaptiveQuantization
       `Prelude.hashWithSalt` entropyEncoding
       `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` framerateConversionAlgorithm

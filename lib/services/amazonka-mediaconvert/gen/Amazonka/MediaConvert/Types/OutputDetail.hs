@@ -75,7 +75,8 @@ instance Data.FromJSON OutputDetail where
 
 instance Prelude.Hashable OutputDetail where
   hashWithSalt _salt OutputDetail' {..} =
-    _salt `Prelude.hashWithSalt` durationInMs
+    _salt
+      `Prelude.hashWithSalt` durationInMs
       `Prelude.hashWithSalt` videoDetails
 
 instance Prelude.NFData OutputDetail where

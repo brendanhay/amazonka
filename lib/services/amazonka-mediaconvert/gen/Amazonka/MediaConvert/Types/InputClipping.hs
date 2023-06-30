@@ -126,7 +126,8 @@ instance Data.FromJSON InputClipping where
 
 instance Prelude.Hashable InputClipping where
   hashWithSalt _salt InputClipping' {..} =
-    _salt `Prelude.hashWithSalt` endTimecode
+    _salt
+      `Prelude.hashWithSalt` endTimecode
       `Prelude.hashWithSalt` startTimecode
 
 instance Prelude.NFData InputClipping where

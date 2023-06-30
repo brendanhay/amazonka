@@ -152,7 +152,8 @@ instance Data.FromJSON NexGuardFileMarkerSettings where
 
 instance Prelude.Hashable NexGuardFileMarkerSettings where
   hashWithSalt _salt NexGuardFileMarkerSettings' {..} =
-    _salt `Prelude.hashWithSalt` license
+    _salt
+      `Prelude.hashWithSalt` license
       `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` preset
       `Prelude.hashWithSalt` strength

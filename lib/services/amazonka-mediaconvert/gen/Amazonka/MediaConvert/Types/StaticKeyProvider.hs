@@ -109,7 +109,8 @@ instance Data.FromJSON StaticKeyProvider where
 
 instance Prelude.Hashable StaticKeyProvider where
   hashWithSalt _salt StaticKeyProvider' {..} =
-    _salt `Prelude.hashWithSalt` keyFormat
+    _salt
+      `Prelude.hashWithSalt` keyFormat
       `Prelude.hashWithSalt` keyFormatVersions
       `Prelude.hashWithSalt` staticKeyValue
       `Prelude.hashWithSalt` url

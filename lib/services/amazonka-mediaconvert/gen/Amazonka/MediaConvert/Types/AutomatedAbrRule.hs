@@ -252,10 +252,12 @@ instance Data.FromJSON AutomatedAbrRule where
       "AutomatedAbrRule"
       ( \x ->
           AutomatedAbrRule'
-            Prelude.<$> ( x Data..:? "allowedRenditions"
+            Prelude.<$> ( x
+                            Data..:? "allowedRenditions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "forceIncludeRenditions"
+            Prelude.<*> ( x
+                            Data..:? "forceIncludeRenditions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "minBottomRenditionSize")
@@ -265,7 +267,8 @@ instance Data.FromJSON AutomatedAbrRule where
 
 instance Prelude.Hashable AutomatedAbrRule where
   hashWithSalt _salt AutomatedAbrRule' {..} =
-    _salt `Prelude.hashWithSalt` allowedRenditions
+    _salt
+      `Prelude.hashWithSalt` allowedRenditions
       `Prelude.hashWithSalt` forceIncludeRenditions
       `Prelude.hashWithSalt` minBottomRenditionSize
       `Prelude.hashWithSalt` minTopRenditionSize

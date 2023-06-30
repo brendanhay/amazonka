@@ -86,7 +86,8 @@ instance Data.FromJSON Hdr10Plus where
 
 instance Prelude.Hashable Hdr10Plus where
   hashWithSalt _salt Hdr10Plus' {..} =
-    _salt `Prelude.hashWithSalt` masteringMonitorNits
+    _salt
+      `Prelude.hashWithSalt` masteringMonitorNits
       `Prelude.hashWithSalt` targetMonitorNits
 
 instance Prelude.NFData Hdr10Plus where

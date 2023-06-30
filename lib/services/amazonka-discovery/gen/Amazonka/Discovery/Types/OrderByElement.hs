@@ -67,7 +67,8 @@ orderByElement_fieldName = Lens.lens (\OrderByElement' {fieldName} -> fieldName)
 
 instance Prelude.Hashable OrderByElement where
   hashWithSalt _salt OrderByElement' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` fieldName
 
 instance Prelude.NFData OrderByElement where

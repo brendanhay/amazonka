@@ -114,7 +114,8 @@ instance Data.FromJSON NeighborConnectionDetail where
 
 instance Prelude.Hashable NeighborConnectionDetail where
   hashWithSalt _salt NeighborConnectionDetail' {..} =
-    _salt `Prelude.hashWithSalt` destinationPort
+    _salt
+      `Prelude.hashWithSalt` destinationPort
       `Prelude.hashWithSalt` transportProtocol
       `Prelude.hashWithSalt` sourceServerId
       `Prelude.hashWithSalt` destinationServerId

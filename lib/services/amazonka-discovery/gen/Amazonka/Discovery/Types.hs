@@ -295,67 +295,66 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The Amazon Web Services user account does not have permission to perform
 -- the action. Check the IAM policy associated with this account.
-_AuthorizationErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AuthorizationErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AuthorizationErrorException =
   Core._MatchServiceError
     defaultService
     "AuthorizationErrorException"
 
--- |
-_ConflictErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictErrorException =
   Core._MatchServiceError
     defaultService
     "ConflictErrorException"
 
 -- | The home region is not set. Set the home region to continue.
-_HomeRegionNotSetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_HomeRegionNotSetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _HomeRegionNotSetException =
   Core._MatchServiceError
     defaultService
@@ -363,7 +362,7 @@ _HomeRegionNotSetException =
 
 -- | One or more parameters are not valid. Verify the parameters and try
 -- again.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -371,14 +370,14 @@ _InvalidParameterException =
 
 -- | The value of one or more parameters are either invalid or out of range.
 -- Verify the parameter values and try again.
-_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterValueException"
 
 -- | This operation is not permitted.
-_OperationNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationNotPermittedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
@@ -389,7 +388,7 @@ _OperationNotPermittedException =
 -- you use the same request token but have two different import URLs, you
 -- can encounter this issue. If the import tasks are meant to be different,
 -- use a different @clientRequestToken@, and try again.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -397,14 +396,14 @@ _ResourceInUseException =
 
 -- | The specified configuration ID was not located. Verify the configuration
 -- ID and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The server experienced an internal error. Try again.
-_ServerInternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServerInternalErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServerInternalErrorException =
   Core._MatchServiceError
     defaultService

@@ -410,7 +410,8 @@ instance Data.FromJSON ContinuousExportDescription where
             Prelude.<$> (x Data..:? "dataSource")
             Prelude.<*> (x Data..:? "exportId")
             Prelude.<*> (x Data..:? "s3Bucket")
-            Prelude.<*> ( x Data..:? "schemaStorageConfig"
+            Prelude.<*> ( x
+                            Data..:? "schemaStorageConfig"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "startTime")
@@ -421,7 +422,8 @@ instance Data.FromJSON ContinuousExportDescription where
 
 instance Prelude.Hashable ContinuousExportDescription where
   hashWithSalt _salt ContinuousExportDescription' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` exportId
       `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` schemaStorageConfig

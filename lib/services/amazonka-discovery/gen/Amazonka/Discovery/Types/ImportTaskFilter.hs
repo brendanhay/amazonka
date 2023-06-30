@@ -75,7 +75,8 @@ importTaskFilter_values = Lens.lens (\ImportTaskFilter' {values} -> values) (\s@
 
 instance Prelude.Hashable ImportTaskFilter where
   hashWithSalt _salt ImportTaskFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ImportTaskFilter where

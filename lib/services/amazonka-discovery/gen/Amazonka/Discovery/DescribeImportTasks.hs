@@ -123,7 +123,8 @@ instance Core.AWSRequest DescribeImportTasks where
 
 instance Prelude.Hashable DescribeImportTasks where
   hashWithSalt _salt DescribeImportTasks' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

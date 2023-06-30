@@ -147,21 +147,22 @@ instance Core.AWSPager DescribeAgents where
     | Core.stop
         ( rs
             Lens.^? describeAgentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAgentsResponse_agentsInfo
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAgents_nextToken
           Lens..~ rs
-          Lens.^? describeAgentsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeAgentsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAgents where
   type
@@ -180,7 +181,8 @@ instance Core.AWSRequest DescribeAgents where
 
 instance Prelude.Hashable DescribeAgents where
   hashWithSalt _salt DescribeAgents' {..} =
-    _salt `Prelude.hashWithSalt` agentIds
+    _salt
+      `Prelude.hashWithSalt` agentIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

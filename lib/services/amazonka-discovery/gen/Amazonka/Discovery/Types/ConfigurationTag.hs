@@ -116,7 +116,8 @@ instance Data.FromJSON ConfigurationTag where
 
 instance Prelude.Hashable ConfigurationTag where
   hashWithSalt _salt ConfigurationTag' {..} =
-    _salt `Prelude.hashWithSalt` configurationId
+    _salt
+      `Prelude.hashWithSalt` configurationId
       `Prelude.hashWithSalt` configurationType
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` timeOfCreation

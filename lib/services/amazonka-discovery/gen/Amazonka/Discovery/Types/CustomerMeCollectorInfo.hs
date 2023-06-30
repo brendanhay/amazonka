@@ -146,7 +146,8 @@ instance Data.FromJSON CustomerMeCollectorInfo where
 
 instance Prelude.Hashable CustomerMeCollectorInfo where
   hashWithSalt _salt CustomerMeCollectorInfo' {..} =
-    _salt `Prelude.hashWithSalt` activeMeCollectors
+    _salt
+      `Prelude.hashWithSalt` activeMeCollectors
       `Prelude.hashWithSalt` healthyMeCollectors
       `Prelude.hashWithSalt` denyListedMeCollectors
       `Prelude.hashWithSalt` shutdownMeCollectors

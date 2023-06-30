@@ -74,7 +74,8 @@ instance Data.FromJSON AgentNetworkInfo where
 
 instance Prelude.Hashable AgentNetworkInfo where
   hashWithSalt _salt AgentNetworkInfo' {..} =
-    _salt `Prelude.hashWithSalt` ipAddress
+    _salt
+      `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` macAddress
 
 instance Prelude.NFData AgentNetworkInfo where

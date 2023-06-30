@@ -123,7 +123,8 @@ instance Core.AWSRequest GetRecord where
 
 instance Prelude.Hashable GetRecord where
   hashWithSalt _salt GetRecord' {..} =
-    _salt `Prelude.hashWithSalt` featureNames
+    _salt
+      `Prelude.hashWithSalt` featureNames
       `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` recordIdentifierValueAsString
 

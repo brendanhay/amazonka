@@ -96,7 +96,8 @@ instance Data.FromJSON BatchGetRecordResultDetail where
 
 instance Prelude.Hashable BatchGetRecordResultDetail where
   hashWithSalt _salt BatchGetRecordResultDetail' {..} =
-    _salt `Prelude.hashWithSalt` featureGroupName
+    _salt
+      `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` recordIdentifierValueAsString
       `Prelude.hashWithSalt` record
 

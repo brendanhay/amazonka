@@ -121,7 +121,8 @@ instance Data.FromJSON BatchGetRecordError where
 
 instance Prelude.Hashable BatchGetRecordError where
   hashWithSalt _salt BatchGetRecordError' {..} =
-    _salt `Prelude.hashWithSalt` featureGroupName
+    _salt
+      `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` recordIdentifierValueAsString
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage

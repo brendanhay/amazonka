@@ -100,7 +100,8 @@ instance Data.FromJSON RepositorySyncEvent where
 
 instance Prelude.Hashable RepositorySyncEvent where
   hashWithSalt _salt RepositorySyncEvent' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` time
       `Prelude.hashWithSalt` type'

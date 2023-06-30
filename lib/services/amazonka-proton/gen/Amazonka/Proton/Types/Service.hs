@@ -219,7 +219,8 @@ instance Data.FromJSON Service where
 
 instance Prelude.Hashable Service where
   hashWithSalt _salt Service' {..} =
-    _salt `Prelude.hashWithSalt` branchName
+    _salt
+      `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pipeline
       `Prelude.hashWithSalt` repositoryConnectionArn

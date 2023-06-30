@@ -194,7 +194,8 @@ instance Data.FromJSON EnvironmentTemplateVersion where
 
 instance Prelude.Hashable EnvironmentTemplateVersion where
   hashWithSalt _salt EnvironmentTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` recommendedMinorVersion
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` statusMessage

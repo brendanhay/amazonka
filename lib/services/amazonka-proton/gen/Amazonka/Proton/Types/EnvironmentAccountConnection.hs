@@ -251,7 +251,8 @@ instance
     EnvironmentAccountConnection
   where
   hashWithSalt _salt EnvironmentAccountConnection' {..} =
-    _salt `Prelude.hashWithSalt` codebuildRoleArn
+    _salt
+      `Prelude.hashWithSalt` codebuildRoleArn
       `Prelude.hashWithSalt` componentRoleArn
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` environmentAccountId

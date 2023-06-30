@@ -178,7 +178,8 @@ instance Core.AWSRequest CreateEnvironmentTemplate where
 
 instance Prelude.Hashable CreateEnvironmentTemplate where
   hashWithSalt _salt CreateEnvironmentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` provisioning

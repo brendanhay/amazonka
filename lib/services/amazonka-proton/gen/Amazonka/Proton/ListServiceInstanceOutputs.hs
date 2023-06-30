@@ -112,21 +112,21 @@ instance Core.AWSPager ListServiceInstanceOutputs where
     | Core.stop
         ( rs
             Lens.^? listServiceInstanceOutputsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listServiceInstanceOutputsResponse_outputs
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listServiceInstanceOutputs_nextToken
           Lens..~ rs
           Lens.^? listServiceInstanceOutputsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceInstanceOutputs where
   type
@@ -145,7 +145,8 @@ instance Core.AWSRequest ListServiceInstanceOutputs where
 
 instance Prelude.Hashable ListServiceInstanceOutputs where
   hashWithSalt _salt ListServiceInstanceOutputs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceInstanceName
       `Prelude.hashWithSalt` serviceName
 

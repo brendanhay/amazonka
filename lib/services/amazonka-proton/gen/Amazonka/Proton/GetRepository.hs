@@ -104,7 +104,8 @@ instance Core.AWSRequest GetRepository where
 
 instance Prelude.Hashable GetRepository where
   hashWithSalt _salt GetRepository' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` provider
 
 instance Prelude.NFData GetRepository where

@@ -43,7 +43,8 @@ newComponentDeleted =
           Core.matchAll
             "DELETE_FAILED"
             Core.AcceptFailure
-            ( getComponentResponse_component Prelude.. Lens._Just
+            ( getComponentResponse_component
+                Prelude.. Lens._Just
                 Prelude.. component_deploymentStatus
                 Prelude.. Lens.to Data.toTextCI
             )
@@ -61,14 +62,16 @@ newComponentDeployed =
         [ Core.matchAll
             "SUCCEEDED"
             Core.AcceptSuccess
-            ( getComponentResponse_component Prelude.. Lens._Just
+            ( getComponentResponse_component
+                Prelude.. Lens._Just
                 Prelude.. component_deploymentStatus
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( getComponentResponse_component Prelude.. Lens._Just
+            ( getComponentResponse_component
+                Prelude.. Lens._Just
                 Prelude.. component_deploymentStatus
                 Prelude.. Lens.to Data.toTextCI
             )
@@ -144,28 +147,32 @@ newServiceCreated =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED_CLEANUP_COMPLETE"
             Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED_CLEANUP_FAILED"
             Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             )
@@ -186,7 +193,8 @@ newServiceDeleted =
           Core.matchAll
             "DELETE_FAILED"
             Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             )
@@ -229,7 +237,8 @@ newServicePipelineDeployed =
         [ Core.matchAll
             "SUCCEEDED"
             Core.AcceptSuccess
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_pipeline
                 Prelude.. Lens._Just
                 Prelude.. servicePipeline_deploymentStatus
@@ -238,7 +247,8 @@ newServicePipelineDeployed =
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_pipeline
                 Prelude.. Lens._Just
                 Prelude.. servicePipeline_deploymentStatus
@@ -291,35 +301,40 @@ newServiceUpdated =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED_CLEANUP_COMPLETE"
             Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED_CLEANUP_FAILED"
             Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED"
             Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_COMPLETE_CLEANUP_FAILED"
             Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
+            ( getServiceResponse_service
+                Prelude.. Lens._Just
                 Prelude.. service_status
                 Prelude.. Lens.to Data.toTextCI
             )

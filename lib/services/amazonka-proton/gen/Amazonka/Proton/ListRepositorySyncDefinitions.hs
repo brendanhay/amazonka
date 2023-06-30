@@ -128,21 +128,21 @@ instance Core.AWSPager ListRepositorySyncDefinitions where
     | Core.stop
         ( rs
             Lens.^? listRepositorySyncDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listRepositorySyncDefinitionsResponse_syncDefinitions
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRepositorySyncDefinitions_nextToken
           Lens..~ rs
           Lens.^? listRepositorySyncDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -159,7 +159,8 @@ instance
           ListRepositorySyncDefinitionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "syncDefinitions"
+            Prelude.<*> ( x
+                            Data..?> "syncDefinitions"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -169,7 +170,8 @@ instance
     ListRepositorySyncDefinitions
   where
   hashWithSalt _salt ListRepositorySyncDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` repositoryProvider
       `Prelude.hashWithSalt` syncType

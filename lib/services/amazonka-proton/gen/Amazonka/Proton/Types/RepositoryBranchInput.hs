@@ -80,7 +80,8 @@ repositoryBranchInput_provider = Lens.lens (\RepositoryBranchInput' {provider} -
 
 instance Prelude.Hashable RepositoryBranchInput where
   hashWithSalt _salt RepositoryBranchInput' {..} =
-    _salt `Prelude.hashWithSalt` branch
+    _salt
+      `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` provider
 

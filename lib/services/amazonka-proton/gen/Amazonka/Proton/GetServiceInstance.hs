@@ -108,7 +108,8 @@ instance Core.AWSRequest GetServiceInstance where
 
 instance Prelude.Hashable GetServiceInstance where
   hashWithSalt _salt GetServiceInstance' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData GetServiceInstance where

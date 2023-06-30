@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdateEnvironmentTemplate where
 
 instance Prelude.Hashable UpdateEnvironmentTemplate where
   hashWithSalt _salt UpdateEnvironmentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` name
 

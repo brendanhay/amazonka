@@ -143,7 +143,8 @@ instance Core.AWSRequest GetRepositorySyncStatus where
 
 instance Prelude.Hashable GetRepositorySyncStatus where
   hashWithSalt _salt GetRepositorySyncStatus' {..} =
-    _salt `Prelude.hashWithSalt` branch
+    _salt
+      `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` repositoryProvider
       `Prelude.hashWithSalt` syncType

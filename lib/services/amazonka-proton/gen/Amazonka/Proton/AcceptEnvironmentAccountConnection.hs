@@ -95,7 +95,7 @@ instance
       ( \s h x ->
           AcceptEnvironmentAccountConnectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "environmentAccountConnection")
+            Prelude.<*> (x Data..:> "environmentAccountConnection")
       )
 
 instance

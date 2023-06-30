@@ -184,7 +184,8 @@ instance
     ServiceTemplateVersionSummary
   where
   hashWithSalt _salt ServiceTemplateVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` recommendedMinorVersion
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` arn

@@ -92,7 +92,8 @@ instance Data.FromJSON RepositorySummary where
 
 instance Prelude.Hashable RepositorySummary where
   hashWithSalt _salt RepositorySummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` provider
 

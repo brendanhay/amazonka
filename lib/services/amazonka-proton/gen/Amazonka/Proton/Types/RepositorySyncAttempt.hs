@@ -91,7 +91,8 @@ instance Data.FromJSON RepositorySyncAttempt where
 
 instance Prelude.Hashable RepositorySyncAttempt where
   hashWithSalt _salt RepositorySyncAttempt' {..} =
-    _salt `Prelude.hashWithSalt` events
+    _salt
+      `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` status
 

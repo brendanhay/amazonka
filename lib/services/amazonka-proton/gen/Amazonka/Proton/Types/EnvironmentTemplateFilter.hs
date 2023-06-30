@@ -71,7 +71,8 @@ environmentTemplateFilter_templateName = Lens.lens (\EnvironmentTemplateFilter' 
 
 instance Prelude.Hashable EnvironmentTemplateFilter where
   hashWithSalt _salt EnvironmentTemplateFilter' {..} =
-    _salt `Prelude.hashWithSalt` majorVersion
+    _salt
+      `Prelude.hashWithSalt` majorVersion
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData EnvironmentTemplateFilter where

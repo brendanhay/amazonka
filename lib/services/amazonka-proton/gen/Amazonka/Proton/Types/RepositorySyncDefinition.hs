@@ -106,7 +106,8 @@ instance Data.FromJSON RepositorySyncDefinition where
 
 instance Prelude.Hashable RepositorySyncDefinition where
   hashWithSalt _salt RepositorySyncDefinition' {..} =
-    _salt `Prelude.hashWithSalt` branch
+    _salt
+      `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` directory
       `Prelude.hashWithSalt` parent
       `Prelude.hashWithSalt` target

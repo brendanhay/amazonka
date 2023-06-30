@@ -108,7 +108,8 @@ instance Core.AWSRequest GetChunk where
 
 instance Prelude.Hashable GetChunk where
   hashWithSalt _salt GetChunk' {..} =
-    _salt `Prelude.hashWithSalt` storageJobId
+    _salt
+      `Prelude.hashWithSalt` storageJobId
       `Prelude.hashWithSalt` chunkToken
 
 instance Prelude.NFData GetChunk where

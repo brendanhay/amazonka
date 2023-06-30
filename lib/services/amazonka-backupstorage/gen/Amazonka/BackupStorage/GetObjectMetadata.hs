@@ -112,7 +112,8 @@ instance Core.AWSRequest GetObjectMetadata where
 
 instance Prelude.Hashable GetObjectMetadata where
   hashWithSalt _salt GetObjectMetadata' {..} =
-    _salt `Prelude.hashWithSalt` storageJobId
+    _salt
+      `Prelude.hashWithSalt` storageJobId
       `Prelude.hashWithSalt` objectToken
 
 instance Prelude.NFData GetObjectMetadata where

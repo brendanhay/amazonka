@@ -112,7 +112,8 @@ instance Core.AWSRequest StartObject where
 
 instance Prelude.Hashable StartObject where
   hashWithSalt _salt StartObject' {..} =
-    _salt `Prelude.hashWithSalt` throwOnDuplicate
+    _salt
+      `Prelude.hashWithSalt` throwOnDuplicate
       `Prelude.hashWithSalt` backupJobId
       `Prelude.hashWithSalt` objectName
 

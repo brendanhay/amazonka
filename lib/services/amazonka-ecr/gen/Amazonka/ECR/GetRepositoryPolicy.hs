@@ -112,7 +112,8 @@ instance Core.AWSRequest GetRepositoryPolicy where
 
 instance Prelude.Hashable GetRepositoryPolicy where
   hashWithSalt _salt GetRepositoryPolicy' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData GetRepositoryPolicy where

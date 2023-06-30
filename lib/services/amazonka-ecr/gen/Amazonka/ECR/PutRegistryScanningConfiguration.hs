@@ -148,7 +148,8 @@ instance
   hashWithSalt
     _salt
     PutRegistryScanningConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` rules
+      _salt
+        `Prelude.hashWithSalt` rules
         `Prelude.hashWithSalt` scanType
 
 instance

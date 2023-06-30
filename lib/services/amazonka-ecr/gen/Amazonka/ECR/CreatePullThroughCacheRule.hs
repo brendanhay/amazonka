@@ -137,7 +137,8 @@ instance Core.AWSRequest CreatePullThroughCacheRule where
 
 instance Prelude.Hashable CreatePullThroughCacheRule where
   hashWithSalt _salt CreatePullThroughCacheRule' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` ecrRepositoryPrefix
       `Prelude.hashWithSalt` upstreamRegistryUrl
 

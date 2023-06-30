@@ -75,7 +75,8 @@ instance Data.FromJSON ImageIdentifier where
 
 instance Prelude.Hashable ImageIdentifier where
   hashWithSalt _salt ImageIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` imageDigest
+    _salt
+      `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imageTag
 
 instance Prelude.NFData ImageIdentifier where

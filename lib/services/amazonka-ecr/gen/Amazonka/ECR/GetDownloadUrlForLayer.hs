@@ -137,7 +137,8 @@ instance Core.AWSRequest GetDownloadUrlForLayer where
 
 instance Prelude.Hashable GetDownloadUrlForLayer where
   hashWithSalt _salt GetDownloadUrlForLayer' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` layerDigest
 

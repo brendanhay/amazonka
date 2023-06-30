@@ -164,22 +164,22 @@ instance Core.AWSPager DescribePullThroughCacheRules where
     | Core.stop
         ( rs
             Lens.^? describePullThroughCacheRulesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describePullThroughCacheRulesResponse_pullThroughCacheRules
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describePullThroughCacheRules_nextToken
           Lens..~ rs
           Lens.^? describePullThroughCacheRulesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -195,7 +195,8 @@ instance
       ( \s h x ->
           DescribePullThroughCacheRulesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "pullThroughCacheRules"
+            Prelude.<*> ( x
+                            Data..?> "pullThroughCacheRules"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -206,7 +207,8 @@ instance
     DescribePullThroughCacheRules
   where
   hashWithSalt _salt DescribePullThroughCacheRules' {..} =
-    _salt `Prelude.hashWithSalt` ecrRepositoryPrefixes
+    _salt
+      `Prelude.hashWithSalt` ecrRepositoryPrefixes
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryId

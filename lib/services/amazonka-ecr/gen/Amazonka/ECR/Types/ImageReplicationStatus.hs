@@ -99,7 +99,8 @@ instance Data.FromJSON ImageReplicationStatus where
 
 instance Prelude.Hashable ImageReplicationStatus where
   hashWithSalt _salt ImageReplicationStatus' {..} =
-    _salt `Prelude.hashWithSalt` failureCode
+    _salt
+      `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` status

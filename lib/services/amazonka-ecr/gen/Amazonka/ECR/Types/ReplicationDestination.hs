@@ -84,7 +84,8 @@ instance Data.FromJSON ReplicationDestination where
 
 instance Prelude.Hashable ReplicationDestination where
   hashWithSalt _salt ReplicationDestination' {..} =
-    _salt `Prelude.hashWithSalt` region
+    _salt
+      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` registryId
 
 instance Prelude.NFData ReplicationDestination where

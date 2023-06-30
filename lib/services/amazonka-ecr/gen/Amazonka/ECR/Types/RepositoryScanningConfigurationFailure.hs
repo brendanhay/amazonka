@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     RepositoryScanningConfigurationFailure' {..} =
-      _salt `Prelude.hashWithSalt` failureCode
+      _salt
+        `Prelude.hashWithSalt` failureCode
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` repositoryName
 

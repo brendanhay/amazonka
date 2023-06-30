@@ -109,7 +109,8 @@ instance Data.FromJSON ImageScanFinding where
 
 instance Prelude.Hashable ImageScanFinding where
   hashWithSalt _salt ImageScanFinding' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` severity

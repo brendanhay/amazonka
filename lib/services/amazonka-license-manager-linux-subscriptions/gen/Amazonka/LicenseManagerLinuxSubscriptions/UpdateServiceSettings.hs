@@ -139,7 +139,8 @@ instance Core.AWSRequest UpdateServiceSettings where
 
 instance Prelude.Hashable UpdateServiceSettings where
   hashWithSalt _salt UpdateServiceSettings' {..} =
-    _salt `Prelude.hashWithSalt` allowUpdate
+    _salt
+      `Prelude.hashWithSalt` allowUpdate
       `Prelude.hashWithSalt` linuxSubscriptionsDiscovery
       `Prelude.hashWithSalt` linuxSubscriptionsDiscoverySettings
 

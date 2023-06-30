@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     CalculateRouteTruckModeOptions' {..} =
-      _salt `Prelude.hashWithSalt` avoidFerries
+      _salt
+        `Prelude.hashWithSalt` avoidFerries
         `Prelude.hashWithSalt` avoidTolls
         `Prelude.hashWithSalt` dimensions
         `Prelude.hashWithSalt` weight

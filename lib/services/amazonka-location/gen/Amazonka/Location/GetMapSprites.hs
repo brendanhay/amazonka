@@ -144,7 +144,8 @@ instance Core.AWSRequest GetMapSprites where
 
 instance Prelude.Hashable GetMapSprites where
   hashWithSalt _salt GetMapSprites' {..} =
-    _salt `Prelude.hashWithSalt` fileName
+    _salt
+      `Prelude.hashWithSalt` fileName
       `Prelude.hashWithSalt` mapName
 
 instance Prelude.NFData GetMapSprites where

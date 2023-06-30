@@ -107,7 +107,8 @@ instance Data.FromJSON BatchPutGeofenceSuccess where
 
 instance Prelude.Hashable BatchPutGeofenceSuccess where
   hashWithSalt _salt BatchPutGeofenceSuccess' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` geofenceId
       `Prelude.hashWithSalt` updateTime
 

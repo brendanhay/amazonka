@@ -114,7 +114,8 @@ instance Data.FromJSON SearchForPositionResult where
 
 instance Prelude.Hashable SearchForPositionResult where
   hashWithSalt _salt SearchForPositionResult' {..} =
-    _salt `Prelude.hashWithSalt` placeId
+    _salt
+      `Prelude.hashWithSalt` placeId
       `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` place
 

@@ -79,7 +79,8 @@ instance Data.FromJSON BatchGetDevicePositionError where
 
 instance Prelude.Hashable BatchGetDevicePositionError where
   hashWithSalt _salt BatchGetDevicePositionError' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
+    _salt
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` error
 
 instance Prelude.NFData BatchGetDevicePositionError where

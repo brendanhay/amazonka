@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     BatchUpdateDevicePositionError' {..} =
-      _salt `Prelude.hashWithSalt` deviceId
+      _salt
+        `Prelude.hashWithSalt` deviceId
         `Prelude.hashWithSalt` error
         `Prelude.hashWithSalt` sampleTime
 

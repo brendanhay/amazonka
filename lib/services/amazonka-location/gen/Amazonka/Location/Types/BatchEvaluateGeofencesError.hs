@@ -101,7 +101,8 @@ instance Data.FromJSON BatchEvaluateGeofencesError where
 
 instance Prelude.Hashable BatchEvaluateGeofencesError where
   hashWithSalt _salt BatchEvaluateGeofencesError' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
+    _salt
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` sampleTime
 

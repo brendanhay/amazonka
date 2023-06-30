@@ -176,7 +176,8 @@ instance Core.AWSRequest GetPlace where
 
 instance Prelude.Hashable GetPlace where
   hashWithSalt _salt GetPlace' {..} =
-    _salt `Prelude.hashWithSalt` language
+    _salt
+      `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` placeId
 

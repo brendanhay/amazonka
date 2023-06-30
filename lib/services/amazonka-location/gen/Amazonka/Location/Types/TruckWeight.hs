@@ -79,7 +79,8 @@ truckWeight_unit = Lens.lens (\TruckWeight' {unit} -> unit) (\s@TruckWeight' {} 
 
 instance Prelude.Hashable TruckWeight where
   hashWithSalt _salt TruckWeight' {..} =
-    _salt `Prelude.hashWithSalt` total
+    _salt
+      `Prelude.hashWithSalt` total
       `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData TruckWeight where

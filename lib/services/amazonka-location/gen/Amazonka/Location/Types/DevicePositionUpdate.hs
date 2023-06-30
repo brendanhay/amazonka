@@ -92,7 +92,8 @@ newDevicePositionUpdate
         positionProperties = Prelude.Nothing,
         deviceId = pDeviceId_,
         position =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pPosition_,
         sampleTime = Data._Time Lens.# pSampleTime_
       }
@@ -127,7 +128,8 @@ devicePositionUpdate_sampleTime = Lens.lens (\DevicePositionUpdate' {sampleTime}
 
 instance Prelude.Hashable DevicePositionUpdate where
   hashWithSalt _salt DevicePositionUpdate' {..} =
-    _salt `Prelude.hashWithSalt` accuracy
+    _salt
+      `Prelude.hashWithSalt` accuracy
       `Prelude.hashWithSalt` positionProperties
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` position

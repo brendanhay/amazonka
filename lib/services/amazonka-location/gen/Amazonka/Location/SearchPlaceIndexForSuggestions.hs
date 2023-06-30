@@ -334,7 +334,8 @@ instance
   hashWithSalt
     _salt
     SearchPlaceIndexForSuggestions' {..} =
-      _salt `Prelude.hashWithSalt` biasPosition
+      _salt
+        `Prelude.hashWithSalt` biasPosition
         `Prelude.hashWithSalt` filterBBox
         `Prelude.hashWithSalt` filterCountries
         `Prelude.hashWithSalt` language

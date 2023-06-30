@@ -129,7 +129,8 @@ instance Core.AWSRequest BatchUpdateDevicePosition where
 
 instance Prelude.Hashable BatchUpdateDevicePosition where
   hashWithSalt _salt BatchUpdateDevicePosition' {..} =
-    _salt `Prelude.hashWithSalt` trackerName
+    _salt
+      `Prelude.hashWithSalt` trackerName
       `Prelude.hashWithSalt` updates
 
 instance Prelude.NFData BatchUpdateDevicePosition where

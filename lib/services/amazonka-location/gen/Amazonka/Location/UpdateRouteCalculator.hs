@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateRouteCalculator where
 
 instance Prelude.Hashable UpdateRouteCalculator where
   hashWithSalt _salt UpdateRouteCalculator' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` calculatorName
 

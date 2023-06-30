@@ -148,7 +148,8 @@ newSearchPlaceIndexForPosition pIndexName_ pPosition_ =
       maxResults = Prelude.Nothing,
       indexName = pIndexName_,
       position =
-        Data._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive
+          Prelude.. Lens.coerced
           Lens.# pPosition_
     }
 
@@ -212,7 +213,8 @@ instance Core.AWSRequest SearchPlaceIndexForPosition where
 
 instance Prelude.Hashable SearchPlaceIndexForPosition where
   hashWithSalt _salt SearchPlaceIndexForPosition' {..} =
-    _salt `Prelude.hashWithSalt` language
+    _salt
+      `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` position

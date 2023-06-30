@@ -93,7 +93,8 @@ instance Data.FromJSON SearchForSuggestionsResult where
 
 instance Prelude.Hashable SearchForSuggestionsResult where
   hashWithSalt _salt SearchForSuggestionsResult' {..} =
-    _salt `Prelude.hashWithSalt` placeId
+    _salt
+      `Prelude.hashWithSalt` placeId
       `Prelude.hashWithSalt` text
 
 instance Prelude.NFData SearchForSuggestionsResult where

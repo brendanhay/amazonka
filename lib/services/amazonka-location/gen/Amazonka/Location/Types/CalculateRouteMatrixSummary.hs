@@ -138,7 +138,8 @@ instance Data.FromJSON CalculateRouteMatrixSummary where
 
 instance Prelude.Hashable CalculateRouteMatrixSummary where
   hashWithSalt _salt CalculateRouteMatrixSummary' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` distanceUnit
       `Prelude.hashWithSalt` errorCount
       `Prelude.hashWithSalt` routeCount

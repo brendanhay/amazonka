@@ -166,7 +166,8 @@ instance Data.FromJSON ListGeofenceResponseEntry where
 
 instance Prelude.Hashable ListGeofenceResponseEntry where
   hashWithSalt _salt ListGeofenceResponseEntry' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` geofenceId
       `Prelude.hashWithSalt` geometry
       `Prelude.hashWithSalt` status

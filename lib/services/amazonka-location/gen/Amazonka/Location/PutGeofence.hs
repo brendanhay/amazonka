@@ -141,7 +141,8 @@ instance Core.AWSRequest PutGeofence where
 
 instance Prelude.Hashable PutGeofence where
   hashWithSalt _salt PutGeofence' {..} =
-    _salt `Prelude.hashWithSalt` collectionName
+    _salt
+      `Prelude.hashWithSalt` collectionName
       `Prelude.hashWithSalt` geofenceId
       `Prelude.hashWithSalt` geometry
 

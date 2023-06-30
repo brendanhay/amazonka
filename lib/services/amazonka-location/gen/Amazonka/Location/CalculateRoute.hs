@@ -326,10 +326,12 @@ newCalculateRoute
         waypointPositions = Prelude.Nothing,
         calculatorName = pCalculatorName_,
         departurePosition =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pDeparturePosition_,
         destinationPosition =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pDestinationPosition_
       }
 
@@ -476,7 +478,8 @@ instance Core.AWSRequest CalculateRoute where
 
 instance Prelude.Hashable CalculateRoute where
   hashWithSalt _salt CalculateRoute' {..} =
-    _salt `Prelude.hashWithSalt` carModeOptions
+    _salt
+      `Prelude.hashWithSalt` carModeOptions
       `Prelude.hashWithSalt` departNow
       `Prelude.hashWithSalt` departureTime
       `Prelude.hashWithSalt` distanceUnit

@@ -140,7 +140,8 @@ instance Data.FromJSON GeofenceGeometry where
 
 instance Prelude.Hashable GeofenceGeometry where
   hashWithSalt _salt GeofenceGeometry' {..} =
-    _salt `Prelude.hashWithSalt` circle
+    _salt
+      `Prelude.hashWithSalt` circle
       `Prelude.hashWithSalt` polygon
 
 instance Prelude.NFData GeofenceGeometry where

@@ -240,7 +240,8 @@ instance Core.AWSRequest CreateGeofenceCollection where
 
 instance Prelude.Hashable CreateGeofenceCollection where
   hashWithSalt _salt CreateGeofenceCollection' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` pricingPlanDataSource

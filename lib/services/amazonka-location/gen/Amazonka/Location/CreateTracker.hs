@@ -334,7 +334,8 @@ instance Core.AWSRequest CreateTracker where
 
 instance Prelude.Hashable CreateTracker where
   hashWithSalt _salt CreateTracker' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` positionFiltering
       `Prelude.hashWithSalt` pricingPlan

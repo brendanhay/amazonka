@@ -97,7 +97,8 @@ newSearchPlaceIndexForPositionSummary
         maxResults = Prelude.Nothing,
         dataSource = pDataSource_,
         position =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pPosition_
       }
 
@@ -153,7 +154,8 @@ instance
   hashWithSalt
     _salt
     SearchPlaceIndexForPositionSummary' {..} =
-      _salt `Prelude.hashWithSalt` language
+      _salt
+        `Prelude.hashWithSalt` language
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` dataSource
         `Prelude.hashWithSalt` position

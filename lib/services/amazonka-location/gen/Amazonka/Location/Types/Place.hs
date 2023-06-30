@@ -270,7 +270,8 @@ instance Data.FromJSON Place where
 
 instance Prelude.Hashable Place where
   hashWithSalt _salt Place' {..} =
-    _salt `Prelude.hashWithSalt` addressNumber
+    _salt
+      `Prelude.hashWithSalt` addressNumber
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` interpolated
       `Prelude.hashWithSalt` label

@@ -99,10 +99,12 @@ newStep
         distance = pDistance_,
         durationSeconds = pDurationSeconds_,
         endPosition =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pEndPosition_,
         startPosition =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pStartPosition_
       }
 
@@ -151,7 +153,8 @@ instance Data.FromJSON Step where
 
 instance Prelude.Hashable Step where
   hashWithSalt _salt Step' {..} =
-    _salt `Prelude.hashWithSalt` geometryOffset
+    _salt
+      `Prelude.hashWithSalt` geometryOffset
       `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` endPosition

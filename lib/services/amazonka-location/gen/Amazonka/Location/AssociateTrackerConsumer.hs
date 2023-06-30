@@ -132,7 +132,8 @@ instance Core.AWSRequest AssociateTrackerConsumer where
 
 instance Prelude.Hashable AssociateTrackerConsumer where
   hashWithSalt _salt AssociateTrackerConsumer' {..} =
-    _salt `Prelude.hashWithSalt` consumerArn
+    _salt
+      `Prelude.hashWithSalt` consumerArn
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData AssociateTrackerConsumer where

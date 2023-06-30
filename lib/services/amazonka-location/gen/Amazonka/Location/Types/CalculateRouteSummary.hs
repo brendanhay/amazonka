@@ -147,7 +147,8 @@ newCalculateRouteSummary
         distanceUnit = pDistanceUnit_,
         durationSeconds = pDurationSeconds_,
         routeBBox =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pRouteBBox_
       }
 
@@ -218,7 +219,8 @@ instance Data.FromJSON CalculateRouteSummary where
 
 instance Prelude.Hashable CalculateRouteSummary where
   hashWithSalt _salt CalculateRouteSummary' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` distanceUnit
       `Prelude.hashWithSalt` durationSeconds

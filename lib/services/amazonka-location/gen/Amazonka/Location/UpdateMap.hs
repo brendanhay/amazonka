@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateMap where
 
 instance Prelude.Hashable UpdateMap where
   hashWithSalt _salt UpdateMap' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` mapName
 

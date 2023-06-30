@@ -189,7 +189,8 @@ instance
   hashWithSalt
     _salt
     ListRouteCalculatorsResponseEntry' {..} =
-      _salt `Prelude.hashWithSalt` pricingPlan
+      _salt
+        `Prelude.hashWithSalt` pricingPlan
         `Prelude.hashWithSalt` calculatorName
         `Prelude.hashWithSalt` createTime
         `Prelude.hashWithSalt` dataSource

@@ -89,7 +89,8 @@ instance Data.FromJSON RouteMatrixEntry where
 
 instance Prelude.Hashable RouteMatrixEntry where
   hashWithSalt _salt RouteMatrixEntry' {..} =
-    _salt `Prelude.hashWithSalt` distance
+    _salt
+      `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` error
 

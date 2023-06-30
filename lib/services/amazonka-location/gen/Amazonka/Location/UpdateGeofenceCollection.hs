@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateGeofenceCollection where
 
 instance Prelude.Hashable UpdateGeofenceCollection where
   hashWithSalt _salt UpdateGeofenceCollection' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` pricingPlanDataSource
       `Prelude.hashWithSalt` collectionName

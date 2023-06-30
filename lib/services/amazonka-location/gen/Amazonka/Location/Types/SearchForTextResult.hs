@@ -140,7 +140,8 @@ instance Data.FromJSON SearchForTextResult where
 
 instance Prelude.Hashable SearchForTextResult where
   hashWithSalt _salt SearchForTextResult' {..} =
-    _salt `Prelude.hashWithSalt` distance
+    _salt
+      `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` placeId
       `Prelude.hashWithSalt` relevance
       `Prelude.hashWithSalt` place

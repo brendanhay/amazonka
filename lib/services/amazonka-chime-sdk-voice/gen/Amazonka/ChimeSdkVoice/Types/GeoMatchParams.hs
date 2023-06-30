@@ -74,7 +74,8 @@ instance Data.FromJSON GeoMatchParams where
 
 instance Prelude.Hashable GeoMatchParams where
   hashWithSalt _salt GeoMatchParams' {..} =
-    _salt `Prelude.hashWithSalt` country
+    _salt
+      `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` areaCode
 
 instance Prelude.NFData GeoMatchParams where

@@ -94,7 +94,8 @@ instance Core.AWSRequest ListVoiceConnectors where
       ( \s h x ->
           ListVoiceConnectorsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "VoiceConnectors"
+            Prelude.<*> ( x
+                            Data..?> "VoiceConnectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -102,7 +103,8 @@ instance Core.AWSRequest ListVoiceConnectors where
 
 instance Prelude.Hashable ListVoiceConnectors where
   hashWithSalt _salt ListVoiceConnectors' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVoiceConnectors where

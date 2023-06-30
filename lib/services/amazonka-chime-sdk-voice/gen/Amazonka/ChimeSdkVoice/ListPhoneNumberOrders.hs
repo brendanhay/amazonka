@@ -95,7 +95,8 @@ instance Core.AWSRequest ListPhoneNumberOrders where
       ( \s h x ->
           ListPhoneNumberOrdersResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PhoneNumberOrders"
+            Prelude.<*> ( x
+                            Data..?> "PhoneNumberOrders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -103,7 +104,8 @@ instance Core.AWSRequest ListPhoneNumberOrders where
 
 instance Prelude.Hashable ListPhoneNumberOrders where
   hashWithSalt _salt ListPhoneNumberOrders' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPhoneNumberOrders where

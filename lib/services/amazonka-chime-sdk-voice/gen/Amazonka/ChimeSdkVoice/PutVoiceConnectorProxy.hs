@@ -136,7 +136,8 @@ instance Core.AWSRequest PutVoiceConnectorProxy where
 
 instance Prelude.Hashable PutVoiceConnectorProxy where
   hashWithSalt _salt PutVoiceConnectorProxy' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` fallBackPhoneNumber
       `Prelude.hashWithSalt` defaultSessionExpiryMinutes
       `Prelude.hashWithSalt` phoneNumberPoolCountries

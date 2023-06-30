@@ -98,7 +98,8 @@ instance Data.FromJSON OriginationRoute where
 
 instance Prelude.Hashable OriginationRoute where
   hashWithSalt _salt OriginationRoute' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` protocol

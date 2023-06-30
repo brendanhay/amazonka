@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateVoiceConnectorGroup where
 
 instance Prelude.Hashable UpdateVoiceConnectorGroup where
   hashWithSalt _salt UpdateVoiceConnectorGroup' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorGroupId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorGroupId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` voiceConnectorItems
 

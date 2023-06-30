@@ -89,7 +89,8 @@ instance Data.FromJSON Termination where
       ( \x ->
           Termination'
             Prelude.<$> (x Data..:? "CallingRegions" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "CidrAllowedList"
+            Prelude.<*> ( x
+                            Data..:? "CidrAllowedList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CpsLimit")
@@ -99,7 +100,8 @@ instance Data.FromJSON Termination where
 
 instance Prelude.Hashable Termination where
   hashWithSalt _salt Termination' {..} =
-    _salt `Prelude.hashWithSalt` callingRegions
+    _salt
+      `Prelude.hashWithSalt` callingRegions
       `Prelude.hashWithSalt` cidrAllowedList
       `Prelude.hashWithSalt` cpsLimit
       `Prelude.hashWithSalt` defaultPhoneNumber

@@ -80,7 +80,8 @@ instance Data.FromJSON PhoneNumberError where
 
 instance Prelude.Hashable PhoneNumberError where
   hashWithSalt _salt PhoneNumberError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` phoneNumberId
 

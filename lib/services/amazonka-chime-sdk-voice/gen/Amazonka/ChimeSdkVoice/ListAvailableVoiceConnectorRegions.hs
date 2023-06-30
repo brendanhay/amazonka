@@ -72,10 +72,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailableVoiceConnectorRegionsResponse'
-            Prelude.<$> ( x Data..?> "VoiceConnectorRegions"
+            Prelude.<$> ( x
+                            Data..?> "VoiceConnectorRegions"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

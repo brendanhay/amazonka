@@ -108,7 +108,8 @@ instance
     PutVoiceConnectorTermination
   where
   hashWithSalt _salt PutVoiceConnectorTermination' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` termination
 
 instance Prelude.NFData PutVoiceConnectorTermination where

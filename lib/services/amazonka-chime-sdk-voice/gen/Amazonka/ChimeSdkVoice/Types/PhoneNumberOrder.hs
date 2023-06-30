@@ -111,7 +111,8 @@ instance Data.FromJSON PhoneNumberOrder where
           PhoneNumberOrder'
             Prelude.<$> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "OrderType")
-            Prelude.<*> ( x Data..:? "OrderedPhoneNumbers"
+            Prelude.<*> ( x
+                            Data..:? "OrderedPhoneNumbers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PhoneNumberOrderId")
@@ -122,7 +123,8 @@ instance Data.FromJSON PhoneNumberOrder where
 
 instance Prelude.Hashable PhoneNumberOrder where
   hashWithSalt _salt PhoneNumberOrder' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` orderType
       `Prelude.hashWithSalt` orderedPhoneNumbers
       `Prelude.hashWithSalt` phoneNumberOrderId

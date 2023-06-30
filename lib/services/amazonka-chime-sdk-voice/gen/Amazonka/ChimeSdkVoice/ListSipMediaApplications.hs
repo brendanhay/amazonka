@@ -91,22 +91,22 @@ instance Core.AWSPager ListSipMediaApplications where
     | Core.stop
         ( rs
             Lens.^? listSipMediaApplicationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSipMediaApplicationsResponse_sipMediaApplications
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSipMediaApplications_nextToken
           Lens..~ rs
           Lens.^? listSipMediaApplicationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSipMediaApplications where
   type
@@ -119,7 +119,8 @@ instance Core.AWSRequest ListSipMediaApplications where
       ( \s h x ->
           ListSipMediaApplicationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SipMediaApplications"
+            Prelude.<*> ( x
+                            Data..?> "SipMediaApplications"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -127,7 +128,8 @@ instance Core.AWSRequest ListSipMediaApplications where
 
 instance Prelude.Hashable ListSipMediaApplications where
   hashWithSalt _salt ListSipMediaApplications' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSipMediaApplications where

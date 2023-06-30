@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     DNISEmergencyCallingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` testPhoneNumber
+      _salt
+        `Prelude.hashWithSalt` testPhoneNumber
         `Prelude.hashWithSalt` emergencyPhoneNumber
         `Prelude.hashWithSalt` callingCountry
 

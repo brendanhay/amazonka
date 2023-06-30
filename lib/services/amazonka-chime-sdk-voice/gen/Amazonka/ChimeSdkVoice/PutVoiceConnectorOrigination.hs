@@ -108,7 +108,8 @@ instance
     PutVoiceConnectorOrigination
   where
   hashWithSalt _salt PutVoiceConnectorOrigination' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` origination
 
 instance Prelude.NFData PutVoiceConnectorOrigination where

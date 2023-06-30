@@ -125,7 +125,8 @@ instance Data.FromJSON VoiceConnector where
 
 instance Prelude.Hashable VoiceConnector where
   hashWithSalt _salt VoiceConnector' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outboundHostName

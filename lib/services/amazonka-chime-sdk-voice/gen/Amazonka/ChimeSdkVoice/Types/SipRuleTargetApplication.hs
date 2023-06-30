@@ -80,7 +80,8 @@ instance Data.FromJSON SipRuleTargetApplication where
 
 instance Prelude.Hashable SipRuleTargetApplication where
   hashWithSalt _salt SipRuleTargetApplication' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` sipMediaApplicationId
 

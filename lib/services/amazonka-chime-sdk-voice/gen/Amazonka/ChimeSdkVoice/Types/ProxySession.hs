@@ -175,7 +175,8 @@ instance Data.FromJSON ProxySession where
 
 instance Prelude.Hashable ProxySession where
   hashWithSalt _salt ProxySession' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` endedTimestamp
       `Prelude.hashWithSalt` expiryMinutes

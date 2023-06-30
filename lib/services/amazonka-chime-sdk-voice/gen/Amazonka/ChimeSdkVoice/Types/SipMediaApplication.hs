@@ -107,7 +107,8 @@ instance Data.FromJSON SipMediaApplication where
 
 instance Prelude.Hashable SipMediaApplication where
   hashWithSalt _salt SipMediaApplication' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` name

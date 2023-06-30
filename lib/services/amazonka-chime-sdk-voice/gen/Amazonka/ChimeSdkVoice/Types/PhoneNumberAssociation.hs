@@ -81,7 +81,8 @@ instance Data.FromJSON PhoneNumberAssociation where
 
 instance Prelude.Hashable PhoneNumberAssociation where
   hashWithSalt _salt PhoneNumberAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associatedTimestamp
+    _salt
+      `Prelude.hashWithSalt` associatedTimestamp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

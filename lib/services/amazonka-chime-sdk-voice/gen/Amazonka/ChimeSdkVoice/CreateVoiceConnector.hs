@@ -111,7 +111,8 @@ instance Core.AWSRequest CreateVoiceConnector where
 
 instance Prelude.Hashable CreateVoiceConnector where
   hashWithSalt _salt CreateVoiceConnector' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` requireEncryption
 

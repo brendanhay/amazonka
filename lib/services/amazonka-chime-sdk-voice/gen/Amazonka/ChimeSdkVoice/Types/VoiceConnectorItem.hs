@@ -75,7 +75,8 @@ instance Data.FromJSON VoiceConnectorItem where
 
 instance Prelude.Hashable VoiceConnectorItem where
   hashWithSalt _salt VoiceConnectorItem' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` priority
 
 instance Prelude.NFData VoiceConnectorItem where

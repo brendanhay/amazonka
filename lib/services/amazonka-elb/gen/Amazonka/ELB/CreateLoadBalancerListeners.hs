@@ -111,7 +111,8 @@ instance Core.AWSRequest CreateLoadBalancerListeners where
 
 instance Prelude.Hashable CreateLoadBalancerListeners where
   hashWithSalt _salt CreateLoadBalancerListeners' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` listeners
 
 instance Prelude.NFData CreateLoadBalancerListeners where

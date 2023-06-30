@@ -185,7 +185,8 @@ instance Data.FromXML HealthCheck where
 
 instance Prelude.Hashable HealthCheck where
   hashWithSalt _salt HealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` target
+    _salt
+      `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` unhealthyThreshold

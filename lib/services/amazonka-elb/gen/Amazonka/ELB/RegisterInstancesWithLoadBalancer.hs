@@ -129,10 +129,12 @@ instance
       "RegisterInstancesWithLoadBalancerResult"
       ( \s h x ->
           RegisterInstancesWithLoadBalancerResponse'
-            Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Instances"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -142,7 +144,8 @@ instance
   hashWithSalt
     _salt
     RegisterInstancesWithLoadBalancer' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerName
+      _salt
+        `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` instances
 
 instance

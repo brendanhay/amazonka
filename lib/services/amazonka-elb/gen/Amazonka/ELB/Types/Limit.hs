@@ -85,11 +85,13 @@ limit_name = Lens.lens (\Limit' {name} -> name) (\s@Limit' {} a -> s {name = a} 
 instance Data.FromXML Limit where
   parseXML x =
     Limit'
-      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Name")
+      Prelude.<$> (x Data..@? "Max")
+      Prelude.<*> (x Data..@? "Name")
 
 instance Prelude.Hashable Limit where
   hashWithSalt _salt Limit' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Limit where

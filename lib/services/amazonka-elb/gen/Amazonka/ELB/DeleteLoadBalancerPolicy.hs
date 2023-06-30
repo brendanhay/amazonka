@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteLoadBalancerPolicy where
 
 instance Prelude.Hashable DeleteLoadBalancerPolicy where
   hashWithSalt _salt DeleteLoadBalancerPolicy' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData DeleteLoadBalancerPolicy where

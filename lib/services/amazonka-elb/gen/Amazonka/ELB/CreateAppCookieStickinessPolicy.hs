@@ -151,7 +151,8 @@ instance
   hashWithSalt
     _salt
     CreateAppCookieStickinessPolicy' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerName
+      _salt
+        `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` policyName
         `Prelude.hashWithSalt` cookieName
 

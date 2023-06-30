@@ -160,7 +160,8 @@ instance
   hashWithSalt
     _salt
     CreateLBCookieStickinessPolicy' {..} =
-      _salt `Prelude.hashWithSalt` cookieExpirationPeriod
+      _salt
+        `Prelude.hashWithSalt` cookieExpirationPeriod
         `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` policyName
 

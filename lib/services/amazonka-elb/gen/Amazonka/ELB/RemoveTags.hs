@@ -104,7 +104,8 @@ instance Core.AWSRequest RemoveTags where
 
 instance Prelude.Hashable RemoveTags where
   hashWithSalt _salt RemoveTags' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerNames
+    _salt
+      `Prelude.hashWithSalt` loadBalancerNames
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData RemoveTags where

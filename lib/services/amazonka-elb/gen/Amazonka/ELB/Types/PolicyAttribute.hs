@@ -65,7 +65,8 @@ policyAttribute_attributeValue = Lens.lens (\PolicyAttribute' {attributeValue} -
 
 instance Prelude.Hashable PolicyAttribute where
   hashWithSalt _salt PolicyAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` attributeValue
 
 instance Prelude.NFData PolicyAttribute where

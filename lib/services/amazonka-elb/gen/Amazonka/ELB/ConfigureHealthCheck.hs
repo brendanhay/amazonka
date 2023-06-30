@@ -115,7 +115,8 @@ instance Core.AWSRequest ConfigureHealthCheck where
 
 instance Prelude.Hashable ConfigureHealthCheck where
   hashWithSalt _salt ConfigureHealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` healthCheck
 
 instance Prelude.NFData ConfigureHealthCheck where

@@ -138,7 +138,8 @@ instance Core.AWSRequest ListAnswers where
     Response.receiveJSON
       ( \s h x ->
           ListAnswersResponse'
-            Prelude.<$> ( x Data..?> "AnswerSummaries"
+            Prelude.<$> ( x
+                            Data..?> "AnswerSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "LensAlias")
@@ -151,7 +152,8 @@ instance Core.AWSRequest ListAnswers where
 
 instance Prelude.Hashable ListAnswers where
   hashWithSalt _salt ListAnswers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` milestoneNumber
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pillarId

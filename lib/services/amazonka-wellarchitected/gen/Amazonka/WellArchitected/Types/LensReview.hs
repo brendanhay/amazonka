@@ -143,7 +143,8 @@ instance Data.FromJSON LensReview where
             Prelude.<*> (x Data..:? "LensVersion")
             Prelude.<*> (x Data..:? "NextToken")
             Prelude.<*> (x Data..:? "Notes")
-            Prelude.<*> ( x Data..:? "PillarReviewSummaries"
+            Prelude.<*> ( x
+                            Data..:? "PillarReviewSummaries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
@@ -152,7 +153,8 @@ instance Data.FromJSON LensReview where
 
 instance Prelude.Hashable LensReview where
   hashWithSalt _salt LensReview' {..} =
-    _salt `Prelude.hashWithSalt` lensAlias
+    _salt
+      `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` lensStatus

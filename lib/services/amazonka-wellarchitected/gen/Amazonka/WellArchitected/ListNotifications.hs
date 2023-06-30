@@ -104,7 +104,8 @@ instance Core.AWSRequest ListNotifications where
       ( \s h x ->
           ListNotificationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "NotificationSummaries"
+            Prelude.<*> ( x
+                            Data..?> "NotificationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -112,7 +113,8 @@ instance Core.AWSRequest ListNotifications where
 
 instance Prelude.Hashable ListNotifications where
   hashWithSalt _salt ListNotifications' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadId
 

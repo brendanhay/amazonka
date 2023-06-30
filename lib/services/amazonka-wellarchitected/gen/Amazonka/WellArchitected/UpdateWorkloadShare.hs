@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateWorkloadShare where
 
 instance Prelude.Hashable UpdateWorkloadShare where
   hashWithSalt _salt UpdateWorkloadShare' {..} =
-    _salt `Prelude.hashWithSalt` shareId
+    _salt
+      `Prelude.hashWithSalt` shareId
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` permissionType
 

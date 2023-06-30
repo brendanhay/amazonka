@@ -92,7 +92,8 @@ instance Data.FromJSON LensShareSummary where
 
 instance Prelude.Hashable LensShareSummary where
   hashWithSalt _salt LensShareSummary' {..} =
-    _salt `Prelude.hashWithSalt` shareId
+    _salt
+      `Prelude.hashWithSalt` shareId
       `Prelude.hashWithSalt` sharedWith
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage

@@ -140,7 +140,8 @@ instance Data.FromJSON ShareInvitationSummary where
 
 instance Prelude.Hashable ShareInvitationSummary where
   hashWithSalt _salt ShareInvitationSummary' {..} =
-    _salt `Prelude.hashWithSalt` lensArn
+    _salt
+      `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` shareInvitationId

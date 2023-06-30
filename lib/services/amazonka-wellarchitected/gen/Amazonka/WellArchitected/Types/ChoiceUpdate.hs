@@ -80,7 +80,8 @@ choiceUpdate_status = Lens.lens (\ChoiceUpdate' {status} -> status) (\s@ChoiceUp
 
 instance Prelude.Hashable ChoiceUpdate where
   hashWithSalt _salt ChoiceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` notes
+    _salt
+      `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
 

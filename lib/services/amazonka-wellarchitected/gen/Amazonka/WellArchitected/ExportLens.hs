@@ -114,7 +114,8 @@ instance Core.AWSRequest ExportLens where
 
 instance Prelude.Hashable ExportLens where
   hashWithSalt _salt ExportLens' {..} =
-    _salt `Prelude.hashWithSalt` lensVersion
+    _salt
+      `Prelude.hashWithSalt` lensVersion
       `Prelude.hashWithSalt` lensAlias
 
 instance Prelude.NFData ExportLens where

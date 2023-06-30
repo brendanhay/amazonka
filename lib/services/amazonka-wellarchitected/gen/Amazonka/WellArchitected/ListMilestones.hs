@@ -107,7 +107,8 @@ instance Core.AWSRequest ListMilestones where
     Response.receiveJSON
       ( \s h x ->
           ListMilestonesResponse'
-            Prelude.<$> ( x Data..?> "MilestoneSummaries"
+            Prelude.<$> ( x
+                            Data..?> "MilestoneSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -117,7 +118,8 @@ instance Core.AWSRequest ListMilestones where
 
 instance Prelude.Hashable ListMilestones where
   hashWithSalt _salt ListMilestones' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadId
 

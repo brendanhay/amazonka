@@ -169,7 +169,8 @@ instance Core.AWSRequest UpdateAnswer where
 
 instance Prelude.Hashable UpdateAnswer where
   hashWithSalt _salt UpdateAnswer' {..} =
-    _salt `Prelude.hashWithSalt` choiceUpdates
+    _salt
+      `Prelude.hashWithSalt` choiceUpdates
       `Prelude.hashWithSalt` isApplicable
       `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` reason

@@ -141,7 +141,8 @@ instance Core.AWSRequest ImportLens where
 
 instance Prelude.Hashable ImportLens where
   hashWithSalt _salt ImportLens' {..} =
-    _salt `Prelude.hashWithSalt` lensAlias
+    _salt
+      `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jSONString
       `Prelude.hashWithSalt` clientRequestToken

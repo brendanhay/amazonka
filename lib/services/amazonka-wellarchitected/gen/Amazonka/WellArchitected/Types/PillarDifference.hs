@@ -90,14 +90,16 @@ instance Data.FromJSON PillarDifference where
             Prelude.<$> (x Data..:? "DifferenceStatus")
             Prelude.<*> (x Data..:? "PillarId")
             Prelude.<*> (x Data..:? "PillarName")
-            Prelude.<*> ( x Data..:? "QuestionDifferences"
+            Prelude.<*> ( x
+                            Data..:? "QuestionDifferences"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PillarDifference where
   hashWithSalt _salt PillarDifference' {..} =
-    _salt `Prelude.hashWithSalt` differenceStatus
+    _salt
+      `Prelude.hashWithSalt` differenceStatus
       `Prelude.hashWithSalt` pillarId
       `Prelude.hashWithSalt` pillarName
       `Prelude.hashWithSalt` questionDifferences

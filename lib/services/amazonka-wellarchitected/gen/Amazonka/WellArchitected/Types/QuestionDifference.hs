@@ -84,7 +84,8 @@ instance Data.FromJSON QuestionDifference where
 
 instance Prelude.Hashable QuestionDifference where
   hashWithSalt _salt QuestionDifference' {..} =
-    _salt `Prelude.hashWithSalt` differenceStatus
+    _salt
+      `Prelude.hashWithSalt` differenceStatus
       `Prelude.hashWithSalt` questionId
       `Prelude.hashWithSalt` questionTitle
 

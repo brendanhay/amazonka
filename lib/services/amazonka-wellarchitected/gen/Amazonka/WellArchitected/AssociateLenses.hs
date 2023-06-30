@@ -105,7 +105,8 @@ instance Core.AWSRequest AssociateLenses where
 
 instance Prelude.Hashable AssociateLenses where
   hashWithSalt _salt AssociateLenses' {..} =
-    _salt `Prelude.hashWithSalt` workloadId
+    _salt
+      `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAliases
 
 instance Prelude.NFData AssociateLenses where

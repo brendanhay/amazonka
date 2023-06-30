@@ -129,7 +129,8 @@ instance Data.FromJSON WorkloadSummary where
 
 instance Prelude.Hashable WorkloadSummary where
   hashWithSalt _salt WorkloadSummary' {..} =
-    _salt `Prelude.hashWithSalt` improvementStatus
+    _salt
+      `Prelude.hashWithSalt` improvementStatus
       `Prelude.hashWithSalt` lenses
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` riskCounts

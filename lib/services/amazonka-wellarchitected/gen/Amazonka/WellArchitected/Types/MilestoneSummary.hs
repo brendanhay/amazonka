@@ -91,7 +91,8 @@ instance Data.FromJSON MilestoneSummary where
 
 instance Prelude.Hashable MilestoneSummary where
   hashWithSalt _salt MilestoneSummary' {..} =
-    _salt `Prelude.hashWithSalt` milestoneName
+    _salt
+      `Prelude.hashWithSalt` milestoneName
       `Prelude.hashWithSalt` milestoneNumber
       `Prelude.hashWithSalt` recordedAt
       `Prelude.hashWithSalt` workloadSummary

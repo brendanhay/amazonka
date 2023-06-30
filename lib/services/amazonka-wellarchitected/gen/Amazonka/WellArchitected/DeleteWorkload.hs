@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteWorkload where
 
 instance Prelude.Hashable DeleteWorkload where
   hashWithSalt _salt DeleteWorkload' {..} =
-    _salt `Prelude.hashWithSalt` workloadId
+    _salt
+      `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData DeleteWorkload where

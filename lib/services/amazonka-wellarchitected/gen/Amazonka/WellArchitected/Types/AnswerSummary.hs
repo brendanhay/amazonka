@@ -132,7 +132,8 @@ instance Data.FromJSON AnswerSummary where
       "AnswerSummary"
       ( \x ->
           AnswerSummary'
-            Prelude.<$> ( x Data..:? "ChoiceAnswerSummaries"
+            Prelude.<$> ( x
+                            Data..:? "ChoiceAnswerSummaries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Choices" Data..!= Prelude.mempty)
@@ -142,14 +143,16 @@ instance Data.FromJSON AnswerSummary where
             Prelude.<*> (x Data..:? "QuestionTitle")
             Prelude.<*> (x Data..:? "Reason")
             Prelude.<*> (x Data..:? "Risk")
-            Prelude.<*> ( x Data..:? "SelectedChoices"
+            Prelude.<*> ( x
+                            Data..:? "SelectedChoices"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AnswerSummary where
   hashWithSalt _salt AnswerSummary' {..} =
-    _salt `Prelude.hashWithSalt` choiceAnswerSummaries
+    _salt
+      `Prelude.hashWithSalt` choiceAnswerSummaries
       `Prelude.hashWithSalt` choices
       `Prelude.hashWithSalt` isApplicable
       `Prelude.hashWithSalt` pillarId

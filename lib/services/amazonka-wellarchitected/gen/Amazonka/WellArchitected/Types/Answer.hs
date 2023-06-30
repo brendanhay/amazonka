@@ -182,14 +182,16 @@ instance Data.FromJSON Answer where
             Prelude.<*> (x Data..:? "QuestionTitle")
             Prelude.<*> (x Data..:? "Reason")
             Prelude.<*> (x Data..:? "Risk")
-            Prelude.<*> ( x Data..:? "SelectedChoices"
+            Prelude.<*> ( x
+                            Data..:? "SelectedChoices"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Answer where
   hashWithSalt _salt Answer' {..} =
-    _salt `Prelude.hashWithSalt` choiceAnswers
+    _salt
+      `Prelude.hashWithSalt` choiceAnswers
       `Prelude.hashWithSalt` choices
       `Prelude.hashWithSalt` helpfulResourceDisplayText
       `Prelude.hashWithSalt` helpfulResourceUrl

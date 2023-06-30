@@ -79,7 +79,8 @@ instance Data.FromJSON AdditionalResources where
 
 instance Prelude.Hashable AdditionalResources where
   hashWithSalt _salt AdditionalResources' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AdditionalResources where

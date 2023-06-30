@@ -118,7 +118,8 @@ instance Core.AWSRequest GetLensReviewReport where
 
 instance Prelude.Hashable GetLensReviewReport where
   hashWithSalt _salt GetLensReviewReport' {..} =
-    _salt `Prelude.hashWithSalt` milestoneNumber
+    _salt
+      `Prelude.hashWithSalt` milestoneNumber
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAlias
 

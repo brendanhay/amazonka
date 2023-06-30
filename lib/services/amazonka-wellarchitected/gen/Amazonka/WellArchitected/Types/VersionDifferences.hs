@@ -61,7 +61,8 @@ instance Data.FromJSON VersionDifferences where
       "VersionDifferences"
       ( \x ->
           VersionDifferences'
-            Prelude.<$> ( x Data..:? "PillarDifferences"
+            Prelude.<$> ( x
+                            Data..:? "PillarDifferences"
                             Data..!= Prelude.mempty
                         )
       )

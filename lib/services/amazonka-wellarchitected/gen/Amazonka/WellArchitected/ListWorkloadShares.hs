@@ -132,7 +132,8 @@ instance Core.AWSRequest ListWorkloadShares where
           ListWorkloadSharesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "WorkloadId")
-            Prelude.<*> ( x Data..?> "WorkloadShareSummaries"
+            Prelude.<*> ( x
+                            Data..?> "WorkloadShareSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,7 +141,8 @@ instance Core.AWSRequest ListWorkloadShares where
 
 instance Prelude.Hashable ListWorkloadShares where
   hashWithSalt _salt ListWorkloadShares' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sharedWithPrefix
       `Prelude.hashWithSalt` status

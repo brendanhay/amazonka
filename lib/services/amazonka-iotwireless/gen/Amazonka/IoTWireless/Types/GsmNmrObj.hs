@@ -90,7 +90,8 @@ gsmNmrObj_bcch = Lens.lens (\GsmNmrObj' {bcch} -> bcch) (\s@GsmNmrObj' {} a -> s
 
 instance Prelude.Hashable GsmNmrObj where
   hashWithSalt _salt GsmNmrObj' {..} =
-    _salt `Prelude.hashWithSalt` globalIdentity
+    _salt
+      `Prelude.hashWithSalt` globalIdentity
       `Prelude.hashWithSalt` rxLevel
       `Prelude.hashWithSalt` bsic
       `Prelude.hashWithSalt` bcch

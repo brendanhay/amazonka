@@ -141,7 +141,8 @@ tdscdmaObj_utranCid = Lens.lens (\TdscdmaObj' {utranCid} -> utranCid) (\s@Tdscdm
 
 instance Prelude.Hashable TdscdmaObj where
   hashWithSalt _salt TdscdmaObj' {..} =
-    _salt `Prelude.hashWithSalt` lac
+    _salt
+      `Prelude.hashWithSalt` lac
       `Prelude.hashWithSalt` pathLoss
       `Prelude.hashWithSalt` rscp
       `Prelude.hashWithSalt` tdscdmaLocalId

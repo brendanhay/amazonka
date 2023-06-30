@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     DisassociateWirelessDeviceFromFuotaTask' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` wirelessDeviceId
 
 instance

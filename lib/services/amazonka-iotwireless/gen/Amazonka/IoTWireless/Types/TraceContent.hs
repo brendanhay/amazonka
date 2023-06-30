@@ -74,7 +74,8 @@ instance Data.FromJSON TraceContent where
 
 instance Prelude.Hashable TraceContent where
   hashWithSalt _salt TraceContent' {..} =
-    _salt `Prelude.hashWithSalt` logLevel
+    _salt
+      `Prelude.hashWithSalt` logLevel
       `Prelude.hashWithSalt` wirelessDeviceFrameInfo
 
 instance Prelude.NFData TraceContent where

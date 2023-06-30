@@ -84,7 +84,8 @@ instance Data.FromJSON DeviceProfile where
 
 instance Prelude.Hashable DeviceProfile where
   hashWithSalt _salt DeviceProfile' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

@@ -71,7 +71,8 @@ tdscdmaLocalId_cellParams = Lens.lens (\TdscdmaLocalId' {cellParams} -> cellPara
 
 instance Prelude.Hashable TdscdmaLocalId where
   hashWithSalt _salt TdscdmaLocalId' {..} =
-    _salt `Prelude.hashWithSalt` uarfcn
+    _salt
+      `Prelude.hashWithSalt` uarfcn
       `Prelude.hashWithSalt` cellParams
 
 instance Prelude.NFData TdscdmaLocalId where

@@ -87,7 +87,8 @@ instance
     WirelessDeviceEventLogOption
   where
   hashWithSalt _salt WirelessDeviceEventLogOption' {..} =
-    _salt `Prelude.hashWithSalt` event
+    _salt
+      `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` logLevel
 
 instance Prelude.NFData WirelessDeviceEventLogOption where

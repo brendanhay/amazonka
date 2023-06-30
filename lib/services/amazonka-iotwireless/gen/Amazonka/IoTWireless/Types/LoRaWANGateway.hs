@@ -115,7 +115,8 @@ instance Data.FromJSON LoRaWANGateway where
 
 instance Prelude.Hashable LoRaWANGateway where
   hashWithSalt _salt LoRaWANGateway' {..} =
-    _salt `Prelude.hashWithSalt` beaconing
+    _salt
+      `Prelude.hashWithSalt` beaconing
       `Prelude.hashWithSalt` gatewayEui
       `Prelude.hashWithSalt` joinEuiFilters
       `Prelude.hashWithSalt` netIdFilters

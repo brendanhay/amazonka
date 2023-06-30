@@ -177,7 +177,8 @@ instance Core.AWSRequest CreateDestination where
 
 instance Prelude.Hashable CreateDestination where
   hashWithSalt _salt CreateDestination' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

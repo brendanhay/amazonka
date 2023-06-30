@@ -99,10 +99,12 @@ instance
             Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "TraceContent")
-            Prelude.<*> ( x Data..?> "WirelessDevices"
+            Prelude.<*> ( x
+                            Data..?> "WirelessDevices"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "WirelessGateways"
+            Prelude.<*> ( x
+                            Data..?> "WirelessGateways"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

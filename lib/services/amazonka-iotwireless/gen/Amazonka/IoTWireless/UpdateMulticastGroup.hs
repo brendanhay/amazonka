@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateMulticastGroup where
 
 instance Prelude.Hashable UpdateMulticastGroup where
   hashWithSalt _salt UpdateMulticastGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id

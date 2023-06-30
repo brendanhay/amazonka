@@ -115,7 +115,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListMulticastGroupsByFuotaTaskResponse'
-            Prelude.<$> ( x Data..?> "MulticastGroupList"
+            Prelude.<$> ( x
+                            Data..?> "MulticastGroupList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -129,7 +130,8 @@ instance
   hashWithSalt
     _salt
     ListMulticastGroupsByFuotaTask' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` id
 

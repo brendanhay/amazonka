@@ -129,7 +129,8 @@ wcdmaObj_utranCid = Lens.lens (\WcdmaObj' {utranCid} -> utranCid) (\s@WcdmaObj' 
 
 instance Prelude.Hashable WcdmaObj where
   hashWithSalt _salt WcdmaObj' {..} =
-    _salt `Prelude.hashWithSalt` lac
+    _salt
+      `Prelude.hashWithSalt` lac
       `Prelude.hashWithSalt` pathLoss
       `Prelude.hashWithSalt` rscp
       `Prelude.hashWithSalt` wcdmaLocalId

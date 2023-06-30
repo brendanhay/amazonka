@@ -100,7 +100,8 @@ instance Core.AWSRequest StartMulticastGroupSession where
 
 instance Prelude.Hashable StartMulticastGroupSession where
   hashWithSalt _salt StartMulticastGroupSession' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` loRaWAN
 
 instance Prelude.NFData StartMulticastGroupSession where

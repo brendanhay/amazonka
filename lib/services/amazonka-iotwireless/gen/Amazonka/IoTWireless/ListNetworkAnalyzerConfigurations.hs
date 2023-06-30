@@ -104,11 +104,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListNetworkAnalyzerConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "NetworkAnalyzerConfigurationList"
+            Prelude.<$> ( x
+                            Data..?> "NetworkAnalyzerConfigurationList"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -118,7 +119,8 @@ instance
   hashWithSalt
     _salt
     ListNetworkAnalyzerConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 
 instance

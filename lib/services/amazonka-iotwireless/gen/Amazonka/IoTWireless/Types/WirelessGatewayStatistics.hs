@@ -115,7 +115,8 @@ instance Data.FromJSON WirelessGatewayStatistics where
 
 instance Prelude.Hashable WirelessGatewayStatistics where
   hashWithSalt _salt WirelessGatewayStatistics' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUplinkReceivedAt

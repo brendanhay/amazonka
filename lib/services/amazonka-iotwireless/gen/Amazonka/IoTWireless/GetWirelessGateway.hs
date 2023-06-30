@@ -116,7 +116,8 @@ instance Core.AWSRequest GetWirelessGateway where
 
 instance Prelude.Hashable GetWirelessGateway where
   hashWithSalt _salt GetWirelessGateway' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` identifierType
 
 instance Prelude.NFData GetWirelessGateway where

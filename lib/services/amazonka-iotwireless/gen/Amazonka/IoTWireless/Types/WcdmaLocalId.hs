@@ -65,7 +65,8 @@ wcdmaLocalId_psc = Lens.lens (\WcdmaLocalId' {psc} -> psc) (\s@WcdmaLocalId' {} 
 
 instance Prelude.Hashable WcdmaLocalId where
   hashWithSalt _salt WcdmaLocalId' {..} =
-    _salt `Prelude.hashWithSalt` uarfcndl
+    _salt
+      `Prelude.hashWithSalt` uarfcndl
       `Prelude.hashWithSalt` psc
 
 instance Prelude.NFData WcdmaLocalId where

@@ -89,7 +89,8 @@ instance Data.FromJSON WirelessGatewayLogOption where
 
 instance Prelude.Hashable WirelessGatewayLogOption where
   hashWithSalt _salt WirelessGatewayLogOption' {..} =
-    _salt `Prelude.hashWithSalt` events
+    _salt
+      `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` logLevel
 

@@ -85,7 +85,8 @@ instance Data.FromJSON LoRaWANGatewayMetadata where
 
 instance Prelude.Hashable LoRaWANGatewayMetadata where
   hashWithSalt _salt LoRaWANGatewayMetadata' {..} =
-    _salt `Prelude.hashWithSalt` gatewayEui
+    _salt
+      `Prelude.hashWithSalt` gatewayEui
       `Prelude.hashWithSalt` rssi
       `Prelude.hashWithSalt` snr
 

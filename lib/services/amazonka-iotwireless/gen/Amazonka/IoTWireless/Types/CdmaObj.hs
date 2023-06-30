@@ -138,7 +138,8 @@ cdmaObj_baseStationId = Lens.lens (\CdmaObj' {baseStationId} -> baseStationId) (
 
 instance Prelude.Hashable CdmaObj where
   hashWithSalt _salt CdmaObj' {..} =
-    _salt `Prelude.hashWithSalt` baseLat
+    _salt
+      `Prelude.hashWithSalt` baseLat
       `Prelude.hashWithSalt` baseLng
       `Prelude.hashWithSalt` cdmaLocalId
       `Prelude.hashWithSalt` cdmaNmr

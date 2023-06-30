@@ -118,7 +118,8 @@ instance Core.AWSRequest GetResourcePosition where
 
 instance Prelude.Hashable GetResourcePosition where
   hashWithSalt _salt GetResourcePosition' {..} =
-    _salt `Prelude.hashWithSalt` resourceIdentifier
+    _salt
+      `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData GetResourcePosition where

@@ -121,7 +121,8 @@ instance Core.AWSRequest PutResourceLogLevel where
 
 instance Prelude.Hashable PutResourceLogLevel where
   hashWithSalt _salt PutResourceLogLevel' {..} =
-    _salt `Prelude.hashWithSalt` resourceIdentifier
+    _salt
+      `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` logLevel
 

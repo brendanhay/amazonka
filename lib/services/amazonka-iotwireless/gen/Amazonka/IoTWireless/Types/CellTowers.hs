@@ -96,7 +96,8 @@ cellTowers_wcdma = Lens.lens (\CellTowers' {wcdma} -> wcdma) (\s@CellTowers' {} 
 
 instance Prelude.Hashable CellTowers where
   hashWithSalt _salt CellTowers' {..} =
-    _salt `Prelude.hashWithSalt` cdma
+    _salt
+      `Prelude.hashWithSalt` cdma
       `Prelude.hashWithSalt` gsm
       `Prelude.hashWithSalt` lte
       `Prelude.hashWithSalt` tdscdma

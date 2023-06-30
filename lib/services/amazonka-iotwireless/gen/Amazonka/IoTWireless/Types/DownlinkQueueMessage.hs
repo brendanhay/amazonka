@@ -100,7 +100,8 @@ instance Data.FromJSON DownlinkQueueMessage where
 
 instance Prelude.Hashable DownlinkQueueMessage where
   hashWithSalt _salt DownlinkQueueMessage' {..} =
-    _salt `Prelude.hashWithSalt` loRaWAN
+    _salt
+      `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` receivedAt
       `Prelude.hashWithSalt` transmitMode

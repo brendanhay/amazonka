@@ -84,7 +84,8 @@ instance Data.FromJSON LoRaWANGatewayVersion where
 
 instance Prelude.Hashable LoRaWANGatewayVersion where
   hashWithSalt _salt LoRaWANGatewayVersion' {..} =
-    _salt `Prelude.hashWithSalt` model
+    _salt
+      `Prelude.hashWithSalt` model
       `Prelude.hashWithSalt` packageVersion
       `Prelude.hashWithSalt` station
 

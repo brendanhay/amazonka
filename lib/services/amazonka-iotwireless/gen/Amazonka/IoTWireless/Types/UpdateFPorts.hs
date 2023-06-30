@@ -69,7 +69,8 @@ updateFPorts_positioning = Lens.lens (\UpdateFPorts' {positioning} -> positionin
 
 instance Prelude.Hashable UpdateFPorts where
   hashWithSalt _salt UpdateFPorts' {..} =
-    _salt `Prelude.hashWithSalt` applications
+    _salt
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` positioning
 
 instance Prelude.NFData UpdateFPorts where

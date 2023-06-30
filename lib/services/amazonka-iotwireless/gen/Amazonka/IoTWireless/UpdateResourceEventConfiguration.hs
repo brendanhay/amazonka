@@ -179,7 +179,8 @@ instance
   hashWithSalt
     _salt
     UpdateResourceEventConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` connectionStatus
+      _salt
+        `Prelude.hashWithSalt` connectionStatus
         `Prelude.hashWithSalt` deviceRegistrationState
         `Prelude.hashWithSalt` join
         `Prelude.hashWithSalt` messageDeliveryStatus

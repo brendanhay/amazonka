@@ -79,7 +79,8 @@ instance Data.FromJSON CertificateList where
 
 instance Prelude.Hashable CertificateList where
   hashWithSalt _salt CertificateList' {..} =
-    _salt `Prelude.hashWithSalt` signingAlg
+    _salt
+      `Prelude.hashWithSalt` signingAlg
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CertificateList where

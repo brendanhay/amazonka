@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateResourcePosition where
 
 instance Prelude.Hashable UpdateResourcePosition where
   hashWithSalt _salt UpdateResourcePosition' {..} =
-    _salt `Prelude.hashWithSalt` geoJsonPayload
+    _salt
+      `Prelude.hashWithSalt` geoJsonPayload
       `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` resourceType
 

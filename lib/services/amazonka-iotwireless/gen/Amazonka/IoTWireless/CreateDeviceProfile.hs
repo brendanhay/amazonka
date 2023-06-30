@@ -135,7 +135,8 @@ instance Core.AWSRequest CreateDeviceProfile where
 
 instance Prelude.Hashable CreateDeviceProfile where
   hashWithSalt _salt CreateDeviceProfile' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

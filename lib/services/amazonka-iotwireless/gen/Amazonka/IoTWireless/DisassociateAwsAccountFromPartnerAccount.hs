@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     DisassociateAwsAccountFromPartnerAccount' {..} =
-      _salt `Prelude.hashWithSalt` partnerAccountId
+      _salt
+        `Prelude.hashWithSalt` partnerAccountId
         `Prelude.hashWithSalt` partnerType
 
 instance

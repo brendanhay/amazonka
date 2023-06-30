@@ -99,7 +99,8 @@ instance Data.FromJSON EventConfigurationItem where
 
 instance Prelude.Hashable EventConfigurationItem where
   hashWithSalt _salt EventConfigurationItem' {..} =
-    _salt `Prelude.hashWithSalt` events
+    _salt
+      `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` identifierType
       `Prelude.hashWithSalt` partnerType

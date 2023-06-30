@@ -81,7 +81,8 @@ instance Data.FromJSON MulticastGroup where
 
 instance Prelude.Hashable MulticastGroup where
   hashWithSalt _salt MulticastGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     UpdateWirelessGatewayTaskCreate' {..} =
-      _salt `Prelude.hashWithSalt` loRaWAN
+      _salt
+        `Prelude.hashWithSalt` loRaWAN
         `Prelude.hashWithSalt` updateDataRole
         `Prelude.hashWithSalt` updateDataSource
 

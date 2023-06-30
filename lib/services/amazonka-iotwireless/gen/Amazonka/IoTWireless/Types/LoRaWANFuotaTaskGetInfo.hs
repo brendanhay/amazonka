@@ -73,7 +73,8 @@ instance Data.FromJSON LoRaWANFuotaTaskGetInfo where
 
 instance Prelude.Hashable LoRaWANFuotaTaskGetInfo where
   hashWithSalt _salt LoRaWANFuotaTaskGetInfo' {..} =
-    _salt `Prelude.hashWithSalt` rfRegion
+    _salt
+      `Prelude.hashWithSalt` rfRegion
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData LoRaWANFuotaTaskGetInfo where

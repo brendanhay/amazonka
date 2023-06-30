@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     LoRaWANUpdateGatewayTaskCreate' {..} =
-      _salt `Prelude.hashWithSalt` currentVersion
+      _salt
+        `Prelude.hashWithSalt` currentVersion
         `Prelude.hashWithSalt` sigKeyCrc
         `Prelude.hashWithSalt` updateSignature
         `Prelude.hashWithSalt` updateVersion

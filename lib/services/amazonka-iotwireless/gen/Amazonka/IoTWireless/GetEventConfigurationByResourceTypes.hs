@@ -77,11 +77,11 @@ instance
       ( \s h x ->
           GetEventConfigurationByResourceTypesResponse'
             Prelude.<$> (x Data..?> "ConnectionStatus")
-              Prelude.<*> (x Data..?> "DeviceRegistrationState")
-              Prelude.<*> (x Data..?> "Join")
-              Prelude.<*> (x Data..?> "MessageDeliveryStatus")
-              Prelude.<*> (x Data..?> "Proximity")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "DeviceRegistrationState")
+            Prelude.<*> (x Data..?> "Join")
+            Prelude.<*> (x Data..?> "MessageDeliveryStatus")
+            Prelude.<*> (x Data..?> "Proximity")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

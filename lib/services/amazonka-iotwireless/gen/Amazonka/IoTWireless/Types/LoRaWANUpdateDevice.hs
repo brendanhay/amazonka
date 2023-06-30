@@ -94,7 +94,8 @@ loRaWANUpdateDevice_serviceProfileId = Lens.lens (\LoRaWANUpdateDevice' {service
 
 instance Prelude.Hashable LoRaWANUpdateDevice where
   hashWithSalt _salt LoRaWANUpdateDevice' {..} =
-    _salt `Prelude.hashWithSalt` abpV1_0_x
+    _salt
+      `Prelude.hashWithSalt` abpV1_0_x
       `Prelude.hashWithSalt` abpV1_1
       `Prelude.hashWithSalt` deviceProfileId
       `Prelude.hashWithSalt` fPorts

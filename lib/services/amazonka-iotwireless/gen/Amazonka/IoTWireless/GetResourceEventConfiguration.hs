@@ -137,7 +137,8 @@ instance
     GetResourceEventConfiguration
   where
   hashWithSalt _salt GetResourceEventConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` partnerType
+    _salt
+      `Prelude.hashWithSalt` partnerType
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` identifierType
 

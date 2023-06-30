@@ -84,7 +84,8 @@ instance Data.FromJSON OtaaV1_0_x where
 
 instance Prelude.Hashable OtaaV1_0_x where
   hashWithSalt _salt OtaaV1_0_x' {..} =
-    _salt `Prelude.hashWithSalt` appEui
+    _salt
+      `Prelude.hashWithSalt` appEui
       `Prelude.hashWithSalt` appKey
       `Prelude.hashWithSalt` genAppKey
 

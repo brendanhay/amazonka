@@ -90,7 +90,8 @@ instance Data.FromJSON LoRaWANMulticastSession where
 
 instance Prelude.Hashable LoRaWANMulticastSession where
   hashWithSalt _salt LoRaWANMulticastSession' {..} =
-    _salt `Prelude.hashWithSalt` dlDr
+    _salt
+      `Prelude.hashWithSalt` dlDr
       `Prelude.hashWithSalt` dlFreq
       `Prelude.hashWithSalt` sessionStartTime
       `Prelude.hashWithSalt` sessionTimeout

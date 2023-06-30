@@ -76,7 +76,8 @@ instance Data.FromJSON TargetResource where
 
 instance Prelude.Hashable TargetResource where
   hashWithSalt _salt TargetResource' {..} =
-    _salt `Prelude.hashWithSalt` nLBResource
+    _salt
+      `Prelude.hashWithSalt` nLBResource
       `Prelude.hashWithSalt` r53Resource
 
 instance Prelude.NFData TargetResource where

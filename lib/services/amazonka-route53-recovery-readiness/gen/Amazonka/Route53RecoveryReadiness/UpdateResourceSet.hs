@@ -160,7 +160,8 @@ instance Core.AWSRequest UpdateResourceSet where
 
 instance Prelude.Hashable UpdateResourceSet where
   hashWithSalt _salt UpdateResourceSet' {..} =
-    _salt `Prelude.hashWithSalt` resourceSetName
+    _salt
+      `Prelude.hashWithSalt` resourceSetName
       `Prelude.hashWithSalt` resourceSetType
       `Prelude.hashWithSalt` resources
 

@@ -115,7 +115,8 @@ instance
           GetArchitectureRecommendationsResponse'
             Prelude.<$> (x Data..?> "lastAuditTimestamp")
             Prelude.<*> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "recommendations"
+            Prelude.<*> ( x
+                            Data..?> "recommendations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -128,7 +129,8 @@ instance
   hashWithSalt
     _salt
     GetArchitectureRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` recoveryGroupName
 

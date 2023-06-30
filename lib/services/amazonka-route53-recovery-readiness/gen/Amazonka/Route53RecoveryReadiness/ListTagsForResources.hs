@@ -144,7 +144,6 @@ newListTagsForResourcesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 listTagsForResourcesResponse_tags :: Lens.Lens' ListTagsForResourcesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 listTagsForResourcesResponse_tags = Lens.lens (\ListTagsForResourcesResponse' {tags} -> tags) (\s@ListTagsForResourcesResponse' {} a -> s {tags = a} :: ListTagsForResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 

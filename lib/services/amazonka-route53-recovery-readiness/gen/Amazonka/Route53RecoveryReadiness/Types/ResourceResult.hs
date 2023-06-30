@@ -104,7 +104,8 @@ instance Data.FromJSON ResourceResult where
 
 instance Prelude.Hashable ResourceResult where
   hashWithSalt _salt ResourceResult' {..} =
-    _salt `Prelude.hashWithSalt` componentId
+    _salt
+      `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` readiness
       `Prelude.hashWithSalt` lastCheckedTimestamp

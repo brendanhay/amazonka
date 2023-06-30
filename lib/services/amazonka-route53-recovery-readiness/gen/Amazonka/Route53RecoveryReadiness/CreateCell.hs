@@ -116,7 +116,8 @@ instance Core.AWSRequest CreateCell where
             Prelude.<$> (x Data..?> "cellArn")
             Prelude.<*> (x Data..?> "cellName")
             Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "parentReadinessScopes"
+            Prelude.<*> ( x
+                            Data..?> "parentReadinessScopes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
@@ -125,7 +126,8 @@ instance Core.AWSRequest CreateCell where
 
 instance Prelude.Hashable CreateCell where
   hashWithSalt _salt CreateCell' {..} =
-    _salt `Prelude.hashWithSalt` cells
+    _salt
+      `Prelude.hashWithSalt` cells
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` cellName
 

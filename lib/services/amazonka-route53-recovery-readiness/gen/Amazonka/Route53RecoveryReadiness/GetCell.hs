@@ -91,7 +91,8 @@ instance Core.AWSRequest GetCell where
             Prelude.<$> (x Data..?> "cellArn")
             Prelude.<*> (x Data..?> "cellName")
             Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "parentReadinessScopes"
+            Prelude.<*> ( x
+                            Data..?> "parentReadinessScopes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)

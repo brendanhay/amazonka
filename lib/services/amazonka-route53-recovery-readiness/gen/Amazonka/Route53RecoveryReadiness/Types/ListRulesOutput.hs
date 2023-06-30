@@ -95,7 +95,8 @@ instance Data.FromJSON ListRulesOutput where
 
 instance Prelude.Hashable ListRulesOutput where
   hashWithSalt _salt ListRulesOutput' {..} =
-    _salt `Prelude.hashWithSalt` ruleDescription
+    _salt
+      `Prelude.hashWithSalt` ruleDescription
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` resourceType
 

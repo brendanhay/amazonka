@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateCell where
             Prelude.<$> (x Data..?> "cellArn")
             Prelude.<*> (x Data..?> "cellName")
             Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "parentReadinessScopes"
+            Prelude.<*> ( x
+                            Data..?> "parentReadinessScopes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
@@ -114,7 +115,8 @@ instance Core.AWSRequest UpdateCell where
 
 instance Prelude.Hashable UpdateCell where
   hashWithSalt _salt UpdateCell' {..} =
-    _salt `Prelude.hashWithSalt` cellName
+    _salt
+      `Prelude.hashWithSalt` cellName
       `Prelude.hashWithSalt` cells
 
 instance Prelude.NFData UpdateCell where

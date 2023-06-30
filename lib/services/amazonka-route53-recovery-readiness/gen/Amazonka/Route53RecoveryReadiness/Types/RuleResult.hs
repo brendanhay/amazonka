@@ -110,7 +110,8 @@ instance Data.FromJSON RuleResult where
 
 instance Prelude.Hashable RuleResult where
   hashWithSalt _salt RuleResult' {..} =
-    _salt `Prelude.hashWithSalt` messages
+    _salt
+      `Prelude.hashWithSalt` messages
       `Prelude.hashWithSalt` readiness
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` lastCheckedTimestamp

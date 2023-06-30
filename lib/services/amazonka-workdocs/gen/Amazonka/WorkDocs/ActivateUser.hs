@@ -105,7 +105,8 @@ instance Core.AWSRequest ActivateUser where
 
 instance Prelude.Hashable ActivateUser where
   hashWithSalt _salt ActivateUser' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData ActivateUser where

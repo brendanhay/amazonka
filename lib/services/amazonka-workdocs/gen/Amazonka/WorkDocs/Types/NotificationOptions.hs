@@ -68,7 +68,8 @@ notificationOptions_sendEmail = Lens.lens (\NotificationOptions' {sendEmail} -> 
 
 instance Prelude.Hashable NotificationOptions where
   hashWithSalt _salt NotificationOptions' {..} =
-    _salt `Prelude.hashWithSalt` emailMessage
+    _salt
+      `Prelude.hashWithSalt` emailMessage
       `Prelude.hashWithSalt` sendEmail
 
 instance Prelude.NFData NotificationOptions where

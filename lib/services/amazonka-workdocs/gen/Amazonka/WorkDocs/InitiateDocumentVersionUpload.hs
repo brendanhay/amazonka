@@ -180,7 +180,8 @@ instance
     InitiateDocumentVersionUpload
   where
   hashWithSalt _salt InitiateDocumentVersionUpload' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` contentCreatedTimestamp
       `Prelude.hashWithSalt` contentModifiedTimestamp
       `Prelude.hashWithSalt` contentType

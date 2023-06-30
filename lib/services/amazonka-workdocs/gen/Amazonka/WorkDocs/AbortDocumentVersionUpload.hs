@@ -115,7 +115,8 @@ instance Core.AWSRequest AbortDocumentVersionUpload where
 
 instance Prelude.Hashable AbortDocumentVersionUpload where
   hashWithSalt _salt AbortDocumentVersionUpload' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` versionId
 

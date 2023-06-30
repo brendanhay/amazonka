@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteDocument where
 
 instance Prelude.Hashable DeleteDocument where
   hashWithSalt _salt DeleteDocument' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
 
 instance Prelude.NFData DeleteDocument where

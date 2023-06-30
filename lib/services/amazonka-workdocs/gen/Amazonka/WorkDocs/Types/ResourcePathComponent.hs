@@ -68,12 +68,14 @@ instance Data.FromJSON ResourcePathComponent where
       "ResourcePathComponent"
       ( \x ->
           ResourcePathComponent'
-            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ResourcePathComponent where
   hashWithSalt _salt ResourcePathComponent' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ResourcePathComponent where

@@ -113,7 +113,8 @@ instance Core.AWSRequest CreateLabels where
 
 instance Prelude.Hashable CreateLabels where
   hashWithSalt _salt CreateLabels' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` labels
 

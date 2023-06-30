@@ -85,7 +85,8 @@ instance Data.FromJSON Subscription where
 
 instance Prelude.Hashable Subscription where
   hashWithSalt _salt Subscription' {..} =
-    _salt `Prelude.hashWithSalt` endPoint
+    _salt
+      `Prelude.hashWithSalt` endPoint
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` subscriptionId
 

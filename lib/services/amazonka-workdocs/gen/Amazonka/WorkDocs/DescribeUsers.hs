@@ -238,20 +238,23 @@ instance Core.AWSPager DescribeUsers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeUsersResponse_marker Prelude.. Lens._Just
+            Lens.^? describeUsersResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeUsersResponse_users Prelude.. Lens._Just
+            Lens.^? describeUsersResponse_users
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeUsers_marker
           Lens..~ rs
-          Lens.^? describeUsersResponse_marker Prelude.. Lens._Just
+          Lens.^? describeUsersResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUsers where
   type
@@ -271,7 +274,8 @@ instance Core.AWSRequest DescribeUsers where
 
 instance Prelude.Hashable DescribeUsers where
   hashWithSalt _salt DescribeUsers' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` include
       `Prelude.hashWithSalt` limit

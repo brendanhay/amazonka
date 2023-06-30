@@ -101,7 +101,8 @@ instance
     RemoveAllResourcePermissions
   where
   hashWithSalt _salt RemoveAllResourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData RemoveAllResourcePermissions where

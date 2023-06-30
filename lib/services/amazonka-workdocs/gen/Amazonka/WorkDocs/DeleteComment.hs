@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteComment where
 
 instance Prelude.Hashable DeleteComment where
   hashWithSalt _salt DeleteComment' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` commentId

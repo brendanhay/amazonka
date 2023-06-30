@@ -76,7 +76,8 @@ instance Data.FromJSON Participants where
 
 instance Prelude.Hashable Participants where
   hashWithSalt _salt Participants' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` users
 
 instance Prelude.NFData Participants where

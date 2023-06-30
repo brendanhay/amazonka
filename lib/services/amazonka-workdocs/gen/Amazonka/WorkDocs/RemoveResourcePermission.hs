@@ -123,7 +123,8 @@ instance Core.AWSRequest RemoveResourcePermission where
 
 instance Prelude.Hashable RemoveResourcePermission where
   hashWithSalt _salt RemoveResourcePermission' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` principalType
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` principalId

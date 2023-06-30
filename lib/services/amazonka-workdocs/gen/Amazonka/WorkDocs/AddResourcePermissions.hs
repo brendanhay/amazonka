@@ -128,7 +128,8 @@ instance Core.AWSRequest AddResourcePermissions where
 
 instance Prelude.Hashable AddResourcePermissions where
   hashWithSalt _salt AddResourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` notificationOptions
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` principals

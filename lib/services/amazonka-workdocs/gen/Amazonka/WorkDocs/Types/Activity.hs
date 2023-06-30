@@ -176,7 +176,8 @@ instance Data.FromJSON Activity where
 
 instance Prelude.Hashable Activity where
   hashWithSalt _salt Activity' {..} =
-    _salt `Prelude.hashWithSalt` commentMetadata
+    _salt
+      `Prelude.hashWithSalt` commentMetadata
       `Prelude.hashWithSalt` initiator
       `Prelude.hashWithSalt` isIndirectActivity
       `Prelude.hashWithSalt` organizationId

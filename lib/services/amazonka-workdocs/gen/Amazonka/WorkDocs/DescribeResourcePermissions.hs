@@ -131,22 +131,22 @@ instance Core.AWSPager DescribeResourcePermissions where
     | Core.stop
         ( rs
             Lens.^? describeResourcePermissionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeResourcePermissionsResponse_principals
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeResourcePermissions_marker
           Lens..~ rs
           Lens.^? describeResourcePermissionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeResourcePermissions where
   type
@@ -165,7 +165,8 @@ instance Core.AWSRequest DescribeResourcePermissions where
 
 instance Prelude.Hashable DescribeResourcePermissions where
   hashWithSalt _salt DescribeResourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` principalId

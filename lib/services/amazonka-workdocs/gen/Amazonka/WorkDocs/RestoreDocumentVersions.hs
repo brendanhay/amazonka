@@ -98,7 +98,8 @@ instance Core.AWSRequest RestoreDocumentVersions where
 
 instance Prelude.Hashable RestoreDocumentVersions where
   hashWithSalt _salt RestoreDocumentVersions' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
 
 instance Prelude.NFData RestoreDocumentVersions where

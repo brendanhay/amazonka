@@ -75,7 +75,8 @@ instance Data.FromJSON UserStorageMetadata where
 
 instance Prelude.Hashable UserStorageMetadata where
   hashWithSalt _salt UserStorageMetadata' {..} =
-    _salt `Prelude.hashWithSalt` storageRule
+    _salt
+      `Prelude.hashWithSalt` storageRule
       `Prelude.hashWithSalt` storageUtilizedInBytes
 
 instance Prelude.NFData UserStorageMetadata where

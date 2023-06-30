@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateCustomMetadata where
 
 instance Prelude.Hashable CreateCustomMetadata where
   hashWithSalt _salt CreateCustomMetadata' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` customMetadata

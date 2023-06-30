@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteDocumentVersion where
 
 instance Prelude.Hashable DeleteDocumentVersion where
   hashWithSalt _salt DeleteDocumentVersion' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` deletePriorVersions

@@ -70,12 +70,14 @@ instance Data.FromJSON PermissionInfo where
       "PermissionInfo"
       ( \x ->
           PermissionInfo'
-            Prelude.<$> (x Data..:? "Role") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable PermissionInfo where
   hashWithSalt _salt PermissionInfo' {..} =
-    _salt `Prelude.hashWithSalt` role'
+    _salt
+      `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PermissionInfo where

@@ -107,7 +107,8 @@ instance Core.AWSRequest RebootNode where
 
 instance Prelude.Hashable RebootNode where
   hashWithSalt _salt RebootNode' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` nodeId
 
 instance Prelude.NFData RebootNode where

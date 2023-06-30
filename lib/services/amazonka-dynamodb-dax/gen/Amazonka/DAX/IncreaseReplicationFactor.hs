@@ -126,7 +126,8 @@ instance Core.AWSRequest IncreaseReplicationFactor where
 
 instance Prelude.Hashable IncreaseReplicationFactor where
   hashWithSalt _salt IncreaseReplicationFactor' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` newReplicationFactor'
 

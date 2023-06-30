@@ -90,7 +90,8 @@ instance Data.FromJSON InstanceOnboardingJobStatus where
 
 instance Prelude.Hashable InstanceOnboardingJobStatus where
   hashWithSalt _salt InstanceOnboardingJobStatus' {..} =
-    _salt `Prelude.hashWithSalt` failureCode
+    _salt
+      `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` connectInstanceId
       `Prelude.hashWithSalt` status
 

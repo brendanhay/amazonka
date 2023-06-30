@@ -92,7 +92,8 @@ instance Data.FromJSON InstanceConfig where
 
 instance Prelude.Hashable InstanceConfig where
   hashWithSalt _salt InstanceConfig' {..} =
-    _salt `Prelude.hashWithSalt` connectInstanceId
+    _salt
+      `Prelude.hashWithSalt` connectInstanceId
       `Prelude.hashWithSalt` encryptionConfig
       `Prelude.hashWithSalt` serviceLinkedRoleArn
 

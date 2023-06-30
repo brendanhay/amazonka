@@ -67,7 +67,8 @@ instanceIdFilter_value = Lens.lens (\InstanceIdFilter' {value} -> value) (\s@Ins
 
 instance Prelude.Hashable InstanceIdFilter where
   hashWithSalt _salt InstanceIdFilter' {..} =
-    _salt `Prelude.hashWithSalt` operator
+    _salt
+      `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData InstanceIdFilter where

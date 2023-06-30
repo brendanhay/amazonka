@@ -74,7 +74,8 @@ instance Data.FromJSON FailedCampaignStateResponse where
 
 instance Prelude.Hashable FailedCampaignStateResponse where
   hashWithSalt _salt FailedCampaignStateResponse' {..} =
-    _salt `Prelude.hashWithSalt` campaignId
+    _salt
+      `Prelude.hashWithSalt` campaignId
       `Prelude.hashWithSalt` failureCode
 
 instance Prelude.NFData FailedCampaignStateResponse where

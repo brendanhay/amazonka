@@ -82,7 +82,8 @@ instance Data.FromJSON FailedRequest where
 
 instance Prelude.Hashable FailedRequest where
   hashWithSalt _salt FailedRequest' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` id
 

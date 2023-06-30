@@ -87,7 +87,8 @@ dialRequest_phoneNumber = Lens.lens (\DialRequest' {phoneNumber} -> phoneNumber)
 
 instance Prelude.Hashable DialRequest where
   hashWithSalt _salt DialRequest' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` phoneNumber

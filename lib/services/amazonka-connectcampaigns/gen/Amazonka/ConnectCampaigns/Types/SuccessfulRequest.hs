@@ -72,7 +72,8 @@ instance Data.FromJSON SuccessfulRequest where
 
 instance Prelude.Hashable SuccessfulRequest where
   hashWithSalt _salt SuccessfulRequest' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData SuccessfulRequest where

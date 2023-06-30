@@ -107,7 +107,8 @@ instance Core.AWSRequest StartInstanceOnboardingJob where
 
 instance Prelude.Hashable StartInstanceOnboardingJob where
   hashWithSalt _salt StartInstanceOnboardingJob' {..} =
-    _salt `Prelude.hashWithSalt` connectInstanceId
+    _salt
+      `Prelude.hashWithSalt` connectInstanceId
       `Prelude.hashWithSalt` encryptionConfig
 
 instance Prelude.NFData StartInstanceOnboardingJob where

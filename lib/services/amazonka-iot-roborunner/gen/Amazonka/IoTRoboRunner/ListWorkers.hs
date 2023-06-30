@@ -109,20 +109,23 @@ instance Core.AWSPager ListWorkers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listWorkersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listWorkersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listWorkersResponse_workers Prelude.. Lens._Just
+            Lens.^? listWorkersResponse_workers
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWorkers_nextToken
           Lens..~ rs
-          Lens.^? listWorkersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listWorkersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkers where
   type AWSResponse ListWorkers = ListWorkersResponse
@@ -139,7 +142,8 @@ instance Core.AWSRequest ListWorkers where
 
 instance Prelude.Hashable ListWorkers where
   hashWithSalt _salt ListWorkers' {..} =
-    _salt `Prelude.hashWithSalt` fleet
+    _salt
+      `Prelude.hashWithSalt` fleet
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` site

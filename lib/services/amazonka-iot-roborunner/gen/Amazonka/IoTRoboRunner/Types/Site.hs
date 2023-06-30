@@ -102,7 +102,8 @@ instance Data.FromJSON Site where
 
 instance Prelude.Hashable Site where
   hashWithSalt _salt Site' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` countryCode
       `Prelude.hashWithSalt` createdAt

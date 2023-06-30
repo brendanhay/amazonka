@@ -92,7 +92,8 @@ lambdaEventSource_type = Lens.lens (\LambdaEventSource' {type'} -> type') (\s@La
 
 instance Prelude.Hashable LambdaEventSource where
   hashWithSalt _salt LambdaEventSource' {..} =
-    _salt `Prelude.hashWithSalt` topic
+    _salt
+      `Prelude.hashWithSalt` topic
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData LambdaEventSource where

@@ -114,7 +114,8 @@ instance Core.AWSRequest ResolveComponentCandidates where
     Response.receiveJSON
       ( \s h x ->
           ResolveComponentCandidatesResponse'
-            Prelude.<$> ( x Data..?> "resolvedComponentVersions"
+            Prelude.<$> ( x
+                            Data..?> "resolvedComponentVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -122,7 +123,8 @@ instance Core.AWSRequest ResolveComponentCandidates where
 
 instance Prelude.Hashable ResolveComponentCandidates where
   hashWithSalt _salt ResolveComponentCandidates' {..} =
-    _salt `Prelude.hashWithSalt` componentCandidates
+    _salt
+      `Prelude.hashWithSalt` componentCandidates
       `Prelude.hashWithSalt` platform
 
 instance Prelude.NFData ResolveComponentCandidates where

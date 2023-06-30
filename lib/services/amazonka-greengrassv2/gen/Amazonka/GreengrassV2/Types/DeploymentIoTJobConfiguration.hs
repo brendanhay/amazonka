@@ -100,7 +100,8 @@ instance
     DeploymentIoTJobConfiguration
   where
   hashWithSalt _salt DeploymentIoTJobConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` abortConfig
+    _salt
+      `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` jobExecutionsRolloutConfig
       `Prelude.hashWithSalt` timeoutConfig
 

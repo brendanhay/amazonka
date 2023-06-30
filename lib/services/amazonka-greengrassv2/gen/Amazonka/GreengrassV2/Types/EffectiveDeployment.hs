@@ -209,7 +209,8 @@ instance Data.FromJSON EffectiveDeployment where
 
 instance Prelude.Hashable EffectiveDeployment where
   hashWithSalt _salt EffectiveDeployment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` iotJobArn
       `Prelude.hashWithSalt` iotJobId
       `Prelude.hashWithSalt` reason

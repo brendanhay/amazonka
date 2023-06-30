@@ -242,7 +242,8 @@ instance Core.AWSRequest CreateDeployment where
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` components
       `Prelude.hashWithSalt` deploymentName
       `Prelude.hashWithSalt` deploymentPolicies

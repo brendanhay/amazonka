@@ -118,7 +118,7 @@ instance
       ( \s h x ->
           BatchAssociateClientDeviceWithCoreDeviceResponse'
             Prelude.<$> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     BatchAssociateClientDeviceWithCoreDevice' {..} =
-      _salt `Prelude.hashWithSalt` entries
+      _salt
+        `Prelude.hashWithSalt` entries
         `Prelude.hashWithSalt` coreDeviceThingName
 
 instance

@@ -110,7 +110,8 @@ instance Core.AWSRequest GetComponent where
 
 instance Prelude.Hashable GetComponent where
   hashWithSalt _salt GetComponent' {..} =
-    _salt `Prelude.hashWithSalt` recipeOutputFormat
+    _salt
+      `Prelude.hashWithSalt` recipeOutputFormat
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData GetComponent where

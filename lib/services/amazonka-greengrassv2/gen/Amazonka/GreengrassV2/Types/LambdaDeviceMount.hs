@@ -95,7 +95,8 @@ lambdaDeviceMount_path = Lens.lens (\LambdaDeviceMount' {path} -> path) (\s@Lamb
 
 instance Prelude.Hashable LambdaDeviceMount where
   hashWithSalt _salt LambdaDeviceMount' {..} =
-    _salt `Prelude.hashWithSalt` addGroupOwner
+    _salt
+      `Prelude.hashWithSalt` addGroupOwner
       `Prelude.hashWithSalt` permission
       `Prelude.hashWithSalt` path
 

@@ -132,7 +132,8 @@ instance Data.FromJSON IoTJobAbortCriteria where
 
 instance Prelude.Hashable IoTJobAbortCriteria where
   hashWithSalt _salt IoTJobAbortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` failureType
+    _salt
+      `Prelude.hashWithSalt` failureType
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` thresholdPercentage
       `Prelude.hashWithSalt` minNumberOfExecutedThings

@@ -80,7 +80,8 @@ lambdaLinuxProcessParams_isolationMode = Lens.lens (\LambdaLinuxProcessParams' {
 
 instance Prelude.Hashable LambdaLinuxProcessParams where
   hashWithSalt _salt LambdaLinuxProcessParams' {..} =
-    _salt `Prelude.hashWithSalt` containerParams
+    _salt
+      `Prelude.hashWithSalt` containerParams
       `Prelude.hashWithSalt` isolationMode
 
 instance Prelude.NFData LambdaLinuxProcessParams where

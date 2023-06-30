@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateNotification where
 
 instance Prelude.Hashable UpdateNotification where
   hashWithSalt _salt UpdateNotification' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` oldNotification
       `Prelude.hashWithSalt` newNotification'

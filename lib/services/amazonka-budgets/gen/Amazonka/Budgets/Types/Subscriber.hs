@@ -98,7 +98,8 @@ instance Data.FromJSON Subscriber where
 
 instance Prelude.Hashable Subscriber where
   hashWithSalt _salt Subscriber' {..} =
-    _salt `Prelude.hashWithSalt` subscriptionType
+    _salt
+      `Prelude.hashWithSalt` subscriptionType
       `Prelude.hashWithSalt` address
 
 instance Prelude.NFData Subscriber where

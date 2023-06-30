@@ -88,7 +88,8 @@ instance Data.FromJSON BudgetedAndActualAmounts where
 
 instance Prelude.Hashable BudgetedAndActualAmounts where
   hashWithSalt _salt BudgetedAndActualAmounts' {..} =
-    _salt `Prelude.hashWithSalt` actualAmount
+    _salt
+      `Prelude.hashWithSalt` actualAmount
       `Prelude.hashWithSalt` budgetedAmount
       `Prelude.hashWithSalt` timePeriod
 

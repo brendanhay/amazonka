@@ -78,7 +78,8 @@ instance Data.FromJSON ScpActionDefinition where
 
 instance Prelude.Hashable ScpActionDefinition where
   hashWithSalt _salt ScpActionDefinition' {..} =
-    _salt `Prelude.hashWithSalt` policyId
+    _salt
+      `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` targetIds
 
 instance Prelude.NFData ScpActionDefinition where

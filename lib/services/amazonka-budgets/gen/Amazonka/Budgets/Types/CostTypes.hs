@@ -237,7 +237,8 @@ instance Data.FromJSON CostTypes where
 
 instance Prelude.Hashable CostTypes where
   hashWithSalt _salt CostTypes' {..} =
-    _salt `Prelude.hashWithSalt` includeCredit
+    _salt
+      `Prelude.hashWithSalt` includeCredit
       `Prelude.hashWithSalt` includeDiscount
       `Prelude.hashWithSalt` includeOtherSubscription
       `Prelude.hashWithSalt` includeRecurring

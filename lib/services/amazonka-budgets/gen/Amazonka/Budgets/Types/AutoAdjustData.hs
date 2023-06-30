@@ -96,7 +96,8 @@ instance Data.FromJSON AutoAdjustData where
 
 instance Prelude.Hashable AutoAdjustData where
   hashWithSalt _salt AutoAdjustData' {..} =
-    _salt `Prelude.hashWithSalt` historicalOptions
+    _salt
+      `Prelude.hashWithSalt` historicalOptions
       `Prelude.hashWithSalt` lastAutoAdjustTime
       `Prelude.hashWithSalt` autoAdjustType
 

@@ -96,7 +96,8 @@ instance Data.FromJSON IamActionDefinition where
 
 instance Prelude.Hashable IamActionDefinition where
   hashWithSalt _salt IamActionDefinition' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` roles
       `Prelude.hashWithSalt` users
       `Prelude.hashWithSalt` policyArn

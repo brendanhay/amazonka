@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateBudget where
 
 instance Prelude.Hashable UpdateBudget where
   hashWithSalt _salt UpdateBudget' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` newBudget'
 
 instance Prelude.NFData UpdateBudget where

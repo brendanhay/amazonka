@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateBudgetAction where
 
 instance Prelude.Hashable UpdateBudgetAction where
   hashWithSalt _salt UpdateBudgetAction' {..} =
-    _salt `Prelude.hashWithSalt` actionThreshold
+    _salt
+      `Prelude.hashWithSalt` actionThreshold
       `Prelude.hashWithSalt` approvalModel
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` executionRoleArn

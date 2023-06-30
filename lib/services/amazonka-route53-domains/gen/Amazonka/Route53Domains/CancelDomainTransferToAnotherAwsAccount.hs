@@ -115,7 +115,7 @@ instance
       ( \s h x ->
           CancelDomainTransferToAnotherAwsAccountResponse'
             Prelude.<$> (x Data..?> "OperationId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

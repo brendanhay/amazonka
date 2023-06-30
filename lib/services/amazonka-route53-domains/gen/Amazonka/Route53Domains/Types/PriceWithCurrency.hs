@@ -78,7 +78,8 @@ instance Data.FromJSON PriceWithCurrency where
 
 instance Prelude.Hashable PriceWithCurrency where
   hashWithSalt _salt PriceWithCurrency' {..} =
-    _salt `Prelude.hashWithSalt` price
+    _salt
+      `Prelude.hashWithSalt` price
       `Prelude.hashWithSalt` currency
 
 instance Prelude.NFData PriceWithCurrency where

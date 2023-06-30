@@ -98,7 +98,8 @@ instance Core.AWSRequest PushDomain where
 
 instance Prelude.Hashable PushDomain where
   hashWithSalt _salt PushDomain' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` target
 
 instance Prelude.NFData PushDomain where

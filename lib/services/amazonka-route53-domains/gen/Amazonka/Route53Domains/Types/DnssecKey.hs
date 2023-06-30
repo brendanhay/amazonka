@@ -207,7 +207,8 @@ instance Data.FromJSON DnssecKey where
 
 instance Prelude.Hashable DnssecKey where
   hashWithSalt _salt DnssecKey' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` digest
       `Prelude.hashWithSalt` digestType
       `Prelude.hashWithSalt` flags

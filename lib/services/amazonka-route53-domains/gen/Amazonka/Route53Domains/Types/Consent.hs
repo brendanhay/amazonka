@@ -68,7 +68,8 @@ consent_currency = Lens.lens (\Consent' {currency} -> currency) (\s@Consent' {} 
 
 instance Prelude.Hashable Consent where
   hashWithSalt _salt Consent' {..} =
-    _salt `Prelude.hashWithSalt` maxPrice
+    _salt
+      `Prelude.hashWithSalt` maxPrice
       `Prelude.hashWithSalt` currency
 
 instance Prelude.NFData Consent where

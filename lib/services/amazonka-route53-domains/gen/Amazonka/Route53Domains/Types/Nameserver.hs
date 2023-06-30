@@ -100,7 +100,8 @@ instance Data.FromJSON Nameserver where
 
 instance Prelude.Hashable Nameserver where
   hashWithSalt _salt Nameserver' {..} =
-    _salt `Prelude.hashWithSalt` glueIps
+    _salt
+      `Prelude.hashWithSalt` glueIps
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Nameserver where

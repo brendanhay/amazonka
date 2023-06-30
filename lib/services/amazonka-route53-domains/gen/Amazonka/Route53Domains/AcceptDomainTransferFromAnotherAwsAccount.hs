@@ -141,7 +141,7 @@ instance
       ( \s h x ->
           AcceptDomainTransferFromAnotherAwsAccountResponse'
             Prelude.<$> (x Data..?> "OperationId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -151,7 +151,8 @@ instance
   hashWithSalt
     _salt
     AcceptDomainTransferFromAnotherAwsAccount' {..} =
-      _salt `Prelude.hashWithSalt` domainName
+      _salt
+        `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` password
 
 instance

@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteTagsForDomain where
 
 instance Prelude.Hashable DeleteTagsForDomain where
   hashWithSalt _salt DeleteTagsForDomain' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` tagsToDelete
 
 instance Prelude.NFData DeleteTagsForDomain where

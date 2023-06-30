@@ -142,7 +142,8 @@ instance Core.AWSRequest UpdateDomainContact where
 
 instance Prelude.Hashable UpdateDomainContact where
   hashWithSalt _salt UpdateDomainContact' {..} =
-    _salt `Prelude.hashWithSalt` adminContact
+    _salt
+      `Prelude.hashWithSalt` adminContact
       `Prelude.hashWithSalt` consent
       `Prelude.hashWithSalt` registrantContact
       `Prelude.hashWithSalt` techContact

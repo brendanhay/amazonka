@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateTagsForDomain where
 
 instance Prelude.Hashable UpdateTagsForDomain where
   hashWithSalt _salt UpdateTagsForDomain' {..} =
-    _salt `Prelude.hashWithSalt` tagsToUpdate
+    _salt
+      `Prelude.hashWithSalt` tagsToUpdate
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData UpdateTagsForDomain where

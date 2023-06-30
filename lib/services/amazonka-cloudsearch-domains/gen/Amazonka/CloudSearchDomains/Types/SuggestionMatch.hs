@@ -88,7 +88,8 @@ instance Data.FromJSON SuggestionMatch where
 
 instance Prelude.Hashable SuggestionMatch where
   hashWithSalt _salt SuggestionMatch' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` suggestion
 

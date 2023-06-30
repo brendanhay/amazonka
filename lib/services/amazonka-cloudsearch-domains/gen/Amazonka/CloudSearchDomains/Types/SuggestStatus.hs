@@ -69,12 +69,14 @@ instance Data.FromJSON SuggestStatus where
       "SuggestStatus"
       ( \x ->
           SuggestStatus'
-            Prelude.<$> (x Data..:? "rid") Prelude.<*> (x Data..:? "timems")
+            Prelude.<$> (x Data..:? "rid")
+            Prelude.<*> (x Data..:? "timems")
       )
 
 instance Prelude.Hashable SuggestStatus where
   hashWithSalt _salt SuggestStatus' {..} =
-    _salt `Prelude.hashWithSalt` rid
+    _salt
+      `Prelude.hashWithSalt` rid
       `Prelude.hashWithSalt` timems
 
 instance Prelude.NFData SuggestStatus where

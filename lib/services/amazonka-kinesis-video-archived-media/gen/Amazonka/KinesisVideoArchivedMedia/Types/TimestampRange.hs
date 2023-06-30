@@ -75,7 +75,8 @@ timestampRange_endTimestamp = Lens.lens (\TimestampRange' {endTimestamp} -> endT
 
 instance Prelude.Hashable TimestampRange where
   hashWithSalt _salt TimestampRange' {..} =
-    _salt `Prelude.hashWithSalt` startTimestamp
+    _salt
+      `Prelude.hashWithSalt` startTimestamp
       `Prelude.hashWithSalt` endTimestamp
 
 instance Prelude.NFData TimestampRange where

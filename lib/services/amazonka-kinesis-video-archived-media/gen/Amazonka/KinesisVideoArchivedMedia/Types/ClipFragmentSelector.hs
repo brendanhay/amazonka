@@ -82,7 +82,8 @@ clipFragmentSelector_timestampRange = Lens.lens (\ClipFragmentSelector' {timesta
 
 instance Prelude.Hashable ClipFragmentSelector where
   hashWithSalt _salt ClipFragmentSelector' {..} =
-    _salt `Prelude.hashWithSalt` fragmentSelectorType
+    _salt
+      `Prelude.hashWithSalt` fragmentSelectorType
       `Prelude.hashWithSalt` timestampRange
 
 instance Prelude.NFData ClipFragmentSelector where

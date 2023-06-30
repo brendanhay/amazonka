@@ -114,7 +114,8 @@ instance Data.FromJSON EventDestination where
             Prelude.<$> (x Data..:? "CloudWatchLogsDestination")
             Prelude.<*> (x Data..:? "Enabled")
             Prelude.<*> (x Data..:? "KinesisFirehoseDestination")
-            Prelude.<*> ( x Data..:? "MatchingEventTypes"
+            Prelude.<*> ( x
+                            Data..:? "MatchingEventTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")

@@ -146,7 +146,8 @@ instance Core.AWSRequest SendVoiceMessage where
 
 instance Prelude.Hashable SendVoiceMessage where
   hashWithSalt _salt SendVoiceMessage' {..} =
-    _salt `Prelude.hashWithSalt` callerId
+    _salt
+      `Prelude.hashWithSalt` callerId
       `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` destinationPhoneNumber

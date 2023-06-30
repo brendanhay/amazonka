@@ -61,7 +61,8 @@ instance Data.FromJSON RelatedObservations where
       "RelatedObservations"
       ( \x ->
           RelatedObservations'
-            Prelude.<$> ( x Data..:? "ObservationList"
+            Prelude.<$> ( x
+                            Data..:? "ObservationList"
                             Data..!= Prelude.mempty
                         )
       )

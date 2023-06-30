@@ -114,7 +114,8 @@ instance Core.AWSRequest ListComponents where
     Response.receiveJSON
       ( \s h x ->
           ListComponentsResponse'
-            Prelude.<$> ( x Data..?> "ApplicationComponentList"
+            Prelude.<$> ( x
+                            Data..?> "ApplicationComponentList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -123,7 +124,8 @@ instance Core.AWSRequest ListComponents where
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceGroupName
 

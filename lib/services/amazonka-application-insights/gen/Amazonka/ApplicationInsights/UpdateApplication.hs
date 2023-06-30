@@ -161,7 +161,8 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` autoConfigEnabled
+    _salt
+      `Prelude.hashWithSalt` autoConfigEnabled
       `Prelude.hashWithSalt` cWEMonitorEnabled
       `Prelude.hashWithSalt` opsCenterEnabled
       `Prelude.hashWithSalt` opsItemSNSTopicArn

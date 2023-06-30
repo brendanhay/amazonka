@@ -120,7 +120,7 @@ instance
       ( \s h x ->
           DescribeComponentConfigurationRecommendationResponse'
             Prelude.<$> (x Data..?> "ComponentConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     DescribeComponentConfigurationRecommendation' {..} =
-      _salt `Prelude.hashWithSalt` resourceGroupName
+      _salt
+        `Prelude.hashWithSalt` resourceGroupName
         `Prelude.hashWithSalt` componentName
         `Prelude.hashWithSalt` tier
 

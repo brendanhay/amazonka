@@ -181,7 +181,8 @@ instance Core.AWSRequest CreateLogPattern where
 
 instance Prelude.Hashable CreateLogPattern where
   hashWithSalt _salt CreateLogPattern' {..} =
-    _salt `Prelude.hashWithSalt` resourceGroupName
+    _salt
+      `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` patternSetName
       `Prelude.hashWithSalt` patternName
       `Prelude.hashWithSalt` pattern'

@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeComponent where
 
 instance Prelude.Hashable DescribeComponent where
   hashWithSalt _salt DescribeComponent' {..} =
-    _salt `Prelude.hashWithSalt` resourceGroupName
+    _salt
+      `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` componentName
 
 instance Prelude.NFData DescribeComponent where

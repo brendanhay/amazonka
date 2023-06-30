@@ -149,7 +149,8 @@ instance Data.FromJSON LogPattern where
 
 instance Prelude.Hashable LogPattern where
   hashWithSalt _salt LogPattern' {..} =
-    _salt `Prelude.hashWithSalt` pattern'
+    _salt
+      `Prelude.hashWithSalt` pattern'
       `Prelude.hashWithSalt` patternName
       `Prelude.hashWithSalt` patternSetName
       `Prelude.hashWithSalt` rank

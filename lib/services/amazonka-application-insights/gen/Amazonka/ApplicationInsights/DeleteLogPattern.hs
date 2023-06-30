@@ -118,7 +118,8 @@ instance Core.AWSRequest DeleteLogPattern where
 
 instance Prelude.Hashable DeleteLogPattern where
   hashWithSalt _salt DeleteLogPattern' {..} =
-    _salt `Prelude.hashWithSalt` resourceGroupName
+    _salt
+      `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` patternSetName
       `Prelude.hashWithSalt` patternName
 

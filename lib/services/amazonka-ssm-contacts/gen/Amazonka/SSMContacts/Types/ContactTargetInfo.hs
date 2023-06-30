@@ -79,7 +79,8 @@ instance Data.FromJSON ContactTargetInfo where
 
 instance Prelude.Hashable ContactTargetInfo where
   hashWithSalt _salt ContactTargetInfo' {..} =
-    _salt `Prelude.hashWithSalt` contactId
+    _salt
+      `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` isEssential
 
 instance Prelude.NFData ContactTargetInfo where

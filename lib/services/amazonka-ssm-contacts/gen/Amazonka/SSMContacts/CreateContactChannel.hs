@@ -208,7 +208,8 @@ instance Core.AWSRequest CreateContactChannel where
 
 instance Prelude.Hashable CreateContactChannel where
   hashWithSalt _salt CreateContactChannel' {..} =
-    _salt `Prelude.hashWithSalt` deferActivation
+    _salt
+      `Prelude.hashWithSalt` deferActivation
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` name

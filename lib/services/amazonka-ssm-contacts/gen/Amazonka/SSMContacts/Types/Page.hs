@@ -146,7 +146,8 @@ instance Data.FromJSON Page where
 
 instance Prelude.Hashable Page where
   hashWithSalt _salt Page' {..} =
-    _salt `Prelude.hashWithSalt` deliveryTime
+    _salt
+      `Prelude.hashWithSalt` deliveryTime
       `Prelude.hashWithSalt` incidentId
       `Prelude.hashWithSalt` readTime
       `Prelude.hashWithSalt` sentTime

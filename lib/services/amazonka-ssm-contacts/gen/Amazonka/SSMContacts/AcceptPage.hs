@@ -170,7 +170,8 @@ instance Core.AWSRequest AcceptPage where
 
 instance Prelude.Hashable AcceptPage where
   hashWithSalt _salt AcceptPage' {..} =
-    _salt `Prelude.hashWithSalt` acceptCodeValidation
+    _salt
+      `Prelude.hashWithSalt` acceptCodeValidation
       `Prelude.hashWithSalt` contactChannelId
       `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` pageId

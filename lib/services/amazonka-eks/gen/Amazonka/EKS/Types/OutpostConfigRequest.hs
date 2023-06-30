@@ -121,7 +121,8 @@ outpostConfigRequest_controlPlaneInstanceType = Lens.lens (\OutpostConfigRequest
 
 instance Prelude.Hashable OutpostConfigRequest where
   hashWithSalt _salt OutpostConfigRequest' {..} =
-    _salt `Prelude.hashWithSalt` controlPlanePlacement
+    _salt
+      `Prelude.hashWithSalt` controlPlanePlacement
       `Prelude.hashWithSalt` outpostArns
       `Prelude.hashWithSalt` controlPlaneInstanceType
 

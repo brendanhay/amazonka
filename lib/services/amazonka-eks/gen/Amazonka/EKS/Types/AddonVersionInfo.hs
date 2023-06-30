@@ -89,7 +89,8 @@ instance Data.FromJSON AddonVersionInfo where
           AddonVersionInfo'
             Prelude.<$> (x Data..:? "addonVersion")
             Prelude.<*> (x Data..:? "architecture" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "compatibilities"
+            Prelude.<*> ( x
+                            Data..:? "compatibilities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "requiresConfiguration")
@@ -97,7 +98,8 @@ instance Data.FromJSON AddonVersionInfo where
 
 instance Prelude.Hashable AddonVersionInfo where
   hashWithSalt _salt AddonVersionInfo' {..} =
-    _salt `Prelude.hashWithSalt` addonVersion
+    _salt
+      `Prelude.hashWithSalt` addonVersion
       `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` compatibilities
       `Prelude.hashWithSalt` requiresConfiguration

@@ -75,12 +75,14 @@ instance Data.FromJSON IdentityProviderConfig where
       "IdentityProviderConfig"
       ( \x ->
           IdentityProviderConfig'
-            Prelude.<$> (x Data..: "type") Prelude.<*> (x Data..: "name")
+            Prelude.<$> (x Data..: "type")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable IdentityProviderConfig where
   hashWithSalt _salt IdentityProviderConfig' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData IdentityProviderConfig where

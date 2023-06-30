@@ -68,7 +68,8 @@ updateTaintsPayload_removeTaints = Lens.lens (\UpdateTaintsPayload' {removeTaint
 
 instance Prelude.Hashable UpdateTaintsPayload where
   hashWithSalt _salt UpdateTaintsPayload' {..} =
-    _salt `Prelude.hashWithSalt` addOrUpdateTaints
+    _salt
+      `Prelude.hashWithSalt` addOrUpdateTaints
       `Prelude.hashWithSalt` removeTaints
 
 instance Prelude.NFData UpdateTaintsPayload where

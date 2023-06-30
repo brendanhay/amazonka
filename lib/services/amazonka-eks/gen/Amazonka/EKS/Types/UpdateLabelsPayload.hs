@@ -66,7 +66,8 @@ updateLabelsPayload_removeLabels = Lens.lens (\UpdateLabelsPayload' {removeLabel
 
 instance Prelude.Hashable UpdateLabelsPayload where
   hashWithSalt _salt UpdateLabelsPayload' {..} =
-    _salt `Prelude.hashWithSalt` addOrUpdateLabels
+    _salt
+      `Prelude.hashWithSalt` addOrUpdateLabels
       `Prelude.hashWithSalt` removeLabels
 
 instance Prelude.NFData UpdateLabelsPayload where

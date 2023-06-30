@@ -139,21 +139,22 @@ instance Core.AWSPager ListNodegroups where
     | Core.stop
         ( rs
             Lens.^? listNodegroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listNodegroupsResponse_nodegroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listNodegroups_nextToken
           Lens..~ rs
-          Lens.^? listNodegroupsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listNodegroupsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNodegroups where
   type
@@ -172,7 +173,8 @@ instance Core.AWSRequest ListNodegroups where
 
 instance Prelude.Hashable ListNodegroups where
   hashWithSalt _salt ListNodegroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterName
 

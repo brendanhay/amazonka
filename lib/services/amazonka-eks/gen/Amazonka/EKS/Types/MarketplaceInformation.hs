@@ -76,7 +76,8 @@ instance Data.FromJSON MarketplaceInformation where
 
 instance Prelude.Hashable MarketplaceInformation where
   hashWithSalt _salt MarketplaceInformation' {..} =
-    _salt `Prelude.hashWithSalt` productId
+    _salt
+      `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` productUrl
 
 instance Prelude.NFData MarketplaceInformation where

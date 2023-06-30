@@ -246,7 +246,8 @@ instance Core.AWSRequest CreateFargateProfile where
 
 instance Prelude.Hashable CreateFargateProfile where
   hashWithSalt _salt CreateFargateProfile' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` selectors
       `Prelude.hashWithSalt` subnets
       `Prelude.hashWithSalt` tags

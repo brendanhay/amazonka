@@ -178,7 +178,8 @@ instance Core.AWSRequest UpdateClusterConfig where
 
 instance Prelude.Hashable UpdateClusterConfig where
   hashWithSalt _salt UpdateClusterConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` logging
       `Prelude.hashWithSalt` resourcesVpcConfig
       `Prelude.hashWithSalt` name

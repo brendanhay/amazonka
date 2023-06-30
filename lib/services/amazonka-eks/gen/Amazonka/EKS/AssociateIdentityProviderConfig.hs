@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     AssociateIdentityProviderConfig' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` clusterName
         `Prelude.hashWithSalt` oidc

@@ -80,7 +80,8 @@ instance Data.FromJSON FargateProfileSelector where
 
 instance Prelude.Hashable FargateProfileSelector where
   hashWithSalt _salt FargateProfileSelector' {..} =
-    _salt `Prelude.hashWithSalt` labels
+    _salt
+      `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData FargateProfileSelector where

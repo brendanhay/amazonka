@@ -310,7 +310,8 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` encryptionConfig
       `Prelude.hashWithSalt` kubernetesNetworkConfig
       `Prelude.hashWithSalt` logging

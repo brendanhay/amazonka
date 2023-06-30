@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeFargateProfile where
 
 instance Prelude.Hashable DescribeFargateProfile where
   hashWithSalt _salt DescribeFargateProfile' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` fargateProfileName
 
 instance Prelude.NFData DescribeFargateProfile where

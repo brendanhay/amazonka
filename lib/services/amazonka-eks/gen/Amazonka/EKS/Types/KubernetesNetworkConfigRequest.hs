@@ -170,7 +170,8 @@ instance
   hashWithSalt
     _salt
     KubernetesNetworkConfigRequest' {..} =
-      _salt `Prelude.hashWithSalt` ipFamily
+      _salt
+        `Prelude.hashWithSalt` ipFamily
         `Prelude.hashWithSalt` serviceIpv4Cidr
 
 instance

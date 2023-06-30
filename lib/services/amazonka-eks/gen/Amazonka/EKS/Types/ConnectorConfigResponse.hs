@@ -111,7 +111,8 @@ instance Data.FromJSON ConnectorConfigResponse where
 
 instance Prelude.Hashable ConnectorConfigResponse where
   hashWithSalt _salt ConnectorConfigResponse' {..} =
-    _salt `Prelude.hashWithSalt` activationCode
+    _salt
+      `Prelude.hashWithSalt` activationCode
       `Prelude.hashWithSalt` activationExpiry
       `Prelude.hashWithSalt` activationId
       `Prelude.hashWithSalt` provider

@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     DescribeIdentityProviderConfig' {..} =
-      _salt `Prelude.hashWithSalt` clusterName
+      _salt
+        `Prelude.hashWithSalt` clusterName
         `Prelude.hashWithSalt` identityProviderConfig
 
 instance

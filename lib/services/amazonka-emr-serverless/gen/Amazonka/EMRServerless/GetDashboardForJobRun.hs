@@ -105,7 +105,8 @@ instance Core.AWSRequest GetDashboardForJobRun where
 
 instance Prelude.Hashable GetDashboardForJobRun where
   hashWithSalt _salt GetDashboardForJobRun' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` jobRunId
 
 instance Prelude.NFData GetDashboardForJobRun where

@@ -72,7 +72,8 @@ instance Data.FromJSON ConfigurationOverrides where
       "ConfigurationOverrides"
       ( \x ->
           ConfigurationOverrides'
-            Prelude.<$> ( x Data..:? "applicationConfiguration"
+            Prelude.<$> ( x
+                            Data..:? "applicationConfiguration"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "monitoringConfiguration")

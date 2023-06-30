@@ -89,7 +89,8 @@ instance Data.FromJSON MaximumAllowedResources where
 
 instance Prelude.Hashable MaximumAllowedResources where
   hashWithSalt _salt MaximumAllowedResources' {..} =
-    _salt `Prelude.hashWithSalt` disk
+    _salt
+      `Prelude.hashWithSalt` disk
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` memory
 

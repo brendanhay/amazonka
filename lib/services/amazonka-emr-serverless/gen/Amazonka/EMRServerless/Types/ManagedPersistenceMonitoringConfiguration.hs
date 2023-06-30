@@ -77,7 +77,7 @@ instance
       ( \x ->
           ManagedPersistenceMonitoringConfiguration'
             Prelude.<$> (x Data..:? "enabled")
-              Prelude.<*> (x Data..:? "encryptionKeyArn")
+            Prelude.<*> (x Data..:? "encryptionKeyArn")
       )
 
 instance
@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     ManagedPersistenceMonitoringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` encryptionKeyArn
 
 instance

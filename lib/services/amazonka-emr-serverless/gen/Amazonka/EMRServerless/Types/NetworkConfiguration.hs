@@ -69,7 +69,8 @@ instance Data.FromJSON NetworkConfiguration where
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Prelude.<$> ( x Data..:? "securityGroupIds"
+            Prelude.<$> ( x
+                            Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
@@ -77,7 +78,8 @@ instance Data.FromJSON NetworkConfiguration where
 
 instance Prelude.Hashable NetworkConfiguration where
   hashWithSalt _salt NetworkConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData NetworkConfiguration where

@@ -96,7 +96,8 @@ instance Data.FromJSON TotalResourceUtilization where
 
 instance Prelude.Hashable TotalResourceUtilization where
   hashWithSalt _salt TotalResourceUtilization' {..} =
-    _salt `Prelude.hashWithSalt` memoryGBHour
+    _salt
+      `Prelude.hashWithSalt` memoryGBHour
       `Prelude.hashWithSalt` storageGBHour
       `Prelude.hashWithSalt` vCPUHour
 

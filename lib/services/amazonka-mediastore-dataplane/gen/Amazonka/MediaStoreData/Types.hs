@@ -79,52 +79,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified container was not found for the specified account.
-_ContainerNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ContainerNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ContainerNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -132,14 +132,14 @@ _ContainerNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The service is temporarily unavailable.
-_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
     "InternalServerError"
 
 -- | Could not perform an operation on an object that does not exist.
-_ObjectNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ObjectNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ObjectNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -147,7 +147,7 @@ _ObjectNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The requested content range is not valid.
-_RequestedRangeNotSatisfiableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestedRangeNotSatisfiableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestedRangeNotSatisfiableException =
   Core._MatchServiceError
     defaultService

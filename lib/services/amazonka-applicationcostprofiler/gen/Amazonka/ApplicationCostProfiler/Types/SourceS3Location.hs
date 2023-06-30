@@ -91,7 +91,8 @@ sourceS3Location_key = Lens.lens (\SourceS3Location' {key} -> key) (\s@SourceS3L
 
 instance Prelude.Hashable SourceS3Location where
   hashWithSalt _salt SourceS3Location' {..} =
-    _salt `Prelude.hashWithSalt` region
+    _salt
+      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 

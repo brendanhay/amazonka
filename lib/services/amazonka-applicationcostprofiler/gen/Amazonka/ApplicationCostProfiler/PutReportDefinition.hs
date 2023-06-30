@@ -151,7 +151,8 @@ instance Core.AWSRequest PutReportDefinition where
 
 instance Prelude.Hashable PutReportDefinition where
   hashWithSalt _salt PutReportDefinition' {..} =
-    _salt `Prelude.hashWithSalt` reportId
+    _salt
+      `Prelude.hashWithSalt` reportId
       `Prelude.hashWithSalt` reportDescription
       `Prelude.hashWithSalt` reportFrequency
       `Prelude.hashWithSalt` format

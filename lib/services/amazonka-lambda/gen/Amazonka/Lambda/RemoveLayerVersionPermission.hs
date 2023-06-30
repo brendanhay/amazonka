@@ -133,7 +133,8 @@ instance
     RemoveLayerVersionPermission
   where
   hashWithSalt _salt RemoveLayerVersionPermission' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
+    _salt
+      `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` layerName
       `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` statementId

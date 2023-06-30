@@ -62,7 +62,8 @@ instance Data.FromJSON AliasRoutingConfiguration where
       "AliasRoutingConfiguration"
       ( \x ->
           AliasRoutingConfiguration'
-            Prelude.<$> ( x Data..:? "AdditionalVersionWeights"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalVersionWeights"
                             Data..!= Prelude.mempty
                         )
       )

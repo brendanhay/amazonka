@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateCodeSigningConfig where
 
 instance Prelude.Hashable UpdateCodeSigningConfig where
   hashWithSalt _salt UpdateCodeSigningConfig' {..} =
-    _salt `Prelude.hashWithSalt` allowedPublishers
+    _salt
+      `Prelude.hashWithSalt` allowedPublishers
       `Prelude.hashWithSalt` codeSigningPolicies
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` codeSigningConfigArn

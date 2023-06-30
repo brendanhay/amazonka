@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     DeleteFunctionEventInvokeConfig' {..} =
-      _salt `Prelude.hashWithSalt` qualifier
+      _salt
+        `Prelude.hashWithSalt` qualifier
         `Prelude.hashWithSalt` functionName
 
 instance

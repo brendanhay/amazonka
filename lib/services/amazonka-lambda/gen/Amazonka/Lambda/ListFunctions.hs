@@ -145,20 +145,22 @@ instance Core.AWSPager ListFunctions where
     | Core.stop
         ( rs
             Lens.^? listFunctionsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listFunctionsResponse_functions Prelude.. Lens._Just
+            Lens.^? listFunctionsResponse_functions
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFunctions_marker
           Lens..~ rs
-          Lens.^? listFunctionsResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listFunctionsResponse_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFunctions where
   type
@@ -177,7 +179,8 @@ instance Core.AWSRequest ListFunctions where
 
 instance Prelude.Hashable ListFunctions where
   hashWithSalt _salt ListFunctions' {..} =
-    _salt `Prelude.hashWithSalt` functionVersion
+    _salt
+      `Prelude.hashWithSalt` functionVersion
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` masterRegion
       `Prelude.hashWithSalt` maxItems

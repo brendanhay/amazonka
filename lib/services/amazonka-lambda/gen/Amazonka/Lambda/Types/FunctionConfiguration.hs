@@ -437,7 +437,8 @@ instance Data.FromJSON FunctionConfiguration where
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Environment")
             Prelude.<*> (x Data..:? "EphemeralStorage")
-            Prelude.<*> ( x Data..:? "FileSystemConfigs"
+            Prelude.<*> ( x
+                            Data..:? "FileSystemConfigs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FunctionArn")
@@ -470,7 +471,8 @@ instance Data.FromJSON FunctionConfiguration where
 
 instance Prelude.Hashable FunctionConfiguration where
   hashWithSalt _salt FunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` architectures
+    _salt
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` codeSha256
       `Prelude.hashWithSalt` codeSize
       `Prelude.hashWithSalt` deadLetterConfig

@@ -97,7 +97,8 @@ layerVersionContentInput_zipFile = Lens.lens (\LayerVersionContentInput' {zipFil
 
 instance Prelude.Hashable LayerVersionContentInput where
   hashWithSalt _salt LayerVersionContentInput' {..} =
-    _salt `Prelude.hashWithSalt` s3Bucket
+    _salt
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Key
       `Prelude.hashWithSalt` s3ObjectVersion
       `Prelude.hashWithSalt` zipFile

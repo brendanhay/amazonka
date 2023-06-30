@@ -77,7 +77,8 @@ instance Data.FromJSON DestinationConfig where
 
 instance Prelude.Hashable DestinationConfig where
   hashWithSalt _salt DestinationConfig' {..} =
-    _salt `Prelude.hashWithSalt` onFailure
+    _salt
+      `Prelude.hashWithSalt` onFailure
       `Prelude.hashWithSalt` onSuccess
 
 instance Prelude.NFData DestinationConfig where

@@ -140,7 +140,8 @@ instance Data.FromJSON FunctionEventInvokeConfig where
 
 instance Prelude.Hashable FunctionEventInvokeConfig where
   hashWithSalt _salt FunctionEventInvokeConfig' {..} =
-    _salt `Prelude.hashWithSalt` destinationConfig
+    _salt
+      `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` functionArn
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` maximumEventAgeInSeconds

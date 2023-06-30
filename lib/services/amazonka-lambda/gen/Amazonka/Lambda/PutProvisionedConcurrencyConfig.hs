@@ -185,7 +185,8 @@ instance
   hashWithSalt
     _salt
     PutProvisionedConcurrencyConfig' {..} =
-      _salt `Prelude.hashWithSalt` functionName
+      _salt
+        `Prelude.hashWithSalt` functionName
         `Prelude.hashWithSalt` qualifier
         `Prelude.hashWithSalt` provisionedConcurrentExecutions
 

@@ -450,7 +450,8 @@ instance Core.AWSRequest UpdateFunctionConfiguration where
 
 instance Prelude.Hashable UpdateFunctionConfiguration where
   hashWithSalt _salt UpdateFunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` deadLetterConfig
+    _salt
+      `Prelude.hashWithSalt` deadLetterConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` ephemeralStorage

@@ -152,22 +152,22 @@ instance Core.AWSPager ListVersionsByFunction where
     | Core.stop
         ( rs
             Lens.^? listVersionsByFunctionResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listVersionsByFunctionResponse_versions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listVersionsByFunction_marker
           Lens..~ rs
           Lens.^? listVersionsByFunctionResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVersionsByFunction where
   type
@@ -186,7 +186,8 @@ instance Core.AWSRequest ListVersionsByFunction where
 
 instance Prelude.Hashable ListVersionsByFunction where
   hashWithSalt _salt ListVersionsByFunction' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` functionName
 

@@ -139,7 +139,8 @@ instance Core.AWSRequest GetAlias where
 
 instance Prelude.Hashable GetAlias where
   hashWithSalt _salt GetAlias' {..} =
-    _salt `Prelude.hashWithSalt` functionName
+    _salt
+      `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetAlias where

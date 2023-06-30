@@ -148,22 +148,22 @@ instance Core.AWSPager ListFunctionEventInvokeConfigs where
     | Core.stop
         ( rs
             Lens.^? listFunctionEventInvokeConfigsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFunctionEventInvokeConfigsResponse_functionEventInvokeConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFunctionEventInvokeConfigs_marker
           Lens..~ rs
           Lens.^? listFunctionEventInvokeConfigsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -178,7 +178,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListFunctionEventInvokeConfigsResponse'
-            Prelude.<$> ( x Data..?> "FunctionEventInvokeConfigs"
+            Prelude.<$> ( x
+                            Data..?> "FunctionEventInvokeConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -192,7 +193,8 @@ instance
   hashWithSalt
     _salt
     ListFunctionEventInvokeConfigs' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxItems
         `Prelude.hashWithSalt` functionName
 

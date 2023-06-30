@@ -193,12 +193,14 @@ instance Data.FromJSON SourceAccessConfiguration where
       "SourceAccessConfiguration"
       ( \x ->
           SourceAccessConfiguration'
-            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "URI")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "URI")
       )
 
 instance Prelude.Hashable SourceAccessConfiguration where
   hashWithSalt _salt SourceAccessConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData SourceAccessConfiguration where

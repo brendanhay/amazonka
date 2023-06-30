@@ -151,7 +151,8 @@ instance
     GetFunctionEventInvokeConfig
   where
   hashWithSalt _salt GetFunctionEventInvokeConfig' {..} =
-    _salt `Prelude.hashWithSalt` qualifier
+    _salt
+      `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData GetFunctionEventInvokeConfig where

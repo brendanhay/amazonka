@@ -168,7 +168,8 @@ instance
   hashWithSalt
     _salt
     GetProvisionedConcurrencyConfig' {..} =
-      _salt `Prelude.hashWithSalt` functionName
+      _salt
+        `Prelude.hashWithSalt` functionName
         `Prelude.hashWithSalt` qualifier
 
 instance

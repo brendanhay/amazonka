@@ -574,7 +574,8 @@ instance Core.AWSRequest CreateFunction where
 
 instance Prelude.Hashable CreateFunction where
   hashWithSalt _salt CreateFunction' {..} =
-    _salt `Prelude.hashWithSalt` architectures
+    _salt
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` codeSigningConfigArn
       `Prelude.hashWithSalt` deadLetterConfig
       `Prelude.hashWithSalt` description

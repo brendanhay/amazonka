@@ -161,7 +161,8 @@ instance Data.FromJSON FunctionUrlConfig where
 
 instance Prelude.Hashable FunctionUrlConfig where
   hashWithSalt _salt FunctionUrlConfig' {..} =
-    _salt `Prelude.hashWithSalt` cors
+    _salt
+      `Prelude.hashWithSalt` cors
       `Prelude.hashWithSalt` functionUrl
       `Prelude.hashWithSalt` functionArn
       `Prelude.hashWithSalt` creationTime

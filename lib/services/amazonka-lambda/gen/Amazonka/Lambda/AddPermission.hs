@@ -328,7 +328,8 @@ instance Core.AWSRequest AddPermission where
 
 instance Prelude.Hashable AddPermission where
   hashWithSalt _salt AddPermission' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceToken
+    _salt
+      `Prelude.hashWithSalt` eventSourceToken
       `Prelude.hashWithSalt` functionUrlAuthType
       `Prelude.hashWithSalt` principalOrgID
       `Prelude.hashWithSalt` qualifier

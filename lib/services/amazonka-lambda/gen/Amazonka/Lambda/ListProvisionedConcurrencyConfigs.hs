@@ -148,22 +148,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listProvisionedConcurrencyConfigsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProvisionedConcurrencyConfigsResponse_provisionedConcurrencyConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProvisionedConcurrencyConfigs_marker
           Lens..~ rs
           Lens.^? listProvisionedConcurrencyConfigsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -179,10 +179,11 @@ instance
       ( \s h x ->
           ListProvisionedConcurrencyConfigsResponse'
             Prelude.<$> (x Data..?> "NextMarker")
-              Prelude.<*> ( x Data..?> "ProvisionedConcurrencyConfigs"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ProvisionedConcurrencyConfigs"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -192,7 +193,8 @@ instance
   hashWithSalt
     _salt
     ListProvisionedConcurrencyConfigs' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxItems
         `Prelude.hashWithSalt` functionName
 

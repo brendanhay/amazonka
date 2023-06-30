@@ -202,7 +202,8 @@ instance Core.AWSRequest AddLayerVersionPermission where
 
 instance Prelude.Hashable AddLayerVersionPermission where
   hashWithSalt _salt AddLayerVersionPermission' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` layerName
       `Prelude.hashWithSalt` versionNumber

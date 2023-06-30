@@ -442,7 +442,8 @@ instance
             Prelude.<*> (x Data..:? "EventSourceArn")
             Prelude.<*> (x Data..:? "FilterCriteria")
             Prelude.<*> (x Data..:? "FunctionArn")
-            Prelude.<*> ( x Data..:? "FunctionResponseTypes"
+            Prelude.<*> ( x
+                            Data..:? "FunctionResponseTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LastModified")
@@ -454,7 +455,8 @@ instance
             Prelude.<*> (x Data..:? "Queues")
             Prelude.<*> (x Data..:? "SelfManagedEventSource")
             Prelude.<*> (x Data..:? "SelfManagedKafkaEventSourceConfig")
-            Prelude.<*> ( x Data..:? "SourceAccessConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "SourceAccessConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StartingPosition")

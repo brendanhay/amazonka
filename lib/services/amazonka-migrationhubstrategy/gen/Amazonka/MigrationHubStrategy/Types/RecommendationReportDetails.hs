@@ -116,7 +116,8 @@ instance Data.FromJSON RecommendationReportDetails where
 
 instance Prelude.Hashable RecommendationReportDetails where
   hashWithSalt _salt RecommendationReportDetails' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Keys
       `Prelude.hashWithSalt` startTime

@@ -99,7 +99,8 @@ instance Data.FromJSON ServerStrategy where
 
 instance Prelude.Hashable ServerStrategy where
   hashWithSalt _salt ServerStrategy' {..} =
-    _salt `Prelude.hashWithSalt` isPreferred
+    _salt
+      `Prelude.hashWithSalt` isPreferred
       `Prelude.hashWithSalt` numberOfApplicationComponents
       `Prelude.hashWithSalt` recommendation
       `Prelude.hashWithSalt` status

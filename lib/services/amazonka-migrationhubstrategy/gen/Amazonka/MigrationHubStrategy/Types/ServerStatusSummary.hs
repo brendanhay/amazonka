@@ -78,7 +78,8 @@ instance Data.FromJSON ServerStatusSummary where
 
 instance Prelude.Hashable ServerStatusSummary where
   hashWithSalt _salt ServerStatusSummary' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` runTimeAssessmentStatus
 
 instance Prelude.NFData ServerStatusSummary where

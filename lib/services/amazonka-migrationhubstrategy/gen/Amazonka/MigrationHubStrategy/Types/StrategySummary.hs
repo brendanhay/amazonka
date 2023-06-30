@@ -75,7 +75,8 @@ instance Data.FromJSON StrategySummary where
 
 instance Prelude.Hashable StrategySummary where
   hashWithSalt _salt StrategySummary' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` strategy
 
 instance Prelude.NFData StrategySummary where

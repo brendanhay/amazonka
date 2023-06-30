@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdateServerConfig where
 
 instance Prelude.Hashable UpdateServerConfig where
   hashWithSalt _salt UpdateServerConfig' {..} =
-    _salt `Prelude.hashWithSalt` strategyOption
+    _salt
+      `Prelude.hashWithSalt` strategyOption
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData UpdateServerConfig where

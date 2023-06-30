@@ -139,7 +139,8 @@ instance Data.FromJSON Collector where
 
 instance Prelude.Hashable Collector where
   hashWithSalt _salt Collector' {..} =
-    _salt `Prelude.hashWithSalt` collectorHealth
+    _salt
+      `Prelude.hashWithSalt` collectorHealth
       `Prelude.hashWithSalt` collectorId
       `Prelude.hashWithSalt` collectorVersion
       `Prelude.hashWithSalt` configurationSummary

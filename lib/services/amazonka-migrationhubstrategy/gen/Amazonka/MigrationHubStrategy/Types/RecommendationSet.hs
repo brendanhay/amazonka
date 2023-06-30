@@ -87,7 +87,8 @@ instance Data.FromJSON RecommendationSet where
 
 instance Prelude.Hashable RecommendationSet where
   hashWithSalt _salt RecommendationSet' {..} =
-    _salt `Prelude.hashWithSalt` strategy
+    _salt
+      `Prelude.hashWithSalt` strategy
       `Prelude.hashWithSalt` targetDestination
       `Prelude.hashWithSalt` transformationTool
 

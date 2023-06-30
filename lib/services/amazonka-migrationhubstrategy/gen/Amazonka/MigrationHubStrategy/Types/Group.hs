@@ -66,7 +66,8 @@ group_value = Lens.lens (\Group' {value} -> value) (\s@Group' {} a -> s {value =
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Group where

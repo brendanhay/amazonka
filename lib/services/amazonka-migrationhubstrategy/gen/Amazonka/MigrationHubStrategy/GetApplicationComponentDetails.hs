@@ -98,10 +98,12 @@ instance
       ( \s h x ->
           GetApplicationComponentDetailsResponse'
             Prelude.<$> (x Data..?> "applicationComponentDetail")
-            Prelude.<*> ( x Data..?> "associatedApplications"
+            Prelude.<*> ( x
+                            Data..?> "associatedApplications"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "associatedServerIds"
+            Prelude.<*> ( x
+                            Data..?> "associatedServerIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "moreApplicationResource")

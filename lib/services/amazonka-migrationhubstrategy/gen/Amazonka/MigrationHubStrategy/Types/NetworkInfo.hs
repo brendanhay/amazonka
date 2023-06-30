@@ -119,7 +119,8 @@ instance Data.FromJSON NetworkInfo where
 
 instance Prelude.Hashable NetworkInfo where
   hashWithSalt _salt NetworkInfo' {..} =
-    _salt `Prelude.hashWithSalt` interfaceName
+    _salt
+      `Prelude.hashWithSalt` interfaceName
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` macAddress
       `Prelude.hashWithSalt` netMask

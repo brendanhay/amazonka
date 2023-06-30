@@ -90,7 +90,8 @@ instance Data.FromJSON SystemInfo where
           SystemInfo'
             Prelude.<$> (x Data..:? "cpuArchitecture")
             Prelude.<*> (x Data..:? "fileSystemType")
-            Prelude.<*> ( x Data..:? "networkInfoList"
+            Prelude.<*> ( x
+                            Data..:? "networkInfoList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "osInfo")
@@ -98,7 +99,8 @@ instance Data.FromJSON SystemInfo where
 
 instance Prelude.Hashable SystemInfo where
   hashWithSalt _salt SystemInfo' {..} =
-    _salt `Prelude.hashWithSalt` cpuArchitecture
+    _salt
+      `Prelude.hashWithSalt` cpuArchitecture
       `Prelude.hashWithSalt` fileSystemType
       `Prelude.hashWithSalt` networkInfoList
       `Prelude.hashWithSalt` osInfo

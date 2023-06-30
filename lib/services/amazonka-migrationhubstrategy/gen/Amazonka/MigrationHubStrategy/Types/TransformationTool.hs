@@ -86,7 +86,8 @@ instance Data.FromJSON TransformationTool where
 
 instance Prelude.Hashable TransformationTool where
   hashWithSalt _salt TransformationTool' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tranformationToolInstallationLink
 

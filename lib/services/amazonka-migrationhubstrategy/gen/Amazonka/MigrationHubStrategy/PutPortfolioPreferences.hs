@@ -119,7 +119,8 @@ instance Core.AWSRequest PutPortfolioPreferences where
 
 instance Prelude.Hashable PutPortfolioPreferences where
   hashWithSalt _salt PutPortfolioPreferences' {..} =
-    _salt `Prelude.hashWithSalt` applicationMode
+    _salt
+      `Prelude.hashWithSalt` applicationMode
       `Prelude.hashWithSalt` applicationPreferences
       `Prelude.hashWithSalt` databasePreferences
       `Prelude.hashWithSalt` prioritizeBusinessGoals

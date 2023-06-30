@@ -107,21 +107,22 @@ instance Core.AWSPager ListCollectors where
     | Core.stop
         ( rs
             Lens.^? listCollectorsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCollectorsResponse_collectors
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCollectors_nextToken
           Lens..~ rs
-          Lens.^? listCollectorsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listCollectorsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCollectors where
   type
@@ -140,7 +141,8 @@ instance Core.AWSRequest ListCollectors where
 
 instance Prelude.Hashable ListCollectors where
   hashWithSalt _salt ListCollectors' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCollectors where

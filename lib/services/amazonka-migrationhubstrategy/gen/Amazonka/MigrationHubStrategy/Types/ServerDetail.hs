@@ -192,13 +192,15 @@ instance Data.FromJSON ServerDetail where
             Prelude.<$> (x Data..:? "antipatternReportS3Object")
             Prelude.<*> (x Data..:? "antipatternReportStatus")
             Prelude.<*> (x Data..:? "antipatternReportStatusMessage")
-            Prelude.<*> ( x Data..:? "applicationComponentStrategySummary"
+            Prelude.<*> ( x
+                            Data..:? "applicationComponentStrategySummary"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "dataCollectionStatus")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "lastAnalyzedTimestamp")
-            Prelude.<*> ( x Data..:? "listAntipatternSeveritySummary"
+            Prelude.<*> ( x
+                            Data..:? "listAntipatternSeveritySummary"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")

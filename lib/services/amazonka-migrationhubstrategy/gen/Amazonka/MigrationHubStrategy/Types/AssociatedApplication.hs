@@ -69,12 +69,14 @@ instance Data.FromJSON AssociatedApplication where
       "AssociatedApplication"
       ( \x ->
           AssociatedApplication'
-            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable AssociatedApplication where
   hashWithSalt _salt AssociatedApplication' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AssociatedApplication where

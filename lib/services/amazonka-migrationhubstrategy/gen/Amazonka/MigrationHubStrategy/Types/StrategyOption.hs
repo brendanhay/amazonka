@@ -95,7 +95,8 @@ strategyOption_toolName = Lens.lens (\StrategyOption' {toolName} -> toolName) (\
 
 instance Prelude.Hashable StrategyOption where
   hashWithSalt _salt StrategyOption' {..} =
-    _salt `Prelude.hashWithSalt` isPreferred
+    _salt
+      `Prelude.hashWithSalt` isPreferred
       `Prelude.hashWithSalt` strategy
       `Prelude.hashWithSalt` targetDestination
       `Prelude.hashWithSalt` toolName

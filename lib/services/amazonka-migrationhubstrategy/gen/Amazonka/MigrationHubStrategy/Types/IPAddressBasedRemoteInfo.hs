@@ -87,7 +87,8 @@ instance Data.FromJSON IPAddressBasedRemoteInfo where
 
 instance Prelude.Hashable IPAddressBasedRemoteInfo where
   hashWithSalt _salt IPAddressBasedRemoteInfo' {..} =
-    _salt `Prelude.hashWithSalt` authType
+    _salt
+      `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` ipAddressConfigurationTimeStamp
       `Prelude.hashWithSalt` osType
 

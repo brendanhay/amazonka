@@ -107,7 +107,8 @@ instance
     AutoScalingGroupConfiguration
   where
   hashWithSalt _salt AutoScalingGroupConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` desiredCapacity
+    _salt
+      `Prelude.hashWithSalt` desiredCapacity
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` maxSize
       `Prelude.hashWithSalt` minSize

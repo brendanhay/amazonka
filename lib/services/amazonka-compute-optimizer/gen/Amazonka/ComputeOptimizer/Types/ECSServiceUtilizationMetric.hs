@@ -148,7 +148,8 @@ instance Data.FromJSON ECSServiceUtilizationMetric where
 
 instance Prelude.Hashable ECSServiceUtilizationMetric where
   hashWithSalt _salt ECSServiceUtilizationMetric' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` statistic
       `Prelude.hashWithSalt` value
 

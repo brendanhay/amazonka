@@ -314,8 +314,8 @@ instance
       ( \s h x ->
           ExportAutoScalingGroupRecommendationsResponse'
             Prelude.<$> (x Data..?> "jobId")
-              Prelude.<*> (x Data..?> "s3Destination")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "s3Destination")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -325,7 +325,8 @@ instance
   hashWithSalt
     _salt
     ExportAutoScalingGroupRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` accountIds
+      _salt
+        `Prelude.hashWithSalt` accountIds
         `Prelude.hashWithSalt` fieldsToExport
         `Prelude.hashWithSalt` fileFormat
         `Prelude.hashWithSalt` filters

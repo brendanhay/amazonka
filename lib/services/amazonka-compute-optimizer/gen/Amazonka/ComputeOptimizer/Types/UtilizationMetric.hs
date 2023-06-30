@@ -409,7 +409,8 @@ instance Data.FromJSON UtilizationMetric where
 
 instance Prelude.Hashable UtilizationMetric where
   hashWithSalt _salt UtilizationMetric' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` statistic
       `Prelude.hashWithSalt` value
 

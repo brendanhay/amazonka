@@ -124,7 +124,8 @@ jobFilter_values = Lens.lens (\JobFilter' {values} -> values) (\s@JobFilter' {} 
 
 instance Prelude.Hashable JobFilter where
   hashWithSalt _salt JobFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData JobFilter where

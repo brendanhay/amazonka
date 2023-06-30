@@ -221,7 +221,8 @@ instance
             Prelude.<$> (x Data..:? "configuration")
             Prelude.<*> (x Data..:? "migrationEffort")
             Prelude.<*> (x Data..:? "performanceRisk")
-            Prelude.<*> ( x Data..:? "projectedUtilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "projectedUtilizationMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "rank")
@@ -235,7 +236,8 @@ instance
   hashWithSalt
     _salt
     AutoScalingGroupRecommendationOption' {..} =
-      _salt `Prelude.hashWithSalt` configuration
+      _salt
+        `Prelude.hashWithSalt` configuration
         `Prelude.hashWithSalt` migrationEffort
         `Prelude.hashWithSalt` performanceRisk
         `Prelude.hashWithSalt` projectedUtilizationMetrics

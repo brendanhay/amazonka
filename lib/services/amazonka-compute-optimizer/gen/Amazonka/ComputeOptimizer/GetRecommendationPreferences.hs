@@ -182,22 +182,22 @@ instance Core.AWSPager GetRecommendationPreferences where
     | Core.stop
         ( rs
             Lens.^? getRecommendationPreferencesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getRecommendationPreferencesResponse_recommendationPreferencesDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getRecommendationPreferences_nextToken
           Lens..~ rs
           Lens.^? getRecommendationPreferencesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRecommendationPreferences where
   type
@@ -210,7 +210,8 @@ instance Core.AWSRequest GetRecommendationPreferences where
       ( \s h x ->
           GetRecommendationPreferencesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "recommendationPreferencesDetails"
+            Prelude.<*> ( x
+                            Data..?> "recommendationPreferencesDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -221,7 +222,8 @@ instance
     GetRecommendationPreferences
   where
   hashWithSalt _salt GetRecommendationPreferences' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` resourceType

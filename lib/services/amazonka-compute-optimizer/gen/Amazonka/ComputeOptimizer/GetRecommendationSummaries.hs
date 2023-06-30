@@ -153,22 +153,22 @@ instance Core.AWSPager GetRecommendationSummaries where
     | Core.stop
         ( rs
             Lens.^? getRecommendationSummariesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getRecommendationSummariesResponse_recommendationSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getRecommendationSummaries_nextToken
           Lens..~ rs
           Lens.^? getRecommendationSummariesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRecommendationSummaries where
   type
@@ -181,7 +181,8 @@ instance Core.AWSRequest GetRecommendationSummaries where
       ( \s h x ->
           GetRecommendationSummariesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "recommendationSummaries"
+            Prelude.<*> ( x
+                            Data..?> "recommendationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -189,7 +190,8 @@ instance Core.AWSRequest GetRecommendationSummaries where
 
 instance Prelude.Hashable GetRecommendationSummaries where
   hashWithSalt _salt GetRecommendationSummaries' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

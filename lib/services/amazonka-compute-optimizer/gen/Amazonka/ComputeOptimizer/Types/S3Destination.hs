@@ -107,7 +107,8 @@ instance Data.FromJSON S3Destination where
 
 instance Prelude.Hashable S3Destination where
   hashWithSalt _salt S3Destination' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` metadataKey
 

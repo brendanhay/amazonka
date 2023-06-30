@@ -196,7 +196,8 @@ instance Data.FromJSON EBSUtilizationMetric where
 
 instance Prelude.Hashable EBSUtilizationMetric where
   hashWithSalt _salt EBSUtilizationMetric' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` statistic
       `Prelude.hashWithSalt` value
 

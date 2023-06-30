@@ -137,7 +137,8 @@ instance Data.FromJSON VolumeRecommendationOption where
 
 instance Prelude.Hashable VolumeRecommendationOption where
   hashWithSalt _salt VolumeRecommendationOption' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` performanceRisk
       `Prelude.hashWithSalt` rank
       `Prelude.hashWithSalt` savingsOpportunity

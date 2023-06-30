@@ -355,18 +355,21 @@ instance Data.FromJSON LambdaFunctionRecommendation where
             Prelude.<*> (x Data..:? "currentMemorySize")
             Prelude.<*> (x Data..:? "currentPerformanceRisk")
             Prelude.<*> (x Data..:? "finding")
-            Prelude.<*> ( x Data..:? "findingReasonCodes"
+            Prelude.<*> ( x
+                            Data..:? "findingReasonCodes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "functionArn")
             Prelude.<*> (x Data..:? "functionVersion")
             Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "lookbackPeriodInDays")
-            Prelude.<*> ( x Data..:? "memorySizeRecommendationOptions"
+            Prelude.<*> ( x
+                            Data..:? "memorySizeRecommendationOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "numberOfInvocations")
-            Prelude.<*> ( x Data..:? "utilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "utilizationMetrics"
                             Data..!= Prelude.mempty
                         )
       )
@@ -376,7 +379,8 @@ instance
     LambdaFunctionRecommendation
   where
   hashWithSalt _salt LambdaFunctionRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentMemorySize
       `Prelude.hashWithSalt` currentPerformanceRisk
       `Prelude.hashWithSalt` finding

@@ -74,7 +74,8 @@ instance Data.FromJSON MemorySizeConfiguration where
 
 instance Prelude.Hashable MemorySizeConfiguration where
   hashWithSalt _salt MemorySizeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` memory
+    _salt
+      `Prelude.hashWithSalt` memory
       `Prelude.hashWithSalt` memoryReservation
 
 instance Prelude.NFData MemorySizeConfiguration where

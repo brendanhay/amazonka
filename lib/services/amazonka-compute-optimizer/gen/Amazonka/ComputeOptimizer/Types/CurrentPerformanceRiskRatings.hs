@@ -114,7 +114,8 @@ instance
     CurrentPerformanceRiskRatings
   where
   hashWithSalt _salt CurrentPerformanceRiskRatings' {..} =
-    _salt `Prelude.hashWithSalt` high
+    _salt
+      `Prelude.hashWithSalt` high
       `Prelude.hashWithSalt` low
       `Prelude.hashWithSalt` medium
       `Prelude.hashWithSalt` veryLow

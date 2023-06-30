@@ -173,7 +173,8 @@ instance Core.AWSRequest GetEBSVolumeRecommendations where
           GetEBSVolumeRecommendationsResponse'
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "volumeRecommendations"
+            Prelude.<*> ( x
+                            Data..?> "volumeRecommendations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -181,7 +182,8 @@ instance Core.AWSRequest GetEBSVolumeRecommendations where
 
 instance Prelude.Hashable GetEBSVolumeRecommendations where
   hashWithSalt _salt GetEBSVolumeRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

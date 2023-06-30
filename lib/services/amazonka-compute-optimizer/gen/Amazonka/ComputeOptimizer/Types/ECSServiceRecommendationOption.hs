@@ -105,12 +105,14 @@ instance Data.FromJSON ECSServiceRecommendationOption where
       "ECSServiceRecommendationOption"
       ( \x ->
           ECSServiceRecommendationOption'
-            Prelude.<$> ( x Data..:? "containerRecommendations"
+            Prelude.<$> ( x
+                            Data..:? "containerRecommendations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cpu")
             Prelude.<*> (x Data..:? "memory")
-            Prelude.<*> ( x Data..:? "projectedUtilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "projectedUtilizationMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "savingsOpportunity")

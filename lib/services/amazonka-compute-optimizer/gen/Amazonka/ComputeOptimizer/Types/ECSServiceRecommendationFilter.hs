@@ -118,7 +118,8 @@ instance
   hashWithSalt
     _salt
     ECSServiceRecommendationFilter' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` values
 
 instance

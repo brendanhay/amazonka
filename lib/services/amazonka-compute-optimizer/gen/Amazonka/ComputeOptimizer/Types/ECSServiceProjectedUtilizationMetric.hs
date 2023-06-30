@@ -173,7 +173,8 @@ instance
   hashWithSalt
     _salt
     ECSServiceProjectedUtilizationMetric' {..} =
-      _salt `Prelude.hashWithSalt` lowerBoundValue
+      _salt
+        `Prelude.hashWithSalt` lowerBoundValue
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` statistic
         `Prelude.hashWithSalt` upperBoundValue

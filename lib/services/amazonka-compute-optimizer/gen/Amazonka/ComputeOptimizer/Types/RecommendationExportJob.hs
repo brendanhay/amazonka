@@ -135,7 +135,8 @@ instance Data.FromJSON RecommendationExportJob where
 
 instance Prelude.Hashable RecommendationExportJob where
   hashWithSalt _salt RecommendationExportJob' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` jobId

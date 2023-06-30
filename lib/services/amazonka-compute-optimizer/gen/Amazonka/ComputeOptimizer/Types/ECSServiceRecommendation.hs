@@ -308,24 +308,28 @@ instance Data.FromJSON ECSServiceRecommendation where
             Prelude.<*> (x Data..:? "currentPerformanceRisk")
             Prelude.<*> (x Data..:? "currentServiceConfiguration")
             Prelude.<*> (x Data..:? "finding")
-            Prelude.<*> ( x Data..:? "findingReasonCodes"
+            Prelude.<*> ( x
+                            Data..:? "findingReasonCodes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "launchType")
             Prelude.<*> (x Data..:? "lookbackPeriodInDays")
             Prelude.<*> (x Data..:? "serviceArn")
-            Prelude.<*> ( x Data..:? "serviceRecommendationOptions"
+            Prelude.<*> ( x
+                            Data..:? "serviceRecommendationOptions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "utilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "utilizationMetrics"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ECSServiceRecommendation where
   hashWithSalt _salt ECSServiceRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentPerformanceRisk
       `Prelude.hashWithSalt` currentServiceConfiguration
       `Prelude.hashWithSalt` finding

@@ -86,7 +86,8 @@ instance Data.FromJSON CreateBackendAuthMFAConfig where
 
 instance Prelude.Hashable CreateBackendAuthMFAConfig where
   hashWithSalt _salt CreateBackendAuthMFAConfig' {..} =
-    _salt `Prelude.hashWithSalt` settings
+    _salt
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` mfaMode
 
 instance Prelude.NFData CreateBackendAuthMFAConfig where

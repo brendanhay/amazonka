@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     CreateBackendStorageResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` bucketName
+      _salt
+        `Prelude.hashWithSalt` bucketName
         `Prelude.hashWithSalt` serviceName
         `Prelude.hashWithSalt` permissions
 

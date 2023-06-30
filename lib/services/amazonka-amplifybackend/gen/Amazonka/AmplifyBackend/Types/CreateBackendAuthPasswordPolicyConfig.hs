@@ -83,7 +83,8 @@ instance
       "CreateBackendAuthPasswordPolicyConfig"
       ( \x ->
           CreateBackendAuthPasswordPolicyConfig'
-            Prelude.<$> ( x Data..:? "additionalConstraints"
+            Prelude.<$> ( x
+                            Data..:? "additionalConstraints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "minimumLength")
@@ -96,7 +97,8 @@ instance
   hashWithSalt
     _salt
     CreateBackendAuthPasswordPolicyConfig' {..} =
-      _salt `Prelude.hashWithSalt` additionalConstraints
+      _salt
+        `Prelude.hashWithSalt` additionalConstraints
         `Prelude.hashWithSalt` minimumLength
 
 instance

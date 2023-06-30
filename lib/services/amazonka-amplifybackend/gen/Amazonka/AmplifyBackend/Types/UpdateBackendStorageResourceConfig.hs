@@ -78,7 +78,8 @@ instance
   hashWithSalt
     _salt
     UpdateBackendStorageResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` serviceName
+      _salt
+        `Prelude.hashWithSalt` serviceName
         `Prelude.hashWithSalt` permissions
 
 instance

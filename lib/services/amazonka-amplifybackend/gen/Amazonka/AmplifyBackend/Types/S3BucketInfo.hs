@@ -74,7 +74,8 @@ instance Data.FromJSON S3BucketInfo where
 
 instance Prelude.Hashable S3BucketInfo where
   hashWithSalt _salt S3BucketInfo' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData S3BucketInfo where

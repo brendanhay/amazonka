@@ -71,7 +71,8 @@ updateBackendAuthMFAConfig_settings = Lens.lens (\UpdateBackendAuthMFAConfig' {s
 
 instance Prelude.Hashable UpdateBackendAuthMFAConfig where
   hashWithSalt _salt UpdateBackendAuthMFAConfig' {..} =
-    _salt `Prelude.hashWithSalt` mfaMode
+    _salt
+      `Prelude.hashWithSalt` mfaMode
       `Prelude.hashWithSalt` settings
 
 instance Prelude.NFData UpdateBackendAuthMFAConfig where

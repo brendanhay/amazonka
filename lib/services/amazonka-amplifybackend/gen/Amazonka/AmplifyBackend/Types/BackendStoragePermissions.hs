@@ -78,7 +78,8 @@ instance Data.FromJSON BackendStoragePermissions where
       "BackendStoragePermissions"
       ( \x ->
           BackendStoragePermissions'
-            Prelude.<$> ( x Data..:? "unAuthenticated"
+            Prelude.<$> ( x
+                            Data..:? "unAuthenticated"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "authenticated" Data..!= Prelude.mempty)
@@ -86,7 +87,8 @@ instance Data.FromJSON BackendStoragePermissions where
 
 instance Prelude.Hashable BackendStoragePermissions where
   hashWithSalt _salt BackendStoragePermissions' {..} =
-    _salt `Prelude.hashWithSalt` unAuthenticated
+    _salt
+      `Prelude.hashWithSalt` unAuthenticated
       `Prelude.hashWithSalt` authenticated
 
 instance Prelude.NFData BackendStoragePermissions where

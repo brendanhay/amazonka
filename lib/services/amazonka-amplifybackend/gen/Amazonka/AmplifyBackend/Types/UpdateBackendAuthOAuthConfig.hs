@@ -119,7 +119,8 @@ instance
     UpdateBackendAuthOAuthConfig
   where
   hashWithSalt _salt UpdateBackendAuthOAuthConfig' {..} =
-    _salt `Prelude.hashWithSalt` domainPrefix
+    _salt
+      `Prelude.hashWithSalt` domainPrefix
       `Prelude.hashWithSalt` oAuthGrantType
       `Prelude.hashWithSalt` oAuthScopes
       `Prelude.hashWithSalt` redirectSignInURIs

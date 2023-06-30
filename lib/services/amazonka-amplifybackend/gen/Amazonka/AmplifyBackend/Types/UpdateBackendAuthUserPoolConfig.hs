@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     UpdateBackendAuthUserPoolConfig' {..} =
-      _salt `Prelude.hashWithSalt` forgotPassword
+      _salt
+        `Prelude.hashWithSalt` forgotPassword
         `Prelude.hashWithSalt` mfa
         `Prelude.hashWithSalt` oAuth
         `Prelude.hashWithSalt` passwordPolicy

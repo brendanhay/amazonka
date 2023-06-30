@@ -144,7 +144,8 @@ instance Core.AWSRequest DeleteBackendAPI where
 
 instance Prelude.Hashable DeleteBackendAPI where
   hashWithSalt _salt DeleteBackendAPI' {..} =
-    _salt `Prelude.hashWithSalt` resourceConfig
+    _salt
+      `Prelude.hashWithSalt` resourceConfig
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` resourceName

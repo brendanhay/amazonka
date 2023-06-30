@@ -76,7 +76,8 @@ instance Data.FromJSON BackendAPIAuthType where
 
 instance Prelude.Hashable BackendAPIAuthType where
   hashWithSalt _salt BackendAPIAuthType' {..} =
-    _salt `Prelude.hashWithSalt` mode
+    _salt
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` settings
 
 instance Prelude.NFData BackendAPIAuthType where

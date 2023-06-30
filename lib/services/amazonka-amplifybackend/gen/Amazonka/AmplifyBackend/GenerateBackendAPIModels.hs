@@ -131,7 +131,8 @@ instance Core.AWSRequest GenerateBackendAPIModels where
 
 instance Prelude.Hashable GenerateBackendAPIModels where
   hashWithSalt _salt GenerateBackendAPIModels' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` resourceName
 

@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     BackendAuthAppleProviderConfig' {..} =
-      _salt `Prelude.hashWithSalt` clientId
+      _salt
+        `Prelude.hashWithSalt` clientId
         `Prelude.hashWithSalt` keyId
         `Prelude.hashWithSalt` privateKey
         `Prelude.hashWithSalt` teamId

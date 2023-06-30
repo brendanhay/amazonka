@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     CreateBackendAuthResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` identityPoolConfigs
+      _salt
+        `Prelude.hashWithSalt` identityPoolConfigs
         `Prelude.hashWithSalt` authResources
         `Prelude.hashWithSalt` userPoolConfigs
         `Prelude.hashWithSalt` service

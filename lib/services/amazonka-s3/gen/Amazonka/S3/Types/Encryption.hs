@@ -98,7 +98,8 @@ encryption_encryptionType = Lens.lens (\Encryption' {encryptionType} -> encrypti
 
 instance Prelude.Hashable Encryption where
   hashWithSalt _salt Encryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsContext
+    _salt
+      `Prelude.hashWithSalt` kmsContext
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` encryptionType
 

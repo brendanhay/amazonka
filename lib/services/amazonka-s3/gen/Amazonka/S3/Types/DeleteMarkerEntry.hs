@@ -105,7 +105,8 @@ instance Data.FromXML DeleteMarkerEntry where
 
 instance Prelude.Hashable DeleteMarkerEntry where
   hashWithSalt _salt DeleteMarkerEntry' {..} =
-    _salt `Prelude.hashWithSalt` isLatest
+    _salt
+      `Prelude.hashWithSalt` isLatest
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` owner

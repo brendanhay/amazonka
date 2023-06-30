@@ -401,7 +401,8 @@ instance Core.AWSRequest PutBucketAcl where
 
 instance Prelude.Hashable PutBucketAcl where
   hashWithSalt _salt PutBucketAcl' {..} =
-    _salt `Prelude.hashWithSalt` acl
+    _salt
+      `Prelude.hashWithSalt` acl
       `Prelude.hashWithSalt` accessControlPolicy
       `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5

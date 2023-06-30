@@ -133,7 +133,8 @@ instance Data.FromXML ReplicationRuleFilter where
 
 instance Prelude.Hashable ReplicationRuleFilter where
   hashWithSalt _salt ReplicationRuleFilter' {..} =
-    _salt `Prelude.hashWithSalt` and
+    _salt
+      `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` tag
 

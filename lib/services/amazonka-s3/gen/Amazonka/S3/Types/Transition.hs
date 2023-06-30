@@ -97,7 +97,8 @@ instance Data.FromXML Transition where
 
 instance Prelude.Hashable Transition where
   hashWithSalt _salt Transition' {..} =
-    _salt `Prelude.hashWithSalt` date
+    _salt
+      `Prelude.hashWithSalt` date
       `Prelude.hashWithSalt` days
       `Prelude.hashWithSalt` storageClass
 

@@ -97,7 +97,8 @@ websiteConfiguration_routingRules = Lens.lens (\WebsiteConfiguration' {routingRu
 
 instance Prelude.Hashable WebsiteConfiguration where
   hashWithSalt _salt WebsiteConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` errorDocument
+    _salt
+      `Prelude.hashWithSalt` errorDocument
       `Prelude.hashWithSalt` indexDocument
       `Prelude.hashWithSalt` redirectAllRequestsTo
       `Prelude.hashWithSalt` routingRules

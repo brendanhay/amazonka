@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     SelectObjectContentEventStream' {..} =
-      _salt `Prelude.hashWithSalt` cont
+      _salt
+        `Prelude.hashWithSalt` cont
         `Prelude.hashWithSalt` end
         `Prelude.hashWithSalt` progress
         `Prelude.hashWithSalt` records

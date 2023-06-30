@@ -106,7 +106,8 @@ instance Data.FromXML MetricsFilter where
 
 instance Prelude.Hashable MetricsFilter where
   hashWithSalt _salt MetricsFilter' {..} =
-    _salt `Prelude.hashWithSalt` accessPointArn
+    _salt
+      `Prelude.hashWithSalt` accessPointArn
       `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` tag

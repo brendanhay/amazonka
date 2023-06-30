@@ -73,7 +73,8 @@ instance Data.FromXML Grant where
 
 instance Prelude.Hashable Grant where
   hashWithSalt _salt Grant' {..} =
-    _salt `Prelude.hashWithSalt` grantee
+    _salt
+      `Prelude.hashWithSalt` grantee
       `Prelude.hashWithSalt` permission
 
 instance Prelude.NFData Grant where

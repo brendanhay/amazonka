@@ -232,7 +232,8 @@ instance
   hashWithSalt
     _salt
     PutBucketLifecycleConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` checksumAlgorithm
+      _salt
+        `Prelude.hashWithSalt` checksumAlgorithm
         `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` lifecycleConfiguration
         `Prelude.hashWithSalt` bucket

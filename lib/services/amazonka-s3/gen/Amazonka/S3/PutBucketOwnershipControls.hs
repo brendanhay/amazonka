@@ -156,7 +156,8 @@ instance Core.AWSRequest PutBucketOwnershipControls where
 
 instance Prelude.Hashable PutBucketOwnershipControls where
   hashWithSalt _salt PutBucketOwnershipControls' {..} =
-    _salt `Prelude.hashWithSalt` contentMD5
+    _salt
+      `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` ownershipControls

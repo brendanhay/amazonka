@@ -71,7 +71,8 @@ instance Data.FromXML Owner where
 
 instance Prelude.Hashable Owner where
   hashWithSalt _salt Owner' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Owner where

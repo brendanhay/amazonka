@@ -67,7 +67,8 @@ outputSerialization_json = Lens.lens (\OutputSerialization' {json} -> json) (\s@
 
 instance Prelude.Hashable OutputSerialization where
   hashWithSalt _salt OutputSerialization' {..} =
-    _salt `Prelude.hashWithSalt` csv
+    _salt
+      `Prelude.hashWithSalt` csv
       `Prelude.hashWithSalt` json
 
 instance Prelude.NFData OutputSerialization where

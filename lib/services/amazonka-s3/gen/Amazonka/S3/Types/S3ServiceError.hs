@@ -2491,7 +2491,8 @@ instance Data.FromXML S3ServiceError where
 
 instance Prelude.Hashable S3ServiceError where
   hashWithSalt _salt S3ServiceError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` versionId

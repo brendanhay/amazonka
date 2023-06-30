@@ -130,7 +130,8 @@ instance Core.AWSRequest GetBucketPolicyStatus where
 
 instance Prelude.Hashable GetBucketPolicyStatus where
   hashWithSalt _salt GetBucketPolicyStatus' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketPolicyStatus where

@@ -322,7 +322,8 @@ instance Core.AWSRequest CreateBucket where
 
 instance Prelude.Hashable CreateBucket where
   hashWithSalt _salt CreateBucket' {..} =
-    _salt `Prelude.hashWithSalt` acl
+    _salt
+      `Prelude.hashWithSalt` acl
       `Prelude.hashWithSalt` createBucketConfiguration
       `Prelude.hashWithSalt` grantFullControl
       `Prelude.hashWithSalt` grantRead

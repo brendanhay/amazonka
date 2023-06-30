@@ -153,7 +153,9 @@ instance Data.FromXML InventoryConfiguration where
   parseXML x =
     InventoryConfiguration'
       Prelude.<$> (x Data..@? "Filter")
-      Prelude.<*> ( x Data..@? "OptionalFields" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "OptionalFields"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Field")
                   )
       Prelude.<*> (x Data..@ "Destination")
@@ -164,7 +166,8 @@ instance Data.FromXML InventoryConfiguration where
 
 instance Prelude.Hashable InventoryConfiguration where
   hashWithSalt _salt InventoryConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` optionalFields
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` isEnabled

@@ -130,7 +130,8 @@ restoreRequest_type = Lens.lens (\RestoreRequest' {type'} -> type') (\s@RestoreR
 
 instance Prelude.Hashable RestoreRequest where
   hashWithSalt _salt RestoreRequest' {..} =
-    _salt `Prelude.hashWithSalt` days
+    _salt
+      `Prelude.hashWithSalt` days
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` glacierJobParameters
       `Prelude.hashWithSalt` outputLocation

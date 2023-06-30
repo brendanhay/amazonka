@@ -84,11 +84,13 @@ metricsConfiguration_id = Lens.lens (\MetricsConfiguration' {id} -> id) (\s@Metr
 instance Data.FromXML MetricsConfiguration where
   parseXML x =
     MetricsConfiguration'
-      Prelude.<$> (x Data..@? "Filter") Prelude.<*> (x Data..@ "Id")
+      Prelude.<$> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@ "Id")
 
 instance Prelude.Hashable MetricsConfiguration where
   hashWithSalt _salt MetricsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData MetricsConfiguration where

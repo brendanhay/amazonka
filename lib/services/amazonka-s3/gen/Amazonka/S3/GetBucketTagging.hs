@@ -121,14 +121,17 @@ instance Core.AWSRequest GetBucketTagging where
       ( \s h x ->
           GetBucketTaggingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "TagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "TagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "Tag"
                         )
       )
 
 instance Prelude.Hashable GetBucketTagging where
   hashWithSalt _salt GetBucketTagging' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketTagging where

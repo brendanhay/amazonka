@@ -107,7 +107,8 @@ instance Data.FromXML TopicConfiguration where
 
 instance Prelude.Hashable TopicConfiguration where
   hashWithSalt _salt TopicConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` events

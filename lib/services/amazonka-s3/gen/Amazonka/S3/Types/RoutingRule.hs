@@ -96,7 +96,8 @@ instance Data.FromXML RoutingRule where
 
 instance Prelude.Hashable RoutingRule where
   hashWithSalt _salt RoutingRule' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` redirect
 
 instance Prelude.NFData RoutingRule where

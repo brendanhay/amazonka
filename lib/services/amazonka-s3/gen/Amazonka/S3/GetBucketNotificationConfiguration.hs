@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     GetBucketNotificationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
 
 instance

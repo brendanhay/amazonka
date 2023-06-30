@@ -137,7 +137,8 @@ instance Core.AWSRequest GetPublicAccessBlock where
 
 instance Prelude.Hashable GetPublicAccessBlock where
   hashWithSalt _salt GetPublicAccessBlock' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetPublicAccessBlock where

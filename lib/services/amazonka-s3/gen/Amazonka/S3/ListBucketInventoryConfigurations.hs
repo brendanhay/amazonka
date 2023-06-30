@@ -163,13 +163,13 @@ instance
       ( \s h x ->
           ListBucketInventoryConfigurationsResponse'
             Prelude.<$> (x Data..@? "ContinuationToken")
-              Prelude.<*> ( Core.may
-                              (Data.parseXMLList "InventoryConfiguration")
-                              x
-                          )
-              Prelude.<*> (x Data..@? "IsTruncated")
-              Prelude.<*> (x Data..@? "NextContinuationToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( Core.may
+                            (Data.parseXMLList "InventoryConfiguration")
+                            x
+                        )
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "NextContinuationToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -179,7 +179,8 @@ instance
   hashWithSalt
     _salt
     ListBucketInventoryConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` continuationToken
+      _salt
+        `Prelude.hashWithSalt` continuationToken
         `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
 

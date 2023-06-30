@@ -124,7 +124,8 @@ instance Core.AWSRequest GetBucketCors where
 
 instance Prelude.Hashable GetBucketCors where
   hashWithSalt _salt GetBucketCors' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketCors where

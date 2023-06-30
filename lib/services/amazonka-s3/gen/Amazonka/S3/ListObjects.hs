@@ -124,7 +124,7 @@ data ListObjects = ListObjects'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
     -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -178,7 +178,7 @@ data ListObjects = ListObjects'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
 -- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -250,7 +250,7 @@ listObjects_requestPayer = Lens.lens (\ListObjects' {requestPayer} -> requestPay
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
 -- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
@@ -263,9 +263,10 @@ instance Core.AWSPager ListObjects where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listObjectsResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? listObjectsResponse_isTruncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^. Core.choice
@@ -275,16 +276,17 @@ instance Core.AWSPager ListObjects where
                   )
               )
               ( Lens.^?
-                  ( listObjectsResponse_contents Prelude.. Lens._Just
+                  ( listObjectsResponse_contents
+                      Prelude.. Lens._Just
                       Prelude.. Lens._last
                       Prelude.. object_key
                   )
               )
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listObjects_marker
           Lens..~ rs
           Lens.^. Core.choice
@@ -294,7 +296,8 @@ instance Core.AWSPager ListObjects where
                 )
             )
             ( Lens.^?
-                ( listObjectsResponse_contents Prelude.. Lens._Just
+                ( listObjectsResponse_contents
+                    Prelude.. Lens._Just
                     Prelude.. Lens._last
                     Prelude.. object_key
                 )
@@ -324,7 +327,8 @@ instance Core.AWSRequest ListObjects where
 
 instance Prelude.Hashable ListObjects where
   hashWithSalt _salt ListObjects' {..} =
-    _salt `Prelude.hashWithSalt` delimiter
+    _salt
+      `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` encodingType
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` marker

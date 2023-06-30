@@ -189,7 +189,8 @@ instance
   hashWithSalt
     _salt
     PublicAccessBlockConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` blockPublicAcls
+      _salt
+        `Prelude.hashWithSalt` blockPublicAcls
         `Prelude.hashWithSalt` blockPublicPolicy
         `Prelude.hashWithSalt` ignorePublicAcls
         `Prelude.hashWithSalt` restrictPublicBuckets

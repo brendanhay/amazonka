@@ -79,7 +79,8 @@ instance Data.FromXML Metrics where
 
 instance Prelude.Hashable Metrics where
   hashWithSalt _salt Metrics' {..} =
-    _salt `Prelude.hashWithSalt` eventThreshold
+    _salt
+      `Prelude.hashWithSalt` eventThreshold
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData Metrics where

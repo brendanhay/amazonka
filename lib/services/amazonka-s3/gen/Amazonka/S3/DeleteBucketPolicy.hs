@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteBucketPolicy where
 
 instance Prelude.Hashable DeleteBucketPolicy where
   hashWithSalt _salt DeleteBucketPolicy' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucketPolicy where

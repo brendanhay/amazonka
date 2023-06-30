@@ -146,7 +146,8 @@ instance
   hashWithSalt
     _salt
     DeleteBucketMetricsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
 

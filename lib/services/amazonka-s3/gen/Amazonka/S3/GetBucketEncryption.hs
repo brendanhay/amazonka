@@ -133,7 +133,8 @@ instance Core.AWSRequest GetBucketEncryption where
 
 instance Prelude.Hashable GetBucketEncryption where
   hashWithSalt _salt GetBucketEncryption' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketEncryption where

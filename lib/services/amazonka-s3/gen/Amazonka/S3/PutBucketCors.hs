@@ -238,7 +238,8 @@ instance Core.AWSRequest PutBucketCors where
 
 instance Prelude.Hashable PutBucketCors where
   hashWithSalt _salt PutBucketCors' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

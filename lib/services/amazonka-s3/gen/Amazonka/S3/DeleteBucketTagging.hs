@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteBucketTagging where
 
 instance Prelude.Hashable DeleteBucketTagging where
   hashWithSalt _salt DeleteBucketTagging' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucketTagging where

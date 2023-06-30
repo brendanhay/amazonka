@@ -89,7 +89,8 @@ instance Data.FromXML AnalyticsFilter where
 
 instance Prelude.Hashable AnalyticsFilter where
   hashWithSalt _salt AnalyticsFilter' {..} =
-    _salt `Prelude.hashWithSalt` and
+    _salt
+      `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` tag
 

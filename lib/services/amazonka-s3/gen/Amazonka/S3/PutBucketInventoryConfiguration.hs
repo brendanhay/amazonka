@@ -200,7 +200,8 @@ instance
   hashWithSalt
     _salt
     PutBucketInventoryConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` inventoryConfiguration

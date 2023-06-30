@@ -112,7 +112,8 @@ instance Data.FromXML SourceSelectionCriteria where
 
 instance Prelude.Hashable SourceSelectionCriteria where
   hashWithSalt _salt SourceSelectionCriteria' {..} =
-    _salt `Prelude.hashWithSalt` replicaModifications
+    _salt
+      `Prelude.hashWithSalt` replicaModifications
       `Prelude.hashWithSalt` sseKmsEncryptedObjects
 
 instance Prelude.NFData SourceSelectionCriteria where

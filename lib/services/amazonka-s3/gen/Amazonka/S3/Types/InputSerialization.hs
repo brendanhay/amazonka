@@ -90,7 +90,8 @@ inputSerialization_parquet = Lens.lens (\InputSerialization' {parquet} -> parque
 
 instance Prelude.Hashable InputSerialization where
   hashWithSalt _salt InputSerialization' {..} =
-    _salt `Prelude.hashWithSalt` csv
+    _salt
+      `Prelude.hashWithSalt` csv
       `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` json
       `Prelude.hashWithSalt` parquet

@@ -198,7 +198,8 @@ instance
   hashWithSalt
     _salt
     PutBucketNotificationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` skipDestinationValidation
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` notificationConfiguration

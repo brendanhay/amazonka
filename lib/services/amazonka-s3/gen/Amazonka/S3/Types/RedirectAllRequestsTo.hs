@@ -78,7 +78,8 @@ instance Data.FromXML RedirectAllRequestsTo where
 
 instance Prelude.Hashable RedirectAllRequestsTo where
   hashWithSalt _salt RedirectAllRequestsTo' {..} =
-    _salt `Prelude.hashWithSalt` protocol
+    _salt
+      `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` hostName
 
 instance Prelude.NFData RedirectAllRequestsTo where

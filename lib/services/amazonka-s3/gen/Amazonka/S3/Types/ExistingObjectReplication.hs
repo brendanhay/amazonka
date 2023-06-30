@@ -53,7 +53,6 @@ newExistingObjectReplication ::
 newExistingObjectReplication pStatus_ =
   ExistingObjectReplication' {status = pStatus_}
 
--- |
 existingObjectReplication_status :: Lens.Lens' ExistingObjectReplication ExistingObjectReplicationStatus
 existingObjectReplication_status = Lens.lens (\ExistingObjectReplication' {status} -> status) (\s@ExistingObjectReplication' {} a -> s {status = a} :: ExistingObjectReplication)
 

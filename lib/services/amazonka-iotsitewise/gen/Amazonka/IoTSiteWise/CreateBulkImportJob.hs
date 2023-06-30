@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateBulkImportJob where
 
 instance Prelude.Hashable CreateBulkImportJob where
   hashWithSalt _salt CreateBulkImportJob' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobRoleArn
       `Prelude.hashWithSalt` files
       `Prelude.hashWithSalt` errorReportLocation

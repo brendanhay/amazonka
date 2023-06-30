@@ -151,7 +151,8 @@ instance Data.FromJSON JobSummary where
 
 instance Prelude.Hashable JobSummary where
   hashWithSalt _salt JobSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 

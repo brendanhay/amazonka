@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteAssetModel where
 
 instance Prelude.Hashable DeleteAssetModel where
   hashWithSalt _salt DeleteAssetModel' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` assetModelId
 
 instance Prelude.NFData DeleteAssetModel where

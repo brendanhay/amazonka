@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyAggregatesErrorInfo' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorTimestamp
 
 instance

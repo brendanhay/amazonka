@@ -76,7 +76,8 @@ instance Data.FromJSON GatewayPlatform where
 
 instance Prelude.Hashable GatewayPlatform where
   hashWithSalt _salt GatewayPlatform' {..} =
-    _salt `Prelude.hashWithSalt` greengrass
+    _salt
+      `Prelude.hashWithSalt` greengrass
       `Prelude.hashWithSalt` greengrassV2
 
 instance Prelude.NFData GatewayPlatform where

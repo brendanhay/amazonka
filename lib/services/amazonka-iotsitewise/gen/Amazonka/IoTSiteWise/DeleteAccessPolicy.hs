@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteAccessPolicy where
 
 instance Prelude.Hashable DeleteAccessPolicy where
   hashWithSalt _salt DeleteAccessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` accessPolicyId
 
 instance Prelude.NFData DeleteAccessPolicy where

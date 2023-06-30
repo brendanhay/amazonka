@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeAsset where
     Response.receiveJSON
       ( \s h x ->
           DescribeAssetResponse'
-            Prelude.<$> ( x Data..?> "assetCompositeModels"
+            Prelude.<$> ( x
+                            Data..?> "assetCompositeModels"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "assetDescription")
@@ -115,10 +116,12 @@ instance Core.AWSRequest DescribeAsset where
             Prelude.<*> (x Data..:> "assetArn")
             Prelude.<*> (x Data..:> "assetName")
             Prelude.<*> (x Data..:> "assetModelId")
-            Prelude.<*> ( x Data..?> "assetProperties"
+            Prelude.<*> ( x
+                            Data..?> "assetProperties"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "assetHierarchies"
+            Prelude.<*> ( x
+                            Data..?> "assetHierarchies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "assetCreationDate")
@@ -128,7 +131,8 @@ instance Core.AWSRequest DescribeAsset where
 
 instance Prelude.Hashable DescribeAsset where
   hashWithSalt _salt DescribeAsset' {..} =
-    _salt `Prelude.hashWithSalt` excludeProperties
+    _salt
+      `Prelude.hashWithSalt` excludeProperties
       `Prelude.hashWithSalt` assetId
 
 instance Prelude.NFData DescribeAsset where

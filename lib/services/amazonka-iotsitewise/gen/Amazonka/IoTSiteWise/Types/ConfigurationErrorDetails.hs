@@ -73,12 +73,14 @@ instance Data.FromJSON ConfigurationErrorDetails where
       "ConfigurationErrorDetails"
       ( \x ->
           ConfigurationErrorDetails'
-            Prelude.<$> (x Data..: "code") Prelude.<*> (x Data..: "message")
+            Prelude.<$> (x Data..: "code")
+            Prelude.<*> (x Data..: "message")
       )
 
 instance Prelude.Hashable ConfigurationErrorDetails where
   hashWithSalt _salt ConfigurationErrorDetails' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ConfigurationErrorDetails where

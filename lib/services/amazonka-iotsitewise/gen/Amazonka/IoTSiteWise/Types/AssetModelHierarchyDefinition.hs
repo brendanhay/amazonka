@@ -87,7 +87,8 @@ instance
     AssetModelHierarchyDefinition
   where
   hashWithSalt _salt AssetModelHierarchyDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` childAssetModelId
 
 instance Prelude.NFData AssetModelHierarchyDefinition where

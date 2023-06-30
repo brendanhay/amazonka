@@ -97,21 +97,23 @@ instance Core.AWSPager ListPortals where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPortalsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listPortalsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPortalsResponse_portalSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPortals_nextToken
           Lens..~ rs
-          Lens.^? listPortalsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPortalsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPortals where
   type AWSResponse ListPortals = ListPortalsResponse
@@ -122,7 +124,8 @@ instance Core.AWSRequest ListPortals where
       ( \s h x ->
           ListPortalsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "portalSummaries"
+            Prelude.<*> ( x
+                            Data..?> "portalSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,7 +133,8 @@ instance Core.AWSRequest ListPortals where
 
 instance Prelude.Hashable ListPortals where
   hashWithSalt _salt ListPortals' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPortals where

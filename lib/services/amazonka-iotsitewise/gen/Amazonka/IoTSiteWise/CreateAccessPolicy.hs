@@ -167,7 +167,8 @@ instance Core.AWSRequest CreateAccessPolicy where
 
 instance Prelude.Hashable CreateAccessPolicy where
   hashWithSalt _salt CreateAccessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` accessPolicyIdentity
       `Prelude.hashWithSalt` accessPolicyResource

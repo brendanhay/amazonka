@@ -119,7 +119,8 @@ instance Data.FromJSON AssetPropertySummary where
 
 instance Prelude.Hashable AssetPropertySummary where
   hashWithSalt _salt AssetPropertySummary' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` assetCompositeModelId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` notification

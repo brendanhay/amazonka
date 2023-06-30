@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     AssetModelCompositeModelDefinition' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` properties
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` type'

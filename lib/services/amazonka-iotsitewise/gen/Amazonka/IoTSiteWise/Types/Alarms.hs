@@ -105,7 +105,8 @@ instance Data.FromJSON Alarms where
 
 instance Prelude.Hashable Alarms where
   hashWithSalt _salt Alarms' {..} =
-    _salt `Prelude.hashWithSalt` notificationLambdaArn
+    _salt
+      `Prelude.hashWithSalt` notificationLambdaArn
       `Prelude.hashWithSalt` alarmRoleArn
 
 instance Prelude.NFData Alarms where

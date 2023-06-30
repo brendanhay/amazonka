@@ -121,7 +121,8 @@ instance Core.AWSRequest DescribeAssetProperty where
 
 instance Prelude.Hashable DescribeAssetProperty where
   hashWithSalt _salt DescribeAssetProperty' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` propertyId
 
 instance Prelude.NFData DescribeAssetProperty where

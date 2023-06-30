@@ -136,12 +136,13 @@ instance
       ( \s h x ->
           BatchGetAssetPropertyValueHistoryResponse'
             Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
-              Prelude.<*> ( x Data..?> "skippedEntries"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..?> "skippedEntries"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -151,7 +152,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueHistory' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` entries
 

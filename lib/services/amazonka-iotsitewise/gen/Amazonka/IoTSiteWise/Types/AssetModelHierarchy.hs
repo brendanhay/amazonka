@@ -105,7 +105,8 @@ instance Data.FromJSON AssetModelHierarchy where
 
 instance Prelude.Hashable AssetModelHierarchy where
   hashWithSalt _salt AssetModelHierarchy' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` childAssetModelId
 

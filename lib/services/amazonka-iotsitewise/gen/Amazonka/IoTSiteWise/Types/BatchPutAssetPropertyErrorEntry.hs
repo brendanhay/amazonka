@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     BatchPutAssetPropertyErrorEntry' {..} =
-      _salt `Prelude.hashWithSalt` entryId
+      _salt
+        `Prelude.hashWithSalt` entryId
         `Prelude.hashWithSalt` errors
 
 instance

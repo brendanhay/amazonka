@@ -73,12 +73,14 @@ instance Data.FromJSON ImageLocation where
       "ImageLocation"
       ( \x ->
           ImageLocation'
-            Prelude.<$> (x Data..: "id") Prelude.<*> (x Data..: "url")
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "url")
       )
 
 instance Prelude.Hashable ImageLocation where
   hashWithSalt _salt ImageLocation' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData ImageLocation where

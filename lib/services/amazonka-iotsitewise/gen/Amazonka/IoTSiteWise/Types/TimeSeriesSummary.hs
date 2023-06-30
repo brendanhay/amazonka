@@ -176,7 +176,8 @@ instance Data.FromJSON TimeSeriesSummary where
 
 instance Prelude.Hashable TimeSeriesSummary where
   hashWithSalt _salt TimeSeriesSummary' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` dataTypeSpec
       `Prelude.hashWithSalt` propertyId

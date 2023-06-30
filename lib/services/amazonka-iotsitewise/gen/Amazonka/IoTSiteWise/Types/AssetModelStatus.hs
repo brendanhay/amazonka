@@ -75,12 +75,14 @@ instance Data.FromJSON AssetModelStatus where
       "AssetModelStatus"
       ( \x ->
           AssetModelStatus'
-            Prelude.<$> (x Data..:? "error") Prelude.<*> (x Data..: "state")
+            Prelude.<$> (x Data..:? "error")
+            Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable AssetModelStatus where
   hashWithSalt _salt AssetModelStatus' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData AssetModelStatus where

@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteProject where
 
 instance Prelude.Hashable DeleteProject where
   hashWithSalt _salt DeleteProject' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` projectId
 
 instance Prelude.NFData DeleteProject where

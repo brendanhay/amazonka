@@ -132,7 +132,8 @@ instance Core.AWSRequest DeleteTimeSeries where
 
 instance Prelude.Hashable DeleteTimeSeries where
   hashWithSalt _salt DeleteTimeSeries' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` propertyId

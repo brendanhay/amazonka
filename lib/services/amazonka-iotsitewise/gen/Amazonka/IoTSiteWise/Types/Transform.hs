@@ -124,7 +124,8 @@ instance Data.FromJSON Transform where
 
 instance Prelude.Hashable Transform where
   hashWithSalt _salt Transform' {..} =
-    _salt `Prelude.hashWithSalt` processingConfig
+    _salt
+      `Prelude.hashWithSalt` processingConfig
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` variables
 

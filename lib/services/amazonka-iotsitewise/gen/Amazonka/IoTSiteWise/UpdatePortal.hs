@@ -215,7 +215,8 @@ instance Core.AWSRequest UpdatePortal where
 
 instance Prelude.Hashable UpdatePortal where
   hashWithSalt _salt UpdatePortal' {..} =
-    _salt `Prelude.hashWithSalt` alarms
+    _salt
+      `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` notificationSenderEmail
       `Prelude.hashWithSalt` portalDescription

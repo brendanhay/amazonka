@@ -75,7 +75,8 @@ instance Data.FromJSON AssetHierarchyInfo where
 
 instance Prelude.Hashable AssetHierarchyInfo where
   hashWithSalt _salt AssetHierarchyInfo' {..} =
-    _salt `Prelude.hashWithSalt` childAssetId
+    _salt
+      `Prelude.hashWithSalt` childAssetId
       `Prelude.hashWithSalt` parentAssetId
 
 instance Prelude.NFData AssetHierarchyInfo where

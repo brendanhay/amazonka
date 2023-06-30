@@ -80,12 +80,14 @@ instance Data.FromJSON PropertyNotification where
       "PropertyNotification"
       ( \x ->
           PropertyNotification'
-            Prelude.<$> (x Data..: "topic") Prelude.<*> (x Data..: "state")
+            Prelude.<$> (x Data..: "topic")
+            Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable PropertyNotification where
   hashWithSalt _salt PropertyNotification' {..} =
-    _salt `Prelude.hashWithSalt` topic
+    _salt
+      `Prelude.hashWithSalt` topic
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData PropertyNotification where

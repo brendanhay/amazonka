@@ -240,21 +240,21 @@ instance Core.AWSPager GetAssetPropertyAggregates where
     | Core.stop
         ( rs
             Lens.^? getAssetPropertyAggregatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. getAssetPropertyAggregatesResponse_aggregatedValues
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getAssetPropertyAggregates_nextToken
           Lens..~ rs
           Lens.^? getAssetPropertyAggregatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAssetPropertyAggregates where
   type
@@ -268,14 +268,16 @@ instance Core.AWSRequest GetAssetPropertyAggregates where
           GetAssetPropertyAggregatesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "aggregatedValues"
+            Prelude.<*> ( x
+                            Data..?> "aggregatedValues"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetAssetPropertyAggregates where
   hashWithSalt _salt GetAssetPropertyAggregates' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` propertyAlias

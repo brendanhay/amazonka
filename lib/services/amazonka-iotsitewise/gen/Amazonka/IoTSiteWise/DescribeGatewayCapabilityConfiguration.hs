@@ -128,10 +128,10 @@ instance
       ( \s h x ->
           DescribeGatewayCapabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "gatewayId")
-              Prelude.<*> (x Data..:> "capabilityNamespace")
-              Prelude.<*> (x Data..:> "capabilityConfiguration")
-              Prelude.<*> (x Data..:> "capabilitySyncStatus")
+            Prelude.<*> (x Data..:> "gatewayId")
+            Prelude.<*> (x Data..:> "capabilityNamespace")
+            Prelude.<*> (x Data..:> "capabilityConfiguration")
+            Prelude.<*> (x Data..:> "capabilitySyncStatus")
       )
 
 instance
@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     DescribeGatewayCapabilityConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` gatewayId
+      _salt
+        `Prelude.hashWithSalt` gatewayId
         `Prelude.hashWithSalt` capabilityNamespace
 
 instance

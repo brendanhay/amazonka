@@ -142,7 +142,8 @@ instance Core.AWSRequest DisassociateAssets where
 
 instance Prelude.Hashable DisassociateAssets where
   hashWithSalt _salt DisassociateAssets' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` hierarchyId
       `Prelude.hashWithSalt` childAssetId

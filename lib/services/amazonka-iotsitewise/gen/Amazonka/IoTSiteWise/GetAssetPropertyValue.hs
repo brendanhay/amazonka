@@ -136,7 +136,8 @@ instance Core.AWSRequest GetAssetPropertyValue where
 
 instance Prelude.Hashable GetAssetPropertyValue where
   hashWithSalt _salt GetAssetPropertyValue' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` propertyAlias
       `Prelude.hashWithSalt` propertyId
 

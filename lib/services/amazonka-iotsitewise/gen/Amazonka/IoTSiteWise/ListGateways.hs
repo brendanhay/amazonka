@@ -97,18 +97,20 @@ instance Core.AWSPager ListGateways where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGatewaysResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listGatewaysResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listGatewaysResponse_gatewaySummaries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGateways_nextToken
           Lens..~ rs
-          Lens.^? listGatewaysResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listGatewaysResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGateways where
   type AWSResponse ListGateways = ListGatewaysResponse
@@ -120,14 +122,16 @@ instance Core.AWSRequest ListGateways where
           ListGatewaysResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "gatewaySummaries"
+            Prelude.<*> ( x
+                            Data..?> "gatewaySummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListGateways where
   hashWithSalt _salt ListGateways' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGateways where

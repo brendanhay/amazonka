@@ -97,7 +97,8 @@ instance Data.FromJSON ErrorReportLocation where
 
 instance Prelude.Hashable ErrorReportLocation where
   hashWithSalt _salt ErrorReportLocation' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` prefix
 
 instance Prelude.NFData ErrorReportLocation where

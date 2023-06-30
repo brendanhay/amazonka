@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     BatchDisassociateProjectAssets' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` projectId
         `Prelude.hashWithSalt` assetIds
 

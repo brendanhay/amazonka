@@ -82,12 +82,14 @@ instance Data.FromJSON AssetHierarchy where
       "AssetHierarchy"
       ( \x ->
           AssetHierarchy'
-            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..: "name")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable AssetHierarchy where
   hashWithSalt _salt AssetHierarchy' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AssetHierarchy where

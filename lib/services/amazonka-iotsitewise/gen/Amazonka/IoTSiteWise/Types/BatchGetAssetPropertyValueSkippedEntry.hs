@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueSkippedEntry' {..} =
-      _salt `Prelude.hashWithSalt` errorInfo
+      _salt
+        `Prelude.hashWithSalt` errorInfo
         `Prelude.hashWithSalt` entryId
         `Prelude.hashWithSalt` completionStatus
 

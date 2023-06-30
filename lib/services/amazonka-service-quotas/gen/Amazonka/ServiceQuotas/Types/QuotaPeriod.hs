@@ -75,7 +75,8 @@ instance Data.FromJSON QuotaPeriod where
 
 instance Prelude.Hashable QuotaPeriod where
   hashWithSalt _salt QuotaPeriod' {..} =
-    _salt `Prelude.hashWithSalt` periodUnit
+    _salt
+      `Prelude.hashWithSalt` periodUnit
       `Prelude.hashWithSalt` periodValue
 
 instance Prelude.NFData QuotaPeriod where

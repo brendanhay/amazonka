@@ -74,7 +74,7 @@ instance
       ( \s h x ->
           GetAssociationForServiceQuotaTemplateResponse'
             Prelude.<$> (x Data..?> "ServiceQuotaTemplateAssociationStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

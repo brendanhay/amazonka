@@ -92,7 +92,8 @@ instance Data.FromJSON MetricInfo where
       "MetricInfo"
       ( \x ->
           MetricInfo'
-            Prelude.<$> ( x Data..:? "MetricDimensions"
+            Prelude.<$> ( x
+                            Data..:? "MetricDimensions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MetricName")
@@ -102,7 +103,8 @@ instance Data.FromJSON MetricInfo where
 
 instance Prelude.Hashable MetricInfo where
   hashWithSalt _salt MetricInfo' {..} =
-    _salt `Prelude.hashWithSalt` metricDimensions
+    _salt
+      `Prelude.hashWithSalt` metricDimensions
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` metricNamespace
       `Prelude.hashWithSalt` metricStatisticRecommendation

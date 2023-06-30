@@ -178,7 +178,8 @@ instance Core.AWSRequest CreateExtension where
 
 instance Prelude.Hashable CreateExtension where
   hashWithSalt _salt CreateExtension' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` latestVersionNumber
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` tags

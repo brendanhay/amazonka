@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateExtension where
 
 instance Prelude.Hashable UpdateExtension where
   hashWithSalt _salt UpdateExtension' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` versionNumber

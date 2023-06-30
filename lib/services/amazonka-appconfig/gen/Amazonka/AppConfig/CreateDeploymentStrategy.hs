@@ -285,7 +285,8 @@ instance Core.AWSRequest CreateDeploymentStrategy where
 
 instance Prelude.Hashable CreateDeploymentStrategy where
   hashWithSalt _salt CreateDeploymentStrategy' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` finalBakeTimeInMinutes
       `Prelude.hashWithSalt` growthType
       `Prelude.hashWithSalt` replicateTo

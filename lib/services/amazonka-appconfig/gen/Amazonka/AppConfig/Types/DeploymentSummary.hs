@@ -175,7 +175,8 @@ instance Data.FromJSON DeploymentSummary where
 
 instance Prelude.Hashable DeploymentSummary where
   hashWithSalt _salt DeploymentSummary' {..} =
-    _salt `Prelude.hashWithSalt` completedAt
+    _salt
+      `Prelude.hashWithSalt` completedAt
       `Prelude.hashWithSalt` configurationName
       `Prelude.hashWithSalt` configurationVersion
       `Prelude.hashWithSalt` deploymentDurationInMinutes

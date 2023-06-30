@@ -112,7 +112,8 @@ instance Core.AWSRequest GetConfigurationProfile where
 
 instance Prelude.Hashable GetConfigurationProfile where
   hashWithSalt _salt GetConfigurationProfile' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` configurationProfileId
 
 instance Prelude.NFData GetConfigurationProfile where

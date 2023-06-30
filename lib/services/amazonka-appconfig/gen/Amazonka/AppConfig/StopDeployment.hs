@@ -132,7 +132,8 @@ instance Core.AWSRequest StopDeployment where
 
 instance Prelude.Hashable StopDeployment where
   hashWithSalt _salt StopDeployment' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` deploymentNumber
 

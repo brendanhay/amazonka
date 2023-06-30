@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateEnvironment where
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` monitors
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationId

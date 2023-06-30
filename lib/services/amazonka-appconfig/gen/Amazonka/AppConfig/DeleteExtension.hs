@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteExtension where
 
 instance Prelude.Hashable DeleteExtension where
   hashWithSalt _salt DeleteExtension' {..} =
-    _salt `Prelude.hashWithSalt` versionNumber
+    _salt
+      `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` extensionIdentifier
 
 instance Prelude.NFData DeleteExtension where

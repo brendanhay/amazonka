@@ -81,12 +81,14 @@ instance Data.FromJSON Validator where
       "Validator"
       ( \x ->
           Validator'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Content")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Content")
       )
 
 instance Prelude.Hashable Validator where
   hashWithSalt _salt Validator' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData Validator where

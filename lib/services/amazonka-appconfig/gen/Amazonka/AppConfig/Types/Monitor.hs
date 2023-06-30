@@ -79,7 +79,8 @@ instance Data.FromJSON Monitor where
 
 instance Prelude.Hashable Monitor where
   hashWithSalt _salt Monitor' {..} =
-    _salt `Prelude.hashWithSalt` alarmRoleArn
+    _salt
+      `Prelude.hashWithSalt` alarmRoleArn
       `Prelude.hashWithSalt` alarmArn
 
 instance Prelude.NFData Monitor where

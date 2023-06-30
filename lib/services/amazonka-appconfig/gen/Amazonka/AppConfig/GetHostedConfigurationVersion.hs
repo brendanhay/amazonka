@@ -135,7 +135,8 @@ instance
     GetHostedConfigurationVersion
   where
   hashWithSalt _salt GetHostedConfigurationVersion' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` configurationProfileId
       `Prelude.hashWithSalt` versionNumber
 

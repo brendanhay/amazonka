@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     HostedConfigurationVersionSummary' {..} =
-      _salt `Prelude.hashWithSalt` applicationId
+      _salt
+        `Prelude.hashWithSalt` applicationId
         `Prelude.hashWithSalt` configurationProfileId
         `Prelude.hashWithSalt` contentType
         `Prelude.hashWithSalt` description

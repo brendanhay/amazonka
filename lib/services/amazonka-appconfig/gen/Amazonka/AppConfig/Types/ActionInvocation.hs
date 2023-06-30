@@ -139,7 +139,8 @@ instance Data.FromJSON ActionInvocation where
 
 instance Prelude.Hashable ActionInvocation where
   hashWithSalt _salt ActionInvocation' {..} =
-    _salt `Prelude.hashWithSalt` actionName
+    _salt
+      `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` extensionIdentifier

@@ -97,7 +97,8 @@ instance Data.FromJSON ExtensionAssociationSummary where
 
 instance Prelude.Hashable ExtensionAssociationSummary where
   hashWithSalt _salt ExtensionAssociationSummary' {..} =
-    _salt `Prelude.hashWithSalt` extensionArn
+    _salt
+      `Prelude.hashWithSalt` extensionArn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` resourceArn
 

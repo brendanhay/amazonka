@@ -188,7 +188,8 @@ instance Core.AWSRequest PutRecords where
 
 instance Prelude.Hashable PutRecords where
   hashWithSalt _salt PutRecords' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` records
 

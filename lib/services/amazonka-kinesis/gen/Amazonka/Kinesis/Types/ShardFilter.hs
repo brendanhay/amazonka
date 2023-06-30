@@ -170,7 +170,8 @@ shardFilter_type = Lens.lens (\ShardFilter' {type'} -> type') (\s@ShardFilter' {
 
 instance Prelude.Hashable ShardFilter where
   hashWithSalt _salt ShardFilter' {..} =
-    _salt `Prelude.hashWithSalt` shardId
+    _salt
+      `Prelude.hashWithSalt` shardId
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` type'
 

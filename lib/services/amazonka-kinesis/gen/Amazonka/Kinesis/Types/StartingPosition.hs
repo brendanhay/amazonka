@@ -148,7 +148,8 @@ startingPosition_type = Lens.lens (\StartingPosition' {type'} -> type') (\s@Star
 
 instance Prelude.Hashable StartingPosition where
   hashWithSalt _salt StartingPosition' {..} =
-    _salt `Prelude.hashWithSalt` sequenceNumber
+    _salt
+      `Prelude.hashWithSalt` sequenceNumber
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` type'
 

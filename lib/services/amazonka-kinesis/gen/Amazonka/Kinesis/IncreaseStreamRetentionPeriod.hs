@@ -132,7 +132,8 @@ instance
     IncreaseStreamRetentionPeriod
   where
   hashWithSalt _salt IncreaseStreamRetentionPeriod' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` retentionPeriodHours
 

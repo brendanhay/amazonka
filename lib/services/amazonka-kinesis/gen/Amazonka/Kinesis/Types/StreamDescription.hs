@@ -313,14 +313,16 @@ instance Data.FromJSON StreamDescription where
             Prelude.<*> (x Data..: "HasMoreShards")
             Prelude.<*> (x Data..: "RetentionPeriodHours")
             Prelude.<*> (x Data..: "StreamCreationTimestamp")
-            Prelude.<*> ( x Data..:? "EnhancedMonitoring"
+            Prelude.<*> ( x
+                            Data..:? "EnhancedMonitoring"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable StreamDescription where
   hashWithSalt _salt StreamDescription' {..} =
-    _salt `Prelude.hashWithSalt` encryptionType
+    _salt
+      `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` streamModeDetails
       `Prelude.hashWithSalt` streamName

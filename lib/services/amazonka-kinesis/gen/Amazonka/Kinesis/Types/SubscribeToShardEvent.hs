@@ -95,7 +95,6 @@ newSubscribeToShardEvent
 subscribeToShardEvent_childShards :: Lens.Lens' SubscribeToShardEvent (Prelude.Maybe [ChildShard])
 subscribeToShardEvent_childShards = Lens.lens (\SubscribeToShardEvent' {childShards} -> childShards) (\s@SubscribeToShardEvent' {} a -> s {childShards = a} :: SubscribeToShardEvent) Prelude.. Lens.mapping Lens.coerced
 
--- |
 subscribeToShardEvent_records :: Lens.Lens' SubscribeToShardEvent [Record]
 subscribeToShardEvent_records = Lens.lens (\SubscribeToShardEvent' {records} -> records) (\s@SubscribeToShardEvent' {} a -> s {records = a} :: SubscribeToShardEvent) Prelude.. Lens.coerced
 
@@ -128,7 +127,8 @@ instance Data.FromJSON SubscribeToShardEvent where
 
 instance Prelude.Hashable SubscribeToShardEvent where
   hashWithSalt _salt SubscribeToShardEvent' {..} =
-    _salt `Prelude.hashWithSalt` childShards
+    _salt
+      `Prelude.hashWithSalt` childShards
       `Prelude.hashWithSalt` records
       `Prelude.hashWithSalt` continuationSequenceNumber
       `Prelude.hashWithSalt` millisBehindLatest

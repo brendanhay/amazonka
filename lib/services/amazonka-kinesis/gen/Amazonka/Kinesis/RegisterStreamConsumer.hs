@@ -130,7 +130,8 @@ instance Core.AWSRequest RegisterStreamConsumer where
 
 instance Prelude.Hashable RegisterStreamConsumer where
   hashWithSalt _salt RegisterStreamConsumer' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` consumerName
 
 instance Prelude.NFData RegisterStreamConsumer where

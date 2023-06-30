@@ -162,7 +162,8 @@ instance Core.AWSRequest MergeShards where
 
 instance Prelude.Hashable MergeShards where
   hashWithSalt _salt MergeShards' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` shardToMerge
       `Prelude.hashWithSalt` adjacentShardToMerge

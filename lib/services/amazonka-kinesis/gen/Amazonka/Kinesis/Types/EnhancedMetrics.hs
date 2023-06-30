@@ -130,7 +130,8 @@ instance Data.FromJSON EnhancedMetrics where
       "EnhancedMetrics"
       ( \x ->
           EnhancedMetrics'
-            Prelude.<$> ( x Data..:? "ShardLevelMetrics"
+            Prelude.<$> ( x
+                            Data..:? "ShardLevelMetrics"
                             Data..!= Prelude.mempty
                         )
       )

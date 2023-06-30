@@ -186,7 +186,8 @@ instance Core.AWSRequest DisableEnhancedMonitoring where
 
 instance Prelude.Hashable DisableEnhancedMonitoring where
   hashWithSalt _salt DisableEnhancedMonitoring' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` shardLevelMetrics
 

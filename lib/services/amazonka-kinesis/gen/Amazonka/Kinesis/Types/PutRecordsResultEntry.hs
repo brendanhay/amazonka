@@ -113,7 +113,8 @@ instance Data.FromJSON PutRecordsResultEntry where
 
 instance Prelude.Hashable PutRecordsResultEntry where
   hashWithSalt _salt PutRecordsResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` sequenceNumber
       `Prelude.hashWithSalt` shardId

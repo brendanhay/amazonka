@@ -104,7 +104,8 @@ instance Core.AWSRequest GetStudioMember where
 
 instance Prelude.Hashable GetStudioMember where
   hashWithSalt _salt GetStudioMember' {..} =
-    _salt `Prelude.hashWithSalt` principalId
+    _salt
+      `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetStudioMember where

@@ -213,7 +213,8 @@ instance Data.FromJSON StreamingImage where
 
 instance Prelude.Hashable StreamingImage where
   hashWithSalt _salt StreamingImage' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ec2ImageId
       `Prelude.hashWithSalt` encryptionConfiguration

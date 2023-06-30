@@ -112,7 +112,8 @@ instance Data.FromJSON ValidationResult where
 
 instance Prelude.Hashable ValidationResult where
   hashWithSalt _salt ValidationResult' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` statusCode
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` type'

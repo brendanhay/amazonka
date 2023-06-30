@@ -83,17 +83,19 @@ instance Core.AWSPager ListStudios where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listStudiosResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listStudiosResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. listStudiosResponse_studios) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStudios_nextToken
           Lens..~ rs
-          Lens.^? listStudiosResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listStudiosResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudios where
   type AWSResponse ListStudios = ListStudiosResponse

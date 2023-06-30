@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteStreamingImage where
 
 instance Prelude.Hashable DeleteStreamingImage where
   hashWithSalt _salt DeleteStreamingImage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` streamingImageId
       `Prelude.hashWithSalt` studioId
 

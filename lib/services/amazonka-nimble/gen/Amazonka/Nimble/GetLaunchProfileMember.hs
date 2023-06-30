@@ -123,7 +123,8 @@ instance Core.AWSRequest GetLaunchProfileMember where
 
 instance Prelude.Hashable GetLaunchProfileMember where
   hashWithSalt _salt GetLaunchProfileMember' {..} =
-    _salt `Prelude.hashWithSalt` launchProfileId
+    _salt
+      `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` studioId
 

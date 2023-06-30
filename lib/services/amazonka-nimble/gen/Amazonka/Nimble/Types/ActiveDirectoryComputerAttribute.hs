@@ -73,7 +73,8 @@ instance
       "ActiveDirectoryComputerAttribute"
       ( \x ->
           ActiveDirectoryComputerAttribute'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance
@@ -83,7 +84,8 @@ instance
   hashWithSalt
     _salt
     ActiveDirectoryComputerAttribute' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` value
 
 instance

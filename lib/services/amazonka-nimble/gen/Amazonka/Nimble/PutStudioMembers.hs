@@ -136,7 +136,8 @@ instance Core.AWSRequest PutStudioMembers where
 
 instance Prelude.Hashable PutStudioMembers where
   hashWithSalt _salt PutStudioMembers' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` members
       `Prelude.hashWithSalt` studioId

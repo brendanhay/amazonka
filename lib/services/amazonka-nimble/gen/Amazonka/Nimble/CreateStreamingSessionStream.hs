@@ -142,7 +142,8 @@ instance
     CreateStreamingSessionStream
   where
   hashWithSalt _salt CreateStreamingSessionStream' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` expirationInSeconds
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` studioId

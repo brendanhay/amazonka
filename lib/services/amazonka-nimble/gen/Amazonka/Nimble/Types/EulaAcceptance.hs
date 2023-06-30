@@ -105,7 +105,8 @@ instance Data.FromJSON EulaAcceptance where
 
 instance Prelude.Hashable EulaAcceptance where
   hashWithSalt _salt EulaAcceptance' {..} =
-    _salt `Prelude.hashWithSalt` acceptedAt
+    _salt
+      `Prelude.hashWithSalt` acceptedAt
       `Prelude.hashWithSalt` acceptedBy
       `Prelude.hashWithSalt` accepteeId
       `Prelude.hashWithSalt` eulaAcceptanceId

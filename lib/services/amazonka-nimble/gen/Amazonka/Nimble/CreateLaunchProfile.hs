@@ -207,7 +207,8 @@ instance Core.AWSRequest CreateLaunchProfile where
 
 instance Prelude.Hashable CreateLaunchProfile where
   hashWithSalt _salt CreateLaunchProfile' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ec2SubnetIds

@@ -82,7 +82,8 @@ instance Data.FromJSON ComputeFarmConfiguration where
 
 instance Prelude.Hashable ComputeFarmConfiguration where
   hashWithSalt _salt ComputeFarmConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` activeDirectoryUser
+    _salt
+      `Prelude.hashWithSalt` activeDirectoryUser
       `Prelude.hashWithSalt` endpoint
 
 instance Prelude.NFData ComputeFarmConfiguration where

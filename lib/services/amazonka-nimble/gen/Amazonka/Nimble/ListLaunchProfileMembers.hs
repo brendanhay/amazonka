@@ -125,22 +125,22 @@ instance Core.AWSPager ListLaunchProfileMembers where
     | Core.stop
         ( rs
             Lens.^? listLaunchProfileMembersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listLaunchProfileMembersResponse_members
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLaunchProfileMembers_nextToken
           Lens..~ rs
           Lens.^? listLaunchProfileMembersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLaunchProfileMembers where
   type
@@ -159,7 +159,8 @@ instance Core.AWSRequest ListLaunchProfileMembers where
 
 instance Prelude.Hashable ListLaunchProfileMembers where
   hashWithSalt _salt ListLaunchProfileMembers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` studioId

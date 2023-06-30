@@ -164,7 +164,8 @@ instance Data.FromJSON StreamingSessionBackup where
 
 instance Prelude.Hashable StreamingSessionBackup where
   hashWithSalt _salt StreamingSessionBackup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` backupId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` launchProfileId

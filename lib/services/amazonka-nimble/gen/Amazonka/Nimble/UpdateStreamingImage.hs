@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateStreamingImage where
 
 instance Prelude.Hashable UpdateStreamingImage where
   hashWithSalt _salt UpdateStreamingImage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` streamingImageId

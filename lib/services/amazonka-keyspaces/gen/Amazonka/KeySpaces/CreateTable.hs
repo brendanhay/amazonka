@@ -466,7 +466,8 @@ instance Core.AWSRequest CreateTable where
 
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =
-    _salt `Prelude.hashWithSalt` capacitySpecification
+    _salt
+      `Prelude.hashWithSalt` capacitySpecification
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` defaultTimeToLive
       `Prelude.hashWithSalt` encryptionSpecification

@@ -71,12 +71,14 @@ instance Data.FromJSON ClusteringKey where
       "ClusteringKey"
       ( \x ->
           ClusteringKey'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "orderBy")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "orderBy")
       )
 
 instance Prelude.Hashable ClusteringKey where
   hashWithSalt _salt ClusteringKey' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData ClusteringKey where

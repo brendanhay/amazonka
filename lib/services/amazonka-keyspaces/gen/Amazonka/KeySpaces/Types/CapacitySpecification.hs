@@ -129,7 +129,8 @@ capacitySpecification_throughputMode = Lens.lens (\CapacitySpecification' {throu
 
 instance Prelude.Hashable CapacitySpecification where
   hashWithSalt _salt CapacitySpecification' {..} =
-    _salt `Prelude.hashWithSalt` readCapacityUnits
+    _salt
+      `Prelude.hashWithSalt` readCapacityUnits
       `Prelude.hashWithSalt` writeCapacityUnits
       `Prelude.hashWithSalt` throughputMode
 

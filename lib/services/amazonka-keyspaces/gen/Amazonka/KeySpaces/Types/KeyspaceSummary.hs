@@ -81,7 +81,8 @@ instance Data.FromJSON KeyspaceSummary where
 
 instance Prelude.Hashable KeyspaceSummary where
   hashWithSalt _salt KeyspaceSummary' {..} =
-    _salt `Prelude.hashWithSalt` keyspaceName
+    _salt
+      `Prelude.hashWithSalt` keyspaceName
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData KeyspaceSummary where

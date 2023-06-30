@@ -128,7 +128,8 @@ instance Core.AWSRequest GetTable where
 
 instance Prelude.Hashable GetTable where
   hashWithSalt _salt GetTable' {..} =
-    _salt `Prelude.hashWithSalt` keyspaceName
+    _salt
+      `Prelude.hashWithSalt` keyspaceName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData GetTable where

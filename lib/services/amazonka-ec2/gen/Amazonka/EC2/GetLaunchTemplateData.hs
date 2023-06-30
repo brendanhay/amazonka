@@ -119,7 +119,8 @@ instance Core.AWSRequest GetLaunchTemplateData where
 
 instance Prelude.Hashable GetLaunchTemplateData where
   hashWithSalt _salt GetLaunchTemplateData' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData GetLaunchTemplateData where

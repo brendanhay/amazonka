@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     NetworkInterfacePrivateIpAddress' {..} =
-      _salt `Prelude.hashWithSalt` association
+      _salt
+        `Prelude.hashWithSalt` association
         `Prelude.hashWithSalt` primary
         `Prelude.hashWithSalt` privateDnsName
         `Prelude.hashWithSalt` privateIpAddress

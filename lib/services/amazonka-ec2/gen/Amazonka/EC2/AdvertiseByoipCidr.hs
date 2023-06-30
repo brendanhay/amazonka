@@ -134,7 +134,8 @@ instance Core.AWSRequest AdvertiseByoipCidr where
 
 instance Prelude.Hashable AdvertiseByoipCidr where
   hashWithSalt _salt AdvertiseByoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` cidr
 
 instance Prelude.NFData AdvertiseByoipCidr where

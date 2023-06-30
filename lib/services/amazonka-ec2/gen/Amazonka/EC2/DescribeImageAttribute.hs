@@ -147,7 +147,8 @@ instance Core.AWSRequest DescribeImageAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeImageAttributeResponse'
-            Prelude.<$> ( x Data..@? "blockDeviceMapping"
+            Prelude.<$> ( x
+                            Data..@? "blockDeviceMapping"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -157,11 +158,14 @@ instance Core.AWSRequest DescribeImageAttribute where
             Prelude.<*> (x Data..@? "imdsSupport")
             Prelude.<*> (x Data..@? "kernel")
             Prelude.<*> (x Data..@? "lastLaunchedTime")
-            Prelude.<*> ( x Data..@? "launchPermission"
+            Prelude.<*> ( x
+                            Data..@? "launchPermission"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "productCodes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "ramdisk")
@@ -173,7 +177,8 @@ instance Core.AWSRequest DescribeImageAttribute where
 
 instance Prelude.Hashable DescribeImageAttribute where
   hashWithSalt _salt DescribeImageAttribute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` imageId
 

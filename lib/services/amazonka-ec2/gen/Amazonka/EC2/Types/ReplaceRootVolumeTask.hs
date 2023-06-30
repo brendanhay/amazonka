@@ -202,14 +202,17 @@ instance Data.FromXML ReplaceRootVolumeTask where
       Prelude.<*> (x Data..@? "replaceRootVolumeTaskId")
       Prelude.<*> (x Data..@? "snapshotId")
       Prelude.<*> (x Data..@? "startTime")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "taskState")
 
 instance Prelude.Hashable ReplaceRootVolumeTask where
   hashWithSalt _salt ReplaceRootVolumeTask' {..} =
-    _salt `Prelude.hashWithSalt` completeTime
+    _salt
+      `Prelude.hashWithSalt` completeTime
       `Prelude.hashWithSalt` deleteReplacedRootVolume
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` instanceId

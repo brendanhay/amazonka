@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateElasticInferenceAccelerator' {..} =
-      _salt `Prelude.hashWithSalt` count
+      _salt
+        `Prelude.hashWithSalt` count
         `Prelude.hashWithSalt` type'
 
 instance

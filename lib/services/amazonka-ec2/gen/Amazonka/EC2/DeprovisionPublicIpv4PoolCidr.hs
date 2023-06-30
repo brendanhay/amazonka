@@ -122,7 +122,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeprovisionPublicIpv4PoolCidrResponse'
-            Prelude.<$> ( x Data..@? "deprovisionedAddressSet"
+            Prelude.<$> ( x
+                            Data..@? "deprovisionedAddressSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -135,7 +136,8 @@ instance
     DeprovisionPublicIpv4PoolCidr
   where
   hashWithSalt _salt DeprovisionPublicIpv4PoolCidr' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` cidr
 

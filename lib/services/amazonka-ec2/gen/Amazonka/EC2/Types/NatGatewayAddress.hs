@@ -98,7 +98,8 @@ instance Data.FromXML NatGatewayAddress where
 
 instance Prelude.Hashable NatGatewayAddress where
   hashWithSalt _salt NatGatewayAddress' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` privateIp
       `Prelude.hashWithSalt` publicIp

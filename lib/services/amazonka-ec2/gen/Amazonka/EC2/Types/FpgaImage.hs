@@ -206,27 +206,34 @@ instance Data.FromXML FpgaImage where
       Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "fpgaImageGlobalId")
       Prelude.<*> (x Data..@? "fpgaImageId")
-      Prelude.<*> ( x Data..@? "instanceTypes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "instanceTypes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "name")
       Prelude.<*> (x Data..@? "ownerAlias")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "pciId")
-      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "productCodes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "public")
       Prelude.<*> (x Data..@? "shellVersion")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "updateTime")
 
 instance Prelude.Hashable FpgaImage where
   hashWithSalt _salt FpgaImage' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` dataRetentionSupport
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fpgaImageGlobalId

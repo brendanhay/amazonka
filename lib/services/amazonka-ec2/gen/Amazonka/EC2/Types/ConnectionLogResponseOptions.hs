@@ -95,7 +95,8 @@ instance
     ConnectionLogResponseOptions
   where
   hashWithSalt _salt ConnectionLogResponseOptions' {..} =
-    _salt `Prelude.hashWithSalt` cloudwatchLogGroup
+    _salt
+      `Prelude.hashWithSalt` cloudwatchLogGroup
       `Prelude.hashWithSalt` cloudwatchLogStream
       `Prelude.hashWithSalt` enabled
 

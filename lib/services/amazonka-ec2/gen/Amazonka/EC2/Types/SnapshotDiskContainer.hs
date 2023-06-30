@@ -94,7 +94,8 @@ snapshotDiskContainer_userBucket = Lens.lens (\SnapshotDiskContainer' {userBucke
 
 instance Prelude.Hashable SnapshotDiskContainer where
   hashWithSalt _salt SnapshotDiskContainer' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` userBucket

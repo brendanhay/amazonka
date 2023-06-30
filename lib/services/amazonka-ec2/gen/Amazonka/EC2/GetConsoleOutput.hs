@@ -149,7 +149,8 @@ instance Core.AWSRequest GetConsoleOutput where
 
 instance Prelude.Hashable GetConsoleOutput where
   hashWithSalt _salt GetConsoleOutput' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` latest
       `Prelude.hashWithSalt` instanceId
 

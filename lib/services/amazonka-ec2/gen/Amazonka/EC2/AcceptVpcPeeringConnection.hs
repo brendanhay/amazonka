@@ -119,7 +119,8 @@ instance Core.AWSRequest AcceptVpcPeeringConnection where
 
 instance Prelude.Hashable AcceptVpcPeeringConnection where
   hashWithSalt _salt AcceptVpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpcPeeringConnectionId
 
 instance Prelude.NFData AcceptVpcPeeringConnection where

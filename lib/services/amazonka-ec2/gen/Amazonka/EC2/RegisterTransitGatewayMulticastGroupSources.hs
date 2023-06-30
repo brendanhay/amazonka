@@ -146,7 +146,7 @@ instance
       ( \s h x ->
           RegisterTransitGatewayMulticastGroupSourcesResponse'
             Prelude.<$> (x Data..@? "registeredMulticastGroupSources")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -156,7 +156,8 @@ instance
   hashWithSalt
     _salt
     RegisterTransitGatewayMulticastGroupSources' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` groupIpAddress
         `Prelude.hashWithSalt` networkInterfaceIds
         `Prelude.hashWithSalt` transitGatewayMulticastDomainId

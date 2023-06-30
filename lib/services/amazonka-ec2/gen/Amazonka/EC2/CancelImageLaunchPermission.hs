@@ -115,7 +115,8 @@ instance Core.AWSRequest CancelImageLaunchPermission where
 
 instance Prelude.Hashable CancelImageLaunchPermission where
   hashWithSalt _salt CancelImageLaunchPermission' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` imageId
 
 instance Prelude.NFData CancelImageLaunchPermission where

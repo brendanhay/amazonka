@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteNetworkInterface where
 
 instance Prelude.Hashable DeleteNetworkInterface where
   hashWithSalt _salt DeleteNetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` networkInterfaceId
 
 instance Prelude.NFData DeleteNetworkInterface where

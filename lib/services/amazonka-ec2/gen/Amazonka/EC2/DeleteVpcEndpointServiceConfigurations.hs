@@ -111,10 +111,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointServiceConfigurationsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -124,7 +126,8 @@ instance
   hashWithSalt
     _salt
     DeleteVpcEndpointServiceConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` serviceIds
 
 instance

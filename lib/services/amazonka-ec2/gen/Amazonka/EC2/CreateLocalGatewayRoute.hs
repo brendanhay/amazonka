@@ -155,7 +155,8 @@ instance Core.AWSRequest CreateLocalGatewayRoute where
 
 instance Prelude.Hashable CreateLocalGatewayRoute where
   hashWithSalt _salt CreateLocalGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupId
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` destinationCidrBlock

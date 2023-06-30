@@ -123,7 +123,8 @@ instance Core.AWSRequest CreateCoipCidr where
 
 instance Prelude.Hashable CreateCoipCidr where
   hashWithSalt _salt CreateCoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` coipPoolId
 

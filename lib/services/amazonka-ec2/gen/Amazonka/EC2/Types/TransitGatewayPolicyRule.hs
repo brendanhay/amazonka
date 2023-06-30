@@ -119,7 +119,8 @@ instance Data.FromXML TransitGatewayPolicyRule where
 
 instance Prelude.Hashable TransitGatewayPolicyRule where
   hashWithSalt _salt TransitGatewayPolicyRule' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidrBlock
+    _salt
+      `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` destinationPortRange
       `Prelude.hashWithSalt` metaData
       `Prelude.hashWithSalt` protocol

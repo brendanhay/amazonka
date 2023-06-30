@@ -134,7 +134,8 @@ instance Core.AWSRequest ModifyVpcTenancy where
 
 instance Prelude.Hashable ModifyVpcTenancy where
   hashWithSalt _salt ModifyVpcTenancy' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` instanceTenancy
 

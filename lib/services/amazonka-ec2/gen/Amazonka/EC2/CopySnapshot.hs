@@ -381,7 +381,9 @@ instance Core.AWSRequest CopySnapshot where
       ( \s h x ->
           CopySnapshotResponse'
             Prelude.<$> (x Data..@? "snapshotId")
-            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -389,7 +391,8 @@ instance Core.AWSRequest CopySnapshot where
 
 instance Prelude.Hashable CopySnapshot where
   hashWithSalt _salt CopySnapshot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationOutpostArn
       `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` dryRun

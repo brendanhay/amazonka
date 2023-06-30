@@ -136,7 +136,8 @@ instance Core.AWSRequest DeleteRoute where
 
 instance Prelude.Hashable DeleteRoute where
   hashWithSalt _salt DeleteRoute' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidrBlock
+    _salt
+      `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` destinationIpv6CidrBlock
       `Prelude.hashWithSalt` destinationPrefixListId
       `Prelude.hashWithSalt` dryRun

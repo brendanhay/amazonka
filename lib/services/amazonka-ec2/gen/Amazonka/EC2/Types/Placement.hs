@@ -250,7 +250,8 @@ instance Data.FromXML Placement where
 
 instance Prelude.Hashable Placement where
   hashWithSalt _salt Placement' {..} =
-    _salt `Prelude.hashWithSalt` affinity
+    _salt
+      `Prelude.hashWithSalt` affinity
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName

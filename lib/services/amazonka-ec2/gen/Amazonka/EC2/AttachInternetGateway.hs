@@ -117,7 +117,8 @@ instance Core.AWSRequest AttachInternetGateway where
 
 instance Prelude.Hashable AttachInternetGateway where
   hashWithSalt _salt AttachInternetGateway' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` internetGatewayId
       `Prelude.hashWithSalt` vpcId
 

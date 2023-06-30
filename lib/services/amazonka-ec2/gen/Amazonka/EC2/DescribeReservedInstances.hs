@@ -317,7 +317,8 @@ instance Core.AWSRequest DescribeReservedInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesResponse'
-            Prelude.<$> ( x Data..@? "reservedInstancesSet"
+            Prelude.<$> ( x
+                            Data..@? "reservedInstancesSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -326,7 +327,8 @@ instance Core.AWSRequest DescribeReservedInstances where
 
 instance Prelude.Hashable DescribeReservedInstances where
   hashWithSalt _salt DescribeReservedInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` offeringClass
       `Prelude.hashWithSalt` offeringType

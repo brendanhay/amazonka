@@ -125,7 +125,8 @@ instance Data.FromXML PriceSchedule where
 
 instance Prelude.Hashable PriceSchedule where
   hashWithSalt _salt PriceSchedule' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` price
       `Prelude.hashWithSalt` term

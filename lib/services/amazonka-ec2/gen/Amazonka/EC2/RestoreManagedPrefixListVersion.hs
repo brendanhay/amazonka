@@ -148,7 +148,8 @@ instance
   hashWithSalt
     _salt
     RestoreManagedPrefixListVersion' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` prefixListId
         `Prelude.hashWithSalt` previousVersion
         `Prelude.hashWithSalt` currentVersion

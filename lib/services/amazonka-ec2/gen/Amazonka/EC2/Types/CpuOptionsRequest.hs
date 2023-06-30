@@ -72,7 +72,8 @@ cpuOptionsRequest_threadsPerCore = Lens.lens (\CpuOptionsRequest' {threadsPerCor
 
 instance Prelude.Hashable CpuOptionsRequest where
   hashWithSalt _salt CpuOptionsRequest' {..} =
-    _salt `Prelude.hashWithSalt` coreCount
+    _salt
+      `Prelude.hashWithSalt` coreCount
       `Prelude.hashWithSalt` threadsPerCore
 
 instance Prelude.NFData CpuOptionsRequest where

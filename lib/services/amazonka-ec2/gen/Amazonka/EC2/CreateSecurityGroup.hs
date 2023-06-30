@@ -212,7 +212,9 @@ instance Core.AWSRequest CreateSecurityGroup where
     Response.receiveXML
       ( \s h x ->
           CreateSecurityGroupResponse'
-            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -221,7 +223,8 @@ instance Core.AWSRequest CreateSecurityGroup where
 
 instance Prelude.Hashable CreateSecurityGroup where
   hashWithSalt _salt CreateSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` description

@@ -168,7 +168,9 @@ instance Core.AWSRequest RunScheduledInstances where
     Response.receiveXML
       ( \s h x ->
           RunScheduledInstancesResponse'
-            Prelude.<$> ( x Data..@? "instanceIdSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instanceIdSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -176,7 +178,8 @@ instance Core.AWSRequest RunScheduledInstances where
 
 instance Prelude.Hashable RunScheduledInstances where
   hashWithSalt _salt RunScheduledInstances' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` launchSpecification

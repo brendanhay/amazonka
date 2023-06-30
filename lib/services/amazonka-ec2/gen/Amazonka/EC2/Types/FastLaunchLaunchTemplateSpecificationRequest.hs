@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     FastLaunchLaunchTemplateSpecificationRequest' {..} =
-      _salt `Prelude.hashWithSalt` launchTemplateId
+      _salt
+        `Prelude.hashWithSalt` launchTemplateId
         `Prelude.hashWithSalt` launchTemplateName
         `Prelude.hashWithSalt` version
 

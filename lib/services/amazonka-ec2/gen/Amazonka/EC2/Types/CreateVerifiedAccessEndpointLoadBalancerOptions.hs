@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     CreateVerifiedAccessEndpointLoadBalancerOptions' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerArn
+      _salt
+        `Prelude.hashWithSalt` loadBalancerArn
         `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` protocol
         `Prelude.hashWithSalt` subnetIds

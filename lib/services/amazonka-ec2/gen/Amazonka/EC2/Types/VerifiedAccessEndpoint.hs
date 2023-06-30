@@ -248,12 +248,15 @@ instance Data.FromXML VerifiedAccessEndpoint where
       Prelude.<*> (x Data..@? "lastUpdatedTime")
       Prelude.<*> (x Data..@? "loadBalancerOptions")
       Prelude.<*> (x Data..@? "networkInterfaceOptions")
-      Prelude.<*> ( x Data..@? "securityGroupIdSet"
+      Prelude.<*> ( x
+                      Data..@? "securityGroupIdSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "status")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "verifiedAccessEndpointId")
@@ -262,7 +265,8 @@ instance Data.FromXML VerifiedAccessEndpoint where
 
 instance Prelude.Hashable VerifiedAccessEndpoint where
   hashWithSalt _salt VerifiedAccessEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` applicationDomain
+    _salt
+      `Prelude.hashWithSalt` applicationDomain
       `Prelude.hashWithSalt` attachmentType
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` deletionTime

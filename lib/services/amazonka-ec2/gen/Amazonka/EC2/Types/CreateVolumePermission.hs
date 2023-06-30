@@ -73,7 +73,8 @@ instance Data.FromXML CreateVolumePermission where
 
 instance Prelude.Hashable CreateVolumePermission where
   hashWithSalt _salt CreateVolumePermission' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData CreateVolumePermission where

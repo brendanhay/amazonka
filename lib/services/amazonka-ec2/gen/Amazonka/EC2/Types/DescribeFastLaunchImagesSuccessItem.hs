@@ -176,7 +176,8 @@ instance
   hashWithSalt
     _salt
     DescribeFastLaunchImagesSuccessItem' {..} =
-      _salt `Prelude.hashWithSalt` imageId
+      _salt
+        `Prelude.hashWithSalt` imageId
         `Prelude.hashWithSalt` launchTemplate
         `Prelude.hashWithSalt` maxParallelLaunches
         `Prelude.hashWithSalt` ownerId

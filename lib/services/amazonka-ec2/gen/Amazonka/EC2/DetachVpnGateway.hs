@@ -124,7 +124,8 @@ instance Core.AWSRequest DetachVpnGateway where
 
 instance Prelude.Hashable DetachVpnGateway where
   hashWithSalt _salt DetachVpnGateway' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` vpnGatewayId
 

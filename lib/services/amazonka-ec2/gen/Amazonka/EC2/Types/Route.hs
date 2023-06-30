@@ -246,7 +246,8 @@ instance Data.FromXML Route where
 
 instance Prelude.Hashable Route where
   hashWithSalt _salt Route' {..} =
-    _salt `Prelude.hashWithSalt` carrierGatewayId
+    _salt
+      `Prelude.hashWithSalt` carrierGatewayId
       `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` destinationIpv6CidrBlock

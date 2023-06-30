@@ -130,7 +130,8 @@ instance Core.AWSRequest AttachVpnGateway where
 
 instance Prelude.Hashable AttachVpnGateway where
   hashWithSalt _salt AttachVpnGateway' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` vpnGatewayId
 

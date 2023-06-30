@@ -161,22 +161,22 @@ instance Core.AWSPager DescribeMovingAddresses where
     | Core.stop
         ( rs
             Lens.^? describeMovingAddressesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeMovingAddressesResponse_movingAddressStatuses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeMovingAddresses_nextToken
           Lens..~ rs
           Lens.^? describeMovingAddressesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeMovingAddresses where
   type
@@ -188,7 +188,8 @@ instance Core.AWSRequest DescribeMovingAddresses where
     Response.receiveXML
       ( \s h x ->
           DescribeMovingAddressesResponse'
-            Prelude.<$> ( x Data..@? "movingAddressStatusSet"
+            Prelude.<$> ( x
+                            Data..@? "movingAddressStatusSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -198,7 +199,8 @@ instance Core.AWSRequest DescribeMovingAddresses where
 
 instance Prelude.Hashable DescribeMovingAddresses where
   hashWithSalt _salt DescribeMovingAddresses' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

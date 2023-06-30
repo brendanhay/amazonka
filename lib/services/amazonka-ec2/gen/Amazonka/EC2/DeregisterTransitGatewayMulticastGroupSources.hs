@@ -133,7 +133,7 @@ instance
       ( \s h x ->
           DeregisterTransitGatewayMulticastGroupSourcesResponse'
             Prelude.<$> (x Data..@? "deregisteredMulticastGroupSources")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     DeregisterTransitGatewayMulticastGroupSources' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` groupIpAddress
         `Prelude.hashWithSalt` networkInterfaceIds
         `Prelude.hashWithSalt` transitGatewayMulticastDomainId

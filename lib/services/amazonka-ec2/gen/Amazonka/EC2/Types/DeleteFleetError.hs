@@ -72,7 +72,8 @@ instance Data.FromXML DeleteFleetError where
 
 instance Prelude.Hashable DeleteFleetError where
   hashWithSalt _salt DeleteFleetError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData DeleteFleetError where

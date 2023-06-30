@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteVerifiedAccessGroup where
 
 instance Prelude.Hashable DeleteVerifiedAccessGroup where
   hashWithSalt _salt DeleteVerifiedAccessGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessGroupId
 

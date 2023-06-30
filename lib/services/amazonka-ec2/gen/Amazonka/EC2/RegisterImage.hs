@@ -516,7 +516,8 @@ instance Core.AWSRequest RegisterImage where
 
 instance Prelude.Hashable RegisterImage where
   hashWithSalt _salt RegisterImage' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` billingProducts
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` bootMode

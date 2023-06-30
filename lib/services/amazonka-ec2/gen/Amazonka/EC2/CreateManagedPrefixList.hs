@@ -198,7 +198,8 @@ instance Core.AWSRequest CreateManagedPrefixList where
 
 instance Prelude.Hashable CreateManagedPrefixList where
   hashWithSalt _salt CreateManagedPrefixList' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` entries
       `Prelude.hashWithSalt` tagSpecifications

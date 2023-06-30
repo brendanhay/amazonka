@@ -129,7 +129,8 @@ instance Core.AWSRequest AssociateDhcpOptions where
 
 instance Prelude.Hashable AssociateDhcpOptions where
   hashWithSalt _salt AssociateDhcpOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` dhcpOptionsId
       `Prelude.hashWithSalt` vpcId
 

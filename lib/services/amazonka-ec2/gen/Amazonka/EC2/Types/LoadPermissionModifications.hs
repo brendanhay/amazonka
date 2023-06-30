@@ -67,7 +67,8 @@ loadPermissionModifications_remove = Lens.lens (\LoadPermissionModifications' {r
 
 instance Prelude.Hashable LoadPermissionModifications where
   hashWithSalt _salt LoadPermissionModifications' {..} =
-    _salt `Prelude.hashWithSalt` add
+    _salt
+      `Prelude.hashWithSalt` add
       `Prelude.hashWithSalt` remove
 
 instance Prelude.NFData LoadPermissionModifications where

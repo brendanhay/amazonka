@@ -150,7 +150,8 @@ instance Core.AWSRequest CreateTransitGatewayRoute where
 
 instance Prelude.Hashable CreateTransitGatewayRoute where
   hashWithSalt _salt CreateTransitGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` blackhole
+    _salt
+      `Prelude.hashWithSalt` blackhole
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` transitGatewayAttachmentId
       `Prelude.hashWithSalt` destinationCidrBlock

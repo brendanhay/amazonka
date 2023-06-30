@@ -75,7 +75,8 @@ instance Data.FromXML InstanceCount where
 
 instance Prelude.Hashable InstanceCount where
   hashWithSalt _salt InstanceCount' {..} =
-    _salt `Prelude.hashWithSalt` instanceCount
+    _salt
+      `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData InstanceCount where

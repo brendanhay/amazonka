@@ -197,7 +197,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateInstanceMetadataOptionsRequest' {..} =
-      _salt `Prelude.hashWithSalt` httpEndpoint
+      _salt
+        `Prelude.hashWithSalt` httpEndpoint
         `Prelude.hashWithSalt` httpProtocolIpv6
         `Prelude.hashWithSalt` httpPutResponseHopLimit
         `Prelude.hashWithSalt` httpTokens

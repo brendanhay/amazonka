@@ -199,7 +199,9 @@ instance Data.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
       Prelude.<$> (x Data..@? "groupName")
-      Prelude.<*> ( x Data..@? "messageSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "messageSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "networkBorderGroup")
@@ -214,7 +216,8 @@ instance Data.FromXML AvailabilityZone where
 
 instance Prelude.Hashable AvailabilityZone where
   hashWithSalt _salt AvailabilityZone' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` messages
       `Prelude.hashWithSalt` networkBorderGroup
       `Prelude.hashWithSalt` optInStatus

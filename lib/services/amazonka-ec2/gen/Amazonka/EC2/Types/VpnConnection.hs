@@ -229,14 +229,20 @@ instance Data.FromXML VpnConnection where
       Prelude.<*> (x Data..@? "customerGatewayConfiguration")
       Prelude.<*> (x Data..@? "gatewayAssociationState")
       Prelude.<*> (x Data..@? "options")
-      Prelude.<*> ( x Data..@? "routes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "routes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
-      Prelude.<*> ( x Data..@? "vgwTelemetry" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "vgwTelemetry"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpnGatewayId")
@@ -247,7 +253,8 @@ instance Data.FromXML VpnConnection where
 
 instance Prelude.Hashable VpnConnection where
   hashWithSalt _salt VpnConnection' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` coreNetworkAttachmentArn
       `Prelude.hashWithSalt` customerGatewayConfiguration

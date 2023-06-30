@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     CreateVerifiedAccessTrustProviderOidcOptions' {..} =
-      _salt `Prelude.hashWithSalt` authorizationEndpoint
+      _salt
+        `Prelude.hashWithSalt` authorizationEndpoint
         `Prelude.hashWithSalt` clientId
         `Prelude.hashWithSalt` clientSecret
         `Prelude.hashWithSalt` issuer

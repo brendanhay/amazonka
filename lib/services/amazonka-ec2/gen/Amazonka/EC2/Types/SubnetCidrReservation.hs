@@ -119,13 +119,16 @@ instance Data.FromXML SubnetCidrReservation where
       Prelude.<*> (x Data..@? "reservationType")
       Prelude.<*> (x Data..@? "subnetCidrReservationId")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable SubnetCidrReservation where
   hashWithSalt _salt SubnetCidrReservation' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` reservationType

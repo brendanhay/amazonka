@@ -110,7 +110,8 @@ instance Core.AWSRequest RebootInstances where
 
 instance Prelude.Hashable RebootInstances where
   hashWithSalt _salt RebootInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceIds
 
 instance Prelude.NFData RebootInstances where

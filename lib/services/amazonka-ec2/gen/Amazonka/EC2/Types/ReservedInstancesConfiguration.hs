@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     ReservedInstancesConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` instanceCount
         `Prelude.hashWithSalt` instanceType
         `Prelude.hashWithSalt` platform

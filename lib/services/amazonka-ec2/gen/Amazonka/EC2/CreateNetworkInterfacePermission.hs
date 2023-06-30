@@ -160,7 +160,8 @@ instance
   hashWithSalt
     _salt
     CreateNetworkInterfacePermission' {..} =
-      _salt `Prelude.hashWithSalt` awsAccountId
+      _salt
+        `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` awsService
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` networkInterfaceId

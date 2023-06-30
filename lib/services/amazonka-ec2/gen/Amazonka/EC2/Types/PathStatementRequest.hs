@@ -68,7 +68,8 @@ pathStatementRequest_resourceStatement = Lens.lens (\PathStatementRequest' {reso
 
 instance Prelude.Hashable PathStatementRequest where
   hashWithSalt _salt PathStatementRequest' {..} =
-    _salt `Prelude.hashWithSalt` packetHeaderStatement
+    _salt
+      `Prelude.hashWithSalt` packetHeaderStatement
       `Prelude.hashWithSalt` resourceStatement
 
 instance Prelude.NFData PathStatementRequest where

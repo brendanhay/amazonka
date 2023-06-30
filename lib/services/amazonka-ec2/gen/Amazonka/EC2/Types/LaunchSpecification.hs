@@ -224,7 +224,8 @@ instance Data.FromXML LaunchSpecification where
   parseXML x =
     LaunchSpecification'
       Prelude.<$> (x Data..@? "addressingType")
-      Prelude.<*> ( x Data..@? "blockDeviceMapping"
+      Prelude.<*> ( x
+                      Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -235,13 +236,16 @@ instance Data.FromXML LaunchSpecification where
       Prelude.<*> (x Data..@? "kernelId")
       Prelude.<*> (x Data..@? "keyName")
       Prelude.<*> (x Data..@? "monitoring")
-      Prelude.<*> ( x Data..@? "networkInterfaceSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "placement")
       Prelude.<*> (x Data..@? "ramdiskId")
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "subnetId")
@@ -249,7 +253,8 @@ instance Data.FromXML LaunchSpecification where
 
 instance Prelude.Hashable LaunchSpecification where
   hashWithSalt _salt LaunchSpecification' {..} =
-    _salt `Prelude.hashWithSalt` addressingType
+    _salt
+      `Prelude.hashWithSalt` addressingType
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` ebsOptimized
       `Prelude.hashWithSalt` iamInstanceProfile

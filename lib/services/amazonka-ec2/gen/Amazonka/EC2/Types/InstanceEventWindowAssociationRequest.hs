@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     InstanceEventWindowAssociationRequest' {..} =
-      _salt `Prelude.hashWithSalt` dedicatedHostIds
+      _salt
+        `Prelude.hashWithSalt` dedicatedHostIds
         `Prelude.hashWithSalt` instanceIds
         `Prelude.hashWithSalt` instanceTags
 

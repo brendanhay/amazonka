@@ -439,7 +439,8 @@ instance Core.AWSRequest ModifyInstanceAttribute where
 
 instance Prelude.Hashable ModifyInstanceAttribute where
   hashWithSalt _salt ModifyInstanceAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` disableApiStop
       `Prelude.hashWithSalt` disableApiTermination

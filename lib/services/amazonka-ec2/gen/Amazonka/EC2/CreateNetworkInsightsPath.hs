@@ -209,7 +209,8 @@ instance Core.AWSRequest CreateNetworkInsightsPath where
 
 instance Prelude.Hashable CreateNetworkInsightsPath where
   hashWithSalt _salt CreateNetworkInsightsPath' {..} =
-    _salt `Prelude.hashWithSalt` destinationIp
+    _salt
+      `Prelude.hashWithSalt` destinationIp
       `Prelude.hashWithSalt` destinationPort
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` sourceIp

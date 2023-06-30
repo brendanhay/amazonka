@@ -258,22 +258,22 @@ instance Core.AWSPager DescribeVpcPeeringConnections where
     | Core.stop
         ( rs
             Lens.^? describeVpcPeeringConnectionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcPeeringConnectionsResponse_vpcPeeringConnections
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcPeeringConnections_nextToken
           Lens..~ rs
           Lens.^? describeVpcPeeringConnectionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -289,7 +289,8 @@ instance
       ( \s h x ->
           DescribeVpcPeeringConnectionsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "vpcPeeringConnectionSet"
+            Prelude.<*> ( x
+                            Data..@? "vpcPeeringConnectionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -301,7 +302,8 @@ instance
     DescribeVpcPeeringConnections
   where
   hashWithSalt _salt DescribeVpcPeeringConnections' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

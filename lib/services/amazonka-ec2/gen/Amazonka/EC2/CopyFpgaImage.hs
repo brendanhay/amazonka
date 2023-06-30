@@ -159,7 +159,8 @@ instance Core.AWSRequest CopyFpgaImage where
 
 instance Prelude.Hashable CopyFpgaImage where
   hashWithSalt _salt CopyFpgaImage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` name

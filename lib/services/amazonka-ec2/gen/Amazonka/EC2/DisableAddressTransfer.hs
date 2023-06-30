@@ -113,7 +113,8 @@ instance Core.AWSRequest DisableAddressTransfer where
 
 instance Prelude.Hashable DisableAddressTransfer where
   hashWithSalt _salt DisableAddressTransfer' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` allocationId
 
 instance Prelude.NFData DisableAddressTransfer where

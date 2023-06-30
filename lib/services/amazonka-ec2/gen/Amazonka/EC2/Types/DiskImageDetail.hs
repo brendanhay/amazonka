@@ -111,7 +111,8 @@ diskImageDetail_importManifestUrl = Lens.lens (\DiskImageDetail' {importManifest
 
 instance Prelude.Hashable DiskImageDetail where
   hashWithSalt _salt DiskImageDetail' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` importManifestUrl
 

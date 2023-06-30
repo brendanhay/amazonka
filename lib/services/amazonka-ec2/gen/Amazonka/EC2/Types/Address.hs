@@ -207,13 +207,16 @@ instance Data.FromXML Address where
       Prelude.<*> (x Data..@? "privateIpAddress")
       Prelude.<*> (x Data..@? "publicIp")
       Prelude.<*> (x Data..@? "publicIpv4Pool")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable Address where
   hashWithSalt _salt Address' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` carrierIp
       `Prelude.hashWithSalt` customerOwnedIp

@@ -190,7 +190,8 @@ instance Core.AWSRequest ModifyManagedPrefixList where
 
 instance Prelude.Hashable ModifyManagedPrefixList where
   hashWithSalt _salt ModifyManagedPrefixList' {..} =
-    _salt `Prelude.hashWithSalt` addEntries
+    _salt
+      `Prelude.hashWithSalt` addEntries
       `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxEntries

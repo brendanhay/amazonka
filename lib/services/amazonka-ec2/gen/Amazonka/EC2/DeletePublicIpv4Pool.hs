@@ -114,7 +114,8 @@ instance Core.AWSRequest DeletePublicIpv4Pool where
 
 instance Prelude.Hashable DeletePublicIpv4Pool where
   hashWithSalt _salt DeletePublicIpv4Pool' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` poolId
 
 instance Prelude.NFData DeletePublicIpv4Pool where

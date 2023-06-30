@@ -107,7 +107,8 @@ exportToS3TaskSpecification_s3Prefix = Lens.lens (\ExportToS3TaskSpecification' 
 
 instance Prelude.Hashable ExportToS3TaskSpecification where
   hashWithSalt _salt ExportToS3TaskSpecification' {..} =
-    _salt `Prelude.hashWithSalt` containerFormat
+    _salt
+      `Prelude.hashWithSalt` containerFormat
       `Prelude.hashWithSalt` diskImageFormat
       `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Prefix

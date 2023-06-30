@@ -148,7 +148,7 @@ instance
       ( \s h x ->
           ModifyTransitGatewayPrefixListReferenceResponse'
             Prelude.<$> (x Data..@? "transitGatewayPrefixListReference")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     ModifyTransitGatewayPrefixListReference' {..} =
-      _salt `Prelude.hashWithSalt` blackhole
+      _salt
+        `Prelude.hashWithSalt` blackhole
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` transitGatewayAttachmentId
         `Prelude.hashWithSalt` transitGatewayRouteTableId

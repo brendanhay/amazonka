@@ -73,7 +73,8 @@ instance Data.FromXML UnsuccessfulItem where
 
 instance Prelude.Hashable UnsuccessfulItem where
   hashWithSalt _salt UnsuccessfulItem' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData UnsuccessfulItem where

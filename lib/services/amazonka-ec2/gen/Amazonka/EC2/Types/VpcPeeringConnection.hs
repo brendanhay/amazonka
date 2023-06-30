@@ -116,14 +116,17 @@ instance Data.FromXML VpcPeeringConnection where
       Prelude.<*> (x Data..@? "expirationTime")
       Prelude.<*> (x Data..@? "requesterVpcInfo")
       Prelude.<*> (x Data..@? "status")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcPeeringConnectionId")
 
 instance Prelude.Hashable VpcPeeringConnection where
   hashWithSalt _salt VpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` accepterVpcInfo
+    _salt
+      `Prelude.hashWithSalt` accepterVpcInfo
       `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` requesterVpcInfo
       `Prelude.hashWithSalt` status

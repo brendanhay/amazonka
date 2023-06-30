@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     VerifiedAccessLogS3DestinationOptions' {..} =
-      _salt `Prelude.hashWithSalt` bucketName
+      _salt
+        `Prelude.hashWithSalt` bucketName
         `Prelude.hashWithSalt` bucketOwner
         `Prelude.hashWithSalt` prefix
         `Prelude.hashWithSalt` enabled

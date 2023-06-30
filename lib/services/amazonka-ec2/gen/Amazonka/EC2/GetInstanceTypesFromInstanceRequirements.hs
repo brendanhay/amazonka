@@ -177,22 +177,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getInstanceTypesFromInstanceRequirementsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getInstanceTypesFromInstanceRequirementsResponse_instanceTypes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getInstanceTypesFromInstanceRequirements_nextToken
           Lens..~ rs
-            Lens.^? getInstanceTypesFromInstanceRequirementsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? getInstanceTypesFromInstanceRequirementsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -208,11 +208,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetInstanceTypesFromInstanceRequirementsResponse'
-            Prelude.<$> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instanceTypeSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -222,7 +224,8 @@ instance
   hashWithSalt
     _salt
     GetInstanceTypesFromInstanceRequirements' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` architectureTypes

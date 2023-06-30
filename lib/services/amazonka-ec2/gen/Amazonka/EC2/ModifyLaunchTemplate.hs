@@ -172,7 +172,8 @@ instance Core.AWSRequest ModifyLaunchTemplate where
 
 instance Prelude.Hashable ModifyLaunchTemplate where
   hashWithSalt _salt ModifyLaunchTemplate' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` defaultVersion
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchTemplateId

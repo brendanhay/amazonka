@@ -358,22 +358,22 @@ instance Core.AWSPager DescribeLaunchTemplateVersions where
     | Core.stop
         ( rs
             Lens.^? describeLaunchTemplateVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLaunchTemplateVersionsResponse_launchTemplateVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLaunchTemplateVersions_nextToken
           Lens..~ rs
           Lens.^? describeLaunchTemplateVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -388,7 +388,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeLaunchTemplateVersionsResponse'
-            Prelude.<$> ( x Data..@? "launchTemplateVersionSet"
+            Prelude.<$> ( x
+                            Data..@? "launchTemplateVersionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -403,7 +404,8 @@ instance
   hashWithSalt
     _salt
     DescribeLaunchTemplateVersions' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` launchTemplateId
         `Prelude.hashWithSalt` launchTemplateName

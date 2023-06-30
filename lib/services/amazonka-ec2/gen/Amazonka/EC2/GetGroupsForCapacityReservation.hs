@@ -139,22 +139,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getGroupsForCapacityReservationResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getGroupsForCapacityReservationResponse_capacityReservationGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getGroupsForCapacityReservation_nextToken
           Lens..~ rs
           Lens.^? getGroupsForCapacityReservationResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -169,7 +169,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetGroupsForCapacityReservationResponse'
-            Prelude.<$> ( x Data..@? "capacityReservationGroupSet"
+            Prelude.<$> ( x
+                            Data..@? "capacityReservationGroupSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -184,7 +185,8 @@ instance
   hashWithSalt
     _salt
     GetGroupsForCapacityReservation' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` capacityReservationId

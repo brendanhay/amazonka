@@ -128,7 +128,8 @@ instance Data.FromXML S3Storage where
 
 instance Prelude.Hashable S3Storage where
   hashWithSalt _salt S3Storage' {..} =
-    _salt `Prelude.hashWithSalt` aWSAccessKeyId
+    _salt
+      `Prelude.hashWithSalt` aWSAccessKeyId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` uploadPolicy

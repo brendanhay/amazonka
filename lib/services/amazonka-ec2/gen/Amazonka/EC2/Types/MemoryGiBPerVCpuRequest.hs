@@ -71,7 +71,8 @@ memoryGiBPerVCpuRequest_min = Lens.lens (\MemoryGiBPerVCpuRequest' {min} -> min)
 
 instance Prelude.Hashable MemoryGiBPerVCpuRequest where
   hashWithSalt _salt MemoryGiBPerVCpuRequest' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData MemoryGiBPerVCpuRequest where

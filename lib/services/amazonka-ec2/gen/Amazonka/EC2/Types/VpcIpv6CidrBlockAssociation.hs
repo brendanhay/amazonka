@@ -112,7 +112,8 @@ instance Data.FromXML VpcIpv6CidrBlockAssociation where
 
 instance Prelude.Hashable VpcIpv6CidrBlockAssociation where
   hashWithSalt _salt VpcIpv6CidrBlockAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` ipv6CidrBlock
       `Prelude.hashWithSalt` ipv6CidrBlockState
       `Prelude.hashWithSalt` ipv6Pool

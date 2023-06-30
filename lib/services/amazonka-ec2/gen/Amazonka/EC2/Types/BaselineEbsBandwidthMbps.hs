@@ -75,11 +75,13 @@ baselineEbsBandwidthMbps_min = Lens.lens (\BaselineEbsBandwidthMbps' {min} -> mi
 instance Data.FromXML BaselineEbsBandwidthMbps where
   parseXML x =
     BaselineEbsBandwidthMbps'
-      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
+      Prelude.<$> (x Data..@? "max")
+      Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable BaselineEbsBandwidthMbps where
   hashWithSalt _salt BaselineEbsBandwidthMbps' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData BaselineEbsBandwidthMbps where

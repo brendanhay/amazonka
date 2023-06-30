@@ -214,7 +214,9 @@ instance Core.AWSRequest CreateSnapshots where
     Response.receiveXML
       ( \s h x ->
           CreateSnapshotsResponse'
-            Prelude.<$> ( x Data..@? "snapshotSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "snapshotSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -222,7 +224,8 @@ instance Core.AWSRequest CreateSnapshots where
 
 instance Prelude.Hashable CreateSnapshots where
   hashWithSalt _salt CreateSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` copyTagsFromSource
+    _salt
+      `Prelude.hashWithSalt` copyTagsFromSource
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` outpostArn

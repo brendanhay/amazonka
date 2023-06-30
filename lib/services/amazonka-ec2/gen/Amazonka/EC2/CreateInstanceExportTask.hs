@@ -148,7 +148,8 @@ instance Core.AWSRequest CreateInstanceExportTask where
 
 instance Prelude.Hashable CreateInstanceExportTask where
   hashWithSalt _salt CreateInstanceExportTask' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` exportToS3Task
       `Prelude.hashWithSalt` instanceId

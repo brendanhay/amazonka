@@ -170,7 +170,8 @@ instance Core.AWSRequest ModifySnapshotAttribute where
 
 instance Prelude.Hashable ModifySnapshotAttribute where
   hashWithSalt _salt ModifySnapshotAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` createVolumePermission
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groupNames

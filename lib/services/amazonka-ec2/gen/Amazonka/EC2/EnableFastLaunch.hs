@@ -196,7 +196,8 @@ instance Core.AWSRequest EnableFastLaunch where
 
 instance Prelude.Hashable EnableFastLaunch where
   hashWithSalt _salt EnableFastLaunch' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` maxParallelLaunches
       `Prelude.hashWithSalt` resourceType

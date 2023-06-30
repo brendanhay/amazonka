@@ -162,22 +162,22 @@ instance Core.AWSPager DescribeNetworkInsightsPaths where
     | Core.stop
         ( rs
             Lens.^? describeNetworkInsightsPathsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNetworkInsightsPathsResponse_networkInsightsPaths
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNetworkInsightsPaths_nextToken
           Lens..~ rs
           Lens.^? describeNetworkInsightsPathsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNetworkInsightsPaths where
   type
@@ -189,7 +189,8 @@ instance Core.AWSRequest DescribeNetworkInsightsPaths where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInsightsPathsResponse'
-            Prelude.<$> ( x Data..@? "networkInsightsPathSet"
+            Prelude.<$> ( x
+                            Data..@? "networkInsightsPathSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -202,7 +203,8 @@ instance
     DescribeNetworkInsightsPaths
   where
   hashWithSalt _salt DescribeNetworkInsightsPaths' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` networkInsightsPathIds

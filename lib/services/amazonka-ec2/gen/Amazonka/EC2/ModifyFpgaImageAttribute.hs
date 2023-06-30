@@ -205,7 +205,8 @@ instance Core.AWSRequest ModifyFpgaImageAttribute where
 
 instance Prelude.Hashable ModifyFpgaImageAttribute where
   hashWithSalt _salt ModifyFpgaImageAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` loadPermission

@@ -73,7 +73,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateInstanceMarketOptionsRequest' {..} =
-      _salt `Prelude.hashWithSalt` marketType
+      _salt
+        `Prelude.hashWithSalt` marketType
         `Prelude.hashWithSalt` spotOptions
 
 instance

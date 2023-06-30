@@ -456,7 +456,8 @@ instance Core.AWSRequest CreateCapacityReservation where
 
 instance Prelude.Hashable CreateCapacityReservation where
   hashWithSalt _salt CreateCapacityReservation' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun

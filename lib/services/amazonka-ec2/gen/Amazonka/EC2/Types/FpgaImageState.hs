@@ -97,7 +97,8 @@ instance Data.FromXML FpgaImageState where
 
 instance Prelude.Hashable FpgaImageState where
   hashWithSalt _salt FpgaImageState' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData FpgaImageState where

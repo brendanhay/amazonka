@@ -87,7 +87,8 @@ instanceSpecification_instanceId = Lens.lens (\InstanceSpecification' {instanceI
 
 instance Prelude.Hashable InstanceSpecification where
   hashWithSalt _salt InstanceSpecification' {..} =
-    _salt `Prelude.hashWithSalt` excludeBootVolume
+    _salt
+      `Prelude.hashWithSalt` excludeBootVolume
       `Prelude.hashWithSalt` excludeDataVolumeIds
       `Prelude.hashWithSalt` instanceId
 

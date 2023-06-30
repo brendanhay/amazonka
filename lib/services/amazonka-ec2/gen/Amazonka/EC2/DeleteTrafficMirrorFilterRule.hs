@@ -120,7 +120,8 @@ instance
     DeleteTrafficMirrorFilterRule
   where
   hashWithSalt _salt DeleteTrafficMirrorFilterRule' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` trafficMirrorFilterRuleId
 
 instance Prelude.NFData DeleteTrafficMirrorFilterRule where

@@ -135,7 +135,8 @@ instance
   hashWithSalt
     _salt
     FleetLaunchTemplateSpecification' {..} =
-      _salt `Prelude.hashWithSalt` launchTemplateId
+      _salt
+        `Prelude.hashWithSalt` launchTemplateId
         `Prelude.hashWithSalt` launchTemplateName
         `Prelude.hashWithSalt` version
 

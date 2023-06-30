@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     InstanceEventWindowTimeRangeRequest' {..} =
-      _salt `Prelude.hashWithSalt` endHour
+      _salt
+        `Prelude.hashWithSalt` endHour
         `Prelude.hashWithSalt` endWeekDay
         `Prelude.hashWithSalt` startHour
         `Prelude.hashWithSalt` startWeekDay

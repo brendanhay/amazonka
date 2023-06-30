@@ -184,22 +184,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointConnectionNotificationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcEndpointConnectionNotifications_nextToken
           Lens..~ rs
-            Lens.^? describeVpcEndpointConnectionNotificationsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeVpcEndpointConnectionNotificationsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -215,12 +215,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeVpcEndpointConnectionNotificationsResponse'
-            Prelude.<$> ( x Data..@? "connectionNotificationSet"
+            Prelude.<$> ( x
+                            Data..@? "connectionNotificationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

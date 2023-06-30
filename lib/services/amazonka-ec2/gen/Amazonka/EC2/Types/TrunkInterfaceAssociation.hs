@@ -122,7 +122,9 @@ instance Data.FromXML TrunkInterfaceAssociation where
       Prelude.<*> (x Data..@? "branchInterfaceId")
       Prelude.<*> (x Data..@? "greKey")
       Prelude.<*> (x Data..@? "interfaceProtocol")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trunkInterfaceId")
@@ -130,7 +132,8 @@ instance Data.FromXML TrunkInterfaceAssociation where
 
 instance Prelude.Hashable TrunkInterfaceAssociation where
   hashWithSalt _salt TrunkInterfaceAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` branchInterfaceId
       `Prelude.hashWithSalt` greKey
       `Prelude.hashWithSalt` interfaceProtocol

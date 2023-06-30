@@ -115,11 +115,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetAssociatedEnclaveCertificateIamRolesResponse'
-            Prelude.<$> ( x Data..@? "associatedRoleSet"
+            Prelude.<$> ( x
+                            Data..@? "associatedRoleSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -129,7 +130,8 @@ instance
   hashWithSalt
     _salt
     GetAssociatedEnclaveCertificateIamRoles' {..} =
-      _salt `Prelude.hashWithSalt` certificateArn
+      _salt
+        `Prelude.hashWithSalt` certificateArn
         `Prelude.hashWithSalt` dryRun
 
 instance

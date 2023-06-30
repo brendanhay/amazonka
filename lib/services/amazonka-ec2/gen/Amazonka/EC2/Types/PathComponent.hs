@@ -210,7 +210,8 @@ instance Data.FromXML PathComponent where
   parseXML x =
     PathComponent'
       Prelude.<$> (x Data..@? "aclRule")
-      Prelude.<*> ( x Data..@? "additionalDetailSet"
+      Prelude.<*> ( x
+                      Data..@? "additionalDetailSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -218,7 +219,9 @@ instance Data.FromXML PathComponent where
       Prelude.<*> (x Data..@? "component")
       Prelude.<*> (x Data..@? "destinationVpc")
       Prelude.<*> (x Data..@? "elasticLoadBalancerListener")
-      Prelude.<*> ( x Data..@? "explanationSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "explanationSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "inboundHeader")
@@ -234,7 +237,8 @@ instance Data.FromXML PathComponent where
 
 instance Prelude.Hashable PathComponent where
   hashWithSalt _salt PathComponent' {..} =
-    _salt `Prelude.hashWithSalt` aclRule
+    _salt
+      `Prelude.hashWithSalt` aclRule
       `Prelude.hashWithSalt` additionalDetails
       `Prelude.hashWithSalt` attachedTo
       `Prelude.hashWithSalt` component

@@ -77,7 +77,8 @@ instance Data.FromXML TrafficMirrorPortRange where
 
 instance Prelude.Hashable TrafficMirrorPortRange where
   hashWithSalt _salt TrafficMirrorPortRange' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` toPort
 
 instance Prelude.NFData TrafficMirrorPortRange where

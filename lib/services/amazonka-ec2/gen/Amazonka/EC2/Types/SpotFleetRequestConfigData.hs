@@ -194,8 +194,9 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- in the
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>
     -- (valid only if you use @LaunchTemplateConfigs@) or in the
-    -- @ SpotFleetTagSpecification @ (valid only if you use
-    -- @LaunchSpecifications@). For information about tagging after launch, see
+    -- @ @<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html SpotFleetTagSpecification>@ @
+    -- (valid only if you use @LaunchSpecifications@). For information about
+    -- tagging after launch, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The unit for the target capacity.
@@ -405,8 +406,9 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- in the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>
 -- (valid only if you use @LaunchTemplateConfigs@) or in the
--- @ SpotFleetTagSpecification @ (valid only if you use
--- @LaunchSpecifications@). For information about tagging after launch, see
+-- @ @<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html SpotFleetTagSpecification>@ @
+-- (valid only if you use @LaunchSpecifications@). For information about
+-- tagging after launch, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
 --
 -- 'targetCapacityUnitType', 'spotFleetRequestConfigData_targetCapacityUnitType' - The unit for the target capacity.
@@ -681,8 +683,9 @@ spotFleetRequestConfigData_spotPrice = Lens.lens (\SpotFleetRequestConfigData' {
 -- in the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>
 -- (valid only if you use @LaunchTemplateConfigs@) or in the
--- @ SpotFleetTagSpecification @ (valid only if you use
--- @LaunchSpecifications@). For information about tagging after launch, see
+-- @ @<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html SpotFleetTagSpecification>@ @
+-- (valid only if you use @LaunchSpecifications@). For information about
+-- tagging after launch, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
 spotFleetRequestConfigData_tagSpecifications :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe [TagSpecification])
 spotFleetRequestConfigData_tagSpecifications = Lens.lens (\SpotFleetRequestConfigData' {tagSpecifications} -> tagSpecifications) (\s@SpotFleetRequestConfigData' {} a -> s {tagSpecifications = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Lens.coerced
@@ -753,11 +756,13 @@ instance Data.FromXML SpotFleetRequestConfigData where
       Prelude.<*> (x Data..@? "fulfilledCapacity")
       Prelude.<*> (x Data..@? "instanceInterruptionBehavior")
       Prelude.<*> (x Data..@? "instancePoolsToUseCount")
-      Prelude.<*> ( x Data..@? "launchSpecifications"
+      Prelude.<*> ( x
+                      Data..@? "launchSpecifications"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "launchTemplateConfigs"
+      Prelude.<*> ( x
+                      Data..@? "launchTemplateConfigs"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -770,7 +775,8 @@ instance Data.FromXML SpotFleetRequestConfigData where
       Prelude.<*> (x Data..@? "spotMaintenanceStrategies")
       Prelude.<*> (x Data..@? "spotMaxTotalPrice")
       Prelude.<*> (x Data..@? "spotPrice")
-      Prelude.<*> ( x Data..@? "TagSpecification"
+      Prelude.<*> ( x
+                      Data..@? "TagSpecification"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -784,7 +790,8 @@ instance Data.FromXML SpotFleetRequestConfigData where
 
 instance Prelude.Hashable SpotFleetRequestConfigData where
   hashWithSalt _salt SpotFleetRequestConfigData' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` excessCapacityTerminationPolicy

@@ -177,7 +177,8 @@ instance
     ModifyVerifiedAccessEndpoint
   where
   hashWithSalt _salt ModifyVerifiedAccessEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` loadBalancerOptions

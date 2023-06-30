@@ -75,7 +75,8 @@ instance Data.FromXML AssociationStatus where
 
 instance Prelude.Hashable AssociationStatus where
   hashWithSalt _salt AssociationStatus' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData AssociationStatus where

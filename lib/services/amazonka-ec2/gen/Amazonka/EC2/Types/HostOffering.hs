@@ -126,7 +126,8 @@ instance Data.FromXML HostOffering where
 
 instance Prelude.Hashable HostOffering where
   hashWithSalt _salt HostOffering' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
+    _salt
+      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` hourlyPrice
       `Prelude.hashWithSalt` instanceFamily

@@ -129,11 +129,13 @@ instance Core.AWSRequest CancelSpotFleetRequests where
     Response.receiveXML
       ( \s h x ->
           CancelSpotFleetRequestsResponse'
-            Prelude.<$> ( x Data..@? "successfulFleetRequestSet"
+            Prelude.<$> ( x
+                            Data..@? "successfulFleetRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "unsuccessfulFleetRequestSet"
+            Prelude.<*> ( x
+                            Data..@? "unsuccessfulFleetRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -142,7 +144,8 @@ instance Core.AWSRequest CancelSpotFleetRequests where
 
 instance Prelude.Hashable CancelSpotFleetRequests where
   hashWithSalt _salt CancelSpotFleetRequests' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` spotFleetRequestIds
       `Prelude.hashWithSalt` terminateInstances
 

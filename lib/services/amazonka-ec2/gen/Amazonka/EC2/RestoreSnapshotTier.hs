@@ -166,7 +166,8 @@ instance Core.AWSRequest RestoreSnapshotTier where
 
 instance Prelude.Hashable RestoreSnapshotTier where
   hashWithSalt _salt RestoreSnapshotTier' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` permanentRestore
       `Prelude.hashWithSalt` temporaryRestoreDays
       `Prelude.hashWithSalt` snapshotId

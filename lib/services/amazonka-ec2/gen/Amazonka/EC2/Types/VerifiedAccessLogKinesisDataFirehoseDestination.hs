@@ -82,8 +82,8 @@ instance
   parseXML x =
     VerifiedAccessLogKinesisDataFirehoseDestination'
       Prelude.<$> (x Data..@? "deliveryStatus")
-        Prelude.<*> (x Data..@? "deliveryStream")
-        Prelude.<*> (x Data..@? "enabled")
+      Prelude.<*> (x Data..@? "deliveryStream")
+      Prelude.<*> (x Data..@? "enabled")
 
 instance
   Prelude.Hashable
@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     VerifiedAccessLogKinesisDataFirehoseDestination' {..} =
-      _salt `Prelude.hashWithSalt` deliveryStatus
+      _salt
+        `Prelude.hashWithSalt` deliveryStatus
         `Prelude.hashWithSalt` deliveryStream
         `Prelude.hashWithSalt` enabled
 

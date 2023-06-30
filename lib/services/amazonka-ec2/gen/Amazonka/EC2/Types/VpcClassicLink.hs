@@ -83,14 +83,17 @@ instance Data.FromXML VpcClassicLink where
   parseXML x =
     VpcClassicLink'
       Prelude.<$> (x Data..@? "classicLinkEnabled")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable VpcClassicLink where
   hashWithSalt _salt VpcClassicLink' {..} =
-    _salt `Prelude.hashWithSalt` classicLinkEnabled
+    _salt
+      `Prelude.hashWithSalt` classicLinkEnabled
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcId
 

@@ -117,20 +117,27 @@ instance Data.FromXML StaleIpPermission where
     StaleIpPermission'
       Prelude.<$> (x Data..@? "fromPort")
       Prelude.<*> (x Data..@? "ipProtocol")
-      Prelude.<*> ( x Data..@? "ipRanges" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ipRanges"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "prefixListIds" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "prefixListIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "toPort")
-      Prelude.<*> ( x Data..@? "groups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable StaleIpPermission where
   hashWithSalt _salt StaleIpPermission' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` ipProtocol
       `Prelude.hashWithSalt` ipRanges
       `Prelude.hashWithSalt` prefixListIds

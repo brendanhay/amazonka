@@ -128,7 +128,8 @@ instance Core.AWSRequest ConfirmProductInstance where
 
 instance Prelude.Hashable ConfirmProductInstance where
   hashWithSalt _salt ConfirmProductInstance' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` productCode
 

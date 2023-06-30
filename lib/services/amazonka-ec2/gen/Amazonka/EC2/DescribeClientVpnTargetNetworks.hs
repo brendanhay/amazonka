@@ -177,22 +177,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeClientVpnTargetNetworksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClientVpnTargetNetworksResponse_clientVpnTargetNetworks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClientVpnTargetNetworks_nextToken
           Lens..~ rs
           Lens.^? describeClientVpnTargetNetworksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -207,7 +207,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeClientVpnTargetNetworksResponse'
-            Prelude.<$> ( x Data..@? "clientVpnTargetNetworks"
+            Prelude.<$> ( x
+                            Data..@? "clientVpnTargetNetworks"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -222,7 +223,8 @@ instance
   hashWithSalt
     _salt
     DescribeClientVpnTargetNetworks' {..} =
-      _salt `Prelude.hashWithSalt` associationIds
+      _salt
+        `Prelude.hashWithSalt` associationIds
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults

@@ -153,22 +153,22 @@ instance Core.AWSPager DescribeCoipPools where
     | Core.stop
         ( rs
             Lens.^? describeCoipPoolsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCoipPoolsResponse_coipPools
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCoipPools_nextToken
           Lens..~ rs
           Lens.^? describeCoipPoolsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCoipPools where
   type
@@ -180,7 +180,9 @@ instance Core.AWSRequest DescribeCoipPools where
     Response.receiveXML
       ( \s h x ->
           DescribeCoipPoolsResponse'
-            Prelude.<$> ( x Data..@? "coipPoolSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "coipPoolSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -189,7 +191,8 @@ instance Core.AWSRequest DescribeCoipPools where
 
 instance Prelude.Hashable DescribeCoipPools where
   hashWithSalt _salt DescribeCoipPools' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

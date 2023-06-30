@@ -110,7 +110,9 @@ describeFleetsInstances_platform = Lens.lens (\DescribeFleetsInstances' {platfor
 instance Data.FromXML DescribeFleetsInstances where
   parseXML x =
     DescribeFleetsInstances'
-      Prelude.<$> ( x Data..@? "instanceIds" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "instanceIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "instanceType")
@@ -120,7 +122,8 @@ instance Data.FromXML DescribeFleetsInstances where
 
 instance Prelude.Hashable DescribeFleetsInstances where
   hashWithSalt _salt DescribeFleetsInstances' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` launchTemplateAndOverrides
       `Prelude.hashWithSalt` lifecycle

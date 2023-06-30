@@ -117,7 +117,8 @@ instance
     DeleteLocalGatewayRouteTable
   where
   hashWithSalt _salt DeleteLocalGatewayRouteTable' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` localGatewayRouteTableId
 
 instance Prelude.NFData DeleteLocalGatewayRouteTable where

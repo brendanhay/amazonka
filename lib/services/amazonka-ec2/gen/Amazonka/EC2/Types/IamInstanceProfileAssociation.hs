@@ -108,7 +108,8 @@ instance
     IamInstanceProfileAssociation
   where
   hashWithSalt _salt IamInstanceProfileAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` iamInstanceProfile
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` state

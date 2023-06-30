@@ -158,22 +158,22 @@ instance Core.AWSPager DescribeFastSnapshotRestores where
     | Core.stop
         ( rs
             Lens.^? describeFastSnapshotRestoresResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFastSnapshotRestoresResponse_fastSnapshotRestores
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFastSnapshotRestores_nextToken
           Lens..~ rs
           Lens.^? describeFastSnapshotRestoresResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFastSnapshotRestores where
   type
@@ -185,7 +185,8 @@ instance Core.AWSRequest DescribeFastSnapshotRestores where
     Response.receiveXML
       ( \s h x ->
           DescribeFastSnapshotRestoresResponse'
-            Prelude.<$> ( x Data..@? "fastSnapshotRestoreSet"
+            Prelude.<$> ( x
+                            Data..@? "fastSnapshotRestoreSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -198,7 +199,8 @@ instance
     DescribeFastSnapshotRestores
   where
   hashWithSalt _salt DescribeFastSnapshotRestores' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

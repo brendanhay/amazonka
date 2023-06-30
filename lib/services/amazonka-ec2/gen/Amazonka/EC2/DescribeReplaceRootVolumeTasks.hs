@@ -149,22 +149,22 @@ instance Core.AWSPager DescribeReplaceRootVolumeTasks where
     | Core.stop
         ( rs
             Lens.^? describeReplaceRootVolumeTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReplaceRootVolumeTasks_nextToken
           Lens..~ rs
           Lens.^? describeReplaceRootVolumeTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -180,7 +180,8 @@ instance
       ( \s h x ->
           DescribeReplaceRootVolumeTasksResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "replaceRootVolumeTaskSet"
+            Prelude.<*> ( x
+                            Data..@? "replaceRootVolumeTaskSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -194,7 +195,8 @@ instance
   hashWithSalt
     _salt
     DescribeReplaceRootVolumeTasks' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

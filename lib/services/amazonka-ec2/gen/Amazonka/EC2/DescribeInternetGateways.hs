@@ -206,22 +206,22 @@ instance Core.AWSPager DescribeInternetGateways where
     | Core.stop
         ( rs
             Lens.^? describeInternetGatewaysResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInternetGatewaysResponse_internetGateways
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInternetGateways_nextToken
           Lens..~ rs
           Lens.^? describeInternetGatewaysResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInternetGateways where
   type
@@ -233,7 +233,8 @@ instance Core.AWSRequest DescribeInternetGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeInternetGatewaysResponse'
-            Prelude.<$> ( x Data..@? "internetGatewaySet"
+            Prelude.<$> ( x
+                            Data..@? "internetGatewaySet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -243,7 +244,8 @@ instance Core.AWSRequest DescribeInternetGateways where
 
 instance Prelude.Hashable DescribeInternetGateways where
   hashWithSalt _salt DescribeInternetGateways' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` internetGatewayIds
       `Prelude.hashWithSalt` maxResults

@@ -65,7 +65,8 @@ storageLocation_key = Lens.lens (\StorageLocation' {key} -> key) (\s@StorageLoca
 
 instance Prelude.Hashable StorageLocation where
   hashWithSalt _salt StorageLocation' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData StorageLocation where

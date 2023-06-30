@@ -136,7 +136,8 @@ instance
     AssociateInstanceEventWindow
   where
   hashWithSalt _salt AssociateInstanceEventWindow' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceEventWindowId
       `Prelude.hashWithSalt` associationTarget
 

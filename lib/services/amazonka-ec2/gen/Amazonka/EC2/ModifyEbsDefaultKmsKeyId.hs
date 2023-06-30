@@ -190,7 +190,8 @@ instance Core.AWSRequest ModifyEbsDefaultKmsKeyId where
 
 instance Prelude.Hashable ModifyEbsDefaultKmsKeyId where
   hashWithSalt _salt ModifyEbsDefaultKmsKeyId' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData ModifyEbsDefaultKmsKeyId where

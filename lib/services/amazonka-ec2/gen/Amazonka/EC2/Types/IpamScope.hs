@@ -181,13 +181,16 @@ instance Data.FromXML IpamScope where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "poolCount")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable IpamScope where
   hashWithSalt _salt IpamScope' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ipamArn
       `Prelude.hashWithSalt` ipamRegion
       `Prelude.hashWithSalt` ipamScopeArn

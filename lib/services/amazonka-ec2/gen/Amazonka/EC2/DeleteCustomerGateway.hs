@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteCustomerGateway where
 
 instance Prelude.Hashable DeleteCustomerGateway where
   hashWithSalt _salt DeleteCustomerGateway' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` customerGatewayId
 
 instance Prelude.NFData DeleteCustomerGateway where

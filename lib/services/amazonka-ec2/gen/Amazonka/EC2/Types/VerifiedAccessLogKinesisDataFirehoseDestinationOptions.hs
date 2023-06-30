@@ -74,7 +74,8 @@ instance
   hashWithSalt
     _salt
     VerifiedAccessLogKinesisDataFirehoseDestinationOptions' {..} =
-      _salt `Prelude.hashWithSalt` deliveryStream
+      _salt
+        `Prelude.hashWithSalt` deliveryStream
         `Prelude.hashWithSalt` enabled
 
 instance

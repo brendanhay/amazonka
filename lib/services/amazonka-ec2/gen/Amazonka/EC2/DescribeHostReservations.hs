@@ -177,22 +177,22 @@ instance Core.AWSPager DescribeHostReservations where
     | Core.stop
         ( rs
             Lens.^? describeHostReservationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeHostReservationsResponse_hostReservationSet
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeHostReservations_nextToken
           Lens..~ rs
           Lens.^? describeHostReservationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeHostReservations where
   type
@@ -204,7 +204,8 @@ instance Core.AWSRequest DescribeHostReservations where
     Response.receiveXML
       ( \s h x ->
           DescribeHostReservationsResponse'
-            Prelude.<$> ( x Data..@? "hostReservationSet"
+            Prelude.<$> ( x
+                            Data..@? "hostReservationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -214,7 +215,8 @@ instance Core.AWSRequest DescribeHostReservations where
 
 instance Prelude.Hashable DescribeHostReservations where
   hashWithSalt _salt DescribeHostReservations' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` hostReservationIdSet
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

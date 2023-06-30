@@ -103,7 +103,8 @@ instance Core.AWSRequest EnableVolumeIO where
 
 instance Prelude.Hashable EnableVolumeIO where
   hashWithSalt _salt EnableVolumeIO' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData EnableVolumeIO where

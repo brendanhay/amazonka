@@ -213,7 +213,8 @@ instance Core.AWSRequest CreateCustomerGateway where
 
 instance Prelude.Hashable CreateCustomerGateway where
   hashWithSalt _salt CreateCustomerGateway' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipAddress

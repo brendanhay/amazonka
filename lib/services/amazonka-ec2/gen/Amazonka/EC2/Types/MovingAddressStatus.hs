@@ -80,7 +80,8 @@ instance Data.FromXML MovingAddressStatus where
 
 instance Prelude.Hashable MovingAddressStatus where
   hashWithSalt _salt MovingAddressStatus' {..} =
-    _salt `Prelude.hashWithSalt` moveStatus
+    _salt
+      `Prelude.hashWithSalt` moveStatus
       `Prelude.hashWithSalt` publicIp
 
 instance Prelude.NFData MovingAddressStatus where

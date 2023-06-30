@@ -208,7 +208,8 @@ instance
   hashWithSalt
     _salt
     ScheduledInstancesLaunchSpecification' {..} =
-      _salt `Prelude.hashWithSalt` blockDeviceMappings
+      _salt
+        `Prelude.hashWithSalt` blockDeviceMappings
         `Prelude.hashWithSalt` ebsOptimized
         `Prelude.hashWithSalt` iamInstanceProfile
         `Prelude.hashWithSalt` instanceType

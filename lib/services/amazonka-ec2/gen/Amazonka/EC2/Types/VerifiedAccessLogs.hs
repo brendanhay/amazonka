@@ -85,7 +85,8 @@ instance Data.FromXML VerifiedAccessLogs where
 
 instance Prelude.Hashable VerifiedAccessLogs where
   hashWithSalt _salt VerifiedAccessLogs' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` kinesisDataFirehose
       `Prelude.hashWithSalt` s3
 

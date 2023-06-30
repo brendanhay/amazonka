@@ -73,7 +73,8 @@ instance Data.FromXML AdditionalDetail where
 
 instance Prelude.Hashable AdditionalDetail where
   hashWithSalt _salt AdditionalDetail' {..} =
-    _salt `Prelude.hashWithSalt` additionalDetailType
+    _salt
+      `Prelude.hashWithSalt` additionalDetailType
       `Prelude.hashWithSalt` component
 
 instance Prelude.NFData AdditionalDetail where

@@ -110,7 +110,8 @@ instance Data.FromXML TransitGatewayRoute where
       Prelude.<$> (x Data..@? "destinationCidrBlock")
       Prelude.<*> (x Data..@? "prefixListId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "transitGatewayAttachments"
+      Prelude.<*> ( x
+                      Data..@? "transitGatewayAttachments"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -119,7 +120,8 @@ instance Data.FromXML TransitGatewayRoute where
 
 instance Prelude.Hashable TransitGatewayRoute where
   hashWithSalt _salt TransitGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidrBlock
+    _salt
+      `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` prefixListId
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` transitGatewayAttachments

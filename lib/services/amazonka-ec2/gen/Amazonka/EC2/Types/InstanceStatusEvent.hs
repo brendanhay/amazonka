@@ -124,7 +124,8 @@ instance Data.FromXML InstanceStatusEvent where
 
 instance Prelude.Hashable InstanceStatusEvent where
   hashWithSalt _salt InstanceStatusEvent' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` instanceEventId
       `Prelude.hashWithSalt` notAfter

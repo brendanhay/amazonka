@@ -171,7 +171,9 @@ instance Core.AWSRequest TerminateInstances where
     Response.receiveXML
       ( \s h x ->
           TerminateInstancesResponse'
-            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instancesSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -179,7 +181,8 @@ instance Core.AWSRequest TerminateInstances where
 
 instance Prelude.Hashable TerminateInstances where
   hashWithSalt _salt TerminateInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceIds
 
 instance Prelude.NFData TerminateInstances where

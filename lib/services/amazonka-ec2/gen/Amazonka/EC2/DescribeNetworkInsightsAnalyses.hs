@@ -190,22 +190,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeNetworkInsightsAnalysesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNetworkInsightsAnalysesResponse_networkInsightsAnalyses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNetworkInsightsAnalyses_nextToken
           Lens..~ rs
           Lens.^? describeNetworkInsightsAnalysesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -220,7 +220,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInsightsAnalysesResponse'
-            Prelude.<$> ( x Data..@? "networkInsightsAnalysisSet"
+            Prelude.<$> ( x
+                            Data..@? "networkInsightsAnalysisSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -235,7 +236,8 @@ instance
   hashWithSalt
     _salt
     DescribeNetworkInsightsAnalyses' {..} =
-      _salt `Prelude.hashWithSalt` analysisEndTime
+      _salt
+        `Prelude.hashWithSalt` analysisEndTime
         `Prelude.hashWithSalt` analysisStartTime
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters

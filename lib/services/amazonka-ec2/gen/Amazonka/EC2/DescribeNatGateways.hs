@@ -194,22 +194,22 @@ instance Core.AWSPager DescribeNatGateways where
     | Core.stop
         ( rs
             Lens.^? describeNatGatewaysResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNatGatewaysResponse_natGateways
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNatGateways_nextToken
           Lens..~ rs
           Lens.^? describeNatGatewaysResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNatGateways where
   type
@@ -221,7 +221,9 @@ instance Core.AWSRequest DescribeNatGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeNatGatewaysResponse'
-            Prelude.<$> ( x Data..@? "natGatewaySet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "natGatewaySet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -230,7 +232,8 @@ instance Core.AWSRequest DescribeNatGateways where
 
 instance Prelude.Hashable DescribeNatGateways where
   hashWithSalt _salt DescribeNatGateways' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` natGatewayIds

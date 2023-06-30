@@ -160,7 +160,8 @@ instance Core.AWSRequest DetachNetworkInterface where
 
 instance Prelude.Hashable DetachNetworkInterface where
   hashWithSalt _salt DetachNetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` attachmentId
 

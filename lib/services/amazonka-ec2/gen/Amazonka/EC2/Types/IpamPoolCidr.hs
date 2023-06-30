@@ -92,7 +92,8 @@ instance Data.FromXML IpamPoolCidr where
 
 instance Prelude.Hashable IpamPoolCidr where
   hashWithSalt _salt IpamPoolCidr' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` state
 

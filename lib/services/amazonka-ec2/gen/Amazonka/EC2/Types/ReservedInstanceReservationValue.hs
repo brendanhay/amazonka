@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     ReservedInstanceReservationValue' {..} =
-      _salt `Prelude.hashWithSalt` reservationValue
+      _salt
+        `Prelude.hashWithSalt` reservationValue
         `Prelude.hashWithSalt` reservedInstanceId
 
 instance

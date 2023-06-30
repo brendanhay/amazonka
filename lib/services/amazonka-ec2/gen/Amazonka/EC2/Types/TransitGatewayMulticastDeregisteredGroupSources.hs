@@ -81,12 +81,13 @@ instance
   where
   parseXML x =
     TransitGatewayMulticastDeregisteredGroupSources'
-      Prelude.<$> ( x Data..@? "deregisteredNetworkInterfaceIds"
+      Prelude.<$> ( x
+                      Data..@? "deregisteredNetworkInterfaceIds"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-        Prelude.<*> (x Data..@? "groupIpAddress")
-        Prelude.<*> (x Data..@? "transitGatewayMulticastDomainId")
+      Prelude.<*> (x Data..@? "groupIpAddress")
+      Prelude.<*> (x Data..@? "transitGatewayMulticastDomainId")
 
 instance
   Prelude.Hashable

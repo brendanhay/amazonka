@@ -111,11 +111,13 @@ instance Core.AWSRequest UnassignIpv6Addresses where
       ( \s h x ->
           UnassignIpv6AddressesResponse'
             Prelude.<$> (x Data..@? "networkInterfaceId")
-            Prelude.<*> ( x Data..@? "unassignedIpv6Addresses"
+            Prelude.<*> ( x
+                            Data..@? "unassignedIpv6Addresses"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "unassignedIpv6PrefixSet"
+            Prelude.<*> ( x
+                            Data..@? "unassignedIpv6PrefixSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -124,7 +126,8 @@ instance Core.AWSRequest UnassignIpv6Addresses where
 
 instance Prelude.Hashable UnassignIpv6Addresses where
   hashWithSalt _salt UnassignIpv6Addresses' {..} =
-    _salt `Prelude.hashWithSalt` ipv6Addresses
+    _salt
+      `Prelude.hashWithSalt` ipv6Addresses
       `Prelude.hashWithSalt` ipv6Prefixes
       `Prelude.hashWithSalt` networkInterfaceId
 

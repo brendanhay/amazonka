@@ -360,7 +360,8 @@ instance Data.FromXML SpotFleetLaunchSpecification where
   parseXML x =
     SpotFleetLaunchSpecification'
       Prelude.<$> (x Data..@? "addressingType")
-      Prelude.<*> ( x Data..@? "blockDeviceMapping"
+      Prelude.<*> ( x
+                      Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -372,18 +373,22 @@ instance Data.FromXML SpotFleetLaunchSpecification where
       Prelude.<*> (x Data..@? "kernelId")
       Prelude.<*> (x Data..@? "keyName")
       Prelude.<*> (x Data..@? "monitoring")
-      Prelude.<*> ( x Data..@? "networkInterfaceSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "placement")
       Prelude.<*> (x Data..@? "ramdiskId")
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "spotPrice")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x Data..@? "tagSpecificationSet"
+      Prelude.<*> ( x
+                      Data..@? "tagSpecificationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -395,7 +400,8 @@ instance
     SpotFleetLaunchSpecification
   where
   hashWithSalt _salt SpotFleetLaunchSpecification' {..} =
-    _salt `Prelude.hashWithSalt` addressingType
+    _salt
+      `Prelude.hashWithSalt` addressingType
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` ebsOptimized
       `Prelude.hashWithSalt` iamInstanceProfile

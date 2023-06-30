@@ -86,8 +86,8 @@ instance
   parseXML x =
     CapacityReservationFleetCancellationState'
       Prelude.<$> (x Data..@? "capacityReservationFleetId")
-        Prelude.<*> (x Data..@? "currentFleetState")
-        Prelude.<*> (x Data..@? "previousFleetState")
+      Prelude.<*> (x Data..@? "currentFleetState")
+      Prelude.<*> (x Data..@? "previousFleetState")
 
 instance
   Prelude.Hashable

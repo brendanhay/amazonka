@@ -114,7 +114,7 @@ instance
       ( \s h x ->
           RegisterInstanceEventNotificationAttributesResponse'
             Prelude.<$> (x Data..@? "instanceTagAttribute")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -124,7 +124,8 @@ instance
   hashWithSalt
     _salt
     RegisterInstanceEventNotificationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` instanceTagAttribute
 
 instance

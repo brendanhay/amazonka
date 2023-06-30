@@ -168,7 +168,8 @@ instance Core.AWSRequest CreateIpamScope where
 
 instance Prelude.Hashable CreateIpamScope where
   hashWithSalt _salt CreateIpamScope' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications

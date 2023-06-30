@@ -184,22 +184,22 @@ instance Core.AWSPager DescribeScheduledInstances where
     | Core.stop
         ( rs
             Lens.^? describeScheduledInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduledInstancesResponse_scheduledInstanceSet
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScheduledInstances_nextToken
           Lens..~ rs
           Lens.^? describeScheduledInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledInstances where
   type
@@ -212,7 +212,8 @@ instance Core.AWSRequest DescribeScheduledInstances where
       ( \s h x ->
           DescribeScheduledInstancesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "scheduledInstanceSet"
+            Prelude.<*> ( x
+                            Data..@? "scheduledInstanceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -221,7 +222,8 @@ instance Core.AWSRequest DescribeScheduledInstances where
 
 instance Prelude.Hashable DescribeScheduledInstances where
   hashWithSalt _salt DescribeScheduledInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

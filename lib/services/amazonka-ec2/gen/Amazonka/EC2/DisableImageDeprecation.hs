@@ -115,7 +115,8 @@ instance Core.AWSRequest DisableImageDeprecation where
 
 instance Prelude.Hashable DisableImageDeprecation where
   hashWithSalt _salt DisableImageDeprecation' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` imageId
 
 instance Prelude.NFData DisableImageDeprecation where

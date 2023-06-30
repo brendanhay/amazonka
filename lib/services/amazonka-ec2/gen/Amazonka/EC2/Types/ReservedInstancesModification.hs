@@ -145,11 +145,13 @@ instance Data.FromXML ReservedInstancesModification where
       Prelude.<$> (x Data..@? "clientToken")
       Prelude.<*> (x Data..@? "createDate")
       Prelude.<*> (x Data..@? "effectiveDate")
-      Prelude.<*> ( x Data..@? "modificationResultSet"
+      Prelude.<*> ( x
+                      Data..@? "modificationResultSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "reservedInstancesSet"
+      Prelude.<*> ( x
+                      Data..@? "reservedInstancesSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -163,7 +165,8 @@ instance
     ReservedInstancesModification
   where
   hashWithSalt _salt ReservedInstancesModification' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` effectiveDate
       `Prelude.hashWithSalt` modificationResults

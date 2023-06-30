@@ -122,7 +122,8 @@ instance Core.AWSRequest CreateCoipPool where
 
 instance Prelude.Hashable CreateCoipPool where
   hashWithSalt _salt CreateCoipPool' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` localGatewayRouteTableId
 

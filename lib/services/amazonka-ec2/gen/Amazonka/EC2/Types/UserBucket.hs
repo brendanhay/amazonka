@@ -65,7 +65,8 @@ userBucket_s3Key = Lens.lens (\UserBucket' {s3Key} -> s3Key) (\s@UserBucket' {} 
 
 instance Prelude.Hashable UserBucket where
   hashWithSalt _salt UserBucket' {..} =
-    _salt `Prelude.hashWithSalt` s3Bucket
+    _salt
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Key
 
 instance Prelude.NFData UserBucket where

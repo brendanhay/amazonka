@@ -139,7 +139,9 @@ instance Core.AWSRequest StartInstances where
     Response.receiveXML
       ( \s h x ->
           StartInstancesResponse'
-            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instancesSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -147,7 +149,8 @@ instance Core.AWSRequest StartInstances where
 
 instance Prelude.Hashable StartInstances where
   hashWithSalt _salt StartInstances' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceIds
 

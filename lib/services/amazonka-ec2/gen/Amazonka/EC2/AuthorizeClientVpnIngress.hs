@@ -190,7 +190,8 @@ instance Core.AWSRequest AuthorizeClientVpnIngress where
 
 instance Prelude.Hashable AuthorizeClientVpnIngress where
   hashWithSalt _salt AuthorizeClientVpnIngress' {..} =
-    _salt `Prelude.hashWithSalt` accessGroupId
+    _salt
+      `Prelude.hashWithSalt` accessGroupId
       `Prelude.hashWithSalt` authorizeAllGroups
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description

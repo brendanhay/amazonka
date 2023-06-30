@@ -133,7 +133,8 @@ instance Core.AWSRequest ResetInstanceAttribute where
 
 instance Prelude.Hashable ResetInstanceAttribute where
   hashWithSalt _salt ResetInstanceAttribute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` instanceId
 

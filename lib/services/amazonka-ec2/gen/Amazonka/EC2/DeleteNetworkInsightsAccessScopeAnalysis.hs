@@ -113,7 +113,7 @@ instance
       ( \s h x ->
           DeleteNetworkInsightsAccessScopeAnalysisResponse'
             Prelude.<$> (x Data..@? "networkInsightsAccessScopeAnalysisId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     DeleteNetworkInsightsAccessScopeAnalysis' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` networkInsightsAccessScopeAnalysisId
 
 instance

@@ -235,7 +235,9 @@ volume_volumeType = Lens.lens (\Volume' {volumeType} -> volumeType) (\s@Volume' 
 instance Data.FromXML Volume where
   parseXML x =
     Volume'
-      Prelude.<$> ( x Data..@? "attachmentSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "attachmentSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "fastRestored")
@@ -243,7 +245,9 @@ instance Data.FromXML Volume where
       Prelude.<*> (x Data..@? "kmsKeyId")
       Prelude.<*> (x Data..@? "multiAttachEnabled")
       Prelude.<*> (x Data..@? "outpostArn")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "throughput")
@@ -258,7 +262,8 @@ instance Data.FromXML Volume where
 
 instance Prelude.Hashable Volume where
   hashWithSalt _salt Volume' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` fastRestored
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` kmsKeyId

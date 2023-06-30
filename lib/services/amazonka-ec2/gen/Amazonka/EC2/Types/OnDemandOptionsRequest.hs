@@ -179,7 +179,8 @@ onDemandOptionsRequest_singleInstanceType = Lens.lens (\OnDemandOptionsRequest' 
 
 instance Prelude.Hashable OnDemandOptionsRequest where
   hashWithSalt _salt OnDemandOptionsRequest' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` capacityReservationOptions
       `Prelude.hashWithSalt` maxTotalPrice
       `Prelude.hashWithSalt` minTargetCapacity

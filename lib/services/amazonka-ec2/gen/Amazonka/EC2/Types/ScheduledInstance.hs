@@ -203,7 +203,8 @@ instance Data.FromXML ScheduledInstance where
 
 instance Prelude.Hashable ScheduledInstance where
   hashWithSalt _salt ScheduledInstance' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` hourlyPrice
       `Prelude.hashWithSalt` instanceCount

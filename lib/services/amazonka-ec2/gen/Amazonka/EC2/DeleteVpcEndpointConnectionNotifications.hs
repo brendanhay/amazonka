@@ -109,10 +109,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointConnectionNotificationsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -122,7 +124,8 @@ instance
   hashWithSalt
     _salt
     DeleteVpcEndpointConnectionNotifications' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` connectionNotificationIds
 
 instance

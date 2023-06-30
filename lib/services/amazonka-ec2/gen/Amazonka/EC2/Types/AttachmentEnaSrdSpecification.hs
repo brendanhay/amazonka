@@ -80,7 +80,8 @@ instance
     AttachmentEnaSrdSpecification
   where
   hashWithSalt _salt AttachmentEnaSrdSpecification' {..} =
-    _salt `Prelude.hashWithSalt` enaSrdEnabled
+    _salt
+      `Prelude.hashWithSalt` enaSrdEnabled
       `Prelude.hashWithSalt` enaSrdUdpSpecification
 
 instance Prelude.NFData AttachmentEnaSrdSpecification where

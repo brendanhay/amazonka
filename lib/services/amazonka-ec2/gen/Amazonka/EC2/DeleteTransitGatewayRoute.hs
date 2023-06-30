@@ -131,7 +131,8 @@ instance Core.AWSRequest DeleteTransitGatewayRoute where
 
 instance Prelude.Hashable DeleteTransitGatewayRoute where
   hashWithSalt _salt DeleteTransitGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` transitGatewayRouteTableId
       `Prelude.hashWithSalt` destinationCidrBlock
 

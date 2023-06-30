@@ -195,7 +195,8 @@ instance Core.AWSRequest CreateSubnetCidrReservation where
 
 instance Prelude.Hashable CreateSubnetCidrReservation where
   hashWithSalt _salt CreateSubnetCidrReservation' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` subnetId

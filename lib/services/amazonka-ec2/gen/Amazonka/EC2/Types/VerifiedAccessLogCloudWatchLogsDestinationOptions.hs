@@ -74,7 +74,8 @@ instance
   hashWithSalt
     _salt
     VerifiedAccessLogCloudWatchLogsDestinationOptions' {..} =
-      _salt `Prelude.hashWithSalt` logGroup
+      _salt
+        `Prelude.hashWithSalt` logGroup
         `Prelude.hashWithSalt` enabled
 
 instance

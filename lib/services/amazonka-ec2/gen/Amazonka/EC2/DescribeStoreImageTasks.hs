@@ -179,22 +179,22 @@ instance Core.AWSPager DescribeStoreImageTasks where
     | Core.stop
         ( rs
             Lens.^? describeStoreImageTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeStoreImageTasksResponse_storeImageTaskResults
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeStoreImageTasks_nextToken
           Lens..~ rs
           Lens.^? describeStoreImageTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStoreImageTasks where
   type
@@ -207,7 +207,8 @@ instance Core.AWSRequest DescribeStoreImageTasks where
       ( \s h x ->
           DescribeStoreImageTasksResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "storeImageTaskResultSet"
+            Prelude.<*> ( x
+                            Data..@? "storeImageTaskResultSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -216,7 +217,8 @@ instance Core.AWSRequest DescribeStoreImageTasks where
 
 instance Prelude.Hashable DescribeStoreImageTasks where
   hashWithSalt _salt DescribeStoreImageTasks' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` maxResults

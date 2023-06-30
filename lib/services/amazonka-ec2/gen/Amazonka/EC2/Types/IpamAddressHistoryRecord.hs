@@ -201,7 +201,8 @@ instance Data.FromXML IpamAddressHistoryRecord where
 
 instance Prelude.Hashable IpamAddressHistoryRecord where
   hashWithSalt _salt IpamAddressHistoryRecord' {..} =
-    _salt `Prelude.hashWithSalt` resourceCidr
+    _salt
+      `Prelude.hashWithSalt` resourceCidr
       `Prelude.hashWithSalt` resourceComplianceStatus
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceName

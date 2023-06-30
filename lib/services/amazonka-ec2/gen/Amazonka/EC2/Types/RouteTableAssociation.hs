@@ -116,7 +116,8 @@ instance Data.FromXML RouteTableAssociation where
 
 instance Prelude.Hashable RouteTableAssociation where
   hashWithSalt _salt RouteTableAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationState
+    _salt
+      `Prelude.hashWithSalt` associationState
       `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` main
       `Prelude.hashWithSalt` routeTableAssociationId

@@ -184,7 +184,8 @@ instance Core.AWSRequest CreateIpam where
 
 instance Prelude.Hashable CreateIpam where
   hashWithSalt _salt CreateIpam' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` operatingRegions

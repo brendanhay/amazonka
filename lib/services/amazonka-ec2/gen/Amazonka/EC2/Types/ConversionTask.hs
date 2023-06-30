@@ -130,13 +130,16 @@ instance Data.FromXML ConversionTask where
       Prelude.<*> (x Data..@? "importVolume")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable ConversionTask where
   hashWithSalt _salt ConversionTask' {..} =
-    _salt `Prelude.hashWithSalt` conversionTaskId
+    _salt
+      `Prelude.hashWithSalt` conversionTaskId
       `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` importInstance
       `Prelude.hashWithSalt` importVolume

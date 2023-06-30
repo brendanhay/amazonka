@@ -152,7 +152,8 @@ spotMarketOptions_validUntil = Lens.lens (\SpotMarketOptions' {validUntil} -> va
 
 instance Prelude.Hashable SpotMarketOptions where
   hashWithSalt _salt SpotMarketOptions' {..} =
-    _salt `Prelude.hashWithSalt` blockDurationMinutes
+    _salt
+      `Prelude.hashWithSalt` blockDurationMinutes
       `Prelude.hashWithSalt` instanceInterruptionBehavior
       `Prelude.hashWithSalt` maxPrice
       `Prelude.hashWithSalt` spotInstanceType

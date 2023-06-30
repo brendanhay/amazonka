@@ -237,16 +237,21 @@ instance Data.FromXML VpcEndpoint where
   parseXML x =
     VpcEndpoint'
       Prelude.<$> (x Data..@? "creationTimestamp")
-      Prelude.<*> ( x Data..@? "dnsEntrySet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "dnsEntrySet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "dnsOptions")
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipAddressType")
       Prelude.<*> (x Data..@? "lastError")
-      Prelude.<*> ( x Data..@? "networkInterfaceIdSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceIdSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -254,15 +259,21 @@ instance Data.FromXML VpcEndpoint where
       Prelude.<*> (x Data..@? "policyDocument")
       Prelude.<*> (x Data..@? "privateDnsEnabled")
       Prelude.<*> (x Data..@? "requesterManaged")
-      Prelude.<*> ( x Data..@? "routeTableIdSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "routeTableIdSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "serviceName")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "subnetIdSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "subnetIdSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcEndpointId")
@@ -271,7 +282,8 @@ instance Data.FromXML VpcEndpoint where
 
 instance Prelude.Hashable VpcEndpoint where
   hashWithSalt _salt VpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` dnsEntries
       `Prelude.hashWithSalt` dnsOptions
       `Prelude.hashWithSalt` groups

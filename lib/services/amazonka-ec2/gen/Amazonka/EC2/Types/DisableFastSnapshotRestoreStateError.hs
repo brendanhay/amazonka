@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     DisableFastSnapshotRestoreStateError' {..} =
-      _salt `Prelude.hashWithSalt` code
+      _salt
+        `Prelude.hashWithSalt` code
         `Prelude.hashWithSalt` message
 
 instance

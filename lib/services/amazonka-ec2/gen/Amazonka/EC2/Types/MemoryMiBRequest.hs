@@ -73,7 +73,8 @@ memoryMiBRequest_min = Lens.lens (\MemoryMiBRequest' {min} -> min) (\s@MemoryMiB
 
 instance Prelude.Hashable MemoryMiBRequest where
   hashWithSalt _salt MemoryMiBRequest' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData MemoryMiBRequest where

@@ -333,22 +333,22 @@ instance Core.AWSPager DescribeInstanceStatus where
     | Core.stop
         ( rs
             Lens.^? describeInstanceStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceStatusResponse_instanceStatuses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstanceStatus_nextToken
           Lens..~ rs
           Lens.^? describeInstanceStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstanceStatus where
   type
@@ -360,7 +360,8 @@ instance Core.AWSRequest DescribeInstanceStatus where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceStatusResponse'
-            Prelude.<$> ( x Data..@? "instanceStatusSet"
+            Prelude.<$> ( x
+                            Data..@? "instanceStatusSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -370,7 +371,8 @@ instance Core.AWSRequest DescribeInstanceStatus where
 
 instance Prelude.Hashable DescribeInstanceStatus where
   hashWithSalt _salt DescribeInstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includeAllInstances
       `Prelude.hashWithSalt` instanceIds

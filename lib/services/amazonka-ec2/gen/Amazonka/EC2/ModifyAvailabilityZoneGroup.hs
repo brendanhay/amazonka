@@ -143,7 +143,8 @@ instance Core.AWSRequest ModifyAvailabilityZoneGroup where
 
 instance Prelude.Hashable ModifyAvailabilityZoneGroup where
   hashWithSalt _salt ModifyAvailabilityZoneGroup' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` optInStatus
 

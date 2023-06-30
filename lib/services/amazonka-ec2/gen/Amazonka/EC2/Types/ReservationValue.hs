@@ -84,7 +84,8 @@ instance Data.FromXML ReservationValue where
 
 instance Prelude.Hashable ReservationValue where
   hashWithSalt _salt ReservationValue' {..} =
-    _salt `Prelude.hashWithSalt` hourlyPrice
+    _salt
+      `Prelude.hashWithSalt` hourlyPrice
       `Prelude.hashWithSalt` remainingTotalValue
       `Prelude.hashWithSalt` remainingUpfrontValue
 

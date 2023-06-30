@@ -78,7 +78,8 @@ instance
     PrivateIpAddressSpecification
   where
   hashWithSalt _salt PrivateIpAddressSpecification' {..} =
-    _salt `Prelude.hashWithSalt` primary
+    _salt
+      `Prelude.hashWithSalt` primary
       `Prelude.hashWithSalt` privateIpAddress
 
 instance Prelude.NFData PrivateIpAddressSpecification where

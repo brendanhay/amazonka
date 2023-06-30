@@ -96,7 +96,8 @@ instance Data.FromXML CloudWatchLogOptions where
 
 instance Prelude.Hashable CloudWatchLogOptions where
   hashWithSalt _salt CloudWatchLogOptions' {..} =
-    _salt `Prelude.hashWithSalt` logEnabled
+    _salt
+      `Prelude.hashWithSalt` logEnabled
       `Prelude.hashWithSalt` logGroupArn
       `Prelude.hashWithSalt` logOutputFormat
 

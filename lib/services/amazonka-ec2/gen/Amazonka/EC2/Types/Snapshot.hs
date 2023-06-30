@@ -313,7 +313,9 @@ instance Data.FromXML Snapshot where
       Prelude.<*> (x Data..@? "restoreExpiryTime")
       Prelude.<*> (x Data..@? "statusMessage")
       Prelude.<*> (x Data..@? "storageTier")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "snapshotId")
@@ -328,7 +330,8 @@ instance Data.FromXML Snapshot where
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =
-    _salt `Prelude.hashWithSalt` dataEncryptionKeyId
+    _salt
+      `Prelude.hashWithSalt` dataEncryptionKeyId
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerAlias

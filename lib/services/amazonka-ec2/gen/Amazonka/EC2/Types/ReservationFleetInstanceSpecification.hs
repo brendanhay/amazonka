@@ -188,7 +188,8 @@ instance
   hashWithSalt
     _salt
     ReservationFleetInstanceSpecification' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` availabilityZoneId
         `Prelude.hashWithSalt` ebsOptimized
         `Prelude.hashWithSalt` instancePlatform

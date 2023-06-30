@@ -157,7 +157,8 @@ instance Core.AWSRequest ImportVolume where
 
 instance Prelude.Hashable ImportVolume where
   hashWithSalt _salt ImportVolume' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` image

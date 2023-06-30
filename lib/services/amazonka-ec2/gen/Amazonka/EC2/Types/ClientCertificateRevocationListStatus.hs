@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     ClientCertificateRevocationListStatus' {..} =
-      _salt `Prelude.hashWithSalt` code
+      _salt
+        `Prelude.hashWithSalt` code
         `Prelude.hashWithSalt` message
 
 instance

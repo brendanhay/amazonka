@@ -94,7 +94,8 @@ instance Data.FromXML SpotPlacementScore where
 
 instance Prelude.Hashable SpotPlacementScore where
   hashWithSalt _salt SpotPlacementScore' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneId
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` score
 

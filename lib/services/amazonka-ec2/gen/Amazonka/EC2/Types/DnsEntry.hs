@@ -71,7 +71,8 @@ instance Data.FromXML DnsEntry where
 
 instance Prelude.Hashable DnsEntry where
   hashWithSalt _salt DnsEntry' {..} =
-    _salt `Prelude.hashWithSalt` dnsName
+    _salt
+      `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` hostedZoneId
 
 instance Prelude.NFData DnsEntry where

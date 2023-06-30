@@ -152,8 +152,8 @@ instance
       ( \s h x ->
           ModifyVerifiedAccessEndpointPolicyResponse'
             Prelude.<$> (x Data..@? "policyDocument")
-              Prelude.<*> (x Data..@? "policyEnabled")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "policyEnabled")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -163,7 +163,8 @@ instance
   hashWithSalt
     _salt
     ModifyVerifiedAccessEndpointPolicy' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` policyDocument
         `Prelude.hashWithSalt` verifiedAccessEndpointId

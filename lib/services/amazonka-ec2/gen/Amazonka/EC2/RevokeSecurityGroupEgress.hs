@@ -222,7 +222,8 @@ instance Core.AWSRequest RevokeSecurityGroupEgress where
       ( \s h x ->
           RevokeSecurityGroupEgressResponse'
             Prelude.<$> (x Data..@? "return")
-            Prelude.<*> ( x Data..@? "unknownIpPermissionSet"
+            Prelude.<*> ( x
+                            Data..@? "unknownIpPermissionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -231,7 +232,8 @@ instance Core.AWSRequest RevokeSecurityGroupEgress where
 
 instance Prelude.Hashable RevokeSecurityGroupEgress where
   hashWithSalt _salt RevokeSecurityGroupEgress' {..} =
-    _salt `Prelude.hashWithSalt` cidrIp
+    _salt
+      `Prelude.hashWithSalt` cidrIp
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` ipPermissions

@@ -73,7 +73,9 @@ instance Data.FromXML LaunchTemplateConfig where
   parseXML x =
     LaunchTemplateConfig'
       Prelude.<$> (x Data..@? "launchTemplateSpecification")
-      Prelude.<*> ( x Data..@? "overrides" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "overrides"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 

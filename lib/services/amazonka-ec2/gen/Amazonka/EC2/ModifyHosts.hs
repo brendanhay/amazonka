@@ -184,10 +184,14 @@ instance Core.AWSRequest ModifyHosts where
     Response.receiveXML
       ( \s h x ->
           ModifyHostsResponse'
-            Prelude.<$> ( x Data..@? "successful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "successful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -195,7 +199,8 @@ instance Core.AWSRequest ModifyHosts where
 
 instance Prelude.Hashable ModifyHosts where
   hashWithSalt _salt ModifyHosts' {..} =
-    _salt `Prelude.hashWithSalt` autoPlacement
+    _salt
+      `Prelude.hashWithSalt` autoPlacement
       `Prelude.hashWithSalt` hostRecovery
       `Prelude.hashWithSalt` instanceFamily
       `Prelude.hashWithSalt` instanceType

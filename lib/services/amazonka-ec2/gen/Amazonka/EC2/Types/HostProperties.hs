@@ -107,7 +107,8 @@ instance Data.FromXML HostProperties where
 
 instance Prelude.Hashable HostProperties where
   hashWithSalt _salt HostProperties' {..} =
-    _salt `Prelude.hashWithSalt` cores
+    _salt
+      `Prelude.hashWithSalt` cores
       `Prelude.hashWithSalt` instanceFamily
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` sockets

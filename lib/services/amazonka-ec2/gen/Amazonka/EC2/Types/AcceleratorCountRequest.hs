@@ -76,7 +76,8 @@ acceleratorCountRequest_min = Lens.lens (\AcceleratorCountRequest' {min} -> min)
 
 instance Prelude.Hashable AcceleratorCountRequest where
   hashWithSalt _salt AcceleratorCountRequest' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData AcceleratorCountRequest where

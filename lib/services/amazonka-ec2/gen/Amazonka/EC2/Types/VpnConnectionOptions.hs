@@ -175,13 +175,16 @@ instance Data.FromXML VpnConnectionOptions where
       Prelude.<*> (x Data..@? "staticRoutesOnly")
       Prelude.<*> (x Data..@? "transportTransitGatewayAttachmentId")
       Prelude.<*> (x Data..@? "tunnelInsideIpVersion")
-      Prelude.<*> ( x Data..@? "tunnelOptionSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tunnelOptionSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable VpnConnectionOptions where
   hashWithSalt _salt VpnConnectionOptions' {..} =
-    _salt `Prelude.hashWithSalt` enableAcceleration
+    _salt
+      `Prelude.hashWithSalt` enableAcceleration
       `Prelude.hashWithSalt` localIpv4NetworkCidr
       `Prelude.hashWithSalt` localIpv6NetworkCidr
       `Prelude.hashWithSalt` outsideIpAddressType

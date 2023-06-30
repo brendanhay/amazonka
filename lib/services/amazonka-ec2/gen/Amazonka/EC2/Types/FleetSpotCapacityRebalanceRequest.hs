@@ -142,7 +142,8 @@ instance
   hashWithSalt
     _salt
     FleetSpotCapacityRebalanceRequest' {..} =
-      _salt `Prelude.hashWithSalt` replacementStrategy
+      _salt
+        `Prelude.hashWithSalt` replacementStrategy
         `Prelude.hashWithSalt` terminationDelay
 
 instance

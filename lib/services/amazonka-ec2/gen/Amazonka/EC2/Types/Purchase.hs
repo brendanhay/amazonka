@@ -130,7 +130,9 @@ instance Data.FromXML Purchase where
     Purchase'
       Prelude.<$> (x Data..@? "currencyCode")
       Prelude.<*> (x Data..@? "duration")
-      Prelude.<*> ( x Data..@? "hostIdSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "hostIdSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "hostReservationId")
@@ -141,7 +143,8 @@ instance Data.FromXML Purchase where
 
 instance Prelude.Hashable Purchase where
   hashWithSalt _salt Purchase' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
+    _salt
+      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` hostIdSet
       `Prelude.hashWithSalt` hostReservationId

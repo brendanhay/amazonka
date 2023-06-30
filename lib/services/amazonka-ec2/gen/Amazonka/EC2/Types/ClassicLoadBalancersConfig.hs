@@ -61,7 +61,8 @@ classicLoadBalancersConfig_classicLoadBalancers = Lens.lens (\ClassicLoadBalance
 instance Data.FromXML ClassicLoadBalancersConfig where
   parseXML x =
     ClassicLoadBalancersConfig'
-      Prelude.<$> ( x Data..@? "classicLoadBalancers"
+      Prelude.<$> ( x
+                      Data..@? "classicLoadBalancers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "item")
                   )

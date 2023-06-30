@@ -116,7 +116,8 @@ instance Core.AWSRequest DetachInternetGateway where
 
 instance Prelude.Hashable DetachInternetGateway where
   hashWithSalt _salt DetachInternetGateway' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` internetGatewayId
       `Prelude.hashWithSalt` vpcId
 

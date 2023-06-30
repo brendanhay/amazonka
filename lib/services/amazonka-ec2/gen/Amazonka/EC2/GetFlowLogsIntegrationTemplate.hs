@@ -165,7 +165,8 @@ instance
   hashWithSalt
     _salt
     GetFlowLogsIntegrationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` flowLogId
         `Prelude.hashWithSalt` configDeliveryS3DestinationArn
         `Prelude.hashWithSalt` integrateServices

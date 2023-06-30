@@ -67,11 +67,13 @@ vpcAttachment_vpcId = Lens.lens (\VpcAttachment' {vpcId} -> vpcId) (\s@VpcAttach
 instance Data.FromXML VpcAttachment where
   parseXML x =
     VpcAttachment'
-      Prelude.<$> (x Data..@? "state") Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<$> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable VpcAttachment where
   hashWithSalt _salt VpcAttachment' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData VpcAttachment where

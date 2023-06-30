@@ -78,7 +78,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateCpuOptionsRequest' {..} =
-      _salt `Prelude.hashWithSalt` coreCount
+      _salt
+        `Prelude.hashWithSalt` coreCount
         `Prelude.hashWithSalt` threadsPerCore
 
 instance

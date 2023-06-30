@@ -167,22 +167,22 @@ instance Core.AWSPager DescribeIpv6Pools where
     | Core.stop
         ( rs
             Lens.^? describeIpv6PoolsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeIpv6PoolsResponse_ipv6Pools
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeIpv6Pools_nextToken
           Lens..~ rs
           Lens.^? describeIpv6PoolsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeIpv6Pools where
   type
@@ -194,7 +194,9 @@ instance Core.AWSRequest DescribeIpv6Pools where
     Response.receiveXML
       ( \s h x ->
           DescribeIpv6PoolsResponse'
-            Prelude.<$> ( x Data..@? "ipv6PoolSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "ipv6PoolSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -203,7 +205,8 @@ instance Core.AWSRequest DescribeIpv6Pools where
 
 instance Prelude.Hashable DescribeIpv6Pools where
   hashWithSalt _salt DescribeIpv6Pools' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

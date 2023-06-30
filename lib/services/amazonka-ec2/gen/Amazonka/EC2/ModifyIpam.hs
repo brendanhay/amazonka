@@ -160,7 +160,8 @@ instance Core.AWSRequest ModifyIpam where
 
 instance Prelude.Hashable ModifyIpam where
   hashWithSalt _salt ModifyIpam' {..} =
-    _salt `Prelude.hashWithSalt` addOperatingRegions
+    _salt
+      `Prelude.hashWithSalt` addOperatingRegions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` removeOperatingRegions

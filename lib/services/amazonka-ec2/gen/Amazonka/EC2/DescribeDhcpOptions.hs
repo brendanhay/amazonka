@@ -205,22 +205,22 @@ instance Core.AWSPager DescribeDhcpOptions where
     | Core.stop
         ( rs
             Lens.^? describeDhcpOptionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDhcpOptionsResponse_dhcpOptions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDhcpOptions_nextToken
           Lens..~ rs
           Lens.^? describeDhcpOptionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDhcpOptions where
   type
@@ -232,7 +232,9 @@ instance Core.AWSRequest DescribeDhcpOptions where
     Response.receiveXML
       ( \s h x ->
           DescribeDhcpOptionsResponse'
-            Prelude.<$> ( x Data..@? "dhcpOptionsSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "dhcpOptionsSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -241,7 +243,8 @@ instance Core.AWSRequest DescribeDhcpOptions where
 
 instance Prelude.Hashable DescribeDhcpOptions where
   hashWithSalt _salt DescribeDhcpOptions' {..} =
-    _salt `Prelude.hashWithSalt` dhcpOptionsIds
+    _salt
+      `Prelude.hashWithSalt` dhcpOptionsIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults

@@ -74,7 +74,8 @@ targetConfigurationRequest_offeringId = Lens.lens (\TargetConfigurationRequest' 
 
 instance Prelude.Hashable TargetConfigurationRequest where
   hashWithSalt _salt TargetConfigurationRequest' {..} =
-    _salt `Prelude.hashWithSalt` instanceCount
+    _salt
+      `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` offeringId
 
 instance Prelude.NFData TargetConfigurationRequest where

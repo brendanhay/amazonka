@@ -143,7 +143,8 @@ instance
     ModifyVerifiedAccessInstance
   where
   hashWithSalt _salt ModifyVerifiedAccessInstance' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessInstanceId

@@ -238,7 +238,8 @@ instance
     FleetLaunchTemplateOverrides
   where
   hashWithSalt _salt FleetLaunchTemplateOverrides' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` instanceRequirements
       `Prelude.hashWithSalt` instanceType

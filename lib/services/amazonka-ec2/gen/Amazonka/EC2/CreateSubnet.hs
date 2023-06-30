@@ -269,7 +269,8 @@ instance Core.AWSRequest CreateSubnet where
 
 instance Prelude.Hashable CreateSubnet where
   hashWithSalt _salt CreateSubnet' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` dryRun

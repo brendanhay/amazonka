@@ -174,7 +174,8 @@ instance Data.FromXML UserIdGroupPair where
 
 instance Prelude.Hashable UserIdGroupPair where
   hashWithSalt _salt UserIdGroupPair' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` peeringStatus

@@ -83,7 +83,8 @@ instance Data.FromXML PrefixListId where
 
 instance Prelude.Hashable PrefixListId where
   hashWithSalt _salt PrefixListId' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` prefixListId
 
 instance Prelude.NFData PrefixListId where

@@ -73,7 +73,8 @@ addPrefixListEntry_cidr = Lens.lens (\AddPrefixListEntry' {cidr} -> cidr) (\s@Ad
 
 instance Prelude.Hashable AddPrefixListEntry where
   hashWithSalt _salt AddPrefixListEntry' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` cidr
 
 instance Prelude.NFData AddPrefixListEntry where

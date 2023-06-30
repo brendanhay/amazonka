@@ -77,7 +77,8 @@ instance
   hashWithSalt
     _salt
     AcceleratorTotalMemoryMiBRequest' {..} =
-      _salt `Prelude.hashWithSalt` max
+      _salt
+        `Prelude.hashWithSalt` max
         `Prelude.hashWithSalt` min
 
 instance

@@ -133,7 +133,8 @@ instance Data.FromXML LaunchTemplateVersion where
 
 instance Prelude.Hashable LaunchTemplateVersion where
   hashWithSalt _salt LaunchTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` defaultVersion
       `Prelude.hashWithSalt` launchTemplateData

@@ -143,7 +143,8 @@ instance Core.AWSRequest ProvisionIpamPoolCidr where
 
 instance Prelude.Hashable ProvisionIpamPoolCidr where
   hashWithSalt _salt ProvisionIpamPoolCidr' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` cidrAuthorizationContext
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamPoolId

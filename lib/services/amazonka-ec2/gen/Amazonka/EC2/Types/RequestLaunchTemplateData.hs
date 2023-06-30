@@ -661,7 +661,8 @@ requestLaunchTemplateData_userData = Lens.lens (\RequestLaunchTemplateData' {use
 
 instance Prelude.Hashable RequestLaunchTemplateData where
   hashWithSalt _salt RequestLaunchTemplateData' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
+    _salt
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` capacityReservationSpecification
       `Prelude.hashWithSalt` cpuOptions
       `Prelude.hashWithSalt` creditSpecification

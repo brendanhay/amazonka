@@ -70,7 +70,8 @@ instance
   where
   parseXML x =
     LaunchTemplateIamInstanceProfileSpecification'
-      Prelude.<$> (x Data..@? "arn") Prelude.<*> (x Data..@? "name")
+      Prelude.<$> (x Data..@? "arn")
+      Prelude.<*> (x Data..@? "name")
 
 instance
   Prelude.Hashable
@@ -79,7 +80,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateIamInstanceProfileSpecification' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` name
 
 instance

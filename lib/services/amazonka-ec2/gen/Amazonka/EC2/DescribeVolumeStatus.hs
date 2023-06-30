@@ -306,22 +306,22 @@ instance Core.AWSPager DescribeVolumeStatus where
     | Core.stop
         ( rs
             Lens.^? describeVolumeStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVolumeStatusResponse_volumeStatuses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVolumeStatus_nextToken
           Lens..~ rs
           Lens.^? describeVolumeStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumeStatus where
   type
@@ -334,7 +334,9 @@ instance Core.AWSRequest DescribeVolumeStatus where
       ( \s h x ->
           DescribeVolumeStatusResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "volumeStatusSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "volumeStatusSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -342,7 +344,8 @@ instance Core.AWSRequest DescribeVolumeStatus where
 
 instance Prelude.Hashable DescribeVolumeStatus where
   hashWithSalt _salt DescribeVolumeStatus' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

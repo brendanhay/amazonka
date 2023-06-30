@@ -130,22 +130,22 @@ instance Core.AWSPager DescribeAddressTransfers where
     | Core.stop
         ( rs
             Lens.^? describeAddressTransfersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAddressTransfersResponse_addressTransfers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAddressTransfers_nextToken
           Lens..~ rs
           Lens.^? describeAddressTransfersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAddressTransfers where
   type
@@ -157,7 +157,8 @@ instance Core.AWSRequest DescribeAddressTransfers where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressTransfersResponse'
-            Prelude.<$> ( x Data..@? "addressTransferSet"
+            Prelude.<$> ( x
+                            Data..@? "addressTransferSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -167,7 +168,8 @@ instance Core.AWSRequest DescribeAddressTransfers where
 
 instance Prelude.Hashable DescribeAddressTransfers where
   hashWithSalt _salt DescribeAddressTransfers' {..} =
-    _salt `Prelude.hashWithSalt` allocationIds
+    _salt
+      `Prelude.hashWithSalt` allocationIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

@@ -147,11 +147,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetTransitGatewayPolicyTableEntriesResponse'
-            Prelude.<$> ( x Data..@? "transitGatewayPolicyTableEntries"
+            Prelude.<$> ( x
+                            Data..@? "transitGatewayPolicyTableEntries"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -161,7 +162,8 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayPolicyTableEntries' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

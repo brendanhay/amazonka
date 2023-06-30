@@ -145,7 +145,7 @@ instance
       ( \s h x ->
           ModifyTransitGatewayVpcAttachmentResponse'
             Prelude.<$> (x Data..@? "transitGatewayVpcAttachment")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     ModifyTransitGatewayVpcAttachment' {..} =
-      _salt `Prelude.hashWithSalt` addSubnetIds
+      _salt
+        `Prelude.hashWithSalt` addSubnetIds
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` options
         `Prelude.hashWithSalt` removeSubnetIds

@@ -113,7 +113,8 @@ instance Core.AWSRequest CreateInternetGateway where
 
 instance Prelude.Hashable CreateInternetGateway where
   hashWithSalt _salt CreateInternetGateway' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
 
 instance Prelude.NFData CreateInternetGateway where

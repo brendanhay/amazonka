@@ -189,7 +189,8 @@ instance Data.FromXML OnDemandOptions where
 
 instance Prelude.Hashable OnDemandOptions where
   hashWithSalt _salt OnDemandOptions' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` capacityReservationOptions
       `Prelude.hashWithSalt` maxTotalPrice
       `Prelude.hashWithSalt` minTargetCapacity

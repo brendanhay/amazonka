@@ -73,7 +73,8 @@ instance Data.FromXML CapacityReservationGroup where
 
 instance Prelude.Hashable CapacityReservationGroup where
   hashWithSalt _salt CapacityReservationGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupArn
+    _salt
+      `Prelude.hashWithSalt` groupArn
       `Prelude.hashWithSalt` ownerId
 
 instance Prelude.NFData CapacityReservationGroup where

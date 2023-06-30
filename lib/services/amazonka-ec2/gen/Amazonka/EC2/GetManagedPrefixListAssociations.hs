@@ -134,22 +134,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getManagedPrefixListAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getManagedPrefixListAssociationsResponse_prefixListAssociations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getManagedPrefixListAssociations_nextToken
           Lens..~ rs
           Lens.^? getManagedPrefixListAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -165,7 +165,8 @@ instance
       ( \s h x ->
           GetManagedPrefixListAssociationsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "prefixListAssociationSet"
+            Prelude.<*> ( x
+                            Data..@? "prefixListAssociationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -179,7 +180,8 @@ instance
   hashWithSalt
     _salt
     GetManagedPrefixListAssociations' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` prefixListId

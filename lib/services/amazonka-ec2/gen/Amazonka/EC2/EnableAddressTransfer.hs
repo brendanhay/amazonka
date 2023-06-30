@@ -130,7 +130,8 @@ instance Core.AWSRequest EnableAddressTransfer where
 
 instance Prelude.Hashable EnableAddressTransfer where
   hashWithSalt _salt EnableAddressTransfer' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` transferAccountId
 

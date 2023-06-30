@@ -269,7 +269,8 @@ instance Core.AWSRequest AllocateAddress where
 
 instance Prelude.Hashable AllocateAddress where
   hashWithSalt _salt AllocateAddress' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` customerOwnedIpv4Pool
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` dryRun

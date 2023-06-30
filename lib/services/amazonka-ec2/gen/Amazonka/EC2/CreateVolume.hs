@@ -521,7 +521,8 @@ instance Core.AWSRequest CreateVolume where
 
 instance Prelude.Hashable CreateVolume where
   hashWithSalt _salt CreateVolume' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` iops

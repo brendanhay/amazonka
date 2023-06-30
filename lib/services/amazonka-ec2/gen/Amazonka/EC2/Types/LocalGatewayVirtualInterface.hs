@@ -145,7 +145,9 @@ instance Data.FromXML LocalGatewayVirtualInterface where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "peerAddress")
       Prelude.<*> (x Data..@? "peerBgpAsn")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vlan")
@@ -155,7 +157,8 @@ instance
     LocalGatewayVirtualInterface
   where
   hashWithSalt _salt LocalGatewayVirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` localAddress
+    _salt
+      `Prelude.hashWithSalt` localAddress
       `Prelude.hashWithSalt` localBgpAsn
       `Prelude.hashWithSalt` localGatewayId
       `Prelude.hashWithSalt` localGatewayVirtualInterfaceId

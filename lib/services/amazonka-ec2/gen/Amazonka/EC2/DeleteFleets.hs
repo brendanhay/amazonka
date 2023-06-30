@@ -164,11 +164,13 @@ instance Core.AWSRequest DeleteFleets where
     Response.receiveXML
       ( \s h x ->
           DeleteFleetsResponse'
-            Prelude.<$> ( x Data..@? "successfulFleetDeletionSet"
+            Prelude.<$> ( x
+                            Data..@? "successfulFleetDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "unsuccessfulFleetDeletionSet"
+            Prelude.<*> ( x
+                            Data..@? "unsuccessfulFleetDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -177,7 +179,8 @@ instance Core.AWSRequest DeleteFleets where
 
 instance Prelude.Hashable DeleteFleets where
   hashWithSalt _salt DeleteFleets' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fleetIds
       `Prelude.hashWithSalt` terminateInstances
 

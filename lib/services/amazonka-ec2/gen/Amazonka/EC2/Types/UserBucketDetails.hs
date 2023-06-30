@@ -71,7 +71,8 @@ instance Data.FromXML UserBucketDetails where
 
 instance Prelude.Hashable UserBucketDetails where
   hashWithSalt _salt UserBucketDetails' {..} =
-    _salt `Prelude.hashWithSalt` s3Bucket
+    _salt
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Key
 
 instance Prelude.NFData UserBucketDetails where

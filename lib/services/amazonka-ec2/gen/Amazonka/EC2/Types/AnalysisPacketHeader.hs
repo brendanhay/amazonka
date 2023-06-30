@@ -97,27 +97,32 @@ analysisPacketHeader_sourcePortRanges = Lens.lens (\AnalysisPacketHeader' {sourc
 instance Data.FromXML AnalysisPacketHeader where
   parseXML x =
     AnalysisPacketHeader'
-      Prelude.<$> ( x Data..@? "destinationAddressSet"
+      Prelude.<$> ( x
+                      Data..@? "destinationAddressSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "destinationPortRangeSet"
+      Prelude.<*> ( x
+                      Data..@? "destinationPortRangeSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "protocol")
-      Prelude.<*> ( x Data..@? "sourceAddressSet"
+      Prelude.<*> ( x
+                      Data..@? "sourceAddressSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "sourcePortRangeSet"
+      Prelude.<*> ( x
+                      Data..@? "sourcePortRangeSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable AnalysisPacketHeader where
   hashWithSalt _salt AnalysisPacketHeader' {..} =
-    _salt `Prelude.hashWithSalt` destinationAddresses
+    _salt
+      `Prelude.hashWithSalt` destinationAddresses
       `Prelude.hashWithSalt` destinationPortRanges
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` sourceAddresses

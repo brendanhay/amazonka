@@ -96,7 +96,9 @@ instance Core.AWSRequest DescribeExportTasks where
     Response.receiveXML
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> ( x Data..@? "exportTaskSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "exportTaskSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -104,7 +106,8 @@ instance Core.AWSRequest DescribeExportTasks where
 
 instance Prelude.Hashable DescribeExportTasks where
   hashWithSalt _salt DescribeExportTasks' {..} =
-    _salt `Prelude.hashWithSalt` exportTaskIds
+    _salt
+      `Prelude.hashWithSalt` exportTaskIds
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData DescribeExportTasks where

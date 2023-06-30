@@ -170,7 +170,9 @@ instance
       Prelude.<*> (x Data..@? "peerTransitGatewayId")
       Prelude.<*> (x Data..@? "peeringAttachmentId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
@@ -184,7 +186,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayRouteTableAnnouncement' {..} =
-      _salt `Prelude.hashWithSalt` announcementDirection
+      _salt
+        `Prelude.hashWithSalt` announcementDirection
         `Prelude.hashWithSalt` coreNetworkId
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` peerCoreNetworkId

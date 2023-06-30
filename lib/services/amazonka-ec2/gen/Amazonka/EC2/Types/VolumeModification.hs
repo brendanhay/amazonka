@@ -218,7 +218,8 @@ instance Data.FromXML VolumeModification where
 
 instance Prelude.Hashable VolumeModification where
   hashWithSalt _salt VolumeModification' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` modificationState
       `Prelude.hashWithSalt` originalIops
       `Prelude.hashWithSalt` originalMultiAttachEnabled

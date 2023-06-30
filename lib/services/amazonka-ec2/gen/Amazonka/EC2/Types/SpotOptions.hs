@@ -380,7 +380,8 @@ instance Data.FromXML SpotOptions where
 
 instance Prelude.Hashable SpotOptions where
   hashWithSalt _salt SpotOptions' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` instanceInterruptionBehavior
       `Prelude.hashWithSalt` instancePoolsToUseCount
       `Prelude.hashWithSalt` maintenanceStrategies

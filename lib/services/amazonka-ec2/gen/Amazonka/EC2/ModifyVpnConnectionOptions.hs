@@ -187,7 +187,8 @@ instance Core.AWSRequest ModifyVpnConnectionOptions where
 
 instance Prelude.Hashable ModifyVpnConnectionOptions where
   hashWithSalt _salt ModifyVpnConnectionOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` localIpv4NetworkCidr
       `Prelude.hashWithSalt` localIpv6NetworkCidr
       `Prelude.hashWithSalt` remoteIpv4NetworkCidr

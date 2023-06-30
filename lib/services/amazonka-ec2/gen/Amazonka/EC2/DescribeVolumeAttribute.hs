@@ -125,7 +125,9 @@ instance Core.AWSRequest DescribeVolumeAttribute where
       ( \s h x ->
           DescribeVolumeAttributeResponse'
             Prelude.<$> (x Data..@? "autoEnableIO")
-            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "productCodes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "volumeId")
@@ -134,7 +136,8 @@ instance Core.AWSRequest DescribeVolumeAttribute where
 
 instance Prelude.Hashable DescribeVolumeAttribute where
   hashWithSalt _salt DescribeVolumeAttribute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` volumeId
 

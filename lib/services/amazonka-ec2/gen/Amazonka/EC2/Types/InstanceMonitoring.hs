@@ -72,7 +72,8 @@ instance Data.FromXML InstanceMonitoring where
 
 instance Prelude.Hashable InstanceMonitoring where
   hashWithSalt _salt InstanceMonitoring' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` monitoring
 
 instance Prelude.NFData InstanceMonitoring where

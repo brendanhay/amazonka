@@ -155,7 +155,8 @@ instance Core.AWSRequest ModifyIdFormat where
 
 instance Prelude.Hashable ModifyIdFormat where
   hashWithSalt _salt ModifyIdFormat' {..} =
-    _salt `Prelude.hashWithSalt` resource
+    _salt
+      `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` useLongIds
 
 instance Prelude.NFData ModifyIdFormat where

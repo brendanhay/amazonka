@@ -250,7 +250,8 @@ instance Core.AWSRequest AllocateIpamPoolCidr where
 
 instance Prelude.Hashable AllocateIpamPoolCidr where
   hashWithSalt _salt AllocateIpamPoolCidr' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disallowedCidrs

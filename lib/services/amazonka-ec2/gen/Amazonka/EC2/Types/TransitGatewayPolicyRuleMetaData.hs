@@ -81,7 +81,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayPolicyRuleMetaData' {..} =
-      _salt `Prelude.hashWithSalt` metaDataKey
+      _salt
+        `Prelude.hashWithSalt` metaDataKey
         `Prelude.hashWithSalt` metaDataValue
 
 instance

@@ -435,7 +435,8 @@ instance Core.AWSRequest CreateClientVpnEndpoint where
 
 instance Prelude.Hashable CreateClientVpnEndpoint where
   hashWithSalt _salt CreateClientVpnEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientConnectOptions
+    _salt
+      `Prelude.hashWithSalt` clientConnectOptions
       `Prelude.hashWithSalt` clientLoginBannerOptions
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description

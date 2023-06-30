@@ -246,7 +246,8 @@ instance Core.AWSRequest AssociateAddress where
 
 instance Prelude.Hashable AssociateAddress where
   hashWithSalt _salt AssociateAddress' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` allowReassociation
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId

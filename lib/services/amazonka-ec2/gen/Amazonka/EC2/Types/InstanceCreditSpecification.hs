@@ -79,7 +79,8 @@ instance Data.FromXML InstanceCreditSpecification where
 
 instance Prelude.Hashable InstanceCreditSpecification where
   hashWithSalt _salt InstanceCreditSpecification' {..} =
-    _salt `Prelude.hashWithSalt` cpuCredits
+    _salt
+      `Prelude.hashWithSalt` cpuCredits
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData InstanceCreditSpecification where

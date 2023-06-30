@@ -122,7 +122,8 @@ instance Core.AWSRequest SendDiagnosticInterrupt where
 
 instance Prelude.Hashable SendDiagnosticInterrupt where
   hashWithSalt _salt SendDiagnosticInterrupt' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData SendDiagnosticInterrupt where

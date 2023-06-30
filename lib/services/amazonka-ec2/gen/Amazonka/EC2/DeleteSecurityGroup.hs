@@ -129,7 +129,8 @@ instance Core.AWSRequest DeleteSecurityGroup where
 
 instance Prelude.Hashable DeleteSecurityGroup where
   hashWithSalt _salt DeleteSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
 

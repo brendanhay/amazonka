@@ -109,7 +109,9 @@ instance Core.AWSRequest MonitorInstances where
     Response.receiveXML
       ( \s h x ->
           MonitorInstancesResponse'
-            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instancesSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -117,7 +119,8 @@ instance Core.AWSRequest MonitorInstances where
 
 instance Prelude.Hashable MonitorInstances where
   hashWithSalt _salt MonitorInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceIds
 
 instance Prelude.NFData MonitorInstances where

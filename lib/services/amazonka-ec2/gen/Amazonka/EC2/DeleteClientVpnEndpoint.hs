@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteClientVpnEndpoint where
 
 instance Prelude.Hashable DeleteClientVpnEndpoint where
   hashWithSalt _salt DeleteClientVpnEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` clientVpnEndpointId
 
 instance Prelude.NFData DeleteClientVpnEndpoint where

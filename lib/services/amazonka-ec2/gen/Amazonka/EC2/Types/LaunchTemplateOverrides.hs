@@ -208,7 +208,8 @@ instance Data.FromXML LaunchTemplateOverrides where
 
 instance Prelude.Hashable LaunchTemplateOverrides where
   hashWithSalt _salt LaunchTemplateOverrides' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` instanceRequirements
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` priority

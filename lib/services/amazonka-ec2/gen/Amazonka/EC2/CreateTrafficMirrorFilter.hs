@@ -148,7 +148,8 @@ instance Core.AWSRequest CreateTrafficMirrorFilter where
 
 instance Prelude.Hashable CreateTrafficMirrorFilter where
   hashWithSalt _salt CreateTrafficMirrorFilter' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications

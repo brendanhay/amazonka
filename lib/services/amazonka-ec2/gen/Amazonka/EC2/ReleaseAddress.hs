@@ -171,7 +171,8 @@ instance Core.AWSRequest ReleaseAddress where
 
 instance Prelude.Hashable ReleaseAddress where
   hashWithSalt _salt ReleaseAddress' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` networkBorderGroup
       `Prelude.hashWithSalt` publicIp

@@ -109,7 +109,8 @@ instance Core.AWSRequest AssociateIamInstanceProfile where
 
 instance Prelude.Hashable AssociateIamInstanceProfile where
   hashWithSalt _salt AssociateIamInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` iamInstanceProfile
+    _salt
+      `Prelude.hashWithSalt` iamInstanceProfile
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData AssociateIamInstanceProfile where

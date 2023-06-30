@@ -194,7 +194,8 @@ instance Data.FromXML StateReason where
 
 instance Prelude.Hashable StateReason where
   hashWithSalt _salt StateReason' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData StateReason where

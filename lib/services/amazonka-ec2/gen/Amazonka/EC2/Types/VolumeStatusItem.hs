@@ -115,15 +115,20 @@ volumeStatusItem_volumeStatus = Lens.lens (\VolumeStatusItem' {volumeStatus} -> 
 instance Data.FromXML VolumeStatusItem where
   parseXML x =
     VolumeStatusItem'
-      Prelude.<$> ( x Data..@? "actionsSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "actionsSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "attachmentStatuses"
+      Prelude.<*> ( x
+                      Data..@? "attachmentStatuses"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "availabilityZone")
-      Prelude.<*> ( x Data..@? "eventsSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "eventsSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "outpostArn")
@@ -132,7 +137,8 @@ instance Data.FromXML VolumeStatusItem where
 
 instance Prelude.Hashable VolumeStatusItem where
   hashWithSalt _salt VolumeStatusItem' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` attachmentStatuses
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` events

@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteNetworkInsightsPath where
 
 instance Prelude.Hashable DeleteNetworkInsightsPath where
   hashWithSalt _salt DeleteNetworkInsightsPath' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` networkInsightsPathId
 
 instance Prelude.NFData DeleteNetworkInsightsPath where

@@ -418,27 +418,35 @@ instance
       Prelude.<*> (x Data..@? "deleteOnTermination")
       Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "deviceIndex")
-      Prelude.<*> ( x Data..@? "SecurityGroupId" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "SecurityGroupId"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "SecurityGroupId")
                   )
       Prelude.<*> (x Data..@? "InterfaceType")
       Prelude.<*> (x Data..@? "Ipv4PrefixCount")
-      Prelude.<*> ( x Data..@? "Ipv4Prefix" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Ipv4Prefix"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipv6AddressCount")
-      Prelude.<*> ( x Data..@? "ipv6AddressesSet"
+      Prelude.<*> ( x
+                      Data..@? "ipv6AddressesSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "Ipv6PrefixCount")
-      Prelude.<*> ( x Data..@? "Ipv6Prefix" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Ipv6Prefix"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "NetworkCardIndex")
       Prelude.<*> (x Data..@? "networkInterfaceId")
       Prelude.<*> (x Data..@? "privateIpAddress")
-      Prelude.<*> ( x Data..@? "privateIpAddressesSet"
+      Prelude.<*> ( x
+                      Data..@? "privateIpAddressesSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )

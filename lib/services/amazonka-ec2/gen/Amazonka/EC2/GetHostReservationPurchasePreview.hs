@@ -109,12 +109,14 @@ instance
       ( \s h x ->
           GetHostReservationPurchasePreviewResponse'
             Prelude.<$> (x Data..@? "currencyCode")
-              Prelude.<*> ( x Data..@? "purchase" Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
-              Prelude.<*> (x Data..@? "totalHourlyPrice")
-              Prelude.<*> (x Data..@? "totalUpfrontPrice")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "purchase"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (x Data..@? "totalHourlyPrice")
+            Prelude.<*> (x Data..@? "totalUpfrontPrice")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -124,7 +126,8 @@ instance
   hashWithSalt
     _salt
     GetHostReservationPurchasePreview' {..} =
-      _salt `Prelude.hashWithSalt` hostIdSet
+      _salt
+        `Prelude.hashWithSalt` hostIdSet
         `Prelude.hashWithSalt` offeringId
 
 instance

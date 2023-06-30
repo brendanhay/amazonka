@@ -92,7 +92,8 @@ instance Data.FromXML FpgaDeviceInfo where
 
 instance Prelude.Hashable FpgaDeviceInfo where
   hashWithSalt _salt FpgaDeviceInfo' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` manufacturer
       `Prelude.hashWithSalt` memoryInfo
       `Prelude.hashWithSalt` name

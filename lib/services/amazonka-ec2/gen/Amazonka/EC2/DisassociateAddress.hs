@@ -125,7 +125,8 @@ instance Core.AWSRequest DisassociateAddress where
 
 instance Prelude.Hashable DisassociateAddress where
   hashWithSalt _salt DisassociateAddress' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` publicIp
 

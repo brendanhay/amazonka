@@ -155,7 +155,9 @@ instance Data.FromXML TransitGatewayAttachment where
       Prelude.<*> (x Data..@? "resourceOwnerId")
       Prelude.<*> (x Data..@? "resourceType")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
@@ -164,7 +166,8 @@ instance Data.FromXML TransitGatewayAttachment where
 
 instance Prelude.Hashable TransitGatewayAttachment where
   hashWithSalt _salt TransitGatewayAttachment' {..} =
-    _salt `Prelude.hashWithSalt` association
+    _salt
+      `Prelude.hashWithSalt` association
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceOwnerId

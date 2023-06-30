@@ -112,7 +112,7 @@ instance
       ( \s h x ->
           GetNetworkInsightsAccessScopeContentResponse'
             Prelude.<$> (x Data..@? "networkInsightsAccessScopeContent")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     GetNetworkInsightsAccessScopeContent' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` networkInsightsAccessScopeId
 
 instance

@@ -206,11 +206,13 @@ instance Data.FromXML ServiceDetail where
   parseXML x =
     ServiceDetail'
       Prelude.<$> (x Data..@? "acceptanceRequired")
-      Prelude.<*> ( x Data..@? "availabilityZoneSet"
+      Prelude.<*> ( x
+                      Data..@? "availabilityZoneSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "baseEndpointDnsNameSet"
+      Prelude.<*> ( x
+                      Data..@? "baseEndpointDnsNameSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -219,27 +221,34 @@ instance Data.FromXML ServiceDetail where
       Prelude.<*> (x Data..@? "payerResponsibility")
       Prelude.<*> (x Data..@? "privateDnsName")
       Prelude.<*> (x Data..@? "privateDnsNameVerificationState")
-      Prelude.<*> ( x Data..@? "privateDnsNameSet"
+      Prelude.<*> ( x
+                      Data..@? "privateDnsNameSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "serviceId")
       Prelude.<*> (x Data..@? "serviceName")
-      Prelude.<*> ( x Data..@? "serviceType" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Data..@? "supportedIpAddressTypeSet"
+      Prelude.<*> ( x
+                      Data..@? "serviceType"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "supportedIpAddressTypeSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcEndpointPolicySupported")
 
 instance Prelude.Hashable ServiceDetail where
   hashWithSalt _salt ServiceDetail' {..} =
-    _salt `Prelude.hashWithSalt` acceptanceRequired
+    _salt
+      `Prelude.hashWithSalt` acceptanceRequired
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` baseEndpointDnsNames
       `Prelude.hashWithSalt` managesVpcEndpoints

@@ -198,22 +198,22 @@ instance Core.AWSPager SearchLocalGatewayRoutes where
     | Core.stop
         ( rs
             Lens.^? searchLocalGatewayRoutesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchLocalGatewayRoutesResponse_routes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchLocalGatewayRoutes_nextToken
           Lens..~ rs
           Lens.^? searchLocalGatewayRoutesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchLocalGatewayRoutes where
   type
@@ -226,7 +226,9 @@ instance Core.AWSRequest SearchLocalGatewayRoutes where
       ( \s h x ->
           SearchLocalGatewayRoutesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "routeSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "routeSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -234,7 +236,8 @@ instance Core.AWSRequest SearchLocalGatewayRoutes where
 
 instance Prelude.Hashable SearchLocalGatewayRoutes where
   hashWithSalt _salt SearchLocalGatewayRoutes' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

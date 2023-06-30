@@ -123,7 +123,8 @@ instance Core.AWSRequest CancelImportTask where
 
 instance Prelude.Hashable CancelImportTask where
   hashWithSalt _salt CancelImportTask' {..} =
-    _salt `Prelude.hashWithSalt` cancelReason
+    _salt
+      `Prelude.hashWithSalt` cancelReason
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` importTaskId
 

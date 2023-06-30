@@ -77,7 +77,8 @@ instance
   parseXML x =
     InstanceTagNotificationAttribute'
       Prelude.<$> (x Data..@? "includeAllTagsOfInstance")
-      Prelude.<*> ( x Data..@? "instanceTagKeySet"
+      Prelude.<*> ( x
+                      Data..@? "instanceTagKeySet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )

@@ -142,9 +142,9 @@ instance
       ( \s h x ->
           AssociateEnclaveCertificateIamRoleResponse'
             Prelude.<$> (x Data..@? "certificateS3BucketName")
-              Prelude.<*> (x Data..@? "certificateS3ObjectKey")
-              Prelude.<*> (x Data..@? "encryptionKmsKeyId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "certificateS3ObjectKey")
+            Prelude.<*> (x Data..@? "encryptionKmsKeyId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     AssociateEnclaveCertificateIamRole' {..} =
-      _salt `Prelude.hashWithSalt` certificateArn
+      _salt
+        `Prelude.hashWithSalt` certificateArn
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` roleArn
 

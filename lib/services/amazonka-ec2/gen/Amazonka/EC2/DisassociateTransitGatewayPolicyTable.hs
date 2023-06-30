@@ -130,7 +130,7 @@ instance
       ( \s h x ->
           DisassociateTransitGatewayPolicyTableResponse'
             Prelude.<$> (x Data..@? "association")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     DisassociateTransitGatewayPolicyTable' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` transitGatewayPolicyTableId
         `Prelude.hashWithSalt` transitGatewayAttachmentId
 

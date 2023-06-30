@@ -141,7 +141,7 @@ instance
       ( \s h x ->
           ImportClientVpnClientCertificateRevocationListResponse'
             Prelude.<$> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -151,7 +151,8 @@ instance
   hashWithSalt
     _salt
     ImportClientVpnClientCertificateRevocationList' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` clientVpnEndpointId
         `Prelude.hashWithSalt` certificateRevocationList
 

@@ -138,22 +138,22 @@ instance Core.AWSPager DescribeImportSnapshotTasks where
     | Core.stop
         ( rs
             Lens.^? describeImportSnapshotTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeImportSnapshotTasksResponse_importSnapshotTasks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeImportSnapshotTasks_nextToken
           Lens..~ rs
           Lens.^? describeImportSnapshotTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImportSnapshotTasks where
   type
@@ -165,7 +165,8 @@ instance Core.AWSRequest DescribeImportSnapshotTasks where
     Response.receiveXML
       ( \s h x ->
           DescribeImportSnapshotTasksResponse'
-            Prelude.<$> ( x Data..@? "importSnapshotTaskSet"
+            Prelude.<$> ( x
+                            Data..@? "importSnapshotTaskSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -175,7 +176,8 @@ instance Core.AWSRequest DescribeImportSnapshotTasks where
 
 instance Prelude.Hashable DescribeImportSnapshotTasks where
   hashWithSalt _salt DescribeImportSnapshotTasks' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` importTaskIds
       `Prelude.hashWithSalt` maxResults

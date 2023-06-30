@@ -366,7 +366,8 @@ spotOptionsRequest_singleInstanceType = Lens.lens (\SpotOptionsRequest' {singleI
 
 instance Prelude.Hashable SpotOptionsRequest where
   hashWithSalt _salt SpotOptionsRequest' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` instanceInterruptionBehavior
       `Prelude.hashWithSalt` instancePoolsToUseCount
       `Prelude.hashWithSalt` maintenanceStrategies

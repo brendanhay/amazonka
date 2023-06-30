@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     CloudWatchLogOptionsSpecification' {..} =
-      _salt `Prelude.hashWithSalt` logEnabled
+      _salt
+        `Prelude.hashWithSalt` logEnabled
         `Prelude.hashWithSalt` logGroupArn
         `Prelude.hashWithSalt` logOutputFormat
 

@@ -459,20 +459,24 @@ instance Core.AWSRequest ImportImage where
             Prelude.<*> (x Data..@? "imageId")
             Prelude.<*> (x Data..@? "importTaskId")
             Prelude.<*> (x Data..@? "kmsKeyId")
-            Prelude.<*> ( x Data..@? "licenseSpecifications"
+            Prelude.<*> ( x
+                            Data..@? "licenseSpecifications"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "licenseType")
             Prelude.<*> (x Data..@? "platform")
             Prelude.<*> (x Data..@? "progress")
-            Prelude.<*> ( x Data..@? "snapshotDetailSet"
+            Prelude.<*> ( x
+                            Data..@? "snapshotDetailSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "status")
             Prelude.<*> (x Data..@? "statusMessage")
-            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "usageOperation")
@@ -481,7 +485,8 @@ instance Core.AWSRequest ImportImage where
 
 instance Prelude.Hashable ImportImage where
   hashWithSalt _salt ImportImage' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` clientData
       `Prelude.hashWithSalt` clientToken

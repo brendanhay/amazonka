@@ -128,7 +128,7 @@ instance
       ( \s h x ->
           AcceptReservedInstancesExchangeQuoteResponse'
             Prelude.<$> (x Data..@? "exchangeId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     AcceptReservedInstancesExchangeQuote' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` targetConfigurations
         `Prelude.hashWithSalt` reservedInstanceIds
 

@@ -146,7 +146,7 @@ instance
       ( \s h x ->
           ModifyVerifiedAccessInstanceLoggingConfigurationResponse'
             Prelude.<$> (x Data..@? "loggingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -156,7 +156,8 @@ instance
   hashWithSalt
     _salt
     ModifyVerifiedAccessInstanceLoggingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` verifiedAccessInstanceId
         `Prelude.hashWithSalt` accessLogs

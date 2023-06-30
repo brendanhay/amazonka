@@ -186,14 +186,17 @@ instance Data.FromXML SnapshotTierStatus where
       Prelude.<*> (x Data..@? "snapshotId")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "storageTier")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "volumeId")
 
 instance Prelude.Hashable SnapshotTierStatus where
   hashWithSalt _salt SnapshotTierStatus' {..} =
-    _salt `Prelude.hashWithSalt` archivalCompleteTime
+    _salt
+      `Prelude.hashWithSalt` archivalCompleteTime
       `Prelude.hashWithSalt` lastTieringOperationStatus
       `Prelude.hashWithSalt` lastTieringOperationStatusDetail
       `Prelude.hashWithSalt` lastTieringProgress

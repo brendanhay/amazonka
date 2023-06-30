@@ -71,7 +71,8 @@ requestIpamResourceTag_value = Lens.lens (\RequestIpamResourceTag' {value} -> va
 
 instance Prelude.Hashable RequestIpamResourceTag where
   hashWithSalt _salt RequestIpamResourceTag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData RequestIpamResourceTag where

@@ -72,7 +72,8 @@ instance Data.FromXML VpcCidrBlockState where
 
 instance Prelude.Hashable VpcCidrBlockState where
   hashWithSalt _salt VpcCidrBlockState' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData VpcCidrBlockState where

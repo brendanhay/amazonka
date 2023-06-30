@@ -267,7 +267,8 @@ instance Core.AWSRequest CreateNetworkAclEntry where
 
 instance Prelude.Hashable CreateNetworkAclEntry where
   hashWithSalt _salt CreateNetworkAclEntry' {..} =
-    _salt `Prelude.hashWithSalt` cidrBlock
+    _salt
+      `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` icmpTypeCode
       `Prelude.hashWithSalt` ipv6CidrBlock

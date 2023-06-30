@@ -191,7 +191,8 @@ instance Core.AWSRequest CreateVpnConnection where
 
 instance Prelude.Hashable CreateVpnConnection where
   hashWithSalt _salt CreateVpnConnection' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` transitGatewayId

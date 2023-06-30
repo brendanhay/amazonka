@@ -129,7 +129,8 @@ instance Core.AWSRequest ModifySnapshotTier where
 
 instance Prelude.Hashable ModifySnapshotTier where
   hashWithSalt _salt ModifySnapshotTier' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` storageTier
       `Prelude.hashWithSalt` snapshotId
 

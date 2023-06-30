@@ -114,7 +114,8 @@ instance Core.AWSRequest UnassignPrivateIpAddresses where
 
 instance Prelude.Hashable UnassignPrivateIpAddresses where
   hashWithSalt _salt UnassignPrivateIpAddresses' {..} =
-    _salt `Prelude.hashWithSalt` ipv4Prefixes
+    _salt
+      `Prelude.hashWithSalt` ipv4Prefixes
       `Prelude.hashWithSalt` privateIpAddresses
       `Prelude.hashWithSalt` networkInterfaceId
 

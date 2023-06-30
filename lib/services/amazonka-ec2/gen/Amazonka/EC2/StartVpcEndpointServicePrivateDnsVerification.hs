@@ -119,7 +119,7 @@ instance
       ( \s h x ->
           StartVpcEndpointServicePrivateDnsVerificationResponse'
             Prelude.<$> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     StartVpcEndpointServicePrivateDnsVerification' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` serviceId
 
 instance

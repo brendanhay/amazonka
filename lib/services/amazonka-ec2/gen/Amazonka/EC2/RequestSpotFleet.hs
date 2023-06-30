@@ -147,7 +147,8 @@ instance Core.AWSRequest RequestSpotFleet where
 
 instance Prelude.Hashable RequestSpotFleet where
   hashWithSalt _salt RequestSpotFleet' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` spotFleetRequestConfig
 
 instance Prelude.NFData RequestSpotFleet where

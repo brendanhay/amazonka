@@ -163,7 +163,8 @@ instance
   hashWithSalt
     _salt
     ModifyVerifiedAccessGroupPolicy' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` policyDocument
         `Prelude.hashWithSalt` verifiedAccessGroupId

@@ -313,7 +313,8 @@ instance Data.FromJSON SecretListEntry where
             Prelude.<*> (x Data..:? "RotationEnabled")
             Prelude.<*> (x Data..:? "RotationLambdaARN")
             Prelude.<*> (x Data..:? "RotationRules")
-            Prelude.<*> ( x Data..:? "SecretVersionsToStages"
+            Prelude.<*> ( x
+                            Data..:? "SecretVersionsToStages"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
@@ -321,7 +322,8 @@ instance Data.FromJSON SecretListEntry where
 
 instance Prelude.Hashable SecretListEntry where
   hashWithSalt _salt SecretListEntry' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` deletedDate
       `Prelude.hashWithSalt` description

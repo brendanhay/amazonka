@@ -202,7 +202,8 @@ instance Core.AWSRequest GetSecretValue where
 
 instance Prelude.Hashable GetSecretValue where
   hashWithSalt _salt GetSecretValue' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` versionStage
       `Prelude.hashWithSalt` secretId
 

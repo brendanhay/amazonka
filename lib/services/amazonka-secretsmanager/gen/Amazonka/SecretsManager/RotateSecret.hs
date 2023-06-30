@@ -284,7 +284,8 @@ instance Core.AWSRequest RotateSecret where
 
 instance Prelude.Hashable RotateSecret where
   hashWithSalt _salt RotateSecret' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` rotateImmediately
       `Prelude.hashWithSalt` rotationLambdaARN
       `Prelude.hashWithSalt` rotationRules

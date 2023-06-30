@@ -168,22 +168,22 @@ instance Core.AWSPager ListSecretVersionIds where
     | Core.stop
         ( rs
             Lens.^? listSecretVersionIdsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSecretVersionIdsResponse_versions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSecretVersionIds_nextToken
           Lens..~ rs
           Lens.^? listSecretVersionIdsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecretVersionIds where
   type
@@ -204,7 +204,8 @@ instance Core.AWSRequest ListSecretVersionIds where
 
 instance Prelude.Hashable ListSecretVersionIds where
   hashWithSalt _salt ListSecretVersionIds' {..} =
-    _salt `Prelude.hashWithSalt` includeDeprecated
+    _salt
+      `Prelude.hashWithSalt` includeDeprecated
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` secretId

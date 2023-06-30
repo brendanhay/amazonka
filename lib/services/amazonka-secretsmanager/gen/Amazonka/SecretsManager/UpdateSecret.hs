@@ -342,7 +342,8 @@ instance Core.AWSRequest UpdateSecret where
 
 instance Prelude.Hashable UpdateSecret where
   hashWithSalt _salt UpdateSecret' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` secretBinary

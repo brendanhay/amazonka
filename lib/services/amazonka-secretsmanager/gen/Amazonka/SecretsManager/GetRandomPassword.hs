@@ -204,7 +204,8 @@ instance Core.AWSRequest GetRandomPassword where
 
 instance Prelude.Hashable GetRandomPassword where
   hashWithSalt _salt GetRandomPassword' {..} =
-    _salt `Prelude.hashWithSalt` excludeCharacters
+    _salt
+      `Prelude.hashWithSalt` excludeCharacters
       `Prelude.hashWithSalt` excludeLowercase
       `Prelude.hashWithSalt` excludeNumbers
       `Prelude.hashWithSalt` excludePunctuation

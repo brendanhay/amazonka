@@ -129,7 +129,8 @@ instance Core.AWSRequest ReplicateSecretToRegions where
       ( \s h x ->
           ReplicateSecretToRegionsResponse'
             Prelude.<$> (x Data..?> "ARN")
-            Prelude.<*> ( x Data..?> "ReplicationStatus"
+            Prelude.<*> ( x
+                            Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

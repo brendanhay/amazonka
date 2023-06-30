@@ -571,7 +571,8 @@ instance Core.AWSRequest CreateSecret where
           CreateSecretResponse'
             Prelude.<$> (x Data..?> "ARN")
             Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> ( x Data..?> "ReplicationStatus"
+            Prelude.<*> ( x
+                            Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "VersionId")
@@ -580,7 +581,8 @@ instance Core.AWSRequest CreateSecret where
 
 instance Prelude.Hashable CreateSecret where
   hashWithSalt _salt CreateSecret' {..} =
-    _salt `Prelude.hashWithSalt` addReplicaRegions
+    _salt
+      `Prelude.hashWithSalt` addReplicaRegions
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` forceOverwriteReplicaSecret

@@ -153,7 +153,8 @@ instance Data.FromJSON AnomalyMonitor where
 
 instance Prelude.Hashable AnomalyMonitor where
   hashWithSalt _salt AnomalyMonitor' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` dimensionalValueCount
       `Prelude.hashWithSalt` lastEvaluatedDate
       `Prelude.hashWithSalt` lastUpdatedDate

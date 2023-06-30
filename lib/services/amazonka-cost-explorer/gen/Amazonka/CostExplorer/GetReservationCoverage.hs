@@ -507,14 +507,16 @@ instance Core.AWSRequest GetReservationCoverage where
             Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (x Data..?> "Total")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "CoveragesByTime"
+            Prelude.<*> ( x
+                            Data..?> "CoveragesByTime"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetReservationCoverage where
   hashWithSalt _salt GetReservationCoverage' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` granularity
       `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` maxResults

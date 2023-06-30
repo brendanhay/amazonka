@@ -107,7 +107,8 @@ instance Data.FromJSON SavingsPlansUtilization where
 
 instance Prelude.Hashable SavingsPlansUtilization where
   hashWithSalt _salt SavingsPlansUtilization' {..} =
-    _salt `Prelude.hashWithSalt` totalCommitment
+    _salt
+      `Prelude.hashWithSalt` totalCommitment
       `Prelude.hashWithSalt` unusedCommitment
       `Prelude.hashWithSalt` usedCommitment
       `Prelude.hashWithSalt` utilizationPercentage

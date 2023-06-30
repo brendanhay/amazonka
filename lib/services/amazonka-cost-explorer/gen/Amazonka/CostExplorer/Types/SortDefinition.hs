@@ -67,7 +67,8 @@ sortDefinition_key = Lens.lens (\SortDefinition' {key} -> key) (\s@SortDefinitio
 
 instance Prelude.Hashable SortDefinition where
   hashWithSalt _salt SortDefinition' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData SortDefinition where

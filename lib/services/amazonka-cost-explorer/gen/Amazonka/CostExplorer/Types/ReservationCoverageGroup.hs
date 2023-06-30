@@ -76,7 +76,8 @@ instance Data.FromJSON ReservationCoverageGroup where
 
 instance Prelude.Hashable ReservationCoverageGroup where
   hashWithSalt _salt ReservationCoverageGroup' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` coverage
 
 instance Prelude.NFData ReservationCoverageGroup where

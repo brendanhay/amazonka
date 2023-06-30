@@ -349,7 +349,8 @@ instance Core.AWSRequest GetCostForecast where
     Response.receiveJSON
       ( \s h x ->
           GetCostForecastResponse'
-            Prelude.<$> ( x Data..?> "ForecastResultsByTime"
+            Prelude.<$> ( x
+                            Data..?> "ForecastResultsByTime"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Total")
@@ -358,7 +359,8 @@ instance Core.AWSRequest GetCostForecast where
 
 instance Prelude.Hashable GetCostForecast where
   hashWithSalt _salt GetCostForecast' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` predictionIntervalLevel
       `Prelude.hashWithSalt` timePeriod
       `Prelude.hashWithSalt` metric

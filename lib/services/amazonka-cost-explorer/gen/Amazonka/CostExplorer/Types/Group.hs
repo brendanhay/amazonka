@@ -75,7 +75,8 @@ instance Data.FromJSON Group where
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` keys
+    _salt
+      `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` metrics
 
 instance Prelude.NFData Group where

@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     RightsizingRecommendationMetadata' {..} =
-      _salt `Prelude.hashWithSalt` additionalMetadata
+      _salt
+        `Prelude.hashWithSalt` additionalMetadata
         `Prelude.hashWithSalt` generationTimestamp
         `Prelude.hashWithSalt` lookbackPeriodInDays
         `Prelude.hashWithSalt` recommendationId

@@ -96,7 +96,8 @@ instance Data.FromJSON EBSResourceUtilization where
 
 instance Prelude.Hashable EBSResourceUtilization where
   hashWithSalt _salt EBSResourceUtilization' {..} =
-    _salt `Prelude.hashWithSalt` ebsReadBytesPerSecond
+    _salt
+      `Prelude.hashWithSalt` ebsReadBytesPerSecond
       `Prelude.hashWithSalt` ebsReadOpsPerSecond
       `Prelude.hashWithSalt` ebsWriteBytesPerSecond
       `Prelude.hashWithSalt` ebsWriteOpsPerSecond

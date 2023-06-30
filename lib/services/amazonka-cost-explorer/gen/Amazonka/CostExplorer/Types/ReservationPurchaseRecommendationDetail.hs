@@ -337,7 +337,8 @@ instance
   hashWithSalt
     _salt
     ReservationPurchaseRecommendationDetail' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` averageNormalizedUnitsUsedPerHour
         `Prelude.hashWithSalt` averageNumberOfInstancesUsedPerHour
         `Prelude.hashWithSalt` averageUtilization

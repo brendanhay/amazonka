@@ -118,7 +118,8 @@ instance
   hashWithSalt
     _salt
     DescribeCostCategoryDefinition' {..} =
-      _salt `Prelude.hashWithSalt` effectiveOn
+      _salt
+        `Prelude.hashWithSalt` effectiveOn
         `Prelude.hashWithSalt` costCategoryArn
 
 instance

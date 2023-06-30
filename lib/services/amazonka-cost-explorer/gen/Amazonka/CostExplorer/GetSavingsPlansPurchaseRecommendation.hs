@@ -236,9 +236,9 @@ instance
       ( \s h x ->
           GetSavingsPlansPurchaseRecommendationResponse'
             Prelude.<$> (x Data..?> "Metadata")
-              Prelude.<*> (x Data..?> "NextPageToken")
-              Prelude.<*> (x Data..?> "SavingsPlansPurchaseRecommendation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "SavingsPlansPurchaseRecommendation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -248,7 +248,8 @@ instance
   hashWithSalt
     _salt
     GetSavingsPlansPurchaseRecommendation' {..} =
-      _salt `Prelude.hashWithSalt` accountScope
+      _salt
+        `Prelude.hashWithSalt` accountScope
         `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` nextPageToken
         `Prelude.hashWithSalt` pageSize

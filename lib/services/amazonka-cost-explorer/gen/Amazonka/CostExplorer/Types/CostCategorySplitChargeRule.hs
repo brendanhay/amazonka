@@ -146,7 +146,8 @@ instance Data.FromJSON CostCategorySplitChargeRule where
 
 instance Prelude.Hashable CostCategorySplitChargeRule where
   hashWithSalt _salt CostCategorySplitChargeRule' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` method

@@ -291,10 +291,12 @@ instance Core.AWSRequest GetCostAndUsage where
     Response.receiveJSON
       ( \s h x ->
           GetCostAndUsageResponse'
-            Prelude.<$> ( x Data..?> "DimensionValueAttributes"
+            Prelude.<$> ( x
+                            Data..?> "DimensionValueAttributes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "GroupDefinitions"
+            Prelude.<*> ( x
+                            Data..?> "GroupDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextPageToken")
@@ -304,7 +306,8 @@ instance Core.AWSRequest GetCostAndUsage where
 
 instance Prelude.Hashable GetCostAndUsage where
   hashWithSalt _salt GetCostAndUsage' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` timePeriod

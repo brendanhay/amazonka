@@ -94,7 +94,8 @@ instance Data.FromJSON SavingsPlansDetails where
 
 instance Prelude.Hashable SavingsPlansDetails where
   hashWithSalt _salt SavingsPlansDetails' {..} =
-    _salt `Prelude.hashWithSalt` instanceFamily
+    _salt
+      `Prelude.hashWithSalt` instanceFamily
       `Prelude.hashWithSalt` offeringId
       `Prelude.hashWithSalt` region
 

@@ -81,7 +81,8 @@ instance
     TerminateRecommendationDetail
   where
   hashWithSalt _salt TerminateRecommendationDetail' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
+    _salt
+      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` estimatedMonthlySavings
 
 instance Prelude.NFData TerminateRecommendationDetail where

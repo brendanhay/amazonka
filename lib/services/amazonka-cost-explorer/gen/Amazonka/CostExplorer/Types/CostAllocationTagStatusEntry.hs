@@ -73,7 +73,8 @@ instance
     CostAllocationTagStatusEntry
   where
   hashWithSalt _salt CostAllocationTagStatusEntry' {..} =
-    _salt `Prelude.hashWithSalt` tagKey
+    _salt
+      `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CostAllocationTagStatusEntry where

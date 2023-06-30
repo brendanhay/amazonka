@@ -90,7 +90,8 @@ instance Data.FromJSON SavingsPlansCoverage where
 
 instance Prelude.Hashable SavingsPlansCoverage where
   hashWithSalt _salt SavingsPlansCoverage' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` coverage
       `Prelude.hashWithSalt` timePeriod
 

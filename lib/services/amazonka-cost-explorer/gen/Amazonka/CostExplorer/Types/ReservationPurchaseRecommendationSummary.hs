@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     ReservationPurchaseRecommendationSummary' {..} =
-      _salt `Prelude.hashWithSalt` currencyCode
+      _salt
+        `Prelude.hashWithSalt` currencyCode
         `Prelude.hashWithSalt` totalEstimatedMonthlySavingsAmount
         `Prelude.hashWithSalt` totalEstimatedMonthlySavingsPercentage
 

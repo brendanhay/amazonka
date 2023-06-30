@@ -707,7 +707,8 @@ instance Core.AWSRequest GetDimensionValues where
           GetDimensionValuesResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "DimensionValues"
+            Prelude.<*> ( x
+                            Data..?> "DimensionValues"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "ReturnSize")
@@ -716,7 +717,8 @@ instance Core.AWSRequest GetDimensionValues where
 
 instance Prelude.Hashable GetDimensionValues where
   hashWithSalt _salt GetDimensionValues' {..} =
-    _salt `Prelude.hashWithSalt` context
+    _salt
+      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextPageToken

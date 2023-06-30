@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     RightsizingRecommendationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` recommendationTarget
+      _salt
+        `Prelude.hashWithSalt` recommendationTarget
         `Prelude.hashWithSalt` benefitsConsidered
 
 instance

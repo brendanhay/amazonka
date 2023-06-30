@@ -145,7 +145,8 @@ instance Data.FromJSON EC2InstanceDetails where
 
 instance Prelude.Hashable EC2InstanceDetails where
   hashWithSalt _salt EC2InstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` currentGeneration
       `Prelude.hashWithSalt` family
       `Prelude.hashWithSalt` instanceType

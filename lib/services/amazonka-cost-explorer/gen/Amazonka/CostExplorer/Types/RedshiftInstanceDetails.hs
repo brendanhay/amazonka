@@ -109,7 +109,8 @@ instance Data.FromJSON RedshiftInstanceDetails where
 
 instance Prelude.Hashable RedshiftInstanceDetails where
   hashWithSalt _salt RedshiftInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` currentGeneration
+    _salt
+      `Prelude.hashWithSalt` currentGeneration
       `Prelude.hashWithSalt` family
       `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` region

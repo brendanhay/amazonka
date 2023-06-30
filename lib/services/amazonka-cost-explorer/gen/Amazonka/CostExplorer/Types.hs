@@ -987,80 +987,80 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The requested report expired. Update the date interval and try again.
-_BillExpirationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BillExpirationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BillExpirationException =
   Core._MatchServiceError
     defaultService
     "BillExpirationException"
 
 -- | The requested data is unavailable.
-_DataUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DataUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DataUnavailableException =
   Core._MatchServiceError
     defaultService
     "DataUnavailableException"
 
 -- | A request to generate a recommendation is already in progress.
-_GenerationExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GenerationExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GenerationExistsException =
   Core._MatchServiceError
     defaultService
     "GenerationExistsException"
 
 -- | The pagination token is invalid. Try again without a pagination token.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | You made too many calls in a short period of time. Try again later.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1068,14 +1068,14 @@ _LimitExceededException =
 
 -- | Your request parameters changed between pages. Try again with the old
 -- parameters or without a pagination token.
-_RequestChangedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestChangedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestChangedException =
   Core._MatchServiceError
     defaultService
     "RequestChangedException"
 
 -- | The specified ARN in the request doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1083,7 +1083,7 @@ _ResourceNotFoundException =
 
 -- | You\'ve reached the limit on the number of resources you can create, or
 -- exceeded the size of an individual resource.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1091,21 +1091,21 @@ _ServiceQuotaExceededException =
 
 -- | Can occur if you specify a number of tags for a resource greater than
 -- the maximum 50 user tags per resource.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | The cost anomaly monitor does not exist for the account.
-_UnknownMonitorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnknownMonitorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnknownMonitorException =
   Core._MatchServiceError
     defaultService
     "UnknownMonitorException"
 
 -- | The cost anomaly subscription does not exist for the account.
-_UnknownSubscriptionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnknownSubscriptionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnknownSubscriptionException =
   Core._MatchServiceError
     defaultService
@@ -1114,7 +1114,7 @@ _UnknownSubscriptionException =
 -- | Cost Explorer was unable to identify the usage unit. Provide
 -- @UsageType\/UsageTypeGroup@ filter selections that contain matching
 -- units, for example: @hours@.
-_UnresolvableUsageUnitException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnresolvableUsageUnitException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnresolvableUsageUnitException =
   Core._MatchServiceError
     defaultService

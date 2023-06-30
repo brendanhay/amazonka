@@ -154,7 +154,8 @@ instance Data.FromJSON EC2ResourceDetails where
 
 instance Prelude.Hashable EC2ResourceDetails where
   hashWithSalt _salt EC2ResourceDetails' {..} =
-    _salt `Prelude.hashWithSalt` hourlyOnDemandRate
+    _salt
+      `Prelude.hashWithSalt` hourlyOnDemandRate
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` memory
       `Prelude.hashWithSalt` networkPerformance

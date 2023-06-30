@@ -166,7 +166,8 @@ instance
   hashWithSalt
     _salt
     SavingsPlansPurchaseRecommendation' {..} =
-      _salt `Prelude.hashWithSalt` accountScope
+      _salt
+        `Prelude.hashWithSalt` accountScope
         `Prelude.hashWithSalt` lookbackPeriodInDays
         `Prelude.hashWithSalt` paymentOption
         `Prelude.hashWithSalt` savingsPlansPurchaseRecommendationDetails

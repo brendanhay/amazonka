@@ -155,7 +155,8 @@ instance Data.FromJSON RDSInstanceDetails where
 
 instance Prelude.Hashable RDSInstanceDetails where
   hashWithSalt _salt RDSInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` currentGeneration
+    _salt
+      `Prelude.hashWithSalt` currentGeneration
       `Prelude.hashWithSalt` databaseEdition
       `Prelude.hashWithSalt` databaseEngine
       `Prelude.hashWithSalt` deploymentOption

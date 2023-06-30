@@ -107,7 +107,8 @@ instance Data.FromJSON RootCause where
 
 instance Prelude.Hashable RootCause where
   hashWithSalt _salt RootCause' {..} =
-    _salt `Prelude.hashWithSalt` linkedAccount
+    _salt
+      `Prelude.hashWithSalt` linkedAccount
       `Prelude.hashWithSalt` linkedAccountName
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` service

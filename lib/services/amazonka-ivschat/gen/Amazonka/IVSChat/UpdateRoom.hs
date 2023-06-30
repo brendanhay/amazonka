@@ -162,7 +162,8 @@ instance Core.AWSRequest UpdateRoom where
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createTime")
             Prelude.<*> (x Data..?> "id")
-            Prelude.<*> ( x Data..?> "loggingConfigurationIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "loggingConfigurationIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "maximumMessageLength")

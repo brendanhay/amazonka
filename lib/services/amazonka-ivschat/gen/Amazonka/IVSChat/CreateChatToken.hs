@@ -175,7 +175,8 @@ instance Core.AWSRequest CreateChatToken where
 
 instance Prelude.Hashable CreateChatToken where
   hashWithSalt _salt CreateChatToken' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` sessionDurationInMinutes
       `Prelude.hashWithSalt` roomIdentifier

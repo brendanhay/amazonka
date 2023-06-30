@@ -97,7 +97,8 @@ instance Data.FromJSON MessageReviewHandler where
 
 instance Prelude.Hashable MessageReviewHandler where
   hashWithSalt _salt MessageReviewHandler' {..} =
-    _salt `Prelude.hashWithSalt` fallbackResult
+    _salt
+      `Prelude.hashWithSalt` fallbackResult
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData MessageReviewHandler where

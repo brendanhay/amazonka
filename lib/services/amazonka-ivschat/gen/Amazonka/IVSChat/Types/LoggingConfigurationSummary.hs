@@ -166,7 +166,8 @@ instance Data.FromJSON LoggingConfigurationSummary where
 
 instance Prelude.Hashable LoggingConfigurationSummary where
   hashWithSalt _salt LoggingConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` destinationConfiguration
       `Prelude.hashWithSalt` id

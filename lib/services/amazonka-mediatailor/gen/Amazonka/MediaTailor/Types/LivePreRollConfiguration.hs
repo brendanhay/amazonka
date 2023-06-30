@@ -96,7 +96,8 @@ instance Data.FromJSON LivePreRollConfiguration where
 
 instance Prelude.Hashable LivePreRollConfiguration where
   hashWithSalt _salt LivePreRollConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` adDecisionServerUrl
+    _salt
+      `Prelude.hashWithSalt` adDecisionServerUrl
       `Prelude.hashWithSalt` maxDurationSeconds
 
 instance Prelude.NFData LivePreRollConfiguration where

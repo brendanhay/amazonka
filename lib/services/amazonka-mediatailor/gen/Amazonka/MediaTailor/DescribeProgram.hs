@@ -123,7 +123,8 @@ instance Core.AWSRequest DescribeProgram where
 
 instance Prelude.Hashable DescribeProgram where
   hashWithSalt _salt DescribeProgram' {..} =
-    _salt `Prelude.hashWithSalt` channelName
+    _salt
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` programName
 
 instance Prelude.NFData DescribeProgram where

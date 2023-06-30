@@ -153,7 +153,8 @@ transition_type = Lens.lens (\Transition' {type'} -> type') (\s@Transition' {} a
 
 instance Prelude.Hashable Transition where
   hashWithSalt _salt Transition' {..} =
-    _salt `Prelude.hashWithSalt` durationMillis
+    _salt
+      `Prelude.hashWithSalt` durationMillis
       `Prelude.hashWithSalt` relativeProgram
       `Prelude.hashWithSalt` scheduledStartTimeMillis
       `Prelude.hashWithSalt` relativePosition

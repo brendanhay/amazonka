@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeSourceLocation where
             Prelude.<*> (x Data..?> "DefaultSegmentDeliveryConfiguration")
             Prelude.<*> (x Data..?> "HttpConfiguration")
             Prelude.<*> (x Data..?> "LastModifiedTime")
-            Prelude.<*> ( x Data..?> "SegmentDeliveryConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "SegmentDeliveryConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "SourceLocationName")

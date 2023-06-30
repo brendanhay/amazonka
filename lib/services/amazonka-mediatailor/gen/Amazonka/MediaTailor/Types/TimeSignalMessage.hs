@@ -74,7 +74,8 @@ instance Data.FromJSON TimeSignalMessage where
       "TimeSignalMessage"
       ( \x ->
           TimeSignalMessage'
-            Prelude.<$> ( x Data..:? "SegmentationDescriptors"
+            Prelude.<$> ( x
+                            Data..:? "SegmentationDescriptors"
                             Data..!= Prelude.mempty
                         )
       )

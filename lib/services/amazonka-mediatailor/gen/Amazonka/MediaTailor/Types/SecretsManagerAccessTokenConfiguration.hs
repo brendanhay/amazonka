@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     SecretsManagerAccessTokenConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` headerName
+      _salt
+        `Prelude.hashWithSalt` headerName
         `Prelude.hashWithSalt` secretArn
         `Prelude.hashWithSalt` secretStringKey
 

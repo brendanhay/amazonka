@@ -162,7 +162,8 @@ instance Data.FromJSON SourceLocation where
             Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "DefaultSegmentDeliveryConfiguration")
             Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> ( x Data..:? "SegmentDeliveryConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "SegmentDeliveryConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
@@ -173,7 +174,8 @@ instance Data.FromJSON SourceLocation where
 
 instance Prelude.Hashable SourceLocation where
   hashWithSalt _salt SourceLocation' {..} =
-    _salt `Prelude.hashWithSalt` accessConfiguration
+    _salt
+      `Prelude.hashWithSalt` accessConfiguration
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
       `Prelude.hashWithSalt` lastModifiedTime

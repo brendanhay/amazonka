@@ -157,22 +157,22 @@ instance Core.AWSPager GetChannelSchedule where
     | Core.stop
         ( rs
             Lens.^? getChannelScheduleResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getChannelScheduleResponse_items
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getChannelSchedule_nextToken
           Lens..~ rs
           Lens.^? getChannelScheduleResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetChannelSchedule where
   type
@@ -191,7 +191,8 @@ instance Core.AWSRequest GetChannelSchedule where
 
 instance Prelude.Hashable GetChannelSchedule where
   hashWithSalt _salt GetChannelSchedule' {..} =
-    _salt `Prelude.hashWithSalt` durationMinutes
+    _salt
+      `Prelude.hashWithSalt` durationMinutes
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelName

@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteProgram where
 
 instance Prelude.Hashable DeleteProgram where
   hashWithSalt _salt DeleteProgram' {..} =
-    _salt `Prelude.hashWithSalt` channelName
+    _salt
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` programName
 
 instance Prelude.NFData DeleteProgram where

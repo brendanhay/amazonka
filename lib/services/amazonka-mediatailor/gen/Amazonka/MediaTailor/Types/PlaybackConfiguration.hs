@@ -351,7 +351,8 @@ instance Data.FromJSON PlaybackConfiguration where
             Prelude.<*> (x Data..:? "AvailSuppression")
             Prelude.<*> (x Data..:? "Bumper")
             Prelude.<*> (x Data..:? "CdnConfiguration")
-            Prelude.<*> ( x Data..:? "ConfigurationAliases"
+            Prelude.<*> ( x
+                            Data..:? "ConfigurationAliases"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DashConfiguration")
@@ -372,7 +373,8 @@ instance Data.FromJSON PlaybackConfiguration where
 
 instance Prelude.Hashable PlaybackConfiguration where
   hashWithSalt _salt PlaybackConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` adDecisionServerUrl
+    _salt
+      `Prelude.hashWithSalt` adDecisionServerUrl
       `Prelude.hashWithSalt` availSuppression
       `Prelude.hashWithSalt` bumper
       `Prelude.hashWithSalt` cdnConfiguration

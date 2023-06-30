@@ -180,7 +180,8 @@ instance Core.AWSRequest CreateProgram where
 
 instance Prelude.Hashable CreateProgram where
   hashWithSalt _salt CreateProgram' {..} =
-    _salt `Prelude.hashWithSalt` adBreaks
+    _salt
+      `Prelude.hashWithSalt` adBreaks
       `Prelude.hashWithSalt` liveSourceName
       `Prelude.hashWithSalt` vodSourceName
       `Prelude.hashWithSalt` channelName

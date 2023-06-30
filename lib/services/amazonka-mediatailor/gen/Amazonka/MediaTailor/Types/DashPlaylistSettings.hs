@@ -116,7 +116,8 @@ instance Data.FromJSON DashPlaylistSettings where
 
 instance Prelude.Hashable DashPlaylistSettings where
   hashWithSalt _salt DashPlaylistSettings' {..} =
-    _salt `Prelude.hashWithSalt` manifestWindowSeconds
+    _salt
+      `Prelude.hashWithSalt` manifestWindowSeconds
       `Prelude.hashWithSalt` minBufferTimeSeconds
       `Prelude.hashWithSalt` minUpdatePeriodSeconds
       `Prelude.hashWithSalt` suggestedPresentationDelaySeconds

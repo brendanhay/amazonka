@@ -125,7 +125,8 @@ instance Data.FromJSON DashConfiguration where
 
 instance Prelude.Hashable DashConfiguration where
   hashWithSalt _salt DashConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` manifestEndpointPrefix
+    _salt
+      `Prelude.hashWithSalt` manifestEndpointPrefix
       `Prelude.hashWithSalt` mpdLocation
       `Prelude.hashWithSalt` originManifestType
 

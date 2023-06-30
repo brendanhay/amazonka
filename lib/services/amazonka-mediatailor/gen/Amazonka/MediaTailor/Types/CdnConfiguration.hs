@@ -109,7 +109,8 @@ instance Data.FromJSON CdnConfiguration where
 
 instance Prelude.Hashable CdnConfiguration where
   hashWithSalt _salt CdnConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` adSegmentUrlPrefix
+    _salt
+      `Prelude.hashWithSalt` adSegmentUrlPrefix
       `Prelude.hashWithSalt` contentSegmentUrlPrefix
 
 instance Prelude.NFData CdnConfiguration where

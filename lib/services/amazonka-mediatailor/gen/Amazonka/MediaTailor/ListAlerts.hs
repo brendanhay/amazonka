@@ -116,20 +116,23 @@ instance Core.AWSPager ListAlerts where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAlertsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAlertsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listAlertsResponse_items Prelude.. Lens._Just
+            Lens.^? listAlertsResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAlerts_nextToken
           Lens..~ rs
-          Lens.^? listAlertsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAlertsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAlerts where
   type AWSResponse ListAlerts = ListAlertsResponse
@@ -146,7 +149,8 @@ instance Core.AWSRequest ListAlerts where
 
 instance Prelude.Hashable ListAlerts where
   hashWithSalt _salt ListAlerts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 

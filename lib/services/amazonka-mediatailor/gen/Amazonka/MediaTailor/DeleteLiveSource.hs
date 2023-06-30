@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteLiveSource where
 
 instance Prelude.Hashable DeleteLiveSource where
   hashWithSalt _salt DeleteLiveSource' {..} =
-    _salt `Prelude.hashWithSalt` liveSourceName
+    _salt
+      `Prelude.hashWithSalt` liveSourceName
       `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData DeleteLiveSource where

@@ -151,7 +151,8 @@ instance Data.FromJSON AccessConfiguration where
 
 instance Prelude.Hashable AccessConfiguration where
   hashWithSalt _salt AccessConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accessType
+    _salt
+      `Prelude.hashWithSalt` accessType
       `Prelude.hashWithSalt` secretsManagerAccessTokenConfiguration
 
 instance Prelude.NFData AccessConfiguration where

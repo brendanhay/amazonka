@@ -117,20 +117,22 @@ instance Core.AWSPager ListVodSources where
     | Core.stop
         ( rs
             Lens.^? listVodSourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listVodSourcesResponse_items Prelude.. Lens._Just
+            Lens.^? listVodSourcesResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listVodSources_nextToken
           Lens..~ rs
-          Lens.^? listVodSourcesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listVodSourcesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVodSources where
   type
@@ -149,7 +151,8 @@ instance Core.AWSRequest ListVodSources where
 
 instance Prelude.Hashable ListVodSources where
   hashWithSalt _salt ListVodSources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sourceLocationName
 

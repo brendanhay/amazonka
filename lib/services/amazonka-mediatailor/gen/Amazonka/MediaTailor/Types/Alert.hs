@@ -114,7 +114,8 @@ instance Data.FromJSON Alert where
             Prelude.<$> (x Data..: "AlertCode")
             Prelude.<*> (x Data..: "AlertMessage")
             Prelude.<*> (x Data..: "LastModifiedTime")
-            Prelude.<*> ( x Data..:? "RelatedResourceArns"
+            Prelude.<*> ( x
+                            Data..:? "RelatedResourceArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "ResourceArn")
@@ -122,7 +123,8 @@ instance Data.FromJSON Alert where
 
 instance Prelude.Hashable Alert where
   hashWithSalt _salt Alert' {..} =
-    _salt `Prelude.hashWithSalt` alertCode
+    _salt
+      `Prelude.hashWithSalt` alertCode
       `Prelude.hashWithSalt` alertMessage
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` relatedResourceArns

@@ -158,7 +158,8 @@ instance Data.FromJSON ScheduleEntry where
             Prelude.<$> (x Data..:? "ApproximateDurationSeconds")
             Prelude.<*> (x Data..:? "ApproximateStartTime")
             Prelude.<*> (x Data..:? "LiveSourceName")
-            Prelude.<*> ( x Data..:? "ScheduleAdBreaks"
+            Prelude.<*> ( x
+                            Data..:? "ScheduleAdBreaks"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ScheduleEntryType")

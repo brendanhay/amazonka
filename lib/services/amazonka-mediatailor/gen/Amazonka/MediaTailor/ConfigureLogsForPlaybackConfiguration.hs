@@ -134,8 +134,8 @@ instance
       ( \s h x ->
           ConfigureLogsForPlaybackConfigurationResponse'
             Prelude.<$> (x Data..?> "PlaybackConfigurationName")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "PercentEnabled")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "PercentEnabled")
       )
 
 instance
@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     ConfigureLogsForPlaybackConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` percentEnabled
+      _salt
+        `Prelude.hashWithSalt` percentEnabled
         `Prelude.hashWithSalt` playbackConfigurationName
 
 instance

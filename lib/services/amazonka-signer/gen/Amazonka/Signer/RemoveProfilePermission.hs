@@ -125,7 +125,8 @@ instance Core.AWSRequest RemoveProfilePermission where
 
 instance Prelude.Hashable RemoveProfilePermission where
   hashWithSalt _salt RemoveProfilePermission' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
+    _salt
+      `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` profileName
       `Prelude.hashWithSalt` statementId
 

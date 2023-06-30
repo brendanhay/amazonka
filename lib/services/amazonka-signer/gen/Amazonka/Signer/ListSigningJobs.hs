@@ -202,21 +202,22 @@ instance Core.AWSPager ListSigningJobs where
     | Core.stop
         ( rs
             Lens.^? listSigningJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listSigningJobsResponse_jobs Prelude.. Lens._Just
+            Lens.^? listSigningJobsResponse_jobs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSigningJobs_nextToken
           Lens..~ rs
           Lens.^? listSigningJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSigningJobs where
   type
@@ -235,7 +236,8 @@ instance Core.AWSRequest ListSigningJobs where
 
 instance Prelude.Hashable ListSigningJobs where
   hashWithSalt _salt ListSigningJobs' {..} =
-    _salt `Prelude.hashWithSalt` isRevoked
+    _salt
+      `Prelude.hashWithSalt` isRevoked
       `Prelude.hashWithSalt` jobInvoker
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

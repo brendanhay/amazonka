@@ -156,7 +156,8 @@ instance Data.FromJSON SigningPlatform where
 
 instance Prelude.Hashable SigningPlatform where
   hashWithSalt _salt SigningPlatform' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` maxSizeInMB
       `Prelude.hashWithSalt` partner

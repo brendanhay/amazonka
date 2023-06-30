@@ -96,7 +96,8 @@ instance Data.FromJSON SigningPlatformOverrides where
 
 instance Prelude.Hashable SigningPlatformOverrides where
   hashWithSalt _salt SigningPlatformOverrides' {..} =
-    _salt `Prelude.hashWithSalt` signingConfiguration
+    _salt
+      `Prelude.hashWithSalt` signingConfiguration
       `Prelude.hashWithSalt` signingImageFormat
 
 instance Prelude.NFData SigningPlatformOverrides where

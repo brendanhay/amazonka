@@ -132,7 +132,8 @@ instance Core.AWSRequest RevokeSigningProfile where
 
 instance Prelude.Hashable RevokeSigningProfile where
   hashWithSalt _salt RevokeSigningProfile' {..} =
-    _salt `Prelude.hashWithSalt` profileVersion
+    _salt
+      `Prelude.hashWithSalt` profileVersion
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` effectiveTime
       `Prelude.hashWithSalt` profileName

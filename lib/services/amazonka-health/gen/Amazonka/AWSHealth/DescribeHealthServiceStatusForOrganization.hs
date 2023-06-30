@@ -79,7 +79,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "healthServiceAccessStatusForOrganization"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

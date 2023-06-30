@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeEventDetails where
 
 instance Prelude.Hashable DescribeEventDetails where
   hashWithSalt _salt DescribeEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` eventArns
 
 instance Prelude.NFData DescribeEventDetails where

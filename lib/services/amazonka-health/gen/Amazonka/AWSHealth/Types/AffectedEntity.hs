@@ -33,7 +33,8 @@ data AffectedEntity = AffectedEntity'
     -- affected entity.
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the entity. Format:
-    -- @arn:aws:health:entity-region:aws-account:entity\/entity-id @. Example:
+    -- @arn:aws:health:@/@entity-region@/@:@/@aws-account@/@:entity\/@/@entity-id@/@ @.
+    -- Example:
     -- @arn:aws:health:us-east-1:111222333444:entity\/AVh5GGT7ul1arKr1sE1K@
     entityArn :: Prelude.Maybe Prelude.Text,
     -- | The URL of the affected entity.
@@ -41,7 +42,7 @@ data AffectedEntity = AffectedEntity'
     -- | The ID of the affected entity.
     entityValue :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
     -- format.
     --
     -- For example, an event ARN might look like the following:
@@ -72,7 +73,8 @@ data AffectedEntity = AffectedEntity'
 -- affected entity.
 --
 -- 'entityArn', 'affectedEntity_entityArn' - The unique identifier for the entity. Format:
--- @arn:aws:health:entity-region:aws-account:entity\/entity-id @. Example:
+-- @arn:aws:health:@/@entity-region@/@:@/@aws-account@/@:entity\/@/@entity-id@/@ @.
+-- Example:
 -- @arn:aws:health:us-east-1:111222333444:entity\/AVh5GGT7ul1arKr1sE1K@
 --
 -- 'entityUrl', 'affectedEntity_entityUrl' - The URL of the affected entity.
@@ -80,7 +82,7 @@ data AffectedEntity = AffectedEntity'
 -- 'entityValue', 'affectedEntity_entityValue' - The ID of the affected entity.
 --
 -- 'eventArn', 'affectedEntity_eventArn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -115,7 +117,8 @@ affectedEntity_awsAccountId :: Lens.Lens' AffectedEntity (Prelude.Maybe Prelude.
 affectedEntity_awsAccountId = Lens.lens (\AffectedEntity' {awsAccountId} -> awsAccountId) (\s@AffectedEntity' {} a -> s {awsAccountId = a} :: AffectedEntity)
 
 -- | The unique identifier for the entity. Format:
--- @arn:aws:health:entity-region:aws-account:entity\/entity-id @. Example:
+-- @arn:aws:health:@/@entity-region@/@:@/@aws-account@/@:entity\/@/@entity-id@/@ @.
+-- Example:
 -- @arn:aws:health:us-east-1:111222333444:entity\/AVh5GGT7ul1arKr1sE1K@
 affectedEntity_entityArn :: Lens.Lens' AffectedEntity (Prelude.Maybe Prelude.Text)
 affectedEntity_entityArn = Lens.lens (\AffectedEntity' {entityArn} -> entityArn) (\s@AffectedEntity' {} a -> s {entityArn = a} :: AffectedEntity)
@@ -129,7 +132,7 @@ affectedEntity_entityValue :: Lens.Lens' AffectedEntity (Prelude.Maybe Prelude.T
 affectedEntity_entityValue = Lens.lens (\AffectedEntity' {entityValue} -> entityValue) (\s@AffectedEntity' {} a -> s {entityValue = a} :: AffectedEntity)
 
 -- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -171,7 +174,8 @@ instance Data.FromJSON AffectedEntity where
 
 instance Prelude.Hashable AffectedEntity where
   hashWithSalt _salt AffectedEntity' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` entityArn
       `Prelude.hashWithSalt` entityUrl
       `Prelude.hashWithSalt` entityValue

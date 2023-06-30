@@ -194,7 +194,8 @@ eventFilter_tags = Lens.lens (\EventFilter' {tags} -> tags) (\s@EventFilter' {} 
 
 instance Prelude.Hashable EventFilter where
   hashWithSalt _salt EventFilter' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` endTimes
       `Prelude.hashWithSalt` entityArns
       `Prelude.hashWithSalt` entityValues

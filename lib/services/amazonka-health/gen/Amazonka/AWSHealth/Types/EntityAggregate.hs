@@ -34,7 +34,7 @@ data EntityAggregate = EntityAggregate'
   { -- | The number of entities that match the criteria for the specified events.
     count :: Prelude.Maybe Prelude.Int,
     -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
     -- format.
     --
     -- For example, an event ARN might look like the following:
@@ -55,7 +55,7 @@ data EntityAggregate = EntityAggregate'
 -- 'count', 'entityAggregate_count' - The number of entities that match the criteria for the specified events.
 --
 -- 'eventArn', 'entityAggregate_eventArn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -74,7 +74,7 @@ entityAggregate_count :: Lens.Lens' EntityAggregate (Prelude.Maybe Prelude.Int)
 entityAggregate_count = Lens.lens (\EntityAggregate' {count} -> count) (\s@EntityAggregate' {} a -> s {count = a} :: EntityAggregate)
 
 -- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -95,7 +95,8 @@ instance Data.FromJSON EntityAggregate where
 
 instance Prelude.Hashable EntityAggregate where
   hashWithSalt _salt EntityAggregate' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` eventArn
 
 instance Prelude.NFData EntityAggregate where

@@ -136,20 +136,23 @@ instance Core.AWSPager GetProducts where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getProductsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getProductsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getProductsResponse_priceList Prelude.. Lens._Just
+            Lens.^? getProductsResponse_priceList
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getProducts_nextToken
           Lens..~ rs
-          Lens.^? getProductsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getProductsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetProducts where
   type AWSResponse GetProducts = GetProductsResponse
@@ -167,7 +170,8 @@ instance Core.AWSRequest GetProducts where
 
 instance Prelude.Hashable GetProducts where
   hashWithSalt _salt GetProducts' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` formatVersion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

@@ -131,7 +131,8 @@ filter_value = Lens.lens (\Filter' {value} -> value) (\s@Filter' {} a -> s {valu
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` value
 

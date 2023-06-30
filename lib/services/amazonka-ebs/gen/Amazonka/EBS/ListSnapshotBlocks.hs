@@ -173,7 +173,8 @@ instance Core.AWSRequest ListSnapshotBlocks where
 
 instance Prelude.Hashable ListSnapshotBlocks where
   hashWithSalt _salt ListSnapshotBlocks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startingBlockIndex
       `Prelude.hashWithSalt` snapshotId

@@ -206,7 +206,8 @@ instance Core.AWSRequest ListChangedBlocks where
 
 instance Prelude.Hashable ListChangedBlocks where
   hashWithSalt _salt ListChangedBlocks' {..} =
-    _salt `Prelude.hashWithSalt` firstSnapshotId
+    _salt
+      `Prelude.hashWithSalt` firstSnapshotId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startingBlockIndex

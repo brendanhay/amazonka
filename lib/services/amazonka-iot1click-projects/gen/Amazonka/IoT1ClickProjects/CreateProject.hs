@@ -146,7 +146,8 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` placementTemplate
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` projectName

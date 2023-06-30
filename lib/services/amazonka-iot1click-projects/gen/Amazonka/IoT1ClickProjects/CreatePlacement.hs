@@ -115,7 +115,8 @@ instance Core.AWSRequest CreatePlacement where
 
 instance Prelude.Hashable CreatePlacement where
   hashWithSalt _salt CreatePlacement' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` placementName
       `Prelude.hashWithSalt` projectName
 

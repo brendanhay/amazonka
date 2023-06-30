@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdatePlacement where
 
 instance Prelude.Hashable UpdatePlacement where
   hashWithSalt _salt UpdatePlacement' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` placementName
       `Prelude.hashWithSalt` projectName
 

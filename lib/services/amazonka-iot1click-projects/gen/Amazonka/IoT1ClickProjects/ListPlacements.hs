@@ -107,18 +107,19 @@ instance Core.AWSPager ListPlacements where
     | Core.stop
         ( rs
             Lens.^? listPlacementsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listPlacementsResponse_placements) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPlacements_nextToken
           Lens..~ rs
-          Lens.^? listPlacementsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPlacementsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlacements where
   type
@@ -137,7 +138,8 @@ instance Core.AWSRequest ListPlacements where
 
 instance Prelude.Hashable ListPlacements where
   hashWithSalt _salt ListPlacements' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectName
 

@@ -115,7 +115,8 @@ instance Data.FromJSON PlacementSummary where
 
 instance Prelude.Hashable PlacementSummary where
   hashWithSalt _salt PlacementSummary' {..} =
-    _salt `Prelude.hashWithSalt` projectName
+    _salt
+      `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` placementName
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` updatedDate

@@ -144,7 +144,8 @@ instance Data.FromJSON ProjectDescription where
 
 instance Prelude.Hashable ProjectDescription where
   hashWithSalt _salt ProjectDescription' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` placementTemplate
       `Prelude.hashWithSalt` tags

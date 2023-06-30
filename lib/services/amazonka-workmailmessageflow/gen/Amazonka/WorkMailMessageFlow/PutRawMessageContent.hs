@@ -115,7 +115,8 @@ instance Core.AWSRequest PutRawMessageContent where
 
 instance Prelude.Hashable PutRawMessageContent where
   hashWithSalt _salt PutRawMessageContent' {..} =
-    _salt `Prelude.hashWithSalt` messageId
+    _salt
+      `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData PutRawMessageContent where

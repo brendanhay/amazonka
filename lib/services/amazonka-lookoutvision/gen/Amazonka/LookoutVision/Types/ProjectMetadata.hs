@@ -85,7 +85,8 @@ instance Data.FromJSON ProjectMetadata where
 
 instance Prelude.Hashable ProjectMetadata where
   hashWithSalt _salt ProjectMetadata' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` projectName
 

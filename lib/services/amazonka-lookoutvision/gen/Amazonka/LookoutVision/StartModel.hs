@@ -204,7 +204,8 @@ instance Core.AWSRequest StartModel where
 
 instance Prelude.Hashable StartModel where
   hashWithSalt _salt StartModel' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` maxInferenceUnits
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` modelVersion

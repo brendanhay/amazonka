@@ -94,7 +94,8 @@ instance Data.FromJSON DatasetImageStats where
 
 instance Prelude.Hashable DatasetImageStats where
   hashWithSalt _salt DatasetImageStats' {..} =
-    _salt `Prelude.hashWithSalt` anomaly
+    _salt
+      `Prelude.hashWithSalt` anomaly
       `Prelude.hashWithSalt` labeled
       `Prelude.hashWithSalt` normal
       `Prelude.hashWithSalt` total

@@ -156,7 +156,8 @@ instance Data.FromJSON ModelPackagingJobMetadata where
 
 instance Prelude.Hashable ModelPackagingJobMetadata where
   hashWithSalt _salt ModelPackagingJobMetadata' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` modelPackagingJobDescription

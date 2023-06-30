@@ -134,7 +134,8 @@ instance Data.FromJSON DatasetDescription where
 
 instance Prelude.Hashable DatasetDescription where
   hashWithSalt _salt DatasetDescription' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` datasetType
       `Prelude.hashWithSalt` imageStats
       `Prelude.hashWithSalt` lastUpdatedTimestamp

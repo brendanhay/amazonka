@@ -114,7 +114,8 @@ instance Core.AWSRequest DescribeModelPackagingJob where
 
 instance Prelude.Hashable DescribeModelPackagingJob where
   hashWithSalt _salt DescribeModelPackagingJob' {..} =
-    _salt `Prelude.hashWithSalt` projectName
+    _salt
+      `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` jobName
 
 instance Prelude.NFData DescribeModelPackagingJob where

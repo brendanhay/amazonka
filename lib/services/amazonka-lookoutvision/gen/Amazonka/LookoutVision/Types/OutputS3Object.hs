@@ -69,12 +69,14 @@ instance Data.FromJSON OutputS3Object where
       "OutputS3Object"
       ( \x ->
           OutputS3Object'
-            Prelude.<$> (x Data..: "Bucket") Prelude.<*> (x Data..: "Key")
+            Prelude.<$> (x Data..: "Bucket")
+            Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable OutputS3Object where
   hashWithSalt _salt OutputS3Object' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData OutputS3Object where

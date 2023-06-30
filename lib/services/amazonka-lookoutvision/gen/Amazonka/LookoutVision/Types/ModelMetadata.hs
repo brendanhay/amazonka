@@ -129,7 +129,8 @@ instance Data.FromJSON ModelMetadata where
 
 instance Prelude.Hashable ModelMetadata where
   hashWithSalt _salt ModelMetadata' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modelArn
       `Prelude.hashWithSalt` modelVersion

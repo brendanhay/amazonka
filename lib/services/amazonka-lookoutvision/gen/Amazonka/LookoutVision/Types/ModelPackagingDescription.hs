@@ -184,7 +184,8 @@ instance Data.FromJSON ModelPackagingDescription where
 
 instance Prelude.Hashable ModelPackagingDescription where
   hashWithSalt _salt ModelPackagingDescription' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` modelPackagingConfiguration

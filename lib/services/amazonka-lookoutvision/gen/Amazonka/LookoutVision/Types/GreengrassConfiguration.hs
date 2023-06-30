@@ -49,7 +49,7 @@ data GreengrassConfiguration = GreengrassConfiguration'
     -- | A description for the AWS IoT Greengrass component.
     componentDescription :: Prelude.Maybe Prelude.Text,
     -- | A Version for the AWS IoT Greengrass component. If you don\'t provide a
-    -- value, a default value of @ Model Version.0.0@ is used.
+    -- value, a default value of @ @/@Model Version@/@.0.0@ is used.
     componentVersion :: Prelude.Maybe Prelude.Text,
     -- | A set of tags (key-value pairs) that you want to attach to the AWS IoT
     -- Greengrass component.
@@ -88,7 +88,7 @@ data GreengrassConfiguration = GreengrassConfiguration'
 -- 'componentDescription', 'greengrassConfiguration_componentDescription' - A description for the AWS IoT Greengrass component.
 --
 -- 'componentVersion', 'greengrassConfiguration_componentVersion' - A Version for the AWS IoT Greengrass component. If you don\'t provide a
--- value, a default value of @ Model Version.0.0@ is used.
+-- value, a default value of @ @/@Model Version@/@.0.0@ is used.
 --
 -- 'tags', 'greengrassConfiguration_tags' - A set of tags (key-value pairs) that you want to attach to the AWS IoT
 -- Greengrass component.
@@ -140,7 +140,7 @@ greengrassConfiguration_componentDescription :: Lens.Lens' GreengrassConfigurati
 greengrassConfiguration_componentDescription = Lens.lens (\GreengrassConfiguration' {componentDescription} -> componentDescription) (\s@GreengrassConfiguration' {} a -> s {componentDescription = a} :: GreengrassConfiguration)
 
 -- | A Version for the AWS IoT Greengrass component. If you don\'t provide a
--- value, a default value of @ Model Version.0.0@ is used.
+-- value, a default value of @ @/@Model Version@/@.0.0@ is used.
 greengrassConfiguration_componentVersion :: Lens.Lens' GreengrassConfiguration (Prelude.Maybe Prelude.Text)
 greengrassConfiguration_componentVersion = Lens.lens (\GreengrassConfiguration' {componentVersion} -> componentVersion) (\s@GreengrassConfiguration' {} a -> s {componentVersion = a} :: GreengrassConfiguration)
 
@@ -187,7 +187,8 @@ instance Data.FromJSON GreengrassConfiguration where
 
 instance Prelude.Hashable GreengrassConfiguration where
   hashWithSalt _salt GreengrassConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` compilerOptions
+    _salt
+      `Prelude.hashWithSalt` compilerOptions
       `Prelude.hashWithSalt` componentDescription
       `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` tags

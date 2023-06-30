@@ -78,7 +78,8 @@ instance Data.FromJSON AuthInfo where
 
 instance Prelude.Hashable AuthInfo where
   hashWithSalt _salt AuthInfo' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData AuthInfo where

@@ -239,7 +239,8 @@ instance Data.FromJSON ThingIndexingConfiguration where
 
 instance Prelude.Hashable ThingIndexingConfiguration where
   hashWithSalt _salt ThingIndexingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` customFields
+    _salt
+      `Prelude.hashWithSalt` customFields
       `Prelude.hashWithSalt` deviceDefenderIndexingMode
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` managedFields

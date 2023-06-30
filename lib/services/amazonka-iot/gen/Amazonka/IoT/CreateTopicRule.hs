@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateTopicRule where
 
 instance Prelude.Hashable CreateTopicRule where
   hashWithSalt _salt CreateTopicRule' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` topicRulePayload
 

@@ -108,7 +108,8 @@ instance Core.AWSRequest AcceptCertificateTransfer where
 
 instance Prelude.Hashable AcceptCertificateTransfer where
   hashWithSalt _salt AcceptCertificateTransfer' {..} =
-    _salt `Prelude.hashWithSalt` setAsActive
+    _salt
+      `Prelude.hashWithSalt` setAsActive
       `Prelude.hashWithSalt` certificateId
 
 instance Prelude.NFData AcceptCertificateTransfer where

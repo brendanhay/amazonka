@@ -99,7 +99,8 @@ instance Data.FromJSON DomainConfigurationSummary where
 
 instance Prelude.Hashable DomainConfigurationSummary where
   hashWithSalt _salt DomainConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` domainConfigurationArn
+    _salt
+      `Prelude.hashWithSalt` domainConfigurationArn
       `Prelude.hashWithSalt` domainConfigurationName
       `Prelude.hashWithSalt` serviceType
 

@@ -101,7 +101,8 @@ instance Data.FromJSON CACertificate where
 
 instance Prelude.Hashable CACertificate where
   hashWithSalt _salt CACertificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` status

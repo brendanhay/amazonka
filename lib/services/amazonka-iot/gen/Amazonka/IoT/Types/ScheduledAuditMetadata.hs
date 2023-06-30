@@ -119,7 +119,8 @@ instance Data.FromJSON ScheduledAuditMetadata where
 
 instance Prelude.Hashable ScheduledAuditMetadata where
   hashWithSalt _salt ScheduledAuditMetadata' {..} =
-    _salt `Prelude.hashWithSalt` dayOfMonth
+    _salt
+      `Prelude.hashWithSalt` dayOfMonth
       `Prelude.hashWithSalt` dayOfWeek
       `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` scheduledAuditArn

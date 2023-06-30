@@ -97,22 +97,22 @@ instance Core.AWSPager ListProvisioningTemplates where
     | Core.stop
         ( rs
             Lens.^? listProvisioningTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProvisioningTemplatesResponse_templates
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProvisioningTemplates_nextToken
           Lens..~ rs
           Lens.^? listProvisioningTemplatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProvisioningTemplates where
   type
@@ -131,7 +131,8 @@ instance Core.AWSRequest ListProvisioningTemplates where
 
 instance Prelude.Hashable ListProvisioningTemplates where
   hashWithSalt _salt ListProvisioningTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProvisioningTemplates where

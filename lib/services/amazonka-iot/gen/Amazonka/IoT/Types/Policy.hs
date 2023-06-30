@@ -74,7 +74,8 @@ instance Data.FromJSON Policy where
 
 instance Prelude.Hashable Policy where
   hashWithSalt _salt Policy' {..} =
-    _salt `Prelude.hashWithSalt` policyArn
+    _salt
+      `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData Policy where

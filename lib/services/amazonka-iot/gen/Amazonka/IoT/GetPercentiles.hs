@@ -146,7 +146,8 @@ instance Core.AWSRequest GetPercentiles where
 
 instance Prelude.Hashable GetPercentiles where
   hashWithSalt _salt GetPercentiles' {..} =
-    _salt `Prelude.hashWithSalt` aggregationField
+    _salt
+      `Prelude.hashWithSalt` aggregationField
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` percents
       `Prelude.hashWithSalt` queryVersion

@@ -124,7 +124,8 @@ instance Data.FromJSON AbortCriteria where
 
 instance Prelude.Hashable AbortCriteria where
   hashWithSalt _salt AbortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` failureType
+    _salt
+      `Prelude.hashWithSalt` failureType
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` thresholdPercentage
       `Prelude.hashWithSalt` minNumberOfExecutedThings

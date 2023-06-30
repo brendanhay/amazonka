@@ -99,7 +99,8 @@ instance Data.FromJSON MitigationAction where
 
 instance Prelude.Hashable MitigationAction where
   hashWithSalt _salt MitigationAction' {..} =
-    _salt `Prelude.hashWithSalt` actionParams
+    _salt
+      `Prelude.hashWithSalt` actionParams
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn

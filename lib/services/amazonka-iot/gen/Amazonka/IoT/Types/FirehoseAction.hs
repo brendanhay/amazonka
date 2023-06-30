@@ -126,7 +126,8 @@ instance Data.FromJSON FirehoseAction where
 
 instance Prelude.Hashable FirehoseAction where
   hashWithSalt _salt FirehoseAction' {..} =
-    _salt `Prelude.hashWithSalt` batchMode
+    _salt
+      `Prelude.hashWithSalt` batchMode
       `Prelude.hashWithSalt` separator
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` deliveryStreamName

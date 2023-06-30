@@ -82,7 +82,8 @@ instance Data.FromJSON Denied where
 
 instance Prelude.Hashable Denied where
   hashWithSalt _salt Denied' {..} =
-    _salt `Prelude.hashWithSalt` explicitDeny
+    _salt
+      `Prelude.hashWithSalt` explicitDeny
       `Prelude.hashWithSalt` implicitDeny
 
 instance Prelude.NFData Denied where

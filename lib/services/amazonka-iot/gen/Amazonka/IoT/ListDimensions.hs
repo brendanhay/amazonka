@@ -97,21 +97,22 @@ instance Core.AWSPager ListDimensions where
     | Core.stop
         ( rs
             Lens.^? listDimensionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDimensionsResponse_dimensionNames
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDimensions_nextToken
           Lens..~ rs
-          Lens.^? listDimensionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDimensionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDimensions where
   type
@@ -130,7 +131,8 @@ instance Core.AWSRequest ListDimensions where
 
 instance Prelude.Hashable ListDimensions where
   hashWithSalt _salt ListDimensions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDimensions where

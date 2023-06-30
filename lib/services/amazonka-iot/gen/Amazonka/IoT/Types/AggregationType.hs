@@ -77,7 +77,8 @@ instance Data.FromJSON AggregationType where
 
 instance Prelude.Hashable AggregationType where
   hashWithSalt _salt AggregationType' {..} =
-    _salt `Prelude.hashWithSalt` values
+    _salt
+      `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AggregationType where

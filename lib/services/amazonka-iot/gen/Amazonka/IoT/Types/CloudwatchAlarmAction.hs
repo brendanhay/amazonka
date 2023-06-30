@@ -109,7 +109,8 @@ instance Data.FromJSON CloudwatchAlarmAction where
 
 instance Prelude.Hashable CloudwatchAlarmAction where
   hashWithSalt _salt CloudwatchAlarmAction' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` stateReason
       `Prelude.hashWithSalt` stateValue

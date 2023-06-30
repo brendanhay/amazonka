@@ -76,7 +76,8 @@ instance Data.FromJSON PolicyVersionIdentifier where
 
 instance Prelude.Hashable PolicyVersionIdentifier where
   hashWithSalt _salt PolicyVersionIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt
+      `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyVersionId
 
 instance Prelude.NFData PolicyVersionIdentifier where

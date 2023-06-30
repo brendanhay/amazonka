@@ -81,7 +81,8 @@ instance Data.FromJSON AwsJobRateIncreaseCriteria where
 
 instance Prelude.Hashable AwsJobRateIncreaseCriteria where
   hashWithSalt _salt AwsJobRateIncreaseCriteria' {..} =
-    _salt `Prelude.hashWithSalt` numberOfNotifiedThings
+    _salt
+      `Prelude.hashWithSalt` numberOfNotifiedThings
       `Prelude.hashWithSalt` numberOfSucceededThings
 
 instance Prelude.NFData AwsJobRateIncreaseCriteria where

@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     DeleteProvisioningTemplateVersion' {..} =
-      _salt `Prelude.hashWithSalt` templateName
+      _salt
+        `Prelude.hashWithSalt` templateName
         `Prelude.hashWithSalt` versionId
 
 instance

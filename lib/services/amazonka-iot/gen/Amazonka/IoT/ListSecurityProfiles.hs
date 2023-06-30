@@ -123,22 +123,22 @@ instance Core.AWSPager ListSecurityProfiles where
     | Core.stop
         ( rs
             Lens.^? listSecurityProfilesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSecurityProfilesResponse_securityProfileIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSecurityProfiles_nextToken
           Lens..~ rs
           Lens.^? listSecurityProfilesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityProfiles where
   type
@@ -151,7 +151,8 @@ instance Core.AWSRequest ListSecurityProfiles where
       ( \s h x ->
           ListSecurityProfilesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "securityProfileIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "securityProfileIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,7 +160,8 @@ instance Core.AWSRequest ListSecurityProfiles where
 
 instance Prelude.Hashable ListSecurityProfiles where
   hashWithSalt _salt ListSecurityProfiles' {..} =
-    _salt `Prelude.hashWithSalt` dimensionName
+    _salt
+      `Prelude.hashWithSalt` dimensionName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` nextToken

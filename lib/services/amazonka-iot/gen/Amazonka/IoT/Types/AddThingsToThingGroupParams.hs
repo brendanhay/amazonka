@@ -91,7 +91,8 @@ instance Data.FromJSON AddThingsToThingGroupParams where
 
 instance Prelude.Hashable AddThingsToThingGroupParams where
   hashWithSalt _salt AddThingsToThingGroupParams' {..} =
-    _salt `Prelude.hashWithSalt` overrideDynamicGroups
+    _salt
+      `Prelude.hashWithSalt` overrideDynamicGroups
       `Prelude.hashWithSalt` thingGroupNames
 
 instance Prelude.NFData AddThingsToThingGroupParams where

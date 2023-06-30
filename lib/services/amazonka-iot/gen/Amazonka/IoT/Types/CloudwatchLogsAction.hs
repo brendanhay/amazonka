@@ -78,7 +78,8 @@ instance Data.FromJSON CloudwatchLogsAction where
 
 instance Prelude.Hashable CloudwatchLogsAction where
   hashWithSalt _salt CloudwatchLogsAction' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData CloudwatchLogsAction where

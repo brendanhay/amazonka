@@ -146,7 +146,8 @@ instance Data.FromJSON LocationAction where
 
 instance Prelude.Hashable LocationAction where
   hashWithSalt _salt LocationAction' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` trackerName
       `Prelude.hashWithSalt` deviceId

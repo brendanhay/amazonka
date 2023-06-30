@@ -104,14 +104,16 @@ instance Data.FromJSON KafkaAction where
             Prelude.<*> (x Data..:? "partition")
             Prelude.<*> (x Data..: "destinationArn")
             Prelude.<*> (x Data..: "topic")
-            Prelude.<*> ( x Data..:? "clientProperties"
+            Prelude.<*> ( x
+                            Data..:? "clientProperties"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable KafkaAction where
   hashWithSalt _salt KafkaAction' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` partition
       `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` topic

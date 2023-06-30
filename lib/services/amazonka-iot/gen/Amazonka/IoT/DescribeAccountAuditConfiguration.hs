@@ -80,14 +80,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountAuditConfigurationResponse'
-            Prelude.<$> ( x Data..?> "auditCheckConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "auditCheckConfigurations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> ( x Data..?> "auditNotificationTargetConfigurations"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Data..?> "roleArn")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "auditNotificationTargetConfigurations"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "roleArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

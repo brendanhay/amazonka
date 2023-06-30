@@ -74,7 +74,8 @@ instance Data.FromJSON KeyPair where
 
 instance Prelude.Hashable KeyPair where
   hashWithSalt _salt KeyPair' {..} =
-    _salt `Prelude.hashWithSalt` privateKey
+    _salt
+      `Prelude.hashWithSalt` privateKey
       `Prelude.hashWithSalt` publicKey
 
 instance Prelude.NFData KeyPair where

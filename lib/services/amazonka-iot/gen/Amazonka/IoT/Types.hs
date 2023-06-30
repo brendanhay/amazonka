@@ -2134,55 +2134,55 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Unable to verify the CA certificate used to sign the device certificate
 -- you are attempting to register. This is happens when you have registered
 -- more than one CA certificate that has the same subject field and public
 -- key.
-_CertificateConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateConflictException =
   Core._MatchServiceError
     defaultService
@@ -2190,7 +2190,7 @@ _CertificateConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The certificate operation is not allowed.
-_CertificateStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateStateException =
   Core._MatchServiceError
     defaultService
@@ -2198,7 +2198,7 @@ _CertificateStateException =
     Prelude.. Core.hasStatus 406
 
 -- | The certificate is invalid.
-_CertificateValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateValidationException =
   Core._MatchServiceError
     defaultService
@@ -2206,7 +2206,7 @@ _CertificateValidationException =
     Prelude.. Core.hasStatus 400
 
 -- | A resource with the same name already exists.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -2215,7 +2215,7 @@ _ConflictException =
 
 -- | A conflicting resource update exception. This exception is thrown when
 -- two pending updates cause a conflict.
-_ConflictingResourceUpdateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictingResourceUpdateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictingResourceUpdateException =
   Core._MatchServiceError
     defaultService
@@ -2224,7 +2224,7 @@ _ConflictingResourceUpdateException =
 
 -- | You can\'t delete the resource because it is attached to one or more
 -- resources.
-_DeleteConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DeleteConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DeleteConflictException =
   Core._MatchServiceError
     defaultService
@@ -2232,7 +2232,7 @@ _DeleteConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The index is not ready.
-_IndexNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IndexNotReadyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IndexNotReadyException =
   Core._MatchServiceError
     defaultService
@@ -2240,7 +2240,7 @@ _IndexNotReadyException =
     Prelude.. Core.hasStatus 400
 
 -- | An unexpected error has occurred.
-_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
@@ -2248,7 +2248,7 @@ _InternalException =
     Prelude.. Core.hasStatus 500
 
 -- | An unexpected error has occurred.
-_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -2257,7 +2257,7 @@ _InternalFailureException =
 
 -- | Internal error from the service that indicates an unexpected error or
 -- that the service is unavailable.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -2265,7 +2265,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The aggregation is invalid.
-_InvalidAggregationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidAggregationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidAggregationException =
   Core._MatchServiceError
     defaultService
@@ -2273,7 +2273,7 @@ _InvalidAggregationException =
     Prelude.. Core.hasStatus 400
 
 -- | The query is invalid.
-_InvalidQueryException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidQueryException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidQueryException =
   Core._MatchServiceError
     defaultService
@@ -2281,7 +2281,7 @@ _InvalidQueryException =
     Prelude.. Core.hasStatus 400
 
 -- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -2289,7 +2289,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The response is invalid.
-_InvalidResponseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidResponseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidResponseException =
   Core._MatchServiceError
     defaultService
@@ -2299,7 +2299,7 @@ _InvalidResponseException =
 -- | An attempt was made to change to an invalid state, for example by
 -- deleting a job or a job execution which is \"IN_PROGRESS\" without
 -- setting the @force@ parameter.
-_InvalidStateTransitionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidStateTransitionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidStateTransitionException =
   Core._MatchServiceError
     defaultService
@@ -2307,7 +2307,7 @@ _InvalidStateTransitionException =
     Prelude.. Core.hasStatus 409
 
 -- | A limit has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -2315,7 +2315,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 410
 
 -- | The policy documentation is not valid.
-_MalformedPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MalformedPolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MalformedPolicyException =
   Core._MatchServiceError
     defaultService
@@ -2323,7 +2323,7 @@ _MalformedPolicyException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource is not configured.
-_NotConfiguredException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotConfiguredException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotConfiguredException =
   Core._MatchServiceError
     defaultService
@@ -2331,7 +2331,7 @@ _NotConfiguredException =
     Prelude.. Core.hasStatus 404
 
 -- | The registration code is invalid.
-_RegistrationCodeValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RegistrationCodeValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RegistrationCodeValidationException =
   Core._MatchServiceError
     defaultService
@@ -2339,7 +2339,7 @@ _RegistrationCodeValidationException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -2347,7 +2347,7 @@ _ResourceAlreadyExistsException =
     Prelude.. Core.hasStatus 409
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -2355,7 +2355,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The resource registration failed.
-_ResourceRegistrationFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceRegistrationFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceRegistrationFailureException =
   Core._MatchServiceError
     defaultService
@@ -2363,7 +2363,7 @@ _ResourceRegistrationFailureException =
     Prelude.. Core.hasStatus 400
 
 -- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -2371,7 +2371,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The Rule-SQL expression can\'t be parsed correctly.
-_SqlParseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SqlParseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SqlParseException =
   Core._MatchServiceError
     defaultService
@@ -2380,7 +2380,7 @@ _SqlParseException =
 
 -- | This exception occurs if you attempt to start a task with the same
 -- task-id as an existing task but with a different clientRequestToken.
-_TaskAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TaskAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TaskAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -2388,7 +2388,7 @@ _TaskAlreadyExistsException =
     Prelude.. Core.hasStatus 400
 
 -- | The rate exceeds the limit.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -2397,7 +2397,7 @@ _ThrottlingException =
 
 -- | You can\'t revert the certificate transfer because the transfer is
 -- already complete.
-_TransferAlreadyCompletedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TransferAlreadyCompletedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TransferAlreadyCompletedException =
   Core._MatchServiceError
     defaultService
@@ -2406,7 +2406,7 @@ _TransferAlreadyCompletedException =
 
 -- | You can\'t transfer the certificate because authorization policies are
 -- still attached.
-_TransferConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TransferConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TransferConflictException =
   Core._MatchServiceError
     defaultService
@@ -2414,7 +2414,7 @@ _TransferConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | You are not authorized to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService
@@ -2424,7 +2424,7 @@ _UnauthorizedException =
 -- | An exception thrown when the version of an entity specified with the
 -- @expectedVersion@ parameter does not match the latest version in the
 -- system.
-_VersionConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_VersionConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _VersionConflictException =
   Core._MatchServiceError
     defaultService
@@ -2432,7 +2432,7 @@ _VersionConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The number of policy versions exceeds the limit.
-_VersionsLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_VersionsLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _VersionsLimitExceededException =
   Core._MatchServiceError
     defaultService

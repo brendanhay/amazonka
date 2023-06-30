@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateStream where
 
 instance Prelude.Hashable UpdateStream where
   hashWithSalt _salt UpdateStream' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` files
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` streamId

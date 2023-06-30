@@ -162,7 +162,8 @@ instance Core.AWSRequest CreateCertificateFromCsr where
 
 instance Prelude.Hashable CreateCertificateFromCsr where
   hashWithSalt _salt CreateCertificateFromCsr' {..} =
-    _salt `Prelude.hashWithSalt` setAsActive
+    _salt
+      `Prelude.hashWithSalt` setAsActive
       `Prelude.hashWithSalt` certificateSigningRequest
 
 instance Prelude.NFData CreateCertificateFromCsr where

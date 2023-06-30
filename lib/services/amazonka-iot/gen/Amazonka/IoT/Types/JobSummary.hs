@@ -179,7 +179,8 @@ instance Data.FromJSON JobSummary where
 
 instance Prelude.Hashable JobSummary where
   hashWithSalt _salt JobSummary' {..} =
-    _salt `Prelude.hashWithSalt` completedAt
+    _salt
+      `Prelude.hashWithSalt` completedAt
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` isConcurrent
       `Prelude.hashWithSalt` jobArn

@@ -83,7 +83,8 @@ instance Data.FromJSON EnableIoTLoggingParams where
 
 instance Prelude.Hashable EnableIoTLoggingParams where
   hashWithSalt _salt EnableIoTLoggingParams' {..} =
-    _salt `Prelude.hashWithSalt` roleArnForLogging
+    _salt
+      `Prelude.hashWithSalt` roleArnForLogging
       `Prelude.hashWithSalt` logLevel
 
 instance Prelude.NFData EnableIoTLoggingParams where

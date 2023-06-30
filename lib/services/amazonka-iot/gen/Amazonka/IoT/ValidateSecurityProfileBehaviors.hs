@@ -97,7 +97,8 @@ instance
       ( \s h x ->
           ValidateSecurityProfileBehaviorsResponse'
             Prelude.<$> (x Data..?> "valid")
-            Prelude.<*> ( x Data..?> "validationErrors"
+            Prelude.<*> ( x
+                            Data..?> "validationErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

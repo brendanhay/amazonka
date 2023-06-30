@@ -99,7 +99,8 @@ instance Data.FromJSON ThingConnectivity where
 
 instance Prelude.Hashable ThingConnectivity where
   hashWithSalt _salt ThingConnectivity' {..} =
-    _salt `Prelude.hashWithSalt` connected
+    _salt
+      `Prelude.hashWithSalt` connected
       `Prelude.hashWithSalt` disconnectReason
       `Prelude.hashWithSalt` timestamp
 

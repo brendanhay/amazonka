@@ -74,7 +74,8 @@ instance Data.FromJSON PercentPair where
 
 instance Prelude.Hashable PercentPair where
   hashWithSalt _salt PercentPair' {..} =
-    _salt `Prelude.hashWithSalt` percent
+    _salt
+      `Prelude.hashWithSalt` percent
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PercentPair where

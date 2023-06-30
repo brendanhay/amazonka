@@ -182,7 +182,8 @@ instance Core.AWSRequest UpdateTopicRuleDestination where
 
 instance Prelude.Hashable UpdateTopicRuleDestination where
   hashWithSalt _salt UpdateTopicRuleDestination' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData UpdateTopicRuleDestination where

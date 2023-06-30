@@ -81,7 +81,8 @@ mqttContext_username = Lens.lens (\MqttContext' {username} -> username) (\s@Mqtt
 
 instance Prelude.Hashable MqttContext where
   hashWithSalt _salt MqttContext' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` username
 

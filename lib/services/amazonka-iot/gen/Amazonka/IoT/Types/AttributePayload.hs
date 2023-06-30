@@ -107,7 +107,8 @@ instance Data.FromJSON AttributePayload where
 
 instance Prelude.Hashable AttributePayload where
   hashWithSalt _salt AttributePayload' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` merge
 
 instance Prelude.NFData AttributePayload where

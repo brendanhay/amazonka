@@ -124,7 +124,8 @@ instance Data.FromJSON TaskStatistics where
 
 instance Prelude.Hashable TaskStatistics where
   hashWithSalt _salt TaskStatistics' {..} =
-    _salt `Prelude.hashWithSalt` canceledChecks
+    _salt
+      `Prelude.hashWithSalt` canceledChecks
       `Prelude.hashWithSalt` compliantChecks
       `Prelude.hashWithSalt` failedChecks
       `Prelude.hashWithSalt` inProgressChecks

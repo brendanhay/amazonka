@@ -125,7 +125,8 @@ instance Data.FromJSON RoleAliasDescription where
 
 instance Prelude.Hashable RoleAliasDescription where
   hashWithSalt _salt RoleAliasDescription' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` credentialDurationSeconds
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` owner

@@ -70,7 +70,8 @@ instance Data.FromJSON IndexingFilter where
       "IndexingFilter"
       ( \x ->
           IndexingFilter'
-            Prelude.<$> ( x Data..:? "namedShadowNames"
+            Prelude.<$> ( x
+                            Data..:? "namedShadowNames"
                             Data..!= Prelude.mempty
                         )
       )

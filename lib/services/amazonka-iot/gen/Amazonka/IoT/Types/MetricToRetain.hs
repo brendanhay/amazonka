@@ -77,7 +77,8 @@ instance Data.FromJSON MetricToRetain where
 
 instance Prelude.Hashable MetricToRetain where
   hashWithSalt _salt MetricToRetain' {..} =
-    _salt `Prelude.hashWithSalt` metricDimension
+    _salt
+      `Prelude.hashWithSalt` metricDimension
       `Prelude.hashWithSalt` metric
 
 instance Prelude.NFData MetricToRetain where

@@ -74,7 +74,8 @@ instance Data.FromJSON CertificateValidity where
 
 instance Prelude.Hashable CertificateValidity where
   hashWithSalt _salt CertificateValidity' {..} =
-    _salt `Prelude.hashWithSalt` notAfter
+    _salt
+      `Prelude.hashWithSalt` notAfter
       `Prelude.hashWithSalt` notBefore
 
 instance Prelude.NFData CertificateValidity where

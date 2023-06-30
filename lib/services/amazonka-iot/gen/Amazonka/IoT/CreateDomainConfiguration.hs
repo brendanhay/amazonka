@@ -212,7 +212,8 @@ instance Core.AWSRequest CreateDomainConfiguration where
 
 instance Prelude.Hashable CreateDomainConfiguration where
   hashWithSalt _salt CreateDomainConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authorizerConfig
+    _salt
+      `Prelude.hashWithSalt` authorizerConfig
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` serverCertificateArns
       `Prelude.hashWithSalt` serviceType

@@ -106,22 +106,22 @@ instance Core.AWSPager ListRoleAliases where
     | Core.stop
         ( rs
             Lens.^? listRoleAliasesResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRoleAliasesResponse_roleAliases
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRoleAliases_marker
           Lens..~ rs
           Lens.^? listRoleAliasesResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoleAliases where
   type
@@ -140,7 +140,8 @@ instance Core.AWSRequest ListRoleAliases where
 
 instance Prelude.Hashable ListRoleAliases where
   hashWithSalt _salt ListRoleAliases' {..} =
-    _salt `Prelude.hashWithSalt` ascendingOrder
+    _salt
+      `Prelude.hashWithSalt` ascendingOrder
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize
 

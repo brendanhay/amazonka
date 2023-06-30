@@ -143,7 +143,8 @@ instance Core.AWSRequest StartThingRegistrationTask where
 
 instance Prelude.Hashable StartThingRegistrationTask where
   hashWithSalt _salt StartThingRegistrationTask' {..} =
-    _salt `Prelude.hashWithSalt` templateBody
+    _salt
+      `Prelude.hashWithSalt` templateBody
       `Prelude.hashWithSalt` inputFileBucket
       `Prelude.hashWithSalt` inputFileKey
       `Prelude.hashWithSalt` roleArn

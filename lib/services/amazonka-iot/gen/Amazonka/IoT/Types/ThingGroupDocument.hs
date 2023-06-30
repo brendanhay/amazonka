@@ -96,7 +96,8 @@ instance Data.FromJSON ThingGroupDocument where
       ( \x ->
           ThingGroupDocument'
             Prelude.<$> (x Data..:? "attributes" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "parentGroupNames"
+            Prelude.<*> ( x
+                            Data..:? "parentGroupNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "thingGroupDescription")
@@ -106,7 +107,8 @@ instance Data.FromJSON ThingGroupDocument where
 
 instance Prelude.Hashable ThingGroupDocument where
   hashWithSalt _salt ThingGroupDocument' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` parentGroupNames
       `Prelude.hashWithSalt` thingGroupDescription
       `Prelude.hashWithSalt` thingGroupId

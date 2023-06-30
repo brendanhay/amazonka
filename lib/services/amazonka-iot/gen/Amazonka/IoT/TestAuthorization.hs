@@ -166,7 +166,8 @@ instance Core.AWSRequest TestAuthorization where
 
 instance Prelude.Hashable TestAuthorization where
   hashWithSalt _salt TestAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` cognitoIdentityPoolId
       `Prelude.hashWithSalt` policyNamesToAdd
       `Prelude.hashWithSalt` policyNamesToSkip

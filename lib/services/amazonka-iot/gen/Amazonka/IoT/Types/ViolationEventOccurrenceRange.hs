@@ -90,7 +90,8 @@ instance
     ViolationEventOccurrenceRange
   where
   hashWithSalt _salt ViolationEventOccurrenceRange' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 
 instance Prelude.NFData ViolationEventOccurrenceRange where

@@ -80,14 +80,16 @@ instance Data.FromJSON ThingGroupMetadata where
           ThingGroupMetadata'
             Prelude.<$> (x Data..:? "creationDate")
             Prelude.<*> (x Data..:? "parentGroupName")
-            Prelude.<*> ( x Data..:? "rootToParentThingGroups"
+            Prelude.<*> ( x
+                            Data..:? "rootToParentThingGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ThingGroupMetadata where
   hashWithSalt _salt ThingGroupMetadata' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` parentGroupName
       `Prelude.hashWithSalt` rootToParentThingGroups
 

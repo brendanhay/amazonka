@@ -82,7 +82,8 @@ instance Data.FromJSON JobExecutionsRolloutConfig where
 
 instance Prelude.Hashable JobExecutionsRolloutConfig where
   hashWithSalt _salt JobExecutionsRolloutConfig' {..} =
-    _salt `Prelude.hashWithSalt` exponentialRate
+    _salt
+      `Prelude.hashWithSalt` exponentialRate
       `Prelude.hashWithSalt` maximumPerMinute
 
 instance Prelude.NFData JobExecutionsRolloutConfig where

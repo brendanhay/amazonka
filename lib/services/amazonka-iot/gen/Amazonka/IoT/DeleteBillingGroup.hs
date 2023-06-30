@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteBillingGroup where
 
 instance Prelude.Hashable DeleteBillingGroup where
   hashWithSalt _salt DeleteBillingGroup' {..} =
-    _salt `Prelude.hashWithSalt` expectedVersion
+    _salt
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` billingGroupName
 
 instance Prelude.NFData DeleteBillingGroup where

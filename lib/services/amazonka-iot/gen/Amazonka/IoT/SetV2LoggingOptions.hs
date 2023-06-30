@@ -106,7 +106,8 @@ instance Core.AWSRequest SetV2LoggingOptions where
 
 instance Prelude.Hashable SetV2LoggingOptions where
   hashWithSalt _salt SetV2LoggingOptions' {..} =
-    _salt `Prelude.hashWithSalt` defaultLogLevel
+    _salt
+      `Prelude.hashWithSalt` defaultLogLevel
       `Prelude.hashWithSalt` disableAllLogs
       `Prelude.hashWithSalt` roleArn
 

@@ -164,7 +164,8 @@ instance
   hashWithSalt
     _salt
     StartAuditMitigationActionsTask' {..} =
-      _salt `Prelude.hashWithSalt` taskId
+      _salt
+        `Prelude.hashWithSalt` taskId
         `Prelude.hashWithSalt` target
         `Prelude.hashWithSalt` auditCheckToActionsMapping
         `Prelude.hashWithSalt` clientRequestToken

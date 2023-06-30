@@ -88,7 +88,8 @@ instance Data.FromJSON ProvisioningHook where
 
 instance Prelude.Hashable ProvisioningHook where
   hashWithSalt _salt ProvisioningHook' {..} =
-    _salt `Prelude.hashWithSalt` payloadVersion
+    _salt
+      `Prelude.hashWithSalt` payloadVersion
       `Prelude.hashWithSalt` targetArn
 
 instance Prelude.NFData ProvisioningHook where

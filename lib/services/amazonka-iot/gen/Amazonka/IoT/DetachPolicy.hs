@@ -100,7 +100,8 @@ instance Core.AWSRequest DetachPolicy where
 
 instance Prelude.Hashable DetachPolicy where
   hashWithSalt _salt DetachPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt
+      `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` target
 
 instance Prelude.NFData DetachPolicy where

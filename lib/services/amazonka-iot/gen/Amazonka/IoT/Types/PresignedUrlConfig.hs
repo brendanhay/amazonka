@@ -98,7 +98,8 @@ instance Data.FromJSON PresignedUrlConfig where
 
 instance Prelude.Hashable PresignedUrlConfig where
   hashWithSalt _salt PresignedUrlConfig' {..} =
-    _salt `Prelude.hashWithSalt` expiresInSec
+    _salt
+      `Prelude.hashWithSalt` expiresInSec
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData PresignedUrlConfig where

@@ -145,7 +145,8 @@ instance Data.FromJSON AuditCheckDetails where
 
 instance Prelude.Hashable AuditCheckDetails where
   hashWithSalt _salt AuditCheckDetails' {..} =
-    _salt `Prelude.hashWithSalt` checkCompliant
+    _salt
+      `Prelude.hashWithSalt` checkCompliant
       `Prelude.hashWithSalt` checkRunStatus
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` message

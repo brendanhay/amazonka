@@ -165,7 +165,8 @@ instance Data.FromJSON AuditFinding where
             Prelude.<*> (x Data..:? "nonCompliantResource")
             Prelude.<*> (x Data..:? "reasonForNonCompliance")
             Prelude.<*> (x Data..:? "reasonForNonComplianceCode")
-            Prelude.<*> ( x Data..:? "relatedResources"
+            Prelude.<*> ( x
+                            Data..:? "relatedResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "severity")
@@ -175,7 +176,8 @@ instance Data.FromJSON AuditFinding where
 
 instance Prelude.Hashable AuditFinding where
   hashWithSalt _salt AuditFinding' {..} =
-    _salt `Prelude.hashWithSalt` checkName
+    _salt
+      `Prelude.hashWithSalt` checkName
       `Prelude.hashWithSalt` findingId
       `Prelude.hashWithSalt` findingTime
       `Prelude.hashWithSalt` isSuppressed

@@ -188,7 +188,8 @@ instance Core.AWSRequest CreateDynamicThingGroup where
 
 instance Prelude.Hashable CreateDynamicThingGroup where
   hashWithSalt _salt CreateDynamicThingGroup' {..} =
-    _salt `Prelude.hashWithSalt` indexName
+    _salt
+      `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` thingGroupProperties

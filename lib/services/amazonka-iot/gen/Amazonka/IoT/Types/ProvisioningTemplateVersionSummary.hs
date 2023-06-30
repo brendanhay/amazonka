@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     ProvisioningTemplateVersionSummary' {..} =
-      _salt `Prelude.hashWithSalt` creationDate
+      _salt
+        `Prelude.hashWithSalt` creationDate
         `Prelude.hashWithSalt` isDefaultVersion
         `Prelude.hashWithSalt` versionId
 

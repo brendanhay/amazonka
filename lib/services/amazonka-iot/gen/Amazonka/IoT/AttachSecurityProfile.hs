@@ -115,7 +115,8 @@ instance Core.AWSRequest AttachSecurityProfile where
 
 instance Prelude.Hashable AttachSecurityProfile where
   hashWithSalt _salt AttachSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` securityProfileName
+    _salt
+      `Prelude.hashWithSalt` securityProfileName
       `Prelude.hashWithSalt` securityProfileTargetArn
 
 instance Prelude.NFData AttachSecurityProfile where

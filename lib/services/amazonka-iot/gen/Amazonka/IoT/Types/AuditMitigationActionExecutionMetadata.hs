@@ -167,7 +167,8 @@ instance
   hashWithSalt
     _salt
     AuditMitigationActionExecutionMetadata' {..} =
-      _salt `Prelude.hashWithSalt` actionId
+      _salt
+        `Prelude.hashWithSalt` actionId
         `Prelude.hashWithSalt` actionName
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` errorCode

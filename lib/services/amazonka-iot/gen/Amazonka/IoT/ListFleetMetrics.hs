@@ -99,22 +99,22 @@ instance Core.AWSPager ListFleetMetrics where
     | Core.stop
         ( rs
             Lens.^? listFleetMetricsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFleetMetricsResponse_fleetMetrics
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFleetMetrics_nextToken
           Lens..~ rs
           Lens.^? listFleetMetricsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFleetMetrics where
   type
@@ -133,7 +133,8 @@ instance Core.AWSRequest ListFleetMetrics where
 
 instance Prelude.Hashable ListFleetMetrics where
   hashWithSalt _salt ListFleetMetrics' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFleetMetrics where

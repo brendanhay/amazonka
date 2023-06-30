@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateDomainConfiguration where
 
 instance Prelude.Hashable UpdateDomainConfiguration where
   hashWithSalt _salt UpdateDomainConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authorizerConfig
+    _salt
+      `Prelude.hashWithSalt` authorizerConfig
       `Prelude.hashWithSalt` domainConfigurationStatus
       `Prelude.hashWithSalt` removeAuthorizerConfig
       `Prelude.hashWithSalt` domainConfigurationName

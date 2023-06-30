@@ -92,7 +92,7 @@ data CreateJob = CreateJob'
     --
     -- The placeholder link is of the following form:
     --
-    -- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
+    -- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/@/@bucket@/@\/@/@key@/@}@
     --
     -- where /bucket/ is your bucket name and /key/ is the object in the bucket
     -- to which you are linking.
@@ -109,7 +109,7 @@ data CreateJob = CreateJob'
     -- Core sends jobs notifications to MQTT topics that contain the value in
     -- the following format.
     --
-    -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+    -- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
@@ -177,7 +177,7 @@ data CreateJob = CreateJob'
 --
 -- The placeholder link is of the following form:
 --
--- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
+-- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/@/@bucket@/@\/@/@key@/@}@
 --
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
@@ -194,7 +194,7 @@ data CreateJob = CreateJob'
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 --
@@ -284,7 +284,7 @@ createJob_documentParameters = Lens.lens (\CreateJob' {documentParameters} -> do
 --
 -- The placeholder link is of the following form:
 --
--- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
+-- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/@/@bucket@/@\/@/@key@/@}@
 --
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
@@ -309,7 +309,7 @@ createJob_jobTemplateArn = Lens.lens (\CreateJob' {jobTemplateArn} -> jobTemplat
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 createJob_namespaceId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
@@ -376,7 +376,8 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` abortConfig
+    _salt
+      `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` documentParameters

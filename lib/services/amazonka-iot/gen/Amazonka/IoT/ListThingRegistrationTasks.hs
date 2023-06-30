@@ -113,22 +113,22 @@ instance Core.AWSPager ListThingRegistrationTasks where
     | Core.stop
         ( rs
             Lens.^? listThingRegistrationTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listThingRegistrationTasksResponse_taskIds
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listThingRegistrationTasks_nextToken
           Lens..~ rs
           Lens.^? listThingRegistrationTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThingRegistrationTasks where
   type
@@ -147,7 +147,8 @@ instance Core.AWSRequest ListThingRegistrationTasks where
 
 instance Prelude.Hashable ListThingRegistrationTasks where
   hashWithSalt _salt ListThingRegistrationTasks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
 

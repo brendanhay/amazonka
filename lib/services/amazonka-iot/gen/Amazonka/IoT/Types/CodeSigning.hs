@@ -86,7 +86,8 @@ instance Data.FromJSON CodeSigning where
 
 instance Prelude.Hashable CodeSigning where
   hashWithSalt _salt CodeSigning' {..} =
-    _salt `Prelude.hashWithSalt` awsSignerJobId
+    _salt
+      `Prelude.hashWithSalt` awsSignerJobId
       `Prelude.hashWithSalt` customCodeSigning
       `Prelude.hashWithSalt` startSigningJobParameter
 

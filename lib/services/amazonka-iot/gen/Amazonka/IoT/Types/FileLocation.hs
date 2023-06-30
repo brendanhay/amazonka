@@ -76,7 +76,8 @@ instance Data.FromJSON FileLocation where
 
 instance Prelude.Hashable FileLocation where
   hashWithSalt _salt FileLocation' {..} =
-    _salt `Prelude.hashWithSalt` s3Location
+    _salt
+      `Prelude.hashWithSalt` s3Location
       `Prelude.hashWithSalt` stream
 
 instance Prelude.NFData FileLocation where

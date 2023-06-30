@@ -88,7 +88,8 @@ instance Data.FromJSON KinesisAction where
 
 instance Prelude.Hashable KinesisAction where
   hashWithSalt _salt KinesisAction' {..} =
-    _salt `Prelude.hashWithSalt` partitionKey
+    _salt
+      `Prelude.hashWithSalt` partitionKey
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` streamName
 

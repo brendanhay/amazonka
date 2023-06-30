@@ -247,10 +247,12 @@ instance Core.AWSRequest UpdateSecurityProfile where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecurityProfileResponse'
-            Prelude.<$> ( x Data..?> "additionalMetricsToRetain"
+            Prelude.<$> ( x
+                            Data..?> "additionalMetricsToRetain"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "additionalMetricsToRetainV2"
+            Prelude.<*> ( x
+                            Data..?> "additionalMetricsToRetainV2"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "alertTargets" Core..!@ Prelude.mempty)

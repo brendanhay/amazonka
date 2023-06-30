@@ -95,7 +95,8 @@ instance
       "AuditMitigationActionsTaskTarget"
       ( \x ->
           AuditMitigationActionsTaskTarget'
-            Prelude.<$> ( x Data..:? "auditCheckToReasonCodeFilter"
+            Prelude.<$> ( x
+                            Data..:? "auditCheckToReasonCodeFilter"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "auditTaskId")

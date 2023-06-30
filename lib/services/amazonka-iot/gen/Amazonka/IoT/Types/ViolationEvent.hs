@@ -159,7 +159,8 @@ instance Data.FromJSON ViolationEvent where
 
 instance Prelude.Hashable ViolationEvent where
   hashWithSalt _salt ViolationEvent' {..} =
-    _salt `Prelude.hashWithSalt` behavior
+    _salt
+      `Prelude.hashWithSalt` behavior
       `Prelude.hashWithSalt` metricValue
       `Prelude.hashWithSalt` securityProfileName
       `Prelude.hashWithSalt` thingName

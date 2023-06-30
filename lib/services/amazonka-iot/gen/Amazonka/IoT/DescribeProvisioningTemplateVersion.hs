@@ -112,10 +112,10 @@ instance
       ( \s h x ->
           DescribeProvisioningTemplateVersionResponse'
             Prelude.<$> (x Data..?> "creationDate")
-              Prelude.<*> (x Data..?> "isDefaultVersion")
-              Prelude.<*> (x Data..?> "templateBody")
-              Prelude.<*> (x Data..?> "versionId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "isDefaultVersion")
+            Prelude.<*> (x Data..?> "templateBody")
+            Prelude.<*> (x Data..?> "versionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     DescribeProvisioningTemplateVersion' {..} =
-      _salt `Prelude.hashWithSalt` templateName
+      _salt
+        `Prelude.hashWithSalt` templateName
         `Prelude.hashWithSalt` versionId
 
 instance

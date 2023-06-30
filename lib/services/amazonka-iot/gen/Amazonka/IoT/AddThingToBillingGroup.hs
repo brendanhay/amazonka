@@ -132,7 +132,8 @@ instance Core.AWSRequest AddThingToBillingGroup where
 
 instance Prelude.Hashable AddThingToBillingGroup where
   hashWithSalt _salt AddThingToBillingGroup' {..} =
-    _salt `Prelude.hashWithSalt` billingGroupArn
+    _salt
+      `Prelude.hashWithSalt` billingGroupArn
       `Prelude.hashWithSalt` billingGroupName
       `Prelude.hashWithSalt` thingArn
       `Prelude.hashWithSalt` thingName

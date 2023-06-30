@@ -118,22 +118,22 @@ instance Core.AWSPager ListPrincipalThings where
     | Core.stop
         ( rs
             Lens.^? listPrincipalThingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPrincipalThingsResponse_things
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPrincipalThings_nextToken
           Lens..~ rs
           Lens.^? listPrincipalThingsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrincipalThings where
   type
@@ -152,7 +152,8 @@ instance Core.AWSRequest ListPrincipalThings where
 
 instance Prelude.Hashable ListPrincipalThings where
   hashWithSalt _salt ListPrincipalThings' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` principal
 

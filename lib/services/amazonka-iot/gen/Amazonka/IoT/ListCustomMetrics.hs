@@ -96,22 +96,22 @@ instance Core.AWSPager ListCustomMetrics where
     | Core.stop
         ( rs
             Lens.^? listCustomMetricsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCustomMetricsResponse_metricNames
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCustomMetrics_nextToken
           Lens..~ rs
           Lens.^? listCustomMetricsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCustomMetrics where
   type
@@ -130,7 +130,8 @@ instance Core.AWSRequest ListCustomMetrics where
 
 instance Prelude.Hashable ListCustomMetrics where
   hashWithSalt _salt ListCustomMetrics' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCustomMetrics where

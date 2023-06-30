@@ -76,7 +76,8 @@ instance Data.FromJSON LogTargetConfiguration where
 
 instance Prelude.Hashable LogTargetConfiguration where
   hashWithSalt _salt LogTargetConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` logLevel
+    _salt
+      `Prelude.hashWithSalt` logLevel
       `Prelude.hashWithSalt` logTarget
 
 instance Prelude.NFData LogTargetConfiguration where

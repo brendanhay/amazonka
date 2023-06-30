@@ -86,7 +86,8 @@ instance Data.FromJSON MitigationActionIdentifier where
 
 instance Prelude.Hashable MitigationActionIdentifier where
   hashWithSalt _salt MitigationActionIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` actionArn
+    _salt
+      `Prelude.hashWithSalt` actionArn
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` creationDate
 

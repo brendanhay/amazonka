@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeRuleGroupsNamespace where
 
 instance Prelude.Hashable DescribeRuleGroupsNamespace where
   hashWithSalt _salt DescribeRuleGroupsNamespace' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData DescribeRuleGroupsNamespace where

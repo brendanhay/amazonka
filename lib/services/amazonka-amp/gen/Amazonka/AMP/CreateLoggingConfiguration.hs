@@ -125,7 +125,8 @@ instance Core.AWSRequest CreateLoggingConfiguration where
 
 instance Prelude.Hashable CreateLoggingConfiguration where
   hashWithSalt _salt CreateLoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` logGroupArn
       `Prelude.hashWithSalt` workspaceId
 

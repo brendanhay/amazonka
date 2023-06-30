@@ -126,21 +126,21 @@ instance Core.AWSPager ListRuleGroupsNamespaces where
     | Core.stop
         ( rs
             Lens.^? listRuleGroupsNamespacesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listRuleGroupsNamespacesResponse_ruleGroupsNamespaces
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRuleGroupsNamespaces_nextToken
           Lens..~ rs
           Lens.^? listRuleGroupsNamespacesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRuleGroupsNamespaces where
   type
@@ -154,14 +154,16 @@ instance Core.AWSRequest ListRuleGroupsNamespaces where
           ListRuleGroupsNamespacesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ruleGroupsNamespaces"
+            Prelude.<*> ( x
+                            Data..?> "ruleGroupsNamespaces"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListRuleGroupsNamespaces where
   hashWithSalt _salt ListRuleGroupsNamespaces' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workspaceId

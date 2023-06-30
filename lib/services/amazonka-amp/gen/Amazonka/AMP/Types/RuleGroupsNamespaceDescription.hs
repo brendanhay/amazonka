@@ -157,7 +157,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupsNamespaceDescription' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` createdAt
         `Prelude.hashWithSalt` data'

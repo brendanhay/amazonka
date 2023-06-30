@@ -127,7 +127,8 @@ instance
     LoggingConfigurationMetadata
   where
   hashWithSalt _salt LoggingConfigurationMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` logGroupArn
       `Prelude.hashWithSalt` modifiedAt
       `Prelude.hashWithSalt` status

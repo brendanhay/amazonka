@@ -127,7 +127,8 @@ instance Data.FromJSON WorkspaceSummary where
 
 instance Prelude.Hashable WorkspaceSummary where
   hashWithSalt _salt WorkspaceSummary' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt

@@ -103,7 +103,8 @@ instance
     DeleteAlertManagerDefinition
   where
   hashWithSalt _salt DeleteAlertManagerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData DeleteAlertManagerDefinition where

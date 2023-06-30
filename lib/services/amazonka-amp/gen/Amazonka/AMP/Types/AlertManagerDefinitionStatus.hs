@@ -81,7 +81,8 @@ instance
     AlertManagerDefinitionStatus
   where
   hashWithSalt _salt AlertManagerDefinitionStatus' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
+    _salt
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData AlertManagerDefinitionStatus where

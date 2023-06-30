@@ -128,7 +128,8 @@ instance Core.AWSRequest PutAlertManagerDefinition where
 
 instance Prelude.Hashable PutAlertManagerDefinition where
   hashWithSalt _salt PutAlertManagerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` workspaceId
 

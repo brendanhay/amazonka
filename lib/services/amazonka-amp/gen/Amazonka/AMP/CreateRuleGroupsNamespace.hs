@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateRuleGroupsNamespace where
 
 instance Prelude.Hashable CreateRuleGroupsNamespace where
   hashWithSalt _salt CreateRuleGroupsNamespace' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` name

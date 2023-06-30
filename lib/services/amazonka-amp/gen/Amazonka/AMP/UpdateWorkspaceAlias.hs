@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateWorkspaceAlias where
 
 instance Prelude.Hashable UpdateWorkspaceAlias where
   hashWithSalt _salt UpdateWorkspaceAlias' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` workspaceId
 

@@ -107,20 +107,23 @@ instance Core.AWSPager ListApps where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAppsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAppsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listAppsResponse_apps Prelude.. Lens._Just
+            Lens.^? listAppsResponse_apps
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listApps_nextToken
           Lens..~ rs
-          Lens.^? listAppsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAppsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApps where
   type AWSResponse ListApps = ListAppsResponse
@@ -137,7 +140,8 @@ instance Core.AWSRequest ListApps where
 
 instance Prelude.Hashable ListApps where
   hashWithSalt _salt ListApps' {..} =
-    _salt `Prelude.hashWithSalt` appIds
+    _salt
+      `Prelude.hashWithSalt` appIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

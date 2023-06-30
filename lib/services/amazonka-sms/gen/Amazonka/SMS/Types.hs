@@ -427,102 +427,102 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The user has the required permissions, so the request would have
 -- succeeded, but a dry run was performed.
-_DryRunOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DryRunOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DryRunOperationException =
   Core._MatchServiceError
     defaultService
     "DryRunOperationException"
 
 -- | An internal error occurred.
-_InternalError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalError =
   Core._MatchServiceError
     defaultService
     "InternalError"
 
 -- | A specified parameter is not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | A required parameter is missing.
-_MissingRequiredParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MissingRequiredParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MissingRequiredParameterException =
   Core._MatchServiceError
     defaultService
     "MissingRequiredParameterException"
 
 -- | There are no connectors available.
-_NoConnectorsAvailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoConnectorsAvailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoConnectorsAvailableException =
   Core._MatchServiceError
     defaultService
     "NoConnectorsAvailableException"
 
 -- | This operation is not allowed.
-_OperationNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationNotPermittedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
     "OperationNotPermittedException"
 
 -- | The specified replication job already exists.
-_ReplicationJobAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReplicationJobAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReplicationJobAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ReplicationJobAlreadyExistsException"
 
 -- | The specified replication job does not exist.
-_ReplicationJobNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReplicationJobNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReplicationJobNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -530,21 +530,21 @@ _ReplicationJobNotFoundException =
 
 -- | You have exceeded the number of on-demand replication runs you can
 -- request in a 24-hour period.
-_ReplicationRunLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReplicationRunLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReplicationRunLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ReplicationRunLimitExceededException"
 
 -- | The specified server cannot be replicated.
-_ServerCannotBeReplicatedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServerCannotBeReplicatedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServerCannotBeReplicatedException =
   Core._MatchServiceError
     defaultService
     "ServerCannotBeReplicatedException"
 
 -- | The service is temporarily unavailable.
-_TemporarilyUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TemporarilyUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TemporarilyUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -552,7 +552,7 @@ _TemporarilyUnavailableException =
 
 -- | You lack permissions needed to perform this operation. Check your IAM
 -- policies, and ensure that you are using the correct access keys.
-_UnauthorizedOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedOperationException =
   Core._MatchServiceError
     defaultService

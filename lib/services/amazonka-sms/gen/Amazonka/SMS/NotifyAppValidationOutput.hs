@@ -102,7 +102,8 @@ instance Core.AWSRequest NotifyAppValidationOutput where
 
 instance Prelude.Hashable NotifyAppValidationOutput where
   hashWithSalt _salt NotifyAppValidationOutput' {..} =
-    _salt `Prelude.hashWithSalt` notificationContext
+    _salt
+      `Prelude.hashWithSalt` notificationContext
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData NotifyAppValidationOutput where

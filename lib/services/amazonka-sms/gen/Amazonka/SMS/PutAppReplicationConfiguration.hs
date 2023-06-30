@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     PutAppReplicationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` appId
+      _salt
+        `Prelude.hashWithSalt` appId
         `Prelude.hashWithSalt` serverGroupReplicationConfigurations
 
 instance

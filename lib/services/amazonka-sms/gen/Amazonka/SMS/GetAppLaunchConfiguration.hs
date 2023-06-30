@@ -89,7 +89,8 @@ instance Core.AWSRequest GetAppLaunchConfiguration where
             Prelude.<$> (x Data..?> "appId")
             Prelude.<*> (x Data..?> "autoLaunch")
             Prelude.<*> (x Data..?> "roleName")
-            Prelude.<*> ( x Data..?> "serverGroupLaunchConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "serverGroupLaunchConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

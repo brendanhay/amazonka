@@ -78,7 +78,8 @@ instance
       ( \x ->
           ServerGroupReplicationConfiguration'
             Prelude.<$> (x Data..:? "serverGroupId")
-            Prelude.<*> ( x Data..:? "serverReplicationConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "serverReplicationConfigurations"
                             Data..!= Prelude.mempty
                         )
       )
@@ -90,7 +91,8 @@ instance
   hashWithSalt
     _salt
     ServerGroupReplicationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` serverGroupId
+      _salt
+        `Prelude.hashWithSalt` serverGroupId
         `Prelude.hashWithSalt` serverReplicationConfigurations
 
 instance

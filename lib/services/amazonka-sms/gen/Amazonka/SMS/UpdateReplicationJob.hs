@@ -216,7 +216,8 @@ instance Core.AWSRequest UpdateReplicationJob where
 
 instance Prelude.Hashable UpdateReplicationJob where
   hashWithSalt _salt UpdateReplicationJob' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` kmsKeyId

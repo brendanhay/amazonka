@@ -75,7 +75,8 @@ instance Data.FromJSON ReplicationRunStageDetails where
 
 instance Prelude.Hashable ReplicationRunStageDetails where
   hashWithSalt _salt ReplicationRunStageDetails' {..} =
-    _salt `Prelude.hashWithSalt` stage
+    _salt
+      `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` stageProgress
 
 instance Prelude.NFData ReplicationRunStageDetails where

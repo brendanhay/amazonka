@@ -30,11 +30,11 @@
 --
 -- __Allowed Header Values__
 --
--- -   @ Accept: @ application\/json
+-- -   @ @__@Accept:@__@ @ application\/json
 --
--- -   @ Accept-Encoding: @ gzip, deflate
+-- -   @ @__@Accept-Encoding:@__@ @ gzip, deflate
 --
--- -   @ Content-Type: @application\/json
+-- -   @ @__@Content-Type:@__@ @application\/json
 --
 -- __Resources__
 --

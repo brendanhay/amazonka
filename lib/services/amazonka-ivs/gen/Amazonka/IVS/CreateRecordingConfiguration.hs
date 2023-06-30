@@ -179,7 +179,8 @@ instance
     CreateRecordingConfiguration
   where
   hashWithSalt _salt CreateRecordingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recordingReconnectWindowSeconds
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` thumbnailConfiguration
@@ -258,7 +259,6 @@ newCreateRecordingConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 createRecordingConfigurationResponse_recordingConfiguration :: Lens.Lens' CreateRecordingConfigurationResponse (Prelude.Maybe RecordingConfiguration)
 createRecordingConfigurationResponse_recordingConfiguration = Lens.lens (\CreateRecordingConfigurationResponse' {recordingConfiguration} -> recordingConfiguration) (\s@CreateRecordingConfigurationResponse' {} a -> s {recordingConfiguration = a} :: CreateRecordingConfigurationResponse)
 

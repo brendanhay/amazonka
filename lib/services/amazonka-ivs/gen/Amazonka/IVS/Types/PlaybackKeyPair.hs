@@ -106,7 +106,8 @@ instance Data.FromJSON PlaybackKeyPair where
 
 instance Prelude.Hashable PlaybackKeyPair where
   hashWithSalt _salt PlaybackKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` fingerprint
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

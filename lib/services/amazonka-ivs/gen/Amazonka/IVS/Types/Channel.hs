@@ -227,7 +227,8 @@ instance Data.FromJSON Channel where
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` authorized
       `Prelude.hashWithSalt` ingestEndpoint
       `Prelude.hashWithSalt` latencyMode

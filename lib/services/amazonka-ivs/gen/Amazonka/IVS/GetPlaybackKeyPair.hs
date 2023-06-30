@@ -154,7 +154,6 @@ newGetPlaybackKeyPairResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getPlaybackKeyPairResponse_keyPair :: Lens.Lens' GetPlaybackKeyPairResponse (Prelude.Maybe PlaybackKeyPair)
 getPlaybackKeyPairResponse_keyPair = Lens.lens (\GetPlaybackKeyPairResponse' {keyPair} -> keyPair) (\s@GetPlaybackKeyPairResponse' {} a -> s {keyPair = a} :: GetPlaybackKeyPairResponse)
 

@@ -147,7 +147,8 @@ instance Data.FromJSON Stream where
 
 instance Prelude.Hashable Stream where
   hashWithSalt _salt Stream' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` health
       `Prelude.hashWithSalt` playbackUrl
       `Prelude.hashWithSalt` startTime

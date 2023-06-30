@@ -103,7 +103,8 @@ instance Data.FromJSON StreamSessionSummary where
 
 instance Prelude.Hashable StreamSessionSummary where
   hashWithSalt _salt StreamSessionSummary' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` hasErrorEvent
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` streamId

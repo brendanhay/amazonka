@@ -207,7 +207,8 @@ instance Core.AWSRequest UpdateChannel where
 
 instance Prelude.Hashable UpdateChannel where
   hashWithSalt _salt UpdateChannel' {..} =
-    _salt `Prelude.hashWithSalt` authorized
+    _salt
+      `Prelude.hashWithSalt` authorized
       `Prelude.hashWithSalt` latencyMode
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recordingConfigurationArn

@@ -124,7 +124,8 @@ instance Core.AWSRequest GetSegmentVersion where
 
 instance Prelude.Hashable GetSegmentVersion where
   hashWithSalt _salt GetSegmentVersion' {..} =
-    _salt `Prelude.hashWithSalt` segmentId
+    _salt
+      `Prelude.hashWithSalt` segmentId
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` applicationId
 

@@ -120,7 +120,8 @@ instance Data.FromJSON DefaultButtonConfiguration where
 
 instance Prelude.Hashable DefaultButtonConfiguration where
   hashWithSalt _salt DefaultButtonConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` backgroundColor
+    _salt
+      `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` borderRadius
       `Prelude.hashWithSalt` link
       `Prelude.hashWithSalt` textColor

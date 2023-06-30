@@ -117,7 +117,8 @@ instance Data.FromJSON SegmentDemographics where
 
 instance Prelude.Hashable SegmentDemographics where
   hashWithSalt _salt SegmentDemographics' {..} =
-    _salt `Prelude.hashWithSalt` appVersion
+    _salt
+      `Prelude.hashWithSalt` appVersion
       `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` deviceType
       `Prelude.hashWithSalt` make

@@ -108,7 +108,8 @@ instance Core.AWSRequest CreateJourney where
 
 instance Prelude.Hashable CreateJourney where
   hashWithSalt _salt CreateJourney' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` writeJourneyRequest
 
 instance Prelude.NFData CreateJourney where

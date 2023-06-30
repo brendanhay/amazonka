@@ -131,7 +131,8 @@ sMSTemplateRequest_tags = Lens.lens (\SMSTemplateRequest' {tags} -> tags) (\s@SM
 
 instance Prelude.Hashable SMSTemplateRequest where
   hashWithSalt _salt SMSTemplateRequest' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` recommenderId
       `Prelude.hashWithSalt` templateDescription

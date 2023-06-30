@@ -70,12 +70,14 @@ instance Data.FromJSON SegmentReference where
       "SegmentReference"
       ( \x ->
           SegmentReference'
-            Prelude.<$> (x Data..:? "Version") Prelude.<*> (x Data..: "Id")
+            Prelude.<$> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable SegmentReference where
   hashWithSalt _salt SegmentReference' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData SegmentReference where

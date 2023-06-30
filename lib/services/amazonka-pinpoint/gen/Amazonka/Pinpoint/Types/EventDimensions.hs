@@ -118,7 +118,8 @@ instance Data.FromJSON EventDimensions where
 
 instance Prelude.Hashable EventDimensions where
   hashWithSalt _salt EventDimensions' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` metrics
 

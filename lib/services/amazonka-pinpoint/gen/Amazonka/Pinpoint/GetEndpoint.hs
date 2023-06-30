@@ -106,7 +106,8 @@ instance Core.AWSRequest GetEndpoint where
 
 instance Prelude.Hashable GetEndpoint where
   hashWithSalt _salt GetEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` endpointId
 
 instance Prelude.NFData GetEndpoint where

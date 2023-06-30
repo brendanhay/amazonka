@@ -67,7 +67,8 @@ defaultMessage_substitutions = Lens.lens (\DefaultMessage' {substitutions} -> su
 
 instance Prelude.Hashable DefaultMessage where
   hashWithSalt _salt DefaultMessage' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` substitutions
 
 instance Prelude.NFData DefaultMessage where

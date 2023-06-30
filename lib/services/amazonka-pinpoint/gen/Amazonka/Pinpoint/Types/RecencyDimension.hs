@@ -93,7 +93,8 @@ instance Data.FromJSON RecencyDimension where
 
 instance Prelude.Hashable RecencyDimension where
   hashWithSalt _salt RecencyDimension' {..} =
-    _salt `Prelude.hashWithSalt` duration
+    _salt
+      `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` recencyType
 
 instance Prelude.NFData RecencyDimension where

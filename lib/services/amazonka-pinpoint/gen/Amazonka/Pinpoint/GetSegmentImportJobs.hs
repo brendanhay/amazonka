@@ -137,7 +137,8 @@ instance Core.AWSRequest GetSegmentImportJobs where
 
 instance Prelude.Hashable GetSegmentImportJobs where
   hashWithSalt _salt GetSegmentImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` pageSize
+    _salt
+      `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` segmentId
       `Prelude.hashWithSalt` applicationId

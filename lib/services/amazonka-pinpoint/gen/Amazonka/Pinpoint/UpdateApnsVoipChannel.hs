@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateApnsVoipChannel where
 
 instance Prelude.Hashable UpdateApnsVoipChannel where
   hashWithSalt _salt UpdateApnsVoipChannel' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` aPNSVoipChannelRequest
 
 instance Prelude.NFData UpdateApnsVoipChannel where

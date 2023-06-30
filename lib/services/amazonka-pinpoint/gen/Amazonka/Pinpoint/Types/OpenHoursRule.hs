@@ -74,7 +74,8 @@ instance Data.FromJSON OpenHoursRule where
 
 instance Prelude.Hashable OpenHoursRule where
   hashWithSalt _salt OpenHoursRule' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData OpenHoursRule where

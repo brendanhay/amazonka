@@ -317,7 +317,8 @@ instance Data.FromJSON EndpointResponse where
 
 instance Prelude.Hashable EndpointResponse where
   hashWithSalt _salt EndpointResponse' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` channelType

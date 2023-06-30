@@ -219,7 +219,8 @@ instance Data.FromJSON ImportJobResource where
 
 instance Prelude.Hashable ImportJobResource where
   hashWithSalt _salt ImportJobResource' {..} =
-    _salt `Prelude.hashWithSalt` defineSegment
+    _salt
+      `Prelude.hashWithSalt` defineSegment
       `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` registerEndpoints
       `Prelude.hashWithSalt` segmentId

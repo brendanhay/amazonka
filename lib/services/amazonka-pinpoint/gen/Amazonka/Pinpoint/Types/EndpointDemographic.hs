@@ -147,7 +147,8 @@ instance Data.FromJSON EndpointDemographic where
 
 instance Prelude.Hashable EndpointDemographic where
   hashWithSalt _salt EndpointDemographic' {..} =
-    _salt `Prelude.hashWithSalt` appVersion
+    _salt
+      `Prelude.hashWithSalt` appVersion
       `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` make
       `Prelude.hashWithSalt` model

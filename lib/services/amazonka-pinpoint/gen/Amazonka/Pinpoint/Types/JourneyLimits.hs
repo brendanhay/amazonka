@@ -107,7 +107,8 @@ instance Data.FromJSON JourneyLimits where
 
 instance Prelude.Hashable JourneyLimits where
   hashWithSalt _salt JourneyLimits' {..} =
-    _salt `Prelude.hashWithSalt` dailyCap
+    _salt
+      `Prelude.hashWithSalt` dailyCap
       `Prelude.hashWithSalt` endpointReentryCap
       `Prelude.hashWithSalt` endpointReentryInterval
       `Prelude.hashWithSalt` messagesPerSecond

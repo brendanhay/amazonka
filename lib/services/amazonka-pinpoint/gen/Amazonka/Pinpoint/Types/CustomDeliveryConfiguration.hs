@@ -111,7 +111,8 @@ instance Data.FromJSON CustomDeliveryConfiguration where
 
 instance Prelude.Hashable CustomDeliveryConfiguration where
   hashWithSalt _salt CustomDeliveryConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` endpointTypes
+    _salt
+      `Prelude.hashWithSalt` endpointTypes
       `Prelude.hashWithSalt` deliveryUri
 
 instance Prelude.NFData CustomDeliveryConfiguration where

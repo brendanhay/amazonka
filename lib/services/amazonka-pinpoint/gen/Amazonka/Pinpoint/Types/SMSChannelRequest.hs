@@ -79,7 +79,8 @@ sMSChannelRequest_shortCode = Lens.lens (\SMSChannelRequest' {shortCode} -> shor
 
 instance Prelude.Hashable SMSChannelRequest where
   hashWithSalt _salt SMSChannelRequest' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` senderId
       `Prelude.hashWithSalt` shortCode
 

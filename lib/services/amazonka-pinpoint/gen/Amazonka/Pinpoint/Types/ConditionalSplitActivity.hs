@@ -121,7 +121,8 @@ instance Data.FromJSON ConditionalSplitActivity where
 
 instance Prelude.Hashable ConditionalSplitActivity where
   hashWithSalt _salt ConditionalSplitActivity' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` evaluationWaitTime
       `Prelude.hashWithSalt` falseActivity
       `Prelude.hashWithSalt` trueActivity

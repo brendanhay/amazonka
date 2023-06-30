@@ -96,7 +96,8 @@ instance Data.FromJSON RandomSplitEntry where
 
 instance Prelude.Hashable RandomSplitEntry where
   hashWithSalt _salt RandomSplitEntry' {..} =
-    _salt `Prelude.hashWithSalt` nextActivity
+    _salt
+      `Prelude.hashWithSalt` nextActivity
       `Prelude.hashWithSalt` percentage
 
 instance Prelude.NFData RandomSplitEntry where

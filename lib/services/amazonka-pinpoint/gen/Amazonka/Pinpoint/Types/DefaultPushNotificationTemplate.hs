@@ -188,7 +188,8 @@ instance
   hashWithSalt
     _salt
     DefaultPushNotificationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` action
+      _salt
+        `Prelude.hashWithSalt` action
         `Prelude.hashWithSalt` body
         `Prelude.hashWithSalt` sound
         `Prelude.hashWithSalt` title

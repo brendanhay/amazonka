@@ -223,7 +223,8 @@ instance Core.AWSRequest UpdateSmsTemplate where
 
 instance Prelude.Hashable UpdateSmsTemplate where
   hashWithSalt _salt UpdateSmsTemplate' {..} =
-    _salt `Prelude.hashWithSalt` createNewVersion
+    _salt
+      `Prelude.hashWithSalt` createNewVersion
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` sMSTemplateRequest

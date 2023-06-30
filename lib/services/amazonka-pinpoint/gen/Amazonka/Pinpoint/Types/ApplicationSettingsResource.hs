@@ -177,7 +177,8 @@ instance Data.FromJSON ApplicationSettingsResource where
 
 instance Prelude.Hashable ApplicationSettingsResource where
   hashWithSalt _salt ApplicationSettingsResource' {..} =
-    _salt `Prelude.hashWithSalt` campaignHook
+    _salt
+      `Prelude.hashWithSalt` campaignHook
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` limits
       `Prelude.hashWithSalt` quietTime

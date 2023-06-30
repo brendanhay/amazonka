@@ -106,7 +106,8 @@ instance Core.AWSRequest GetSegment where
 
 instance Prelude.Hashable GetSegment where
   hashWithSalt _salt GetSegment' {..} =
-    _salt `Prelude.hashWithSalt` segmentId
+    _salt
+      `Prelude.hashWithSalt` segmentId
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData GetSegment where

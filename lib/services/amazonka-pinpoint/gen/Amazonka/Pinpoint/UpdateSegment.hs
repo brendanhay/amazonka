@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateSegment where
 
 instance Prelude.Hashable UpdateSegment where
   hashWithSalt _salt UpdateSegment' {..} =
-    _salt `Prelude.hashWithSalt` segmentId
+    _salt
+      `Prelude.hashWithSalt` segmentId
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` writeSegmentRequest
 

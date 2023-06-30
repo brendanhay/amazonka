@@ -122,7 +122,8 @@ voiceMessage_voiceId = Lens.lens (\VoiceMessage' {voiceId} -> voiceId) (\s@Voice
 
 instance Prelude.Hashable VoiceMessage where
   hashWithSalt _salt VoiceMessage' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` originationNumber
       `Prelude.hashWithSalt` substitutions

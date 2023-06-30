@@ -112,7 +112,8 @@ instance
     MultiConditionalSplitActivity
   where
   hashWithSalt _salt MultiConditionalSplitActivity' {..} =
-    _salt `Prelude.hashWithSalt` branches
+    _salt
+      `Prelude.hashWithSalt` branches
       `Prelude.hashWithSalt` defaultActivity
       `Prelude.hashWithSalt` evaluationWaitTime
 

@@ -151,7 +151,8 @@ instance Data.FromJSON ChannelResponse where
 
 instance Prelude.Hashable ChannelResponse where
   hashWithSalt _salt ChannelResponse' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` hasCredential

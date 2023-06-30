@@ -261,7 +261,8 @@ baiduMessage_url = Lens.lens (\BaiduMessage' {url} -> url) (\s@BaiduMessage' {} 
 
 instance Prelude.Hashable BaiduMessage where
   hashWithSalt _salt BaiduMessage' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` iconReference

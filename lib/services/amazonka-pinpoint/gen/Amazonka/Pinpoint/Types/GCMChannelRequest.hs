@@ -72,7 +72,8 @@ gCMChannelRequest_apiKey = Lens.lens (\GCMChannelRequest' {apiKey} -> apiKey) (\
 
 instance Prelude.Hashable GCMChannelRequest where
   hashWithSalt _salt GCMChannelRequest' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` apiKey
 
 instance Prelude.NFData GCMChannelRequest where

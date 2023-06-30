@@ -203,7 +203,8 @@ instance
     APNSPushNotificationTemplate
   where
   hashWithSalt _salt APNSPushNotificationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` mediaUrl
       `Prelude.hashWithSalt` rawContent

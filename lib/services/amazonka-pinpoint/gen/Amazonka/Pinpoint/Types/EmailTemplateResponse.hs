@@ -238,7 +238,8 @@ instance Data.FromJSON EmailTemplateResponse where
 
 instance Prelude.Hashable EmailTemplateResponse where
   hashWithSalt _salt EmailTemplateResponse' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` htmlPart
       `Prelude.hashWithSalt` recommenderId

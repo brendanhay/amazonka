@@ -90,7 +90,8 @@ instance Data.FromJSON StartCondition where
 
 instance Prelude.Hashable StartCondition where
   hashWithSalt _salt StartCondition' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventStartCondition
       `Prelude.hashWithSalt` segmentStartCondition
 

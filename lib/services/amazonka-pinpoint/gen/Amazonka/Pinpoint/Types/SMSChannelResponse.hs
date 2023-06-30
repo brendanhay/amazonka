@@ -222,7 +222,8 @@ instance Data.FromJSON SMSChannelResponse where
 
 instance Prelude.Hashable SMSChannelResponse where
   hashWithSalt _salt SMSChannelResponse' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` hasCredential

@@ -203,7 +203,8 @@ instance
   hashWithSalt
     _salt
     PushNotificationTemplateRequest' {..} =
-      _salt `Prelude.hashWithSalt` adm
+      _salt
+        `Prelude.hashWithSalt` adm
         `Prelude.hashWithSalt` apns
         `Prelude.hashWithSalt` baidu
         `Prelude.hashWithSalt` default'

@@ -104,7 +104,8 @@ instance Data.FromJSON ResultRowValue where
 
 instance Prelude.Hashable ResultRowValue where
   hashWithSalt _salt ResultRowValue' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` key
 

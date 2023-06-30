@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteUserEndpoints where
 
 instance Prelude.Hashable DeleteUserEndpoints where
   hashWithSalt _salt DeleteUserEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData DeleteUserEndpoints where

@@ -107,7 +107,8 @@ instance Data.FromJSON OpenHours where
 
 instance Prelude.Hashable OpenHours where
   hashWithSalt _salt OpenHours' {..} =
-    _salt `Prelude.hashWithSalt` custom
+    _salt
+      `Prelude.hashWithSalt` custom
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` push
       `Prelude.hashWithSalt` sms

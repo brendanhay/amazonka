@@ -87,7 +87,8 @@ instance Data.FromJSON CreateTemplateMessageBody where
 
 instance Prelude.Hashable CreateTemplateMessageBody where
   hashWithSalt _salt CreateTemplateMessageBody' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` requestID
 

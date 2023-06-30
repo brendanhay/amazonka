@@ -90,7 +90,8 @@ instance Data.FromJSON SetDimension where
 
 instance Prelude.Hashable SetDimension where
   hashWithSalt _salt SetDimension' {..} =
-    _salt `Prelude.hashWithSalt` dimensionType
+    _salt
+      `Prelude.hashWithSalt` dimensionType
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData SetDimension where

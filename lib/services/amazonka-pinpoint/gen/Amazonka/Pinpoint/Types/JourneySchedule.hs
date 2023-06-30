@@ -108,7 +108,8 @@ instance Data.FromJSON JourneySchedule where
 
 instance Prelude.Hashable JourneySchedule where
   hashWithSalt _salt JourneySchedule' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` timezone
 

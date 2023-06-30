@@ -166,7 +166,8 @@ instance Data.FromJSON SegmentImportResource where
 
 instance Prelude.Hashable SegmentImportResource where
   hashWithSalt _salt SegmentImportResource' {..} =
-    _salt `Prelude.hashWithSalt` channelCounts
+    _salt
+      `Prelude.hashWithSalt` channelCounts
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` s3Url
       `Prelude.hashWithSalt` size

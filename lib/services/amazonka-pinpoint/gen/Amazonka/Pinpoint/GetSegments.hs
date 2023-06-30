@@ -123,7 +123,8 @@ instance Core.AWSRequest GetSegments where
 
 instance Prelude.Hashable GetSegments where
   hashWithSalt _salt GetSegments' {..} =
-    _salt `Prelude.hashWithSalt` pageSize
+    _salt
+      `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` applicationId
 

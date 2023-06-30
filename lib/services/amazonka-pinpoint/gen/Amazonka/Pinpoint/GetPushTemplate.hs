@@ -175,7 +175,8 @@ instance Core.AWSRequest GetPushTemplate where
 
 instance Prelude.Hashable GetPushTemplate where
   hashWithSalt _salt GetPushTemplate' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData GetPushTemplate where

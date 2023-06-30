@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteCampaign where
 
 instance Prelude.Hashable DeleteCampaign where
   hashWithSalt _salt DeleteCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignId
+    _salt
+      `Prelude.hashWithSalt` campaignId
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData DeleteCampaign where

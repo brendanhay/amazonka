@@ -223,7 +223,8 @@ instance Core.AWSRequest UpdateInAppTemplate where
 
 instance Prelude.Hashable UpdateInAppTemplate where
   hashWithSalt _salt UpdateInAppTemplate' {..} =
-    _salt `Prelude.hashWithSalt` createNewVersion
+    _salt
+      `Prelude.hashWithSalt` createNewVersion
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` inAppTemplateRequest

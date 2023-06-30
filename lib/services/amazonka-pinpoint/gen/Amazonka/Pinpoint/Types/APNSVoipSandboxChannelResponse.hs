@@ -208,7 +208,8 @@ instance
   hashWithSalt
     _salt
     APNSVoipSandboxChannelResponse' {..} =
-      _salt `Prelude.hashWithSalt` applicationId
+      _salt
+        `Prelude.hashWithSalt` applicationId
         `Prelude.hashWithSalt` creationDate
         `Prelude.hashWithSalt` defaultAuthenticationMethod
         `Prelude.hashWithSalt` enabled

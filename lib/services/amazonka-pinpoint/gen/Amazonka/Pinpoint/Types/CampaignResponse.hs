@@ -348,7 +348,8 @@ instance Data.FromJSON CampaignResponse where
       "CampaignResponse"
       ( \x ->
           CampaignResponse'
-            Prelude.<$> ( x Data..:? "AdditionalTreatments"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalTreatments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CustomDeliveryConfiguration")
@@ -379,7 +380,8 @@ instance Data.FromJSON CampaignResponse where
 
 instance Prelude.Hashable CampaignResponse where
   hashWithSalt _salt CampaignResponse' {..} =
-    _salt `Prelude.hashWithSalt` additionalTreatments
+    _salt
+      `Prelude.hashWithSalt` additionalTreatments
       `Prelude.hashWithSalt` customDeliveryConfiguration
       `Prelude.hashWithSalt` defaultState
       `Prelude.hashWithSalt` description

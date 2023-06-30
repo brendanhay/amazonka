@@ -214,7 +214,8 @@ instance Data.FromJSON ActivityResponse where
 
 instance Prelude.Hashable ActivityResponse where
   hashWithSalt _salt ActivityResponse' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` result
       `Prelude.hashWithSalt` scheduledStart
       `Prelude.hashWithSalt` start

@@ -214,7 +214,8 @@ instance Core.AWSRequest GetJourneyDateRangeKpi where
 
 instance Prelude.Hashable GetJourneyDateRangeKpi where
   hashWithSalt _salt GetJourneyDateRangeKpi' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` startTime

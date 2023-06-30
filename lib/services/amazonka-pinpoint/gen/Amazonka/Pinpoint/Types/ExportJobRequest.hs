@@ -111,7 +111,8 @@ exportJobRequest_roleArn = Lens.lens (\ExportJobRequest' {roleArn} -> roleArn) (
 
 instance Prelude.Hashable ExportJobRequest where
   hashWithSalt _salt ExportJobRequest' {..} =
-    _salt `Prelude.hashWithSalt` segmentId
+    _salt
+      `Prelude.hashWithSalt` segmentId
       `Prelude.hashWithSalt` segmentVersion
       `Prelude.hashWithSalt` s3UrlPrefix
       `Prelude.hashWithSalt` roleArn

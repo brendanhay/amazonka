@@ -90,7 +90,8 @@ simpleEmail_textPart = Lens.lens (\SimpleEmail' {textPart} -> textPart) (\s@Simp
 
 instance Prelude.Hashable SimpleEmail where
   hashWithSalt _salt SimpleEmail' {..} =
-    _salt `Prelude.hashWithSalt` htmlPart
+    _salt
+      `Prelude.hashWithSalt` htmlPart
       `Prelude.hashWithSalt` subject
       `Prelude.hashWithSalt` textPart
 

@@ -175,7 +175,8 @@ instance Core.AWSRequest GetInAppTemplate where
 
 instance Prelude.Hashable GetInAppTemplate where
   hashWithSalt _salt GetInAppTemplate' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData GetInAppTemplate where

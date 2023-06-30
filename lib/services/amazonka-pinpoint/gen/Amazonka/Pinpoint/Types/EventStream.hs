@@ -160,7 +160,8 @@ instance Data.FromJSON EventStream where
 
 instance Prelude.Hashable EventStream where
   hashWithSalt _salt EventStream' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` lastUpdatedBy
       `Prelude.hashWithSalt` applicationId

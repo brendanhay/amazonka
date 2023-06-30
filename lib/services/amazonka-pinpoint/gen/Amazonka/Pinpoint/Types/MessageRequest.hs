@@ -160,7 +160,8 @@ messageRequest_messageConfiguration = Lens.lens (\MessageRequest' {messageConfig
 
 instance Prelude.Hashable MessageRequest where
   hashWithSalt _salt MessageRequest' {..} =
-    _salt `Prelude.hashWithSalt` addresses
+    _salt
+      `Prelude.hashWithSalt` addresses
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` templateConfiguration

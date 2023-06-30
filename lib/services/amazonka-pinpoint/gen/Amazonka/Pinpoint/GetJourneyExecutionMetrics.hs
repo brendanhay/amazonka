@@ -143,7 +143,8 @@ instance Core.AWSRequest GetJourneyExecutionMetrics where
 
 instance Prelude.Hashable GetJourneyExecutionMetrics where
   hashWithSalt _salt GetJourneyExecutionMetrics' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` journeyId

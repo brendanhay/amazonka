@@ -154,7 +154,7 @@ instance
       ( \s h x ->
           GetJourneyExecutionActivityMetricsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (Data.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance
@@ -164,7 +164,8 @@ instance
   hashWithSalt
     _salt
     GetJourneyExecutionActivityMetrics' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` pageSize
         `Prelude.hashWithSalt` journeyActivityId
         `Prelude.hashWithSalt` applicationId

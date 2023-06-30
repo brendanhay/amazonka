@@ -85,7 +85,8 @@ instance Data.FromJSON CampaignsResponse where
 
 instance Prelude.Hashable CampaignsResponse where
   hashWithSalt _salt CampaignsResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` item
 
 instance Prelude.NFData CampaignsResponse where

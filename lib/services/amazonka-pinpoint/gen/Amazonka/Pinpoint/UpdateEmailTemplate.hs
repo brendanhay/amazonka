@@ -223,7 +223,8 @@ instance Core.AWSRequest UpdateEmailTemplate where
 
 instance Prelude.Hashable UpdateEmailTemplate where
   hashWithSalt _salt UpdateEmailTemplate' {..} =
-    _salt `Prelude.hashWithSalt` createNewVersion
+    _salt
+      `Prelude.hashWithSalt` createNewVersion
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` emailTemplateRequest

@@ -74,7 +74,8 @@ numberValidateRequest_phoneNumber = Lens.lens (\NumberValidateRequest' {phoneNum
 
 instance Prelude.Hashable NumberValidateRequest where
   hashWithSalt _salt NumberValidateRequest' {..} =
-    _salt `Prelude.hashWithSalt` isoCountryCode
+    _salt
+      `Prelude.hashWithSalt` isoCountryCode
       `Prelude.hashWithSalt` phoneNumber
 
 instance Prelude.NFData NumberValidateRequest where

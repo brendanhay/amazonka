@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateSmsChannel where
 
 instance Prelude.Hashable UpdateSmsChannel where
   hashWithSalt _salt UpdateSmsChannel' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` sMSChannelRequest
 
 instance Prelude.NFData UpdateSmsChannel where

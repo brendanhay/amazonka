@@ -99,7 +99,8 @@ instance Data.FromJSON CampaignInAppMessage where
 
 instance Prelude.Hashable CampaignInAppMessage where
   hashWithSalt _salt CampaignInAppMessage' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` customConfig
       `Prelude.hashWithSalt` layout

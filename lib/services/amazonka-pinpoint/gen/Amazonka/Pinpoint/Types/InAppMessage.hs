@@ -86,7 +86,8 @@ instance Data.FromJSON InAppMessage where
 
 instance Prelude.Hashable InAppMessage where
   hashWithSalt _salt InAppMessage' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` customConfig
       `Prelude.hashWithSalt` layout
 

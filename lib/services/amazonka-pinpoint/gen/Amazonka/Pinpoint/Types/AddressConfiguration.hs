@@ -133,7 +133,8 @@ addressConfiguration_titleOverride = Lens.lens (\AddressConfiguration' {titleOve
 
 instance Prelude.Hashable AddressConfiguration where
   hashWithSalt _salt AddressConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` bodyOverride
+    _salt
+      `Prelude.hashWithSalt` bodyOverride
       `Prelude.hashWithSalt` channelType
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` rawContent

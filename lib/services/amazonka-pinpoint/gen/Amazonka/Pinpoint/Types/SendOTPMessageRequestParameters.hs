@@ -183,7 +183,8 @@ instance
   hashWithSalt
     _salt
     SendOTPMessageRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` allowedAttempts
+      _salt
+        `Prelude.hashWithSalt` allowedAttempts
         `Prelude.hashWithSalt` codeLength
         `Prelude.hashWithSalt` entityId
         `Prelude.hashWithSalt` language

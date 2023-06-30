@@ -78,7 +78,8 @@ instance Data.FromJSON OverrideButtonConfiguration where
 
 instance Prelude.Hashable OverrideButtonConfiguration where
   hashWithSalt _salt OverrideButtonConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` link
+    _salt
+      `Prelude.hashWithSalt` link
       `Prelude.hashWithSalt` buttonAction
 
 instance Prelude.NFData OverrideButtonConfiguration where

@@ -106,7 +106,8 @@ instance Core.AWSRequest GetJourney where
 
 instance Prelude.Hashable GetJourney where
   hashWithSalt _salt GetJourney' {..} =
-    _salt `Prelude.hashWithSalt` journeyId
+    _salt
+      `Prelude.hashWithSalt` journeyId
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData GetJourney where

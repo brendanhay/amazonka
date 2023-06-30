@@ -148,7 +148,8 @@ instance Data.FromJSON InAppMessageCampaign where
 
 instance Prelude.Hashable InAppMessageCampaign where
   hashWithSalt _salt InAppMessageCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignId
+    _salt
+      `Prelude.hashWithSalt` campaignId
       `Prelude.hashWithSalt` dailyCap
       `Prelude.hashWithSalt` inAppMessage
       `Prelude.hashWithSalt` priority

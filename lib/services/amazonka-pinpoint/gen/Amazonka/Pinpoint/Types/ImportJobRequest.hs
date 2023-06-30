@@ -198,7 +198,8 @@ importJobRequest_roleArn = Lens.lens (\ImportJobRequest' {roleArn} -> roleArn) (
 
 instance Prelude.Hashable ImportJobRequest where
   hashWithSalt _salt ImportJobRequest' {..} =
-    _salt `Prelude.hashWithSalt` defineSegment
+    _salt
+      `Prelude.hashWithSalt` defineSegment
       `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` registerEndpoints
       `Prelude.hashWithSalt` segmentId

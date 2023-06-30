@@ -130,7 +130,8 @@ sendUsersMessageRequest_users = Lens.lens (\SendUsersMessageRequest' {users} -> 
 
 instance Prelude.Hashable SendUsersMessageRequest where
   hashWithSalt _salt SendUsersMessageRequest' {..} =
-    _salt `Prelude.hashWithSalt` context
+    _salt
+      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` templateConfiguration
       `Prelude.hashWithSalt` traceId
       `Prelude.hashWithSalt` messageConfiguration

@@ -184,7 +184,8 @@ instance Data.FromJSON GCMChannelResponse where
 
 instance Prelude.Hashable GCMChannelResponse where
   hashWithSalt _salt GCMChannelResponse' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` hasCredential

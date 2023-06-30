@@ -84,7 +84,8 @@ instance Data.FromJSON ClosedDaysRule where
 
 instance Prelude.Hashable ClosedDaysRule where
   hashWithSalt _salt ClosedDaysRule' {..} =
-    _salt `Prelude.hashWithSalt` endDateTime
+    _salt
+      `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` startDateTime
 

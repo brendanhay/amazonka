@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateApplicationSettings where
 
 instance Prelude.Hashable UpdateApplicationSettings where
   hashWithSalt _salt UpdateApplicationSettings' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` writeApplicationSettingsRequest
 
 instance Prelude.NFData UpdateApplicationSettings where

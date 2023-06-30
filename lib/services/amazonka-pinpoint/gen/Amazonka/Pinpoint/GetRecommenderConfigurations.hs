@@ -114,7 +114,8 @@ instance
     GetRecommenderConfigurations
   where
   hashWithSalt _salt GetRecommenderConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` pageSize
+    _salt
+      `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` token
 
 instance Prelude.NFData GetRecommenderConfigurations where

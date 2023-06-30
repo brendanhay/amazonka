@@ -74,7 +74,8 @@ instance Data.FromJSON EventStartCondition where
 
 instance Prelude.Hashable EventStartCondition where
   hashWithSalt _salt EventStartCondition' {..} =
-    _salt `Prelude.hashWithSalt` eventFilter
+    _salt
+      `Prelude.hashWithSalt` eventFilter
       `Prelude.hashWithSalt` segmentId
 
 instance Prelude.NFData EventStartCondition where

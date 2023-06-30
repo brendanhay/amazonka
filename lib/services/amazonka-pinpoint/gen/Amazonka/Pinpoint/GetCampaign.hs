@@ -106,7 +106,8 @@ instance Core.AWSRequest GetCampaign where
 
 instance Prelude.Hashable GetCampaign where
   hashWithSalt _salt GetCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignId
+    _salt
+      `Prelude.hashWithSalt` campaignId
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData GetCampaign where

@@ -224,7 +224,8 @@ instance Core.AWSRequest UpdatePushTemplate where
 
 instance Prelude.Hashable UpdatePushTemplate where
   hashWithSalt _salt UpdatePushTemplate' {..} =
-    _salt `Prelude.hashWithSalt` createNewVersion
+    _salt
+      `Prelude.hashWithSalt` createNewVersion
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` pushNotificationTemplateRequest

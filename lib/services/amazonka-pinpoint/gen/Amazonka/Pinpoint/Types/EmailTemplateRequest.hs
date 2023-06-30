@@ -168,7 +168,8 @@ emailTemplateRequest_tags = Lens.lens (\EmailTemplateRequest' {tags} -> tags) (\
 
 instance Prelude.Hashable EmailTemplateRequest where
   hashWithSalt _salt EmailTemplateRequest' {..} =
-    _salt `Prelude.hashWithSalt` defaultSubstitutions
+    _salt
+      `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` htmlPart
       `Prelude.hashWithSalt` recommenderId
       `Prelude.hashWithSalt` subject

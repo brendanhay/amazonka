@@ -107,7 +107,8 @@ instance Core.AWSRequest PutEventStream where
 
 instance Prelude.Hashable PutEventStream where
   hashWithSalt _salt PutEventStream' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` writeEventStream
 
 instance Prelude.NFData PutEventStream where

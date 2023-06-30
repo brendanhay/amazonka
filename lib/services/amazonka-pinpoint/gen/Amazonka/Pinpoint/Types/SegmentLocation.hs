@@ -79,7 +79,8 @@ instance Data.FromJSON SegmentLocation where
 
 instance Prelude.Hashable SegmentLocation where
   hashWithSalt _salt SegmentLocation' {..} =
-    _salt `Prelude.hashWithSalt` country
+    _salt
+      `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` gPSPoint
 
 instance Prelude.NFData SegmentLocation where

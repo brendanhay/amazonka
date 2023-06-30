@@ -76,7 +76,8 @@ createApplicationRequest_name = Lens.lens (\CreateApplicationRequest' {name} -> 
 
 instance Prelude.Hashable CreateApplicationRequest where
   hashWithSalt _salt CreateApplicationRequest' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateApplicationRequest where

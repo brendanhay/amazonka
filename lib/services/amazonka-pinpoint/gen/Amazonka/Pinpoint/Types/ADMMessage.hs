@@ -291,7 +291,8 @@ aDMMessage_url = Lens.lens (\ADMMessage' {url} -> url) (\s@ADMMessage' {} a -> s
 
 instance Prelude.Hashable ADMMessage where
   hashWithSalt _salt ADMMessage' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` consolidationKey
       `Prelude.hashWithSalt` data'

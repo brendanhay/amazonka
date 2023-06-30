@@ -136,7 +136,8 @@ instance Data.FromJSON EmailMessageActivity where
 
 instance Prelude.Hashable EmailMessageActivity where
   hashWithSalt _salt EmailMessageActivity' {..} =
-    _salt `Prelude.hashWithSalt` messageConfig
+    _salt
+      `Prelude.hashWithSalt` messageConfig
       `Prelude.hashWithSalt` nextActivity
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateVersion

@@ -202,7 +202,8 @@ instance Data.FromJSON APNSSandboxChannelResponse where
 
 instance Prelude.Hashable APNSSandboxChannelResponse where
   hashWithSalt _salt APNSSandboxChannelResponse' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` defaultAuthenticationMethod
       `Prelude.hashWithSalt` enabled

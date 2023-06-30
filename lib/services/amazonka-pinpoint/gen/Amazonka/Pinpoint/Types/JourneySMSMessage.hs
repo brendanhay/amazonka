@@ -145,7 +145,8 @@ instance Data.FromJSON JourneySMSMessage where
 
 instance Prelude.Hashable JourneySMSMessage where
   hashWithSalt _salt JourneySMSMessage' {..} =
-    _salt `Prelude.hashWithSalt` entityId
+    _salt
+      `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` originationNumber
       `Prelude.hashWithSalt` senderId

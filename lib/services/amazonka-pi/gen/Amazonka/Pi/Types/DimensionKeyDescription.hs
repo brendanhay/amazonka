@@ -94,7 +94,8 @@ instance Data.FromJSON DimensionKeyDescription where
       "DimensionKeyDescription"
       ( \x ->
           DimensionKeyDescription'
-            Prelude.<$> ( x Data..:? "AdditionalMetrics"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
@@ -104,7 +105,8 @@ instance Data.FromJSON DimensionKeyDescription where
 
 instance Prelude.Hashable DimensionKeyDescription where
   hashWithSalt _salt DimensionKeyDescription' {..} =
-    _salt `Prelude.hashWithSalt` additionalMetrics
+    _salt
+      `Prelude.hashWithSalt` additionalMetrics
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` partitions
       `Prelude.hashWithSalt` total

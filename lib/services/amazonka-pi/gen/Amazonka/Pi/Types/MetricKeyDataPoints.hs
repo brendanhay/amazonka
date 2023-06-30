@@ -80,7 +80,8 @@ instance Data.FromJSON MetricKeyDataPoints where
 
 instance Prelude.Hashable MetricKeyDataPoints where
   hashWithSalt _salt MetricKeyDataPoints' {..} =
-    _salt `Prelude.hashWithSalt` dataPoints
+    _salt
+      `Prelude.hashWithSalt` dataPoints
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData MetricKeyDataPoints where

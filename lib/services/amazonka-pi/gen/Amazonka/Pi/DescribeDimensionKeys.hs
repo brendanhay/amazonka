@@ -72,7 +72,7 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
     -- dimension group in the @GroupBy@ parameter is @db.sql_tokenized@, you
     -- can specify per-SQL metrics to get the values for the top @N@ SQL
     -- digests. The response syntax is as follows:
-    -- @\"AdditionalMetrics\" : { \"string\" : \"string\" }@.
+    -- @\"AdditionalMetrics\" : { \"@/@string@/@\" : \"@/@string@/@\" }@.
     additionalMetrics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | One or more filters to apply in the request. Restrictions:
     --
@@ -176,7 +176,7 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
 -- dimension group in the @GroupBy@ parameter is @db.sql_tokenized@, you
 -- can specify per-SQL metrics to get the values for the top @N@ SQL
 -- digests. The response syntax is as follows:
--- @\"AdditionalMetrics\" : { \"string\" : \"string\" }@.
+-- @\"AdditionalMetrics\" : { \"@/@string@/@\" : \"@/@string@/@\" }@.
 --
 -- 'filter'', 'describeDimensionKeys_filter' - One or more filters to apply in the request. Restrictions:
 --
@@ -305,7 +305,7 @@ newDescribeDimensionKeys
 -- dimension group in the @GroupBy@ parameter is @db.sql_tokenized@, you
 -- can specify per-SQL metrics to get the values for the top @N@ SQL
 -- digests. The response syntax is as follows:
--- @\"AdditionalMetrics\" : { \"string\" : \"string\" }@.
+-- @\"AdditionalMetrics\" : { \"@/@string@/@\" : \"@/@string@/@\" }@.
 describeDimensionKeys_additionalMetrics :: Lens.Lens' DescribeDimensionKeys (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeDimensionKeys_additionalMetrics = Lens.lens (\DescribeDimensionKeys' {additionalMetrics} -> additionalMetrics) (\s@DescribeDimensionKeys' {} a -> s {additionalMetrics = a} :: DescribeDimensionKeys) Prelude.. Lens.mapping Lens.coerced
 
@@ -438,7 +438,8 @@ instance Core.AWSRequest DescribeDimensionKeys where
 
 instance Prelude.Hashable DescribeDimensionKeys where
   hashWithSalt _salt DescribeDimensionKeys' {..} =
-    _salt `Prelude.hashWithSalt` additionalMetrics
+    _salt
+      `Prelude.hashWithSalt` additionalMetrics
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

@@ -86,7 +86,8 @@ instance Data.FromJSON ResponseResourceMetric where
 
 instance Prelude.Hashable ResponseResourceMetric where
   hashWithSalt _salt ResponseResourceMetric' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` unit
 

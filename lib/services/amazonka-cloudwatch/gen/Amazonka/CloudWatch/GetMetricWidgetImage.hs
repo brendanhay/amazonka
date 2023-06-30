@@ -238,7 +238,8 @@ instance Core.AWSRequest GetMetricWidgetImage where
 
 instance Prelude.Hashable GetMetricWidgetImage where
   hashWithSalt _salt GetMetricWidgetImage' {..} =
-    _salt `Prelude.hashWithSalt` outputFormat
+    _salt
+      `Prelude.hashWithSalt` outputFormat
       `Prelude.hashWithSalt` metricWidget
 
 instance Prelude.NFData GetMetricWidgetImage where

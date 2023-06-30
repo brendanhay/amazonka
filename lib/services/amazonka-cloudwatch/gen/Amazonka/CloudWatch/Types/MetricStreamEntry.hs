@@ -134,7 +134,8 @@ instance Data.FromXML MetricStreamEntry where
 
 instance Prelude.Hashable MetricStreamEntry where
   hashWithSalt _salt MetricStreamEntry' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` firehoseArn
       `Prelude.hashWithSalt` lastUpdateDate

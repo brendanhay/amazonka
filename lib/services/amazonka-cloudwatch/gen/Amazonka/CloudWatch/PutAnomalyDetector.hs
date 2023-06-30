@@ -269,7 +269,8 @@ instance Core.AWSRequest PutAnomalyDetector where
 
 instance Prelude.Hashable PutAnomalyDetector where
   hashWithSalt _salt PutAnomalyDetector' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` metricMathAnomalyDetector
       `Prelude.hashWithSalt` metricName

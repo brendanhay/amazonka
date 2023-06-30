@@ -86,7 +86,9 @@ singleMetricAnomalyDetector_stat = Lens.lens (\SingleMetricAnomalyDetector' {sta
 instance Data.FromXML SingleMetricAnomalyDetector where
   parseXML x =
     SingleMetricAnomalyDetector'
-      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Dimensions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MetricName")
@@ -95,7 +97,8 @@ instance Data.FromXML SingleMetricAnomalyDetector where
 
 instance Prelude.Hashable SingleMetricAnomalyDetector where
   hashWithSalt _salt SingleMetricAnomalyDetector' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` stat

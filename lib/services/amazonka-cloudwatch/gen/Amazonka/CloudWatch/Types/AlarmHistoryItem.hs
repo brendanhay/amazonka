@@ -112,7 +112,8 @@ instance Data.FromXML AlarmHistoryItem where
 
 instance Prelude.Hashable AlarmHistoryItem where
   hashWithSalt _salt AlarmHistoryItem' {..} =
-    _salt `Prelude.hashWithSalt` alarmName
+    _salt
+      `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` alarmType
       `Prelude.hashWithSalt` historyData
       `Prelude.hashWithSalt` historyItemType

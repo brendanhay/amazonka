@@ -94,7 +94,8 @@ statisticSet_maximum = Lens.lens (\StatisticSet' {maximum} -> maximum) (\s@Stati
 
 instance Prelude.Hashable StatisticSet where
   hashWithSalt _salt StatisticSet' {..} =
-    _salt `Prelude.hashWithSalt` sampleCount
+    _salt
+      `Prelude.hashWithSalt` sampleCount
       `Prelude.hashWithSalt` sum
       `Prelude.hashWithSalt` minimum
       `Prelude.hashWithSalt` maximum

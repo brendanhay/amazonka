@@ -129,7 +129,8 @@ instance Data.FromXML InsightRule where
 
 instance Prelude.Hashable InsightRule where
   hashWithSalt _salt InsightRule' {..} =
-    _salt `Prelude.hashWithSalt` managedRule
+    _salt
+      `Prelude.hashWithSalt` managedRule
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` schema

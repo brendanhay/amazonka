@@ -158,7 +158,8 @@ instance Core.AWSRequest PutMetricData where
 
 instance Prelude.Hashable PutMetricData where
   hashWithSalt _salt PutMetricData' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` metricData
 
 instance Prelude.NFData PutMetricData where

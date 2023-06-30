@@ -248,7 +248,8 @@ instance Core.AWSRequest DeleteAnomalyDetector where
 
 instance Prelude.Hashable DeleteAnomalyDetector where
   hashWithSalt _salt DeleteAnomalyDetector' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` metricMathAnomalyDetector
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` namespace

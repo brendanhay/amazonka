@@ -409,7 +409,9 @@ instance Data.FromXML MetricAlarm where
   parseXML x =
     MetricAlarm'
       Prelude.<$> (x Data..@? "ActionsEnabled")
-      Prelude.<*> ( x Data..@? "AlarmActions" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "AlarmActions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "AlarmArn")
@@ -418,23 +420,30 @@ instance Data.FromXML MetricAlarm where
       Prelude.<*> (x Data..@? "AlarmName")
       Prelude.<*> (x Data..@? "ComparisonOperator")
       Prelude.<*> (x Data..@? "DatapointsToAlarm")
-      Prelude.<*> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Dimensions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "EvaluateLowSampleCountPercentile")
       Prelude.<*> (x Data..@? "EvaluationPeriods")
       Prelude.<*> (x Data..@? "EvaluationState")
       Prelude.<*> (x Data..@? "ExtendedStatistic")
-      Prelude.<*> ( x Data..@? "InsufficientDataActions"
+      Prelude.<*> ( x
+                      Data..@? "InsufficientDataActions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MetricName")
-      Prelude.<*> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Metrics"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Namespace")
-      Prelude.<*> ( x Data..@? "OKActions" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "OKActions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Period")
@@ -451,7 +460,8 @@ instance Data.FromXML MetricAlarm where
 
 instance Prelude.Hashable MetricAlarm where
   hashWithSalt _salt MetricAlarm' {..} =
-    _salt `Prelude.hashWithSalt` actionsEnabled
+    _salt
+      `Prelude.hashWithSalt` actionsEnabled
       `Prelude.hashWithSalt` alarmActions
       `Prelude.hashWithSalt` alarmArn
       `Prelude.hashWithSalt` alarmConfigurationUpdatedTimestamp

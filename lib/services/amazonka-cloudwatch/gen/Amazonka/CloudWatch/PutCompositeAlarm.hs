@@ -130,8 +130,9 @@ data PutCompositeAlarm = PutCompositeAlarm'
     -- from any other state. Each action is specified as an Amazon Resource
     -- Name (ARN).
     --
-    -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
-    -- @arn:aws:ssm:region:account-id:opsitem:severity @
+    -- Valid Values:
+    -- @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@ @ |
+    -- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@ @
     alarmActions :: Prelude.Maybe [Prelude.Text],
     -- | The description for the composite alarm.
     alarmDescription :: Prelude.Maybe Prelude.Text,
@@ -139,13 +140,15 @@ data PutCompositeAlarm = PutCompositeAlarm'
     -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
     -- as an Amazon Resource Name (ARN).
     --
-    -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
+    -- Valid Values:
+    -- @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@ @
     insufficientDataActions :: Prelude.Maybe [Prelude.Text],
     -- | The actions to execute when this alarm transitions to an @OK@ state from
     -- any other state. Each action is specified as an Amazon Resource Name
     -- (ARN).
     --
-    -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
+    -- Valid Values:
+    -- @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@ @
     oKActions :: Prelude.Maybe [Prelude.Text],
     -- | A list of key-value pairs to associate with the composite alarm. You can
     -- associate as many as 50 tags with an alarm.
@@ -170,14 +173,14 @@ data PutCompositeAlarm = PutCompositeAlarm'
     --
     -- Functions can include the following:
     --
-    -- -   @ALARM(\"alarm-name or alarm-ARN\")@ is TRUE if the named alarm is
-    --     in ALARM state.
+    -- -   @ALARM(\"@/@alarm-name@/@ or @/@alarm-ARN@/@\")@ is TRUE if the
+    --     named alarm is in ALARM state.
     --
-    -- -   @OK(\"alarm-name or alarm-ARN\")@ is TRUE if the named alarm is in
-    --     OK state.
+    -- -   @OK(\"@/@alarm-name@/@ or @/@alarm-ARN@/@\")@ is TRUE if the named
+    --     alarm is in OK state.
     --
-    -- -   @INSUFFICIENT_DATA(\"alarm-name or alarm-ARN\")@ is TRUE if the
-    --     named alarm is in INSUFFICIENT_DATA state.
+    -- -   @INSUFFICIENT_DATA(\"@/@alarm-name@/@ or @/@alarm-ARN@/@\")@ is TRUE
+    --     if the named alarm is in INSUFFICIENT_DATA state.
     --
     -- -   @TRUE@ always evaluates to TRUE.
     --
@@ -249,8 +252,9 @@ data PutCompositeAlarm = PutCompositeAlarm'
 -- from any other state. Each action is specified as an Amazon Resource
 -- Name (ARN).
 --
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:ssm:region:account-id:opsitem:severity @
+-- Valid Values:
+-- @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@ @ |
+-- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@ @
 --
 -- 'alarmDescription', 'putCompositeAlarm_alarmDescription' - The description for the composite alarm.
 --
@@ -258,13 +262,15 @@ data PutCompositeAlarm = PutCompositeAlarm'
 -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
 -- as an Amazon Resource Name (ARN).
 --
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
+-- Valid Values:
+-- @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@ @
 --
 -- 'oKActions', 'putCompositeAlarm_oKActions' - The actions to execute when this alarm transitions to an @OK@ state from
 -- any other state. Each action is specified as an Amazon Resource Name
 -- (ARN).
 --
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
+-- Valid Values:
+-- @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@ @
 --
 -- 'tags', 'putCompositeAlarm_tags' - A list of key-value pairs to associate with the composite alarm. You can
 -- associate as many as 50 tags with an alarm.
@@ -289,14 +295,14 @@ data PutCompositeAlarm = PutCompositeAlarm'
 --
 -- Functions can include the following:
 --
--- -   @ALARM(\"alarm-name or alarm-ARN\")@ is TRUE if the named alarm is
---     in ALARM state.
+-- -   @ALARM(\"@/@alarm-name@/@ or @/@alarm-ARN@/@\")@ is TRUE if the
+--     named alarm is in ALARM state.
 --
--- -   @OK(\"alarm-name or alarm-ARN\")@ is TRUE if the named alarm is in
---     OK state.
+-- -   @OK(\"@/@alarm-name@/@ or @/@alarm-ARN@/@\")@ is TRUE if the named
+--     alarm is in OK state.
 --
--- -   @INSUFFICIENT_DATA(\"alarm-name or alarm-ARN\")@ is TRUE if the
---     named alarm is in INSUFFICIENT_DATA state.
+-- -   @INSUFFICIENT_DATA(\"@/@alarm-name@/@ or @/@alarm-ARN@/@\")@ is TRUE
+--     if the named alarm is in INSUFFICIENT_DATA state.
 --
 -- -   @TRUE@ always evaluates to TRUE.
 --
@@ -386,8 +392,9 @@ putCompositeAlarm_actionsSuppressorWaitPeriod = Lens.lens (\PutCompositeAlarm' {
 -- from any other state. Each action is specified as an Amazon Resource
 -- Name (ARN).
 --
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:ssm:region:account-id:opsitem:severity @
+-- Valid Values:
+-- @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@ @ |
+-- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@ @
 putCompositeAlarm_alarmActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
 putCompositeAlarm_alarmActions = Lens.lens (\PutCompositeAlarm' {alarmActions} -> alarmActions) (\s@PutCompositeAlarm' {} a -> s {alarmActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
 
@@ -399,7 +406,8 @@ putCompositeAlarm_alarmDescription = Lens.lens (\PutCompositeAlarm' {alarmDescri
 -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
 -- as an Amazon Resource Name (ARN).
 --
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
+-- Valid Values:
+-- @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@ @
 putCompositeAlarm_insufficientDataActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
 putCompositeAlarm_insufficientDataActions = Lens.lens (\PutCompositeAlarm' {insufficientDataActions} -> insufficientDataActions) (\s@PutCompositeAlarm' {} a -> s {insufficientDataActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
 
@@ -407,7 +415,8 @@ putCompositeAlarm_insufficientDataActions = Lens.lens (\PutCompositeAlarm' {insu
 -- any other state. Each action is specified as an Amazon Resource Name
 -- (ARN).
 --
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
+-- Valid Values:
+-- @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@ @
 putCompositeAlarm_oKActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
 putCompositeAlarm_oKActions = Lens.lens (\PutCompositeAlarm' {oKActions} -> oKActions) (\s@PutCompositeAlarm' {} a -> s {oKActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
 
@@ -438,14 +447,14 @@ putCompositeAlarm_alarmName = Lens.lens (\PutCompositeAlarm' {alarmName} -> alar
 --
 -- Functions can include the following:
 --
--- -   @ALARM(\"alarm-name or alarm-ARN\")@ is TRUE if the named alarm is
---     in ALARM state.
+-- -   @ALARM(\"@/@alarm-name@/@ or @/@alarm-ARN@/@\")@ is TRUE if the
+--     named alarm is in ALARM state.
 --
--- -   @OK(\"alarm-name or alarm-ARN\")@ is TRUE if the named alarm is in
---     OK state.
+-- -   @OK(\"@/@alarm-name@/@ or @/@alarm-ARN@/@\")@ is TRUE if the named
+--     alarm is in OK state.
 --
--- -   @INSUFFICIENT_DATA(\"alarm-name or alarm-ARN\")@ is TRUE if the
---     named alarm is in INSUFFICIENT_DATA state.
+-- -   @INSUFFICIENT_DATA(\"@/@alarm-name@/@ or @/@alarm-ARN@/@\")@ is TRUE
+--     if the named alarm is in INSUFFICIENT_DATA state.
 --
 -- -   @TRUE@ always evaluates to TRUE.
 --
@@ -495,7 +504,8 @@ instance Core.AWSRequest PutCompositeAlarm where
 
 instance Prelude.Hashable PutCompositeAlarm where
   hashWithSalt _salt PutCompositeAlarm' {..} =
-    _salt `Prelude.hashWithSalt` actionsEnabled
+    _salt
+      `Prelude.hashWithSalt` actionsEnabled
       `Prelude.hashWithSalt` actionsSuppressor
       `Prelude.hashWithSalt` actionsSuppressorExtensionPeriod
       `Prelude.hashWithSalt` actionsSuppressorWaitPeriod

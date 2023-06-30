@@ -221,7 +221,8 @@ instance Data.FromXML InsightRuleMetricDatapoint where
 
 instance Prelude.Hashable InsightRuleMetricDatapoint where
   hashWithSalt _salt InsightRuleMetricDatapoint' {..} =
-    _salt `Prelude.hashWithSalt` average
+    _salt
+      `Prelude.hashWithSalt` average
       `Prelude.hashWithSalt` maxContributorValue
       `Prelude.hashWithSalt` maximum
       `Prelude.hashWithSalt` minimum

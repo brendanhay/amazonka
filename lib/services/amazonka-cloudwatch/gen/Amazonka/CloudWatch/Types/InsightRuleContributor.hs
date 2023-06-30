@@ -95,17 +95,22 @@ insightRuleContributor_datapoints = Lens.lens (\InsightRuleContributor' {datapoi
 instance Data.FromXML InsightRuleContributor where
   parseXML x =
     InsightRuleContributor'
-      Prelude.<$> ( x Data..@? "Keys" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Keys"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
       Prelude.<*> (x Data..@ "ApproximateAggregateValue")
-      Prelude.<*> ( x Data..@? "Datapoints" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Datapoints"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
 
 instance Prelude.Hashable InsightRuleContributor where
   hashWithSalt _salt InsightRuleContributor' {..} =
-    _salt `Prelude.hashWithSalt` keys
+    _salt
+      `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` approximateAggregateValue
       `Prelude.hashWithSalt` datapoints
 

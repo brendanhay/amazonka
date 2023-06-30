@@ -181,22 +181,22 @@ instance Core.AWSPager DescribeAlarmHistory where
     | Core.stop
         ( rs
             Lens.^? describeAlarmHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAlarmHistoryResponse_alarmHistoryItems
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAlarmHistory_nextToken
           Lens..~ rs
           Lens.^? describeAlarmHistoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAlarmHistory where
   type
@@ -209,7 +209,8 @@ instance Core.AWSRequest DescribeAlarmHistory where
       "DescribeAlarmHistoryResult"
       ( \s h x ->
           DescribeAlarmHistoryResponse'
-            Prelude.<$> ( x Data..@? "AlarmHistoryItems"
+            Prelude.<$> ( x
+                            Data..@? "AlarmHistoryItems"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -219,7 +220,8 @@ instance Core.AWSRequest DescribeAlarmHistory where
 
 instance Prelude.Hashable DescribeAlarmHistory where
   hashWithSalt _salt DescribeAlarmHistory' {..} =
-    _salt `Prelude.hashWithSalt` alarmName
+    _salt
+      `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` alarmTypes
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` historyItemType

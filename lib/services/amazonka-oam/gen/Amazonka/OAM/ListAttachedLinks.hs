@@ -115,19 +115,19 @@ instance Core.AWSPager ListAttachedLinks where
     | Core.stop
         ( rs
             Lens.^? listAttachedLinksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listAttachedLinksResponse_items) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAttachedLinks_nextToken
           Lens..~ rs
           Lens.^? listAttachedLinksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedLinks where
   type
@@ -146,7 +146,8 @@ instance Core.AWSRequest ListAttachedLinks where
 
 instance Prelude.Hashable ListAttachedLinks where
   hashWithSalt _salt ListAttachedLinks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sinkIdentifier
 

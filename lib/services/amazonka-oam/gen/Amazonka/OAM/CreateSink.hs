@@ -135,7 +135,8 @@ instance Core.AWSRequest CreateSink where
 
 instance Prelude.Hashable CreateSink where
   hashWithSalt _salt CreateSink' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateSink where

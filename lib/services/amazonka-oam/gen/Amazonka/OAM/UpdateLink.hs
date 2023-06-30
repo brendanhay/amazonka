@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateLink where
 
 instance Prelude.Hashable UpdateLink where
   hashWithSalt _salt UpdateLink' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` resourceTypes
 
 instance Prelude.NFData UpdateLink where

@@ -164,7 +164,7 @@ instance
       ( \s h x ->
           UpdateSubscriptionNotificationConfigurationResponse'
             Prelude.<$> (x Data..?> "queueArn")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -174,7 +174,8 @@ instance
   hashWithSalt
     _salt
     UpdateSubscriptionNotificationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` createSqs
+      _salt
+        `Prelude.hashWithSalt` createSqs
         `Prelude.hashWithSalt` httpsApiKeyName
         `Prelude.hashWithSalt` httpsApiKeyValue
         `Prelude.hashWithSalt` httpsMethod

@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     ProtocolAndNotificationEndpoint' {..} =
-      _salt `Prelude.hashWithSalt` endpoint
+      _salt
+        `Prelude.hashWithSalt` endpoint
         `Prelude.hashWithSalt` protocol
 
 instance

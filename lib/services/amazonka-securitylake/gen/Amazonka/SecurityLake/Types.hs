@@ -216,48 +216,48 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action. Access denied
@@ -266,7 +266,7 @@ defaultService =
 -- contains a Deny statement for the specific Amazon Web Services action.
 -- An implicit denial occurs when there is no applicable Deny statement and
 -- also no applicable Allow statement.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -276,7 +276,7 @@ _AccessDeniedException =
 -- | Amazon Security Lake cannot find an Amazon Web Services account with the
 -- accountID that you specified, or the account whose credentials you used
 -- to make this request isn\'t a member of an organization.
-_AccountNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccountNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccountNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -285,7 +285,7 @@ _AccountNotFoundException =
 
 -- | Amazon Security Lake generally returns 404 errors if the requested
 -- object is missing from the bucket.
-_BucketNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BucketNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BucketNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -293,7 +293,7 @@ _BucketNotFoundException =
     Prelude.. Core.hasStatus 409
 
 -- | More than one process tried to modify a resource at the same time.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -305,7 +305,7 @@ _ConcurrentModificationException =
 -- propagate to the host serving the current request. A retry (with
 -- appropriate backoff logic) is the recommended response to this
 -- exception.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -314,7 +314,7 @@ _ConflictException =
 
 -- | There was a conflict when you attempted to modify a Security Lake source
 -- name.
-_ConflictSourceNamesException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictSourceNamesException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictSourceNamesException =
   Core._MatchServiceError
     defaultService
@@ -322,7 +322,7 @@ _ConflictSourceNamesException =
     Prelude.. Core.hasStatus 400
 
 -- | A conflicting subscription exception operation is in progress.
-_ConflictSubscriptionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictSubscriptionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictSubscriptionException =
   Core._MatchServiceError
     defaultService
@@ -330,7 +330,7 @@ _ConflictSubscriptionException =
     Prelude.. Core.hasStatus 400
 
 -- | Represents an error interacting with the Amazon EventBridge service.
-_EventBridgeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EventBridgeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EventBridgeException =
   Core._MatchServiceError
     defaultService
@@ -339,7 +339,7 @@ _EventBridgeException =
 
 -- | Internal service exceptions are sometimes caused by transient issues.
 -- Before you start troubleshooting, perform the operation again.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -348,7 +348,7 @@ _InternalServerException =
 
 -- | The request was rejected because a value that\'s not valid or is out of
 -- range was supplied for an input parameter.
-_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -356,7 +356,7 @@ _InvalidInputException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -368,7 +368,7 @@ _ResourceNotFoundException =
 -- provides access to the Amazon S3 extended request ID. If Amazon S3 is
 -- incorrectly handling a request and you need to contact Amazon, this
 -- extended request ID may provide useful debugging information.
-_S3Exception :: Core.AsError a => Lens.Fold a Core.ServiceError
+_S3Exception :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _S3Exception =
   Core._MatchServiceError
     defaultService
@@ -378,7 +378,7 @@ _S3Exception =
 -- | You have exceeded your service quota. To perform the requested action,
 -- remove some of the relevant resources, or use Service Quotas to request
 -- a service quota increase.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -386,7 +386,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The limit on the number of requests per second was exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -394,7 +394,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | Your signing certificate could not be validated.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

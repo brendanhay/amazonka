@@ -109,7 +109,8 @@ instance Data.FromJSON AccountSources where
 
 instance Prelude.Hashable AccountSources where
   hashWithSalt _salt AccountSources' {..} =
-    _salt `Prelude.hashWithSalt` eventClass
+    _salt
+      `Prelude.hashWithSalt` eventClass
       `Prelude.hashWithSalt` logsStatus
       `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` sourceType

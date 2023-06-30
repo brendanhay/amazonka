@@ -70,7 +70,8 @@ instance Core.AWSRequest GetDatalake where
       ( \s h x ->
           GetDatalakeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "configurations"
+            Prelude.<*> ( x
+                            Data..?> "configurations"
                             Core..!@ Prelude.mempty
                         )
       )

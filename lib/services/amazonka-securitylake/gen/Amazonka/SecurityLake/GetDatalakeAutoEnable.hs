@@ -71,7 +71,8 @@ instance Core.AWSRequest GetDatalakeAutoEnable where
       ( \s h x ->
           GetDatalakeAutoEnableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "autoEnableNewAccounts"
+            Prelude.<*> ( x
+                            Data..?> "autoEnableNewAccounts"
                             Core..!@ Prelude.mempty
                         )
       )

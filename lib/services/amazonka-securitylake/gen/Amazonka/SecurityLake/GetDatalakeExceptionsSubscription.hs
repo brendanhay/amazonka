@@ -74,7 +74,7 @@ instance
       ( \s h x ->
           GetDatalakeExceptionsSubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "protocolAndNotificationEndpoint")
+            Prelude.<*> (x Data..:> "protocolAndNotificationEndpoint")
       )
 
 instance

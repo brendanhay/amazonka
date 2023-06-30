@@ -136,7 +136,8 @@ lakeConfigurationRequest_tagsMap = Lens.lens (\LakeConfigurationRequest' {tagsMa
 
 instance Prelude.Hashable LakeConfigurationRequest where
   hashWithSalt _salt LakeConfigurationRequest' {..} =
-    _salt `Prelude.hashWithSalt` encryptionKey
+    _salt
+      `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` replicationDestinationRegions
       `Prelude.hashWithSalt` replicationRoleArn
       `Prelude.hashWithSalt` retentionSettings

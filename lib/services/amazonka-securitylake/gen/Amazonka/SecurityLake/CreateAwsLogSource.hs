@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateAwsLogSource where
 
 instance Prelude.Hashable CreateAwsLogSource where
   hashWithSalt _salt CreateAwsLogSource' {..} =
-    _salt `Prelude.hashWithSalt` enableAllDimensions
+    _salt
+      `Prelude.hashWithSalt` enableAllDimensions
       `Prelude.hashWithSalt` enableSingleDimension
       `Prelude.hashWithSalt` enableTwoDimensions
       `Prelude.hashWithSalt` inputOrder

@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     AutoEnableNewRegionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` region
+      _salt
+        `Prelude.hashWithSalt` region
         `Prelude.hashWithSalt` sources
 
 instance

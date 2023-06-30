@@ -172,7 +172,8 @@ instance Core.AWSRequest CreateSubscriber where
 
 instance Prelude.Hashable CreateSubscriber where
   hashWithSalt _salt CreateSubscriber' {..} =
-    _salt `Prelude.hashWithSalt` accessTypes
+    _salt
+      `Prelude.hashWithSalt` accessTypes
       `Prelude.hashWithSalt` subscriberDescription
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` externalId

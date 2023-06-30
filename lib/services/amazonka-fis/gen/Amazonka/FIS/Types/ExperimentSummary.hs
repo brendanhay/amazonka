@@ -105,7 +105,8 @@ instance Data.FromJSON ExperimentSummary where
 
 instance Prelude.Hashable ExperimentSummary where
   hashWithSalt _salt ExperimentSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` experimentTemplateId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` state

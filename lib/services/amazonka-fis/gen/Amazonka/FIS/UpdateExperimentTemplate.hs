@@ -156,7 +156,8 @@ instance Core.AWSRequest UpdateExperimentTemplate where
 
 instance Prelude.Hashable UpdateExperimentTemplate where
   hashWithSalt _salt UpdateExperimentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` roleArn

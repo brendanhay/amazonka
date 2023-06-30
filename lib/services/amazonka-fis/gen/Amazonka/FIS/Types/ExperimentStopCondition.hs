@@ -74,7 +74,8 @@ instance Data.FromJSON ExperimentStopCondition where
 
 instance Prelude.Hashable ExperimentStopCondition where
   hashWithSalt _salt ExperimentStopCondition' {..} =
-    _salt `Prelude.hashWithSalt` source
+    _salt
+      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ExperimentStopCondition where

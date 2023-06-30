@@ -102,7 +102,8 @@ instance Core.AWSRequest ListExperimentTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListExperimentTemplatesResponse'
-            Prelude.<$> ( x Data..?> "experimentTemplates"
+            Prelude.<$> ( x
+                            Data..?> "experimentTemplates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -111,7 +112,8 @@ instance Core.AWSRequest ListExperimentTemplates where
 
 instance Prelude.Hashable ListExperimentTemplates where
   hashWithSalt _salt ListExperimentTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListExperimentTemplates where

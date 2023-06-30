@@ -74,7 +74,8 @@ instance Data.FromJSON ActionParameter where
 
 instance Prelude.Hashable ActionParameter where
   hashWithSalt _salt ActionParameter' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` required
 
 instance Prelude.NFData ActionParameter where

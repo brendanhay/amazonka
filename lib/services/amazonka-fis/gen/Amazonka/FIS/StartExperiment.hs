@@ -119,7 +119,8 @@ instance Core.AWSRequest StartExperiment where
 
 instance Prelude.Hashable StartExperiment where
   hashWithSalt _salt StartExperiment' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` experimentTemplateId
 

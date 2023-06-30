@@ -85,7 +85,8 @@ instance Data.FromJSON TargetResourceType where
 
 instance Prelude.Hashable TargetResourceType where
   hashWithSalt _salt TargetResourceType' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resourceType
 

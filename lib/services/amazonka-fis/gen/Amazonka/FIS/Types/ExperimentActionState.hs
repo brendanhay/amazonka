@@ -75,7 +75,8 @@ instance Data.FromJSON ExperimentActionState where
 
 instance Prelude.Hashable ExperimentActionState where
   hashWithSalt _salt ExperimentActionState' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ExperimentActionState where

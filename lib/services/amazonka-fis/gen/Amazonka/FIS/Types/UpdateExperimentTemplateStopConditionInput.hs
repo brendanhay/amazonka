@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     UpdateExperimentTemplateStopConditionInput' {..} =
-      _salt `Prelude.hashWithSalt` value
+      _salt
+        `Prelude.hashWithSalt` value
         `Prelude.hashWithSalt` source
 
 instance

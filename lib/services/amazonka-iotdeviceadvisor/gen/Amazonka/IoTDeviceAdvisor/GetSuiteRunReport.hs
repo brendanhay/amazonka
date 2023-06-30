@@ -110,7 +110,8 @@ instance Core.AWSRequest GetSuiteRunReport where
 
 instance Prelude.Hashable GetSuiteRunReport where
   hashWithSalt _salt GetSuiteRunReport' {..} =
-    _salt `Prelude.hashWithSalt` suiteDefinitionId
+    _salt
+      `Prelude.hashWithSalt` suiteDefinitionId
       `Prelude.hashWithSalt` suiteRunId
 
 instance Prelude.NFData GetSuiteRunReport where

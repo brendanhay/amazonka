@@ -137,7 +137,8 @@ instance Core.AWSRequest StartSuiteRun where
 
 instance Prelude.Hashable StartSuiteRun where
   hashWithSalt _salt StartSuiteRun' {..} =
-    _salt `Prelude.hashWithSalt` suiteDefinitionVersion
+    _salt
+      `Prelude.hashWithSalt` suiteDefinitionVersion
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` suiteDefinitionId
       `Prelude.hashWithSalt` suiteRunConfiguration

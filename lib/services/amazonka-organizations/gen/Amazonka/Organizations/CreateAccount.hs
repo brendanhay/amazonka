@@ -418,7 +418,8 @@ instance Core.AWSRequest CreateAccount where
 
 instance Prelude.Hashable CreateAccount where
   hashWithSalt _salt CreateAccount' {..} =
-    _salt `Prelude.hashWithSalt` iamUserAccessToBilling
+    _salt
+      `Prelude.hashWithSalt` iamUserAccessToBilling
       `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` email

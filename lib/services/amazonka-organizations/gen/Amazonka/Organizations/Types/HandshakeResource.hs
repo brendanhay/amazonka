@@ -145,7 +145,8 @@ instance Data.FromJSON HandshakeResource where
 
 instance Prelude.Hashable HandshakeResource where
   hashWithSalt _salt HandshakeResource' {..} =
-    _salt `Prelude.hashWithSalt` resources
+    _salt
+      `Prelude.hashWithSalt` resources
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 

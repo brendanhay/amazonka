@@ -162,7 +162,8 @@ instance Core.AWSRequest DisablePolicyType where
 
 instance Prelude.Hashable DisablePolicyType where
   hashWithSalt _salt DisablePolicyType' {..} =
-    _salt `Prelude.hashWithSalt` rootId
+    _salt
+      `Prelude.hashWithSalt` rootId
       `Prelude.hashWithSalt` policyType
 
 instance Prelude.NFData DisablePolicyType where

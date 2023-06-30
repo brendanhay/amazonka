@@ -69,12 +69,14 @@ instance Data.FromJSON ResourcePolicySummary where
       "ResourcePolicySummary"
       ( \x ->
           ResourcePolicySummary'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable ResourcePolicySummary where
   hashWithSalt _salt ResourcePolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ResourcePolicySummary where

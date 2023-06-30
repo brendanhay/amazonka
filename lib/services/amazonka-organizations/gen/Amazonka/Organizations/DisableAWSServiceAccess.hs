@@ -111,7 +111,7 @@ data DisableAWSServiceAccess = DisableAWSServiceAccess'
   { -- | The service principal name of the Amazon Web Services service for which
     -- you want to disable integration with your organization. This is
     -- typically in the form of a URL, such as
-    -- @ service-abbreviation.amazonaws.com@.
+    -- @ @/@service-abbreviation@/@.amazonaws.com@.
     servicePrincipal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -127,7 +127,7 @@ data DisableAWSServiceAccess = DisableAWSServiceAccess'
 -- 'servicePrincipal', 'disableAWSServiceAccess_servicePrincipal' - The service principal name of the Amazon Web Services service for which
 -- you want to disable integration with your organization. This is
 -- typically in the form of a URL, such as
--- @ service-abbreviation.amazonaws.com@.
+-- @ @/@service-abbreviation@/@.amazonaws.com@.
 newDisableAWSServiceAccess ::
   -- | 'servicePrincipal'
   Prelude.Text ->
@@ -141,7 +141,7 @@ newDisableAWSServiceAccess pServicePrincipal_ =
 -- | The service principal name of the Amazon Web Services service for which
 -- you want to disable integration with your organization. This is
 -- typically in the form of a URL, such as
--- @ service-abbreviation.amazonaws.com@.
+-- @ @/@service-abbreviation@/@.amazonaws.com@.
 disableAWSServiceAccess_servicePrincipal :: Lens.Lens' DisableAWSServiceAccess Prelude.Text
 disableAWSServiceAccess_servicePrincipal = Lens.lens (\DisableAWSServiceAccess' {servicePrincipal} -> servicePrincipal) (\s@DisableAWSServiceAccess' {} a -> s {servicePrincipal = a} :: DisableAWSServiceAccess)
 

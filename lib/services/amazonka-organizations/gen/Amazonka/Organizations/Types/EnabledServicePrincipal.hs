@@ -34,7 +34,7 @@ data EnabledServicePrincipal = EnabledServicePrincipal'
     -- Organizations.
     dateEnabled :: Prelude.Maybe Data.POSIX,
     -- | The name of the service principal. This is typically in the form of a
-    -- URL, such as: @ servicename.amazonaws.com@.
+    -- URL, such as: @ @/@servicename@/@.amazonaws.com@.
     servicePrincipal :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,7 +51,7 @@ data EnabledServicePrincipal = EnabledServicePrincipal'
 -- Organizations.
 --
 -- 'servicePrincipal', 'enabledServicePrincipal_servicePrincipal' - The name of the service principal. This is typically in the form of a
--- URL, such as: @ servicename.amazonaws.com@.
+-- URL, such as: @ @/@servicename@/@.amazonaws.com@.
 newEnabledServicePrincipal ::
   EnabledServicePrincipal
 newEnabledServicePrincipal =
@@ -67,7 +67,7 @@ enabledServicePrincipal_dateEnabled :: Lens.Lens' EnabledServicePrincipal (Prelu
 enabledServicePrincipal_dateEnabled = Lens.lens (\EnabledServicePrincipal' {dateEnabled} -> dateEnabled) (\s@EnabledServicePrincipal' {} a -> s {dateEnabled = a} :: EnabledServicePrincipal) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the service principal. This is typically in the form of a
--- URL, such as: @ servicename.amazonaws.com@.
+-- URL, such as: @ @/@servicename@/@.amazonaws.com@.
 enabledServicePrincipal_servicePrincipal :: Lens.Lens' EnabledServicePrincipal (Prelude.Maybe Prelude.Text)
 enabledServicePrincipal_servicePrincipal = Lens.lens (\EnabledServicePrincipal' {servicePrincipal} -> servicePrincipal) (\s@EnabledServicePrincipal' {} a -> s {servicePrincipal = a} :: EnabledServicePrincipal)
 
@@ -83,7 +83,8 @@ instance Data.FromJSON EnabledServicePrincipal where
 
 instance Prelude.Hashable EnabledServicePrincipal where
   hashWithSalt _salt EnabledServicePrincipal' {..} =
-    _salt `Prelude.hashWithSalt` dateEnabled
+    _salt
+      `Prelude.hashWithSalt` dateEnabled
       `Prelude.hashWithSalt` servicePrincipal
 
 instance Prelude.NFData EnabledServicePrincipal where

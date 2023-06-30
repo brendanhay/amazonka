@@ -144,7 +144,8 @@ instance Core.AWSRequest DescribeEffectivePolicy where
 
 instance Prelude.Hashable DescribeEffectivePolicy where
   hashWithSalt _salt DescribeEffectivePolicy' {..} =
-    _salt `Prelude.hashWithSalt` targetId
+    _salt
+      `Prelude.hashWithSalt` targetId
       `Prelude.hashWithSalt` policyType
 
 instance Prelude.NFData DescribeEffectivePolicy where

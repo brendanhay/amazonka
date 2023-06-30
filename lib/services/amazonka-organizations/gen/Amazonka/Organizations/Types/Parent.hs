@@ -103,12 +103,14 @@ instance Data.FromJSON Parent where
       "Parent"
       ( \x ->
           Parent'
-            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Parent where
   hashWithSalt _salt Parent' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Parent where

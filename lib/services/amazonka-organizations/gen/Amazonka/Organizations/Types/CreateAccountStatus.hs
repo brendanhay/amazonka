@@ -336,7 +336,8 @@ instance Data.FromJSON CreateAccountStatus where
 
 instance Prelude.Hashable CreateAccountStatus where
   hashWithSalt _salt CreateAccountStatus' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` accountName
       `Prelude.hashWithSalt` completedTimestamp
       `Prelude.hashWithSalt` failureReason

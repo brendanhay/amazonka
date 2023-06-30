@@ -80,13 +80,13 @@ data ListTagsForResource = ListTagsForResource'
     -- -   Amazon Web Services account – specify the account ID number.
     --
     -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
-    --     looks similar to: @ou-1a2b-34uvwxyz @
+    --     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
     --
     -- -   Root – specify the root ID that begins with @r-@ and looks similar
-    --     to: @r-1a2b @
+    --     to: @r-@/@1a2b@/@ @
     --
     -- -   Policy – specify the policy ID that begins with @p-@ andlooks
-    --     similar to: @p-12abcdefg3 @
+    --     similar to: @p-@/@12abcdefg3@/@ @
     resourceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,13 +112,13 @@ data ListTagsForResource = ListTagsForResource'
 -- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
---     looks similar to: @ou-1a2b-34uvwxyz @
+--     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
 --
 -- -   Root – specify the root ID that begins with @r-@ and looks similar
---     to: @r-1a2b @
+--     to: @r-@/@1a2b@/@ @
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
---     similar to: @p-12abcdefg3 @
+--     similar to: @p-@/@12abcdefg3@/@ @
 newListTagsForResource ::
   -- | 'resourceId'
   Prelude.Text ->
@@ -144,13 +144,13 @@ listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> 
 -- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
---     looks similar to: @ou-1a2b-34uvwxyz @
+--     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
 --
 -- -   Root – specify the root ID that begins with @r-@ and looks similar
---     to: @r-1a2b @
+--     to: @r-@/@1a2b@/@ @
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
---     similar to: @p-12abcdefg3 @
+--     similar to: @p-@/@12abcdefg3@/@ @
 listTagsForResource_resourceId :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceId = Lens.lens (\ListTagsForResource' {resourceId} -> resourceId) (\s@ListTagsForResource' {} a -> s {resourceId = a} :: ListTagsForResource)
 
@@ -159,22 +159,22 @@ instance Core.AWSPager ListTagsForResource where
     | Core.stop
         ( rs
             Lens.^? listTagsForResourceResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTagsForResourceResponse_tags
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTagsForResource_nextToken
           Lens..~ rs
           Lens.^? listTagsForResourceResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTagsForResource where
   type
@@ -193,7 +193,8 @@ instance Core.AWSRequest ListTagsForResource where
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ListTagsForResource where

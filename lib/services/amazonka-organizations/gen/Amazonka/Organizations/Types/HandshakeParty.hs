@@ -85,12 +85,14 @@ instance Data.FromJSON HandshakeParty where
       "HandshakeParty"
       ( \x ->
           HandshakeParty'
-            Prelude.<$> (x Data..: "Id") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable HandshakeParty where
   hashWithSalt _salt HandshakeParty' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData HandshakeParty where

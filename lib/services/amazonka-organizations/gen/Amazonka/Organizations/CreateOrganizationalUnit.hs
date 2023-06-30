@@ -188,7 +188,8 @@ instance Core.AWSRequest CreateOrganizationalUnit where
 
 instance Prelude.Hashable CreateOrganizationalUnit where
   hashWithSalt _salt CreateOrganizationalUnit' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` parentId
       `Prelude.hashWithSalt` name
 

@@ -159,7 +159,8 @@ instance Data.FromJSON PolicyTargetSummary where
 
 instance Prelude.Hashable PolicyTargetSummary where
   hashWithSalt _salt PolicyTargetSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` targetId
       `Prelude.hashWithSalt` type'

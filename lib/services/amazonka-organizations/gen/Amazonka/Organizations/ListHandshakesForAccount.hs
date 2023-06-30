@@ -173,22 +173,22 @@ instance Core.AWSPager ListHandshakesForAccount where
     | Core.stop
         ( rs
             Lens.^? listHandshakesForAccountResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listHandshakesForAccountResponse_handshakes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listHandshakesForAccount_nextToken
           Lens..~ rs
           Lens.^? listHandshakesForAccountResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHandshakesForAccount where
   type
@@ -207,7 +207,8 @@ instance Core.AWSRequest ListHandshakesForAccount where
 
 instance Prelude.Hashable ListHandshakesForAccount where
   hashWithSalt _salt ListHandshakesForAccount' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

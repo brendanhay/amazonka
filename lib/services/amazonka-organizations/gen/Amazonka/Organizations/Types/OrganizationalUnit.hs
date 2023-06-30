@@ -129,7 +129,8 @@ instance Data.FromJSON OrganizationalUnit where
 
 instance Prelude.Hashable OrganizationalUnit where
   hashWithSalt _salt OrganizationalUnit' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

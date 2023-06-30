@@ -98,7 +98,8 @@ instance Data.FromJSON EffectivePolicy where
 
 instance Prelude.Hashable EffectivePolicy where
   hashWithSalt _salt EffectivePolicy' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTimestamp
+    _salt
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` policyContent
       `Prelude.hashWithSalt` policyType
       `Prelude.hashWithSalt` targetId

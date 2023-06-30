@@ -66,13 +66,13 @@ data UntagResource = UntagResource'
     -- -   Amazon Web Services account – specify the account ID number.
     --
     -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
-    --     looks similar to: @ou-1a2b-34uvwxyz @
+    --     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
     --
     -- -   Root – specify the root ID that begins with @r-@ and looks similar
-    --     to: @r-1a2b @
+    --     to: @r-@/@1a2b@/@ @
     --
     -- -   Policy – specify the policy ID that begins with @p-@ andlooks
-    --     similar to: @p-12abcdefg3 @
+    --     similar to: @p-@/@12abcdefg3@/@ @
     resourceId :: Prelude.Text,
     -- | The list of keys for tags to remove from the specified resource.
     tagKeys :: [Prelude.Text]
@@ -94,13 +94,13 @@ data UntagResource = UntagResource'
 -- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
---     looks similar to: @ou-1a2b-34uvwxyz @
+--     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
 --
 -- -   Root – specify the root ID that begins with @r-@ and looks similar
---     to: @r-1a2b @
+--     to: @r-@/@1a2b@/@ @
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
---     similar to: @p-12abcdefg3 @
+--     similar to: @p-@/@12abcdefg3@/@ @
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The list of keys for tags to remove from the specified resource.
 newUntagResource ::
@@ -120,13 +120,13 @@ newUntagResource pResourceId_ =
 -- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
---     looks similar to: @ou-1a2b-34uvwxyz @
+--     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
 --
 -- -   Root – specify the root ID that begins with @r-@ and looks similar
---     to: @r-1a2b @
+--     to: @r-@/@1a2b@/@ @
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
---     similar to: @p-12abcdefg3 @
+--     similar to: @p-@/@12abcdefg3@/@ @
 untagResource_resourceId :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceId = Lens.lens (\UntagResource' {resourceId} -> resourceId) (\s@UntagResource' {} a -> s {resourceId = a} :: UntagResource)
 
@@ -145,7 +145,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

@@ -203,7 +203,8 @@ instance Data.FromJSON Organization where
       ( \x ->
           Organization'
             Prelude.<$> (x Data..:? "Arn")
-            Prelude.<*> ( x Data..:? "AvailablePolicyTypes"
+            Prelude.<*> ( x
+                            Data..:? "AvailablePolicyTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FeatureSet")
@@ -215,7 +216,8 @@ instance Data.FromJSON Organization where
 
 instance Prelude.Hashable Organization where
   hashWithSalt _salt Organization' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` availablePolicyTypes
       `Prelude.hashWithSalt` featureSet
       `Prelude.hashWithSalt` id

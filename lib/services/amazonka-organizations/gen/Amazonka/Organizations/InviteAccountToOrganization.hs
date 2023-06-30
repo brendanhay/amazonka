@@ -103,7 +103,7 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
     -- invite to join your organization. This is a JSON object that contains
     -- the following elements:
     --
-    -- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< account id number >\" }@
+    -- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< @/__@account id number@__/@ >\" }@
     --
     -- If you use the CLI, you can submit this as a single string, similar to
     -- the following example:
@@ -155,7 +155,7 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
 -- invite to join your organization. This is a JSON object that contains
 -- the following elements:
 --
--- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< account id number >\" }@
+-- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< @/__@account id number@__/@ >\" }@
 --
 -- If you use the CLI, you can submit this as a single string, similar to
 -- the following example:
@@ -211,7 +211,7 @@ inviteAccountToOrganization_tags = Lens.lens (\InviteAccountToOrganization' {tag
 -- invite to join your organization. This is a JSON object that contains
 -- the following elements:
 --
--- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< account id number >\" }@
+-- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< @/__@account id number@__/@ >\" }@
 --
 -- If you use the CLI, you can submit this as a single string, similar to
 -- the following example:
@@ -243,7 +243,8 @@ instance Core.AWSRequest InviteAccountToOrganization where
 
 instance Prelude.Hashable InviteAccountToOrganization where
   hashWithSalt _salt InviteAccountToOrganization' {..} =
-    _salt `Prelude.hashWithSalt` notes
+    _salt
+      `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` target
 

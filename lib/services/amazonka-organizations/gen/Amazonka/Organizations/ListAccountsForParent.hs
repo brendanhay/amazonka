@@ -162,22 +162,22 @@ instance Core.AWSPager ListAccountsForParent where
     | Core.stop
         ( rs
             Lens.^? listAccountsForParentResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAccountsForParentResponse_accounts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccountsForParent_nextToken
           Lens..~ rs
           Lens.^? listAccountsForParentResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountsForParent where
   type
@@ -196,7 +196,8 @@ instance Core.AWSRequest ListAccountsForParent where
 
 instance Prelude.Hashable ListAccountsForParent where
   hashWithSalt _salt ListAccountsForParent' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` parentId
 

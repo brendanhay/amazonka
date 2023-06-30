@@ -125,7 +125,8 @@ instance Data.FromJSON TrustAnchorDetail where
 
 instance Prelude.Hashable TrustAnchorDetail where
   hashWithSalt _salt TrustAnchorDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` source

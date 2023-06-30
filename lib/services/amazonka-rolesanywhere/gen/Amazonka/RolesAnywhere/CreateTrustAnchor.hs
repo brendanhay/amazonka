@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateTrustAnchor where
 
 instance Prelude.Hashable CreateTrustAnchor where
   hashWithSalt _salt CreateTrustAnchor' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` source

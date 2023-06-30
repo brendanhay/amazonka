@@ -154,7 +154,8 @@ instance Core.AWSRequest UpdateProfile where
 
 instance Prelude.Hashable UpdateProfile where
   hashWithSalt _salt UpdateProfile' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` managedPolicyArns
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArns

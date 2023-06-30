@@ -180,7 +180,8 @@ instance Core.AWSRequest CreateProfile where
 
 instance Prelude.Hashable CreateProfile where
   hashWithSalt _salt CreateProfile' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` managedPolicyArns
       `Prelude.hashWithSalt` requireInstanceProperties

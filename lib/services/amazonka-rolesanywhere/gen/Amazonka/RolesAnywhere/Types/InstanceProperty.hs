@@ -97,7 +97,8 @@ instance Data.FromJSON InstanceProperty where
 
 instance Prelude.Hashable InstanceProperty where
   hashWithSalt _salt InstanceProperty' {..} =
-    _salt `Prelude.hashWithSalt` failed
+    _salt
+      `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` seenAt
 

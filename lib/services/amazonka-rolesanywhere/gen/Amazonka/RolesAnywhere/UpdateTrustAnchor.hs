@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdateTrustAnchor where
 
 instance Prelude.Hashable UpdateTrustAnchor where
   hashWithSalt _salt UpdateTrustAnchor' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` trustAnchorId
 

@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateCrl where
 
 instance Prelude.Hashable UpdateCrl where
   hashWithSalt _salt UpdateCrl' {..} =
-    _salt `Prelude.hashWithSalt` crlData
+    _salt
+      `Prelude.hashWithSalt` crlData
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` crlId
 

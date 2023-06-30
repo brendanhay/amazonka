@@ -68,7 +68,8 @@ listRequest_pageSize = Lens.lens (\ListRequest' {pageSize} -> pageSize) (\s@List
 
 instance Prelude.Hashable ListRequest where
   hashWithSalt _salt ListRequest' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListRequest where

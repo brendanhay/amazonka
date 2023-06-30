@@ -180,7 +180,8 @@ instance Data.FromJSON ProfileDetail where
             Prelude.<*> (x Data..:? "createdBy")
             Prelude.<*> (x Data..:? "durationSeconds")
             Prelude.<*> (x Data..:? "enabled")
-            Prelude.<*> ( x Data..:? "managedPolicyArns"
+            Prelude.<*> ( x
+                            Data..:? "managedPolicyArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")
@@ -194,7 +195,8 @@ instance Data.FromJSON ProfileDetail where
 
 instance Prelude.Hashable ProfileDetail where
   hashWithSalt _salt ProfileDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` enabled

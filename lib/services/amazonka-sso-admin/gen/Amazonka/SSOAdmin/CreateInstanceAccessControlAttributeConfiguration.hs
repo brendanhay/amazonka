@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     CreateInstanceAccessControlAttributeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` instanceAccessControlAttributeConfiguration
 
 instance

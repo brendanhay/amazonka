@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     PermissionSetProvisioningStatusMetadata' {..} =
-      _salt `Prelude.hashWithSalt` createdDate
+      _salt
+        `Prelude.hashWithSalt` createdDate
         `Prelude.hashWithSalt` requestId
         `Prelude.hashWithSalt` status
 

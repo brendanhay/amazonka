@@ -131,22 +131,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listAccountAssignmentCreationStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAccountAssignmentCreationStatusResponse_accountAssignmentsCreationStatus
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccountAssignmentCreationStatus_nextToken
           Lens..~ rs
           Lens.^? listAccountAssignmentCreationStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -161,11 +161,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAccountAssignmentCreationStatusResponse'
-            Prelude.<$> ( x Data..?> "AccountAssignmentsCreationStatus"
+            Prelude.<$> ( x
+                            Data..?> "AccountAssignmentsCreationStatus"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -175,7 +176,8 @@ instance
   hashWithSalt
     _salt
     ListAccountAssignmentCreationStatus' {..} =
-      _salt `Prelude.hashWithSalt` filter'
+      _salt
+        `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` instanceArn

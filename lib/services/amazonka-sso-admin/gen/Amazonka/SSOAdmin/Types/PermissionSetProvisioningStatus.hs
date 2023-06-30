@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     PermissionSetProvisioningStatus' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` createdDate
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` permissionSetArn

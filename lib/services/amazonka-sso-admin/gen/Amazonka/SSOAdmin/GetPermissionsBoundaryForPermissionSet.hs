@@ -110,7 +110,7 @@ instance
       ( \s h x ->
           GetPermissionsBoundaryForPermissionSetResponse'
             Prelude.<$> (x Data..?> "PermissionsBoundary")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     GetPermissionsBoundaryForPermissionSet' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` permissionSetArn
 
 instance

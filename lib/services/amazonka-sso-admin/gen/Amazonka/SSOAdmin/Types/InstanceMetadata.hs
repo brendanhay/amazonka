@@ -87,7 +87,8 @@ instance Data.FromJSON InstanceMetadata where
 
 instance Prelude.Hashable InstanceMetadata where
   hashWithSalt _salt InstanceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` instanceArn
 
 instance Prelude.NFData InstanceMetadata where

@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribePermissionSet where
 
 instance Prelude.Hashable DescribePermissionSet where
   hashWithSalt _salt DescribePermissionSet' {..} =
-    _salt `Prelude.hashWithSalt` instanceArn
+    _salt
+      `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` permissionSetArn
 
 instance Prelude.NFData DescribePermissionSet where

@@ -124,7 +124,8 @@ instance
   hashWithSalt
     _salt
     GetInlinePolicyForPermissionSet' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` permissionSetArn
 
 instance

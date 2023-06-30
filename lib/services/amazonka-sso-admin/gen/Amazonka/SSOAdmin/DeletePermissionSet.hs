@@ -113,7 +113,8 @@ instance Core.AWSRequest DeletePermissionSet where
 
 instance Prelude.Hashable DeletePermissionSet where
   hashWithSalt _salt DeletePermissionSet' {..} =
-    _salt `Prelude.hashWithSalt` instanceArn
+    _salt
+      `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` permissionSetArn
 
 instance Prelude.NFData DeletePermissionSet where

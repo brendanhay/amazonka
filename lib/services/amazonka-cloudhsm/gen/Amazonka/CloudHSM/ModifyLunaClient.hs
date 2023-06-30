@@ -121,7 +121,8 @@ instance Core.AWSRequest ModifyLunaClient where
 
 instance Prelude.Hashable ModifyLunaClient where
   hashWithSalt _salt ModifyLunaClient' {..} =
-    _salt `Prelude.hashWithSalt` clientArn
+    _salt
+      `Prelude.hashWithSalt` clientArn
       `Prelude.hashWithSalt` certificate
 
 instance Prelude.NFData ModifyLunaClient where

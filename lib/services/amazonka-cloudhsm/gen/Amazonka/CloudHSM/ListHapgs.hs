@@ -101,17 +101,19 @@ instance Core.AWSPager ListHapgs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listHapgsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listHapgsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. listHapgsResponse_hapgList) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listHapgs_nextToken
           Lens..~ rs
-          Lens.^? listHapgsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listHapgsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHapgs where
   type AWSResponse ListHapgs = ListHapgsResponse

@@ -214,7 +214,8 @@ instance Core.AWSRequest CreateHsm where
 
 instance Prelude.Hashable CreateHsm where
   hashWithSalt _salt CreateHsm' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` eniIp
       `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` syslogIp

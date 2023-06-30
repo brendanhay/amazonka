@@ -134,7 +134,8 @@ instance Core.AWSRequest GetConfig where
 
 instance Prelude.Hashable GetConfig where
   hashWithSalt _salt GetConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientArn
+    _salt
+      `Prelude.hashWithSalt` clientArn
       `Prelude.hashWithSalt` clientVersion
       `Prelude.hashWithSalt` hapgList
 

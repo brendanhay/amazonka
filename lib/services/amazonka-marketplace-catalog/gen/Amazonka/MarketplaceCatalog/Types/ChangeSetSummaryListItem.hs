@@ -165,7 +165,8 @@ instance Data.FromJSON ChangeSetSummaryListItem where
 
 instance Prelude.Hashable ChangeSetSummaryListItem where
   hashWithSalt _salt ChangeSetSummaryListItem' {..} =
-    _salt `Prelude.hashWithSalt` changeSetArn
+    _salt
+      `Prelude.hashWithSalt` changeSetArn
       `Prelude.hashWithSalt` changeSetId
       `Prelude.hashWithSalt` changeSetName
       `Prelude.hashWithSalt` endTime

@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribeEntity where
 
 instance Prelude.Hashable DescribeEntity where
   hashWithSalt _salt DescribeEntity' {..} =
-    _salt `Prelude.hashWithSalt` catalog
+    _salt
+      `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData DescribeEntity where

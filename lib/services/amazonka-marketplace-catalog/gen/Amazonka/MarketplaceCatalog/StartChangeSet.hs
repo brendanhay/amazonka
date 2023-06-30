@@ -156,7 +156,8 @@ instance Core.AWSRequest StartChangeSet where
 
 instance Prelude.Hashable StartChangeSet where
   hashWithSalt _salt StartChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` changeSetName
+    _salt
+      `Prelude.hashWithSalt` changeSetName
       `Prelude.hashWithSalt` changeSetTags
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` catalog

@@ -108,7 +108,8 @@ change_details = Lens.lens (\Change' {details} -> details) (\s@Change' {} a -> s
 
 instance Prelude.Hashable Change where
   hashWithSalt _salt Change' {..} =
-    _salt `Prelude.hashWithSalt` changeName
+    _salt
+      `Prelude.hashWithSalt` changeName
       `Prelude.hashWithSalt` entityTags
       `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` entity

@@ -131,7 +131,8 @@ instance Data.FromJSON EntitySummary where
 
 instance Prelude.Hashable EntitySummary where
   hashWithSalt _salt EntitySummary' {..} =
-    _salt `Prelude.hashWithSalt` entityArn
+    _salt
+      `Prelude.hashWithSalt` entityArn
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` entityType
       `Prelude.hashWithSalt` lastModifiedDate

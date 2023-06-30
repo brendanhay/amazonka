@@ -75,7 +75,8 @@ instance Data.FromJSON WorkerBlock where
 
 instance Prelude.Hashable WorkerBlock where
   hashWithSalt _salt WorkerBlock' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` workerId
 
 instance Prelude.NFData WorkerBlock where

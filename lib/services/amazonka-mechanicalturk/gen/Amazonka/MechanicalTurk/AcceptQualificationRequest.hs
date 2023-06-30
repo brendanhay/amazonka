@@ -119,7 +119,8 @@ instance Core.AWSRequest AcceptQualificationRequest where
 
 instance Prelude.Hashable AcceptQualificationRequest where
   hashWithSalt _salt AcceptQualificationRequest' {..} =
-    _salt `Prelude.hashWithSalt` integerValue
+    _salt
+      `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` qualificationRequestId
 
 instance Prelude.NFData AcceptQualificationRequest where

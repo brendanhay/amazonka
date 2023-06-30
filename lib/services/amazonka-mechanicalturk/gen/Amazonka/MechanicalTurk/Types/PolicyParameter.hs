@@ -85,7 +85,8 @@ instance Data.FromJSON PolicyParameter where
 
 instance Prelude.Hashable PolicyParameter where
   hashWithSalt _salt PolicyParameter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` mapEntries
       `Prelude.hashWithSalt` values
 

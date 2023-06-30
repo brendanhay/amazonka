@@ -109,22 +109,22 @@ instance Core.AWSPager ListHITsForQualificationType where
     | Core.stop
         ( rs
             Lens.^? listHITsForQualificationTypeResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listHITsForQualificationTypeResponse_hITs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listHITsForQualificationType_nextToken
           Lens..~ rs
           Lens.^? listHITsForQualificationTypeResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHITsForQualificationType where
   type
@@ -147,7 +147,8 @@ instance
     ListHITsForQualificationType
   where
   hashWithSalt _salt ListHITsForQualificationType' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` qualificationTypeId
 

@@ -234,7 +234,8 @@ instance Data.FromJSON Assignment where
 
 instance Prelude.Hashable Assignment where
   hashWithSalt _salt Assignment' {..} =
-    _salt `Prelude.hashWithSalt` acceptTime
+    _salt
+      `Prelude.hashWithSalt` acceptTime
       `Prelude.hashWithSalt` answer
       `Prelude.hashWithSalt` approvalTime
       `Prelude.hashWithSalt` assignmentId

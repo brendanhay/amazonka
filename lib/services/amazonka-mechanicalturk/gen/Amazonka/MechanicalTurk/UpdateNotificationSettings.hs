@@ -133,7 +133,8 @@ instance Core.AWSRequest UpdateNotificationSettings where
 
 instance Prelude.Hashable UpdateNotificationSettings where
   hashWithSalt _salt UpdateNotificationSettings' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` notification
       `Prelude.hashWithSalt` hITTypeId
 

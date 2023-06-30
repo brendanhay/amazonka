@@ -134,7 +134,8 @@ notificationSpecification_eventTypes = Lens.lens (\NotificationSpecification' {e
 
 instance Prelude.Hashable NotificationSpecification where
   hashWithSalt _salt NotificationSpecification' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` transport
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` eventTypes

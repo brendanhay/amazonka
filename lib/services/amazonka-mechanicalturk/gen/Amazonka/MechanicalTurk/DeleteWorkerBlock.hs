@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteWorkerBlock where
 
 instance Prelude.Hashable DeleteWorkerBlock where
   hashWithSalt _salt DeleteWorkerBlock' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` workerId
 
 instance Prelude.NFData DeleteWorkerBlock where

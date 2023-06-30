@@ -87,7 +87,8 @@ instance Data.FromJSON ParameterMapEntry where
 
 instance Prelude.Hashable ParameterMapEntry where
   hashWithSalt _salt ParameterMapEntry' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ParameterMapEntry where

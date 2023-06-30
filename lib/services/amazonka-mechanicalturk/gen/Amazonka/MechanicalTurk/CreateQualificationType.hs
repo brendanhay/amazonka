@@ -312,7 +312,8 @@ instance Core.AWSRequest CreateQualificationType where
 
 instance Prelude.Hashable CreateQualificationType where
   hashWithSalt _salt CreateQualificationType' {..} =
-    _salt `Prelude.hashWithSalt` answerKey
+    _salt
+      `Prelude.hashWithSalt` answerKey
       `Prelude.hashWithSalt` autoGranted
       `Prelude.hashWithSalt` autoGrantedValue
       `Prelude.hashWithSalt` keywords

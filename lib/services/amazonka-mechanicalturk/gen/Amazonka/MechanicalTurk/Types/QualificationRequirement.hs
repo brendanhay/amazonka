@@ -278,7 +278,8 @@ instance Data.FromJSON QualificationRequirement where
 
 instance Prelude.Hashable QualificationRequirement where
   hashWithSalt _salt QualificationRequirement' {..} =
-    _salt `Prelude.hashWithSalt` actionsGuarded
+    _salt
+      `Prelude.hashWithSalt` actionsGuarded
       `Prelude.hashWithSalt` integerValues
       `Prelude.hashWithSalt` localeValues
       `Prelude.hashWithSalt` requiredToPreview

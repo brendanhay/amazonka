@@ -121,21 +121,22 @@ instance Core.AWSPager ListReviewableHITs where
     | Core.stop
         ( rs
             Lens.^? listReviewableHITsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listReviewableHITsResponse_hITs Prelude.. Lens._Just
+            Lens.^? listReviewableHITsResponse_hITs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listReviewableHITs_nextToken
           Lens..~ rs
           Lens.^? listReviewableHITsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReviewableHITs where
   type
@@ -155,7 +156,8 @@ instance Core.AWSRequest ListReviewableHITs where
 
 instance Prelude.Hashable ListReviewableHITs where
   hashWithSalt _salt ListReviewableHITs' {..} =
-    _salt `Prelude.hashWithSalt` hITTypeId
+    _salt
+      `Prelude.hashWithSalt` hITTypeId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status

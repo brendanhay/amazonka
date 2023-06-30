@@ -148,7 +148,8 @@ instance Data.FromJSON QualificationRequest where
 
 instance Prelude.Hashable QualificationRequest where
   hashWithSalt _salt QualificationRequest' {..} =
-    _salt `Prelude.hashWithSalt` answer
+    _salt
+      `Prelude.hashWithSalt` answer
       `Prelude.hashWithSalt` qualificationRequestId
       `Prelude.hashWithSalt` qualificationTypeId
       `Prelude.hashWithSalt` submitTime

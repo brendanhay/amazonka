@@ -141,7 +141,8 @@ instance Core.AWSRequest ApproveAssignment where
 
 instance Prelude.Hashable ApproveAssignment where
   hashWithSalt _salt ApproveAssignment' {..} =
-    _salt `Prelude.hashWithSalt` overrideRejection
+    _salt
+      `Prelude.hashWithSalt` overrideRejection
       `Prelude.hashWithSalt` requesterFeedback
       `Prelude.hashWithSalt` assignmentId
 

@@ -103,7 +103,8 @@ instance Data.FromJSON BonusPayment where
 
 instance Prelude.Hashable BonusPayment where
   hashWithSalt _salt BonusPayment' {..} =
-    _salt `Prelude.hashWithSalt` assignmentId
+    _salt
+      `Prelude.hashWithSalt` assignmentId
       `Prelude.hashWithSalt` bonusAmount
       `Prelude.hashWithSalt` grantTime
       `Prelude.hashWithSalt` reason

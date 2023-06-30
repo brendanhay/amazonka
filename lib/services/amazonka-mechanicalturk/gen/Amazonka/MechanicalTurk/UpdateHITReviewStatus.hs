@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateHITReviewStatus where
 
 instance Prelude.Hashable UpdateHITReviewStatus where
   hashWithSalt _salt UpdateHITReviewStatus' {..} =
-    _salt `Prelude.hashWithSalt` revert
+    _salt
+      `Prelude.hashWithSalt` revert
       `Prelude.hashWithSalt` hITId
 
 instance Prelude.NFData UpdateHITReviewStatus where

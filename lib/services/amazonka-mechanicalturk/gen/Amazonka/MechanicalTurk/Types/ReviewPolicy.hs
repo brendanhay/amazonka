@@ -81,7 +81,8 @@ instance Data.FromJSON ReviewPolicy where
 
 instance Prelude.Hashable ReviewPolicy where
   hashWithSalt _salt ReviewPolicy' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData ReviewPolicy where

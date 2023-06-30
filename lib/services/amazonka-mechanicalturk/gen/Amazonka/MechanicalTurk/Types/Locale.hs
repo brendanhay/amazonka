@@ -82,7 +82,8 @@ instance Data.FromJSON Locale where
 
 instance Prelude.Hashable Locale where
   hashWithSalt _salt Locale' {..} =
-    _salt `Prelude.hashWithSalt` subdivision
+    _salt
+      `Prelude.hashWithSalt` subdivision
       `Prelude.hashWithSalt` country
 
 instance Prelude.NFData Locale where

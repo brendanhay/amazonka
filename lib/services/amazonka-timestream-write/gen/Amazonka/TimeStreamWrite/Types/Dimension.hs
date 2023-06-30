@@ -95,7 +95,8 @@ dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -
 
 instance Prelude.Hashable Dimension where
   hashWithSalt _salt Dimension' {..} =
-    _salt `Prelude.hashWithSalt` dimensionValueType
+    _salt
+      `Prelude.hashWithSalt` dimensionValueType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

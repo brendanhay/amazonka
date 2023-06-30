@@ -190,7 +190,8 @@ instance Core.AWSRequest WriteRecords where
 
 instance Prelude.Hashable WriteRecords where
   hashWithSalt _salt WriteRecords' {..} =
-    _salt `Prelude.hashWithSalt` commonAttributes
+    _salt
+      `Prelude.hashWithSalt` commonAttributes
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` records

@@ -101,7 +101,8 @@ instance Data.FromJSON S3Configuration where
 
 instance Prelude.Hashable S3Configuration where
   hashWithSalt _salt S3Configuration' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` encryptionOption
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` objectKeyPrefix

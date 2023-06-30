@@ -125,7 +125,8 @@ instance Core.AWSRequest ListTables where
 
 instance Prelude.Hashable ListTables where
   hashWithSalt _salt ListTables' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

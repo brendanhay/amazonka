@@ -116,7 +116,8 @@ instance Core.AWSRequest PutInstancePublicPorts where
 
 instance Prelude.Hashable PutInstancePublicPorts where
   hashWithSalt _salt PutInstancePublicPorts' {..} =
-    _salt `Prelude.hashWithSalt` portInfos
+    _salt
+      `Prelude.hashWithSalt` portInfos
       `Prelude.hashWithSalt` instanceName
 
 instance Prelude.NFData PutInstancePublicPorts where

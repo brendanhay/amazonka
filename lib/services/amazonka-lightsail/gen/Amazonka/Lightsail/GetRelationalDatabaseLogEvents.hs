@@ -245,7 +245,8 @@ instance
           GetRelationalDatabaseLogEventsResponse'
             Prelude.<$> (x Data..?> "nextBackwardToken")
             Prelude.<*> (x Data..?> "nextForwardToken")
-            Prelude.<*> ( x Data..?> "resourceLogEvents"
+            Prelude.<*> ( x
+                            Data..?> "resourceLogEvents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -258,7 +259,8 @@ instance
   hashWithSalt
     _salt
     GetRelationalDatabaseLogEvents' {..} =
-      _salt `Prelude.hashWithSalt` endTime
+      _salt
+        `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` startFromHead
         `Prelude.hashWithSalt` startTime

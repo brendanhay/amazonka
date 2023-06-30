@@ -125,7 +125,8 @@ instance Core.AWSRequest GetDistributions where
 
 instance Prelude.Hashable GetDistributions where
   hashWithSalt _salt GetDistributions' {..} =
-    _salt `Prelude.hashWithSalt` distributionName
+    _salt
+      `Prelude.hashWithSalt` distributionName
       `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData GetDistributions where

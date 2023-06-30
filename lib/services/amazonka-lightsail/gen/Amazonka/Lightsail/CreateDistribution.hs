@@ -240,7 +240,8 @@ instance Core.AWSRequest CreateDistribution where
 
 instance Prelude.Hashable CreateDistribution where
   hashWithSalt _salt CreateDistribution' {..} =
-    _salt `Prelude.hashWithSalt` cacheBehaviorSettings
+    _salt
+      `Prelude.hashWithSalt` cacheBehaviorSettings
       `Prelude.hashWithSalt` cacheBehaviors
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` tags

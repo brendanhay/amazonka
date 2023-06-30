@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateBucketBundle where
 
 instance Prelude.Hashable UpdateBucketBundle where
   hashWithSalt _salt UpdateBucketBundle' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` bundleId
 
 instance Prelude.NFData UpdateBucketBundle where

@@ -149,7 +149,8 @@ instance Core.AWSRequest GetBuckets where
 
 instance Prelude.Hashable GetBuckets where
   hashWithSalt _salt GetBuckets' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` includeConnectedResources
       `Prelude.hashWithSalt` pageToken
 

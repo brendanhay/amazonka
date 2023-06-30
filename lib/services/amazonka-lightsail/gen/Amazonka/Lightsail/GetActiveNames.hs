@@ -92,22 +92,22 @@ instance Core.AWSPager GetActiveNames where
     | Core.stop
         ( rs
             Lens.^? getActiveNamesResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getActiveNamesResponse_activeNames
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getActiveNames_pageToken
           Lens..~ rs
           Lens.^? getActiveNamesResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetActiveNames where
   type

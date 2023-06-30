@@ -124,7 +124,8 @@ instance Core.AWSRequest CreateKeyPair where
 
 instance Prelude.Hashable CreateKeyPair where
   hashWithSalt _salt CreateKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` keyPairName
 
 instance Prelude.NFData CreateKeyPair where

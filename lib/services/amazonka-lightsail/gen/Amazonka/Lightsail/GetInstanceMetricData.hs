@@ -587,7 +587,8 @@ instance Core.AWSRequest GetInstanceMetricData where
 
 instance Prelude.Hashable GetInstanceMetricData where
   hashWithSalt _salt GetInstanceMetricData' {..} =
-    _salt `Prelude.hashWithSalt` instanceName
+    _salt
+      `Prelude.hashWithSalt` instanceName
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` startTime

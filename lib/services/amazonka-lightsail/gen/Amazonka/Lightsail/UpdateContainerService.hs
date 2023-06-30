@@ -258,7 +258,8 @@ instance Core.AWSRequest UpdateContainerService where
 
 instance Prelude.Hashable UpdateContainerService where
   hashWithSalt _salt UpdateContainerService' {..} =
-    _salt `Prelude.hashWithSalt` isDisabled
+    _salt
+      `Prelude.hashWithSalt` isDisabled
       `Prelude.hashWithSalt` power
       `Prelude.hashWithSalt` privateRegistryAccess
       `Prelude.hashWithSalt` publicDomainNames

@@ -74,7 +74,8 @@ instance Data.FromJSON LogEvent where
 
 instance Prelude.Hashable LogEvent where
   hashWithSalt _salt LogEvent' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData LogEvent where

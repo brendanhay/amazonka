@@ -222,7 +222,8 @@ instance Core.AWSRequest UpdateLoadBalancerAttribute where
 
 instance Prelude.Hashable UpdateLoadBalancerAttribute where
   hashWithSalt _salt UpdateLoadBalancerAttribute' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` attributeValue
 

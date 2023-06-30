@@ -1544,53 +1544,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Lightsail throws this exception when the user cannot be authenticated or
 -- uses invalid credentials to access a resource.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1598,7 +1598,7 @@ _AccessDeniedException =
 
 -- | Lightsail throws this exception when an account is still in the setup in
 -- progress state.
-_AccountSetupInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccountSetupInProgressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccountSetupInProgressException =
   Core._MatchServiceError
     defaultService
@@ -1611,28 +1611,28 @@ _AccountSetupInProgressException =
 -- (@us-east-1@) Amazon Web Services Region. Please set your Amazon Web
 -- Services Region configuration to @us-east-1@ to create, view, or edit
 -- these resources.
-_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | Lightsail throws this exception when it cannot find a resource.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
     "NotFoundException"
 
 -- | Lightsail throws this exception when an operation fails to execute.
-_OperationFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationFailureException =
   Core._MatchServiceError
     defaultService
     "OperationFailureException"
 
 -- | A general service exception.
-_ServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceException =
   Core._MatchServiceError
     defaultService
@@ -1640,7 +1640,7 @@ _ServiceException =
 
 -- | Lightsail throws this exception when the user has not been
 -- authenticated.
-_UnauthenticatedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthenticatedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthenticatedException =
   Core._MatchServiceError
     defaultService

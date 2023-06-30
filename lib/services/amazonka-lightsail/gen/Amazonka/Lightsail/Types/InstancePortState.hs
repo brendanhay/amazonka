@@ -366,7 +366,8 @@ instance Data.FromJSON InstancePortState where
       "InstancePortState"
       ( \x ->
           InstancePortState'
-            Prelude.<$> ( x Data..:? "cidrListAliases"
+            Prelude.<$> ( x
+                            Data..:? "cidrListAliases"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cidrs" Data..!= Prelude.mempty)
@@ -379,7 +380,8 @@ instance Data.FromJSON InstancePortState where
 
 instance Prelude.Hashable InstancePortState where
   hashWithSalt _salt InstancePortState' {..} =
-    _salt `Prelude.hashWithSalt` cidrListAliases
+    _salt
+      `Prelude.hashWithSalt` cidrListAliases
       `Prelude.hashWithSalt` cidrs
       `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` ipv6Cidrs

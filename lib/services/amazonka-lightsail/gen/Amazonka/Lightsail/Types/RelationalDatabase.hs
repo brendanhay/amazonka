@@ -365,7 +365,8 @@ instance Data.FromJSON RelationalDatabase where
             Prelude.<*> (x Data..:? "masterUsername")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "parameterApplyStatus")
-            Prelude.<*> ( x Data..:? "pendingMaintenanceActions"
+            Prelude.<*> ( x
+                            Data..:? "pendingMaintenanceActions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "pendingModifiedValues")
@@ -383,7 +384,8 @@ instance Data.FromJSON RelationalDatabase where
 
 instance Prelude.Hashable RelationalDatabase where
   hashWithSalt _salt RelationalDatabase' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` backupRetentionEnabled
       `Prelude.hashWithSalt` caCertificateIdentifier
       `Prelude.hashWithSalt` createdAt

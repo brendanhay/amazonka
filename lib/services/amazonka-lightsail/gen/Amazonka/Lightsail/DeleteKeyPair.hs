@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteKeyPair where
 
 instance Prelude.Hashable DeleteKeyPair where
   hashWithSalt _salt DeleteKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` expectedFingerprint
+    _salt
+      `Prelude.hashWithSalt` expectedFingerprint
       `Prelude.hashWithSalt` keyPairName
 
 instance Prelude.NFData DeleteKeyPair where

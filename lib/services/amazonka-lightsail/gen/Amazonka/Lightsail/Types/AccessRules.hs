@@ -158,7 +158,8 @@ instance Data.FromJSON AccessRules where
 
 instance Prelude.Hashable AccessRules where
   hashWithSalt _salt AccessRules' {..} =
-    _salt `Prelude.hashWithSalt` allowPublicOverrides
+    _salt
+      `Prelude.hashWithSalt` allowPublicOverrides
       `Prelude.hashWithSalt` getObject
 
 instance Prelude.NFData AccessRules where

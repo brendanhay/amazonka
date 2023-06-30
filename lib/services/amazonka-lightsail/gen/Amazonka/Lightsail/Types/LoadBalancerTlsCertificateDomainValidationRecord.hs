@@ -126,11 +126,11 @@ instance
       ( \x ->
           LoadBalancerTlsCertificateDomainValidationRecord'
             Prelude.<$> (x Data..:? "dnsRecordCreationState")
-              Prelude.<*> (x Data..:? "domainName")
-              Prelude.<*> (x Data..:? "name")
-              Prelude.<*> (x Data..:? "type")
-              Prelude.<*> (x Data..:? "validationStatus")
-              Prelude.<*> (x Data..:? "value")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "validationStatus")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance
@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     LoadBalancerTlsCertificateDomainValidationRecord' {..} =
-      _salt `Prelude.hashWithSalt` dnsRecordCreationState
+      _salt
+        `Prelude.hashWithSalt` dnsRecordCreationState
         `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` type'

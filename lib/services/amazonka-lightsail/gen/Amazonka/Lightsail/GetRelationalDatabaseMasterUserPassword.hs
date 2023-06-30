@@ -134,8 +134,8 @@ instance
       ( \s h x ->
           GetRelationalDatabaseMasterUserPasswordResponse'
             Prelude.<$> (x Data..?> "createdAt")
-              Prelude.<*> (x Data..?> "masterUserPassword")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "masterUserPassword")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     GetRelationalDatabaseMasterUserPassword' {..} =
-      _salt `Prelude.hashWithSalt` passwordVersion
+      _salt
+        `Prelude.hashWithSalt` passwordVersion
         `Prelude.hashWithSalt` relationalDatabaseName
 
 instance

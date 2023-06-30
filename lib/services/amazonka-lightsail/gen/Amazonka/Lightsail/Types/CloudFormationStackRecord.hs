@@ -159,7 +159,8 @@ instance Data.FromJSON CloudFormationStackRecord where
 
 instance Prelude.Hashable CloudFormationStackRecord where
   hashWithSalt _salt CloudFormationStackRecord' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` destinationInfo
       `Prelude.hashWithSalt` location

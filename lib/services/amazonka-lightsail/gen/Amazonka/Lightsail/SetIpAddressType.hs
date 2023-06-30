@@ -153,7 +153,8 @@ instance Core.AWSRequest SetIpAddressType where
 
 instance Prelude.Hashable SetIpAddressType where
   hashWithSalt _salt SetIpAddressType' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` ipAddressType
 

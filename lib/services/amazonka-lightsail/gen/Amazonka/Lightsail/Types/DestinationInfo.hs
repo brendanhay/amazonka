@@ -68,12 +68,14 @@ instance Data.FromJSON DestinationInfo where
       "DestinationInfo"
       ( \x ->
           DestinationInfo'
-            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "service")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "service")
       )
 
 instance Prelude.Hashable DestinationInfo where
   hashWithSalt _salt DestinationInfo' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` service
 
 instance Prelude.NFData DestinationInfo where

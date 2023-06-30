@@ -197,7 +197,8 @@ instance Data.FromJSON ContactMethod where
 
 instance Prelude.Hashable ContactMethod where
   hashWithSalt _salt ContactMethod' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` contactEndpoint
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` location

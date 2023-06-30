@@ -276,7 +276,8 @@ instance Data.FromJSON AccountLevelBpaSync where
 
 instance Prelude.Hashable AccountLevelBpaSync where
   hashWithSalt _salt AccountLevelBpaSync' {..} =
-    _salt `Prelude.hashWithSalt` bpaImpactsLightsail
+    _salt
+      `Prelude.hashWithSalt` bpaImpactsLightsail
       `Prelude.hashWithSalt` lastSyncedAt
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` status

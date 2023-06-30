@@ -141,7 +141,8 @@ instance
     AttachInstancesToLoadBalancer
   where
   hashWithSalt _salt AttachInstancesToLoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` instanceNames
 
 instance Prelude.NFData AttachInstancesToLoadBalancer where

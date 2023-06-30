@@ -98,7 +98,8 @@ instance Data.FromJSON MonitoredResourceInfo where
 
 instance Prelude.Hashable MonitoredResourceInfo where
   hashWithSalt _salt MonitoredResourceInfo' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceType
 

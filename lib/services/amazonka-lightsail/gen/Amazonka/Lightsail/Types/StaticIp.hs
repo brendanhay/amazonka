@@ -161,7 +161,8 @@ instance Data.FromJSON StaticIp where
 
 instance Prelude.Hashable StaticIp where
   hashWithSalt _salt StaticIp' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attachedTo
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` ipAddress

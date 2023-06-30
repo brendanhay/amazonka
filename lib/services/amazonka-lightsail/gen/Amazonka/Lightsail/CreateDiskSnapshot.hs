@@ -188,7 +188,8 @@ instance Core.AWSRequest CreateDiskSnapshot where
 
 instance Prelude.Hashable CreateDiskSnapshot where
   hashWithSalt _salt CreateDiskSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` diskName
+    _salt
+      `Prelude.hashWithSalt` diskName
       `Prelude.hashWithSalt` instanceName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` diskSnapshotName

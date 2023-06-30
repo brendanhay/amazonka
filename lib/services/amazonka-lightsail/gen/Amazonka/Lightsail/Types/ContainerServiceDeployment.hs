@@ -160,7 +160,8 @@ instance Data.FromJSON ContainerServiceDeployment where
 
 instance Prelude.Hashable ContainerServiceDeployment where
   hashWithSalt _salt ContainerServiceDeployment' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` publicEndpoint
       `Prelude.hashWithSalt` state

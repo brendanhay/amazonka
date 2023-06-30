@@ -104,7 +104,8 @@ instance Core.AWSRequest AttachStaticIp where
 
 instance Prelude.Hashable AttachStaticIp where
   hashWithSalt _salt AttachStaticIp' {..} =
-    _salt `Prelude.hashWithSalt` staticIpName
+    _salt
+      `Prelude.hashWithSalt` staticIpName
       `Prelude.hashWithSalt` instanceName
 
 instance Prelude.NFData AttachStaticIp where

@@ -146,7 +146,8 @@ instance Data.FromJSON RelationalDatabaseBundle where
 
 instance Prelude.Hashable RelationalDatabaseBundle where
   hashWithSalt _salt RelationalDatabaseBundle' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` cpuCount
       `Prelude.hashWithSalt` diskSizeInGb
       `Prelude.hashWithSalt` isActive

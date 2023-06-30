@@ -281,7 +281,8 @@ instance Data.FromJSON CacheSettings where
 
 instance Prelude.Hashable CacheSettings where
   hashWithSalt _salt CacheSettings' {..} =
-    _salt `Prelude.hashWithSalt` allowedHTTPMethods
+    _salt
+      `Prelude.hashWithSalt` allowedHTTPMethods
       `Prelude.hashWithSalt` cachedHTTPMethods
       `Prelude.hashWithSalt` defaultTTL
       `Prelude.hashWithSalt` forwardedCookies

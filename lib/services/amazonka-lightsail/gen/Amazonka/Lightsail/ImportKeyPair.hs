@@ -104,7 +104,8 @@ instance Core.AWSRequest ImportKeyPair where
 
 instance Prelude.Hashable ImportKeyPair where
   hashWithSalt _salt ImportKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` keyPairName
+    _salt
+      `Prelude.hashWithSalt` keyPairName
       `Prelude.hashWithSalt` publicKeyBase64
 
 instance Prelude.NFData ImportKeyPair where

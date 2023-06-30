@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     RegisteredDomainDelegationInfo' {..} =
-      _salt `Prelude.hashWithSalt` nameServersUpdateState
+      _salt
+        `Prelude.hashWithSalt` nameServersUpdateState
         `Prelude.hashWithSalt` r53HostedZoneDeletionState
 
 instance

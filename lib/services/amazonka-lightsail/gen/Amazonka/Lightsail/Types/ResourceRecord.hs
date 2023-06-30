@@ -85,7 +85,8 @@ instance Data.FromJSON ResourceRecord where
 
 instance Prelude.Hashable ResourceRecord where
   hashWithSalt _salt ResourceRecord' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 

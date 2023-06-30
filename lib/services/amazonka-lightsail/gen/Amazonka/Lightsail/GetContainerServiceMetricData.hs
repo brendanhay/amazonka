@@ -316,7 +316,8 @@ instance
     GetContainerServiceMetricData
   where
   hashWithSalt _salt GetContainerServiceMetricData' {..} =
-    _salt `Prelude.hashWithSalt` serviceName
+    _salt
+      `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime

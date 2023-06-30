@@ -146,7 +146,8 @@ instance
   hashWithSalt
     _salt
     DeleteLoadBalancerTlsCertificate' {..} =
-      _salt `Prelude.hashWithSalt` force
+      _salt
+        `Prelude.hashWithSalt` force
         `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` certificateName
 

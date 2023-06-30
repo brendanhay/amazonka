@@ -141,7 +141,8 @@ instance Core.AWSRequest TestAlarm where
 
 instance Prelude.Hashable TestAlarm where
   hashWithSalt _salt TestAlarm' {..} =
-    _salt `Prelude.hashWithSalt` alarmName
+    _salt
+      `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData TestAlarm where

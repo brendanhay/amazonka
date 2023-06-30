@@ -92,20 +92,22 @@ instance Core.AWSPager GetDomains where
     | Core.stop
         ( rs
             Lens.^? getDomainsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getDomainsResponse_domains Prelude.. Lens._Just
+            Lens.^? getDomainsResponse_domains
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getDomains_pageToken
           Lens..~ rs
-          Lens.^? getDomainsResponse_nextPageToken Prelude.. Lens._Just
+          Lens.^? getDomainsResponse_nextPageToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDomains where
   type AWSResponse GetDomains = GetDomainsResponse

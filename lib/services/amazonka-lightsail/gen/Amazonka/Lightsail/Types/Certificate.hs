@@ -440,7 +440,8 @@ instance Data.FromJSON Certificate where
             Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "domainName")
-            Prelude.<*> ( x Data..:? "domainValidationRecords"
+            Prelude.<*> ( x
+                            Data..:? "domainValidationRecords"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "eligibleToRenew")
@@ -457,7 +458,8 @@ instance Data.FromJSON Certificate where
             Prelude.<*> (x Data..:? "revokedAt")
             Prelude.<*> (x Data..:? "serialNumber")
             Prelude.<*> (x Data..:? "status")
-            Prelude.<*> ( x Data..:? "subjectAlternativeNames"
+            Prelude.<*> ( x
+                            Data..:? "subjectAlternativeNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "supportCode")
@@ -466,7 +468,8 @@ instance Data.FromJSON Certificate where
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` domainValidationRecords

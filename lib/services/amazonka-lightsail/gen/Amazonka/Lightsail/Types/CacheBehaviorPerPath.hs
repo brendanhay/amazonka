@@ -207,7 +207,8 @@ instance Data.FromJSON CacheBehaviorPerPath where
 
 instance Prelude.Hashable CacheBehaviorPerPath where
   hashWithSalt _salt CacheBehaviorPerPath' {..} =
-    _salt `Prelude.hashWithSalt` behavior
+    _salt
+      `Prelude.hashWithSalt` behavior
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData CacheBehaviorPerPath where

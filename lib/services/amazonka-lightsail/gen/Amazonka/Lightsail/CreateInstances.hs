@@ -295,7 +295,8 @@ instance Core.AWSRequest CreateInstances where
 
 instance Prelude.Hashable CreateInstances where
   hashWithSalt _salt CreateInstances' {..} =
-    _salt `Prelude.hashWithSalt` addOns
+    _salt
+      `Prelude.hashWithSalt` addOns
       `Prelude.hashWithSalt` customImageName
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` keyPairName

@@ -151,7 +151,8 @@ instance Core.AWSRequest SetResourceAccessForBucket where
 
 instance Prelude.Hashable SetResourceAccessForBucket where
   hashWithSalt _salt SetResourceAccessForBucket' {..} =
-    _salt `Prelude.hashWithSalt` resourceName
+    _salt
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` access
 

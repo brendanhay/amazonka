@@ -116,7 +116,7 @@ instance
       ( \s h x ->
           UpdateRelationalDatabaseParametersResponse'
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -126,7 +126,8 @@ instance
   hashWithSalt
     _salt
     UpdateRelationalDatabaseParameters' {..} =
-      _salt `Prelude.hashWithSalt` relationalDatabaseName
+      _salt
+        `Prelude.hashWithSalt` relationalDatabaseName
         `Prelude.hashWithSalt` parameters
 
 instance

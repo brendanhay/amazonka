@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     AttachLoadBalancerTlsCertificate' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerName
+      _salt
+        `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` certificateName
 
 instance

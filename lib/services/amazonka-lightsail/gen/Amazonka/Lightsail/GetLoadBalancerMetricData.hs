@@ -593,7 +593,8 @@ instance Core.AWSRequest GetLoadBalancerMetricData where
 
 instance Prelude.Hashable GetLoadBalancerMetricData where
   hashWithSalt _salt GetLoadBalancerMetricData' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` startTime

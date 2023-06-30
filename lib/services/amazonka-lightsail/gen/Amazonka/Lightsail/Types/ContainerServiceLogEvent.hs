@@ -76,7 +76,8 @@ instance Data.FromJSON ContainerServiceLogEvent where
 
 instance Prelude.Hashable ContainerServiceLogEvent where
   hashWithSalt _salt ContainerServiceLogEvent' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ContainerServiceLogEvent where

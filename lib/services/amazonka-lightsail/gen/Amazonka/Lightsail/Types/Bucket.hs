@@ -320,11 +320,13 @@ instance Data.FromJSON Bucket where
             Prelude.<*> (x Data..:? "location")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "objectVersioning")
-            Prelude.<*> ( x Data..:? "readonlyAccessAccounts"
+            Prelude.<*> ( x
+                            Data..:? "readonlyAccessAccounts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "resourceType")
-            Prelude.<*> ( x Data..:? "resourcesReceivingAccess"
+            Prelude.<*> ( x
+                            Data..:? "resourcesReceivingAccess"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "state")
@@ -335,7 +337,8 @@ instance Data.FromJSON Bucket where
 
 instance Prelude.Hashable Bucket where
   hashWithSalt _salt Bucket' {..} =
-    _salt `Prelude.hashWithSalt` ableToUpdateBundle
+    _salt
+      `Prelude.hashWithSalt` ableToUpdateBundle
       `Prelude.hashWithSalt` accessLogConfig
       `Prelude.hashWithSalt` accessRules
       `Prelude.hashWithSalt` arn

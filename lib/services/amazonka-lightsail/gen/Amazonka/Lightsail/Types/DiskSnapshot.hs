@@ -241,7 +241,8 @@ instance Data.FromJSON DiskSnapshot where
 
 instance Prelude.Hashable DiskSnapshot where
   hashWithSalt _salt DiskSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` fromDiskArn
       `Prelude.hashWithSalt` fromDiskName

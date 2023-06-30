@@ -93,7 +93,8 @@ instance Core.AWSRequest GetContainerImages where
     Response.receiveJSON
       ( \s h x ->
           GetContainerImagesResponse'
-            Prelude.<$> ( x Data..?> "containerImages"
+            Prelude.<$> ( x
+                            Data..?> "containerImages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

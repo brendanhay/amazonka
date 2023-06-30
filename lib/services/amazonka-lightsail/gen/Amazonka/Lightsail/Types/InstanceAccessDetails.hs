@@ -212,7 +212,8 @@ instance Data.FromJSON InstanceAccessDetails where
 
 instance Prelude.Hashable InstanceAccessDetails where
   hashWithSalt _salt InstanceAccessDetails' {..} =
-    _salt `Prelude.hashWithSalt` certKey
+    _salt
+      `Prelude.hashWithSalt` certKey
       `Prelude.hashWithSalt` expiresAt
       `Prelude.hashWithSalt` hostKeys
       `Prelude.hashWithSalt` instanceName

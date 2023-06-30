@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateDisk where
 
 instance Prelude.Hashable CreateDisk where
   hashWithSalt _salt CreateDisk' {..} =
-    _salt `Prelude.hashWithSalt` addOns
+    _salt
+      `Prelude.hashWithSalt` addOns
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` diskName
       `Prelude.hashWithSalt` availabilityZone

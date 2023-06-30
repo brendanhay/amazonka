@@ -99,22 +99,22 @@ instance Core.AWSPager GetRelationalDatabaseSnapshots where
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseSnapshotsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseSnapshotsResponse_relationalDatabaseSnapshots
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getRelationalDatabaseSnapshots_pageToken
           Lens..~ rs
           Lens.^? getRelationalDatabaseSnapshotsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -130,7 +130,8 @@ instance
       ( \s h x ->
           GetRelationalDatabaseSnapshotsResponse'
             Prelude.<$> (x Data..?> "nextPageToken")
-            Prelude.<*> ( x Data..?> "relationalDatabaseSnapshots"
+            Prelude.<*> ( x
+                            Data..?> "relationalDatabaseSnapshots"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

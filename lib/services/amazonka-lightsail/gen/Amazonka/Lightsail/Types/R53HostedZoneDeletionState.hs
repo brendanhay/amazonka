@@ -107,7 +107,8 @@ instance Data.FromJSON R53HostedZoneDeletionState where
 
 instance Prelude.Hashable R53HostedZoneDeletionState where
   hashWithSalt _salt R53HostedZoneDeletionState' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData R53HostedZoneDeletionState where

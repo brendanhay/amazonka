@@ -241,7 +241,8 @@ instance
   hashWithSalt
     _salt
     AssociateResourceSharePermission' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` permissionVersion
         `Prelude.hashWithSalt` replace
         `Prelude.hashWithSalt` resourceShareArn

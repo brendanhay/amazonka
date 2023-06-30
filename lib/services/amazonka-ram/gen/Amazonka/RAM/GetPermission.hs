@@ -126,7 +126,8 @@ instance Core.AWSRequest GetPermission where
 
 instance Prelude.Hashable GetPermission where
   hashWithSalt _salt GetPermission' {..} =
-    _salt `Prelude.hashWithSalt` permissionVersion
+    _salt
+      `Prelude.hashWithSalt` permissionVersion
       `Prelude.hashWithSalt` permissionArn
 
 instance Prelude.NFData GetPermission where

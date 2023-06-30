@@ -166,7 +166,8 @@ instance
   hashWithSalt
     _salt
     ResourceSharePermissionSummary' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` defaultVersion
         `Prelude.hashWithSalt` isResourceTypeDefault

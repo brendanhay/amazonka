@@ -166,7 +166,8 @@ instance Core.AWSRequest ListPermissionVersions where
 
 instance Prelude.Hashable ListPermissionVersions where
   hashWithSalt _salt ListPermissionVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` permissionArn
 

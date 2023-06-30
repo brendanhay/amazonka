@@ -101,7 +101,8 @@ instance Core.AWSRequest UpdateEventIntegration where
 
 instance Prelude.Hashable UpdateEventIntegration where
   hashWithSalt _salt UpdateEventIntegration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateEventIntegration where

@@ -85,7 +85,8 @@ instance Data.FromJSON ScheduleConfiguration where
 
 instance Prelude.Hashable ScheduleConfiguration where
   hashWithSalt _salt ScheduleConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` firstExecutionFrom
+    _salt
+      `Prelude.hashWithSalt` firstExecutionFrom
       `Prelude.hashWithSalt` object'
       `Prelude.hashWithSalt` scheduleExpression
 

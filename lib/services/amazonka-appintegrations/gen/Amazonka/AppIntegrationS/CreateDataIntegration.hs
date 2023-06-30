@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateDataIntegration where
 
 instance Prelude.Hashable CreateDataIntegration where
   hashWithSalt _salt CreateDataIntegration' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` scheduleConfig

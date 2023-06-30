@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     DataIntegrationAssociationSummary' {..} =
-      _salt `Prelude.hashWithSalt` clientId
+      _salt
+        `Prelude.hashWithSalt` clientId
         `Prelude.hashWithSalt` dataIntegrationArn
         `Prelude.hashWithSalt` dataIntegrationAssociationArn
 

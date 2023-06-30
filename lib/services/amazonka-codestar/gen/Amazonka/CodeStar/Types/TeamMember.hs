@@ -100,7 +100,8 @@ instance Data.FromJSON TeamMember where
 
 instance Prelude.Hashable TeamMember where
   hashWithSalt _salt TeamMember' {..} =
-    _salt `Prelude.hashWithSalt` remoteAccessAllowed
+    _salt
+      `Prelude.hashWithSalt` remoteAccessAllowed
       `Prelude.hashWithSalt` userArn
       `Prelude.hashWithSalt` projectRole
 

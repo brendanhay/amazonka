@@ -151,7 +151,8 @@ instance Core.AWSRequest UpdateTeamMember where
 
 instance Prelude.Hashable UpdateTeamMember where
   hashWithSalt _salt UpdateTeamMember' {..} =
-    _salt `Prelude.hashWithSalt` projectRole
+    _salt
+      `Prelude.hashWithSalt` projectRole
       `Prelude.hashWithSalt` remoteAccessAllowed
       `Prelude.hashWithSalt` projectId
       `Prelude.hashWithSalt` userArn

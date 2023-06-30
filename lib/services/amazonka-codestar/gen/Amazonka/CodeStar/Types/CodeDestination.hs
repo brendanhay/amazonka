@@ -81,7 +81,8 @@ codeDestination_gitHub = Lens.lens (\CodeDestination' {gitHub} -> gitHub) (\s@Co
 
 instance Prelude.Hashable CodeDestination where
   hashWithSalt _salt CodeDestination' {..} =
-    _salt `Prelude.hashWithSalt` codeCommit
+    _salt
+      `Prelude.hashWithSalt` codeCommit
       `Prelude.hashWithSalt` gitHub
 
 instance Prelude.NFData CodeDestination where

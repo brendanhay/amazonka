@@ -74,7 +74,8 @@ instance Data.FromJSON ProjectSummary where
 
 instance Prelude.Hashable ProjectSummary where
   hashWithSalt _salt ProjectSummary' {..} =
-    _salt `Prelude.hashWithSalt` projectArn
+    _salt
+      `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` projectId
 
 instance Prelude.NFData ProjectSummary where

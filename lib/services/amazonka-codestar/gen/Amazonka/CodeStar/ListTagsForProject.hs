@@ -114,7 +114,8 @@ instance Core.AWSRequest ListTagsForProject where
 
 instance Prelude.Hashable ListTagsForProject where
   hashWithSalt _salt ListTagsForProject' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` id
 

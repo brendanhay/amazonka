@@ -130,7 +130,8 @@ instance Data.FromJSON UserProfileSummary where
 
 instance Prelude.Hashable UserProfileSummary where
   hashWithSalt _salt UserProfileSummary' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` sshPublicKey
       `Prelude.hashWithSalt` userArn

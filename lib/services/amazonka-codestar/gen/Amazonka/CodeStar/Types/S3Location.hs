@@ -71,7 +71,8 @@ s3Location_bucketName = Lens.lens (\S3Location' {bucketName} -> bucketName) (\s@
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` bucketKey
+    _salt
+      `Prelude.hashWithSalt` bucketKey
       `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData S3Location where

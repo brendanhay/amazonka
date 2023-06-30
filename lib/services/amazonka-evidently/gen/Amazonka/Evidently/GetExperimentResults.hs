@@ -291,7 +291,8 @@ instance Core.AWSRequest GetExperimentResults where
 
 instance Prelude.Hashable GetExperimentResults where
   hashWithSalt _salt GetExperimentResults' {..} =
-    _salt `Prelude.hashWithSalt` baseStat
+    _salt
+      `Prelude.hashWithSalt` baseStat
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` reportNames

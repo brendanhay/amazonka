@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteFeature where
 
 instance Prelude.Hashable DeleteFeature where
   hashWithSalt _salt DeleteFeature' {..} =
-    _salt `Prelude.hashWithSalt` feature
+    _salt
+      `Prelude.hashWithSalt` feature
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData DeleteFeature where

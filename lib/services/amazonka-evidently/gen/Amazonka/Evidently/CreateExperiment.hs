@@ -281,7 +281,8 @@ instance Core.AWSRequest CreateExperiment where
 
 instance Prelude.Hashable CreateExperiment where
   hashWithSalt _salt CreateExperiment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` onlineAbConfig
       `Prelude.hashWithSalt` randomizationSalt
       `Prelude.hashWithSalt` samplingRate

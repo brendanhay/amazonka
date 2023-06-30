@@ -81,7 +81,8 @@ metricGoalConfig_metricDefinition = Lens.lens (\MetricGoalConfig' {metricDefinit
 
 instance Prelude.Hashable MetricGoalConfig where
   hashWithSalt _salt MetricGoalConfig' {..} =
-    _salt `Prelude.hashWithSalt` desiredChange
+    _salt
+      `Prelude.hashWithSalt` desiredChange
       `Prelude.hashWithSalt` metricDefinition
 
 instance Prelude.NFData MetricGoalConfig where

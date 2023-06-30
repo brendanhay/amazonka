@@ -90,7 +90,8 @@ evaluationRequest_feature = Lens.lens (\EvaluationRequest' {feature} -> feature)
 
 instance Prelude.Hashable EvaluationRequest where
   hashWithSalt _salt EvaluationRequest' {..} =
-    _salt `Prelude.hashWithSalt` evaluationContext
+    _salt
+      `Prelude.hashWithSalt` evaluationContext
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` feature
 

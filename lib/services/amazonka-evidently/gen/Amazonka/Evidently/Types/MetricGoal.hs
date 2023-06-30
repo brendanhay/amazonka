@@ -91,7 +91,8 @@ instance Data.FromJSON MetricGoal where
 
 instance Prelude.Hashable MetricGoal where
   hashWithSalt _salt MetricGoal' {..} =
-    _salt `Prelude.hashWithSalt` desiredChange
+    _salt
+      `Prelude.hashWithSalt` desiredChange
       `Prelude.hashWithSalt` metricDefinition
 
 instance Prelude.NFData MetricGoal where

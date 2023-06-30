@@ -67,7 +67,8 @@ variationConfig_value = Lens.lens (\VariationConfig' {value} -> value) (\s@Varia
 
 instance Prelude.Hashable VariationConfig where
   hashWithSalt _salt VariationConfig' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData VariationConfig where

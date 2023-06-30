@@ -168,7 +168,8 @@ instance Core.AWSRequest CreateSegment where
 
 instance Prelude.Hashable CreateSegment where
   hashWithSalt _salt CreateSegment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` pattern'

@@ -140,7 +140,8 @@ instance Data.FromJSON ScheduledSplit where
       ( \x ->
           ScheduledSplit'
             Prelude.<$> (x Data..:? "groupWeights" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "segmentOverrides"
+            Prelude.<*> ( x
+                            Data..:? "segmentOverrides"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "startTime")
@@ -148,7 +149,8 @@ instance Data.FromJSON ScheduledSplit where
 
 instance Prelude.Hashable ScheduledSplit where
   hashWithSalt _salt ScheduledSplit' {..} =
-    _salt `Prelude.hashWithSalt` groupWeights
+    _salt
+      `Prelude.hashWithSalt` groupWeights
       `Prelude.hashWithSalt` segmentOverrides
       `Prelude.hashWithSalt` startTime
 

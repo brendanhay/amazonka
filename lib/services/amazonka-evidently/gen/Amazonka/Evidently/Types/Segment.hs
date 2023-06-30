@@ -181,7 +181,8 @@ instance Data.FromJSON Segment where
 
 instance Prelude.Hashable Segment where
   hashWithSalt _salt Segment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` experimentCount
       `Prelude.hashWithSalt` launchCount
       `Prelude.hashWithSalt` tags

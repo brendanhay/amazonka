@@ -132,7 +132,8 @@ instance Core.AWSRequest BatchEvaluateFeature where
 
 instance Prelude.Hashable BatchEvaluateFeature where
   hashWithSalt _salt BatchEvaluateFeature' {..} =
-    _salt `Prelude.hashWithSalt` project
+    _salt
+      `Prelude.hashWithSalt` project
       `Prelude.hashWithSalt` requests
 
 instance Prelude.NFData BatchEvaluateFeature where

@@ -128,7 +128,8 @@ instance Core.AWSRequest StopExperiment where
 
 instance Prelude.Hashable StopExperiment where
   hashWithSalt _salt StopExperiment' {..} =
-    _salt `Prelude.hashWithSalt` desiredState
+    _salt
+      `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` experiment
       `Prelude.hashWithSalt` project

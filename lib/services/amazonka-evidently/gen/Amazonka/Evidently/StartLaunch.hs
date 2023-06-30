@@ -103,7 +103,8 @@ instance Core.AWSRequest StartLaunch where
 
 instance Prelude.Hashable StartLaunch where
   hashWithSalt _salt StartLaunch' {..} =
-    _salt `Prelude.hashWithSalt` launch
+    _salt
+      `Prelude.hashWithSalt` launch
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData StartLaunch where

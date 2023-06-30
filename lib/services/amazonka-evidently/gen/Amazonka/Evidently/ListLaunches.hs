@@ -120,20 +120,23 @@ instance Core.AWSPager ListLaunches where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listLaunchesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listLaunchesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listLaunchesResponse_launches Prelude.. Lens._Just
+            Lens.^? listLaunchesResponse_launches
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLaunches_nextToken
           Lens..~ rs
-          Lens.^? listLaunchesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listLaunchesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLaunches where
   type AWSResponse ListLaunches = ListLaunchesResponse
@@ -150,7 +153,8 @@ instance Core.AWSRequest ListLaunches where
 
 instance Prelude.Hashable ListLaunches where
   hashWithSalt _salt ListLaunches' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` project

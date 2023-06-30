@@ -135,7 +135,8 @@ instance Data.FromJSON RefResource where
 
 instance Prelude.Hashable RefResource where
   hashWithSalt _salt RefResource' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` lastUpdatedOn
       `Prelude.hashWithSalt` startTime

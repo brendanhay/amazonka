@@ -81,7 +81,8 @@ instance Data.FromJSON LaunchGroup where
       ( \x ->
           LaunchGroup'
             Prelude.<$> (x Data..:? "description")
-            Prelude.<*> ( x Data..:? "featureVariations"
+            Prelude.<*> ( x
+                            Data..:? "featureVariations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "name")
@@ -89,7 +90,8 @@ instance Data.FromJSON LaunchGroup where
 
 instance Prelude.Hashable LaunchGroup where
   hashWithSalt _salt LaunchGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` featureVariations
       `Prelude.hashWithSalt` name
 

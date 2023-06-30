@@ -84,7 +84,8 @@ instance Data.FromJSON ProjectDataDelivery where
 
 instance Prelude.Hashable ProjectDataDelivery where
   hashWithSalt _salt ProjectDataDelivery' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` s3Destination
 
 instance Prelude.NFData ProjectDataDelivery where

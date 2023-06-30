@@ -75,7 +75,8 @@ instance Data.FromJSON LaunchExecution where
 
 instance Prelude.Hashable LaunchExecution where
   hashWithSalt _salt LaunchExecution' {..} =
-    _salt `Prelude.hashWithSalt` endedTime
+    _salt
+      `Prelude.hashWithSalt` endedTime
       `Prelude.hashWithSalt` startedTime
 
 instance Prelude.NFData LaunchExecution where

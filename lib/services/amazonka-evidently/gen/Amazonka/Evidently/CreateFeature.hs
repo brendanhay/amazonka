@@ -242,7 +242,8 @@ instance Core.AWSRequest CreateFeature where
 
 instance Prelude.Hashable CreateFeature where
   hashWithSalt _salt CreateFeature' {..} =
-    _salt `Prelude.hashWithSalt` defaultVariation
+    _salt
+      `Prelude.hashWithSalt` defaultVariation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityOverrides
       `Prelude.hashWithSalt` evaluationStrategy

@@ -74,7 +74,8 @@ projectDataDeliveryConfig_s3Destination = Lens.lens (\ProjectDataDeliveryConfig'
 
 instance Prelude.Hashable ProjectDataDeliveryConfig where
   hashWithSalt _salt ProjectDataDeliveryConfig' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` s3Destination
 
 instance Prelude.NFData ProjectDataDeliveryConfig where

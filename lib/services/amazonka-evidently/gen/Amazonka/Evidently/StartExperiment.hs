@@ -124,7 +124,8 @@ instance Core.AWSRequest StartExperiment where
 
 instance Prelude.Hashable StartExperiment where
   hashWithSalt _salt StartExperiment' {..} =
-    _salt `Prelude.hashWithSalt` analysisCompleteTime
+    _salt
+      `Prelude.hashWithSalt` analysisCompleteTime
       `Prelude.hashWithSalt` experiment
       `Prelude.hashWithSalt` project
 

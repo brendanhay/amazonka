@@ -286,7 +286,8 @@ instance
     StackSetDriftDetectionDetails
   where
   hashWithSalt _salt StackSetDriftDetectionDetails' {..} =
-    _salt `Prelude.hashWithSalt` driftDetectionStatus
+    _salt
+      `Prelude.hashWithSalt` driftDetectionStatus
       `Prelude.hashWithSalt` driftStatus
       `Prelude.hashWithSalt` driftedStackInstancesCount
       `Prelude.hashWithSalt` failedStackInstancesCount

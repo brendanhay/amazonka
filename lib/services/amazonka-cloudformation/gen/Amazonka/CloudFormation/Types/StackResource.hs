@@ -202,7 +202,8 @@ instance Data.FromXML StackResource where
 
 instance Prelude.Hashable StackResource where
   hashWithSalt _salt StackResource' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` driftInformation
       `Prelude.hashWithSalt` moduleInfo
       `Prelude.hashWithSalt` physicalResourceId

@@ -934,7 +934,8 @@ instance Core.AWSRequest UpdateStackSet where
 
 instance Prelude.Hashable UpdateStackSet where
   hashWithSalt _salt UpdateStackSet' {..} =
-    _salt `Prelude.hashWithSalt` accounts
+    _salt
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` administrationRoleARN
       `Prelude.hashWithSalt` autoDeployment
       `Prelude.hashWithSalt` callAs

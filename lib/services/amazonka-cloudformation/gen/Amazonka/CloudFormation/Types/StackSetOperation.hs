@@ -385,7 +385,8 @@ instance Data.FromXML StackSetOperation where
 
 instance Prelude.Hashable StackSetOperation where
   hashWithSalt _salt StackSetOperation' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` administrationRoleARN
       `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` deploymentTargets

@@ -143,7 +143,8 @@ instance Core.AWSRequest DeactivateType where
 
 instance Prelude.Hashable DeactivateType where
   hashWithSalt _salt DeactivateType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName
 

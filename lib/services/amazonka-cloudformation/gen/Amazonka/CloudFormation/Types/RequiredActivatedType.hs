@@ -128,7 +128,8 @@ instance Data.FromXML RequiredActivatedType where
     RequiredActivatedType'
       Prelude.<$> (x Data..@? "OriginalTypeName")
       Prelude.<*> (x Data..@? "PublisherId")
-      Prelude.<*> ( x Data..@? "SupportedMajorVersions"
+      Prelude.<*> ( x
+                      Data..@? "SupportedMajorVersions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -136,7 +137,8 @@ instance Data.FromXML RequiredActivatedType where
 
 instance Prelude.Hashable RequiredActivatedType where
   hashWithSalt _salt RequiredActivatedType' {..} =
-    _salt `Prelude.hashWithSalt` originalTypeName
+    _salt
+      `Prelude.hashWithSalt` originalTypeName
       `Prelude.hashWithSalt` publisherId
       `Prelude.hashWithSalt` supportedMajorVersions
       `Prelude.hashWithSalt` typeNameAlias

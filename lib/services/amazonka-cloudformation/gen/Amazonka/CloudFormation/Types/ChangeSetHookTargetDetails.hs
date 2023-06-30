@@ -73,7 +73,8 @@ instance Data.FromXML ChangeSetHookTargetDetails where
 
 instance Prelude.Hashable ChangeSetHookTargetDetails where
   hashWithSalt _salt ChangeSetHookTargetDetails' {..} =
-    _salt `Prelude.hashWithSalt` resourceTargetDetails
+    _salt
+      `Prelude.hashWithSalt` resourceTargetDetails
       `Prelude.hashWithSalt` targetType
 
 instance Prelude.NFData ChangeSetHookTargetDetails where

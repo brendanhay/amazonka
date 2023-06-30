@@ -124,20 +124,22 @@ instance Core.AWSPager DescribeStacks where
     | Core.stop
         ( rs
             Lens.^? describeStacksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeStacksResponse_stacks Prelude.. Lens._Just
+            Lens.^? describeStacksResponse_stacks
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeStacks_nextToken
           Lens..~ rs
-          Lens.^? describeStacksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeStacksResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStacks where
   type
@@ -151,7 +153,9 @@ instance Core.AWSRequest DescribeStacks where
       ( \s h x ->
           DescribeStacksResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "Stacks" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Stacks"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,7 +163,8 @@ instance Core.AWSRequest DescribeStacks where
 
 instance Prelude.Hashable DescribeStacks where
   hashWithSalt _salt DescribeStacks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData DescribeStacks where

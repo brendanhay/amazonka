@@ -80,7 +80,8 @@ instance Data.FromXML LoggingConfig where
 
 instance Prelude.Hashable LoggingConfig where
   hashWithSalt _salt LoggingConfig' {..} =
-    _salt `Prelude.hashWithSalt` logRoleArn
+    _salt
+      `Prelude.hashWithSalt` logRoleArn
       `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData LoggingConfig where

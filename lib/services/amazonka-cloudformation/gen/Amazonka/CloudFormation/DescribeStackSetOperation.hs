@@ -166,7 +166,8 @@ instance Core.AWSRequest DescribeStackSetOperation where
 
 instance Prelude.Hashable DescribeStackSetOperation where
   hashWithSalt _salt DescribeStackSetOperation' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` operationId
 

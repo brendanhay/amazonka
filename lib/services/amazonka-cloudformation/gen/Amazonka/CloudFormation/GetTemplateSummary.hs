@@ -263,24 +263,32 @@ instance Core.AWSRequest GetTemplateSummary where
       "GetTemplateSummaryResult"
       ( \s h x ->
           GetTemplateSummaryResponse'
-            Prelude.<$> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Capabilities"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "CapabilitiesReason")
-            Prelude.<*> ( x Data..@? "DeclaredTransforms"
+            Prelude.<*> ( x
+                            Data..@? "DeclaredTransforms"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Description")
             Prelude.<*> (x Data..@? "Metadata")
-            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Data.parseXMLList "member")
-                        )
-            Prelude.<*> ( x Data..@? "ResourceIdentifierSummaries"
+            Prelude.<*> ( x
+                            Data..@? "Parameters"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "ResourceTypes" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "ResourceIdentifierSummaries"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
+                        )
+            Prelude.<*> ( x
+                            Data..@? "ResourceTypes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Version")
@@ -289,7 +297,8 @@ instance Core.AWSRequest GetTemplateSummary where
 
 instance Prelude.Hashable GetTemplateSummary where
   hashWithSalt _salt GetTemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` templateBody

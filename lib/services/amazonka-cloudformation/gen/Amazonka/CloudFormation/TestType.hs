@@ -245,7 +245,8 @@ instance Core.AWSRequest TestType where
 
 instance Prelude.Hashable TestType where
   hashWithSalt _salt TestType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` logDeliveryBucket
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName

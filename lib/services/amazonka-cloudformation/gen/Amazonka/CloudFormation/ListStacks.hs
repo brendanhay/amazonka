@@ -109,21 +109,23 @@ instance Core.AWSPager ListStacks where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listStacksResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listStacksResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStacksResponse_stackSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStacks_nextToken
           Lens..~ rs
-          Lens.^? listStacksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listStacksResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStacks where
   type AWSResponse ListStacks = ListStacksResponse
@@ -135,7 +137,9 @@ instance Core.AWSRequest ListStacks where
       ( \s h x ->
           ListStacksResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "StackSummaries" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "StackSummaries"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,7 +147,8 @@ instance Core.AWSRequest ListStacks where
 
 instance Prelude.Hashable ListStacks where
   hashWithSalt _salt ListStacks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackStatusFilter
 
 instance Prelude.NFData ListStacks where

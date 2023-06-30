@@ -179,7 +179,8 @@ instance Data.FromXML TypeConfigurationDetails where
 
 instance Prelude.Hashable TypeConfigurationDetails where
   hashWithSalt _salt TypeConfigurationDetails' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` isDefaultConfiguration

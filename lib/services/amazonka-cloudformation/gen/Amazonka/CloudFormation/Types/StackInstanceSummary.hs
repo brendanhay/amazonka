@@ -295,7 +295,8 @@ instance Data.FromXML StackInstanceSummary where
 
 instance Prelude.Hashable StackInstanceSummary where
   hashWithSalt _salt StackInstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` account
+    _salt
+      `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` driftStatus
       `Prelude.hashWithSalt` lastDriftCheckTimestamp
       `Prelude.hashWithSalt` lastOperationId

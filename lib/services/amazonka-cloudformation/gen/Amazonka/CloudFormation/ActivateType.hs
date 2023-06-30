@@ -300,7 +300,8 @@ instance Core.AWSRequest ActivateType where
 
 instance Prelude.Hashable ActivateType where
   hashWithSalt _salt ActivateType' {..} =
-    _salt `Prelude.hashWithSalt` autoUpdate
+    _salt
+      `Prelude.hashWithSalt` autoUpdate
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` loggingConfig
       `Prelude.hashWithSalt` majorVersion

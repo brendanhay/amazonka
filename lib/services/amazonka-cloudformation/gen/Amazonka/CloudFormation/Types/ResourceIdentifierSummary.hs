@@ -90,11 +90,13 @@ resourceIdentifierSummary_resourceType = Lens.lens (\ResourceIdentifierSummary' 
 instance Data.FromXML ResourceIdentifierSummary where
   parseXML x =
     ResourceIdentifierSummary'
-      Prelude.<$> ( x Data..@? "LogicalResourceIds"
+      Prelude.<$> ( x
+                      Data..@? "LogicalResourceIds"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "member")
                   )
-      Prelude.<*> ( x Data..@? "ResourceIdentifiers"
+      Prelude.<*> ( x
+                      Data..@? "ResourceIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -102,7 +104,8 @@ instance Data.FromXML ResourceIdentifierSummary where
 
 instance Prelude.Hashable ResourceIdentifierSummary where
   hashWithSalt _salt ResourceIdentifierSummary' {..} =
-    _salt `Prelude.hashWithSalt` logicalResourceIds
+    _salt
+      `Prelude.hashWithSalt` logicalResourceIds
       `Prelude.hashWithSalt` resourceIdentifiers
       `Prelude.hashWithSalt` resourceType
 

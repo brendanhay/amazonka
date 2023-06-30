@@ -245,7 +245,8 @@ instance Data.FromXML StackSetOperationSummary where
 
 instance Prelude.Hashable StackSetOperationSummary where
   hashWithSalt _salt StackSetOperationSummary' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` endTimestamp
       `Prelude.hashWithSalt` operationId

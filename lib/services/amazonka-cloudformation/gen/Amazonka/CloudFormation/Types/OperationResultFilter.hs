@@ -65,7 +65,8 @@ operationResultFilter_values = Lens.lens (\OperationResultFilter' {values} -> va
 
 instance Prelude.Hashable OperationResultFilter where
   hashWithSalt _salt OperationResultFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData OperationResultFilter where

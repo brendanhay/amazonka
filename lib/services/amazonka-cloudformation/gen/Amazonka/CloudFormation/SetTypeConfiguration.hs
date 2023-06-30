@@ -232,7 +232,8 @@ instance Core.AWSRequest SetTypeConfiguration where
 
 instance Prelude.Hashable SetTypeConfiguration where
   hashWithSalt _salt SetTypeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` configurationAlias
+    _salt
+      `Prelude.hashWithSalt` configurationAlias
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeArn
       `Prelude.hashWithSalt` typeName

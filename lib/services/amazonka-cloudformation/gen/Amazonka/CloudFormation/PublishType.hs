@@ -191,7 +191,8 @@ instance Core.AWSRequest PublishType where
 
 instance Prelude.Hashable PublishType where
   hashWithSalt _salt PublishType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` publicVersionNumber
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName

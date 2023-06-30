@@ -669,7 +669,8 @@ instance Core.AWSRequest CreateStackSet where
 
 instance Prelude.Hashable CreateStackSet where
   hashWithSalt _salt CreateStackSet' {..} =
-    _salt `Prelude.hashWithSalt` administrationRoleARN
+    _salt
+      `Prelude.hashWithSalt` administrationRoleARN
       `Prelude.hashWithSalt` autoDeployment
       `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` capabilities

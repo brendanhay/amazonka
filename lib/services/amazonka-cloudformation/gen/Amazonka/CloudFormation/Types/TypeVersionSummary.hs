@@ -183,7 +183,8 @@ instance Data.FromXML TypeVersionSummary where
 
 instance Prelude.Hashable TypeVersionSummary where
   hashWithSalt _salt TypeVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isDefaultVersion
       `Prelude.hashWithSalt` publicVersionNumber

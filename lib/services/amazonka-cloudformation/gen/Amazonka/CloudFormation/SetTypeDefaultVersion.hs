@@ -147,7 +147,8 @@ instance Core.AWSRequest SetTypeDefaultVersion where
 
 instance Prelude.Hashable SetTypeDefaultVersion where
   hashWithSalt _salt SetTypeDefaultVersion' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` versionId

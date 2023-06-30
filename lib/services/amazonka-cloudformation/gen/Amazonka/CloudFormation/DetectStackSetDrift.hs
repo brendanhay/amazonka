@@ -28,7 +28,7 @@
 --
 -- @DetectStackSetDrift@ returns the @OperationId@ of the stack set drift
 -- detection operation. Use this operation id with
--- @ DescribeStackSetOperation @ to monitor the progress of the drift
+-- @ @@DescribeStackSetOperation@@ @ to monitor the progress of the drift
 -- detection operation. The drift detection operation may take some time,
 -- depending on the number of stack instances included in the stack set, in
 -- addition to the number of resources included in each stack.
@@ -36,18 +36,18 @@
 -- Once the operation has completed, use the following actions to return
 -- drift information:
 --
--- -   Use @ DescribeStackSet @ to return detailed information about the
---     stack set, including detailed information about the last /completed/
---     drift operation performed on the stack set. (Information about drift
---     operations that are in progress isn\'t included.)
+-- -   Use @ @@DescribeStackSet@@ @ to return detailed information about
+--     the stack set, including detailed information about the last
+--     /completed/ drift operation performed on the stack set. (Information
+--     about drift operations that are in progress isn\'t included.)
 --
--- -   Use @ ListStackInstances @ to return a list of stack instances
+-- -   Use @ @@ListStackInstances@@ @ to return a list of stack instances
 --     belonging to the stack set, including the drift status and last
 --     drift time checked of each instance.
 --
--- -   Use @ DescribeStackInstance @ to return detailed information about a
---     specific stack instance, including its drift status and last drift
---     time checked.
+-- -   Use @ @@DescribeStackInstance@@ @ to return detailed information
+--     about a specific stack instance, including its drift status and last
+--     drift time checked.
 --
 -- For more information about performing a drift detection operation on a
 -- stack set, see
@@ -57,7 +57,7 @@
 -- at one time.
 --
 -- To stop a drift detection stack set operation, use
--- @ StopStackSetOperation @.
+-- @ @@StopStackSetOperation@@ @.
 module Amazonka.CloudFormation.DetectStackSetDrift
   ( -- * Creating a Request
     DetectStackSetDrift (..),
@@ -207,7 +207,8 @@ instance Core.AWSRequest DetectStackSetDrift where
 
 instance Prelude.Hashable DetectStackSetDrift where
   hashWithSalt _salt DetectStackSetDrift' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` operationId
       `Prelude.hashWithSalt` operationPreferences
       `Prelude.hashWithSalt` stackSetName
@@ -242,7 +243,7 @@ instance Data.ToQuery DetectStackSetDrift where
 data DetectStackSetDriftResponse = DetectStackSetDriftResponse'
   { -- | The ID of the drift detection stack set operation.
     --
-    -- You can use this operation ID with @ DescribeStackSetOperation @ to
+    -- You can use this operation ID with @ @@DescribeStackSetOperation@@ @ to
     -- monitor the progress of the drift detection operation.
     operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -260,7 +261,7 @@ data DetectStackSetDriftResponse = DetectStackSetDriftResponse'
 --
 -- 'operationId', 'detectStackSetDriftResponse_operationId' - The ID of the drift detection stack set operation.
 --
--- You can use this operation ID with @ DescribeStackSetOperation @ to
+-- You can use this operation ID with @ @@DescribeStackSetOperation@@ @ to
 -- monitor the progress of the drift detection operation.
 --
 -- 'httpStatus', 'detectStackSetDriftResponse_httpStatus' - The response's http status code.
@@ -277,7 +278,7 @@ newDetectStackSetDriftResponse pHttpStatus_ =
 
 -- | The ID of the drift detection stack set operation.
 --
--- You can use this operation ID with @ DescribeStackSetOperation @ to
+-- You can use this operation ID with @ @@DescribeStackSetOperation@@ @ to
 -- monitor the progress of the drift detection operation.
 detectStackSetDriftResponse_operationId :: Lens.Lens' DetectStackSetDriftResponse (Prelude.Maybe Prelude.Text)
 detectStackSetDriftResponse_operationId = Lens.lens (\DetectStackSetDriftResponse' {operationId} -> operationId) (\s@DetectStackSetDriftResponse' {} a -> s {operationId = a} :: DetectStackSetDriftResponse)

@@ -222,7 +222,8 @@ instance Data.FromXML StackSummary where
 
 instance Prelude.Hashable StackSummary where
   hashWithSalt _salt StackSummary' {..} =
-    _salt `Prelude.hashWithSalt` deletionTime
+    _salt
+      `Prelude.hashWithSalt` deletionTime
       `Prelude.hashWithSalt` driftInformation
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` parentId

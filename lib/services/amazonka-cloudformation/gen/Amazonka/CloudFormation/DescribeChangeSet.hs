@@ -136,22 +136,22 @@ instance Core.AWSPager DescribeChangeSet where
     | Core.stop
         ( rs
             Lens.^? describeChangeSetResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeChangeSetResponse_changes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeChangeSet_nextToken
           Lens..~ rs
           Lens.^? describeChangeSetResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeChangeSet where
   type
@@ -164,12 +164,16 @@ instance Core.AWSRequest DescribeChangeSet where
       "DescribeChangeSetResult"
       ( \s h x ->
           DescribeChangeSetResponse'
-            Prelude.<$> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Capabilities"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ChangeSetId")
             Prelude.<*> (x Data..@? "ChangeSetName")
-            Prelude.<*> ( x Data..@? "Changes" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Changes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "CreationTime")
@@ -177,11 +181,14 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (x Data..@? "ExecutionStatus")
             Prelude.<*> (x Data..@? "IncludeNestedStacks")
             Prelude.<*> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "NotificationARNs"
+            Prelude.<*> ( x
+                            Data..@? "NotificationARNs"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Parameters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ParentChangeSetId")
@@ -190,7 +197,9 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (x Data..@? "StackId")
             Prelude.<*> (x Data..@? "StackName")
             Prelude.<*> (x Data..@? "StatusReason")
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,7 +208,8 @@ instance Core.AWSRequest DescribeChangeSet where
 
 instance Prelude.Hashable DescribeChangeSet where
   hashWithSalt _salt DescribeChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` changeSetName
 

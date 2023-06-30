@@ -41,7 +41,7 @@ data TypeSummary = TypeSummary'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
     --
     -- To set the default version of an extension, use
-    -- @ SetTypeDefaultVersion @.
+    -- @ @@SetTypeDefaultVersion@@ @.
     defaultVersionId :: Prelude.Maybe Prelude.Text,
     -- | The description of the extension.
     description :: Prelude.Maybe Prelude.Text,
@@ -141,7 +141,7 @@ data TypeSummary = TypeSummary'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- To set the default version of an extension, use
--- @ SetTypeDefaultVersion @.
+-- @ @@SetTypeDefaultVersion@@ @.
 --
 -- 'description', 'typeSummary_description' - The description of the extension.
 --
@@ -248,7 +248,7 @@ newTypeSummary =
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- To set the default version of an extension, use
--- @ SetTypeDefaultVersion @.
+-- @ @@SetTypeDefaultVersion@@ @.
 typeSummary_defaultVersionId :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.Text)
 typeSummary_defaultVersionId = Lens.lens (\TypeSummary' {defaultVersionId} -> defaultVersionId) (\s@TypeSummary' {} a -> s {defaultVersionId = a} :: TypeSummary)
 
@@ -372,7 +372,8 @@ instance Data.FromXML TypeSummary where
 
 instance Prelude.Hashable TypeSummary where
   hashWithSalt _salt TypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` defaultVersionId
+    _salt
+      `Prelude.hashWithSalt` defaultVersionId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isActivated
       `Prelude.hashWithSalt` lastUpdated

@@ -306,7 +306,8 @@ instance Data.FromXML StackInstance where
       Prelude.<*> (x Data..@? "LastDriftCheckTimestamp")
       Prelude.<*> (x Data..@? "LastOperationId")
       Prelude.<*> (x Data..@? "OrganizationalUnitId")
-      Prelude.<*> ( x Data..@? "ParameterOverrides"
+      Prelude.<*> ( x
+                      Data..@? "ParameterOverrides"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -319,7 +320,8 @@ instance Data.FromXML StackInstance where
 
 instance Prelude.Hashable StackInstance where
   hashWithSalt _salt StackInstance' {..} =
-    _salt `Prelude.hashWithSalt` account
+    _salt
+      `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` driftStatus
       `Prelude.hashWithSalt` lastDriftCheckTimestamp
       `Prelude.hashWithSalt` lastOperationId

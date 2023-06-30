@@ -360,7 +360,9 @@ stack_stackStatus = Lens.lens (\Stack' {stackStatus} -> stackStatus) (\s@Stack' 
 instance Data.FromXML Stack where
   parseXML x =
     Stack'
-      Prelude.<$> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Capabilities"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ChangeSetId")
@@ -370,14 +372,19 @@ instance Data.FromXML Stack where
       Prelude.<*> (x Data..@? "DriftInformation")
       Prelude.<*> (x Data..@? "EnableTerminationProtection")
       Prelude.<*> (x Data..@? "LastUpdatedTime")
-      Prelude.<*> ( x Data..@? "NotificationARNs"
+      Prelude.<*> ( x
+                      Data..@? "NotificationARNs"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "Outputs" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Outputs"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Parameters"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ParentId")
@@ -386,7 +393,9 @@ instance Data.FromXML Stack where
       Prelude.<*> (x Data..@? "RootId")
       Prelude.<*> (x Data..@? "StackId")
       Prelude.<*> (x Data..@? "StackStatusReason")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "TimeoutInMinutes")
@@ -396,7 +405,8 @@ instance Data.FromXML Stack where
 
 instance Prelude.Hashable Stack where
   hashWithSalt _salt Stack' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` changeSetId
       `Prelude.hashWithSalt` deletionTime
       `Prelude.hashWithSalt` description

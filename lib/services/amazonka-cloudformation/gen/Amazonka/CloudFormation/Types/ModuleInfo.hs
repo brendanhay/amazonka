@@ -133,7 +133,8 @@ instance Data.FromXML ModuleInfo where
 
 instance Prelude.Hashable ModuleInfo where
   hashWithSalt _salt ModuleInfo' {..} =
-    _salt `Prelude.hashWithSalt` logicalIdHierarchy
+    _salt
+      `Prelude.hashWithSalt` logicalIdHierarchy
       `Prelude.hashWithSalt` typeHierarchy
 
 instance Prelude.NFData ModuleInfo where

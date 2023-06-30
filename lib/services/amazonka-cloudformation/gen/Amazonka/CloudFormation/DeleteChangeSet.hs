@@ -118,7 +118,8 @@ instance Core.AWSRequest DeleteChangeSet where
 
 instance Prelude.Hashable DeleteChangeSet where
   hashWithSalt _salt DeleteChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` stackName
+    _salt
+      `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` changeSetName
 
 instance Prelude.NFData DeleteChangeSet where

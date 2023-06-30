@@ -100,14 +100,18 @@ instance
       "BatchDescribeTypeConfigurationsResult"
       ( \s h x ->
           BatchDescribeTypeConfigurationsResponse'
-            Prelude.<$> ( x Data..@? "Errors" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Data.parseXMLList "member")
-                        )
-            Prelude.<*> ( x Data..@? "TypeConfigurations"
+            Prelude.<$> ( x
+                            Data..@? "Errors"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "UnprocessedTypeConfigurations"
+            Prelude.<*> ( x
+                            Data..@? "TypeConfigurations"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
+                        )
+            Prelude.<*> ( x
+                            Data..@? "UnprocessedTypeConfigurations"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )

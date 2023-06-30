@@ -115,7 +115,8 @@ instance Data.FromXML ParameterDeclaration where
 
 instance Prelude.Hashable ParameterDeclaration where
   hashWithSalt _salt ParameterDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` noEcho
       `Prelude.hashWithSalt` parameterConstraints

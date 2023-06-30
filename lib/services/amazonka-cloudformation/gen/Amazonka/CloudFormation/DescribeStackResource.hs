@@ -142,7 +142,8 @@ instance Core.AWSRequest DescribeStackResource where
 
 instance Prelude.Hashable DescribeStackResource where
   hashWithSalt _salt DescribeStackResource' {..} =
-    _salt `Prelude.hashWithSalt` stackName
+    _salt
+      `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` logicalResourceId
 
 instance Prelude.NFData DescribeStackResource where

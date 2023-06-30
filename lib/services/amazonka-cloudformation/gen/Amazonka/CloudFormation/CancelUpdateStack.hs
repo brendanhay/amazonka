@@ -112,7 +112,8 @@ instance Core.AWSRequest CancelUpdateStack where
 
 instance Prelude.Hashable CancelUpdateStack where
   hashWithSalt _salt CancelUpdateStack' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData CancelUpdateStack where

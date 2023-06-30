@@ -133,7 +133,8 @@ instance Data.FromXML TypeConfigurationIdentifier where
 
 instance Prelude.Hashable TypeConfigurationIdentifier where
   hashWithSalt _salt TypeConfigurationIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeArn
       `Prelude.hashWithSalt` typeConfigurationAlias
       `Prelude.hashWithSalt` typeConfigurationArn

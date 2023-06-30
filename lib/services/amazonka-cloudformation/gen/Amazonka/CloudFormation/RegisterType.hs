@@ -41,9 +41,9 @@
 -- <AWSCloudFormation/latest/APIReference/API_DeregisterType.html DeregisterType>
 -- to deregister specific extension versions if necessary.
 --
--- Once you have initiated a registration request using @ RegisterType @,
--- you can use @ DescribeTypeRegistration @ to monitor the progress of the
--- registration request.
+-- Once you have initiated a registration request using
+-- @ @@RegisterType@@ @, you can use @ @@DescribeTypeRegistration@@ @ to
+-- monitor the progress of the registration request.
 --
 -- Once you have registered a private extension in your account and region,
 -- use
@@ -348,7 +348,8 @@ instance Core.AWSRequest RegisterType where
 
 instance Prelude.Hashable RegisterType where
   hashWithSalt _salt RegisterType' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` loggingConfig
       `Prelude.hashWithSalt` type'
@@ -389,9 +390,9 @@ instance Data.ToQuery RegisterType where
 data RegisterTypeResponse = RegisterTypeResponse'
   { -- | The identifier for this registration request.
     --
-    -- Use this registration token when calling @ DescribeTypeRegistration @,
-    -- which returns information about the status and IDs of the extension
-    -- registration.
+    -- Use this registration token when calling
+    -- @ @@DescribeTypeRegistration@@ @, which returns information about the
+    -- status and IDs of the extension registration.
     registrationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -408,9 +409,9 @@ data RegisterTypeResponse = RegisterTypeResponse'
 --
 -- 'registrationToken', 'registerTypeResponse_registrationToken' - The identifier for this registration request.
 --
--- Use this registration token when calling @ DescribeTypeRegistration @,
--- which returns information about the status and IDs of the extension
--- registration.
+-- Use this registration token when calling
+-- @ @@DescribeTypeRegistration@@ @, which returns information about the
+-- status and IDs of the extension registration.
 --
 -- 'httpStatus', 'registerTypeResponse_httpStatus' - The response's http status code.
 newRegisterTypeResponse ::
@@ -426,9 +427,9 @@ newRegisterTypeResponse pHttpStatus_ =
 
 -- | The identifier for this registration request.
 --
--- Use this registration token when calling @ DescribeTypeRegistration @,
--- which returns information about the status and IDs of the extension
--- registration.
+-- Use this registration token when calling
+-- @ @@DescribeTypeRegistration@@ @, which returns information about the
+-- status and IDs of the extension registration.
 registerTypeResponse_registrationToken :: Lens.Lens' RegisterTypeResponse (Prelude.Maybe Prelude.Text)
 registerTypeResponse_registrationToken = Lens.lens (\RegisterTypeResponse' {registrationToken} -> registrationToken) (\s@RegisterTypeResponse' {} a -> s {registrationToken = a} :: RegisterTypeResponse)
 

@@ -152,7 +152,8 @@ instance Core.AWSRequest SignalResource where
 
 instance Prelude.Hashable SignalResource where
   hashWithSalt _salt SignalResource' {..} =
-    _salt `Prelude.hashWithSalt` stackName
+    _salt
+      `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` logicalResourceId
       `Prelude.hashWithSalt` uniqueId
       `Prelude.hashWithSalt` status

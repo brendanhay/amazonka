@@ -125,13 +125,13 @@ instance
       ( \s h x ->
           DescribeStackDriftDetectionStatusResponse'
             Prelude.<$> (x Data..@? "DetectionStatusReason")
-              Prelude.<*> (x Data..@? "DriftedStackResourceCount")
-              Prelude.<*> (x Data..@? "StackDriftStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..@ "StackId")
-              Prelude.<*> (x Data..@ "StackDriftDetectionId")
-              Prelude.<*> (x Data..@ "DetectionStatus")
-              Prelude.<*> (x Data..@ "Timestamp")
+            Prelude.<*> (x Data..@? "DriftedStackResourceCount")
+            Prelude.<*> (x Data..@? "StackDriftStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@ "StackId")
+            Prelude.<*> (x Data..@ "StackDriftDetectionId")
+            Prelude.<*> (x Data..@ "DetectionStatus")
+            Prelude.<*> (x Data..@ "Timestamp")
       )
 
 instance

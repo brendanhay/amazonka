@@ -95,7 +95,8 @@ instance Data.FromXML Export where
 
 instance Prelude.Hashable Export where
   hashWithSalt _salt Export' {..} =
-    _salt `Prelude.hashWithSalt` exportingStackId
+    _salt
+      `Prelude.hashWithSalt` exportingStackId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

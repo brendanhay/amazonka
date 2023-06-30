@@ -181,7 +181,8 @@ instance Core.AWSRequest DescribeStackResourceDrifts where
           DescribeStackResourceDriftsResponse'
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "StackResourceDrifts"
+            Prelude.<*> ( x
+                            Data..@? "StackResourceDrifts"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
@@ -189,7 +190,8 @@ instance Core.AWSRequest DescribeStackResourceDrifts where
 
 instance Prelude.Hashable DescribeStackResourceDrifts where
   hashWithSalt _salt DescribeStackResourceDrifts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackResourceDriftStatusFilters
       `Prelude.hashWithSalt` stackName

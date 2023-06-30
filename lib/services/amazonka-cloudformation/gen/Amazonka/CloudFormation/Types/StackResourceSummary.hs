@@ -174,7 +174,8 @@ instance Data.FromXML StackResourceSummary where
 
 instance Prelude.Hashable StackResourceSummary where
   hashWithSalt _salt StackResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` driftInformation
+    _salt
+      `Prelude.hashWithSalt` driftInformation
       `Prelude.hashWithSalt` moduleInfo
       `Prelude.hashWithSalt` physicalResourceId
       `Prelude.hashWithSalt` resourceStatusReason

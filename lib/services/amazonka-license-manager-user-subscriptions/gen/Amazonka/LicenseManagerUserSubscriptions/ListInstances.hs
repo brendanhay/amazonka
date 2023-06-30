@@ -104,21 +104,23 @@ instance Core.AWSPager ListInstances where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listInstancesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listInstancesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInstancesResponse_instanceSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInstances_nextToken
           Lens..~ rs
-          Lens.^? listInstancesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listInstancesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstances where
   type
@@ -130,7 +132,8 @@ instance Core.AWSRequest ListInstances where
     Response.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            Prelude.<$> ( x Data..?> "InstanceSummaries"
+            Prelude.<$> ( x
+                            Data..?> "InstanceSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -139,7 +142,8 @@ instance Core.AWSRequest ListInstances where
 
 instance Prelude.Hashable ListInstances where
   hashWithSalt _salt ListInstances' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

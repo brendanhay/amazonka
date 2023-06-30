@@ -130,7 +130,8 @@ instance Core.AWSRequest StopProductSubscription where
 
 instance Prelude.Hashable StopProductSubscription where
   hashWithSalt _salt StopProductSubscription' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` product
       `Prelude.hashWithSalt` username

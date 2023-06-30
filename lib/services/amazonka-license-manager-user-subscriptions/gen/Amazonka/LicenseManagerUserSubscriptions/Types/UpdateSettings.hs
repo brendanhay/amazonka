@@ -83,7 +83,8 @@ updateSettings_removeSubnets = Lens.lens (\UpdateSettings' {removeSubnets} -> re
 
 instance Prelude.Hashable UpdateSettings where
   hashWithSalt _salt UpdateSettings' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupId
+    _salt
+      `Prelude.hashWithSalt` securityGroupId
       `Prelude.hashWithSalt` addSubnets
       `Prelude.hashWithSalt` removeSubnets
 

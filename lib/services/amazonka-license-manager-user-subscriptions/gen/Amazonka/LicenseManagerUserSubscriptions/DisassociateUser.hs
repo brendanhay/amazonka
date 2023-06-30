@@ -130,7 +130,8 @@ instance Core.AWSRequest DisassociateUser where
 
 instance Prelude.Hashable DisassociateUser where
   hashWithSalt _salt DisassociateUser' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` username

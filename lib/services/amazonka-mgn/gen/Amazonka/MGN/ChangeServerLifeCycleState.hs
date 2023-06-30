@@ -118,7 +118,8 @@ instance Core.AWSRequest ChangeServerLifeCycleState where
 
 instance Prelude.Hashable ChangeServerLifeCycleState where
   hashWithSalt _salt ChangeServerLifeCycleState' {..} =
-    _salt `Prelude.hashWithSalt` lifeCycle
+    _salt
+      `Prelude.hashWithSalt` lifeCycle
       `Prelude.hashWithSalt` sourceServerID
 
 instance Prelude.NFData ChangeServerLifeCycleState where

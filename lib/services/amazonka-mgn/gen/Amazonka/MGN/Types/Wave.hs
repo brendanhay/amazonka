@@ -143,7 +143,8 @@ instance Data.FromJSON Wave where
 
 instance Prelude.Hashable Wave where
   hashWithSalt _salt Wave' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isArchived

@@ -300,7 +300,8 @@ instance
   hashWithSalt
     _salt
     CreateReplicationConfigurationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` ebsEncryptionKeyArn
+      _salt
+        `Prelude.hashWithSalt` ebsEncryptionKeyArn
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` associateDefaultSecurityGroup
         `Prelude.hashWithSalt` bandwidthThrottling

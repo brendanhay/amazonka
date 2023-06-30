@@ -106,7 +106,8 @@ instance Core.AWSRequest AssociateSourceServers where
 
 instance Prelude.Hashable AssociateSourceServers where
   hashWithSalt _salt AssociateSourceServers' {..} =
-    _salt `Prelude.hashWithSalt` applicationID
+    _salt
+      `Prelude.hashWithSalt` applicationID
       `Prelude.hashWithSalt` sourceServerIDs
 
 instance Prelude.NFData AssociateSourceServers where

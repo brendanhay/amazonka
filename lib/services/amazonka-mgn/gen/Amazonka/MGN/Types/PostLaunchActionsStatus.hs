@@ -74,7 +74,8 @@ instance Data.FromJSON PostLaunchActionsStatus where
       "PostLaunchActionsStatus"
       ( \x ->
           PostLaunchActionsStatus'
-            Prelude.<$> ( x Data..:? "postLaunchActionsLaunchStatusList"
+            Prelude.<$> ( x
+                            Data..:? "postLaunchActionsLaunchStatusList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ssmAgentDiscoveryDatetime")

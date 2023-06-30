@@ -144,7 +144,8 @@ instance Data.FromJSON SourceServerActionDocument where
 
 instance Prelude.Hashable SourceServerActionDocument where
   hashWithSalt _salt SourceServerActionDocument' {..} =
-    _salt `Prelude.hashWithSalt` actionID
+    _salt
+      `Prelude.hashWithSalt` actionID
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` documentIdentifier

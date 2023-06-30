@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateWave where
 
 instance Prelude.Hashable UpdateWave where
   hashWithSalt _salt UpdateWave' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` waveID
 

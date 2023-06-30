@@ -105,7 +105,8 @@ instance Data.FromJSON IdentificationHints where
 
 instance Prelude.Hashable IdentificationHints where
   hashWithSalt _salt IdentificationHints' {..} =
-    _salt `Prelude.hashWithSalt` awsInstanceID
+    _salt
+      `Prelude.hashWithSalt` awsInstanceID
       `Prelude.hashWithSalt` fqdn
       `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` vmPath

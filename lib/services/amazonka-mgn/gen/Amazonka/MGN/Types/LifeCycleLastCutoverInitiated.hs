@@ -54,7 +54,6 @@ newLifeCycleLastCutoverInitiated =
       jobID = Prelude.Nothing
     }
 
--- |
 lifeCycleLastCutoverInitiated_apiCallDateTime :: Lens.Lens' LifeCycleLastCutoverInitiated (Prelude.Maybe Prelude.Text)
 lifeCycleLastCutoverInitiated_apiCallDateTime = Lens.lens (\LifeCycleLastCutoverInitiated' {apiCallDateTime} -> apiCallDateTime) (\s@LifeCycleLastCutoverInitiated' {} a -> s {apiCallDateTime = a} :: LifeCycleLastCutoverInitiated)
 
@@ -77,7 +76,8 @@ instance
     LifeCycleLastCutoverInitiated
   where
   hashWithSalt _salt LifeCycleLastCutoverInitiated' {..} =
-    _salt `Prelude.hashWithSalt` apiCallDateTime
+    _salt
+      `Prelude.hashWithSalt` apiCallDateTime
       `Prelude.hashWithSalt` jobID
 
 instance Prelude.NFData LifeCycleLastCutoverInitiated where

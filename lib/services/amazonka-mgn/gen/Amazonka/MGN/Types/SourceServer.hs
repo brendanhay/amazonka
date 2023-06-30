@@ -167,7 +167,8 @@ instance Data.FromJSON SourceServer where
 
 instance Prelude.Hashable SourceServer where
   hashWithSalt _salt SourceServer' {..} =
-    _salt `Prelude.hashWithSalt` applicationID
+    _salt
+      `Prelude.hashWithSalt` applicationID
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataReplicationInfo
       `Prelude.hashWithSalt` isArchived

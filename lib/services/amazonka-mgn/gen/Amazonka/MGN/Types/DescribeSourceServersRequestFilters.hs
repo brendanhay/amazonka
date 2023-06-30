@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     DescribeSourceServersRequestFilters' {..} =
-      _salt `Prelude.hashWithSalt` applicationIDs
+      _salt
+        `Prelude.hashWithSalt` applicationIDs
         `Prelude.hashWithSalt` isArchived
         `Prelude.hashWithSalt` lifeCycleStates
         `Prelude.hashWithSalt` replicationTypes

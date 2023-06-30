@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     JobPostLaunchActionsLaunchStatus' {..} =
-      _salt `Prelude.hashWithSalt` executionID
+      _salt
+        `Prelude.hashWithSalt` executionID
         `Prelude.hashWithSalt` executionStatus
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` ssmDocument

@@ -101,20 +101,23 @@ instance Core.AWSPager ListWaves where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listWavesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listWavesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listWavesResponse_items Prelude.. Lens._Just
+            Lens.^? listWavesResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWaves_nextToken
           Lens..~ rs
-          Lens.^? listWavesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listWavesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWaves where
   type AWSResponse ListWaves = ListWavesResponse
@@ -131,7 +134,8 @@ instance Core.AWSRequest ListWaves where
 
 instance Prelude.Hashable ListWaves where
   hashWithSalt _salt ListWaves' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

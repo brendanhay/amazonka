@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     UpdateSourceServerReplicationType' {..} =
-      _salt `Prelude.hashWithSalt` replicationType
+      _salt
+        `Prelude.hashWithSalt` replicationType
         `Prelude.hashWithSalt` sourceServerID
 
 instance

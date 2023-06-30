@@ -156,7 +156,8 @@ instance Data.FromJSON TemplateActionDocument where
 
 instance Prelude.Hashable TemplateActionDocument where
   hashWithSalt _salt TemplateActionDocument' {..} =
-    _salt `Prelude.hashWithSalt` actionID
+    _salt
+      `Prelude.hashWithSalt` actionID
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` documentIdentifier

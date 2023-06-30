@@ -107,7 +107,8 @@ instance Data.FromJSON PostLaunchActions where
 
 instance Prelude.Hashable PostLaunchActions where
   hashWithSalt _salt PostLaunchActions' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogGroupName
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogGroupName
       `Prelude.hashWithSalt` deployment
       `Prelude.hashWithSalt` s3LogBucket
       `Prelude.hashWithSalt` s3OutputKeyPrefix

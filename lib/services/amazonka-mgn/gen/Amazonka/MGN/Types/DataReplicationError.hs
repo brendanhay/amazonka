@@ -75,7 +75,8 @@ instance Data.FromJSON DataReplicationError where
 
 instance Prelude.Hashable DataReplicationError where
   hashWithSalt _salt DataReplicationError' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` rawError
 
 instance Prelude.NFData DataReplicationError where

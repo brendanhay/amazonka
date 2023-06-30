@@ -131,7 +131,8 @@ instance Data.FromJSON SourceProperties where
             Prelude.<*> (x Data..:? "disks" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "identificationHints")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
-            Prelude.<*> ( x Data..:? "networkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "os")
@@ -141,7 +142,8 @@ instance Data.FromJSON SourceProperties where
 
 instance Prelude.Hashable SourceProperties where
   hashWithSalt _salt SourceProperties' {..} =
-    _salt `Prelude.hashWithSalt` cpus
+    _salt
+      `Prelude.hashWithSalt` cpus
       `Prelude.hashWithSalt` disks
       `Prelude.hashWithSalt` identificationHints
       `Prelude.hashWithSalt` lastUpdatedDateTime

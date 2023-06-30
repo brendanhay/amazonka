@@ -75,7 +75,8 @@ instance Data.FromJSON LifeCycleLastTestInitiated where
 
 instance Prelude.Hashable LifeCycleLastTestInitiated where
   hashWithSalt _salt LifeCycleLastTestInitiated' {..} =
-    _salt `Prelude.hashWithSalt` apiCallDateTime
+    _salt
+      `Prelude.hashWithSalt` apiCallDateTime
       `Prelude.hashWithSalt` jobID
 
 instance Prelude.NFData LifeCycleLastTestInitiated where

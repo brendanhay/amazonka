@@ -113,7 +113,8 @@ instance Core.AWSRequest CreateWave where
 
 instance Prelude.Hashable CreateWave where
   hashWithSalt _salt CreateWave' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 

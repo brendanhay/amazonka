@@ -73,7 +73,8 @@ firehoseLogDelivery_enabled = Lens.lens (\FirehoseLogDelivery' {enabled} -> enab
 
 instance Prelude.Hashable FirehoseLogDelivery where
   hashWithSalt _salt FirehoseLogDelivery' {..} =
-    _salt `Prelude.hashWithSalt` deliveryStream
+    _salt
+      `Prelude.hashWithSalt` deliveryStream
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData FirehoseLogDelivery where

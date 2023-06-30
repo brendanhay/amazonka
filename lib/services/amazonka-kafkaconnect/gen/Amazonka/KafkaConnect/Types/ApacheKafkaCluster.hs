@@ -74,7 +74,8 @@ apacheKafkaCluster_vpc = Lens.lens (\ApacheKafkaCluster' {vpc} -> vpc) (\s@Apach
 
 instance Prelude.Hashable ApacheKafkaCluster where
   hashWithSalt _salt ApacheKafkaCluster' {..} =
-    _salt `Prelude.hashWithSalt` bootstrapServers
+    _salt
+      `Prelude.hashWithSalt` bootstrapServers
       `Prelude.hashWithSalt` vpc
 
 instance Prelude.NFData ApacheKafkaCluster where

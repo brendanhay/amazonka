@@ -106,7 +106,8 @@ instance Data.FromJSON WorkerConfigurationSummary where
 
 instance Prelude.Hashable WorkerConfigurationSummary where
   hashWithSalt _salt WorkerConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` latestRevision
       `Prelude.hashWithSalt` name

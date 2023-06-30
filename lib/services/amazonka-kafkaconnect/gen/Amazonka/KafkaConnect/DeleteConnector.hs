@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteConnector where
 
 instance Prelude.Hashable DeleteConnector where
   hashWithSalt _salt DeleteConnector' {..} =
-    _salt `Prelude.hashWithSalt` currentVersion
+    _salt
+      `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` connectorArn
 
 instance Prelude.NFData DeleteConnector where

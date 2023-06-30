@@ -64,7 +64,8 @@ vpc_subnets = Lens.lens (\Vpc' {subnets} -> subnets) (\s@Vpc' {} a -> s {subnets
 
 instance Prelude.Hashable Vpc where
   hashWithSalt _salt Vpc' {..} =
-    _salt `Prelude.hashWithSalt` securityGroups
+    _salt
+      `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData Vpc where

@@ -110,7 +110,8 @@ instance Data.FromJSON AutoScalingDescription where
 
 instance Prelude.Hashable AutoScalingDescription where
   hashWithSalt _salt AutoScalingDescription' {..} =
-    _salt `Prelude.hashWithSalt` maxWorkerCount
+    _salt
+      `Prelude.hashWithSalt` maxWorkerCount
       `Prelude.hashWithSalt` mcuCount
       `Prelude.hashWithSalt` minWorkerCount
       `Prelude.hashWithSalt` scaleInPolicy

@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     ProvisionedCapacityDescription' {..} =
-      _salt `Prelude.hashWithSalt` mcuCount
+      _salt
+        `Prelude.hashWithSalt` mcuCount
         `Prelude.hashWithSalt` workerCount
 
 instance

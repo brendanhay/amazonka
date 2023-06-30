@@ -100,22 +100,22 @@ instance Core.AWSPager ListWorkerConfigurations where
     | Core.stop
         ( rs
             Lens.^? listWorkerConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listWorkerConfigurationsResponse_workerConfigurations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWorkerConfigurations_nextToken
           Lens..~ rs
           Lens.^? listWorkerConfigurationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkerConfigurations where
   type
@@ -128,7 +128,8 @@ instance Core.AWSRequest ListWorkerConfigurations where
       ( \s h x ->
           ListWorkerConfigurationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "workerConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "workerConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,7 +137,8 @@ instance Core.AWSRequest ListWorkerConfigurations where
 
 instance Prelude.Hashable ListWorkerConfigurations where
   hashWithSalt _salt ListWorkerConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkerConfigurations where

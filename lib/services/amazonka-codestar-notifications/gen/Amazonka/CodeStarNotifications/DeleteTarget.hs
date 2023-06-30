@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteTarget where
 
 instance Prelude.Hashable DeleteTarget where
   hashWithSalt _salt DeleteTarget' {..} =
-    _salt `Prelude.hashWithSalt` forceUnsubscribeAll
+    _salt
+      `Prelude.hashWithSalt` forceUnsubscribeAll
       `Prelude.hashWithSalt` targetAddress
 
 instance Prelude.NFData DeleteTarget where

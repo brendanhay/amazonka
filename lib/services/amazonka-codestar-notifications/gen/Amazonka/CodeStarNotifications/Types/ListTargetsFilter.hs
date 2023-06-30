@@ -79,7 +79,8 @@ listTargetsFilter_value = Lens.lens (\ListTargetsFilter' {value} -> value) (\s@L
 
 instance Prelude.Hashable ListTargetsFilter where
   hashWithSalt _salt ListTargetsFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ListTargetsFilter where

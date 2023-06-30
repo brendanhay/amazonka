@@ -171,7 +171,8 @@ startSelector_startSelectorType = Lens.lens (\StartSelector' {startSelectorType}
 
 instance Prelude.Hashable StartSelector where
   hashWithSalt _salt StartSelector' {..} =
-    _salt `Prelude.hashWithSalt` afterFragmentNumber
+    _salt
+      `Prelude.hashWithSalt` afterFragmentNumber
       `Prelude.hashWithSalt` continuationToken
       `Prelude.hashWithSalt` startTimestamp
       `Prelude.hashWithSalt` startSelectorType

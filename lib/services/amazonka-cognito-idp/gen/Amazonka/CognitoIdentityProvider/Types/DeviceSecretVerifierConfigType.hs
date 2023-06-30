@@ -70,7 +70,8 @@ instance
   hashWithSalt
     _salt
     DeviceSecretVerifierConfigType' {..} =
-      _salt `Prelude.hashWithSalt` passwordVerifier
+      _salt
+        `Prelude.hashWithSalt` passwordVerifier
         `Prelude.hashWithSalt` salt
 
 instance

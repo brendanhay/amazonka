@@ -452,7 +452,8 @@ instance Core.AWSRequest UpdateUserPool where
 
 instance Prelude.Hashable UpdateUserPool where
   hashWithSalt _salt UpdateUserPool' {..} =
-    _salt `Prelude.hashWithSalt` accountRecoverySetting
+    _salt
+      `Prelude.hashWithSalt` accountRecoverySetting
       `Prelude.hashWithSalt` adminCreateUserConfig
       `Prelude.hashWithSalt` autoVerifiedAttributes
       `Prelude.hashWithSalt` deletionProtection

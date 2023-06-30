@@ -81,7 +81,7 @@ instance
       ( \x ->
           CompromisedCredentialsRiskConfigurationType'
             Prelude.<$> (x Data..:? "EventFilter" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..: "Actions")
+            Prelude.<*> (x Data..: "Actions")
       )
 
 instance
@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     CompromisedCredentialsRiskConfigurationType' {..} =
-      _salt `Prelude.hashWithSalt` eventFilter
+      _salt
+        `Prelude.hashWithSalt` eventFilter
         `Prelude.hashWithSalt` actions
 
 instance

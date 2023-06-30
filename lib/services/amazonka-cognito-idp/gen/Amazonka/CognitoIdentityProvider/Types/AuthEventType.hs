@@ -138,7 +138,8 @@ instance Data.FromJSON AuthEventType where
       "AuthEventType"
       ( \x ->
           AuthEventType'
-            Prelude.<$> ( x Data..:? "ChallengeResponses"
+            Prelude.<$> ( x
+                            Data..:? "ChallengeResponses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreationDate")
@@ -152,7 +153,8 @@ instance Data.FromJSON AuthEventType where
 
 instance Prelude.Hashable AuthEventType where
   hashWithSalt _salt AuthEventType' {..} =
-    _salt `Prelude.hashWithSalt` challengeResponses
+    _salt
+      `Prelude.hashWithSalt` challengeResponses
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` eventContextData
       `Prelude.hashWithSalt` eventFeedback

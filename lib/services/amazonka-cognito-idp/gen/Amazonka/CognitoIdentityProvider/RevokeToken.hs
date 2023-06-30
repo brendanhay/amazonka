@@ -116,7 +116,8 @@ instance Core.AWSRequest RevokeToken where
 
 instance Prelude.Hashable RevokeToken where
   hashWithSalt _salt RevokeToken' {..} =
-    _salt `Prelude.hashWithSalt` clientSecret
+    _salt
+      `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` clientId
 

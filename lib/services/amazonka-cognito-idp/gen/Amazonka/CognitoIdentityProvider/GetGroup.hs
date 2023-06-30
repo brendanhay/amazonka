@@ -104,7 +104,8 @@ instance Core.AWSRequest GetGroup where
 
 instance Prelude.Hashable GetGroup where
   hashWithSalt _salt GetGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData GetGroup where

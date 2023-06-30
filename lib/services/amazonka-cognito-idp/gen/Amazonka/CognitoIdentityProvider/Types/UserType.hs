@@ -178,7 +178,8 @@ instance Data.FromJSON UserType where
 
 instance Prelude.Hashable UserType where
   hashWithSalt _salt UserType' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` mfaOptions
       `Prelude.hashWithSalt` userCreateDate

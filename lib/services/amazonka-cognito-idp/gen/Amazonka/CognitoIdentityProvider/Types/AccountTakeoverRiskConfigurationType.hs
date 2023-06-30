@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     AccountTakeoverRiskConfigurationType' {..} =
-      _salt `Prelude.hashWithSalt` notifyConfiguration
+      _salt
+        `Prelude.hashWithSalt` notifyConfiguration
         `Prelude.hashWithSalt` actions
 
 instance

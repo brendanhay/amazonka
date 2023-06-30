@@ -105,7 +105,8 @@ instance Data.FromJSON EventContextDataType where
 
 instance Prelude.Hashable EventContextDataType where
   hashWithSalt _salt EventContextDataType' {..} =
-    _salt `Prelude.hashWithSalt` city
+    _salt
+      `Prelude.hashWithSalt` city
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` ipAddress

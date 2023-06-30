@@ -125,7 +125,8 @@ instance Data.FromJSON UICustomizationType where
 
 instance Prelude.Hashable UICustomizationType where
   hashWithSalt _salt UICustomizationType' {..} =
-    _salt `Prelude.hashWithSalt` css
+    _salt
+      `Prelude.hashWithSalt` css
       `Prelude.hashWithSalt` cSSVersion
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` creationDate

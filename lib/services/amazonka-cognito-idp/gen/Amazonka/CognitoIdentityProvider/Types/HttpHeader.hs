@@ -64,7 +64,8 @@ httpHeader_headerValue = Lens.lens (\HttpHeader' {headerValue} -> headerValue) (
 
 instance Prelude.Hashable HttpHeader where
   hashWithSalt _salt HttpHeader' {..} =
-    _salt `Prelude.hashWithSalt` headerName
+    _salt
+      `Prelude.hashWithSalt` headerName
       `Prelude.hashWithSalt` headerValue
 
 instance Prelude.NFData HttpHeader where

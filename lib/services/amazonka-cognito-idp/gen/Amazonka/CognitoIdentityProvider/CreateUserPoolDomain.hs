@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateUserPoolDomain where
 
 instance Prelude.Hashable CreateUserPoolDomain where
   hashWithSalt _salt CreateUserPoolDomain' {..} =
-    _salt `Prelude.hashWithSalt` customDomainConfig
+    _salt
+      `Prelude.hashWithSalt` customDomainConfig
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` userPoolId
 

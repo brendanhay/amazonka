@@ -78,10 +78,12 @@ instance Data.FromJSON RiskExceptionConfigurationType where
       "RiskExceptionConfigurationType"
       ( \x ->
           RiskExceptionConfigurationType'
-            Prelude.<$> ( x Data..:? "BlockedIPRangeList"
+            Prelude.<$> ( x
+                            Data..:? "BlockedIPRangeList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SkippedIPRangeList"
+            Prelude.<*> ( x
+                            Data..:? "SkippedIPRangeList"
                             Data..!= Prelude.mempty
                         )
       )
@@ -93,7 +95,8 @@ instance
   hashWithSalt
     _salt
     RiskExceptionConfigurationType' {..} =
-      _salt `Prelude.hashWithSalt` blockedIPRangeList
+      _salt
+        `Prelude.hashWithSalt` blockedIPRangeList
         `Prelude.hashWithSalt` skippedIPRangeList
 
 instance

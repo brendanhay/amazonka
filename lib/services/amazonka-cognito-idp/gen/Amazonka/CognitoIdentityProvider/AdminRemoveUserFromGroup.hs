@@ -114,7 +114,8 @@ instance Core.AWSRequest AdminRemoveUserFromGroup where
 
 instance Prelude.Hashable AdminRemoveUserFromGroup where
   hashWithSalt _salt AdminRemoveUserFromGroup' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` groupName
 

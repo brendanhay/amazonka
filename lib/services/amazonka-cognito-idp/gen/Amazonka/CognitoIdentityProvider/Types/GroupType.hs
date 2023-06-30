@@ -169,7 +169,8 @@ instance Data.FromJSON GroupType where
 
 instance Prelude.Hashable GroupType where
   hashWithSalt _salt GroupType' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` lastModifiedDate

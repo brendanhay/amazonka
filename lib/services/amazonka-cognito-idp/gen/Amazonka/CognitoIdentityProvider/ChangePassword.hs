@@ -124,7 +124,8 @@ instance Core.AWSRequest ChangePassword where
 
 instance Prelude.Hashable ChangePassword where
   hashWithSalt _salt ChangePassword' {..} =
-    _salt `Prelude.hashWithSalt` previousPassword
+    _salt
+      `Prelude.hashWithSalt` previousPassword
       `Prelude.hashWithSalt` proposedPassword
       `Prelude.hashWithSalt` accessToken
 

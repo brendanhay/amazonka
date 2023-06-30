@@ -136,7 +136,8 @@ instance Core.AWSRequest AdminDisableProviderForUser where
 
 instance Prelude.Hashable AdminDisableProviderForUser where
   hashWithSalt _salt AdminDisableProviderForUser' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` user
 
 instance Prelude.NFData AdminDisableProviderForUser where

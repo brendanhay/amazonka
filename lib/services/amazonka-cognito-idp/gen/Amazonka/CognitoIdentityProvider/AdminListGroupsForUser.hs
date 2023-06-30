@@ -124,22 +124,22 @@ instance Core.AWSPager AdminListGroupsForUser where
     | Core.stop
         ( rs
             Lens.^? adminListGroupsForUserResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? adminListGroupsForUserResponse_groups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& adminListGroupsForUser_nextToken
           Lens..~ rs
           Lens.^? adminListGroupsForUserResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest AdminListGroupsForUser where
   type
@@ -158,7 +158,8 @@ instance Core.AWSRequest AdminListGroupsForUser where
 
 instance Prelude.Hashable AdminListGroupsForUser where
   hashWithSalt _salt AdminListGroupsForUser' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` userPoolId

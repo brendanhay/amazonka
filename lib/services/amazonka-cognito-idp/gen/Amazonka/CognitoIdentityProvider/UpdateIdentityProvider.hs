@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateIdentityProvider where
 
 instance Prelude.Hashable UpdateIdentityProvider where
   hashWithSalt _salt UpdateIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` attributeMapping
+    _salt
+      `Prelude.hashWithSalt` attributeMapping
       `Prelude.hashWithSalt` idpIdentifiers
       `Prelude.hashWithSalt` providerDetails
       `Prelude.hashWithSalt` userPoolId

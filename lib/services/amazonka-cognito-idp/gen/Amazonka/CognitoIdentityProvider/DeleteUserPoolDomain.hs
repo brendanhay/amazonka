@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteUserPoolDomain where
 
 instance Prelude.Hashable DeleteUserPoolDomain where
   hashWithSalt _salt DeleteUserPoolDomain' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData DeleteUserPoolDomain where

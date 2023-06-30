@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     GetIdentityProviderByIdentifier' {..} =
-      _salt `Prelude.hashWithSalt` userPoolId
+      _salt
+        `Prelude.hashWithSalt` userPoolId
         `Prelude.hashWithSalt` idpIdentifier
 
 instance

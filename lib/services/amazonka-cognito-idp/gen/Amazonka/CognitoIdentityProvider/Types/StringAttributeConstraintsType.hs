@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     StringAttributeConstraintsType' {..} =
-      _salt `Prelude.hashWithSalt` maxLength
+      _salt
+        `Prelude.hashWithSalt` maxLength
         `Prelude.hashWithSalt` minLength
 
 instance

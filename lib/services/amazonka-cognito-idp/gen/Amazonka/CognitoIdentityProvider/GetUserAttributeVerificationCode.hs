@@ -242,7 +242,8 @@ instance
   hashWithSalt
     _salt
     GetUserAttributeVerificationCode' {..} =
-      _salt `Prelude.hashWithSalt` clientMetadata
+      _salt
+        `Prelude.hashWithSalt` clientMetadata
         `Prelude.hashWithSalt` accessToken
         `Prelude.hashWithSalt` attributeName
 

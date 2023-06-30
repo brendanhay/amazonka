@@ -117,7 +117,8 @@ instance Data.FromJSON UserPoolDescriptionType where
 
 instance Prelude.Hashable UserPoolDescriptionType where
   hashWithSalt _salt UserPoolDescriptionType' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lambdaConfig
       `Prelude.hashWithSalt` lastModifiedDate

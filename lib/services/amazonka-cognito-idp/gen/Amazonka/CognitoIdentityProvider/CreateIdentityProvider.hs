@@ -345,7 +345,8 @@ instance Core.AWSRequest CreateIdentityProvider where
 
 instance Prelude.Hashable CreateIdentityProvider where
   hashWithSalt _salt CreateIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` attributeMapping
+    _salt
+      `Prelude.hashWithSalt` attributeMapping
       `Prelude.hashWithSalt` idpIdentifiers
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` providerName

@@ -89,7 +89,8 @@ instance Data.FromJSON EventFeedbackType where
 
 instance Prelude.Hashable EventFeedbackType where
   hashWithSalt _salt EventFeedbackType' {..} =
-    _salt `Prelude.hashWithSalt` feedbackDate
+    _salt
+      `Prelude.hashWithSalt` feedbackDate
       `Prelude.hashWithSalt` feedbackValue
       `Prelude.hashWithSalt` provider
 

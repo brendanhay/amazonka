@@ -96,12 +96,14 @@ instance Core.AWSRequest GetUser where
           GetUserResponse'
             Prelude.<$> (x Data..?> "MFAOptions" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "PreferredMfaSetting")
-            Prelude.<*> ( x Data..?> "UserMFASettingList"
+            Prelude.<*> ( x
+                            Data..?> "UserMFASettingList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Username")
-            Prelude.<*> ( x Data..?> "UserAttributes"
+            Prelude.<*> ( x
+                            Data..?> "UserAttributes"
                             Core..!@ Prelude.mempty
                         )
       )

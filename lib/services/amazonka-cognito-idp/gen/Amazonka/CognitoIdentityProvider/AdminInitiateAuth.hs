@@ -503,7 +503,8 @@ instance Core.AWSRequest AdminInitiateAuth where
           AdminInitiateAuthResponse'
             Prelude.<$> (x Data..?> "AuthenticationResult")
             Prelude.<*> (x Data..?> "ChallengeName")
-            Prelude.<*> ( x Data..?> "ChallengeParameters"
+            Prelude.<*> ( x
+                            Data..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Session")
@@ -512,7 +513,8 @@ instance Core.AWSRequest AdminInitiateAuth where
 
 instance Prelude.Hashable AdminInitiateAuth where
   hashWithSalt _salt AdminInitiateAuth' {..} =
-    _salt `Prelude.hashWithSalt` analyticsMetadata
+    _salt
+      `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` authParameters
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` contextData

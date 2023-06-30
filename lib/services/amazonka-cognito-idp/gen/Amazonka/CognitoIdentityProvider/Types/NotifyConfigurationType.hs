@@ -133,7 +133,8 @@ instance Data.FromJSON NotifyConfigurationType where
 
 instance Prelude.Hashable NotifyConfigurationType where
   hashWithSalt _salt NotifyConfigurationType' {..} =
-    _salt `Prelude.hashWithSalt` blockEmail
+    _salt
+      `Prelude.hashWithSalt` blockEmail
       `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` mfaEmail
       `Prelude.hashWithSalt` noActionEmail

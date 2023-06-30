@@ -103,7 +103,8 @@ instance Core.AWSRequest DescribeRiskConfiguration where
 
 instance Prelude.Hashable DescribeRiskConfiguration where
   hashWithSalt _salt DescribeRiskConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData DescribeRiskConfiguration where

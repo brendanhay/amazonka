@@ -128,7 +128,8 @@ instance Core.AWSRequest VerifyUserAttribute where
 
 instance Prelude.Hashable VerifyUserAttribute where
   hashWithSalt _salt VerifyUserAttribute' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` code
 

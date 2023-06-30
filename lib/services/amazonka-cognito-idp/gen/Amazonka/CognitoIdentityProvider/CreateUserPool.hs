@@ -512,7 +512,8 @@ instance Core.AWSRequest CreateUserPool where
 
 instance Prelude.Hashable CreateUserPool where
   hashWithSalt _salt CreateUserPool' {..} =
-    _salt `Prelude.hashWithSalt` accountRecoverySetting
+    _salt
+      `Prelude.hashWithSalt` accountRecoverySetting
       `Prelude.hashWithSalt` adminCreateUserConfig
       `Prelude.hashWithSalt` aliasAttributes
       `Prelude.hashWithSalt` autoVerifiedAttributes

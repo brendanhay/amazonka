@@ -295,7 +295,8 @@ instance Core.AWSRequest AdminUpdateUserAttributes where
 
 instance Prelude.Hashable AdminUpdateUserAttributes where
   hashWithSalt _salt AdminUpdateUserAttributes' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
+    _salt
+      `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` userAttributes

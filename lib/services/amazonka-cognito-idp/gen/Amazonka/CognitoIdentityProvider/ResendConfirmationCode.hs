@@ -272,7 +272,8 @@ instance Core.AWSRequest ResendConfirmationCode where
 
 instance Prelude.Hashable ResendConfirmationCode where
   hashWithSalt _salt ResendConfirmationCode' {..} =
-    _salt `Prelude.hashWithSalt` analyticsMetadata
+    _salt
+      `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` secretHash
       `Prelude.hashWithSalt` userContextData

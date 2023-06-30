@@ -182,7 +182,8 @@ instance Core.AWSRequest CreateGroup where
 
 instance Prelude.Hashable CreateGroup where
   hashWithSalt _salt CreateGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` precedence
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` groupName

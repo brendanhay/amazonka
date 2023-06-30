@@ -133,7 +133,8 @@ instance Core.AWSRequest UpdateResourceServer where
 
 instance Prelude.Hashable UpdateResourceServer where
   hashWithSalt _salt UpdateResourceServer' {..} =
-    _salt `Prelude.hashWithSalt` scopes
+    _salt
+      `Prelude.hashWithSalt` scopes
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` name

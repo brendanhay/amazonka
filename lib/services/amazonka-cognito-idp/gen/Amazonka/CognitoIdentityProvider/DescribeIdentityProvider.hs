@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeIdentityProvider where
 
 instance Prelude.Hashable DescribeIdentityProvider where
   hashWithSalt _salt DescribeIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` providerName
 
 instance Prelude.NFData DescribeIdentityProvider where

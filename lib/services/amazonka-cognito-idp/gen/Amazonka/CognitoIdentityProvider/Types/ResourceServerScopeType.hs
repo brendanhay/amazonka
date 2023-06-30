@@ -80,7 +80,8 @@ instance Data.FromJSON ResourceServerScopeType where
 
 instance Prelude.Hashable ResourceServerScopeType where
   hashWithSalt _salt ResourceServerScopeType' {..} =
-    _salt `Prelude.hashWithSalt` scopeName
+    _salt
+      `Prelude.hashWithSalt` scopeName
       `Prelude.hashWithSalt` scopeDescription
 
 instance Prelude.NFData ResourceServerScopeType where

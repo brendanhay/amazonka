@@ -86,7 +86,8 @@ instance Data.FromJSON NotifyEmailType where
 
 instance Prelude.Hashable NotifyEmailType where
   hashWithSalt _salt NotifyEmailType' {..} =
-    _salt `Prelude.hashWithSalt` htmlBody
+    _salt
+      `Prelude.hashWithSalt` htmlBody
       `Prelude.hashWithSalt` textBody
       `Prelude.hashWithSalt` subject
 

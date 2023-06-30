@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateResourceServer where
 
 instance Prelude.Hashable CreateResourceServer where
   hashWithSalt _salt CreateResourceServer' {..} =
-    _salt `Prelude.hashWithSalt` scopes
+    _salt
+      `Prelude.hashWithSalt` scopes
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` name

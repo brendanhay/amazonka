@@ -61,19 +61,15 @@ newComponentSummary =
       tags = Prelude.Nothing
     }
 
--- |
 componentSummary_applicationId :: Lens.Lens' ComponentSummary (Prelude.Maybe Prelude.Text)
 componentSummary_applicationId = Lens.lens (\ComponentSummary' {applicationId} -> applicationId) (\s@ComponentSummary' {} a -> s {applicationId = a} :: ComponentSummary)
 
--- |
 componentSummary_componentId :: Lens.Lens' ComponentSummary (Prelude.Maybe Prelude.Text)
 componentSummary_componentId = Lens.lens (\ComponentSummary' {componentId} -> componentId) (\s@ComponentSummary' {} a -> s {componentId = a} :: ComponentSummary)
 
--- |
 componentSummary_componentType :: Lens.Lens' ComponentSummary (Prelude.Maybe ComponentType)
 componentSummary_componentType = Lens.lens (\ComponentSummary' {componentType} -> componentType) (\s@ComponentSummary' {} a -> s {componentType = a} :: ComponentSummary)
 
--- |
 componentSummary_tags :: Lens.Lens' ComponentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 componentSummary_tags = Lens.lens (\ComponentSummary' {tags} -> tags) (\s@ComponentSummary' {} a -> s {tags = a} :: ComponentSummary) Prelude.. Lens.mapping Lens.coerced
 
@@ -91,7 +87,8 @@ instance Data.FromJSON ComponentSummary where
 
 instance Prelude.Hashable ComponentSummary where
   hashWithSalt _salt ComponentSummary' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` tags

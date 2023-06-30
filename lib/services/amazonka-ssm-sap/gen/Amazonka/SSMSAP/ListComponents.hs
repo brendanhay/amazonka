@@ -82,15 +82,12 @@ newListComponents =
       nextToken = Prelude.Nothing
     }
 
--- |
 listComponents_applicationId :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
 listComponents_applicationId = Lens.lens (\ListComponents' {applicationId} -> applicationId) (\s@ListComponents' {} a -> s {applicationId = a} :: ListComponents)
 
--- |
 listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
 listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
 
--- |
 listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
 listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
@@ -99,21 +96,22 @@ instance Core.AWSPager ListComponents where
     | Core.stop
         ( rs
             Lens.^? listComponentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listComponentsResponse_components
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listComponents_nextToken
           Lens..~ rs
-          Lens.^? listComponentsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listComponentsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComponents where
   type
@@ -132,7 +130,8 @@ instance Core.AWSRequest ListComponents where
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
@@ -203,11 +202,9 @@ newListComponentsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 listComponentsResponse_components :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [ComponentSummary])
 listComponentsResponse_components = Lens.lens (\ListComponentsResponse' {components} -> components) (\s@ListComponentsResponse' {} a -> s {components = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
 listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
 listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
 

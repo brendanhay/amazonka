@@ -88,19 +88,15 @@ newListDatabases =
       nextToken = Prelude.Nothing
     }
 
--- |
 listDatabases_applicationId :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_applicationId = Lens.lens (\ListDatabases' {applicationId} -> applicationId) (\s@ListDatabases' {} a -> s {applicationId = a} :: ListDatabases)
 
--- |
 listDatabases_componentId :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_componentId = Lens.lens (\ListDatabases' {componentId} -> componentId) (\s@ListDatabases' {} a -> s {componentId = a} :: ListDatabases)
 
--- |
 listDatabases_maxResults :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Natural)
 listDatabases_maxResults = Lens.lens (\ListDatabases' {maxResults} -> maxResults) (\s@ListDatabases' {} a -> s {maxResults = a} :: ListDatabases)
 
--- |
 listDatabases_nextToken :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (\s@ListDatabases' {} a -> s {nextToken = a} :: ListDatabases)
 
@@ -108,20 +104,23 @@ instance Core.AWSPager ListDatabases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listDatabasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDatabasesResponse_databases Prelude.. Lens._Just
+            Lens.^? listDatabasesResponse_databases
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDatabases_nextToken
           Lens..~ rs
-          Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDatabasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatabases where
   type
@@ -140,7 +139,8 @@ instance Core.AWSRequest ListDatabases where
 
 instance Prelude.Hashable ListDatabases where
   hashWithSalt _salt ListDatabases' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -213,11 +213,9 @@ newListDatabasesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 listDatabasesResponse_databases :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe [DatabaseSummary])
 listDatabasesResponse_databases = Lens.lens (\ListDatabasesResponse' {databases} -> databases) (\s@ListDatabasesResponse' {} a -> s {databases = a} :: ListDatabasesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
 listDatabasesResponse_nextToken :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe Prelude.Text)
 listDatabasesResponse_nextToken = Lens.lens (\ListDatabasesResponse' {nextToken} -> nextToken) (\s@ListDatabasesResponse' {} a -> s {nextToken = a} :: ListDatabasesResponse)
 

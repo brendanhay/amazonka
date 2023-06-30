@@ -81,15 +81,12 @@ newUpdateApplicationSettings pApplicationId_ =
       applicationId = pApplicationId_
     }
 
--- |
 updateApplicationSettings_credentialsToAddOrUpdate :: Lens.Lens' UpdateApplicationSettings (Prelude.Maybe (Prelude.NonEmpty ApplicationCredential))
 updateApplicationSettings_credentialsToAddOrUpdate = Lens.lens (\UpdateApplicationSettings' {credentialsToAddOrUpdate} -> credentialsToAddOrUpdate) (\s@UpdateApplicationSettings' {} a -> s {credentialsToAddOrUpdate = a} :: UpdateApplicationSettings) Prelude.. Lens.mapping Lens.coerced
 
--- |
 updateApplicationSettings_credentialsToRemove :: Lens.Lens' UpdateApplicationSettings (Prelude.Maybe (Prelude.NonEmpty ApplicationCredential))
 updateApplicationSettings_credentialsToRemove = Lens.lens (\UpdateApplicationSettings' {credentialsToRemove} -> credentialsToRemove) (\s@UpdateApplicationSettings' {} a -> s {credentialsToRemove = a} :: UpdateApplicationSettings) Prelude.. Lens.mapping Lens.coerced
 
--- |
 updateApplicationSettings_applicationId :: Lens.Lens' UpdateApplicationSettings Prelude.Text
 updateApplicationSettings_applicationId = Lens.lens (\UpdateApplicationSettings' {applicationId} -> applicationId) (\s@UpdateApplicationSettings' {} a -> s {applicationId = a} :: UpdateApplicationSettings)
 
@@ -185,11 +182,9 @@ newUpdateApplicationSettingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 updateApplicationSettingsResponse_message :: Lens.Lens' UpdateApplicationSettingsResponse (Prelude.Maybe Prelude.Text)
 updateApplicationSettingsResponse_message = Lens.lens (\UpdateApplicationSettingsResponse' {message} -> message) (\s@UpdateApplicationSettingsResponse' {} a -> s {message = a} :: UpdateApplicationSettingsResponse)
 
--- |
 updateApplicationSettingsResponse_operationIds :: Lens.Lens' UpdateApplicationSettingsResponse (Prelude.Maybe [Prelude.Text])
 updateApplicationSettingsResponse_operationIds = Lens.lens (\UpdateApplicationSettingsResponse' {operationIds} -> operationIds) (\s@UpdateApplicationSettingsResponse' {} a -> s {operationIds = a} :: UpdateApplicationSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 

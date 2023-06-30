@@ -86,19 +86,15 @@ newGetDatabase =
       databaseId = Prelude.Nothing
     }
 
--- |
 getDatabase_applicationId :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
 getDatabase_applicationId = Lens.lens (\GetDatabase' {applicationId} -> applicationId) (\s@GetDatabase' {} a -> s {applicationId = a} :: GetDatabase)
 
--- |
 getDatabase_componentId :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
 getDatabase_componentId = Lens.lens (\GetDatabase' {componentId} -> componentId) (\s@GetDatabase' {} a -> s {componentId = a} :: GetDatabase)
 
--- |
 getDatabase_databaseArn :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
 getDatabase_databaseArn = Lens.lens (\GetDatabase' {databaseArn} -> databaseArn) (\s@GetDatabase' {} a -> s {databaseArn = a} :: GetDatabase)
 
--- |
 getDatabase_databaseId :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
 getDatabase_databaseId = Lens.lens (\GetDatabase' {databaseId} -> databaseId) (\s@GetDatabase' {} a -> s {databaseId = a} :: GetDatabase)
 
@@ -117,7 +113,8 @@ instance Core.AWSRequest GetDatabase where
 
 instance Prelude.Hashable GetDatabase where
   hashWithSalt _salt GetDatabase' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` databaseArn
       `Prelude.hashWithSalt` databaseId
@@ -190,11 +187,9 @@ newGetDatabaseResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getDatabaseResponse_database :: Lens.Lens' GetDatabaseResponse (Prelude.Maybe Database)
 getDatabaseResponse_database = Lens.lens (\GetDatabaseResponse' {database} -> database) (\s@GetDatabaseResponse' {} a -> s {database = a} :: GetDatabaseResponse)
 
--- |
 getDatabaseResponse_tags :: Lens.Lens' GetDatabaseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getDatabaseResponse_tags = Lens.lens (\GetDatabaseResponse' {tags} -> tags) (\s@GetDatabaseResponse' {} a -> s {tags = a} :: GetDatabaseResponse) Prelude.. Lens.mapping Lens.coerced
 

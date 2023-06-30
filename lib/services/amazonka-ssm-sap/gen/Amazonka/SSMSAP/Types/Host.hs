@@ -61,19 +61,15 @@ newHost =
       instanceId = Prelude.Nothing
     }
 
--- |
 host_hostIp :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_hostIp = Lens.lens (\Host' {hostIp} -> hostIp) (\s@Host' {} a -> s {hostIp = a} :: Host)
 
--- |
 host_hostName :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_hostName = Lens.lens (\Host' {hostName} -> hostName) (\s@Host' {} a -> s {hostName = a} :: Host)
 
--- |
 host_hostRole :: Lens.Lens' Host (Prelude.Maybe HostRole)
 host_hostRole = Lens.lens (\Host' {hostRole} -> hostRole) (\s@Host' {} a -> s {hostRole = a} :: Host)
 
--- |
 host_instanceId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_instanceId = Lens.lens (\Host' {instanceId} -> instanceId) (\s@Host' {} a -> s {instanceId = a} :: Host)
 
@@ -91,7 +87,8 @@ instance Data.FromJSON Host where
 
 instance Prelude.Hashable Host where
   hashWithSalt _salt Host' {..} =
-    _salt `Prelude.hashWithSalt` hostIp
+    _salt
+      `Prelude.hashWithSalt` hostIp
       `Prelude.hashWithSalt` hostName
       `Prelude.hashWithSalt` hostRole
       `Prelude.hashWithSalt` instanceId

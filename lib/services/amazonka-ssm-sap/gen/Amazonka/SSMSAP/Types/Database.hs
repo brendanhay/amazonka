@@ -91,47 +91,36 @@ newDatabase =
       status = Prelude.Nothing
     }
 
--- |
 database_applicationId :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_applicationId = Lens.lens (\Database' {applicationId} -> applicationId) (\s@Database' {} a -> s {applicationId = a} :: Database)
 
--- |
 database_arn :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_arn = Lens.lens (\Database' {arn} -> arn) (\s@Database' {} a -> s {arn = a} :: Database)
 
--- |
 database_componentId :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_componentId = Lens.lens (\Database' {componentId} -> componentId) (\s@Database' {} a -> s {componentId = a} :: Database)
 
--- |
 database_credentials :: Lens.Lens' Database (Prelude.Maybe (Prelude.NonEmpty ApplicationCredential))
 database_credentials = Lens.lens (\Database' {credentials} -> credentials) (\s@Database' {} a -> s {credentials = a} :: Database) Prelude.. Lens.mapping Lens.coerced
 
--- |
 database_databaseId :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_databaseId = Lens.lens (\Database' {databaseId} -> databaseId) (\s@Database' {} a -> s {databaseId = a} :: Database)
 
--- |
 database_databaseName :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_databaseName = Lens.lens (\Database' {databaseName} -> databaseName) (\s@Database' {} a -> s {databaseName = a} :: Database)
 
--- |
 database_databaseType :: Lens.Lens' Database (Prelude.Maybe DatabaseType)
 database_databaseType = Lens.lens (\Database' {databaseType} -> databaseType) (\s@Database' {} a -> s {databaseType = a} :: Database)
 
--- |
 database_lastUpdated :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
 database_lastUpdated = Lens.lens (\Database' {lastUpdated} -> lastUpdated) (\s@Database' {} a -> s {lastUpdated = a} :: Database) Prelude.. Lens.mapping Data._Time
 
--- |
 database_primaryHost :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_primaryHost = Lens.lens (\Database' {primaryHost} -> primaryHost) (\s@Database' {} a -> s {primaryHost = a} :: Database)
 
--- |
 database_sQLPort :: Lens.Lens' Database (Prelude.Maybe Prelude.Int)
 database_sQLPort = Lens.lens (\Database' {sQLPort} -> sQLPort) (\s@Database' {} a -> s {sQLPort = a} :: Database)
 
--- |
 database_status :: Lens.Lens' Database (Prelude.Maybe DatabaseStatus)
 database_status = Lens.lens (\Database' {status} -> status) (\s@Database' {} a -> s {status = a} :: Database)
 
@@ -156,7 +145,8 @@ instance Data.FromJSON Database where
 
 instance Prelude.Hashable Database where
   hashWithSalt _salt Database' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` credentials

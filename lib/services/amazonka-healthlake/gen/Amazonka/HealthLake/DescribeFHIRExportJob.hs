@@ -108,7 +108,8 @@ instance Core.AWSRequest DescribeFHIRExportJob where
 
 instance Prelude.Hashable DescribeFHIRExportJob where
   hashWithSalt _salt DescribeFHIRExportJob' {..} =
-    _salt `Prelude.hashWithSalt` datastoreId
+    _salt
+      `Prelude.hashWithSalt` datastoreId
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData DescribeFHIRExportJob where

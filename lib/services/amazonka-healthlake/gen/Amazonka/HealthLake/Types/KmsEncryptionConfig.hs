@@ -85,7 +85,8 @@ instance Data.FromJSON KmsEncryptionConfig where
 
 instance Prelude.Hashable KmsEncryptionConfig where
   hashWithSalt _salt KmsEncryptionConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` cmkType
 
 instance Prelude.NFData KmsEncryptionConfig where

@@ -92,7 +92,8 @@ datastoreFilter_datastoreStatus = Lens.lens (\DatastoreFilter' {datastoreStatus}
 
 instance Prelude.Hashable DatastoreFilter where
   hashWithSalt _salt DatastoreFilter' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` datastoreName
       `Prelude.hashWithSalt` datastoreStatus

@@ -152,7 +152,8 @@ instance Core.AWSRequest StartFHIRExportJob where
 
 instance Prelude.Hashable StartFHIRExportJob where
   hashWithSalt _salt StartFHIRExportJob' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` outputDataConfig
       `Prelude.hashWithSalt` datastoreId
       `Prelude.hashWithSalt` dataAccessRoleArn

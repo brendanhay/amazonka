@@ -111,14 +111,16 @@ instance Core.AWSRequest ListFHIRDatastores where
           ListFHIRDatastoresResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "DatastorePropertiesList"
+            Prelude.<*> ( x
+                            Data..?> "DatastorePropertiesList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListFHIRDatastores where
   hashWithSalt _salt ListFHIRDatastores' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -157,7 +157,8 @@ instance Core.AWSRequest CreateFHIRDatastore where
 
 instance Prelude.Hashable CreateFHIRDatastore where
   hashWithSalt _salt CreateFHIRDatastore' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` datastoreName
       `Prelude.hashWithSalt` preloadDataConfig
       `Prelude.hashWithSalt` sseConfiguration

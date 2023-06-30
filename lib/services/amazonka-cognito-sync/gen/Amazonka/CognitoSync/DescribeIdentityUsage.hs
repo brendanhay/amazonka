@@ -125,7 +125,8 @@ instance Core.AWSRequest DescribeIdentityUsage where
 
 instance Prelude.Hashable DescribeIdentityUsage where
   hashWithSalt _salt DescribeIdentityUsage' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
+    _salt
+      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityId
 
 instance Prelude.NFData DescribeIdentityUsage where

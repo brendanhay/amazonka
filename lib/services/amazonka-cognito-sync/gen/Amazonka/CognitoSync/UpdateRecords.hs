@@ -206,7 +206,8 @@ instance Core.AWSRequest UpdateRecords where
 
 instance Prelude.Hashable UpdateRecords where
   hashWithSalt _salt UpdateRecords' {..} =
-    _salt `Prelude.hashWithSalt` clientContext
+    _salt
+      `Prelude.hashWithSalt` clientContext
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` recordPatches
       `Prelude.hashWithSalt` identityPoolId

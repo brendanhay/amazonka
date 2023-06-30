@@ -143,7 +143,8 @@ instance Core.AWSRequest RegisterDevice where
 
 instance Prelude.Hashable RegisterDevice where
   hashWithSalt _salt RegisterDevice' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
+    _salt
+      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` token

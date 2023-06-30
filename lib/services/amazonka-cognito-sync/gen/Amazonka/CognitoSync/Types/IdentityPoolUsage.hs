@@ -100,7 +100,8 @@ instance Data.FromJSON IdentityPoolUsage where
 
 instance Prelude.Hashable IdentityPoolUsage where
   hashWithSalt _salt IdentityPoolUsage' {..} =
-    _salt `Prelude.hashWithSalt` dataStorage
+    _salt
+      `Prelude.hashWithSalt` dataStorage
       `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` syncSessionsCount

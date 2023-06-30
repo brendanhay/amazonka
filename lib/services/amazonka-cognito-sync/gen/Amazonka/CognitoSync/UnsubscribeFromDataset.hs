@@ -143,7 +143,8 @@ instance Core.AWSRequest UnsubscribeFromDataset where
 
 instance Prelude.Hashable UnsubscribeFromDataset where
   hashWithSalt _salt UnsubscribeFromDataset' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
+    _salt
+      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` deviceId

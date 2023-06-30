@@ -144,7 +144,8 @@ instance Core.AWSRequest DescribeDataset where
 
 instance Prelude.Hashable DescribeDataset where
   hashWithSalt _salt DescribeDataset' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
+    _salt
+      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` datasetName
 

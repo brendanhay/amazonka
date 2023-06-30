@@ -99,7 +99,8 @@ recordPatch_syncCount = Lens.lens (\RecordPatch' {syncCount} -> syncCount) (\s@R
 
 instance Prelude.Hashable RecordPatch where
   hashWithSalt _salt RecordPatch' {..} =
-    _salt `Prelude.hashWithSalt` deviceLastModifiedDate
+    _salt
+      `Prelude.hashWithSalt` deviceLastModifiedDate
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` op
       `Prelude.hashWithSalt` key

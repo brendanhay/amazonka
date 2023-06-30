@@ -154,7 +154,8 @@ instance Data.FromJSON HlsManifest where
 
 instance Prelude.Hashable HlsManifest where
   hashWithSalt _salt HlsManifest' {..} =
-    _salt `Prelude.hashWithSalt` adMarkers
+    _salt
+      `Prelude.hashWithSalt` adMarkers
       `Prelude.hashWithSalt` includeIframeOnlyStream
       `Prelude.hashWithSalt` manifestName
       `Prelude.hashWithSalt` programDateTimeIntervalSeconds

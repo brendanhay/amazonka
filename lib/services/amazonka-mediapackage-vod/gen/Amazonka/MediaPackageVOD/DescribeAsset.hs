@@ -93,7 +93,8 @@ instance Core.AWSRequest DescribeAsset where
           DescribeAssetResponse'
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createdAt")
-            Prelude.<*> ( x Data..?> "egressEndpoints"
+            Prelude.<*> ( x
+                            Data..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "id")

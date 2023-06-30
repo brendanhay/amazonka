@@ -132,7 +132,8 @@ instance Core.AWSRequest CreatePackagingGroup where
 
 instance Prelude.Hashable CreatePackagingGroup where
   hashWithSalt _salt CreatePackagingGroup' {..} =
-    _salt `Prelude.hashWithSalt` authorization
+    _salt
+      `Prelude.hashWithSalt` authorization
       `Prelude.hashWithSalt` egressAccessLogs
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` id

@@ -153,7 +153,8 @@ instance Data.FromJSON DashManifest where
 
 instance Prelude.Hashable DashManifest where
   hashWithSalt _salt DashManifest' {..} =
-    _salt `Prelude.hashWithSalt` manifestLayout
+    _salt
+      `Prelude.hashWithSalt` manifestLayout
       `Prelude.hashWithSalt` manifestName
       `Prelude.hashWithSalt` minBufferTimeSeconds
       `Prelude.hashWithSalt` profile

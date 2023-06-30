@@ -133,7 +133,8 @@ instance Data.FromJSON PackagingConfiguration where
 
 instance Prelude.Hashable PackagingConfiguration where
   hashWithSalt _salt PackagingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` cmafPackage
       `Prelude.hashWithSalt` dashPackage
       `Prelude.hashWithSalt` hlsPackage

@@ -130,7 +130,8 @@ addMediaStreamRequest_mediaStreamName = Lens.lens (\AddMediaStreamRequest' {medi
 
 instance Prelude.Hashable AddMediaStreamRequest where
   hashWithSalt _salt AddMediaStreamRequest' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` clockRate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` videoFormat

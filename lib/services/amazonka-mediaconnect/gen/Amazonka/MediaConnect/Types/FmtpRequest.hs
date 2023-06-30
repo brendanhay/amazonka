@@ -122,7 +122,8 @@ fmtpRequest_tcs = Lens.lens (\FmtpRequest' {tcs} -> tcs) (\s@FmtpRequest' {} a -
 
 instance Prelude.Hashable FmtpRequest where
   hashWithSalt _salt FmtpRequest' {..} =
-    _salt `Prelude.hashWithSalt` channelOrder
+    _salt
+      `Prelude.hashWithSalt` channelOrder
       `Prelude.hashWithSalt` colorimetry
       `Prelude.hashWithSalt` exactFramerate
       `Prelude.hashWithSalt` par

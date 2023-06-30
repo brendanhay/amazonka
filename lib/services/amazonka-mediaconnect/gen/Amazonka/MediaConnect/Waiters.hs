@@ -35,21 +35,24 @@ newFlowActive =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
-            ( describeFlowResponse_flow Prelude.. Lens._Just
+            ( describeFlowResponse_flow
+                Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STARTING"
             Core.AcceptRetry
-            ( describeFlowResponse_flow Prelude.. Lens._Just
+            ( describeFlowResponse_flow
+                Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATING"
             Core.AcceptRetry
-            ( describeFlowResponse_flow Prelude.. Lens._Just
+            ( describeFlowResponse_flow
+                Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             ),
@@ -58,7 +61,8 @@ newFlowActive =
           Core.matchAll
             "ERROR"
             Core.AcceptFailure
-            ( describeFlowResponse_flow Prelude.. Lens._Just
+            ( describeFlowResponse_flow
+                Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             )
@@ -77,7 +81,8 @@ newFlowDeleted =
           Core.matchAll
             "DELETING"
             Core.AcceptRetry
-            ( describeFlowResponse_flow Prelude.. Lens._Just
+            ( describeFlowResponse_flow
+                Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             ),
@@ -86,7 +91,8 @@ newFlowDeleted =
           Core.matchAll
             "ERROR"
             Core.AcceptFailure
-            ( describeFlowResponse_flow Prelude.. Lens._Just
+            ( describeFlowResponse_flow
+                Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             )
@@ -104,14 +110,16 @@ newFlowStandby =
         [ Core.matchAll
             "STANDBY"
             Core.AcceptSuccess
-            ( describeFlowResponse_flow Prelude.. Lens._Just
+            ( describeFlowResponse_flow
+                Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STOPPING"
             Core.AcceptRetry
-            ( describeFlowResponse_flow Prelude.. Lens._Just
+            ( describeFlowResponse_flow
+                Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             ),
@@ -120,7 +128,8 @@ newFlowStandby =
           Core.matchAll
             "ERROR"
             Core.AcceptFailure
-            ( describeFlowResponse_flow Prelude.. Lens._Just
+            ( describeFlowResponse_flow
+                Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             )

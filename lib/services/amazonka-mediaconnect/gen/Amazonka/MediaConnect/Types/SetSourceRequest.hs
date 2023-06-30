@@ -259,7 +259,8 @@ setSourceRequest_whitelistCidr = Lens.lens (\SetSourceRequest' {whitelistCidr} -
 
 instance Prelude.Hashable SetSourceRequest where
   hashWithSalt _salt SetSourceRequest' {..} =
-    _salt `Prelude.hashWithSalt` decryption
+    _salt
+      `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entitlementArn
       `Prelude.hashWithSalt` ingestPort

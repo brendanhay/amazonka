@@ -77,7 +77,8 @@ addMaintenance_maintenanceStartHour = Lens.lens (\AddMaintenance' {maintenanceSt
 
 instance Prelude.Hashable AddMaintenance where
   hashWithSalt _salt AddMaintenance' {..} =
-    _salt `Prelude.hashWithSalt` maintenanceDay
+    _salt
+      `Prelude.hashWithSalt` maintenanceDay
       `Prelude.hashWithSalt` maintenanceStartHour
 
 instance Prelude.NFData AddMaintenance where

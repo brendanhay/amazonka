@@ -69,7 +69,8 @@ instance
     MediaStreamAttributesRequest
   where
   hashWithSalt _salt MediaStreamAttributesRequest' {..} =
-    _salt `Prelude.hashWithSalt` fmtp
+    _salt
+      `Prelude.hashWithSalt` fmtp
       `Prelude.hashWithSalt` lang
 
 instance Prelude.NFData MediaStreamAttributesRequest where

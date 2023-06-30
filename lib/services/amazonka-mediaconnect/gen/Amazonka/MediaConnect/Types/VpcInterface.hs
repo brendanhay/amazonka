@@ -125,11 +125,13 @@ instance Data.FromJSON VpcInterface where
       ( \x ->
           VpcInterface'
             Prelude.<$> (x Data..: "networkInterfaceType")
-            Prelude.<*> ( x Data..:? "networkInterfaceIds"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaceIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "subnetId")
-            Prelude.<*> ( x Data..:? "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "roleArn")
@@ -138,7 +140,8 @@ instance Data.FromJSON VpcInterface where
 
 instance Prelude.Hashable VpcInterface where
   hashWithSalt _salt VpcInterface' {..} =
-    _salt `Prelude.hashWithSalt` networkInterfaceType
+    _salt
+      `Prelude.hashWithSalt` networkInterfaceType
       `Prelude.hashWithSalt` networkInterfaceIds
       `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` securityGroupIds

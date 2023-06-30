@@ -323,7 +323,8 @@ instance Core.AWSRequest UpdateFlowSource where
 
 instance Prelude.Hashable UpdateFlowSource where
   hashWithSalt _salt UpdateFlowSource' {..} =
-    _salt `Prelude.hashWithSalt` decryption
+    _salt
+      `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entitlementArn
       `Prelude.hashWithSalt` ingestPort

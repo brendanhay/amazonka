@@ -94,7 +94,8 @@ updateFailoverConfig_state = Lens.lens (\UpdateFailoverConfig' {state} -> state)
 
 instance Prelude.Hashable UpdateFailoverConfig where
   hashWithSalt _salt UpdateFailoverConfig' {..} =
-    _salt `Prelude.hashWithSalt` failoverMode
+    _salt
+      `Prelude.hashWithSalt` failoverMode
       `Prelude.hashWithSalt` recoveryWindow
       `Prelude.hashWithSalt` sourcePriority
       `Prelude.hashWithSalt` state

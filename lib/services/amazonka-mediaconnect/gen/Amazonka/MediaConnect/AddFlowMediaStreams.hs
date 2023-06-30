@@ -108,7 +108,8 @@ instance Core.AWSRequest AddFlowMediaStreams where
 
 instance Prelude.Hashable AddFlowMediaStreams where
   hashWithSalt _salt AddFlowMediaStreams' {..} =
-    _salt `Prelude.hashWithSalt` flowArn
+    _salt
+      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` mediaStreams
 
 instance Prelude.NFData AddFlowMediaStreams where

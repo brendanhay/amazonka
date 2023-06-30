@@ -107,7 +107,8 @@ instance Core.AWSRequest AddFlowOutputs where
 
 instance Prelude.Hashable AddFlowOutputs where
   hashWithSalt _salt AddFlowOutputs' {..} =
-    _salt `Prelude.hashWithSalt` flowArn
+    _salt
+      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` outputs
 
 instance Prelude.NFData AddFlowOutputs where

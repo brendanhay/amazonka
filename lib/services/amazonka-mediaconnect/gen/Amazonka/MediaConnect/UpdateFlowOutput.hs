@@ -300,7 +300,8 @@ instance Core.AWSRequest UpdateFlowOutput where
 
 instance Prelude.Hashable UpdateFlowOutput where
   hashWithSalt _salt UpdateFlowOutput' {..} =
-    _salt `Prelude.hashWithSalt` cidrAllowList
+    _salt
+      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` encryption

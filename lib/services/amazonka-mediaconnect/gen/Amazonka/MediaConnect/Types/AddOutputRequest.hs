@@ -229,7 +229,8 @@ addOutputRequest_protocol = Lens.lens (\AddOutputRequest' {protocol} -> protocol
 
 instance Prelude.Hashable AddOutputRequest where
   hashWithSalt _salt AddOutputRequest' {..} =
-    _salt `Prelude.hashWithSalt` cidrAllowList
+    _salt
+      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` encryption

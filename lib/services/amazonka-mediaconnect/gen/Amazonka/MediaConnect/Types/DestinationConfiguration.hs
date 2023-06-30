@@ -124,7 +124,8 @@ instance Data.FromJSON DestinationConfiguration where
 
 instance Prelude.Hashable DestinationConfiguration where
   hashWithSalt _salt DestinationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` destinationIp
+    _salt
+      `Prelude.hashWithSalt` destinationIp
       `Prelude.hashWithSalt` destinationPort
       `Prelude.hashWithSalt` interface
       `Prelude.hashWithSalt` outboundIp

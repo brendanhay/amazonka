@@ -229,7 +229,8 @@ instance Data.FromJSON Flow where
 
 instance Prelude.Hashable Flow where
   hashWithSalt _salt Flow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` egressIp
       `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` mediaStreams

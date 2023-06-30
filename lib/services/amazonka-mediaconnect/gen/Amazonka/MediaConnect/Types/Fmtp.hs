@@ -137,7 +137,8 @@ instance Data.FromJSON Fmtp where
 
 instance Prelude.Hashable Fmtp where
   hashWithSalt _salt Fmtp' {..} =
-    _salt `Prelude.hashWithSalt` channelOrder
+    _salt
+      `Prelude.hashWithSalt` channelOrder
       `Prelude.hashWithSalt` colorimetry
       `Prelude.hashWithSalt` exactFramerate
       `Prelude.hashWithSalt` par

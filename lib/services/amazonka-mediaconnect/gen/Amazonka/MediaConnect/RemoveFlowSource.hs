@@ -107,7 +107,8 @@ instance Core.AWSRequest RemoveFlowSource where
 
 instance Prelude.Hashable RemoveFlowSource where
   hashWithSalt _salt RemoveFlowSource' {..} =
-    _salt `Prelude.hashWithSalt` flowArn
+    _salt
+      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` sourceArn
 
 instance Prelude.NFData RemoveFlowSource where

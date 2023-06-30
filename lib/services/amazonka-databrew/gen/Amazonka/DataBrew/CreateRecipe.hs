@@ -129,7 +129,8 @@ instance Core.AWSRequest CreateRecipe where
 
 instance Prelude.Hashable CreateRecipe where
   hashWithSalt _salt CreateRecipe' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` steps

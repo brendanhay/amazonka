@@ -279,7 +279,8 @@ instance Core.AWSRequest CreateProfileJob where
 
 instance Prelude.Hashable CreateProfileJob where
   hashWithSalt _salt CreateProfileJob' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` encryptionKeyArn
       `Prelude.hashWithSalt` encryptionMode
       `Prelude.hashWithSalt` jobSample

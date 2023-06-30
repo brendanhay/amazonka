@@ -138,7 +138,8 @@ instance Core.AWSRequest UpdateDataset where
 
 instance Prelude.Hashable UpdateDataset where
   hashWithSalt _salt UpdateDataset' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` formatOptions
       `Prelude.hashWithSalt` pathOptions
       `Prelude.hashWithSalt` name

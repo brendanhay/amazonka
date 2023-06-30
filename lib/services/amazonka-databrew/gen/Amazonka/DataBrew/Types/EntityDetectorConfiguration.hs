@@ -209,7 +209,8 @@ instance Data.FromJSON EntityDetectorConfiguration where
 
 instance Prelude.Hashable EntityDetectorConfiguration where
   hashWithSalt _salt EntityDetectorConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` allowedStatistics
+    _salt
+      `Prelude.hashWithSalt` allowedStatistics
       `Prelude.hashWithSalt` entityTypes
 
 instance Prelude.NFData EntityDetectorConfiguration where

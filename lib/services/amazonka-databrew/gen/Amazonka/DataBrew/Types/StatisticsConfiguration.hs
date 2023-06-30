@@ -81,7 +81,8 @@ instance Data.FromJSON StatisticsConfiguration where
 
 instance Prelude.Hashable StatisticsConfiguration where
   hashWithSalt _salt StatisticsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` includedStatistics
+    _salt
+      `Prelude.hashWithSalt` includedStatistics
       `Prelude.hashWithSalt` overrides
 
 instance Prelude.NFData StatisticsConfiguration where

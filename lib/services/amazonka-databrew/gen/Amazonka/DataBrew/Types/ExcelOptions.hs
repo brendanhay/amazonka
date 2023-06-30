@@ -94,7 +94,8 @@ instance Data.FromJSON ExcelOptions where
 
 instance Prelude.Hashable ExcelOptions where
   hashWithSalt _salt ExcelOptions' {..} =
-    _salt `Prelude.hashWithSalt` headerRow
+    _salt
+      `Prelude.hashWithSalt` headerRow
       `Prelude.hashWithSalt` sheetIndexes
       `Prelude.hashWithSalt` sheetNames
 

@@ -158,7 +158,8 @@ instance Core.AWSRequest SendProjectSessionAction where
 
 instance Prelude.Hashable SendProjectSessionAction where
   hashWithSalt _salt SendProjectSessionAction' {..} =
-    _salt `Prelude.hashWithSalt` clientSessionId
+    _salt
+      `Prelude.hashWithSalt` clientSessionId
       `Prelude.hashWithSalt` preview
       `Prelude.hashWithSalt` recipeStep
       `Prelude.hashWithSalt` stepIndex

@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateSchedule where
 
 instance Prelude.Hashable CreateSchedule where
   hashWithSalt _salt CreateSchedule' {..} =
-    _salt `Prelude.hashWithSalt` jobNames
+    _salt
+      `Prelude.hashWithSalt` jobNames
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` cronExpression
       `Prelude.hashWithSalt` name

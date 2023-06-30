@@ -81,7 +81,8 @@ instance Data.FromJSON RecipeStep where
       "RecipeStep"
       ( \x ->
           RecipeStep'
-            Prelude.<$> ( x Data..:? "ConditionExpressions"
+            Prelude.<$> ( x
+                            Data..:? "ConditionExpressions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "Action")
@@ -89,7 +90,8 @@ instance Data.FromJSON RecipeStep where
 
 instance Prelude.Hashable RecipeStep where
   hashWithSalt _salt RecipeStep' {..} =
-    _salt `Prelude.hashWithSalt` conditionExpressions
+    _salt
+      `Prelude.hashWithSalt` conditionExpressions
       `Prelude.hashWithSalt` action
 
 instance Prelude.NFData RecipeStep where

@@ -228,7 +228,8 @@ instance Core.AWSRequest UpdateRecipeJob where
 
 instance Prelude.Hashable UpdateRecipeJob where
   hashWithSalt _salt UpdateRecipeJob' {..} =
-    _salt `Prelude.hashWithSalt` dataCatalogOutputs
+    _salt
+      `Prelude.hashWithSalt` dataCatalogOutputs
       `Prelude.hashWithSalt` databaseOutputs
       `Prelude.hashWithSalt` encryptionKeyArn
       `Prelude.hashWithSalt` encryptionMode

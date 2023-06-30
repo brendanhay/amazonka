@@ -78,7 +78,8 @@ instance Data.FromJSON RecipeAction where
 
 instance Prelude.Hashable RecipeAction where
   hashWithSalt _salt RecipeAction' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` operation
 
 instance Prelude.NFData RecipeAction where

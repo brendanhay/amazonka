@@ -250,7 +250,8 @@ instance Core.AWSRequest UpdateProfileJob where
 
 instance Prelude.Hashable UpdateProfileJob where
   hashWithSalt _salt UpdateProfileJob' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` encryptionKeyArn
       `Prelude.hashWithSalt` encryptionMode
       `Prelude.hashWithSalt` jobSample

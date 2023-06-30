@@ -112,7 +112,8 @@ instance Data.FromJSON DataCatalogInputDefinition where
 
 instance Prelude.Hashable DataCatalogInputDefinition where
   hashWithSalt _salt DataCatalogInputDefinition' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` tempDirectory
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName

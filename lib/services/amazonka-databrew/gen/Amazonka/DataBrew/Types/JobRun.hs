@@ -269,7 +269,8 @@ instance Data.FromJSON JobRun where
 
 instance Prelude.Hashable JobRun where
   hashWithSalt _salt JobRun' {..} =
-    _salt `Prelude.hashWithSalt` attempt
+    _salt
+      `Prelude.hashWithSalt` attempt
       `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` dataCatalogOutputs
       `Prelude.hashWithSalt` databaseOutputs

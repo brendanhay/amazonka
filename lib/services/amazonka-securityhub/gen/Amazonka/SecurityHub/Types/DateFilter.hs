@@ -85,7 +85,8 @@ instance Data.FromJSON DateFilter where
 
 instance Prelude.Hashable DateFilter where
   hashWithSalt _salt DateFilter' {..} =
-    _salt `Prelude.hashWithSalt` dateRange
+    _salt
+      `Prelude.hashWithSalt` dateRange
       `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` start
 

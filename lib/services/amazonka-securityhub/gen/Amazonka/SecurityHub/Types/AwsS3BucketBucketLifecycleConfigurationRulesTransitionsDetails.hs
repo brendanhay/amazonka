@@ -137,8 +137,9 @@ instance
       "AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails'
-            Prelude.<$> (x Data..:? "Date") Prelude.<*> (x Data..:? "Days")
-              Prelude.<*> (x Data..:? "StorageClass")
+            Prelude.<$> (x Data..:? "Date")
+            Prelude.<*> (x Data..:? "Days")
+            Prelude.<*> (x Data..:? "StorageClass")
       )
 
 instance
@@ -148,7 +149,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` date
+      _salt
+        `Prelude.hashWithSalt` date
         `Prelude.hashWithSalt` days
         `Prelude.hashWithSalt` storageClass
 

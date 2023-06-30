@@ -134,22 +134,22 @@ instance Core.AWSPager DescribeStandardsControls where
     | Core.stop
         ( rs
             Lens.^? describeStandardsControlsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeStandardsControlsResponse_controls
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeStandardsControls_nextToken
           Lens..~ rs
           Lens.^? describeStandardsControlsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStandardsControls where
   type
@@ -168,7 +168,8 @@ instance Core.AWSRequest DescribeStandardsControls where
 
 instance Prelude.Hashable DescribeStandardsControls where
   hashWithSalt _salt DescribeStandardsControls' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` standardsSubscriptionArn
 

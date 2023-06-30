@@ -137,7 +137,8 @@ instance Core.AWSRequest EnableSecurityHub where
 
 instance Prelude.Hashable EnableSecurityHub where
   hashWithSalt _salt EnableSecurityHub' {..} =
-    _salt `Prelude.hashWithSalt` enableDefaultStandards
+    _salt
+      `Prelude.hashWithSalt` enableDefaultStandards
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData EnableSecurityHub where

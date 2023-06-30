@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsRdsDbInstanceVpcSecurityGroup' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` vpcSecurityGroupId
 
 instance

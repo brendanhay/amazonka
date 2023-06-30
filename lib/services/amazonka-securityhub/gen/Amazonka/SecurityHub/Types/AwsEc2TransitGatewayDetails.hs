@@ -181,7 +181,8 @@ instance Data.FromJSON AwsEc2TransitGatewayDetails where
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "MulticastSupport")
             Prelude.<*> (x Data..:? "PropagationDefaultRouteTableId")
-            Prelude.<*> ( x Data..:? "TransitGatewayCidrBlocks"
+            Prelude.<*> ( x
+                            Data..:? "TransitGatewayCidrBlocks"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VpnEcmpSupport")
@@ -189,7 +190,8 @@ instance Data.FromJSON AwsEc2TransitGatewayDetails where
 
 instance Prelude.Hashable AwsEc2TransitGatewayDetails where
   hashWithSalt _salt AwsEc2TransitGatewayDetails' {..} =
-    _salt `Prelude.hashWithSalt` amazonSideAsn
+    _salt
+      `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` associationDefaultRouteTableId
       `Prelude.hashWithSalt` autoAcceptSharedAttachments
       `Prelude.hashWithSalt` defaultRouteTableAssociation

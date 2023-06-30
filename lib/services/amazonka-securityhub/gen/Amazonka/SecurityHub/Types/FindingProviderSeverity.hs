@@ -75,7 +75,8 @@ instance Data.FromJSON FindingProviderSeverity where
 
 instance Prelude.Hashable FindingProviderSeverity where
   hashWithSalt _salt FindingProviderSeverity' {..} =
-    _salt `Prelude.hashWithSalt` label
+    _salt
+      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` original
 
 instance Prelude.NFData FindingProviderSeverity where

@@ -342,10 +342,12 @@ instance
       "AwsSageMakerNotebookInstanceDetails"
       ( \x ->
           AwsSageMakerNotebookInstanceDetails'
-            Prelude.<$> ( x Data..:? "AcceleratorTypes"
+            Prelude.<$> ( x
+                            Data..:? "AcceleratorTypes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "AdditionalCodeRepositories"
+            Prelude.<*> ( x
+                            Data..:? "AdditionalCodeRepositories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DefaultCodeRepository")
@@ -375,7 +377,8 @@ instance
   hashWithSalt
     _salt
     AwsSageMakerNotebookInstanceDetails' {..} =
-      _salt `Prelude.hashWithSalt` acceleratorTypes
+      _salt
+        `Prelude.hashWithSalt` acceleratorTypes
         `Prelude.hashWithSalt` additionalCodeRepositories
         `Prelude.hashWithSalt` defaultCodeRepository
         `Prelude.hashWithSalt` directInternetAccess

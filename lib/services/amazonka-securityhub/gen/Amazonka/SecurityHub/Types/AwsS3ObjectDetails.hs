@@ -141,7 +141,8 @@ instance Data.FromJSON AwsS3ObjectDetails where
 
 instance Prelude.Hashable AwsS3ObjectDetails where
   hashWithSalt _salt AwsS3ObjectDetails' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` sSEKMSKeyId

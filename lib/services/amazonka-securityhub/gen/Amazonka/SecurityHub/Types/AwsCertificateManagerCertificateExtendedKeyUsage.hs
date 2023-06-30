@@ -82,7 +82,8 @@ instance
       "AwsCertificateManagerCertificateExtendedKeyUsage"
       ( \x ->
           AwsCertificateManagerCertificateExtendedKeyUsage'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "OId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OId")
       )
 
 instance
@@ -92,7 +93,8 @@ instance
   hashWithSalt
     _salt
     AwsCertificateManagerCertificateExtendedKeyUsage' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` oId
 
 instance

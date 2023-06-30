@@ -119,7 +119,8 @@ instance Data.FromJSON AwsCorsConfiguration where
 
 instance Prelude.Hashable AwsCorsConfiguration where
   hashWithSalt _salt AwsCorsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` allowCredentials
+    _salt
+      `Prelude.hashWithSalt` allowCredentials
       `Prelude.hashWithSalt` allowHeaders
       `Prelude.hashWithSalt` allowMethods
       `Prelude.hashWithSalt` allowOrigins

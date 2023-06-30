@@ -82,7 +82,8 @@ instance Data.FromJSON AwsRedshiftClusterIamRole where
 
 instance Prelude.Hashable AwsRedshiftClusterIamRole where
   hashWithSalt _salt AwsRedshiftClusterIamRole' {..} =
-    _salt `Prelude.hashWithSalt` applyStatus
+    _salt
+      `Prelude.hashWithSalt` applyStatus
       `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData AwsRedshiftClusterIamRole where

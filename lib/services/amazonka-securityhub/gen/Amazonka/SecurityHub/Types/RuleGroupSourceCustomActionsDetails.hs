@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceCustomActionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` actionDefinition
+      _salt
+        `Prelude.hashWithSalt` actionDefinition
         `Prelude.hashWithSalt` actionName
 
 instance

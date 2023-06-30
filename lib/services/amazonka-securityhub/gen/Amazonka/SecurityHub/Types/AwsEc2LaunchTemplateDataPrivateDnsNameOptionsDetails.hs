@@ -90,8 +90,8 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails'
             Prelude.<$> (x Data..:? "EnableResourceNameDnsAAAARecord")
-              Prelude.<*> (x Data..:? "EnableResourceNameDnsARecord")
-              Prelude.<*> (x Data..:? "HostnameType")
+            Prelude.<*> (x Data..:? "EnableResourceNameDnsARecord")
+            Prelude.<*> (x Data..:? "HostnameType")
       )
 
 instance

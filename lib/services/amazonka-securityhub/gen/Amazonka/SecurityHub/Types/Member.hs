@@ -223,7 +223,8 @@ instance Data.FromJSON Member where
 
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` administratorId
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` invitedAt

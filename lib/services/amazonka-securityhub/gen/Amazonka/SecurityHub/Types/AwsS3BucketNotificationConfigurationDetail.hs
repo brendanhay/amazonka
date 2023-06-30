@@ -119,9 +119,9 @@ instance
       ( \x ->
           AwsS3BucketNotificationConfigurationDetail'
             Prelude.<$> (x Data..:? "Destination")
-              Prelude.<*> (x Data..:? "Events" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Filter")
-              Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Filter")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketNotificationConfigurationDetail' {..} =
-      _salt `Prelude.hashWithSalt` destination
+      _salt
+        `Prelude.hashWithSalt` destination
         `Prelude.hashWithSalt` events
         `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` type'

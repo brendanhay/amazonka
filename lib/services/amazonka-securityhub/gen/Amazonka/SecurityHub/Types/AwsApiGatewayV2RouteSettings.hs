@@ -141,7 +141,8 @@ instance
     AwsApiGatewayV2RouteSettings
   where
   hashWithSalt _salt AwsApiGatewayV2RouteSettings' {..} =
-    _salt `Prelude.hashWithSalt` dataTraceEnabled
+    _salt
+      `Prelude.hashWithSalt` dataTraceEnabled
       `Prelude.hashWithSalt` detailedMetricsEnabled
       `Prelude.hashWithSalt` loggingLevel
       `Prelude.hashWithSalt` throttlingBurstLimit

@@ -371,42 +371,49 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataInstanceRequirementsDetails'
             Prelude.<$> (x Data..:? "AcceleratorCount")
-              Prelude.<*> ( x Data..:? "AcceleratorManufacturers"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "AcceleratorNames"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "AcceleratorTotalMemoryMiB")
-              Prelude.<*> ( x Data..:? "AcceleratorTypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "BareMetal")
-              Prelude.<*> (x Data..:? "BaselineEbsBandwidthMbps")
-              Prelude.<*> (x Data..:? "BurstablePerformance")
-              Prelude.<*> ( x Data..:? "CpuManufacturers"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "ExcludedInstanceTypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "InstanceGenerations"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "LocalStorage")
-              Prelude.<*> ( x Data..:? "LocalStorageTypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "MemoryGiBPerVCpu")
-              Prelude.<*> (x Data..:? "MemoryMiB")
-              Prelude.<*> (x Data..:? "NetworkInterfaceCount")
-              Prelude.<*> ( x
-                              Data..:? "OnDemandMaxPricePercentageOverLowestPrice"
-                          )
-              Prelude.<*> (x Data..:? "RequireHibernateSupport")
-              Prelude.<*> (x Data..:? "SpotMaxPricePercentageOverLowestPrice")
-              Prelude.<*> (x Data..:? "TotalLocalStorageGB")
-              Prelude.<*> (x Data..:? "VCpuCount")
+            Prelude.<*> ( x
+                            Data..:? "AcceleratorManufacturers"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "AcceleratorNames"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "AcceleratorTotalMemoryMiB")
+            Prelude.<*> ( x
+                            Data..:? "AcceleratorTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "BareMetal")
+            Prelude.<*> (x Data..:? "BaselineEbsBandwidthMbps")
+            Prelude.<*> (x Data..:? "BurstablePerformance")
+            Prelude.<*> ( x
+                            Data..:? "CpuManufacturers"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "ExcludedInstanceTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "InstanceGenerations"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "LocalStorage")
+            Prelude.<*> ( x
+                            Data..:? "LocalStorageTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "MemoryGiBPerVCpu")
+            Prelude.<*> (x Data..:? "MemoryMiB")
+            Prelude.<*> (x Data..:? "NetworkInterfaceCount")
+            Prelude.<*> ( x
+                            Data..:? "OnDemandMaxPricePercentageOverLowestPrice"
+                        )
+            Prelude.<*> (x Data..:? "RequireHibernateSupport")
+            Prelude.<*> (x Data..:? "SpotMaxPricePercentageOverLowestPrice")
+            Prelude.<*> (x Data..:? "TotalLocalStorageGB")
+            Prelude.<*> (x Data..:? "VCpuCount")
       )
 
 instance
@@ -416,7 +423,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataInstanceRequirementsDetails' {..} =
-      _salt `Prelude.hashWithSalt` acceleratorCount
+      _salt
+        `Prelude.hashWithSalt` acceleratorCount
         `Prelude.hashWithSalt` acceleratorManufacturers
         `Prelude.hashWithSalt` acceleratorNames
         `Prelude.hashWithSalt` acceleratorTotalMemoryMiB

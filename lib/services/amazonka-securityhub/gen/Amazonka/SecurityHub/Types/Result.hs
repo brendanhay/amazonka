@@ -74,7 +74,8 @@ instance Data.FromJSON Result where
 
 instance Prelude.Hashable Result where
   hashWithSalt _salt Result' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` processingResult
 
 instance Prelude.NFData Result where

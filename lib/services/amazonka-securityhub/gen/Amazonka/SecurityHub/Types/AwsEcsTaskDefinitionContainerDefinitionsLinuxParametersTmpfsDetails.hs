@@ -114,8 +114,8 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails'
             Prelude.<$> (x Data..:? "ContainerPath")
-              Prelude.<*> (x Data..:? "MountOptions" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "MountOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Size")
       )
 
 instance
@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {..} =
-      _salt `Prelude.hashWithSalt` containerPath
+      _salt
+        `Prelude.hashWithSalt` containerPath
         `Prelude.hashWithSalt` mountOptions
         `Prelude.hashWithSalt` size
 

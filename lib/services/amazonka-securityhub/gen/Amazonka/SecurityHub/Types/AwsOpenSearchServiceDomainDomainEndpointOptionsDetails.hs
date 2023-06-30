@@ -107,10 +107,10 @@ instance
       ( \x ->
           AwsOpenSearchServiceDomainDomainEndpointOptionsDetails'
             Prelude.<$> (x Data..:? "CustomEndpoint")
-              Prelude.<*> (x Data..:? "CustomEndpointCertificateArn")
-              Prelude.<*> (x Data..:? "CustomEndpointEnabled")
-              Prelude.<*> (x Data..:? "EnforceHTTPS")
-              Prelude.<*> (x Data..:? "TLSSecurityPolicy")
+            Prelude.<*> (x Data..:? "CustomEndpointCertificateArn")
+            Prelude.<*> (x Data..:? "CustomEndpointEnabled")
+            Prelude.<*> (x Data..:? "EnforceHTTPS")
+            Prelude.<*> (x Data..:? "TLSSecurityPolicy")
       )
 
 instance
@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` customEndpoint
+      _salt
+        `Prelude.hashWithSalt` customEndpoint
         `Prelude.hashWithSalt` customEndpointCertificateArn
         `Prelude.hashWithSalt` customEndpointEnabled
         `Prelude.hashWithSalt` enforceHTTPS

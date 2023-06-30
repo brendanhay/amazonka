@@ -233,7 +233,8 @@ instance Data.FromJSON AwsCodeBuildProjectSource where
 
 instance Prelude.Hashable AwsCodeBuildProjectSource where
   hashWithSalt _salt AwsCodeBuildProjectSource' {..} =
-    _salt `Prelude.hashWithSalt` gitCloneDepth
+    _salt
+      `Prelude.hashWithSalt` gitCloneDepth
       `Prelude.hashWithSalt` insecureSsl
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` type'

@@ -77,7 +77,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails'
             Prelude.<$> (x Data..:? "AccessPointId")
-              Prelude.<*> (x Data..:? "Iam")
+            Prelude.<*> (x Data..:? "Iam")
       )
 
 instance
@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails' {..} =
-      _salt `Prelude.hashWithSalt` accessPointId
+      _salt
+        `Prelude.hashWithSalt` accessPointId
         `Prelude.hashWithSalt` iam
 
 instance

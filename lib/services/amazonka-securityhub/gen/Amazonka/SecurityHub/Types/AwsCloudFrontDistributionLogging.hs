@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionLogging' {..} =
-      _salt `Prelude.hashWithSalt` bucket
+      _salt
+        `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` includeCookies
         `Prelude.hashWithSalt` prefix

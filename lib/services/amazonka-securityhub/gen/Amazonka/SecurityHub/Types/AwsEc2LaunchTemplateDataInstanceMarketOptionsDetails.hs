@@ -76,7 +76,7 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails'
             Prelude.<$> (x Data..:? "MarketType")
-              Prelude.<*> (x Data..:? "SpotOptions")
+            Prelude.<*> (x Data..:? "SpotOptions")
       )
 
 instance
@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` marketType
+      _salt
+        `Prelude.hashWithSalt` marketType
         `Prelude.hashWithSalt` spotOptions
 
 instance

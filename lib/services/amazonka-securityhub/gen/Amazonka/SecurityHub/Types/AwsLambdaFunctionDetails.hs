@@ -294,7 +294,8 @@ instance Data.FromJSON AwsLambdaFunctionDetails where
 
 instance Prelude.Hashable AwsLambdaFunctionDetails where
   hashWithSalt _salt AwsLambdaFunctionDetails' {..} =
-    _salt `Prelude.hashWithSalt` architectures
+    _salt
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` codeSha256
       `Prelude.hashWithSalt` deadLetterConfig

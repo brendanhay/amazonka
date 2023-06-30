@@ -157,7 +157,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2NetworkInterfaceAttachment' {..} =
-      _salt `Prelude.hashWithSalt` attachTime
+      _salt
+        `Prelude.hashWithSalt` attachTime
         `Prelude.hashWithSalt` attachmentId
         `Prelude.hashWithSalt` deleteOnTermination
         `Prelude.hashWithSalt` deviceIndex

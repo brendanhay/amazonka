@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     AwsWafRegionalWebAclRulesListDetails' {..} =
-      _salt `Prelude.hashWithSalt` action
+      _salt
+        `Prelude.hashWithSalt` action
         `Prelude.hashWithSalt` overrideAction
         `Prelude.hashWithSalt` priority
         `Prelude.hashWithSalt` ruleId

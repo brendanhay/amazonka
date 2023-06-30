@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     AwsEfsAccessPointPosixUserDetails' {..} =
-      _salt `Prelude.hashWithSalt` gid
+      _salt
+        `Prelude.hashWithSalt` gid
         `Prelude.hashWithSalt` secondaryGids
         `Prelude.hashWithSalt` uid
 

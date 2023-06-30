@@ -137,7 +137,8 @@ instance Data.FromJSON ThreatIntelIndicator where
 
 instance Prelude.Hashable ThreatIntelIndicator where
   hashWithSalt _salt ThreatIntelIndicator' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` lastObservedAt
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` sourceUrl

@@ -76,7 +76,8 @@ instance
     StandardsSubscriptionRequest
   where
   hashWithSalt _salt StandardsSubscriptionRequest' {..} =
-    _salt `Prelude.hashWithSalt` standardsInput
+    _salt
+      `Prelude.hashWithSalt` standardsInput
       `Prelude.hashWithSalt` standardsArn
 
 instance Prelude.NFData StandardsSubscriptionRequest where

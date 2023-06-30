@@ -85,8 +85,8 @@ instance
       ( \x ->
           AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails'
             Prelude.<$> (x Data..:? "Enabled")
-              Prelude.<*> (x Data..:? "InternalUserDatabaseEnabled")
-              Prelude.<*> (x Data..:? "MasterUserOptions")
+            Prelude.<*> (x Data..:? "InternalUserDatabaseEnabled")
+            Prelude.<*> (x Data..:? "MasterUserOptions")
       )
 
 instance
@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` internalUserDatabaseEnabled
         `Prelude.hashWithSalt` masterUserOptions
 

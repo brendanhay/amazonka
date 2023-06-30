@@ -189,17 +189,21 @@ instance
       ( \x ->
           AwsEc2VpcEndpointServiceDetails'
             Prelude.<$> (x Data..:? "AcceptanceRequired")
-            Prelude.<*> ( x Data..:? "AvailabilityZones"
+            Prelude.<*> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "BaseEndpointDnsNames"
+            Prelude.<*> ( x
+                            Data..:? "BaseEndpointDnsNames"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "GatewayLoadBalancerArns"
+            Prelude.<*> ( x
+                            Data..:? "GatewayLoadBalancerArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ManagesVpcEndpoints")
-            Prelude.<*> ( x Data..:? "NetworkLoadBalancerArns"
+            Prelude.<*> ( x
+                            Data..:? "NetworkLoadBalancerArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PrivateDnsName")
@@ -216,7 +220,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpcEndpointServiceDetails' {..} =
-      _salt `Prelude.hashWithSalt` acceptanceRequired
+      _salt
+        `Prelude.hashWithSalt` acceptanceRequired
         `Prelude.hashWithSalt` availabilityZones
         `Prelude.hashWithSalt` baseEndpointDnsNames
         `Prelude.hashWithSalt` gatewayLoadBalancerArns

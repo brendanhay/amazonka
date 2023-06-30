@@ -104,7 +104,8 @@ instance Data.FromJSON AwsSqsQueueDetails where
 
 instance Prelude.Hashable AwsSqsQueueDetails where
   hashWithSalt _salt AwsSqsQueueDetails' {..} =
-    _salt `Prelude.hashWithSalt` deadLetterTargetArn
+    _salt
+      `Prelude.hashWithSalt` deadLetterTargetArn
       `Prelude.hashWithSalt` kmsDataKeyReusePeriodSeconds
       `Prelude.hashWithSalt` kmsMasterKeyId
       `Prelude.hashWithSalt` queueName

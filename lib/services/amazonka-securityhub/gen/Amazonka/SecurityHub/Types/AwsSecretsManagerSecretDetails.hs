@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     AwsSecretsManagerSecretDetails' {..} =
-      _salt `Prelude.hashWithSalt` deleted
+      _salt
+        `Prelude.hashWithSalt` deleted
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` kmsKeyId
         `Prelude.hashWithSalt` name

@@ -73,7 +73,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionPlacementConstraintsDetails'
             Prelude.<$> (x Data..:? "Expression")
-              Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionPlacementConstraintsDetails' {..} =
-      _salt `Prelude.hashWithSalt` expression
+      _salt
+        `Prelude.hashWithSalt` expression
         `Prelude.hashWithSalt` type'
 
 instance

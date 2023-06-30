@@ -77,7 +77,8 @@ instance Data.FromJSON NetworkPathComponentDetails where
 
 instance Prelude.Hashable NetworkPathComponentDetails where
   hashWithSalt _salt NetworkPathComponentDetails' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` portRanges
 
 instance Prelude.NFData NetworkPathComponentDetails where

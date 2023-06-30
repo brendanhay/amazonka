@@ -65,7 +65,8 @@ noteUpdate_updatedBy = Lens.lens (\NoteUpdate' {updatedBy} -> updatedBy) (\s@Not
 
 instance Prelude.Hashable NoteUpdate where
   hashWithSalt _salt NoteUpdate' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` updatedBy
 
 instance Prelude.NFData NoteUpdate where

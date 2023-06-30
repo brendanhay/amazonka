@@ -153,7 +153,8 @@ instance Data.FromJSON AwsElbLoadBalancerAttributes where
       ( \x ->
           AwsElbLoadBalancerAttributes'
             Prelude.<$> (x Data..:? "AccessLog")
-            Prelude.<*> ( x Data..:? "AdditionalAttributes"
+            Prelude.<*> ( x
+                            Data..:? "AdditionalAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ConnectionDraining")
@@ -166,7 +167,8 @@ instance
     AwsElbLoadBalancerAttributes
   where
   hashWithSalt _salt AwsElbLoadBalancerAttributes' {..} =
-    _salt `Prelude.hashWithSalt` accessLog
+    _salt
+      `Prelude.hashWithSalt` accessLog
       `Prelude.hashWithSalt` additionalAttributes
       `Prelude.hashWithSalt` connectionDraining
       `Prelude.hashWithSalt` connectionSettings

@@ -1240,36 +1240,44 @@ instance Data.FromJSON AwsSecurityFindingFilters where
           AwsSecurityFindingFilters'
             Prelude.<$> (x Data..:? "AwsAccountId" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CompanyName" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ComplianceStatus"
+            Prelude.<*> ( x
+                            Data..:? "ComplianceStatus"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Confidence" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CreatedAt" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Criticality" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Description" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsConfidence"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsConfidence"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsCriticality"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsCriticality"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsRelatedFindingsId"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsRelatedFindingsId"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
                             Data..:? "FindingProviderFieldsRelatedFindingsProductArn"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsSeverityLabel"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsSeverityLabel"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsSeverityOriginal"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsSeverityOriginal"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsTypes"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsTypes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FirstObservedAt"
+            Prelude.<*> ( x
+                            Data..:? "FirstObservedAt"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "GeneratorId" Data..!= Prelude.mempty)
@@ -1280,134 +1288,172 @@ instance Data.FromJSON AwsSecurityFindingFilters where
             Prelude.<*> (x Data..:? "MalwarePath" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "MalwareState" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "MalwareType" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "NetworkDestinationDomain"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDestinationDomain"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkDestinationIpV4"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDestinationIpV4"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkDestinationIpV6"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDestinationIpV6"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkDestinationPort"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDestinationPort"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkDirection"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDirection"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkProtocol"
+            Prelude.<*> ( x
+                            Data..:? "NetworkProtocol"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourceDomain"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourceDomain"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourceIpV4"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourceIpV4"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourceIpV6"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourceIpV6"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourceMac"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourceMac"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourcePort"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourcePort"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "NoteText" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "NoteUpdatedAt" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "NoteUpdatedBy" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ProcessLaunchedAt"
+            Prelude.<*> ( x
+                            Data..:? "ProcessLaunchedAt"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProcessName" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ProcessParentPid"
+            Prelude.<*> ( x
+                            Data..:? "ProcessParentPid"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProcessPath" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ProcessPid" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ProcessTerminatedAt"
+            Prelude.<*> ( x
+                            Data..:? "ProcessTerminatedAt"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProductArn" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ProductFields" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ProductName" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "RecommendationText"
+            Prelude.<*> ( x
+                            Data..:? "RecommendationText"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RecordState" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Region" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "RelatedFindingsId"
+            Prelude.<*> ( x
+                            Data..:? "RelatedFindingsId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "RelatedFindingsProductArn"
+            Prelude.<*> ( x
+                            Data..:? "RelatedFindingsProductArn"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
                             Data..:? "ResourceAwsEc2InstanceIamInstanceProfileArn"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceImageId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceImageId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceIpV4Addresses"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceIpV4Addresses"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceIpV6Addresses"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceIpV6Addresses"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceKeyName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceKeyName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceLaunchedAt"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceLaunchedAt"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceSubnetId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceSubnetId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceType"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceType"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceVpcId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceVpcId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyCreatedAt"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamAccessKeyCreatedAt"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyPrincipalName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamAccessKeyPrincipalName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyStatus"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamAccessKeyStatus"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyUserName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamAccessKeyUserName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamUserUserName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamUserUserName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsS3BucketOwnerId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsS3BucketOwnerId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsS3BucketOwnerName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsS3BucketOwnerName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceContainerImageId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceContainerImageId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceContainerImageName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceContainerImageName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceContainerLaunchedAt"
+            Prelude.<*> ( x
+                            Data..:? "ResourceContainerLaunchedAt"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceContainerName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceContainerName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceDetailsOther"
+            Prelude.<*> ( x
+                            Data..:? "ResourceDetailsOther"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ResourceId" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ResourcePartition"
+            Prelude.<*> ( x
+                            Data..:? "ResourcePartition"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ResourceRegion" Data..!= Prelude.mempty)
@@ -1415,49 +1461,61 @@ instance Data.FromJSON AwsSecurityFindingFilters where
             Prelude.<*> (x Data..:? "ResourceType" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Sample" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "SeverityLabel" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "SeverityNormalized"
+            Prelude.<*> ( x
+                            Data..:? "SeverityNormalized"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SeverityProduct"
+            Prelude.<*> ( x
+                            Data..:? "SeverityProduct"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SourceUrl" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorCategory"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorCategory"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorLastObservedAt"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorLastObservedAt"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorSource"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorSource"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorSourceUrl"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorSourceUrl"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorType"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorType"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorValue"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorValue"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Title" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Type" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "UpdatedAt" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "UserDefinedFields"
+            Prelude.<*> ( x
+                            Data..:? "UserDefinedFields"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "VerificationState"
+            Prelude.<*> ( x
+                            Data..:? "VerificationState"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "WorkflowState" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "WorkflowStatus"
+            Prelude.<*> ( x
+                            Data..:? "WorkflowStatus"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AwsSecurityFindingFilters where
   hashWithSalt _salt AwsSecurityFindingFilters' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` companyName
       `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` confidence

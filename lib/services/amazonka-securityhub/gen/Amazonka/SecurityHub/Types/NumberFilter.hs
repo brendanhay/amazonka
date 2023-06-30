@@ -93,7 +93,8 @@ instance Data.FromJSON NumberFilter where
 
 instance Prelude.Hashable NumberFilter where
   hashWithSalt _salt NumberFilter' {..} =
-    _salt `Prelude.hashWithSalt` eq
+    _salt
+      `Prelude.hashWithSalt` eq
       `Prelude.hashWithSalt` gte
       `Prelude.hashWithSalt` lte
 

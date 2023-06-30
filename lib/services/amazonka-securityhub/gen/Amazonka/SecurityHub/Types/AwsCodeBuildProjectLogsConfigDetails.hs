@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectLogsConfigDetails' {..} =
-      _salt `Prelude.hashWithSalt` cloudWatchLogs
+      _salt
+        `Prelude.hashWithSalt` cloudWatchLogs
         `Prelude.hashWithSalt` s3Logs
 
 instance

@@ -179,7 +179,8 @@ instance Data.FromJSON AwsWafv2WebAclDetails where
 
 instance Prelude.Hashable AwsWafv2WebAclDetails where
   hashWithSalt _salt AwsWafv2WebAclDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` captchaConfig
       `Prelude.hashWithSalt` defaultAction

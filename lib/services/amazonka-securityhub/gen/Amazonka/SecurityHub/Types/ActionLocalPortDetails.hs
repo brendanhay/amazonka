@@ -76,7 +76,8 @@ instance Data.FromJSON ActionLocalPortDetails where
 
 instance Prelude.Hashable ActionLocalPortDetails where
   hashWithSalt _salt ActionLocalPortDetails' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` portName
 
 instance Prelude.NFData ActionLocalPortDetails where

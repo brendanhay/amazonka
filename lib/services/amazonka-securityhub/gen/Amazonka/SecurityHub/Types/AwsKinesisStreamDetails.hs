@@ -117,7 +117,8 @@ instance Data.FromJSON AwsKinesisStreamDetails where
 
 instance Prelude.Hashable AwsKinesisStreamDetails where
   hashWithSalt _salt AwsKinesisStreamDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` retentionPeriodHours
       `Prelude.hashWithSalt` shardCount

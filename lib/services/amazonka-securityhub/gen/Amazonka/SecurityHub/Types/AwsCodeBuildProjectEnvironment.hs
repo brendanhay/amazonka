@@ -216,7 +216,8 @@ instance Data.FromJSON AwsCodeBuildProjectEnvironment where
       ( \x ->
           AwsCodeBuildProjectEnvironment'
             Prelude.<$> (x Data..:? "Certificate")
-            Prelude.<*> ( x Data..:? "EnvironmentVariables"
+            Prelude.<*> ( x
+                            Data..:? "EnvironmentVariables"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ImagePullCredentialsType")
@@ -232,7 +233,8 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectEnvironment' {..} =
-      _salt `Prelude.hashWithSalt` certificate
+      _salt
+        `Prelude.hashWithSalt` certificate
         `Prelude.hashWithSalt` environmentVariables
         `Prelude.hashWithSalt` imagePullCredentialsType
         `Prelude.hashWithSalt` privilegedMode

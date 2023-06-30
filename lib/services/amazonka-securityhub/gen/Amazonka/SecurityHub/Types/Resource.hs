@@ -171,7 +171,8 @@ instance Data.FromJSON Resource where
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` dataClassification
+    _salt
+      `Prelude.hashWithSalt` dataClassification
       `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` partition
       `Prelude.hashWithSalt` region

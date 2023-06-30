@@ -289,12 +289,14 @@ instance Data.FromJSON AwsDynamoDbTableDetails where
       "AwsDynamoDbTableDetails"
       ( \x ->
           AwsDynamoDbTableDetails'
-            Prelude.<$> ( x Data..:? "AttributeDefinitions"
+            Prelude.<$> ( x
+                            Data..:? "AttributeDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BillingModeSummary")
             Prelude.<*> (x Data..:? "CreationDateTime")
-            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "GlobalTableVersion")
@@ -302,7 +304,8 @@ instance Data.FromJSON AwsDynamoDbTableDetails where
             Prelude.<*> (x Data..:? "KeySchema" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "LatestStreamArn")
             Prelude.<*> (x Data..:? "LatestStreamLabel")
-            Prelude.<*> ( x Data..:? "LocalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "LocalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProvisionedThroughput")
@@ -318,7 +321,8 @@ instance Data.FromJSON AwsDynamoDbTableDetails where
 
 instance Prelude.Hashable AwsDynamoDbTableDetails where
   hashWithSalt _salt AwsDynamoDbTableDetails' {..} =
-    _salt `Prelude.hashWithSalt` attributeDefinitions
+    _salt
+      `Prelude.hashWithSalt` attributeDefinitions
       `Prelude.hashWithSalt` billingModeSummary
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` globalSecondaryIndexes

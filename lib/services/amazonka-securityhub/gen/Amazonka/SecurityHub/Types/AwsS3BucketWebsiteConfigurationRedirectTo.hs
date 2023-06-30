@@ -79,7 +79,7 @@ instance
       ( \x ->
           AwsS3BucketWebsiteConfigurationRedirectTo'
             Prelude.<$> (x Data..:? "Hostname")
-              Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance
@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketWebsiteConfigurationRedirectTo' {..} =
-      _salt `Prelude.hashWithSalt` hostname
+      _salt
+        `Prelude.hashWithSalt` hostname
         `Prelude.hashWithSalt` protocol
 
 instance

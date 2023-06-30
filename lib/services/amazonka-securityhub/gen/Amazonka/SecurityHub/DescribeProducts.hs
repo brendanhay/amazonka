@@ -123,19 +123,19 @@ instance Core.AWSPager DescribeProducts where
     | Core.stop
         ( rs
             Lens.^? describeProductsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. describeProductsResponse_products) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeProducts_nextToken
           Lens..~ rs
           Lens.^? describeProductsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeProducts where
   type
@@ -154,7 +154,8 @@ instance Core.AWSRequest DescribeProducts where
 
 instance Prelude.Hashable DescribeProducts where
   hashWithSalt _salt DescribeProducts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` productArn
 

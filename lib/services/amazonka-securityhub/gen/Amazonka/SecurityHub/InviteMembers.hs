@@ -96,7 +96,8 @@ instance Core.AWSRequest InviteMembers where
     Response.receiveJSON
       ( \s h x ->
           InviteMembersResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<$> ( x
+                            Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

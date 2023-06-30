@@ -153,7 +153,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails'
             Prelude.<$> (x Data..:? "Add" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Drop" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Drop" Data..!= Prelude.mempty)
       )
 
 instance
@@ -163,7 +163,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails' {..} =
-      _salt `Prelude.hashWithSalt` add
+      _salt
+        `Prelude.hashWithSalt` add
         `Prelude.hashWithSalt` drop
 
 instance

@@ -170,7 +170,8 @@ instance Data.FromJSON SoftwarePackage where
 
 instance Prelude.Hashable SoftwarePackage where
   hashWithSalt _salt SoftwarePackage' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` epoch
       `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` fixedInVersion

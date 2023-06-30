@@ -186,7 +186,8 @@ instance Data.FromJSON Product where
             Prelude.<*> (x Data..:? "Categories" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CompanyName")
             Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> ( x Data..:? "IntegrationTypes"
+            Prelude.<*> ( x
+                            Data..:? "IntegrationTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MarketplaceUrl")
@@ -197,7 +198,8 @@ instance Data.FromJSON Product where
 
 instance Prelude.Hashable Product where
   hashWithSalt _salt Product' {..} =
-    _salt `Prelude.hashWithSalt` activationUrl
+    _salt
+      `Prelude.hashWithSalt` activationUrl
       `Prelude.hashWithSalt` categories
       `Prelude.hashWithSalt` companyName
       `Prelude.hashWithSalt` description

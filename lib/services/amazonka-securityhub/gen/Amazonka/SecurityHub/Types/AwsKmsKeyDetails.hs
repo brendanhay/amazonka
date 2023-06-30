@@ -212,7 +212,8 @@ instance Data.FromJSON AwsKmsKeyDetails where
 
 instance Prelude.Hashable AwsKmsKeyDetails where
   hashWithSalt _salt AwsKmsKeyDetails' {..} =
-    _salt `Prelude.hashWithSalt` aWSAccountId
+    _salt
+      `Prelude.hashWithSalt` aWSAccountId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` keyId

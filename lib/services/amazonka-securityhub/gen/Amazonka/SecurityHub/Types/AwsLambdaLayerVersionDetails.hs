@@ -105,7 +105,8 @@ instance Data.FromJSON AwsLambdaLayerVersionDetails where
       "AwsLambdaLayerVersionDetails"
       ( \x ->
           AwsLambdaLayerVersionDetails'
-            Prelude.<$> ( x Data..:? "CompatibleRuntimes"
+            Prelude.<$> ( x
+                            Data..:? "CompatibleRuntimes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedDate")
@@ -117,7 +118,8 @@ instance
     AwsLambdaLayerVersionDetails
   where
   hashWithSalt _salt AwsLambdaLayerVersionDetails' {..} =
-    _salt `Prelude.hashWithSalt` compatibleRuntimes
+    _salt
+      `Prelude.hashWithSalt` compatibleRuntimes
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` version
 

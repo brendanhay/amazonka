@@ -79,7 +79,8 @@ instance
     AwsLambdaFunctionEnvironment
   where
   hashWithSalt _salt AwsLambdaFunctionEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` variables
 
 instance Prelude.NFData AwsLambdaFunctionEnvironment where

@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     AwsXrayEncryptionConfigDetails' {..} =
-      _salt `Prelude.hashWithSalt` keyId
+      _salt
+        `Prelude.hashWithSalt` keyId
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` type'
 

@@ -108,10 +108,10 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails'
             Prelude.<$> (x Data..:? "BlockDurationMinutes")
-              Prelude.<*> (x Data..:? "InstanceInterruptionBehavior")
-              Prelude.<*> (x Data..:? "MaxPrice")
-              Prelude.<*> (x Data..:? "SpotInstanceType")
-              Prelude.<*> (x Data..:? "ValidUntil")
+            Prelude.<*> (x Data..:? "InstanceInterruptionBehavior")
+            Prelude.<*> (x Data..:? "MaxPrice")
+            Prelude.<*> (x Data..:? "SpotInstanceType")
+            Prelude.<*> (x Data..:? "ValidUntil")
       )
 
 instance
@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` blockDurationMinutes
+      _salt
+        `Prelude.hashWithSalt` blockDurationMinutes
         `Prelude.hashWithSalt` instanceInterruptionBehavior
         `Prelude.hashWithSalt` maxPrice
         `Prelude.hashWithSalt` spotInstanceType

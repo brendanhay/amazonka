@@ -337,7 +337,8 @@ instance Data.FromJSON AwsSsmComplianceSummary where
 
 instance Prelude.Hashable AwsSsmComplianceSummary where
   hashWithSalt _salt AwsSsmComplianceSummary' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` compliantCriticalCount
       `Prelude.hashWithSalt` compliantHighCount
       `Prelude.hashWithSalt` compliantInformationalCount

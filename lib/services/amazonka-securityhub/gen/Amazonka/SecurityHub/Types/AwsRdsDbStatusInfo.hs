@@ -100,7 +100,8 @@ instance Data.FromJSON AwsRdsDbStatusInfo where
 
 instance Prelude.Hashable AwsRdsDbStatusInfo where
   hashWithSalt _salt AwsRdsDbStatusInfo' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` normal
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusType

@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     AwsIamAccessKeySessionContextAttributes' {..} =
-      _salt `Prelude.hashWithSalt` creationDate
+      _salt
+        `Prelude.hashWithSalt` creationDate
         `Prelude.hashWithSalt` mfaAuthenticated
 
 instance

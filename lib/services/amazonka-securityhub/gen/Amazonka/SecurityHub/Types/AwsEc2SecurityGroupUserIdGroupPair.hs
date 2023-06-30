@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2SecurityGroupUserIdGroupPair' {..} =
-      _salt `Prelude.hashWithSalt` groupId
+      _salt
+        `Prelude.hashWithSalt` groupId
         `Prelude.hashWithSalt` groupName
         `Prelude.hashWithSalt` peeringStatus
         `Prelude.hashWithSalt` userId

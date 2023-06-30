@@ -450,7 +450,8 @@ instance Data.FromJSON AwsRdsDbSnapshotDetails where
             Prelude.<*> (x Data..:? "OptionGroupName")
             Prelude.<*> (x Data..:? "PercentProgress")
             Prelude.<*> (x Data..:? "Port")
-            Prelude.<*> ( x Data..:? "ProcessorFeatures"
+            Prelude.<*> ( x
+                            Data..:? "ProcessorFeatures"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SnapshotCreateTime")
@@ -466,7 +467,8 @@ instance Data.FromJSON AwsRdsDbSnapshotDetails where
 
 instance Prelude.Hashable AwsRdsDbSnapshotDetails where
   hashWithSalt _salt AwsRdsDbSnapshotDetails' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` dbSnapshotIdentifier

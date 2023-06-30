@@ -91,9 +91,9 @@ instance
       ( \x ->
           AwsElasticBeanstalkEnvironmentOptionSetting'
             Prelude.<$> (x Data..:? "Namespace")
-              Prelude.<*> (x Data..:? "OptionName")
-              Prelude.<*> (x Data..:? "ResourceName")
-              Prelude.<*> (x Data..:? "Value")
+            Prelude.<*> (x Data..:? "OptionName")
+            Prelude.<*> (x Data..:? "ResourceName")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     AwsElasticBeanstalkEnvironmentOptionSetting' {..} =
-      _salt `Prelude.hashWithSalt` namespace
+      _salt
+        `Prelude.hashWithSalt` namespace
         `Prelude.hashWithSalt` optionName
         `Prelude.hashWithSalt` resourceName
         `Prelude.hashWithSalt` value

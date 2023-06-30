@@ -74,7 +74,7 @@ instance
       ( \x ->
           AwsElasticBeanstalkEnvironmentEnvironmentLink'
             Prelude.<$> (x Data..:? "EnvironmentName")
-              Prelude.<*> (x Data..:? "LinkName")
+            Prelude.<*> (x Data..:? "LinkName")
       )
 
 instance
@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsElasticBeanstalkEnvironmentEnvironmentLink' {..} =
-      _salt `Prelude.hashWithSalt` environmentName
+      _salt
+        `Prelude.hashWithSalt` environmentName
         `Prelude.hashWithSalt` linkName
 
 instance

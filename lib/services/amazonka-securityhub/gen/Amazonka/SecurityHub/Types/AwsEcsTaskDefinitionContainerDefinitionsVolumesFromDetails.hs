@@ -77,7 +77,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails'
             Prelude.<$> (x Data..:? "ReadOnly")
-              Prelude.<*> (x Data..:? "SourceContainer")
+            Prelude.<*> (x Data..:? "SourceContainer")
       )
 
 instance
@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {..} =
-      _salt `Prelude.hashWithSalt` readOnly
+      _salt
+        `Prelude.hashWithSalt` readOnly
         `Prelude.hashWithSalt` sourceContainer
 
 instance

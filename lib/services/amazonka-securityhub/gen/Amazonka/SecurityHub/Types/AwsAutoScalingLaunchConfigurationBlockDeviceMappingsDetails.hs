@@ -116,9 +116,9 @@ instance
       ( \x ->
           AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails'
             Prelude.<$> (x Data..:? "DeviceName")
-              Prelude.<*> (x Data..:? "Ebs")
-              Prelude.<*> (x Data..:? "NoDevice")
-              Prelude.<*> (x Data..:? "VirtualName")
+            Prelude.<*> (x Data..:? "Ebs")
+            Prelude.<*> (x Data..:? "NoDevice")
+            Prelude.<*> (x Data..:? "VirtualName")
       )
 
 instance
@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {..} =
-      _salt `Prelude.hashWithSalt` deviceName
+      _salt
+        `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` ebs
         `Prelude.hashWithSalt` noDevice
         `Prelude.hashWithSalt` virtualName

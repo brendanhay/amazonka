@@ -126,7 +126,8 @@ instance
           AwsEc2VpcPeeringConnectionVpcInfoDetails'
             Prelude.<$> (x Data..:? "CidrBlock")
             Prelude.<*> (x Data..:? "CidrBlockSet" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "Ipv6CidrBlockSet"
+            Prelude.<*> ( x
+                            Data..:? "Ipv6CidrBlockSet"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OwnerId")
@@ -142,7 +143,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpcPeeringConnectionVpcInfoDetails' {..} =
-      _salt `Prelude.hashWithSalt` cidrBlock
+      _salt
+        `Prelude.hashWithSalt` cidrBlock
         `Prelude.hashWithSalt` cidrBlockSet
         `Prelude.hashWithSalt` ipv6CidrBlockSet
         `Prelude.hashWithSalt` ownerId

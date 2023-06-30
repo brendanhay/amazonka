@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateFindings where
 
 instance Prelude.Hashable UpdateFindings where
   hashWithSalt _salt UpdateFindings' {..} =
-    _salt `Prelude.hashWithSalt` note
+    _salt
+      `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` recordState
       `Prelude.hashWithSalt` filters
 

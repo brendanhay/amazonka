@@ -144,7 +144,8 @@ instance Data.FromJSON ProcessDetails where
 
 instance Prelude.Hashable ProcessDetails where
   hashWithSalt _salt ProcessDetails' {..} =
-    _salt `Prelude.hashWithSalt` launchedAt
+    _salt
+      `Prelude.hashWithSalt` launchedAt
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentPid
       `Prelude.hashWithSalt` path

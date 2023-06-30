@@ -88,8 +88,8 @@ instance
       ( \x ->
           AwsEfsAccessPointRootDirectoryCreationInfoDetails'
             Prelude.<$> (x Data..:? "OwnerGid")
-              Prelude.<*> (x Data..:? "OwnerUid")
-              Prelude.<*> (x Data..:? "Permissions")
+            Prelude.<*> (x Data..:? "OwnerUid")
+            Prelude.<*> (x Data..:? "Permissions")
       )
 
 instance
@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     AwsEfsAccessPointRootDirectoryCreationInfoDetails' {..} =
-      _salt `Prelude.hashWithSalt` ownerGid
+      _salt
+        `Prelude.hashWithSalt` ownerGid
         `Prelude.hashWithSalt` ownerUid
         `Prelude.hashWithSalt` permissions
 

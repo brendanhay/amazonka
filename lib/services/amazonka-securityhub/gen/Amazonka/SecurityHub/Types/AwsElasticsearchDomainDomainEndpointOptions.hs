@@ -96,7 +96,7 @@ instance
       ( \x ->
           AwsElasticsearchDomainDomainEndpointOptions'
             Prelude.<$> (x Data..:? "EnforceHTTPS")
-              Prelude.<*> (x Data..:? "TLSSecurityPolicy")
+            Prelude.<*> (x Data..:? "TLSSecurityPolicy")
       )
 
 instance
@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     AwsElasticsearchDomainDomainEndpointOptions' {..} =
-      _salt `Prelude.hashWithSalt` enforceHTTPS
+      _salt
+        `Prelude.hashWithSalt` enforceHTTPS
         `Prelude.hashWithSalt` tLSSecurityPolicy
 
 instance

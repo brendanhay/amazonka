@@ -99,9 +99,9 @@ instance
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails'
             Prelude.<$> (x Data..:? "Operands" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Prefix")
-              Prelude.<*> (x Data..:? "Tag")
-              Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..:? "Tag")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {..} =
-      _salt `Prelude.hashWithSalt` operands
+      _salt
+        `Prelude.hashWithSalt` operands
         `Prelude.hashWithSalt` prefix
         `Prelude.hashWithSalt` tag
         `Prelude.hashWithSalt` type'

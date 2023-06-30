@@ -215,7 +215,8 @@ instance
   hashWithSalt
     _salt
     BatchUpdateFindingsUnprocessedFinding' {..} =
-      _salt `Prelude.hashWithSalt` findingIdentifier
+      _salt
+        `Prelude.hashWithSalt` findingIdentifier
         `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
 

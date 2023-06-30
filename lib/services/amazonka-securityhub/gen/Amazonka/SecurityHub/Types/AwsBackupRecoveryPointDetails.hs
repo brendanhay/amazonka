@@ -373,7 +373,8 @@ instance
     AwsBackupRecoveryPointDetails
   where
   hashWithSalt _salt AwsBackupRecoveryPointDetails' {..} =
-    _salt `Prelude.hashWithSalt` backupSizeInBytes
+    _salt
+      `Prelude.hashWithSalt` backupSizeInBytes
       `Prelude.hashWithSalt` backupVaultArn
       `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` calculatedLifecycle

@@ -106,10 +106,10 @@ instance
       ( \x ->
           AwsIamAccessKeySessionContextSessionIssuer'
             Prelude.<$> (x Data..:? "AccountId")
-              Prelude.<*> (x Data..:? "Arn")
-              Prelude.<*> (x Data..:? "PrincipalId")
-              Prelude.<*> (x Data..:? "Type")
-              Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "PrincipalId")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "UserName")
       )
 
 instance
@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     AwsIamAccessKeySessionContextSessionIssuer' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` principalId
         `Prelude.hashWithSalt` type'

@@ -104,7 +104,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails'
             Prelude.<$> (x Data..:? "Condition")
-              Prelude.<*> (x Data..:? "ContainerName")
+            Prelude.<*> (x Data..:? "ContainerName")
       )
 
 instance
@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {..} =
-      _salt `Prelude.hashWithSalt` condition
+      _salt
+        `Prelude.hashWithSalt` condition
         `Prelude.hashWithSalt` containerName
 
 instance

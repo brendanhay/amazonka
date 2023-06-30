@@ -78,7 +78,7 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails'
             Prelude.<$> (x Data..:? "CapacityReservationId")
-              Prelude.<*> (x Data..:? "CapacityReservationResourceGroupArn")
+            Prelude.<*> (x Data..:? "CapacityReservationResourceGroupArn")
       )
 
 instance
@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails' {..} =
-      _salt `Prelude.hashWithSalt` capacityReservationId
+      _salt
+        `Prelude.hashWithSalt` capacityReservationId
         `Prelude.hashWithSalt` capacityReservationResourceGroupArn
 
 instance

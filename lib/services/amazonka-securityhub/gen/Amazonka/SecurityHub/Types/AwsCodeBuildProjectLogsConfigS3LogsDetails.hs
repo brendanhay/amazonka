@@ -82,8 +82,8 @@ instance
       ( \x ->
           AwsCodeBuildProjectLogsConfigS3LogsDetails'
             Prelude.<$> (x Data..:? "EncryptionDisabled")
-              Prelude.<*> (x Data..:? "Location")
-              Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectLogsConfigS3LogsDetails' {..} =
-      _salt `Prelude.hashWithSalt` encryptionDisabled
+      _salt
+        `Prelude.hashWithSalt` encryptionDisabled
         `Prelude.hashWithSalt` location
         `Prelude.hashWithSalt` status
 

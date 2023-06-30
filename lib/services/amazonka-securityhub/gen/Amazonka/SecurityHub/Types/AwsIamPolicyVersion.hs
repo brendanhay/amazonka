@@ -99,7 +99,8 @@ instance Data.FromJSON AwsIamPolicyVersion where
 
 instance Prelude.Hashable AwsIamPolicyVersion where
   hashWithSalt _salt AwsIamPolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` createDate
+    _salt
+      `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` isDefaultVersion
       `Prelude.hashWithSalt` versionId
 

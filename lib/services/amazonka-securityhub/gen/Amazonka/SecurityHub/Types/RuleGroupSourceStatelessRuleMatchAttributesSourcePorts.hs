@@ -74,7 +74,7 @@ instance
       ( \x ->
           RuleGroupSourceStatelessRuleMatchAttributesSourcePorts'
             Prelude.<$> (x Data..:? "FromPort")
-              Prelude.<*> (x Data..:? "ToPort")
+            Prelude.<*> (x Data..:? "ToPort")
       )
 
 instance
@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatelessRuleMatchAttributesSourcePorts' {..} =
-      _salt `Prelude.hashWithSalt` fromPort
+      _salt
+        `Prelude.hashWithSalt` fromPort
         `Prelude.hashWithSalt` toPort
 
 instance

@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     UpdateOrganizationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoEnableStandards
+      _salt
+        `Prelude.hashWithSalt` autoEnableStandards
         `Prelude.hashWithSalt` autoEnable
 
 instance

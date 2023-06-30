@@ -75,7 +75,7 @@ instance
       ( \x ->
           AwsEc2NetworkInterfacePrivateIpAddressDetail'
             Prelude.<$> (x Data..:? "PrivateDnsName")
-              Prelude.<*> (x Data..:? "PrivateIpAddress")
+            Prelude.<*> (x Data..:? "PrivateIpAddress")
       )
 
 instance
@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2NetworkInterfacePrivateIpAddressDetail' {..} =
-      _salt `Prelude.hashWithSalt` privateDnsName
+      _salt
+        `Prelude.hashWithSalt` privateDnsName
         `Prelude.hashWithSalt` privateIpAddress
 
 instance

@@ -74,7 +74,8 @@ instance Data.FromJSON AwsLambdaFunctionLayer where
 
 instance Prelude.Hashable AwsLambdaFunctionLayer where
   hashWithSalt _salt AwsLambdaFunctionLayer' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` codeSize
 
 instance Prelude.NFData AwsLambdaFunctionLayer where

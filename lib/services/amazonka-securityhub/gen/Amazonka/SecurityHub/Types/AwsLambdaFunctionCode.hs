@@ -107,7 +107,8 @@ instance Data.FromJSON AwsLambdaFunctionCode where
 
 instance Prelude.Hashable AwsLambdaFunctionCode where
   hashWithSalt _salt AwsLambdaFunctionCode' {..} =
-    _salt `Prelude.hashWithSalt` s3Bucket
+    _salt
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Key
       `Prelude.hashWithSalt` s3ObjectVersion
       `Prelude.hashWithSalt` zipFile

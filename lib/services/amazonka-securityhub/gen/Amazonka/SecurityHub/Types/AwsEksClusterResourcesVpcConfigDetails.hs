@@ -79,7 +79,8 @@ instance
       "AwsEksClusterResourcesVpcConfigDetails"
       ( \x ->
           AwsEksClusterResourcesVpcConfigDetails'
-            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+            Prelude.<$> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
@@ -92,7 +93,8 @@ instance
   hashWithSalt
     _salt
     AwsEksClusterResourcesVpcConfigDetails' {..} =
-      _salt `Prelude.hashWithSalt` securityGroupIds
+      _salt
+        `Prelude.hashWithSalt` securityGroupIds
         `Prelude.hashWithSalt` subnetIds
 
 instance

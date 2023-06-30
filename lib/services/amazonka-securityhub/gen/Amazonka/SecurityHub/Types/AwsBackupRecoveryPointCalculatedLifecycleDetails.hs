@@ -81,7 +81,7 @@ instance
       ( \x ->
           AwsBackupRecoveryPointCalculatedLifecycleDetails'
             Prelude.<$> (x Data..:? "DeleteAt")
-              Prelude.<*> (x Data..:? "MoveToColdStorageAt")
+            Prelude.<*> (x Data..:? "MoveToColdStorageAt")
       )
 
 instance
@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     AwsBackupRecoveryPointCalculatedLifecycleDetails' {..} =
-      _salt `Prelude.hashWithSalt` deleteAt
+      _salt
+        `Prelude.hashWithSalt` deleteAt
         `Prelude.hashWithSalt` moveToColdStorageAt
 
 instance

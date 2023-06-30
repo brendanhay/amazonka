@@ -78,7 +78,8 @@ instance
     AwsRdsDbOptionGroupMembership
   where
   hashWithSalt _salt AwsRdsDbOptionGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` optionGroupName
+    _salt
+      `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AwsRdsDbOptionGroupMembership where

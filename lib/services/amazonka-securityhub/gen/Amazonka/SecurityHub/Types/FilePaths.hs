@@ -101,7 +101,8 @@ instance Data.FromJSON FilePaths where
 
 instance Prelude.Hashable FilePaths where
   hashWithSalt _salt FilePaths' {..} =
-    _salt `Prelude.hashWithSalt` fileName
+    _salt
+      `Prelude.hashWithSalt` fileName
       `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` hash
       `Prelude.hashWithSalt` resourceId

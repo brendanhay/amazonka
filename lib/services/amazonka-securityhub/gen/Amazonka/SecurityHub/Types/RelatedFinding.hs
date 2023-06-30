@@ -78,7 +78,8 @@ instance Data.FromJSON RelatedFinding where
 
 instance Prelude.Hashable RelatedFinding where
   hashWithSalt _salt RelatedFinding' {..} =
-    _salt `Prelude.hashWithSalt` productArn
+    _salt
+      `Prelude.hashWithSalt` productArn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData RelatedFinding where

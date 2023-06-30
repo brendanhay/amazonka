@@ -193,7 +193,8 @@ instance Data.FromJSON AwsIamPolicyDetails where
             Prelude.<*> (x Data..:? "PermissionsBoundaryUsageCount")
             Prelude.<*> (x Data..:? "PolicyId")
             Prelude.<*> (x Data..:? "PolicyName")
-            Prelude.<*> ( x Data..:? "PolicyVersionList"
+            Prelude.<*> ( x
+                            Data..:? "PolicyVersionList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "UpdateDate")
@@ -201,7 +202,8 @@ instance Data.FromJSON AwsIamPolicyDetails where
 
 instance Prelude.Hashable AwsIamPolicyDetails where
   hashWithSalt _salt AwsIamPolicyDetails' {..} =
-    _salt `Prelude.hashWithSalt` attachmentCount
+    _salt
+      `Prelude.hashWithSalt` attachmentCount
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` defaultVersionId
       `Prelude.hashWithSalt` description

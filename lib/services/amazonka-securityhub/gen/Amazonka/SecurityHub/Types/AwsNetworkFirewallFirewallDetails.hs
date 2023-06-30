@@ -183,7 +183,8 @@ instance
   hashWithSalt
     _salt
     AwsNetworkFirewallFirewallDetails' {..} =
-      _salt `Prelude.hashWithSalt` deleteProtection
+      _salt
+        `Prelude.hashWithSalt` deleteProtection
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` firewallArn
         `Prelude.hashWithSalt` firewallId

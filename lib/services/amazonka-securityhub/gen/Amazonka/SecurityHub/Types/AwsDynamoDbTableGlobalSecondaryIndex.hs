@@ -181,7 +181,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableGlobalSecondaryIndex' {..} =
-      _salt `Prelude.hashWithSalt` backfilling
+      _salt
+        `Prelude.hashWithSalt` backfilling
         `Prelude.hashWithSalt` indexArn
         `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` indexSizeBytes

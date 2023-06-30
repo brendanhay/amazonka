@@ -99,7 +99,8 @@ instance
     AwsRdsDbClusterAssociatedRole
   where
   hashWithSalt _salt AwsRdsDbClusterAssociatedRole' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AwsRdsDbClusterAssociatedRole where

@@ -74,7 +74,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionInferenceAcceleratorsDetails'
             Prelude.<$> (x Data..:? "DeviceName")
-              Prelude.<*> (x Data..:? "DeviceType")
+            Prelude.<*> (x Data..:? "DeviceType")
       )
 
 instance
@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionInferenceAcceleratorsDetails' {..} =
-      _salt `Prelude.hashWithSalt` deviceName
+      _salt
+        `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` deviceType
 
 instance

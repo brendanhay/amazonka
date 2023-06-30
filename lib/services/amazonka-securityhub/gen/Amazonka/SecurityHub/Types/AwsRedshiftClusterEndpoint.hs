@@ -75,7 +75,8 @@ instance Data.FromJSON AwsRedshiftClusterEndpoint where
 
 instance Prelude.Hashable AwsRedshiftClusterEndpoint where
   hashWithSalt _salt AwsRedshiftClusterEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData AwsRedshiftClusterEndpoint where

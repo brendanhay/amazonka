@@ -74,7 +74,8 @@ instance Data.FromJSON Adjustment where
 
 instance Prelude.Hashable Adjustment where
   hashWithSalt _salt Adjustment' {..} =
-    _salt `Prelude.hashWithSalt` metric
+    _salt
+      `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData Adjustment where

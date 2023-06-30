@@ -85,7 +85,8 @@ instance Core.AWSRequest DeleteMembers where
     Response.receiveJSON
       ( \s h x ->
           DeleteMembersResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<$> ( x
+                            Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

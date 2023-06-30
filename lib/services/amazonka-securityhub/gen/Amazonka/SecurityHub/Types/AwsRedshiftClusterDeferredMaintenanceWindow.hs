@@ -115,8 +115,8 @@ instance
       ( \x ->
           AwsRedshiftClusterDeferredMaintenanceWindow'
             Prelude.<$> (x Data..:? "DeferMaintenanceEndTime")
-              Prelude.<*> (x Data..:? "DeferMaintenanceIdentifier")
-              Prelude.<*> (x Data..:? "DeferMaintenanceStartTime")
+            Prelude.<*> (x Data..:? "DeferMaintenanceIdentifier")
+            Prelude.<*> (x Data..:? "DeferMaintenanceStartTime")
       )
 
 instance

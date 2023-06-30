@@ -106,8 +106,8 @@ instance
       ( \x ->
           AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails'
             Prelude.<$> (x Data..:? "AssignPublicIp")
-              Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
       )
 
 instance
@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` assignPublicIp
+      _salt
+        `Prelude.hashWithSalt` assignPublicIp
         `Prelude.hashWithSalt` securityGroups
         `Prelude.hashWithSalt` subnets
 

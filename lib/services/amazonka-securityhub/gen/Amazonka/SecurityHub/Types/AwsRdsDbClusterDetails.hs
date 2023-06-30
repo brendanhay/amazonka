@@ -556,35 +556,42 @@ instance Data.FromJSON AwsRdsDbClusterDetails where
           AwsRdsDbClusterDetails'
             Prelude.<$> (x Data..:? "ActivityStreamStatus")
             Prelude.<*> (x Data..:? "AllocatedStorage")
-            Prelude.<*> ( x Data..:? "AssociatedRoles"
+            Prelude.<*> ( x
+                            Data..:? "AssociatedRoles"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "AvailabilityZones"
+            Prelude.<*> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BackupRetentionPeriod")
             Prelude.<*> (x Data..:? "ClusterCreateTime")
             Prelude.<*> (x Data..:? "CopyTagsToSnapshot")
             Prelude.<*> (x Data..:? "CrossAccountClone")
-            Prelude.<*> ( x Data..:? "CustomEndpoints"
+            Prelude.<*> ( x
+                            Data..:? "CustomEndpoints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DatabaseName")
             Prelude.<*> (x Data..:? "DbClusterIdentifier")
-            Prelude.<*> ( x Data..:? "DbClusterMembers"
+            Prelude.<*> ( x
+                            Data..:? "DbClusterMembers"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "DbClusterOptionGroupMemberships"
+            Prelude.<*> ( x
+                            Data..:? "DbClusterOptionGroupMemberships"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DbClusterParameterGroup")
             Prelude.<*> (x Data..:? "DbClusterResourceId")
             Prelude.<*> (x Data..:? "DbSubnetGroup")
             Prelude.<*> (x Data..:? "DeletionProtection")
-            Prelude.<*> ( x Data..:? "DomainMemberships"
+            Prelude.<*> ( x
+                            Data..:? "DomainMemberships"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "EnabledCloudWatchLogsExports"
+            Prelude.<*> ( x
+                            Data..:? "EnabledCloudWatchLogsExports"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Endpoint")
@@ -600,20 +607,23 @@ instance Data.FromJSON AwsRdsDbClusterDetails where
             Prelude.<*> (x Data..:? "Port")
             Prelude.<*> (x Data..:? "PreferredBackupWindow")
             Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
-            Prelude.<*> ( x Data..:? "ReadReplicaIdentifiers"
+            Prelude.<*> ( x
+                            Data..:? "ReadReplicaIdentifiers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReaderEndpoint")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "StorageEncrypted")
-            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "VpcSecurityGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AwsRdsDbClusterDetails where
   hashWithSalt _salt AwsRdsDbClusterDetails' {..} =
-    _salt `Prelude.hashWithSalt` activityStreamStatus
+    _salt
+      `Prelude.hashWithSalt` activityStreamStatus
       `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` associatedRoles
       `Prelude.hashWithSalt` availabilityZones

@@ -129,7 +129,8 @@ instance Data.FromJSON AwsIamInstanceProfileRole where
 
 instance Prelude.Hashable AwsIamInstanceProfileRole where
   hashWithSalt _salt AwsIamInstanceProfileRole' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` assumeRolePolicyDocument
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` path

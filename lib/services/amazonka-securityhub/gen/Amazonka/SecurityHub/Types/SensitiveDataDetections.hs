@@ -88,7 +88,8 @@ instance Data.FromJSON SensitiveDataDetections where
 
 instance Prelude.Hashable SensitiveDataDetections where
   hashWithSalt _salt SensitiveDataDetections' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` occurrences
       `Prelude.hashWithSalt` type'
 

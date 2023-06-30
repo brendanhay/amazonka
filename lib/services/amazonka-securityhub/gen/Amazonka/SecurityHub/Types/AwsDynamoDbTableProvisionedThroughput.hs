@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableProvisionedThroughput' {..} =
-      _salt `Prelude.hashWithSalt` lastDecreaseDateTime
+      _salt
+        `Prelude.hashWithSalt` lastDecreaseDateTime
         `Prelude.hashWithSalt` lastIncreaseDateTime
         `Prelude.hashWithSalt` numberOfDecreasesToday
         `Prelude.hashWithSalt` readCapacityUnits

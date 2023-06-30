@@ -203,7 +203,8 @@ instance Data.FromJSON AwsS3BucketDetails where
 
 instance Prelude.Hashable AwsS3BucketDetails where
   hashWithSalt _salt AwsS3BucketDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessControlList
+    _salt
+      `Prelude.hashWithSalt` accessControlList
       `Prelude.hashWithSalt` bucketLifecycleConfiguration
       `Prelude.hashWithSalt` bucketLoggingConfiguration
       `Prelude.hashWithSalt` bucketNotificationConfiguration

@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatelessRuleDefinition' {..} =
-      _salt `Prelude.hashWithSalt` actions
+      _salt
+        `Prelude.hashWithSalt` actions
         `Prelude.hashWithSalt` matchAttributes
 
 instance

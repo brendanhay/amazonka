@@ -188,7 +188,8 @@ instance Data.FromJSON AwsEksClusterDetails where
 
 instance Prelude.Hashable AwsEksClusterDetails where
   hashWithSalt _salt AwsEksClusterDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` certificateAuthorityData
       `Prelude.hashWithSalt` clusterStatus
       `Prelude.hashWithSalt` endpoint

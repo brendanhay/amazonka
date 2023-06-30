@@ -152,7 +152,8 @@ severityUpdate_product = Lens.lens (\SeverityUpdate' {product} -> product) (\s@S
 
 instance Prelude.Hashable SeverityUpdate where
   hashWithSalt _salt SeverityUpdate' {..} =
-    _salt `Prelude.hashWithSalt` label
+    _salt
+      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` normalized
       `Prelude.hashWithSalt` product
 

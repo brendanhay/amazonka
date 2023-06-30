@@ -119,10 +119,10 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails'
             Prelude.<$> (x Data..:? "Autoprovision")
-              Prelude.<*> (x Data..:? "Driver")
-              Prelude.<*> (x Data..:? "DriverOpts" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Labels" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Scope")
+            Prelude.<*> (x Data..:? "Driver")
+            Prelude.<*> (x Data..:? "DriverOpts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Scope")
       )
 
 instance
@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` autoprovision
+      _salt
+        `Prelude.hashWithSalt` autoprovision
         `Prelude.hashWithSalt` driver
         `Prelude.hashWithSalt` driverOpts
         `Prelude.hashWithSalt` labels

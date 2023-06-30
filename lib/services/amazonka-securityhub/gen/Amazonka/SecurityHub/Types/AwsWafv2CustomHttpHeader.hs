@@ -68,12 +68,14 @@ instance Data.FromJSON AwsWafv2CustomHttpHeader where
       "AwsWafv2CustomHttpHeader"
       ( \x ->
           AwsWafv2CustomHttpHeader'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable AwsWafv2CustomHttpHeader where
   hashWithSalt _salt AwsWafv2CustomHttpHeader' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AwsWafv2CustomHttpHeader where

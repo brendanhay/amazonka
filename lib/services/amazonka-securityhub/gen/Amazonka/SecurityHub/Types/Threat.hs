@@ -99,7 +99,8 @@ instance Data.FromJSON Threat where
 
 instance Prelude.Hashable Threat where
   hashWithSalt _salt Threat' {..} =
-    _salt `Prelude.hashWithSalt` filePaths
+    _salt
+      `Prelude.hashWithSalt` filePaths
       `Prelude.hashWithSalt` itemCount
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` severity

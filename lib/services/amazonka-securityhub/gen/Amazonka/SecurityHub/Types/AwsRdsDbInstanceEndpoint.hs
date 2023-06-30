@@ -88,7 +88,8 @@ instance Data.FromJSON AwsRdsDbInstanceEndpoint where
 
 instance Prelude.Hashable AwsRdsDbInstanceEndpoint where
   hashWithSalt _salt AwsRdsDbInstanceEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` port
 

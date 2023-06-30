@@ -75,7 +75,8 @@ instance Data.FromJSON AwsSnsTopicSubscription where
 
 instance Prelude.Hashable AwsSnsTopicSubscription where
   hashWithSalt _salt AwsSnsTopicSubscription' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` protocol
 
 instance Prelude.NFData AwsSnsTopicSubscription where

@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     AwsNetworkFirewallRuleGroupDetails' {..} =
-      _salt `Prelude.hashWithSalt` capacity
+      _salt
+        `Prelude.hashWithSalt` capacity
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` ruleGroup
         `Prelude.hashWithSalt` ruleGroupArn

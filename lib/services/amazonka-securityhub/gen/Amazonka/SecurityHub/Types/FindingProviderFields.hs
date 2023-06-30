@@ -141,7 +141,8 @@ instance Data.FromJSON FindingProviderFields where
           FindingProviderFields'
             Prelude.<$> (x Data..:? "Confidence")
             Prelude.<*> (x Data..:? "Criticality")
-            Prelude.<*> ( x Data..:? "RelatedFindings"
+            Prelude.<*> ( x
+                            Data..:? "RelatedFindings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Severity")
@@ -150,7 +151,8 @@ instance Data.FromJSON FindingProviderFields where
 
 instance Prelude.Hashable FindingProviderFields where
   hashWithSalt _salt FindingProviderFields' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` criticality
       `Prelude.hashWithSalt` relatedFindings
       `Prelude.hashWithSalt` severity

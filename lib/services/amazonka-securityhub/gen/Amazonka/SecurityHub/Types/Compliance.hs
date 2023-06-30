@@ -143,7 +143,8 @@ instance Data.FromJSON Compliance where
       "Compliance"
       ( \x ->
           Compliance'
-            Prelude.<$> ( x Data..:? "RelatedRequirements"
+            Prelude.<$> ( x
+                            Data..:? "RelatedRequirements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Status")
@@ -152,7 +153,8 @@ instance Data.FromJSON Compliance where
 
 instance Prelude.Hashable Compliance where
   hashWithSalt _salt Compliance' {..} =
-    _salt `Prelude.hashWithSalt` relatedRequirements
+    _salt
+      `Prelude.hashWithSalt` relatedRequirements
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusReasons
 

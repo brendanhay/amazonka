@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     AwsBackupRecoveryPointLifecycleDetails' {..} =
-      _salt `Prelude.hashWithSalt` deleteAfterDays
+      _salt
+        `Prelude.hashWithSalt` deleteAfterDays
         `Prelude.hashWithSalt` moveToColdStorageAfterDays
 
 instance

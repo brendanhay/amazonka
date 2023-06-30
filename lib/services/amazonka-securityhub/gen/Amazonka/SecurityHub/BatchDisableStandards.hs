@@ -92,7 +92,8 @@ instance Core.AWSRequest BatchDisableStandards where
     Response.receiveJSON
       ( \s h x ->
           BatchDisableStandardsResponse'
-            Prelude.<$> ( x Data..?> "StandardsSubscriptions"
+            Prelude.<$> ( x
+                            Data..?> "StandardsSubscriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

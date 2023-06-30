@@ -174,8 +174,8 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'
             Prelude.<$> (x Data..:? "HardLimit")
-              Prelude.<*> (x Data..:? "Name")
-              Prelude.<*> (x Data..:? "SoftLimit")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SoftLimit")
       )
 
 instance
@@ -185,7 +185,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {..} =
-      _salt `Prelude.hashWithSalt` hardLimit
+      _salt
+        `Prelude.hashWithSalt` hardLimit
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` softLimit
 

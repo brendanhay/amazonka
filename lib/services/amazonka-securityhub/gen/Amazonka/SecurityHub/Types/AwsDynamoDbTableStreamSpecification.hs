@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableStreamSpecification' {..} =
-      _salt `Prelude.hashWithSalt` streamEnabled
+      _salt
+        `Prelude.hashWithSalt` streamEnabled
         `Prelude.hashWithSalt` streamViewType
 
 instance

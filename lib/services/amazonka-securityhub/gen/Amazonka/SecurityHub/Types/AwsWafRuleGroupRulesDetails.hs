@@ -103,7 +103,8 @@ instance Data.FromJSON AwsWafRuleGroupRulesDetails where
 
 instance Prelude.Hashable AwsWafRuleGroupRulesDetails where
   hashWithSalt _salt AwsWafRuleGroupRulesDetails' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` type'

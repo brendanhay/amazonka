@@ -335,17 +335,20 @@ instance Core.AWSRequest BatchUpdateFindings where
       ( \s h x ->
           BatchUpdateFindingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ProcessedFindings"
+            Prelude.<*> ( x
+                            Data..?> "ProcessedFindings"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "UnprocessedFindings"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedFindings"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BatchUpdateFindings where
   hashWithSalt _salt BatchUpdateFindings' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` criticality
       `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` relatedFindings

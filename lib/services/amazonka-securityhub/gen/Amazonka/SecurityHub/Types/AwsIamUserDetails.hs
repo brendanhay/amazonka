@@ -141,7 +141,8 @@ instance Data.FromJSON AwsIamUserDetails where
       "AwsIamUserDetails"
       ( \x ->
           AwsIamUserDetails'
-            Prelude.<$> ( x Data..:? "AttachedManagedPolicies"
+            Prelude.<$> ( x
+                            Data..:? "AttachedManagedPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreateDate")
@@ -150,7 +151,8 @@ instance Data.FromJSON AwsIamUserDetails where
             Prelude.<*> (x Data..:? "PermissionsBoundary")
             Prelude.<*> (x Data..:? "UserId")
             Prelude.<*> (x Data..:? "UserName")
-            Prelude.<*> ( x Data..:? "UserPolicyList"
+            Prelude.<*> ( x
+                            Data..:? "UserPolicyList"
                             Data..!= Prelude.mempty
                         )
       )

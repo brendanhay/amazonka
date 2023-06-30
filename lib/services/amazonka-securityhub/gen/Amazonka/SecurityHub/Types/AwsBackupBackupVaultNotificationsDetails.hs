@@ -103,7 +103,8 @@ instance
       "AwsBackupBackupVaultNotificationsDetails"
       ( \x ->
           AwsBackupBackupVaultNotificationsDetails'
-            Prelude.<$> ( x Data..:? "BackupVaultEvents"
+            Prelude.<$> ( x
+                            Data..:? "BackupVaultEvents"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SnsTopicArn")
@@ -116,7 +117,8 @@ instance
   hashWithSalt
     _salt
     AwsBackupBackupVaultNotificationsDetails' {..} =
-      _salt `Prelude.hashWithSalt` backupVaultEvents
+      _salt
+        `Prelude.hashWithSalt` backupVaultEvents
         `Prelude.hashWithSalt` snsTopicArn
 
 instance

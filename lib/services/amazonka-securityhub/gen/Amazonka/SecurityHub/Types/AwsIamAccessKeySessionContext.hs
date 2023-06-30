@@ -80,7 +80,8 @@ instance
     AwsIamAccessKeySessionContext
   where
   hashWithSalt _salt AwsIamAccessKeySessionContext' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` sessionIssuer
 
 instance Prelude.NFData AwsIamAccessKeySessionContext where

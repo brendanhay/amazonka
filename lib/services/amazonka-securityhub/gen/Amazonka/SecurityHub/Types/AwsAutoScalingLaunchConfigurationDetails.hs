@@ -278,11 +278,13 @@ instance
       ( \x ->
           AwsAutoScalingLaunchConfigurationDetails'
             Prelude.<$> (x Data..:? "AssociatePublicIpAddress")
-            Prelude.<*> ( x Data..:? "BlockDeviceMappings"
+            Prelude.<*> ( x
+                            Data..:? "BlockDeviceMappings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ClassicLinkVpcId")
-            Prelude.<*> ( x Data..:? "ClassicLinkVpcSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "ClassicLinkVpcSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedTime")

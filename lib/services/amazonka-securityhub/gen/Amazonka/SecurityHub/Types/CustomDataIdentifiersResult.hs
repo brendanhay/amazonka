@@ -77,7 +77,8 @@ instance Data.FromJSON CustomDataIdentifiersResult where
 
 instance Prelude.Hashable CustomDataIdentifiersResult where
   hashWithSalt _salt CustomDataIdentifiersResult' {..} =
-    _salt `Prelude.hashWithSalt` detections
+    _salt
+      `Prelude.hashWithSalt` detections
       `Prelude.hashWithSalt` totalCount
 
 instance Prelude.NFData CustomDataIdentifiersResult where

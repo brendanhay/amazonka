@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketLoggingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` destinationBucketName
+      _salt
+        `Prelude.hashWithSalt` destinationBucketName
         `Prelude.hashWithSalt` logFilePrefix
 
 instance

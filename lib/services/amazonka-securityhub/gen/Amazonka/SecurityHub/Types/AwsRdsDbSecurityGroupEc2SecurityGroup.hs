@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     AwsRdsDbSecurityGroupEc2SecurityGroup' {..} =
-      _salt `Prelude.hashWithSalt` ec2SecurityGroupId
+      _salt
+        `Prelude.hashWithSalt` ec2SecurityGroupId
         `Prelude.hashWithSalt` ec2SecurityGroupName
         `Prelude.hashWithSalt` ec2SecurityGroupOwnerId
         `Prelude.hashWithSalt` status

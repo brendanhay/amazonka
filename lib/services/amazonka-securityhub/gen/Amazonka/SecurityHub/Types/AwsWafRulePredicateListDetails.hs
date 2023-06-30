@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     AwsWafRulePredicateListDetails' {..} =
-      _salt `Prelude.hashWithSalt` dataId
+      _salt
+        `Prelude.hashWithSalt` dataId
         `Prelude.hashWithSalt` negated
         `Prelude.hashWithSalt` type'
 

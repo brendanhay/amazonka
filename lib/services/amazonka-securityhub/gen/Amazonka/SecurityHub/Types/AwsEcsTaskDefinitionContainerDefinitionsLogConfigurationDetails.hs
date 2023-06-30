@@ -172,8 +172,8 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails'
             Prelude.<$> (x Data..:? "LogDriver")
-              Prelude.<*> (x Data..:? "Options" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "SecretOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Options" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SecretOptions" Data..!= Prelude.mempty)
       )
 
 instance
@@ -183,7 +183,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` logDriver
+      _salt
+        `Prelude.hashWithSalt` logDriver
         `Prelude.hashWithSalt` options
         `Prelude.hashWithSalt` secretOptions
 

@@ -248,7 +248,8 @@ instance Data.FromJSON Endpoint where
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateAuthority
       `Prelude.hashWithSalt` configurationOverrides

@@ -138,7 +138,8 @@ instance Core.AWSRequest CreateVirtualCluster where
 
 instance Prelude.Hashable CreateVirtualCluster where
   hashWithSalt _salt CreateVirtualCluster' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` containerProvider
       `Prelude.hashWithSalt` clientToken

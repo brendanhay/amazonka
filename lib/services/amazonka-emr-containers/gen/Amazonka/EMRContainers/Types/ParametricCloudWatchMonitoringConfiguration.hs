@@ -76,7 +76,7 @@ instance
       ( \x ->
           ParametricCloudWatchMonitoringConfiguration'
             Prelude.<$> (x Data..:? "logGroupName")
-              Prelude.<*> (x Data..:? "logStreamNamePrefix")
+            Prelude.<*> (x Data..:? "logStreamNamePrefix")
       )
 
 instance
@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     ParametricCloudWatchMonitoringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` logGroupName
+      _salt
+        `Prelude.hashWithSalt` logGroupName
         `Prelude.hashWithSalt` logStreamNamePrefix
 
 instance

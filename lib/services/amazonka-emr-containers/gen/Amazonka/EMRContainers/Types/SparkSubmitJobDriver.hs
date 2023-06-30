@@ -80,7 +80,8 @@ instance Data.FromJSON SparkSubmitJobDriver where
       "SparkSubmitJobDriver"
       ( \x ->
           SparkSubmitJobDriver'
-            Prelude.<$> ( x Data..:? "entryPointArguments"
+            Prelude.<$> ( x
+                            Data..:? "entryPointArguments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "sparkSubmitParameters")
@@ -89,7 +90,8 @@ instance Data.FromJSON SparkSubmitJobDriver where
 
 instance Prelude.Hashable SparkSubmitJobDriver where
   hashWithSalt _salt SparkSubmitJobDriver' {..} =
-    _salt `Prelude.hashWithSalt` entryPointArguments
+    _salt
+      `Prelude.hashWithSalt` entryPointArguments
       `Prelude.hashWithSalt` sparkSubmitParameters
       `Prelude.hashWithSalt` entryPoint
 

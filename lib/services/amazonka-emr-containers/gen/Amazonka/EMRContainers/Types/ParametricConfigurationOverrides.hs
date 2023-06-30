@@ -76,7 +76,8 @@ instance
       "ParametricConfigurationOverrides"
       ( \x ->
           ParametricConfigurationOverrides'
-            Prelude.<$> ( x Data..:? "applicationConfiguration"
+            Prelude.<$> ( x
+                            Data..:? "applicationConfiguration"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "monitoringConfiguration")

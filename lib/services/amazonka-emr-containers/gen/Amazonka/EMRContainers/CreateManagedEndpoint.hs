@@ -203,7 +203,8 @@ instance Core.AWSRequest CreateManagedEndpoint where
 
 instance Prelude.Hashable CreateManagedEndpoint where
   hashWithSalt _salt CreateManagedEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

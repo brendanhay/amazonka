@@ -132,7 +132,8 @@ instance Data.FromJSON VirtualCluster where
 
 instance Prelude.Hashable VirtualCluster where
   hashWithSalt _salt VirtualCluster' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` containerProvider
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id

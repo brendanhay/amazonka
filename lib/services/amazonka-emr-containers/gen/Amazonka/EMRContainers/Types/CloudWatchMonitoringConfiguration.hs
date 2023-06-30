@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     CloudWatchMonitoringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` logStreamNamePrefix
+      _salt
+        `Prelude.hashWithSalt` logStreamNamePrefix
         `Prelude.hashWithSalt` logGroupName
 
 instance

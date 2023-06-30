@@ -78,7 +78,8 @@ instance Data.FromJSON JobDriver where
 
 instance Prelude.Hashable JobDriver where
   hashWithSalt _salt JobDriver' {..} =
-    _salt `Prelude.hashWithSalt` sparkSqlJobDriver
+    _salt
+      `Prelude.hashWithSalt` sparkSqlJobDriver
       `Prelude.hashWithSalt` sparkSubmitJobDriver
 
 instance Prelude.NFData JobDriver where

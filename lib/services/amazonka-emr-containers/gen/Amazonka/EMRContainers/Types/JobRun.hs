@@ -223,7 +223,8 @@ instance Data.FromJSON JobRun where
 
 instance Prelude.Hashable JobRun where
   hashWithSalt _salt JobRun' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` createdAt

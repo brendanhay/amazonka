@@ -93,7 +93,8 @@ instance Data.FromJSON ContainerProvider where
 
 instance Prelude.Hashable ContainerProvider where
   hashWithSalt _salt ContainerProvider' {..} =
-    _salt `Prelude.hashWithSalt` info
+    _salt
+      `Prelude.hashWithSalt` info
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` id
 

@@ -90,7 +90,8 @@ instance Data.FromJSON ResourceConfiguration where
 
 instance Prelude.Hashable ResourceConfiguration where
   hashWithSalt _salt ResourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` computeType
+    _salt
+      `Prelude.hashWithSalt` computeType
       `Prelude.hashWithSalt` volumeSizeInGB
 
 instance Prelude.NFData ResourceConfiguration where

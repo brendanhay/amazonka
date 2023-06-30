@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdatePipeline where
 
 instance Prelude.Hashable UpdatePipeline where
   hashWithSalt _salt UpdatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` pipelineName
+    _salt
+      `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` pipelineActivities
 
 instance Prelude.NFData UpdatePipeline where

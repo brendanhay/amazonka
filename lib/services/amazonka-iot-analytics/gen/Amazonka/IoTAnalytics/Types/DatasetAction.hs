@@ -99,7 +99,8 @@ instance Data.FromJSON DatasetAction where
 
 instance Prelude.Hashable DatasetAction where
   hashWithSalt _salt DatasetAction' {..} =
-    _salt `Prelude.hashWithSalt` actionName
+    _salt
+      `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` containerAction
       `Prelude.hashWithSalt` queryAction
 

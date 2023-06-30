@@ -77,7 +77,8 @@ instance Data.FromJSON SqlQueryDatasetAction where
 
 instance Prelude.Hashable SqlQueryDatasetAction where
   hashWithSalt _salt SqlQueryDatasetAction' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` sqlQuery
 
 instance Prelude.NFData SqlQueryDatasetAction where

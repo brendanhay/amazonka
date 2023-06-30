@@ -79,7 +79,8 @@ instance Data.FromJSON DatasetContentDeliveryRule where
 
 instance Prelude.Hashable DatasetContentDeliveryRule where
   hashWithSalt _salt DatasetContentDeliveryRule' {..} =
-    _salt `Prelude.hashWithSalt` entryName
+    _salt
+      `Prelude.hashWithSalt` entryName
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData DatasetContentDeliveryRule where

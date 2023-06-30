@@ -82,7 +82,8 @@ instance Data.FromJSON DatasetActionSummary where
 
 instance Prelude.Hashable DatasetActionSummary where
   hashWithSalt _salt DatasetActionSummary' {..} =
-    _salt `Prelude.hashWithSalt` actionName
+    _salt
+      `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` actionType
 
 instance Prelude.NFData DatasetActionSummary where

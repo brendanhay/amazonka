@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     CustomerManagedChannelS3StorageSummary' {..} =
-      _salt `Prelude.hashWithSalt` bucket
+      _salt
+        `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` keyPrefix
         `Prelude.hashWithSalt` roleArn
 

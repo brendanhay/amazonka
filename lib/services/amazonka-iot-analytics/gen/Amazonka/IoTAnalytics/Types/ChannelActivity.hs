@@ -88,7 +88,8 @@ instance Data.FromJSON ChannelActivity where
 
 instance Prelude.Hashable ChannelActivity where
   hashWithSalt _salt ChannelActivity' {..} =
-    _salt `Prelude.hashWithSalt` next
+    _salt
+      `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` channelName
 

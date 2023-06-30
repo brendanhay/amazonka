@@ -88,7 +88,8 @@ instance Data.FromJSON BatchPutMessageErrorEntry where
 
 instance Prelude.Hashable BatchPutMessageErrorEntry where
   hashWithSalt _salt BatchPutMessageErrorEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` messageId
 

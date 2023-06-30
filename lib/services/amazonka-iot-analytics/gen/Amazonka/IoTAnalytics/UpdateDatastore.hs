@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateDatastore where
 
 instance Prelude.Hashable UpdateDatastore where
   hashWithSalt _salt UpdateDatastore' {..} =
-    _salt `Prelude.hashWithSalt` datastoreStorage
+    _salt
+      `Prelude.hashWithSalt` datastoreStorage
       `Prelude.hashWithSalt` fileFormatConfiguration
       `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` datastoreName

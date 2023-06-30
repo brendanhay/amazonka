@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     IotEventsDestinationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` inputName
+      _salt
+        `Prelude.hashWithSalt` inputName
         `Prelude.hashWithSalt` roleArn
 
 instance

@@ -87,7 +87,7 @@ instance
       ( \x ->
           IotSiteWiseCustomerManagedDatastoreS3Storage'
             Prelude.<$> (x Data..:? "keyPrefix")
-              Prelude.<*> (x Data..: "bucket")
+            Prelude.<*> (x Data..: "bucket")
       )
 
 instance
@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     IotSiteWiseCustomerManagedDatastoreS3Storage' {..} =
-      _salt `Prelude.hashWithSalt` keyPrefix
+      _salt
+        `Prelude.hashWithSalt` keyPrefix
         `Prelude.hashWithSalt` bucket
 
 instance

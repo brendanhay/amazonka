@@ -111,7 +111,8 @@ instance Core.AWSRequest DescribeDatastore where
 
 instance Prelude.Hashable DescribeDatastore where
   hashWithSalt _salt DescribeDatastore' {..} =
-    _salt `Prelude.hashWithSalt` includeStatistics
+    _salt
+      `Prelude.hashWithSalt` includeStatistics
       `Prelude.hashWithSalt` datastoreName
 
 instance Prelude.NFData DescribeDatastore where

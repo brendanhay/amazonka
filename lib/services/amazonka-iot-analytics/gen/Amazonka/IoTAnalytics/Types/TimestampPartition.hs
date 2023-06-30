@@ -80,7 +80,8 @@ instance Data.FromJSON TimestampPartition where
 
 instance Prelude.Hashable TimestampPartition where
   hashWithSalt _salt TimestampPartition' {..} =
-    _salt `Prelude.hashWithSalt` timestampFormat
+    _salt
+      `Prelude.hashWithSalt` timestampFormat
       `Prelude.hashWithSalt` attributeName
 
 instance Prelude.NFData TimestampPartition where

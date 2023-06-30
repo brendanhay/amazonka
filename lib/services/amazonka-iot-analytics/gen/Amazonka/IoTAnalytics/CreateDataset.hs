@@ -228,7 +228,8 @@ instance Core.AWSRequest CreateDataset where
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
-    _salt `Prelude.hashWithSalt` contentDeliveryRules
+    _salt
+      `Prelude.hashWithSalt` contentDeliveryRules
       `Prelude.hashWithSalt` lateDataRules
       `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` tags

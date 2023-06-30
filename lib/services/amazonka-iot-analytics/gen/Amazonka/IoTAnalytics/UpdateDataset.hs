@@ -176,7 +176,8 @@ instance Core.AWSRequest UpdateDataset where
 
 instance Prelude.Hashable UpdateDataset where
   hashWithSalt _salt UpdateDataset' {..} =
-    _salt `Prelude.hashWithSalt` contentDeliveryRules
+    _salt
+      `Prelude.hashWithSalt` contentDeliveryRules
       `Prelude.hashWithSalt` lateDataRules
       `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` triggers

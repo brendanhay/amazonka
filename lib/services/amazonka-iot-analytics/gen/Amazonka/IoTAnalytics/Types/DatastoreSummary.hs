@@ -159,7 +159,8 @@ instance Data.FromJSON DatastoreSummary where
 
 instance Prelude.Hashable DatastoreSummary where
   hashWithSalt _salt DatastoreSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` datastoreName
       `Prelude.hashWithSalt` datastorePartitions
       `Prelude.hashWithSalt` datastoreStorage

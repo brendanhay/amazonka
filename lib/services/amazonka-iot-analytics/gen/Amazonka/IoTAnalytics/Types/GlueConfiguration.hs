@@ -88,7 +88,8 @@ instance Data.FromJSON GlueConfiguration where
 
 instance Prelude.Hashable GlueConfiguration where
   hashWithSalt _salt GlueConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt
+      `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData GlueConfiguration where

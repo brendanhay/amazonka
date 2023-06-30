@@ -144,7 +144,8 @@ instance Data.FromJSON Voice where
       "Voice"
       ( \x ->
           Voice'
-            Prelude.<$> ( x Data..:? "AdditionalLanguageCodes"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalLanguageCodes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Gender")
@@ -152,7 +153,8 @@ instance Data.FromJSON Voice where
             Prelude.<*> (x Data..:? "LanguageCode")
             Prelude.<*> (x Data..:? "LanguageName")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "SupportedEngines"
+            Prelude.<*> ( x
+                            Data..:? "SupportedEngines"
                             Data..!= Prelude.mempty
                         )
       )

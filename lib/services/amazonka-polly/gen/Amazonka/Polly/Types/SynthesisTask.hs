@@ -277,7 +277,8 @@ instance Data.FromJSON SynthesisTask where
             Prelude.<*> (x Data..:? "RequestCharacters")
             Prelude.<*> (x Data..:? "SampleRate")
             Prelude.<*> (x Data..:? "SnsTopicArn")
-            Prelude.<*> ( x Data..:? "SpeechMarkTypes"
+            Prelude.<*> ( x
+                            Data..:? "SpeechMarkTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TaskId")
@@ -289,7 +290,8 @@ instance Data.FromJSON SynthesisTask where
 
 instance Prelude.Hashable SynthesisTask where
   hashWithSalt _salt SynthesisTask' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` lexiconNames

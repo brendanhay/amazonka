@@ -295,7 +295,8 @@ instance Core.AWSRequest StartSpeechSynthesisTask where
 
 instance Prelude.Hashable StartSpeechSynthesisTask where
   hashWithSalt _salt StartSpeechSynthesisTask' {..} =
-    _salt `Prelude.hashWithSalt` engine
+    _salt
+      `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` lexiconNames
       `Prelude.hashWithSalt` outputS3KeyPrefix

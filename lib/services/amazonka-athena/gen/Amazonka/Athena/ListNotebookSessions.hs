@@ -121,14 +121,16 @@ instance Core.AWSRequest ListNotebookSessions where
           ListNotebookSessionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "NotebookSessionsList"
+            Prelude.<*> ( x
+                            Data..?> "NotebookSessionsList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListNotebookSessions where
   hashWithSalt _salt ListNotebookSessions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` notebookId
 

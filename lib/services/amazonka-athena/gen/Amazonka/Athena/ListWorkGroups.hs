@@ -111,7 +111,8 @@ instance Core.AWSRequest ListWorkGroups where
 
 instance Prelude.Hashable ListWorkGroups where
   hashWithSalt _salt ListWorkGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkGroups where

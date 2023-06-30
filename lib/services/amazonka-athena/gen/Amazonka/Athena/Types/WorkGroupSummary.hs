@@ -113,7 +113,8 @@ instance Data.FromJSON WorkGroupSummary where
 
 instance Prelude.Hashable WorkGroupSummary where
   hashWithSalt _salt WorkGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` name

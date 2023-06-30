@@ -87,7 +87,8 @@ instance
     ResultReuseByAgeConfiguration
   where
   hashWithSalt _salt ResultReuseByAgeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` maxAgeInMinutes
+    _salt
+      `Prelude.hashWithSalt` maxAgeInMinutes
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData ResultReuseByAgeConfiguration where

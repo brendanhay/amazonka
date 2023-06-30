@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateNamedQuery where
 
 instance Prelude.Hashable UpdateNamedQuery where
   hashWithSalt _salt UpdateNamedQuery' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` namedQueryId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` queryString

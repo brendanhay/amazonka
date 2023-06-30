@@ -101,22 +101,22 @@ instance Core.AWSPager ListDataCatalogs where
     | Core.stop
         ( rs
             Lens.^? listDataCatalogsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDataCatalogsResponse_dataCatalogsSummary
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDataCatalogs_nextToken
           Lens..~ rs
           Lens.^? listDataCatalogsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDataCatalogs where
   type
@@ -128,7 +128,8 @@ instance Core.AWSRequest ListDataCatalogs where
     Response.receiveJSON
       ( \s h x ->
           ListDataCatalogsResponse'
-            Prelude.<$> ( x Data..?> "DataCatalogsSummary"
+            Prelude.<$> ( x
+                            Data..?> "DataCatalogsSummary"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -137,7 +138,8 @@ instance Core.AWSRequest ListDataCatalogs where
 
 instance Prelude.Hashable ListDataCatalogs where
   hashWithSalt _salt ListDataCatalogs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDataCatalogs where

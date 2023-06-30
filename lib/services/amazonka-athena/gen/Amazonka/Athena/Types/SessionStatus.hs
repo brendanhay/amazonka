@@ -178,7 +178,8 @@ instance Data.FromJSON SessionStatus where
 
 instance Prelude.Hashable SessionStatus where
   hashWithSalt _salt SessionStatus' {..} =
-    _salt `Prelude.hashWithSalt` endDateTime
+    _salt
+      `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` idleSinceDateTime
       `Prelude.hashWithSalt` lastModifiedDateTime
       `Prelude.hashWithSalt` startDateTime

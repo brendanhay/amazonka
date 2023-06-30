@@ -109,7 +109,8 @@ instance Data.FromJSON SessionSummary where
 
 instance Prelude.Hashable SessionSummary where
   hashWithSalt _salt SessionSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` notebookVersion
       `Prelude.hashWithSalt` sessionId

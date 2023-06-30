@@ -165,7 +165,8 @@ instance Data.FromJSON ColumnInfo where
 
 instance Prelude.Hashable ColumnInfo where
   hashWithSalt _salt ColumnInfo' {..} =
-    _salt `Prelude.hashWithSalt` caseSensitive
+    _salt
+      `Prelude.hashWithSalt` caseSensitive
       `Prelude.hashWithSalt` catalogName
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` nullable

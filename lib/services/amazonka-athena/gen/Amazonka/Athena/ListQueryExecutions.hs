@@ -124,23 +124,23 @@ instance Core.AWSPager ListQueryExecutions where
     | Core.stop
         ( rs
             Lens.^? listQueryExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listQueryExecutionsResponse_queryExecutionIds
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listQueryExecutions_nextToken
           Lens..~ rs
           Lens.^? listQueryExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQueryExecutions where
   type
@@ -159,7 +159,8 @@ instance Core.AWSRequest ListQueryExecutions where
 
 instance Prelude.Hashable ListQueryExecutions where
   hashWithSalt _salt ListQueryExecutions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workGroup
 

@@ -73,14 +73,16 @@ instance Data.FromJSON ApplicationDPUSizes where
       ( \x ->
           ApplicationDPUSizes'
             Prelude.<$> (x Data..:? "ApplicationRuntimeId")
-            Prelude.<*> ( x Data..:? "SupportedDPUSizes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedDPUSizes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ApplicationDPUSizes where
   hashWithSalt _salt ApplicationDPUSizes' {..} =
-    _salt `Prelude.hashWithSalt` applicationRuntimeId
+    _salt
+      `Prelude.hashWithSalt` applicationRuntimeId
       `Prelude.hashWithSalt` supportedDPUSizes
 
 instance Prelude.NFData ApplicationDPUSizes where

@@ -128,7 +128,8 @@ instance Core.AWSRequest CreatePreparedStatement where
 
 instance Prelude.Hashable CreatePreparedStatement where
   hashWithSalt _salt CreatePreparedStatement' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` statementName
       `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` queryStatement

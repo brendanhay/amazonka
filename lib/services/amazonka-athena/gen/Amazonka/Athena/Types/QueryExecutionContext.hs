@@ -78,7 +78,8 @@ instance Data.FromJSON QueryExecutionContext where
 
 instance Prelude.Hashable QueryExecutionContext where
   hashWithSalt _salt QueryExecutionContext' {..} =
-    _salt `Prelude.hashWithSalt` catalog
+    _salt
+      `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData QueryExecutionContext where

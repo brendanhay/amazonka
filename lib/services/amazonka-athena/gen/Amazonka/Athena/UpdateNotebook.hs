@@ -156,7 +156,8 @@ instance Core.AWSRequest UpdateNotebook where
 
 instance Prelude.Hashable UpdateNotebook where
   hashWithSalt _salt UpdateNotebook' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` notebookId
       `Prelude.hashWithSalt` payload

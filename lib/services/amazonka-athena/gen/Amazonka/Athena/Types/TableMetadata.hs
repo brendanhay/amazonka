@@ -127,7 +127,8 @@ instance Data.FromJSON TableMetadata where
 
 instance Prelude.Hashable TableMetadata where
   hashWithSalt _salt TableMetadata' {..} =
-    _salt `Prelude.hashWithSalt` columns
+    _salt
+      `Prelude.hashWithSalt` columns
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` lastAccessTime
       `Prelude.hashWithSalt` parameters

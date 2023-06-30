@@ -85,7 +85,8 @@ instance Data.FromJSON DataCatalogSummary where
 
 instance Prelude.Hashable DataCatalogSummary where
   hashWithSalt _salt DataCatalogSummary' {..} =
-    _salt `Prelude.hashWithSalt` catalogName
+    _salt
+      `Prelude.hashWithSalt` catalogName
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DataCatalogSummary where

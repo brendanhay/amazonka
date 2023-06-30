@@ -106,7 +106,8 @@ instance Core.AWSRequest GetPreparedStatement where
 
 instance Prelude.Hashable GetPreparedStatement where
   hashWithSalt _salt GetPreparedStatement' {..} =
-    _salt `Prelude.hashWithSalt` statementName
+    _salt
+      `Prelude.hashWithSalt` statementName
       `Prelude.hashWithSalt` workGroup
 
 instance Prelude.NFData GetPreparedStatement where

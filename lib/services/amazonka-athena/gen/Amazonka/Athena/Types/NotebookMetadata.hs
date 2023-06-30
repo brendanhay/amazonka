@@ -116,7 +116,8 @@ instance Data.FromJSON NotebookMetadata where
 
 instance Prelude.Hashable NotebookMetadata where
   hashWithSalt _salt NotebookMetadata' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` notebookId

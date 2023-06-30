@@ -142,7 +142,8 @@ instance Data.FromJSON WorkGroup where
 
 instance Prelude.Hashable WorkGroup where
   hashWithSalt _salt WorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` state

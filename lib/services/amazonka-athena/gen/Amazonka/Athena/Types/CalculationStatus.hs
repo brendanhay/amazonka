@@ -156,7 +156,8 @@ instance Data.FromJSON CalculationStatus where
 
 instance Prelude.Hashable CalculationStatus where
   hashWithSalt _salt CalculationStatus' {..} =
-    _salt `Prelude.hashWithSalt` completionDateTime
+    _salt
+      `Prelude.hashWithSalt` completionDateTime
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` submissionDateTime

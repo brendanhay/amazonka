@@ -129,7 +129,8 @@ instance Data.FromJSON AthenaError where
 
 instance Prelude.Hashable AthenaError where
   hashWithSalt _salt AthenaError' {..} =
-    _salt `Prelude.hashWithSalt` errorCategory
+    _salt
+      `Prelude.hashWithSalt` errorCategory
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorType
       `Prelude.hashWithSalt` retryable

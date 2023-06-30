@@ -150,7 +150,8 @@ instance Data.FromJSON QueryStage where
 
 instance Prelude.Hashable QueryStage where
   hashWithSalt _salt QueryStage' {..} =
-    _salt `Prelude.hashWithSalt` executionTime
+    _salt
+      `Prelude.hashWithSalt` executionTime
       `Prelude.hashWithSalt` inputBytes
       `Prelude.hashWithSalt` inputRows
       `Prelude.hashWithSalt` outputBytes

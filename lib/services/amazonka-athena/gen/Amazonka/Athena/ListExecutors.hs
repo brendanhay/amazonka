@@ -172,7 +172,8 @@ instance Core.AWSRequest ListExecutors where
     Response.receiveJSON
       ( \s h x ->
           ListExecutorsResponse'
-            Prelude.<$> ( x Data..?> "ExecutorsSummary"
+            Prelude.<$> ( x
+                            Data..?> "ExecutorsSummary"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -182,7 +183,8 @@ instance Core.AWSRequest ListExecutors where
 
 instance Prelude.Hashable ListExecutors where
   hashWithSalt _salt ListExecutors' {..} =
-    _salt `Prelude.hashWithSalt` executorStateFilter
+    _salt
+      `Prelude.hashWithSalt` executorStateFilter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sessionId

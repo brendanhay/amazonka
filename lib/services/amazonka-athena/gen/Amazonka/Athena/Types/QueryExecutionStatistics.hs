@@ -179,7 +179,8 @@ instance Data.FromJSON QueryExecutionStatistics where
 
 instance Prelude.Hashable QueryExecutionStatistics where
   hashWithSalt _salt QueryExecutionStatistics' {..} =
-    _salt `Prelude.hashWithSalt` dataManifestLocation
+    _salt
+      `Prelude.hashWithSalt` dataManifestLocation
       `Prelude.hashWithSalt` dataScannedInBytes
       `Prelude.hashWithSalt` engineExecutionTimeInMillis
       `Prelude.hashWithSalt` queryPlanningTimeInMillis

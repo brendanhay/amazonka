@@ -100,7 +100,8 @@ instance Data.FromJSON EngineVersion where
 
 instance Prelude.Hashable EngineVersion where
   hashWithSalt _salt EngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` effectiveEngineVersion
+    _salt
+      `Prelude.hashWithSalt` effectiveEngineVersion
       `Prelude.hashWithSalt` selectedEngineVersion
 
 instance Prelude.NFData EngineVersion where

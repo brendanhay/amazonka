@@ -81,7 +81,8 @@ instance Data.FromJSON ResultSet where
 
 instance Prelude.Hashable ResultSet where
   hashWithSalt _salt ResultSet' {..} =
-    _salt `Prelude.hashWithSalt` resultSetMetadata
+    _salt
+      `Prelude.hashWithSalt` resultSetMetadata
       `Prelude.hashWithSalt` rows
 
 instance Prelude.NFData ResultSet where

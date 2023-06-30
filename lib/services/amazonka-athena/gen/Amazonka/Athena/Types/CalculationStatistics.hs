@@ -78,7 +78,8 @@ instance Data.FromJSON CalculationStatistics where
 
 instance Prelude.Hashable CalculationStatistics where
   hashWithSalt _salt CalculationStatistics' {..} =
-    _salt `Prelude.hashWithSalt` dpuExecutionInMillis
+    _salt
+      `Prelude.hashWithSalt` dpuExecutionInMillis
       `Prelude.hashWithSalt` progress
 
 instance Prelude.NFData CalculationStatistics where

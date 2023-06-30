@@ -117,7 +117,8 @@ instance Data.FromJSON EngineConfiguration where
       "EngineConfiguration"
       ( \x ->
           EngineConfiguration'
-            Prelude.<$> ( x Data..:? "AdditionalConfigs"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalConfigs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CoordinatorDpuSize")
@@ -127,7 +128,8 @@ instance Data.FromJSON EngineConfiguration where
 
 instance Prelude.Hashable EngineConfiguration where
   hashWithSalt _salt EngineConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` additionalConfigs
+    _salt
+      `Prelude.hashWithSalt` additionalConfigs
       `Prelude.hashWithSalt` coordinatorDpuSize
       `Prelude.hashWithSalt` defaultExecutorDpuSize
       `Prelude.hashWithSalt` maxConcurrentDpus

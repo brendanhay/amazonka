@@ -104,7 +104,8 @@ instance Data.FromJSON PreparedStatement where
 
 instance Prelude.Hashable PreparedStatement where
   hashWithSalt _salt PreparedStatement' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` queryStatement
       `Prelude.hashWithSalt` statementName

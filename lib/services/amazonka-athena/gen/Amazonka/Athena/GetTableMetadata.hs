@@ -122,7 +122,8 @@ instance Core.AWSRequest GetTableMetadata where
 
 instance Prelude.Hashable GetTableMetadata where
   hashWithSalt _salt GetTableMetadata' {..} =
-    _salt `Prelude.hashWithSalt` catalogName
+    _salt
+      `Prelude.hashWithSalt` catalogName
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 

@@ -162,7 +162,8 @@ instance Core.AWSRequest ImportNotebook where
 
 instance Prelude.Hashable ImportNotebook where
   hashWithSalt _salt ImportNotebook' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` payload

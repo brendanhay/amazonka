@@ -86,7 +86,8 @@ instance Data.FromJSON Database where
 
 instance Prelude.Hashable Database where
   hashWithSalt _salt Database' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` name
 

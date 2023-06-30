@@ -193,7 +193,8 @@ instance Core.AWSRequest ListCalculationExecutions where
 
 instance Prelude.Hashable ListCalculationExecutions where
   hashWithSalt _salt ListCalculationExecutions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stateFilter
       `Prelude.hashWithSalt` sessionId

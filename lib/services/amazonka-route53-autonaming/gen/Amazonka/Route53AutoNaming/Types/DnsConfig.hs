@@ -249,7 +249,8 @@ instance Data.FromJSON DnsConfig where
 
 instance Prelude.Hashable DnsConfig where
   hashWithSalt _salt DnsConfig' {..} =
-    _salt `Prelude.hashWithSalt` namespaceId
+    _salt
+      `Prelude.hashWithSalt` namespaceId
       `Prelude.hashWithSalt` routingPolicy
       `Prelude.hashWithSalt` dnsRecords
 

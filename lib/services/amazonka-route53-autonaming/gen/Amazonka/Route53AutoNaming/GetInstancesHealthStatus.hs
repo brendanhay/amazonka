@@ -177,7 +177,8 @@ instance Core.AWSRequest GetInstancesHealthStatus where
 
 instance Prelude.Hashable GetInstancesHealthStatus where
   hashWithSalt _salt GetInstancesHealthStatus' {..} =
-    _salt `Prelude.hashWithSalt` instances
+    _salt
+      `Prelude.hashWithSalt` instances
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceId

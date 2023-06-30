@@ -145,7 +145,8 @@ instance Data.FromJSON NamespaceSummary where
 
 instance Prelude.Hashable NamespaceSummary where
   hashWithSalt _salt NamespaceSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

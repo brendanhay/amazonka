@@ -84,7 +84,8 @@ serviceChange_healthCheckConfig = Lens.lens (\ServiceChange' {healthCheckConfig}
 
 instance Prelude.Hashable ServiceChange where
   hashWithSalt _salt ServiceChange' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dnsConfig
       `Prelude.hashWithSalt` healthCheckConfig
 

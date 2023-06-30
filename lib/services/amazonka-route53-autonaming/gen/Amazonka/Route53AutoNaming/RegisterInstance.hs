@@ -558,7 +558,8 @@ instance Core.AWSRequest RegisterInstance where
 
 instance Prelude.Hashable RegisterInstance where
   hashWithSalt _salt RegisterInstance' {..} =
-    _salt `Prelude.hashWithSalt` creatorRequestId
+    _salt
+      `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` serviceId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` attributes

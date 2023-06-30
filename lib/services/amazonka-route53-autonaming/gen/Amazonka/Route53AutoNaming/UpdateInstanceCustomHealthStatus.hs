@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     UpdateInstanceCustomHealthStatus' {..} =
-      _salt `Prelude.hashWithSalt` serviceId
+      _salt
+        `Prelude.hashWithSalt` serviceId
         `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` status
 

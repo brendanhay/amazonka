@@ -153,7 +153,8 @@ namespaceFilter_values = Lens.lens (\NamespaceFilter' {values} -> values) (\s@Na
 
 instance Prelude.Hashable NamespaceFilter where
   hashWithSalt _salt NamespaceFilter' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 

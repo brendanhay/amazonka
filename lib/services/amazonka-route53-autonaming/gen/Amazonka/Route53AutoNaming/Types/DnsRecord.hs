@@ -371,12 +371,14 @@ instance Data.FromJSON DnsRecord where
       "DnsRecord"
       ( \x ->
           DnsRecord'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "TTL")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "TTL")
       )
 
 instance Prelude.Hashable DnsRecord where
   hashWithSalt _salt DnsRecord' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` ttl
 
 instance Prelude.NFData DnsRecord where

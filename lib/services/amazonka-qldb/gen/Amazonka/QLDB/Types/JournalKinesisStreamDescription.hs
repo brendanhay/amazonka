@@ -230,7 +230,8 @@ instance
   hashWithSalt
     _salt
     JournalKinesisStreamDescription' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` errorCause
         `Prelude.hashWithSalt` exclusiveEndTime

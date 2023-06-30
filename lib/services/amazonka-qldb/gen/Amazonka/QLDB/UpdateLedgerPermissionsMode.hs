@@ -191,7 +191,8 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
 
 instance Prelude.Hashable UpdateLedgerPermissionsMode where
   hashWithSalt _salt UpdateLedgerPermissionsMode' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissionsMode
 
 instance Prelude.NFData UpdateLedgerPermissionsMode where

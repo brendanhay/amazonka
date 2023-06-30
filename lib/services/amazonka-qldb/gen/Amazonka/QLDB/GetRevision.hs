@@ -155,7 +155,8 @@ instance Core.AWSRequest GetRevision where
 
 instance Prelude.Hashable GetRevision where
   hashWithSalt _salt GetRevision' {..} =
-    _salt `Prelude.hashWithSalt` digestTipAddress
+    _salt
+      `Prelude.hashWithSalt` digestTipAddress
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` blockAddress
       `Prelude.hashWithSalt` documentId

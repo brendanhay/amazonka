@@ -121,7 +121,8 @@ instance
     DescribeJournalKinesisStream
   where
   hashWithSalt _salt DescribeJournalKinesisStream' {..} =
-    _salt `Prelude.hashWithSalt` ledgerName
+    _salt
+      `Prelude.hashWithSalt` ledgerName
       `Prelude.hashWithSalt` streamId
 
 instance Prelude.NFData DescribeJournalKinesisStream where

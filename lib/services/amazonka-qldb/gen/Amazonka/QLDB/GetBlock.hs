@@ -150,7 +150,8 @@ instance Core.AWSRequest GetBlock where
 
 instance Prelude.Hashable GetBlock where
   hashWithSalt _salt GetBlock' {..} =
-    _salt `Prelude.hashWithSalt` digestTipAddress
+    _salt
+      `Prelude.hashWithSalt` digestTipAddress
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` blockAddress
 

@@ -120,7 +120,8 @@ instance Core.AWSRequest ListJournalS3Exports where
     Response.receiveJSON
       ( \s h x ->
           ListJournalS3ExportsResponse'
-            Prelude.<$> ( x Data..?> "JournalS3Exports"
+            Prelude.<$> ( x
+                            Data..?> "JournalS3Exports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -129,7 +130,8 @@ instance Core.AWSRequest ListJournalS3Exports where
 
 instance Prelude.Hashable ListJournalS3Exports where
   hashWithSalt _salt ListJournalS3Exports' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListJournalS3Exports where

@@ -270,7 +270,8 @@ instance Core.AWSRequest ExportJournalToS3 where
 
 instance Prelude.Hashable ExportJournalToS3 where
   hashWithSalt _salt ExportJournalToS3' {..} =
-    _salt `Prelude.hashWithSalt` outputFormat
+    _salt
+      `Prelude.hashWithSalt` outputFormat
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inclusiveStartTime
       `Prelude.hashWithSalt` exclusiveEndTime

@@ -147,7 +147,8 @@ instance Core.AWSRequest UpdateEntity where
 
 instance Prelude.Hashable UpdateEntity where
   hashWithSalt _salt UpdateEntity' {..} =
-    _salt `Prelude.hashWithSalt` componentUpdates
+    _salt
+      `Prelude.hashWithSalt` componentUpdates
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityName
       `Prelude.hashWithSalt` parentEntityUpdate

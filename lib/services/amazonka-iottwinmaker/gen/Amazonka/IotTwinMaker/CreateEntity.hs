@@ -161,7 +161,8 @@ instance Core.AWSRequest CreateEntity where
 
 instance Prelude.Hashable CreateEntity where
   hashWithSalt _salt CreateEntity' {..} =
-    _salt `Prelude.hashWithSalt` components
+    _salt
+      `Prelude.hashWithSalt` components
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` parentEntityId

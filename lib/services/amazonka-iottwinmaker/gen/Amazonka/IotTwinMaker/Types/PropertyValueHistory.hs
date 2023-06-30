@@ -81,7 +81,8 @@ instance Data.FromJSON PropertyValueHistory where
 
 instance Prelude.Hashable PropertyValueHistory where
   hashWithSalt _salt PropertyValueHistory' {..} =
-    _salt `Prelude.hashWithSalt` values
+    _salt
+      `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` entityPropertyReference
 
 instance Prelude.NFData PropertyValueHistory where

@@ -120,7 +120,8 @@ instance Core.AWSRequest GetComponentType where
             Prelude.<*> (x Data..?> "isAbstract")
             Prelude.<*> (x Data..?> "isSchemaInitialized")
             Prelude.<*> (x Data..?> "isSingleton")
-            Prelude.<*> ( x Data..?> "propertyDefinitions"
+            Prelude.<*> ( x
+                            Data..?> "propertyDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "propertyGroups" Core..!@ Prelude.mempty)
@@ -136,7 +137,8 @@ instance Core.AWSRequest GetComponentType where
 
 instance Prelude.Hashable GetComponentType where
   hashWithSalt _salt GetComponentType' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData GetComponentType where

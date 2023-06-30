@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteScene where
 
 instance Prelude.Hashable DeleteScene where
   hashWithSalt _salt DeleteScene' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` sceneId
 
 instance Prelude.NFData DeleteScene where

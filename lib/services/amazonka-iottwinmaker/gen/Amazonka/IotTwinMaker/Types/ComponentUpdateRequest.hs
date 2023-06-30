@@ -98,7 +98,8 @@ componentUpdateRequest_updateType = Lens.lens (\ComponentUpdateRequest' {updateT
 
 instance Prelude.Hashable ComponentUpdateRequest where
   hashWithSalt _salt ComponentUpdateRequest' {..} =
-    _salt `Prelude.hashWithSalt` componentTypeId
+    _salt
+      `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` propertyGroupUpdates
       `Prelude.hashWithSalt` propertyUpdates

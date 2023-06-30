@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteComponentType where
 
 instance Prelude.Hashable DeleteComponentType where
   hashWithSalt _salt DeleteComponentType' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData DeleteComponentType where

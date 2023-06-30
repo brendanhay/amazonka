@@ -106,7 +106,8 @@ instance Data.FromJSON SyncResourceSummary where
 
 instance Prelude.Hashable SyncResourceSummary where
   hashWithSalt _salt SyncResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` status

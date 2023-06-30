@@ -192,7 +192,8 @@ instance Core.AWSRequest UpdateComponentType where
 
 instance Prelude.Hashable UpdateComponentType where
   hashWithSalt _salt UpdateComponentType' {..} =
-    _salt `Prelude.hashWithSalt` componentTypeName
+    _salt
+      `Prelude.hashWithSalt` componentTypeName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` extendsFrom
       `Prelude.hashWithSalt` functions

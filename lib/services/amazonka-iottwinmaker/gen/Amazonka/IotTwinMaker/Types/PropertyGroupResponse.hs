@@ -92,7 +92,8 @@ instance Data.FromJSON PropertyGroupResponse where
 
 instance Prelude.Hashable PropertyGroupResponse where
   hashWithSalt _salt PropertyGroupResponse' {..} =
-    _salt `Prelude.hashWithSalt` groupType
+    _salt
+      `Prelude.hashWithSalt` groupType
       `Prelude.hashWithSalt` propertyNames
       `Prelude.hashWithSalt` isInherited
 

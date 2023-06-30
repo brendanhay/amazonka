@@ -90,7 +90,8 @@ instance Data.FromJSON FunctionResponse where
           FunctionResponse'
             Prelude.<$> (x Data..:? "implementedBy")
             Prelude.<*> (x Data..:? "isInherited")
-            Prelude.<*> ( x Data..:? "requiredProperties"
+            Prelude.<*> ( x
+                            Data..:? "requiredProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "scope")
@@ -98,7 +99,8 @@ instance Data.FromJSON FunctionResponse where
 
 instance Prelude.Hashable FunctionResponse where
   hashWithSalt _salt FunctionResponse' {..} =
-    _salt `Prelude.hashWithSalt` implementedBy
+    _salt
+      `Prelude.hashWithSalt` implementedBy
       `Prelude.hashWithSalt` isInherited
       `Prelude.hashWithSalt` requiredProperties
       `Prelude.hashWithSalt` scope

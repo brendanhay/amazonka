@@ -167,7 +167,8 @@ instance Data.FromJSON EntitySummary where
 
 instance Prelude.Hashable EntitySummary where
   hashWithSalt _salt EntitySummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` hasChildEntities
       `Prelude.hashWithSalt` parentEntityId
       `Prelude.hashWithSalt` entityId

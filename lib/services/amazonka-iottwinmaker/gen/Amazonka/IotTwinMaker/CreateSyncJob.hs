@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateSyncJob where
 
 instance Prelude.Hashable CreateSyncJob where
   hashWithSalt _salt CreateSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` syncSource
       `Prelude.hashWithSalt` syncRole

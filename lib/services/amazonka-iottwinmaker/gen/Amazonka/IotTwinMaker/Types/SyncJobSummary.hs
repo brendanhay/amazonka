@@ -115,7 +115,8 @@ instance Data.FromJSON SyncJobSummary where
 
 instance Prelude.Hashable SyncJobSummary where
   hashWithSalt _salt SyncJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` syncSource

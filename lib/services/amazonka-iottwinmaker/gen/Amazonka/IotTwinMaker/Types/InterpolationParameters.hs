@@ -66,7 +66,8 @@ interpolationParameters_intervalInSeconds = Lens.lens (\InterpolationParameters'
 
 instance Prelude.Hashable InterpolationParameters where
   hashWithSalt _salt InterpolationParameters' {..} =
-    _salt `Prelude.hashWithSalt` interpolationType
+    _salt
+      `Prelude.hashWithSalt` interpolationType
       `Prelude.hashWithSalt` intervalInSeconds
 
 instance Prelude.NFData InterpolationParameters where

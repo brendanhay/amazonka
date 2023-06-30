@@ -112,7 +112,8 @@ instance Core.AWSRequest ListScenes where
 
 instance Prelude.Hashable ListScenes where
   hashWithSalt _salt ListScenes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workspaceId
 

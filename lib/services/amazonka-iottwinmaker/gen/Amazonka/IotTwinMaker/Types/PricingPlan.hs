@@ -130,7 +130,8 @@ instance Data.FromJSON PricingPlan where
 
 instance Prelude.Hashable PricingPlan where
   hashWithSalt _salt PricingPlan' {..} =
-    _salt `Prelude.hashWithSalt` billableEntityCount
+    _salt
+      `Prelude.hashWithSalt` billableEntityCount
       `Prelude.hashWithSalt` bundleInformation
       `Prelude.hashWithSalt` effectiveDateTime
       `Prelude.hashWithSalt` pricingMode

@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteSyncJob where
 
 instance Prelude.Hashable DeleteSyncJob where
   hashWithSalt _salt DeleteSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` syncSource
 
 instance Prelude.NFData DeleteSyncJob where

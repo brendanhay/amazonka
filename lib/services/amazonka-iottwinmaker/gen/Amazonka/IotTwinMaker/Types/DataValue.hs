@@ -145,7 +145,8 @@ instance Data.FromJSON DataValue where
 
 instance Prelude.Hashable DataValue where
   hashWithSalt _salt DataValue' {..} =
-    _salt `Prelude.hashWithSalt` booleanValue
+    _salt
+      `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` integerValue

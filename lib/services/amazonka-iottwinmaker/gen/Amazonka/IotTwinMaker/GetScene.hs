@@ -116,7 +116,8 @@ instance Core.AWSRequest GetScene where
 
 instance Prelude.Hashable GetScene where
   hashWithSalt _salt GetScene' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` sceneId
 
 instance Prelude.NFData GetScene where

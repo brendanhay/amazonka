@@ -109,7 +109,8 @@ instance Data.FromJSON DataType where
 
 instance Prelude.Hashable DataType where
   hashWithSalt _salt DataType' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` nestedType
       `Prelude.hashWithSalt` relationship
       `Prelude.hashWithSalt` unitOfMeasure

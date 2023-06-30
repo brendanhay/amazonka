@@ -178,7 +178,8 @@ instance Core.AWSRequest DeleteAlternateContact where
 
 instance Prelude.Hashable DeleteAlternateContact where
   hashWithSalt _salt DeleteAlternateContact' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` alternateContactType
 
 instance Prelude.NFData DeleteAlternateContact where

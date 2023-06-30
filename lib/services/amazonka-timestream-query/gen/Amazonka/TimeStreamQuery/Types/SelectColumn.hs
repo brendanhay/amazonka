@@ -104,7 +104,8 @@ instance Data.FromJSON SelectColumn where
 
 instance Prelude.Hashable SelectColumn where
   hashWithSalt _salt SelectColumn' {..} =
-    _salt `Prelude.hashWithSalt` aliased
+    _salt
+      `Prelude.hashWithSalt` aliased
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tableName

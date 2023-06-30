@@ -80,7 +80,8 @@ instance Data.FromJSON DimensionMapping where
 
 instance Prelude.Hashable DimensionMapping where
   hashWithSalt _salt DimensionMapping' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` dimensionValueType
 
 instance Prelude.NFData DimensionMapping where

@@ -154,7 +154,8 @@ instance Data.FromJSON ScheduledQuery where
 
 instance Prelude.Hashable ScheduledQuery where
   hashWithSalt _salt ScheduledQuery' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` errorReportConfiguration
       `Prelude.hashWithSalt` lastRunStatus
       `Prelude.hashWithSalt` nextInvocationTime

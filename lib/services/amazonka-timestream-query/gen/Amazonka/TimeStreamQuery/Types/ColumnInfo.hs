@@ -78,12 +78,14 @@ instance Data.FromJSON ColumnInfo where
       "ColumnInfo"
       ( \x ->
           ColumnInfo'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable ColumnInfo where
   hashWithSalt _salt ColumnInfo' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ColumnInfo where

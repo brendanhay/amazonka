@@ -105,21 +105,21 @@ instance Core.AWSPager ListScheduledQueries where
     | Core.stop
         ( rs
             Lens.^? listScheduledQueriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listScheduledQueriesResponse_scheduledQueries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listScheduledQueries_nextToken
           Lens..~ rs
           Lens.^? listScheduledQueriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListScheduledQueries where
   type
@@ -133,14 +133,16 @@ instance Core.AWSRequest ListScheduledQueries where
           ListScheduledQueriesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ScheduledQueries"
+            Prelude.<*> ( x
+                            Data..?> "ScheduledQueries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListScheduledQueries where
   hashWithSalt _salt ListScheduledQueries' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListScheduledQueries where

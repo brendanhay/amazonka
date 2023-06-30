@@ -116,7 +116,8 @@ instance Core.AWSRequest GetJob where
 
 instance Prelude.Hashable GetJob where
   hashWithSalt _salt GetJob' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` jobId
 

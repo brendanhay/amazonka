@@ -94,7 +94,8 @@ instance Data.FromJSON SubDomain where
 
 instance Prelude.Hashable SubDomain where
   hashWithSalt _salt SubDomain' {..} =
-    _salt `Prelude.hashWithSalt` subDomainSetting
+    _salt
+      `Prelude.hashWithSalt` subDomainSetting
       `Prelude.hashWithSalt` verified
       `Prelude.hashWithSalt` dnsRecord
 

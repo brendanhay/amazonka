@@ -169,7 +169,8 @@ instance Data.FromJSON AutoBranchCreationConfig where
             Prelude.<*> (x Data..:? "enableBasicAuth")
             Prelude.<*> (x Data..:? "enablePerformanceMode")
             Prelude.<*> (x Data..:? "enablePullRequestPreview")
-            Prelude.<*> ( x Data..:? "environmentVariables"
+            Prelude.<*> ( x
+                            Data..:? "environmentVariables"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "framework")
@@ -179,7 +180,8 @@ instance Data.FromJSON AutoBranchCreationConfig where
 
 instance Prelude.Hashable AutoBranchCreationConfig where
   hashWithSalt _salt AutoBranchCreationConfig' {..} =
-    _salt `Prelude.hashWithSalt` basicAuthCredentials
+    _salt
+      `Prelude.hashWithSalt` basicAuthCredentials
       `Prelude.hashWithSalt` buildSpec
       `Prelude.hashWithSalt` enableAutoBuild
       `Prelude.hashWithSalt` enableBasicAuth

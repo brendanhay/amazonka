@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateBackendEnvironment where
 
 instance Prelude.Hashable CreateBackendEnvironment where
   hashWithSalt _salt CreateBackendEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` deploymentArtifacts
+    _salt
+      `Prelude.hashWithSalt` deploymentArtifacts
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName

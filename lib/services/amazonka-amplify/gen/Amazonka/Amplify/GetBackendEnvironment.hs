@@ -106,7 +106,8 @@ instance Core.AWSRequest GetBackendEnvironment where
 
 instance Prelude.Hashable GetBackendEnvironment where
   hashWithSalt _salt GetBackendEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData GetBackendEnvironment where

@@ -145,7 +145,8 @@ instance Data.FromJSON Webhook where
 
 instance Prelude.Hashable Webhook where
   hashWithSalt _salt Webhook' {..} =
-    _salt `Prelude.hashWithSalt` webhookArn
+    _salt
+      `Prelude.hashWithSalt` webhookArn
       `Prelude.hashWithSalt` webhookId
       `Prelude.hashWithSalt` webhookUrl
       `Prelude.hashWithSalt` branchName

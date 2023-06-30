@@ -78,7 +78,8 @@ instance Data.FromJSON SubDomainSetting where
 
 instance Prelude.Hashable SubDomainSetting where
   hashWithSalt _salt SubDomainSetting' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` branchName
 
 instance Prelude.NFData SubDomainSetting where

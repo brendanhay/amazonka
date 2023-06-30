@@ -389,7 +389,8 @@ instance Core.AWSRequest UpdateApp where
 
 instance Prelude.Hashable UpdateApp where
   hashWithSalt _salt UpdateApp' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` autoBranchCreationConfig
       `Prelude.hashWithSalt` autoBranchCreationPatterns
       `Prelude.hashWithSalt` basicAuthCredentials

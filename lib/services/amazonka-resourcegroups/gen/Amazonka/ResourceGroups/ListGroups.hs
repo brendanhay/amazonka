@@ -66,7 +66,7 @@ data ListGroups = ListGroups'
     --
     -- -   @resource-type@ - Filter the results to include only those of the
     --     specified resource types. Specify up to five resource types in the
-    --     format @AWS::ServiceCode::ResourceType @. For example,
+    --     format @AWS::@/@ServiceCode@/@::@/@ResourceType@/@ @. For example,
     --     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
     --
     -- -   @configuration-type@ - Filter the results to include only those
@@ -110,7 +110,7 @@ data ListGroups = ListGroups'
 --
 -- -   @resource-type@ - Filter the results to include only those of the
 --     specified resource types. Specify up to five resource types in the
---     format @AWS::ServiceCode::ResourceType @. For example,
+--     format @AWS::@/@ServiceCode@/@::@/@ResourceType@/@ @. For example,
 --     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
 --
 -- -   @configuration-type@ - Filter the results to include only those
@@ -151,7 +151,7 @@ newListGroups =
 --
 -- -   @resource-type@ - Filter the results to include only those of the
 --     specified resource types. Specify up to five resource types in the
---     format @AWS::ServiceCode::ResourceType @. For example,
+--     format @AWS::@/@ServiceCode@/@::@/@ResourceType@/@ @. For example,
 --     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
 --
 -- -   @configuration-type@ - Filter the results to include only those
@@ -189,26 +189,29 @@ instance Core.AWSPager ListGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listGroupsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGroupsResponse_groupIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listGroupsResponse_groups Prelude.. Lens._Just
+            Lens.^? listGroupsResponse_groups
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGroups_nextToken
           Lens..~ rs
-          Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listGroupsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroups where
   type AWSResponse ListGroups = ListGroupsResponse
@@ -218,7 +221,8 @@ instance Core.AWSRequest ListGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            Prelude.<$> ( x Data..?> "GroupIdentifiers"
+            Prelude.<$> ( x
+                            Data..?> "GroupIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
@@ -228,7 +232,8 @@ instance Core.AWSRequest ListGroups where
 
 instance Prelude.Hashable ListGroups where
   hashWithSalt _salt ListGroups' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

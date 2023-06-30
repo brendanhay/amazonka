@@ -73,7 +73,8 @@ resourceFilter_values = Lens.lens (\ResourceFilter' {values} -> values) (\s@Reso
 
 instance Prelude.Hashable ResourceFilter where
   hashWithSalt _salt ResourceFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ResourceFilter where

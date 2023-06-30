@@ -114,7 +114,8 @@ instance Core.AWSRequest GroupResources where
 
 instance Prelude.Hashable GroupResources where
   hashWithSalt _salt GroupResources' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` resourceArns
 
 instance Prelude.NFData GroupResources where
@@ -148,8 +149,9 @@ data GroupResourcesResponse = GroupResourcesResponse'
     -- | A list of ARNs of any resources that are still in the process of being
     -- added to the group by this operation. These pending additions continue
     -- asynchronously. You can check the status of pending additions by using
-    -- the @ ListGroupResources @ operation, and checking the @Resources@ array
-    -- in the response and the @Status@ field of each object in that array.
+    -- the @ @@ListGroupResources@@ @ operation, and checking the @Resources@
+    -- array in the response and the @Status@ field of each object in that
+    -- array.
     pending :: Prelude.Maybe [PendingResource],
     -- | A list of ARNs of resources that were successfully added to the group by
     -- this operation.
@@ -173,8 +175,9 @@ data GroupResourcesResponse = GroupResourcesResponse'
 -- 'pending', 'groupResourcesResponse_pending' - A list of ARNs of any resources that are still in the process of being
 -- added to the group by this operation. These pending additions continue
 -- asynchronously. You can check the status of pending additions by using
--- the @ ListGroupResources @ operation, and checking the @Resources@ array
--- in the response and the @Status@ field of each object in that array.
+-- the @ @@ListGroupResources@@ @ operation, and checking the @Resources@
+-- array in the response and the @Status@ field of each object in that
+-- array.
 --
 -- 'succeeded', 'groupResourcesResponse_succeeded' - A list of ARNs of resources that were successfully added to the group by
 -- this operation.
@@ -200,8 +203,9 @@ groupResourcesResponse_failed = Lens.lens (\GroupResourcesResponse' {failed} -> 
 -- | A list of ARNs of any resources that are still in the process of being
 -- added to the group by this operation. These pending additions continue
 -- asynchronously. You can check the status of pending additions by using
--- the @ ListGroupResources @ operation, and checking the @Resources@ array
--- in the response and the @Status@ field of each object in that array.
+-- the @ @@ListGroupResources@@ @ operation, and checking the @Resources@
+-- array in the response and the @Status@ field of each object in that
+-- array.
 groupResourcesResponse_pending :: Lens.Lens' GroupResourcesResponse (Prelude.Maybe [PendingResource])
 groupResourcesResponse_pending = Lens.lens (\GroupResourcesResponse' {pending} -> pending) (\s@GroupResourcesResponse' {} a -> s {pending = a} :: GroupResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 

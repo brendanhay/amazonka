@@ -86,7 +86,8 @@ instance Data.FromJSON GroupQuery where
 
 instance Prelude.Hashable GroupQuery where
   hashWithSalt _salt GroupQuery' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` resourceQuery
 
 instance Prelude.NFData GroupQuery where

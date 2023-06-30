@@ -73,7 +73,8 @@ groupFilter_values = Lens.lens (\GroupFilter' {values} -> values) (\s@GroupFilte
 
 instance Prelude.Hashable GroupFilter where
   hashWithSalt _salt GroupFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData GroupFilter where

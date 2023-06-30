@@ -137,7 +137,8 @@ instance Core.AWSRequest PutGroupConfiguration where
 
 instance Prelude.Hashable PutGroupConfiguration where
   hashWithSalt _salt PutGroupConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData PutGroupConfiguration where

@@ -251,28 +251,28 @@ instance Core.AWSPager ListGroupResources where
     | Core.stop
         ( rs
             Lens.^? listGroupResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGroupResourcesResponse_resourceIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGroupResourcesResponse_resources
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGroupResources_nextToken
           Lens..~ rs
           Lens.^? listGroupResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroupResources where
   type
@@ -286,7 +286,8 @@ instance Core.AWSRequest ListGroupResources where
           ListGroupResourcesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "QueryErrors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "ResourceIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "ResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Resources" Core..!@ Prelude.mempty)
@@ -295,7 +296,8 @@ instance Core.AWSRequest ListGroupResources where
 
 instance Prelude.Hashable ListGroupResources where
   hashWithSalt _salt ListGroupResources' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` maxResults

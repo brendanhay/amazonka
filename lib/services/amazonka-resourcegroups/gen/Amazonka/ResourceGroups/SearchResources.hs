@@ -161,22 +161,22 @@ instance Core.AWSPager SearchResources where
     | Core.stop
         ( rs
             Lens.^? searchResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchResourcesResponse_resourceIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchResources_nextToken
           Lens..~ rs
           Lens.^? searchResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchResources where
   type
@@ -190,7 +190,8 @@ instance Core.AWSRequest SearchResources where
           SearchResourcesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "QueryErrors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "ResourceIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "ResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -198,7 +199,8 @@ instance Core.AWSRequest SearchResources where
 
 instance Prelude.Hashable SearchResources where
   hashWithSalt _salt SearchResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceQuery
 

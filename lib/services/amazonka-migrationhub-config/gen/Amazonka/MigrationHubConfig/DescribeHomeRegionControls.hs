@@ -141,7 +141,8 @@ instance Core.AWSRequest DescribeHomeRegionControls where
     Response.receiveJSON
       ( \s h x ->
           DescribeHomeRegionControlsResponse'
-            Prelude.<$> ( x Data..?> "HomeRegionControls"
+            Prelude.<$> ( x
+                            Data..?> "HomeRegionControls"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -150,7 +151,8 @@ instance Core.AWSRequest DescribeHomeRegionControls where
 
 instance Prelude.Hashable DescribeHomeRegionControls where
   hashWithSalt _salt DescribeHomeRegionControls' {..} =
-    _salt `Prelude.hashWithSalt` controlId
+    _salt
+      `Prelude.hashWithSalt` controlId
       `Prelude.hashWithSalt` homeRegion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

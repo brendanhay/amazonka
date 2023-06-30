@@ -120,7 +120,8 @@ instance Core.AWSRequest CreateHomeRegionControl where
 
 instance Prelude.Hashable CreateHomeRegionControl where
   hashWithSalt _salt CreateHomeRegionControl' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` homeRegion
       `Prelude.hashWithSalt` target
 

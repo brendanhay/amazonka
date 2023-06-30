@@ -73,12 +73,14 @@ instance Data.FromJSON Target where
       "Target"
       ( \x ->
           Target'
-            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Target where

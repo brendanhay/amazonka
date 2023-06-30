@@ -208,7 +208,8 @@ instance Core.AWSRequest CreateEnvironment where
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` dataBundles
+    _salt
+      `Prelude.hashWithSalt` dataBundles
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` federationMode
       `Prelude.hashWithSalt` federationParameters

@@ -139,7 +139,8 @@ instance Data.FromJSON FederationParameters where
 
 instance Prelude.Hashable FederationParameters where
   hashWithSalt _salt FederationParameters' {..} =
-    _salt `Prelude.hashWithSalt` applicationCallBackURL
+    _salt
+      `Prelude.hashWithSalt` applicationCallBackURL
       `Prelude.hashWithSalt` attributeMap
       `Prelude.hashWithSalt` federationProviderName
       `Prelude.hashWithSalt` federationURN

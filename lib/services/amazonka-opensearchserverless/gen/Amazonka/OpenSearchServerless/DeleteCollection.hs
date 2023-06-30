@@ -118,7 +118,8 @@ instance Core.AWSRequest DeleteCollection where
 
 instance Prelude.Hashable DeleteCollection where
   hashWithSalt _salt DeleteCollection' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteCollection where

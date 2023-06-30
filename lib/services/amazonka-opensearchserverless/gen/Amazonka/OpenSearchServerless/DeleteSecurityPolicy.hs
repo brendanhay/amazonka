@@ -113,7 +113,8 @@ instance Core.AWSRequest DeleteSecurityPolicy where
 
 instance Prelude.Hashable DeleteSecurityPolicy where
   hashWithSalt _salt DeleteSecurityPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 

@@ -116,7 +116,8 @@ instance Data.FromJSON SecurityPolicySummary where
 
 instance Prelude.Hashable SecurityPolicySummary where
   hashWithSalt _salt SecurityPolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` name

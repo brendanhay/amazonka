@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdateSecurityConfig where
 
 instance Prelude.Hashable UpdateSecurityConfig where
   hashWithSalt _salt UpdateSecurityConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` samlOptions
       `Prelude.hashWithSalt` configVersion

@@ -149,7 +149,8 @@ instance Data.FromJSON CreateCollectionDetail where
 
 instance Prelude.Hashable CreateCollectionDetail where
   hashWithSalt _salt CreateCollectionDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

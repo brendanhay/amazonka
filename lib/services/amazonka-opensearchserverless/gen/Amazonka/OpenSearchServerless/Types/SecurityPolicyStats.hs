@@ -75,7 +75,8 @@ instance Data.FromJSON SecurityPolicyStats where
 
 instance Prelude.Hashable SecurityPolicyStats where
   hashWithSalt _salt SecurityPolicyStats' {..} =
-    _salt `Prelude.hashWithSalt` encryptionPolicyCount
+    _salt
+      `Prelude.hashWithSalt` encryptionPolicyCount
       `Prelude.hashWithSalt` networkPolicyCount
 
 instance Prelude.NFData SecurityPolicyStats where

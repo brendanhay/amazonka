@@ -137,7 +137,8 @@ instance Core.AWSRequest ListSecurityPolicies where
       ( \s h x ->
           ListSecurityPoliciesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "securityPolicySummaries"
+            Prelude.<*> ( x
+                            Data..?> "securityPolicySummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -145,7 +146,8 @@ instance Core.AWSRequest ListSecurityPolicies where
 
 instance Prelude.Hashable ListSecurityPolicies where
   hashWithSalt _salt ListSecurityPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` type'

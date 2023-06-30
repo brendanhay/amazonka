@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteSecurityConfig where
 
 instance Prelude.Hashable DeleteSecurityConfig where
   hashWithSalt _salt DeleteSecurityConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteSecurityConfig where

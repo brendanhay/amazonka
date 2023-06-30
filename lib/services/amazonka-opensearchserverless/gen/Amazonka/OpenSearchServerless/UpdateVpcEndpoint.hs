@@ -154,7 +154,8 @@ instance Core.AWSRequest UpdateVpcEndpoint where
 
 instance Prelude.Hashable UpdateVpcEndpoint where
   hashWithSalt _salt UpdateVpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` addSecurityGroupIds
+    _salt
+      `Prelude.hashWithSalt` addSecurityGroupIds
       `Prelude.hashWithSalt` addSubnetIds
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` removeSecurityGroupIds

@@ -101,7 +101,8 @@ instance Data.FromJSON SamlConfigOptions where
 
 instance Prelude.Hashable SamlConfigOptions where
   hashWithSalt _salt SamlConfigOptions' {..} =
-    _salt `Prelude.hashWithSalt` groupAttribute
+    _salt
+      `Prelude.hashWithSalt` groupAttribute
       `Prelude.hashWithSalt` sessionTimeout
       `Prelude.hashWithSalt` userAttribute
       `Prelude.hashWithSalt` metadata

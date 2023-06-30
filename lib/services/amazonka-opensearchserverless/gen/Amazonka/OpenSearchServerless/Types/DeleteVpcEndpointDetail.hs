@@ -86,7 +86,8 @@ instance Data.FromJSON DeleteVpcEndpointDetail where
 
 instance Prelude.Hashable DeleteVpcEndpointDetail where
   hashWithSalt _salt DeleteVpcEndpointDetail' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 

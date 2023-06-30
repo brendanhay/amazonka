@@ -133,7 +133,8 @@ instance Core.AWSRequest ListAccessPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListAccessPoliciesResponse'
-            Prelude.<$> ( x Data..?> "accessPolicySummaries"
+            Prelude.<$> ( x
+                            Data..?> "accessPolicySummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -142,7 +143,8 @@ instance Core.AWSRequest ListAccessPolicies where
 
 instance Prelude.Hashable ListAccessPolicies where
   hashWithSalt _salt ListAccessPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` type'

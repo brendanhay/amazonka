@@ -87,7 +87,8 @@ instance Data.FromJSON CreateVpcEndpointDetail where
 
 instance Prelude.Hashable CreateVpcEndpointDetail where
   hashWithSalt _salt CreateVpcEndpointDetail' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 

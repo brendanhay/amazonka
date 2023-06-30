@@ -131,7 +131,8 @@ instance Data.FromJSON VpcEndpointDetail where
 
 instance Prelude.Hashable VpcEndpointDetail where
   hashWithSalt _salt VpcEndpointDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` securityGroupIds

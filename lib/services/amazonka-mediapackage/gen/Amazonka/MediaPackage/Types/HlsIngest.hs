@@ -58,7 +58,8 @@ instance Data.FromJSON HlsIngest where
       "HlsIngest"
       ( \x ->
           HlsIngest'
-            Prelude.<$> ( x Data..:? "ingestEndpoints"
+            Prelude.<$> ( x
+                            Data..:? "ingestEndpoints"
                             Data..!= Prelude.mempty
                         )
       )

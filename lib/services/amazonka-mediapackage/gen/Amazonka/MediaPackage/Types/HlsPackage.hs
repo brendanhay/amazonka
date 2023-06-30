@@ -239,7 +239,8 @@ instance Data.FromJSON HlsPackage where
 
 instance Prelude.Hashable HlsPackage where
   hashWithSalt _salt HlsPackage' {..} =
-    _salt `Prelude.hashWithSalt` adMarkers
+    _salt
+      `Prelude.hashWithSalt` adMarkers
       `Prelude.hashWithSalt` adTriggers
       `Prelude.hashWithSalt` adsOnDeliveryRestrictions
       `Prelude.hashWithSalt` encryption

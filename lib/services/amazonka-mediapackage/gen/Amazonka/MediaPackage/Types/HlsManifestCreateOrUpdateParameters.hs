@@ -201,7 +201,8 @@ instance
   hashWithSalt
     _salt
     HlsManifestCreateOrUpdateParameters' {..} =
-      _salt `Prelude.hashWithSalt` adMarkers
+      _salt
+        `Prelude.hashWithSalt` adMarkers
         `Prelude.hashWithSalt` adTriggers
         `Prelude.hashWithSalt` adsOnDeliveryRestrictions
         `Prelude.hashWithSalt` includeIframeOnlyStream

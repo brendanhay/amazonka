@@ -94,7 +94,8 @@ instance Data.FromJSON IngestEndpoint where
 
 instance Prelude.Hashable IngestEndpoint where
   hashWithSalt _salt IngestEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` username

@@ -89,7 +89,8 @@ instance Data.FromJSON Authorization where
 
 instance Prelude.Hashable Authorization where
   hashWithSalt _salt Authorization' {..} =
-    _salt `Prelude.hashWithSalt` secretsRoleArn
+    _salt
+      `Prelude.hashWithSalt` secretsRoleArn
       `Prelude.hashWithSalt` cdnIdentifierSecret
 
 instance Prelude.NFData Authorization where

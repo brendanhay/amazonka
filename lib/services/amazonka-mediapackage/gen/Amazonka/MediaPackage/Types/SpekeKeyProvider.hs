@@ -130,7 +130,8 @@ instance Data.FromJSON SpekeKeyProvider where
 
 instance Prelude.Hashable SpekeKeyProvider where
   hashWithSalt _salt SpekeKeyProvider' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` encryptionContractConfiguration
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` systemIds

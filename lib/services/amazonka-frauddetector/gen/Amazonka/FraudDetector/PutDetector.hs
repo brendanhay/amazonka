@@ -120,7 +120,8 @@ instance Core.AWSRequest PutDetector where
 
 instance Prelude.Hashable PutDetector where
   hashWithSalt _salt PutDetector' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` eventTypeName

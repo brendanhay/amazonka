@@ -71,17 +71,20 @@ instance Data.FromJSON DataValidationMetrics where
       "DataValidationMetrics"
       ( \x ->
           DataValidationMetrics'
-            Prelude.<$> ( x Data..:? "fieldLevelMessages"
+            Prelude.<$> ( x
+                            Data..:? "fieldLevelMessages"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "fileLevelMessages"
+            Prelude.<*> ( x
+                            Data..:? "fileLevelMessages"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DataValidationMetrics where
   hashWithSalt _salt DataValidationMetrics' {..} =
-    _salt `Prelude.hashWithSalt` fieldLevelMessages
+    _salt
+      `Prelude.hashWithSalt` fieldLevelMessages
       `Prelude.hashWithSalt` fileLevelMessages
 
 instance Prelude.NFData DataValidationMetrics where

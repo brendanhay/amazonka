@@ -118,7 +118,8 @@ instance Data.FromJSON VariableImpactExplanation where
 
 instance Prelude.Hashable VariableImpactExplanation where
   hashWithSalt _salt VariableImpactExplanation' {..} =
-    _salt `Prelude.hashWithSalt` eventVariableName
+    _salt
+      `Prelude.hashWithSalt` eventVariableName
       `Prelude.hashWithSalt` logOddsImpact
       `Prelude.hashWithSalt` relativeImpact
 

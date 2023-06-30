@@ -172,7 +172,8 @@ instance Core.AWSRequest CreateVariable where
 
 instance Prelude.Hashable CreateVariable where
   hashWithSalt _salt CreateVariable' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` variableType
       `Prelude.hashWithSalt` name

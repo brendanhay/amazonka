@@ -118,7 +118,8 @@ instance Core.AWSRequest GetEventTypes where
 
 instance Prelude.Hashable GetEventTypes where
   hashWithSalt _salt GetEventTypes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
 

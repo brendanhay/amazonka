@@ -102,7 +102,8 @@ instance Data.FromJSON LabelSchema where
 
 instance Prelude.Hashable LabelSchema where
   hashWithSalt _salt LabelSchema' {..} =
-    _salt `Prelude.hashWithSalt` labelMapper
+    _salt
+      `Prelude.hashWithSalt` labelMapper
       `Prelude.hashWithSalt` unlabeledEventsTreatment
 
 instance Prelude.NFData LabelSchema where

@@ -128,7 +128,8 @@ instance Core.AWSRequest DescribeModelVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeModelVersionsResponse'
-            Prelude.<$> ( x Data..?> "modelVersionDetails"
+            Prelude.<$> ( x
+                            Data..?> "modelVersionDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -137,7 +138,8 @@ instance Core.AWSRequest DescribeModelVersions where
 
 instance Prelude.Hashable DescribeModelVersions where
   hashWithSalt _salt DescribeModelVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` modelVersionNumber

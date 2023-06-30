@@ -88,7 +88,8 @@ instance Data.FromJSON TrainingResult where
 
 instance Prelude.Hashable TrainingResult where
   hashWithSalt _salt TrainingResult' {..} =
-    _salt `Prelude.hashWithSalt` dataValidationMetrics
+    _salt
+      `Prelude.hashWithSalt` dataValidationMetrics
       `Prelude.hashWithSalt` trainingMetrics
       `Prelude.hashWithSalt` variableImportanceMetrics
 

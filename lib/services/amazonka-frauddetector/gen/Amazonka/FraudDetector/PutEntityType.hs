@@ -114,7 +114,8 @@ instance Core.AWSRequest PutEntityType where
 
 instance Prelude.Hashable PutEntityType where
   hashWithSalt _salt PutEntityType' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 

@@ -105,7 +105,8 @@ instance Data.FromJSON IngestedEventStatistics where
 
 instance Prelude.Hashable IngestedEventStatistics where
   hashWithSalt _salt IngestedEventStatistics' {..} =
-    _salt `Prelude.hashWithSalt` eventDataSizeInBytes
+    _salt
+      `Prelude.hashWithSalt` eventDataSizeInBytes
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` leastRecentEvent
       `Prelude.hashWithSalt` mostRecentEvent

@@ -90,7 +90,8 @@ instance Data.FromJSON Rule where
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` ruleVersion
 

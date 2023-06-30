@@ -155,7 +155,8 @@ instance Data.FromJSON RuleDetail where
 
 instance Prelude.Hashable RuleDetail where
   hashWithSalt _salt RuleDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` detectorId

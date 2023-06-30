@@ -71,7 +71,8 @@ instance Data.FromJSON OFITrainingMetricsValue where
       "OFITrainingMetricsValue"
       ( \x ->
           OFITrainingMetricsValue'
-            Prelude.<$> ( x Data..:? "metricDataPoints"
+            Prelude.<$> ( x
+                            Data..:? "metricDataPoints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "modelPerformance")
@@ -79,7 +80,8 @@ instance Data.FromJSON OFITrainingMetricsValue where
 
 instance Prelude.Hashable OFITrainingMetricsValue where
   hashWithSalt _salt OFITrainingMetricsValue' {..} =
-    _salt `Prelude.hashWithSalt` metricDataPoints
+    _salt
+      `Prelude.hashWithSalt` metricDataPoints
       `Prelude.hashWithSalt` modelPerformance
 
 instance Prelude.NFData OFITrainingMetricsValue where

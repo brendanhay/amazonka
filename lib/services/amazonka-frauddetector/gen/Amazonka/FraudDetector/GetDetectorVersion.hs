@@ -115,7 +115,8 @@ instance Core.AWSRequest GetDetectorVersion where
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "detectorId")
             Prelude.<*> (x Data..?> "detectorVersionId")
-            Prelude.<*> ( x Data..?> "externalModelEndpoints"
+            Prelude.<*> ( x
+                            Data..?> "externalModelEndpoints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "lastUpdatedTime")
@@ -128,7 +129,8 @@ instance Core.AWSRequest GetDetectorVersion where
 
 instance Prelude.Hashable GetDetectorVersion where
   hashWithSalt _salt GetDetectorVersion' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` detectorVersionId
 
 instance Prelude.NFData GetDetectorVersion where

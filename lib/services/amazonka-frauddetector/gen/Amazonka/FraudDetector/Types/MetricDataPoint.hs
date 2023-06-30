@@ -109,7 +109,8 @@ instance Data.FromJSON MetricDataPoint where
 
 instance Prelude.Hashable MetricDataPoint where
   hashWithSalt _salt MetricDataPoint' {..} =
-    _salt `Prelude.hashWithSalt` fpr
+    _salt
+      `Prelude.hashWithSalt` fpr
       `Prelude.hashWithSalt` precision
       `Prelude.hashWithSalt` threshold
       `Prelude.hashWithSalt` tpr

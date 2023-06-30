@@ -158,7 +158,8 @@ instance Data.FromJSON Variable where
 
 instance Prelude.Hashable Variable where
   hashWithSalt _salt Variable' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` dataType

@@ -194,7 +194,8 @@ instance Core.AWSRequest CreateDetectorVersion where
 
 instance Prelude.Hashable CreateDetectorVersion where
   hashWithSalt _salt CreateDetectorVersion' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` externalModelEndpoints
       `Prelude.hashWithSalt` modelVersions
       `Prelude.hashWithSalt` ruleExecutionMode

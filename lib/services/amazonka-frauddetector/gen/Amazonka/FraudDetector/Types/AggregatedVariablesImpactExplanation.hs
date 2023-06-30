@@ -119,7 +119,8 @@ instance
       "AggregatedVariablesImpactExplanation"
       ( \x ->
           AggregatedVariablesImpactExplanation'
-            Prelude.<$> ( x Data..:? "eventVariableNames"
+            Prelude.<$> ( x
+                            Data..:? "eventVariableNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "logOddsImpact")
@@ -133,7 +134,8 @@ instance
   hashWithSalt
     _salt
     AggregatedVariablesImpactExplanation' {..} =
-      _salt `Prelude.hashWithSalt` eventVariableNames
+      _salt
+        `Prelude.hashWithSalt` eventVariableNames
         `Prelude.hashWithSalt` logOddsImpact
         `Prelude.hashWithSalt` relativeImpact
 

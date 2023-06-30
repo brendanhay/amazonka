@@ -114,7 +114,8 @@ instance Data.FromJSON Detector where
 
 instance Prelude.Hashable Detector where
   hashWithSalt _salt Detector' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` detectorId

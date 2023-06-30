@@ -124,7 +124,8 @@ instance Data.FromJSON EvaluatedRule where
 
 instance Prelude.Hashable EvaluatedRule where
   hashWithSalt _salt EvaluatedRule' {..} =
-    _salt `Prelude.hashWithSalt` evaluated
+    _salt
+      `Prelude.hashWithSalt` evaluated
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` expressionWithValues
       `Prelude.hashWithSalt` matched

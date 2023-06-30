@@ -126,7 +126,8 @@ instance Core.AWSRequest UpdateDetectorVersionStatus where
 
 instance Prelude.Hashable UpdateDetectorVersionStatus where
   hashWithSalt _salt UpdateDetectorVersionStatus' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` detectorVersionId
       `Prelude.hashWithSalt` status
 

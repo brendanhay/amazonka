@@ -141,7 +141,8 @@ instance Core.AWSRequest GetRules where
 
 instance Prelude.Hashable GetRules where
   hashWithSalt _salt GetRules' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` ruleVersion

@@ -108,7 +108,8 @@ instance Core.AWSRequest PutOutcome where
 
 instance Prelude.Hashable PutOutcome where
   hashWithSalt _salt PutOutcome' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 

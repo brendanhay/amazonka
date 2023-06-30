@@ -116,7 +116,8 @@ instance Core.AWSRequest GetDetectors where
 
 instance Prelude.Hashable GetDetectors where
   hashWithSalt _salt GetDetectors' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

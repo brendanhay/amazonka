@@ -115,7 +115,8 @@ instance Core.AWSRequest GetLabels where
 
 instance Prelude.Hashable GetLabels where
   hashWithSalt _salt GetLabels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
 

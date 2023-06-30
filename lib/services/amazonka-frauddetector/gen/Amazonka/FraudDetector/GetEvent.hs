@@ -103,7 +103,8 @@ instance Core.AWSRequest GetEvent where
 
 instance Prelude.Hashable GetEvent where
   hashWithSalt _salt GetEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventId
+    _salt
+      `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTypeName
 
 instance Prelude.NFData GetEvent where

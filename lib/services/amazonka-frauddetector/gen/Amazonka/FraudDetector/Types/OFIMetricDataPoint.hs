@@ -109,7 +109,8 @@ instance Data.FromJSON OFIMetricDataPoint where
 
 instance Prelude.Hashable OFIMetricDataPoint where
   hashWithSalt _salt OFIMetricDataPoint' {..} =
-    _salt `Prelude.hashWithSalt` fpr
+    _salt
+      `Prelude.hashWithSalt` fpr
       `Prelude.hashWithSalt` precision
       `Prelude.hashWithSalt` threshold
       `Prelude.hashWithSalt` tpr

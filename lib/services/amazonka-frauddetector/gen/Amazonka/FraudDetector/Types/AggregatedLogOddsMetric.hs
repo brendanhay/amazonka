@@ -89,7 +89,8 @@ instance Data.FromJSON AggregatedLogOddsMetric where
 
 instance Prelude.Hashable AggregatedLogOddsMetric where
   hashWithSalt _salt AggregatedLogOddsMetric' {..} =
-    _salt `Prelude.hashWithSalt` variableNames
+    _salt
+      `Prelude.hashWithSalt` variableNames
       `Prelude.hashWithSalt` aggregatedVariablesImportance
 
 instance Prelude.NFData AggregatedLogOddsMetric where

@@ -177,7 +177,8 @@ instance Core.AWSRequest CreateBatchImportJob where
 
 instance Prelude.Hashable CreateBatchImportJob where
   hashWithSalt _salt CreateBatchImportJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` inputPath
       `Prelude.hashWithSalt` outputPath

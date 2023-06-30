@@ -81,7 +81,8 @@ instance Data.FromJSON Entity where
 
 instance Prelude.Hashable Entity where
   hashWithSalt _salt Entity' {..} =
-    _salt `Prelude.hashWithSalt` entityType
+    _salt
+      `Prelude.hashWithSalt` entityType
       `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData Entity where

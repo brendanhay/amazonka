@@ -85,7 +85,8 @@ instance Data.FromJSON EventVariableSummary where
 
 instance Prelude.Hashable EventVariableSummary where
   hashWithSalt _salt EventVariableSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` value
 

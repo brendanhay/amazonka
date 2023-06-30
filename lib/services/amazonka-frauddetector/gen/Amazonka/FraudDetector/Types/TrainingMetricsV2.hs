@@ -87,7 +87,8 @@ instance Data.FromJSON TrainingMetricsV2 where
 
 instance Prelude.Hashable TrainingMetricsV2 where
   hashWithSalt _salt TrainingMetricsV2' {..} =
-    _salt `Prelude.hashWithSalt` ati
+    _salt
+      `Prelude.hashWithSalt` ati
       `Prelude.hashWithSalt` ofi
       `Prelude.hashWithSalt` tfi
 

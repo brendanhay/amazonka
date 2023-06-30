@@ -137,7 +137,8 @@ instance Data.FromJSON Event where
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` currentLabel
+    _salt
+      `Prelude.hashWithSalt` currentLabel
       `Prelude.hashWithSalt` entities
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTimestamp

@@ -66,7 +66,8 @@ rDSDatabaseCredentials_password = Lens.lens (\RDSDatabaseCredentials' {password}
 
 instance Prelude.Hashable RDSDatabaseCredentials where
   hashWithSalt _salt RDSDatabaseCredentials' {..} =
-    _salt `Prelude.hashWithSalt` username
+    _salt
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` password
 
 instance Prelude.NFData RDSDatabaseCredentials where

@@ -114,7 +114,8 @@ instance Core.AWSRequest Predict where
 
 instance Prelude.Hashable Predict where
   hashWithSalt _salt Predict' {..} =
-    _salt `Prelude.hashWithSalt` mLModelId
+    _salt
+      `Prelude.hashWithSalt` mLModelId
       `Prelude.hashWithSalt` record
       `Prelude.hashWithSalt` predictEndpoint
 

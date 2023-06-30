@@ -188,7 +188,8 @@ instance Core.AWSRequest CreateBatchPrediction where
 
 instance Prelude.Hashable CreateBatchPrediction where
   hashWithSalt _salt CreateBatchPrediction' {..} =
-    _salt `Prelude.hashWithSalt` batchPredictionName
+    _salt
+      `Prelude.hashWithSalt` batchPredictionName
       `Prelude.hashWithSalt` batchPredictionId
       `Prelude.hashWithSalt` mLModelId
       `Prelude.hashWithSalt` batchPredictionDataSourceId

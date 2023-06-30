@@ -87,7 +87,8 @@ instance Data.FromJSON RedshiftMetadata where
 
 instance Prelude.Hashable RedshiftMetadata where
   hashWithSalt _salt RedshiftMetadata' {..} =
-    _salt `Prelude.hashWithSalt` databaseUserName
+    _salt
+      `Prelude.hashWithSalt` databaseUserName
       `Prelude.hashWithSalt` redshiftDatabase
       `Prelude.hashWithSalt` selectSqlQuery
 

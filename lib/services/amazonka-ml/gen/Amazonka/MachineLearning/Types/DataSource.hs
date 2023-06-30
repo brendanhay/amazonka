@@ -300,7 +300,8 @@ instance Data.FromJSON DataSource where
 
 instance Prelude.Hashable DataSource where
   hashWithSalt _salt DataSource' {..} =
-    _salt `Prelude.hashWithSalt` computeStatistics
+    _salt
+      `Prelude.hashWithSalt` computeStatistics
       `Prelude.hashWithSalt` computeTime
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdByIamUser

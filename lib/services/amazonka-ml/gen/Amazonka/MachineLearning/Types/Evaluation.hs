@@ -298,7 +298,8 @@ instance Data.FromJSON Evaluation where
 
 instance Prelude.Hashable Evaluation where
   hashWithSalt _salt Evaluation' {..} =
-    _salt `Prelude.hashWithSalt` computeTime
+    _salt
+      `Prelude.hashWithSalt` computeTime
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdByIamUser
       `Prelude.hashWithSalt` evaluationDataSourceId

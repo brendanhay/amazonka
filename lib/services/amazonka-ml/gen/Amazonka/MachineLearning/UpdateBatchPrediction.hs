@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateBatchPrediction where
 
 instance Prelude.Hashable UpdateBatchPrediction where
   hashWithSalt _salt UpdateBatchPrediction' {..} =
-    _salt `Prelude.hashWithSalt` batchPredictionId
+    _salt
+      `Prelude.hashWithSalt` batchPredictionId
       `Prelude.hashWithSalt` batchPredictionName
 
 instance Prelude.NFData UpdateBatchPrediction where

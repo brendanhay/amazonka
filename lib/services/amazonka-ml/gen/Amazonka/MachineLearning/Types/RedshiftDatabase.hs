@@ -79,7 +79,8 @@ instance Data.FromJSON RedshiftDatabase where
 
 instance Prelude.Hashable RedshiftDatabase where
   hashWithSalt _salt RedshiftDatabase' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` clusterIdentifier
 
 instance Prelude.NFData RedshiftDatabase where

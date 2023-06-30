@@ -158,7 +158,8 @@ instance Core.AWSRequest CreateEvaluation where
 
 instance Prelude.Hashable CreateEvaluation where
   hashWithSalt _salt CreateEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` evaluationName
+    _salt
+      `Prelude.hashWithSalt` evaluationName
       `Prelude.hashWithSalt` evaluationId
       `Prelude.hashWithSalt` mLModelId
       `Prelude.hashWithSalt` evaluationDataSourceId

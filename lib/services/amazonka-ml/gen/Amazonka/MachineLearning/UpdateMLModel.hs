@@ -133,7 +133,8 @@ instance Core.AWSRequest UpdateMLModel where
 
 instance Prelude.Hashable UpdateMLModel where
   hashWithSalt _salt UpdateMLModel' {..} =
-    _salt `Prelude.hashWithSalt` mLModelName
+    _salt
+      `Prelude.hashWithSalt` mLModelName
       `Prelude.hashWithSalt` scoreThreshold
       `Prelude.hashWithSalt` mLModelId
 

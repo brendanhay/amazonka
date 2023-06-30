@@ -460,14 +460,16 @@ instance Data.FromJSON MLModel where
             Prelude.<*> (x Data..:? "StartedAt")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "TrainingDataSourceId")
-            Prelude.<*> ( x Data..:? "TrainingParameters"
+            Prelude.<*> ( x
+                            Data..:? "TrainingParameters"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable MLModel where
   hashWithSalt _salt MLModel' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` computeTime
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdByIamUser

@@ -149,7 +149,8 @@ instance Core.AWSRequest GetMLModel where
             Prelude.<*> (x Data..?> "StartedAt")
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "TrainingDataSourceId")
-            Prelude.<*> ( x Data..?> "TrainingParameters"
+            Prelude.<*> ( x
+                            Data..?> "TrainingParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -157,7 +158,8 @@ instance Core.AWSRequest GetMLModel where
 
 instance Prelude.Hashable GetMLModel where
   hashWithSalt _salt GetMLModel' {..} =
-    _salt `Prelude.hashWithSalt` verbose
+    _salt
+      `Prelude.hashWithSalt` verbose
       `Prelude.hashWithSalt` mLModelId
 
 instance Prelude.NFData GetMLModel where

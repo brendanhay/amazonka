@@ -99,7 +99,8 @@ instance Data.FromJSON Prediction where
           Prediction'
             Prelude.<$> (x Data..:? "details" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "predictedLabel")
-            Prelude.<*> ( x Data..:? "predictedScores"
+            Prelude.<*> ( x
+                            Data..:? "predictedScores"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "predictedValue")
@@ -107,7 +108,8 @@ instance Data.FromJSON Prediction where
 
 instance Prelude.Hashable Prediction where
   hashWithSalt _salt Prediction' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` predictedLabel
       `Prelude.hashWithSalt` predictedScores
       `Prelude.hashWithSalt` predictedValue

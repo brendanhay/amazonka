@@ -173,7 +173,8 @@ instance Core.AWSRequest ListRecommendationTemplates where
       ( \s h x ->
           ListRecommendationTemplatesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "recommendationTemplates"
+            Prelude.<*> ( x
+                            Data..?> "recommendationTemplates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -181,7 +182,8 @@ instance Core.AWSRequest ListRecommendationTemplates where
 
 instance Prelude.Hashable ListRecommendationTemplates where
   hashWithSalt _salt ListRecommendationTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` recommendationTemplateArn

@@ -297,7 +297,8 @@ instance Data.FromJSON RecommendationTemplate where
 
 instance Prelude.Hashable RecommendationTemplate where
   hashWithSalt _salt RecommendationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` needsReplacements

@@ -182,14 +182,16 @@ instance Core.AWSRequest ListAppAssessments where
           ListAppAssessmentsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "assessmentSummaries"
+            Prelude.<*> ( x
+                            Data..?> "assessmentSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAppAssessments where
   hashWithSalt _salt ListAppAssessments' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` assessmentStatus
       `Prelude.hashWithSalt` complianceStatus

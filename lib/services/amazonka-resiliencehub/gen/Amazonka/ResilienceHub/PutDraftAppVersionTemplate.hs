@@ -121,7 +121,8 @@ instance Core.AWSRequest PutDraftAppVersionTemplate where
 
 instance Prelude.Hashable PutDraftAppVersionTemplate where
   hashWithSalt _salt PutDraftAppVersionTemplate' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appTemplateBody
 
 instance Prelude.NFData PutDraftAppVersionTemplate where

@@ -248,7 +248,8 @@ instance
     CreateRecommendationTemplate
   where
   hashWithSalt _salt CreateRecommendationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` recommendationIds

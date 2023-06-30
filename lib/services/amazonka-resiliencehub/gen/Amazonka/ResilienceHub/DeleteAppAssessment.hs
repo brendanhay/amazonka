@@ -126,7 +126,8 @@ instance Core.AWSRequest DeleteAppAssessment where
 
 instance Prelude.Hashable DeleteAppAssessment where
   hashWithSalt _salt DeleteAppAssessment' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` assessmentArn
 
 instance Prelude.NFData DeleteAppAssessment where

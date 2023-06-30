@@ -120,7 +120,8 @@ instance Core.AWSRequest DescribeAppVersionTemplate where
 
 instance Prelude.Hashable DescribeAppVersionTemplate where
   hashWithSalt _salt DescribeAppVersionTemplate' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion
 
 instance Prelude.NFData DescribeAppVersionTemplate where

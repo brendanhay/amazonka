@@ -131,14 +131,16 @@ instance Core.AWSRequest ListAppComponentCompliances where
           ListAppComponentCompliancesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "componentCompliances"
+            Prelude.<*> ( x
+                            Data..?> "componentCompliances"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAppComponentCompliances where
   hashWithSalt _salt ListAppComponentCompliances' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentArn
 

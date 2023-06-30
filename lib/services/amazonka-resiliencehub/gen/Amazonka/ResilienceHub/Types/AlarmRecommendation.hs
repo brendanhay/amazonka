@@ -149,7 +149,8 @@ instance Data.FromJSON AlarmRecommendation where
 
 instance Prelude.Hashable AlarmRecommendation where
   hashWithSalt _salt AlarmRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` prerequisite

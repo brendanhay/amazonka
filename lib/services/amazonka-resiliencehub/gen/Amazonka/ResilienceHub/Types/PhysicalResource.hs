@@ -118,7 +118,8 @@ instance Data.FromJSON PhysicalResource where
 
 instance Prelude.Hashable PhysicalResource where
   hashWithSalt _salt PhysicalResource' {..} =
-    _salt `Prelude.hashWithSalt` appComponents
+    _salt
+      `Prelude.hashWithSalt` appComponents
       `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` logicalResourceId
       `Prelude.hashWithSalt` physicalResourceId

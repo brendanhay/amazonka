@@ -265,7 +265,8 @@ instance Data.FromJSON AppAssessment where
 
 instance Prelude.Hashable AppAssessment where
   hashWithSalt _salt AppAssessment' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` compliance

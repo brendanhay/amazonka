@@ -109,11 +109,11 @@ instance
       ( \s h x ->
           DescribeDraftAppVersionResourcesImportStatusResponse'
             Prelude.<$> (x Data..?> "errorMessage")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "appArn")
-              Prelude.<*> (x Data..:> "appVersion")
-              Prelude.<*> (x Data..:> "status")
-              Prelude.<*> (x Data..:> "statusChangeTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "appArn")
+            Prelude.<*> (x Data..:> "appVersion")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "statusChangeTime")
       )
 
 instance

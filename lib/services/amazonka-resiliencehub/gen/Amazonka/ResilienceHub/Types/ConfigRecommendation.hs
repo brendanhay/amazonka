@@ -167,10 +167,12 @@ instance Data.FromJSON ConfigRecommendation where
             Prelude.<*> (x Data..:? "cost")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "haArchitecture")
-            Prelude.<*> ( x Data..:? "recommendationCompliance"
+            Prelude.<*> ( x
+                            Data..:? "recommendationCompliance"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "suggestedChanges"
+            Prelude.<*> ( x
+                            Data..:? "suggestedChanges"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "name")
@@ -180,7 +182,8 @@ instance Data.FromJSON ConfigRecommendation where
 
 instance Prelude.Hashable ConfigRecommendation where
   hashWithSalt _salt ConfigRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` compliance
       `Prelude.hashWithSalt` cost
       `Prelude.hashWithSalt` description

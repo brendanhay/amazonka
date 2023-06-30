@@ -117,7 +117,8 @@ instance
     DeleteRecommendationTemplate
   where
   hashWithSalt _salt DeleteRecommendationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` recommendationTemplateArn
 
 instance Prelude.NFData DeleteRecommendationTemplate where

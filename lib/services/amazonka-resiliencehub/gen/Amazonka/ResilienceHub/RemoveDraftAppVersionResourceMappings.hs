@@ -162,8 +162,8 @@ instance
       ( \s h x ->
           RemoveDraftAppVersionResourceMappingsResponse'
             Prelude.<$> (x Data..?> "appArn")
-              Prelude.<*> (x Data..?> "appVersion")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "appVersion")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -173,7 +173,8 @@ instance
   hashWithSalt
     _salt
     RemoveDraftAppVersionResourceMappings' {..} =
-      _salt `Prelude.hashWithSalt` appRegistryAppNames
+      _salt
+        `Prelude.hashWithSalt` appRegistryAppNames
         `Prelude.hashWithSalt` logicalStackNames
         `Prelude.hashWithSalt` resourceGroupNames
         `Prelude.hashWithSalt` resourceNames

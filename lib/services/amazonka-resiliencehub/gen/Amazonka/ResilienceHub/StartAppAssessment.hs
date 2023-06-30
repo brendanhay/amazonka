@@ -160,7 +160,8 @@ instance Core.AWSRequest StartAppAssessment where
 
 instance Prelude.Hashable StartAppAssessment where
   hashWithSalt _salt StartAppAssessment' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion

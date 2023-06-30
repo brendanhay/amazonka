@@ -124,7 +124,8 @@ instance Data.FromJSON AppComponentCompliance where
 
 instance Prelude.Hashable AppComponentCompliance where
   hashWithSalt _salt AppComponentCompliance' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` compliance
       `Prelude.hashWithSalt` cost
       `Prelude.hashWithSalt` message

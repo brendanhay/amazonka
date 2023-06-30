@@ -146,7 +146,8 @@ instance Data.FromJSON SopRecommendation where
 
 instance Prelude.Hashable SopRecommendation where
   hashWithSalt _salt SopRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` name

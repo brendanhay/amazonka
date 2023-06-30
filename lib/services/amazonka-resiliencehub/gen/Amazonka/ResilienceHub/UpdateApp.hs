@@ -157,7 +157,8 @@ instance Core.AWSRequest UpdateApp where
 
 instance Prelude.Hashable UpdateApp where
   hashWithSalt _salt UpdateApp' {..} =
-    _salt `Prelude.hashWithSalt` assessmentSchedule
+    _salt
+      `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` clearResiliencyPolicyArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` policyArn

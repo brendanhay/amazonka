@@ -167,7 +167,8 @@ instance Core.AWSRequest UpdateResiliencyPolicy where
 
 instance Prelude.Hashable UpdateResiliencyPolicy where
   hashWithSalt _salt UpdateResiliencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` dataLocationConstraint
+    _salt
+      `Prelude.hashWithSalt` dataLocationConstraint
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyDescription
       `Prelude.hashWithSalt` policyName

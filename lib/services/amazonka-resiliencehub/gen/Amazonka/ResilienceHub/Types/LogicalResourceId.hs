@@ -97,7 +97,8 @@ instance Data.FromJSON LogicalResourceId where
 
 instance Prelude.Hashable LogicalResourceId where
   hashWithSalt _salt LogicalResourceId' {..} =
-    _salt `Prelude.hashWithSalt` logicalStackName
+    _salt
+      `Prelude.hashWithSalt` logicalStackName
       `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` terraformSourceName
       `Prelude.hashWithSalt` identifier

@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateByteMatchSet where
 
 instance Prelude.Hashable CreateByteMatchSet where
   hashWithSalt _salt CreateByteMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData CreateByteMatchSet where

@@ -82,7 +82,8 @@ iPSetUpdate_iPSetDescriptor = Lens.lens (\IPSetUpdate' {iPSetDescriptor} -> iPSe
 
 instance Prelude.Hashable IPSetUpdate where
   hashWithSalt _salt IPSetUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` iPSetDescriptor
 
 instance Prelude.NFData IPSetUpdate where

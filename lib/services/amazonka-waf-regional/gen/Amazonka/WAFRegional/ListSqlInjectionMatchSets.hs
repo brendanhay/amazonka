@@ -135,7 +135,8 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
       ( \s h x ->
           ListSqlInjectionMatchSetsResponse'
             Prelude.<$> (x Data..?> "NextMarker")
-            Prelude.<*> ( x Data..?> "SqlInjectionMatchSets"
+            Prelude.<*> ( x
+                            Data..?> "SqlInjectionMatchSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,7 +144,8 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
 
 instance Prelude.Hashable ListSqlInjectionMatchSets where
   hashWithSalt _salt ListSqlInjectionMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListSqlInjectionMatchSets where

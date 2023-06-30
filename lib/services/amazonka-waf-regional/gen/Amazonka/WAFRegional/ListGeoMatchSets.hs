@@ -135,7 +135,8 @@ instance Core.AWSRequest ListGeoMatchSets where
 
 instance Prelude.Hashable ListGeoMatchSets where
   hashWithSalt _salt ListGeoMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListGeoMatchSets where

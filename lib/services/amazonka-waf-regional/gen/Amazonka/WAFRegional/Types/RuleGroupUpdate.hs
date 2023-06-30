@@ -92,7 +92,8 @@ ruleGroupUpdate_activatedRule = Lens.lens (\RuleGroupUpdate' {activatedRule} -> 
 
 instance Prelude.Hashable RuleGroupUpdate where
   hashWithSalt _salt RuleGroupUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` activatedRule
 
 instance Prelude.NFData RuleGroupUpdate where

@@ -116,14 +116,16 @@ instance Data.FromJSON RegexPatternSet where
           RegexPatternSet'
             Prelude.<$> (x Data..:? "Name")
             Prelude.<*> (x Data..: "RegexPatternSetId")
-            Prelude.<*> ( x Data..:? "RegexPatternStrings"
+            Prelude.<*> ( x
+                            Data..:? "RegexPatternStrings"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable RegexPatternSet where
   hashWithSalt _salt RegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` regexPatternSetId
       `Prelude.hashWithSalt` regexPatternStrings
 

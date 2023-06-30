@@ -246,7 +246,8 @@ instance Core.AWSRequest UpdateWebACL where
 
 instance Prelude.Hashable UpdateWebACL where
   hashWithSalt _salt UpdateWebACL' {..} =
-    _salt `Prelude.hashWithSalt` defaultAction
+    _salt
+      `Prelude.hashWithSalt` defaultAction
       `Prelude.hashWithSalt` updates
       `Prelude.hashWithSalt` webACLId
       `Prelude.hashWithSalt` changeToken

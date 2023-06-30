@@ -133,7 +133,8 @@ instance Data.FromJSON TimeWindow where
 
 instance Prelude.Hashable TimeWindow where
   hashWithSalt _salt TimeWindow' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 
 instance Prelude.NFData TimeWindow where

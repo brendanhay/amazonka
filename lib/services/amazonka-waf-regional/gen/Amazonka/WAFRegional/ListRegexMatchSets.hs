@@ -135,7 +135,8 @@ instance Core.AWSRequest ListRegexMatchSets where
 
 instance Prelude.Hashable ListRegexMatchSets where
   hashWithSalt _salt ListRegexMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListRegexMatchSets where

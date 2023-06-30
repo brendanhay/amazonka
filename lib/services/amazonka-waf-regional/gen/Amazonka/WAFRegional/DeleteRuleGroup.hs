@@ -132,7 +132,8 @@ instance Core.AWSRequest DeleteRuleGroup where
 
 instance Prelude.Hashable DeleteRuleGroup where
   hashWithSalt _salt DeleteRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` ruleGroupId
+    _salt
+      `Prelude.hashWithSalt` ruleGroupId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteRuleGroup where

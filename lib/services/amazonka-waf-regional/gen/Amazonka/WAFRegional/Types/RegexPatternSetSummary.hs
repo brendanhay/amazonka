@@ -110,7 +110,8 @@ instance Data.FromJSON RegexPatternSetSummary where
 
 instance Prelude.Hashable RegexPatternSetSummary where
   hashWithSalt _salt RegexPatternSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` regexPatternSetId
+    _salt
+      `Prelude.hashWithSalt` regexPatternSetId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RegexPatternSetSummary where

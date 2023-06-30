@@ -653,7 +653,8 @@ instance Data.FromJSON ByteMatchTuple where
 
 instance Prelude.Hashable ByteMatchTuple where
   hashWithSalt _salt ByteMatchTuple' {..} =
-    _salt `Prelude.hashWithSalt` fieldToMatch
+    _salt
+      `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` targetString
       `Prelude.hashWithSalt` textTransformation
       `Prelude.hashWithSalt` positionalConstraint

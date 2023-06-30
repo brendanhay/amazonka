@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteSamplingRule where
 
 instance Prelude.Hashable DeleteSamplingRule where
   hashWithSalt _salt DeleteSamplingRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleARN
+    _salt
+      `Prelude.hashWithSalt` ruleARN
       `Prelude.hashWithSalt` ruleName
 
 instance Prelude.NFData DeleteSamplingRule where

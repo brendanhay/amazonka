@@ -116,7 +116,8 @@ instance Data.FromJSON FaultRootCauseService where
 
 instance Prelude.Hashable FaultRootCauseService where
   hashWithSalt _salt FaultRootCauseService' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` entityPath
       `Prelude.hashWithSalt` inferred
       `Prelude.hashWithSalt` name

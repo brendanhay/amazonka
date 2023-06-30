@@ -76,7 +76,8 @@ instance Data.FromJSON ForecastStatistics where
 
 instance Prelude.Hashable ForecastStatistics where
   hashWithSalt _salt ForecastStatistics' {..} =
-    _salt `Prelude.hashWithSalt` faultCountHigh
+    _salt
+      `Prelude.hashWithSalt` faultCountHigh
       `Prelude.hashWithSalt` faultCountLow
 
 instance Prelude.NFData ForecastStatistics where

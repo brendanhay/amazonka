@@ -86,7 +86,8 @@ instance Data.FromJSON ResponseTimeRootCauseEntity where
 
 instance Prelude.Hashable ResponseTimeRootCauseEntity where
   hashWithSalt _salt ResponseTimeRootCauseEntity' {..} =
-    _salt `Prelude.hashWithSalt` coverage
+    _salt
+      `Prelude.hashWithSalt` coverage
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` remote
 

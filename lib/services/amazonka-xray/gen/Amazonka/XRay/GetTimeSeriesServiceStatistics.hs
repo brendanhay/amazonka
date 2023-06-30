@@ -173,22 +173,22 @@ instance Core.AWSPager GetTimeSeriesServiceStatistics where
     | Core.stop
         ( rs
             Lens.^? getTimeSeriesServiceStatisticsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getTimeSeriesServiceStatisticsResponse_timeSeriesServiceStatistics
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getTimeSeriesServiceStatistics_nextToken
           Lens..~ rs
           Lens.^? getTimeSeriesServiceStatisticsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -205,7 +205,8 @@ instance
           GetTimeSeriesServiceStatisticsResponse'
             Prelude.<$> (x Data..?> "ContainsOldGroupVersions")
             Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "TimeSeriesServiceStatistics"
+            Prelude.<*> ( x
+                            Data..?> "TimeSeriesServiceStatistics"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

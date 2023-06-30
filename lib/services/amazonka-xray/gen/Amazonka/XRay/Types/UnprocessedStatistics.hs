@@ -86,7 +86,8 @@ instance Data.FromJSON UnprocessedStatistics where
 
 instance Prelude.Hashable UnprocessedStatistics where
   hashWithSalt _salt UnprocessedStatistics' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` ruleName
 

@@ -65,7 +65,8 @@ samplingStrategy_value = Lens.lens (\SamplingStrategy' {value} -> value) (\s@Sam
 
 instance Prelude.Hashable SamplingStrategy where
   hashWithSalt _salt SamplingStrategy' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SamplingStrategy where

@@ -84,19 +84,15 @@ newPutTelemetryRecords =
       telemetryRecords = Prelude.mempty
     }
 
--- |
 putTelemetryRecords_eC2InstanceId :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
 putTelemetryRecords_eC2InstanceId = Lens.lens (\PutTelemetryRecords' {eC2InstanceId} -> eC2InstanceId) (\s@PutTelemetryRecords' {} a -> s {eC2InstanceId = a} :: PutTelemetryRecords)
 
--- |
 putTelemetryRecords_hostname :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
 putTelemetryRecords_hostname = Lens.lens (\PutTelemetryRecords' {hostname} -> hostname) (\s@PutTelemetryRecords' {} a -> s {hostname = a} :: PutTelemetryRecords)
 
--- |
 putTelemetryRecords_resourceARN :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
 putTelemetryRecords_resourceARN = Lens.lens (\PutTelemetryRecords' {resourceARN} -> resourceARN) (\s@PutTelemetryRecords' {} a -> s {resourceARN = a} :: PutTelemetryRecords)
 
--- |
 putTelemetryRecords_telemetryRecords :: Lens.Lens' PutTelemetryRecords [TelemetryRecord]
 putTelemetryRecords_telemetryRecords = Lens.lens (\PutTelemetryRecords' {telemetryRecords} -> telemetryRecords) (\s@PutTelemetryRecords' {} a -> s {telemetryRecords = a} :: PutTelemetryRecords) Prelude.. Lens.coerced
 
@@ -115,7 +111,8 @@ instance Core.AWSRequest PutTelemetryRecords where
 
 instance Prelude.Hashable PutTelemetryRecords where
   hashWithSalt _salt PutTelemetryRecords' {..} =
-    _salt `Prelude.hashWithSalt` eC2InstanceId
+    _salt
+      `Prelude.hashWithSalt` eC2InstanceId
       `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` telemetryRecords

@@ -60,19 +60,15 @@ newServiceId =
       type' = Prelude.Nothing
     }
 
--- |
 serviceId_accountId :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
 serviceId_accountId = Lens.lens (\ServiceId' {accountId} -> accountId) (\s@ServiceId' {} a -> s {accountId = a} :: ServiceId)
 
--- |
 serviceId_name :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
 serviceId_name = Lens.lens (\ServiceId' {name} -> name) (\s@ServiceId' {} a -> s {name = a} :: ServiceId)
 
--- |
 serviceId_names :: Lens.Lens' ServiceId (Prelude.Maybe [Prelude.Text])
 serviceId_names = Lens.lens (\ServiceId' {names} -> names) (\s@ServiceId' {} a -> s {names = a} :: ServiceId) Prelude.. Lens.mapping Lens.coerced
 
--- |
 serviceId_type :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
 serviceId_type = Lens.lens (\ServiceId' {type'} -> type') (\s@ServiceId' {} a -> s {type' = a} :: ServiceId)
 
@@ -90,7 +86,8 @@ instance Data.FromJSON ServiceId where
 
 instance Prelude.Hashable ServiceId where
   hashWithSalt _salt ServiceId' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` type'

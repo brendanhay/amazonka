@@ -79,20 +79,23 @@ instance Core.AWSPager GetGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getGroupsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getGroupsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getGroupsResponse_groups Prelude.. Lens._Just
+            Lens.^? getGroupsResponse_groups
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getGroups_nextToken
           Lens..~ rs
-          Lens.^? getGroupsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getGroupsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetGroups where
   type AWSResponse GetGroups = GetGroupsResponse

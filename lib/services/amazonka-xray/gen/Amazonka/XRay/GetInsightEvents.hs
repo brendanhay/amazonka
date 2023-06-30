@@ -123,7 +123,8 @@ instance Core.AWSRequest GetInsightEvents where
 
 instance Prelude.Hashable GetInsightEvents where
   hashWithSalt _salt GetInsightEvents' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` insightId
 

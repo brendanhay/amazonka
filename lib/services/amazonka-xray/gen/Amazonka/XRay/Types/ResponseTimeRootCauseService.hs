@@ -120,7 +120,8 @@ instance
     ResponseTimeRootCauseService
   where
   hashWithSalt _salt ResponseTimeRootCauseService' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` entityPath
       `Prelude.hashWithSalt` inferred
       `Prelude.hashWithSalt` name

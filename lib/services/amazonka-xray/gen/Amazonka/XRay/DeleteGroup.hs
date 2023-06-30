@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteGroup where
 
 instance Prelude.Hashable DeleteGroup where
   hashWithSalt _salt DeleteGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupARN
+    _salt
+      `Prelude.hashWithSalt` groupARN
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData DeleteGroup where

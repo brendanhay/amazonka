@@ -119,7 +119,8 @@ instance Data.FromJSON InsightEvent where
                             Data..:? "RootCauseServiceRequestImpactStatistics"
                         )
             Prelude.<*> (x Data..:? "Summary")
-            Prelude.<*> ( x Data..:? "TopAnomalousServices"
+            Prelude.<*> ( x
+                            Data..:? "TopAnomalousServices"
                             Data..!= Prelude.mempty
                         )
       )

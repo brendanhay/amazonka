@@ -75,7 +75,8 @@ instance Data.FromJSON TraceUser where
 
 instance Prelude.Hashable TraceUser where
   hashWithSalt _salt TraceUser' {..} =
-    _salt `Prelude.hashWithSalt` serviceIds
+    _salt
+      `Prelude.hashWithSalt` serviceIds
       `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData TraceUser where

@@ -169,7 +169,8 @@ instance Core.AWSRequest CreateSamplingRule where
 
 instance Prelude.Hashable CreateSamplingRule where
   hashWithSalt _salt CreateSamplingRule' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` samplingRule
 
 instance Prelude.NFData CreateSamplingRule where

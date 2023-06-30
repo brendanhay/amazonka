@@ -79,7 +79,8 @@ instance Data.FromJSON ResponseTimeRootCause where
 
 instance Prelude.Hashable ResponseTimeRootCause where
   hashWithSalt _salt ResponseTimeRootCause' {..} =
-    _salt `Prelude.hashWithSalt` clientImpacting
+    _salt
+      `Prelude.hashWithSalt` clientImpacting
       `Prelude.hashWithSalt` services
 
 instance Prelude.NFData ResponseTimeRootCause where

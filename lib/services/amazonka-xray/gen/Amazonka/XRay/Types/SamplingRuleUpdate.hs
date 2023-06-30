@@ -175,7 +175,8 @@ samplingRuleUpdate_uRLPath = Lens.lens (\SamplingRuleUpdate' {uRLPath} -> uRLPat
 
 instance Prelude.Hashable SamplingRuleUpdate where
   hashWithSalt _salt SamplingRuleUpdate' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` fixedRate
       `Prelude.hashWithSalt` hTTPMethod
       `Prelude.hashWithSalt` host

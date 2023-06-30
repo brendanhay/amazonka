@@ -159,7 +159,8 @@ instance Core.AWSRequest GetInsightSummaries where
     Response.receiveJSON
       ( \s h x ->
           GetInsightSummariesResponse'
-            Prelude.<$> ( x Data..?> "InsightSummaries"
+            Prelude.<$> ( x
+                            Data..?> "InsightSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -168,7 +169,8 @@ instance Core.AWSRequest GetInsightSummaries where
 
 instance Prelude.Hashable GetInsightSummaries where
   hashWithSalt _salt GetInsightSummaries' {..} =
-    _salt `Prelude.hashWithSalt` groupARN
+    _salt
+      `Prelude.hashWithSalt` groupARN
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

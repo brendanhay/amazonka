@@ -119,7 +119,8 @@ samplingStatisticsDocument_sampledCount = Lens.lens (\SamplingStatisticsDocument
 
 instance Prelude.Hashable SamplingStatisticsDocument where
   hashWithSalt _salt SamplingStatisticsDocument' {..} =
-    _salt `Prelude.hashWithSalt` borrowCount
+    _salt
+      `Prelude.hashWithSalt` borrowCount
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` clientID
       `Prelude.hashWithSalt` timestamp

@@ -113,7 +113,8 @@ instance Data.FromJSON Trace where
 
 instance Prelude.Hashable Trace where
   hashWithSalt _salt Trace' {..} =
-    _salt `Prelude.hashWithSalt` duration
+    _salt
+      `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` limitExceeded
       `Prelude.hashWithSalt` segments

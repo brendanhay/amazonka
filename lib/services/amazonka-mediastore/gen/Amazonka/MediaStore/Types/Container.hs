@@ -167,7 +167,8 @@ instance Data.FromJSON Container where
 
 instance Prelude.Hashable Container where
   hashWithSalt _salt Container' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` accessLoggingEnabled
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` endpoint

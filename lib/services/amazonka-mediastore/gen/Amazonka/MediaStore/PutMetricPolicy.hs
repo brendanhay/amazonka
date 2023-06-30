@@ -152,7 +152,8 @@ instance Core.AWSRequest PutMetricPolicy where
 
 instance Prelude.Hashable PutMetricPolicy where
   hashWithSalt _salt PutMetricPolicy' {..} =
-    _salt `Prelude.hashWithSalt` containerName
+    _salt
+      `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` metricPolicy
 
 instance Prelude.NFData PutMetricPolicy where

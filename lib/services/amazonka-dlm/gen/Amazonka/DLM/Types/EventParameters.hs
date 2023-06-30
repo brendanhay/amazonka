@@ -126,7 +126,8 @@ instance Data.FromJSON EventParameters where
 
 instance Prelude.Hashable EventParameters where
   hashWithSalt _salt EventParameters' {..} =
-    _salt `Prelude.hashWithSalt` eventType
+    _salt
+      `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` snapshotOwner
       `Prelude.hashWithSalt` descriptionRegex
 

@@ -221,7 +221,8 @@ instance Data.FromJSON Schedule where
             Prelude.<$> (x Data..:? "ArchiveRule")
             Prelude.<*> (x Data..:? "CopyTags")
             Prelude.<*> (x Data..:? "CreateRule")
-            Prelude.<*> ( x Data..:? "CrossRegionCopyRules"
+            Prelude.<*> ( x
+                            Data..:? "CrossRegionCopyRules"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DeprecateRule")
@@ -235,7 +236,8 @@ instance Data.FromJSON Schedule where
 
 instance Prelude.Hashable Schedule where
   hashWithSalt _salt Schedule' {..} =
-    _salt `Prelude.hashWithSalt` archiveRule
+    _salt
+      `Prelude.hashWithSalt` archiveRule
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` createRule
       `Prelude.hashWithSalt` crossRegionCopyRules

@@ -119,7 +119,8 @@ instance Data.FromJSON LifecyclePolicySummary where
 
 instance Prelude.Hashable LifecyclePolicySummary where
   hashWithSalt _salt LifecyclePolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` policyType
       `Prelude.hashWithSalt` state

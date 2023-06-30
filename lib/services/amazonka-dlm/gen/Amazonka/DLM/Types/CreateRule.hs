@@ -167,7 +167,8 @@ instance Data.FromJSON CreateRule where
 
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =
-    _salt `Prelude.hashWithSalt` cronExpression
+    _salt
+      `Prelude.hashWithSalt` cronExpression
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
       `Prelude.hashWithSalt` location

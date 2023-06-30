@@ -73,14 +73,16 @@ instance Data.FromJSON Action where
       ( \x ->
           Action'
             Prelude.<$> (x Data..: "Name")
-            Prelude.<*> ( x Data..:? "CrossRegionCopy"
+            Prelude.<*> ( x
+                            Data..:? "CrossRegionCopy"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` crossRegionCopy
 
 instance Prelude.NFData Action where

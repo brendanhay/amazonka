@@ -96,7 +96,8 @@ instance Data.FromJSON CrossRegionCopyAction where
 
 instance Prelude.Hashable CrossRegionCopyAction where
   hashWithSalt _salt CrossRegionCopyAction' {..} =
-    _salt `Prelude.hashWithSalt` retainRule
+    _salt
+      `Prelude.hashWithSalt` retainRule
       `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` encryptionConfiguration
 

@@ -110,7 +110,8 @@ instance Data.FromJSON DeprecateRule where
 
 instance Prelude.Hashable DeprecateRule where
   hashWithSalt _salt DeprecateRule' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
 

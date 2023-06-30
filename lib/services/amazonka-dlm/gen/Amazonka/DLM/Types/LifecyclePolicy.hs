@@ -160,7 +160,8 @@ instance Data.FromJSON LifecyclePolicy where
 
 instance Prelude.Hashable LifecyclePolicy where
   hashWithSalt _salt LifecyclePolicy' {..} =
-    _salt `Prelude.hashWithSalt` dateCreated
+    _salt
+      `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateModified
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` executionRoleArn

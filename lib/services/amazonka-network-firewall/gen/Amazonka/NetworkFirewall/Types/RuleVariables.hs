@@ -77,7 +77,8 @@ instance Data.FromJSON RuleVariables where
 
 instance Prelude.Hashable RuleVariables where
   hashWithSalt _salt RuleVariables' {..} =
-    _salt `Prelude.hashWithSalt` iPSets
+    _salt
+      `Prelude.hashWithSalt` iPSets
       `Prelude.hashWithSalt` portSets
 
 instance Prelude.NFData RuleVariables where

@@ -127,7 +127,8 @@ instance Data.FromJSON StatelessRule where
 
 instance Prelude.Hashable StatelessRule where
   hashWithSalt _salt StatelessRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleDefinition
+    _salt
+      `Prelude.hashWithSalt` ruleDefinition
       `Prelude.hashWithSalt` priority
 
 instance Prelude.NFData StatelessRule where

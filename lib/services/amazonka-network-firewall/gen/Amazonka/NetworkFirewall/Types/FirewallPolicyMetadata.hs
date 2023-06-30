@@ -74,12 +74,14 @@ instance Data.FromJSON FirewallPolicyMetadata where
       "FirewallPolicyMetadata"
       ( \x ->
           FirewallPolicyMetadata'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable FirewallPolicyMetadata where
   hashWithSalt _salt FirewallPolicyMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData FirewallPolicyMetadata where

@@ -177,7 +177,8 @@ instance Data.FromJSON FirewallStatus where
 
 instance Prelude.Hashable FirewallStatus where
   hashWithSalt _salt FirewallStatus' {..} =
-    _salt `Prelude.hashWithSalt` capacityUsageSummary
+    _salt
+      `Prelude.hashWithSalt` capacityUsageSummary
       `Prelude.hashWithSalt` syncStates
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` configurationSyncStateSummary

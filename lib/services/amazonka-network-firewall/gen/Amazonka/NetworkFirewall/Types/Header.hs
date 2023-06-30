@@ -259,7 +259,8 @@ instance Data.FromJSON Header where
 
 instance Prelude.Hashable Header where
   hashWithSalt _salt Header' {..} =
-    _salt `Prelude.hashWithSalt` protocol
+    _salt
+      `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` sourcePort
       `Prelude.hashWithSalt` direction

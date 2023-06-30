@@ -194,7 +194,8 @@ instance Core.AWSRequest UpdateFirewallDescription where
 
 instance Prelude.Hashable UpdateFirewallDescription where
   hashWithSalt _salt UpdateFirewallDescription' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` firewallName
       `Prelude.hashWithSalt` updateToken

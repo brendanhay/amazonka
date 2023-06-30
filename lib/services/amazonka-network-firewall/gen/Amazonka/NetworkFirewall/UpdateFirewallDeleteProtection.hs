@@ -215,7 +215,8 @@ instance
   hashWithSalt
     _salt
     UpdateFirewallDeleteProtection' {..} =
-      _salt `Prelude.hashWithSalt` firewallArn
+      _salt
+        `Prelude.hashWithSalt` firewallArn
         `Prelude.hashWithSalt` firewallName
         `Prelude.hashWithSalt` updateToken
         `Prelude.hashWithSalt` deleteProtection

@@ -54,7 +54,6 @@ newPublishMetricAction pDimensions_ =
         Lens.coerced Lens.# pDimensions_
     }
 
--- |
 publishMetricAction_dimensions :: Lens.Lens' PublishMetricAction (Prelude.NonEmpty Dimension)
 publishMetricAction_dimensions = Lens.lens (\PublishMetricAction' {dimensions} -> dimensions) (\s@PublishMetricAction' {} a -> s {dimensions = a} :: PublishMetricAction) Prelude.. Lens.coerced
 

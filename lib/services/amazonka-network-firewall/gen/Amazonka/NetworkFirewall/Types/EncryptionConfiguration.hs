@@ -100,12 +100,14 @@ instance Data.FromJSON EncryptionConfiguration where
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Data..:? "KeyId") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable EncryptionConfiguration where
   hashWithSalt _salt EncryptionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EncryptionConfiguration where

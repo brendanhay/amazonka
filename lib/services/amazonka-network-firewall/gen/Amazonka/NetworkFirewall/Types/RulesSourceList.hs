@@ -133,7 +133,8 @@ instance Data.FromJSON RulesSourceList where
 
 instance Prelude.Hashable RulesSourceList where
   hashWithSalt _salt RulesSourceList' {..} =
-    _salt `Prelude.hashWithSalt` targets
+    _salt
+      `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` targetTypes
       `Prelude.hashWithSalt` generatedRulesType
 

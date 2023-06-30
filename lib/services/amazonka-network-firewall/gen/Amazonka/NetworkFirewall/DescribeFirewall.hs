@@ -119,7 +119,8 @@ instance Core.AWSRequest DescribeFirewall where
 
 instance Prelude.Hashable DescribeFirewall where
   hashWithSalt _salt DescribeFirewall' {..} =
-    _salt `Prelude.hashWithSalt` firewallArn
+    _salt
+      `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` firewallName
 
 instance Prelude.NFData DescribeFirewall where

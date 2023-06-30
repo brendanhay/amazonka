@@ -259,30 +259,37 @@ instance Data.FromJSON FirewallPolicy where
       "FirewallPolicy"
       ( \x ->
           FirewallPolicy'
-            Prelude.<$> ( x Data..:? "StatefulDefaultActions"
+            Prelude.<$> ( x
+                            Data..:? "StatefulDefaultActions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StatefulEngineOptions")
-            Prelude.<*> ( x Data..:? "StatefulRuleGroupReferences"
+            Prelude.<*> ( x
+                            Data..:? "StatefulRuleGroupReferences"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessCustomActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessCustomActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessRuleGroupReferences"
+            Prelude.<*> ( x
+                            Data..:? "StatelessRuleGroupReferences"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessDefaultActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessDefaultActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessFragmentDefaultActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessFragmentDefaultActions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable FirewallPolicy where
   hashWithSalt _salt FirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` statefulDefaultActions
+    _salt
+      `Prelude.hashWithSalt` statefulDefaultActions
       `Prelude.hashWithSalt` statefulEngineOptions
       `Prelude.hashWithSalt` statefulRuleGroupReferences
       `Prelude.hashWithSalt` statelessCustomActions

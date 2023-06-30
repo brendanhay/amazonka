@@ -272,7 +272,8 @@ instance Core.AWSRequest CreateFirewall where
 
 instance Prelude.Hashable CreateFirewall where
   hashWithSalt _salt CreateFirewall' {..} =
-    _salt `Prelude.hashWithSalt` deleteProtection
+    _salt
+      `Prelude.hashWithSalt` deleteProtection
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` firewallPolicyChangeProtection

@@ -196,7 +196,8 @@ instance Core.AWSRequest CreateFirewallPolicy where
 
 instance Prelude.Hashable CreateFirewallPolicy where
   hashWithSalt _salt CreateFirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` tags

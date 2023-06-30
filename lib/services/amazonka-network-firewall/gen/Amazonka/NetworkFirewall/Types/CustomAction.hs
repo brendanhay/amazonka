@@ -101,7 +101,8 @@ instance Data.FromJSON CustomAction where
 
 instance Prelude.Hashable CustomAction where
   hashWithSalt _salt CustomAction' {..} =
-    _salt `Prelude.hashWithSalt` actionName
+    _salt
+      `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` actionDefinition
 
 instance Prelude.NFData CustomAction where

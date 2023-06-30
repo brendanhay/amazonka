@@ -168,14 +168,16 @@ instance Data.FromJSON LogDestinationConfig where
           LogDestinationConfig'
             Prelude.<$> (x Data..: "LogType")
             Prelude.<*> (x Data..: "LogDestinationType")
-            Prelude.<*> ( x Data..:? "LogDestination"
+            Prelude.<*> ( x
+                            Data..:? "LogDestination"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LogDestinationConfig where
   hashWithSalt _salt LogDestinationConfig' {..} =
-    _salt `Prelude.hashWithSalt` logType
+    _salt
+      `Prelude.hashWithSalt` logType
       `Prelude.hashWithSalt` logDestinationType
       `Prelude.hashWithSalt` logDestination
 

@@ -132,7 +132,8 @@ instance Core.AWSRequest DescribeStream where
 
 instance Prelude.Hashable DescribeStream where
   hashWithSalt _salt DescribeStream' {..} =
-    _salt `Prelude.hashWithSalt` exclusiveStartShardId
+    _salt
+      `Prelude.hashWithSalt` exclusiveStartShardId
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` streamArn
 

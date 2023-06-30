@@ -83,7 +83,8 @@ instance Data.FromJSON SequenceNumberRange where
 
 instance Prelude.Hashable SequenceNumberRange where
   hashWithSalt _salt SequenceNumberRange' {..} =
-    _salt `Prelude.hashWithSalt` endingSequenceNumber
+    _salt
+      `Prelude.hashWithSalt` endingSequenceNumber
       `Prelude.hashWithSalt` startingSequenceNumber
 
 instance Prelude.NFData SequenceNumberRange where

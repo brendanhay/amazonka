@@ -118,7 +118,8 @@ instance Data.FromJSON Stream where
 
 instance Prelude.Hashable Stream where
   hashWithSalt _salt Stream' {..} =
-    _salt `Prelude.hashWithSalt` streamArn
+    _salt
+      `Prelude.hashWithSalt` streamArn
       `Prelude.hashWithSalt` streamLabel
       `Prelude.hashWithSalt` tableName
 

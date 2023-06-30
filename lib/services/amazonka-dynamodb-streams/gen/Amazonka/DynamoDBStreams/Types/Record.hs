@@ -203,7 +203,8 @@ instance Data.FromJSON Record where
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` dynamodb
       `Prelude.hashWithSalt` eventID
       `Prelude.hashWithSalt` eventName

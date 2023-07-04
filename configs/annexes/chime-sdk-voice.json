@@ -1,6 +1,6 @@
 {
-    "metadata": {
-        "serviceAbbreviation":"ChimeSdkVoice"
-    },
-    "documentation":"<p>The Amazon Chime SDK Voice APIs enable software developers to add telephony capabilties to their custom communication solutions. You use these APIs with SIP infrastructure and Amazon Chime SDK Voice Connectors. For more information, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Voice.html\">Amazon Chime SDK Voice</a>.</p>"
+  "metadata": {
+    "serviceAbbreviation": "ChimeSdkVoice"
+  },
+  "documentation": "<p>The Amazon Chime SDK Voice APIs enable software developers to add telephony capabilties to their custom communication solutions. You use these APIs with SIP infrastructure and Amazon Chime SDK Voice Connectors. For more information, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Voice.html\">Amazon Chime SDK Voice</a>.</p>"
 }

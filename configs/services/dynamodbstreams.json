@@ -1,21 +1,19 @@
 {
-    "libraryName": "amazonka-dynamodb-streams",
-    "extraDependencies": [
-        "aeson",
-        "containers",
-        "hashable >=1.3.4.0 && <1.5",
-        "unordered-containers",
-        "vector"
-    ],
-    "typeModules": [
-        "Amazonka.DynamoDBStreams.Internal"
-    ],
-    "typeOverrides": {
-        "AttributeValue": {
-            "replacedBy": {
-                "name": "AttributeValue",
-                "underive": []
-            }
-        }
+  "libraryName": "amazonka-dynamodb-streams",
+  "extraDependencies": [
+    "aeson",
+    "containers",
+    "hashable >=1.3.4.0 && <1.5",
+    "unordered-containers",
+    "vector"
+  ],
+  "typeModules": ["Amazonka.DynamoDBStreams.Internal"],
+  "typeOverrides": {
+    "AttributeValue": {
+      "replacedBy": {
+        "name": "AttributeValue",
+        "underive": []
+      }
     }
+  }
 }

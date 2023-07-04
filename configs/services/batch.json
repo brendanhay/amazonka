@@ -1,10 +1,8 @@
 {
-    "libraryName": "amazonka-batch",
-    "typeOverrides": {
-        "JobDetail": {
-            "optionalFields": [
-                "startedAt"
-            ]
-        }
+  "libraryName": "amazonka-batch",
+  "typeOverrides": {
+    "JobDetail": {
+      "optionalFields": ["startedAt"]
     }
+  }
 }

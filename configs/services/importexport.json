@@ -1,13 +1,8 @@
 {
-    "libraryName": "amazonka-importexport",
-    "typeOverrides": {
-        "Job": {
-            "requiredFields": [
-                "JobType",
-                "JobId",
-                "IsCanceled",
-                "CreationDate"
-            ]
-        }
+  "libraryName": "amazonka-importexport",
+  "typeOverrides": {
+    "Job": {
+      "requiredFields": ["JobType", "JobId", "IsCanceled", "CreationDate"]
     }
+  }
 }

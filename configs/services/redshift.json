@@ -1,13 +1,9 @@
 {
-    "libraryName": "amazonka-redshift",
-    "typeModules": [
-        "Amazonka.Redshift.Internal"
-    ],
-    "typeOverrides": {
-        "DescribeDefaultClusterParametersResult": {
-            "requiredFields": [
-                "DefaultClusterParameters"
-            ]
-        }
+  "libraryName": "amazonka-redshift",
+  "typeModules": ["Amazonka.Redshift.Internal"],
+  "typeOverrides": {
+    "DescribeDefaultClusterParametersResult": {
+      "requiredFields": ["DefaultClusterParameters"]
     }
+  }
 }

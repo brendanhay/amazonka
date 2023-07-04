@@ -1,10 +1,8 @@
 {
-    "libraryName": "amazonka-sagemaker",
-    "typeOverrides": {
-        "ListFeatureGroupsResponse": {
-            "optionalFields": [
-                "NextToken"
-            ]
-        }
+  "libraryName": "amazonka-sagemaker",
+  "typeOverrides": {
+    "ListFeatureGroupsResponse": {
+      "optionalFields": ["NextToken"]
     }
+  }
 }

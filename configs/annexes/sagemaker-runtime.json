@@ -1,10 +1,10 @@
 {
-    "metadata": {
-        "serviceAbbreviation": "SageMakerRuntime"
-    },
-    "shapes": {
-        "BodyBlob": {
-            "sensitive": false
-        }
+  "metadata": {
+    "serviceAbbreviation": "SageMakerRuntime"
+  },
+  "shapes": {
+    "BodyBlob": {
+      "sensitive": false
     }
+  }
 }

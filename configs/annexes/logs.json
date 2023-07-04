@@ -1,10 +1,10 @@
 {
-    "metadata": {
-        "serviceAbbreviation": "CloudWatchLogs"
-    },
-    "pagination": {
-        "FilterLogEvents": {
-            "result_key": null
-        }
+  "metadata": {
+    "serviceAbbreviation": "CloudWatchLogs"
+  },
+  "pagination": {
+    "FilterLogEvents": {
+      "result_key": null
     }
+  }
 }

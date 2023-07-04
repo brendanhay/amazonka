@@ -1,10 +1,8 @@
 {
-    "libraryName": "amazonka-lambda",
-    "typeOverrides": {
-        "InvocationRequest": {
-            "requiredFields": [
-                "Payload"
-            ]
-        }
+  "libraryName": "amazonka-lambda",
+  "typeOverrides": {
+    "InvocationRequest": {
+      "requiredFields": ["Payload"]
     }
+  }
 }

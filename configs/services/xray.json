@@ -1,8 +1,8 @@
 {
-    "libraryName": "amazonka-xray",
-    "typeOverrides": {
-        "Service": {
-            "renamedTo": "ServiceInfo"
-        }
+  "libraryName": "amazonka-xray",
+  "typeOverrides": {
+    "Service": {
+      "renamedTo": "ServiceInfo"
     }
+  }
 }

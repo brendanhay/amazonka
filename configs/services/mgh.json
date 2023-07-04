@@ -1,8 +1,8 @@
 {
-    "libraryName": "amazonka-migrationhub",
-    "typeOverrides": {
-        "Status": {
-            "renamedTo": "MigrationStatus"
-        }
+  "libraryName": "amazonka-migrationhub",
+  "typeOverrides": {
+    "Status": {
+      "renamedTo": "MigrationStatus"
     }
+  }
 }

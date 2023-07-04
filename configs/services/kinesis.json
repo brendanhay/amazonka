@@ -1,16 +1,11 @@
 {
-    "libraryName": "amazonka-kinesis",
-    "typeOverrides": {
-        "SubscribeToShardEventStream": {
-            "replacedBy": {
-                "name": "Data.Value",
-                "underive": [
-                    "show",
-                    "read",
-                    "eq",
-                    "ord"
-                ]
-            }
-        }
+  "libraryName": "amazonka-kinesis",
+  "typeOverrides": {
+    "SubscribeToShardEventStream": {
+      "replacedBy": {
+        "name": "Data.Value",
+        "underive": ["show", "read", "eq", "ord"]
+      }
     }
+  }
 }

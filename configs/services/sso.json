@@ -1,40 +1,29 @@
 {
-    "libraryName": "amazonka-sso",
-    "typeOverrides": {
-        "AccessKeyType": {
-            "replacedBy": {
-                "name": "Core.AccessKey",
-                "underive": []
-            }
-        },
-        "GetRoleCredentialsResponse": {
-            "requiredFields": [
-                "roleCredentials"
-            ]
-        },
-        "RoleCredentials": {
-            "requiredFields": [
-                "accessKeyId",
-                "secretAccessKey"
-            ]
-        },
-        "SecretAccessKeyType": {
-            "replacedBy": {
-                "name": "Core.SecretKey",
-                "underive": [
-                    "read",
-                    "show"
-                ]
-            }
-        },
-        "SessionTokenType": {
-            "replacedBy": {
-                "name": "Core.SessionToken",
-                "underive": [
-                    "read",
-                    "show"
-                ]
-            }
-        }
+  "libraryName": "amazonka-sso",
+  "typeOverrides": {
+    "AccessKeyType": {
+      "replacedBy": {
+        "name": "Core.AccessKey",
+        "underive": []
+      }
+    },
+    "GetRoleCredentialsResponse": {
+      "requiredFields": ["roleCredentials"]
+    },
+    "RoleCredentials": {
+      "requiredFields": ["accessKeyId", "secretAccessKey"]
+    },
+    "SecretAccessKeyType": {
+      "replacedBy": {
+        "name": "Core.SecretKey",
+        "underive": ["read", "show"]
+      }
+    },
+    "SessionTokenType": {
+      "replacedBy": {
+        "name": "Core.SessionToken",
+        "underive": ["read", "show"]
+      }
     }
+  }
 }

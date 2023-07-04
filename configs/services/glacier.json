@@ -1,32 +1,20 @@
 {
-    "libraryName": "amazonka-glacier",
-    "operationPlugins": {
-        "*": [
-            "Request.glacierVersionHeader (Core.version defaultService)"
-        ]
+  "libraryName": "amazonka-glacier",
+  "operationPlugins": {
+    "*": ["Request.glacierVersionHeader (Core.version defaultService)"]
+  },
+  "typeOverrides": {
+    "InitiateMultipartUploadInput": {
+      "requiredFields": ["partSize"]
     },
-    "typeOverrides": {
-        "InitiateMultipartUploadInput": {
-            "requiredFields": [
-                "partSize"
-            ]
-        },
-        "InitiateMultipartUploadOutput": {
-            "requiredFields": [
-                "uploadId"
-            ]
-        },
-        "UploadMultipartPartInput": {
-            "requiredFields": [
-                "range",
-                "checksum"
-            ]
-        },
-        "CompleteMultipartUploadInput": {
-            "requiredFields": [
-                "archiveSize",
-                "checksum"
-            ]
-        }
+    "InitiateMultipartUploadOutput": {
+      "requiredFields": ["uploadId"]
+    },
+    "UploadMultipartPartInput": {
+      "requiredFields": ["range", "checksum"]
+    },
+    "CompleteMultipartUploadInput": {
+      "requiredFields": ["archiveSize", "checksum"]
     }
+  }
 }

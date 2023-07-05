@@ -1,47 +1,47 @@
 {
-    "metadata": {
-        "serviceAbbreviation": "RDS"
-    },
-    "shapes": {
-        "CopyDBClusterSnapshotMessage": {
-            "members": {
-                "DestinationRegion": {
-                    "shape": "String",
-                    "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>CopyDBClusterSnapshot</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
-                }
-            }
-        },
-        "CreateDBClusterMessage": {
-            "members": {
-                "DestinationRegion": {
-                    "shape": "String",
-                    "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>CreateDBCluster</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
-                }
-            }
-        },
-        "CopyDBSnapshotMessage": {
-            "members": {
-                "DestinationRegion": {
-                    "shape": "String",
-                    "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>CopyDBSnapshot</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
-                }
-            }
-        },
-        "CreateDBInstanceReadReplicaMessage": {
-            "members": {
-                "DestinationRegion": {
-                    "shape": "String",
-                    "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>CreateDBInstanceReadReplica</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
-                }
-            }
-        },
-        "StartDBInstanceAutomatedBackupsReplicationMessage": {
-            "members": {
-                "DestinationRegion": {
-                    "shape": "String",
-                    "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>StartDBInstanceAutomatedBackupsReplication</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
-                }
-            }
+  "metadata": {
+    "serviceAbbreviation": "RDS"
+  },
+  "shapes": {
+    "CopyDBClusterSnapshotMessage": {
+      "members": {
+        "DestinationRegion": {
+          "shape": "String",
+          "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>CopyDBClusterSnapshot</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
         }
+      }
+    },
+    "CreateDBClusterMessage": {
+      "members": {
+        "DestinationRegion": {
+          "shape": "String",
+          "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>CreateDBCluster</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
+        }
+      }
+    },
+    "CopyDBSnapshotMessage": {
+      "members": {
+        "DestinationRegion": {
+          "shape": "String",
+          "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>CopyDBSnapshot</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
+        }
+      }
+    },
+    "CreateDBInstanceReadReplicaMessage": {
+      "members": {
+        "DestinationRegion": {
+          "shape": "String",
+          "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>CreateDBInstanceReadReplica</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
+        }
+      }
+    },
+    "StartDBInstanceAutomatedBackupsReplicationMessage": {
+      "members": {
+        "DestinationRegion": {
+          "shape": "String",
+          "documentation": "Pseudo-parameter used when populating the <code>PreSignedUrl</code> of a cross-region <code>StartDBInstanceAutomatedBackupsReplication</code> request. To replicate from region <code>SRC</code> to region <code>DST</code>, send a request to region <code>DST</code>. In that request, pass a <code>PreSignedUrl</code> for region <code>SRC</code> with <code>DestinationRegion</code> set to region <code>DST</code>."
+        }
+      }
     }
+  }
 }

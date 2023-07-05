@@ -1,29 +1,17 @@
 {
-    "libraryName": "amazonka-ssm",
-    "typeOverrides": {
-        "GetParameterResult": {
-            "requiredFields": [
-                "Parameter"
-            ]
-        },
-        "GetParametersResult": {
-            "requiredFields": [
-                "InvalidParameters",
-                "Parameters"
-            ]
-        },
-        "PutParameterResult": {
-            "requiredFields": [
-                "Version"
-            ]
-        },
-        "Parameter": {
-            "requiredFields": [
-                "Name",
-                "Type",
-                "Value",
-                "Version"
-            ]
-        }
+  "libraryName": "amazonka-ssm",
+  "typeOverrides": {
+    "GetParameterResult": {
+      "requiredFields": ["Parameter"]
+    },
+    "GetParametersResult": {
+      "requiredFields": ["InvalidParameters", "Parameters"]
+    },
+    "PutParameterResult": {
+      "requiredFields": ["Version"]
+    },
+    "Parameter": {
+      "requiredFields": ["Name", "Type", "Value", "Version"]
     }
+  }
 }

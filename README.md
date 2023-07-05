@@ -53,7 +53,7 @@ This repository is organised under the following directory structure:
 - [`lib/amazonka-test`](lib/amazonka-test): Common test functionality.
 - [`examples`](examples): Basic examples for using the service libraries.
 - [`configs`](configs): Service configuration, templates, and assets used by the code generator.
-- [`docs`](docs): The documentation website. 
+- [`docs`](docs): The documentation website.
 - [`gen`](gen): The code and configuration generators.
 - [`scripts`](scripts): Scripts to manage the project, such as the release lifecycle.
 
@@ -95,7 +95,7 @@ Edit either `~/.config/nix/nix.conf` or `/etc/nix/nix.conf` and add:
 experimental-features = nix-command flakes
 ```
 
-If the Nix installation is in multi-user mode, don’t forget to restart the nix-daemon. 
+If the Nix installation is in multi-user mode, don’t forget to restart the nix-daemon.
 
 ### 3. Enter a Nix Shell
 
@@ -233,7 +233,7 @@ pkgs.haskell-nix.project {
 
 ## Code Formatting
 
-Please use `./scripts/format` frequently - it's OK, I hate 2 spaces too, we're in this together.
+Provided automatically by the pre-commit hooks configured in `flake.nix` --- please use `nix develop`.
 
 ## Third Party Packages
 

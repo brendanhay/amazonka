@@ -33,6 +33,10 @@
             ormolu.enable = true;
             shellcheck.enable = true;
             shfmt.enable = true;
+            prettier = {
+              enable = true;
+              files = "\\.json$";
+            };
           };
         };
 

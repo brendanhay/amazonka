@@ -43,10 +43,11 @@ format_and_replace() {
 	find "$dir" -type f -name '*.cabal' -print0 |
 		xargs -0 cabal-fmt --inplace --indent=2
 
-	find "$dir" -type f \( -name '*.hs' -o -name '*.hs-boot' \) -print0 |
-		xargs -0 ormolu --mode=inplace \
-			--ghc-opt='-XPatternSynonyms' \
-			--ghc-opt='-XTypeApplications'
+	find "$dir" -type f \( -name '*.hs' -o -name '*.hs-boot' \) \
+		-exec ormolu --mode=inplace \
+		--ghc-opt='-XPatternSynonyms' \
+		--ghc-opt='-XTypeApplications' \
+		{} \+
 
 	# Delete corresponding amazonka-*/gen dirs from the source tree.
 	rm -rf "./lib/services/$(basename "$dir")/gen"

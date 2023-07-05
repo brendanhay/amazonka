@@ -1,56 +1,49 @@
 {
-    "libraryName": "amazonka-dynamodb",
-    "extraDependencies": [
-        "aeson",
-        "containers",
-        "hashable >=1.3.4.0 && <1.5",
-        "unordered-containers",
-        "vector"
-    ],
-    "typeModules": [
-        "Amazonka.DynamoDB.Types.AttributeValue",
-        "Amazonka.DynamoDB.Types.WriteRequest"
-    ],
-    "typeOverrides": {
-        "AttributeValue": {
-            "replacedBy": {
-                "name": "AttributeValue",
-                "underive": []
-            }
-        },
-        "BatchGetItemOutput": {
-            "requiredFields": [
-                "Responses",
-                "UnprocessedKeys"
-            ]
-        },
-        "BatchWriteItemOutput": {
-            "requiredFields": [
-                "UnprocessedItems"
-            ]
-        },
-        "DeleteRequest": {
-            "replacedBy": {
-                "name": "",
-                "underive": []
-            }
-        },
-        "PutRequest": {
-            "replacedBy": {
-                "name": "",
-                "underive": []
-            }
-        },
-        "QueryOutput": {
-            "requiredFields": [
-                "Items"
-            ]
-        },
-        "WriteRequest": {
-            "replacedBy": {
-                "name": "WriteRequest",
-                "underive": []
-            }
-        }
+  "libraryName": "amazonka-dynamodb",
+  "extraDependencies": [
+    "aeson",
+    "containers",
+    "hashable >=1.3.4.0 && <1.5",
+    "unordered-containers",
+    "vector"
+  ],
+  "typeModules": [
+    "Amazonka.DynamoDB.Types.AttributeValue",
+    "Amazonka.DynamoDB.Types.WriteRequest"
+  ],
+  "typeOverrides": {
+    "AttributeValue": {
+      "replacedBy": {
+        "name": "AttributeValue",
+        "underive": []
+      }
+    },
+    "BatchGetItemOutput": {
+      "requiredFields": ["Responses", "UnprocessedKeys"]
+    },
+    "BatchWriteItemOutput": {
+      "requiredFields": ["UnprocessedItems"]
+    },
+    "DeleteRequest": {
+      "replacedBy": {
+        "name": "",
+        "underive": []
+      }
+    },
+    "PutRequest": {
+      "replacedBy": {
+        "name": "",
+        "underive": []
+      }
+    },
+    "QueryOutput": {
+      "requiredFields": ["Items"]
+    },
+    "WriteRequest": {
+      "replacedBy": {
+        "name": "WriteRequest",
+        "underive": []
+      }
     }
+  }
 }

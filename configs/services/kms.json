@@ -1,12 +1,8 @@
 {
-    "libraryName": "amazonka-kms",
-    "typeOverrides": {
-        "GenerateDataKeyResponse": {
-            "requiredFields": [
-                "KeyId",
-                "Plaintext",
-                "CiphertextBlob"
-            ]
-        }
+  "libraryName": "amazonka-kms",
+  "typeOverrides": {
+    "GenerateDataKeyResponse": {
+      "requiredFields": ["KeyId", "Plaintext", "CiphertextBlob"]
     }
+  }
 }

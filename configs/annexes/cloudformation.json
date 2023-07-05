@@ -1,33 +1,33 @@
 {
-    "metadata": {
-        "serviceAbbreviation": "CloudFormation"
+  "metadata": {
+    "serviceAbbreviation": "CloudFormation"
+  },
+  "pagination": {
+    "DescribeChangeSet": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Changes",
+      "non_aggregate_keys": [
+        "Capabilities",
+        "ChangeSetId",
+        "ChangeSetName",
+        "CreationTime",
+        "Description",
+        "ExecutionStatus",
+        "NotificationARNs",
+        "Parameters",
+        "RollbackConfiguration",
+        "StackId",
+        "StackName",
+        "Status",
+        "StatusReason",
+        "Tags"
+      ]
     },
-    "pagination": {
-        "DescribeChangeSet": {
-            "input_token": "NextToken",
-            "output_token": "NextToken",
-            "result_key": "Changes",
-            "non_aggregate_keys": [
-                "Capabilities",
-                "ChangeSetId",
-                "ChangeSetName",
-                "CreationTime",
-                "Description",
-                "ExecutionStatus",
-                "NotificationARNs",
-                "Parameters",
-                "RollbackConfiguration",
-                "StackId",
-                "StackName",
-                "Status",
-                "StatusReason",
-                "Tags"
-            ]
-        },
-        "ListChangeSets": {
-            "input_token": "NextToken",
-            "output_token": "NextToken",
-            "result_key": "Summaries"
-        }
+    "ListChangeSets": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Summaries"
     }
+  }
 }

@@ -1,28 +1,22 @@
 {
-    "libraryName": "amazonka-route53",
-    "extraDependencies": [
-        "text"
-    ],
-    "typeModules": [
-        "Amazonka.Route53.Internal"
-    ],
-    "typeOverrides": {
-        "ListHostedZonesResponse": {
-            "optionalFields": [
-                "Marker"
-            ]
-        },
-        "ResourceRecordSetRegion": {
-            "replacedBy": {
-                "name": "Core.Region",
-                "underive": []
-            }
-        },
-        "ResourceId": {
-            "replacedBy": {
-                "name": "ResourceId",
-                "underive": []
-            }
-        }
+  "libraryName": "amazonka-route53",
+  "extraDependencies": ["text"],
+  "typeModules": ["Amazonka.Route53.Internal"],
+  "typeOverrides": {
+    "ListHostedZonesResponse": {
+      "optionalFields": ["Marker"]
+    },
+    "ResourceRecordSetRegion": {
+      "replacedBy": {
+        "name": "Core.Region",
+        "underive": []
+      }
+    },
+    "ResourceId": {
+      "replacedBy": {
+        "name": "ResourceId",
+        "underive": []
+      }
     }
+  }
 }

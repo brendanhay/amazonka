@@ -1,13 +1,13 @@
 {
-    "metadata": {
-        "serviceAbbreviation": "ECS"
-    },
-    "waiters": {
-        "ServicesStable": {
-            "operation": "DescribeServices",
-            "maxAttempts": 40,
-            "delay": 15,
-            "acceptors": []
-        }
+  "metadata": {
+    "serviceAbbreviation": "ECS"
+  },
+  "waiters": {
+    "ServicesStable": {
+      "operation": "DescribeServices",
+      "maxAttempts": 40,
+      "delay": 15,
+      "acceptors": []
     }
+  }
 }

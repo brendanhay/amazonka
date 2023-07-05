@@ -1,8 +1,8 @@
 {
-    "libraryName": "amazonka-lightsail",
-    "typeOverrides": {
-        "Region": {
-            "renamedTo": "RegionInfo"
-        }
+  "libraryName": "amazonka-lightsail",
+  "typeOverrides": {
+    "Region": {
+      "renamedTo": "RegionInfo"
     }
+  }
 }

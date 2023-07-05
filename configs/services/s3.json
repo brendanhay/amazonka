@@ -1,123 +1,80 @@
 {
-    "libraryName": "amazonka-s3",
-    "extraDependencies": [
-        "text",
-        "lens"
+  "libraryName": "amazonka-s3",
+  "extraDependencies": ["text", "lens"],
+  "operationPlugins": {
+    "DeleteObjects": ["Request.contentMD5Header", "Request.s3vhost"],
+    "GetBucketLocation": [],
+    "PutBucketCors": ["Request.contentMD5Header", "Request.s3vhost"],
+    "PutBucketLifecycleConfiguration": [
+      "Request.contentMD5Header",
+      "Request.s3vhost"
     ],
-    "operationPlugins": {
-        "DeleteObjects": [
-            "Request.contentMD5Header",
-            "Request.s3vhost"
-        ],
-        "GetBucketLocation": [],
-        "PutBucketCors": [
-            "Request.contentMD5Header",
-            "Request.s3vhost"
-        ],
-        "PutBucketLifecycleConfiguration": [
-            "Request.contentMD5Header",
-            "Request.s3vhost"
-        ],
-        "PutBucketPolicy": [
-            "Request.contentMD5Header",
-            "Request.s3vhost"
-        ],
-        "PutBucketTagging": [
-            "Request.contentMD5Header",
-            "Request.s3vhost"
-        ],
-        "PutObject": [
-            "Request.expectHeader",
-            "Request.s3vhost"
-        ],
-        "*": [
-            "Request.s3vhost"
-        ]
+    "PutBucketPolicy": ["Request.contentMD5Header", "Request.s3vhost"],
+    "PutBucketTagging": ["Request.contentMD5Header", "Request.s3vhost"],
+    "PutObject": ["Request.expectHeader", "Request.s3vhost"],
+    "*": ["Request.s3vhost"]
+  },
+  "typeModules": ["Amazonka.S3.Internal"],
+  "typeOverrides": {
+    "CreateMultipartUploadOutput": {
+      "requiredFields": ["UploadId"]
     },
-    "typeModules": [
-        "Amazonka.S3.Internal"
-    ],
-    "typeOverrides": {
-        "CreateMultipartUploadOutput": {
-            "requiredFields": [
-                "UploadId"
-            ]
-        },
-        "GetBucketPolicyOutput": {
-            "requiredFields": [
-                "Policy"
-            ]
-        },
-        "Error": {
-            "renamedTo": "S3ServiceError"
-        },
-        "Bucket": {
-            "requiredFields": [
-                "CreationDate",
-                "Name"
-            ]
-        },
-        "Object": {
-            "requiredFields": [
-                "ETag",
-                "Size",
-                "Key",
-                "StorageClass",
-                "LastModified"
-            ]
-        },
-        "CompletedPart": {
-            "requiredFields": [
-                "PartNumber",
-                "ETag"
-            ]
-        },
-        "BucketLocationConstraint": {
-            "replacedBy": {
-                "name": "LocationConstraint",
-                "underive": []
-            }
-        },
-        "BucketName": {
-            "replacedBy": {
-                "name": "BucketName",
-                "underive": []
-            }
-        },
-        "ObjectKey": {
-            "replacedBy": {
-                "name": "ObjectKey",
-                "underive": []
-            }
-        },
-        "ObjectVersionId": {
-            "replacedBy": {
-                "name": "ObjectVersionId",
-                "underive": []
-            }
-        },
-        "ETag": {
-            "replacedBy": {
-                "name": "ETag",
-                "underive": []
-            }
-        },
-        "Delimiter": {
-            "replacedBy": {
-                "name": "Delimiter",
-                "underive": []
-            }
-        },
-        "NoncurrentVersionExpiration": {
-            "requiredFields": [
-                "NoncurrentDays"
-            ]
-        },
-        "NoncurrentVersionTransition": {
-            "requiredFields": [
-                "NoncurrentDays",
-                "StorageClass"
-            ]
-        }
+    "GetBucketPolicyOutput": {
+      "requiredFields": ["Policy"]
+    },
+    "Error": {
+      "renamedTo": "S3ServiceError"
+    },
+    "Bucket": {
+      "requiredFields": ["CreationDate", "Name"]
+    },
+    "Object": {
+      "requiredFields": ["ETag", "Size", "Key", "StorageClass", "LastModified"]
+    },
+    "CompletedPart": {
+      "requiredFields": ["PartNumber", "ETag"]
+    },
+    "BucketLocationConstraint": {
+      "replacedBy": {
+        "name": "LocationConstraint",
+        "underive": []
+      }
+    },
+    "BucketName": {
+      "replacedBy": {
+        "name": "BucketName",
+        "underive": []
+      }
+    },
+    "ObjectKey": {
+      "replacedBy": {
+        "name": "ObjectKey",
+        "underive": []
+      }
+    },
+    "ObjectVersionId": {
+      "replacedBy": {
+        "name": "ObjectVersionId",
+        "underive": []
+      }
+    },
+    "ETag": {
+      "replacedBy": {
+        "name": "ETag",
+        "underive": []
+      }
+    },
+    "Delimiter": {
+      "replacedBy": {
+        "name": "Delimiter",
+        "underive": []
+      }
+    },
+    "NoncurrentVersionExpiration": {
+      "requiredFields": ["NoncurrentDays"]
+    },
+    "NoncurrentVersionTransition": {
+      "requiredFields": ["NoncurrentDays", "StorageClass"]
     }
+  }
 }

@@ -1,11 +1,11 @@
 {
-    "libraryName": "amazonka-iot",
-    "typeOverrides": {
-        "Status": {
-            "renamedTo": "TaskStatus"
-        },
-        "DeleteStream": {
-            "renamedTo": "ConfirmDeleteStream"
-        }
+  "libraryName": "amazonka-iot",
+  "typeOverrides": {
+    "Status": {
+      "renamedTo": "TaskStatus"
+    },
+    "DeleteStream": {
+      "renamedTo": "ConfirmDeleteStream"
     }
+  }
 }

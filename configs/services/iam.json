@@ -1,19 +1,17 @@
 {
-    "libraryName": "amazonka-iam",
-    "typeOverrides": {
-        "AccessKey": {
-            "renamedTo": "AccessKeyInfo"
-        },
-        "accessKeyIdType": {
-            "replacedBy": {
-                "name": "Core.AccessKey",
-                "underive": []
-            }
-        },
-        "User": {
-            "optionalFields": [
-                "Path"
-            ]
-        }
+  "libraryName": "amazonka-iam",
+  "typeOverrides": {
+    "AccessKey": {
+      "renamedTo": "AccessKeyInfo"
+    },
+    "accessKeyIdType": {
+      "replacedBy": {
+        "name": "Core.AccessKey",
+        "underive": []
+      }
+    },
+    "User": {
+      "optionalFields": ["Path"]
     }
+  }
 }

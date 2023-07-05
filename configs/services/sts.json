@@ -1,52 +1,38 @@
 {
-    "libraryName": "amazonka-sts",
-    "typeOverrides": {
-        "accessKeyIdType": {
-            "replacedBy": {
-                "name": "Core.AccessKey",
-                "underive": []
-            }
-        },
-        "accessKeySecretType": {
-            "replacedBy": {
-                "name": "Core.SecretKey",
-                "underive": [
-                    "read",
-                    "show"
-                ]
-            }
-        },
-        "tokenType": {
-            "replacedBy": {
-                "name": "Core.SessionToken",
-                "underive": [
-                    "read",
-                    "show"
-                ]
-            }
-        },
-        "AssumeRoleResponse": {
-            "requiredFields": [
-                "Credentials"
-            ]
-        },
-        "AssumeRoleWithWebIdentityResponse": {
-            "requiredFields": [
-                "Credentials"
-            ]
-        },
-        "AssumeRoleWithWebSAMLResponse": {
-            "requiredFields": [
-                "Credentials"
-            ]
-        },
-        "Credentials": {
-            "replacedBy": {
-                "name": "Core.AuthEnv",
-                "underive": [
-                    "read"
-                ]
-            }
-        }
+  "libraryName": "amazonka-sts",
+  "typeOverrides": {
+    "accessKeyIdType": {
+      "replacedBy": {
+        "name": "Core.AccessKey",
+        "underive": []
+      }
+    },
+    "accessKeySecretType": {
+      "replacedBy": {
+        "name": "Core.SecretKey",
+        "underive": ["read", "show"]
+      }
+    },
+    "tokenType": {
+      "replacedBy": {
+        "name": "Core.SessionToken",
+        "underive": ["read", "show"]
+      }
+    },
+    "AssumeRoleResponse": {
+      "requiredFields": ["Credentials"]
+    },
+    "AssumeRoleWithWebIdentityResponse": {
+      "requiredFields": ["Credentials"]
+    },
+    "AssumeRoleWithWebSAMLResponse": {
+      "requiredFields": ["Credentials"]
+    },
+    "Credentials": {
+      "replacedBy": {
+        "name": "Core.AuthEnv",
+        "underive": ["read"]
+      }
     }
+  }
 }

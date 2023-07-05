@@ -1,8 +1,8 @@
 {
-    "libraryName": "amazonka-lex-models",
-    "typeOverrides": {
-        "Status": {
-            "renamedTo": "LexStatus"
-        }
+  "libraryName": "amazonka-lex-models",
+  "typeOverrides": {
+    "Status": {
+      "renamedTo": "LexStatus"
     }
+  }
 }

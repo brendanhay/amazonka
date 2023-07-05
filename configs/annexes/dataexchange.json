@@ -1,24 +1,24 @@
 {
-    "metadata": {
-        "serviceAbbreviation": "DataExchange"
-    },
-    "shapes": {
-        "SendApiAssetRequest": {
-            "members": {
-                "Body": {
-                    "shape": "Bytes"
-                }
-            }
-        },
-        "SendApiAssetResponse": {
-            "members": {
-                "Body": {
-                    "shape": "Bytes"
-                }
-            }
-        },
-        "Bytes": {
-            "type": "bytes"
+  "metadata": {
+    "serviceAbbreviation": "DataExchange"
+  },
+  "shapes": {
+    "SendApiAssetRequest": {
+      "members": {
+        "Body": {
+          "shape": "Bytes"
         }
+      }
+    },
+    "SendApiAssetResponse": {
+      "members": {
+        "Body": {
+          "shape": "Bytes"
+        }
+      }
+    },
+    "Bytes": {
+      "type": "bytes"
     }
+  }
 }

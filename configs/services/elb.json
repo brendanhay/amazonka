@@ -1,6 +1,4 @@
 {
-    "libraryName": "amazonka-elb",
-    "typeModules": [
-        "Amazonka.ELB.Internal"
-    ]
+  "libraryName": "amazonka-elb",
+  "typeModules": ["Amazonka.ELB.Internal"]
 }

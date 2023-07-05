@@ -1,20 +1,20 @@
 {
-    "metadata": {
-        "serviceAbbreviation": "SSM"
-    },
-    "shapes": {
-        "GetParametersResult": {
-            "members": {
-                "InvalidParameters": {
-                    "shape": "InvalidParameterNameList"
-                }
-            }
-        },
-        "InvalidParameterNameList": {
-            "type": "list",
-            "member": {
-                "shape": "PSParameterName"
-            }
+  "metadata": {
+    "serviceAbbreviation": "SSM"
+  },
+  "shapes": {
+    "GetParametersResult": {
+      "members": {
+        "InvalidParameters": {
+          "shape": "InvalidParameterNameList"
         }
+      }
+    },
+    "InvalidParameterNameList": {
+      "type": "list",
+      "member": {
+        "shape": "PSParameterName"
+      }
     }
+  }
 }

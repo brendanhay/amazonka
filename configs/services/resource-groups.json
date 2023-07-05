@@ -1,10 +1,10 @@
 {
-    "libraryName": "amazonka-resourcegroups",
-    "typeOverrides": {
-        "ResourceQuery": {
-            "renamedFields": {
-                "Query": "SearchQuery"
-            }
-        }
+  "libraryName": "amazonka-resourcegroups",
+  "typeOverrides": {
+    "ResourceQuery": {
+      "renamedFields": {
+        "Query": "SearchQuery"
+      }
     }
+  }
 }

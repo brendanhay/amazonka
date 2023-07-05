@@ -1,8 +1,8 @@
 {
-    "libraryName": "amazonka-route53-autonaming",
-    "typeOverrides": {
-        "Service": {
-            "renamedTo": "ServiceInfo"
-        }
+  "libraryName": "amazonka-route53-autonaming",
+  "typeOverrides": {
+    "Service": {
+      "renamedTo": "ServiceInfo"
     }
+  }
 }

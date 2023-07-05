@@ -1,6 +1,4 @@
 {
-    "libraryName": "amazonka-ses",
-    "ignoredWaiters": [
-        "IdentityExists"
-    ]
+  "libraryName": "amazonka-ses",
+  "ignoredWaiters": ["IdentityExists"]
 }

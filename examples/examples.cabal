@@ -1,15 +1,14 @@
-cabal-version:      2.2
-name:               examples
-version:            2.0
-synopsis:           Basic examples for various Amazonka libraries.
-homepage:           https://github.com/brendanhay/amazonka
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
-build-type:         Simple
-extra-source-files: README.md
+cabal-version: 2.2
+name:          examples
+version:       2.0
+synopsis:      Basic examples for various Amazonka libraries.
+homepage:      https://github.com/brendanhay/amazonka
+license:       MPL-2.0
+license-file:  LICENSE
+author:        Brendan Hay
+maintainer:    Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:     Copyright (c) 2013-2021 Brendan Hay
+build-type:    Simple
 
 source-repository head
   type:     git
@@ -32,7 +31,7 @@ library
     SQS
 
   build-depends:
-    , amazonka              >=2.0   && <2.1
+    , amazonka              >=2.0 && <2.1
     , amazonka-apigateway
     , amazonka-dynamodb
     , amazonka-ec2

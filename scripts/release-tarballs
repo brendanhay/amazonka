@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Usage: release-tarballs TAG
+#
+# Creates cabal sdist tarballs for all libraries and attaches them to the
+# specified GitHub release TAG as artefacts.
+
+# Note: this could be rolled into a proper release script to tag and utilise
+# `gh release create`.
+
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+say() {
+	echo >&2 "$@"
+}
+
+if [ $# -ne 1 ]; then
+	echo "Usage: release-tarballs TAG"
+	exit 1
+fi
+
+tag="$1"
+out="./dist-newstyle/sdist"
+
+rm -rf "$out"
+
+cabal sdist all --out="$out"
+
+gh release upload "$tag" "$out"/amazonka*.tar.gz

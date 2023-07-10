@@ -75,6 +75,9 @@
             pkgs.hlint
             pkgs.nixpkgs-fmt
 
+            # Releases
+            pkgs.gh
+
             # This is regrettable (long build times), but ormolu
             # 0.5.0.1 generates really ugly pyramids of `Prelude.seq`
             # or `Prelude.hashWithSalt` applications when generating code.

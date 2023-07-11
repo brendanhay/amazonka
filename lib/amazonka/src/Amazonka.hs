@@ -319,9 +319,8 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- >     -- Here DynamoDB operations will communicate with localhost:8000.
 -- >     y <- AWS.send (AWS.configure dynamo env) Dynamo.newListTables
 --
--- Functions such as 'within', 'once', and 'globalTimeout' can also be
--- used to modify service configuration for all (or specific)
--- requests.
+-- Functions such as 'once' and 'globalTimeout' can also be used
+-- to modify service configuration for all (or specific) requests.
 
 -- $streaming
 -- Streaming comes in two flavours. 'HashedBody' represents a request

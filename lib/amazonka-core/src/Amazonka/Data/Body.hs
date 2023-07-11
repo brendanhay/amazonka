@@ -2,7 +2,7 @@
 
 -- |
 -- Module      : Amazonka.Data.Body
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -235,16 +235,16 @@ sourceFileRangeChunks (ChunkSize chunk) path offset len =
 
     go remainder hd
       | remainder <= chunk = do
-        bs <- liftIO (BS.hGet hd remainder)
-        unless (BS.null bs) $
-          Conduit.yield bs
+          bs <- liftIO (BS.hGet hd remainder)
+          unless (BS.null bs) $
+            Conduit.yield bs
       --
       | otherwise = do
-        bs <- liftIO (BS.hGet hd chunk)
+          bs <- liftIO (BS.hGet hd chunk)
 
-        unless (BS.null bs) $ do
-          Conduit.yield bs
-          go (remainder - chunk) hd
+          unless (BS.null bs) $ do
+            Conduit.yield bs
+            go (remainder - chunk) hd
 
 -- | An opaque request body containing a 'SHA256' hash.
 data HashedBody
@@ -258,7 +258,8 @@ instance Show HashedBody where
     where
       str c h n =
         BS8.unpack . toBS $
-          c <> " { sha256 = "
+          c
+            <> " { sha256 = "
             <> build (Bytes.encodeBase16 h)
             <> ", length = "
             <> build n

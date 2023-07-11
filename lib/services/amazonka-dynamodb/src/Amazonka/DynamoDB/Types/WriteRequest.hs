@@ -9,9 +9,9 @@
 
 -- |
 -- Module      : Amazonka.DynamoDB.WriteRequest
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 module Amazonka.DynamoDB.Types.WriteRequest where

@@ -1,20 +1,19 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.Amazonka.Gen.IoTDataPlane
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.Amazonka.Gen.IoTDataPlane where
 
-import Data.Proxy
 import Amazonka.IoTDataPlane
+import Data.Proxy
 import Test.Amazonka.Fixture
 import Test.Amazonka.IoTDataPlane.Internal
 import Test.Amazonka.Prelude
@@ -61,50 +60,58 @@ import Test.Tasty
 -- Requests
 
 requestGetThingShadow :: GetThingShadow -> TestTree
-requestGetThingShadow = req
+requestGetThingShadow =
+  req
     "GetThingShadow"
     "fixture/GetThingShadow.yaml"
 
 requestDeleteThingShadow :: DeleteThingShadow -> TestTree
-requestDeleteThingShadow = req
+requestDeleteThingShadow =
+  req
     "DeleteThingShadow"
     "fixture/DeleteThingShadow.yaml"
 
 requestUpdateThingShadow :: UpdateThingShadow -> TestTree
-requestUpdateThingShadow = req
+requestUpdateThingShadow =
+  req
     "UpdateThingShadow"
     "fixture/UpdateThingShadow.yaml"
 
 requestPublish :: Publish -> TestTree
-requestPublish = req
+requestPublish =
+  req
     "Publish"
     "fixture/Publish.yaml"
 
 -- Responses
 
 responseGetThingShadow :: GetThingShadowResponse -> TestTree
-responseGetThingShadow = res
+responseGetThingShadow =
+  res
     "GetThingShadowResponse"
     "fixture/GetThingShadowResponse.proto"
     ioTDataPlane
     (Proxy :: Proxy GetThingShadow)
 
 responseDeleteThingShadow :: DeleteThingShadowResponse -> TestTree
-responseDeleteThingShadow = res
+responseDeleteThingShadow =
+  res
     "DeleteThingShadowResponse"
     "fixture/DeleteThingShadowResponse.proto"
     ioTDataPlane
     (Proxy :: Proxy DeleteThingShadow)
 
 responseUpdateThingShadow :: UpdateThingShadowResponse -> TestTree
-responseUpdateThingShadow = res
+responseUpdateThingShadow =
+  res
     "UpdateThingShadowResponse"
     "fixture/UpdateThingShadowResponse.proto"
     ioTDataPlane
     (Proxy :: Proxy UpdateThingShadow)
 
 responsePublish :: PublishResponse -> TestTree
-responsePublish = res
+responsePublish =
+  res
     "PublishResponse"
     "fixture/PublishResponse.proto"
     ioTDataPlane

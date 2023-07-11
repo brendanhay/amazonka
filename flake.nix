@@ -71,6 +71,7 @@
             pkgs.zlib
 
             # Development Tools
+            pkgs.haskellPackages.cabal-fmt
             pkgs.haskell-language-server
             pkgs.hlint
             pkgs.nixpkgs-fmt

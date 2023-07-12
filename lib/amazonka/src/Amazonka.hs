@@ -2,7 +2,7 @@
 
 -- |
 -- Module      : Amazonka
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -439,13 +439,14 @@ presign ::
   a ->
   m ClientRequest
 presign env time expires rq = withAuth (runIdentity $ Env.auth env) $ \ae ->
-  pure $! Presign.presignWith
-    (Env.overrides env)
-    ae
-    (Env.region env)
-    time
-    expires
-    rq
+  pure $!
+    Presign.presignWith
+      (Env.overrides env)
+      ae
+      (Env.region env)
+      time
+      expires
+      rq
 
 -- | Retrieve the specified 'Dynamic' data.
 dynamic :: MonadIO m => Env -> EC2.Dynamic -> m ByteString

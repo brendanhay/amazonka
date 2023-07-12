@@ -1,8 +1,8 @@
 -- |
 -- Module      : Amazonka.S3.Encryption.Instructions
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Amazonka.S3.Encryption.Instructions where

@@ -2,7 +2,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Metadata
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -596,7 +596,7 @@ userdata m =
     Exception.try (get m (latest <> "user-data")) >>= \case
       Left (Client.HttpExceptionRequest _ (Client.StatusCodeException rs _))
         | fromEnum (Client.responseStatus rs) == 404 ->
-          return Nothing
+            return Nothing
       --
       Left e -> Exception.throwIO e
       --

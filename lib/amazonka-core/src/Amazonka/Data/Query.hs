@@ -1,6 +1,6 @@
 -- |
 -- Module      : Amazonka.Data.Query
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -50,7 +50,7 @@ parseQueryString :: ByteString -> QueryString
 parseQueryString bs
   | BS8.null bs = mempty
   | otherwise =
-    QList (map breakPair . filter (not . BS8.null) $ BS8.split '&' bs)
+      QList (map breakPair . filter (not . BS8.null) $ BS8.split '&' bs)
   where
     breakPair x =
       case BS8.break (== '=') x of

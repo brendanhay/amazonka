@@ -150,4 +150,6 @@
           default = mkDevShell ghcDefault;
         };
       });
+
+  nixConfig.allow-import-from-derivation = "true";
 }

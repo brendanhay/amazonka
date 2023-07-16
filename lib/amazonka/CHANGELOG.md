@@ -5,6 +5,10 @@ Released: **?**, Compare: [2.0.0-rc2](https://github.com/brendanhay/amazonka/com
 
 ### Major Changes
 ### Changed
+
+- `amazonka`: Update two missing EC2 metadata keys from [instance metadata categories](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html)
+[\#935](https://github.com/brendanhay/amazonka/pull/935)
+
 ### Fixed
 
 ## [2.0.0 RC2](https://github.com/brendanhay/amazonka/tree/2.0.0-rc2)

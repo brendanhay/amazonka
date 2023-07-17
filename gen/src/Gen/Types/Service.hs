@@ -132,10 +132,9 @@ data RefF a = RefF
     _refXMLAttribute :: Bool,
     _refXMLNamespace :: Maybe XML
   }
-  deriving stock (Functor, Foldable, Traversable, Generic)
+  deriving stock (Functor, Foldable, Traversable, Generic, Show)
 
 $(Deriving.deriveShow1 ''RefF)
-$(Deriving.deriveShow ''RefF)
 $(Lens.makeLenses ''RefF)
 
 instance HasId (RefF a) where
@@ -206,10 +205,9 @@ data ListF a = ListF
   { _listInfo :: Info,
     _listItem :: RefF a
   }
-  deriving stock (Functor, Foldable, Traversable)
+  deriving stock (Functor, Foldable, Traversable, Show)
 
 $(Deriving.deriveShow1 ''ListF)
-$(Deriving.deriveShow ''ListF)
 $(Lens.makeLenses ''ListF)
 
 instance HasInfo (ListF a) where
@@ -228,10 +226,9 @@ data MapF a = MapF
     _mapKey :: RefF a,
     _mapValue :: RefF a
   }
-  deriving stock (Functor, Foldable, Traversable)
+  deriving stock (Functor, Foldable, Traversable, Show)
 
 $(Deriving.deriveShow1 ''MapF)
-$(Deriving.deriveShow ''MapF)
 $(Lens.makeLenses ''MapF)
 
 instance HasInfo (MapF a) where
@@ -253,10 +250,9 @@ data StructF a = StructF
     _required' :: [Id],
     _payload :: Maybe Id
   }
-  deriving stock (Functor, Foldable, Traversable)
+  deriving stock (Functor, Foldable, Traversable, Show)
 
 $(Deriving.deriveShow1 ''StructF)
-$(Deriving.deriveShow ''StructF)
 $(Lens.makeLenses ''StructF)
 
 instance HasInfo (StructF a) where
@@ -289,10 +285,9 @@ data ShapeF a
   | Struct (StructF a)
   | Enum Info (HashMap Id Text)
   | Lit Info Lit
-  deriving stock (Functor, Foldable, Traversable)
+  deriving stock (Functor, Foldable, Traversable, Show)
 
 $(Deriving.deriveShow1 ''ShapeF)
-$(Deriving.deriveShow ''ShapeF)
 $(Lens.makePrisms ''ShapeF)
 
 instance HasInfo (ShapeF a) where

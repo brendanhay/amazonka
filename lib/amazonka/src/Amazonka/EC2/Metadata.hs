@@ -97,6 +97,8 @@ instance ToText Dynamic where
       PKCS7 -> "instance-identity/pkcs7"
       Signature -> "instance-identity/signature"
 
+-- | Instance metadata categories. The list of supported categories
+-- are listed in the [EC2 Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html).
 data Metadata
   = -- | The AMI ID used to launch the instance.
     AMIId
@@ -132,6 +134,8 @@ data Metadata
     Hostname
   | -- | See: 'IAM'
     IAM !IAM
+  | -- | See: 'IdentityCredentialsEC2'
+    IdentityCredentialsEC2 !IdentityCredentialsEC2
   | -- | Notifies the instance that it should reboot in preparation for bundling.
     -- Valid values: @none@ | @shutdown@ | @bundle-pending@.
     InstanceAction
@@ -224,6 +228,7 @@ instance ToText Metadata where
       ElasticInference m -> "elastic-inference/" <> toText m
       Events m -> "events/" <> toText m
       IAM m -> "iam/" <> toText m
+      IdentityCredentialsEC2 m -> "identity-credentials/ec2/" <> toText m
       InstanceAction -> "instance-action"
       InstanceId -> "instance-id"
       InstanceLifeCycle -> "instance-life-cycle"
@@ -383,6 +388,27 @@ instance ToText IAM where
   toText = \case
     Info -> "info"
     SecurityCredentials r -> "security-credentials/" <> maybe mempty toText r
+
+-- | Metadata keys for @identity-credentials\/ec2\/*@.
+data IdentityCredentialsEC2
+  = -- | Information about the credentials in
+    -- @identity-credentials/ec2/security-credentials/ec2-instance@.
+    ICEInfo
+  | -- | Credentials for the instance identity role that allow
+    -- on-instance software to identify itself to AWS to support
+    -- features such as EC2 Instance Connect and AWS Systems Manager
+    -- Default Host Management Configuration. These credentials have
+    -- no policies attached, so they have no additional AWS API
+    -- permissions beyond identifying the instance to the AWS
+    -- feature. For more information, see [Instance identity
+    -- roles](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-identity-roles.html).
+    ICESecurityCredentials
+  deriving stock (Eq, Ord, Show, Generic)
+
+instance ToText IdentityCredentialsEC2 where
+  toText = \case
+    ICEInfo -> "info"
+    ICESecurityCredentials -> "security-credentials/ec2-instance"
 
 -- | Metadata keys for @network\/interfaces\/macs\/${mac}\/*@.
 data Interface

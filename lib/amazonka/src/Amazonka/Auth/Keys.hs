@@ -89,7 +89,8 @@ fromKeysEnv env = liftIO $ do
             ]
       case mVal of
         Nothing ->
-          throwingM _MissingEnvError $
+          throwingM
+            _MissingEnvError
             "Unable to read access key from AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY)"
         Just v -> pure . AccessKey $ BS8.pack v
 
@@ -103,13 +104,15 @@ fromKeysEnv env = liftIO $ do
             ]
       case mVal of
         Nothing ->
-          throwingM _MissingEnvError $
+          throwingM
+            _MissingEnvError
             "Unable to read secret key from AWS_SECRET_ACCESS_KEY (or AWS_SECRET_KEY)"
         Just v -> pure . Sensitive . SecretKey $ BS8.pack v
 
     lookupSessionToken :: IO (Maybe (Sensitive SessionToken))
     lookupSessionToken =
-      nonEmptyEnv "AWS_SESSION_TOKEN" <&> (fmap (Sensitive . SessionToken . BS8.pack))
+      nonEmptyEnv "AWS_SESSION_TOKEN"
+        <&> fmap (Sensitive . SessionToken . BS8.pack)
 
     nonEmptyEnv :: String -> IO (Maybe String)
     nonEmptyEnv var =

@@ -34,6 +34,7 @@ module Amazonka.EC2.Metadata
     Maintenance (..),
     Recommendations (..),
     IAM (..),
+    IdentityCredentialsEC2 (..),
     Interface (..),
     Placement (..),
     Services (..),
@@ -296,11 +297,11 @@ instance ToText Mapping where
     Swap -> "root"
 
 -- | Metadata keys for @elastic-gpus/*@.
-data ElasticGpus
+newtype ElasticGpus
   = -- | If there is an Elastic GPU attached to the instance, contains
     -- a JSON string with information about the Elastic GPU, including
     -- its ID and connection information.
-    EGAssociations !Text
+    EGAssociations Text
   deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText ElasticGpus where
@@ -308,11 +309,11 @@ instance ToText ElasticGpus where
     EGAssociations gpuId -> "associations/" <> gpuId
 
 -- | Metadata keys for @elastic-inference/*@.
-data ElasticInference
+newtype ElasticInference
   = -- | If there is an Elastic Inference accelerator attached to the
     -- instance, contains a JSON string with information about the
     -- Elastic Inference accelerator, including its ID and type.
-    EIAssociations !Text
+    EIAssociations Text
   deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText ElasticInference where

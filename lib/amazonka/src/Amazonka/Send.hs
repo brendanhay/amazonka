@@ -146,8 +146,7 @@ awaitEither ::
   Waiter.Wait a ->
   a ->
   m (Either Error Waiter.Accept)
-awaitEither env wait =
-  HTTP.awaitRequest env wait
+awaitEither = HTTP.awaitRequest
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.

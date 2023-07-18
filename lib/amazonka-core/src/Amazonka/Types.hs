@@ -518,10 +518,10 @@ data Service = Service
     -- ignored otherwise.
     s3AddressingStyle :: S3AddressingStyle,
     endpointPrefix :: ByteString,
-    endpoint :: (Region -> Endpoint),
-    timeout :: (Maybe Seconds),
-    check :: (Status -> Bool),
-    error :: (Status -> [Header] -> ByteStringLazy -> Error),
+    endpoint :: Region -> Endpoint,
+    timeout :: Maybe Seconds,
+    check :: Status -> Bool,
+    error :: Status -> [Header] -> ByteStringLazy -> Error,
     retry :: Retry
   }
   deriving stock (Generic)
@@ -755,7 +755,7 @@ _SessionToken = Lens.coerced
 -- | The AuthN/AuthZ credential environment.
 data AuthEnv = AuthEnv
   { accessKeyId :: AccessKey,
-    secretAccessKey :: (Sensitive SecretKey),
+    secretAccessKey :: Sensitive SecretKey,
     sessionToken :: Maybe (Sensitive SessionToken),
     expiration :: Maybe ISO8601
   }

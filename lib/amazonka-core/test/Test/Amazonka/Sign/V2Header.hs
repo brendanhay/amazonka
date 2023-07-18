@@ -28,7 +28,7 @@ tests =
             "should always convert set QValues to Nothing"
             prop_QValueEmpty,
           testCase "should keep an unset QValue" $
-            constructSigningQuery (QValue (Nothing :: Maybe ByteString)) @?= (QValue (Nothing :: Maybe ByteString)),
+            constructSigningQuery (QValue (Nothing :: Maybe ByteString)) @?= QValue (Nothing :: Maybe ByteString),
           testProperty
             "should discard QPairs that are not interesting to AWS"
             prop_UninterestingQPairs,
@@ -38,7 +38,7 @@ tests =
           testCase "should keep an empty QList" $
             constructSigningQuery (QList []) @?= QList [],
           testCase "should keep a list of Nothing QValues" $
-            constructSigningQuery (QList [(QValue Nothing)]) @?= (QList [(QValue Nothing)]),
+            constructSigningQuery (QList [QValue Nothing]) @?= QList [QValue Nothing],
           testProperty
             "should discard the contents of an unintersting QList"
             prop_UninterestingQLists,
@@ -64,11 +64,11 @@ tests =
             "should sort and preserve headers"
             prop_SortedHeaders,
           testCase "should contain empty md5 and empty content type headers if not present" $
-            [(HTTP.hContentMD5, ""), (HTTP.hContentType, "")] `subset` (unionNecessaryHeaders []) @?= True,
+            [(HTTP.hContentMD5, ""), (HTTP.hContentType, "")] `subset` unionNecessaryHeaders [] @?= True,
           testCase "should preserve a set md5 and contain an empty content type header if not present" $
-            [(HTTP.hContentMD5, "123"), (HTTP.hContentType, "")] `subset` (unionNecessaryHeaders [(HTTP.hContentMD5, "123")]) @?= True,
+            [(HTTP.hContentMD5, "123"), (HTTP.hContentType, "")] `subset` unionNecessaryHeaders [(HTTP.hContentMD5, "123")] @?= True,
           testCase "should preserve a set content type and preserve an empty md5 header if not present" $
-            [(HTTP.hContentType, "123"), (HTTP.hContentMD5, "")] `subset` (unionNecessaryHeaders [(HTTP.hContentType, "123")]) @?= True,
+            [(HTTP.hContentType, "123"), (HTTP.hContentMD5, "")] `subset` unionNecessaryHeaders [(HTTP.hContentType, "123")] @?= True,
           testCase "should preserve md5 and content type headers if set" $
             [(HTTP.hContentType, "123"), (HTTP.hContentMD5, "456")] `subset` unionNecessaryHeaders [(HTTP.hContentType, "123"), (HTTP.hContentMD5, "456")] @?= True
         ],
@@ -80,13 +80,7 @@ tests =
             toSignerQueryBS (QPair "key" (QValue Nothing)) @?= "key",
           testCase "should convert an empty value of QPair followed by QValue to just the key and just the value" $
             toSignerQueryBS
-              ( QList
-                  [ (QPair "key" (QValue Nothing)),
-                    ( QValue $
-                        Just "key2"
-                    )
-                  ]
-              )
+              (QList [QPair "key" (QValue Nothing), QValue $ Just "key2"])
               @?= "key&key2"
         ],
       testGroup
@@ -234,7 +228,7 @@ randomHeaderGenerator =
 
 interestingAwsHeaderName :: Gen HTTP.HeaderName
 interestingAwsHeaderName =
-  CI.mk <$> BS8.pack <$> fmap ("aws-" <>) nonEmptyString
+  CI.mk . BS8.pack <$> fmap ("aws-" <>) nonEmptyString
 
 interestingHeaderName :: Gen HTTP.HeaderName
 interestingHeaderName =

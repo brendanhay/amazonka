@@ -1,0 +1,10 @@
+# Ignore camel-case warnings for modules containing explicit lenses
+- ignore:
+    name: "Use camelCase"
+    within:
+      - Amazonka.Auth.SSO
+      - Amazonka.Data.Body
+      - Amazonka.EC2.Metadata
+      - Amazonka.Env
+      - Amazonka.Types
+      - Amazonka.Waiter

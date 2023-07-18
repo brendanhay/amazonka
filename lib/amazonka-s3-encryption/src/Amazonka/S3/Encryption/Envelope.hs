@@ -34,6 +34,7 @@ import Data.ByteArray (ByteArray)
 import qualified Data.ByteArray as ByteArray
 import qualified Data.ByteString as BS
 import qualified Data.CaseInsensitive as CI
+import Data.Functor ((<&>))
 import qualified Data.HashMap.Strict as Map
 
 #if MIN_VERSION_aeson(2,0,0)
@@ -149,7 +150,7 @@ decodeV2 ::
 decodeV2 env xs m = do
   a <- xs .& "X-Amz-CEK-Alg"
   w <- xs .& "X-Amz-Wrap-Alg"
-  raw <- xs .& "X-Amz-Key-V2" >>= pure . unBase64
+  raw <- (xs .& "X-Amz-Key-V2") <&> unBase64
   iv <- xs .& "X-Amz-IV" >>= createIV . unBase64
   d <- xs .& "X-Amz-Matdesc"
 

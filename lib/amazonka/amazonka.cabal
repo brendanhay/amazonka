@@ -99,7 +99,7 @@ library
     Amazonka.Data, Amazonka.Types, Amazonka.Bytes, Amazonka.Endpoint, Amazonka.Crypto
 
   build-depends:
-    , aeson                 ^>=1.5.0.0  || >=2.0 && <2.1 || ^>=2.1
+    , aeson                 ^>=1.5.0.0  || >=2.0 && <2.2 || ^>=2.2
     , amazonka-core         ^>=2.0
     , amazonka-sso          ^>=2.0
     , amazonka-sts          ^>=2.0

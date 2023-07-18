@@ -24,7 +24,7 @@ import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Encoding as LText
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
-import qualified Numeric as Numeric
+import qualified Numeric
 
 class ToLog a where
   -- | Convert a value to a loggable builder.

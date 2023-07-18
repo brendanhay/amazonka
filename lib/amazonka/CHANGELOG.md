@@ -11,6 +11,9 @@ Released: **?**, Compare: [2.0.0-rc2](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
+- `aeson ^>= 2.2` is now supported.
+[\#938](https://github.com/brendanhay/amazonka/pull/938)
+
 ## [2.0.0 RC2](https://github.com/brendanhay/amazonka/tree/2.0.0-rc2)
 Released: **10th July, 2023**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/compare/2.0.0-rc1...2.0.0-rc2)
 

@@ -147,7 +147,9 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
 
             -- Once we have the env from the profile, apply the region
             -- if we parsed one out.
-            pure . maybe env' (\region -> env' {region}) $ mRegion
+            pure $ case mRegion of
+              Nothing -> env'
+              Just region -> env' {region}
 
 mergeConfigs ::
   -- | Credentials
@@ -157,7 +159,7 @@ mergeConfigs ::
   HashMap Text (HashMap Text Text)
 mergeConfigs creds confs =
   HashMap.unionWith
-    (HashMap.union)
+    HashMap.union
     (HashMap.fromList <$> creds)
     (HashMap.fromList <$> stripProfiles confs)
   where
@@ -170,7 +172,7 @@ mergeConfigs creds confs =
       ws -> ws
 
 parseConfigProfile :: HashMap Text Text -> Maybe (ConfigProfile, Maybe Region)
-parseConfigProfile profile = parseProfile <&> \p -> (p, parseRegion)
+parseConfigProfile profile = parseProfile <&> (,parseRegion)
   where
     parseProfile :: Maybe ConfigProfile
     parseProfile =
@@ -194,10 +196,10 @@ parseConfigProfile profile = parseProfile <&> \p -> (p, parseRegion)
           <*> ( Sensitive . SecretKey . Text.encodeUtf8
                   <$> HashMap.lookup "aws_secret_access_key" profile
               )
-          <*> ( Just $
-                  Sensitive . SessionToken . Text.encodeUtf8
-                    <$> HashMap.lookup "aws_session_token" profile
-              )
+          <*> Just
+            ( Sensitive . SessionToken . Text.encodeUtf8
+                <$> HashMap.lookup "aws_session_token" profile
+            )
           <*> Just Nothing -- No token expiry in config file
     assumeRoleFromProfile =
       AssumeRoleFromProfile

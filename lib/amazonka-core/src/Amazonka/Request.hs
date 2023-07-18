@@ -60,7 +60,7 @@ delete :: ToRequest a => Service -> a -> Request a
 delete s x = (get s x) {method = DELETE}
 
 get :: ToRequest a => Service -> a -> Request a
-get s = defaultRequest s
+get = defaultRequest
 
 post :: ToRequest a => Service -> a -> Request a
 post s x = (get s x) {method = POST}

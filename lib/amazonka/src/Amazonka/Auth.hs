@@ -1,5 +1,3 @@
-{-# LANGUAGE BangPatterns #-}
-
 -- |
 -- Module      : Amazonka.Auth
 -- Copyright   : (c) 2013-2023 Brendan Hay

@@ -438,13 +438,13 @@ noHook_ _ _ _ = pure ()
 -- need to do something with specific request types, you want
 -- 'addHookFor', instead.
 addHook :: Typeable a => Hook a -> Hook a -> Hook a
-addHook newHook oldHook = \env -> oldHook env >=> newHook env
+addHook newHook oldHook env = oldHook env >=> newHook env
 
 -- | Unconditionally add a @'Hook_' a@ to the chain of hooks. If you
 -- need to do something with specific request types, you want
 -- 'addHookFor_', instead.
 addHook_ :: Typeable a => Hook_ a -> Hook_ a -> Hook_ a
-addHook_ newHook oldHook = \env a -> oldHook env a *> newHook env a
+addHook_ newHook oldHook env a = oldHook env a *> newHook env a
 
 -- | Like 'addHook', adds an unconditional hook, but it also captures
 -- the @'AWSRequest' a@ constraint. Useful for handling every AWS
@@ -466,7 +466,7 @@ addAWSRequestHook_ = addHook_
 -- @
 addHookFor ::
   forall a b. (Typeable a, Typeable b) => Hook a -> Hook b -> Hook b
-addHookFor newHook oldHook = \env ->
+addHookFor newHook oldHook env =
   oldHook env >=> case eqT @a @b of
     Just Refl -> newHook env
     Nothing -> pure
@@ -480,7 +480,7 @@ addHookFor newHook oldHook = \env ->
 -- @
 addHookFor_ ::
   forall a b. (Typeable a, Typeable b) => Hook_ a -> Hook_ b -> Hook_ b
-addHookFor_ newHook oldHook = \env a -> do
+addHookFor_ newHook oldHook env a = do
   oldHook env a
   case eqT @a @b of
     Just Refl -> newHook env a
@@ -493,7 +493,7 @@ addHookFor_ newHook oldHook = \env a -> do
 -- requestHook (removeHooksFor @PutObjectRequest) :: Hooks -> Hooks
 -- @
 removeHooksFor :: forall a b. (Typeable a, Typeable b) => Hook b -> Hook b
-removeHooksFor oldHook = \env -> case eqT @a @b of
+removeHooksFor oldHook env = case eqT @a @b of
   Just Refl -> pure
   Nothing -> oldHook env
 
@@ -504,7 +504,7 @@ removeHooksFor oldHook = \env -> case eqT @a @b of
 -- errorHook (removeHooksFor @(Finality, Request PutObjectRequest, Error)) :: Hooks -> Hooks
 -- @
 removeHooksFor_ :: forall a b. (Typeable a, Typeable b) => Hook_ b -> Hook_ b
-removeHooksFor_ oldHook = \env a -> case eqT @a @b of
+removeHooksFor_ oldHook env a = case eqT @a @b of
   Just Refl -> pure ()
   Nothing -> oldHook env a
 
@@ -530,7 +530,7 @@ silenceError ::
   Getting Any Error e ->
   Hook_ (Finality, Request a, Error) ->
   Hook_ (Finality, Request a, Error)
-silenceError g oldHook = \env t@(_, _, err) ->
+silenceError g oldHook env t@(_, _, err) =
   if has g err then pure () else oldHook env t
 
 -- | Add default logging hooks. The default 'Env'' from

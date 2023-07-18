@@ -37,6 +37,7 @@ import qualified Data.ByteString.Lazy as LBS
 import Data.Conduit ()
 import qualified Data.Conduit as Conduit
 import qualified Data.Conduit.Binary as Conduit.Binary
+import Data.Functor (($>))
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (ResponseHeaders)
 import qualified Text.XML as XML
@@ -51,7 +52,7 @@ receiveNull ::
   m (Either Error (ClientResponse (AWSResponse a)))
 receiveNull rs _ =
   stream $ \r _ _ _ ->
-    liftIO (Client.responseClose r) *> pure (Right rs)
+    liftIO (Client.responseClose r) $> Right rs
 
 receiveEmpty ::
   MonadResource m =>
@@ -63,7 +64,7 @@ receiveEmpty ::
   m (Either Error (ClientResponse (AWSResponse a)))
 receiveEmpty f _ =
   stream $ \r s h _ ->
-    liftIO (Client.responseClose r) *> pure (f s h ())
+    liftIO (Client.responseClose r) $> f s h ()
 
 receiveXMLWrapper ::
   MonadResource m =>
@@ -166,7 +167,7 @@ stream parser Service {..} _ rs =
       lazy <- sinkLBS body
       Except.throwE (error status headers lazy)
 
-    lift (parser (() <$ rs) (fromEnum status) headers body) >>= \case
+    lift (parser (void rs) (fromEnum status) headers body) >>= \case
       Right ok -> pure (ok <$ rs)
       Left err ->
         Except.throwE $

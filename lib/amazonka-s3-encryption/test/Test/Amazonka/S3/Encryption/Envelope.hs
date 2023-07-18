@@ -1,12 +1,8 @@
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
 
-module Test.Amazonka.S3.Encryption.Envelope
-  ( envelopeTests,
-  )
-where
+module Test.Amazonka.S3.Encryption.Envelope (envelopeTests) where
 
 import Amazonka.Core
 import Amazonka.S3.Encryption.Envelope

@@ -3,7 +3,6 @@
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)
 Released: **?**, Compare: [2.0.0-rc2](https://github.com/brendanhay/amazonka/compare/2.0.0-rc2...2.0.0)
 
-### Major Changes
 ### Changed
 
 - `amazonka`: Update two missing EC2 metadata keys from [instance metadata categories](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html)
@@ -29,7 +28,7 @@ Released: **10th July, 2023**, Compare: [2.0.0-rc1](https://github.com/brendanha
 
 - The authentication code in `amazonka` got a full rewrite in PR [\#746](https://github.com/brendanhay/amazonka/pull/746).
 
-  - On Windows, the {credential,config} files are read from `%USERPROFILE%\\.aws\\{credentials,config}` to [match the AWS SDK](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-file.html#creds-file-general-info).
+  - On Windows, the {credential,config} files are read from `%USERPROFILE%\.aws\{credentials,config}` to [match the AWS SDK](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-file.html#creds-file-general-info).
   - `newEnv` now takes a function of type `EnvNoAuth -> m Env`, which is to fetch credentials in an appropriate manner
   - The `Credentials` type has been removed, you should instead use the following functions corresponding to the departed constructor. All are exported by `Amazonka.Auth`:
 
@@ -253,7 +252,7 @@ Released: **28nd November, 2021**, Compare: [1.6.1](https://github.com/brendanha
   - CPP supporting GHC < 8.8 has been removed.
   - While GHC 8.6 is not in the CI matrix, it currently builds, so packages depend on `base >= 4.12`.
 
-- The `Control.Monad.Trans.AWS` transformer and its related instances has been removed. Functions such as `send` and `paginate` now universally take an `Env` as their first argument, so you can build your own transformer, or use your preferred effects system.
+- The `AWST` transformer from `Control.Monad.Trans.AWS` and its related instances has been removed. Functions such as `send` and `paginate` now universally take an `Env` as their first argument, so you can build your own transformer, or use your preferred effects system.
 
 - Namespace
   - The core `Network.AWS` namespace has been renamed to `Amazonka`, which now matches the package name. A simple search and replace on your codebase should be sufficient for migration:

@@ -16,9 +16,9 @@ module Amazonka
     -- $usage
 
     -- * Authentication and Environment
-    Env.Env' (..),
     Env.Env,
     Env.EnvNoAuth,
+    Env.Env' (..),
     Env.newEnv,
     Env.newEnvFromManager,
     Env.newEnvNoAuth,
@@ -177,7 +177,7 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- satisfy. To utilise these, you will need to specify what 'Region' you wish to
 -- operate in and your Amazon credentials for AuthN/AuthZ purposes.
 --
--- 'Credentials' can be supplied in a number of ways. Either via explicit keys,
+-- Credentials can be supplied in a number of ways. Either via explicit keys,
 -- via session profiles, or have Amazonka retrieve the credentials from an
 -- underlying IAM Role/Profile.
 --
@@ -281,7 +281,8 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- configuration when sending 'PutItem', 'Query' and all other operations.
 --
 -- You can modify a specific 'Service''s default configuration by using
--- 'configure'. To modify all configurations simultaneously, see 'override'.
+-- 'Amazonka.Env.configureService'. To modify all configurations simultaneously, see
+-- 'Amazonka.Env.overrideService'.
 --
 -- An example of how you might alter default configuration using these mechanisms
 -- is demonstrated below. Firstly, the default 'dynamoDB' service is configured to
@@ -385,10 +386,10 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- appropriate 'AsError' 'Prism' when using the non-'Either' send variants:
 --
 -- @
--- trying '_Error'          (send $ newListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
+-- trying '_Error'          (send $ newListObjects "bucket-name") :: Either 'Amazonka.Types.Error'          ListObjectsResponse
 -- trying '_TransportError' (send $ newListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
--- trying '_SerializeError' (send $ newListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
--- trying '_ServiceError'   (send $ newListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
+-- trying '_SerializeError' (send $ newListObjects "bucket-name") :: Either 'Amazonka.Types.SerializeError' ListObjectsResponse
+-- trying '_ServiceError'   (send $ newListObjects "bucket-name") :: Either 'Amazonka.Types.ServiceError'   ListObjectsResponse
 -- @
 --
 -- Many of the individual @amazonka-*@ libraries export compatible 'Control.Lens.Fold's for

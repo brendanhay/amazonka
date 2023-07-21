@@ -24,7 +24,7 @@ description:
   To get started, import "Amazonka" and the desired @amazonka-*@ library (such as
   <http://hackage.haskell.org/package/amazonka-ml/docs/Network-AWS-MachineLearning.html Amazonka.MachineLearning>)
   .
-  GHC 8.8.4 and higher is officially supported.
+  GHC 8.10.7 and higher is officially supported.
 
 source-repository head
   type:     git

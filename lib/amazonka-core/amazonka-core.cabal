@@ -7,7 +7,9 @@ bug-reports:   https://github.com/brendanhay/amazonka/issues
 license:       MPL-2.0
 license-file:  LICENSE
 author:        Brendan Hay
-maintainer:    Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+maintainer:
+  Brendan Hay <brendan.g.hay+amazonka@gmail.com>, Jack Kelly <jack@jackkelly.name>
+
 copyright:     Copyright (c) 2013-2023 Brendan Hay
 category:      AWS
 build-type:    Simple

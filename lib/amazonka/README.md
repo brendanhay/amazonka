@@ -72,6 +72,12 @@ the types supplied by the various `amazonka-*` service libraries.
 
 * Serialisation classes like `ToText` and `ToByteString`, and their associated helper functions, are no longer directly exported from module `Amazonka`. If you need these, you may need to import `Amazonka.Data` directly.
 
+* The interface to the EC2 Instance Metadata Service (IMDS) is no longer exported from the root `Amazonka` module. If you used this, you should should import `Amazonka.EC2.Metadata` directly.
+
+  - The functions `Amazonka.dynamic`, `Amazonka.metadata` and `Amazonka.userdata` have been removed in favour of their equivalents in `Amazonka.EC2.Metadata` which only require a HTTP `Manager`, not an entire `Env`.
+  - If you were using them, read the `manager :: Manager` field directly from your `Env`.
+
+
 ## Contribute
 
 For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).

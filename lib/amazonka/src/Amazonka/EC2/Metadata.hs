@@ -9,9 +9,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This module contains functions for retrieving various EC2 metadata from an
--- instance's local metadata endpoint.
+-- instance's local metadata endpoint. It assumes that you're running the code
+-- on an EC2 instance or have a compatible @instance-data@ endpoint available.
 --
--- It is intended to be used when you need to make metadata calls prior to
+-- It is intended to be usable when you need to make metadata calls prior to
 -- initialisation of the 'Amazonka.Env.Env'.
 module Amazonka.EC2.Metadata
   ( -- * EC2 Instance Check

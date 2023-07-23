@@ -102,14 +102,6 @@ module Amazonka
     presignURL,
     presign,
 
-    -- * EC2 Instance Metadata
-    -- $metadata
-    EC2.Dynamic (..),
-    dynamic,
-    EC2.Metadata (..),
-    metadata,
-    userdata,
-
     -- * Running Asynchronous Actions
     -- $async
 
@@ -144,7 +136,6 @@ import Amazonka.Core hiding (presign)
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Crypto as Crypto
 import qualified Amazonka.Data.Body as Body
-import qualified Amazonka.EC2.Metadata as EC2
 import qualified Amazonka.Endpoint as Endpoint
 import qualified Amazonka.Env as Env
 import qualified Amazonka.Error as Error
@@ -345,10 +336,6 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- Presigning requires the 'Service' signer to be an instance of 'AWSPresigner'.
 -- Not all signing algorithms support this.
 
--- $metadata
--- Metadata can be retrieved from the underlying host assuming that you're running
--- the code on an EC2 instance or have a compatible @instance-data@ endpoint available.
-
 -- $async
 -- Requests can be sent asynchronously, but due to guarantees about resource closure
 -- require the use of "UnliftIO.Async".
@@ -448,16 +435,3 @@ presign env time expires rq = withAuth (runIdentity $ Env.auth env) $ \ae ->
       time
       expires
       rq
-
--- | Retrieve the specified 'Dynamic' data.
-dynamic :: MonadIO m => Env -> EC2.Dynamic -> m ByteString
-dynamic env = EC2.dynamic (Env.manager env)
-
--- | Retrieve the specified 'Metadata'.
-metadata :: MonadIO m => Env -> EC2.Metadata -> m ByteString
-metadata env = EC2.metadata (Env.manager env)
-
--- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
--- to the instance.
-userdata :: MonadIO m => Env -> m (Maybe ByteString)
-userdata = EC2.userdata . Env.manager

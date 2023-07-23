@@ -7,6 +7,13 @@ Released: **?**, Compare: [2.0.0-rc2](https://github.com/brendanhay/amazonka/com
 
 - `amazonka`: Update two missing EC2 metadata keys from [instance metadata categories](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html)
 [\#935](https://github.com/brendanhay/amazonka/pull/935)
+- `amazonka`: Stop re-exporting a subset of EC2 metadata keys from the root `Amazonka` module.
+[\#940](https://github.com/brendanhay/amazonka/pull/940)
+  - Metadata users should import `Amazonka.EC2.Metadata` directly.
+  - The functions `Amazonka.dynamic`, `Amazonka.metadata` and `Amazonka.userdata` have been removed in favour of their equivalents in `Amazonka.EC2.Metadata` which only require a HTTP `Manager`, not an entire `Env`.
+  - It is easy to share a single `Manager` between metadata requests and an Amazonka `Env`:
+    - If you create the `Env` first, you can read its `manager :: Manager` field.
+    - If you make metadata requests before calling `newEnv`, you must create a `Manager` youself. You can pass this `Manager` to `newEnvFromManager`.
 
 ### Fixed
 

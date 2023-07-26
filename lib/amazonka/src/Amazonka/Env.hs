@@ -55,7 +55,7 @@ import qualified Network.HTTP.Conduit as Client.Conduit
 import System.Environment as Environment
 
 -- | An environment with auth credentials. Most AWS requests need one
--- of these, and you can create one with 'Amazonka.Env.newEnv'
+-- of these, and you can create one with 'Amazonka.Env.newEnv'.
 type Env = Env' Identity
 
 -- | An environment with no auth credentials. Used for certain
@@ -109,9 +109,9 @@ env_auth :: Lens (Env' withAuth) (Env' withAuth') (withAuth Auth) (withAuth' Aut
 env_auth f e@Env {auth} = f auth <&> \auth' -> e {auth = auth'}
 
 -- | Creates a new environment with a new 'Client.Manager' without
--- debug logging and uses 'getAuth' to expand/discover the supplied
--- 'Credentials'.  Lenses can be used to further configure the
--- resulting 'Env'.
+-- debug logging and uses the provided function to expand/discover
+-- credentials.  Lenses can be used to further configure the resulting
+-- 'Env'.
 --
 -- /Since:/ @1.5.0@ - The region is now retrieved from the @AWS_REGION@ environment
 -- variable (identical to official SDKs), or defaults to @us-east-1@.
@@ -143,11 +143,11 @@ newEnvFromManager ::
 newEnvFromManager manager = (newEnvNoAuthFromManager manager >>=)
 
 -- | Generate an environment without credentials, which may only make
--- unsigned requests. This sets the region based on the @AWS_REGION@
+-- unsigned requests. Sets the region based on the @AWS_REGION@
 -- environment variable, or 'NorthVirginia' if unset.
 --
--- This is useful for the STS
--- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html AssumeRoleWithWebIdentity>
+-- This lets us support calls like
+-- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html sts:AssumeRoleWithWebIdentity>
 -- operation, which needs to make an unsigned request to pass the
 -- token from an identity provider.
 newEnvNoAuth :: MonadIO m => m EnvNoAuth

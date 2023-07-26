@@ -36,11 +36,11 @@ module Amazonka
     runResourceT,
 
     -- ** Credential Discovery
+    -- $discovery
     AccessKey (..),
     SecretKey (..),
     SessionToken (..),
     discover,
-    -- $discovery
 
     -- ** Supported Regions
     Region (..),
@@ -186,19 +186,19 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- example = do
 --     -- A new 'Logger' to replace the default noop logger is created, with the logger
 --     -- set to print debug information and errors to stdout:
---     logger <- AWS.newLogger AWS.Debug IO.stdout
+--     logger <- AWS.'Amazonka.newLogger' AWS.'Amazonka.Debug' IO.stdout
 --
---     -- To specify configuration preferences, 'newEnv' is used to create a new
---     -- configuration environment. The argument to 'newEnv' is used to specify the
+--     -- To specify configuration preferences, 'Amazonka.newEnv' is used to create a new
+--     -- configuration environment. The argument to 'Amazonka.newEnv' is used to specify the
 --     -- mechanism for supplying or retrieving AuthN/AuthZ information.
---     -- In this case 'discover' will cause the library to try a number of options such
+--     -- In this case 'Amazonka.discover' will cause the library to try a number of options such
 --     -- as default environment variables, or an instance's IAM Profile and identity document:
---     discoveredEnv <- AWS.newEnv AWS.discover
+--     discoveredEnv <- AWS.'Amazonka.newEnv' AWS.'Amazonka.discover'
 --
 --     let env =
 --             discoveredEnv
 --                 { AWS.logger = logger
---                 , AWS.region = AWS.Frankfurt
+--                 , AWS.region = AWS.'Amazonka.Frankfurt'
 --                 }
 --
 --     -- The payload (and hash) for the S3 object is retrieved from a 'FilePath',
@@ -209,12 +209,14 @@ import Control.Monad.Trans.Resource (runResourceT)
 --     -- We now run the 'AWS' computation with the overriden logger, performing the
 --     -- 'PutObject' request.
 --     AWS.runResourceT $
---         AWS.send env (S3.newPutObject "bucket-name" "object-key" body)
+--         AWS.'Amazonka.send' env (S3.newPutObject "bucket-name" "object-key" body)
 -- @
 
--- $discovery
--- AuthN/AuthZ information is handled similarly to other AWS SDKs. You can read
--- some of the options available <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs here>.
+-- $discovery AuthN/AuthZ information is handled similarly to other AWS SDKs. You can read some of
+-- the options available <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs here>.
+--
+-- 'Amazonka.Auth.discover' should be your default way of requesting credentials, as it searches the
+-- standard places that the official AWS SDKs use.
 --
 -- Authentication methods which return short-lived credentials (e.g., when running on
 -- an EC2 instance) fork a background thread which transparently handles the expiry
@@ -247,7 +249,7 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- appropriate Marker in order to retrieve the next page of results.
 --
 -- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
+-- requests, correctly setting markers and other request facets to iterate through
 -- the entire result set of a truncated API operation. Operations which support
 -- this have an additional note in the documentation.
 --
@@ -279,40 +281,46 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- is demonstrated below. Firstly, the default 'dynamoDB' service is configured to
 -- use non-SSL localhost as the endpoint:
 --
+-- @
+-- import qualified Amazonka as AWS
+-- import qualified Amazonka.DynamoDB as DynamoDB
 --
--- > import qualified Amazonka as AWS
--- > import qualified Amazonka.DynamoDB as DynamoDB
--- >
--- > let dynamo :: AWS.Service
--- >     dynamo = AWS.setEndpoint False "localhost" 8000 DynamoDB.defaultService
+-- let dynamo :: AWS.Service
+--     dynamo = AWS.setEndpoint False "localhost" 8000 DynamoDB.defaultService
+-- @
 --
 -- The updated configuration is then passed to the 'Env' during setup:
 --
--- > env <- AWS.configure dynamo <$> AWS.newEnv AWS.discover
--- >
--- > AWS.runResourceT $ do
--- >     -- This S3 operation will communicate with remote AWS APIs.
--- >     x <- AWS.send env newListBuckets
--- >
--- >     -- DynamoDB operations will communicate with localhost:8000.
--- >     y <- AWS.send env Dynamo.newListTables
--- >
--- >     -- Any operations for services other than DynamoDB, are not affected.
--- >     ...
+-- @
+-- env <- AWS.'Amazonka.configureService' dynamo \<$\> AWS.'Amazonka.newEnv' AWS.'Amazonka.discover'
+--
+-- AWS.runResourceT $ do
+--     -- This S3 operation will communicate with remote AWS APIs.
+--     x <- AWS.send env newListBuckets
+--
+--     -- DynamoDB operations will communicate with localhost:8000.
+--     y <- AWS.send env Dynamo.newListTables
+--
+--     -- Any operations for services other than DynamoDB, are not affected.
+--     ...
+-- @
 --
 -- You can also scope the service configuration modifications to specific actions:
 --
--- > env <- AWS.newEnv AWS.discover
--- >
--- > AWS.runResourceT $ do
--- >     -- Service operations here will communicate with AWS, even remote DynamoDB.
--- >     x <- AWS.send env Dynamo.newListTables
--- >
--- >     -- Here DynamoDB operations will communicate with localhost:8000.
--- >     y <- AWS.send (AWS.configure dynamo env) Dynamo.newListTables
+-- @
+-- env <- AWS.'Amazonka.newEnv' AWS.'Amazonka.discover'
 --
--- Functions such as 'once' and 'globalTimeout' can also be used
--- to modify service configuration for all (or specific) requests.
+-- AWS.runResourceT $ do
+--     -- Service operations here will communicate with AWS, even remote DynamoDB.
+--     x <- AWS.send env Dynamo.newListTables
+--
+--     -- Here DynamoDB operations will communicate with localhost:8000.
+--     y <- AWS.send (AWS.configure dynamo env) Dynamo.newListTables
+-- @
+--
+-- Functions such as 'Amazonka.once' and 'Amazonka.globalTimeout' can
+-- also be used to modify service configuration for all (or specific)
+-- requests.
 
 -- $streaming
 -- Streaming comes in two flavours. 'HashedBody' represents a request

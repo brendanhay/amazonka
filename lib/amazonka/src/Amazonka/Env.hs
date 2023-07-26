@@ -110,8 +110,8 @@ env_auth f e@Env {auth} = f auth <&> \auth' -> e {auth = auth'}
 
 -- | Creates a new environment with a new 'Client.Manager' without
 -- debug logging and uses the provided function to expand/discover
--- credentials.  Lenses can be used to further configure the resulting
--- 'Env'.
+-- credentials. Record updates or lenses can be used to further
+-- configure the resulting 'Env'.
 --
 -- /Since:/ @1.5.0@ - The region is now retrieved from the @AWS_REGION@ environment
 -- variable (identical to official SDKs), or defaults to @us-east-1@.
@@ -146,7 +146,7 @@ newEnvFromManager manager = (newEnvNoAuthFromManager manager >>=)
 -- unsigned requests. Sets the region based on the @AWS_REGION@
 -- environment variable, or 'NorthVirginia' if unset.
 --
--- This lets us support calls like
+-- This lets us support calls like the
 -- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html sts:AssumeRoleWithWebIdentity>
 -- operation, which needs to make an unsigned request to pass the
 -- token from an identity provider.

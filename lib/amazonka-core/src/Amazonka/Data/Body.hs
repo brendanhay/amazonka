@@ -277,7 +277,7 @@ sha256Base16 =
 -- and file size.
 --
 -- /Note:/ While this function will perform in constant space, it will enumerate the
--- entirety of the file contents _twice_. Firstly to calculate the SHA256 and
+-- entirety of the file contents /twice/. Firstly to calculate the SHA256 and
 -- lastly to stream the contents to the socket during sending.
 --
 -- /See:/ 'ToHashedBody'.
@@ -330,7 +330,7 @@ hashedBody ::
   HashedBody
 hashedBody = HashedStream
 
--- | Invariant: only services that support _both_ standard and
+-- | Invariant: only services that support /both/ standard and
 -- chunked signing expose 'RequestBody' as a parameter.
 data RequestBody
   = -- | Currently S3 only, see 'ChunkedBody' for details.

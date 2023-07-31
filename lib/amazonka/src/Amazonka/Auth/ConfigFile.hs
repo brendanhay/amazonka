@@ -89,7 +89,14 @@ fromFilePath ::
   Env' withAuth ->
   m Env
 fromFilePath profile credentialsFile configFile env = liftIO $ do
-  credentialsIni <- loadIniFile credentialsFile
+  -- If we fail to read the credentials file, assume it's empty and 
+  -- move on. It is valid to configure only a config file if you plan
+  -- to assume a role using any of the assume role methods.
+  credentialsIni <-
+    Exception.catchJust
+      (\(_ :: AuthError) -> Just mempty)
+      (loadIniFile credentialsFile)
+      pure
   -- If we fail to read the config file, assume it's empty and move
   -- on. It is valid to configure only a credentials file if you only
   -- want to set keys, for example.

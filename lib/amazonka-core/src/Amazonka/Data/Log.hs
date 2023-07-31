@@ -35,12 +35,12 @@ instance ToLog ByteStringBuilder where
 
 instance ToLog ByteStringLazy where
   build lbs = case LText.decodeUtf8' lbs of
-    Left _ -> "non-printable " <> build (LBS.length lbs) <> " lazy bytes"
+    Left _ -> mconcat ["non-printable lazy ByteString (", build (LBS.length lbs), ")"]
     Right _ -> Build.lazyByteString lbs
 
 instance ToLog ByteString where
   build bs = case Text.decodeUtf8' bs of
-    Left _ -> "non-printable " <> build (BS.length bs) <> " strict bytes"
+    Left _ -> mconcat ["non-printable strict ByteString (", build (LBS.length lbs), ")"]
     Right _ -> Build.byteString bs
 
 instance ToLog Int where

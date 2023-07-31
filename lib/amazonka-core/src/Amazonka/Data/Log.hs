@@ -34,10 +34,14 @@ instance ToLog ByteStringBuilder where
   build = id
 
 instance ToLog ByteStringLazy where
-  build = Build.lazyByteString
+  build lbs = case LText.decodeUtf8' lbs of
+    Left _ -> "non-printable " <> build (LBS.length lbs) <> " lazy bytes"
+    Right _ -> Build.lazyByteString lbs
 
 instance ToLog ByteString where
-  build = Build.byteString
+  build bs = case Text.decodeUtf8' bs of
+    Left _ -> "non-printable " <> build (BS.length bs) <> " strict bytes"
+    Right _ -> Build.byteString bs
 
 instance ToLog Int where
   build = Build.intDec

@@ -38,12 +38,12 @@ import System.Info (os)
 -- * AWS recommends credentials do not live in the config file, but
 --   allows it. You should instead define them in the credentials file.
 --
--- * You can set @role_arn@ together with either @source_profile@, 
+-- * You can set @role_arn@ together with either @source_profile@,
 --   @credential_source@ , or @web_identity_token_file@.  Unlike the
---   standard SDK we only support @role_session_name@ for 
---   @web_identity_token_file@ and not the other AssumeRole methods. 
+--   standard SDK we only support @role_session_name@ for
+--   @web_identity_token_file@ and not the other AssumeRole methods.
 --   This might be fixed in the future.
--- 
+--
 -- * If you set @role_arn@ and @source_profile@, the source profile's
 --   credentials will be used to assume the role.
 --
@@ -56,7 +56,7 @@ import System.Info (os)
 --   set @role_session_name@ to specify the name of the session.
 --
 -- * You can finally also configure assuming a role using AWS Identity Center
---   (Formerly AWS SSO) by setting @sso_start_url@, @sso_region@, 
+--   (Formerly AWS SSO) by setting @sso_start_url@, @sso_region@,
 --   @sso_account_id@, and @sso_role_name@ in your profile section.
 --   Amazonka currently does not initiate the SSO login flow, so you will have
 --   to do that yourself using the AWS CLI. Amazonka will then look in
@@ -89,7 +89,7 @@ fromFilePath ::
   Env' withAuth ->
   m Env
 fromFilePath profile credentialsFile configFile env = liftIO $ do
-  -- If we fail to read the credentials file, assume it's empty and 
+  -- If we fail to read the credentials file, assume it's empty and
   -- move on. It is valid to configure only a config file if you plan
   -- to assume a role using any of the assume role methods.
   credentialsIni <-
@@ -143,12 +143,18 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
       config <- ask
       case HashMap.lookup pName config of
         Nothing ->
-          liftIO . Exception.throwIO . InvalidFileError $
-            "Missing profile: " <> Text.pack (show pName)
+          liftIO
+            . Exception.throwIO
+            . InvalidFileError
+            $ "Missing profile: "
+            <> Text.pack (show pName)
         Just p -> case parseConfigProfile p of
           Nothing ->
-            liftIO . Exception.throwIO . InvalidFileError $
-              "Parse error in profile: " <> Text.pack (show pName)
+            liftIO
+              . Exception.throwIO
+              . InvalidFileError
+              $ "Parse error in profile: "
+              <> Text.pack (show pName)
           Just (cp, mRegion) -> do
             env' <- case cp of
               ExplicitKeys keys ->
@@ -162,7 +168,8 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
                      in liftIO
                           . Exception.throwIO
                           . InvalidFileError
-                          $ "Infinite source_profile loop: " <> textTrace
+                          $ "Infinite source_profile loop: "
+                          <> textTrace
                   else do
                     lift . modify $ (sourceProfileName :)
                     sourceEnv <- evalConfig sourceProfileName
@@ -177,8 +184,9 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
                 fromWebIdentity tokenFile roleArn mRoleSessionName env
               AssumeRoleViaSSO startUrl ssoRegion accountId roleName -> do
                 cachedTokenFile <-
-                  liftIO $
-                    configPathRelative =<< relativeCachedTokenFile startUrl
+                  liftIO
+                    $ configPathRelative
+                    =<< relativeCachedTokenFile startUrl
                 fromSSO cachedTokenFile ssoRegion accountId roleName env
 
             -- Once we have the env from the profile, apply the region
@@ -224,19 +232,24 @@ parseConfigProfile profile = parseProfile <&> (,parseRegion)
     parseRegion = Region' <$> HashMap.lookup "region" profile
 
     explicitKey =
-      fmap ExplicitKeys $
-        AuthEnv
-          <$> ( AccessKey . Text.encodeUtf8
-                  <$> HashMap.lookup "aws_access_key_id" profile
-              )
-          <*> ( Sensitive . SecretKey . Text.encodeUtf8
-                  <$> HashMap.lookup "aws_secret_access_key" profile
-              )
-          <*> Just
-            ( Sensitive . SessionToken . Text.encodeUtf8
-                <$> HashMap.lookup "aws_session_token" profile
+      fmap ExplicitKeys
+        $ AuthEnv
+        <$> ( AccessKey
+                . Text.encodeUtf8
+                <$> HashMap.lookup "aws_access_key_id" profile
             )
-          <*> Just Nothing -- No token expiry in config file
+        <*> ( Sensitive
+                . SecretKey
+                . Text.encodeUtf8
+                <$> HashMap.lookup "aws_secret_access_key" profile
+            )
+        <*> Just
+          ( Sensitive
+              . SessionToken
+              . Text.encodeUtf8
+              <$> HashMap.lookup "aws_session_token" profile
+          )
+        <*> Just Nothing -- No token expiry in config file
     assumeRoleFromProfile =
       AssumeRoleFromProfile
         <$> HashMap.lookup "role_arn" profile
@@ -299,17 +312,29 @@ data CredentialSource = Environment | Ec2InstanceMetadata | EcsContainer
 -- This looks in in the @HOME@ directory as determined by the
 -- <http://hackage.haskell.org/package/directory directory> library.
 --
+
 -- * Not Windows: @$HOME\/.aws\/credentials@
+
 --
+
 -- * Windows: @%USERPROFILE%\\.aws\\credentials@
+
+--
+-- If @AWS_SHARED_CREDENTIALS_FILE@ is set, it will be used instead of the
+-- default.
+-- If @AWS_CONFIG_FILE@ is set, it will be used instead of the default.
+-- If @AWS_PROFILE@ is set, it will be used instead of the default.
 fromFileEnv ::
   (MonadIO m, Foldable withAuth) => Env' withAuth -> m Env
 fromFileEnv env = liftIO $ do
-  mProfile <- Environment.lookupEnv "AWS_PROFILE"
-  cred <- configPathRelative "/.aws/credentials"
-  conf <- configPathRelative "/.aws/config"
-
-  fromFilePath (maybe "default" Text.pack mProfile) cred conf env
+  profile <- Environment.lookupEnv "AWS_PROFILE" <&> maybe "default" Text.pack
+  conf <-
+    Environment.lookupEnv "AWS_CONFIG_File"
+      >>= maybe (configPathRelative "/.aws/config") pure
+  cred <-
+    Environment.lookupEnv "AWS_SHARED_CREDENTIALS_FILE"
+      >>= maybe (configPathRelative "/.aws/credentials") pure
+  fromFilePath profile cred conf env
 
 configPathRelative :: String -> IO String
 configPathRelative p = handling_ _IOException err dir

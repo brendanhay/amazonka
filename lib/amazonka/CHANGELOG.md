@@ -1,5 +1,18 @@
 # Change Log
 
+## Unreleased
+
+### Changed
+
+- `amazonka`: Add support for `AWS_SHARED_CREDENTIALS_FILE` and `AWS_CONFIG_FILE` environment variables to override the
+  default paths `$HOME/.aws/credentials` and `$HOME/.aws/config` [\#951](https://github.com/brendanhay/amazonka/pull/951)
+
+### Fixed
+
+- `amazonka`: Allow reading the AWS config file when the credentials file is missing [\#951](https://github.com/brendanhay/amazonka/pull/951).
+  This is useful when you are using a role-based authentication method or AWS IAM Identity Center (formerly AWS SSO) which does not require a credentials file.
+  Before this fix you had to create an empty credentials file for these methods to work correctly.
+
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)
 Released: **28 July 2023**, Compare: [2.0.0-rc2](https://github.com/brendanhay/amazonka/compare/2.0.0-rc2...2.0.0)
 

@@ -302,7 +302,7 @@ data CredentialSource = Environment | Ec2InstanceMetadata | EcsContainer
 --
 -- Throws 'MissingFileError' if 'credFile' is missing, or 'InvalidFileError'
 -- if an error occurs during parsing.
-
+--
 -- If @AWS_SHARED_CREDENTIALS_FILE@ is set, it will be used instead of looking
 -- for @.aws\/credentials@ in the @HOME@ directory
 -- If @AWS_CONFIG_FILE@ is set, it will be used instead of looking for

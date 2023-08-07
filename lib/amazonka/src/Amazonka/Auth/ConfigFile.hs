@@ -315,11 +315,6 @@ data CredentialSource = Environment | Ec2InstanceMetadata | EcsContainer
 -- * Not Windows: @$HOME\/.aws\/credentials@
 --
 -- * Windows: @%USERPROFILE%\\.aws\\credentials@
---
--- If @AWS_SHARED_CREDENTIALS_FILE@ is set, it will be used instead of the
--- default.
--- If @AWS_CONFIG_FILE@ is set, it will be used instead of the default.
--- If @AWS_PROFILE@ is set, it will be used instead of the default.
 fromFileEnv ::
   (MonadIO m, Foldable withAuth) => Env' withAuth -> m Env
 fromFileEnv env = liftIO $ do

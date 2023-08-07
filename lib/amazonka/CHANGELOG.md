@@ -1,5 +1,10 @@
 # Change Log
 
+## Unreleased
+
+- `amazonka`: During logging, do not print bytestrings that have unprintable characters
+[\#952](https://github.com/brendanhay/amazonka/pull/952)
+
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)
 Released: **28 July 2023**, Compare: [2.0.0-rc2](https://github.com/brendanhay/amazonka/compare/2.0.0-rc2...2.0.0)
 

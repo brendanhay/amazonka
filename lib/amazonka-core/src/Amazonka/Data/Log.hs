@@ -17,6 +17,7 @@ import qualified Data.ByteString as BS
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
+import qualified Data.Char as Char
 import qualified Data.List as List
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
@@ -34,10 +35,14 @@ instance ToLog ByteStringBuilder where
   build = id
 
 instance ToLog ByteStringLazy where
-  build = Build.lazyByteString
+  build lbs = case LText.decodeUtf8' lbs of
+    Right lt | LText.all Char.isPrint lt -> Build.lazyByteString lbs
+    _ -> mconcat ["non-printable lazy ByteString (", build (LBS.length lbs), " bytes)"]
 
 instance ToLog ByteString where
-  build = Build.byteString
+  build bs = case Text.decodeUtf8' bs of
+    Right t | Text.all Char.isPrint t -> Build.byteString bs
+    _ -> mconcat ["non-printable strict ByteString (", build (BS.length bs), " bytes)"]
 
 instance ToLog Int where
   build = Build.intDec

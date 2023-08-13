@@ -214,6 +214,12 @@ data Metadata
     Spot !Spot
   | -- | See: 'Tags'
     Tags !Tags
+  | -- | Any other piece of metadata specified by arbitrary key.
+    --
+    -- This is provided for forward compatibility: should there ever appear any gap
+    -- between a future version of AWS API and what (possibly an outdated version of)
+    -- this library covers -- the constructor gives the option to work around.
+    XtendedMeta !Text
   deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText Metadata where
@@ -252,6 +258,7 @@ instance ToText Metadata where
       Services m -> "services/" <> toText m
       Spot m -> "spot/" <> toText m
       Tags m -> "tags/" <> toText m
+      XtendedMeta m -> m
 
 -- | Metadata keys for @autoscaling/*@.
 data Autoscaling

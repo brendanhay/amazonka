@@ -214,6 +214,12 @@ data Metadata
     Spot !Spot
   | -- | See: 'Tags'
     Tags !Tags
+  | -- | Any other piece of metadata specified by arbitrary key.
+    --
+    -- This is provided for forward compatibility: should there ever appear any gap
+    -- between a future version of IMDS API and what this library covers,
+    -- this constructor provides a workaround.
+    Other !Text
   deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText Metadata where
@@ -252,6 +258,7 @@ instance ToText Metadata where
       Services m -> "services/" <> toText m
       Spot m -> "spot/" <> toText m
       Tags m -> "tags/" <> toText m
+      Other m -> m
 
 -- | Metadata keys for @autoscaling/*@.
 data Autoscaling
@@ -573,18 +580,24 @@ instance ToText Spot where
     SInstanceAction -> "instance-action"
     STerminationTime -> "termination-time"
 
--- | Metadata keys for @tags/*@.
+-- | Instance Metadata tags: @tags/instance@, @tags/instance/*@.
+--
+-- See [these 2 curl examples](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html#instance-metadata-ex-7)
+-- in AWSEC2 User Guide.
+--
+-- Only available if you [explicitly allow access](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS)
+-- to instance metadata tags.
 data Tags
-  = -- | The instance tags associated with the instance. Only
-    -- available if you explicitly allow access to tags in instance
-    -- metadata. For more information, see
-    -- [Allow access to tags in instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS).
+  = -- | The keys of available tags, @\n@-separated, if enabled in instance settings.
     Instance
+    -- | A specific named tag in Instance Metadata, if enabled in instance settings.
+  | InstanceTag !Text
   deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText Tags where
   toText = \case
     Instance -> "instance"
+    InstanceTag t -> "instance/" <> t
 
 latest :: Text
 latest = "http://169.254.169.254/latest/"

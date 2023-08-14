@@ -14,6 +14,7 @@
   Before this fix you had to create an empty credentials file for these methods to work correctly.
 - `amazonka`: During logging, do not print bytestrings that have unprintable characters
 [\#952](https://github.com/brendanhay/amazonka/pull/952)
+- `amazonka`: Support reading values of IMDS metadata tags, add `Metadata.Other` constructor [\#955](https://github.com/brendanhay/amazonka/pull/955)
 
 
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)

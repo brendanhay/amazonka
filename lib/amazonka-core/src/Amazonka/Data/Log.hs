@@ -142,16 +142,8 @@ instance ToLog Client.RequestBody where
   build = \case
     Client.RequestBodyBuilder n _ -> " <builder:" <> build n <> ">"
     Client.RequestBodyStream n _ -> " <stream:" <> build n <> ">"
-    Client.RequestBodyLBS lbs
-      | n <= 4096 -> build lbs
-      | otherwise -> " <lazy:" <> build n <> ">"
-      where
-        n = LBS.length lbs
-    Client.RequestBodyBS bs
-      | n <= 4096 -> build bs
-      | otherwise -> " <strict:" <> build n <> ">"
-      where
-        n = BS.length bs
+    Client.RequestBodyLBS lbs -> " <lazy:" <> build (LBS.length lbs) <> ">"
+    Client.RequestBodyBS bs -> " <strict:" <> build (BS.length bs) <> ">"
     _ -> " <chunked>"
 
 instance ToLog Client.HttpException where

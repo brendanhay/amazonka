@@ -11,10 +11,14 @@
 module Data.Json.InsertOrdered (InsOrdJson (..), parse) where
 
 import Data.Aeson qualified as Aeson
-import Data.Aeson.Decoding.ByteString.Lazy qualified as Aeson
 import Data.Aeson.Decoding.Tokens
+  ( Lit (..),
+    Number (..),
+    TkArray (..),
+    TkRecord (..),
+    Tokens (..),
+  )
 import Data.Bifunctor (first)
-import Data.ByteString.Lazy (LazyByteString)
 import Data.Scientific (Scientific)
 import Data.Sequence (Seq (..))
 import Data.Text (Text)
@@ -29,8 +33,8 @@ data InsOrdJson
   | Null
   deriving (Eq, Show, Generic)
 
-parse :: LazyByteString -> Either String InsOrdJson
-parse = fmap fst . parseTokens . Aeson.lbsToTokens
+parse :: Tokens k e -> Either e InsOrdJson
+parse = fmap fst . parseTokens
 
 parseTokens :: Tokens k e -> Either e (InsOrdJson, k)
 parseTokens = \case

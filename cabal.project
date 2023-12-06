@@ -12,6 +12,7 @@ packages:
    lib/amazonka-core/
    lib/amazonka-test/
    lib/amazonka-s3-encryption/
+   lib/botocore/
 
 optional-packages:
    gen/

@@ -1,0 +1,37 @@
+cabal-version: 2.2
+name:          botocore
+version:       0.1.0.0
+synopsis:      Representation of botocore types
+homepage:      https://github.com/brendanhay/amazonka
+bug-reports:   https://github.com/brendanhay/amazonka/issues
+license:       MPL-2.0
+license-file:  LICENSE
+author:        Jack Kelly
+maintainer:    Jack Kelly <jack@jackkelly.name>
+copyright:     Copyright (c) 2023 Bellroy Pty Ltd
+category:      AWS
+build-type:    Simple
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   gen
+
+library
+  hs-source-dirs:   src
+  build-depends:
+  default-language: GHC2021
+  ghc-options:
+    -Wall -Wunused-packages -Wincomplete-uni-patterns
+    -Wincomplete-record-updates
+
+  build-depends:
+    , aeson       ^>=2.1.2.0
+    , base        >=4.14     && <4.18
+    , bytestring  ^>=0.11
+    , containers  ^>=0.6.7
+    , scientific  ^>=0.3.7.0
+    , text        ^>=2.0
+
+  exposed-modules:  Botocore
+  other-modules:    Data.Json.InsertOrdered

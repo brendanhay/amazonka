@@ -19,24 +19,15 @@ import Data.Kind (Type)
 import Data.Map qualified as Map
 import Data.Some (Some (..))
 import Data.Text (Text)
-import GHC.Generics ((:+:) (..))
+import GHC.Generics (Generically, (:+:) (..))
 
 -- | Class for Barbies which are records.
 --
--- Laws:
---
--- * Every record field appears once in 'allFields'
--- * @'parseField' ('fieldName' f) == Just (Some f)@ for any field @f@
+-- Law: Every record field appears once in 'allFields'.
 class (TraversableB b) => RecordB (b :: (Type -> Type) -> Type) where
   data Field b :: Type -> Type
   allFields :: [Some (Field b)]
-  fieldName :: Field b a -> Text
   fieldLens :: Field b a -> Lens' (b f) (f a)
-
-  parseField :: Text -> Maybe (Some (Field b))
-  parseField field = Map.lookup field table
-    where
-      table = Map.fromList $ allFields @b <&> \(Some f) -> (fieldName f, Some f)
 
 ibtraverse ::
   forall b f e g.

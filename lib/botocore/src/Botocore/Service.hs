@@ -20,10 +20,10 @@ module Botocore.Service where
 import Botocore.Service.Metadata qualified as Metadata
 import Data.Aeson.Decoding.Tokens (Tokens (..))
 import Data.Aeson.Decoding.Tokens.Direct
-  ( Error,
-    FieldParser (..),
-    decodeRecordB,
-    withText,
+  ( Parser,
+    field,
+    recordB,
+    text,
   )
 import Data.Functor ((<&>))
 import Data.Functor.Barbie.Extended (FunctorB (..), Rec (..), TraversableB (..))
@@ -65,13 +65,6 @@ instance RecordB Service where
       Some Documentation
     ]
 
-  fieldName = \case
-    Version -> "version"
-    Metadata -> "metadata"
-    Operations -> "operations"
-    Shapes -> "shapes"
-    Documentation -> "documentation"
-
   fieldLens i f = case i of
     Version -> \service ->
       f (version service) <&> \version' -> service {version = version'}
@@ -84,13 +77,13 @@ instance RecordB Service where
     Documentation -> \service ->
       f (documentation service) <&> \documentation' -> service {documentation = documentation'}
 
-parse :: Tokens k e -> Either (Error e) (k, Service Identity)
+parse :: Parser Tokens k e (Service Identity)
 parse =
-  decodeRecordB $
+  recordB $
     Service
-      { version = FieldParser $ withText Right,
-        metadata = FieldParser $ Metadata.parse,
-        documentation = FieldParser $ withText Right
+      { version = field "version" text,
+        metadata = field "metadata" Metadata.parse,
+        documentation = field "documentation" text
       }
 
 data Operation = MkOperation deriving (Eq, Show, Generic)

@@ -1,6 +1,8 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedLabels #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
 
 -- |
 -- Module      : Data.Aeson.Decoding.Tokens.Direct
@@ -12,9 +14,15 @@
 module Data.Aeson.Decoding.Tokens.Direct where
 
 import Barbies.Bare (Bare, BareB, Covered, bstrip)
-import Barbies.TH (AccessorsB (..), FieldNamesB, LensB (..))
+import Barbies.TH (AccessorsB (..), FieldNamesB, LensB (..), passthroughBareB)
 import Data.Aeson qualified as Aeson
-import Data.Aeson.Decoding.Tokens (Lit (..), TkRecord (..), Tokens (..))
+import Data.Aeson.Decoding.Tokens
+  ( Lit (..),
+    Number (..),
+    TkArray (..),
+    TkRecord (..),
+    Tokens (..),
+  )
 import Data.Aeson.Key qualified as Key
 import Data.Function ((&))
 import Data.Functor.Barbie.Extended
@@ -27,19 +35,26 @@ import Data.Functor.Barbie.Extended
 import Data.Functor.Identity (Identity (..))
 import Data.Functor.Product (Product (..))
 import Data.Generics.Labels ()
+import Data.List.NonEmpty (NonEmpty)
+import Data.List.NonEmpty qualified as NE
 import Data.Map (Map)
 import Data.Map qualified as Map
 import Data.Some (Some (..))
 import Data.Text (Text)
 import GHC.Generics (Generic, (:+:) (..))
 
+-- Helper type for parsing single-field objects. Up this high for TH reasons.
+$(passthroughBareB [d|data OneFieldObject a = OneFieldObject {theField :: a}|])
+
 data JsonType = Null | Bool | String | Number | Array | Object
   deriving (Eq, Enum, Show, Generic)
 
 data Error e
-  = ExpectedGot JsonType JsonType
+  = EmptyList
+  | ExpectedGot JsonType JsonType
   | MissingKey Aeson.Key
   | DuplicateKey Aeson.Key
+  | NonIntegerNumber Number
   | UnexpectedKey Aeson.Key
   | UnrecognisedEnumValue Text
   | TokenError e
@@ -58,6 +73,17 @@ andThen (Parser parse) f = Parser $ \tokens -> do
   (tokens', a) <- parse tokens
   (tokens',) <$> f a
 
+bool :: Parser Tokens k e Bool
+bool = Parser $ \case
+  TkLit LitNull _ -> Left (ExpectedGot Bool Null)
+  TkLit LitTrue k -> Right (k, True)
+  TkLit LitFalse k -> Right (k, False)
+  TkText _ _ -> Left (ExpectedGot Bool String)
+  TkNumber _ _ -> Left (ExpectedGot Bool Number)
+  TkArrayOpen _ -> Left (ExpectedGot Bool Array)
+  TkRecordOpen _ -> Left (ExpectedGot Bool Object)
+  TkErr e -> Left (TokenError e)
+
 enum ::
   (Enum a, Bounded a, Ord a) =>
   (a -> Text) ->
@@ -72,7 +98,7 @@ data FieldParser k e a = FieldParser
     parseField :: Parser Tokens (TkRecord k e) e a,
     defaultValue :: Either (Error e) a
   }
-  deriving (Generic)
+  deriving (Functor, Generic)
 
 field ::
   Text ->
@@ -84,6 +110,37 @@ field fieldName parseField =
       ..
     }
 
+int :: (Num a) => Parser Tokens k e a
+int =
+  number `andThen` \case
+    NumInteger i -> Right $ fromInteger i
+    n -> Left $ NonIntegerNumber n
+
+list :: forall k e a. Parser Tokens (TkArray k e) e a -> Parser Tokens k e [a]
+list parseValue = withArray $ go id
+  where
+    go ::
+      -- Difference list
+      ([a] -> [a]) ->
+      Parser TkArray k e [a]
+    go acc = Parser $ \case
+      TkItem tokens -> case runParser parseValue tokens of
+        Left e -> Left e
+        Right (tokens', a) ->
+          let acc' = acc . (++ [a])
+           in runParser (go acc') tokens'
+      TkArrayEnd tokens -> Right (tokens, acc [])
+      TkArrayErr e -> Left $ TokenError e
+
+nonEmpty :: Parser Tokens (TkArray k e) e a -> Parser Tokens k e (NonEmpty a)
+nonEmpty parseValue =
+  list parseValue `andThen` \xs ->
+    maybe (Left EmptyList) Right $ NE.nonEmpty xs
+
+oneFieldObject :: FieldParser k e a -> Parser Tokens k e a
+oneFieldObject parseField =
+  theField <$> record OneFieldObject {theField = parseField}
+
 optional :: FieldParser k e a -> FieldParser k e (Maybe a)
 optional FieldParser {..} =
   FieldParser
@@ -91,6 +148,33 @@ optional FieldParser {..} =
       defaultValue = Right Nothing,
       ..
     }
+
+map ::
+  forall k e a.
+  Parser Tokens (TkRecord k e) e a ->
+  Parser Tokens k e (Map Text a)
+map parseValue = withRecord $ go Map.empty
+  where
+    go :: Map Text a -> Parser TkRecord k e (Map Text a)
+    go acc = Parser $ \case
+      TkPair key tokens -> case runParser parseValue tokens of
+        Left e -> Left e
+        Right (tokens', a) ->
+          let acc' = Map.insert (Key.toText key) a acc
+           in runParser (go acc') tokens'
+      TkRecordEnd tokens -> Right $ (tokens, acc)
+      TkRecordErr e -> Left $ TokenError e
+
+number :: Parser Tokens k e Number
+number = Parser $ \case
+  TkLit LitNull _ -> Left (ExpectedGot Number Null)
+  TkLit LitTrue _ -> Left (ExpectedGot Number Bool)
+  TkLit LitFalse _ -> Left (ExpectedGot Number Bool)
+  TkText _ _ -> Left (ExpectedGot Number String)
+  TkNumber n k -> Right (k, n)
+  TkArrayOpen _ -> Left (ExpectedGot Number Array)
+  TkRecordOpen _ -> Left (ExpectedGot Number Object)
+  TkErr e -> Left (TokenError e)
 
 record ::
   forall b k e.
@@ -103,8 +187,8 @@ record ::
   b Covered (FieldParser k e) ->
   Parser Tokens k e (b Bare Identity)
 record bparsers =
-  let fieldForKey :: Map Text (Some (LensB (b Covered)))
-      fieldForKey =
+  let recordLensesByKey :: Map Text (Some (LensB (b Covered)))
+      recordLensesByKey =
         bfoldMap
           ( \(Pair parser blens) ->
               Map.singleton (fieldName parser) (Some blens)
@@ -119,15 +203,18 @@ record bparsers =
         b Covered (FieldParser k e :+: Either (Error e)) ->
         Parser TkRecord k e (b Covered Identity)
       go b = Parser $ \case
-        TkPair key tokens -> case Map.lookup (Key.toText key) fieldForKey of
-          Nothing -> Left $ UnexpectedKey key
-          Just (Some f) -> case viewB f b of
-            L1 FieldParser {parseField} -> case runParser parseField tokens of
-              Left e -> Left e
-              Right (tokens', a) ->
-                let b' = b & setB f (R1 (Right a))
-                 in runParser (go b') tokens'
-            R1 _ -> Left $ DuplicateKey key
+        TkPair key tokens ->
+          case Map.lookup (Key.toText key) recordLensesByKey of
+            Nothing -> Left $ UnexpectedKey key
+            Just (Some f) -> case viewB f b of
+              -- Haven't seen this key before: try to parse it
+              L1 FieldParser {parseField} -> case runParser parseField tokens of
+                Left e -> Left e
+                Right (tokens', a) ->
+                  let b' = b & setB f (R1 (Right a))
+                   in runParser (go b') tokens'
+              -- Duplicate key: report error
+              R1 _ -> Left $ DuplicateKey key
         TkRecordEnd tokens -> fmap (tokens,) $ bfor b $ \case
           L1 FieldParser {defaultValue} -> Identity <$> defaultValue
           R1 a -> Identity <$> a
@@ -145,20 +232,18 @@ text = Parser $ \case
   TkRecordOpen _ -> Left (ExpectedGot String Object)
   TkErr e -> Left (TokenError e)
 
---
--- withMap ::
---   forall key value k e.
---   (Ord key) =>
---   (Aeson.Key -> Tokens (TkRecord k e) e -> Either (Error e) (key, value)) ->
---   Tokens k e ->
---   Either (Error e) (k, Map key value)
--- withMap f = withRecord $ go mempty
---   where
---     go :: Map key value -> TkRecord k e -> Either (Error e) (Map key value)
---     go m = \case
---       TkRecordEnd k -> _
---       TkRecordErr e -> Left $ TokenError e
---
+withArray ::
+  Parser TkArray k e a -> Parser Tokens k e a
+withArray parser = Parser $ \case
+  TkLit LitNull _ -> Left (ExpectedGot Array Null)
+  TkLit LitTrue _ -> Left (ExpectedGot Array Bool)
+  TkLit LitFalse _ -> Left (ExpectedGot Array Bool)
+  TkText _ _ -> Left (ExpectedGot Array String)
+  TkNumber _ _ -> Left (ExpectedGot Array Number)
+  TkArrayOpen tokens -> runParser parser tokens
+  TkRecordOpen _ -> Left (ExpectedGot Array Object)
+  TkErr e -> Left (TokenError e)
+
 withRecord ::
   Parser TkRecord k e a -> Parser Tokens k e a
 withRecord parser = Parser $ \case

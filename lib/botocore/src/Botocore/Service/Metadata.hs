@@ -1,10 +1,7 @@
-{-# LANGUAGE DeriveAnyClass #-}
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE QuantifiedConstraints #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
@@ -22,22 +19,17 @@ import Barbies (Barbie (..))
 import Barbies.TH (passthroughBareB)
 import Botocore.Service.Metadata.ProtocolSettings (ProtocolSettings)
 import Botocore.Service.Metadata.ProtocolSettings qualified as ProtocolSettings
-import Data.Aeson.Decoding.ByteString.Lazy
 import Data.Aeson.Decoding.Tokens (Tokens (..))
 import Data.Aeson.Decoding.Tokens.Direct
   ( Parser (..),
     enum,
-    execParser,
     field,
     optional,
     record,
     text,
   )
-import Data.ByteString.Lazy qualified as LBS
-import Data.Foldable
 import Data.Text (Text)
 import GHC.Generics (Generic)
-import System.Directory
 
 data ChecksumFormat = Md5 | Sha256
   deriving (Bounded, Enum, Eq, Ord, Show, Generic)
@@ -76,7 +68,7 @@ $( passthroughBareB
 
 parse :: Parser Tokens k e Metadata
 parse =
-  record $
+  record
     Metadata
       { apiVersion = field "apiVersion" text,
         checksumFormat = optional . field "checksumFormat" . enum $ \case
@@ -110,11 +102,3 @@ parse =
         uid = optional $ field "uid" text,
         xmlNamespace = optional $ field "xmlNamespace" text
       }
-
-test :: IO ()
-test = do
-  let dir = "../../scraps"
-  files <- listDirectory dir
-  for_ files $ \file -> do
-    contents <- LBS.readFile $ dir ++ "/" ++ file
-    either print (const $ pure ()) $ execParser parse $ lbsToTokens contents

@@ -1,0 +1,31 @@
+-- |
+-- Module      : Botocore.Service.Shape
+-- Copyright   : (c) 2023 Bellroy Pty Ltd
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Jack Kelly <jack@jackkelly.name>
+-- Stability   : provisional
+-- Portability : non-portable (GHC extensions)
+module Botocore.Service.Shape where
+
+-- import Data.Aeson.Decoding.ByteString.Lazy
+-- import Data.Aeson.Decoding.Tokens.Direct
+--  ( Parser (..),
+--    enum,
+--    execParser,
+--    field,
+--    optional,
+--    record,
+--    text,
+--  )
+-- import Data.ByteString.Lazy qualified as LBS
+-- import Data.Foldable
+-- import System.Directory
+--
+-- test :: IO ()
+-- test = do
+--  let dir = "../../scraps"
+--  files <- listDirectory dir
+--  for_ files $ \file -> do
+--    contents <- LBS.readFile $ dir ++ "/" ++ file
+--    either print print $ execParser parse $ lbsToTokens contents
+--

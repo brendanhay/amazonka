@@ -44,6 +44,19 @@ library
     Botocore.Service
     Botocore.Service.Metadata
     Botocore.Service.Metadata.ProtocolSettings
+    Botocore.Service.Operation
+    Botocore.Service.Operation.Endpoint
+    Botocore.Service.Operation.EndpointDiscovery
+    Botocore.Service.Operation.Error
+    Botocore.Service.Operation.Error.Info
+    Botocore.Service.Operation.Http
+    Botocore.Service.Operation.HttpChecksum
+    Botocore.Service.Operation.Input
+    Botocore.Service.Operation.Input.XmlNamespace
+    Botocore.Service.Operation.Output
+    Botocore.Service.Operation.StaticContextParams
+    Botocore.Service.Shape
+    Botocore.Service.Types
 
   other-modules:
     Data.Aeson.Decoding.Tokens.Direct

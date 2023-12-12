@@ -17,3 +17,6 @@ packages:
 optional-packages:
    gen/
    lib/services/*/
+
+allow-newer:
+   barbies-th:base, barbies-th:template-haskell

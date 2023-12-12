@@ -1,10 +1,12 @@
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuantifiedConstraints #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
 
@@ -17,75 +19,43 @@
 -- Portability : non-portable (GHC extensions)
 module Botocore.Service where
 
+import Barbies (Barbie (..))
+import Barbies.TH (passthroughBareB)
+import Botocore.Service.Metadata (Metadata)
 import Botocore.Service.Metadata qualified as Metadata
 import Data.Aeson.Decoding.Tokens (Tokens (..))
 import Data.Aeson.Decoding.Tokens.Direct
   ( Parser,
     field,
-    recordB,
+    record,
     text,
   )
-import Data.Functor ((<&>))
-import Data.Functor.Barbie.Extended (FunctorB (..), Rec (..), TraversableB (..))
-import Data.Functor.Barbie.Record
-import Data.Functor.Identity (Identity (..))
 import Data.Map (Map)
-import Data.Some (Some (..))
 import Data.Text (Text)
 import GHC.Generics (Generic)
 
--- | A service definition, as described by a @service-2.json@ file.
-data Service f = Service
-  { version :: f Text,
-    metadata :: f (Metadata.Metadata Identity),
-    operations :: f (Map Text Operation),
-    shapes :: f (Map Text Shape),
-    documentation :: f Text
-  }
-  deriving stock (Generic)
-  deriving anyclass (FunctorB, TraversableB)
+data Operation = MkOperation deriving (Eq, Show, Generic)
 
-deriving stock instance (forall a. (Eq a) => Eq (f a)) => Eq (Service f)
+data Shape = MkShape deriving (Eq, Show, Generic)
 
-deriving stock instance (forall a. (Show a) => Show (f a)) => Show (Service f)
+$( passthroughBareB
+     [d|
+       data Service = Service
+         { version :: Text,
+           metadata :: Metadata,
+           operations :: Map Text Operation,
+           shapes :: Map Text Shape,
+           documentation :: Text
+         }
+         deriving stock (Eq, Show, Generic)
+       |]
+ )
 
-instance RecordB Service where
-  data Field Service a where
-    Version :: Field Service Text
-    Metadata :: Field Service (Metadata.Metadata Identity)
-    Operations :: Field Service (Map Text Operation)
-    Shapes :: Field Service (Map Text Shape)
-    Documentation :: Field Service Text
-
-  allFields =
-    [ Some Version,
-      Some Metadata,
-      Some Operations,
-      Some Shapes,
-      Some Documentation
-    ]
-
-  fieldLens i f = case i of
-    Version -> \service ->
-      f (version service) <&> \version' -> service {version = version'}
-    Metadata -> \service ->
-      f (metadata service) <&> \metadata' -> service {metadata = metadata'}
-    Operations -> \service ->
-      f (operations service) <&> \operations' -> service {operations = operations'}
-    Shapes -> \service ->
-      f (shapes service) <&> \shapes' -> service {shapes = shapes'}
-    Documentation -> \service ->
-      f (documentation service) <&> \documentation' -> service {documentation = documentation'}
-
-parse :: Parser Tokens k e (Service Identity)
+parse :: Parser Tokens k e Service
 parse =
-  recordB $
+  record $
     Service
       { version = field "version" text,
         metadata = field "metadata" Metadata.parse,
         documentation = field "documentation" text
       }
-
-data Operation = MkOperation deriving (Eq, Show, Generic)
-
-data Shape = MkShape deriving (Eq, Show, Generic)

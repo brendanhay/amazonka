@@ -12,6 +12,6 @@ import Data.Functor.Barbie
 bfor ::
   (TraversableB b, Applicative e) =>
   b f ->
-  (forall a. f a -> (e (g a))) ->
+  (forall a. f a -> e (g a)) ->
   e (b g)
 bfor b f = btraverse f b

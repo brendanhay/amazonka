@@ -1,4 +1,3 @@
-{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -95,9 +94,9 @@ parse =
         input = optional $ field "input" Input.parse,
         output = optional $ field "output" Output.parse,
         errors = optional . field "errors" $ list Error.parse,
-        endpoint = optional $ field "endpoint" $ Endpoint.parse,
+        endpoint = optional $ field "endpoint" Endpoint.parse,
         endpointDiscovery =
-          optional $ field "endpointdiscovery" $ EndpointDiscovery.parse,
+          optional $ field "endpointdiscovery" EndpointDiscovery.parse,
         endpointOperation = optional $ field "endpointoperation" bool,
         authType = optional . field "authtype" . enum $ \case
           None -> "none"

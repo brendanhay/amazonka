@@ -1,4 +1,3 @@
-{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -47,20 +46,20 @@ $( passthroughBareB
      [d|
        data Metadata = Metadata
          { apiVersion :: Text,
-           checksumFormat :: (Maybe ChecksumFormat),
+           checksumFormat :: Maybe ChecksumFormat,
            endpointPrefix :: Text,
-           globalEndpoint :: (Maybe Text),
-           jsonVersion :: (Maybe JsonVersion),
+           globalEndpoint :: Maybe Text,
+           jsonVersion :: Maybe JsonVersion,
            protocol :: Protocol,
-           protocolSettings :: (Maybe ProtocolSettings),
-           serviceAbbreviation :: (Maybe Text),
+           protocolSettings :: Maybe ProtocolSettings,
+           serviceAbbreviation :: Maybe Text,
            serviceFullName :: Text,
            serviceId :: Text,
            signatureVersion :: SignatureVersion,
-           signingName :: (Maybe Text),
-           targetPrefix :: (Maybe Text),
-           uid :: (Maybe Text),
-           xmlNamespace :: (Maybe Text)
+           signingName :: Maybe Text,
+           targetPrefix :: Maybe Text,
+           uid :: Maybe Text,
+           xmlNamespace :: Maybe Text
          }
          deriving stock (Eq, Show, Generic)
        |]

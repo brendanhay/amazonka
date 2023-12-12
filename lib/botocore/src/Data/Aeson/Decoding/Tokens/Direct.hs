@@ -61,7 +61,7 @@ data Error e
   deriving (Eq, Show, Generic)
 
 newtype Parser tokenType k e a = Parser
-  {runParser :: tokenType k e -> (Either (Error e) (k, a))}
+  {runParser :: tokenType k e -> Either (Error e) (k, a)}
   deriving (Functor)
 
 execParser :: Parser tokenType k e a -> tokenType k e -> Either (Error e) a
@@ -162,7 +162,7 @@ map parseValue = withRecord $ go Map.empty
         Right (tokens', a) ->
           let acc' = Map.insert (Key.toText key) a acc
            in runParser (go acc') tokens'
-      TkRecordEnd tokens -> Right $ (tokens, acc)
+      TkRecordEnd tokens -> Right (tokens, acc)
       TkRecordErr e -> Left $ TokenError e
 
 number :: Parser Tokens k e Number

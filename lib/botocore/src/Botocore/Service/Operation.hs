@@ -32,26 +32,19 @@ import Botocore.Service.Operation.Output (Output)
 import Botocore.Service.Operation.Output qualified as Output
 import Botocore.Service.Operation.StaticContextParams (StaticContextParams)
 import Botocore.Service.Operation.StaticContextParams qualified as StaticContextParams
-import Data.Aeson.Decoding.ByteString.Lazy
 import Data.Aeson.Decoding.Tokens (Tokens (..))
 import Data.Aeson.Decoding.Tokens.Direct
   ( Parser (..),
     bool,
     enum,
-    execParser,
     field,
     list,
-    map,
     optional,
     record,
     text,
   )
-import Data.ByteString.Lazy qualified as LBS
-import Data.Foldable
 import Data.Text (Text)
 import GHC.Generics (Generic)
-import System.Directory
-import Prelude hiding (map)
 
 data AuthType = None | V4UnsignedBody
   deriving (Bounded, Enum, Eq, Ord, Show, Generic)
@@ -109,11 +102,3 @@ parse =
         deprecated = optional $ field "deprecated" bool,
         deprecatedMessage = optional $ field "deprecatedMessage" text
       }
-
-test :: IO ()
-test = do
-  let dir = "../../scraps"
-  files <- listDirectory dir
-  for_ files $ \file -> do
-    contents <- LBS.readFile $ dir ++ "/" ++ file
-    either print (const $ pure ()) $ execParser (map parse) $ lbsToTokens contents

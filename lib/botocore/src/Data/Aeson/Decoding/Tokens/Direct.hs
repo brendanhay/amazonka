@@ -39,6 +39,7 @@ import Data.List.NonEmpty (NonEmpty)
 import Data.List.NonEmpty qualified as NE
 import Data.Map (Map)
 import Data.Map qualified as Map
+import Data.Scientific (Scientific)
 import Data.Some (Some (..))
 import Data.Text (Text)
 import GHC.Generics (Generic, (:+:) (..))
@@ -51,6 +52,7 @@ data JsonType = Null | Bool | String | Number | Array | Object
 
 data Error e
   = EmptyList
+  | ExpectedEmptyObject
   | ExpectedGot JsonType JsonType
   | MissingKey Aeson.Key
   | DuplicateKey Aeson.Key
@@ -73,16 +75,35 @@ andThen (Parser parse) f = Parser $ \tokens -> do
   (tokens', a) <- parse tokens
   (tokens',) <$> f a
 
+alist ::
+  forall k e a.
+  Parser Tokens (TkRecord k e) e a ->
+  Parser Tokens k e [(Text, a)]
+alist parseValue = withRecord $ go id
+  where
+    go ::
+      -- Difference list
+      ([(Text, a)] -> [(Text, a)]) ->
+      Parser TkRecord k e [(Text, a)]
+    go acc = Parser $ \case
+      TkPair key tokens -> case runParser parseValue tokens of
+        Left e -> Left e
+        Right (tokens', a) ->
+          let acc' = acc . (++ [(Key.toText key, a)])
+           in runParser (go acc') tokens'
+      TkRecordEnd tokens -> Right (tokens, acc [])
+      TkRecordErr e -> Left (TokenError e)
+
 bool :: Parser Tokens k e Bool
 bool = Parser $ \case
-  TkLit LitNull _ -> Left (ExpectedGot Bool Null)
+  TkLit LitNull _ -> Left $ ExpectedGot Bool Null
   TkLit LitTrue k -> Right (k, True)
   TkLit LitFalse k -> Right (k, False)
-  TkText _ _ -> Left (ExpectedGot Bool String)
-  TkNumber _ _ -> Left (ExpectedGot Bool Number)
-  TkArrayOpen _ -> Left (ExpectedGot Bool Array)
-  TkRecordOpen _ -> Left (ExpectedGot Bool Object)
-  TkErr e -> Left (TokenError e)
+  TkText _ _ -> Left $ ExpectedGot Bool String
+  TkNumber _ _ -> Left $ ExpectedGot Bool Number
+  TkArrayOpen _ -> Left $ ExpectedGot Bool Array
+  TkRecordOpen _ -> Left $ ExpectedGot Bool Object
+  TkErr e -> Left $ TokenError e
 
 enum ::
   (Enum a, Bounded a, Ord a) =>
@@ -99,6 +120,12 @@ data FieldParser k e a = FieldParser
     defaultValue :: Either (Error e) a
   }
   deriving (Functor, Generic)
+
+emptyObject :: Parser Tokens k e ()
+emptyObject = withRecord . Parser $ \case
+  TkRecordEnd tokens -> Right (tokens, ())
+  TkPair {} -> Left ExpectedEmptyObject
+  TkRecordErr e -> Left $ TokenError e
 
 field ::
   Text ->
@@ -132,23 +159,6 @@ list parseValue = withArray $ go id
       TkArrayEnd tokens -> Right (tokens, acc [])
       TkArrayErr e -> Left $ TokenError e
 
-nonEmpty :: Parser Tokens (TkArray k e) e a -> Parser Tokens k e (NonEmpty a)
-nonEmpty parseValue =
-  list parseValue `andThen` \xs ->
-    maybe (Left EmptyList) Right $ NE.nonEmpty xs
-
-oneFieldObject :: FieldParser k e a -> Parser Tokens k e a
-oneFieldObject parseField =
-  theField <$> record OneFieldObject {theField = parseField}
-
-optional :: FieldParser k e a -> FieldParser k e (Maybe a)
-optional FieldParser {..} =
-  FieldParser
-    { parseField = Just <$> parseField,
-      defaultValue = Right Nothing,
-      ..
-    }
-
 map ::
   forall k e a.
   Parser Tokens (TkRecord k e) e a ->
@@ -175,6 +185,23 @@ number = Parser $ \case
   TkArrayOpen _ -> Left (ExpectedGot Number Array)
   TkRecordOpen _ -> Left (ExpectedGot Number Object)
   TkErr e -> Left (TokenError e)
+
+nonEmpty :: Parser Tokens (TkArray k e) e a -> Parser Tokens k e (NonEmpty a)
+nonEmpty parseValue =
+  list parseValue `andThen` \xs ->
+    maybe (Left EmptyList) Right $ NE.nonEmpty xs
+
+oneFieldObject :: FieldParser k e a -> Parser Tokens k e a
+oneFieldObject parseField =
+  theField <$> record OneFieldObject {theField = parseField}
+
+optional :: FieldParser k e a -> FieldParser k e (Maybe a)
+optional FieldParser {..} =
+  FieldParser
+    { parseField = Just <$> parseField,
+      defaultValue = Right Nothing,
+      ..
+    }
 
 record ::
   forall b k e.
@@ -220,6 +247,13 @@ record bparsers =
           R1 a -> Identity <$> a
         TkRecordErr e -> Left $ TokenError e
    in fmap bstrip . withRecord . go $ bmap L1 bparsers
+
+scientific :: Parser Tokens k e Scientific
+scientific =
+  number `andThen` \case
+    NumInteger i -> Right $ fromInteger i
+    NumDecimal d -> Right d
+    NumScientific s -> Right s
 
 text :: Parser Tokens k e Text
 text = Parser $ \case

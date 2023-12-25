@@ -1,26 +1,25 @@
+{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE DerivingVia #-}
-{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
 
 -- |
--- Module      : Botocore.Service.Operation.Input
+-- Module      : Botocore.Service.Shape.Key
 -- Copyright   : (c) 2023 Bellroy Pty Ltd
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Jack Kelly <jack@jackkelly.name>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Botocore.Service.Operation.Input where
+module Botocore.Service.Shape.Key where
 
 import Barbies (Barbie (..))
 import Barbies.TH (passthroughBareB)
-import Botocore.Service.Types (ShapeName, XmlNamespace, shapeName)
-import Botocore.Service.Types qualified as Types
+import Botocore.Service.Types (ShapeName, shapeName)
 import Data.Aeson.Decoding.Tokens (Tokens (..))
 import Data.Aeson.Decoding.Tokens.Direct
-  ( Parser (..),
+  ( Parser,
     field,
     optional,
     record,
@@ -31,22 +30,20 @@ import GHC.Generics (Generic)
 
 $( passthroughBareB
      [d|
-       data Input = Input
+       data Key = Key
          { shape :: ShapeName,
            documentation :: Maybe Text,
-           locationName :: Maybe ShapeName,
-           xmlNamespace :: Maybe XmlNamespace
+           locationName :: Maybe Text
          }
          deriving stock (Eq, Show, Generic)
        |]
  )
 
-parse :: Parser Tokens k e Input
+parse :: Parser Tokens k e Key
 parse =
   record
-    Input
+    Key
       { shape = field "shape" shapeName,
         documentation = optional $ field "documentation" text,
-        locationName = optional $ field "locationName" shapeName,
-        xmlNamespace = optional $ field "xmlNamespace" Types.xmlNamespace
+        locationName = optional $ field "locationName" text
       }

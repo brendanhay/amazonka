@@ -1,27 +1,27 @@
+{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE DerivingVia #-}
-{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
 
 -- |
--- Module      : Botocore.Service.Operation.Input
+-- Module      : Botocore.Service.Shape.Error
 -- Copyright   : (c) 2023 Bellroy Pty Ltd
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Jack Kelly <jack@jackkelly.name>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Botocore.Service.Operation.Input where
+module Botocore.Service.Shape.Error where
 
 import Barbies (Barbie (..))
 import Barbies.TH (passthroughBareB)
-import Botocore.Service.Types (ShapeName, XmlNamespace, shapeName)
-import Botocore.Service.Types qualified as Types
 import Data.Aeson.Decoding.Tokens (Tokens (..))
 import Data.Aeson.Decoding.Tokens.Direct
-  ( Parser (..),
+  ( Parser,
+    bool,
     field,
+    int,
     optional,
     record,
     text,
@@ -31,22 +31,22 @@ import GHC.Generics (Generic)
 
 $( passthroughBareB
      [d|
-       data Input = Input
-         { shape :: ShapeName,
-           documentation :: Maybe Text,
-           locationName :: Maybe ShapeName,
-           xmlNamespace :: Maybe XmlNamespace
+       data Error = Error
+         { httpStatusCode :: Int,
+           code :: Maybe Text,
+           fault :: Maybe Bool,
+           senderFault :: Maybe Bool
          }
          deriving stock (Eq, Show, Generic)
        |]
  )
 
-parse :: Parser Tokens k e Input
+parse :: Parser Tokens k e Error
 parse =
   record
-    Input
-      { shape = field "shape" shapeName,
-        documentation = optional $ field "documentation" text,
-        locationName = optional $ field "locationName" shapeName,
-        xmlNamespace = optional $ field "xmlNamespace" Types.xmlNamespace
+    Error
+      { httpStatusCode = field "httpStatusCode" int,
+        code = optional $ field "code" text,
+        fault = optional $ field "fault" bool,
+        senderFault = optional $ field "senderFault" bool
       }

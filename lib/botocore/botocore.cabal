@@ -26,22 +26,22 @@ library
     -Wincomplete-record-updates
 
   build-depends:
-    , aeson             >=2.1.2.0   && <2.2  || ^>=2.2
-    , barbies           ^>=2.0.5.0
-    , barbies-th        ^>=0.1.10
-    , base              >=4.14      && <4.18
-    , bytestring        ^>=0.11
-    , containers        ^>=0.6.7
-    , generic-lens      ^>=2.2.2.0
-    , lens              ^>=5.2.3
-    , scientific        ^>=0.3.7.0
-    , some              ^>=1.0.6
-    , template-haskell  ^>=2.19.0.0
-    , text              ^>=2.0
+    , aeson         >=2.1.2.0  && <2.2  || ^>=2.2
+    , barbies       ^>=2.0.5.0
+    , barbies-th    ^>=0.1.10
+    , base          >=4.14     && <4.18
+    , containers    ^>=0.6.7
+    , generic-lens  ^>=2.2.2.0
+    , scientific    ^>=0.3.7.0
+    , some          ^>=1.0.6
+    , text          ^>=2.0
 
   exposed-modules:
     Botocore
     Botocore.Service
+    Botocore.Service.Authorizer
+    Botocore.Service.Authorizer.Placement
+    Botocore.Service.ClientContextParam
     Botocore.Service.Metadata
     Botocore.Service.Metadata.ProtocolSettings
     Botocore.Service.Operation
@@ -52,10 +52,16 @@ library
     Botocore.Service.Operation.Http
     Botocore.Service.Operation.HttpChecksum
     Botocore.Service.Operation.Input
-    Botocore.Service.Operation.Input.XmlNamespace
     Botocore.Service.Operation.Output
     Botocore.Service.Operation.StaticContextParams
     Botocore.Service.Shape
+    Botocore.Service.Shape.Error
+    Botocore.Service.Shape.Key
+    Botocore.Service.Shape.ListMember
+    Botocore.Service.Shape.Retryable
+    Botocore.Service.Shape.StructMember
+    Botocore.Service.Shape.StructMember.ContextParam
+    Botocore.Service.Shape.Value
     Botocore.Service.Types
 
   other-modules:

@@ -1,3 +1,4 @@
+{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -6,27 +7,26 @@
 {-# LANGUAGE UndecidableInstances #-}
 
 -- |
--- Module      : Botocore.Service.Operation.Input.XmlNamespace
+-- Module      : Botocore.Service.Shape.Retryable
 -- Copyright   : (c) 2023 Bellroy Pty Ltd
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Jack Kelly <jack@jackkelly.name>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Botocore.Service.Operation.Input.XmlNamespace where
+module Botocore.Service.Shape.Retryable where
 
 import Barbies (Barbie (..))
 import Barbies.TH (passthroughBareB)
 import Data.Aeson.Decoding.Tokens (Tokens (..))
-import Data.Aeson.Decoding.Tokens.Direct (Parser (..), field, record, text)
-import Data.Text (Text)
+import Data.Aeson.Decoding.Tokens.Direct (Parser, bool, field, record)
 import GHC.Generics (Generic)
 
 $( passthroughBareB
      [d|
-       data XmlNamespace = XmlNamespace {uri :: Text}
+       data Retryable = Retryable {throttling :: Bool}
          deriving stock (Eq, Show, Generic)
        |]
  )
 
-parse :: Parser Tokens k e XmlNamespace
-parse = record XmlNamespace {uri = field "uri" text}
+parse :: Parser Tokens k e Retryable
+parse = record Retryable {throttling = field "throttling" bool}

@@ -38,6 +38,8 @@ library
 
   exposed-modules:
     Botocore
+    Botocore.Paginators
+    Botocore.Paginators.Pagination
     Botocore.Service
     Botocore.Service.Authorizer
     Botocore.Service.Authorizer.Placement

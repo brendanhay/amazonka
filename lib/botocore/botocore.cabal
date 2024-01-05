@@ -63,6 +63,9 @@ library
     Botocore.Service.Shape.StructMember.ContextParam
     Botocore.Service.Shape.Value
     Botocore.Service.Types
+    Botocore.Waiters
+    Botocore.Waiters.Waiter
+    Botocore.Waiters.Waiter.Acceptor
 
   other-modules:
     Data.Aeson.Decoding.Tokens.Direct

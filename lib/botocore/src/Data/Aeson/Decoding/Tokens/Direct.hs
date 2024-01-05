@@ -75,6 +75,12 @@ andThen (Parser parse) f = Parser $ \tokens -> do
   (tokens', a) <- parse tokens
   (tokens',) <$> f a
 
+orElse ::
+  Parser tokens k e a -> Parser tokens k e a -> Parser tokens k e a
+orElse p1 p2 = Parser $ \tokens -> case runParser p1 tokens of
+  Left _ -> runParser p2 tokens
+  Right (k, a) -> Right (k, a)
+
 alist ::
   forall k e a.
   Parser Tokens (TkRecord k e) e a ->

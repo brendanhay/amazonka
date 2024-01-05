@@ -840,7 +840,7 @@ responseF p r fs
   | any fieldStream fs = var "Response.receiveBody"
   | any fieldLitPayload fs = var "Response.receiveBytes"
   | Just x <- r ^. refResultWrapper = Exts.app (var (suf <> "Wrapper")) (str x)
-  | all (not . fieldBody) fs = var "Response.receiveEmpty"
+  | not $ any fieldBody fs = var "Response.receiveEmpty"
   | otherwise = var suf
   where
     suf = "Response.receive" <> Proto.suffix p

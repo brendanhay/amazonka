@@ -240,7 +240,7 @@ loadModel path xs = do
           <$> Time.parseTimeM
             True
             Time.defaultTimeLocale
-            (Time.iso8601DateFormat Nothing)
+            "%Y-%m-%d"
             (FilePath.takeFileName date)
 
   case sortedVersions of

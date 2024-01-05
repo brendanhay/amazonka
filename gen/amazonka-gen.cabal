@@ -127,6 +127,7 @@ executable gen
   import:         base
   hs-source-dirs: bin
   main-is:        gen.hs
+  other-modules:  Paths_amazonka_gen
   ghc-options:    -threaded -rtsopts "-with-rtsopts=-A128m -I0 -qg0"
   build-depends:
     , amazonka-gen

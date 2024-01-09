@@ -1,7 +1,7 @@
-{-# LANGUAGE DisambiguateRecordFields #-}
-{-# LANGUAGE NoImplicitPrelude        #-}
-{-# LANGUAGE OverloadedStrings        #-}
-{-# LANGUAGE StrictData               #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE StrictData            #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 

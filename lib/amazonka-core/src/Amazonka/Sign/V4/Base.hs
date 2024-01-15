@@ -301,6 +301,14 @@ canonicalHeaders = Tag . BSL.toStrict . BSB.toLazyByteString . Foldable.foldMap 
 signedHeaders :: NormalisedHeaders -> SignedHeaders
 signedHeaders = Tag . BS8.intercalate ";" . map fst . untag
 
+-- | Besides normalising capitalisation, this function removes certain headers
+-- that shouldn't be signed. AWS states that only @host@ and @x-amz-*@ headers
+-- are required[1]. To support R2, @expect@ must be removed[2]. botocore[3]
+-- removes @user-agent@ and @x-amzn-trace-id@, so we do too.
+--
+-- [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/create-signed-request.html
+-- [2]: https://github.com/brendanhay/amazonka/issues/975
+-- [3]: https://github.com/boto/botocore/blob/d5b2e4ab4bc4ad84f8e0e568e70ddc8ab7f094a8/botocore/auth.py#L61-L65
 normaliseHeaders :: [Header] -> NormalisedHeaders
 normaliseHeaders =
   Tag
@@ -308,4 +316,7 @@ normaliseHeaders =
     . Map.toAscList
     . Map.delete "authorization"
     . Map.delete "content-length"
+    . Map.delete "expect"
+    . Map.delete "user-agent"
+    . Map.delete "x-amzn-trace-id"
     . Map.fromListWith const

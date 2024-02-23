@@ -16,6 +16,8 @@
 [\#952](https://github.com/brendanhay/amazonka/pull/952)
 - `amazonka`: Support reading values of IMDS metadata tags, add `Metadata.Other` constructor
 [\#955](https://github.com/brendanhay/amazonka/pull/955)
+- `amazonka-core`: Support Cloudflare R2 by adjusting which headers get signed
+[\#977](https://github.com/brendanhay/amazonka/pull/977)
 
 
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)

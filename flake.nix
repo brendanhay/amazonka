@@ -51,6 +51,7 @@
         ghc92 = pkgs.haskell.packages."ghc92";
         ghc94 = pkgs.haskell.packages."ghc94";
         ghc96 = pkgs.haskell.packages."ghc96";
+        ghc98 = pkgs.haskell.packages."ghc98";
 
         # The default ghc to use when entering `nix develop`.
         ghcDefault = ghc94;
@@ -75,20 +76,10 @@
             pkgs.haskell-language-server
             pkgs.hlint
             pkgs.nixpkgs-fmt
+            pkgs.ormolu
 
             # Releases
             pkgs.gh
-
-            # This is regrettable (long build times), but ormolu
-            # 0.5.0.1 generates really ugly pyramids of `Prelude.seq`
-            # or `Prelude.hashWithSalt` applications when generating code.
-            #
-            # When this assertion fails, check if pkgs.ormolu is newer
-            # than 0.7.0.0 and see if we can switch back to it.
-            (
-              assert (pkgs.ormolu.version == "0.5.0.1");
-              pkgs.haskell.packages.ghc96.ormolu_0_7_0_0
-            )
 
             pkgs.parallel
           ];
@@ -147,6 +138,7 @@
           ghc92 = mkDevShell ghc92;
           ghc94 = mkDevShell ghc94;
           ghc96 = mkDevShell ghc96;
+          ghc98 = mkDevShell ghc98;
           default = mkDevShell ghcDefault;
         };
       });

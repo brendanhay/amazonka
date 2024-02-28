@@ -170,7 +170,7 @@ import Control.Monad.Trans.Resource (runResourceT)
 --
 -- Credentials can be supplied in a number of ways. Either via explicit keys,
 -- via session profiles, or have Amazonka retrieve the credentials from an
--- underlying IAM Role/Profile.
+-- underlying IAM Role/Profile. See the "Amazonka.Auth"@.*@ modules for more.
 --
 -- As a basic example, you might wish to store an object in an S3 bucket using
 -- <http://hackage.haskell.org/package/amazonka-s3 amazonka-s3>:

@@ -115,7 +115,7 @@ discover =
       fromContainerEnv,
       \env -> do
         onEC2 <- isEC2 $ manager env
-        unless onEC2 $ throwM CredentialChainExhausted
+        unless onEC2 $ throwM NotOnEC2Instance
         fromDefaultInstanceProfile env
     ]
 

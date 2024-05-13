@@ -9,6 +9,8 @@
 
 ### Fixed
 
+- `amazonka-*`: GHC 9.8 support
+[\#9xx](https://github.com/brendanhay/amazonka/pull/9xx)
 - `amazonka`: Allow reading the AWS config file when the credentials file is missing [\#951](https://github.com/brendanhay/amazonka/pull/951).
   This is useful when you are using a role-based authentication method or AWS IAM Identity Center (formerly AWS SSO) which does not require a credentials file.
   Before this fix you had to create an empty credentials file for these methods to work correctly.

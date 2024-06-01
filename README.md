@@ -87,7 +87,7 @@ nix-env -iA cachix -f https://cachix.org/api/v1/install
 cachix use amazonka
 ```
 
-A [flake.nix](./flake.nix) is provided which will require your [Nix] configuration to enable [flake support](https://nixos.wiki/wiki/Flakes) if you haven't done so already.
+A [flake.nix](./flake.nix) is provided which will require your [Nix] configuration to enable [flake support](https://wiki.nixos.org/wiki/Flakes) if you haven't done so already.
 
 Edit either `~/.config/nix/nix.conf` or `/etc/nix/nix.conf` and add:
 

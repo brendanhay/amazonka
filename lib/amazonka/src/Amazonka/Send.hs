@@ -27,9 +27,7 @@ import qualified Network.HTTP.Client as Client
 -- See 'send'.
 sendEither ::
   ( MonadResource m,
-    AWSRequest a,
-    Typeable a,
-    Typeable (AWSResponse a)
+    AWSRequest a
   ) =>
   Env ->
   a ->
@@ -44,9 +42,7 @@ sendEither env =
 -- See 'sendEither'.
 send ::
   ( MonadResource m,
-    AWSRequest a,
-    Typeable a,
-    Typeable (AWSResponse a)
+    AWSRequest a
   ) =>
   Env ->
   a ->
@@ -65,9 +61,7 @@ send env =
 -- See 'sendUnsigned'.
 sendUnsignedEither ::
   ( MonadResource m,
-    AWSRequest a,
-    Typeable a,
-    Typeable (AWSResponse a)
+    AWSRequest a
   ) =>
   Env' withAuth ->
   a ->
@@ -82,9 +76,7 @@ sendUnsignedEither env =
 -- See 'sendUnsignedEither'.
 sendUnsigned ::
   ( MonadResource m,
-    AWSRequest a,
-    Typeable a,
-    Typeable (AWSResponse a)
+    AWSRequest a
   ) =>
   Env' withAuth ->
   a ->
@@ -99,9 +91,7 @@ sendUnsigned env =
 -- See 'paginate'.
 paginateEither ::
   ( MonadResource m,
-    AWSPager a,
-    Typeable a,
-    Typeable (AWSResponse a)
+    AWSPager a
   ) =>
   Env ->
   a ->
@@ -123,9 +113,7 @@ paginateEither env = go
 -- See 'paginateEither'.
 paginate ::
   ( MonadResource m,
-    AWSPager a,
-    Typeable a,
-    Typeable (AWSResponse a)
+    AWSPager a
   ) =>
   Env ->
   a ->
@@ -139,8 +127,7 @@ paginate env =
 -- See 'await'.
 awaitEither ::
   ( MonadResource m,
-    AWSRequest a,
-    Typeable a
+    AWSRequest a
   ) =>
   Env ->
   Waiter.Wait a ->
@@ -156,8 +143,7 @@ awaitEither = HTTP.awaitRequest
 -- See 'awaitEither'.
 await ::
   ( MonadResource m,
-    AWSRequest a,
-    Typeable a
+    AWSRequest a
   ) =>
   Env ->
   Waiter.Wait a ->

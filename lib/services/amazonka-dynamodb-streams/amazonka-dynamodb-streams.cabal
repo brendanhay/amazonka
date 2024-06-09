@@ -52,6 +52,7 @@ library
     Amazonka.DynamoDBStreams.Lens
     Amazonka.DynamoDBStreams.ListStreams
     Amazonka.DynamoDBStreams.Types
+    Amazonka.DynamoDBStreams.Types.AttributeValue
     Amazonka.DynamoDBStreams.Types.Identity
     Amazonka.DynamoDBStreams.Types.KeySchemaElement
     Amazonka.DynamoDBStreams.Types.KeyType
@@ -87,7 +88,11 @@ test-suite amazonka-dynamodb-streams-test
   -- This section is encoded by the template and any modules added by
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
-  other-modules:    Test.Amazonka.Gen.DynamoDBStreams
+  other-modules:
+    Test.Amazonka.DynamoDBStreams
+    Test.Amazonka.DynamoDBStreams.Internal
+    Test.Amazonka.Gen.DynamoDBStreams
+
   build-depends:
     , amazonka-core              >=2.0 && <2.1
     , amazonka-dynamodb-streams

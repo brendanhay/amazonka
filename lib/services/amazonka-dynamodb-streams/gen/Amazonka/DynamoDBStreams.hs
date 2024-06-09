@@ -73,7 +73,7 @@ module Amazonka.DynamoDBStreams
     -- * Types
 
     -- ** Common
-    module Amazonka.DynamoDBStreams.Internal,
+    module Amazonka.DynamoDBStreams.Types.AttributeValue,
 
     -- ** KeyType
     KeyType (..),
@@ -127,10 +127,10 @@ where
 import Amazonka.DynamoDBStreams.DescribeStream
 import Amazonka.DynamoDBStreams.GetRecords
 import Amazonka.DynamoDBStreams.GetShardIterator
-import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Lens
 import Amazonka.DynamoDBStreams.ListStreams
 import Amazonka.DynamoDBStreams.Types
+import Amazonka.DynamoDBStreams.Types.AttributeValue
 import Amazonka.DynamoDBStreams.Waiters
 
 -- $errors

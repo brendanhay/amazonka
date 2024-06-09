@@ -22,7 +22,7 @@ module Amazonka.DynamoDBStreams.Types.Record where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
-import Amazonka.DynamoDBStreams.Internal
+import Amazonka.DynamoDBStreams.Types.AttributeValue
 import Amazonka.DynamoDBStreams.Types.Identity
 import Amazonka.DynamoDBStreams.Types.OperationType
 import Amazonka.DynamoDBStreams.Types.StreamRecord

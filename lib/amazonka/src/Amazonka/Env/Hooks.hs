@@ -19,15 +19,20 @@
 --   (see 'requestHook');
 --
 --   @
---   {-# LANGAUGE OverloadedLabels #-}
+--   {-# LANGAUGE OverloadedLabels, ScopedTypeVariables, TypeApplications #-}
 --   import Amazonka
 --   import Amazonka.Env.Hooks
 --   import Data.Generics.Labels ()
+--   import Data.Typeable (typeRep)
 --
 --   main :: IO ()
 --   main = do
+--     -- Use 'Data.Typeable.typeRep' to capture a `TypeRep` of the request type,
+--     -- so we know the request type to log. Note the `(req :: req)`
+--     -- argument to the lambda, which captures the type of `req` as
+--     -- a type variable `req` (needs `-XScopedTypeVariables`).
 --     env <- newEnv discover
---       \<&\> #hooks %~ 'requestHook' ('addAWSRequestHook' $ \\_env req -> req <$ logRequest req)
+--       \<&\> #hooks %~ 'requestHook' ('addAWSRequestHook' $ \\_env (req :: req) -> req <$ logRequest ('typeRep' (Proxy @req)))
 --     ...
 --
 --   logRequest :: AWSRequest a => a -> IO ()

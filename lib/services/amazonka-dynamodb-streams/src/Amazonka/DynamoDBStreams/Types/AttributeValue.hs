@@ -5,9 +5,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-module Amazonka.DynamoDBStreams.Internal
-  ( module AttributeValue,
-  )
-where
+module Amazonka.DynamoDBStreams.Internal ( module AttributeValue ) where
 
 import Amazonka.DynamoDB.AttributeValue as AttributeValue

@@ -242,7 +242,7 @@ library
   build-depends:
     , aeson
     , amazonka-core                     >=2.0     && <2.1
-    , amazonka-dynamodb-attributevalue  >=2.0
+    , amazonka-dynamodb-attributevalue
     , base                              >=4.12    && <5
     , containers
     , hashable                          >=1.3.4.0 && <1.5

@@ -418,8 +418,8 @@ errorHook f hooks@Hooks {error} =
 
 -- | Turn a @'Hook' a@ into another @'Hook' a@ that does nothing.
 --
--- -- Example: remove all request hooks:
 -- @
+-- -- Example: remove all request hooks:
 -- requestHook noHook :: Hooks -> Hooks
 -- @
 noHook :: Hook a -> Hook a

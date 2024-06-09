@@ -4,6 +4,9 @@
 
 ### Changed
 
+- `amazonka`: Add `(Typeable req, Typeable (AWSResponse req))` to the superclasses of `class AWSRequest`.
+
+  `Typeable` is required for any nontrivial use of `AWSRequest` because Amazonka routes requests through the hooks system in `Amazonka.Env.Hooks`, so this reduces a little visual clutter. (Thanks @dalpd) [\#993]
 - New package `amazonka-dynamodb-attributevalue`: `amazonka-dynamodb`and `amazonka-dynamodb-streams` now share a common `AttributeValue` type, removing the need to manually convert between them. Each SDK re-exports it, so no code changes should be necessary, but manual conversion between the "regular" and "streams" `AttributeValue` can be removed. (thanks @dalpd)
 [\#992](https://github.com/brendanhay/amazonka/pull/992)
 - `amazonka`: Add support for `AWS_SHARED_CREDENTIALS_FILE` and `AWS_CONFIG_FILE` environment variables to override the

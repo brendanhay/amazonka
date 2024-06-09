@@ -19,15 +19,20 @@
 --   (see 'requestHook');
 --
 --   @
---   {-# LANGAUGE OverloadedLabels #-}
+--   {-# LANGAUGE OverloadedLabels, ScopedTypeVariables, TypeApplications #-}
 --   import Amazonka
 --   import Amazonka.Env.Hooks
 --   import Data.Generics.Labels ()
+--   import Data.Typeable (typeRep)
 --
 --   main :: IO ()
 --   main = do
+--     -- Use 'Data.Typeable.typeRep' to capture a `TypeRep` of the request type,
+--     -- so we know the request type to log. Note the `(req :: req)`
+--     -- argument to the lambda, which captures the type of `req` as
+--     -- a type variable `req` (needs `-XScopedTypeVariables`).
 --     env <- newEnv discover
---       \<&\> #hooks %~ 'requestHook' ('addAWSRequestHook' $ \\_env req -> req <$ logRequest req)
+--       \<&\> #hooks %~ 'requestHook' ('addAWSRequestHook' $ \\_env (req :: req) -> req <$ logRequest ('typeRep' (Proxy @req)))
 --     ...
 --
 --   logRequest :: AWSRequest a => a -> IO ()
@@ -310,7 +315,7 @@ requestHook f hooks@Hooks {request} =
 
 {-# INLINE waitHook #-}
 waitHook ::
-  (forall a. (AWSRequest a, Typeable a) => Hook (Wait a) -> Hook (Wait a)) ->
+  (forall a. (AWSRequest a) => Hook (Wait a) -> Hook (Wait a)) ->
   Hooks ->
   Hooks
 waitHook f hooks@Hooks {wait} =
@@ -319,7 +324,7 @@ waitHook f hooks@Hooks {wait} =
 {-# INLINE configuredRequestHook #-}
 configuredRequestHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    (AWSRequest a) =>
     Hook (Request a) ->
     Hook (Request a)
   ) ->
@@ -331,7 +336,7 @@ configuredRequestHook f hooks@Hooks {configuredRequest} =
 {-# INLINE signedRequestHook #-}
 signedRequestHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    (AWSRequest a) =>
     Hook_ (Signed a) ->
     Hook_ (Signed a)
   ) ->
@@ -351,7 +356,7 @@ clientRequestHook f hooks@Hooks {clientRequest} =
 {-# INLINE clientResponseHook #-}
 clientResponseHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    (AWSRequest a) =>
     Hook_ (Request a, ClientResponse ()) ->
     Hook_ (Request a, ClientResponse ())
   ) ->
@@ -371,7 +376,7 @@ rawResponseBodyHook f hooks@Hooks {rawResponseBody} =
 {-# INLINE requestRetryHook #-}
 requestRetryHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    (AWSRequest a) =>
     Hook_ (Request a, Text, Retry.RetryStatus) ->
     Hook_ (Request a, Text, Retry.RetryStatus)
   ) ->
@@ -383,7 +388,7 @@ requestRetryHook f hooks@Hooks {requestRetry} =
 {-# INLINE awaitRetryHook #-}
 awaitRetryHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    (AWSRequest a) =>
     Hook_ (Request a, Wait a, Accept, Retry.RetryStatus) ->
     Hook_ (Request a, Wait a, Accept, Retry.RetryStatus)
   ) ->
@@ -395,7 +400,7 @@ awaitRetryHook f hooks@Hooks {awaitRetry} =
 {-# INLINE responseHook #-}
 responseHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    (AWSRequest a) =>
     Hook_ (Request a, ClientResponse (AWSResponse a)) ->
     Hook_ (Request a, ClientResponse (AWSResponse a))
   ) ->
@@ -407,7 +412,7 @@ responseHook f hooks@Hooks {response} =
 {-# INLINE errorHook #-}
 errorHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    (AWSRequest a) =>
     Hook_ (Finality, Request a, Error) ->
     Hook_ (Finality, Request a, Error)
   ) ->
@@ -418,8 +423,8 @@ errorHook f hooks@Hooks {error} =
 
 -- | Turn a @'Hook' a@ into another @'Hook' a@ that does nothing.
 --
--- -- Example: remove all request hooks:
 -- @
+-- -- Example: remove all request hooks:
 -- requestHook noHook :: Hooks -> Hooks
 -- @
 noHook :: Hook a -> Hook a
@@ -437,23 +442,23 @@ noHook_ _ _ _ = pure ()
 -- | Unconditionally add a @'Hook' a@ to the chain of hooks. If you
 -- need to do something with specific request types, you want
 -- 'addHookFor', instead.
-addHook :: Typeable a => Hook a -> Hook a -> Hook a
+addHook :: (Typeable a) => Hook a -> Hook a -> Hook a
 addHook newHook oldHook env = oldHook env >=> newHook env
 
 -- | Unconditionally add a @'Hook_' a@ to the chain of hooks. If you
 -- need to do something with specific request types, you want
 -- 'addHookFor_', instead.
-addHook_ :: Typeable a => Hook_ a -> Hook_ a -> Hook_ a
+addHook_ :: (Typeable a) => Hook_ a -> Hook_ a -> Hook_ a
 addHook_ newHook oldHook env a = oldHook env a *> newHook env a
 
 -- | Like 'addHook', adds an unconditional hook, but it also captures
 -- the @'AWSRequest' a@ constraint. Useful for handling every AWS
 -- request type in a generic way.
-addAWSRequestHook :: (AWSRequest a, Typeable a) => Hook a -> Hook a -> Hook a
+addAWSRequestHook :: (AWSRequest a) => Hook a -> Hook a -> Hook a
 addAWSRequestHook = addHook
 
 -- | 'addAWSRequestHook_' is 'addAWSRequestHook' but for 'Hook_'s.
-addAWSRequestHook_ :: (AWSRequest a, Typeable a) => Hook_ a -> Hook_ a -> Hook_ a
+addAWSRequestHook_ :: (AWSRequest a) => Hook_ a -> Hook_ a -> Hook_ a
 addAWSRequestHook_ = addHook_
 
 -- | @addHookFor \@a newHook oldHook@ When @a@ and @b@ are the same
@@ -563,21 +568,23 @@ addLoggingHooks
           body' <$ logTrace logger ("[Raw Response Body] {\n" <> body' <> "\n}"),
         requestRetry = \env@Env {logger} t@(_, name, retryStatus) -> do
           requestRetry env t
-          logDebug logger . munwords $
-            [ "[Retry " <> build name <> "]",
-              "after",
-              build (Retry.rsIterNumber retryStatus + 1),
-              "attempt(s)."
-            ],
+          logDebug logger
+            . munwords
+            $ [ "[Retry " <> build name <> "]",
+                "after",
+                build (Retry.rsIterNumber retryStatus + 1),
+                "attempt(s)."
+              ],
         awaitRetry = \env@Env {logger} t@(_, Wait {name}, accept, retryStatus) -> do
           awaitRetry env t
-          logDebug logger . munwords $
-            [ "[Await " <> build name <> "]",
-              build accept,
-              "after",
-              build (Retry.rsIterNumber retryStatus + 1),
-              "attempts."
-            ],
+          logDebug logger
+            . munwords
+            $ [ "[Await " <> build name <> "]",
+                build accept,
+                "after",
+                build (Retry.rsIterNumber retryStatus + 1),
+                "attempts."
+              ],
         error = \env@Env {logger} t@(finality, _, err) -> do
           error env t
           case finality of

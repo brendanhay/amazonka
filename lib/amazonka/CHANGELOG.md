@@ -4,6 +4,8 @@
 
 ### Changed
 
+- New package `amazonka-dynamodb-attributevalue`: `amazonka-dynamodb`and `amazonka-dynamodb-streams` now share a common `AttributeValue` type, removing the need to manually convert between them. Each SDK re-exports it, so no code changes should be necessary, but manual conversion between the "regular" and "streams" `AttributeValue` can be removed. (thanks @dalpd)
+[\#992](https://github.com/brendanhay/amazonka/pull/992)
 - `amazonka`: Add support for `AWS_SHARED_CREDENTIALS_FILE` and `AWS_CONFIG_FILE` environment variables to override the
   default paths `$HOME/.aws/credentials` and `$HOME/.aws/config` [\#951](https://github.com/brendanhay/amazonka/pull/951)
 

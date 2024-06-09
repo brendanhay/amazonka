@@ -49,10 +49,10 @@ library
     Amazonka.DynamoDBStreams.DescribeStream
     Amazonka.DynamoDBStreams.GetRecords
     Amazonka.DynamoDBStreams.GetShardIterator
-    Amazonka.DynamoDBStreams.Internal
     Amazonka.DynamoDBStreams.Lens
     Amazonka.DynamoDBStreams.ListStreams
     Amazonka.DynamoDBStreams.Types
+    Amazonka.DynamoDBStreams.Types.AttributeValue
     Amazonka.DynamoDBStreams.Types.Identity
     Amazonka.DynamoDBStreams.Types.KeySchemaElement
     Amazonka.DynamoDBStreams.Types.KeyType
@@ -70,10 +70,11 @@ library
 
   build-depends:
     , aeson
-    , amazonka-core         >=2.0     && <2.1
-    , base                  >=4.12    && <5
+    , amazonka-core                     >=2.0     && <2.1
+    , amazonka-dynamodb-attributevalue
+    , base                              >=4.12    && <5
     , containers
-    , hashable              >=1.3.4.0 && <1.5
+    , hashable                          >=1.3.4.0 && <1.5
     , unordered-containers
     , vector
 

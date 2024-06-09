@@ -22,7 +22,7 @@ module Amazonka.DynamoDBStreams.Types.StreamDescription where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
-import Amazonka.DynamoDBStreams.Internal
+import Amazonka.DynamoDBStreams.Types.AttributeValue
 import Amazonka.DynamoDBStreams.Types.KeySchemaElement
 import Amazonka.DynamoDBStreams.Types.Shard
 import Amazonka.DynamoDBStreams.Types.StreamStatus

@@ -8,13 +8,13 @@
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
--- Module      : Amazonka.DynamoDBStreams.Internal
--- Copyright   : (c) 2013-2023 Brendan Hay
+-- Module      : Amazonka.DynamoDB.AttributeValue
+-- Copyright   : (c) 2013-2024 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-module Amazonka.DynamoDBStreams.Internal where
+module Amazonka.DynamoDB.AttributeValue where
 
 import Amazonka.Data
 import Amazonka.Prelude
@@ -29,7 +29,9 @@ import qualified  Data.Aeson.KeyMap as KeyMap
 import qualified  Data.HashMap.Strict as KeyMap
 #endif
 
--- | Represents the data for an attribute.
+-- | Represents the data for an attribute in a DynamoDB item, as returned by the
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html DynamoDB> and
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_AttributeValue.html DynamoDB Streams> APIs.
 --
 -- DynamoDB sends and receives JSON objects which contain a single
 -- item whose key is a data type and the value is the data itself. We
@@ -41,7 +43,7 @@ import qualified  Data.HashMap.Strict as KeyMap
 data AttributeValue
   = -- | An attribute of type List. For example:
     --
-    -- @\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]@
+    -- @\"L\": [{\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]@
     L (Vector AttributeValue)
   | -- | An attribute of type Number Set. For example:
     --
@@ -103,7 +105,7 @@ instance Hashable AttributeValue where
     S s -> salt `hashWithSalt` (8 :: Int) `hashWithSalt` s
     BOOL b -> salt `hashWithSalt` (9 :: Int) `hashWithSalt` b
     where
-      hashVector :: Hashable a => Int -> Vector a -> Int
+      hashVector :: (Hashable a) => Int -> Vector a -> Int
       hashVector = hashUsing toList
 
 instance FromJSON AttributeValue where

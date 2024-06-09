@@ -30,7 +30,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
-import Amazonka.DynamoDBStreams.Internal
+import Amazonka.DynamoDBStreams.Types.AttributeValue
 import qualified Amazonka.Prelude as Prelude
 
 newtype StreamStatus = StreamStatus'

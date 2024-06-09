@@ -11,6 +11,7 @@ packages:
    lib/amazonka/
    lib/amazonka-core/
    lib/amazonka-test/
+   lib/amazonka-dynamodb-attributevalue/
    lib/amazonka-s3-encryption/
 
 optional-packages:

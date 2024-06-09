@@ -188,6 +188,7 @@ import Data.Conduit (ConduitM)
 import Data.IORef (IORef, readIORef)
 import qualified Data.Text as Text
 import Data.Time (defaultTimeLocale, formatTime, parseTimeM)
+import Data.Typeable (Typeable)
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Method (StdMethod)
 import Network.HTTP.Types.Status (Status)
@@ -651,7 +652,7 @@ requestUnsigned Request {service = Service {..}, ..} r =
     end = endpoint r
 
 -- | Specify how a request can be de/serialised.
-class AWSRequest a where
+class (Typeable a, Typeable (AWSResponse a)) => AWSRequest a where
   -- | The successful, expected response associated with a request.
   type AWSResponse a :: Type
 

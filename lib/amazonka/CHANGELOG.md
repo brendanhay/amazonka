@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- `amazonka-dynamodb-attributevalue`: This new package pulls out the type 
+`AttributeValue` and related instances previously duplicated in `amazonka-dynamodb`
+and `amazonka-dynamodb-streams`. (thanks @dalpd)
+
 ### Changed
 
 - `amazonka`: Add support for `AWS_SHARED_CREDENTIALS_FILE` and `AWS_CONFIG_FILE` environment variables to override the

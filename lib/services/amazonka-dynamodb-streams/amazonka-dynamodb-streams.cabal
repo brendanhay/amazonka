@@ -49,7 +49,6 @@ library
     Amazonka.DynamoDBStreams.DescribeStream
     Amazonka.DynamoDBStreams.GetRecords
     Amazonka.DynamoDBStreams.GetShardIterator
-    Amazonka.DynamoDBStreams.Internal
     Amazonka.DynamoDBStreams.Lens
     Amazonka.DynamoDBStreams.ListStreams
     Amazonka.DynamoDBStreams.Types
@@ -70,10 +69,11 @@ library
 
   build-depends:
     , aeson
-    , amazonka-core         >=2.0     && <2.1
-    , base                  >=4.12    && <5
+    , amazonka-attribute-value  >=2.0
+    , amazonka-core             >=2.0     && <2.1
+    , base                      >=4.12    && <5
     , containers
-    , hashable              >=1.3.4.0 && <1.5
+    , hashable                  >=1.3.4.0 && <1.5
     , unordered-containers
     , vector
 
@@ -87,11 +87,7 @@ test-suite amazonka-dynamodb-streams-test
   -- This section is encoded by the template and any modules added by
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
-  other-modules:
-    Test.Amazonka.DynamoDBStreams
-    Test.Amazonka.DynamoDBStreams.Internal
-    Test.Amazonka.Gen.DynamoDBStreams
-
+  other-modules:    Test.Amazonka.Gen.DynamoDBStreams
   build-depends:
     , amazonka-core              >=2.0 && <2.1
     , amazonka-dynamodb-streams

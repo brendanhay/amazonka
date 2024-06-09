@@ -1,8 +1,8 @@
 cabal-version: 2.2
-name:          amazonka-attribute-value
+name:          amazonka-dynamodb-attributevalue
 version:       2.0
 synopsis:
-  Package exposing the common `AttributeValue` type for other amazonka packages to reuse.
+  Package exposing the DynamoDB `AttributeValue` type for other packages to reuse.
 
 homepage:      https://github.com/brendanhay/amazonka
 bug-reports:   https://github.com/brendanhay/amazonka/issues
@@ -16,12 +16,12 @@ copyright:     Copyright (c) 2013-2024 Brendan Hay
 category:      AWS
 build-type:    Simple
 description:
-  Package exposing the common `AttributeValue` type for other amazonka packages to reuse.
+  Package exposing the DynamoDB `AttributeValue` type for other packages to reuse.
 
 source-repository head
   type:     git
   location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-attribute-value
+  subdir:   lib/amazonka-dynamodb-attributevalue
 
 common base
   default-language:   Haskell2010
@@ -36,7 +36,7 @@ common base
 library
   import:          base
   hs-source-dirs:  src
-  exposed-modules: Amazonka.AttributeValue
+  exposed-modules: Amazonka.DynamoDB.AttributeValue
   build-depends:
     , aeson          ^>=1.5.0.0 || ^>=2.0 || ^>=2.1 || ^>=2.2
     , amazonka-core  ^>=2.0

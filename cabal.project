@@ -12,7 +12,7 @@ packages:
    lib/amazonka-core/
    lib/amazonka-test/
    lib/amazonka-s3-encryption/
-   lib/amazonka-attribute-value/
+   lib/amazonka-dynamodb-attributevalue/
 
 optional-packages:
    gen/

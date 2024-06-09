@@ -8,13 +8,13 @@
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
--- Module      : Amazonka.AttributeValue
+-- Module      : Amazonka.DynamoDB.AttributeValue
 -- Copyright   : (c) 2013-2024 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-module Amazonka.AttributeValue where
+module Amazonka.DynamoDB.AttributeValue where
 
 import Amazonka.Data
 import Amazonka.Prelude
@@ -29,7 +29,9 @@ import qualified  Data.Aeson.KeyMap as KeyMap
 import qualified  Data.HashMap.Strict as KeyMap
 #endif
 
--- | Represents the data for an attribute.
+-- | Represents the data for an attribute in a DynamoDB item, as returned by the
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html DynamoDB> and
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_AttributeValue.html DynamoDB Streams> APIs.
 --
 -- DynamoDB sends and receives JSON objects which contain a single
 -- item whose key is a data type and the value is the data itself. We

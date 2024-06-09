@@ -6,8 +6,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 module Amazonka.DynamoDB.Types.AttributeValue
-  ( module AttributeValue,
+  (module AttributeValue
   )
 where
 
-import Amazonka.AttributeValue as AttributeValue
+import Amazonka.DynamoDB.AttributeValue as AttributeValue

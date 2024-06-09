@@ -10,4 +10,4 @@ module Amazonka.DynamoDBStreams.Internal
   )
 where
 
-import Amazonka.AttributeValue as AttributeValue
+import Amazonka.DynamoDB.AttributeValue as AttributeValue

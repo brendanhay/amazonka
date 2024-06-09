@@ -1,0 +1,45 @@
+cabal-version: 2.2
+name:          amazonka-attribute-value
+version:       2.0
+synopsis:
+  Package exposing the common `AttributeValue` type for other amazonka packages to reuse.
+
+homepage:      https://github.com/brendanhay/amazonka
+bug-reports:   https://github.com/brendanhay/amazonka/issues
+license:       MPL-2.0
+license-file:  LICENSE
+author:        Brendan Hay
+maintainer:
+  Brendan Hay <brendan.g.hay+amazonka@gmail.com>, Jack Kelly <jack@jackkelly.name>
+
+copyright:     Copyright (c) 2013-2024 Brendan Hay
+category:      AWS
+build-type:    Simple
+description:
+  Package exposing the common `AttributeValue` type for other amazonka packages to reuse.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   lib/amazonka-attribute-value
+
+common base
+  default-language:   Haskell2010
+  ghc-options:
+    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -fwarn-missing-deriving-strategies
+    -fwarn-unused-packages
+
+  default-extensions: NoImplicitPrelude
+  build-depends:      base >=4.12 && <5
+
+library
+  import:          base
+  hs-source-dirs:  src
+  exposed-modules: Amazonka.AttributeValue
+  build-depends:
+    , aeson          ^>=1.5.0.0 || ^>=2.0 || ^>=2.1 || ^>=2.2
+    , amazonka-core  ^>=2.0
+    , containers
+    , hashable       >=1.3.4.0  && <1.5
+    , vector

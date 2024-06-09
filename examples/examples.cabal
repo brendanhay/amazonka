@@ -27,6 +27,7 @@ library
     DynamoDB
     EC2
     ExceptionSemantics
+    Hooks
     S3
     SQS
 
@@ -43,6 +44,7 @@ library
     , conduit-extra
     , exceptions
     , generic-lens
+    , http-client
     , lens
     , semigroups
     , text

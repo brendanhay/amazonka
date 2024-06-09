@@ -26,9 +26,7 @@ import qualified Network.HTTP.Client as Client
 --
 -- See 'send'.
 sendEither ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
+  (MonadResource m, AWSRequest a) =>
   Env ->
   a ->
   m (Either Error (AWSResponse a))
@@ -41,9 +39,7 @@ sendEither env =
 --
 -- See 'sendEither'.
 send ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
+  (MonadResource m, AWSRequest a) =>
   Env ->
   a ->
   m (AWSResponse a)
@@ -60,9 +56,7 @@ send env =
 --
 -- See 'sendUnsigned'.
 sendUnsignedEither ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
+  (MonadResource m, AWSRequest a) =>
   Env' withAuth ->
   a ->
   m (Either Error (AWSResponse a))
@@ -75,9 +69,7 @@ sendUnsignedEither env =
 --
 -- See 'sendUnsignedEither'.
 sendUnsigned ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
+  (MonadResource m, AWSRequest a) =>
   Env' withAuth ->
   a ->
   m (AWSResponse a)
@@ -90,9 +82,7 @@ sendUnsigned env =
 --
 -- See 'paginate'.
 paginateEither ::
-  ( MonadResource m,
-    AWSPager a
-  ) =>
+  (MonadResource m, AWSPager a) =>
   Env ->
   a ->
   ConduitM () (AWSResponse a) m (Either Error ())
@@ -112,9 +102,7 @@ paginateEither env = go
 --
 -- See 'paginateEither'.
 paginate ::
-  ( MonadResource m,
-    AWSPager a
-  ) =>
+  (MonadResource m, AWSPager a) =>
   Env ->
   a ->
   ConduitM () (AWSResponse a) m ()
@@ -126,9 +114,7 @@ paginate env =
 --
 -- See 'await'.
 awaitEither ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
+  (MonadResource m, AWSRequest a) =>
   Env ->
   Waiter.Wait a ->
   a ->
@@ -142,9 +128,7 @@ awaitEither = HTTP.awaitRequest
 --
 -- See 'awaitEither'.
 await ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
+  (MonadResource m, AWSRequest a) =>
   Env ->
   Waiter.Wait a ->
   a ->
@@ -152,5 +136,5 @@ await ::
 await env wait =
   awaitEither env wait >=> hoistEither
 
-hoistEither :: MonadIO m => Either Error a -> m a
+hoistEither :: (MonadIO m) => Either Error a -> m a
 hoistEither = either (liftIO . Exception.throwIO) pure

@@ -7,7 +7,7 @@
     "unordered-containers",
     "vector"
   ],
-  "typeModules": ["Amazonka.DynamoDBStreams.Internal"],
+  "typeModules": ["Amazonka.DynamoDBStreams.Types.AttributeValue"],
   "typeOverrides": {
     "AttributeValue": {
       "replacedBy": {

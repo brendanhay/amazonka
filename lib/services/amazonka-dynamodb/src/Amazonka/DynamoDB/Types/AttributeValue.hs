@@ -5,6 +5,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-module Amazonka.DynamoDB.Types.AttributeValue ( module AttributeValue ) where
+module Amazonka.DynamoDB.Types.AttributeValue (module AttributeValue) where
 
 import Amazonka.DynamoDB.AttributeValue as AttributeValue

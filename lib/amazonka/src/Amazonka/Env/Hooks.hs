@@ -310,7 +310,7 @@ requestHook f hooks@Hooks {request} =
 
 {-# INLINE waitHook #-}
 waitHook ::
-  (forall a. (AWSRequest a, Typeable a) => Hook (Wait a) -> Hook (Wait a)) ->
+  (forall a. AWSRequest a => Hook (Wait a) -> Hook (Wait a)) ->
   Hooks ->
   Hooks
 waitHook f hooks@Hooks {wait} =
@@ -319,7 +319,7 @@ waitHook f hooks@Hooks {wait} =
 {-# INLINE configuredRequestHook #-}
 configuredRequestHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    AWSRequest a =>
     Hook (Request a) ->
     Hook (Request a)
   ) ->
@@ -331,7 +331,7 @@ configuredRequestHook f hooks@Hooks {configuredRequest} =
 {-# INLINE signedRequestHook #-}
 signedRequestHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    AWSRequest a =>
     Hook_ (Signed a) ->
     Hook_ (Signed a)
   ) ->
@@ -351,7 +351,7 @@ clientRequestHook f hooks@Hooks {clientRequest} =
 {-# INLINE clientResponseHook #-}
 clientResponseHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    AWSRequest a =>
     Hook_ (Request a, ClientResponse ()) ->
     Hook_ (Request a, ClientResponse ())
   ) ->
@@ -371,7 +371,7 @@ rawResponseBodyHook f hooks@Hooks {rawResponseBody} =
 {-# INLINE requestRetryHook #-}
 requestRetryHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    AWSRequest a =>
     Hook_ (Request a, Text, Retry.RetryStatus) ->
     Hook_ (Request a, Text, Retry.RetryStatus)
   ) ->
@@ -383,7 +383,7 @@ requestRetryHook f hooks@Hooks {requestRetry} =
 {-# INLINE awaitRetryHook #-}
 awaitRetryHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    AWSRequest a =>
     Hook_ (Request a, Wait a, Accept, Retry.RetryStatus) ->
     Hook_ (Request a, Wait a, Accept, Retry.RetryStatus)
   ) ->
@@ -395,7 +395,7 @@ awaitRetryHook f hooks@Hooks {awaitRetry} =
 {-# INLINE responseHook #-}
 responseHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    AWSRequest a =>
     Hook_ (Request a, ClientResponse (AWSResponse a)) ->
     Hook_ (Request a, ClientResponse (AWSResponse a))
   ) ->
@@ -407,7 +407,7 @@ responseHook f hooks@Hooks {response} =
 {-# INLINE errorHook #-}
 errorHook ::
   ( forall a.
-    (AWSRequest a, Typeable a) =>
+    AWSRequest a =>
     Hook_ (Finality, Request a, Error) ->
     Hook_ (Finality, Request a, Error)
   ) ->
@@ -449,11 +449,11 @@ addHook_ newHook oldHook env a = oldHook env a *> newHook env a
 -- | Like 'addHook', adds an unconditional hook, but it also captures
 -- the @'AWSRequest' a@ constraint. Useful for handling every AWS
 -- request type in a generic way.
-addAWSRequestHook :: (AWSRequest a, Typeable a) => Hook a -> Hook a -> Hook a
+addAWSRequestHook :: AWSRequest a => Hook a -> Hook a -> Hook a
 addAWSRequestHook = addHook
 
 -- | 'addAWSRequestHook_' is 'addAWSRequestHook' but for 'Hook_'s.
-addAWSRequestHook_ :: (AWSRequest a, Typeable a) => Hook_ a -> Hook_ a -> Hook_ a
+addAWSRequestHook_ :: AWSRequest a => Hook_ a -> Hook_ a -> Hook_ a
 addAWSRequestHook_ = addHook_
 
 -- | @addHookFor \@a newHook oldHook@ When @a@ and @b@ are the same

@@ -11,13 +11,14 @@ module Amazonka.Auth.STS where
 
 import Amazonka.Auth.Background (fetchAuthInBackground)
 import Amazonka.Auth.Exception
-import Amazonka.Core.Lens.Internal (throwingM, (^.))
+import Amazonka.Core.Lens.Internal ((^.))
 import Amazonka.Env (Env, Env' (..))
 import Amazonka.Prelude
 import qualified Amazonka.STS as STS
 import qualified Amazonka.STS.AssumeRole as STS
 import qualified Amazonka.STS.AssumeRoleWithWebIdentity as STS
 import Amazonka.Send (send, sendUnsigned)
+import Control.Exception (throw)
 import Control.Monad.Trans.Resource (runResourceT)
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
@@ -34,7 +35,7 @@ import qualified System.Environment as Environment
 -- application does not get stuck holding temporary credentials which
 -- have expired.
 fromAssumedRole ::
-  MonadIO m =>
+  (MonadIO m) =>
   -- | Role ARN
   Text ->
   -- | Role session name
@@ -60,7 +61,7 @@ fromAssumedRole roleArn roleSessionName env = do
 -- The implementation is modelled on the C++ SDK:
 -- https://github.com/aws/aws-sdk-cpp/blob/6d6dcdbfa377393306bf79585f61baea524ac124/aws-cpp-sdk-core/source/auth/STSCredentialsProvider.cpp#L33
 fromWebIdentity ::
-  MonadIO m =>
+  (MonadIO m) =>
   -- | Path to token file
   FilePath ->
   -- | Role ARN
@@ -106,7 +107,7 @@ fromWebIdentity tokenFile roleArn mSessionName env = do
 -- Throws 'MissingEnvError' if a required environment variable is
 -- empty or unset.
 fromWebIdentityEnv ::
-  MonadIO m =>
+  (MonadIO m) =>
   Env' withAuth ->
   m Env
 fromWebIdentityEnv env = liftIO $ do
@@ -119,17 +120,17 @@ fromWebIdentityEnv env = liftIO $ do
       nonEmptyEnv "AWS_WEB_IDENTITY_TOKEN_FILE" >>= \case
         Just v -> pure v
         Nothing ->
-          throwingM
-            _MissingEnvError
-            "Unable to read token file name from AWS_WEB_IDENTITY_TOKEN_FILE"
+          throw
+            $ MissingEnvError
+              "Unable to read token file name from AWS_WEB_IDENTITY_TOKEN_FILE"
 
     lookupRoleArn =
       nonEmptyEnv "AWS_ROLE_ARN" >>= \case
         Just v -> pure $ Text.pack v
         Nothing ->
-          throwingM
-            _MissingEnvError
-            "Unable to read role ARN from AWS_ROLE_ARN"
+          throw
+            $ MissingEnvError
+              "Unable to read role ARN from AWS_ROLE_ARN"
 
     lookupSessionName = fmap Text.pack <$> nonEmptyEnv "AWS_ROLE_SESSION_NAME"
 

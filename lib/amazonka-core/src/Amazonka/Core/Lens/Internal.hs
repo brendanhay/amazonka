@@ -74,8 +74,11 @@ import Lens.Micro.Pro as Export
     Traversal',
     coerced,
     iso,
+    mapping,
+    preview,
     prism,
     prism',
+    review,
     (#),
   )
 import Prelude (Bool)

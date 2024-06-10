@@ -12,20 +12,14 @@ module Amazonka.Core.Lens.Internal
   ( exception,
     anyOf,
     allOf,
+    concatOf,
     module Export,
   )
 where
 
 import Control.Exception (Exception, SomeException, fromException, toException)
+import Data.Functor.Const (Const (..))
 import Data.Monoid (All (..), Any (..))
--- import Control.Exception.Lens as Export
---   ( catching,
---     catching_,
---     throwingM,
---     trying,
---     _IOException,
---   )
-
 import Lens.Micro as Export
   ( ASetter,
     ASetter',
@@ -35,6 +29,7 @@ import Lens.Micro as Export
     SimpleFold,
     SimpleGetter,
     filtered,
+    folding,
     has,
     lens,
     non,
@@ -83,9 +78,9 @@ import Lens.Micro.Pro as Export
   )
 import Prelude (Bool)
 
+-- TODO: Remaining items to find and fix based on export list
 -- import Control.Lens as Export
---   ( IndexedTraversal',
---     concatOf,
+--   ( concatOf,
 --     folding,
 --     mapping,
 --     un,
@@ -158,3 +153,24 @@ anyOf l f = getAny #. foldMapOf l (Any #. f)
 allOf :: Getting All s a -> (a -> Bool) -> s -> Bool
 allOf l f = getAll #. foldMapOf l (All #. f)
 {-# INLINE allOf #-}
+
+-- | Concatenate all of the lists targeted by a 'Fold' into a longer list.
+--
+-- >>> concatOf both ("pan","ama")
+-- "panama"
+--
+-- @
+-- 'concat' ≡ 'concatOf' 'folded'
+-- 'concatOf' ≡ 'view'
+-- @
+--
+-- @
+-- 'concatOf' :: 'Getter' s [r]     -> s -> [r]
+-- 'concatOf' :: 'Fold' s [r]       -> s -> [r]
+-- 'concatOf' :: 'Iso'' s [r]       -> s -> [r]
+-- 'concatOf' :: 'Lens'' s [r]      -> s -> [r]
+-- 'concatOf' :: 'Traversal'' s [r] -> s -> [r]
+-- @
+concatOf :: Getting [r] s [r] -> s -> [r]
+concatOf l = getConst #. l Const
+{-# INLINE concatOf #-}

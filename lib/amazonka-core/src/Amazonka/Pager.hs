@@ -13,7 +13,7 @@ module Amazonka.Pager
   )
 where
 
-import Amazonka.Core.Lens.Internal (Getter, to)
+import Amazonka.Core.Lens.Internal (SimpleGetter, to)
 import Amazonka.Data (ToText (..))
 import Amazonka.Prelude
 import Amazonka.Types
@@ -21,7 +21,7 @@ import qualified Data.HashMap.Strict as HashMap
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can
 -- generate a subsequent request, if available.
-class AWSRequest a => AWSPager a where
+class (AWSRequest a) => AWSPager a where
   page :: a -> AWSResponse a -> Maybe a
 
 -- | Generalise IsTruncated and other optional/required
@@ -44,12 +44,12 @@ instance {-# OVERLAPPABLE #-} AWSTruncated (Maybe a) where
 instance {-# OVERLAPS #-} AWSTruncated (Maybe Bool) where
   truncated = fromMaybe False
 
-stop :: AWSTruncated a => a -> Bool
+stop :: (AWSTruncated a) => a -> Bool
 stop = not . truncated
 
 choice ::
   (Alternative f, ToText a, ToText b) =>
   (s -> f a) ->
   (s -> f b) ->
-  Getter s (f Text)
+  SimpleGetter s (f Text)
 choice f g = to $ \x -> (toText <$> f x) <|> (toText <$> g x)

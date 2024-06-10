@@ -8,48 +8,39 @@
 --
 -- Re-export a number of lens types and combinators for use in service
 -- bindings.
-module Amazonka.Core.Lens.Internal (module Export) where
-
-import Control.Exception.Lens as Export
-  ( catching,
-    catching_,
-    exception,
-    throwingM,
-    trying,
-    _IOException,
+module Amazonka.Core.Lens.Internal
+  ( exception,
+    anyOf,
+    allOf,
+    module Export,
   )
-import Control.Lens as Export
-  ( AReview,
-    Choice,
-    Fold,
-    Getter,
+where
+
+import Control.Exception (Exception, SomeException, fromException, toException)
+import Data.Monoid (All (..), Any (..))
+-- import Control.Exception.Lens as Export
+--   ( catching,
+--     catching_,
+--     throwingM,
+--     trying,
+--     _IOException,
+--   )
+
+import Lens.Micro as Export
+  ( ASetter,
+    ASetter',
     Getting,
-    IndexedTraversal',
-    Iso',
     Lens,
     Lens',
-    Optic',
-    Prism',
-    Setter',
-    Traversal',
-    allOf,
-    anyOf,
-    coerced,
-    concatOf,
+    SimpleFold,
+    SimpleGetter,
     filtered,
-    folding,
     has,
-    iso,
     lens,
-    mapping,
     non,
-    prism,
     sets,
     to,
     traversed,
-    un,
-    view,
-    (#),
     (%~),
     (.~),
     (<&>),
@@ -63,3 +54,104 @@ import Control.Lens as Export
     _Just,
     _last,
   )
+import Lens.Micro.Contra as Export
+  ( Fold,
+    Getter,
+    fromSimpleFold,
+  )
+import Lens.Micro.Extras as Export
+  ( view,
+  )
+import Lens.Micro.Internal as Export
+  ( foldMapOf,
+    (#.),
+  )
+import Lens.Micro.Pro as Export
+  ( AReview,
+    Iso',
+    LensLike',
+    Prism',
+    Traversal',
+    coerced,
+    iso,
+    prism,
+    prism',
+    (#),
+  )
+import Prelude (Bool)
+
+-- import Control.Lens as Export
+--   ( IndexedTraversal',
+--     concatOf,
+--     folding,
+--     mapping,
+--     un,
+--   )
+
+-- | The following are all lifted from Control.Lens
+
+-- | Traverse the strongly typed 'Exception' contained in 'SomeException' where the type of your function matches
+-- the desired 'Exception'.
+--
+-- @
+-- 'exception' :: ('Applicative' f, 'Exception' a)
+--           => (a -> f a) -> 'SomeException' -> f 'SomeException'
+-- @
+exception :: (Exception a) => Prism' SomeException a
+exception = prism' toException fromException
+{-# INLINE exception #-}
+
+-- | Returns 'True' if any target of a 'Fold' satisfies a predicate.
+--
+-- >>> anyOf both (=='x') ('x','y')
+-- True
+-- >>> import Data.Data.Lens
+-- >>> anyOf biplate (== "world") (((),2::Int),"hello",("world",11::Int))
+-- True
+--
+-- @
+-- 'Data.Foldable.any' ≡ 'anyOf' 'folded'
+-- @
+--
+-- @
+-- 'ianyOf' l ≡ 'anyOf' l '.' 'Indexed'
+-- @
+--
+-- @
+-- 'anyOf' :: 'Getter' s a     -> (a -> 'Bool') -> s -> 'Bool'
+-- 'anyOf' :: 'Fold' s a       -> (a -> 'Bool') -> s -> 'Bool'
+-- 'anyOf' :: 'Lens'' s a      -> (a -> 'Bool') -> s -> 'Bool'
+-- 'anyOf' :: 'Iso'' s a       -> (a -> 'Bool') -> s -> 'Bool'
+-- 'anyOf' :: 'Traversal'' s a -> (a -> 'Bool') -> s -> 'Bool'
+-- 'anyOf' :: 'Prism'' s a     -> (a -> 'Bool') -> s -> 'Bool'
+-- @
+anyOf :: Getting Any s a -> (a -> Bool) -> s -> Bool
+anyOf l f = getAny #. foldMapOf l (Any #. f)
+{-# INLINE anyOf #-}
+
+-- | Returns 'True' if every target of a 'Fold' satisfies a predicate.
+--
+-- >>> allOf both (>=3) (4,5)
+-- True
+-- >>> allOf folded (>=2) [1..10]
+-- False
+--
+-- @
+-- 'Data.Foldable.all' ≡ 'allOf' 'folded'
+-- @
+--
+-- @
+-- 'iallOf' l = 'allOf' l '.' 'Indexed'
+-- @
+--
+-- @
+-- 'allOf' :: 'Getter' s a     -> (a -> 'Bool') -> s -> 'Bool'
+-- 'allOf' :: 'Fold' s a       -> (a -> 'Bool') -> s -> 'Bool'
+-- 'allOf' :: 'Lens'' s a      -> (a -> 'Bool') -> s -> 'Bool'
+-- 'allOf' :: 'Iso'' s a       -> (a -> 'Bool') -> s -> 'Bool'
+-- 'allOf' :: 'Traversal'' s a -> (a -> 'Bool') -> s -> 'Bool'
+-- 'allOf' :: 'Prism'' s a     -> (a -> 'Bool') -> s -> 'Bool'
+-- @
+allOf :: Getting All s a -> (a -> Bool) -> s -> Bool
+allOf l f = getAll #. foldMapOf l (All #. f)
+{-# INLINE allOf #-}

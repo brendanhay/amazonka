@@ -37,6 +37,7 @@ import Amazonka.Core.Lens.Internal
     Lens,
     allOf,
     anyOf,
+    fromSimpleFold,
     to,
     (^..),
     (^?),
@@ -89,10 +90,10 @@ wait_acceptors f w@Wait {acceptors} = f acceptors <&> \acceptors' -> w {acceptor
 accept :: Wait a -> Acceptor a
 accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ acceptors w
 
-matchAll :: Eq b => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
+matchAll :: (Eq b) => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
 matchAll x a l = match (allOf l (== x)) a
 
-matchAny :: Eq b => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
+matchAny :: (Eq b) => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
 matchAny x a l = match (anyOf l (== x)) a
 
 matchNonEmpty :: Bool -> Accept -> Fold (AWSResponse a) b -> Acceptor a
@@ -115,4 +116,4 @@ match f a _ = \case
   _ -> Nothing
 
 nonEmptyText :: Fold a Text -> Fold a Bool
-nonEmptyText f = f . to Text.null
+nonEmptyText f = f . fromSimpleFold (to Text.null)

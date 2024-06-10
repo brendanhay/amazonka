@@ -28,13 +28,14 @@ where
 import Control.Applicative as Export (Alternative ((<|>)))
 import Control.DeepSeq as Export (NFData (rnf))
 import Control.Exception as Export (Exception, SomeException)
-import Control.Lens as Export
-  ( Iso',
-    Lens',
-    Prism',
-    Setter',
-    Traversal',
-  )
+-- import Control.Lens as Export
+--   ( Iso',
+--     Lens',
+--     Prism',
+--     Setter',
+--     Traversal',
+--   )
+
 import Control.Monad as Export
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
 import Control.Monad.Trans.Class as Export (MonadTrans (lift))
@@ -70,6 +71,15 @@ import Data.Word as Export (Word16, Word32, Word64, Word8)
 import GHC.Exts as Export (IsList (..))
 import GHC.Generics as Export (Generic)
 import GHC.TypeLits as Export (KnownNat, KnownSymbol, Nat, Symbol)
+import Lens.Micro as Export
+  ( ASetter',
+    Lens',
+  )
+import Lens.Micro.Pro as Export
+  ( Iso',
+    Prism',
+    Traversal',
+  )
 import Numeric.Natural as Export (Natural)
 import Prelude as Export
 

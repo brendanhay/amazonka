@@ -7,7 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Error where
 
-import Amazonka.Core.Lens.Internal (Choice, Fold, Optic', filtered)
+import Amazonka.Core.Lens.Internal (Fold, LensLike', Traversal', filtered)
 import Amazonka.Data
 import Amazonka.Prelude
 import Amazonka.Types
@@ -40,7 +40,7 @@ import Network.HTTP.Types.Status (Status (..))
 -- >>> :t trying _NoSuchBucketPolicy
 -- MonadCatch m => m a -> m (Either ServiceError a)
 _MatchServiceError ::
-  AsError a =>
+  (AsError a) =>
   Service ->
   ErrorCode ->
   Fold a ServiceError
@@ -49,7 +49,7 @@ _MatchServiceError s c = _ServiceError . hasService s . hasCode c
 statusSuccess :: Status -> Bool
 statusSuccess (statusCode -> n) = n >= 200 && n < 300 || n == 304
 
-_HttpStatus :: AsError a => Traversal' a Status
+_HttpStatus :: (AsError a) => Traversal' a Status
 _HttpStatus = _Error . f
   where
     f g = \case
@@ -67,21 +67,21 @@ _HttpStatus = _Error . f
         (\x -> ServiceError (e {status = x})) <$> g status
 
 hasService ::
-  (Applicative f, Choice p) =>
+  (Applicative f) =>
   Service ->
-  Optic' p f ServiceError ServiceError
+  LensLike' f ServiceError ServiceError
 hasService Service {abbrev} = filtered ((abbrev ==) . ServiceError.abbrev)
 
 hasStatus ::
-  (Applicative f, Choice p) =>
+  (Applicative f) =>
   Int ->
-  Optic' p f ServiceError ServiceError
+  LensLike' f ServiceError ServiceError
 hasStatus n = filtered ((n ==) . fromEnum . ServiceError.status)
 
 hasCode ::
-  (Applicative f, Choice p) =>
+  (Applicative f) =>
   ErrorCode ->
-  Optic' p f ServiceError ServiceError
+  LensLike' f ServiceError ServiceError
 hasCode c = filtered ((c ==) . ServiceError.code)
 
 serviceError ::
@@ -135,8 +135,11 @@ parseJSONError a s h bs =
       if c == Just "RequestEntityTooLarge"
         then pure (Just "Request body must be less than 1 MB")
         else
-          Just <$> o .: "message"
-            <|> o .:? "Message"
+          Just
+            <$> o
+            .: "message"
+            <|> o
+            .:? "Message"
 
 parseXMLError ::
   Abbrev ->

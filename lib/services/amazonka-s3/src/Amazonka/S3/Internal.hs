@@ -47,7 +47,7 @@ where
 
 import Amazonka.Core
 import Amazonka.Core.Lens.Internal
-  ( IndexedTraversal',
+  ( Traversal',
     coerced,
     prism,
     traversed,
@@ -245,7 +245,7 @@ objectKey_keyName c = _ObjectKeySnoc False c . _2
 {-# INLINE objectKey_keyName #-}
 
 -- | Traverse the path components of an object key using the specified delimiter.
-objectKey_keyComponents :: Delimiter -> IndexedTraversal' Int ObjectKey Text
+objectKey_keyComponents :: Delimiter -> Traversal' ObjectKey Text
 objectKey_keyComponents !c f (ObjectKey k) = cat <$> traversed f split
   where
     split = Text.split (== c) k
@@ -259,8 +259,8 @@ _ObjectKeySnoc dir !c = prism (ObjectKey . uncurry cat) split
     split x@(ObjectKey k) =
       let (h, t) = Text.breakOnEnd suf k
        in if
-              | Text.length h <= 1, dir -> Left x
-              | otherwise -> Right (Text.dropEnd 1 h, t)
+            | Text.length h <= 1, dir -> Left x
+            | otherwise -> Right (Text.dropEnd 1 h, t)
 
     cat h t
       | Text.null h = t

@@ -78,14 +78,6 @@ import Lens.Micro.Pro as Export
   )
 import Prelude (Bool)
 
--- TODO: Remaining items to find and fix based on export list
--- import Control.Lens as Export
---   ( concatOf,
---     folding,
---     mapping,
---     un,
---   )
-
 -- | The following are all lifted from Control.Lens
 
 -- | Traverse the strongly typed 'Exception' contained in 'SomeException' where the type of your function matches

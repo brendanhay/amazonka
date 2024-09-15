@@ -28,14 +28,6 @@ where
 import Control.Applicative as Export (Alternative ((<|>)))
 import Control.DeepSeq as Export (NFData (rnf))
 import Control.Exception as Export (Exception, SomeException)
--- import Control.Lens as Export
---   ( Iso',
---     Lens',
---     Prism',
---     Setter',
---     Traversal',
---   )
-
 import Control.Monad as Export
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
 import Control.Monad.Trans.Class as Export (MonadTrans (lift))

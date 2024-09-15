@@ -92,10 +92,10 @@ import Amazonka.S3.Encryption.Encrypt
 import Amazonka.S3.Encryption.Envelope
 import Amazonka.S3.Encryption.Instructions
 import Amazonka.S3.Encryption.Types
-import Control.Lens
 import Crypto.PubKey.RSA.Types as RSA
 import Crypto.Random
 import Data.Typeable (Typeable)
+import Lens.Micro
 
 -- | Specify a KMS master key to use, with an initially empty material description.
 --
@@ -115,13 +115,13 @@ asymmetricKey k = Asymmetric (KeyPair k) mempty
 -- Throws 'EncryptionError', specifically 'CipherFailure'.
 --
 -- /See:/ 'newSecret', 'description', 'material'.
-symmetricKey :: MonadIO m => ByteString -> m Key
+symmetricKey :: (MonadIO m) => ByteString -> m Key
 symmetricKey = fmap (`Symmetric` mempty) . createCipher
 
 -- | Generate a random shared secret that is of the correct length to use with
 -- 'symmetricKey'. This will need to be stored securely to enable decryption
 -- of any requests that are encrypted using this secret.
-newSecret :: MonadRandom m => m ByteString
+newSecret :: (MonadRandom m) => m ByteString
 newSecret = getRandomBytes aesKeySize
 
 -- | Encrypt an object, storing the encryption envelope in @x-amz-meta-*@
@@ -129,7 +129,7 @@ newSecret = getRandomBytes aesKeySize
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 encrypt ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   Env ->
   PutObject ->
@@ -145,7 +145,7 @@ encrypt key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 encryptInstructions ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   Env ->
   PutObject ->
@@ -172,7 +172,7 @@ encryptInstructions key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 initiate ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   Env ->
   CreateMultipartUpload ->
@@ -195,7 +195,7 @@ initiate key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 initiateInstructions ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   Env ->
   CreateMultipartUpload ->
@@ -214,7 +214,7 @@ initiateInstructions key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 decrypt ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   Env ->
   GetObject ->
@@ -230,7 +230,7 @@ decrypt key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 decryptInstructions ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   Env ->
   GetObject ->

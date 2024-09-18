@@ -320,7 +320,7 @@ fromFileEnv ::
 fromFileEnv env = liftIO $ do
   profile <- Environment.lookupEnv "AWS_PROFILE" <&> maybe "default" Text.pack
   conf <-
-    Environment.lookupEnv "AWS_CONFIG_File"
+    Environment.lookupEnv "AWS_CONFIG_FILE"
       >>= maybe (configPathRelative "/.aws/config") pure
   cred <-
     Environment.lookupEnv "AWS_SHARED_CREDENTIALS_FILE"

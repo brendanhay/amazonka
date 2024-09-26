@@ -21,6 +21,7 @@ data AuthError
   | MissingFileError FilePath
   | InvalidFileError Text
   | InvalidIAMError Text
+  | NotOnEC2Instance
   | CredentialChainExhausted
   deriving stock (Show, Generic)
 
@@ -33,6 +34,7 @@ instance ToLog AuthError where
     MissingFileError f -> "[MissingFileError] { path = " <> build f <> "}"
     InvalidFileError e -> "[InvalidFileError] { message = " <> build e <> "}"
     InvalidIAMError e -> "[InvalidIAMError]  { message = " <> build e <> "}"
+    NotOnEC2Instance -> "[NotOnEC2Instance]"
     CredentialChainExhausted -> "[CredentialChainExhausted]"
 
 class AsAuthError a where
@@ -57,11 +59,15 @@ class AsAuthError a where
   -- | The specified IAM profile could not be found or deserialised.
   _InvalidIAMError :: Prism' a Text
 
+  -- | Using an EC2 Instance profile was attempted not on an EC2 instance.
+  _NotOnEC2Instance :: Prism' a AuthError
+
   _RetrievalError = _AuthError . _RetrievalError
   _MissingEnvError = _AuthError . _MissingEnvError
   _MissingFileError = _AuthError . _MissingFileError
   _InvalidFileError = _AuthError . _InvalidFileError
   _InvalidIAMError = _AuthError . _InvalidIAMError
+  _NotOnEC2Instance = _AuthError . _NotOnEC2Instance
 
 instance AsAuthError SomeException where
   _AuthError = exception
@@ -87,4 +93,8 @@ instance AsAuthError AuthError where
 
   _InvalidIAMError = prism InvalidIAMError $ \case
     InvalidIAMError e -> Right e
+    x -> Left x
+
+  _NotOnEC2Instance = prism (const NotOnEC2Instance) $ \case
+    e@NotOnEC2Instance -> Right e
     x -> Left x

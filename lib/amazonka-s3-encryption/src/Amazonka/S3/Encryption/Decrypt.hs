@@ -15,8 +15,8 @@ import Amazonka.S3.Encryption.Envelope
 import Amazonka.S3.Encryption.Instructions
 import Amazonka.S3.Encryption.Types
 import qualified Amazonka.S3.Lens as S3
-import Control.Lens ((%~), (^.))
 import qualified Control.Monad.Except as Except
+import Lens.Micro ((%~), (^.))
 import qualified Network.HTTP.Client as Client
 
 decrypted :: S3.GetObject -> (Decrypt S3.GetObject, GetInstructions)
@@ -25,7 +25,7 @@ decrypted x = (Decrypt x, getInstructions x)
 newtype Decrypt a = Decrypt a
 
 newtype Decrypted a = Decrypted
-  { runDecrypted :: forall m. MonadResource m => Key -> AWS.Env -> Maybe Envelope -> m a
+  { runDecrypted :: forall m. (MonadResource m) => Key -> AWS.Env -> Maybe Envelope -> m a
   }
 
 instance AWSRequest (Decrypt S3.GetObject) where

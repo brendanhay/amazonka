@@ -12,14 +12,15 @@ module Amazonka.S3.Encryption.Types where
 import Amazonka.Data
 import Amazonka.Prelude
 import qualified Amazonka.S3 as S3
-import qualified Control.Exception.Lens as Exception.Lens
-import qualified Control.Lens as Lens
+import Control.Exception (fromException, toException)
 import qualified Crypto.Cipher.AES as AES
 import qualified Crypto.Error
 import qualified Crypto.PubKey.RSA.Types as RSA
 import qualified Data.Aeson as Aeson
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
+import Lens.Micro (lens)
+import Lens.Micro.Pro (prism')
 
 -- | An error thrown when performing encryption or decryption.
 data EncryptionError
@@ -39,10 +40,28 @@ data EncryptionError
 
 instance Exception EncryptionError
 
-$(Lens.makeClassyPrisms ''EncryptionError)
+class AsEncryptionError s where
+  _EncryptionError :: Prism' s EncryptionError
+
+  _CipherFailure :: Prism' s Crypto.Error.CryptoError
+  _PubKeyFailure :: Prism' s RSA.Error
+  _IVInvalid :: Prism' s ByteString
+  _EnvelopeMissing :: Prism' s (CI Text)
+  _EnvelopeInvalid :: Prism' s (CI Text, String)
+  _PlaintextUnavailable :: Prism' s ()
+
+  _CipherFailure = _EncryptionError . _CipherFailure
+  _PubKeyFailure = _EncryptionError . _PubKeyFailure
+  _IVInvalid = _EncryptionError . _IVInvalid
+  _EnvelopeMissing = _EncryptionError . _EnvelopeMissing
+  _EnvelopeInvalid = _EncryptionError . _EnvelopeInvalid
+  _PlaintextUnavailable = _EncryptionError . _PlaintextUnavailable
+
+instance AsEncryptionError EncryptionError where
+  _EncryptionError = id
 
 instance AsEncryptionError SomeException where
-  _EncryptionError = Exception.Lens.exception
+  _EncryptionError = prism' toException fromException
 
 data ContentAlgorithm
   = -- | AES/CBC/PKCS5Padding
@@ -109,7 +128,7 @@ data Key
 --
 -- /See:/ 'Description'.
 description :: Lens' Key Description
-description = Lens.lens f (flip g)
+description = lens f (flip g)
   where
     f = \case
       Symmetric _ a -> a

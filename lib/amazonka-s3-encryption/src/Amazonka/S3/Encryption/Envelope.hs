@@ -19,7 +19,6 @@ import Amazonka.S3.Encryption.Types
 import Conduit ((.|))
 import qualified Conduit
 import qualified Control.Exception as Exception
-import Control.Lens ((?~), (^.))
 import Crypto.Cipher.AES (AES256)
 import qualified Crypto.Cipher.AES as AES
 import Crypto.Cipher.Types (BlockCipher, Cipher, IV)
@@ -34,8 +33,8 @@ import Data.ByteArray (ByteArray)
 import qualified Data.ByteArray as ByteArray
 import qualified Data.ByteString as BS
 import qualified Data.CaseInsensitive as CI
-import Data.Functor ((<&>))
 import qualified Data.HashMap.Strict as Map
+import Lens.Micro ((?~), (^.))
 
 #if MIN_VERSION_aeson(2,0,0)
 import qualified Data.Aeson.Key as Key
@@ -53,7 +52,7 @@ data V1Envelope = V1Envelope
     _v1Description :: !Description
   }
 
-newV1 :: MonadIO m => (ByteString -> IO ByteString) -> Description -> m Envelope
+newV1 :: (MonadIO m) => (ByteString -> IO ByteString) -> Description -> m Envelope
 newV1 f d =
   liftIO $ do
     k <- getRandomBytes aesKeySize
@@ -61,15 +60,16 @@ newV1 f d =
     ek <- f k
     iv <- createIV =<< getRandomBytes aesBlockSize
 
-    pure . V1 c $
-      V1Envelope
+    pure
+      . V1 c
+      $ V1Envelope
         { _v1Key = ek,
           _v1IV = iv,
           _v1Description = d
         }
 
 decodeV1 ::
-  MonadResource m =>
+  (MonadResource m) =>
   (ByteString -> IO ByteString) ->
   [(CI Text, Text)] ->
   m Envelope
@@ -82,8 +82,9 @@ decodeV1 decryptKey meta = do
   iv <- createIV i
   cipher <- createCipher key
 
-  pure . V1 cipher $
-    V1Envelope
+  pure
+    . V1 cipher
+    $ V1Envelope
       { _v1Key = key,
         _v1IV = iv,
         _v1Description = d
@@ -114,7 +115,7 @@ data V2Envelope = V2Envelope
   }
 
 newV2 ::
-  MonadResource m =>
+  (MonadResource m) =>
   Text ->
   AWS.Env ->
   Description ->
@@ -123,17 +124,20 @@ newV2 kid env d = do
   let context = Map.insert "kms_cmk_id" kid (fromDescription d)
 
   rs <-
-    AWS.send env $
-      KMS.newGenerateDataKey kid
-        & KMS.generateDataKey_encryptionContext ?~ context
-        & KMS.generateDataKey_keySpec ?~ KMS.DataKeySpec_AES_256
+    AWS.send env
+      $ KMS.newGenerateDataKey kid
+      & KMS.generateDataKey_encryptionContext
+      ?~ context
+        & KMS.generateDataKey_keySpec
+      ?~ KMS.DataKeySpec_AES_256
 
   ivBytes <- liftIO (getRandomBytes aesBlockSize)
   iv <- createIV ivBytes
   cipher <- createCipher (rs ^. KMS.generateDataKeyResponse_plaintext)
 
-  pure . V2 cipher $
-    V2Envelope
+  pure
+    . V2 cipher
+    $ V2Envelope
       { _v2Key = rs ^. KMS.generateDataKeyResponse_ciphertextBlob,
         _v2IV = iv,
         _v2CEKAlgorithm = AES_CBC_PKCS5Padding,
@@ -142,7 +146,7 @@ newV2 kid env d = do
       }
 
 decodeV2 ::
-  MonadResource m =>
+  (MonadResource m) =>
   AWS.Env ->
   [(CI Text, Text)] ->
   Description ->
@@ -155,9 +159,10 @@ decodeV2 env xs m = do
   d <- xs .& "X-Amz-Matdesc"
 
   rs <-
-    AWS.send env $
-      KMS.newDecrypt raw
-        & KMS.decrypt_encryptionContext ?~ fromDescription (m <> d)
+    AWS.send env
+      $ KMS.newDecrypt raw
+      & KMS.decrypt_encryptionContext
+      ?~ fromDescription (m <> d)
   -- Left-associative merge for material description,
   -- keys in the supplied description override those
   -- on the envelope.
@@ -214,7 +219,7 @@ toMetadata = \case
     b64 = toBS . Base64
 
 newEnvelope ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   AWS.Env ->
   m Envelope
@@ -225,7 +230,7 @@ newEnvelope key env =
     KMS kid d -> newV2 kid env d
 
 decodeEnvelope ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   AWS.Env ->
   [(CI Text, Text)] ->
@@ -237,7 +242,7 @@ decodeEnvelope key env xs =
     KMS _ d -> decodeV2 env xs d
 
 fromMetadata ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   AWS.Env ->
   HashMap Text Text ->
@@ -253,11 +258,11 @@ aesBlockSize = 16
 
 bodyEncrypt :: Envelope -> RequestBody -> RequestBody
 bodyEncrypt (getCipher -> (aes, iv0)) rqBody =
-  Chunked $
-    toChunked rqBody
-      -- Realign body chunks for upload (AWS enforces chunk limits on all but last)
-      & (`fuseChunks` (encryptChunks .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)))
-      & addPadding -- extend length for any required AES padding
+  Chunked
+    $ toChunked rqBody
+    -- Realign body chunks for upload (AWS enforces chunk limits on all but last)
+    & (`fuseChunks` (encryptChunks .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)))
+    & addPadding -- extend length for any required AES padding
   where
     encryptChunks = aesCbc iv0 nextChunk lastChunk
 
@@ -288,7 +293,7 @@ bodyDecrypt (getCipher -> (aes, iv0)) rsBody =
        in fromMaybe r (Padding.unpad (Padding.PKCS7 aesBlockSize) r)
 
 aesCbc ::
-  Monad m =>
+  (Monad m) =>
   IV AES256 ->
   (IV AES256 -> ByteString -> (IV AES256, ByteString)) ->
   (IV AES256 -> ByteString -> ByteString) ->
@@ -311,12 +316,14 @@ aesCbc iv0 onNextChunk onLastChunk =
 rsaEncrypt :: KeyPair -> ByteString -> IO ByteString
 rsaEncrypt k =
   RSA.encrypt (toPublicKey k)
-    >=> hoistEither . first PubKeyFailure
+    >=> hoistEither
+    . first PubKeyFailure
 
 rsaDecrypt :: KeyPair -> ByteString -> IO ByteString
 rsaDecrypt k =
   RSA.decryptSafer (toPrivateKey k)
-    >=> hoistEither . first PubKeyFailure
+    >=> hoistEither
+    . first PubKeyFailure
 
 getCipher :: Envelope -> (AES.AES256, Cipher.IV AES.AES256)
 getCipher = \case
@@ -331,7 +338,7 @@ createCipher =
 createIV :: (MonadIO m, BlockCipher a) => ByteString -> m (Cipher.IV a)
 createIV b = maybe (throwIO $ IVInvalid (ByteArray.convert b)) pure (Cipher.makeIV b)
 
-plaintext :: MonadIO m => KMS.DecryptResponse -> m ByteString
+plaintext :: (MonadIO m) => KMS.DecryptResponse -> m ByteString
 plaintext rs =
   case rs ^. KMS.decryptResponse_plaintext of
     Nothing -> throwIO PlaintextUnavailable
@@ -343,8 +350,8 @@ xs .& k =
     Nothing -> throwIO (EnvelopeMissing k)
     Just x -> hoistEither (EnvelopeInvalid k `first` fromText x)
 
-hoistEither :: MonadIO m => Either EncryptionError a -> m a
+hoistEither :: (MonadIO m) => Either EncryptionError a -> m a
 hoistEither = either throwIO pure
 
-throwIO :: MonadIO m => EncryptionError -> m a
+throwIO :: (MonadIO m) => EncryptionError -> m a
 throwIO = liftIO . Exception.throwIO

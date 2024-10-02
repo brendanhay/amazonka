@@ -18,8 +18,8 @@ import Amazonka.S3.Encryption.Envelope
 import Amazonka.S3.Encryption.Instructions
 import Amazonka.S3.Encryption.Types
 import qualified Amazonka.S3.Lens as S3
-import Control.Lens ((^.))
-import qualified Control.Lens as Lens
+import Lens.Micro ((^.))
+import qualified Lens.Micro as Lens
 
 -- FIXME: Material
 
@@ -52,13 +52,13 @@ data Encrypted a = Encrypted
     _encEnvelope :: Envelope
   }
 
-location :: Setter' (Encrypted a) Location
+location :: ASetter' (Encrypted a) Location
 location = Lens.lens _encLocation (\s a -> s {_encLocation = a})
 
 envelope :: Encrypted a -> Envelope
 envelope = _encEnvelope
 
-instance AWSRequest a => AWSRequest (Encrypted a) where
+instance (AWSRequest a) => AWSRequest (Encrypted a) where
   type AWSResponse (Encrypted a) = AWSResponse a
 
   request overrides (Encrypted x xs l e) =
@@ -85,7 +85,7 @@ instance AWSRequest a => AWSRequest (Encrypted a) where
 proxy :: forall a. Proxy (Encrypted a) -> Proxy a
 proxy = const Proxy
 
-class AddInstructions a => ToEncrypted a where
+class (AddInstructions a) => ToEncrypted a where
   -- | Create an encryption context.
   encryptWith :: a -> Location -> Envelope -> Encrypted a
 

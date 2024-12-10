@@ -120,16 +120,16 @@ fromWebIdentityEnv env = liftIO $ do
       nonEmptyEnv "AWS_WEB_IDENTITY_TOKEN_FILE" >>= \case
         Just v -> pure v
         Nothing ->
-          throw
-            $ MissingEnvError
+          throw $
+            MissingEnvError
               "Unable to read token file name from AWS_WEB_IDENTITY_TOKEN_FILE"
 
     lookupRoleArn =
       nonEmptyEnv "AWS_ROLE_ARN" >>= \case
         Just v -> pure $ Text.pack v
         Nothing ->
-          throw
-            $ MissingEnvError
+          throw $
+            MissingEnvError
               "Unable to read role ARN from AWS_ROLE_ARN"
 
     lookupSessionName = fmap Text.pack <$> nonEmptyEnv "AWS_ROLE_SESSION_NAME"

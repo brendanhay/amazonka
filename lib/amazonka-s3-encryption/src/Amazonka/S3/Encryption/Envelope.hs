@@ -60,9 +60,8 @@ newV1 f d =
     ek <- f k
     iv <- createIV =<< getRandomBytes aesBlockSize
 
-    pure
-      . V1 c
-      $ V1Envelope
+    pure . V1 c $
+      V1Envelope
         { _v1Key = ek,
           _v1IV = iv,
           _v1Description = d
@@ -82,9 +81,8 @@ decodeV1 decryptKey meta = do
   iv <- createIV i
   cipher <- createCipher key
 
-  pure
-    . V1 cipher
-    $ V1Envelope
+  pure . V1 cipher $
+    V1Envelope
       { _v1Key = key,
         _v1IV = iv,
         _v1Description = d
@@ -124,20 +122,17 @@ newV2 kid env d = do
   let context = Map.insert "kms_cmk_id" kid (fromDescription d)
 
   rs <-
-    AWS.send env
-      $ KMS.newGenerateDataKey kid
-      & KMS.generateDataKey_encryptionContext
-      ?~ context
-        & KMS.generateDataKey_keySpec
-      ?~ KMS.DataKeySpec_AES_256
+    AWS.send env $
+      KMS.newGenerateDataKey kid
+        & KMS.generateDataKey_encryptionContext ?~ context
+        & KMS.generateDataKey_keySpec ?~ KMS.DataKeySpec_AES_256
 
   ivBytes <- liftIO (getRandomBytes aesBlockSize)
   iv <- createIV ivBytes
   cipher <- createCipher (rs ^. KMS.generateDataKeyResponse_plaintext)
 
-  pure
-    . V2 cipher
-    $ V2Envelope
+  pure . V2 cipher $
+    V2Envelope
       { _v2Key = rs ^. KMS.generateDataKeyResponse_ciphertextBlob,
         _v2IV = iv,
         _v2CEKAlgorithm = AES_CBC_PKCS5Padding,
@@ -159,10 +154,9 @@ decodeV2 env xs m = do
   d <- xs .& "X-Amz-Matdesc"
 
   rs <-
-    AWS.send env
-      $ KMS.newDecrypt raw
-      & KMS.decrypt_encryptionContext
-      ?~ fromDescription (m <> d)
+    AWS.send env $
+      KMS.newDecrypt raw
+        & KMS.decrypt_encryptionContext ?~ fromDescription (m <> d)
   -- Left-associative merge for material description,
   -- keys in the supplied description override those
   -- on the envelope.
@@ -258,11 +252,11 @@ aesBlockSize = 16
 
 bodyEncrypt :: Envelope -> RequestBody -> RequestBody
 bodyEncrypt (getCipher -> (aes, iv0)) rqBody =
-  Chunked
-    $ toChunked rqBody
-    -- Realign body chunks for upload (AWS enforces chunk limits on all but last)
-    & (`fuseChunks` (encryptChunks .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)))
-    & addPadding -- extend length for any required AES padding
+  Chunked $
+    toChunked rqBody
+      -- Realign body chunks for upload (AWS enforces chunk limits on all but last)
+      & (`fuseChunks` (encryptChunks .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)))
+      & addPadding -- extend length for any required AES padding
   where
     encryptChunks = aesCbc iv0 nextChunk lastChunk
 
@@ -316,14 +310,12 @@ aesCbc iv0 onNextChunk onLastChunk =
 rsaEncrypt :: KeyPair -> ByteString -> IO ByteString
 rsaEncrypt k =
   RSA.encrypt (toPublicKey k)
-    >=> hoistEither
-    . first PubKeyFailure
+    >=> hoistEither . first PubKeyFailure
 
 rsaDecrypt :: KeyPair -> ByteString -> IO ByteString
 rsaDecrypt k =
   RSA.decryptSafer (toPrivateKey k)
-    >=> hoistEither
-    . first PubKeyFailure
+    >=> hoistEither . first PubKeyFailure
 
 getCipher :: Envelope -> (AES.AES256, Cipher.IV AES.AES256)
 getCipher = \case

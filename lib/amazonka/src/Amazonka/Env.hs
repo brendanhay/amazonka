@@ -127,7 +127,7 @@ env_auth f e@Env {auth} = f auth <&> \auth' -> e {auth = auth'}
 --
 -- /See:/ 'newEnvFromManager'.
 newEnv ::
-  MonadIO m =>
+  (MonadIO m) =>
   -- | Credential discovery mechanism, often 'Amazonka.Auth.discover'.
   (EnvNoAuth -> m Env) ->
   m Env
@@ -135,7 +135,7 @@ newEnv = (newEnvNoAuth >>=)
 
 -- | Creates a new environment, but with an existing 'Client.Manager'.
 newEnvFromManager ::
-  MonadIO m =>
+  (MonadIO m) =>
   Client.Manager ->
   -- | Credential discovery mechanism.
   (EnvNoAuth -> m Env) ->
@@ -150,14 +150,14 @@ newEnvFromManager manager = (newEnvNoAuthFromManager manager >>=)
 -- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html sts:AssumeRoleWithWebIdentity>
 -- operation, which needs to make an unsigned request to pass the
 -- token from an identity provider.
-newEnvNoAuth :: MonadIO m => m EnvNoAuth
+newEnvNoAuth :: (MonadIO m) => m EnvNoAuth
 newEnvNoAuth =
   liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
     >>= newEnvNoAuthFromManager
 
 -- | Generate an environment without credentials, passing in an
 -- explicit 'Client.Manager'.
-newEnvNoAuthFromManager :: MonadIO m => Client.Manager -> m EnvNoAuth
+newEnvNoAuthFromManager :: (MonadIO m) => Client.Manager -> m EnvNoAuth
 newEnvNoAuthFromManager manager = do
   mRegion <- lookupRegion
   pure
@@ -172,11 +172,11 @@ newEnvNoAuthFromManager manager = do
       }
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.
-authMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
+authMaybe :: (Foldable withAuth) => Env' withAuth -> Maybe Auth
 authMaybe = foldr (const . Just) Nothing . auth
 
 -- | Look up the region in the @AWS_REGION@ environment variable.
-lookupRegion :: MonadIO m => m (Maybe Region)
+lookupRegion :: (MonadIO m) => m (Maybe Region)
 lookupRegion =
   liftIO $
     Environment.lookupEnv "AWS_REGION" <&> \case

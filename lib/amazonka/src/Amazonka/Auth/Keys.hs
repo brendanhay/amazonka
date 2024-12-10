@@ -35,9 +35,8 @@ fromSession ::
 fromSession a s t env =
   env
     { auth =
-        Identity
-          . Auth
-          $ AuthEnv a (Sensitive s) (Just (Sensitive t)) Nothing
+        Identity . Auth $
+          AuthEnv a (Sensitive s) (Just (Sensitive t)) Nothing
     }
 
 -- | Temporary credentials from a STS session consisting of
@@ -54,9 +53,8 @@ fromTemporarySession ::
 fromTemporarySession a s t e env =
   env
     { auth =
-        Identity
-          . Auth
-          $ AuthEnv a (Sensitive s) (Just (Sensitive t)) (Just (Time e))
+        Identity . Auth $
+          AuthEnv a (Sensitive s) (Just (Sensitive t)) (Just (Time e))
     }
 
 -- | Retrieve access key, secret key and a session token from
@@ -84,31 +82,29 @@ fromKeysEnv env = liftIO $ do
     lookupAccessKey :: IO AccessKey
     lookupAccessKey = do
       mVal <-
-        runMaybeT
-          $ asum
+        runMaybeT $
+          asum
             [ MaybeT (nonEmptyEnv "AWS_ACCESS_KEY_ID"),
               MaybeT (nonEmptyEnv "AWS_ACCESS_KEY")
             ]
       case mVal of
         Nothing ->
-          throw
-            $ MissingEnvError
-              "Unable to read access key from AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY)"
+          throw $
+            MissingEnvError "Unable to read access key from AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY)"
         Just v -> pure . AccessKey $ BS8.pack v
 
     lookupSecretKey :: IO (Sensitive SecretKey)
     lookupSecretKey = do
       mVal <-
-        runMaybeT
-          $ asum
+        runMaybeT $
+          asum
             [ MaybeT (nonEmptyEnv "AWS_SECRET_ACCESS_KEY"),
               MaybeT (nonEmptyEnv "AWS_SECRET_KEY")
             ]
       case mVal of
         Nothing ->
-          throw
-            $ MissingEnvError
-              "Unable to read secret key from AWS_SECRET_ACCESS_KEY (or AWS_SECRET_KEY)"
+          throw $
+            MissingEnvError "Unable to read secret key from AWS_SECRET_ACCESS_KEY (or AWS_SECRET_KEY)"
         Just v -> pure . Sensitive . SecretKey $ BS8.pack v
 
     lookupSessionToken :: IO (Maybe (Sensitive SessionToken))

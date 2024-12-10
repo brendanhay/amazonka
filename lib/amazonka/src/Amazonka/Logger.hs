@@ -41,7 +41,7 @@ type Logger = LogLevel -> ByteStringBuilder -> IO ()
 -- <http://hackage.haskell.org/package/tinylog tinylog> or
 -- <http://hackage.haskell.org/package/fast-logger fast-logger>
 -- should be used in production code.
-newLogger :: MonadIO m => LogLevel -> IO.Handle -> m Logger
+newLogger :: (MonadIO m) => LogLevel -> IO.Handle -> m Logger
 newLogger x hd =
   liftIO $ do
     IO.hSetBuffering hd IO.LineBuffering

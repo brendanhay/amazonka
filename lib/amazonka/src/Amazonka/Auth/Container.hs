@@ -31,7 +31,7 @@ import qualified System.Environment as Environment
 -- starts a refresh thread that will periodically fetch fresh credentials before
 -- the current ones expire.
 fromContainer ::
-  MonadIO m =>
+  (MonadIO m) =>
   -- | Absolute URL
   Text ->
   Env' withAuth ->
@@ -69,7 +69,7 @@ fromContainer url env =
 -- @AWS_CONTAINER_CREDENTIALS_FULL_URI@ or @AWS_CONTAINTER_AUTHORIZATION_TOKEN@
 -- environment variable. If you need support for these, please file a PR.
 fromContainerEnv ::
-  MonadIO m =>
+  (MonadIO m) =>
   Env' withAuth ->
   m Env
 fromContainerEnv env = liftIO $ do

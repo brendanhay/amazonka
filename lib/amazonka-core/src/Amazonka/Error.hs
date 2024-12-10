@@ -7,7 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Error where
 
-import Amazonka.Core.Lens.Internal (Fold, LensLike', Traversal', filtered)
+import Amazonka.Core.Lens.Internal (Fold, LensLike', filtered)
 import Amazonka.Data
 import Amazonka.Prelude
 import Amazonka.Types
@@ -134,12 +134,7 @@ parseJSONError a s h bs =
     msg c o =
       if c == Just "RequestEntityTooLarge"
         then pure (Just "Request body must be less than 1 MB")
-        else
-          Just
-            <$> o
-            .: "message"
-            <|> o
-            .:? "Message"
+        else Just <$> o .: "message" <|> o .:? "Message"
 
 parseXMLError ::
   Abbrev ->

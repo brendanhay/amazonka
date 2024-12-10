@@ -31,7 +31,7 @@ import qualified Data.Text.Encoding as Text
 -- Throws 'RetrievalError' if the HTTP call fails, or 'InvalidIAMError' if
 -- the default IAM profile cannot be read.
 fromDefaultInstanceProfile ::
-  MonadIO m =>
+  (MonadIO m) =>
   Env' withAuth ->
   m Env
 fromDefaultInstanceProfile env =
@@ -63,7 +63,7 @@ fromDefaultInstanceProfile env =
 -- If no session token or expiration time is present the credentials will
 -- be returned verbatim.
 fromNamedInstanceProfile ::
-  MonadIO m =>
+  (MonadIO m) =>
   Text ->
   Env' withAuth ->
   m Env

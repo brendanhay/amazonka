@@ -9,17 +9,11 @@
 -- Re-export a number of lens types and combinators for use in service
 -- bindings.
 module Amazonka.Core.Lens.Internal
-  ( exception,
-    anyOf,
-    allOf,
-    concatOf,
+  ( concatOf,
     module Export,
   )
 where
 
-import Control.Exception (Exception, SomeException, fromException, toException)
-import Data.Functor.Const (Const (..))
-import Data.Monoid (All (..), Any (..))
 import Lens.Micro as Export
   ( ASetter,
     ASetter',
@@ -35,6 +29,7 @@ import Lens.Micro as Export
     non,
     sets,
     to,
+    toListOf,
     traversed,
     (%~),
     (.~),
@@ -76,93 +71,9 @@ import Lens.Micro.Pro as Export
     review,
     (#),
   )
-import Prelude (Bool)
 
--- | The following are all lifted from Control.Lens
-
--- | Traverse the strongly typed 'Exception' contained in 'SomeException' where the type of your function matches
--- the desired 'Exception'.
---
--- @
--- 'exception' :: ('Applicative' f, 'Exception' a)
---           => (a -> f a) -> 'SomeException' -> f 'SomeException'
--- @
-exception :: (Exception a) => Prism' SomeException a
-exception = prism' toException fromException
-{-# INLINE exception #-}
-
--- | Returns 'True' if any target of a 'Fold' satisfies a predicate.
---
--- >>> anyOf both (=='x') ('x','y')
--- True
--- >>> import Data.Data.Lens
--- >>> anyOf biplate (== "world") (((),2::Int),"hello",("world",11::Int))
--- True
---
--- @
--- 'Data.Foldable.any' ≡ 'anyOf' 'folded'
--- @
---
--- @
--- 'ianyOf' l ≡ 'anyOf' l '.' 'Indexed'
--- @
---
--- @
--- 'anyOf' :: 'Getter' s a     -> (a -> 'Bool') -> s -> 'Bool'
--- 'anyOf' :: 'Fold' s a       -> (a -> 'Bool') -> s -> 'Bool'
--- 'anyOf' :: 'Lens'' s a      -> (a -> 'Bool') -> s -> 'Bool'
--- 'anyOf' :: 'Iso'' s a       -> (a -> 'Bool') -> s -> 'Bool'
--- 'anyOf' :: 'Traversal'' s a -> (a -> 'Bool') -> s -> 'Bool'
--- 'anyOf' :: 'Prism'' s a     -> (a -> 'Bool') -> s -> 'Bool'
--- @
-anyOf :: Getting Any s a -> (a -> Bool) -> s -> Bool
-anyOf l f = getAny #. foldMapOf l (Any #. f)
-{-# INLINE anyOf #-}
-
--- | Returns 'True' if every target of a 'Fold' satisfies a predicate.
---
--- >>> allOf both (>=3) (4,5)
--- True
--- >>> allOf folded (>=2) [1..10]
--- False
---
--- @
--- 'Data.Foldable.all' ≡ 'allOf' 'folded'
--- @
---
--- @
--- 'iallOf' l = 'allOf' l '.' 'Indexed'
--- @
---
--- @
--- 'allOf' :: 'Getter' s a     -> (a -> 'Bool') -> s -> 'Bool'
--- 'allOf' :: 'Fold' s a       -> (a -> 'Bool') -> s -> 'Bool'
--- 'allOf' :: 'Lens'' s a      -> (a -> 'Bool') -> s -> 'Bool'
--- 'allOf' :: 'Iso'' s a       -> (a -> 'Bool') -> s -> 'Bool'
--- 'allOf' :: 'Traversal'' s a -> (a -> 'Bool') -> s -> 'Bool'
--- 'allOf' :: 'Prism'' s a     -> (a -> 'Bool') -> s -> 'Bool'
--- @
-allOf :: Getting All s a -> (a -> Bool) -> s -> Bool
-allOf l f = getAll #. foldMapOf l (All #. f)
-{-# INLINE allOf #-}
-
--- | Concatenate all of the lists targeted by a 'Fold' into a longer list.
---
--- >>> concatOf both ("pan","ama")
--- "panama"
---
--- @
--- 'concat' ≡ 'concatOf' 'folded'
--- 'concatOf' ≡ 'view'
--- @
---
--- @
--- 'concatOf' :: 'Getter' s [r]     -> s -> [r]
--- 'concatOf' :: 'Fold' s [r]       -> s -> [r]
--- 'concatOf' :: 'Iso'' s [r]       -> s -> [r]
--- 'concatOf' :: 'Lens'' s [r]      -> s -> [r]
--- 'concatOf' :: 'Traversal'' s [r] -> s -> [r]
--- @
+-- | 'concatOf' is 'view', with a type signature to make it obvious
+-- that it concatenates all focused lists.
 concatOf :: Getting [r] s [r] -> s -> [r]
-concatOf l = getConst #. l Const
+concatOf = view
 {-# INLINE concatOf #-}

@@ -10,6 +10,8 @@
 -- bindings.
 module Amazonka.Core.Lens.Internal
   ( concatOf,
+    folding,
+    to,
     module Export,
   )
 where
@@ -23,12 +25,10 @@ import Lens.Micro as Export
     SimpleFold,
     SimpleGetter,
     filtered,
-    folding,
     has,
     lens,
     non,
     sets,
-    to,
     toListOf,
     traversed,
     (%~),
@@ -44,10 +44,12 @@ import Lens.Micro as Export
     _Just,
     _last,
   )
+import qualified Lens.Micro as Lens
 import Lens.Micro.Contra as Export
   ( Fold,
     Getter,
     fromSimpleFold,
+    fromSimpleGetter,
   )
 import Lens.Micro.Extras as Export
   ( view,
@@ -71,9 +73,18 @@ import Lens.Micro.Pro as Export
     review,
     (#),
   )
+import Prelude (Foldable, ($))
 
 -- | 'concatOf' is 'view', with a type signature to make it obvious
 -- that it concatenates all focused lists.
 concatOf :: Getting [r] s [r] -> s -> [r]
 concatOf = view
 {-# INLINE concatOf #-}
+
+folding :: (Foldable f) => (s -> f a) -> Fold s a
+folding f = fromSimpleFold $ Lens.folding f
+{-# INLINE folding #-}
+
+to :: (s -> a) -> Getter s a
+to f = fromSimpleGetter $ Lens.to f
+{-# INLINE to #-}

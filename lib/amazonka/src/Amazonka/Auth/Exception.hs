@@ -9,10 +9,11 @@
 -- Exception for errors involving AWS authentication.
 module Amazonka.Auth.Exception where
 
-import Amazonka.Core.Lens.Internal (exception, prism)
+import Amazonka.Core.Lens.Internal (prism, prism')
 import Amazonka.Data
 import Amazonka.Prelude
 import Amazonka.Types
+import Control.Exception (fromException, toException)
 
 -- | An error thrown when attempting to read AuthN/AuthZ information.
 data AuthError
@@ -64,7 +65,7 @@ class AsAuthError a where
   _InvalidIAMError = _AuthError . _InvalidIAMError
 
 instance AsAuthError SomeException where
-  _AuthError = exception
+  _AuthError = prism' toException fromException
 
 instance AsAuthError AuthError where
   _AuthError = id

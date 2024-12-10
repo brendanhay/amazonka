@@ -102,25 +102,23 @@ library
     Amazonka.Waiter
 
   build-depends:
-    , aeson                 ^>=1.5.0.0 || ^>=2.0 || ^>=2.1   || ^>=2.2
+    , aeson                 ^>=1.5.0.0  || ^>=2.0 || ^>=2.1   || ^>=2.2
     , attoparsec            >=0.11.3
     , bytestring            >=0.10.8
     , case-insensitive      >=1.2
     , conduit               >=1.3
     , conduit-extra         >=1.3
-    , containers            >=0.5      && <0.7
-    , crypton               >=0.32     && <0.35  || ^>=1.0.0
+    , containers            >=0.5       && <0.7
+    , crypton               >=0.32      && <0.35  || ^>=1.0.0
     , deepseq               >=1.4
     , hashable              >=1.2
-    , http-client           >=0.5      && <0.8
-    , http-conduit          >=2.3      && <3
+    , http-client           >=0.5       && <0.8
+    , http-conduit          >=2.3       && <3
     , http-types            >=0.12
     , memory                >=0.6
-    , microlens
-    , microlens-contra
-    , microlens-platform
-    , microlens-pro
-    , microlens-th
+    , microlens             ^>=0.4.13.1
+    , microlens-contra      ^>=0.1.0.3
+    , microlens-pro         ^>=0.2.0
     , regex-posix           >=0.96
     , resourcet             >=1.1
     , scientific            >=0.3

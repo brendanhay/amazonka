@@ -4,6 +4,21 @@
 
 ### Changed
 
+- Depend on `microlens`, `microlens-pro` and `microlens-contra` instead of the full `lens` package (thanks @mankykitty).
+[\#996](https://github.com/brendanhay/amazonka/pull/996)
+  - `amazonka-s3`: `objectKey_keyComponents` has a new type `Delimiter -> Traversal' ObjectKey Text` instead of returning `IndexedTraversal' ObjectKey Text`. `lens` users can rebuild the `IndexedTraversal'` with [`Control.Lens.Indexed.indexing`](https://hackage.haskell.org/package/lens-5.3.2/docs/Control-Lens-Indexed.html#v:indexing). `optics` uses can use one of the following:
+    ```haskell
+    import Optics
+    import Optics.Internal.Indexed (indexing)
+
+    objectKey_KeyComponents' :: IxTraversal' Int ObjectKey Text
+    objectKey_KeyComponents' = itraversalVL $ indexing objectKey_KeyComponents
+
+    -- Or, if you prefer to avoid imports from .Internal modules:
+    objectKey_KeyComponents'' :: IxTraversal' Int ObjectKey Text
+    objectKey_KeyComponents'' = elementsOf (traversalVL objectKey_KeyComponents) (const True)
+    ```
+
 - `amazonka`: Add `(Typeable req, Typeable (AWSResponse req))` to the superclasses of `class AWSRequest`.
 
   `Typeable` is required for any nontrivial use of `AWSRequest` because Amazonka routes requests through the hooks system in `Amazonka.Env.Hooks`, so this reduces a little visual clutter. (Thanks @dalpd) [\#993]

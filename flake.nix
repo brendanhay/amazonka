@@ -1,17 +1,11 @@
 {
   inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    };
-
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
 
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
     botocore = {

@@ -97,10 +97,22 @@
           ghc92.developPackage {
             root = ./gen;
             overrides = _hsFinal: hsPrev: with pkgs.haskell.lib; {
-              ede = dontCheck (dontHaddock hsPrev.ede);
+              data-fix = doJailbreak hsPrev.data-fix;
+              ede = dontCheck (hsPrev.callHackageDirect
+                {
+                  pkg = "ede";
+                  ver = "0.3.4.0";
+                  sha256 = "sha256-bEYTVnVj/TigHgGiiMP/Yz3YE1gg2QYPCPrx6RrpSOo=";
+                }
+                { });
               hashable = hsPrev.callHackage "hashable" "1.3.5.0" { };
               pandoc = dontHaddock hsPrev.pandoc;
+              semialign = doJailbreak hsPrev.semialign;
               string-qq = dontCheck hsPrev.string-qq;
+              text-short = doJailbreak hsPrev.text-short;
+              these = doJailbreak hsPrev.these;
+              unordered-containers =
+                hsPrev.callHackage "unordered-containers" "0.2.19.1" { };
             };
           };
 

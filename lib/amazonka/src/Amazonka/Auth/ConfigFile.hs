@@ -19,8 +19,8 @@ import Amazonka.Data
 import Amazonka.Env (Env, Env' (..), lookupRegion)
 import Amazonka.Prelude
 import Amazonka.Types
+import Control.Exception (IOException)
 import qualified Control.Exception as Exception
-import Control.Exception.Lens (handling_, _IOException)
 import Control.Monad.Trans.Reader (ReaderT, ask, runReaderT)
 import Control.Monad.Trans.State (StateT, evalStateT, get, modify)
 import Data.Foldable (asum)
@@ -324,7 +324,7 @@ fromFileEnv env = liftIO $ do
   fromFilePath profile cred conf env
 
 configPathRelative :: String -> IO String
-configPathRelative p = handling_ _IOException err dir
+configPathRelative p = Exception.handle (\(_ :: IOException) -> err) dir
   where
     err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
     dir = case os of

@@ -47,8 +47,7 @@ where
 
 import Amazonka.Core
 import Amazonka.Core.Lens.Internal
-  ( Traversal',
-    coerced,
+  ( coerced,
     prism,
     traversed,
     _1,

@@ -208,11 +208,11 @@ instance Prelude.Hashable PutBucketRequestPayment where
 
 instance Prelude.NFData PutBucketRequestPayment where
   rnf PutBucketRequestPayment' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf requestPaymentConfiguration
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf requestPaymentConfiguration
 
 instance Data.ToElement PutBucketRequestPayment where
   toElement PutBucketRequestPayment' {..} =

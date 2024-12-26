@@ -216,10 +216,10 @@ instance Prelude.Hashable DeleteObjectTagging where
 
 instance Prelude.NFData DeleteObjectTagging where
   rnf DeleteObjectTagging' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf versionId `Prelude.seq`
+        Prelude.rnf bucket `Prelude.seq`
+          Prelude.rnf key
 
 instance Data.ToHeaders DeleteObjectTagging where
   toHeaders DeleteObjectTagging' {..} =
@@ -279,5 +279,5 @@ deleteObjectTaggingResponse_httpStatus = Lens.lens (\DeleteObjectTaggingResponse
 
 instance Prelude.NFData DeleteObjectTaggingResponse where
   rnf DeleteObjectTaggingResponse' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf httpStatus

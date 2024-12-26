@@ -210,10 +210,10 @@ instance Prelude.Hashable Object where
 
 instance Prelude.NFData Object where
   rnf Object' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf lastModified
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf owner `Prelude.seq`
+        Prelude.rnf eTag `Prelude.seq`
+          Prelude.rnf size `Prelude.seq`
+            Prelude.rnf key `Prelude.seq`
+              Prelude.rnf storageClass `Prelude.seq`
+                Prelude.rnf lastModified

@@ -140,9 +140,9 @@ instance Prelude.Hashable ReplicationRuleFilter where
 
 instance Prelude.NFData ReplicationRuleFilter where
   rnf ReplicationRuleFilter' {..} =
-    Prelude.rnf and
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf tag
+    Prelude.rnf and `Prelude.seq`
+      Prelude.rnf prefix `Prelude.seq`
+        Prelude.rnf tag
 
 instance Data.ToXML ReplicationRuleFilter where
   toXML ReplicationRuleFilter' {..} =

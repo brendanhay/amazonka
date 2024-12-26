@@ -165,8 +165,8 @@ instance
     GetBucketLifecycleConfiguration
   where
   rnf GetBucketLifecycleConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance
   Data.ToHeaders
@@ -231,5 +231,5 @@ instance
     GetBucketLifecycleConfigurationResponse
   where
   rnf GetBucketLifecycleConfigurationResponse' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rules `Prelude.seq`
+      Prelude.rnf httpStatus

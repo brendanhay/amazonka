@@ -114,10 +114,10 @@ instance Prelude.Hashable MetricsFilter where
 
 instance Prelude.NFData MetricsFilter where
   rnf MetricsFilter' {..} =
-    Prelude.rnf accessPointArn
-      `Prelude.seq` Prelude.rnf and
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf tag
+    Prelude.rnf accessPointArn `Prelude.seq`
+      Prelude.rnf and `Prelude.seq`
+        Prelude.rnf prefix `Prelude.seq`
+          Prelude.rnf tag
 
 instance Data.ToXML MetricsFilter where
   toXML MetricsFilter' {..} =

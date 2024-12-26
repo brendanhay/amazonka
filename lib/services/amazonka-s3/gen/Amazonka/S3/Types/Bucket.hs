@@ -87,5 +87,5 @@ instance Prelude.Hashable Bucket where
 
 instance Prelude.NFData Bucket where
   rnf Bucket' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf name

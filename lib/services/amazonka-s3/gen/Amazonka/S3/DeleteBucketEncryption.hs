@@ -130,8 +130,8 @@ instance Prelude.Hashable DeleteBucketEncryption where
 
 instance Prelude.NFData DeleteBucketEncryption where
   rnf DeleteBucketEncryption' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders DeleteBucketEncryption where
   toHeaders DeleteBucketEncryption' {..} =

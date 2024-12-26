@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteMarkerEntry where
 
 instance Prelude.NFData DeleteMarkerEntry where
   rnf DeleteMarkerEntry' {..} =
-    Prelude.rnf isLatest
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf isLatest `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf lastModified `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf versionId

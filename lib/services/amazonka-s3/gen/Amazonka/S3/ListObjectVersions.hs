@@ -253,16 +253,16 @@ instance Core.AWSPager ListObjectVersions where
           ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listObjectVersions_keyMarker
-          Lens..~ rs
-          Lens.^? listObjectVersionsResponse_nextKeyMarker
-          Prelude.. Lens._Just
-          Prelude.& listObjectVersions_versionIdMarker
-          Lens..~ rs
-          Lens.^? listObjectVersionsResponse_nextVersionIdMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listObjectVersions_keyMarker
+              Lens..~ rs
+              Lens.^? listObjectVersionsResponse_nextKeyMarker
+              Prelude.. Lens._Just
+            Prelude.& listObjectVersions_versionIdMarker
+              Lens..~ rs
+              Lens.^? listObjectVersionsResponse_nextVersionIdMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectVersions where
   type
@@ -305,14 +305,14 @@ instance Prelude.Hashable ListObjectVersions where
 
 instance Prelude.NFData ListObjectVersions where
   rnf ListObjectVersions' {..} =
-    Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf keyMarker
-      `Prelude.seq` Prelude.rnf maxKeys
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf versionIdMarker
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf delimiter `Prelude.seq`
+      Prelude.rnf encodingType `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf keyMarker `Prelude.seq`
+            Prelude.rnf maxKeys `Prelude.seq`
+              Prelude.rnf prefix `Prelude.seq`
+                Prelude.rnf versionIdMarker `Prelude.seq`
+                  Prelude.rnf bucket
 
 instance Data.ToHeaders ListObjectVersions where
   toHeaders ListObjectVersions' {..} =
@@ -555,17 +555,17 @@ listObjectVersionsResponse_httpStatus = Lens.lens (\ListObjectVersionsResponse' 
 
 instance Prelude.NFData ListObjectVersionsResponse where
   rnf ListObjectVersionsResponse' {..} =
-    Prelude.rnf commonPrefixes
-      `Prelude.seq` Prelude.rnf deleteMarkers
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf keyMarker
-      `Prelude.seq` Prelude.rnf maxKeys
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextKeyMarker
-      `Prelude.seq` Prelude.rnf nextVersionIdMarker
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf versionIdMarker
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commonPrefixes `Prelude.seq`
+      Prelude.rnf deleteMarkers `Prelude.seq`
+        Prelude.rnf delimiter `Prelude.seq`
+          Prelude.rnf encodingType `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf keyMarker `Prelude.seq`
+                Prelude.rnf maxKeys `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf nextKeyMarker `Prelude.seq`
+                      Prelude.rnf nextVersionIdMarker `Prelude.seq`
+                        Prelude.rnf prefix `Prelude.seq`
+                          Prelude.rnf versionIdMarker `Prelude.seq`
+                            Prelude.rnf versions `Prelude.seq`
+                              Prelude.rnf httpStatus

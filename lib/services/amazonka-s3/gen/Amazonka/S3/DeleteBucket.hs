@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteBucket where
 
 instance Prelude.NFData DeleteBucket where
   rnf DeleteBucket' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders DeleteBucket where
   toHeaders DeleteBucket' {..} =

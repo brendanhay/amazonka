@@ -1247,17 +1247,17 @@ createMultipartUploadResponse_uploadId = Lens.lens (\CreateMultipartUploadRespon
 
 instance Prelude.NFData CreateMultipartUploadResponse where
   rnf CreateMultipartUploadResponse' {..} =
-    Prelude.rnf abortDate
-      `Prelude.seq` Prelude.rnf abortRuleId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf bucketKeyEnabled
-      `Prelude.seq` Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
-      `Prelude.seq` Prelude.rnf sSEKMSKeyId
-      `Prelude.seq` Prelude.rnf serverSideEncryption
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf abortDate `Prelude.seq`
+      Prelude.rnf abortRuleId `Prelude.seq`
+        Prelude.rnf bucket `Prelude.seq`
+          Prelude.rnf bucketKeyEnabled `Prelude.seq`
+            Prelude.rnf checksumAlgorithm `Prelude.seq`
+              Prelude.rnf key `Prelude.seq`
+                Prelude.rnf requestCharged `Prelude.seq`
+                  Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+                    Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+                      Prelude.rnf sSEKMSEncryptionContext `Prelude.seq`
+                        Prelude.rnf sSEKMSKeyId `Prelude.seq`
+                          Prelude.rnf serverSideEncryption `Prelude.seq`
+                            Prelude.rnf httpStatus `Prelude.seq`
+                              Prelude.rnf uploadId

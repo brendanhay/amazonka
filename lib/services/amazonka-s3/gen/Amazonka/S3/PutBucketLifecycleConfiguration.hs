@@ -243,10 +243,10 @@ instance
     PutBucketLifecycleConfiguration
   where
   rnf PutBucketLifecycleConfiguration' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf lifecycleConfiguration
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf expectedBucketOwner `Prelude.seq`
+        Prelude.rnf lifecycleConfiguration `Prelude.seq`
+          Prelude.rnf bucket
 
 instance
   Data.ToElement

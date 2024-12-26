@@ -115,10 +115,10 @@ instance Prelude.Hashable TopicConfiguration where
 
 instance Prelude.NFData TopicConfiguration where
   rnf TopicConfiguration' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf topicArn `Prelude.seq`
+          Prelude.rnf events
 
 instance Data.ToXML TopicConfiguration where
   toXML TopicConfiguration' {..} =

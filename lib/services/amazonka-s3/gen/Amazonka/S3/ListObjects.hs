@@ -285,23 +285,23 @@ instance Core.AWSPager ListObjects where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listObjects_marker
-          Lens..~ rs
-          Lens.^. Core.choice
-            ( Lens.^?
-                ( listObjectsResponse_nextMarker
-                    Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listObjects_marker
+              Lens..~ rs
+              Lens.^. Core.choice
+                ( Lens.^?
+                    ( listObjectsResponse_nextMarker
+                        Prelude.. Lens._Just
+                    )
                 )
-            )
-            ( Lens.^?
-                ( listObjectsResponse_contents
-                    Prelude.. Lens._Just
-                    Prelude.. Lens._last
-                    Prelude.. object_key
+                ( Lens.^?
+                    ( listObjectsResponse_contents
+                        Prelude.. Lens._Just
+                        Prelude.. Lens._last
+                        Prelude.. object_key
+                    )
                 )
-            )
 
 instance Core.AWSRequest ListObjects where
   type AWSResponse ListObjects = ListObjectsResponse
@@ -339,14 +339,14 @@ instance Prelude.Hashable ListObjects where
 
 instance Prelude.NFData ListObjects where
   rnf ListObjects' {..} =
-    Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxKeys
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf delimiter `Prelude.seq`
+      Prelude.rnf encodingType `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf maxKeys `Prelude.seq`
+              Prelude.rnf prefix `Prelude.seq`
+                Prelude.rnf requestPayer `Prelude.seq`
+                  Prelude.rnf bucket
 
 instance Data.ToHeaders ListObjects where
   toHeaders ListObjects' {..} =
@@ -573,14 +573,14 @@ listObjectsResponse_httpStatus = Lens.lens (\ListObjectsResponse' {httpStatus} -
 
 instance Prelude.NFData ListObjectsResponse where
   rnf ListObjectsResponse' {..} =
-    Prelude.rnf commonPrefixes
-      `Prelude.seq` Prelude.rnf contents
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxKeys
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commonPrefixes `Prelude.seq`
+      Prelude.rnf contents `Prelude.seq`
+        Prelude.rnf delimiter `Prelude.seq`
+          Prelude.rnf encodingType `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf marker `Prelude.seq`
+                Prelude.rnf maxKeys `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf nextMarker `Prelude.seq`
+                      Prelude.rnf prefix `Prelude.seq`
+                        Prelude.rnf httpStatus

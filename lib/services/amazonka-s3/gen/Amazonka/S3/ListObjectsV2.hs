@@ -321,12 +321,12 @@ instance Core.AWSPager ListObjectsV2 where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listObjectsV2_continuationToken
-          Lens..~ rs
-          Lens.^? listObjectsV2Response_nextContinuationToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listObjectsV2_continuationToken
+              Lens..~ rs
+              Lens.^? listObjectsV2Response_nextContinuationToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectsV2 where
   type
@@ -370,16 +370,16 @@ instance Prelude.Hashable ListObjectsV2 where
 
 instance Prelude.NFData ListObjectsV2 where
   rnf ListObjectsV2' {..} =
-    Prelude.rnf continuationToken
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf fetchOwner
-      `Prelude.seq` Prelude.rnf maxKeys
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf startAfter
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf continuationToken `Prelude.seq`
+      Prelude.rnf delimiter `Prelude.seq`
+        Prelude.rnf encodingType `Prelude.seq`
+          Prelude.rnf expectedBucketOwner `Prelude.seq`
+            Prelude.rnf fetchOwner `Prelude.seq`
+              Prelude.rnf maxKeys `Prelude.seq`
+                Prelude.rnf prefix `Prelude.seq`
+                  Prelude.rnf requestPayer `Prelude.seq`
+                    Prelude.rnf startAfter `Prelude.seq`
+                      Prelude.rnf bucket
 
 instance Data.ToHeaders ListObjectsV2 where
   toHeaders ListObjectsV2' {..} =
@@ -711,16 +711,16 @@ listObjectsV2Response_httpStatus = Lens.lens (\ListObjectsV2Response' {httpStatu
 
 instance Prelude.NFData ListObjectsV2Response where
   rnf ListObjectsV2Response' {..} =
-    Prelude.rnf commonPrefixes
-      `Prelude.seq` Prelude.rnf contents
-      `Prelude.seq` Prelude.rnf continuationToken
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf keyCount
-      `Prelude.seq` Prelude.rnf maxKeys
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextContinuationToken
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf startAfter
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commonPrefixes `Prelude.seq`
+      Prelude.rnf contents `Prelude.seq`
+        Prelude.rnf continuationToken `Prelude.seq`
+          Prelude.rnf delimiter `Prelude.seq`
+            Prelude.rnf encodingType `Prelude.seq`
+              Prelude.rnf isTruncated `Prelude.seq`
+                Prelude.rnf keyCount `Prelude.seq`
+                  Prelude.rnf maxKeys `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf nextContinuationToken `Prelude.seq`
+                        Prelude.rnf prefix `Prelude.seq`
+                          Prelude.rnf startAfter `Prelude.seq`
+                            Prelude.rnf httpStatus

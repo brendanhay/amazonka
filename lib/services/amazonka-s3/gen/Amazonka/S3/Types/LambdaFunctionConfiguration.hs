@@ -114,10 +114,10 @@ instance Prelude.Hashable LambdaFunctionConfiguration where
 
 instance Prelude.NFData LambdaFunctionConfiguration where
   rnf LambdaFunctionConfiguration' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lambdaFunctionArn
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf lambdaFunctionArn `Prelude.seq`
+          Prelude.rnf events
 
 instance Data.ToXML LambdaFunctionConfiguration where
   toXML LambdaFunctionConfiguration' {..} =

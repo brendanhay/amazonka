@@ -114,7 +114,7 @@ instance Prelude.Hashable DeletedObject where
 
 instance Prelude.NFData DeletedObject where
   rnf DeletedObject' {..} =
-    Prelude.rnf deleteMarker
-      `Prelude.seq` Prelude.rnf deleteMarkerVersionId
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf deleteMarker `Prelude.seq`
+      Prelude.rnf deleteMarkerVersionId `Prelude.seq`
+        Prelude.rnf key `Prelude.seq`
+          Prelude.rnf versionId

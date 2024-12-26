@@ -356,16 +356,16 @@ instance Core.AWSPager ListMultipartUploads where
           ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMultipartUploads_keyMarker
-          Lens..~ rs
-          Lens.^? listMultipartUploadsResponse_nextKeyMarker
-          Prelude.. Lens._Just
-          Prelude.& listMultipartUploads_uploadIdMarker
-          Lens..~ rs
-          Lens.^? listMultipartUploadsResponse_nextUploadIdMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMultipartUploads_keyMarker
+              Lens..~ rs
+              Lens.^? listMultipartUploadsResponse_nextKeyMarker
+              Prelude.. Lens._Just
+            Prelude.& listMultipartUploads_uploadIdMarker
+              Lens..~ rs
+              Lens.^? listMultipartUploadsResponse_nextUploadIdMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMultipartUploads where
   type
@@ -407,14 +407,14 @@ instance Prelude.Hashable ListMultipartUploads where
 
 instance Prelude.NFData ListMultipartUploads where
   rnf ListMultipartUploads' {..} =
-    Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf keyMarker
-      `Prelude.seq` Prelude.rnf maxUploads
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf uploadIdMarker
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf delimiter `Prelude.seq`
+      Prelude.rnf encodingType `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf keyMarker `Prelude.seq`
+            Prelude.rnf maxUploads `Prelude.seq`
+              Prelude.rnf prefix `Prelude.seq`
+                Prelude.rnf uploadIdMarker `Prelude.seq`
+                  Prelude.rnf bucket
 
 instance Data.ToHeaders ListMultipartUploads where
   toHeaders ListMultipartUploads' {..} =
@@ -645,16 +645,16 @@ listMultipartUploadsResponse_httpStatus = Lens.lens (\ListMultipartUploadsRespon
 
 instance Prelude.NFData ListMultipartUploadsResponse where
   rnf ListMultipartUploadsResponse' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf commonPrefixes
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf keyMarker
-      `Prelude.seq` Prelude.rnf maxUploads
-      `Prelude.seq` Prelude.rnf nextKeyMarker
-      `Prelude.seq` Prelude.rnf nextUploadIdMarker
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf uploadIdMarker
-      `Prelude.seq` Prelude.rnf uploads
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf commonPrefixes `Prelude.seq`
+        Prelude.rnf delimiter `Prelude.seq`
+          Prelude.rnf encodingType `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf keyMarker `Prelude.seq`
+                Prelude.rnf maxUploads `Prelude.seq`
+                  Prelude.rnf nextKeyMarker `Prelude.seq`
+                    Prelude.rnf nextUploadIdMarker `Prelude.seq`
+                      Prelude.rnf prefix `Prelude.seq`
+                        Prelude.rnf uploadIdMarker `Prelude.seq`
+                          Prelude.rnf uploads `Prelude.seq`
+                            Prelude.rnf httpStatus

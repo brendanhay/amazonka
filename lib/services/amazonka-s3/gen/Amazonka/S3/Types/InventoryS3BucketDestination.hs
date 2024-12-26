@@ -139,11 +139,11 @@ instance
 
 instance Prelude.NFData InventoryS3BucketDestination where
   rnf InventoryS3BucketDestination' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf encryption `Prelude.seq`
+        Prelude.rnf prefix `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf format
 
 instance Data.ToXML InventoryS3BucketDestination where
   toXML InventoryS3BucketDestination' {..} =

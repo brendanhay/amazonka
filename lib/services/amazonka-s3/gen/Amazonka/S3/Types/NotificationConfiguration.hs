@@ -117,10 +117,10 @@ instance Prelude.Hashable NotificationConfiguration where
 
 instance Prelude.NFData NotificationConfiguration where
   rnf NotificationConfiguration' {..} =
-    Prelude.rnf eventBridgeConfiguration
-      `Prelude.seq` Prelude.rnf lambdaFunctionConfigurations
-      `Prelude.seq` Prelude.rnf queueConfigurations
-      `Prelude.seq` Prelude.rnf topicConfigurations
+    Prelude.rnf eventBridgeConfiguration `Prelude.seq`
+      Prelude.rnf lambdaFunctionConfigurations `Prelude.seq`
+        Prelude.rnf queueConfigurations `Prelude.seq`
+          Prelude.rnf topicConfigurations
 
 instance Data.ToXML NotificationConfiguration where
   toXML NotificationConfiguration' {..} =

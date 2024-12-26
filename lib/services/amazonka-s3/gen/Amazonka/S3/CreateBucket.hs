@@ -336,16 +336,16 @@ instance Prelude.Hashable CreateBucket where
 
 instance Prelude.NFData CreateBucket where
   rnf CreateBucket' {..} =
-    Prelude.rnf acl
-      `Prelude.seq` Prelude.rnf createBucketConfiguration
-      `Prelude.seq` Prelude.rnf grantFullControl
-      `Prelude.seq` Prelude.rnf grantRead
-      `Prelude.seq` Prelude.rnf grantReadACP
-      `Prelude.seq` Prelude.rnf grantWrite
-      `Prelude.seq` Prelude.rnf grantWriteACP
-      `Prelude.seq` Prelude.rnf objectLockEnabledForBucket
-      `Prelude.seq` Prelude.rnf objectOwnership
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf acl `Prelude.seq`
+      Prelude.rnf createBucketConfiguration `Prelude.seq`
+        Prelude.rnf grantFullControl `Prelude.seq`
+          Prelude.rnf grantRead `Prelude.seq`
+            Prelude.rnf grantReadACP `Prelude.seq`
+              Prelude.rnf grantWrite `Prelude.seq`
+                Prelude.rnf grantWriteACP `Prelude.seq`
+                  Prelude.rnf objectLockEnabledForBucket `Prelude.seq`
+                    Prelude.rnf objectOwnership `Prelude.seq`
+                      Prelude.rnf bucket
 
 instance Data.ToElement CreateBucket where
   toElement CreateBucket' {..} =
@@ -414,5 +414,5 @@ createBucketResponse_httpStatus = Lens.lens (\CreateBucketResponse' {httpStatus}
 
 instance Prelude.NFData CreateBucketResponse where
   rnf CreateBucketResponse' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf httpStatus

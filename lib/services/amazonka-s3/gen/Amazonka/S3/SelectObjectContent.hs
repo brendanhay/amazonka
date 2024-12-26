@@ -439,18 +439,18 @@ instance Prelude.Hashable SelectObjectContent where
 
 instance Prelude.NFData SelectObjectContent where
   rnf SelectObjectContent' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestProgress
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKey
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf scanRange
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf expressionType
-      `Prelude.seq` Prelude.rnf inputSerialization
-      `Prelude.seq` Prelude.rnf outputSerialization
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf requestProgress `Prelude.seq`
+        Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+          Prelude.rnf sSECustomerKey `Prelude.seq`
+            Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+              Prelude.rnf scanRange `Prelude.seq`
+                Prelude.rnf bucket `Prelude.seq`
+                  Prelude.rnf key `Prelude.seq`
+                    Prelude.rnf expression `Prelude.seq`
+                      Prelude.rnf expressionType `Prelude.seq`
+                        Prelude.rnf inputSerialization `Prelude.seq`
+                          Prelude.rnf outputSerialization
 
 instance Data.ToElement SelectObjectContent where
   toElement =
@@ -532,5 +532,5 @@ selectObjectContentResponse_httpStatus = Lens.lens (\SelectObjectContentResponse
 
 instance Prelude.NFData SelectObjectContentResponse where
   rnf SelectObjectContentResponse' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -124,8 +124,8 @@ instance
     SelectObjectContentEventStream
   where
   rnf SelectObjectContentEventStream' {..} =
-    Prelude.rnf cont
-      `Prelude.seq` Prelude.rnf end
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf stats
+    Prelude.rnf cont `Prelude.seq`
+      Prelude.rnf end `Prelude.seq`
+        Prelude.rnf progress `Prelude.seq`
+          Prelude.rnf records `Prelude.seq`
+            Prelude.rnf stats

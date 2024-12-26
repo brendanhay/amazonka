@@ -108,9 +108,9 @@ instance Prelude.Hashable DefaultRetention where
 
 instance Prelude.NFData DefaultRetention where
   rnf DefaultRetention' {..} =
-    Prelude.rnf days
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf years
+    Prelude.rnf days `Prelude.seq`
+      Prelude.rnf mode `Prelude.seq`
+        Prelude.rnf years
 
 instance Data.ToXML DefaultRetention where
   toXML DefaultRetention' {..} =

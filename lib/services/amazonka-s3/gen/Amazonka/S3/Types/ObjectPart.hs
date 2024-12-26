@@ -184,9 +184,9 @@ instance Prelude.Hashable ObjectPart where
 
 instance Prelude.NFData ObjectPart where
   rnf ObjectPart' {..} =
-    Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf checksumCRC32C
-      `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf checksumSHA256
-      `Prelude.seq` Prelude.rnf partNumber
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf checksumCRC32 `Prelude.seq`
+      Prelude.rnf checksumCRC32C `Prelude.seq`
+        Prelude.rnf checksumSHA1 `Prelude.seq`
+          Prelude.rnf checksumSHA256 `Prelude.seq`
+            Prelude.rnf partNumber `Prelude.seq`
+              Prelude.rnf size

@@ -96,9 +96,9 @@ instance Prelude.Hashable AnalyticsFilter where
 
 instance Prelude.NFData AnalyticsFilter where
   rnf AnalyticsFilter' {..} =
-    Prelude.rnf and
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf tag
+    Prelude.rnf and `Prelude.seq`
+      Prelude.rnf prefix `Prelude.seq`
+        Prelude.rnf tag
 
 instance Data.ToXML AnalyticsFilter where
   toXML AnalyticsFilter' {..} =

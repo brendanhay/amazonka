@@ -226,5 +226,5 @@ instance
   where
   rnf
     GetBucketIntelligentTieringConfigurationResponse' {..} =
-      Prelude.rnf intelligentTieringConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf intelligentTieringConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

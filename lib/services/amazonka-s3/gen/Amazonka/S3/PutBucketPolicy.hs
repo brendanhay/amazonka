@@ -222,12 +222,12 @@ instance Prelude.Hashable PutBucketPolicy where
 
 instance Prelude.NFData PutBucketPolicy where
   rnf PutBucketPolicy' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf confirmRemoveSelfBucketAccess
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf confirmRemoveSelfBucketAccess `Prelude.seq`
+        Prelude.rnf contentMD5 `Prelude.seq`
+          Prelude.rnf expectedBucketOwner `Prelude.seq`
+            Prelude.rnf bucket `Prelude.seq`
+              Prelude.rnf policy
 
 instance Data.ToBody PutBucketPolicy where
   toBody PutBucketPolicy' {..} = Data.toBody policy

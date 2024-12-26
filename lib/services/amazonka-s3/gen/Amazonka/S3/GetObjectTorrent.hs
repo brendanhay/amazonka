@@ -159,10 +159,10 @@ instance Prelude.Hashable GetObjectTorrent where
 
 instance Prelude.NFData GetObjectTorrent where
   rnf GetObjectTorrent' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf requestPayer `Prelude.seq`
+        Prelude.rnf bucket `Prelude.seq`
+          Prelude.rnf key
 
 instance Data.ToHeaders GetObjectTorrent where
   toHeaders GetObjectTorrent' {..} =

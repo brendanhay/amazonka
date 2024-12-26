@@ -181,9 +181,9 @@ instance Prelude.Hashable CopyPartResult where
 
 instance Prelude.NFData CopyPartResult where
   rnf CopyPartResult' {..} =
-    Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf checksumCRC32C
-      `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf checksumSHA256
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf lastModified
+    Prelude.rnf checksumCRC32 `Prelude.seq`
+      Prelude.rnf checksumCRC32C `Prelude.seq`
+        Prelude.rnf checksumSHA1 `Prelude.seq`
+          Prelude.rnf checksumSHA256 `Prelude.seq`
+            Prelude.rnf eTag `Prelude.seq`
+              Prelude.rnf lastModified

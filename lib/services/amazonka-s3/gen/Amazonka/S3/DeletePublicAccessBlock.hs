@@ -126,8 +126,8 @@ instance Prelude.Hashable DeletePublicAccessBlock where
 
 instance Prelude.NFData DeletePublicAccessBlock where
   rnf DeletePublicAccessBlock' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders DeletePublicAccessBlock where
   toHeaders DeletePublicAccessBlock' {..} =

@@ -331,13 +331,13 @@ instance Prelude.Hashable DeleteObjects where
 
 instance Prelude.NFData DeleteObjects where
   rnf DeleteObjects' {..} =
-    Prelude.rnf bypassGovernanceRetention
-      `Prelude.seq` Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf mfa
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf delete'
+    Prelude.rnf bypassGovernanceRetention `Prelude.seq`
+      Prelude.rnf checksumAlgorithm `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf mfa `Prelude.seq`
+            Prelude.rnf requestPayer `Prelude.seq`
+              Prelude.rnf bucket `Prelude.seq`
+                Prelude.rnf delete'
 
 instance Data.ToElement DeleteObjects where
   toElement DeleteObjects' {..} =
@@ -428,7 +428,7 @@ deleteObjectsResponse_httpStatus = Lens.lens (\DeleteObjectsResponse' {httpStatu
 
 instance Prelude.NFData DeleteObjectsResponse where
   rnf DeleteObjectsResponse' {..} =
-    Prelude.rnf deleted
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deleted `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf requestCharged `Prelude.seq`
+          Prelude.rnf httpStatus

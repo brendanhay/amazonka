@@ -153,9 +153,9 @@ instance
     DeleteBucketAnalyticsConfiguration
   where
   rnf DeleteBucketAnalyticsConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf id
 
 instance
   Data.ToHeaders

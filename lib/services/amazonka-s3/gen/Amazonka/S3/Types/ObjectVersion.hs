@@ -160,12 +160,12 @@ instance Prelude.Hashable ObjectVersion where
 
 instance Prelude.NFData ObjectVersion where
   rnf ObjectVersion' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf isLatest
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf isLatest `Prelude.seq`
+          Prelude.rnf key `Prelude.seq`
+            Prelude.rnf lastModified `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf size `Prelude.seq`
+                  Prelude.rnf storageClass `Prelude.seq`
+                    Prelude.rnf versionId

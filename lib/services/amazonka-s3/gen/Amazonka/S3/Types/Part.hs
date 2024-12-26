@@ -206,11 +206,11 @@ instance Prelude.Hashable Part where
 
 instance Prelude.NFData Part where
   rnf Part' {..} =
-    Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf checksumCRC32C
-      `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf checksumSHA256
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf partNumber
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf checksumCRC32 `Prelude.seq`
+      Prelude.rnf checksumCRC32C `Prelude.seq`
+        Prelude.rnf checksumSHA1 `Prelude.seq`
+          Prelude.rnf checksumSHA256 `Prelude.seq`
+            Prelude.rnf eTag `Prelude.seq`
+              Prelude.rnf lastModified `Prelude.seq`
+                Prelude.rnf partNumber `Prelude.seq`
+                  Prelude.rnf size

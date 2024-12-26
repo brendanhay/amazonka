@@ -130,8 +130,8 @@ instance Prelude.Hashable GetBucketLocation where
 
 instance Prelude.NFData GetBucketLocation where
   rnf GetBucketLocation' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketLocation where
   toHeaders GetBucketLocation' {..} =
@@ -202,5 +202,5 @@ getBucketLocationResponse_locationConstraint = Lens.lens (\GetBucketLocationResp
 
 instance Prelude.NFData GetBucketLocationResponse where
   rnf GetBucketLocationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf locationConstraint
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf locationConstraint

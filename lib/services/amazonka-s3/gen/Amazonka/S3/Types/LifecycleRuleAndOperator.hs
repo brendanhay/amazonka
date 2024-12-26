@@ -94,9 +94,7 @@ instance Data.FromXML LifecycleRuleAndOperator where
       Prelude.<$> (x Data..@? "ObjectSizeGreaterThan")
       Prelude.<*> (x Data..@? "ObjectSizeLessThan")
       Prelude.<*> (x Data..@? "Prefix")
-      Prelude.<*> ( x
-                      Data..@? "Tag"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
@@ -110,10 +108,10 @@ instance Prelude.Hashable LifecycleRuleAndOperator where
 
 instance Prelude.NFData LifecycleRuleAndOperator where
   rnf LifecycleRuleAndOperator' {..} =
-    Prelude.rnf objectSizeGreaterThan
-      `Prelude.seq` Prelude.rnf objectSizeLessThan
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf objectSizeGreaterThan `Prelude.seq`
+      Prelude.rnf objectSizeLessThan `Prelude.seq`
+        Prelude.rnf prefix `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToXML LifecycleRuleAndOperator where
   toXML LifecycleRuleAndOperator' {..} =

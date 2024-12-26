@@ -219,15 +219,15 @@ instance Prelude.Hashable LifecycleRule where
 
 instance Prelude.NFData LifecycleRule where
   rnf LifecycleRule' {..} =
-    Prelude.rnf abortIncompleteMultipartUpload
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf noncurrentVersionExpiration
-      `Prelude.seq` Prelude.rnf noncurrentVersionTransitions
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf transitions
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf abortIncompleteMultipartUpload `Prelude.seq`
+      Prelude.rnf expiration `Prelude.seq`
+        Prelude.rnf filter' `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf noncurrentVersionExpiration `Prelude.seq`
+              Prelude.rnf noncurrentVersionTransitions `Prelude.seq`
+                Prelude.rnf prefix `Prelude.seq`
+                  Prelude.rnf transitions `Prelude.seq`
+                    Prelude.rnf status
 
 instance Data.ToXML LifecycleRule where
   toXML LifecycleRule' {..} =

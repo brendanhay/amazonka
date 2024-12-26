@@ -76,9 +76,7 @@ instance Data.FromXML IntelligentTieringAndOperator where
   parseXML x =
     IntelligentTieringAndOperator'
       Prelude.<$> (x Data..@? "Prefix")
-      Prelude.<*> ( x
-                      Data..@? "Tag"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 

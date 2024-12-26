@@ -220,9 +220,7 @@ instance Core.AWSRequest GetObjectTagging where
           GetObjectTaggingResponse'
             Prelude.<$> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "TagSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "TagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "Tag"
                         )
       )
@@ -238,11 +236,11 @@ instance Prelude.Hashable GetObjectTagging where
 
 instance Prelude.NFData GetObjectTagging where
   rnf GetObjectTagging' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf requestPayer `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf key
 
 instance Data.ToHeaders GetObjectTagging where
   toHeaders GetObjectTagging' {..} =
@@ -312,6 +310,6 @@ getObjectTaggingResponse_tagSet = Lens.lens (\GetObjectTaggingResponse' {tagSet}
 
 instance Prelude.NFData GetObjectTaggingResponse where
   rnf GetObjectTaggingResponse' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tagSet
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf tagSet

@@ -98,8 +98,8 @@ instance
     StorageClassAnalysisDataExport
   where
   rnf StorageClassAnalysisDataExport' {..} =
-    Prelude.rnf outputSchemaVersion
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf outputSchemaVersion `Prelude.seq`
+      Prelude.rnf destination
 
 instance Data.ToXML StorageClassAnalysisDataExport where
   toXML StorageClassAnalysisDataExport' {..} =

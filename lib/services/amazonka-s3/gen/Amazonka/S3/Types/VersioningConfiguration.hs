@@ -86,8 +86,8 @@ instance Prelude.Hashable VersioningConfiguration where
 
 instance Prelude.NFData VersioningConfiguration where
   rnf VersioningConfiguration' {..} =
-    Prelude.rnf mfaDelete
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf mfaDelete `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToXML VersioningConfiguration where
   toXML VersioningConfiguration' {..} =

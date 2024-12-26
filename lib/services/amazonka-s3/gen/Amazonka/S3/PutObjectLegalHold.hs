@@ -262,14 +262,14 @@ instance Prelude.Hashable PutObjectLegalHold where
 
 instance Prelude.NFData PutObjectLegalHold where
   rnf PutObjectLegalHold' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf legalHold
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf legalHold `Prelude.seq`
+            Prelude.rnf requestPayer `Prelude.seq`
+              Prelude.rnf versionId `Prelude.seq`
+                Prelude.rnf bucket `Prelude.seq`
+                  Prelude.rnf key
 
 instance Data.ToElement PutObjectLegalHold where
   toElement PutObjectLegalHold' {..} =
@@ -338,5 +338,5 @@ putObjectLegalHoldResponse_httpStatus = Lens.lens (\PutObjectLegalHoldResponse' 
 
 instance Prelude.NFData PutObjectLegalHoldResponse where
   rnf PutObjectLegalHoldResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestCharged `Prelude.seq`
+      Prelude.rnf httpStatus

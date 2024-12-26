@@ -159,7 +159,7 @@ instance Prelude.Hashable Checksum where
 
 instance Prelude.NFData Checksum where
   rnf Checksum' {..} =
-    Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf checksumCRC32C
-      `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf checksumSHA256
+    Prelude.rnf checksumCRC32 `Prelude.seq`
+      Prelude.rnf checksumCRC32C `Prelude.seq`
+        Prelude.rnf checksumSHA1 `Prelude.seq`
+          Prelude.rnf checksumSHA256

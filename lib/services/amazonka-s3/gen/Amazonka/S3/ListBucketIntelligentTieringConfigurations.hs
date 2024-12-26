@@ -167,8 +167,8 @@ instance
     ListBucketIntelligentTieringConfigurations
   where
   rnf ListBucketIntelligentTieringConfigurations' {..} =
-    Prelude.rnf continuationToken
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf continuationToken `Prelude.seq`
+      Prelude.rnf bucket
 
 instance
   Data.ToHeaders
@@ -290,8 +290,8 @@ instance
   where
   rnf
     ListBucketIntelligentTieringConfigurationsResponse' {..} =
-      Prelude.rnf continuationToken
-        `Prelude.seq` Prelude.rnf intelligentTieringConfigurationList
-        `Prelude.seq` Prelude.rnf isTruncated
-        `Prelude.seq` Prelude.rnf nextContinuationToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf continuationToken `Prelude.seq`
+        Prelude.rnf intelligentTieringConfigurationList `Prelude.seq`
+          Prelude.rnf isTruncated `Prelude.seq`
+            Prelude.rnf nextContinuationToken `Prelude.seq`
+              Prelude.rnf httpStatus

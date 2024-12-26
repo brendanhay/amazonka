@@ -160,8 +160,8 @@ instance
     GetBucketAccelerateConfiguration
   where
   rnf GetBucketAccelerateConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance
   Data.ToHeaders
@@ -229,5 +229,5 @@ instance
     GetBucketAccelerateConfigurationResponse
   where
   rnf GetBucketAccelerateConfigurationResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

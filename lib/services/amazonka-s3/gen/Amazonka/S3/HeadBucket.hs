@@ -184,8 +184,8 @@ instance Prelude.Hashable HeadBucket where
 
 instance Prelude.NFData HeadBucket where
   rnf HeadBucket' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders HeadBucket where
   toHeaders HeadBucket' {..} =

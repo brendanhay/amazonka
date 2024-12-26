@@ -412,17 +412,17 @@ instance Prelude.Hashable GetObjectAttributes where
 
 instance Prelude.NFData GetObjectAttributes where
   rnf GetObjectAttributes' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf maxParts
-      `Prelude.seq` Prelude.rnf partNumberMarker
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKey
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf objectAttributes
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf maxParts `Prelude.seq`
+        Prelude.rnf partNumberMarker `Prelude.seq`
+          Prelude.rnf requestPayer `Prelude.seq`
+            Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+              Prelude.rnf sSECustomerKey `Prelude.seq`
+                Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+                  Prelude.rnf versionId `Prelude.seq`
+                    Prelude.rnf bucket `Prelude.seq`
+                      Prelude.rnf key `Prelude.seq`
+                        Prelude.rnf objectAttributes
 
 instance Data.ToHeaders GetObjectAttributes where
   toHeaders GetObjectAttributes' {..} =
@@ -587,13 +587,13 @@ getObjectAttributesResponse_httpStatus = Lens.lens (\GetObjectAttributesResponse
 
 instance Prelude.NFData GetObjectAttributesResponse where
   rnf GetObjectAttributesResponse' {..} =
-    Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf deleteMarker
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf objectParts
-      `Prelude.seq` Prelude.rnf objectSize
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf checksum `Prelude.seq`
+      Prelude.rnf deleteMarker `Prelude.seq`
+        Prelude.rnf eTag `Prelude.seq`
+          Prelude.rnf lastModified `Prelude.seq`
+            Prelude.rnf objectParts `Prelude.seq`
+              Prelude.rnf objectSize `Prelude.seq`
+                Prelude.rnf requestCharged `Prelude.seq`
+                  Prelude.rnf storageClass `Prelude.seq`
+                    Prelude.rnf versionId `Prelude.seq`
+                      Prelude.rnf httpStatus

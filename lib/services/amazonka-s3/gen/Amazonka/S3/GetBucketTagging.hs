@@ -121,9 +121,7 @@ instance Core.AWSRequest GetBucketTagging where
       ( \s h x ->
           GetBucketTaggingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "TagSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "TagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "Tag"
                         )
       )
@@ -136,8 +134,8 @@ instance Prelude.Hashable GetBucketTagging where
 
 instance Prelude.NFData GetBucketTagging where
   rnf GetBucketTagging' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketTagging where
   toHeaders GetBucketTagging' {..} =
@@ -194,5 +192,5 @@ getBucketTaggingResponse_tagSet = Lens.lens (\GetBucketTaggingResponse' {tagSet}
 
 instance Prelude.NFData GetBucketTaggingResponse where
   rnf GetBucketTaggingResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tagSet
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf tagSet

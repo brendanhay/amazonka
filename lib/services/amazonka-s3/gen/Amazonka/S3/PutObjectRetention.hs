@@ -283,15 +283,15 @@ instance Prelude.Hashable PutObjectRetention where
 
 instance Prelude.NFData PutObjectRetention where
   rnf PutObjectRetention' {..} =
-    Prelude.rnf bypassGovernanceRetention
-      `Prelude.seq` Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf retention
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf bypassGovernanceRetention `Prelude.seq`
+      Prelude.rnf checksumAlgorithm `Prelude.seq`
+        Prelude.rnf contentMD5 `Prelude.seq`
+          Prelude.rnf expectedBucketOwner `Prelude.seq`
+            Prelude.rnf requestPayer `Prelude.seq`
+              Prelude.rnf retention `Prelude.seq`
+                Prelude.rnf versionId `Prelude.seq`
+                  Prelude.rnf bucket `Prelude.seq`
+                    Prelude.rnf key
 
 instance Data.ToElement PutObjectRetention where
   toElement PutObjectRetention' {..} =
@@ -362,5 +362,5 @@ putObjectRetentionResponse_httpStatus = Lens.lens (\PutObjectRetentionResponse' 
 
 instance Prelude.NFData PutObjectRetentionResponse where
   rnf PutObjectRetentionResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestCharged `Prelude.seq`
+      Prelude.rnf httpStatus

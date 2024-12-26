@@ -104,9 +104,9 @@ instance Prelude.Hashable Transition where
 
 instance Prelude.NFData Transition where
   rnf Transition' {..} =
-    Prelude.rnf date
-      `Prelude.seq` Prelude.rnf days
-      `Prelude.seq` Prelude.rnf storageClass
+    Prelude.rnf date `Prelude.seq`
+      Prelude.rnf days `Prelude.seq`
+        Prelude.rnf storageClass
 
 instance Data.ToXML Transition where
   toXML Transition' {..} =

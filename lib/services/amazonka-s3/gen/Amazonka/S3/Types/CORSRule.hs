@@ -148,12 +148,12 @@ instance Prelude.Hashable CORSRule where
 
 instance Prelude.NFData CORSRule where
   rnf CORSRule' {..} =
-    Prelude.rnf allowedHeaders
-      `Prelude.seq` Prelude.rnf exposeHeaders
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf maxAgeSeconds
-      `Prelude.seq` Prelude.rnf allowedMethods
-      `Prelude.seq` Prelude.rnf allowedOrigins
+    Prelude.rnf allowedHeaders `Prelude.seq`
+      Prelude.rnf exposeHeaders `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf maxAgeSeconds `Prelude.seq`
+            Prelude.rnf allowedMethods `Prelude.seq`
+              Prelude.rnf allowedOrigins
 
 instance Data.ToXML CORSRule where
   toXML CORSRule' {..} =

@@ -164,10 +164,10 @@ instance Prelude.Hashable PutBucketOwnershipControls where
 
 instance Prelude.NFData PutBucketOwnershipControls where
   rnf PutBucketOwnershipControls' {..} =
-    Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf ownershipControls
+    Prelude.rnf contentMD5 `Prelude.seq`
+      Prelude.rnf expectedBucketOwner `Prelude.seq`
+        Prelude.rnf bucket `Prelude.seq`
+          Prelude.rnf ownershipControls
 
 instance Data.ToElement PutBucketOwnershipControls where
   toElement PutBucketOwnershipControls' {..} =

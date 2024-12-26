@@ -153,8 +153,8 @@ instance
 
 instance Prelude.NFData ServerSideEncryptionByDefault where
   rnf ServerSideEncryptionByDefault' {..} =
-    Prelude.rnf kmsMasterKeyID
-      `Prelude.seq` Prelude.rnf sSEAlgorithm
+    Prelude.rnf kmsMasterKeyID `Prelude.seq`
+      Prelude.rnf sSEAlgorithm
 
 instance Data.ToXML ServerSideEncryptionByDefault where
   toXML ServerSideEncryptionByDefault' {..} =

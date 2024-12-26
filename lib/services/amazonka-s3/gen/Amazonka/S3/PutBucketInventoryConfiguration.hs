@@ -211,10 +211,10 @@ instance
     PutBucketInventoryConfiguration
   where
   rnf PutBucketInventoryConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf inventoryConfiguration
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf inventoryConfiguration
 
 instance
   Data.ToElement

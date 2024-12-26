@@ -126,8 +126,8 @@ instance
 
 instance Prelude.NFData DeleteBucketOwnershipControls where
   rnf DeleteBucketOwnershipControls' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders DeleteBucketOwnershipControls where
   toHeaders DeleteBucketOwnershipControls' {..} =

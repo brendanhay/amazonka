@@ -137,10 +137,10 @@ instance Prelude.Hashable MultipartUpload where
 
 instance Prelude.NFData MultipartUpload where
   rnf MultipartUpload' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf initiated
-      `Prelude.seq` Prelude.rnf initiator
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf initiated `Prelude.seq`
+        Prelude.rnf initiator `Prelude.seq`
+          Prelude.rnf key `Prelude.seq`
+            Prelude.rnf owner `Prelude.seq`
+              Prelude.rnf storageClass `Prelude.seq`
+                Prelude.rnf uploadId

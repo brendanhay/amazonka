@@ -143,8 +143,8 @@ instance Prelude.Hashable GetPublicAccessBlock where
 
 instance Prelude.NFData GetPublicAccessBlock where
   rnf GetPublicAccessBlock' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetPublicAccessBlock where
   toHeaders GetPublicAccessBlock' {..} =
@@ -206,5 +206,5 @@ getPublicAccessBlockResponse_httpStatus = Lens.lens (\GetPublicAccessBlockRespon
 
 instance Prelude.NFData GetPublicAccessBlockResponse where
   rnf GetPublicAccessBlockResponse' {..} =
-    Prelude.rnf publicAccessBlockConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf publicAccessBlockConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

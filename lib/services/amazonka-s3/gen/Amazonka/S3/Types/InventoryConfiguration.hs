@@ -153,9 +153,7 @@ instance Data.FromXML InventoryConfiguration where
   parseXML x =
     InventoryConfiguration'
       Prelude.<$> (x Data..@? "Filter")
-      Prelude.<*> ( x
-                      Data..@? "OptionalFields"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "OptionalFields" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Field")
                   )
       Prelude.<*> (x Data..@ "Destination")
@@ -177,13 +175,13 @@ instance Prelude.Hashable InventoryConfiguration where
 
 instance Prelude.NFData InventoryConfiguration where
   rnf InventoryConfiguration' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf optionalFields
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf isEnabled
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf includedObjectVersions
-      `Prelude.seq` Prelude.rnf schedule
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf optionalFields `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf isEnabled `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf includedObjectVersions `Prelude.seq`
+                Prelude.rnf schedule
 
 instance Data.ToXML InventoryConfiguration where
   toXML InventoryConfiguration' {..} =

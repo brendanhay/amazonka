@@ -164,9 +164,9 @@ instance
     GetBucketInventoryConfiguration
   where
   rnf GetBucketInventoryConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf id
 
 instance
   Data.ToHeaders
@@ -231,5 +231,5 @@ instance
     GetBucketInventoryConfigurationResponse
   where
   rnf GetBucketInventoryConfigurationResponse' {..} =
-    Prelude.rnf inventoryConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inventoryConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

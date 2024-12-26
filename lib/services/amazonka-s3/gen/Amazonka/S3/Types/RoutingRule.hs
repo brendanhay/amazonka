@@ -102,8 +102,8 @@ instance Prelude.Hashable RoutingRule where
 
 instance Prelude.NFData RoutingRule where
   rnf RoutingRule' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf redirect
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf redirect
 
 instance Data.ToXML RoutingRule where
   toXML RoutingRule' {..} =

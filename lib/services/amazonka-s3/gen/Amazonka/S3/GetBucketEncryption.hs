@@ -139,8 +139,8 @@ instance Prelude.Hashable GetBucketEncryption where
 
 instance Prelude.NFData GetBucketEncryption where
   rnf GetBucketEncryption' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketEncryption where
   toHeaders GetBucketEncryption' {..} =
@@ -197,5 +197,5 @@ getBucketEncryptionResponse_httpStatus = Lens.lens (\GetBucketEncryptionResponse
 
 instance Prelude.NFData GetBucketEncryptionResponse where
   rnf GetBucketEncryptionResponse' {..} =
-    Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serverSideEncryptionConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

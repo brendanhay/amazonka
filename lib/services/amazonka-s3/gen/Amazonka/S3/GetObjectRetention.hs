@@ -193,11 +193,11 @@ instance Prelude.Hashable GetObjectRetention where
 
 instance Prelude.NFData GetObjectRetention where
   rnf GetObjectRetention' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf requestPayer `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf key
 
 instance Data.ToHeaders GetObjectRetention where
   toHeaders GetObjectRetention' {..} =
@@ -258,5 +258,5 @@ getObjectRetentionResponse_httpStatus = Lens.lens (\GetObjectRetentionResponse' 
 
 instance Prelude.NFData GetObjectRetentionResponse where
   rnf GetObjectRetentionResponse' {..} =
-    Prelude.rnf retention
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf retention `Prelude.seq`
+      Prelude.rnf httpStatus

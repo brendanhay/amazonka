@@ -236,11 +236,11 @@ instance Prelude.Hashable AbortMultipartUpload where
 
 instance Prelude.NFData AbortMultipartUpload where
   rnf AbortMultipartUpload' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf requestPayer `Prelude.seq`
+        Prelude.rnf bucket `Prelude.seq`
+          Prelude.rnf key `Prelude.seq`
+            Prelude.rnf uploadId
 
 instance Data.ToHeaders AbortMultipartUpload where
   toHeaders AbortMultipartUpload' {..} =
@@ -299,5 +299,5 @@ abortMultipartUploadResponse_httpStatus = Lens.lens (\AbortMultipartUploadRespon
 
 instance Prelude.NFData AbortMultipartUploadResponse where
   rnf AbortMultipartUploadResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestCharged `Prelude.seq`
+      Prelude.rnf httpStatus

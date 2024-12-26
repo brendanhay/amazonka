@@ -125,10 +125,10 @@ instance
     IntelligentTieringConfiguration
   where
   rnf IntelligentTieringConfiguration' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tierings
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf tierings
 
 instance Data.ToXML IntelligentTieringConfiguration where
   toXML IntelligentTieringConfiguration' {..} =

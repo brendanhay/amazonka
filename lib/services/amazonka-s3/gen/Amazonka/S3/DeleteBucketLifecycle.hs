@@ -128,8 +128,8 @@ instance Prelude.Hashable DeleteBucketLifecycle where
 
 instance Prelude.NFData DeleteBucketLifecycle where
   rnf DeleteBucketLifecycle' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders DeleteBucketLifecycle where
   toHeaders DeleteBucketLifecycle' {..} =

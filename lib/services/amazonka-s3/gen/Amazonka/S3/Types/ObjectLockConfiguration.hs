@@ -98,8 +98,8 @@ instance Prelude.Hashable ObjectLockConfiguration where
 
 instance Prelude.NFData ObjectLockConfiguration where
   rnf ObjectLockConfiguration' {..} =
-    Prelude.rnf objectLockEnabled
-      `Prelude.seq` Prelude.rnf rule
+    Prelude.rnf objectLockEnabled `Prelude.seq`
+      Prelude.rnf rule
 
 instance Data.ToXML ObjectLockConfiguration where
   toXML ObjectLockConfiguration' {..} =

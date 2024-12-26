@@ -107,9 +107,9 @@ instance Prelude.Hashable AnalyticsConfiguration where
 
 instance Prelude.NFData AnalyticsConfiguration where
   rnf AnalyticsConfiguration' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf storageClassAnalysis
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf storageClassAnalysis
 
 instance Data.ToXML AnalyticsConfiguration where
   toXML AnalyticsConfiguration' {..} =

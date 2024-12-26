@@ -131,11 +131,11 @@ instance Prelude.Hashable LifecycleRuleFilter where
 
 instance Prelude.NFData LifecycleRuleFilter where
   rnf LifecycleRuleFilter' {..} =
-    Prelude.rnf and
-      `Prelude.seq` Prelude.rnf objectSizeGreaterThan
-      `Prelude.seq` Prelude.rnf objectSizeLessThan
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf tag
+    Prelude.rnf and `Prelude.seq`
+      Prelude.rnf objectSizeGreaterThan `Prelude.seq`
+        Prelude.rnf objectSizeLessThan `Prelude.seq`
+          Prelude.rnf prefix `Prelude.seq`
+            Prelude.rnf tag
 
 instance Data.ToXML LifecycleRuleFilter where
   toXML LifecycleRuleFilter' {..} =

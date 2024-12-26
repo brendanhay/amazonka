@@ -88,6 +88,6 @@ instance Prelude.Hashable Progress where
 
 instance Prelude.NFData Progress where
   rnf Progress' {..} =
-    Prelude.rnf bytesProcessed
-      `Prelude.seq` Prelude.rnf bytesReturned
-      `Prelude.seq` Prelude.rnf bytesScanned
+    Prelude.rnf bytesProcessed `Prelude.seq`
+      Prelude.rnf bytesReturned `Prelude.seq`
+        Prelude.rnf bytesScanned

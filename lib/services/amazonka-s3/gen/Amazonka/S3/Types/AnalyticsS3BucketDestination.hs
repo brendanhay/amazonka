@@ -123,10 +123,10 @@ instance
 
 instance Prelude.NFData AnalyticsS3BucketDestination where
   rnf AnalyticsS3BucketDestination' {..} =
-    Prelude.rnf bucketAccountId
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf bucketAccountId `Prelude.seq`
+      Prelude.rnf prefix `Prelude.seq`
+        Prelude.rnf format `Prelude.seq`
+          Prelude.rnf bucket
 
 instance Data.ToXML AnalyticsS3BucketDestination where
   toXML AnalyticsS3BucketDestination' {..} =

@@ -84,8 +84,8 @@ instance Prelude.Hashable RedirectAllRequestsTo where
 
 instance Prelude.NFData RedirectAllRequestsTo where
   rnf RedirectAllRequestsTo' {..} =
-    Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf hostName
+    Prelude.rnf protocol `Prelude.seq`
+      Prelude.rnf hostName
 
 instance Data.ToXML RedirectAllRequestsTo where
   toXML RedirectAllRequestsTo' {..} =

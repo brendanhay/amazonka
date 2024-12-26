@@ -130,8 +130,8 @@ instance Prelude.Hashable Condition where
 
 instance Prelude.NFData Condition where
   rnf Condition' {..} =
-    Prelude.rnf httpErrorCodeReturnedEquals
-      `Prelude.seq` Prelude.rnf keyPrefixEquals
+    Prelude.rnf httpErrorCodeReturnedEquals `Prelude.seq`
+      Prelude.rnf keyPrefixEquals
 
 instance Data.ToXML Condition where
   toXML Condition' {..} =

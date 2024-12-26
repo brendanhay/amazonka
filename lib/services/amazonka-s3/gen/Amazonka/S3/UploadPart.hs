@@ -844,15 +844,15 @@ uploadPartResponse_httpStatus = Lens.lens (\UploadPartResponse' {httpStatus} -> 
 
 instance Prelude.NFData UploadPartResponse where
   rnf UploadPartResponse' {..} =
-    Prelude.rnf bucketKeyEnabled
-      `Prelude.seq` Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf checksumCRC32C
-      `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf checksumSHA256
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf sSEKMSKeyId
-      `Prelude.seq` Prelude.rnf serverSideEncryption
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bucketKeyEnabled `Prelude.seq`
+      Prelude.rnf checksumCRC32 `Prelude.seq`
+        Prelude.rnf checksumCRC32C `Prelude.seq`
+          Prelude.rnf checksumSHA1 `Prelude.seq`
+            Prelude.rnf checksumSHA256 `Prelude.seq`
+              Prelude.rnf eTag `Prelude.seq`
+                Prelude.rnf requestCharged `Prelude.seq`
+                  Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+                    Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+                      Prelude.rnf sSEKMSKeyId `Prelude.seq`
+                        Prelude.rnf serverSideEncryption `Prelude.seq`
+                          Prelude.rnf httpStatus

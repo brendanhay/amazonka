@@ -142,8 +142,8 @@ instance
     GetBucketNotificationConfiguration
   where
   rnf GetBucketNotificationConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance
   Data.ToHeaders

@@ -335,14 +335,14 @@ instance Prelude.Hashable PutObjectTagging where
 
 instance Prelude.NFData PutObjectTagging where
   rnf PutObjectTagging' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf tagging
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf requestPayer `Prelude.seq`
+            Prelude.rnf versionId `Prelude.seq`
+              Prelude.rnf bucket `Prelude.seq`
+                Prelude.rnf key `Prelude.seq`
+                  Prelude.rnf tagging
 
 instance Data.ToElement PutObjectTagging where
   toElement PutObjectTagging' {..} =
@@ -412,5 +412,5 @@ putObjectTaggingResponse_httpStatus = Lens.lens (\PutObjectTaggingResponse' {htt
 
 instance Prelude.NFData PutObjectTaggingResponse where
   rnf PutObjectTaggingResponse' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf httpStatus

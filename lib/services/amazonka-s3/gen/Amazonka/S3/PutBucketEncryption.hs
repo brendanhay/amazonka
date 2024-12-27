@@ -234,11 +234,11 @@ instance Prelude.Hashable PutBucketEncryption where
 
 instance Prelude.NFData PutBucketEncryption where
   rnf PutBucketEncryption' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf serverSideEncryptionConfiguration
 
 instance Data.ToElement PutBucketEncryption where
   toElement PutBucketEncryption' {..} =

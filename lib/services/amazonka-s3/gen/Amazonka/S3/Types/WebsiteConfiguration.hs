@@ -105,10 +105,10 @@ instance Prelude.Hashable WebsiteConfiguration where
 
 instance Prelude.NFData WebsiteConfiguration where
   rnf WebsiteConfiguration' {..} =
-    Prelude.rnf errorDocument
-      `Prelude.seq` Prelude.rnf indexDocument
-      `Prelude.seq` Prelude.rnf redirectAllRequestsTo
-      `Prelude.seq` Prelude.rnf routingRules
+    Prelude.rnf errorDocument `Prelude.seq`
+      Prelude.rnf indexDocument `Prelude.seq`
+        Prelude.rnf redirectAllRequestsTo `Prelude.seq`
+          Prelude.rnf routingRules
 
 instance Data.ToXML WebsiteConfiguration where
   toXML WebsiteConfiguration' {..} =

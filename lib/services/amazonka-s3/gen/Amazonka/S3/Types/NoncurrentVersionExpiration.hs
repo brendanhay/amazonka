@@ -108,8 +108,8 @@ instance Prelude.Hashable NoncurrentVersionExpiration where
 
 instance Prelude.NFData NoncurrentVersionExpiration where
   rnf NoncurrentVersionExpiration' {..} =
-    Prelude.rnf newerNoncurrentVersions'
-      `Prelude.seq` Prelude.rnf noncurrentDays
+    Prelude.rnf newerNoncurrentVersions' `Prelude.seq`
+      Prelude.rnf noncurrentDays
 
 instance Data.ToXML NoncurrentVersionExpiration where
   toXML NoncurrentVersionExpiration' {..} =

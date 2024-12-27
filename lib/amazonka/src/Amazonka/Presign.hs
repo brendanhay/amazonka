@@ -1,3 +1,5 @@
+{-# LANGUAGE BangPatterns #-}
+
 -- |
 -- Module      : Amazonka.Presign
 -- Copyright   : (c) 2013-2023 Brendan Hay
@@ -9,9 +11,6 @@
 -- It is intended for use directly with 'Amazonka.Auth.Auth' when only
 -- presigning and no other AWS actions are required.
 -- See 'Amazonka.Auth.withAuth' to extract an 'AuthEnv' from an 'Auth'.
-
-{-# LANGUAGE BangPatterns #-}
-
 module Amazonka.Presign where
 
 import Amazonka.Data

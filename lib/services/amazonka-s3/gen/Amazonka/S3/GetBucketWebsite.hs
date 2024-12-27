@@ -125,9 +125,7 @@ instance Core.AWSRequest GetBucketWebsite where
             Prelude.<$> (x Data..@? "ErrorDocument")
             Prelude.<*> (x Data..@? "IndexDocument")
             Prelude.<*> (x Data..@? "RedirectAllRequestsTo")
-            Prelude.<*> ( x
-                            Data..@? "RoutingRules"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "RoutingRules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "RoutingRule")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,8 +139,8 @@ instance Prelude.Hashable GetBucketWebsite where
 
 instance Prelude.NFData GetBucketWebsite where
   rnf GetBucketWebsite' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketWebsite where
   toHeaders GetBucketWebsite' {..} =
@@ -235,8 +233,8 @@ getBucketWebsiteResponse_httpStatus = Lens.lens (\GetBucketWebsiteResponse' {htt
 
 instance Prelude.NFData GetBucketWebsiteResponse where
   rnf GetBucketWebsiteResponse' {..} =
-    Prelude.rnf errorDocument
-      `Prelude.seq` Prelude.rnf indexDocument
-      `Prelude.seq` Prelude.rnf redirectAllRequestsTo
-      `Prelude.seq` Prelude.rnf routingRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errorDocument `Prelude.seq`
+      Prelude.rnf indexDocument `Prelude.seq`
+        Prelude.rnf redirectAllRequestsTo `Prelude.seq`
+          Prelude.rnf routingRules `Prelude.seq`
+            Prelude.rnf httpStatus

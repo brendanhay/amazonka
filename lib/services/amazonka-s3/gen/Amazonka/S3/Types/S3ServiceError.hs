@@ -2499,7 +2499,7 @@ instance Prelude.Hashable S3ServiceError where
 
 instance Prelude.NFData S3ServiceError where
   rnf S3ServiceError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf versionId

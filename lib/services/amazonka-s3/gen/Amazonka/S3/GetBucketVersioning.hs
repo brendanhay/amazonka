@@ -133,8 +133,8 @@ instance Prelude.Hashable GetBucketVersioning where
 
 instance Prelude.NFData GetBucketVersioning where
   rnf GetBucketVersioning' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketVersioning where
   toHeaders GetBucketVersioning' {..} =
@@ -210,6 +210,6 @@ getBucketVersioningResponse_httpStatus = Lens.lens (\GetBucketVersioningResponse
 
 instance Prelude.NFData GetBucketVersioningResponse where
   rnf GetBucketVersioningResponse' {..} =
-    Prelude.rnf mfaDelete
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mfaDelete `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

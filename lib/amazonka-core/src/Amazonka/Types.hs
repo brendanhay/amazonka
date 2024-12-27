@@ -183,6 +183,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Data
 import Amazonka.Prelude hiding (error)
 import Control.Concurrent (ThreadId)
+import Control.Exception (fromException, toException)
 import Control.Monad.Trans.Resource (ResourceT)
 import Data.Conduit (ConduitM)
 import Data.IORef (IORef, readIORef)
@@ -397,7 +398,7 @@ class AsError a where
   _ServiceError = _Error . _ServiceError
 
 instance AsError SomeException where
-  _Error = Lens.exception
+  _Error = Lens.prism' toException fromException
 
 instance AsError Error where
   _Error = id
@@ -480,7 +481,7 @@ retry_check f r@Exponential {check} = f check <&> \check' -> (r :: Retry) {check
 
 -- | Signing algorithm specific metadata.
 data Meta where
-  Meta :: ToLog a => a -> Meta
+  Meta :: (ToLog a) => a -> Meta
 
 instance ToLog Meta where
   build (Meta m) = build m
@@ -663,7 +664,7 @@ class (Typeable a, Typeable (AWSResponse a)) => AWSRequest a where
     Request a
 
   response ::
-    MonadResource m =>
+    (MonadResource m) =>
     -- | Raw response body hook.
     (ByteStringLazy -> IO ByteStringLazy) ->
     Service ->
@@ -816,7 +817,7 @@ instance ToLog Auth where
   build (Ref t _) = "[Amazonka Auth] { <thread:" <> build (show t) <> "> }"
   build (Auth e) = build e
 
-withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
+withAuth :: (MonadIO m) => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
 withAuth (Auth e) f = f e
 

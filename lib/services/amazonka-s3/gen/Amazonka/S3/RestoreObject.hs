@@ -488,13 +488,13 @@ instance Prelude.Hashable RestoreObject where
 
 instance Prelude.NFData RestoreObject where
   rnf RestoreObject' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf restoreRequest
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf expectedBucketOwner `Prelude.seq`
+        Prelude.rnf requestPayer `Prelude.seq`
+          Prelude.rnf restoreRequest `Prelude.seq`
+            Prelude.rnf versionId `Prelude.seq`
+              Prelude.rnf bucket `Prelude.seq`
+                Prelude.rnf key
 
 instance Data.ToElement RestoreObject where
   toElement RestoreObject' {..} =
@@ -574,6 +574,6 @@ restoreObjectResponse_httpStatus = Lens.lens (\RestoreObjectResponse' {httpStatu
 
 instance Prelude.NFData RestoreObjectResponse where
   rnf RestoreObjectResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf restoreOutputPath
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestCharged `Prelude.seq`
+      Prelude.rnf restoreOutputPath `Prelude.seq`
+        Prelude.rnf httpStatus

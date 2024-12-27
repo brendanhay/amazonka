@@ -527,21 +527,21 @@ instance Prelude.Hashable HeadObject where
 
 instance Prelude.NFData HeadObject where
   rnf HeadObject' {..} =
-    Prelude.rnf checksumMode
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf ifModifiedSince
-      `Prelude.seq` Prelude.rnf ifNoneMatch
-      `Prelude.seq` Prelude.rnf ifUnmodifiedSince
-      `Prelude.seq` Prelude.rnf partNumber
-      `Prelude.seq` Prelude.rnf range
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKey
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf checksumMode `Prelude.seq`
+      Prelude.rnf expectedBucketOwner `Prelude.seq`
+        Prelude.rnf ifMatch `Prelude.seq`
+          Prelude.rnf ifModifiedSince `Prelude.seq`
+            Prelude.rnf ifNoneMatch `Prelude.seq`
+              Prelude.rnf ifUnmodifiedSince `Prelude.seq`
+                Prelude.rnf partNumber `Prelude.seq`
+                  Prelude.rnf range `Prelude.seq`
+                    Prelude.rnf requestPayer `Prelude.seq`
+                      Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+                        Prelude.rnf sSECustomerKey `Prelude.seq`
+                          Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+                            Prelude.rnf versionId `Prelude.seq`
+                              Prelude.rnf bucket `Prelude.seq`
+                                Prelude.rnf key
 
 instance Data.ToHeaders HeadObject where
   toHeaders HeadObject' {..} =

@@ -130,8 +130,8 @@ instance Prelude.Hashable GetBucketCors where
 
 instance Prelude.NFData GetBucketCors where
   rnf GetBucketCors' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketCors where
   toHeaders GetBucketCors' {..} =
@@ -190,5 +190,5 @@ getBucketCorsResponse_httpStatus = Lens.lens (\GetBucketCorsResponse' {httpStatu
 
 instance Prelude.NFData GetBucketCorsResponse where
   rnf GetBucketCorsResponse' {..} =
-    Prelude.rnf cORSRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cORSRules `Prelude.seq`
+      Prelude.rnf httpStatus

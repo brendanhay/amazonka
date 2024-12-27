@@ -211,13 +211,13 @@ instance Prelude.Hashable Destination where
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf accessControlTranslation
-      `Prelude.seq` Prelude.rnf account
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf replicationTime
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf accessControlTranslation `Prelude.seq`
+      Prelude.rnf account `Prelude.seq`
+        Prelude.rnf encryptionConfiguration `Prelude.seq`
+          Prelude.rnf metrics `Prelude.seq`
+            Prelude.rnf replicationTime `Prelude.seq`
+              Prelude.rnf storageClass `Prelude.seq`
+                Prelude.rnf bucket
 
 instance Data.ToXML Destination where
   toXML Destination' {..} =

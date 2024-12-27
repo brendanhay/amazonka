@@ -77,8 +77,8 @@ instance Prelude.Hashable Owner where
 
 instance Prelude.NFData Owner where
   rnf Owner' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToXML Owner where
   toXML Owner' {..} =

@@ -107,10 +107,10 @@ instance Prelude.Hashable SelectParameters where
 
 instance Prelude.NFData SelectParameters where
   rnf SelectParameters' {..} =
-    Prelude.rnf inputSerialization
-      `Prelude.seq` Prelude.rnf expressionType
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf outputSerialization
+    Prelude.rnf inputSerialization `Prelude.seq`
+      Prelude.rnf expressionType `Prelude.seq`
+        Prelude.rnf expression `Prelude.seq`
+          Prelude.rnf outputSerialization
 
 instance Data.ToXML SelectParameters where
   toXML SelectParameters' {..} =

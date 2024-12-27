@@ -19,8 +19,8 @@ import Amazonka.Data
 import Amazonka.Env (Env, Env' (..), lookupRegion)
 import Amazonka.Prelude
 import Amazonka.Types
+import Control.Exception (IOException)
 import qualified Control.Exception as Exception
-import Control.Exception.Lens (handling_, _IOException)
 import Control.Monad.Trans.Reader (ReaderT, ask, runReaderT)
 import Control.Monad.Trans.State (StateT, evalStateT, get, modify)
 import Data.Foldable (asum)
@@ -146,15 +146,13 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
           liftIO
             . Exception.throwIO
             . InvalidFileError
-            $ "Missing profile: "
-            <> Text.pack (show pName)
+            $ "Missing profile: " <> Text.pack (show pName)
         Just p -> case parseConfigProfile p of
           Nothing ->
             liftIO
               . Exception.throwIO
               . InvalidFileError
-              $ "Parse error in profile: "
-              <> Text.pack (show pName)
+              $ "Parse error in profile: " <> Text.pack (show pName)
           Just (cp, mRegion) -> do
             env' <- case cp of
               ExplicitKeys keys ->
@@ -168,8 +166,7 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
                      in liftIO
                           . Exception.throwIO
                           . InvalidFileError
-                          $ "Infinite source_profile loop: "
-                          <> textTrace
+                          $ "Infinite source_profile loop: " <> textTrace
                   else do
                     lift . modify $ (sourceProfileName :)
                     sourceEnv <- evalConfig sourceProfileName
@@ -184,9 +181,8 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
                 fromWebIdentity tokenFile roleArn mRoleSessionName env
               AssumeRoleViaSSO startUrl ssoRegion accountId roleName -> do
                 cachedTokenFile <-
-                  liftIO
-                    $ configPathRelative
-                    =<< relativeCachedTokenFile startUrl
+                  liftIO $
+                    configPathRelative =<< relativeCachedTokenFile startUrl
                 fromSSO cachedTokenFile ssoRegion accountId roleName env
 
             -- Once we have the env from the profile, apply the region
@@ -232,24 +228,24 @@ parseConfigProfile profile = parseProfile <&> (,parseRegion)
     parseRegion = Region' <$> HashMap.lookup "region" profile
 
     explicitKey =
-      fmap ExplicitKeys
-        $ AuthEnv
-        <$> ( AccessKey
+      fmap ExplicitKeys $
+        AuthEnv
+          <$> ( AccessKey
+                  . Text.encodeUtf8
+                  <$> HashMap.lookup "aws_access_key_id" profile
+              )
+          <*> ( Sensitive
+                  . SecretKey
+                  . Text.encodeUtf8
+                  <$> HashMap.lookup "aws_secret_access_key" profile
+              )
+          <*> Just
+            ( Sensitive
+                . SessionToken
                 . Text.encodeUtf8
-                <$> HashMap.lookup "aws_access_key_id" profile
+                <$> HashMap.lookup "aws_session_token" profile
             )
-        <*> ( Sensitive
-                . SecretKey
-                . Text.encodeUtf8
-                <$> HashMap.lookup "aws_secret_access_key" profile
-            )
-        <*> Just
-          ( Sensitive
-              . SessionToken
-              . Text.encodeUtf8
-              <$> HashMap.lookup "aws_session_token" profile
-          )
-        <*> Just Nothing -- No token expiry in config file
+          <*> Just Nothing -- No token expiry in config file
     assumeRoleFromProfile =
       AssumeRoleFromProfile
         <$> HashMap.lookup "role_arn" profile
@@ -328,7 +324,7 @@ fromFileEnv env = liftIO $ do
   fromFilePath profile cred conf env
 
 configPathRelative :: String -> IO String
-configPathRelative p = handling_ _IOException err dir
+configPathRelative p = Exception.handle (\(_ :: IOException) -> err) dir
   where
     err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
     dir = case os of

@@ -109,8 +109,8 @@ instance Prelude.Hashable ServerSideEncryptionRule where
 
 instance Prelude.NFData ServerSideEncryptionRule where
   rnf ServerSideEncryptionRule' {..} =
-    Prelude.rnf applyServerSideEncryptionByDefault
-      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+    Prelude.rnf applyServerSideEncryptionByDefault `Prelude.seq`
+      Prelude.rnf bucketKeyEnabled
 
 instance Data.ToXML ServerSideEncryptionRule where
   toXML ServerSideEncryptionRule' {..} =

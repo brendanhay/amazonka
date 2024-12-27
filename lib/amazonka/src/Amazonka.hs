@@ -109,8 +109,6 @@ module Amazonka
     -- $errors
     AsError (..),
     AsAuthError (..),
-    Lens.trying,
-    Lens.catching,
 
     -- ** Building Error Prisms
     Error._MatchServiceError,
@@ -133,7 +131,6 @@ where
 
 import Amazonka.Auth
 import Amazonka.Core hiding (presign)
-import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Crypto as Crypto
 import qualified Amazonka.Data.Body as Body
 import qualified Amazonka.Endpoint as Endpoint

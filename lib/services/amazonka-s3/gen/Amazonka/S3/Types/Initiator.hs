@@ -83,5 +83,5 @@ instance Prelude.Hashable Initiator where
 
 instance Prelude.NFData Initiator where
   rnf Initiator' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf id

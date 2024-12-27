@@ -209,10 +209,10 @@ instance
     PutBucketNotificationConfiguration
   where
   rnf PutBucketNotificationConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf skipDestinationValidation
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf notificationConfiguration
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf skipDestinationValidation `Prelude.seq`
+        Prelude.rnf bucket `Prelude.seq`
+          Prelude.rnf notificationConfiguration
 
 instance
   Data.ToElement

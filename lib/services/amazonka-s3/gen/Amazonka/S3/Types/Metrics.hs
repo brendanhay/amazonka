@@ -85,8 +85,8 @@ instance Prelude.Hashable Metrics where
 
 instance Prelude.NFData Metrics where
   rnf Metrics' {..} =
-    Prelude.rnf eventThreshold
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf eventThreshold `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToXML Metrics where
   toXML Metrics' {..} =

@@ -103,9 +103,9 @@ instance Prelude.Hashable LifecycleExpiration where
 
 instance Prelude.NFData LifecycleExpiration where
   rnf LifecycleExpiration' {..} =
-    Prelude.rnf date
-      `Prelude.seq` Prelude.rnf days
-      `Prelude.seq` Prelude.rnf expiredObjectDeleteMarker
+    Prelude.rnf date `Prelude.seq`
+      Prelude.rnf days `Prelude.seq`
+        Prelude.rnf expiredObjectDeleteMarker
 
 instance Data.ToXML LifecycleExpiration where
   toXML LifecycleExpiration' {..} =

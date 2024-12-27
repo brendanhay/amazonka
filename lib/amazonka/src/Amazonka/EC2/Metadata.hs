@@ -590,8 +590,8 @@ instance ToText Spot where
 data Tags
   = -- | The keys of available tags, @\n@-separated, if enabled in instance settings.
     Instance
-    -- | A specific named tag in Instance Metadata, if enabled in instance settings.
-  | InstanceTag !Text
+  | -- | A specific named tag in Instance Metadata, if enabled in instance settings.
+    InstanceTag !Text
   deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText Tags where
@@ -604,7 +604,7 @@ latest = "http://169.254.169.254/latest/"
 
 -- | Test whether the underlying host is running on EC2 by
 -- making an HTTP request to @http://instance-data/latest@.
-isEC2 :: MonadIO m => Client.Manager -> m Bool
+isEC2 :: (MonadIO m) => Client.Manager -> m Bool
 isEC2 m = liftIO (Exception.catch req err)
   where
     req = do
@@ -618,20 +618,20 @@ isEC2 m = liftIO (Exception.catch req err)
 -- | Retrieve the specified 'Dynamic' data.
 --
 -- Throws 'HttpException' if HTTP communication fails.
-dynamic :: MonadIO m => Client.Manager -> Dynamic -> m ByteString
+dynamic :: (MonadIO m) => Client.Manager -> Dynamic -> m ByteString
 dynamic m = get m . mappend latest . toText
 
 -- | Retrieve the specified 'Metadata'.
 --
 -- Throws 'HttpException' if HTTP communication fails.
-metadata :: MonadIO m => Client.Manager -> Metadata -> m ByteString
+metadata :: (MonadIO m) => Client.Manager -> Metadata -> m ByteString
 metadata m = get m . mappend latest . toText
 
 -- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
 -- to the instance.
 --
 -- Throws 'HttpException' if HTTP communication fails.
-userdata :: MonadIO m => Client.Manager -> m (Maybe ByteString)
+userdata :: (MonadIO m) => Client.Manager -> m (Maybe ByteString)
 userdata m =
   liftIO $
     Exception.try (get m (latest <> "user-data")) >>= \case
@@ -765,12 +765,12 @@ identityDocument_pendingTime f i@IdentityDocument {pendingTime} = f pendingTime 
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html AWS Instance Identity Documents>.
 identity ::
-  MonadIO m =>
+  (MonadIO m) =>
   Client.Manager ->
   m (Either String IdentityDocument)
 identity m = eitherDecode . LBS.fromStrict <$> dynamic m Document
 
-get :: MonadIO m => Client.Manager -> Text -> m ByteString
+get :: (MonadIO m) => Client.Manager -> Text -> m ByteString
 get m url = liftIO $ do
   token <- strip <$> requestToken
   strip <$> requestWith (addToken token) m url

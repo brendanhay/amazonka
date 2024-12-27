@@ -338,12 +338,12 @@ instance Core.AWSPager ListParts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listParts_partNumberMarker
-          Lens..~ rs
-          Lens.^? listPartsResponse_nextPartNumberMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listParts_partNumberMarker
+              Lens..~ rs
+              Lens.^? listPartsResponse_nextPartNumberMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListParts where
   type AWSResponse ListParts = ListPartsResponse
@@ -388,16 +388,16 @@ instance Prelude.Hashable ListParts where
 
 instance Prelude.NFData ListParts where
   rnf ListParts' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf maxParts
-      `Prelude.seq` Prelude.rnf partNumberMarker
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKey
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf maxParts `Prelude.seq`
+        Prelude.rnf partNumberMarker `Prelude.seq`
+          Prelude.rnf requestPayer `Prelude.seq`
+            Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+              Prelude.rnf sSECustomerKey `Prelude.seq`
+                Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+                  Prelude.rnf bucket `Prelude.seq`
+                    Prelude.rnf key `Prelude.seq`
+                      Prelude.rnf uploadId
 
 instance Data.ToHeaders ListParts where
   toHeaders ListParts' {..} =
@@ -666,19 +666,19 @@ listPartsResponse_httpStatus = Lens.lens (\ListPartsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListPartsResponse where
   rnf ListPartsResponse' {..} =
-    Prelude.rnf abortDate
-      `Prelude.seq` Prelude.rnf abortRuleId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf initiator
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf maxParts
-      `Prelude.seq` Prelude.rnf nextPartNumberMarker
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf partNumberMarker
-      `Prelude.seq` Prelude.rnf parts
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf abortDate `Prelude.seq`
+      Prelude.rnf abortRuleId `Prelude.seq`
+        Prelude.rnf bucket `Prelude.seq`
+          Prelude.rnf checksumAlgorithm `Prelude.seq`
+            Prelude.rnf initiator `Prelude.seq`
+              Prelude.rnf isTruncated `Prelude.seq`
+                Prelude.rnf key `Prelude.seq`
+                  Prelude.rnf maxParts `Prelude.seq`
+                    Prelude.rnf nextPartNumberMarker `Prelude.seq`
+                      Prelude.rnf owner `Prelude.seq`
+                        Prelude.rnf partNumberMarker `Prelude.seq`
+                          Prelude.rnf parts `Prelude.seq`
+                            Prelude.rnf requestCharged `Prelude.seq`
+                              Prelude.rnf storageClass `Prelude.seq`
+                                Prelude.rnf uploadId `Prelude.seq`
+                                  Prelude.rnf httpStatus

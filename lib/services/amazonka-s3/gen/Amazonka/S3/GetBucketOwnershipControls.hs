@@ -131,8 +131,8 @@ instance Prelude.Hashable GetBucketOwnershipControls where
 
 instance Prelude.NFData GetBucketOwnershipControls where
   rnf GetBucketOwnershipControls' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketOwnershipControls where
   toHeaders GetBucketOwnershipControls' {..} =
@@ -197,5 +197,5 @@ instance
     GetBucketOwnershipControlsResponse
   where
   rnf GetBucketOwnershipControlsResponse' {..} =
-    Prelude.rnf ownershipControls
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ownershipControls `Prelude.seq`
+      Prelude.rnf httpStatus

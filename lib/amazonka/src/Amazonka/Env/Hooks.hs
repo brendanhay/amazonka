@@ -198,6 +198,7 @@ module Amazonka.Env.Hooks
   )
 where
 
+import Amazonka.Core.Lens.Internal (Getting, has)
 import {-# SOURCE #-} Amazonka.Env (Env' (..))
 import Amazonka.Logger (build, logDebug, logError, logTrace)
 import Amazonka.Prelude hiding (error)
@@ -211,7 +212,6 @@ import Amazonka.Types
     Signed (..),
   )
 import Amazonka.Waiter (Accept, Wait (..))
-import Control.Lens (Getting, has)
 import qualified Control.Retry as Retry
 import Data.List (intersperse)
 import Data.Monoid (Any)

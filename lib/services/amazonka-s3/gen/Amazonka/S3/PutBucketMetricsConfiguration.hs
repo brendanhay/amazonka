@@ -176,10 +176,10 @@ instance
 
 instance Prelude.NFData PutBucketMetricsConfiguration where
   rnf PutBucketMetricsConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf metricsConfiguration
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf metricsConfiguration
 
 instance Data.ToElement PutBucketMetricsConfiguration where
   toElement PutBucketMetricsConfiguration' {..} =

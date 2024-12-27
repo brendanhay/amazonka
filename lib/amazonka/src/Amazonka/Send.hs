@@ -19,7 +19,6 @@ import qualified Amazonka.Waiter as Waiter
 import qualified Control.Exception as Exception
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
-import Data.Typeable (Typeable)
 import qualified Network.HTTP.Client as Client
 
 -- | Send a request, returning the associated response if successful.

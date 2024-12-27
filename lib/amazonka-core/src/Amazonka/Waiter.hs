@@ -35,10 +35,9 @@ where
 import Amazonka.Core.Lens.Internal
   ( Fold,
     Lens,
-    allOf,
-    anyOf,
+    fromSimpleFold,
     to,
-    (^..),
+    toListOf,
     (^?),
   )
 import Amazonka.Data
@@ -89,14 +88,15 @@ wait_acceptors f w@Wait {acceptors} = f acceptors <&> \acceptors' -> w {acceptor
 accept :: Wait a -> Acceptor a
 accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ acceptors w
 
-matchAll :: Eq b => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
-matchAll x a l = match (allOf l (== x)) a
+matchAll :: (Eq b) => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
+matchAll x a l = match (all (x ==) . toListOf l) a
 
-matchAny :: Eq b => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
-matchAny x a l = match (anyOf l (== x)) a
+{-# ANN matchAny ("HLint: ignore Use elem" :: String) #-}
+matchAny :: (Eq b) => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
+matchAny x a l = match (any (x ==) . toListOf l) a
 
 matchNonEmpty :: Bool -> Accept -> Fold (AWSResponse a) b -> Acceptor a
-matchNonEmpty x a l = match (\rs -> null (rs ^.. l) == x) a
+matchNonEmpty x a l = match ((x ==) . null . toListOf l) a
 
 matchStatus :: Int -> Accept -> Acceptor a
 matchStatus x a _ = \case
@@ -115,4 +115,4 @@ match f a _ = \case
   _ -> Nothing
 
 nonEmptyText :: Fold a Text -> Fold a Bool
-nonEmptyText f = f . to Text.null
+nonEmptyText f = f . fromSimpleFold (to Text.null)

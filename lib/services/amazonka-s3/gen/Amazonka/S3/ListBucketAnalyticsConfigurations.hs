@@ -183,9 +183,9 @@ instance
     ListBucketAnalyticsConfigurations
   where
   rnf ListBucketAnalyticsConfigurations' {..} =
-    Prelude.rnf continuationToken
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf continuationToken `Prelude.seq`
+      Prelude.rnf expectedBucketOwner `Prelude.seq`
+        Prelude.rnf bucket
 
 instance
   Data.ToHeaders
@@ -309,8 +309,8 @@ instance
     ListBucketAnalyticsConfigurationsResponse
   where
   rnf ListBucketAnalyticsConfigurationsResponse' {..} =
-    Prelude.rnf analyticsConfigurationList
-      `Prelude.seq` Prelude.rnf continuationToken
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf nextContinuationToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analyticsConfigurationList `Prelude.seq`
+      Prelude.rnf continuationToken `Prelude.seq`
+        Prelude.rnf isTruncated `Prelude.seq`
+          Prelude.rnf nextContinuationToken `Prelude.seq`
+            Prelude.rnf httpStatus

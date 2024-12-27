@@ -230,11 +230,11 @@ instance Prelude.Hashable PutPublicAccessBlock where
 
 instance Prelude.NFData PutPublicAccessBlock where
   rnf PutPublicAccessBlock' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf publicAccessBlockConfiguration
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf publicAccessBlockConfiguration
 
 instance Data.ToElement PutPublicAccessBlock where
   toElement PutPublicAccessBlock' {..} =

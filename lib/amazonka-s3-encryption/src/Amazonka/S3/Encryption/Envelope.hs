@@ -19,7 +19,6 @@ import Amazonka.S3.Encryption.Types
 import Conduit ((.|))
 import qualified Conduit
 import qualified Control.Exception as Exception
-import Control.Lens ((?~), (^.))
 import Crypto.Cipher.AES (AES256)
 import qualified Crypto.Cipher.AES as AES
 import Crypto.Cipher.Types (BlockCipher, Cipher, IV)
@@ -34,8 +33,8 @@ import Data.ByteArray (ByteArray)
 import qualified Data.ByteArray as ByteArray
 import qualified Data.ByteString as BS
 import qualified Data.CaseInsensitive as CI
-import Data.Functor ((<&>))
 import qualified Data.HashMap.Strict as Map
+import Lens.Micro ((?~), (^.))
 
 #if MIN_VERSION_aeson(2,0,0)
 import qualified Data.Aeson.Key as Key
@@ -53,7 +52,7 @@ data V1Envelope = V1Envelope
     _v1Description :: !Description
   }
 
-newV1 :: MonadIO m => (ByteString -> IO ByteString) -> Description -> m Envelope
+newV1 :: (MonadIO m) => (ByteString -> IO ByteString) -> Description -> m Envelope
 newV1 f d =
   liftIO $ do
     k <- getRandomBytes aesKeySize
@@ -69,7 +68,7 @@ newV1 f d =
         }
 
 decodeV1 ::
-  MonadResource m =>
+  (MonadResource m) =>
   (ByteString -> IO ByteString) ->
   [(CI Text, Text)] ->
   m Envelope
@@ -114,7 +113,7 @@ data V2Envelope = V2Envelope
   }
 
 newV2 ::
-  MonadResource m =>
+  (MonadResource m) =>
   Text ->
   AWS.Env ->
   Description ->
@@ -142,7 +141,7 @@ newV2 kid env d = do
       }
 
 decodeV2 ::
-  MonadResource m =>
+  (MonadResource m) =>
   AWS.Env ->
   [(CI Text, Text)] ->
   Description ->
@@ -214,7 +213,7 @@ toMetadata = \case
     b64 = toBS . Base64
 
 newEnvelope ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   AWS.Env ->
   m Envelope
@@ -225,7 +224,7 @@ newEnvelope key env =
     KMS kid d -> newV2 kid env d
 
 decodeEnvelope ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   AWS.Env ->
   [(CI Text, Text)] ->
@@ -237,7 +236,7 @@ decodeEnvelope key env xs =
     KMS _ d -> decodeV2 env xs d
 
 fromMetadata ::
-  MonadResource m =>
+  (MonadResource m) =>
   Key ->
   AWS.Env ->
   HashMap Text Text ->
@@ -288,7 +287,7 @@ bodyDecrypt (getCipher -> (aes, iv0)) rsBody =
        in fromMaybe r (Padding.unpad (Padding.PKCS7 aesBlockSize) r)
 
 aesCbc ::
-  Monad m =>
+  (Monad m) =>
   IV AES256 ->
   (IV AES256 -> ByteString -> (IV AES256, ByteString)) ->
   (IV AES256 -> ByteString -> ByteString) ->
@@ -331,7 +330,7 @@ createCipher =
 createIV :: (MonadIO m, BlockCipher a) => ByteString -> m (Cipher.IV a)
 createIV b = maybe (throwIO $ IVInvalid (ByteArray.convert b)) pure (Cipher.makeIV b)
 
-plaintext :: MonadIO m => KMS.DecryptResponse -> m ByteString
+plaintext :: (MonadIO m) => KMS.DecryptResponse -> m ByteString
 plaintext rs =
   case rs ^. KMS.decryptResponse_plaintext of
     Nothing -> throwIO PlaintextUnavailable
@@ -343,8 +342,8 @@ xs .& k =
     Nothing -> throwIO (EnvelopeMissing k)
     Just x -> hoistEither (EnvelopeInvalid k `first` fromText x)
 
-hoistEither :: MonadIO m => Either EncryptionError a -> m a
+hoistEither :: (MonadIO m) => Either EncryptionError a -> m a
 hoistEither = either throwIO pure
 
-throwIO :: MonadIO m => EncryptionError -> m a
+throwIO :: (MonadIO m) => EncryptionError -> m a
 throwIO = liftIO . Exception.throwIO

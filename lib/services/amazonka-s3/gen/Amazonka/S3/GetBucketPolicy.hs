@@ -137,8 +137,8 @@ instance Prelude.Hashable GetBucketPolicy where
 
 instance Prelude.NFData GetBucketPolicy where
   rnf GetBucketPolicy' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketPolicy where
   toHeaders GetBucketPolicy' {..} =
@@ -196,5 +196,5 @@ getBucketPolicyResponse_policy = Lens.lens (\GetBucketPolicyResponse' {policy} -
 
 instance Prelude.NFData GetBucketPolicyResponse where
   rnf GetBucketPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf policy

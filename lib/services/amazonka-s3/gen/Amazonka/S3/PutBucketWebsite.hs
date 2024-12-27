@@ -261,11 +261,11 @@ instance Prelude.Hashable PutBucketWebsite where
 
 instance Prelude.NFData PutBucketWebsite where
   rnf PutBucketWebsite' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf websiteConfiguration
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf websiteConfiguration
 
 instance Data.ToElement PutBucketWebsite where
   toElement PutBucketWebsite' {..} =

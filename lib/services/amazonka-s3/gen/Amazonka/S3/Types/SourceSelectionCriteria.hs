@@ -118,8 +118,8 @@ instance Prelude.Hashable SourceSelectionCriteria where
 
 instance Prelude.NFData SourceSelectionCriteria where
   rnf SourceSelectionCriteria' {..} =
-    Prelude.rnf replicaModifications
-      `Prelude.seq` Prelude.rnf sseKmsEncryptedObjects
+    Prelude.rnf replicaModifications `Prelude.seq`
+      Prelude.rnf sseKmsEncryptedObjects
 
 instance Data.ToXML SourceSelectionCriteria where
   toXML SourceSelectionCriteria' {..} =

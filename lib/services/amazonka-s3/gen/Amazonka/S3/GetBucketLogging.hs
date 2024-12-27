@@ -123,8 +123,8 @@ instance Prelude.Hashable GetBucketLogging where
 
 instance Prelude.NFData GetBucketLogging where
   rnf GetBucketLogging' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketLogging where
   toHeaders GetBucketLogging' {..} =
@@ -180,5 +180,5 @@ getBucketLoggingResponse_httpStatus = Lens.lens (\GetBucketLoggingResponse' {htt
 
 instance Prelude.NFData GetBucketLoggingResponse where
   rnf GetBucketLoggingResponse' {..} =
-    Prelude.rnf loggingEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loggingEnabled `Prelude.seq`
+      Prelude.rnf httpStatus

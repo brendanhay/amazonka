@@ -245,12 +245,12 @@ instance Prelude.Hashable PutBucketVersioning where
 
 instance Prelude.NFData PutBucketVersioning where
   rnf PutBucketVersioning' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf mfa
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf versioningConfiguration
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf mfa `Prelude.seq`
+            Prelude.rnf bucket `Prelude.seq`
+              Prelude.rnf versioningConfiguration
 
 instance Data.ToElement PutBucketVersioning where
   toElement PutBucketVersioning' {..} =

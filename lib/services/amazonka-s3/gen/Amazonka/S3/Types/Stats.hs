@@ -88,6 +88,6 @@ instance Prelude.Hashable Stats where
 
 instance Prelude.NFData Stats where
   rnf Stats' {..} =
-    Prelude.rnf bytesProcessed
-      `Prelude.seq` Prelude.rnf bytesReturned
-      `Prelude.seq` Prelude.rnf bytesScanned
+    Prelude.rnf bytesProcessed `Prelude.seq`
+      Prelude.rnf bytesReturned `Prelude.seq`
+        Prelude.rnf bytesScanned

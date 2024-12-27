@@ -573,20 +573,20 @@ instance Prelude.Hashable PutObjectAcl where
 
 instance Prelude.NFData PutObjectAcl where
   rnf PutObjectAcl' {..} =
-    Prelude.rnf acl
-      `Prelude.seq` Prelude.rnf accessControlPolicy
-      `Prelude.seq` Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf grantFullControl
-      `Prelude.seq` Prelude.rnf grantRead
-      `Prelude.seq` Prelude.rnf grantReadACP
-      `Prelude.seq` Prelude.rnf grantWrite
-      `Prelude.seq` Prelude.rnf grantWriteACP
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf acl `Prelude.seq`
+      Prelude.rnf accessControlPolicy `Prelude.seq`
+        Prelude.rnf checksumAlgorithm `Prelude.seq`
+          Prelude.rnf contentMD5 `Prelude.seq`
+            Prelude.rnf expectedBucketOwner `Prelude.seq`
+              Prelude.rnf grantFullControl `Prelude.seq`
+                Prelude.rnf grantRead `Prelude.seq`
+                  Prelude.rnf grantReadACP `Prelude.seq`
+                    Prelude.rnf grantWrite `Prelude.seq`
+                      Prelude.rnf grantWriteACP `Prelude.seq`
+                        Prelude.rnf requestPayer `Prelude.seq`
+                          Prelude.rnf versionId `Prelude.seq`
+                            Prelude.rnf bucket `Prelude.seq`
+                              Prelude.rnf key
 
 instance Data.ToElement PutObjectAcl where
   toElement PutObjectAcl' {..} =
@@ -661,5 +661,5 @@ putObjectAclResponse_httpStatus = Lens.lens (\PutObjectAclResponse' {httpStatus}
 
 instance Prelude.NFData PutObjectAclResponse where
   rnf PutObjectAclResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestCharged `Prelude.seq`
+      Prelude.rnf httpStatus

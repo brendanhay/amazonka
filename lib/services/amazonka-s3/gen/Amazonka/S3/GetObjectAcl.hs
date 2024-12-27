@@ -215,11 +215,11 @@ instance Prelude.Hashable GetObjectAcl where
 
 instance Prelude.NFData GetObjectAcl where
   rnf GetObjectAcl' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf requestPayer `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf key
 
 instance Data.ToHeaders GetObjectAcl where
   toHeaders GetObjectAcl' {..} =
@@ -296,7 +296,7 @@ getObjectAclResponse_httpStatus = Lens.lens (\GetObjectAclResponse' {httpStatus}
 
 instance Prelude.NFData GetObjectAclResponse where
   rnf GetObjectAclResponse' {..} =
-    Prelude.rnf grants
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf grants `Prelude.seq`
+      Prelude.rnf owner `Prelude.seq`
+        Prelude.rnf requestCharged `Prelude.seq`
+          Prelude.rnf httpStatus

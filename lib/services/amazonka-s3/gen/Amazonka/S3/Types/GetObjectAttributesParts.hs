@@ -141,9 +141,9 @@ instance Prelude.Hashable GetObjectAttributesParts where
 
 instance Prelude.NFData GetObjectAttributesParts where
   rnf GetObjectAttributesParts' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf maxParts
-      `Prelude.seq` Prelude.rnf nextPartNumberMarker
-      `Prelude.seq` Prelude.rnf partNumberMarker
-      `Prelude.seq` Prelude.rnf parts
-      `Prelude.seq` Prelude.rnf totalPartsCount
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf maxParts `Prelude.seq`
+        Prelude.rnf nextPartNumberMarker `Prelude.seq`
+          Prelude.rnf partNumberMarker `Prelude.seq`
+            Prelude.rnf parts `Prelude.seq`
+              Prelude.rnf totalPartsCount

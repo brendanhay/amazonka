@@ -84,8 +84,8 @@ instance Prelude.Hashable TargetGrant where
 
 instance Prelude.NFData TargetGrant where
   rnf TargetGrant' {..} =
-    Prelude.rnf grantee
-      `Prelude.seq` Prelude.rnf permission
+    Prelude.rnf grantee `Prelude.seq`
+      Prelude.rnf permission
 
 instance Data.ToXML TargetGrant where
   toXML TargetGrant' {..} =

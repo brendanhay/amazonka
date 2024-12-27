@@ -78,8 +78,8 @@ instance Prelude.Hashable ObjectLockRetention where
 
 instance Prelude.NFData ObjectLockRetention where
   rnf ObjectLockRetention' {..} =
-    Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf retainUntilDate
+    Prelude.rnf mode `Prelude.seq`
+      Prelude.rnf retainUntilDate
 
 instance Data.ToXML ObjectLockRetention where
   toXML ObjectLockRetention' {..} =

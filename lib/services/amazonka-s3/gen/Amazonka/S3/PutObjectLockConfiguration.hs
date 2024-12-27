@@ -232,13 +232,13 @@ instance Prelude.Hashable PutObjectLockConfiguration where
 
 instance Prelude.NFData PutObjectLockConfiguration where
   rnf PutObjectLockConfiguration' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf objectLockConfiguration
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf objectLockConfiguration `Prelude.seq`
+            Prelude.rnf requestPayer `Prelude.seq`
+              Prelude.rnf token `Prelude.seq`
+                Prelude.rnf bucket
 
 instance Data.ToElement PutObjectLockConfiguration where
   toElement PutObjectLockConfiguration' {..} =
@@ -309,5 +309,5 @@ instance
     PutObjectLockConfigurationResponse
   where
   rnf PutObjectLockConfigurationResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestCharged `Prelude.seq`
+      Prelude.rnf httpStatus

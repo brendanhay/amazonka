@@ -182,11 +182,11 @@ instance Prelude.Hashable Grantee where
 
 instance Prelude.NFData Grantee where
   rnf Grantee' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf emailAddress `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf uri `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToXML Grantee where
   toXML Grantee' {..} =

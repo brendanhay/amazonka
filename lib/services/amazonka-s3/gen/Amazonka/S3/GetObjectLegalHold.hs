@@ -193,11 +193,11 @@ instance Prelude.Hashable GetObjectLegalHold where
 
 instance Prelude.NFData GetObjectLegalHold where
   rnf GetObjectLegalHold' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf requestPayer `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf key
 
 instance Data.ToHeaders GetObjectLegalHold where
   toHeaders GetObjectLegalHold' {..} =
@@ -258,5 +258,5 @@ getObjectLegalHoldResponse_httpStatus = Lens.lens (\GetObjectLegalHoldResponse' 
 
 instance Prelude.NFData GetObjectLegalHoldResponse where
   rnf GetObjectLegalHoldResponse' {..} =
-    Prelude.rnf legalHold
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf legalHold `Prelude.seq`
+      Prelude.rnf httpStatus

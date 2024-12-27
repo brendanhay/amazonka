@@ -19,8 +19,8 @@ import Amazonka.SSO.GetRoleCredentials as SSO
 import qualified Amazonka.SSO.Types as SSO (RoleCredentials (..))
 import Amazonka.Send (sendUnsigned)
 import Amazonka.Types
+import Control.Exception (IOException)
 import qualified Control.Exception as Exception
-import Control.Exception.Lens (handling_, _IOException)
 import Control.Monad.Trans.Resource (runResourceT)
 import Data.Aeson (FromJSON, decodeFileStrict)
 import qualified Data.Text as Text
@@ -65,7 +65,7 @@ cachedAccessToken_expiresAt f c@CachedAccessToken {expiresAt} = f expiresAt <&> 
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html>
 fromSSO ::
   forall m withAuth.
-  MonadIO m =>
+  (MonadIO m) =>
   FilePath ->
   Region ->
   -- | Account ID
@@ -101,14 +101,14 @@ fromSSO cachedTokenFile ssoRegion accountId roleName env = do
 -- Matches
 -- [botocore](https://github.com/boto/botocore/blob/c02f3561f56085b8a3f98501d25b9857b916c10e/botocore/utils.py#L2596-L2597),
 -- so that we find tokens produced by @aws sso login@.
-relativeCachedTokenFile :: MonadIO m => Text -> m FilePath
+relativeCachedTokenFile :: (MonadIO m) => Text -> m FilePath
 relativeCachedTokenFile startUrl = do
   let sha1 = show . Crypto.hashSHA1 $ Text.encodeUtf8 startUrl
   pure $ "/.aws/sso/cache/" <> sha1 <> ".json"
 
-readCachedAccessToken :: MonadIO m => FilePath -> m CachedAccessToken
+readCachedAccessToken :: (MonadIO m) => FilePath -> m CachedAccessToken
 readCachedAccessToken p = liftIO $
-  handling_ _IOException err $ do
+  Exception.handle (\(_ :: IOException) -> err) $ do
     mCache <- decodeFileStrict p
     maybe err pure mCache
   where

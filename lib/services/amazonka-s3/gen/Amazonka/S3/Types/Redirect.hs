@@ -172,11 +172,11 @@ instance Prelude.Hashable Redirect where
 
 instance Prelude.NFData Redirect where
   rnf Redirect' {..} =
-    Prelude.rnf hostName
-      `Prelude.seq` Prelude.rnf httpRedirectCode
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf replaceKeyPrefixWith
-      `Prelude.seq` Prelude.rnf replaceKeyWith
+    Prelude.rnf hostName `Prelude.seq`
+      Prelude.rnf httpRedirectCode `Prelude.seq`
+        Prelude.rnf protocol `Prelude.seq`
+          Prelude.rnf replaceKeyPrefixWith `Prelude.seq`
+            Prelude.rnf replaceKeyWith
 
 instance Data.ToXML Redirect where
   toXML Redirect' {..} =

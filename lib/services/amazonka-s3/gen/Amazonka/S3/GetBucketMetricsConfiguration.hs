@@ -158,9 +158,9 @@ instance
 
 instance Prelude.NFData GetBucketMetricsConfiguration where
   rnf GetBucketMetricsConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders GetBucketMetricsConfiguration where
   toHeaders GetBucketMetricsConfiguration' {..} =
@@ -221,5 +221,5 @@ instance
     GetBucketMetricsConfigurationResponse
   where
   rnf GetBucketMetricsConfigurationResponse' {..} =
-    Prelude.rnf metricsConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricsConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

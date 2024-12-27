@@ -165,9 +165,9 @@ instance
     GetBucketAnalyticsConfiguration
   where
   rnf GetBucketAnalyticsConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf id
 
 instance
   Data.ToHeaders
@@ -232,5 +232,5 @@ instance
     GetBucketAnalyticsConfigurationResponse
   where
   rnf GetBucketAnalyticsConfigurationResponse' {..} =
-    Prelude.rnf analyticsConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analyticsConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -150,8 +150,8 @@ instance Prelude.Hashable GetObjectLockConfiguration where
 
 instance Prelude.NFData GetObjectLockConfiguration where
   rnf GetObjectLockConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetObjectLockConfiguration where
   toHeaders GetObjectLockConfiguration' {..} =
@@ -212,5 +212,5 @@ instance
     GetObjectLockConfigurationResponse
   where
   rnf GetObjectLockConfigurationResponse' {..} =
-    Prelude.rnf objectLockConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf objectLockConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

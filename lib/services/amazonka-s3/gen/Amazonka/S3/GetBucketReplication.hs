@@ -142,8 +142,8 @@ instance Prelude.Hashable GetBucketReplication where
 
 instance Prelude.NFData GetBucketReplication where
   rnf GetBucketReplication' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketReplication where
   toHeaders GetBucketReplication' {..} =
@@ -200,5 +200,5 @@ getBucketReplicationResponse_httpStatus = Lens.lens (\GetBucketReplicationRespon
 
 instance Prelude.NFData GetBucketReplicationResponse where
   rnf GetBucketReplicationResponse' {..} =
-    Prelude.rnf replicationConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

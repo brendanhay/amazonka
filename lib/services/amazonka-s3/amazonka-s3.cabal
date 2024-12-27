@@ -335,7 +335,6 @@ library
   build-depends:
     , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
-    , lens
     , text
 
 test-suite amazonka-s3-test

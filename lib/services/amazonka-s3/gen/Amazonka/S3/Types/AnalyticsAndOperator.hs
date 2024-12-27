@@ -74,9 +74,7 @@ instance Data.FromXML AnalyticsAndOperator where
   parseXML x =
     AnalyticsAndOperator'
       Prelude.<$> (x Data..@? "Prefix")
-      Prelude.<*> ( x
-                      Data..@? "Tag"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 

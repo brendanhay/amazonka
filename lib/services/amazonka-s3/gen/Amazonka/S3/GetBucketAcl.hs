@@ -135,8 +135,8 @@ instance Prelude.Hashable GetBucketAcl where
 
 instance Prelude.NFData GetBucketAcl where
   rnf GetBucketAcl' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketAcl where
   toHeaders GetBucketAcl' {..} =
@@ -201,6 +201,6 @@ getBucketAclResponse_httpStatus = Lens.lens (\GetBucketAclResponse' {httpStatus}
 
 instance Prelude.NFData GetBucketAclResponse where
   rnf GetBucketAclResponse' {..} =
-    Prelude.rnf grants
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf grants `Prelude.seq`
+      Prelude.rnf owner `Prelude.seq`
+        Prelude.rnf httpStatus

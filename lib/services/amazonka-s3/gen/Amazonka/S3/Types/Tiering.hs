@@ -99,8 +99,8 @@ instance Prelude.Hashable Tiering where
 
 instance Prelude.NFData Tiering where
   rnf Tiering' {..} =
-    Prelude.rnf days
-      `Prelude.seq` Prelude.rnf accessTier
+    Prelude.rnf days `Prelude.seq`
+      Prelude.rnf accessTier
 
 instance Data.ToXML Tiering where
   toXML Tiering' {..} =

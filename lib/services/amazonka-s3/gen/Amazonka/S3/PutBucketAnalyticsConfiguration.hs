@@ -206,10 +206,10 @@ instance
     PutBucketAnalyticsConfiguration
   where
   rnf PutBucketAnalyticsConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf analyticsConfiguration
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf analyticsConfiguration
 
 instance
   Data.ToElement

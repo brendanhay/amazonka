@@ -117,9 +117,9 @@ instance Prelude.Hashable IntelligentTieringFilter where
 
 instance Prelude.NFData IntelligentTieringFilter where
   rnf IntelligentTieringFilter' {..} =
-    Prelude.rnf and
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf tag
+    Prelude.rnf and `Prelude.seq`
+      Prelude.rnf prefix `Prelude.seq`
+        Prelude.rnf tag
 
 instance Data.ToXML IntelligentTieringFilter where
   toXML IntelligentTieringFilter' {..} =

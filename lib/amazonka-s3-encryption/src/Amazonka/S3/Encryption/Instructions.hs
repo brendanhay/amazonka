@@ -16,15 +16,16 @@ import Amazonka.S3.Encryption.Envelope
 import Amazonka.S3.Encryption.Types
 import qualified Amazonka.S3.Lens as S3
 import Control.Arrow ((&&&))
-import Control.Lens ((%~))
-import qualified Control.Lens as Lens
 import qualified Data.Aeson.Types as Aeson
+import Lens.Micro ((%~))
+import qualified Lens.Micro as Lens
+import qualified Lens.Micro.Extras as Lens
 
 newtype Instructions = Instructions
-  { runInstructions :: forall m. MonadResource m => Key -> AWS.Env -> m Envelope
+  { runInstructions :: forall m. (MonadResource m) => Key -> AWS.Env -> m Envelope
   }
 
-class AWSRequest a => AddInstructions a where
+class (AWSRequest a) => AddInstructions a where
   -- | Determine the bucket and key an instructions file is adjacent to.
   addInstructions :: a -> (S3.BucketName, S3.ObjectKey)
 
@@ -54,7 +55,7 @@ data PutInstructions = PutInstructions
   }
   deriving stock (Show)
 
-putInstructions :: AddInstructions a => a -> Envelope -> PutInstructions
+putInstructions :: (AddInstructions a) => a -> Envelope -> PutInstructions
 putInstructions (addInstructions -> (b, k)) =
   PutInstructions defaultExtension . S3.newPutObject b k . toBody
 
@@ -76,7 +77,7 @@ data GetInstructions = GetInstructions
   }
   deriving stock (Show)
 
-getInstructions :: AddInstructions a => a -> GetInstructions
+getInstructions :: (AddInstructions a) => a -> GetInstructions
 getInstructions =
   GetInstructions defaultExtension
     . uncurry S3.newGetObject
@@ -97,7 +98,7 @@ instance AWSRequest GetInstructions where
       e <- Aeson.parseEither Aeson.parseJSON (Aeson.Object o)
       pure $ Instructions $ \key env -> fromMetadata key env e
 
-class AWSRequest a => RemoveInstructions a where
+class (AWSRequest a) => RemoveInstructions a where
   -- | Determine the bucket and key an instructions file is adjacent to.
   removeInstructions :: a -> (S3.BucketName, S3.ObjectKey)
 
@@ -117,7 +118,7 @@ data DeleteInstructions = DeleteInstructions
   }
   deriving stock (Show)
 
-deleteInstructions :: RemoveInstructions a => a -> DeleteInstructions
+deleteInstructions :: (RemoveInstructions a) => a -> DeleteInstructions
 deleteInstructions =
   DeleteInstructions defaultExtension
     . uncurry S3.newDeleteObject

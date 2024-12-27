@@ -272,12 +272,12 @@ instance Prelude.Hashable PutBucketReplication where
 
 instance Prelude.NFData PutBucketReplication where
   rnf PutBucketReplication' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf replicationConfiguration
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf token `Prelude.seq`
+            Prelude.rnf bucket `Prelude.seq`
+              Prelude.rnf replicationConfiguration
 
 instance Data.ToElement PutBucketReplication where
   toElement PutBucketReplication' {..} =

@@ -200,10 +200,10 @@ instance
     PublicAccessBlockConfiguration
   where
   rnf PublicAccessBlockConfiguration' {..} =
-    Prelude.rnf blockPublicAcls
-      `Prelude.seq` Prelude.rnf blockPublicPolicy
-      `Prelude.seq` Prelude.rnf ignorePublicAcls
-      `Prelude.seq` Prelude.rnf restrictPublicBuckets
+    Prelude.rnf blockPublicAcls `Prelude.seq`
+      Prelude.rnf blockPublicPolicy `Prelude.seq`
+        Prelude.rnf ignorePublicAcls `Prelude.seq`
+          Prelude.rnf restrictPublicBuckets
 
 instance Data.ToXML PublicAccessBlockConfiguration where
   toXML PublicAccessBlockConfiguration' {..} =

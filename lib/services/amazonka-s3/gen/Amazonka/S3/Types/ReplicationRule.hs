@@ -231,15 +231,15 @@ instance Prelude.Hashable ReplicationRule where
 
 instance Prelude.NFData ReplicationRule where
   rnf ReplicationRule' {..} =
-    Prelude.rnf deleteMarkerReplication
-      `Prelude.seq` Prelude.rnf existingObjectReplication
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf sourceSelectionCriteria
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf deleteMarkerReplication `Prelude.seq`
+      Prelude.rnf existingObjectReplication `Prelude.seq`
+        Prelude.rnf filter' `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf prefix `Prelude.seq`
+              Prelude.rnf priority `Prelude.seq`
+                Prelude.rnf sourceSelectionCriteria `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf destination
 
 instance Data.ToXML ReplicationRule where
   toXML ReplicationRule' {..} =

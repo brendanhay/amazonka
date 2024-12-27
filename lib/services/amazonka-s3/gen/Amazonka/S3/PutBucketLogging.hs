@@ -246,11 +246,11 @@ instance Prelude.Hashable PutBucketLogging where
 
 instance Prelude.NFData PutBucketLogging where
   rnf PutBucketLogging' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf bucketLoggingStatus
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf bucketLoggingStatus
 
 instance Data.ToElement PutBucketLogging where
   toElement PutBucketLogging' {..} =

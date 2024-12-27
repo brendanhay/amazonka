@@ -1400,15 +1400,15 @@ copyObjectResponse_httpStatus = Lens.lens (\CopyObjectResponse' {httpStatus} -> 
 
 instance Prelude.NFData CopyObjectResponse where
   rnf CopyObjectResponse' {..} =
-    Prelude.rnf bucketKeyEnabled
-      `Prelude.seq` Prelude.rnf copyObjectResult
-      `Prelude.seq` Prelude.rnf copySourceVersionId
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
-      `Prelude.seq` Prelude.rnf sSEKMSKeyId
-      `Prelude.seq` Prelude.rnf serverSideEncryption
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bucketKeyEnabled `Prelude.seq`
+      Prelude.rnf copyObjectResult `Prelude.seq`
+        Prelude.rnf copySourceVersionId `Prelude.seq`
+          Prelude.rnf expiration `Prelude.seq`
+            Prelude.rnf requestCharged `Prelude.seq`
+              Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+                Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+                  Prelude.rnf sSEKMSEncryptionContext `Prelude.seq`
+                    Prelude.rnf sSEKMSKeyId `Prelude.seq`
+                      Prelude.rnf serverSideEncryption `Prelude.seq`
+                        Prelude.rnf versionId `Prelude.seq`
+                          Prelude.rnf httpStatus

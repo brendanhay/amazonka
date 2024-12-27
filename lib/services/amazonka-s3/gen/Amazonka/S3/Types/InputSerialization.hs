@@ -98,10 +98,10 @@ instance Prelude.Hashable InputSerialization where
 
 instance Prelude.NFData InputSerialization where
   rnf InputSerialization' {..} =
-    Prelude.rnf csv
-      `Prelude.seq` Prelude.rnf compressionType
-      `Prelude.seq` Prelude.rnf json
-      `Prelude.seq` Prelude.rnf parquet
+    Prelude.rnf csv `Prelude.seq`
+      Prelude.rnf compressionType `Prelude.seq`
+        Prelude.rnf json `Prelude.seq`
+          Prelude.rnf parquet
 
 instance Data.ToXML InputSerialization where
   toXML InputSerialization' {..} =

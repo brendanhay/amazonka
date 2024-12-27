@@ -10,12 +10,12 @@
 -- optional session token and environment variable lookup.
 module Amazonka.Auth.Keys where
 
-import Amazonka.Auth.Exception (_MissingEnvError)
-import Amazonka.Core.Lens.Internal (throwingM)
+import Amazonka.Auth.Exception (AuthError (MissingEnvError))
 import Amazonka.Data
 import Amazonka.Env (Env, Env' (..))
 import Amazonka.Prelude
 import Amazonka.Types
+import Control.Exception (throw)
 import Control.Monad.Trans.Maybe (MaybeT (..))
 import qualified Data.ByteString.Char8 as BS8
 import Data.Foldable (asum)
@@ -67,7 +67,7 @@ fromTemporarySession a s t e env =
 --
 -- Throws 'MissingEnvError' if a required environment variable is
 -- empty or unset.
-fromKeysEnv :: MonadIO m => Env' withAuth -> m Env
+fromKeysEnv :: (MonadIO m) => Env' withAuth -> m Env
 fromKeysEnv env = liftIO $ do
   keys <- Auth <$> lookupKeys
   pure $ env {auth = Identity keys}
@@ -89,9 +89,8 @@ fromKeysEnv env = liftIO $ do
             ]
       case mVal of
         Nothing ->
-          throwingM
-            _MissingEnvError
-            "Unable to read access key from AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY)"
+          throw $
+            MissingEnvError "Unable to read access key from AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY)"
         Just v -> pure . AccessKey $ BS8.pack v
 
     lookupSecretKey :: IO (Sensitive SecretKey)
@@ -104,9 +103,8 @@ fromKeysEnv env = liftIO $ do
             ]
       case mVal of
         Nothing ->
-          throwingM
-            _MissingEnvError
-            "Unable to read secret key from AWS_SECRET_ACCESS_KEY (or AWS_SECRET_KEY)"
+          throw $
+            MissingEnvError "Unable to read secret key from AWS_SECRET_ACCESS_KEY (or AWS_SECRET_KEY)"
         Just v -> pure . Sensitive . SecretKey $ BS8.pack v
 
     lookupSessionToken :: IO (Maybe (Sensitive SessionToken))

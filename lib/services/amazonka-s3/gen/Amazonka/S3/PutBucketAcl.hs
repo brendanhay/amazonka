@@ -416,17 +416,17 @@ instance Prelude.Hashable PutBucketAcl where
 
 instance Prelude.NFData PutBucketAcl where
   rnf PutBucketAcl' {..} =
-    Prelude.rnf acl
-      `Prelude.seq` Prelude.rnf accessControlPolicy
-      `Prelude.seq` Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf grantFullControl
-      `Prelude.seq` Prelude.rnf grantRead
-      `Prelude.seq` Prelude.rnf grantReadACP
-      `Prelude.seq` Prelude.rnf grantWrite
-      `Prelude.seq` Prelude.rnf grantWriteACP
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf acl `Prelude.seq`
+      Prelude.rnf accessControlPolicy `Prelude.seq`
+        Prelude.rnf checksumAlgorithm `Prelude.seq`
+          Prelude.rnf contentMD5 `Prelude.seq`
+            Prelude.rnf expectedBucketOwner `Prelude.seq`
+              Prelude.rnf grantFullControl `Prelude.seq`
+                Prelude.rnf grantRead `Prelude.seq`
+                  Prelude.rnf grantReadACP `Prelude.seq`
+                    Prelude.rnf grantWrite `Prelude.seq`
+                      Prelude.rnf grantWriteACP `Prelude.seq`
+                        Prelude.rnf bucket
 
 instance Data.ToElement PutBucketAcl where
   toElement PutBucketAcl' {..} =

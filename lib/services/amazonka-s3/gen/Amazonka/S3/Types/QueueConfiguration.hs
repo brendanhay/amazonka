@@ -106,10 +106,10 @@ instance Prelude.Hashable QueueConfiguration where
 
 instance Prelude.NFData QueueConfiguration where
   rnf QueueConfiguration' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf queueArn
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf queueArn `Prelude.seq`
+          Prelude.rnf events
 
 instance Data.ToXML QueueConfiguration where
   toXML QueueConfiguration' {..} =

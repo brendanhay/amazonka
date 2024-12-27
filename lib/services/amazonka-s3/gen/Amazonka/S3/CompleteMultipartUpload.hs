@@ -505,19 +505,19 @@ instance Prelude.Hashable CompleteMultipartUpload where
 
 instance Prelude.NFData CompleteMultipartUpload where
   rnf CompleteMultipartUpload' {..} =
-    Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf checksumCRC32C
-      `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf checksumSHA256
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf multipartUpload
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKey
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf checksumCRC32 `Prelude.seq`
+      Prelude.rnf checksumCRC32C `Prelude.seq`
+        Prelude.rnf checksumSHA1 `Prelude.seq`
+          Prelude.rnf checksumSHA256 `Prelude.seq`
+            Prelude.rnf expectedBucketOwner `Prelude.seq`
+              Prelude.rnf multipartUpload `Prelude.seq`
+                Prelude.rnf requestPayer `Prelude.seq`
+                  Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+                    Prelude.rnf sSECustomerKey `Prelude.seq`
+                      Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+                        Prelude.rnf bucket `Prelude.seq`
+                          Prelude.rnf key `Prelude.seq`
+                            Prelude.rnf uploadId
 
 instance Data.ToElement CompleteMultipartUpload where
   toElement CompleteMultipartUpload' {..} =
@@ -883,18 +883,18 @@ instance
     CompleteMultipartUploadResponse
   where
   rnf CompleteMultipartUploadResponse' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf bucketKeyEnabled
-      `Prelude.seq` Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf checksumCRC32C
-      `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf checksumSHA256
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf sSEKMSKeyId
-      `Prelude.seq` Prelude.rnf serverSideEncryption
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf bucketKeyEnabled `Prelude.seq`
+        Prelude.rnf checksumCRC32 `Prelude.seq`
+          Prelude.rnf checksumCRC32C `Prelude.seq`
+            Prelude.rnf checksumSHA1 `Prelude.seq`
+              Prelude.rnf checksumSHA256 `Prelude.seq`
+                Prelude.rnf eTag `Prelude.seq`
+                  Prelude.rnf expiration `Prelude.seq`
+                    Prelude.rnf key `Prelude.seq`
+                      Prelude.rnf location `Prelude.seq`
+                        Prelude.rnf requestCharged `Prelude.seq`
+                          Prelude.rnf sSEKMSKeyId `Prelude.seq`
+                            Prelude.rnf serverSideEncryption `Prelude.seq`
+                              Prelude.rnf versionId `Prelude.seq`
+                                Prelude.rnf httpStatus

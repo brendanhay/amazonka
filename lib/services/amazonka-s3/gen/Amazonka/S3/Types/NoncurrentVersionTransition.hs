@@ -127,9 +127,9 @@ instance Prelude.Hashable NoncurrentVersionTransition where
 
 instance Prelude.NFData NoncurrentVersionTransition where
   rnf NoncurrentVersionTransition' {..} =
-    Prelude.rnf newerNoncurrentVersions'
-      `Prelude.seq` Prelude.rnf noncurrentDays
-      `Prelude.seq` Prelude.rnf storageClass
+    Prelude.rnf newerNoncurrentVersions' `Prelude.seq`
+      Prelude.rnf noncurrentDays `Prelude.seq`
+        Prelude.rnf storageClass
 
 instance Data.ToXML NoncurrentVersionTransition where
   toXML NoncurrentVersionTransition' {..} =

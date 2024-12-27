@@ -178,12 +178,12 @@ instance Prelude.Hashable CompletedPart where
 
 instance Prelude.NFData CompletedPart where
   rnf CompletedPart' {..} =
-    Prelude.rnf checksumCRC32
-      `Prelude.seq` Prelude.rnf checksumCRC32C
-      `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf checksumSHA256
-      `Prelude.seq` Prelude.rnf partNumber
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf checksumCRC32 `Prelude.seq`
+      Prelude.rnf checksumCRC32C `Prelude.seq`
+        Prelude.rnf checksumSHA1 `Prelude.seq`
+          Prelude.rnf checksumSHA256 `Prelude.seq`
+            Prelude.rnf partNumber `Prelude.seq`
+              Prelude.rnf eTag
 
 instance Data.ToXML CompletedPart where
   toXML CompletedPart' {..} =

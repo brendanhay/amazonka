@@ -695,25 +695,25 @@ instance Prelude.Hashable UploadPartCopy where
 
 instance Prelude.NFData UploadPartCopy where
   rnf UploadPartCopy' {..} =
-    Prelude.rnf copySourceIfMatch
-      `Prelude.seq` Prelude.rnf copySourceIfModifiedSince
-      `Prelude.seq` Prelude.rnf copySourceIfNoneMatch
-      `Prelude.seq` Prelude.rnf copySourceIfUnmodifiedSince
-      `Prelude.seq` Prelude.rnf copySourceRange
-      `Prelude.seq` Prelude.rnf copySourceSSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf copySourceSSECustomerKey
-      `Prelude.seq` Prelude.rnf copySourceSSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf expectedSourceBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKey
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf copySource
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf partNumber
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf copySourceIfMatch `Prelude.seq`
+      Prelude.rnf copySourceIfModifiedSince `Prelude.seq`
+        Prelude.rnf copySourceIfNoneMatch `Prelude.seq`
+          Prelude.rnf copySourceIfUnmodifiedSince `Prelude.seq`
+            Prelude.rnf copySourceRange `Prelude.seq`
+              Prelude.rnf copySourceSSECustomerAlgorithm `Prelude.seq`
+                Prelude.rnf copySourceSSECustomerKey `Prelude.seq`
+                  Prelude.rnf copySourceSSECustomerKeyMD5 `Prelude.seq`
+                    Prelude.rnf expectedBucketOwner `Prelude.seq`
+                      Prelude.rnf expectedSourceBucketOwner `Prelude.seq`
+                        Prelude.rnf requestPayer `Prelude.seq`
+                          Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+                            Prelude.rnf sSECustomerKey `Prelude.seq`
+                              Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+                                Prelude.rnf bucket `Prelude.seq`
+                                  Prelude.rnf copySource `Prelude.seq`
+                                    Prelude.rnf key `Prelude.seq`
+                                      Prelude.rnf partNumber `Prelude.seq`
+                                        Prelude.rnf uploadId
 
 instance Data.ToHeaders UploadPartCopy where
   toHeaders UploadPartCopy' {..} =
@@ -889,12 +889,12 @@ uploadPartCopyResponse_httpStatus = Lens.lens (\UploadPartCopyResponse' {httpSta
 
 instance Prelude.NFData UploadPartCopyResponse where
   rnf UploadPartCopyResponse' {..} =
-    Prelude.rnf bucketKeyEnabled
-      `Prelude.seq` Prelude.rnf copyPartResult
-      `Prelude.seq` Prelude.rnf copySourceVersionId
-      `Prelude.seq` Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf sSEKMSKeyId
-      `Prelude.seq` Prelude.rnf serverSideEncryption
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bucketKeyEnabled `Prelude.seq`
+      Prelude.rnf copyPartResult `Prelude.seq`
+        Prelude.rnf copySourceVersionId `Prelude.seq`
+          Prelude.rnf requestCharged `Prelude.seq`
+            Prelude.rnf sSECustomerAlgorithm `Prelude.seq`
+              Prelude.rnf sSECustomerKeyMD5 `Prelude.seq`
+                Prelude.rnf sSEKMSKeyId `Prelude.seq`
+                  Prelude.rnf serverSideEncryption `Prelude.seq`
+                    Prelude.rnf httpStatus

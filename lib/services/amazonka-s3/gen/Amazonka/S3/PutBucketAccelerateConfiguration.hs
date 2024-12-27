@@ -214,10 +214,10 @@ instance
     PutBucketAccelerateConfiguration
   where
   rnf PutBucketAccelerateConfiguration' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf accelerateConfiguration
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf expectedBucketOwner `Prelude.seq`
+        Prelude.rnf bucket `Prelude.seq`
+          Prelude.rnf accelerateConfiguration
 
 instance
   Data.ToElement

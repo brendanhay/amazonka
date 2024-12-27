@@ -1,6 +1,6 @@
 {
   "libraryName": "amazonka-s3",
-  "extraDependencies": ["text", "lens"],
+  "extraDependencies": ["text"],
   "operationPlugins": {
     "DeleteObjects": ["Request.contentMD5Header", "Request.s3vhost"],
     "GetBucketLocation": [],

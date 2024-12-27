@@ -141,13 +141,13 @@ instance Prelude.Hashable RestoreRequest where
 
 instance Prelude.NFData RestoreRequest where
   rnf RestoreRequest' {..} =
-    Prelude.rnf days
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf glacierJobParameters
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf selectParameters
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf days `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf glacierJobParameters `Prelude.seq`
+          Prelude.rnf outputLocation `Prelude.seq`
+            Prelude.rnf selectParameters `Prelude.seq`
+              Prelude.rnf tier `Prelude.seq`
+                Prelude.rnf type'
 
 instance Data.ToXML RestoreRequest where
   toXML RestoreRequest' {..} =

@@ -247,11 +247,11 @@ instance Prelude.Hashable PutBucketCors where
 
 instance Prelude.NFData PutBucketCors where
   rnf PutBucketCors' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf cORSConfiguration
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf cORSConfiguration
 
 instance Data.ToElement PutBucketCors where
   toElement PutBucketCors' {..} =

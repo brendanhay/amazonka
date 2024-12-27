@@ -126,8 +126,8 @@ instance Prelude.Hashable GetBucketRequestPayment where
 
 instance Prelude.NFData GetBucketRequestPayment where
   rnf GetBucketRequestPayment' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf expectedBucketOwner `Prelude.seq`
+      Prelude.rnf bucket
 
 instance Data.ToHeaders GetBucketRequestPayment where
   toHeaders GetBucketRequestPayment' {..} =
@@ -188,5 +188,5 @@ instance
     GetBucketRequestPaymentResponse
   where
   rnf GetBucketRequestPaymentResponse' {..} =
-    Prelude.rnf payer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf payer `Prelude.seq`
+      Prelude.rnf httpStatus

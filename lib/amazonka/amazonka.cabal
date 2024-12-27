@@ -41,7 +41,6 @@ common base
     -fwarn-unused-packages
 
   default-extensions:
-    NoImplicitPrelude
     ConstraintKinds
     DataKinds
     DefaultSignatures
@@ -59,6 +58,7 @@ common base
     GeneralizedNewtypeDeriving
     LambdaCase
     NamedFieldPuns
+    NoImplicitPrelude
     OverloadedStrings
     PackageImports
     PatternSynonyms
@@ -101,7 +101,7 @@ library
     Amazonka.Data, Amazonka.Types, Amazonka.Bytes, Amazonka.Endpoint, Amazonka.Crypto
 
   build-depends:
-    , aeson                 ^>=1.5.0.0  || >=2.0 && <2.2 || ^>=2.2
+    , aeson                 ^>=1.5.0.0  || ^>=2.0 || ^>=2.1 || ^>=2.2
     , amazonka-core         ^>=2.0
     , amazonka-sso          ^>=2.0
     , amazonka-sts          ^>=2.0
@@ -113,7 +113,6 @@ library
     , http-conduit          >=2.3       && <3
     , http-types            >=0.12
     , ini                   >=0.3.5
-    , lens                  >=4
     , resourcet             >=1.1
     , retry                 >=0.7.6.2
     , text                  >=1.1

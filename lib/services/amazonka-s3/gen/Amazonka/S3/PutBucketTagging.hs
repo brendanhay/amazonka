@@ -249,11 +249,11 @@ instance Prelude.Hashable PutBucketTagging where
 
 instance Prelude.NFData PutBucketTagging where
   rnf PutBucketTagging' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf tagging
+    Prelude.rnf checksumAlgorithm `Prelude.seq`
+      Prelude.rnf contentMD5 `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf tagging
 
 instance Data.ToElement PutBucketTagging where
   toElement PutBucketTagging' {..} =

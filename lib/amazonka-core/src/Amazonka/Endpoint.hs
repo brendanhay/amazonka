@@ -110,9 +110,9 @@ defaultEndpoint Service {endpointPrefix = p} r = go (CI.mk p)
 -- * @AWS_ENDPOINT_URL_<SERVICE>@
 --
 -- The latter takes precedence over the former.
-customEndpoints :: IO (Service -> Service)
+customEndpoints :: (MonadIO m) => m (Service -> Service)
 customEndpoints = do
-  environment <- Environment.getEnvironment
+  environment <- liftIO Environment.getEnvironment
   let globalUrl = lookup "AWS_ENDPOINT_URL" environment >>= Client.parseUrlThrow
   let serviceUrls = mapMaybe (\(k, v) -> (,v) . map Char.toLower <$> removePrefix "AWS_ENDPOINT_URL_" k) environment
   let override s =

@@ -9,13 +9,21 @@ module Amazonka.Endpoint
   ( -- * Endpoint
     setEndpoint,
     defaultEndpoint,
+    customEndpoints,
   )
 where
 
 import Amazonka.Data.ByteString
+import Amazonka.Data.Text (toText)
 import Amazonka.Prelude
 import Amazonka.Types
+import qualified Amazonka.Types as Service (Service (abbrev))
 import qualified Data.CaseInsensitive as CI
+import qualified Data.Char as Char
+import qualified Data.List as List
+import qualified Data.Text as Text
+import qualified Network.HTTP.Client as Client
+import qualified System.Environment as Environment
 
 -- | A convenience function for overriding the 'Service' 'Endpoint'.
 --
@@ -95,3 +103,32 @@ defaultEndpoint Service {endpointPrefix = p} r = go (CI.mk p)
         }
 
     reg = toBS r
+
+-- | Retrieve custom endpoints from environment variables:
+--
+-- * @AWS_ENDPOINT_URL@
+-- * @AWS_ENDPOINT_URL_<SERVICE>@
+--
+-- The latter takes precedence over the former.
+customEndpoints :: IO (Service -> Service)
+customEndpoints = do
+  environment <- Environment.getEnvironment
+  let globalUrl = lookup "AWS_ENDPOINT_URL" environment >>= Client.parseUrlThrow
+  let serviceUrls = mapMaybe (\(k, v) -> (,v) . map Char.toLower <$> removePrefix "AWS_ENDPOINT_URL_" k) environment
+  let override s =
+        case lookup (Text.unpack . Text.toLower . toText $ Service.abbrev s) serviceUrls of
+          Just x -> setEndpointMaybe (Client.parseUrlThrow x) s
+          Nothing -> setEndpointMaybe globalUrl s
+  pure override
+  where
+    removePrefix :: String -> String -> Maybe String
+    removePrefix prefix s =
+      if prefix `List.isPrefixOf` s
+        then Just $ drop (length prefix) s
+        else Nothing
+
+    setEndpointMaybe :: Maybe Client.Request -> Service -> Service
+    setEndpointMaybe mreq s =
+      case mreq of
+        Just req -> setEndpoint (Client.secure req) (Client.host req) (Client.port req) s
+        Nothing -> s

@@ -235,7 +235,7 @@ data Hooks = Hooks
     -- is configured. This is always the first hook that runs, and
     -- argument is usually a request record type like @amazonka-s3@'s
     -- @GetObjectRequest@.
-    request :: forall a. (AWSRequest a, Typeable a) => Hook a,
+    request :: forall a. (AWSRequest a) => Hook a,
     -- | Called after the request has been configured into an abstract
     -- HTTP request, but before it is converted to a signed
     -- @Network.HTTP.Client.'Network.HTTP.Client.Request'@.
@@ -243,14 +243,14 @@ data Hooks = Hooks
     -- If you want to add additional headers (e.g., a
     -- [Trace ID for AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader)),
     -- do it with this hook.
-    configuredRequest :: forall a. (AWSRequest a, Typeable a) => Hook (Request a),
+    configuredRequest :: forall a. (AWSRequest a) => Hook (Request a),
     -- | Called at the start of waiter processing, just after the
     -- request is configured.
-    wait :: forall a. (AWSRequest a, Typeable a) => Hook (Wait a),
+    wait :: forall a. (AWSRequest a) => Hook (Wait a),
     -- | Called just after a request is signed, containing signature
     -- metadata and a
     -- @Network.HTTP.Client.'Network.HTTP.Client.Request'@.
-    signedRequest :: forall a. (AWSRequest a, Typeable a) => Hook_ (Signed a),
+    signedRequest :: forall a. (AWSRequest a) => Hook_ (Signed a),
     -- | Called on a
     -- @Network.HTTP.Client.'Network.HTTP.Client.Request'@, just
     -- before it is sent. While you can retrieve a 'ClientRequest'
@@ -266,7 +266,7 @@ data Hooks = Hooks
     -- with @()@ to prevent its accidental consumption by hooks.
     clientResponse ::
       forall a.
-      (AWSRequest a, Typeable a) =>
+      (AWSRequest a) =>
       Hook_ (Request a, ClientResponse ()),
     -- | Called on the raw response body, after it has been sunk from
     -- the @Network.HTTP.Client.'Network.HTTP.Client.Response'@.
@@ -278,20 +278,20 @@ data Hooks = Hooks
     -- like @Amazonka.S3.Types.defaultService@.
     requestRetry ::
       forall a.
-      (AWSRequest a, Typeable a) =>
+      (AWSRequest a) =>
       Hook_ (Request a, Text, Retry.RetryStatus),
     -- | Called when Amazonka decides to retry a request while
     -- resolving an 'Amazonka.await' operation.
     awaitRetry ::
       forall a.
-      (AWSRequest a, Typeable a) =>
+      (AWSRequest a) =>
       Hook_ (Request a, Wait a, Accept, Retry.RetryStatus),
     -- | Called when a response from AWS is successfully
     -- deserialised. Because the 'AWSResponse' type family is not
     -- injective, we include the original request.
     response ::
       forall a.
-      (AWSRequest a, Typeable a) =>
+      (AWSRequest a) =>
       Hook_ (Request a, ClientResponse (AWSResponse a)),
     -- | Called whenever an AWS request returns an 'Error', even when
     -- the corresponding request is retried.
@@ -301,13 +301,13 @@ data Hooks = Hooks
     -- behavior may change in a future version.
     error ::
       forall a.
-      (AWSRequest a, Typeable a) =>
+      (AWSRequest a) =>
       Hook_ (Finality, Request a, Error)
   }
 
 {-# INLINE requestHook #-}
 requestHook ::
-  (forall a. (AWSRequest a, Typeable a) => Hook a -> Hook a) ->
+  (forall a. (AWSRequest a) => Hook a -> Hook a) ->
   Hooks ->
   Hooks
 requestHook f hooks@Hooks {request} =
@@ -442,13 +442,13 @@ noHook_ _ _ _ = pure ()
 -- | Unconditionally add a @'Hook' a@ to the chain of hooks. If you
 -- need to do something with specific request types, you want
 -- 'addHookFor', instead.
-addHook :: (Typeable a) => Hook a -> Hook a -> Hook a
+addHook :: Hook a -> Hook a -> Hook a
 addHook newHook oldHook env = oldHook env >=> newHook env
 
 -- | Unconditionally add a @'Hook_' a@ to the chain of hooks. If you
 -- need to do something with specific request types, you want
 -- 'addHookFor_', instead.
-addHook_ :: (Typeable a) => Hook_ a -> Hook_ a -> Hook_ a
+addHook_ :: Hook_ a -> Hook_ a -> Hook_ a
 addHook_ newHook oldHook env a = oldHook env a *> newHook env a
 
 -- | Like 'addHook', adds an unconditional hook, but it also captures

@@ -28,15 +28,12 @@ import Control.Monad.Trans.Resource (liftResourceT, transResourceT)
 import qualified Control.Retry as Retry
 import Data.Foldable (traverse_)
 import qualified Data.Time as Time
-import Data.Typeable (Typeable)
 import qualified Network.HTTP.Conduit as Client.Conduit
 
 retryRequest ::
   forall m a withAuth.
   ( MonadResource m,
     AWSRequest a,
-    Typeable a,
-    Typeable (AWSResponse a),
     Foldable withAuth
   ) =>
   Env' withAuth ->
@@ -75,7 +72,6 @@ retryRequest env@Env {hooks} rq = do
 awaitRequest ::
   ( MonadResource m,
     AWSRequest a,
-    Typeable a,
     Foldable withAuth
   ) =>
   Env' withAuth ->
@@ -110,7 +106,6 @@ awaitRequest env@Env {hooks} w rq = do
 httpRequest ::
   ( MonadResource m,
     AWSRequest a,
-    Typeable a,
     Foldable withAuth
   ) =>
   Env' withAuth ->
@@ -156,7 +151,7 @@ httpRequest env@Env {hooks, manager, region} cfgRq =
 -- service overrides from `env` and running hooks on the configured
 -- (Request a).
 configureRequest ::
-  (AWSRequest a, Typeable a, MonadIO m) => Env' withAuth -> a -> m (Request a)
+  (AWSRequest a, MonadIO m) => Env' withAuth -> a -> m (Request a)
 configureRequest env@Env {overrides, hooks} =
   liftIO
     . Hooks.configuredRequest hooks env

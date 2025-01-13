@@ -128,7 +128,7 @@ awaitEither = HTTP.awaitRequest
 --
 -- See 'awaitEither'.
 await ::
-  (MonadResource m, AWSRequest a) =>
+  (MonadResource m, AWSRequest a, Typeable a) =>
   Env ->
   Waiter.Wait a ->
   a ->

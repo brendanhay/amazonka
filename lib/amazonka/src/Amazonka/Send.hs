@@ -102,7 +102,7 @@ paginateEither env = go
 --
 -- See 'paginateEither'.
 paginate ::
-  (MonadResource m, AWSPager a) =>
+  (MonadResource m, AWSPager a, Typeable a) =>
   Env ->
   a ->
   ConduitM () (AWSResponse a) m ()

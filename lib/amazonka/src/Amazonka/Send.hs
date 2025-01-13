@@ -26,7 +26,7 @@ import qualified Network.HTTP.Client as Client
 --
 -- See 'send'.
 sendEither ::
-  (MonadResource m, AWSRequest a, Typeable a) =>
+  (MonadResource m, AWSRequest a, Typeable a, Typeable (AWSResponse a)) =>
   Env ->
   a ->
   m (Either Error (AWSResponse a))
@@ -56,7 +56,7 @@ send env =
 --
 -- See 'sendUnsigned'.
 sendUnsignedEither ::
-  (MonadResource m, AWSRequest a, Typeable a) =>
+  (MonadResource m, AWSRequest a, Typeable a, Typeable (AWSResponse a)) =>
   Env' withAuth ->
   a ->
   m (Either Error (AWSResponse a))

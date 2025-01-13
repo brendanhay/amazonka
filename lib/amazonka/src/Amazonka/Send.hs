@@ -18,6 +18,7 @@ import Amazonka.Prelude
 import qualified Amazonka.Waiter as Waiter
 import qualified Control.Exception as Exception
 import Data.Conduit (ConduitM)
+import Data.Typeable (Typeable)
 import qualified Data.Conduit as Conduit
 import qualified Network.HTTP.Client as Client
 

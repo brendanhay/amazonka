@@ -26,7 +26,7 @@ import qualified Network.HTTP.Client as Client
 --
 -- See 'send'.
 sendEither ::
-  (MonadResource m, AWSRequest a) =>
+  (MonadResource m, AWSRequest a, Typeable a) =>
   Env ->
   a ->
   m (Either Error (AWSResponse a))
@@ -39,7 +39,7 @@ sendEither env =
 --
 -- See 'sendEither'.
 send ::
-  (MonadResource m, AWSRequest a) =>
+  (MonadResource m, AWSRequest a, Typeable a) =>
   Env ->
   a ->
   m (AWSResponse a)
@@ -56,7 +56,7 @@ send env =
 --
 -- See 'sendUnsigned'.
 sendUnsignedEither ::
-  (MonadResource m, AWSRequest a) =>
+  (MonadResource m, AWSRequest a, Typeable a) =>
   Env' withAuth ->
   a ->
   m (Either Error (AWSResponse a))
@@ -69,7 +69,7 @@ sendUnsignedEither env =
 --
 -- See 'sendUnsignedEither'.
 sendUnsigned ::
-  (MonadResource m, AWSRequest a) =>
+  (MonadResource m, AWSRequest a, Typeable a) =>
   Env' withAuth ->
   a ->
   m (AWSResponse a)
@@ -82,7 +82,7 @@ sendUnsigned env =
 --
 -- See 'paginate'.
 paginateEither ::
-  (MonadResource m, AWSPager a) =>
+  (MonadResource m, AWSPager a, Typeable a) =>
   Env ->
   a ->
   ConduitM () (AWSResponse a) m (Either Error ())

@@ -454,11 +454,11 @@ addHook_ newHook oldHook env a = oldHook env a *> newHook env a
 -- | Like 'addHook', adds an unconditional hook, but it also captures
 -- the @'AWSRequest' a@ constraint. Useful for handling every AWS
 -- request type in a generic way.
-addAWSRequestHook :: (AWSRequest a) => Hook a -> Hook a -> Hook a
+addAWSRequestHook :: (AWSRequest a, Typeable a) => Hook a -> Hook a -> Hook a
 addAWSRequestHook = addHook
 
 -- | 'addAWSRequestHook_' is 'addAWSRequestHook' but for 'Hook_'s.
-addAWSRequestHook_ :: (AWSRequest a) => Hook_ a -> Hook_ a -> Hook_ a
+addAWSRequestHook_ :: (AWSRequest a, Typeable a) => Hook_ a -> Hook_ a -> Hook_ a
 addAWSRequestHook_ = addHook_
 
 -- | @addHookFor \@a newHook oldHook@ When @a@ and @b@ are the same

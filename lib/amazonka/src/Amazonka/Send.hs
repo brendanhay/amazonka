@@ -39,7 +39,7 @@ sendEither env =
 --
 -- See 'sendEither'.
 send ::
-  (MonadResource m, AWSRequest a, Typeable a) =>
+  (MonadResource m, AWSRequest a, Typeable a, Typeable (AWSResponse a)) =>
   Env ->
   a ->
   m (AWSResponse a)
@@ -69,7 +69,7 @@ sendUnsignedEither env =
 --
 -- See 'sendUnsignedEither'.
 sendUnsigned ::
-  (MonadResource m, AWSRequest a, Typeable a) =>
+  (MonadResource m, AWSRequest a, Typeable a, Typeable (AWSResponse a)) =>
   Env' withAuth ->
   a ->
   m (AWSResponse a)
@@ -82,7 +82,7 @@ sendUnsigned env =
 --
 -- See 'paginate'.
 paginateEither ::
-  (MonadResource m, AWSPager a, Typeable a) =>
+  (MonadResource m, AWSPager a, Typeable a, Typeable (AWSResponse a)) =>
   Env ->
   a ->
   ConduitM () (AWSResponse a) m (Either Error ())
@@ -102,7 +102,7 @@ paginateEither env = go
 --
 -- See 'paginateEither'.
 paginate ::
-  (MonadResource m, AWSPager a, Typeable a) =>
+  (MonadResource m, AWSPager a, Typeable a, Typeable (AWSResponse a)) =>
   Env ->
   a ->
   ConduitM () (AWSResponse a) m ()

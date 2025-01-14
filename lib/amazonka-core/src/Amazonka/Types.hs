@@ -130,14 +130,17 @@ module Amazonka.Types
         HongKong,
         Hyderabad,
         Jakarta,
+        Malaysia,
         Melbourne,
         Mumbai,
         Osaka,
         Seoul,
         Singapore,
         Sydney,
+        Thailand,
         Tokyo,
         Montreal,
+        Calgary,
         Frankfurt,
         Ireland,
         London,
@@ -146,6 +149,7 @@ module Amazonka.Types
         Spain,
         Stockholm,
         Zurich,
+        TelAviv,
         Bahrain,
         UAE,
         SaoPaulo,
@@ -876,6 +880,9 @@ pattern Hyderabad = Region' "ap-south-2"
 pattern Jakarta :: Region
 pattern Jakarta = Region' "ap-southeast-3"
 
+pattern Malaysia :: Region
+pattern Malaysia = Region' "ap-southeast-5"
+
 pattern Melbourne :: Region
 pattern Melbourne = Region' "ap-southeast-4"
 
@@ -894,6 +901,9 @@ pattern Singapore = Region' "ap-southeast-1"
 pattern Sydney :: Region
 pattern Sydney = Region' "ap-southeast-2"
 
+pattern Thailand :: Region
+pattern Thailand = Region' "ap-southeast-7"
+
 pattern Tokyo :: Region
 pattern Tokyo = Region' "ap-northeast-1"
 
@@ -901,6 +911,9 @@ pattern Tokyo = Region' "ap-northeast-1"
 
 pattern Montreal :: Region
 pattern Montreal = Region' "ca-central-1"
+
+pattern Calgary :: Region
+pattern Calgary = Region' "ca-west-1"
 
 -- Europe
 
@@ -927,6 +940,11 @@ pattern Stockholm = Region' "eu-north-1"
 
 pattern Zurich :: Region
 pattern Zurich = Region' "eu-central-2"
+
+-- Israel
+
+pattern TelAviv :: Region
+pattern TelAviv = Region' "il-central-1"
 
 -- Middle East
 
@@ -966,14 +984,17 @@ pattern Ningxia = Region' "cn-northwest-1"
   HongKong,
   Hyderabad,
   Jakarta,
+  Malaysia,
   Melbourne,
   Mumbai,
   Osaka,
   Seoul,
   Singapore,
   Sydney,
+  Thailand,
   Tokyo,
   Montreal,
+  Calgary,
   Frankfurt,
   Ireland,
   London,
@@ -982,6 +1003,7 @@ pattern Ningxia = Region' "cn-northwest-1"
   Spain,
   Stockholm,
   Zurich,
+  TelAviv,
   Bahrain,
   UAE,
   SaoPaulo,

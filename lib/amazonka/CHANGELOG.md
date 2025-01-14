@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `amazonka-core`: Add regions: `Malaysia` (`ap-southeast-5`), `Thailand` (`ap-southeast-7`), `Calgary` (`ca-west-1`), and `TelAviv` (`il-central-1`)
+[\#1017](https://github.com/brendanhay/amazonka/pull/1017)
 - Depend on `microlens`, `microlens-pro` and `microlens-contra` instead of the full `lens` package (thanks @mankykitty).
 [\#996](https://github.com/brendanhay/amazonka/pull/996)
   - `amazonka-s3`: `objectKey_keyComponents` has a new type `Delimiter -> Traversal' ObjectKey Text` instead of returning `IndexedTraversal' ObjectKey Text`. `lens` users can rebuild the `IndexedTraversal'` with [`Control.Lens.Indexed.indexing`](https://hackage.haskell.org/package/lens-5.3.2/docs/Control-Lens-Indexed.html#v:indexing). `optics` uses can use one of the following:

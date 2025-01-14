@@ -60,6 +60,7 @@ getAccountId = \case
 -- services for you, and may appear in your CloudTrail logs.
 --
 -- /See:/ <https://docs.aws.amazon.com/redshift/latest/mgmt/logging-with-cloudtrail.html#cloudtrail-rs-acct-ids Amazon Redshift account IDs in AWS CloudTrail logs>
+-- /See:/ <https://docs.amazonaws.cn/en_us/redshift/latest/mgmt/logging-with-cloudtrail.html#cloudtrail-rs-acct-ids Amazon Redshift account IDs in AWS CloudTrail logs (includes China)>
 getCloudTrailAccountId :: Region -> Maybe Text
 getCloudTrailAccountId = \case
   NorthVirginia -> Just "368064434614"
@@ -70,6 +71,7 @@ getCloudTrailAccountId = \case
   HongKong -> Just "651179539253"
   Hyderabad -> Just "297058826802"
   Jakarta -> Just "623197973179"
+  Malaysia -> Just "590184011157"
   Melbourne -> Just "945512339897"
   Mumbai -> Just "408097707231"
   Osaka -> Just "398671365691"
@@ -78,14 +80,18 @@ getCloudTrailAccountId = \case
   Sydney -> Just "485979073181"
   Tokyo -> Just "615915377779"
   Montreal -> Just "764870610256"
+  Calgary -> Just "830903446466"
+  Beijing -> Just "066403562008"
+  Ningxia -> Just "194116488714"
   Frankfurt -> Just "434091160558"
   Ireland -> Just "246478207311"
   London -> Just "885798887673"
   Milan -> Just "041313461515"
   Paris -> Just "694668203235"
+  Spain -> Just "028811157404"
   Stockholm -> Just "553461782468"
   Zurich -> Just "668912161003"
-  Spain -> Just "028811157404"
+  TelAviv -> Just "901883065212"
   Bahrain -> Just "051362938876"
   UAE -> Just "595013617770"
   SaoPaulo -> Just "392442076723"

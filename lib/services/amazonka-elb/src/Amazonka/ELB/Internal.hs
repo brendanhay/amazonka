@@ -25,6 +25,7 @@ import Amazonka.Data
 -- @logdelivery.elasticloadbalancing.amazonaws.com@ principal.
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy Attach a Policy to Your S3 Bucket>.
+-- /See:/ <https://docs.amazonaws.cn/en_us/elasticloadbalancing/latest/application/enable-access-logging.html#attach-bucket-policy Attach a Policy to Your S3 Bucket (China)>
 getAccountId :: Region -> Maybe Text
 getAccountId = \case
   NorthVirginia -> Just "127311923021"
@@ -52,4 +53,4 @@ getAccountId = \case
   GovCloudEast -> Just "190560391635"
   Beijing -> Just "638102146993"
   Ningxia -> Just "037604701340"
-  _other -> Nothing
+  _ -> Nothing

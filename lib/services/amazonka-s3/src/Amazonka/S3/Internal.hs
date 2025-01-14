@@ -276,6 +276,7 @@ _ObjectKeySnoc dir !c = prism (ObjectKey . uncurry cat) split
 -- this region-specific website endpoint.
 --
 -- /See:/ <https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_website_region_endpoints Amazon Simple Storage Service Website Endpoints>.
+-- /See:/ <https://docs.amazonaws.cn/en_us/AmazonS3/latest/userguide/static-website-hosting-china.html>
 getWebsiteEndpoint :: Region -> Maybe Text
 getWebsiteEndpoint = \case
   Ohio -> Just "s3-website.us-east-2.amazonaws.com"
@@ -286,26 +287,31 @@ getWebsiteEndpoint = \case
   HongKong -> Just "s3-website.ap-east-1.amazonaws.com"
   Hyderabad -> Just "s3-website.ap-south-2.amazonaws.com"
   Jakarta -> Just "s3-website.ap-southeast-3.amazonaws.com"
+  Malaysia -> Just "s3-website.ap-southeast-5.amazonaws.com"
   Melbourne -> Just "s3-website.ap-southeast-4.amazonaws.com"
   Mumbai -> Just "s3-website.ap-south-1.amazonaws.com"
   Osaka -> Just "s3-website.ap-northeast-3.amazonaws.com"
   Seoul -> Just "s3-website.ap-northeast-2.amazonaws.com"
   Singapore -> Just "s3-website-ap-southeast-1.amazonaws.com"
   Sydney -> Just "s3-website-ap-southeast-2.amazonaws.com"
+  Thailand -> Just "s3-website.ap-southeast-7.amazonaws.com"
   Tokyo -> Just "s3-website-ap-northeast-1.amazonaws.com"
   Montreal -> Just "s3-website.ca-central-1.amazonaws.com"
-  Ningxia -> Just "s3-website.cn-northwest-1.amazonaws.com.cn"
+  Calgary -> Just "s3-website.ca-west-1.amazonaws.com"
   Frankfurt -> Just "s3-website.eu-central-1.amazonaws.com"
   Ireland -> Just "s3-website-eu-west-1.amazonaws.com"
   London -> Just "s3-website.eu-west-2.amazonaws.com"
   Milan -> Just "s3-website.eu-south-1.amazonaws.com"
   Paris -> Just "s3-website.eu-west-3.amazonaws.com"
-  Stockholm -> Just "s3-website.eu-north-1.amazonaws.com"
   Spain -> Just "s3-website.eu-south-2.amazonaws.com"
+  Stockholm -> Just "s3-website.eu-north-1.amazonaws.com"
   Zurich -> Just "s3-website.eu-central-2.amazonaws.com"
+  TelAviv -> Just "s3-website.il-central-1.amazonaws.com"
   Bahrain -> Just "s3-website.me-south-1.amazonaws.com"
   UAE -> Just "s3-website.me-central-1.amazonaws.com"
   SaoPaulo -> Just "s3-website-sa-east-1.amazonaws.com"
   GovCloudEast -> Just "s3-website.us-gov-east-1.amazonaws.com"
   GovCloudWest -> Just "s3-website-us-gov-west-1.amazonaws.com"
+  Beijing -> Just "s3-website.cn-north-1.amazonaws.com.cn"
+  Ningxia -> Just "s3-website.cn-northwest-1.amazonaws.com.cn"
   Region' _ -> Nothing

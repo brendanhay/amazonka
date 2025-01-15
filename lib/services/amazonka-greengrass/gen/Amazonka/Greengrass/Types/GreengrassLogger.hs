@@ -133,11 +133,11 @@ instance Prelude.Hashable GreengrassLogger where
 
 instance Prelude.NFData GreengrassLogger where
   rnf GreengrassLogger' {..} =
-    Prelude.rnf space
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf level
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf component
+    Prelude.rnf space `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf level `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf component
 
 instance Data.ToJSON GreengrassLogger where
   toJSON GreengrassLogger' {..} =

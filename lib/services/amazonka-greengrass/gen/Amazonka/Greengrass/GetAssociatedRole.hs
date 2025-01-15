@@ -166,6 +166,6 @@ getAssociatedRoleResponse_httpStatus = Lens.lens (\GetAssociatedRoleResponse' {h
 
 instance Prelude.NFData GetAssociatedRoleResponse where
   rnf GetAssociatedRoleResponse' {..} =
-    Prelude.rnf associatedAt
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associatedAt `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf httpStatus

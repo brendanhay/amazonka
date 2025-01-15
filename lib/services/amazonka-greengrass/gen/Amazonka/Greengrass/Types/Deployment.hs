@@ -117,8 +117,8 @@ instance Prelude.Hashable Deployment where
 
 instance Prelude.NFData Deployment where
   rnf Deployment' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deploymentArn
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf groupArn
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf deploymentArn `Prelude.seq`
+        Prelude.rnf deploymentId `Prelude.seq`
+          Prelude.rnf deploymentType `Prelude.seq`
+            Prelude.rnf groupArn

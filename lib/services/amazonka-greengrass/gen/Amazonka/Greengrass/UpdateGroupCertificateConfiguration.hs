@@ -129,8 +129,8 @@ instance
     UpdateGroupCertificateConfiguration
   where
   rnf UpdateGroupCertificateConfiguration' {..} =
-    Prelude.rnf certificateExpiryInMilliseconds
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf certificateExpiryInMilliseconds `Prelude.seq`
+      Prelude.rnf groupId
 
 instance
   Data.ToHeaders

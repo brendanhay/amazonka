@@ -106,12 +106,12 @@ instance Core.AWSPager ListConnectorDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listConnectorDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? listConnectorDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listConnectorDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? listConnectorDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConnectorDefinitions where
   type
@@ -136,8 +136,8 @@ instance Prelude.Hashable ListConnectorDefinitions where
 
 instance Prelude.NFData ListConnectorDefinitions where
   rnf ListConnectorDefinitions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConnectorDefinitions where
   toHeaders =
@@ -217,6 +217,6 @@ instance
     ListConnectorDefinitionsResponse
   where
   rnf ListConnectorDefinitionsResponse' {..} =
-    Prelude.rnf definitions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf definitions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -107,9 +107,9 @@ instance
     SageMakerMachineLearningModelResourceData
   where
   rnf SageMakerMachineLearningModelResourceData' {..} =
-    Prelude.rnf destinationPath
-      `Prelude.seq` Prelude.rnf ownerSetting
-      `Prelude.seq` Prelude.rnf sageMakerJobArn
+    Prelude.rnf destinationPath `Prelude.seq`
+      Prelude.rnf ownerSetting `Prelude.seq`
+        Prelude.rnf sageMakerJobArn
 
 instance
   Data.ToJSON

@@ -130,11 +130,11 @@ instance Prelude.Hashable ResourceDataContainer where
 
 instance Prelude.NFData ResourceDataContainer where
   rnf ResourceDataContainer' {..} =
-    Prelude.rnf localDeviceResourceData
-      `Prelude.seq` Prelude.rnf localVolumeResourceData
-      `Prelude.seq` Prelude.rnf s3MachineLearningModelResourceData
-      `Prelude.seq` Prelude.rnf sageMakerMachineLearningModelResourceData
-      `Prelude.seq` Prelude.rnf secretsManagerSecretResourceData
+    Prelude.rnf localDeviceResourceData `Prelude.seq`
+      Prelude.rnf localVolumeResourceData `Prelude.seq`
+        Prelude.rnf s3MachineLearningModelResourceData `Prelude.seq`
+          Prelude.rnf sageMakerMachineLearningModelResourceData `Prelude.seq`
+            Prelude.rnf secretsManagerSecretResourceData
 
 instance Data.ToJSON ResourceDataContainer where
   toJSON ResourceDataContainer' {..} =

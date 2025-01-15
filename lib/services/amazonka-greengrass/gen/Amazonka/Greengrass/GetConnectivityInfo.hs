@@ -172,6 +172,6 @@ getConnectivityInfoResponse_httpStatus = Lens.lens (\GetConnectivityInfoResponse
 
 instance Prelude.NFData GetConnectivityInfoResponse where
   rnf GetConnectivityInfoResponse' {..} =
-    Prelude.rnf connectivityInfo
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectivityInfo `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf httpStatus

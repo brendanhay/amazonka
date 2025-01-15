@@ -118,12 +118,12 @@ instance Core.AWSPager ListLoggerDefinitionVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLoggerDefinitionVersions_nextToken
-          Lens..~ rs
-          Lens.^? listLoggerDefinitionVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLoggerDefinitionVersions_nextToken
+              Lens..~ rs
+              Lens.^? listLoggerDefinitionVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLoggerDefinitionVersions where
   type
@@ -152,9 +152,9 @@ instance
 
 instance Prelude.NFData ListLoggerDefinitionVersions where
   rnf ListLoggerDefinitionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf loggerDefinitionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf loggerDefinitionId
 
 instance Data.ToHeaders ListLoggerDefinitionVersions where
   toHeaders =
@@ -238,6 +238,6 @@ instance
     ListLoggerDefinitionVersionsResponse
   where
   rnf ListLoggerDefinitionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

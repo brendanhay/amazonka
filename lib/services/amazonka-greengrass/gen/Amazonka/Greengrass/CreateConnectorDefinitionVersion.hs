@@ -143,9 +143,9 @@ instance
     CreateConnectorDefinitionVersion
   where
   rnf CreateConnectorDefinitionVersion' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf connectors
-      `Prelude.seq` Prelude.rnf connectorDefinitionId
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf connectors `Prelude.seq`
+        Prelude.rnf connectorDefinitionId
 
 instance
   Data.ToHeaders
@@ -252,8 +252,8 @@ instance
     CreateConnectorDefinitionVersionResponse
   where
   rnf CreateConnectorDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf version `Prelude.seq`
+            Prelude.rnf httpStatus

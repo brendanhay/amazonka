@@ -168,9 +168,9 @@ instance
     GetSubscriptionDefinitionVersion
   where
   rnf GetSubscriptionDefinitionVersion' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subscriptionDefinitionId
-      `Prelude.seq` Prelude.rnf subscriptionDefinitionVersionId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subscriptionDefinitionId `Prelude.seq`
+        Prelude.rnf subscriptionDefinitionVersionId
 
 instance
   Data.ToHeaders
@@ -299,10 +299,10 @@ instance
     GetSubscriptionDefinitionVersionResponse
   where
   rnf GetSubscriptionDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf httpStatus

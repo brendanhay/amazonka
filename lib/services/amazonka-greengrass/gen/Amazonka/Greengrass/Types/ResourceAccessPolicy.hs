@@ -89,8 +89,8 @@ instance Prelude.Hashable ResourceAccessPolicy where
 
 instance Prelude.NFData ResourceAccessPolicy where
   rnf ResourceAccessPolicy' {..} =
-    Prelude.rnf permission
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf permission `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance Data.ToJSON ResourceAccessPolicy where
   toJSON ResourceAccessPolicy' {..} =

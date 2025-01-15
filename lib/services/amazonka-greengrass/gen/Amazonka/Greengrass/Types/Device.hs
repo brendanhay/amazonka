@@ -117,10 +117,10 @@ instance Prelude.Hashable Device where
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf syncShadow
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf syncShadow `Prelude.seq`
+      Prelude.rnf thingArn `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf certificateArn
 
 instance Data.ToJSON Device where
   toJSON Device' {..} =

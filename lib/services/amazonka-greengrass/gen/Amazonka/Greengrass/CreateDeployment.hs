@@ -151,11 +151,11 @@ instance Prelude.Hashable CreateDeployment where
 
 instance Prelude.NFData CreateDeployment where
   rnf CreateDeployment' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf groupVersionId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf deploymentType
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf deploymentId `Prelude.seq`
+        Prelude.rnf groupVersionId `Prelude.seq`
+          Prelude.rnf groupId `Prelude.seq`
+            Prelude.rnf deploymentType
 
 instance Data.ToHeaders CreateDeployment where
   toHeaders CreateDeployment' {..} =
@@ -238,6 +238,6 @@ createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {htt
 
 instance Prelude.NFData CreateDeploymentResponse where
   rnf CreateDeploymentResponse' {..} =
-    Prelude.rnf deploymentArn
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentArn `Prelude.seq`
+      Prelude.rnf deploymentId `Prelude.seq`
+        Prelude.rnf httpStatus

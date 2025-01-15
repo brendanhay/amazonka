@@ -136,13 +136,13 @@ instance Prelude.Hashable GroupVersion where
 
 instance Prelude.NFData GroupVersion where
   rnf GroupVersion' {..} =
-    Prelude.rnf connectorDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf coreDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf deviceDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf functionDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf loggerDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf resourceDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf subscriptionDefinitionVersionArn
+    Prelude.rnf connectorDefinitionVersionArn `Prelude.seq`
+      Prelude.rnf coreDefinitionVersionArn `Prelude.seq`
+        Prelude.rnf deviceDefinitionVersionArn `Prelude.seq`
+          Prelude.rnf functionDefinitionVersionArn `Prelude.seq`
+            Prelude.rnf loggerDefinitionVersionArn `Prelude.seq`
+              Prelude.rnf resourceDefinitionVersionArn `Prelude.seq`
+                Prelude.rnf subscriptionDefinitionVersionArn
 
 instance Data.ToJSON GroupVersion where
   toJSON GroupVersion' {..} =

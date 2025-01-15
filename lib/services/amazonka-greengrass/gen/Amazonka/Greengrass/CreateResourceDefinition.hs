@@ -144,10 +144,10 @@ instance Prelude.Hashable CreateResourceDefinition where
 
 instance Prelude.NFData CreateResourceDefinition where
   rnf CreateResourceDefinition' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf initialVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf initialVersion `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToHeaders CreateResourceDefinition where
   toHeaders CreateResourceDefinition' {..} =
@@ -279,11 +279,11 @@ instance
     CreateResourceDefinitionResponse
   where
   rnf CreateResourceDefinitionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf latestVersionArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+            Prelude.rnf latestVersion `Prelude.seq`
+              Prelude.rnf latestVersionArn `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -132,9 +132,9 @@ instance
 
 instance Prelude.NFData CreateLoggerDefinitionVersion where
   rnf CreateLoggerDefinitionVersion' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf loggers
-      `Prelude.seq` Prelude.rnf loggerDefinitionId
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf loggers `Prelude.seq`
+        Prelude.rnf loggerDefinitionId
 
 instance Data.ToHeaders CreateLoggerDefinitionVersion where
   toHeaders CreateLoggerDefinitionVersion' {..} =
@@ -233,8 +233,8 @@ instance
     CreateLoggerDefinitionVersionResponse
   where
   rnf CreateLoggerDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf version `Prelude.seq`
+            Prelude.rnf httpStatus

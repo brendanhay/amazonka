@@ -93,8 +93,8 @@ instance Prelude.Hashable GroupOwnerSetting where
 
 instance Prelude.NFData GroupOwnerSetting where
   rnf GroupOwnerSetting' {..} =
-    Prelude.rnf autoAddGroupOwner
-      `Prelude.seq` Prelude.rnf groupOwner
+    Prelude.rnf autoAddGroupOwner `Prelude.seq`
+      Prelude.rnf groupOwner
 
 instance Data.ToJSON GroupOwnerSetting where
   toJSON GroupOwnerSetting' {..} =

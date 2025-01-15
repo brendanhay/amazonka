@@ -137,10 +137,10 @@ instance
     FunctionConfigurationEnvironment
   where
   rnf FunctionConfigurationEnvironment' {..} =
-    Prelude.rnf accessSysfs
-      `Prelude.seq` Prelude.rnf execution
-      `Prelude.seq` Prelude.rnf resourceAccessPolicies
-      `Prelude.seq` Prelude.rnf variables
+    Prelude.rnf accessSysfs `Prelude.seq`
+      Prelude.rnf execution `Prelude.seq`
+        Prelude.rnf resourceAccessPolicies `Prelude.seq`
+          Prelude.rnf variables
 
 instance Data.ToJSON FunctionConfigurationEnvironment where
   toJSON FunctionConfigurationEnvironment' {..} =

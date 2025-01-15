@@ -106,8 +106,8 @@ instance Prelude.Hashable UpdateCoreDefinition where
 
 instance Prelude.NFData UpdateCoreDefinition where
   rnf UpdateCoreDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf coreDefinitionId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf coreDefinitionId
 
 instance Data.ToHeaders UpdateCoreDefinition where
   toHeaders =

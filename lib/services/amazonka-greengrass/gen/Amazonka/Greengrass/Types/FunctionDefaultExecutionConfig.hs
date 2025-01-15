@@ -89,8 +89,8 @@ instance
     FunctionDefaultExecutionConfig
   where
   rnf FunctionDefaultExecutionConfig' {..} =
-    Prelude.rnf isolationMode
-      `Prelude.seq` Prelude.rnf runAs
+    Prelude.rnf isolationMode `Prelude.seq`
+      Prelude.rnf runAs
 
 instance Data.ToJSON FunctionDefaultExecutionConfig where
   toJSON FunctionDefaultExecutionConfig' {..} =

@@ -116,6 +116,6 @@ instance Prelude.Hashable BulkDeploymentMetrics where
 
 instance Prelude.NFData BulkDeploymentMetrics where
   rnf BulkDeploymentMetrics' {..} =
-    Prelude.rnf invalidInputRecords
-      `Prelude.seq` Prelude.rnf recordsProcessed
-      `Prelude.seq` Prelude.rnf retryAttempts
+    Prelude.rnf invalidInputRecords `Prelude.seq`
+      Prelude.rnf recordsProcessed `Prelude.seq`
+        Prelude.rnf retryAttempts

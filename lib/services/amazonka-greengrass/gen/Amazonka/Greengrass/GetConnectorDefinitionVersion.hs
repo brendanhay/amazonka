@@ -163,9 +163,9 @@ instance
 
 instance Prelude.NFData GetConnectorDefinitionVersion where
   rnf GetConnectorDefinitionVersion' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf connectorDefinitionId
-      `Prelude.seq` Prelude.rnf connectorDefinitionVersionId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf connectorDefinitionId `Prelude.seq`
+        Prelude.rnf connectorDefinitionVersionId
 
 instance Data.ToHeaders GetConnectorDefinitionVersion where
   toHeaders =
@@ -286,10 +286,10 @@ instance
     GetConnectorDefinitionVersionResponse
   where
   rnf GetConnectorDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf httpStatus

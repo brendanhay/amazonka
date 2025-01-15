@@ -106,12 +106,12 @@ instance Core.AWSPager ListResourceDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? listResourceDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? listResourceDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceDefinitions where
   type
@@ -136,8 +136,8 @@ instance Prelude.Hashable ListResourceDefinitions where
 
 instance Prelude.NFData ListResourceDefinitions where
   rnf ListResourceDefinitions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResourceDefinitions where
   toHeaders =
@@ -217,6 +217,6 @@ instance
     ListResourceDefinitionsResponse
   where
   rnf ListResourceDefinitionsResponse' {..} =
-    Prelude.rnf definitions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf definitions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

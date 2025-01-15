@@ -106,8 +106,8 @@ instance Prelude.Hashable UpdateLoggerDefinition where
 
 instance Prelude.NFData UpdateLoggerDefinition where
   rnf UpdateLoggerDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf loggerDefinitionId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf loggerDefinitionId
 
 instance Data.ToHeaders UpdateLoggerDefinition where
   toHeaders =

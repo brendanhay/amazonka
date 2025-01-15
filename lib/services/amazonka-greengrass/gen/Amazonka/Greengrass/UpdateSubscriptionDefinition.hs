@@ -112,8 +112,8 @@ instance
 
 instance Prelude.NFData UpdateSubscriptionDefinition where
   rnf UpdateSubscriptionDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf subscriptionDefinitionId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf subscriptionDefinitionId
 
 instance Data.ToHeaders UpdateSubscriptionDefinition where
   toHeaders =

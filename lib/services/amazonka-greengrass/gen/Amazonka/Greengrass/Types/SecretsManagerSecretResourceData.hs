@@ -108,8 +108,8 @@ instance
     SecretsManagerSecretResourceData
   where
   rnf SecretsManagerSecretResourceData' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf additionalStagingLabelsToDownload
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf additionalStagingLabelsToDownload
 
 instance Data.ToJSON SecretsManagerSecretResourceData where
   toJSON SecretsManagerSecretResourceData' {..} =

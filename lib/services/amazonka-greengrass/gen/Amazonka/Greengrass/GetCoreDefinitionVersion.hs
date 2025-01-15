@@ -139,8 +139,8 @@ instance Prelude.Hashable GetCoreDefinitionVersion where
 
 instance Prelude.NFData GetCoreDefinitionVersion where
   rnf GetCoreDefinitionVersion' {..} =
-    Prelude.rnf coreDefinitionId
-      `Prelude.seq` Prelude.rnf coreDefinitionVersionId
+    Prelude.rnf coreDefinitionId `Prelude.seq`
+      Prelude.rnf coreDefinitionVersionId
 
 instance Data.ToHeaders GetCoreDefinitionVersion where
   toHeaders =
@@ -260,10 +260,10 @@ instance
     GetCoreDefinitionVersionResponse
   where
   rnf GetCoreDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf httpStatus

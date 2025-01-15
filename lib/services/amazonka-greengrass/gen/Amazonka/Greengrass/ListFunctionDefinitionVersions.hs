@@ -120,12 +120,12 @@ instance Core.AWSPager ListFunctionDefinitionVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFunctionDefinitionVersions_nextToken
-          Lens..~ rs
-          Lens.^? listFunctionDefinitionVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFunctionDefinitionVersions_nextToken
+              Lens..~ rs
+              Lens.^? listFunctionDefinitionVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -162,9 +162,9 @@ instance
     ListFunctionDefinitionVersions
   where
   rnf ListFunctionDefinitionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf functionDefinitionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf functionDefinitionId
 
 instance
   Data.ToHeaders
@@ -252,6 +252,6 @@ instance
     ListFunctionDefinitionVersionsResponse
   where
   rnf ListFunctionDefinitionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

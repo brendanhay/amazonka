@@ -128,10 +128,10 @@ instance Prelude.Hashable Subscription where
 
 instance Prelude.NFData Subscription where
   rnf Subscription' {..} =
-    Prelude.rnf target
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf target `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf subject `Prelude.seq`
+          Prelude.rnf source
 
 instance Data.ToJSON Subscription where
   toJSON Subscription' {..} =

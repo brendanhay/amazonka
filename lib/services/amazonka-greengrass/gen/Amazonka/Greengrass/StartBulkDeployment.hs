@@ -170,10 +170,10 @@ instance Prelude.Hashable StartBulkDeployment where
 
 instance Prelude.NFData StartBulkDeployment where
   rnf StartBulkDeployment' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf inputFileUri
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf executionRoleArn `Prelude.seq`
+          Prelude.rnf inputFileUri
 
 instance Data.ToHeaders StartBulkDeployment where
   toHeaders StartBulkDeployment' {..} =
@@ -250,6 +250,6 @@ startBulkDeploymentResponse_httpStatus = Lens.lens (\StartBulkDeploymentResponse
 
 instance Prelude.NFData StartBulkDeploymentResponse where
   rnf StartBulkDeploymentResponse' {..} =
-    Prelude.rnf bulkDeploymentArn
-      `Prelude.seq` Prelude.rnf bulkDeploymentId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bulkDeploymentArn `Prelude.seq`
+      Prelude.rnf bulkDeploymentId `Prelude.seq`
+        Prelude.rnf httpStatus

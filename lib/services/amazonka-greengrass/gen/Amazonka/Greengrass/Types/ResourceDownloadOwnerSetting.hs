@@ -100,8 +100,8 @@ instance
 
 instance Prelude.NFData ResourceDownloadOwnerSetting where
   rnf ResourceDownloadOwnerSetting' {..} =
-    Prelude.rnf groupOwner
-      `Prelude.seq` Prelude.rnf groupPermission
+    Prelude.rnf groupOwner `Prelude.seq`
+      Prelude.rnf groupPermission
 
 instance Data.ToJSON ResourceDownloadOwnerSetting where
   toJSON ResourceDownloadOwnerSetting' {..} =

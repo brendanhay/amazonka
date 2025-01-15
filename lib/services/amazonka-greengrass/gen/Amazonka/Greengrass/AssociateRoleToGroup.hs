@@ -115,8 +115,8 @@ instance Prelude.Hashable AssociateRoleToGroup where
 
 instance Prelude.NFData AssociateRoleToGroup where
   rnf AssociateRoleToGroup' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToHeaders AssociateRoleToGroup where
   toHeaders =
@@ -188,5 +188,5 @@ associateRoleToGroupResponse_httpStatus = Lens.lens (\AssociateRoleToGroupRespon
 
 instance Prelude.NFData AssociateRoleToGroupResponse where
   rnf AssociateRoleToGroupResponse' {..} =
-    Prelude.rnf associatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associatedAt `Prelude.seq`
+      Prelude.rnf httpStatus

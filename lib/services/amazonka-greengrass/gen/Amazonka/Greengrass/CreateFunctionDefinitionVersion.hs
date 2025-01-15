@@ -159,10 +159,10 @@ instance
     CreateFunctionDefinitionVersion
   where
   rnf CreateFunctionDefinitionVersion' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf defaultConfig
-      `Prelude.seq` Prelude.rnf functions
-      `Prelude.seq` Prelude.rnf functionDefinitionId
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf defaultConfig `Prelude.seq`
+        Prelude.rnf functions `Prelude.seq`
+          Prelude.rnf functionDefinitionId
 
 instance
   Data.ToHeaders
@@ -268,8 +268,8 @@ instance
     CreateFunctionDefinitionVersionResponse
   where
   rnf CreateFunctionDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf version `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -152,6 +152,6 @@ instance
     GetServiceRoleForAccountResponse
   where
   rnf GetServiceRoleForAccountResponse' {..} =
-    Prelude.rnf associatedAt
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associatedAt `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -88,8 +88,8 @@ instance Prelude.Hashable LocalDeviceResourceData where
 
 instance Prelude.NFData LocalDeviceResourceData where
   rnf LocalDeviceResourceData' {..} =
-    Prelude.rnf groupOwnerSetting
-      `Prelude.seq` Prelude.rnf sourcePath
+    Prelude.rnf groupOwnerSetting `Prelude.seq`
+      Prelude.rnf sourcePath
 
 instance Data.ToJSON LocalDeviceResourceData where
   toJSON LocalDeviceResourceData' {..} =

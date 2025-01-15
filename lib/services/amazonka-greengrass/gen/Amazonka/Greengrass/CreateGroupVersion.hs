@@ -192,15 +192,15 @@ instance Prelude.Hashable CreateGroupVersion where
 
 instance Prelude.NFData CreateGroupVersion where
   rnf CreateGroupVersion' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf connectorDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf coreDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf deviceDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf functionDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf loggerDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf resourceDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf subscriptionDefinitionVersionArn
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf connectorDefinitionVersionArn `Prelude.seq`
+        Prelude.rnf coreDefinitionVersionArn `Prelude.seq`
+          Prelude.rnf deviceDefinitionVersionArn `Prelude.seq`
+            Prelude.rnf functionDefinitionVersionArn `Prelude.seq`
+              Prelude.rnf loggerDefinitionVersionArn `Prelude.seq`
+                Prelude.rnf resourceDefinitionVersionArn `Prelude.seq`
+                  Prelude.rnf subscriptionDefinitionVersionArn `Prelude.seq`
+                    Prelude.rnf groupId
 
 instance Data.ToHeaders CreateGroupVersion where
   toHeaders CreateGroupVersion' {..} =
@@ -309,8 +309,8 @@ createGroupVersionResponse_httpStatus = Lens.lens (\CreateGroupVersionResponse' 
 
 instance Prelude.NFData CreateGroupVersionResponse where
   rnf CreateGroupVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf version `Prelude.seq`
+            Prelude.rnf httpStatus

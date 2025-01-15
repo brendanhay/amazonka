@@ -93,5 +93,5 @@ instance
     GroupCertificateAuthorityProperties
   where
   rnf GroupCertificateAuthorityProperties' {..} =
-    Prelude.rnf groupCertificateAuthorityArn
-      `Prelude.seq` Prelude.rnf groupCertificateAuthorityId
+    Prelude.rnf groupCertificateAuthorityArn `Prelude.seq`
+      Prelude.rnf groupCertificateAuthorityId

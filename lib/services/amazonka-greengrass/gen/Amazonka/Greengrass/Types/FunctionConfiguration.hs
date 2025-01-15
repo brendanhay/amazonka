@@ -170,14 +170,14 @@ instance Prelude.Hashable FunctionConfiguration where
 
 instance Prelude.NFData FunctionConfiguration where
   rnf FunctionConfiguration' {..} =
-    Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf execArgs
-      `Prelude.seq` Prelude.rnf executable
-      `Prelude.seq` Prelude.rnf functionRuntimeOverride
-      `Prelude.seq` Prelude.rnf memorySize
-      `Prelude.seq` Prelude.rnf pinned
-      `Prelude.seq` Prelude.rnf timeout
+    Prelude.rnf encodingType `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf execArgs `Prelude.seq`
+          Prelude.rnf executable `Prelude.seq`
+            Prelude.rnf functionRuntimeOverride `Prelude.seq`
+              Prelude.rnf memorySize `Prelude.seq`
+                Prelude.rnf pinned `Prelude.seq`
+                  Prelude.rnf timeout
 
 instance Data.ToJSON FunctionConfiguration where
   toJSON FunctionConfiguration' {..} =

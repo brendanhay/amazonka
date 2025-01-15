@@ -118,8 +118,8 @@ instance
     UpdateThingRuntimeConfiguration
   where
   rnf UpdateThingRuntimeConfiguration' {..} =
-    Prelude.rnf telemetryConfiguration
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf telemetryConfiguration `Prelude.seq`
+      Prelude.rnf thingName
 
 instance
   Data.ToHeaders

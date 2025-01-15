@@ -106,8 +106,8 @@ instance Prelude.Hashable UpdateConnectorDefinition where
 
 instance Prelude.NFData UpdateConnectorDefinition where
   rnf UpdateConnectorDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf connectorDefinitionId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf connectorDefinitionId
 
 instance Data.ToHeaders UpdateConnectorDefinition where
   toHeaders =

@@ -117,12 +117,12 @@ instance Core.AWSPager ListGroupVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGroupVersions_nextToken
-          Lens..~ rs
-          Lens.^? listGroupVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGroupVersions_nextToken
+              Lens..~ rs
+              Lens.^? listGroupVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroupVersions where
   type
@@ -148,9 +148,9 @@ instance Prelude.Hashable ListGroupVersions where
 
 instance Prelude.NFData ListGroupVersions where
   rnf ListGroupVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf groupId
 
 instance Data.ToHeaders ListGroupVersions where
   toHeaders =
@@ -231,6 +231,6 @@ listGroupVersionsResponse_httpStatus = Lens.lens (\ListGroupVersionsResponse' {h
 
 instance Prelude.NFData ListGroupVersionsResponse where
   rnf ListGroupVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

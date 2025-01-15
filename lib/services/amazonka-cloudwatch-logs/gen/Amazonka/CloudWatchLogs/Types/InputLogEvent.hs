@@ -78,8 +78,8 @@ instance Prelude.Hashable InputLogEvent where
 
 instance Prelude.NFData InputLogEvent where
   rnf InputLogEvent' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf message
 
 instance Data.ToJSON InputLogEvent where
   toJSON InputLogEvent' {..} =

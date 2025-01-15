@@ -155,9 +155,9 @@ instance Prelude.Hashable PutDestinationPolicy where
 
 instance Prelude.NFData PutDestinationPolicy where
   rnf PutDestinationPolicy' {..} =
-    Prelude.rnf forceUpdate
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf accessPolicy
+    Prelude.rnf forceUpdate `Prelude.seq`
+      Prelude.rnf destinationName `Prelude.seq`
+        Prelude.rnf accessPolicy
 
 instance Data.ToHeaders PutDestinationPolicy where
   toHeaders =

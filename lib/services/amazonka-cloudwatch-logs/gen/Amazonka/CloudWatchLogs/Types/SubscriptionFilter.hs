@@ -135,10 +135,10 @@ instance Prelude.Hashable SubscriptionFilter where
 
 instance Prelude.NFData SubscriptionFilter where
   rnf SubscriptionFilter' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf distribution
-      `Prelude.seq` Prelude.rnf filterName
-      `Prelude.seq` Prelude.rnf filterPattern
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf destinationArn `Prelude.seq`
+        Prelude.rnf distribution `Prelude.seq`
+          Prelude.rnf filterName `Prelude.seq`
+            Prelude.rnf filterPattern `Prelude.seq`
+              Prelude.rnf logGroupName `Prelude.seq`
+                Prelude.rnf roleArn

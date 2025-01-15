@@ -92,6 +92,6 @@ instance Prelude.Hashable RejectedLogEventsInfo where
 
 instance Prelude.NFData RejectedLogEventsInfo where
   rnf RejectedLogEventsInfo' {..} =
-    Prelude.rnf expiredLogEventEndIndex
-      `Prelude.seq` Prelude.rnf tooNewLogEventStartIndex
-      `Prelude.seq` Prelude.rnf tooOldLogEventEndIndex
+    Prelude.rnf expiredLogEventEndIndex `Prelude.seq`
+      Prelude.rnf tooNewLogEventStartIndex `Prelude.seq`
+        Prelude.rnf tooOldLogEventEndIndex

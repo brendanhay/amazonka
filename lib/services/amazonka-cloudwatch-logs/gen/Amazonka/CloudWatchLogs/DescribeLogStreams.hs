@@ -242,12 +242,12 @@ instance Core.AWSPager DescribeLogStreams where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLogStreams_nextToken
-          Lens..~ rs
-          Lens.^? describeLogStreamsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLogStreams_nextToken
+              Lens..~ rs
+              Lens.^? describeLogStreamsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLogStreams where
   type
@@ -277,13 +277,13 @@ instance Prelude.Hashable DescribeLogStreams where
 
 instance Prelude.NFData DescribeLogStreams where
   rnf DescribeLogStreams' {..} =
-    Prelude.rnf descending
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf logGroupIdentifier
-      `Prelude.seq` Prelude.rnf logStreamNamePrefix
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf orderBy
-      `Prelude.seq` Prelude.rnf logGroupName
+    Prelude.rnf descending `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf logGroupIdentifier `Prelude.seq`
+          Prelude.rnf logStreamNamePrefix `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf orderBy `Prelude.seq`
+                Prelude.rnf logGroupName
 
 instance Data.ToHeaders DescribeLogStreams where
   toHeaders =
@@ -371,6 +371,6 @@ describeLogStreamsResponse_httpStatus = Lens.lens (\DescribeLogStreamsResponse' 
 
 instance Prelude.NFData DescribeLogStreamsResponse where
   rnf DescribeLogStreamsResponse' {..} =
-    Prelude.rnf logStreams
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logStreams `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -256,13 +256,13 @@ instance Prelude.Hashable StartQuery where
 
 instance Prelude.NFData StartQuery where
   rnf StartQuery' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf logGroupIdentifiers
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf logGroupNames
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf logGroupIdentifiers `Prelude.seq`
+        Prelude.rnf logGroupName `Prelude.seq`
+          Prelude.rnf logGroupNames `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf endTime `Prelude.seq`
+                Prelude.rnf queryString
 
 instance Data.ToHeaders StartQuery where
   toHeaders =
@@ -338,5 +338,5 @@ startQueryResponse_httpStatus = Lens.lens (\StartQueryResponse' {httpStatus} -> 
 
 instance Prelude.NFData StartQueryResponse where
   rnf StartQueryResponse' {..} =
-    Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queryId `Prelude.seq`
+      Prelude.rnf httpStatus

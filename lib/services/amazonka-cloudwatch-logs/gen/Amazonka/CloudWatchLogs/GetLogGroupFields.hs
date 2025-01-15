@@ -175,9 +175,9 @@ instance Prelude.Hashable GetLogGroupFields where
 
 instance Prelude.NFData GetLogGroupFields where
   rnf GetLogGroupFields' {..} =
-    Prelude.rnf logGroupIdentifier
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf logGroupName
+    Prelude.rnf logGroupIdentifier `Prelude.seq`
+      Prelude.rnf time `Prelude.seq`
+        Prelude.rnf logGroupName
 
 instance Data.ToHeaders GetLogGroupFields where
   toHeaders =
@@ -258,5 +258,5 @@ getLogGroupFieldsResponse_httpStatus = Lens.lens (\GetLogGroupFieldsResponse' {h
 
 instance Prelude.NFData GetLogGroupFieldsResponse where
   rnf GetLogGroupFieldsResponse' {..} =
-    Prelude.rnf logGroupFields
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logGroupFields `Prelude.seq`
+      Prelude.rnf httpStatus

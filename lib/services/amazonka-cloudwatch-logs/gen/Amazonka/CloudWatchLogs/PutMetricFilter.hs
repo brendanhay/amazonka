@@ -155,10 +155,10 @@ instance Prelude.Hashable PutMetricFilter where
 
 instance Prelude.NFData PutMetricFilter where
   rnf PutMetricFilter' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf filterName
-      `Prelude.seq` Prelude.rnf filterPattern
-      `Prelude.seq` Prelude.rnf metricTransformations
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf filterName `Prelude.seq`
+        Prelude.rnf filterPattern `Prelude.seq`
+          Prelude.rnf metricTransformations
 
 instance Data.ToHeaders PutMetricFilter where
   toHeaders =

@@ -170,10 +170,10 @@ instance Prelude.Hashable PutDestination where
 
 instance Prelude.NFData PutDestination where
   rnf PutDestination' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf destinationName `Prelude.seq`
+        Prelude.rnf targetArn `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance Data.ToHeaders PutDestination where
   toHeaders =
@@ -249,5 +249,5 @@ putDestinationResponse_httpStatus = Lens.lens (\PutDestinationResponse' {httpSta
 
 instance Prelude.NFData PutDestinationResponse where
   rnf PutDestinationResponse' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf httpStatus

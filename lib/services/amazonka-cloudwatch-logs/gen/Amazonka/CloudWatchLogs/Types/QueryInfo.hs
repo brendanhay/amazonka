@@ -118,8 +118,8 @@ instance Prelude.Hashable QueryInfo where
 
 instance Prelude.NFData QueryInfo where
   rnf QueryInfo' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf logGroupName `Prelude.seq`
+        Prelude.rnf queryId `Prelude.seq`
+          Prelude.rnf queryString `Prelude.seq`
+            Prelude.rnf status

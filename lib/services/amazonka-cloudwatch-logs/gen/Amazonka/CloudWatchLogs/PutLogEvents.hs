@@ -196,10 +196,10 @@ instance Prelude.Hashable PutLogEvents where
 
 instance Prelude.NFData PutLogEvents where
   rnf PutLogEvents' {..} =
-    Prelude.rnf sequenceToken
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf logStreamName
-      `Prelude.seq` Prelude.rnf logEvents
+    Prelude.rnf sequenceToken `Prelude.seq`
+      Prelude.rnf logGroupName `Prelude.seq`
+        Prelude.rnf logStreamName `Prelude.seq`
+          Prelude.rnf logEvents
 
 instance Data.ToHeaders PutLogEvents where
   toHeaders =
@@ -305,6 +305,6 @@ putLogEventsResponse_httpStatus = Lens.lens (\PutLogEventsResponse' {httpStatus}
 
 instance Prelude.NFData PutLogEventsResponse where
   rnf PutLogEventsResponse' {..} =
-    Prelude.rnf nextSequenceToken
-      `Prelude.seq` Prelude.rnf rejectedLogEventsInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextSequenceToken `Prelude.seq`
+      Prelude.rnf rejectedLogEventsInfo `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -80,5 +80,5 @@ instance Prelude.Hashable SearchedLogStream where
 
 instance Prelude.NFData SearchedLogStream where
   rnf SearchedLogStream' {..} =
-    Prelude.rnf logStreamName
-      `Prelude.seq` Prelude.rnf searchedCompletely
+    Prelude.rnf logStreamName `Prelude.seq`
+      Prelude.rnf searchedCompletely

@@ -194,10 +194,10 @@ instance Prelude.Hashable PutQueryDefinition where
 
 instance Prelude.NFData PutQueryDefinition where
   rnf PutQueryDefinition' {..} =
-    Prelude.rnf logGroupNames
-      `Prelude.seq` Prelude.rnf queryDefinitionId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf logGroupNames `Prelude.seq`
+      Prelude.rnf queryDefinitionId `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf queryString
 
 instance Data.ToHeaders PutQueryDefinition where
   toHeaders =
@@ -273,5 +273,5 @@ putQueryDefinitionResponse_httpStatus = Lens.lens (\PutQueryDefinitionResponse' 
 
 instance Prelude.NFData PutQueryDefinitionResponse where
   rnf PutQueryDefinitionResponse' {..} =
-    Prelude.rnf queryDefinitionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queryDefinitionId `Prelude.seq`
+      Prelude.rnf httpStatus

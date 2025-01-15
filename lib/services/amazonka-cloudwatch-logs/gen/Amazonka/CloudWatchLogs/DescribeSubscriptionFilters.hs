@@ -136,12 +136,12 @@ instance Core.AWSPager DescribeSubscriptionFilters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSubscriptionFilters_nextToken
-          Lens..~ rs
-          Lens.^? describeSubscriptionFiltersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSubscriptionFilters_nextToken
+              Lens..~ rs
+              Lens.^? describeSubscriptionFiltersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSubscriptionFilters where
   type
@@ -171,10 +171,10 @@ instance Prelude.Hashable DescribeSubscriptionFilters where
 
 instance Prelude.NFData DescribeSubscriptionFilters where
   rnf DescribeSubscriptionFilters' {..} =
-    Prelude.rnf filterNamePrefix
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf logGroupName
+    Prelude.rnf filterNamePrefix `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf logGroupName
 
 instance Data.ToHeaders DescribeSubscriptionFilters where
   toHeaders =
@@ -261,6 +261,6 @@ instance
     DescribeSubscriptionFiltersResponse
   where
   rnf DescribeSubscriptionFiltersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subscriptionFilters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subscriptionFilters `Prelude.seq`
+        Prelude.rnf httpStatus

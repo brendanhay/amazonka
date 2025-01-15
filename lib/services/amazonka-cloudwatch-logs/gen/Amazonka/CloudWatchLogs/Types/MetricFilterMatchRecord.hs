@@ -95,6 +95,6 @@ instance Prelude.Hashable MetricFilterMatchRecord where
 
 instance Prelude.NFData MetricFilterMatchRecord where
   rnf MetricFilterMatchRecord' {..} =
-    Prelude.rnf eventMessage
-      `Prelude.seq` Prelude.rnf eventNumber
-      `Prelude.seq` Prelude.rnf extractedValues
+    Prelude.rnf eventMessage `Prelude.seq`
+      Prelude.rnf eventNumber `Prelude.seq`
+        Prelude.rnf extractedValues

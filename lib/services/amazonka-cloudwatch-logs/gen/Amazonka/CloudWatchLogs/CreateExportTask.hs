@@ -230,13 +230,13 @@ instance Prelude.Hashable CreateExportTask where
 
 instance Prelude.NFData CreateExportTask where
   rnf CreateExportTask' {..} =
-    Prelude.rnf destinationPrefix
-      `Prelude.seq` Prelude.rnf logStreamNamePrefix
-      `Prelude.seq` Prelude.rnf taskName
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf from
-      `Prelude.seq` Prelude.rnf to
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf destinationPrefix `Prelude.seq`
+      Prelude.rnf logStreamNamePrefix `Prelude.seq`
+        Prelude.rnf taskName `Prelude.seq`
+          Prelude.rnf logGroupName `Prelude.seq`
+            Prelude.rnf from `Prelude.seq`
+              Prelude.rnf to `Prelude.seq`
+                Prelude.rnf destination
 
 instance Data.ToHeaders CreateExportTask where
   toHeaders =
@@ -315,5 +315,5 @@ createExportTaskResponse_httpStatus = Lens.lens (\CreateExportTaskResponse' {htt
 
 instance Prelude.NFData CreateExportTaskResponse where
   rnf CreateExportTaskResponse' {..} =
-    Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskId `Prelude.seq`
+      Prelude.rnf httpStatus

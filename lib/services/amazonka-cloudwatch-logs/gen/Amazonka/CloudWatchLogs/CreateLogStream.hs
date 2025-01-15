@@ -115,8 +115,8 @@ instance Prelude.Hashable CreateLogStream where
 
 instance Prelude.NFData CreateLogStream where
   rnf CreateLogStream' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf logStreamName
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf logStreamName
 
 instance Data.ToHeaders CreateLogStream where
   toHeaders =

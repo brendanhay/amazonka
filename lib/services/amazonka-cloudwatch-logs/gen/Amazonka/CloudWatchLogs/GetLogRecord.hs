@@ -132,8 +132,8 @@ instance Prelude.Hashable GetLogRecord where
 
 instance Prelude.NFData GetLogRecord where
   rnf GetLogRecord' {..} =
-    Prelude.rnf unmask
-      `Prelude.seq` Prelude.rnf logRecordPointer
+    Prelude.rnf unmask `Prelude.seq`
+      Prelude.rnf logRecordPointer
 
 instance Data.ToHeaders GetLogRecord where
   toHeaders =
@@ -204,5 +204,5 @@ getLogRecordResponse_httpStatus = Lens.lens (\GetLogRecordResponse' {httpStatus}
 
 instance Prelude.NFData GetLogRecordResponse where
   rnf GetLogRecordResponse' {..} =
-    Prelude.rnf logRecord
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logRecord `Prelude.seq`
+      Prelude.rnf httpStatus

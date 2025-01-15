@@ -120,8 +120,8 @@ instance Prelude.Hashable QueryDefinition where
 
 instance Prelude.NFData QueryDefinition where
   rnf QueryDefinition' {..} =
-    Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf logGroupNames
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf queryDefinitionId
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf lastModified `Prelude.seq`
+      Prelude.rnf logGroupNames `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf queryDefinitionId `Prelude.seq`
+            Prelude.rnf queryString

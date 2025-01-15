@@ -104,12 +104,12 @@ instance Core.AWSPager DescribeResourcePolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeResourcePolicies_nextToken
-          Lens..~ rs
-          Lens.^? describeResourcePoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeResourcePolicies_nextToken
+              Lens..~ rs
+              Lens.^? describeResourcePoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeResourcePolicies where
   type
@@ -137,8 +137,8 @@ instance Prelude.Hashable DescribeResourcePolicies where
 
 instance Prelude.NFData DescribeResourcePolicies where
   rnf DescribeResourcePolicies' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeResourcePolicies where
   toHeaders =
@@ -222,6 +222,6 @@ instance
     DescribeResourcePoliciesResponse
   where
   rnf DescribeResourcePoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourcePolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourcePolicies `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -231,8 +231,8 @@ instance Prelude.Hashable PutDataProtectionPolicy where
 
 instance Prelude.NFData PutDataProtectionPolicy where
   rnf PutDataProtectionPolicy' {..} =
-    Prelude.rnf logGroupIdentifier
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf logGroupIdentifier `Prelude.seq`
+      Prelude.rnf policyDocument
 
 instance Data.ToHeaders PutDataProtectionPolicy where
   toHeaders =
@@ -328,7 +328,7 @@ instance
     PutDataProtectionPolicyResponse
   where
   rnf PutDataProtectionPolicyResponse' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf logGroupIdentifier
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastUpdatedTime `Prelude.seq`
+      Prelude.rnf logGroupIdentifier `Prelude.seq`
+        Prelude.rnf policyDocument `Prelude.seq`
+          Prelude.rnf httpStatus

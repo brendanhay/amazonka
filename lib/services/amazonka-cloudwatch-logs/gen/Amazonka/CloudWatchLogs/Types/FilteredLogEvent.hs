@@ -119,8 +119,8 @@ instance Prelude.Hashable FilteredLogEvent where
 
 instance Prelude.NFData FilteredLogEvent where
   rnf FilteredLogEvent' {..} =
-    Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf ingestionTime
-      `Prelude.seq` Prelude.rnf logStreamName
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf eventId `Prelude.seq`
+      Prelude.rnf ingestionTime `Prelude.seq`
+        Prelude.rnf logStreamName `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf timestamp

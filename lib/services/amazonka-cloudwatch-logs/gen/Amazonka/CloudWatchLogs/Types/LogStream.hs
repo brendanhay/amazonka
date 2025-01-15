@@ -204,11 +204,11 @@ instance Prelude.Hashable LogStream where
 
 instance Prelude.NFData LogStream where
   rnf LogStream' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf firstEventTimestamp
-      `Prelude.seq` Prelude.rnf lastEventTimestamp
-      `Prelude.seq` Prelude.rnf lastIngestionTime
-      `Prelude.seq` Prelude.rnf logStreamName
-      `Prelude.seq` Prelude.rnf storedBytes
-      `Prelude.seq` Prelude.rnf uploadSequenceToken
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf firstEventTimestamp `Prelude.seq`
+          Prelude.rnf lastEventTimestamp `Prelude.seq`
+            Prelude.rnf lastIngestionTime `Prelude.seq`
+              Prelude.rnf logStreamName `Prelude.seq`
+                Prelude.rnf storedBytes `Prelude.seq`
+                  Prelude.rnf uploadSequenceToken

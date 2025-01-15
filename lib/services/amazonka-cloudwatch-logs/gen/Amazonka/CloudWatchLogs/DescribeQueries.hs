@@ -130,12 +130,12 @@ instance Core.AWSPager DescribeQueries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeQueries_nextToken
-          Lens..~ rs
-          Lens.^? describeQueriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeQueries_nextToken
+              Lens..~ rs
+              Lens.^? describeQueriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeQueries where
   type
@@ -162,10 +162,10 @@ instance Prelude.Hashable DescribeQueries where
 
 instance Prelude.NFData DescribeQueries where
   rnf DescribeQueries' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders DescribeQueries where
   toHeaders =
@@ -248,6 +248,6 @@ describeQueriesResponse_httpStatus = Lens.lens (\DescribeQueriesResponse' {httpS
 
 instance Prelude.NFData DescribeQueriesResponse where
   rnf DescribeQueriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf queries `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -163,5 +163,5 @@ deleteAttributeGroupResponse_httpStatus = Lens.lens (\DeleteAttributeGroupRespon
 
 instance Prelude.NFData DeleteAttributeGroupResponse where
   rnf DeleteAttributeGroupResponse' {..} =
-    Prelude.rnf attributeGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributeGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -123,8 +123,8 @@ instance Prelude.Hashable SyncResource where
 
 instance Prelude.NFData SyncResource where
   rnf SyncResource' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf resource
 
 instance Data.ToHeaders SyncResource where
   toHeaders =
@@ -214,7 +214,7 @@ syncResourceResponse_httpStatus = Lens.lens (\SyncResourceResponse' {httpStatus}
 
 instance Prelude.NFData SyncResourceResponse where
   rnf SyncResourceResponse' {..} =
-    Prelude.rnf actionTaken
-      `Prelude.seq` Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionTaken `Prelude.seq`
+      Prelude.rnf applicationArn `Prelude.seq`
+        Prelude.rnf resourceArn `Prelude.seq`
+          Prelude.rnf httpStatus

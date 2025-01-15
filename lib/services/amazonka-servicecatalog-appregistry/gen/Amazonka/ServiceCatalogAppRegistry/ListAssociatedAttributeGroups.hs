@@ -122,12 +122,12 @@ instance Core.AWSPager ListAssociatedAttributeGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssociatedAttributeGroups_nextToken
-          Lens..~ rs
-          Lens.^? listAssociatedAttributeGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssociatedAttributeGroups_nextToken
+              Lens..~ rs
+              Lens.^? listAssociatedAttributeGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -162,9 +162,9 @@ instance
 
 instance Prelude.NFData ListAssociatedAttributeGroups where
   rnf ListAssociatedAttributeGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf application
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf application
 
 instance Data.ToHeaders ListAssociatedAttributeGroups where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     ListAssociatedAttributeGroupsResponse
   where
   rnf ListAssociatedAttributeGroupsResponse' {..} =
-    Prelude.rnf attributeGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributeGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

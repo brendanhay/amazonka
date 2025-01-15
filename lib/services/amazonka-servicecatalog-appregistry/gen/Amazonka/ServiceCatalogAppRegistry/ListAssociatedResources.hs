@@ -127,12 +127,12 @@ instance Core.AWSPager ListAssociatedResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssociatedResources_nextToken
-          Lens..~ rs
-          Lens.^? listAssociatedResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssociatedResources_nextToken
+              Lens..~ rs
+              Lens.^? listAssociatedResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssociatedResources where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListAssociatedResources where
 
 instance Prelude.NFData ListAssociatedResources where
   rnf ListAssociatedResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf application
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf application
 
 instance Data.ToHeaders ListAssociatedResources where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     ListAssociatedResourcesResponse
   where
   rnf ListAssociatedResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resources `Prelude.seq`
+        Prelude.rnf httpStatus

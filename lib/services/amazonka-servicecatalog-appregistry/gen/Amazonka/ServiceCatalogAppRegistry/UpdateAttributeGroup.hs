@@ -142,10 +142,10 @@ instance Prelude.Hashable UpdateAttributeGroup where
 
 instance Prelude.NFData UpdateAttributeGroup where
   rnf UpdateAttributeGroup' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributeGroup
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf attributeGroup
 
 instance Data.ToHeaders UpdateAttributeGroup where
   toHeaders =
@@ -217,5 +217,5 @@ updateAttributeGroupResponse_httpStatus = Lens.lens (\UpdateAttributeGroupRespon
 
 instance Prelude.NFData UpdateAttributeGroupResponse where
   rnf UpdateAttributeGroupResponse' {..} =
-    Prelude.rnf attributeGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributeGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -100,6 +100,6 @@ instance Prelude.Hashable AttributeGroupDetails where
 
 instance Prelude.NFData AttributeGroupDetails where
   rnf AttributeGroupDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

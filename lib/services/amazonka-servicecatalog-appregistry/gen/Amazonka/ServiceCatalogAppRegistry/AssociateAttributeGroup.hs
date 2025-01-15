@@ -121,8 +121,8 @@ instance Prelude.Hashable AssociateAttributeGroup where
 
 instance Prelude.NFData AssociateAttributeGroup where
   rnf AssociateAttributeGroup' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf attributeGroup
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf attributeGroup
 
 instance Data.ToHeaders AssociateAttributeGroup where
   toHeaders =
@@ -209,6 +209,6 @@ instance
     AssociateAttributeGroupResponse
   where
   rnf AssociateAttributeGroupResponse' {..} =
-    Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf attributeGroupArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationArn `Prelude.seq`
+      Prelude.rnf attributeGroupArn `Prelude.seq`
+        Prelude.rnf httpStatus

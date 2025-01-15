@@ -134,6 +134,6 @@ instance Prelude.Hashable ResourceGroup where
 
 instance Prelude.NFData ResourceGroup where
   rnf ResourceGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf state

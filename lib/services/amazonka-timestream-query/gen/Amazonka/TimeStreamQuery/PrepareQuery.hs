@@ -125,8 +125,8 @@ instance Prelude.Hashable PrepareQuery where
 
 instance Prelude.NFData PrepareQuery where
   rnf PrepareQuery' {..} =
-    Prelude.rnf validateOnly
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf validateOnly `Prelude.seq`
+      Prelude.rnf queryString
 
 instance Data.ToHeaders PrepareQuery where
   toHeaders =
@@ -218,7 +218,7 @@ prepareQueryResponse_parameters = Lens.lens (\PrepareQueryResponse' {parameters}
 
 instance Prelude.NFData PrepareQueryResponse where
   rnf PrepareQueryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf columns
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf queryString `Prelude.seq`
+        Prelude.rnf columns `Prelude.seq`
+          Prelude.rnf parameters

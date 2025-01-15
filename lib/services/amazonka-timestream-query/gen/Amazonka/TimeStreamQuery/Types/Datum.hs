@@ -121,8 +121,8 @@ instance Prelude.Hashable Datum where
 
 instance Prelude.NFData Datum where
   rnf Datum' {..} =
-    Prelude.rnf arrayValue
-      `Prelude.seq` Prelude.rnf nullValue
-      `Prelude.seq` Prelude.rnf rowValue
-      `Prelude.seq` Prelude.rnf scalarValue
-      `Prelude.seq` Prelude.rnf timeSeriesValue
+    Prelude.rnf arrayValue `Prelude.seq`
+      Prelude.rnf nullValue `Prelude.seq`
+        Prelude.rnf rowValue `Prelude.seq`
+          Prelude.rnf scalarValue `Prelude.seq`
+            Prelude.rnf timeSeriesValue

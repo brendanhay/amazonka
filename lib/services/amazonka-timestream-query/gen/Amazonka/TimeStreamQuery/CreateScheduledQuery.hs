@@ -310,16 +310,16 @@ instance Prelude.Hashable CreateScheduledQuery where
 
 instance Prelude.NFData CreateScheduledQuery where
   rnf CreateScheduledQuery' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf scheduleConfiguration
-      `Prelude.seq` Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf scheduledQueryExecutionRoleArn
-      `Prelude.seq` Prelude.rnf errorReportConfiguration
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf targetConfiguration `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf queryString `Prelude.seq`
+                Prelude.rnf scheduleConfiguration `Prelude.seq`
+                  Prelude.rnf notificationConfiguration `Prelude.seq`
+                    Prelude.rnf scheduledQueryExecutionRoleArn `Prelude.seq`
+                      Prelude.rnf errorReportConfiguration
 
 instance Data.ToHeaders CreateScheduledQuery where
   toHeaders =
@@ -415,5 +415,5 @@ createScheduledQueryResponse_arn = Lens.lens (\CreateScheduledQueryResponse' {ar
 
 instance Prelude.NFData CreateScheduledQueryResponse where
   rnf CreateScheduledQueryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn

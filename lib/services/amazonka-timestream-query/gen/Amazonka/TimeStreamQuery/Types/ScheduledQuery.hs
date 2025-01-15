@@ -167,12 +167,12 @@ instance Prelude.Hashable ScheduledQuery where
 
 instance Prelude.NFData ScheduledQuery where
   rnf ScheduledQuery' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf errorReportConfiguration
-      `Prelude.seq` Prelude.rnf lastRunStatus
-      `Prelude.seq` Prelude.rnf nextInvocationTime
-      `Prelude.seq` Prelude.rnf previousInvocationTime
-      `Prelude.seq` Prelude.rnf targetDestination
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf errorReportConfiguration `Prelude.seq`
+        Prelude.rnf lastRunStatus `Prelude.seq`
+          Prelude.rnf nextInvocationTime `Prelude.seq`
+            Prelude.rnf previousInvocationTime `Prelude.seq`
+              Prelude.rnf targetDestination `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf state

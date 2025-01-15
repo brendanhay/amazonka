@@ -100,8 +100,8 @@ instance Prelude.Hashable MultiMeasureMappings where
 
 instance Prelude.NFData MultiMeasureMappings where
   rnf MultiMeasureMappings' {..} =
-    Prelude.rnf targetMultiMeasureName
-      `Prelude.seq` Prelude.rnf multiMeasureAttributeMappings
+    Prelude.rnf targetMultiMeasureName `Prelude.seq`
+      Prelude.rnf multiMeasureAttributeMappings
 
 instance Data.ToJSON MultiMeasureMappings where
   toJSON MultiMeasureMappings' {..} =

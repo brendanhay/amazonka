@@ -114,12 +114,12 @@ instance Core.AWSPager ListScheduledQueries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listScheduledQueries_nextToken
-          Lens..~ rs
-          Lens.^? listScheduledQueriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listScheduledQueries_nextToken
+              Lens..~ rs
+              Lens.^? listScheduledQueriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListScheduledQueries where
   type
@@ -147,8 +147,8 @@ instance Prelude.Hashable ListScheduledQueries where
 
 instance Prelude.NFData ListScheduledQueries where
   rnf ListScheduledQueries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListScheduledQueries where
   toHeaders =
@@ -233,6 +233,6 @@ listScheduledQueriesResponse_scheduledQueries = Lens.lens (\ListScheduledQueries
 
 instance Prelude.NFData ListScheduledQueriesResponse where
   rnf ListScheduledQueriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf scheduledQueries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf scheduledQueries

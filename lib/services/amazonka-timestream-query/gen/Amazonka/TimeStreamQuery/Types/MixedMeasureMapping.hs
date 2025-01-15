@@ -133,11 +133,11 @@ instance Prelude.Hashable MixedMeasureMapping where
 
 instance Prelude.NFData MixedMeasureMapping where
   rnf MixedMeasureMapping' {..} =
-    Prelude.rnf measureName
-      `Prelude.seq` Prelude.rnf multiMeasureAttributeMappings
-      `Prelude.seq` Prelude.rnf sourceColumn
-      `Prelude.seq` Prelude.rnf targetMeasureName
-      `Prelude.seq` Prelude.rnf measureValueType
+    Prelude.rnf measureName `Prelude.seq`
+      Prelude.rnf multiMeasureAttributeMappings `Prelude.seq`
+        Prelude.rnf sourceColumn `Prelude.seq`
+          Prelude.rnf targetMeasureName `Prelude.seq`
+            Prelude.rnf measureValueType
 
 instance Data.ToJSON MixedMeasureMapping where
   toJSON MixedMeasureMapping' {..} =

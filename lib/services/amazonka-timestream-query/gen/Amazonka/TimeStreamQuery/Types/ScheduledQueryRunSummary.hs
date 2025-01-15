@@ -137,9 +137,9 @@ instance Prelude.Hashable ScheduledQueryRunSummary where
 
 instance Prelude.NFData ScheduledQueryRunSummary where
   rnf ScheduledQueryRunSummary' {..} =
-    Prelude.rnf errorReportLocation
-      `Prelude.seq` Prelude.rnf executionStats
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf invocationTime
-      `Prelude.seq` Prelude.rnf runStatus
-      `Prelude.seq` Prelude.rnf triggerTime
+    Prelude.rnf errorReportLocation `Prelude.seq`
+      Prelude.rnf executionStats `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf invocationTime `Prelude.seq`
+            Prelude.rnf runStatus `Prelude.seq`
+              Prelude.rnf triggerTime

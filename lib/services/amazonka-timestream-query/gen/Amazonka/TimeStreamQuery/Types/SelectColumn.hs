@@ -113,8 +113,8 @@ instance Prelude.Hashable SelectColumn where
 
 instance Prelude.NFData SelectColumn where
   rnf SelectColumn' {..} =
-    Prelude.rnf aliased
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf aliased `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tableName `Prelude.seq`
+            Prelude.rnf type'

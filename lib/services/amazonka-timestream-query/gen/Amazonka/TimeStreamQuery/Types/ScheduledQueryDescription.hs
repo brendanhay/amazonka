@@ -256,18 +256,18 @@ instance Prelude.Hashable ScheduledQueryDescription where
 
 instance Prelude.NFData ScheduledQueryDescription where
   rnf ScheduledQueryDescription' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf errorReportConfiguration
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lastRunSummary
-      `Prelude.seq` Prelude.rnf nextInvocationTime
-      `Prelude.seq` Prelude.rnf previousInvocationTime
-      `Prelude.seq` Prelude.rnf recentlyFailedRuns
-      `Prelude.seq` Prelude.rnf scheduledQueryExecutionRoleArn
-      `Prelude.seq` Prelude.rnf targetConfiguration
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf scheduleConfiguration
-      `Prelude.seq` Prelude.rnf notificationConfiguration
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf errorReportConfiguration `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf lastRunSummary `Prelude.seq`
+            Prelude.rnf nextInvocationTime `Prelude.seq`
+              Prelude.rnf previousInvocationTime `Prelude.seq`
+                Prelude.rnf recentlyFailedRuns `Prelude.seq`
+                  Prelude.rnf scheduledQueryExecutionRoleArn `Prelude.seq`
+                    Prelude.rnf targetConfiguration `Prelude.seq`
+                      Prelude.rnf arn `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf queryString `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf scheduleConfiguration `Prelude.seq`
+                                Prelude.rnf notificationConfiguration

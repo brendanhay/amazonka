@@ -341,12 +341,12 @@ instance Core.AWSPager Query where
     | Core.stop (rs Lens.^. queryResponse_rows) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& query_nextToken
-          Lens..~ rs
-          Lens.^? queryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& query_nextToken
+              Lens..~ rs
+              Lens.^? queryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest Query where
   type AWSResponse Query = QueryResponse
@@ -374,10 +374,10 @@ instance Prelude.Hashable Query where
 
 instance Prelude.NFData Query where
   rnf Query' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf maxRows
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf maxRows `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf queryString
 
 instance Data.ToHeaders Query where
   toHeaders =
@@ -493,9 +493,9 @@ queryResponse_columnInfo = Lens.lens (\QueryResponse' {columnInfo} -> columnInfo
 
 instance Prelude.NFData QueryResponse where
   rnf QueryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryStatus
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf columnInfo
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf queryStatus `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf queryId `Prelude.seq`
+            Prelude.rnf rows `Prelude.seq`
+              Prelude.rnf columnInfo

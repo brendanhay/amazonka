@@ -122,8 +122,8 @@ instance Prelude.Hashable ExecutionStats where
 
 instance Prelude.NFData ExecutionStats where
   rnf ExecutionStats' {..} =
-    Prelude.rnf bytesMetered
-      `Prelude.seq` Prelude.rnf dataWrites
-      `Prelude.seq` Prelude.rnf executionTimeInMillis
-      `Prelude.seq` Prelude.rnf queryResultRows
-      `Prelude.seq` Prelude.rnf recordsIngested
+    Prelude.rnf bytesMetered `Prelude.seq`
+      Prelude.rnf dataWrites `Prelude.seq`
+        Prelude.rnf executionTimeInMillis `Prelude.seq`
+          Prelude.rnf queryResultRows `Prelude.seq`
+            Prelude.rnf recordsIngested

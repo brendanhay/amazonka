@@ -105,9 +105,9 @@ instance
 
 instance Prelude.NFData MultiMeasureAttributeMapping where
   rnf MultiMeasureAttributeMapping' {..} =
-    Prelude.rnf targetMultiMeasureAttributeName
-      `Prelude.seq` Prelude.rnf sourceColumn
-      `Prelude.seq` Prelude.rnf measureValueType
+    Prelude.rnf targetMultiMeasureAttributeName `Prelude.seq`
+      Prelude.rnf sourceColumn `Prelude.seq`
+        Prelude.rnf measureValueType
 
 instance Data.ToJSON MultiMeasureAttributeMapping where
   toJSON MultiMeasureAttributeMapping' {..} =

@@ -165,13 +165,13 @@ instance Prelude.Hashable TimestreamConfiguration where
 
 instance Prelude.NFData TimestreamConfiguration where
   rnf TimestreamConfiguration' {..} =
-    Prelude.rnf measureNameColumn
-      `Prelude.seq` Prelude.rnf mixedMeasureMappings
-      `Prelude.seq` Prelude.rnf multiMeasureMappings
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf timeColumn
-      `Prelude.seq` Prelude.rnf dimensionMappings
+    Prelude.rnf measureNameColumn `Prelude.seq`
+      Prelude.rnf mixedMeasureMappings `Prelude.seq`
+        Prelude.rnf multiMeasureMappings `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf tableName `Prelude.seq`
+              Prelude.rnf timeColumn `Prelude.seq`
+                Prelude.rnf dimensionMappings
 
 instance Data.ToJSON TimestreamConfiguration where
   toJSON TimestreamConfiguration' {..} =

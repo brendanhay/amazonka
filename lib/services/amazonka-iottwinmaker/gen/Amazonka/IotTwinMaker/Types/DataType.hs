@@ -118,11 +118,11 @@ instance Prelude.Hashable DataType where
 
 instance Prelude.NFData DataType where
   rnf DataType' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf nestedType
-      `Prelude.seq` Prelude.rnf relationship
-      `Prelude.seq` Prelude.rnf unitOfMeasure
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf nestedType `Prelude.seq`
+        Prelude.rnf relationship `Prelude.seq`
+          Prelude.rnf unitOfMeasure `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON DataType where
   toJSON DataType' {..} =

@@ -84,9 +84,9 @@ instance Prelude.Hashable ListEntitiesFilter where
 
 instance Prelude.NFData ListEntitiesFilter where
   rnf ListEntitiesFilter' {..} =
-    Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf parentEntityId
+    Prelude.rnf componentTypeId `Prelude.seq`
+      Prelude.rnf externalId `Prelude.seq`
+        Prelude.rnf parentEntityId
 
 instance Data.ToJSON ListEntitiesFilter where
   toJSON ListEntitiesFilter' {..} =

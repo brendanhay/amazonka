@@ -145,10 +145,10 @@ instance Prelude.Hashable ListComponentTypes where
 
 instance Prelude.NFData ListComponentTypes where
   rnf ListComponentTypes' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf workspaceId
 
 instance Data.ToHeaders ListComponentTypes where
   toHeaders =
@@ -254,8 +254,8 @@ listComponentTypesResponse_componentTypeSummaries = Lens.lens (\ListComponentTyp
 
 instance Prelude.NFData ListComponentTypesResponse where
   rnf ListComponentTypesResponse' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf componentTypeSummaries
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf workspaceId `Prelude.seq`
+            Prelude.rnf componentTypeSummaries

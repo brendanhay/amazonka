@@ -110,6 +110,6 @@ instance
     ComponentPropertyGroupResponse
   where
   rnf ComponentPropertyGroupResponse' {..} =
-    Prelude.rnf groupType
-      `Prelude.seq` Prelude.rnf propertyNames
-      `Prelude.seq` Prelude.rnf isInherited
+    Prelude.rnf groupType `Prelude.seq`
+      Prelude.rnf propertyNames `Prelude.seq`
+        Prelude.rnf isInherited

@@ -83,5 +83,5 @@ instance Prelude.Hashable BundleInformation where
 
 instance Prelude.NFData BundleInformation where
   rnf BundleInformation' {..} =
-    Prelude.rnf pricingTier
-      `Prelude.seq` Prelude.rnf bundleNames
+    Prelude.rnf pricingTier `Prelude.seq`
+      Prelude.rnf bundleNames

@@ -156,11 +156,11 @@ instance Prelude.Hashable ComponentResponse where
 
 instance Prelude.NFData ComponentResponse where
   rnf ComponentResponse' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf definedIn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf propertyGroups
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf syncSource
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf componentTypeId `Prelude.seq`
+        Prelude.rnf definedIn `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf properties `Prelude.seq`
+              Prelude.rnf propertyGroups `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf syncSource

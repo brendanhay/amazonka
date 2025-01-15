@@ -83,9 +83,9 @@ instance Prelude.Hashable PropertyRequest where
 
 instance Prelude.NFData PropertyRequest where
   rnf PropertyRequest' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf updateType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf updateType `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON PropertyRequest where
   toJSON PropertyRequest' {..} =

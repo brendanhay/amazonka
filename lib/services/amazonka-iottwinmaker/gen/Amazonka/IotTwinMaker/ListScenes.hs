@@ -119,9 +119,9 @@ instance Prelude.Hashable ListScenes where
 
 instance Prelude.NFData ListScenes where
   rnf ListScenes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders ListScenes where
   toHeaders =
@@ -203,6 +203,6 @@ listScenesResponse_httpStatus = Lens.lens (\ListScenesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListScenesResponse where
   rnf ListScenesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sceneSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sceneSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

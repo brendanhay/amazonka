@@ -74,8 +74,8 @@ instance Prelude.Hashable ParentEntityUpdateRequest where
 
 instance Prelude.NFData ParentEntityUpdateRequest where
   rnf ParentEntityUpdateRequest' {..} =
-    Prelude.rnf parentEntityId
-      `Prelude.seq` Prelude.rnf updateType
+    Prelude.rnf parentEntityId `Prelude.seq`
+      Prelude.rnf updateType
 
 instance Data.ToJSON ParentEntityUpdateRequest where
   toJSON ParentEntityUpdateRequest' {..} =

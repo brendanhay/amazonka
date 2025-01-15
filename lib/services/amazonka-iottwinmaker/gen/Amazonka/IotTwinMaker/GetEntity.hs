@@ -130,8 +130,8 @@ instance Prelude.Hashable GetEntity where
 
 instance Prelude.NFData GetEntity where
   rnf GetEntity' {..} =
-    Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf workspaceId `Prelude.seq`
+      Prelude.rnf entityId
 
 instance Data.ToHeaders GetEntity where
   toHeaders =
@@ -333,16 +333,16 @@ getEntityResponse_updateDateTime = Lens.lens (\GetEntityResponse' {updateDateTim
 
 instance Prelude.NFData GetEntityResponse where
   rnf GetEntityResponse' {..} =
-    Prelude.rnf components
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf syncSource
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf entityName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf parentEntityId
-      `Prelude.seq` Prelude.rnf hasChildEntities
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf components `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf syncSource `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf entityId `Prelude.seq`
+              Prelude.rnf entityName `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf workspaceId `Prelude.seq`
+                      Prelude.rnf parentEntityId `Prelude.seq`
+                        Prelude.rnf hasChildEntities `Prelude.seq`
+                          Prelude.rnf creationDateTime `Prelude.seq`
+                            Prelude.rnf updateDateTime

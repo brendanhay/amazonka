@@ -162,12 +162,12 @@ instance Prelude.Hashable CreateScene where
 
 instance Prelude.NFData CreateScene where
   rnf CreateScene' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf sceneId
-      `Prelude.seq` Prelude.rnf contentLocation
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf workspaceId `Prelude.seq`
+            Prelude.rnf sceneId `Prelude.seq`
+              Prelude.rnf contentLocation
 
 instance Data.ToHeaders CreateScene where
   toHeaders =
@@ -258,6 +258,6 @@ createSceneResponse_creationDateTime = Lens.lens (\CreateSceneResponse' {creatio
 
 instance Prelude.NFData CreateSceneResponse where
   rnf CreateSceneResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationDateTime

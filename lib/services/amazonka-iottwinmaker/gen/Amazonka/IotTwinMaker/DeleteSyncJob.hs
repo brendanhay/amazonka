@@ -116,8 +116,8 @@ instance Prelude.Hashable DeleteSyncJob where
 
 instance Prelude.NFData DeleteSyncJob where
   rnf DeleteSyncJob' {..} =
-    Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf syncSource
+    Prelude.rnf workspaceId `Prelude.seq`
+      Prelude.rnf syncSource
 
 instance Data.ToHeaders DeleteSyncJob where
   toHeaders =
@@ -184,5 +184,5 @@ deleteSyncJobResponse_state = Lens.lens (\DeleteSyncJobResponse' {state} -> stat
 
 instance Prelude.NFData DeleteSyncJobResponse where
   rnf DeleteSyncJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf state

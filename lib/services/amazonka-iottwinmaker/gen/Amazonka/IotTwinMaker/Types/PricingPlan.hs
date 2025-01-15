@@ -140,9 +140,9 @@ instance Prelude.Hashable PricingPlan where
 
 instance Prelude.NFData PricingPlan where
   rnf PricingPlan' {..} =
-    Prelude.rnf billableEntityCount
-      `Prelude.seq` Prelude.rnf bundleInformation
-      `Prelude.seq` Prelude.rnf effectiveDateTime
-      `Prelude.seq` Prelude.rnf pricingMode
-      `Prelude.seq` Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf updateReason
+    Prelude.rnf billableEntityCount `Prelude.seq`
+      Prelude.rnf bundleInformation `Prelude.seq`
+        Prelude.rnf effectiveDateTime `Prelude.seq`
+          Prelude.rnf pricingMode `Prelude.seq`
+            Prelude.rnf updateDateTime `Prelude.seq`
+              Prelude.rnf updateReason

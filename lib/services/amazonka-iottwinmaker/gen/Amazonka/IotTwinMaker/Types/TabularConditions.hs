@@ -84,8 +84,8 @@ instance Prelude.Hashable TabularConditions where
 
 instance Prelude.NFData TabularConditions where
   rnf TabularConditions' {..} =
-    Prelude.rnf orderBy
-      `Prelude.seq` Prelude.rnf propertyFilters
+    Prelude.rnf orderBy `Prelude.seq`
+      Prelude.rnf propertyFilters
 
 instance Data.ToJSON TabularConditions where
   toJSON TabularConditions' {..} =

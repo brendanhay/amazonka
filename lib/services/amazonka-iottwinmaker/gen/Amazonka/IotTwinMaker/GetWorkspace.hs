@@ -242,11 +242,11 @@ getWorkspaceResponse_updateDateTime = Lens.lens (\GetWorkspaceResponse' {updateD
 
 instance Prelude.NFData GetWorkspaceResponse where
   rnf GetWorkspaceResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf workspaceId `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf s3Location `Prelude.seq`
+              Prelude.rnf role' `Prelude.seq`
+                Prelude.rnf creationDateTime `Prelude.seq`
+                  Prelude.rnf updateDateTime

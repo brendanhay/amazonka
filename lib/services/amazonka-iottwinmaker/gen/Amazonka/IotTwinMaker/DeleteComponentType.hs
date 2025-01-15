@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteComponentType where
 
 instance Prelude.NFData DeleteComponentType where
   rnf DeleteComponentType' {..} =
-    Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf componentTypeId
+    Prelude.rnf workspaceId `Prelude.seq`
+      Prelude.rnf componentTypeId
 
 instance Data.ToHeaders DeleteComponentType where
   toHeaders =
@@ -181,5 +181,5 @@ deleteComponentTypeResponse_state = Lens.lens (\DeleteComponentTypeResponse' {st
 
 instance Prelude.NFData DeleteComponentTypeResponse where
   rnf DeleteComponentTypeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf state

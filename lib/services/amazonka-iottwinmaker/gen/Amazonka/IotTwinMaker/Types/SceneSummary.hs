@@ -143,9 +143,9 @@ instance Prelude.Hashable SceneSummary where
 
 instance Prelude.NFData SceneSummary where
   rnf SceneSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sceneId
-      `Prelude.seq` Prelude.rnf contentLocation
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf sceneId `Prelude.seq`
+        Prelude.rnf contentLocation `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf creationDateTime `Prelude.seq`
+              Prelude.rnf updateDateTime

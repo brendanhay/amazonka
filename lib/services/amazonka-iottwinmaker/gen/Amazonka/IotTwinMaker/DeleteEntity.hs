@@ -122,9 +122,9 @@ instance Prelude.Hashable DeleteEntity where
 
 instance Prelude.NFData DeleteEntity where
   rnf DeleteEntity' {..} =
-    Prelude.rnf isRecursive
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf isRecursive `Prelude.seq`
+      Prelude.rnf workspaceId `Prelude.seq`
+        Prelude.rnf entityId
 
 instance Data.ToHeaders DeleteEntity where
   toHeaders =
@@ -192,5 +192,5 @@ deleteEntityResponse_state = Lens.lens (\DeleteEntityResponse' {state} -> state)
 
 instance Prelude.NFData DeleteEntityResponse where
   rnf DeleteEntityResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf state

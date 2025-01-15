@@ -92,10 +92,10 @@ instance Prelude.Hashable SyncResourceFilter where
 
 instance Prelude.NFData SyncResourceFilter where
   rnf SyncResourceFilter' {..} =
-    Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf externalId `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf state
 
 instance Data.ToJSON SyncResourceFilter where
   toJSON SyncResourceFilter' {..} =

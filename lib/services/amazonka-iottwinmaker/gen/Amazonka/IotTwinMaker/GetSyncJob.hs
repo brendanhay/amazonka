@@ -124,8 +124,8 @@ instance Prelude.Hashable GetSyncJob where
 
 instance Prelude.NFData GetSyncJob where
   rnf GetSyncJob' {..} =
-    Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf syncSource
+    Prelude.rnf workspaceId `Prelude.seq`
+      Prelude.rnf syncSource
 
 instance Data.ToHeaders GetSyncJob where
   toHeaders =
@@ -270,11 +270,11 @@ getSyncJobResponse_updateDateTime = Lens.lens (\GetSyncJobResponse' {updateDateT
 
 instance Prelude.NFData GetSyncJobResponse where
   rnf GetSyncJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf syncSource
-      `Prelude.seq` Prelude.rnf syncRole
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf workspaceId `Prelude.seq`
+          Prelude.rnf syncSource `Prelude.seq`
+            Prelude.rnf syncRole `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf creationDateTime `Prelude.seq`
+                  Prelude.rnf updateDateTime

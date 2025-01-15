@@ -144,11 +144,11 @@ instance Prelude.Hashable UpdateScene where
 
 instance Prelude.NFData UpdateScene where
   rnf UpdateScene' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf contentLocation
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf sceneId
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf contentLocation `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf workspaceId `Prelude.seq`
+            Prelude.rnf sceneId
 
 instance Data.ToHeaders UpdateScene where
   toHeaders =
@@ -226,5 +226,5 @@ updateSceneResponse_updateDateTime = Lens.lens (\UpdateSceneResponse' {updateDat
 
 instance Prelude.NFData UpdateSceneResponse where
   rnf UpdateSceneResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf updateDateTime

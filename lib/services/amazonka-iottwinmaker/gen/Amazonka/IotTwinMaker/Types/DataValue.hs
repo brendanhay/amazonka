@@ -158,15 +158,15 @@ instance Prelude.Hashable DataValue where
 
 instance Prelude.NFData DataValue where
   rnf DataValue' {..} =
-    Prelude.rnf booleanValue
-      `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf integerValue
-      `Prelude.seq` Prelude.rnf listValue
-      `Prelude.seq` Prelude.rnf longValue
-      `Prelude.seq` Prelude.rnf mapValue
-      `Prelude.seq` Prelude.rnf relationshipValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf booleanValue `Prelude.seq`
+      Prelude.rnf doubleValue `Prelude.seq`
+        Prelude.rnf expression `Prelude.seq`
+          Prelude.rnf integerValue `Prelude.seq`
+            Prelude.rnf listValue `Prelude.seq`
+              Prelude.rnf longValue `Prelude.seq`
+                Prelude.rnf mapValue `Prelude.seq`
+                  Prelude.rnf relationshipValue `Prelude.seq`
+                    Prelude.rnf stringValue
 
 instance Data.ToJSON DataValue where
   toJSON DataValue' {..} =

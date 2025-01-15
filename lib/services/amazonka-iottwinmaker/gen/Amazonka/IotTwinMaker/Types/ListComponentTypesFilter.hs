@@ -86,9 +86,9 @@ instance Prelude.Hashable ListComponentTypesFilter where
 
 instance Prelude.NFData ListComponentTypesFilter where
   rnf ListComponentTypesFilter' {..} =
-    Prelude.rnf extendsFrom
-      `Prelude.seq` Prelude.rnf isAbstract
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf extendsFrom `Prelude.seq`
+      Prelude.rnf isAbstract `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToJSON ListComponentTypesFilter where
   toJSON ListComponentTypesFilter' {..} =

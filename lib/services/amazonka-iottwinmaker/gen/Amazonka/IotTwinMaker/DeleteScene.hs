@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteScene where
 
 instance Prelude.NFData DeleteScene where
   rnf DeleteScene' {..} =
-    Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf sceneId
+    Prelude.rnf workspaceId `Prelude.seq`
+      Prelude.rnf sceneId
 
 instance Data.ToHeaders DeleteScene where
   toHeaders =

@@ -115,8 +115,8 @@ instance Prelude.Hashable SyncResourceSummary where
 
 instance Prelude.NFData SyncResourceSummary where
   rnf SyncResourceSummary' {..} =
-    Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf externalId `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf updateDateTime

@@ -74,8 +74,8 @@ instance Prelude.Hashable OrderBy where
 
 instance Prelude.NFData OrderBy where
   rnf OrderBy' {..} =
-    Prelude.rnf order
-      `Prelude.seq` Prelude.rnf propertyName
+    Prelude.rnf order `Prelude.seq`
+      Prelude.rnf propertyName
 
 instance Data.ToJSON OrderBy where
   toJSON OrderBy' {..} =

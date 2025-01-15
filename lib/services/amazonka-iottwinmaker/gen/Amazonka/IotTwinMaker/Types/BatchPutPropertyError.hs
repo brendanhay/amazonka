@@ -104,6 +104,6 @@ instance Prelude.Hashable BatchPutPropertyError where
 
 instance Prelude.NFData BatchPutPropertyError where
   rnf BatchPutPropertyError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf entry
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf entry

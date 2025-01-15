@@ -85,5 +85,5 @@ instance Prelude.Hashable PropertyLatestValue where
 
 instance Prelude.NFData PropertyLatestValue where
   rnf PropertyLatestValue' {..} =
-    Prelude.rnf propertyValue
-      `Prelude.seq` Prelude.rnf propertyReference
+    Prelude.rnf propertyValue `Prelude.seq`
+      Prelude.rnf propertyReference

@@ -170,9 +170,9 @@ instance Prelude.Hashable PropertyValue where
 
 instance Prelude.NFData PropertyValue where
   rnf PropertyValue' {..} =
-    Prelude.rnf time
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf time `Prelude.seq`
+      Prelude.rnf timestamp `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON PropertyValue where
   toJSON PropertyValue' {..} =

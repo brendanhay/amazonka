@@ -126,8 +126,8 @@ instance Prelude.Hashable WorkspaceSummary where
 
 instance Prelude.NFData WorkspaceSummary where
   rnf WorkspaceSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf workspaceId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf creationDateTime `Prelude.seq`
+            Prelude.rnf updateDateTime

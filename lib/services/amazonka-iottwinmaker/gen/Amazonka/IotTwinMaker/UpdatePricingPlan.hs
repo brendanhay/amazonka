@@ -110,8 +110,8 @@ instance Prelude.Hashable UpdatePricingPlan where
 
 instance Prelude.NFData UpdatePricingPlan where
   rnf UpdatePricingPlan' {..} =
-    Prelude.rnf bundleNames
-      `Prelude.seq` Prelude.rnf pricingMode
+    Prelude.rnf bundleNames `Prelude.seq`
+      Prelude.rnf pricingMode
 
 instance Data.ToHeaders UpdatePricingPlan where
   toHeaders =
@@ -193,6 +193,6 @@ updatePricingPlanResponse_currentPricingPlan = Lens.lens (\UpdatePricingPlanResp
 
 instance Prelude.NFData UpdatePricingPlanResponse where
   rnf UpdatePricingPlanResponse' {..} =
-    Prelude.rnf pendingPricingPlan
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf currentPricingPlan
+    Prelude.rnf pendingPricingPlan `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf currentPricingPlan

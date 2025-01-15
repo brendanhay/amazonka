@@ -143,8 +143,8 @@ instance Prelude.Hashable GetComponentType where
 
 instance Prelude.NFData GetComponentType where
   rnf GetComponentType' {..} =
-    Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf componentTypeId
+    Prelude.rnf workspaceId `Prelude.seq`
+      Prelude.rnf componentTypeId
 
 instance Data.ToHeaders GetComponentType where
   toHeaders =
@@ -384,20 +384,20 @@ getComponentTypeResponse_arn = Lens.lens (\GetComponentTypeResponse' {arn} -> ar
 
 instance Prelude.NFData GetComponentTypeResponse where
   rnf GetComponentTypeResponse' {..} =
-    Prelude.rnf componentTypeName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf extendsFrom
-      `Prelude.seq` Prelude.rnf functions
-      `Prelude.seq` Prelude.rnf isAbstract
-      `Prelude.seq` Prelude.rnf isSchemaInitialized
-      `Prelude.seq` Prelude.rnf isSingleton
-      `Prelude.seq` Prelude.rnf propertyDefinitions
-      `Prelude.seq` Prelude.rnf propertyGroups
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf syncSource
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf componentTypeName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf extendsFrom `Prelude.seq`
+          Prelude.rnf functions `Prelude.seq`
+            Prelude.rnf isAbstract `Prelude.seq`
+              Prelude.rnf isSchemaInitialized `Prelude.seq`
+                Prelude.rnf isSingleton `Prelude.seq`
+                  Prelude.rnf propertyDefinitions `Prelude.seq`
+                    Prelude.rnf propertyGroups `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf syncSource `Prelude.seq`
+                          Prelude.rnf httpStatus `Prelude.seq`
+                            Prelude.rnf workspaceId `Prelude.seq`
+                              Prelude.rnf componentTypeId `Prelude.seq`
+                                Prelude.rnf creationDateTime `Prelude.seq`
+                                  Prelude.rnf updateDateTime `Prelude.seq`
+                                    Prelude.rnf arn

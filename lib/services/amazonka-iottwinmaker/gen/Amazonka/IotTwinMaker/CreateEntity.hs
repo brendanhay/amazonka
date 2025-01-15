@@ -172,13 +172,13 @@ instance Prelude.Hashable CreateEntity where
 
 instance Prelude.NFData CreateEntity where
   rnf CreateEntity' {..} =
-    Prelude.rnf components
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf parentEntityId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf entityName
+    Prelude.rnf components `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf entityId `Prelude.seq`
+          Prelude.rnf parentEntityId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf workspaceId `Prelude.seq`
+                Prelude.rnf entityName
 
 instance Data.ToHeaders CreateEntity where
   toHeaders =
@@ -294,8 +294,8 @@ createEntityResponse_state = Lens.lens (\CreateEntityResponse' {state} -> state)
 
 instance Prelude.NFData CreateEntityResponse where
   rnf CreateEntityResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf creationDateTime `Prelude.seq`
+            Prelude.rnf state

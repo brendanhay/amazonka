@@ -10,6 +10,9 @@ newtype NS = NS [Text]
 mkNS :: Text -> NS
 mkNS = NS . Text.splitOn "."
 
+unNS :: NS -> Text
+unNS (NS xs) = Text.intercalate "." xs
+
 nsToPath :: NS -> FilePath
 nsToPath (NS xs) = Text.unpack (Text.intercalate "/" xs) <.> "hs"
 
@@ -34,4 +37,4 @@ instance FromJSON NS where
   parseJSON = Aeson.withText "NS" (pure . mkNS)
 
 instance ToJSON NS where
-  toJSON (NS xs) = Aeson.toJSON (Text.intercalate "." xs)
+  toJSON = Aeson.toJSON . unNS

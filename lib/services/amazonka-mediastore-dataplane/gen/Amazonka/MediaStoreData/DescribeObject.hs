@@ -208,9 +208,9 @@ describeObjectResponse_httpStatus = Lens.lens (\DescribeObjectResponse' {httpSta
 
 instance Prelude.NFData DescribeObjectResponse where
   rnf DescribeObjectResponse' {..} =
-    Prelude.rnf cacheControl
-      `Prelude.seq` Prelude.rnf contentLength
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheControl `Prelude.seq`
+      Prelude.rnf contentLength `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf eTag `Prelude.seq`
+            Prelude.rnf lastModified `Prelude.seq`
+              Prelude.rnf httpStatus

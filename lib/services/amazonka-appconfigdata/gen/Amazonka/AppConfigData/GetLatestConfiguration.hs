@@ -240,8 +240,8 @@ instance
     GetLatestConfigurationResponse
   where
   rnf GetLatestConfigurationResponse' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf nextPollConfigurationToken
-      `Prelude.seq` Prelude.rnf nextPollIntervalInSeconds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf nextPollConfigurationToken `Prelude.seq`
+          Prelude.rnf nextPollIntervalInSeconds `Prelude.seq`
+            Prelude.rnf httpStatus

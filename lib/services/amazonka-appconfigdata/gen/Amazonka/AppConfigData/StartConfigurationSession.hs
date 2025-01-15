@@ -150,10 +150,10 @@ instance Prelude.Hashable StartConfigurationSession where
 
 instance Prelude.NFData StartConfigurationSession where
   rnf StartConfigurationSession' {..} =
-    Prelude.rnf requiredMinimumPollIntervalInSeconds
-      `Prelude.seq` Prelude.rnf applicationIdentifier
-      `Prelude.seq` Prelude.rnf environmentIdentifier
-      `Prelude.seq` Prelude.rnf configurationProfileIdentifier
+    Prelude.rnf requiredMinimumPollIntervalInSeconds `Prelude.seq`
+      Prelude.rnf applicationIdentifier `Prelude.seq`
+        Prelude.rnf environmentIdentifier `Prelude.seq`
+          Prelude.rnf configurationProfileIdentifier
 
 instance Data.ToHeaders StartConfigurationSession where
   toHeaders =
@@ -258,5 +258,5 @@ instance
     StartConfigurationSessionResponse
   where
   rnf StartConfigurationSessionResponse' {..} =
-    Prelude.rnf initialConfigurationToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf initialConfigurationToken `Prelude.seq`
+      Prelude.rnf httpStatus

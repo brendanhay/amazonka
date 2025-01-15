@@ -125,11 +125,11 @@ instance Prelude.Hashable InputLossBehavior where
 
 instance Prelude.NFData InputLossBehavior where
   rnf InputLossBehavior' {..} =
-    Prelude.rnf blackFrameMsec
-      `Prelude.seq` Prelude.rnf inputLossImageColor
-      `Prelude.seq` Prelude.rnf inputLossImageSlate
-      `Prelude.seq` Prelude.rnf inputLossImageType
-      `Prelude.seq` Prelude.rnf repeatFrameMsec
+    Prelude.rnf blackFrameMsec `Prelude.seq`
+      Prelude.rnf inputLossImageColor `Prelude.seq`
+        Prelude.rnf inputLossImageSlate `Prelude.seq`
+          Prelude.rnf inputLossImageType `Prelude.seq`
+            Prelude.rnf repeatFrameMsec
 
 instance Data.ToJSON InputLossBehavior where
   toJSON InputLossBehavior' {..} =

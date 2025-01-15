@@ -102,9 +102,9 @@ instance Prelude.Hashable InputLocation where
 
 instance Prelude.NFData InputLocation where
   rnf InputLocation' {..} =
-    Prelude.rnf passwordParam
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf passwordParam `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf uri
 
 instance Data.ToJSON InputLocation where
   toJSON InputLocation' {..} =

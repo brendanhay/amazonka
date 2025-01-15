@@ -102,12 +102,12 @@ instance Core.AWSPager ListInputs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInputs_nextToken
-          Lens..~ rs
-          Lens.^? listInputsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInputs_nextToken
+              Lens..~ rs
+              Lens.^? listInputsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInputs where
   type AWSResponse ListInputs = ListInputsResponse
@@ -130,8 +130,8 @@ instance Prelude.Hashable ListInputs where
 
 instance Prelude.NFData ListInputs where
   rnf ListInputs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInputs where
   toHeaders =
@@ -203,6 +203,6 @@ listInputsResponse_httpStatus = Lens.lens (\ListInputsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListInputsResponse where
   rnf ListInputsResponse' {..} =
-    Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inputs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

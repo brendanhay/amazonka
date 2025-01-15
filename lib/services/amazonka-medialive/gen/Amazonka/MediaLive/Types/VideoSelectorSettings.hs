@@ -81,8 +81,8 @@ instance Prelude.Hashable VideoSelectorSettings where
 
 instance Prelude.NFData VideoSelectorSettings where
   rnf VideoSelectorSettings' {..} =
-    Prelude.rnf videoSelectorPid
-      `Prelude.seq` Prelude.rnf videoSelectorProgramId
+    Prelude.rnf videoSelectorPid `Prelude.seq`
+      Prelude.rnf videoSelectorProgramId
 
 instance Data.ToJSON VideoSelectorSettings where
   toJSON VideoSelectorSettings' {..} =

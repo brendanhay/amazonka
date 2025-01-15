@@ -352,26 +352,26 @@ instance Prelude.Hashable Eac3Settings where
 
 instance Prelude.NFData Eac3Settings where
   rnf Eac3Settings' {..} =
-    Prelude.rnf attenuationControl
-      `Prelude.seq` Prelude.rnf bitrate
-      `Prelude.seq` Prelude.rnf bitstreamMode
-      `Prelude.seq` Prelude.rnf codingMode
-      `Prelude.seq` Prelude.rnf dcFilter
-      `Prelude.seq` Prelude.rnf dialnorm
-      `Prelude.seq` Prelude.rnf drcLine
-      `Prelude.seq` Prelude.rnf drcRf
-      `Prelude.seq` Prelude.rnf lfeControl
-      `Prelude.seq` Prelude.rnf lfeFilter
-      `Prelude.seq` Prelude.rnf loRoCenterMixLevel
-      `Prelude.seq` Prelude.rnf loRoSurroundMixLevel
-      `Prelude.seq` Prelude.rnf ltRtCenterMixLevel
-      `Prelude.seq` Prelude.rnf ltRtSurroundMixLevel
-      `Prelude.seq` Prelude.rnf metadataControl
-      `Prelude.seq` Prelude.rnf passthroughControl
-      `Prelude.seq` Prelude.rnf phaseControl
-      `Prelude.seq` Prelude.rnf stereoDownmix
-      `Prelude.seq` Prelude.rnf surroundExMode
-      `Prelude.seq` Prelude.rnf surroundMode
+    Prelude.rnf attenuationControl `Prelude.seq`
+      Prelude.rnf bitrate `Prelude.seq`
+        Prelude.rnf bitstreamMode `Prelude.seq`
+          Prelude.rnf codingMode `Prelude.seq`
+            Prelude.rnf dcFilter `Prelude.seq`
+              Prelude.rnf dialnorm `Prelude.seq`
+                Prelude.rnf drcLine `Prelude.seq`
+                  Prelude.rnf drcRf `Prelude.seq`
+                    Prelude.rnf lfeControl `Prelude.seq`
+                      Prelude.rnf lfeFilter `Prelude.seq`
+                        Prelude.rnf loRoCenterMixLevel `Prelude.seq`
+                          Prelude.rnf loRoSurroundMixLevel `Prelude.seq`
+                            Prelude.rnf ltRtCenterMixLevel `Prelude.seq`
+                              Prelude.rnf ltRtSurroundMixLevel `Prelude.seq`
+                                Prelude.rnf metadataControl `Prelude.seq`
+                                  Prelude.rnf passthroughControl `Prelude.seq`
+                                    Prelude.rnf phaseControl `Prelude.seq`
+                                      Prelude.rnf stereoDownmix `Prelude.seq`
+                                        Prelude.rnf surroundExMode `Prelude.seq`
+                                          Prelude.rnf surroundMode
 
 instance Data.ToJSON Eac3Settings where
   toJSON Eac3Settings' {..} =

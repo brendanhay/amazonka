@@ -105,8 +105,8 @@ instance Prelude.Hashable AudioLanguageSelection where
 
 instance Prelude.NFData AudioLanguageSelection where
   rnf AudioLanguageSelection' {..} =
-    Prelude.rnf languageSelectionPolicy
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf languageSelectionPolicy `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToJSON AudioLanguageSelection where
   toJSON AudioLanguageSelection' {..} =

@@ -90,8 +90,8 @@ instance Prelude.Hashable AudioChannelMapping where
 
 instance Prelude.NFData AudioChannelMapping where
   rnf AudioChannelMapping' {..} =
-    Prelude.rnf outputChannel
-      `Prelude.seq` Prelude.rnf inputChannelLevels
+    Prelude.rnf outputChannel `Prelude.seq`
+      Prelude.rnf inputChannelLevels
 
 instance Data.ToJSON AudioChannelMapping where
   toJSON AudioChannelMapping' {..} =

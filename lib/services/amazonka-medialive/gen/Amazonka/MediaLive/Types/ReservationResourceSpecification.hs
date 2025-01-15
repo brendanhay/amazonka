@@ -166,11 +166,11 @@ instance
     ReservationResourceSpecification
   where
   rnf ReservationResourceSpecification' {..} =
-    Prelude.rnf channelClass
-      `Prelude.seq` Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf maximumBitrate
-      `Prelude.seq` Prelude.rnf maximumFramerate
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf specialFeature
-      `Prelude.seq` Prelude.rnf videoQuality
+    Prelude.rnf channelClass `Prelude.seq`
+      Prelude.rnf codec `Prelude.seq`
+        Prelude.rnf maximumBitrate `Prelude.seq`
+          Prelude.rnf maximumFramerate `Prelude.seq`
+            Prelude.rnf resolution `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf specialFeature `Prelude.seq`
+                  Prelude.rnf videoQuality

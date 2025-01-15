@@ -88,8 +88,8 @@ instance Prelude.Hashable MultiplexVideoSettings where
 
 instance Prelude.NFData MultiplexVideoSettings where
   rnf MultiplexVideoSettings' {..} =
-    Prelude.rnf constantBitrate
-      `Prelude.seq` Prelude.rnf statmuxSettings
+    Prelude.rnf constantBitrate `Prelude.seq`
+      Prelude.rnf statmuxSettings
 
 instance Data.ToJSON MultiplexVideoSettings where
   toJSON MultiplexVideoSettings' {..} =

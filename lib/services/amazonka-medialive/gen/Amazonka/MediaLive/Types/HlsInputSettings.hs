@@ -147,11 +147,11 @@ instance Prelude.Hashable HlsInputSettings where
 
 instance Prelude.NFData HlsInputSettings where
   rnf HlsInputSettings' {..} =
-    Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf bufferSegments
-      `Prelude.seq` Prelude.rnf retries
-      `Prelude.seq` Prelude.rnf retryInterval
-      `Prelude.seq` Prelude.rnf scte35Source
+    Prelude.rnf bandwidth `Prelude.seq`
+      Prelude.rnf bufferSegments `Prelude.seq`
+        Prelude.rnf retries `Prelude.seq`
+          Prelude.rnf retryInterval `Prelude.seq`
+            Prelude.rnf scte35Source
 
 instance Data.ToJSON HlsInputSettings where
   toJSON HlsInputSettings' {..} =

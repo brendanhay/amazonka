@@ -149,12 +149,12 @@ instance Prelude.Hashable CaptionDescription where
 
 instance Prelude.NFData CaptionDescription where
   rnf CaptionDescription' {..} =
-    Prelude.rnf accessibility
-      `Prelude.seq` Prelude.rnf destinationSettings
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf languageDescription
-      `Prelude.seq` Prelude.rnf captionSelectorName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accessibility `Prelude.seq`
+      Prelude.rnf destinationSettings `Prelude.seq`
+        Prelude.rnf languageCode `Prelude.seq`
+          Prelude.rnf languageDescription `Prelude.seq`
+            Prelude.rnf captionSelectorName `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToJSON CaptionDescription where
   toJSON CaptionDescription' {..} =

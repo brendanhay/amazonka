@@ -116,9 +116,9 @@ instance Prelude.Hashable FecOutputSettings where
 
 instance Prelude.NFData FecOutputSettings where
   rnf FecOutputSettings' {..} =
-    Prelude.rnf columnDepth
-      `Prelude.seq` Prelude.rnf includeFec
-      `Prelude.seq` Prelude.rnf rowLength
+    Prelude.rnf columnDepth `Prelude.seq`
+      Prelude.rnf includeFec `Prelude.seq`
+        Prelude.rnf rowLength
 
 instance Data.ToJSON FecOutputSettings where
   toJSON FecOutputSettings' {..} =

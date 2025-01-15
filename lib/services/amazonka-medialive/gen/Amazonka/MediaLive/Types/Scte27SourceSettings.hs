@@ -106,8 +106,8 @@ instance Prelude.Hashable Scte27SourceSettings where
 
 instance Prelude.NFData Scte27SourceSettings where
   rnf Scte27SourceSettings' {..} =
-    Prelude.rnf ocrLanguage
-      `Prelude.seq` Prelude.rnf pid
+    Prelude.rnf ocrLanguage `Prelude.seq`
+      Prelude.rnf pid
 
 instance Data.ToJSON Scte27SourceSettings where
   toJSON Scte27SourceSettings' {..} =

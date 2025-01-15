@@ -108,8 +108,8 @@ instance Prelude.Hashable BatchStop' where
 
 instance Prelude.NFData BatchStop' where
   rnf BatchStop'' {..} =
-    Prelude.rnf channelIds
-      `Prelude.seq` Prelude.rnf multiplexIds
+    Prelude.rnf channelIds `Prelude.seq`
+      Prelude.rnf multiplexIds
 
 instance Data.ToHeaders BatchStop' where
   toHeaders =
@@ -188,6 +188,6 @@ batchStopResponse_httpStatus = Lens.lens (\BatchStopResponse' {httpStatus} -> ht
 
 instance Prelude.NFData BatchStopResponse where
   rnf BatchStopResponse' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf successful `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -104,9 +104,9 @@ instance Prelude.Hashable FailoverConditionSettings where
 
 instance Prelude.NFData FailoverConditionSettings where
   rnf FailoverConditionSettings' {..} =
-    Prelude.rnf audioSilenceSettings
-      `Prelude.seq` Prelude.rnf inputLossSettings
-      `Prelude.seq` Prelude.rnf videoBlackSettings
+    Prelude.rnf audioSilenceSettings `Prelude.seq`
+      Prelude.rnf inputLossSettings `Prelude.seq`
+        Prelude.rnf videoBlackSettings
 
 instance Data.ToJSON FailoverConditionSettings where
   toJSON FailoverConditionSettings' {..} =

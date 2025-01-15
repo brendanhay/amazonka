@@ -399,23 +399,23 @@ instance Prelude.Hashable Mpeg2Settings where
 
 instance Prelude.NFData Mpeg2Settings where
   rnf Mpeg2Settings' {..} =
-    Prelude.rnf adaptiveQuantization
-      `Prelude.seq` Prelude.rnf afdSignaling
-      `Prelude.seq` Prelude.rnf colorMetadata
-      `Prelude.seq` Prelude.rnf colorSpace
-      `Prelude.seq` Prelude.rnf displayAspectRatio
-      `Prelude.seq` Prelude.rnf filterSettings
-      `Prelude.seq` Prelude.rnf fixedAfd
-      `Prelude.seq` Prelude.rnf gopClosedCadence
-      `Prelude.seq` Prelude.rnf gopNumBFrames
-      `Prelude.seq` Prelude.rnf gopSize
-      `Prelude.seq` Prelude.rnf gopSizeUnits
-      `Prelude.seq` Prelude.rnf scanType
-      `Prelude.seq` Prelude.rnf subgopLength
-      `Prelude.seq` Prelude.rnf timecodeBurninSettings
-      `Prelude.seq` Prelude.rnf timecodeInsertion
-      `Prelude.seq` Prelude.rnf framerateNumerator
-      `Prelude.seq` Prelude.rnf framerateDenominator
+    Prelude.rnf adaptiveQuantization `Prelude.seq`
+      Prelude.rnf afdSignaling `Prelude.seq`
+        Prelude.rnf colorMetadata `Prelude.seq`
+          Prelude.rnf colorSpace `Prelude.seq`
+            Prelude.rnf displayAspectRatio `Prelude.seq`
+              Prelude.rnf filterSettings `Prelude.seq`
+                Prelude.rnf fixedAfd `Prelude.seq`
+                  Prelude.rnf gopClosedCadence `Prelude.seq`
+                    Prelude.rnf gopNumBFrames `Prelude.seq`
+                      Prelude.rnf gopSize `Prelude.seq`
+                        Prelude.rnf gopSizeUnits `Prelude.seq`
+                          Prelude.rnf scanType `Prelude.seq`
+                            Prelude.rnf subgopLength `Prelude.seq`
+                              Prelude.rnf timecodeBurninSettings `Prelude.seq`
+                                Prelude.rnf timecodeInsertion `Prelude.seq`
+                                  Prelude.rnf framerateNumerator `Prelude.seq`
+                                    Prelude.rnf framerateDenominator
 
 instance Data.ToJSON Mpeg2Settings where
   toJSON Mpeg2Settings' {..} =

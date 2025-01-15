@@ -119,10 +119,10 @@ instance Prelude.Hashable HlsOutputSettings where
 
 instance Prelude.NFData HlsOutputSettings where
   rnf HlsOutputSettings' {..} =
-    Prelude.rnf h265PackagingType
-      `Prelude.seq` Prelude.rnf nameModifier
-      `Prelude.seq` Prelude.rnf segmentModifier
-      `Prelude.seq` Prelude.rnf hlsSettings
+    Prelude.rnf h265PackagingType `Prelude.seq`
+      Prelude.rnf nameModifier `Prelude.seq`
+        Prelude.rnf segmentModifier `Prelude.seq`
+          Prelude.rnf hlsSettings
 
 instance Data.ToJSON HlsOutputSettings where
   toJSON HlsOutputSettings' {..} =

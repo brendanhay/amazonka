@@ -98,8 +98,8 @@ instance
 
 instance Prelude.NFData AudioSilenceFailoverSettings where
   rnf AudioSilenceFailoverSettings' {..} =
-    Prelude.rnf audioSilenceThresholdMsec
-      `Prelude.seq` Prelude.rnf audioSelectorName
+    Prelude.rnf audioSilenceThresholdMsec `Prelude.seq`
+      Prelude.rnf audioSelectorName
 
 instance Data.ToJSON AudioSilenceFailoverSettings where
   toJSON AudioSilenceFailoverSettings' {..} =

@@ -94,8 +94,8 @@ instance Prelude.Hashable StopTimecode where
 
 instance Prelude.NFData StopTimecode where
   rnf StopTimecode' {..} =
-    Prelude.rnf lastFrameClippingBehavior
-      `Prelude.seq` Prelude.rnf timecode
+    Prelude.rnf lastFrameClippingBehavior `Prelude.seq`
+      Prelude.rnf timecode
 
 instance Data.ToJSON StopTimecode where
   toJSON StopTimecode' {..} =

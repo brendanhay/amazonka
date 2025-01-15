@@ -98,9 +98,9 @@ instance Prelude.Hashable RemixSettings where
 
 instance Prelude.NFData RemixSettings where
   rnf RemixSettings' {..} =
-    Prelude.rnf channelsIn
-      `Prelude.seq` Prelude.rnf channelsOut
-      `Prelude.seq` Prelude.rnf channelMappings
+    Prelude.rnf channelsIn `Prelude.seq`
+      Prelude.rnf channelsOut `Prelude.seq`
+        Prelude.rnf channelMappings
 
 instance Data.ToJSON RemixSettings where
   toJSON RemixSettings' {..} =

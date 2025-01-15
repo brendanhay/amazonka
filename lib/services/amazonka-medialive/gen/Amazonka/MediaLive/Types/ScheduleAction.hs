@@ -118,9 +118,9 @@ instance Prelude.Hashable ScheduleAction where
 
 instance Prelude.NFData ScheduleAction where
   rnf ScheduleAction' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf scheduleActionStartSettings
-      `Prelude.seq` Prelude.rnf scheduleActionSettings
+    Prelude.rnf actionName `Prelude.seq`
+      Prelude.rnf scheduleActionStartSettings `Prelude.seq`
+        Prelude.rnf scheduleActionSettings
 
 instance Data.ToJSON ScheduleAction where
   toJSON ScheduleAction' {..} =

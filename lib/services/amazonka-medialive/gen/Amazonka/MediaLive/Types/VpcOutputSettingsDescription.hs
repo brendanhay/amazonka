@@ -130,7 +130,7 @@ instance
 
 instance Prelude.NFData VpcOutputSettingsDescription where
   rnf VpcOutputSettingsDescription' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf networkInterfaceIds
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf networkInterfaceIds `Prelude.seq`
+        Prelude.rnf securityGroupIds `Prelude.seq`
+          Prelude.rnf subnetIds

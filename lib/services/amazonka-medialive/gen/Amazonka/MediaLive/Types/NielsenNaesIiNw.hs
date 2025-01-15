@@ -85,8 +85,8 @@ instance Prelude.Hashable NielsenNaesIiNw where
 
 instance Prelude.NFData NielsenNaesIiNw where
   rnf NielsenNaesIiNw' {..} =
-    Prelude.rnf checkDigitString
-      `Prelude.seq` Prelude.rnf sid
+    Prelude.rnf checkDigitString `Prelude.seq`
+      Prelude.rnf sid
 
 instance Data.ToJSON NielsenNaesIiNw where
   toJSON NielsenNaesIiNw' {..} =

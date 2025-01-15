@@ -126,8 +126,8 @@ instance Prelude.Hashable DescribeMultiplexProgram where
 
 instance Prelude.NFData DescribeMultiplexProgram where
   rnf DescribeMultiplexProgram' {..} =
-    Prelude.rnf multiplexId
-      `Prelude.seq` Prelude.rnf programName
+    Prelude.rnf multiplexId `Prelude.seq`
+      Prelude.rnf programName
 
 instance Data.ToHeaders DescribeMultiplexProgram where
   toHeaders =
@@ -247,9 +247,9 @@ instance
     DescribeMultiplexProgramResponse
   where
   rnf DescribeMultiplexProgramResponse' {..} =
-    Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf multiplexProgramSettings
-      `Prelude.seq` Prelude.rnf packetIdentifiersMap
-      `Prelude.seq` Prelude.rnf pipelineDetails
-      `Prelude.seq` Prelude.rnf programName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelId `Prelude.seq`
+      Prelude.rnf multiplexProgramSettings `Prelude.seq`
+        Prelude.rnf packetIdentifiersMap `Prelude.seq`
+          Prelude.rnf pipelineDetails `Prelude.seq`
+            Prelude.rnf programName `Prelude.seq`
+              Prelude.rnf httpStatus

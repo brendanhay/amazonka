@@ -78,8 +78,8 @@ instance Prelude.Hashable MaintenanceCreateSettings where
 
 instance Prelude.NFData MaintenanceCreateSettings where
   rnf MaintenanceCreateSettings' {..} =
-    Prelude.rnf maintenanceDay
-      `Prelude.seq` Prelude.rnf maintenanceStartTime
+    Prelude.rnf maintenanceDay `Prelude.seq`
+      Prelude.rnf maintenanceStartTime
 
 instance Data.ToJSON MaintenanceCreateSettings where
   toJSON MaintenanceCreateSettings' {..} =

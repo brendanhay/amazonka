@@ -110,9 +110,9 @@ instance
 
 instance Prelude.NFData MultiplexStatmuxVideoSettings where
   rnf MultiplexStatmuxVideoSettings' {..} =
-    Prelude.rnf maximumBitrate
-      `Prelude.seq` Prelude.rnf minimumBitrate
-      `Prelude.seq` Prelude.rnf priority
+    Prelude.rnf maximumBitrate `Prelude.seq`
+      Prelude.rnf minimumBitrate `Prelude.seq`
+        Prelude.rnf priority
 
 instance Data.ToJSON MultiplexStatmuxVideoSettings where
   toJSON MultiplexStatmuxVideoSettings' {..} =

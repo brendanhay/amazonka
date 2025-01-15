@@ -391,23 +391,23 @@ instance Prelude.Hashable BurnInDestinationSettings where
 
 instance Prelude.NFData BurnInDestinationSettings where
   rnf BurnInDestinationSettings' {..} =
-    Prelude.rnf alignment
-      `Prelude.seq` Prelude.rnf backgroundColor
-      `Prelude.seq` Prelude.rnf backgroundOpacity
-      `Prelude.seq` Prelude.rnf font
-      `Prelude.seq` Prelude.rnf fontColor
-      `Prelude.seq` Prelude.rnf fontOpacity
-      `Prelude.seq` Prelude.rnf fontResolution
-      `Prelude.seq` Prelude.rnf fontSize
-      `Prelude.seq` Prelude.rnf outlineColor
-      `Prelude.seq` Prelude.rnf outlineSize
-      `Prelude.seq` Prelude.rnf shadowColor
-      `Prelude.seq` Prelude.rnf shadowOpacity
-      `Prelude.seq` Prelude.rnf shadowXOffset
-      `Prelude.seq` Prelude.rnf shadowYOffset
-      `Prelude.seq` Prelude.rnf teletextGridControl
-      `Prelude.seq` Prelude.rnf xPosition
-      `Prelude.seq` Prelude.rnf yPosition
+    Prelude.rnf alignment `Prelude.seq`
+      Prelude.rnf backgroundColor `Prelude.seq`
+        Prelude.rnf backgroundOpacity `Prelude.seq`
+          Prelude.rnf font `Prelude.seq`
+            Prelude.rnf fontColor `Prelude.seq`
+              Prelude.rnf fontOpacity `Prelude.seq`
+                Prelude.rnf fontResolution `Prelude.seq`
+                  Prelude.rnf fontSize `Prelude.seq`
+                    Prelude.rnf outlineColor `Prelude.seq`
+                      Prelude.rnf outlineSize `Prelude.seq`
+                        Prelude.rnf shadowColor `Prelude.seq`
+                          Prelude.rnf shadowOpacity `Prelude.seq`
+                            Prelude.rnf shadowXOffset `Prelude.seq`
+                              Prelude.rnf shadowYOffset `Prelude.seq`
+                                Prelude.rnf teletextGridControl `Prelude.seq`
+                                  Prelude.rnf xPosition `Prelude.seq`
+                                    Prelude.rnf yPosition
 
 instance Data.ToJSON BurnInDestinationSettings where
   toJSON BurnInDestinationSettings' {..} =

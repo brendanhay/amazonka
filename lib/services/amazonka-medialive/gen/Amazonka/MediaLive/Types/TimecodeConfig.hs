@@ -110,8 +110,8 @@ instance Prelude.Hashable TimecodeConfig where
 
 instance Prelude.NFData TimecodeConfig where
   rnf TimecodeConfig' {..} =
-    Prelude.rnf syncThreshold
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf syncThreshold `Prelude.seq`
+      Prelude.rnf source
 
 instance Data.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =

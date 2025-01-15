@@ -116,12 +116,12 @@ instance Core.AWSPager ListInputDeviceTransfers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInputDeviceTransfers_nextToken
-          Lens..~ rs
-          Lens.^? listInputDeviceTransfersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInputDeviceTransfers_nextToken
+              Lens..~ rs
+              Lens.^? listInputDeviceTransfersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInputDeviceTransfers where
   type
@@ -150,9 +150,9 @@ instance Prelude.Hashable ListInputDeviceTransfers where
 
 instance Prelude.NFData ListInputDeviceTransfers where
   rnf ListInputDeviceTransfers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transferType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf transferType
 
 instance Data.ToHeaders ListInputDeviceTransfers where
   toHeaders =
@@ -234,6 +234,6 @@ instance
     ListInputDeviceTransfersResponse
   where
   rnf ListInputDeviceTransfersResponse' {..} =
-    Prelude.rnf inputDeviceTransfers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inputDeviceTransfers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

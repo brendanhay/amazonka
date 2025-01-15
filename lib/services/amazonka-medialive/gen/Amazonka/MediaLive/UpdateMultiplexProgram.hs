@@ -126,9 +126,9 @@ instance Prelude.Hashable UpdateMultiplexProgram' where
 
 instance Prelude.NFData UpdateMultiplexProgram' where
   rnf UpdateMultiplexProgram'' {..} =
-    Prelude.rnf multiplexProgramSettings
-      `Prelude.seq` Prelude.rnf multiplexId
-      `Prelude.seq` Prelude.rnf programName
+    Prelude.rnf multiplexProgramSettings `Prelude.seq`
+      Prelude.rnf multiplexId `Prelude.seq`
+        Prelude.rnf programName
 
 instance Data.ToHeaders UpdateMultiplexProgram' where
   toHeaders =
@@ -208,5 +208,5 @@ instance
     UpdateMultiplexProgramResponse
   where
   rnf UpdateMultiplexProgramResponse' {..} =
-    Prelude.rnf multiplexProgram
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf multiplexProgram `Prelude.seq`
+      Prelude.rnf httpStatus

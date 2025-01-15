@@ -195,10 +195,10 @@ instance Prelude.Hashable CaptionRectangle where
 
 instance Prelude.NFData CaptionRectangle where
   rnf CaptionRectangle' {..} =
-    Prelude.rnf topOffset
-      `Prelude.seq` Prelude.rnf height
-      `Prelude.seq` Prelude.rnf width
-      `Prelude.seq` Prelude.rnf leftOffset
+    Prelude.rnf topOffset `Prelude.seq`
+      Prelude.rnf height `Prelude.seq`
+        Prelude.rnf width `Prelude.seq`
+          Prelude.rnf leftOffset
 
 instance Data.ToJSON CaptionRectangle where
   toJSON CaptionRectangle' {..} =

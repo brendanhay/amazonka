@@ -142,10 +142,10 @@ instance
     AutomaticInputFailoverSettings
   where
   rnf AutomaticInputFailoverSettings' {..} =
-    Prelude.rnf errorClearTimeMsec
-      `Prelude.seq` Prelude.rnf failoverConditions
-      `Prelude.seq` Prelude.rnf inputPreference
-      `Prelude.seq` Prelude.rnf secondaryInputId
+    Prelude.rnf errorClearTimeMsec `Prelude.seq`
+      Prelude.rnf failoverConditions `Prelude.seq`
+        Prelude.rnf inputPreference `Prelude.seq`
+          Prelude.rnf secondaryInputId
 
 instance Data.ToJSON AutomaticInputFailoverSettings where
   toJSON AutomaticInputFailoverSettings' {..} =

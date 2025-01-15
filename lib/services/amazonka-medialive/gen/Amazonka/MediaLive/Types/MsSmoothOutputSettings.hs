@@ -91,8 +91,8 @@ instance Prelude.Hashable MsSmoothOutputSettings where
 
 instance Prelude.NFData MsSmoothOutputSettings where
   rnf MsSmoothOutputSettings' {..} =
-    Prelude.rnf h265PackagingType
-      `Prelude.seq` Prelude.rnf nameModifier
+    Prelude.rnf h265PackagingType `Prelude.seq`
+      Prelude.rnf nameModifier
 
 instance Data.ToJSON MsSmoothOutputSettings where
   toJSON MsSmoothOutputSettings' {..} =

@@ -100,9 +100,9 @@ instance Prelude.Hashable ArchiveOutputSettings where
 
 instance Prelude.NFData ArchiveOutputSettings where
   rnf ArchiveOutputSettings' {..} =
-    Prelude.rnf extension
-      `Prelude.seq` Prelude.rnf nameModifier
-      `Prelude.seq` Prelude.rnf containerSettings
+    Prelude.rnf extension `Prelude.seq`
+      Prelude.rnf nameModifier `Prelude.seq`
+        Prelude.rnf containerSettings
 
 instance Data.ToJSON ArchiveOutputSettings where
   toJSON ArchiveOutputSettings' {..} =

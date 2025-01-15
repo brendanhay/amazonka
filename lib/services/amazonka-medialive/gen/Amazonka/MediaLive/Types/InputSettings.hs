@@ -228,17 +228,17 @@ instance Prelude.Hashable InputSettings where
 
 instance Prelude.NFData InputSettings where
   rnf InputSettings' {..} =
-    Prelude.rnf audioSelectors
-      `Prelude.seq` Prelude.rnf captionSelectors
-      `Prelude.seq` Prelude.rnf deblockFilter
-      `Prelude.seq` Prelude.rnf denoiseFilter
-      `Prelude.seq` Prelude.rnf filterStrength
-      `Prelude.seq` Prelude.rnf inputFilter
-      `Prelude.seq` Prelude.rnf networkInputSettings
-      `Prelude.seq` Prelude.rnf scte35Pid
-      `Prelude.seq` Prelude.rnf smpte2038DataPreference
-      `Prelude.seq` Prelude.rnf sourceEndBehavior
-      `Prelude.seq` Prelude.rnf videoSelector
+    Prelude.rnf audioSelectors `Prelude.seq`
+      Prelude.rnf captionSelectors `Prelude.seq`
+        Prelude.rnf deblockFilter `Prelude.seq`
+          Prelude.rnf denoiseFilter `Prelude.seq`
+            Prelude.rnf filterStrength `Prelude.seq`
+              Prelude.rnf inputFilter `Prelude.seq`
+                Prelude.rnf networkInputSettings `Prelude.seq`
+                  Prelude.rnf scte35Pid `Prelude.seq`
+                    Prelude.rnf smpte2038DataPreference `Prelude.seq`
+                      Prelude.rnf sourceEndBehavior `Prelude.seq`
+                        Prelude.rnf videoSelector
 
 instance Data.ToJSON InputSettings where
   toJSON InputSettings' {..} =

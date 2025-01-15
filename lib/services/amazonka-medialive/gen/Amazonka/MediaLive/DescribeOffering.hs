@@ -280,15 +280,15 @@ describeOfferingResponse_httpStatus = Lens.lens (\DescribeOfferingResponse' {htt
 
 instance Prelude.NFData DescribeOfferingResponse where
   rnf DescribeOfferingResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf durationUnits
-      `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf offeringDescription
-      `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf usagePrice
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf currencyCode `Prelude.seq`
+        Prelude.rnf duration `Prelude.seq`
+          Prelude.rnf durationUnits `Prelude.seq`
+            Prelude.rnf fixedPrice `Prelude.seq`
+              Prelude.rnf offeringDescription `Prelude.seq`
+                Prelude.rnf offeringId `Prelude.seq`
+                  Prelude.rnf offeringType `Prelude.seq`
+                    Prelude.rnf region `Prelude.seq`
+                      Prelude.rnf resourceSpecification `Prelude.seq`
+                        Prelude.rnf usagePrice `Prelude.seq`
+                          Prelude.rnf httpStatus

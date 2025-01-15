@@ -106,9 +106,9 @@ instance Prelude.Hashable Scte35SpliceInsert where
 
 instance Prelude.NFData Scte35SpliceInsert where
   rnf Scte35SpliceInsert' {..} =
-    Prelude.rnf adAvailOffset
-      `Prelude.seq` Prelude.rnf noRegionalBlackoutFlag
-      `Prelude.seq` Prelude.rnf webDeliveryAllowedFlag
+    Prelude.rnf adAvailOffset `Prelude.seq`
+      Prelude.rnf noRegionalBlackoutFlag `Prelude.seq`
+        Prelude.rnf webDeliveryAllowedFlag
 
 instance Data.ToJSON Scte35SpliceInsert where
   toJSON Scte35SpliceInsert' {..} =

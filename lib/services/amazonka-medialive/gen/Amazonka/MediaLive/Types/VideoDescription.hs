@@ -218,13 +218,13 @@ instance Prelude.Hashable VideoDescription where
 
 instance Prelude.NFData VideoDescription where
   rnf VideoDescription' {..} =
-    Prelude.rnf codecSettings
-      `Prelude.seq` Prelude.rnf height
-      `Prelude.seq` Prelude.rnf respondToAfd
-      `Prelude.seq` Prelude.rnf scalingBehavior
-      `Prelude.seq` Prelude.rnf sharpness
-      `Prelude.seq` Prelude.rnf width
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf codecSettings `Prelude.seq`
+      Prelude.rnf height `Prelude.seq`
+        Prelude.rnf respondToAfd `Prelude.seq`
+          Prelude.rnf scalingBehavior `Prelude.seq`
+            Prelude.rnf sharpness `Prelude.seq`
+              Prelude.rnf width `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToJSON VideoDescription where
   toJSON VideoDescription' {..} =

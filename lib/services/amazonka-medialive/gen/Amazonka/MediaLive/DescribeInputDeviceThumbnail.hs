@@ -126,8 +126,8 @@ instance
 
 instance Prelude.NFData DescribeInputDeviceThumbnail where
   rnf DescribeInputDeviceThumbnail' {..} =
-    Prelude.rnf inputDeviceId
-      `Prelude.seq` Prelude.rnf accept
+    Prelude.rnf inputDeviceId `Prelude.seq`
+      Prelude.rnf accept
 
 instance Data.ToHeaders DescribeInputDeviceThumbnail where
   toHeaders DescribeInputDeviceThumbnail' {..} =

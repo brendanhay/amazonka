@@ -91,9 +91,9 @@ instance Prelude.Hashable AvailSettings where
 
 instance Prelude.NFData AvailSettings where
   rnf AvailSettings' {..} =
-    Prelude.rnf esam
-      `Prelude.seq` Prelude.rnf scte35SpliceInsert
-      `Prelude.seq` Prelude.rnf scte35TimeSignalApos
+    Prelude.rnf esam `Prelude.seq`
+      Prelude.rnf scte35SpliceInsert `Prelude.seq`
+        Prelude.rnf scte35TimeSignalApos
 
 instance Data.ToJSON AvailSettings where
   toJSON AvailSettings' {..} =

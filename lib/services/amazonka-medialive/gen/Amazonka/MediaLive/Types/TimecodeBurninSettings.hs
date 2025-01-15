@@ -97,9 +97,9 @@ instance Prelude.Hashable TimecodeBurninSettings where
 
 instance Prelude.NFData TimecodeBurninSettings where
   rnf TimecodeBurninSettings' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf fontSize
+    Prelude.rnf prefix `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf fontSize
 
 instance Data.ToJSON TimecodeBurninSettings where
   toJSON TimecodeBurninSettings' {..} =

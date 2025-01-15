@@ -122,9 +122,9 @@ instance Prelude.Hashable UpdateInputSecurityGroup where
 
 instance Prelude.NFData UpdateInputSecurityGroup where
   rnf UpdateInputSecurityGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf whitelistRules
-      `Prelude.seq` Prelude.rnf inputSecurityGroupId
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf whitelistRules `Prelude.seq`
+        Prelude.rnf inputSecurityGroupId
 
 instance Data.ToHeaders UpdateInputSecurityGroup where
   toHeaders =
@@ -202,5 +202,5 @@ instance
     UpdateInputSecurityGroupResponse
   where
   rnf UpdateInputSecurityGroupResponse' {..} =
-    Prelude.rnf securityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

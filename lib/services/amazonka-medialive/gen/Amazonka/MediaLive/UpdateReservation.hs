@@ -121,9 +121,9 @@ instance Prelude.Hashable UpdateReservation' where
 
 instance Prelude.NFData UpdateReservation' where
   rnf UpdateReservation'' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf renewalSettings
-      `Prelude.seq` Prelude.rnf reservationId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf renewalSettings `Prelude.seq`
+        Prelude.rnf reservationId
 
 instance Data.ToHeaders UpdateReservation' where
   toHeaders =
@@ -196,5 +196,5 @@ updateReservationResponse_httpStatus = Lens.lens (\UpdateReservationResponse' {h
 
 instance Prelude.NFData UpdateReservationResponse where
   rnf UpdateReservationResponse' {..} =
-    Prelude.rnf reservation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservation `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -94,8 +94,8 @@ instance Prelude.Hashable DvbSubSourceSettings where
 
 instance Prelude.NFData DvbSubSourceSettings where
   rnf DvbSubSourceSettings' {..} =
-    Prelude.rnf ocrLanguage
-      `Prelude.seq` Prelude.rnf pid
+    Prelude.rnf ocrLanguage `Prelude.seq`
+      Prelude.rnf pid
 
 instance Data.ToJSON DvbSubSourceSettings where
   toJSON DvbSubSourceSettings' {..} =

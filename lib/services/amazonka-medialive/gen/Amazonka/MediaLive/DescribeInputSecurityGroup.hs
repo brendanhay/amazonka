@@ -223,10 +223,10 @@ instance
     DescribeInputSecurityGroupResponse
   where
   rnf DescribeInputSecurityGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf whitelistRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf inputs `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf whitelistRules `Prelude.seq`
+                Prelude.rnf httpStatus

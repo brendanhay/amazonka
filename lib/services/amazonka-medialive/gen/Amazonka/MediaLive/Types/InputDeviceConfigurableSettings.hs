@@ -105,9 +105,9 @@ instance
     InputDeviceConfigurableSettings
   where
   rnf InputDeviceConfigurableSettings' {..} =
-    Prelude.rnf configuredInput
-      `Prelude.seq` Prelude.rnf latencyMs
-      `Prelude.seq` Prelude.rnf maxBitrate
+    Prelude.rnf configuredInput `Prelude.seq`
+      Prelude.rnf latencyMs `Prelude.seq`
+        Prelude.rnf maxBitrate
 
 instance Data.ToJSON InputDeviceConfigurableSettings where
   toJSON InputDeviceConfigurableSettings' {..} =

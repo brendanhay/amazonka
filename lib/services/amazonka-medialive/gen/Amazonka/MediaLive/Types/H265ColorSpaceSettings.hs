@@ -114,11 +114,11 @@ instance Prelude.Hashable H265ColorSpaceSettings where
 
 instance Prelude.NFData H265ColorSpaceSettings where
   rnf H265ColorSpaceSettings' {..} =
-    Prelude.rnf colorSpacePassthroughSettings
-      `Prelude.seq` Prelude.rnf dolbyVision81Settings
-      `Prelude.seq` Prelude.rnf hdr10Settings
-      `Prelude.seq` Prelude.rnf rec601Settings
-      `Prelude.seq` Prelude.rnf rec709Settings
+    Prelude.rnf colorSpacePassthroughSettings `Prelude.seq`
+      Prelude.rnf dolbyVision81Settings `Prelude.seq`
+        Prelude.rnf hdr10Settings `Prelude.seq`
+          Prelude.rnf rec601Settings `Prelude.seq`
+            Prelude.rnf rec709Settings
 
 instance Data.ToJSON H265ColorSpaceSettings where
   toJSON H265ColorSpaceSettings' {..} =

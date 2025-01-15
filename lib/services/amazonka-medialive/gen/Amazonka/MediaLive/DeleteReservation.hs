@@ -375,23 +375,23 @@ deleteReservationResponse_httpStatus = Lens.lens (\DeleteReservationResponse' {h
 
 instance Prelude.NFData DeleteReservationResponse where
   rnf DeleteReservationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf durationUnits
-      `Prelude.seq` Prelude.rnf end
-      `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf offeringDescription
-      `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf renewalSettings
-      `Prelude.seq` Prelude.rnf reservationId
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf start
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf usagePrice
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf currencyCode `Prelude.seq`
+          Prelude.rnf duration `Prelude.seq`
+            Prelude.rnf durationUnits `Prelude.seq`
+              Prelude.rnf end `Prelude.seq`
+                Prelude.rnf fixedPrice `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf offeringDescription `Prelude.seq`
+                      Prelude.rnf offeringId `Prelude.seq`
+                        Prelude.rnf offeringType `Prelude.seq`
+                          Prelude.rnf region `Prelude.seq`
+                            Prelude.rnf renewalSettings `Prelude.seq`
+                              Prelude.rnf reservationId `Prelude.seq`
+                                Prelude.rnf resourceSpecification `Prelude.seq`
+                                  Prelude.rnf start `Prelude.seq`
+                                    Prelude.rnf state `Prelude.seq`
+                                      Prelude.rnf tags `Prelude.seq`
+                                        Prelude.rnf usagePrice `Prelude.seq`
+                                          Prelude.rnf httpStatus

@@ -124,11 +124,11 @@ instance Prelude.Hashable HlsWebdavSettings where
 
 instance Prelude.NFData HlsWebdavSettings where
   rnf HlsWebdavSettings' {..} =
-    Prelude.rnf connectionRetryInterval
-      `Prelude.seq` Prelude.rnf filecacheDuration
-      `Prelude.seq` Prelude.rnf httpTransferMode
-      `Prelude.seq` Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf restartDelay
+    Prelude.rnf connectionRetryInterval `Prelude.seq`
+      Prelude.rnf filecacheDuration `Prelude.seq`
+        Prelude.rnf httpTransferMode `Prelude.seq`
+          Prelude.rnf numRetries `Prelude.seq`
+            Prelude.rnf restartDelay
 
 instance Data.ToJSON HlsWebdavSettings where
   toJSON HlsWebdavSettings' {..} =

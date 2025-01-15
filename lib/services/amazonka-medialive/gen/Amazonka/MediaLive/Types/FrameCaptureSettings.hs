@@ -100,9 +100,9 @@ instance Prelude.Hashable FrameCaptureSettings where
 
 instance Prelude.NFData FrameCaptureSettings where
   rnf FrameCaptureSettings' {..} =
-    Prelude.rnf captureInterval
-      `Prelude.seq` Prelude.rnf captureIntervalUnits
-      `Prelude.seq` Prelude.rnf timecodeBurninSettings
+    Prelude.rnf captureInterval `Prelude.seq`
+      Prelude.rnf captureIntervalUnits `Prelude.seq`
+        Prelude.rnf timecodeBurninSettings
 
 instance Data.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =

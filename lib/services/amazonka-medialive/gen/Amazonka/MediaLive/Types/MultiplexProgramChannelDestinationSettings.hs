@@ -108,8 +108,8 @@ instance
     MultiplexProgramChannelDestinationSettings
   where
   rnf MultiplexProgramChannelDestinationSettings' {..} =
-    Prelude.rnf multiplexId
-      `Prelude.seq` Prelude.rnf programName
+    Prelude.rnf multiplexId `Prelude.seq`
+      Prelude.rnf programName
 
 instance
   Data.ToJSON

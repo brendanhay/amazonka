@@ -132,10 +132,10 @@ instance Prelude.Hashable TransferInputDevice' where
 
 instance Prelude.NFData TransferInputDevice' where
   rnf TransferInputDevice'' {..} =
-    Prelude.rnf targetCustomerId
-      `Prelude.seq` Prelude.rnf targetRegion
-      `Prelude.seq` Prelude.rnf transferMessage
-      `Prelude.seq` Prelude.rnf inputDeviceId
+    Prelude.rnf targetCustomerId `Prelude.seq`
+      Prelude.rnf targetRegion `Prelude.seq`
+        Prelude.rnf transferMessage `Prelude.seq`
+          Prelude.rnf inputDeviceId
 
 instance Data.ToHeaders TransferInputDevice' where
   toHeaders =

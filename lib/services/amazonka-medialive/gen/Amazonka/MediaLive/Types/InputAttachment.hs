@@ -111,10 +111,10 @@ instance Prelude.Hashable InputAttachment where
 
 instance Prelude.NFData InputAttachment where
   rnf InputAttachment' {..} =
-    Prelude.rnf automaticInputFailoverSettings
-      `Prelude.seq` Prelude.rnf inputAttachmentName
-      `Prelude.seq` Prelude.rnf inputId
-      `Prelude.seq` Prelude.rnf inputSettings
+    Prelude.rnf automaticInputFailoverSettings `Prelude.seq`
+      Prelude.rnf inputAttachmentName `Prelude.seq`
+        Prelude.rnf inputId `Prelude.seq`
+          Prelude.rnf inputSettings
 
 instance Data.ToJSON InputAttachment where
   toJSON InputAttachment' {..} =

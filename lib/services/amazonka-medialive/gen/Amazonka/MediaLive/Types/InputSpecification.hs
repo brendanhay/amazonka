@@ -94,9 +94,9 @@ instance Prelude.Hashable InputSpecification where
 
 instance Prelude.NFData InputSpecification where
   rnf InputSpecification' {..} =
-    Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf maximumBitrate
-      `Prelude.seq` Prelude.rnf resolution
+    Prelude.rnf codec `Prelude.seq`
+      Prelude.rnf maximumBitrate `Prelude.seq`
+        Prelude.rnf resolution
 
 instance Data.ToJSON InputSpecification where
   toJSON InputSpecification' {..} =

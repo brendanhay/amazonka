@@ -97,9 +97,9 @@ instance Prelude.Hashable VpcOutputSettings where
 
 instance Prelude.NFData VpcOutputSettings where
   rnf VpcOutputSettings' {..} =
-    Prelude.rnf publicAddressAllocationIds
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf publicAddressAllocationIds `Prelude.seq`
+      Prelude.rnf securityGroupIds `Prelude.seq`
+        Prelude.rnf subnetIds
 
 instance Data.ToJSON VpcOutputSettings where
   toJSON VpcOutputSettings' {..} =

@@ -106,9 +106,9 @@ instance Prelude.Hashable Scte35TimeSignalApos where
 
 instance Prelude.NFData Scte35TimeSignalApos where
   rnf Scte35TimeSignalApos' {..} =
-    Prelude.rnf adAvailOffset
-      `Prelude.seq` Prelude.rnf noRegionalBlackoutFlag
-      `Prelude.seq` Prelude.rnf webDeliveryAllowedFlag
+    Prelude.rnf adAvailOffset `Prelude.seq`
+      Prelude.rnf noRegionalBlackoutFlag `Prelude.seq`
+        Prelude.rnf webDeliveryAllowedFlag
 
 instance Data.ToJSON Scte35TimeSignalApos where
   toJSON Scte35TimeSignalApos' {..} =

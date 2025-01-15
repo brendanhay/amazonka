@@ -117,10 +117,10 @@ instance Prelude.Hashable EmbeddedSourceSettings where
 
 instance Prelude.NFData EmbeddedSourceSettings where
   rnf EmbeddedSourceSettings' {..} =
-    Prelude.rnf convert608To708
-      `Prelude.seq` Prelude.rnf scte20Detection
-      `Prelude.seq` Prelude.rnf source608ChannelNumber
-      `Prelude.seq` Prelude.rnf source608TrackNumber
+    Prelude.rnf convert608To708 `Prelude.seq`
+      Prelude.rnf scte20Detection `Prelude.seq`
+        Prelude.rnf source608ChannelNumber `Prelude.seq`
+          Prelude.rnf source608TrackNumber
 
 instance Data.ToJSON EmbeddedSourceSettings where
   toJSON EmbeddedSourceSettings' {..} =

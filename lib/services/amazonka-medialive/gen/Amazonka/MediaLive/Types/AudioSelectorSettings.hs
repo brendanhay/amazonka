@@ -103,10 +103,10 @@ instance Prelude.Hashable AudioSelectorSettings where
 
 instance Prelude.NFData AudioSelectorSettings where
   rnf AudioSelectorSettings' {..} =
-    Prelude.rnf audioHlsRenditionSelection
-      `Prelude.seq` Prelude.rnf audioLanguageSelection
-      `Prelude.seq` Prelude.rnf audioPidSelection
-      `Prelude.seq` Prelude.rnf audioTrackSelection
+    Prelude.rnf audioHlsRenditionSelection `Prelude.seq`
+      Prelude.rnf audioLanguageSelection `Prelude.seq`
+        Prelude.rnf audioPidSelection `Prelude.seq`
+          Prelude.rnf audioTrackSelection
 
 instance Data.ToJSON AudioSelectorSettings where
   toJSON AudioSelectorSettings' {..} =

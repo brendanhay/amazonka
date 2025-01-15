@@ -81,5 +81,5 @@ instance Prelude.Hashable InputDestinationVpc where
 
 instance Prelude.NFData InputDestinationVpc where
   rnf InputDestinationVpc' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf networkInterfaceId

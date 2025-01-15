@@ -91,8 +91,8 @@ instance Prelude.Hashable Scte20SourceSettings where
 
 instance Prelude.NFData Scte20SourceSettings where
   rnf Scte20SourceSettings' {..} =
-    Prelude.rnf convert608To708
-      `Prelude.seq` Prelude.rnf source608ChannelNumber
+    Prelude.rnf convert608To708 `Prelude.seq`
+      Prelude.rnf source608ChannelNumber
 
 instance Data.ToJSON Scte20SourceSettings where
   toJSON Scte20SourceSettings' {..} =

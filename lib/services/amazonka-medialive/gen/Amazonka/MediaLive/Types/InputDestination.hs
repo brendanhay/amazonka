@@ -105,7 +105,7 @@ instance Prelude.Hashable InputDestination where
 
 instance Prelude.NFData InputDestination where
   rnf InputDestination' {..} =
-    Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf ip `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf url `Prelude.seq`
+          Prelude.rnf vpc

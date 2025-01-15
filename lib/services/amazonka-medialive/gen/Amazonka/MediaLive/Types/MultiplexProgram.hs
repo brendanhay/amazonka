@@ -131,8 +131,8 @@ instance Prelude.Hashable MultiplexProgram where
 
 instance Prelude.NFData MultiplexProgram where
   rnf MultiplexProgram' {..} =
-    Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf multiplexProgramSettings
-      `Prelude.seq` Prelude.rnf packetIdentifiersMap
-      `Prelude.seq` Prelude.rnf pipelineDetails
-      `Prelude.seq` Prelude.rnf programName
+    Prelude.rnf channelId `Prelude.seq`
+      Prelude.rnf multiplexProgramSettings `Prelude.seq`
+        Prelude.rnf packetIdentifiersMap `Prelude.seq`
+          Prelude.rnf pipelineDetails `Prelude.seq`
+            Prelude.rnf programName

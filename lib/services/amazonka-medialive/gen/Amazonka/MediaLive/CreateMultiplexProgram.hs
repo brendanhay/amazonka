@@ -147,10 +147,10 @@ instance Prelude.Hashable CreateMultiplexProgram' where
 
 instance Prelude.NFData CreateMultiplexProgram' where
   rnf CreateMultiplexProgram'' {..} =
-    Prelude.rnf multiplexId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf multiplexProgramSettings
-      `Prelude.seq` Prelude.rnf programName
+    Prelude.rnf multiplexId `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf multiplexProgramSettings `Prelude.seq`
+          Prelude.rnf programName
 
 instance Data.ToHeaders CreateMultiplexProgram' where
   toHeaders =
@@ -233,5 +233,5 @@ instance
     CreateMultiplexProgramResponse
   where
   rnf CreateMultiplexProgramResponse' {..} =
-    Prelude.rnf multiplexProgram
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf multiplexProgram `Prelude.seq`
+      Prelude.rnf httpStatus

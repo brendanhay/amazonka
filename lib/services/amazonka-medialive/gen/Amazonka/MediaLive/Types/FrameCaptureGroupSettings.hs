@@ -109,8 +109,8 @@ instance Prelude.Hashable FrameCaptureGroupSettings where
 
 instance Prelude.NFData FrameCaptureGroupSettings where
   rnf FrameCaptureGroupSettings' {..} =
-    Prelude.rnf frameCaptureCdnSettings
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf frameCaptureCdnSettings `Prelude.seq`
+      Prelude.rnf destination
 
 instance Data.ToJSON FrameCaptureGroupSettings where
   toJSON FrameCaptureGroupSettings' {..} =

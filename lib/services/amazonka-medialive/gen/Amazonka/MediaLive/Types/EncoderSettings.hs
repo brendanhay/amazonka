@@ -213,18 +213,18 @@ instance Prelude.Hashable EncoderSettings where
 
 instance Prelude.NFData EncoderSettings where
   rnf EncoderSettings' {..} =
-    Prelude.rnf availBlanking
-      `Prelude.seq` Prelude.rnf availConfiguration
-      `Prelude.seq` Prelude.rnf blackoutSlate
-      `Prelude.seq` Prelude.rnf captionDescriptions
-      `Prelude.seq` Prelude.rnf featureActivations
-      `Prelude.seq` Prelude.rnf globalConfiguration
-      `Prelude.seq` Prelude.rnf motionGraphicsConfiguration
-      `Prelude.seq` Prelude.rnf nielsenConfiguration
-      `Prelude.seq` Prelude.rnf videoDescriptions
-      `Prelude.seq` Prelude.rnf audioDescriptions
-      `Prelude.seq` Prelude.rnf outputGroups
-      `Prelude.seq` Prelude.rnf timecodeConfig
+    Prelude.rnf availBlanking `Prelude.seq`
+      Prelude.rnf availConfiguration `Prelude.seq`
+        Prelude.rnf blackoutSlate `Prelude.seq`
+          Prelude.rnf captionDescriptions `Prelude.seq`
+            Prelude.rnf featureActivations `Prelude.seq`
+              Prelude.rnf globalConfiguration `Prelude.seq`
+                Prelude.rnf motionGraphicsConfiguration `Prelude.seq`
+                  Prelude.rnf nielsenConfiguration `Prelude.seq`
+                    Prelude.rnf videoDescriptions `Prelude.seq`
+                      Prelude.rnf audioDescriptions `Prelude.seq`
+                        Prelude.rnf outputGroups `Prelude.seq`
+                          Prelude.rnf timecodeConfig
 
 instance Data.ToJSON EncoderSettings where
   toJSON EncoderSettings' {..} =

@@ -203,15 +203,15 @@ instance Prelude.Hashable AacSettings where
 
 instance Prelude.NFData AacSettings where
   rnf AacSettings' {..} =
-    Prelude.rnf bitrate
-      `Prelude.seq` Prelude.rnf codingMode
-      `Prelude.seq` Prelude.rnf inputType
-      `Prelude.seq` Prelude.rnf profile
-      `Prelude.seq` Prelude.rnf rateControlMode
-      `Prelude.seq` Prelude.rnf rawFormat
-      `Prelude.seq` Prelude.rnf sampleRate
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf vbrQuality
+    Prelude.rnf bitrate `Prelude.seq`
+      Prelude.rnf codingMode `Prelude.seq`
+        Prelude.rnf inputType `Prelude.seq`
+          Prelude.rnf profile `Prelude.seq`
+            Prelude.rnf rateControlMode `Prelude.seq`
+              Prelude.rnf rawFormat `Prelude.seq`
+                Prelude.rnf sampleRate `Prelude.seq`
+                  Prelude.rnf spec `Prelude.seq`
+                    Prelude.rnf vbrQuality
 
 instance Data.ToJSON AacSettings where
   toJSON AacSettings' {..} =

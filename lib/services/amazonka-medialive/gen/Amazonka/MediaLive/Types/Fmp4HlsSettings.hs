@@ -109,9 +109,9 @@ instance Prelude.Hashable Fmp4HlsSettings where
 
 instance Prelude.NFData Fmp4HlsSettings where
   rnf Fmp4HlsSettings' {..} =
-    Prelude.rnf audioRenditionSets
-      `Prelude.seq` Prelude.rnf nielsenId3Behavior
-      `Prelude.seq` Prelude.rnf timedMetadataBehavior
+    Prelude.rnf audioRenditionSets `Prelude.seq`
+      Prelude.rnf nielsenId3Behavior `Prelude.seq`
+        Prelude.rnf timedMetadataBehavior
 
 instance Data.ToJSON Fmp4HlsSettings where
   toJSON Fmp4HlsSettings' {..} =

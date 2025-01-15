@@ -155,10 +155,10 @@ instance Prelude.Hashable UpdateInputDevice' where
 
 instance Prelude.NFData UpdateInputDevice' where
   rnf UpdateInputDevice'' {..} =
-    Prelude.rnf hdDeviceSettings
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf uhdDeviceSettings
-      `Prelude.seq` Prelude.rnf inputDeviceId
+    Prelude.rnf hdDeviceSettings `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf uhdDeviceSettings `Prelude.seq`
+          Prelude.rnf inputDeviceId
 
 instance Data.ToHeaders UpdateInputDevice' where
   toHeaders =
@@ -344,16 +344,16 @@ updateInputDeviceResponse_httpStatus = Lens.lens (\UpdateInputDeviceResponse' {h
 
 instance Prelude.NFData UpdateInputDeviceResponse where
   rnf UpdateInputDeviceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf deviceSettingsSyncState
-      `Prelude.seq` Prelude.rnf deviceUpdateStatus
-      `Prelude.seq` Prelude.rnf hdDeviceSettings
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf macAddress
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkSettings
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf uhdDeviceSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf connectionState `Prelude.seq`
+        Prelude.rnf deviceSettingsSyncState `Prelude.seq`
+          Prelude.rnf deviceUpdateStatus `Prelude.seq`
+            Prelude.rnf hdDeviceSettings `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf macAddress `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf networkSettings `Prelude.seq`
+                      Prelude.rnf serialNumber `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf uhdDeviceSettings `Prelude.seq`
+                            Prelude.rnf httpStatus

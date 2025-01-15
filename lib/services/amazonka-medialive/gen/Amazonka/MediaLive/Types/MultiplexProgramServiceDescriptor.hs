@@ -99,8 +99,8 @@ instance
     MultiplexProgramServiceDescriptor
   where
   rnf MultiplexProgramServiceDescriptor' {..} =
-    Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf providerName `Prelude.seq`
+      Prelude.rnf serviceName
 
 instance
   Data.ToJSON

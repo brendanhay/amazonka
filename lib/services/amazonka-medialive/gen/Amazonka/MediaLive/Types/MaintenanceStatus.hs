@@ -110,7 +110,7 @@ instance Prelude.Hashable MaintenanceStatus where
 
 instance Prelude.NFData MaintenanceStatus where
   rnf MaintenanceStatus' {..} =
-    Prelude.rnf maintenanceDay
-      `Prelude.seq` Prelude.rnf maintenanceDeadline
-      `Prelude.seq` Prelude.rnf maintenanceScheduledDate
-      `Prelude.seq` Prelude.rnf maintenanceStartTime
+    Prelude.rnf maintenanceDay `Prelude.seq`
+      Prelude.rnf maintenanceDeadline `Prelude.seq`
+        Prelude.rnf maintenanceScheduledDate `Prelude.seq`
+          Prelude.rnf maintenanceStartTime

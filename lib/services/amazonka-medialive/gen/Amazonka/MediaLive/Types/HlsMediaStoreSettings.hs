@@ -127,11 +127,11 @@ instance Prelude.Hashable HlsMediaStoreSettings where
 
 instance Prelude.NFData HlsMediaStoreSettings where
   rnf HlsMediaStoreSettings' {..} =
-    Prelude.rnf connectionRetryInterval
-      `Prelude.seq` Prelude.rnf filecacheDuration
-      `Prelude.seq` Prelude.rnf mediaStoreStorageClass
-      `Prelude.seq` Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf restartDelay
+    Prelude.rnf connectionRetryInterval `Prelude.seq`
+      Prelude.rnf filecacheDuration `Prelude.seq`
+        Prelude.rnf mediaStoreStorageClass `Prelude.seq`
+          Prelude.rnf numRetries `Prelude.seq`
+            Prelude.rnf restartDelay
 
 instance Data.ToJSON HlsMediaStoreSettings where
   toJSON HlsMediaStoreSettings' {..} =

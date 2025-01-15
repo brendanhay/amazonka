@@ -147,14 +147,14 @@ instance Prelude.Hashable OutputGroupSettings where
 
 instance Prelude.NFData OutputGroupSettings where
   rnf OutputGroupSettings' {..} =
-    Prelude.rnf archiveGroupSettings
-      `Prelude.seq` Prelude.rnf frameCaptureGroupSettings
-      `Prelude.seq` Prelude.rnf hlsGroupSettings
-      `Prelude.seq` Prelude.rnf mediaPackageGroupSettings
-      `Prelude.seq` Prelude.rnf msSmoothGroupSettings
-      `Prelude.seq` Prelude.rnf multiplexGroupSettings
-      `Prelude.seq` Prelude.rnf rtmpGroupSettings
-      `Prelude.seq` Prelude.rnf udpGroupSettings
+    Prelude.rnf archiveGroupSettings `Prelude.seq`
+      Prelude.rnf frameCaptureGroupSettings `Prelude.seq`
+        Prelude.rnf hlsGroupSettings `Prelude.seq`
+          Prelude.rnf mediaPackageGroupSettings `Prelude.seq`
+            Prelude.rnf msSmoothGroupSettings `Prelude.seq`
+              Prelude.rnf multiplexGroupSettings `Prelude.seq`
+                Prelude.rnf rtmpGroupSettings `Prelude.seq`
+                  Prelude.rnf udpGroupSettings
 
 instance Data.ToJSON OutputGroupSettings where
   toJSON OutputGroupSettings' {..} =

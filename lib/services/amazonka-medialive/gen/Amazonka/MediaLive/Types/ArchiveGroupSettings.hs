@@ -99,9 +99,9 @@ instance Prelude.Hashable ArchiveGroupSettings where
 
 instance Prelude.NFData ArchiveGroupSettings where
   rnf ArchiveGroupSettings' {..} =
-    Prelude.rnf archiveCdnSettings
-      `Prelude.seq` Prelude.rnf rolloverInterval
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf archiveCdnSettings `Prelude.seq`
+      Prelude.rnf rolloverInterval `Prelude.seq`
+        Prelude.rnf destination
 
 instance Data.ToJSON ArchiveGroupSettings where
   toJSON ArchiveGroupSettings' {..} =

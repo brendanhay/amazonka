@@ -122,10 +122,10 @@ instance
     MotionGraphicsActivateScheduleActionSettings
   where
   rnf MotionGraphicsActivateScheduleActionSettings' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf passwordParam
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf passwordParam `Prelude.seq`
+        Prelude.rnf url `Prelude.seq`
+          Prelude.rnf username
 
 instance
   Data.ToJSON

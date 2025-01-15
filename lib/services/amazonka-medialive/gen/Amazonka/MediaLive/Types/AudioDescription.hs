@@ -242,17 +242,17 @@ instance Prelude.Hashable AudioDescription where
 
 instance Prelude.NFData AudioDescription where
   rnf AudioDescription' {..} =
-    Prelude.rnf audioNormalizationSettings
-      `Prelude.seq` Prelude.rnf audioType
-      `Prelude.seq` Prelude.rnf audioTypeControl
-      `Prelude.seq` Prelude.rnf audioWatermarkingSettings
-      `Prelude.seq` Prelude.rnf codecSettings
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf languageCodeControl
-      `Prelude.seq` Prelude.rnf remixSettings
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf audioSelectorName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf audioNormalizationSettings `Prelude.seq`
+      Prelude.rnf audioType `Prelude.seq`
+        Prelude.rnf audioTypeControl `Prelude.seq`
+          Prelude.rnf audioWatermarkingSettings `Prelude.seq`
+            Prelude.rnf codecSettings `Prelude.seq`
+              Prelude.rnf languageCode `Prelude.seq`
+                Prelude.rnf languageCodeControl `Prelude.seq`
+                  Prelude.rnf remixSettings `Prelude.seq`
+                    Prelude.rnf streamName `Prelude.seq`
+                      Prelude.rnf audioSelectorName `Prelude.seq`
+                        Prelude.rnf name
 
 instance Data.ToJSON AudioDescription where
   toJSON AudioDescription' {..} =

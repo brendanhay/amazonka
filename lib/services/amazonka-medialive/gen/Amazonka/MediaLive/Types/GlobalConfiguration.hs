@@ -172,12 +172,12 @@ instance Prelude.Hashable GlobalConfiguration where
 
 instance Prelude.NFData GlobalConfiguration where
   rnf GlobalConfiguration' {..} =
-    Prelude.rnf initialAudioGain
-      `Prelude.seq` Prelude.rnf inputEndAction
-      `Prelude.seq` Prelude.rnf inputLossBehavior
-      `Prelude.seq` Prelude.rnf outputLockingMode
-      `Prelude.seq` Prelude.rnf outputTimingSource
-      `Prelude.seq` Prelude.rnf supportLowFramerateInputs
+    Prelude.rnf initialAudioGain `Prelude.seq`
+      Prelude.rnf inputEndAction `Prelude.seq`
+        Prelude.rnf inputLossBehavior `Prelude.seq`
+          Prelude.rnf outputLockingMode `Prelude.seq`
+            Prelude.rnf outputTimingSource `Prelude.seq`
+              Prelude.rnf supportLowFramerateInputs
 
 instance Data.ToJSON GlobalConfiguration where
   toJSON GlobalConfiguration' {..} =

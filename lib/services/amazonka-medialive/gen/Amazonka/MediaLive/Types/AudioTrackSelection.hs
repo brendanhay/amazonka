@@ -86,8 +86,8 @@ instance Prelude.Hashable AudioTrackSelection where
 
 instance Prelude.NFData AudioTrackSelection where
   rnf AudioTrackSelection' {..} =
-    Prelude.rnf dolbyEDecode
-      `Prelude.seq` Prelude.rnf tracks
+    Prelude.rnf dolbyEDecode `Prelude.seq`
+      Prelude.rnf tracks
 
 instance Data.ToJSON AudioTrackSelection where
   toJSON AudioTrackSelection' {..} =

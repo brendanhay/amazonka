@@ -104,9 +104,9 @@ instance Prelude.Hashable CaptionSelector where
 
 instance Prelude.NFData CaptionSelector where
   rnf CaptionSelector' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf selectorSettings
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf selectorSettings `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON CaptionSelector where
   toJSON CaptionSelector' {..} =

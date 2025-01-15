@@ -137,10 +137,10 @@ instance Prelude.Hashable VideoSelector where
 
 instance Prelude.NFData VideoSelector where
   rnf VideoSelector' {..} =
-    Prelude.rnf colorSpace
-      `Prelude.seq` Prelude.rnf colorSpaceSettings
-      `Prelude.seq` Prelude.rnf colorSpaceUsage
-      `Prelude.seq` Prelude.rnf selectorSettings
+    Prelude.rnf colorSpace `Prelude.seq`
+      Prelude.rnf colorSpaceSettings `Prelude.seq`
+        Prelude.rnf colorSpaceUsage `Prelude.seq`
+          Prelude.rnf selectorSettings
 
 instance Data.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =

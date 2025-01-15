@@ -102,8 +102,8 @@ instance
     FollowModeScheduleActionStartSettings
   where
   rnf FollowModeScheduleActionStartSettings' {..} =
-    Prelude.rnf referenceActionName
-      `Prelude.seq` Prelude.rnf followPoint
+    Prelude.rnf referenceActionName `Prelude.seq`
+      Prelude.rnf followPoint
 
 instance
   Data.ToJSON

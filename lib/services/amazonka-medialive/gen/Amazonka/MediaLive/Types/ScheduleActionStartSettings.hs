@@ -100,9 +100,9 @@ instance Prelude.Hashable ScheduleActionStartSettings where
 
 instance Prelude.NFData ScheduleActionStartSettings where
   rnf ScheduleActionStartSettings' {..} =
-    Prelude.rnf fixedModeScheduleActionStartSettings
-      `Prelude.seq` Prelude.rnf followModeScheduleActionStartSettings
-      `Prelude.seq` Prelude.rnf immediateModeScheduleActionStartSettings
+    Prelude.rnf fixedModeScheduleActionStartSettings `Prelude.seq`
+      Prelude.rnf followModeScheduleActionStartSettings `Prelude.seq`
+        Prelude.rnf immediateModeScheduleActionStartSettings
 
 instance Data.ToJSON ScheduleActionStartSettings where
   toJSON ScheduleActionStartSettings' {..} =

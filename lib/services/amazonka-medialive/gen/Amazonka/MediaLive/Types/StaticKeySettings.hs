@@ -84,8 +84,8 @@ instance Prelude.Hashable StaticKeySettings where
 
 instance Prelude.NFData StaticKeySettings where
   rnf StaticKeySettings' {..} =
-    Prelude.rnf keyProviderServer
-      `Prelude.seq` Prelude.rnf staticKeyValue
+    Prelude.rnf keyProviderServer `Prelude.seq`
+      Prelude.rnf staticKeyValue
 
 instance Data.ToJSON StaticKeySettings where
   toJSON StaticKeySettings' {..} =

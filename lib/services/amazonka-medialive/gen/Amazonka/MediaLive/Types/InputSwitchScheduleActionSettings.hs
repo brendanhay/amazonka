@@ -124,9 +124,9 @@ instance
     InputSwitchScheduleActionSettings
   where
   rnf InputSwitchScheduleActionSettings' {..} =
-    Prelude.rnf inputClippingSettings
-      `Prelude.seq` Prelude.rnf urlPath
-      `Prelude.seq` Prelude.rnf inputAttachmentNameReference
+    Prelude.rnf inputClippingSettings `Prelude.seq`
+      Prelude.rnf urlPath `Prelude.seq`
+        Prelude.rnf inputAttachmentNameReference
 
 instance
   Data.ToJSON

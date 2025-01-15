@@ -124,9 +124,9 @@ instance Prelude.Hashable CreatePartnerInput' where
 
 instance Prelude.NFData CreatePartnerInput' where
   rnf CreatePartnerInput'' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf inputId
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf inputId
 
 instance Data.ToHeaders CreatePartnerInput' where
   toHeaders =
@@ -198,5 +198,5 @@ createPartnerInputResponse_httpStatus = Lens.lens (\CreatePartnerInputResponse' 
 
 instance Prelude.NFData CreatePartnerInputResponse where
   rnf CreatePartnerInputResponse' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf httpStatus

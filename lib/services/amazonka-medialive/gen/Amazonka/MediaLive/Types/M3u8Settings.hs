@@ -318,23 +318,23 @@ instance Prelude.Hashable M3u8Settings where
 
 instance Prelude.NFData M3u8Settings where
   rnf M3u8Settings' {..} =
-    Prelude.rnf audioFramesPerPes
-      `Prelude.seq` Prelude.rnf audioPids
-      `Prelude.seq` Prelude.rnf ecmPid
-      `Prelude.seq` Prelude.rnf nielsenId3Behavior
-      `Prelude.seq` Prelude.rnf patInterval
-      `Prelude.seq` Prelude.rnf pcrControl
-      `Prelude.seq` Prelude.rnf pcrPeriod
-      `Prelude.seq` Prelude.rnf pcrPid
-      `Prelude.seq` Prelude.rnf pmtInterval
-      `Prelude.seq` Prelude.rnf pmtPid
-      `Prelude.seq` Prelude.rnf programNum
-      `Prelude.seq` Prelude.rnf scte35Behavior
-      `Prelude.seq` Prelude.rnf scte35Pid
-      `Prelude.seq` Prelude.rnf timedMetadataBehavior
-      `Prelude.seq` Prelude.rnf timedMetadataPid
-      `Prelude.seq` Prelude.rnf transportStreamId
-      `Prelude.seq` Prelude.rnf videoPid
+    Prelude.rnf audioFramesPerPes `Prelude.seq`
+      Prelude.rnf audioPids `Prelude.seq`
+        Prelude.rnf ecmPid `Prelude.seq`
+          Prelude.rnf nielsenId3Behavior `Prelude.seq`
+            Prelude.rnf patInterval `Prelude.seq`
+              Prelude.rnf pcrControl `Prelude.seq`
+                Prelude.rnf pcrPeriod `Prelude.seq`
+                  Prelude.rnf pcrPid `Prelude.seq`
+                    Prelude.rnf pmtInterval `Prelude.seq`
+                      Prelude.rnf pmtPid `Prelude.seq`
+                        Prelude.rnf programNum `Prelude.seq`
+                          Prelude.rnf scte35Behavior `Prelude.seq`
+                            Prelude.rnf scte35Pid `Prelude.seq`
+                              Prelude.rnf timedMetadataBehavior `Prelude.seq`
+                                Prelude.rnf timedMetadataPid `Prelude.seq`
+                                  Prelude.rnf transportStreamId `Prelude.seq`
+                                    Prelude.rnf videoPid
 
 instance Data.ToJSON M3u8Settings where
   toJSON M3u8Settings' {..} =

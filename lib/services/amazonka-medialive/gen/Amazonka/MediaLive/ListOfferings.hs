@@ -208,12 +208,12 @@ instance Core.AWSPager ListOfferings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOfferings_nextToken
-          Lens..~ rs
-          Lens.^? listOfferingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOfferings_nextToken
+              Lens..~ rs
+              Lens.^? listOfferingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOfferings where
   type
@@ -248,18 +248,18 @@ instance Prelude.Hashable ListOfferings where
 
 instance Prelude.NFData ListOfferings where
   rnf ListOfferings' {..} =
-    Prelude.rnf channelClass
-      `Prelude.seq` Prelude.rnf channelConfiguration
-      `Prelude.seq` Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf maximumBitrate
-      `Prelude.seq` Prelude.rnf maximumFramerate
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf specialFeature
-      `Prelude.seq` Prelude.rnf videoQuality
+    Prelude.rnf channelClass `Prelude.seq`
+      Prelude.rnf channelConfiguration `Prelude.seq`
+        Prelude.rnf codec `Prelude.seq`
+          Prelude.rnf duration `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf maximumBitrate `Prelude.seq`
+                Prelude.rnf maximumFramerate `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf resolution `Prelude.seq`
+                      Prelude.rnf resourceType `Prelude.seq`
+                        Prelude.rnf specialFeature `Prelude.seq`
+                          Prelude.rnf videoQuality
 
 instance Data.ToHeaders ListOfferings where
   toHeaders =
@@ -343,6 +343,6 @@ listOfferingsResponse_httpStatus = Lens.lens (\ListOfferingsResponse' {httpStatu
 
 instance Prelude.NFData ListOfferingsResponse where
   rnf ListOfferingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf offerings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf offerings `Prelude.seq`
+        Prelude.rnf httpStatus

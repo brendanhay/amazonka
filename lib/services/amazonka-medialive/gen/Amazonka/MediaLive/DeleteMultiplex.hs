@@ -260,14 +260,14 @@ deleteMultiplexResponse_httpStatus = Lens.lens (\DeleteMultiplexResponse' {httpS
 
 instance Prelude.NFData DeleteMultiplexResponse where
   rnf DeleteMultiplexResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf multiplexSettings
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pipelinesRunningCount
-      `Prelude.seq` Prelude.rnf programCount
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf availabilityZones `Prelude.seq`
+        Prelude.rnf destinations `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf multiplexSettings `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf pipelinesRunningCount `Prelude.seq`
+                  Prelude.rnf programCount `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf httpStatus

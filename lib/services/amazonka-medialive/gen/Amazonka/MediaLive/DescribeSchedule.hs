@@ -114,12 +114,12 @@ instance Core.AWSPager DescribeSchedule where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSchedule_nextToken
-          Lens..~ rs
-          Lens.^? describeScheduleResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSchedule_nextToken
+              Lens..~ rs
+              Lens.^? describeScheduleResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSchedule where
   type
@@ -148,9 +148,9 @@ instance Prelude.Hashable DescribeSchedule where
 
 instance Prelude.NFData DescribeSchedule where
   rnf DescribeSchedule' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channelId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf channelId
 
 instance Data.ToHeaders DescribeSchedule where
   toHeaders =
@@ -227,6 +227,6 @@ describeScheduleResponse_httpStatus = Lens.lens (\DescribeScheduleResponse' {htt
 
 instance Prelude.NFData DescribeScheduleResponse where
   rnf DescribeScheduleResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scheduleActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scheduleActions `Prelude.seq`
+        Prelude.rnf httpStatus

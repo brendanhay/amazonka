@@ -162,9 +162,7 @@ instance Data.FromXML DeploymentTargets where
   parseXML x =
     DeploymentTargets'
       Prelude.<$> (x Data..@? "AccountFilterType")
-      Prelude.<*> ( x
-                      Data..@? "Accounts"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Accounts" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "AccountsUrl")
@@ -184,10 +182,10 @@ instance Prelude.Hashable DeploymentTargets where
 
 instance Prelude.NFData DeploymentTargets where
   rnf DeploymentTargets' {..} =
-    Prelude.rnf accountFilterType
-      `Prelude.seq` Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf accountsUrl
-      `Prelude.seq` Prelude.rnf organizationalUnitIds
+    Prelude.rnf accountFilterType `Prelude.seq`
+      Prelude.rnf accounts `Prelude.seq`
+        Prelude.rnf accountsUrl `Prelude.seq`
+          Prelude.rnf organizationalUnitIds
 
 instance Data.ToQuery DeploymentTargets where
   toQuery DeploymentTargets' {..} =

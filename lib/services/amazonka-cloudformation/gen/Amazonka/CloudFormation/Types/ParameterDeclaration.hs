@@ -125,9 +125,9 @@ instance Prelude.Hashable ParameterDeclaration where
 
 instance Prelude.NFData ParameterDeclaration where
   rnf ParameterDeclaration' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf noEcho
-      `Prelude.seq` Prelude.rnf parameterConstraints
-      `Prelude.seq` Prelude.rnf parameterKey
-      `Prelude.seq` Prelude.rnf parameterType
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf noEcho `Prelude.seq`
+          Prelude.rnf parameterConstraints `Prelude.seq`
+            Prelude.rnf parameterKey `Prelude.seq`
+              Prelude.rnf parameterType

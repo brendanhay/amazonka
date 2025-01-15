@@ -167,5 +167,5 @@ getStackPolicyResponse_httpStatus = Lens.lens (\GetStackPolicyResponse' {httpSta
 
 instance Prelude.NFData GetStackPolicyResponse where
   rnf GetStackPolicyResponse' {..} =
-    Prelude.rnf stackPolicyBody
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackPolicyBody `Prelude.seq`
+      Prelude.rnf httpStatus

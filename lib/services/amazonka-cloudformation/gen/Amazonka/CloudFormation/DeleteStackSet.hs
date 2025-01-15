@@ -157,8 +157,8 @@ instance Prelude.Hashable DeleteStackSet where
 
 instance Prelude.NFData DeleteStackSet where
   rnf DeleteStackSet' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf stackSetName
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf stackSetName
 
 instance Data.ToHeaders DeleteStackSet where
   toHeaders = Prelude.const Prelude.mempty

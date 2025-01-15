@@ -150,9 +150,9 @@ instance Prelude.Hashable DeactivateType where
 
 instance Prelude.NFData DeactivateType where
   rnf DeactivateType' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf typeName
 
 instance Data.ToHeaders DeactivateType where
   toHeaders = Prelude.const Prelude.mempty

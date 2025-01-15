@@ -716,23 +716,23 @@ instance Prelude.Hashable CreateChangeSet where
 
 instance Prelude.NFData CreateChangeSet where
   rnf CreateChangeSet' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf changeSetType
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf includeNestedStacks
-      `Prelude.seq` Prelude.rnf notificationARNs
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf resourcesToImport
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf rollbackConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateURL
-      `Prelude.seq` Prelude.rnf usePreviousTemplate
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf changeSetName
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf changeSetType `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf includeNestedStacks `Prelude.seq`
+              Prelude.rnf notificationARNs `Prelude.seq`
+                Prelude.rnf parameters `Prelude.seq`
+                  Prelude.rnf resourceTypes `Prelude.seq`
+                    Prelude.rnf resourcesToImport `Prelude.seq`
+                      Prelude.rnf roleARN `Prelude.seq`
+                        Prelude.rnf rollbackConfiguration `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf templateBody `Prelude.seq`
+                              Prelude.rnf templateURL `Prelude.seq`
+                                Prelude.rnf usePreviousTemplate `Prelude.seq`
+                                  Prelude.rnf stackName `Prelude.seq`
+                                    Prelude.rnf changeSetName
 
 instance Data.ToHeaders CreateChangeSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -836,6 +836,6 @@ createChangeSetResponse_httpStatus = Lens.lens (\CreateChangeSetResponse' {httpS
 
 instance Prelude.NFData CreateChangeSetResponse where
   rnf CreateChangeSetResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf stackId `Prelude.seq`
+        Prelude.rnf httpStatus

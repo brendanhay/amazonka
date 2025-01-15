@@ -143,9 +143,9 @@ instance Prelude.Hashable RollbackStack where
 
 instance Prelude.NFData RollbackStack where
   rnf RollbackStack' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf roleARN `Prelude.seq`
+        Prelude.rnf stackName
 
 instance Data.ToHeaders RollbackStack where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,5 +205,5 @@ rollbackStackResponse_httpStatus = Lens.lens (\RollbackStackResponse' {httpStatu
 
 instance Prelude.NFData RollbackStackResponse where
   rnf RollbackStackResponse' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackId `Prelude.seq`
+      Prelude.rnf httpStatus

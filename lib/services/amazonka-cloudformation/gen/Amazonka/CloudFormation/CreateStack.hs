@@ -792,23 +792,23 @@ instance Prelude.Hashable CreateStack where
 
 instance Prelude.NFData CreateStack where
   rnf CreateStack' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf disableRollback
-      `Prelude.seq` Prelude.rnf enableTerminationProtection
-      `Prelude.seq` Prelude.rnf notificationARNs
-      `Prelude.seq` Prelude.rnf onFailure
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf rollbackConfiguration
-      `Prelude.seq` Prelude.rnf stackPolicyBody
-      `Prelude.seq` Prelude.rnf stackPolicyURL
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateURL
-      `Prelude.seq` Prelude.rnf timeoutInMinutes
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf disableRollback `Prelude.seq`
+          Prelude.rnf enableTerminationProtection `Prelude.seq`
+            Prelude.rnf notificationARNs `Prelude.seq`
+              Prelude.rnf onFailure `Prelude.seq`
+                Prelude.rnf parameters `Prelude.seq`
+                  Prelude.rnf resourceTypes `Prelude.seq`
+                    Prelude.rnf roleARN `Prelude.seq`
+                      Prelude.rnf rollbackConfiguration `Prelude.seq`
+                        Prelude.rnf stackPolicyBody `Prelude.seq`
+                          Prelude.rnf stackPolicyURL `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf templateBody `Prelude.seq`
+                                Prelude.rnf templateURL `Prelude.seq`
+                                  Prelude.rnf timeoutInMinutes `Prelude.seq`
+                                    Prelude.rnf stackName
 
 instance Data.ToHeaders CreateStack where
   toHeaders = Prelude.const Prelude.mempty
@@ -900,5 +900,5 @@ createStackResponse_httpStatus = Lens.lens (\CreateStackResponse' {httpStatus} -
 
 instance Prelude.NFData CreateStackResponse where
   rnf CreateStackResponse' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackId `Prelude.seq`
+      Prelude.rnf httpStatus

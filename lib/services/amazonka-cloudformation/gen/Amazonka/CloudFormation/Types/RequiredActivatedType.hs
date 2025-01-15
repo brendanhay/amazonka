@@ -145,7 +145,7 @@ instance Prelude.Hashable RequiredActivatedType where
 
 instance Prelude.NFData RequiredActivatedType where
   rnf RequiredActivatedType' {..} =
-    Prelude.rnf originalTypeName
-      `Prelude.seq` Prelude.rnf publisherId
-      `Prelude.seq` Prelude.rnf supportedMajorVersions
-      `Prelude.seq` Prelude.rnf typeNameAlias
+    Prelude.rnf originalTypeName `Prelude.seq`
+      Prelude.rnf publisherId `Prelude.seq`
+        Prelude.rnf supportedMajorVersions `Prelude.seq`
+          Prelude.rnf typeNameAlias

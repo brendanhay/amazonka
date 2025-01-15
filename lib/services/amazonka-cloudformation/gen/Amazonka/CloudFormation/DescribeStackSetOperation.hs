@@ -173,9 +173,9 @@ instance Prelude.Hashable DescribeStackSetOperation where
 
 instance Prelude.NFData DescribeStackSetOperation where
   rnf DescribeStackSetOperation' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf stackSetName `Prelude.seq`
+        Prelude.rnf operationId
 
 instance Data.ToHeaders DescribeStackSetOperation where
   toHeaders = Prelude.const Prelude.mempty
@@ -239,5 +239,5 @@ instance
     DescribeStackSetOperationResponse
   where
   rnf DescribeStackSetOperationResponse' {..} =
-    Prelude.rnf stackSetOperation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackSetOperation `Prelude.seq`
+      Prelude.rnf httpStatus

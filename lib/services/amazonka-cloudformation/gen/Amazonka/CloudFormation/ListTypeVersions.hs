@@ -258,13 +258,13 @@ instance Prelude.Hashable ListTypeVersions where
 
 instance Prelude.NFData ListTypeVersions where
   rnf ListTypeVersions' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf deprecatedStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf publisherId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf deprecatedStatus `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf publisherId `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf typeName
 
 instance Data.ToHeaders ListTypeVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -353,6 +353,6 @@ listTypeVersionsResponse_httpStatus = Lens.lens (\ListTypeVersionsResponse' {htt
 
 instance Prelude.NFData ListTypeVersionsResponse where
   rnf ListTypeVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf typeVersionSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf typeVersionSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

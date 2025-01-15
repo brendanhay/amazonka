@@ -161,9 +161,9 @@ instance Prelude.Hashable EstimateTemplateCost where
 
 instance Prelude.NFData EstimateTemplateCost where
   rnf EstimateTemplateCost' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateURL
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf templateBody `Prelude.seq`
+        Prelude.rnf templateURL
 
 instance Data.ToHeaders EstimateTemplateCost where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,5 +231,5 @@ estimateTemplateCostResponse_httpStatus = Lens.lens (\EstimateTemplateCostRespon
 
 instance Prelude.NFData EstimateTemplateCostResponse where
   rnf EstimateTemplateCostResponse' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf url `Prelude.seq`
+      Prelude.rnf httpStatus

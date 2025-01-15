@@ -231,8 +231,8 @@ instance
     DescribeTypeRegistrationResponse
   where
   rnf DescribeTypeRegistrationResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf progressStatus
-      `Prelude.seq` Prelude.rnf typeArn
-      `Prelude.seq` Prelude.rnf typeVersionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf progressStatus `Prelude.seq`
+        Prelude.rnf typeArn `Prelude.seq`
+          Prelude.rnf typeVersionArn `Prelude.seq`
+            Prelude.rnf httpStatus

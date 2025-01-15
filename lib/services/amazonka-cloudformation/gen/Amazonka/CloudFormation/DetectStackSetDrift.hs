@@ -215,10 +215,10 @@ instance Prelude.Hashable DetectStackSetDrift where
 
 instance Prelude.NFData DetectStackSetDrift where
   rnf DetectStackSetDrift' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf operationPreferences
-      `Prelude.seq` Prelude.rnf stackSetName
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf operationId `Prelude.seq`
+        Prelude.rnf operationPreferences `Prelude.seq`
+          Prelude.rnf stackSetName
 
 instance Data.ToHeaders DetectStackSetDrift where
   toHeaders = Prelude.const Prelude.mempty
@@ -289,5 +289,5 @@ detectStackSetDriftResponse_httpStatus = Lens.lens (\DetectStackSetDriftResponse
 
 instance Prelude.NFData DetectStackSetDriftResponse where
   rnf DetectStackSetDriftResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

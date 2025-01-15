@@ -79,5 +79,5 @@ instance Prelude.Hashable ChangeSetHookTargetDetails where
 
 instance Prelude.NFData ChangeSetHookTargetDetails where
   rnf ChangeSetHookTargetDetails' {..} =
-    Prelude.rnf resourceTargetDetails
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf resourceTargetDetails `Prelude.seq`
+      Prelude.rnf targetType

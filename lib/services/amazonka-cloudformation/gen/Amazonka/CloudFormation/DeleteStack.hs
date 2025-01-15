@@ -218,10 +218,10 @@ instance Prelude.Hashable DeleteStack where
 
 instance Prelude.NFData DeleteStack where
   rnf DeleteStack' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf retainResources
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf retainResources `Prelude.seq`
+        Prelude.rnf roleARN `Prelude.seq`
+          Prelude.rnf stackName
 
 instance Data.ToHeaders DeleteStack where
   toHeaders = Prelude.const Prelude.mempty

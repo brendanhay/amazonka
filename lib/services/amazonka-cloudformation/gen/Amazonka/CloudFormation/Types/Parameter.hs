@@ -119,10 +119,10 @@ instance Prelude.Hashable Parameter where
 
 instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
-    Prelude.rnf parameterKey
-      `Prelude.seq` Prelude.rnf parameterValue
-      `Prelude.seq` Prelude.rnf resolvedValue
-      `Prelude.seq` Prelude.rnf usePreviousValue
+    Prelude.rnf parameterKey `Prelude.seq`
+      Prelude.rnf parameterValue `Prelude.seq`
+        Prelude.rnf resolvedValue `Prelude.seq`
+          Prelude.rnf usePreviousValue
 
 instance Data.ToQuery Parameter where
   toQuery Parameter' {..} =

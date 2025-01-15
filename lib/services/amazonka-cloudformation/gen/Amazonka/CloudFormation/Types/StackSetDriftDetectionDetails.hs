@@ -298,11 +298,11 @@ instance
 
 instance Prelude.NFData StackSetDriftDetectionDetails where
   rnf StackSetDriftDetectionDetails' {..} =
-    Prelude.rnf driftDetectionStatus
-      `Prelude.seq` Prelude.rnf driftStatus
-      `Prelude.seq` Prelude.rnf driftedStackInstancesCount
-      `Prelude.seq` Prelude.rnf failedStackInstancesCount
-      `Prelude.seq` Prelude.rnf inProgressStackInstancesCount
-      `Prelude.seq` Prelude.rnf inSyncStackInstancesCount
-      `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp
-      `Prelude.seq` Prelude.rnf totalStackInstancesCount
+    Prelude.rnf driftDetectionStatus `Prelude.seq`
+      Prelude.rnf driftStatus `Prelude.seq`
+        Prelude.rnf driftedStackInstancesCount `Prelude.seq`
+          Prelude.rnf failedStackInstancesCount `Prelude.seq`
+            Prelude.rnf inProgressStackInstancesCount `Prelude.seq`
+              Prelude.rnf inSyncStackInstancesCount `Prelude.seq`
+                Prelude.rnf lastDriftCheckTimestamp `Prelude.seq`
+                  Prelude.rnf totalStackInstancesCount

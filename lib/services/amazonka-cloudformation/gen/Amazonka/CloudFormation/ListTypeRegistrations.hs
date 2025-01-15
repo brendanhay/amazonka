@@ -206,12 +206,12 @@ instance Prelude.Hashable ListTypeRegistrations where
 
 instance Prelude.NFData ListTypeRegistrations where
   rnf ListTypeRegistrations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registrationStatusFilter
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeArn
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf registrationStatusFilter `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf typeArn `Prelude.seq`
+              Prelude.rnf typeName
 
 instance Data.ToHeaders ListTypeRegistrations where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,6 +306,6 @@ listTypeRegistrationsResponse_httpStatus = Lens.lens (\ListTypeRegistrationsResp
 
 instance Prelude.NFData ListTypeRegistrationsResponse where
   rnf ListTypeRegistrationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registrationTokenList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf registrationTokenList `Prelude.seq`
+        Prelude.rnf httpStatus

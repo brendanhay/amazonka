@@ -198,10 +198,10 @@ instance Prelude.Hashable DescribeStackResourceDrifts where
 
 instance Prelude.NFData DescribeStackResourceDrifts where
   rnf DescribeStackResourceDrifts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackResourceDriftStatusFilters
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf stackResourceDriftStatusFilters `Prelude.seq`
+          Prelude.rnf stackName
 
 instance Data.ToHeaders DescribeStackResourceDrifts where
   toHeaders = Prelude.const Prelude.mempty
@@ -320,6 +320,6 @@ instance
     DescribeStackResourceDriftsResponse
   where
   rnf DescribeStackResourceDriftsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf stackResourceDrifts
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf stackResourceDrifts

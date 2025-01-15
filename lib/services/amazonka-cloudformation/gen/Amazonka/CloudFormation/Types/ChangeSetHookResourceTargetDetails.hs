@@ -100,6 +100,6 @@ instance
     ChangeSetHookResourceTargetDetails
   where
   rnf ChangeSetHookResourceTargetDetails' {..} =
-    Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf resourceAction
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf logicalResourceId `Prelude.seq`
+      Prelude.rnf resourceAction `Prelude.seq`
+        Prelude.rnf resourceType

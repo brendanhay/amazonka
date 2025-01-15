@@ -416,14 +416,14 @@ instance Prelude.Hashable UpdateStackInstances where
 
 instance Prelude.NFData UpdateStackInstances where
   rnf UpdateStackInstances' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf deploymentTargets
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf operationPreferences
-      `Prelude.seq` Prelude.rnf parameterOverrides
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf regions
+    Prelude.rnf accounts `Prelude.seq`
+      Prelude.rnf callAs `Prelude.seq`
+        Prelude.rnf deploymentTargets `Prelude.seq`
+          Prelude.rnf operationId `Prelude.seq`
+            Prelude.rnf operationPreferences `Prelude.seq`
+              Prelude.rnf parameterOverrides `Prelude.seq`
+                Prelude.rnf stackSetName `Prelude.seq`
+                  Prelude.rnf regions
 
 instance Data.ToHeaders UpdateStackInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -495,5 +495,5 @@ updateStackInstancesResponse_httpStatus = Lens.lens (\UpdateStackInstancesRespon
 
 instance Prelude.NFData UpdateStackInstancesResponse where
   rnf UpdateStackInstancesResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

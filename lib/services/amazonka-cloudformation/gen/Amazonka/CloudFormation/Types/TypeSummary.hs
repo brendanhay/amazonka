@@ -389,16 +389,16 @@ instance Prelude.Hashable TypeSummary where
 
 instance Prelude.NFData TypeSummary where
   rnf TypeSummary' {..} =
-    Prelude.rnf defaultVersionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isActivated
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf latestPublicVersion
-      `Prelude.seq` Prelude.rnf originalTypeName
-      `Prelude.seq` Prelude.rnf publicVersionNumber
-      `Prelude.seq` Prelude.rnf publisherId
-      `Prelude.seq` Prelude.rnf publisherIdentity
-      `Prelude.seq` Prelude.rnf publisherName
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeArn
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf defaultVersionId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf isActivated `Prelude.seq`
+          Prelude.rnf lastUpdated `Prelude.seq`
+            Prelude.rnf latestPublicVersion `Prelude.seq`
+              Prelude.rnf originalTypeName `Prelude.seq`
+                Prelude.rnf publicVersionNumber `Prelude.seq`
+                  Prelude.rnf publisherId `Prelude.seq`
+                    Prelude.rnf publisherIdentity `Prelude.seq`
+                      Prelude.rnf publisherName `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf typeArn `Prelude.seq`
+                            Prelude.rnf typeName

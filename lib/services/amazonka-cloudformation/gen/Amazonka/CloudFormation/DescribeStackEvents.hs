@@ -138,12 +138,12 @@ instance Core.AWSPager DescribeStackEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeStackEvents_nextToken
-          Lens..~ rs
-          Lens.^? describeStackEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeStackEvents_nextToken
+              Lens..~ rs
+              Lens.^? describeStackEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStackEvents where
   type
@@ -157,9 +157,7 @@ instance Core.AWSRequest DescribeStackEvents where
       ( \s h x ->
           DescribeStackEventsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "StackEvents"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "StackEvents" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,8 +171,8 @@ instance Prelude.Hashable DescribeStackEvents where
 
 instance Prelude.NFData DescribeStackEvents where
   rnf DescribeStackEvents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf stackName
 
 instance Data.ToHeaders DescribeStackEvents where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,6 +246,6 @@ describeStackEventsResponse_httpStatus = Lens.lens (\DescribeStackEventsResponse
 
 instance Prelude.NFData DescribeStackEventsResponse where
   rnf DescribeStackEventsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackEvents
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf stackEvents `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -163,9 +163,7 @@ instance Core.AWSRequest GetTemplate where
       "GetTemplateResult"
       ( \s h x ->
           GetTemplateResponse'
-            Prelude.<$> ( x
-                            Data..@? "StagesAvailable"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "StagesAvailable" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "TemplateBody")
@@ -181,9 +179,9 @@ instance Prelude.Hashable GetTemplate where
 
 instance Prelude.NFData GetTemplate where
   rnf GetTemplate' {..} =
-    Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf templateStage
+    Prelude.rnf changeSetName `Prelude.seq`
+      Prelude.rnf stackName `Prelude.seq`
+        Prelude.rnf templateStage
 
 instance Data.ToHeaders GetTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,6 +280,6 @@ getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -
 
 instance Prelude.NFData GetTemplateResponse where
   rnf GetTemplateResponse' {..} =
-    Prelude.rnf stagesAvailable
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stagesAvailable `Prelude.seq`
+      Prelude.rnf templateBody `Prelude.seq`
+        Prelude.rnf httpStatus

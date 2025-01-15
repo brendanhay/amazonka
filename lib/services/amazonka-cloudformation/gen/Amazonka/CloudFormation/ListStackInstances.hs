@@ -232,12 +232,12 @@ instance Core.AWSPager ListStackInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStackInstances_nextToken
-          Lens..~ rs
-          Lens.^? listStackInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStackInstances_nextToken
+              Lens..~ rs
+              Lens.^? listStackInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStackInstances where
   type
@@ -251,9 +251,7 @@ instance Core.AWSRequest ListStackInstances where
       ( \s h x ->
           ListStackInstancesResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "Summaries"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -272,13 +270,13 @@ instance Prelude.Hashable ListStackInstances where
 
 instance Prelude.NFData ListStackInstances where
   rnf ListStackInstances' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackInstanceAccount
-      `Prelude.seq` Prelude.rnf stackInstanceRegion
-      `Prelude.seq` Prelude.rnf stackSetName
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf stackInstanceAccount `Prelude.seq`
+              Prelude.rnf stackInstanceRegion `Prelude.seq`
+                Prelude.rnf stackSetName
 
 instance Data.ToHeaders ListStackInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -369,6 +367,6 @@ listStackInstancesResponse_httpStatus = Lens.lens (\ListStackInstancesResponse' 
 
 instance Prelude.NFData ListStackInstancesResponse where
   rnf ListStackInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

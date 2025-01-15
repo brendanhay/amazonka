@@ -154,8 +154,8 @@ instance Prelude.Hashable DescribeStackSet where
 
 instance Prelude.NFData DescribeStackSet where
   rnf DescribeStackSet' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf stackSetName
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf stackSetName
 
 instance Data.ToHeaders DescribeStackSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,5 +215,5 @@ describeStackSetResponse_httpStatus = Lens.lens (\DescribeStackSetResponse' {htt
 
 instance Prelude.NFData DescribeStackSetResponse where
   rnf DescribeStackSetResponse' {..} =
-    Prelude.rnf stackSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackSet `Prelude.seq`
+      Prelude.rnf httpStatus

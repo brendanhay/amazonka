@@ -257,9 +257,7 @@ instance Data.FromXML StackSetOperationPreferences where
       Prelude.<*> (x Data..@? "MaxConcurrentCount")
       Prelude.<*> (x Data..@? "MaxConcurrentPercentage")
       Prelude.<*> (x Data..@? "RegionConcurrencyType")
-      Prelude.<*> ( x
-                      Data..@? "RegionOrder"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "RegionOrder" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -278,12 +276,12 @@ instance
 
 instance Prelude.NFData StackSetOperationPreferences where
   rnf StackSetOperationPreferences' {..} =
-    Prelude.rnf failureToleranceCount
-      `Prelude.seq` Prelude.rnf failureTolerancePercentage
-      `Prelude.seq` Prelude.rnf maxConcurrentCount
-      `Prelude.seq` Prelude.rnf maxConcurrentPercentage
-      `Prelude.seq` Prelude.rnf regionConcurrencyType
-      `Prelude.seq` Prelude.rnf regionOrder
+    Prelude.rnf failureToleranceCount `Prelude.seq`
+      Prelude.rnf failureTolerancePercentage `Prelude.seq`
+        Prelude.rnf maxConcurrentCount `Prelude.seq`
+          Prelude.rnf maxConcurrentPercentage `Prelude.seq`
+            Prelude.rnf regionConcurrencyType `Prelude.seq`
+              Prelude.rnf regionOrder
 
 instance Data.ToQuery StackSetOperationPreferences where
   toQuery StackSetOperationPreferences' {..} =

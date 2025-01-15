@@ -149,7 +149,7 @@ instance Prelude.Hashable PropertyDifference where
 
 instance Prelude.NFData PropertyDifference where
   rnf PropertyDifference' {..} =
-    Prelude.rnf propertyPath
-      `Prelude.seq` Prelude.rnf expectedValue
-      `Prelude.seq` Prelude.rnf actualValue
-      `Prelude.seq` Prelude.rnf differenceType
+    Prelude.rnf propertyPath `Prelude.seq`
+      Prelude.rnf expectedValue `Prelude.seq`
+        Prelude.rnf actualValue `Prelude.seq`
+          Prelude.rnf differenceType

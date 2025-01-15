@@ -130,9 +130,9 @@ instance Prelude.Hashable SetStackPolicy where
 
 instance Prelude.NFData SetStackPolicy where
   rnf SetStackPolicy' {..} =
-    Prelude.rnf stackPolicyBody
-      `Prelude.seq` Prelude.rnf stackPolicyURL
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf stackPolicyBody `Prelude.seq`
+      Prelude.rnf stackPolicyURL `Prelude.seq`
+        Prelude.rnf stackName
 
 instance Data.ToHeaders SetStackPolicy where
   toHeaders = Prelude.const Prelude.mempty

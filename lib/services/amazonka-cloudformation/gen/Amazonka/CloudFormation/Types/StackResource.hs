@@ -217,14 +217,14 @@ instance Prelude.Hashable StackResource where
 
 instance Prelude.NFData StackResource where
   rnf StackResource' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf driftInformation
-      `Prelude.seq` Prelude.rnf moduleInfo
-      `Prelude.seq` Prelude.rnf physicalResourceId
-      `Prelude.seq` Prelude.rnf resourceStatusReason
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf resourceStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf driftInformation `Prelude.seq`
+        Prelude.rnf moduleInfo `Prelude.seq`
+          Prelude.rnf physicalResourceId `Prelude.seq`
+            Prelude.rnf resourceStatusReason `Prelude.seq`
+              Prelude.rnf stackId `Prelude.seq`
+                Prelude.rnf stackName `Prelude.seq`
+                  Prelude.rnf logicalResourceId `Prelude.seq`
+                    Prelude.rnf resourceType `Prelude.seq`
+                      Prelude.rnf timestamp `Prelude.seq`
+                        Prelude.rnf resourceStatus

@@ -160,10 +160,10 @@ instance Prelude.Hashable SignalResource where
 
 instance Prelude.NFData SignalResource where
   rnf SignalResource' {..} =
-    Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf uniqueId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf stackName `Prelude.seq`
+      Prelude.rnf logicalResourceId `Prelude.seq`
+        Prelude.rnf uniqueId `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders SignalResource where
   toHeaders = Prelude.const Prelude.mempty

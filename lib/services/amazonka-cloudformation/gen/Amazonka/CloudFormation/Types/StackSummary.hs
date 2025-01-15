@@ -237,14 +237,14 @@ instance Prelude.Hashable StackSummary where
 
 instance Prelude.NFData StackSummary where
   rnf StackSummary' {..} =
-    Prelude.rnf deletionTime
-      `Prelude.seq` Prelude.rnf driftInformation
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf rootId
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackStatusReason
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf stackStatus
+    Prelude.rnf deletionTime `Prelude.seq`
+      Prelude.rnf driftInformation `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf parentId `Prelude.seq`
+            Prelude.rnf rootId `Prelude.seq`
+              Prelude.rnf stackId `Prelude.seq`
+                Prelude.rnf stackStatusReason `Prelude.seq`
+                  Prelude.rnf templateDescription `Prelude.seq`
+                    Prelude.rnf stackName `Prelude.seq`
+                      Prelude.rnf creationTime `Prelude.seq`
+                        Prelude.rnf stackStatus

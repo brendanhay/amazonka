@@ -221,12 +221,12 @@ instance Core.AWSPager ListStackSetOperationResults where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStackSetOperationResults_nextToken
-          Lens..~ rs
-          Lens.^? listStackSetOperationResultsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStackSetOperationResults_nextToken
+              Lens..~ rs
+              Lens.^? listStackSetOperationResultsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStackSetOperationResults where
   type
@@ -240,9 +240,7 @@ instance Core.AWSRequest ListStackSetOperationResults where
       ( \s h x ->
           ListStackSetOperationResultsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "Summaries"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -263,12 +261,12 @@ instance
 
 instance Prelude.NFData ListStackSetOperationResults where
   rnf ListStackSetOperationResults' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf stackSetName `Prelude.seq`
+              Prelude.rnf operationId
 
 instance Data.ToHeaders ListStackSetOperationResults where
   toHeaders = Prelude.const Prelude.mempty
@@ -366,6 +364,6 @@ instance
     ListStackSetOperationResultsResponse
   where
   rnf ListStackSetOperationResultsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

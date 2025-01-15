@@ -186,11 +186,11 @@ instance Prelude.Hashable StackResourceSummary where
 
 instance Prelude.NFData StackResourceSummary where
   rnf StackResourceSummary' {..} =
-    Prelude.rnf driftInformation
-      `Prelude.seq` Prelude.rnf moduleInfo
-      `Prelude.seq` Prelude.rnf physicalResourceId
-      `Prelude.seq` Prelude.rnf resourceStatusReason
-      `Prelude.seq` Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf resourceStatus
+    Prelude.rnf driftInformation `Prelude.seq`
+      Prelude.rnf moduleInfo `Prelude.seq`
+        Prelude.rnf physicalResourceId `Prelude.seq`
+          Prelude.rnf resourceStatusReason `Prelude.seq`
+            Prelude.rnf logicalResourceId `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+                  Prelude.rnf resourceStatus

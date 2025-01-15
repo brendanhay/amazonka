@@ -129,5 +129,5 @@ instance
 
 instance Prelude.NFData StackDriftInformationSummary where
   rnf StackDriftInformationSummary' {..} =
-    Prelude.rnf lastCheckTimestamp
-      `Prelude.seq` Prelude.rnf stackDriftStatus
+    Prelude.rnf lastCheckTimestamp `Prelude.seq`
+      Prelude.rnf stackDriftStatus

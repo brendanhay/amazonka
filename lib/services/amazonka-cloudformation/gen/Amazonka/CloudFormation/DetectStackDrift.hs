@@ -138,8 +138,8 @@ instance Prelude.Hashable DetectStackDrift where
 
 instance Prelude.NFData DetectStackDrift where
   rnf DetectStackDrift' {..} =
-    Prelude.rnf logicalResourceIds
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf logicalResourceIds `Prelude.seq`
+      Prelude.rnf stackName
 
 instance Data.ToHeaders DetectStackDrift where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,5 +219,5 @@ detectStackDriftResponse_stackDriftDetectionId = Lens.lens (\DetectStackDriftRes
 
 instance Prelude.NFData DetectStackDriftResponse where
   rnf DetectStackDriftResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf stackDriftDetectionId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf stackDriftDetectionId

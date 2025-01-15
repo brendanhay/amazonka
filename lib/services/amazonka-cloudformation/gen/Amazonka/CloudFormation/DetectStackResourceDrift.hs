@@ -128,8 +128,8 @@ instance Prelude.Hashable DetectStackResourceDrift where
 
 instance Prelude.NFData DetectStackResourceDrift where
   rnf DetectStackResourceDrift' {..} =
-    Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf logicalResourceId
+    Prelude.rnf stackName `Prelude.seq`
+      Prelude.rnf logicalResourceId
 
 instance Data.ToHeaders DetectStackResourceDrift where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,5 +202,5 @@ instance
     DetectStackResourceDriftResponse
   where
   rnf DetectStackResourceDriftResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf stackResourceDrift
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf stackResourceDrift

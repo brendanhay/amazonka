@@ -336,15 +336,15 @@ instance Prelude.Hashable StackInstance where
 
 instance Prelude.NFData StackInstance where
   rnf StackInstance' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf driftStatus
-      `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp
-      `Prelude.seq` Prelude.rnf lastOperationId
-      `Prelude.seq` Prelude.rnf organizationalUnitId
-      `Prelude.seq` Prelude.rnf parameterOverrides
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackInstanceStatus
-      `Prelude.seq` Prelude.rnf stackSetId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf driftStatus `Prelude.seq`
+        Prelude.rnf lastDriftCheckTimestamp `Prelude.seq`
+          Prelude.rnf lastOperationId `Prelude.seq`
+            Prelude.rnf organizationalUnitId `Prelude.seq`
+              Prelude.rnf parameterOverrides `Prelude.seq`
+                Prelude.rnf region `Prelude.seq`
+                  Prelude.rnf stackId `Prelude.seq`
+                    Prelude.rnf stackInstanceStatus `Prelude.seq`
+                      Prelude.rnf stackSetId `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf statusReason

@@ -101,6 +101,6 @@ instance
     BatchDescribeTypeConfigurationsError
   where
   rnf BatchDescribeTypeConfigurationsError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf typeConfigurationIdentifier
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf typeConfigurationIdentifier

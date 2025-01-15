@@ -190,10 +190,10 @@ instance Prelude.Hashable TypeConfigurationDetails where
 
 instance Prelude.NFData TypeConfigurationDetails where
   rnf TypeConfigurationDetails' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf isDefaultConfiguration
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf typeArn
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf configuration `Prelude.seq`
+          Prelude.rnf isDefaultConfiguration `Prelude.seq`
+            Prelude.rnf lastUpdated `Prelude.seq`
+              Prelude.rnf typeArn `Prelude.seq`
+                Prelude.rnf typeName

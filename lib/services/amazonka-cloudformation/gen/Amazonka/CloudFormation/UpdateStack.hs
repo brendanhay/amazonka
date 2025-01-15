@@ -817,23 +817,23 @@ instance Prelude.Hashable UpdateStack where
 
 instance Prelude.NFData UpdateStack where
   rnf UpdateStack' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf disableRollback
-      `Prelude.seq` Prelude.rnf notificationARNs
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf rollbackConfiguration
-      `Prelude.seq` Prelude.rnf stackPolicyBody
-      `Prelude.seq` Prelude.rnf stackPolicyDuringUpdateBody
-      `Prelude.seq` Prelude.rnf stackPolicyDuringUpdateURL
-      `Prelude.seq` Prelude.rnf stackPolicyURL
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateURL
-      `Prelude.seq` Prelude.rnf usePreviousTemplate
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf disableRollback `Prelude.seq`
+          Prelude.rnf notificationARNs `Prelude.seq`
+            Prelude.rnf parameters `Prelude.seq`
+              Prelude.rnf resourceTypes `Prelude.seq`
+                Prelude.rnf roleARN `Prelude.seq`
+                  Prelude.rnf rollbackConfiguration `Prelude.seq`
+                    Prelude.rnf stackPolicyBody `Prelude.seq`
+                      Prelude.rnf stackPolicyDuringUpdateBody `Prelude.seq`
+                        Prelude.rnf stackPolicyDuringUpdateURL `Prelude.seq`
+                          Prelude.rnf stackPolicyURL `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf templateBody `Prelude.seq`
+                                Prelude.rnf templateURL `Prelude.seq`
+                                  Prelude.rnf usePreviousTemplate `Prelude.seq`
+                                    Prelude.rnf stackName
 
 instance Data.ToHeaders UpdateStack where
   toHeaders = Prelude.const Prelude.mempty
@@ -926,5 +926,5 @@ updateStackResponse_httpStatus = Lens.lens (\UpdateStackResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateStackResponse where
   rnf UpdateStackResponse' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackId `Prelude.seq`
+      Prelude.rnf httpStatus

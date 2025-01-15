@@ -139,5 +139,5 @@ instance Prelude.Hashable ModuleInfo where
 
 instance Prelude.NFData ModuleInfo where
   rnf ModuleInfo' {..} =
-    Prelude.rnf logicalIdHierarchy
-      `Prelude.seq` Prelude.rnf typeHierarchy
+    Prelude.rnf logicalIdHierarchy `Prelude.seq`
+      Prelude.rnf typeHierarchy

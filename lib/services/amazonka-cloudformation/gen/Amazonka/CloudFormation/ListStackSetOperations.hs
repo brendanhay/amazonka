@@ -196,12 +196,12 @@ instance Core.AWSPager ListStackSetOperations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStackSetOperations_nextToken
-          Lens..~ rs
-          Lens.^? listStackSetOperationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStackSetOperations_nextToken
+              Lens..~ rs
+              Lens.^? listStackSetOperationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStackSetOperations where
   type
@@ -215,9 +215,7 @@ instance Core.AWSRequest ListStackSetOperations where
       ( \s h x ->
           ListStackSetOperationsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "Summaries"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -233,10 +231,10 @@ instance Prelude.Hashable ListStackSetOperations where
 
 instance Prelude.NFData ListStackSetOperations where
   rnf ListStackSetOperations' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackSetName
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf stackSetName
 
 instance Data.ToHeaders ListStackSetOperations where
   toHeaders = Prelude.const Prelude.mempty
@@ -325,6 +323,6 @@ instance
     ListStackSetOperationsResponse
   where
   rnf ListStackSetOperationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

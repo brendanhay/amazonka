@@ -192,9 +192,9 @@ instance Prelude.Hashable ChangeSetHook where
 
 instance Prelude.NFData ChangeSetHook where
   rnf ChangeSetHook' {..} =
-    Prelude.rnf failureMode
-      `Prelude.seq` Prelude.rnf invocationPoint
-      `Prelude.seq` Prelude.rnf targetDetails
-      `Prelude.seq` Prelude.rnf typeConfigurationVersionId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf typeVersionId
+    Prelude.rnf failureMode `Prelude.seq`
+      Prelude.rnf invocationPoint `Prelude.seq`
+        Prelude.rnf targetDetails `Prelude.seq`
+          Prelude.rnf typeConfigurationVersionId `Prelude.seq`
+            Prelude.rnf typeName `Prelude.seq`
+              Prelude.rnf typeVersionId

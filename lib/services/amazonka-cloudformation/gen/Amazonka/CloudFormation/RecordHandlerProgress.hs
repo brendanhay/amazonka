@@ -192,13 +192,13 @@ instance Prelude.Hashable RecordHandlerProgress where
 
 instance Prelude.NFData RecordHandlerProgress where
   rnf RecordHandlerProgress' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf currentOperationStatus
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf resourceModel
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf bearerToken
-      `Prelude.seq` Prelude.rnf operationStatus
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf currentOperationStatus `Prelude.seq`
+        Prelude.rnf errorCode `Prelude.seq`
+          Prelude.rnf resourceModel `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf bearerToken `Prelude.seq`
+                Prelude.rnf operationStatus
 
 instance Data.ToHeaders RecordHandlerProgress where
   toHeaders = Prelude.const Prelude.mempty

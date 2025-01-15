@@ -176,10 +176,10 @@ instance Prelude.Hashable ExecuteChangeSet where
 
 instance Prelude.NFData ExecuteChangeSet where
   rnf ExecuteChangeSet' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf disableRollback
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf changeSetName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf disableRollback `Prelude.seq`
+        Prelude.rnf stackName `Prelude.seq`
+          Prelude.rnf changeSetName
 
 instance Data.ToHeaders ExecuteChangeSet where
   toHeaders = Prelude.const Prelude.mempty

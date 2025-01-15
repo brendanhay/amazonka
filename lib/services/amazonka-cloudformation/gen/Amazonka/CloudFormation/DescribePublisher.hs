@@ -213,8 +213,8 @@ describePublisherResponse_httpStatus = Lens.lens (\DescribePublisherResponse' {h
 
 instance Prelude.NFData DescribePublisherResponse where
   rnf DescribePublisherResponse' {..} =
-    Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf publisherId
-      `Prelude.seq` Prelude.rnf publisherProfile
-      `Prelude.seq` Prelude.rnf publisherStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityProvider `Prelude.seq`
+      Prelude.rnf publisherId `Prelude.seq`
+        Prelude.rnf publisherProfile `Prelude.seq`
+          Prelude.rnf publisherStatus `Prelude.seq`
+            Prelude.rnf httpStatus

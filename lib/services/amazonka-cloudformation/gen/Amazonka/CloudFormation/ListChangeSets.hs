@@ -114,12 +114,12 @@ instance Core.AWSPager ListChangeSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listChangeSets_nextToken
-          Lens..~ rs
-          Lens.^? listChangeSetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listChangeSets_nextToken
+              Lens..~ rs
+              Lens.^? listChangeSetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListChangeSets where
   type
@@ -133,9 +133,7 @@ instance Core.AWSRequest ListChangeSets where
       ( \s h x ->
           ListChangeSetsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "Summaries"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,8 +147,8 @@ instance Prelude.Hashable ListChangeSets where
 
 instance Prelude.NFData ListChangeSets where
   rnf ListChangeSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf stackName
 
 instance Data.ToHeaders ListChangeSets where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,6 +225,6 @@ listChangeSetsResponse_httpStatus = Lens.lens (\ListChangeSetsResponse' {httpSta
 
 instance Prelude.NFData ListChangeSetsResponse where
   rnf ListChangeSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

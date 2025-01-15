@@ -162,5 +162,5 @@ initiateDeviceClaimResponse_httpStatus = Lens.lens (\InitiateDeviceClaimResponse
 
 instance Prelude.NFData InitiateDeviceClaimResponse where
   rnf InitiateDeviceClaimResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf httpStatus

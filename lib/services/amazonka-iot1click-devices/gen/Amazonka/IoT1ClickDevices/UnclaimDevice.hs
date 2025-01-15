@@ -157,5 +157,5 @@ unclaimDeviceResponse_httpStatus = Lens.lens (\UnclaimDeviceResponse' {httpStatu
 
 instance Prelude.NFData UnclaimDeviceResponse where
   rnf UnclaimDeviceResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf httpStatus

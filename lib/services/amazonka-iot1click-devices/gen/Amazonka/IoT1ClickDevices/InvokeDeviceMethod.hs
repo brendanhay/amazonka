@@ -120,9 +120,9 @@ instance Prelude.Hashable InvokeDeviceMethod where
 
 instance Prelude.NFData InvokeDeviceMethod where
   rnf InvokeDeviceMethod' {..} =
-    Prelude.rnf deviceMethod
-      `Prelude.seq` Prelude.rnf deviceMethodParameters
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf deviceMethod `Prelude.seq`
+      Prelude.rnf deviceMethodParameters `Prelude.seq`
+        Prelude.rnf deviceId
 
 instance Data.ToHeaders InvokeDeviceMethod where
   toHeaders =
@@ -194,5 +194,5 @@ invokeDeviceMethodResponse_httpStatus = Lens.lens (\InvokeDeviceMethodResponse' 
 
 instance Prelude.NFData InvokeDeviceMethodResponse where
   rnf InvokeDeviceMethodResponse' {..} =
-    Prelude.rnf deviceMethodResponse
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceMethodResponse `Prelude.seq`
+      Prelude.rnf httpStatus

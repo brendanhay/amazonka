@@ -155,5 +155,5 @@ describeDeviceResponse_httpStatus = Lens.lens (\DescribeDeviceResponse' {httpSta
 
 instance Prelude.NFData DescribeDeviceResponse where
   rnf DescribeDeviceResponse' {..} =
-    Prelude.rnf deviceDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceDescription `Prelude.seq`
+      Prelude.rnf httpStatus

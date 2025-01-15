@@ -90,6 +90,6 @@ instance Prelude.Hashable Device where
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf type'

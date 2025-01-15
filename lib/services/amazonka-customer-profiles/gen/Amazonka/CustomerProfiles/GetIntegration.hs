@@ -129,8 +129,8 @@ instance Prelude.Hashable GetIntegration where
 
 instance Prelude.NFData GetIntegration where
   rnf GetIntegration' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf uri
 
 instance Data.ToHeaders GetIntegration where
   toHeaders =
@@ -308,13 +308,13 @@ getIntegrationResponse_lastUpdatedAt = Lens.lens (\GetIntegrationResponse' {last
 
 instance Prelude.NFData GetIntegrationResponse where
   rnf GetIntegrationResponse' {..} =
-    Prelude.rnf isUnstructured
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf objectTypeNames
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf isUnstructured `Prelude.seq`
+      Prelude.rnf objectTypeName `Prelude.seq`
+        Prelude.rnf objectTypeNames `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf workflowId `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf domainName `Prelude.seq`
+                  Prelude.rnf uri `Prelude.seq`
+                    Prelude.rnf createdAt `Prelude.seq`
+                      Prelude.rnf lastUpdatedAt

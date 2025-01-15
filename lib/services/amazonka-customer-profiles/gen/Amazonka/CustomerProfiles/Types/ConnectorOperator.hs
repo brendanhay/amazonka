@@ -105,11 +105,11 @@ instance Prelude.Hashable ConnectorOperator where
 
 instance Prelude.NFData ConnectorOperator where
   rnf ConnectorOperator' {..} =
-    Prelude.rnf marketo
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf salesforce
-      `Prelude.seq` Prelude.rnf serviceNow
-      `Prelude.seq` Prelude.rnf zendesk
+    Prelude.rnf marketo `Prelude.seq`
+      Prelude.rnf s3 `Prelude.seq`
+        Prelude.rnf salesforce `Prelude.seq`
+          Prelude.rnf serviceNow `Prelude.seq`
+            Prelude.rnf zendesk
 
 instance Data.ToJSON ConnectorOperator where
   toJSON ConnectorOperator' {..} =

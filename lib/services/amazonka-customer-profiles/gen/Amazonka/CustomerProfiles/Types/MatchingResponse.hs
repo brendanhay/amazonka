@@ -111,7 +111,7 @@ instance Prelude.Hashable MatchingResponse where
 
 instance Prelude.NFData MatchingResponse where
   rnf MatchingResponse' {..} =
-    Prelude.rnf autoMerging
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf exportingConfig
-      `Prelude.seq` Prelude.rnf jobSchedule
+    Prelude.rnf autoMerging `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf exportingConfig `Prelude.seq`
+          Prelude.rnf jobSchedule

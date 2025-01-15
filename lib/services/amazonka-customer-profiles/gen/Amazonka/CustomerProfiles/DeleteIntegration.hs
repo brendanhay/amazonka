@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteIntegration where
 
 instance Prelude.NFData DeleteIntegration where
   rnf DeleteIntegration' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf uri
 
 instance Data.ToHeaders DeleteIntegration where
   toHeaders =
@@ -185,5 +185,5 @@ deleteIntegrationResponse_message = Lens.lens (\DeleteIntegrationResponse' {mess
 
 instance Prelude.NFData DeleteIntegrationResponse where
   rnf DeleteIntegrationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf message

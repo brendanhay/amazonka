@@ -111,7 +111,7 @@ instance Prelude.Hashable ListDomainItem where
 
 instance Prelude.NFData ListDomainItem where
   rnf ListDomainItem' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf lastUpdatedAt

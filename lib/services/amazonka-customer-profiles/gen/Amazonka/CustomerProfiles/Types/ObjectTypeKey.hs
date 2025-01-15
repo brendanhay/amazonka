@@ -112,8 +112,8 @@ instance Prelude.Hashable ObjectTypeKey where
 
 instance Prelude.NFData ObjectTypeKey where
   rnf ObjectTypeKey' {..} =
-    Prelude.rnf fieldNames
-      `Prelude.seq` Prelude.rnf standardIdentifiers
+    Prelude.rnf fieldNames `Prelude.seq`
+      Prelude.rnf standardIdentifiers
 
 instance Data.ToJSON ObjectTypeKey where
   toJSON ObjectTypeKey' {..} =

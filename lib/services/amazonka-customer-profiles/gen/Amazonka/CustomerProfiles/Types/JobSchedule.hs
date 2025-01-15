@@ -86,8 +86,8 @@ instance Prelude.Hashable JobSchedule where
 
 instance Prelude.NFData JobSchedule where
   rnf JobSchedule' {..} =
-    Prelude.rnf dayOfTheWeek
-      `Prelude.seq` Prelude.rnf time
+    Prelude.rnf dayOfTheWeek `Prelude.seq`
+      Prelude.rnf time
 
 instance Data.ToJSON JobSchedule where
   toJSON JobSchedule' {..} =

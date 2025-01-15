@@ -289,13 +289,13 @@ getDomainResponse_lastUpdatedAt = Lens.lens (\GetDomainResponse' {lastUpdatedAt}
 
 instance Prelude.NFData GetDomainResponse where
   rnf GetDomainResponse' {..} =
-    Prelude.rnf deadLetterQueueUrl
-      `Prelude.seq` Prelude.rnf defaultEncryptionKey
-      `Prelude.seq` Prelude.rnf defaultExpirationDays
-      `Prelude.seq` Prelude.rnf matching
-      `Prelude.seq` Prelude.rnf stats
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf deadLetterQueueUrl `Prelude.seq`
+      Prelude.rnf defaultEncryptionKey `Prelude.seq`
+        Prelude.rnf defaultExpirationDays `Prelude.seq`
+          Prelude.rnf matching `Prelude.seq`
+            Prelude.rnf stats `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf httpStatus `Prelude.seq`
+                  Prelude.rnf domainName `Prelude.seq`
+                    Prelude.rnf createdAt `Prelude.seq`
+                      Prelude.rnf lastUpdatedAt

@@ -262,13 +262,13 @@ instance Prelude.Hashable SearchProfiles where
 
 instance Prelude.NFData SearchProfiles where
   rnf SearchProfiles' {..} =
-    Prelude.rnf additionalSearchKeys
-      `Prelude.seq` Prelude.rnf logicalOperator
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf additionalSearchKeys `Prelude.seq`
+      Prelude.rnf logicalOperator `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf domainName `Prelude.seq`
+              Prelude.rnf keyName `Prelude.seq`
+                Prelude.rnf values
 
 instance Data.ToHeaders SearchProfiles where
   toHeaders =
@@ -358,6 +358,6 @@ searchProfilesResponse_httpStatus = Lens.lens (\SearchProfilesResponse' {httpSta
 
 instance Prelude.NFData SearchProfilesResponse where
   rnf SearchProfilesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

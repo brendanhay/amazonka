@@ -137,10 +137,10 @@ instance Prelude.Hashable ListAccountIntegrations where
 
 instance Prelude.NFData ListAccountIntegrations where
   rnf ListAccountIntegrations' {..} =
-    Prelude.rnf includeHidden
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf includeHidden `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf uri
 
 instance Data.ToHeaders ListAccountIntegrations where
   toHeaders =
@@ -224,6 +224,6 @@ instance
     ListAccountIntegrationsResponse
   where
   rnf ListAccountIntegrationsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

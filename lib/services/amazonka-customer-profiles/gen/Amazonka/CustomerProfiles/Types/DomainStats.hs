@@ -112,7 +112,7 @@ instance Prelude.Hashable DomainStats where
 
 instance Prelude.NFData DomainStats where
   rnf DomainStats' {..} =
-    Prelude.rnf meteringProfileCount
-      `Prelude.seq` Prelude.rnf objectCount
-      `Prelude.seq` Prelude.rnf profileCount
-      `Prelude.seq` Prelude.rnf totalSize
+    Prelude.rnf meteringProfileCount `Prelude.seq`
+      Prelude.rnf objectCount `Prelude.seq`
+        Prelude.rnf profileCount `Prelude.seq`
+          Prelude.rnf totalSize

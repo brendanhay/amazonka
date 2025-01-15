@@ -154,5 +154,5 @@ deleteDomainResponse_message = Lens.lens (\DeleteDomainResponse' {message} -> me
 
 instance Prelude.NFData DeleteDomainResponse where
   rnf DeleteDomainResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf message

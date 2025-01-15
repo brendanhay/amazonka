@@ -150,16 +150,16 @@ instance Prelude.Hashable UpdateAddress where
 
 instance Prelude.NFData UpdateAddress where
   rnf UpdateAddress' {..} =
-    Prelude.rnf address1
-      `Prelude.seq` Prelude.rnf address2
-      `Prelude.seq` Prelude.rnf address3
-      `Prelude.seq` Prelude.rnf address4
-      `Prelude.seq` Prelude.rnf city
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf county
-      `Prelude.seq` Prelude.rnf postalCode
-      `Prelude.seq` Prelude.rnf province
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf address1 `Prelude.seq`
+      Prelude.rnf address2 `Prelude.seq`
+        Prelude.rnf address3 `Prelude.seq`
+          Prelude.rnf address4 `Prelude.seq`
+            Prelude.rnf city `Prelude.seq`
+              Prelude.rnf country `Prelude.seq`
+                Prelude.rnf county `Prelude.seq`
+                  Prelude.rnf postalCode `Prelude.seq`
+                    Prelude.rnf province `Prelude.seq`
+                      Prelude.rnf state
 
 instance Data.ToJSON UpdateAddress where
   toJSON UpdateAddress' {..} =

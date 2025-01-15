@@ -178,10 +178,10 @@ instance Prelude.Hashable MergeProfiles where
 
 instance Prelude.NFData MergeProfiles where
   rnf MergeProfiles' {..} =
-    Prelude.rnf fieldSourceProfileIds
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf mainProfileId
-      `Prelude.seq` Prelude.rnf profileIdsToBeMerged
+    Prelude.rnf fieldSourceProfileIds `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf mainProfileId `Prelude.seq`
+          Prelude.rnf profileIdsToBeMerged
 
 instance Data.ToHeaders MergeProfiles where
   toHeaders =
@@ -259,5 +259,5 @@ mergeProfilesResponse_httpStatus = Lens.lens (\MergeProfilesResponse' {httpStatu
 
 instance Prelude.NFData MergeProfilesResponse where
   rnf MergeProfilesResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf httpStatus

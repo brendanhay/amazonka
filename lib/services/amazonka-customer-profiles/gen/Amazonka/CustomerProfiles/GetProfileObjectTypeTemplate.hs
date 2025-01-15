@@ -256,11 +256,11 @@ instance
     GetProfileObjectTypeTemplateResponse
   where
   rnf GetProfileObjectTypeTemplateResponse' {..} =
-    Prelude.rnf allowProfileCreation
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
-      `Prelude.seq` Prelude.rnf sourceName
-      `Prelude.seq` Prelude.rnf sourceObject
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf allowProfileCreation `Prelude.seq`
+      Prelude.rnf fields `Prelude.seq`
+        Prelude.rnf keys `Prelude.seq`
+          Prelude.rnf sourceLastUpdatedTimestampFormat `Prelude.seq`
+            Prelude.rnf sourceName `Prelude.seq`
+              Prelude.rnf sourceObject `Prelude.seq`
+                Prelude.rnf templateId `Prelude.seq`
+                  Prelude.rnf httpStatus

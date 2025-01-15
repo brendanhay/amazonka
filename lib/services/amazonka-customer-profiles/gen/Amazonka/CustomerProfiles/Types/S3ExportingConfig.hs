@@ -89,8 +89,8 @@ instance Prelude.Hashable S3ExportingConfig where
 
 instance Prelude.NFData S3ExportingConfig where
   rnf S3ExportingConfig' {..} =
-    Prelude.rnf s3KeyName
-      `Prelude.seq` Prelude.rnf s3BucketName
+    Prelude.rnf s3KeyName `Prelude.seq`
+      Prelude.rnf s3BucketName
 
 instance Data.ToJSON S3ExportingConfig where
   toJSON S3ExportingConfig' {..} =

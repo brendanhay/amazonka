@@ -103,6 +103,6 @@ instance
     ListProfileObjectTypeTemplateItem
   where
   rnf ListProfileObjectTypeTemplateItem' {..} =
-    Prelude.rnf sourceName
-      `Prelude.seq` Prelude.rnf sourceObject
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf sourceName `Prelude.seq`
+      Prelude.rnf sourceObject `Prelude.seq`
+        Prelude.rnf templateId

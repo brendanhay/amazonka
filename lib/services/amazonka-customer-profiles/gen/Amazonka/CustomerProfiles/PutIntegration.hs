@@ -200,12 +200,12 @@ instance Prelude.Hashable PutIntegration where
 
 instance Prelude.NFData PutIntegration where
   rnf PutIntegration' {..} =
-    Prelude.rnf flowDefinition
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf objectTypeNames
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf flowDefinition `Prelude.seq`
+      Prelude.rnf objectTypeName `Prelude.seq`
+        Prelude.rnf objectTypeNames `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf uri `Prelude.seq`
+              Prelude.rnf domainName
 
 instance Data.ToHeaders PutIntegration where
   toHeaders =
@@ -391,13 +391,13 @@ putIntegrationResponse_lastUpdatedAt = Lens.lens (\PutIntegrationResponse' {last
 
 instance Prelude.NFData PutIntegrationResponse where
   rnf PutIntegrationResponse' {..} =
-    Prelude.rnf isUnstructured
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf objectTypeNames
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf isUnstructured `Prelude.seq`
+      Prelude.rnf objectTypeName `Prelude.seq`
+        Prelude.rnf objectTypeNames `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf workflowId `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf domainName `Prelude.seq`
+                  Prelude.rnf uri `Prelude.seq`
+                    Prelude.rnf createdAt `Prelude.seq`
+                      Prelude.rnf lastUpdatedAt

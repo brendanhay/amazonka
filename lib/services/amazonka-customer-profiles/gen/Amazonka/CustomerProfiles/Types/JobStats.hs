@@ -91,6 +91,6 @@ instance Prelude.Hashable JobStats where
 
 instance Prelude.NFData JobStats where
   rnf JobStats' {..} =
-    Prelude.rnf numberOfMatchesFound
-      `Prelude.seq` Prelude.rnf numberOfMergesDone
-      `Prelude.seq` Prelude.rnf numberOfProfilesReviewed
+    Prelude.rnf numberOfMatchesFound `Prelude.seq`
+      Prelude.rnf numberOfMergesDone `Prelude.seq`
+        Prelude.rnf numberOfProfilesReviewed

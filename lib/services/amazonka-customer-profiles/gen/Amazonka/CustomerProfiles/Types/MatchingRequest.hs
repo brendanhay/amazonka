@@ -101,10 +101,10 @@ instance Prelude.Hashable MatchingRequest where
 
 instance Prelude.NFData MatchingRequest where
   rnf MatchingRequest' {..} =
-    Prelude.rnf autoMerging
-      `Prelude.seq` Prelude.rnf exportingConfig
-      `Prelude.seq` Prelude.rnf jobSchedule
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf autoMerging `Prelude.seq`
+      Prelude.rnf exportingConfig `Prelude.seq`
+        Prelude.rnf jobSchedule `Prelude.seq`
+          Prelude.rnf enabled
 
 instance Data.ToJSON MatchingRequest where
   toJSON MatchingRequest' {..} =

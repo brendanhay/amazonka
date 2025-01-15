@@ -139,12 +139,12 @@ instance Prelude.Hashable FlowDefinition where
 
 instance Prelude.NFData FlowDefinition where
   rnf FlowDefinition' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf flowName
-      `Prelude.seq` Prelude.rnf kmsArn
-      `Prelude.seq` Prelude.rnf sourceFlowConfig
-      `Prelude.seq` Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf triggerConfig
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf flowName `Prelude.seq`
+        Prelude.rnf kmsArn `Prelude.seq`
+          Prelude.rnf sourceFlowConfig `Prelude.seq`
+            Prelude.rnf tasks `Prelude.seq`
+              Prelude.rnf triggerConfig
 
 instance Data.ToJSON FlowDefinition where
   toJSON FlowDefinition' {..} =

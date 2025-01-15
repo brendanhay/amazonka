@@ -144,9 +144,9 @@ instance Prelude.Hashable ListWorkflowsItem where
 
 instance Prelude.NFData ListWorkflowsItem where
   rnf ListWorkflowsItem' {..} =
-    Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDescription
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf workflowType `Prelude.seq`
+      Prelude.rnf workflowId `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusDescription `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf lastUpdatedAt

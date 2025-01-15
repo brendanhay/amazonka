@@ -216,17 +216,17 @@ instance Prelude.Hashable Attachment where
 
 instance Prelude.NFData Attachment where
   rnf Attachment' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf attachmentPolicyRuleNumber
-      `Prelude.seq` Prelude.rnf attachmentType
-      `Prelude.seq` Prelude.rnf coreNetworkArn
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf proposedSegmentChange
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf segmentName
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf attachmentId `Prelude.seq`
+      Prelude.rnf attachmentPolicyRuleNumber `Prelude.seq`
+        Prelude.rnf attachmentType `Prelude.seq`
+          Prelude.rnf coreNetworkArn `Prelude.seq`
+            Prelude.rnf coreNetworkId `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf edgeLocation `Prelude.seq`
+                  Prelude.rnf ownerAccountId `Prelude.seq`
+                    Prelude.rnf proposedSegmentChange `Prelude.seq`
+                      Prelude.rnf resourceArn `Prelude.seq`
+                        Prelude.rnf segmentName `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf updatedAt

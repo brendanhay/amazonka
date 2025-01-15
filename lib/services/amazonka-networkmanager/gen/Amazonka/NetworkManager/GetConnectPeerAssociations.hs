@@ -125,12 +125,12 @@ instance Core.AWSPager GetConnectPeerAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getConnectPeerAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getConnectPeerAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getConnectPeerAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getConnectPeerAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetConnectPeerAssociations where
   type
@@ -160,10 +160,10 @@ instance Prelude.Hashable GetConnectPeerAssociations where
 
 instance Prelude.NFData GetConnectPeerAssociations where
   rnf GetConnectPeerAssociations' {..} =
-    Prelude.rnf connectPeerIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf connectPeerIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetConnectPeerAssociations where
   toHeaders =
@@ -249,6 +249,6 @@ instance
     GetConnectPeerAssociationsResponse
   where
   rnf GetConnectPeerAssociationsResponse' {..} =
-    Prelude.rnf connectPeerAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectPeerAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

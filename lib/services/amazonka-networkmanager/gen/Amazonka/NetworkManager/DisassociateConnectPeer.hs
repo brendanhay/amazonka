@@ -113,8 +113,8 @@ instance Prelude.Hashable DisassociateConnectPeer where
 
 instance Prelude.NFData DisassociateConnectPeer where
   rnf DisassociateConnectPeer' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf connectPeerId
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf connectPeerId
 
 instance Data.ToHeaders DisassociateConnectPeer where
   toHeaders =
@@ -183,5 +183,5 @@ instance
     DisassociateConnectPeerResponse
   where
   rnf DisassociateConnectPeerResponse' {..} =
-    Prelude.rnf connectPeerAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectPeerAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

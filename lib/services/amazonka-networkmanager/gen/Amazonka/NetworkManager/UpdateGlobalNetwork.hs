@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateGlobalNetwork where
 
 instance Prelude.NFData UpdateGlobalNetwork where
   rnf UpdateGlobalNetwork' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders UpdateGlobalNetwork where
   toHeaders =
@@ -185,5 +185,5 @@ updateGlobalNetworkResponse_httpStatus = Lens.lens (\UpdateGlobalNetworkResponse
 
 instance Prelude.NFData UpdateGlobalNetworkResponse where
   rnf UpdateGlobalNetworkResponse' {..} =
-    Prelude.rnf globalNetwork
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalNetwork `Prelude.seq`
+      Prelude.rnf httpStatus

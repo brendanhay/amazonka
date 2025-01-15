@@ -92,6 +92,6 @@ instance Prelude.Hashable TransitGatewayPeering where
 
 instance Prelude.NFData TransitGatewayPeering where
   rnf TransitGatewayPeering' {..} =
-    Prelude.rnf peering
-      `Prelude.seq` Prelude.rnf transitGatewayArn
-      `Prelude.seq` Prelude.rnf transitGatewayPeeringAttachmentId
+    Prelude.rnf peering `Prelude.seq`
+      Prelude.rnf transitGatewayArn `Prelude.seq`
+        Prelude.rnf transitGatewayPeeringAttachmentId

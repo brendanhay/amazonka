@@ -312,12 +312,12 @@ instance Core.AWSPager GetNetworkResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getNetworkResources_nextToken
-          Lens..~ rs
-          Lens.^? getNetworkResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getNetworkResources_nextToken
+              Lens..~ rs
+              Lens.^? getNetworkResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetNetworkResources where
   type
@@ -352,15 +352,15 @@ instance Prelude.Hashable GetNetworkResources where
 
 instance Prelude.NFData GetNetworkResources where
   rnf GetNetworkResources' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registeredGatewayArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf awsRegion `Prelude.seq`
+        Prelude.rnf coreNetworkId `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf registeredGatewayArn `Prelude.seq`
+                Prelude.rnf resourceArn `Prelude.seq`
+                  Prelude.rnf resourceType `Prelude.seq`
+                    Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetNetworkResources where
   toHeaders =
@@ -444,6 +444,6 @@ getNetworkResourcesResponse_httpStatus = Lens.lens (\GetNetworkResourcesResponse
 
 instance Prelude.NFData GetNetworkResourcesResponse where
   rnf GetNetworkResourcesResponse' {..} =
-    Prelude.rnf networkResources
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkResources `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

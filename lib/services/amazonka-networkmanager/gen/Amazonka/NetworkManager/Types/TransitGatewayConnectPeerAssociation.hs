@@ -127,8 +127,8 @@ instance
     TransitGatewayConnectPeerAssociation
   where
   rnf TransitGatewayConnectPeerAssociation' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerArn
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf globalNetworkId `Prelude.seq`
+        Prelude.rnf linkId `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf transitGatewayConnectPeerArn

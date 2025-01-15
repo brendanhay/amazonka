@@ -124,12 +124,12 @@ instance Core.AWSPager GetSites where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getSites_nextToken
-          Lens..~ rs
-          Lens.^? getSitesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getSites_nextToken
+              Lens..~ rs
+              Lens.^? getSitesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSites where
   type AWSResponse GetSites = GetSitesResponse
@@ -154,10 +154,10 @@ instance Prelude.Hashable GetSites where
 
 instance Prelude.NFData GetSites where
   rnf GetSites' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf siteIds
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf siteIds `Prelude.seq`
+          Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetSites where
   toHeaders =
@@ -237,6 +237,6 @@ getSitesResponse_httpStatus = Lens.lens (\GetSitesResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetSitesResponse where
   rnf GetSitesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sites
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sites `Prelude.seq`
+        Prelude.rnf httpStatus

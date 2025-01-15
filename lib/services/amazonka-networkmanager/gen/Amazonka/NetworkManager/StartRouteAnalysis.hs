@@ -154,11 +154,11 @@ instance Prelude.Hashable StartRouteAnalysis where
 
 instance Prelude.NFData StartRouteAnalysis where
   rnf StartRouteAnalysis' {..} =
-    Prelude.rnf includeReturnPath
-      `Prelude.seq` Prelude.rnf useMiddleboxes
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf includeReturnPath `Prelude.seq`
+      Prelude.rnf useMiddleboxes `Prelude.seq`
+        Prelude.rnf globalNetworkId `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf destination
 
 instance Data.ToHeaders StartRouteAnalysis where
   toHeaders =
@@ -236,5 +236,5 @@ startRouteAnalysisResponse_httpStatus = Lens.lens (\StartRouteAnalysisResponse' 
 
 instance Prelude.NFData StartRouteAnalysisResponse where
   rnf StartRouteAnalysisResponse' {..} =
-    Prelude.rnf routeAnalysis
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf routeAnalysis `Prelude.seq`
+      Prelude.rnf httpStatus

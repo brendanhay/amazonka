@@ -155,5 +155,5 @@ getConnectPeerResponse_httpStatus = Lens.lens (\GetConnectPeerResponse' {httpSta
 
 instance Prelude.NFData GetConnectPeerResponse where
   rnf GetConnectPeerResponse' {..} =
-    Prelude.rnf connectPeer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectPeer `Prelude.seq`
+      Prelude.rnf httpStatus

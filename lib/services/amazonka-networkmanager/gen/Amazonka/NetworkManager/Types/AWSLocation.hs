@@ -86,8 +86,8 @@ instance Prelude.Hashable AWSLocation where
 
 instance Prelude.NFData AWSLocation where
   rnf AWSLocation' {..} =
-    Prelude.rnf subnetArn
-      `Prelude.seq` Prelude.rnf zone
+    Prelude.rnf subnetArn `Prelude.seq`
+      Prelude.rnf zone
 
 instance Data.ToJSON AWSLocation where
   toJSON AWSLocation' {..} =

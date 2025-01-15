@@ -141,10 +141,10 @@ instance Prelude.Hashable CoreNetworkChangeValues where
 
 instance Prelude.NFData CoreNetworkChangeValues where
   rnf CoreNetworkChangeValues' {..} =
-    Prelude.rnf asn
-      `Prelude.seq` Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf destinationIdentifier
-      `Prelude.seq` Prelude.rnf edgeLocations
-      `Prelude.seq` Prelude.rnf insideCidrBlocks
-      `Prelude.seq` Prelude.rnf segmentName
-      `Prelude.seq` Prelude.rnf sharedSegments
+    Prelude.rnf asn `Prelude.seq`
+      Prelude.rnf cidr `Prelude.seq`
+        Prelude.rnf destinationIdentifier `Prelude.seq`
+          Prelude.rnf edgeLocations `Prelude.seq`
+            Prelude.rnf insideCidrBlocks `Prelude.seq`
+              Prelude.rnf segmentName `Prelude.seq`
+                Prelude.rnf sharedSegments

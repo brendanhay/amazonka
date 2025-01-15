@@ -142,10 +142,10 @@ instance Prelude.Hashable AssociateConnectPeer where
 
 instance Prelude.NFData AssociateConnectPeer where
   rnf AssociateConnectPeer' {..} =
-    Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf connectPeerId
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf linkId `Prelude.seq`
+      Prelude.rnf globalNetworkId `Prelude.seq`
+        Prelude.rnf connectPeerId `Prelude.seq`
+          Prelude.rnf deviceId
 
 instance Data.ToHeaders AssociateConnectPeer where
   toHeaders =
@@ -220,5 +220,5 @@ associateConnectPeerResponse_httpStatus = Lens.lens (\AssociateConnectPeerRespon
 
 instance Prelude.NFData AssociateConnectPeerResponse where
   rnf AssociateConnectPeerResponse' {..} =
-    Prelude.rnf connectPeerAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectPeerAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

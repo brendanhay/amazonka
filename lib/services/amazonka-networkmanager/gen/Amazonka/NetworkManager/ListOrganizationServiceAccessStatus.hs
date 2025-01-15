@@ -121,8 +121,8 @@ instance
     ListOrganizationServiceAccessStatus
   where
   rnf ListOrganizationServiceAccessStatus' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -210,6 +210,6 @@ instance
     ListOrganizationServiceAccessStatusResponse
   where
   rnf ListOrganizationServiceAccessStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf organizationStatus `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -82,5 +82,5 @@ instance Prelude.Hashable SiteToSiteVpnAttachment where
 
 instance Prelude.NFData SiteToSiteVpnAttachment where
   rnf SiteToSiteVpnAttachment' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf vpnConnectionArn
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf vpnConnectionArn

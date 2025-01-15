@@ -156,5 +156,5 @@ deleteConnectPeerResponse_httpStatus = Lens.lens (\DeleteConnectPeerResponse' {h
 
 instance Prelude.NFData DeleteConnectPeerResponse where
   rnf DeleteConnectPeerResponse' {..} =
-    Prelude.rnf connectPeer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectPeer `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -158,10 +158,10 @@ instance
     AssociateTransitGatewayConnectPeer
   where
   rnf AssociateTransitGatewayConnectPeer' {..} =
-    Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerArn
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf linkId `Prelude.seq`
+      Prelude.rnf globalNetworkId `Prelude.seq`
+        Prelude.rnf transitGatewayConnectPeerArn `Prelude.seq`
+          Prelude.rnf deviceId
 
 instance
   Data.ToHeaders
@@ -255,5 +255,5 @@ instance
     AssociateTransitGatewayConnectPeerResponse
   where
   rnf AssociateTransitGatewayConnectPeerResponse' {..} =
-    Prelude.rnf transitGatewayConnectPeerAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayConnectPeerAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

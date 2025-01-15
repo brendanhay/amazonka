@@ -135,10 +135,10 @@ instance Prelude.Hashable CreateTransitGatewayPeering where
 
 instance Prelude.NFData CreateTransitGatewayPeering where
   rnf CreateTransitGatewayPeering' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf transitGatewayArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf coreNetworkId `Prelude.seq`
+          Prelude.rnf transitGatewayArn
 
 instance Data.ToHeaders CreateTransitGatewayPeering where
   toHeaders =
@@ -216,5 +216,5 @@ instance
     CreateTransitGatewayPeeringResponse
   where
   rnf CreateTransitGatewayPeeringResponse' {..} =
-    Prelude.rnf transitGatewayPeering
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayPeering `Prelude.seq`
+      Prelude.rnf httpStatus

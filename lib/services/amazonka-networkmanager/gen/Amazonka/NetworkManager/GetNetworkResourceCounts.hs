@@ -222,12 +222,12 @@ instance Core.AWSPager GetNetworkResourceCounts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getNetworkResourceCounts_nextToken
-          Lens..~ rs
-          Lens.^? getNetworkResourceCountsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getNetworkResourceCounts_nextToken
+              Lens..~ rs
+              Lens.^? getNetworkResourceCountsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetNetworkResourceCounts where
   type
@@ -257,10 +257,10 @@ instance Prelude.Hashable GetNetworkResourceCounts where
 
 instance Prelude.NFData GetNetworkResourceCounts where
   rnf GetNetworkResourceCounts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetNetworkResourceCounts where
   toHeaders =
@@ -342,6 +342,6 @@ instance
     GetNetworkResourceCountsResponse
   where
   rnf GetNetworkResourceCountsResponse' {..} =
-    Prelude.rnf networkResourceCounts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkResourceCounts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

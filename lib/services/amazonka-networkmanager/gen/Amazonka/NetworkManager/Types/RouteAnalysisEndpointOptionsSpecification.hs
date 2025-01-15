@@ -80,8 +80,8 @@ instance
     RouteAnalysisEndpointOptionsSpecification
   where
   rnf RouteAnalysisEndpointOptionsSpecification' {..} =
-    Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentArn
+    Prelude.rnf ipAddress `Prelude.seq`
+      Prelude.rnf transitGatewayAttachmentArn
 
 instance
   Data.ToJSON

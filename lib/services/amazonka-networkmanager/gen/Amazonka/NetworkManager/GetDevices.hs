@@ -134,12 +134,12 @@ instance Core.AWSPager GetDevices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDevices_nextToken
-          Lens..~ rs
-          Lens.^? getDevicesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDevices_nextToken
+              Lens..~ rs
+              Lens.^? getDevicesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDevices where
   type AWSResponse GetDevices = GetDevicesResponse
@@ -165,11 +165,11 @@ instance Prelude.Hashable GetDevices where
 
 instance Prelude.NFData GetDevices where
   rnf GetDevices' {..} =
-    Prelude.rnf deviceIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf deviceIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf siteId `Prelude.seq`
+            Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetDevices where
   toHeaders =
@@ -250,6 +250,6 @@ getDevicesResponse_httpStatus = Lens.lens (\GetDevicesResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetDevicesResponse where
   rnf GetDevicesResponse' {..} =
-    Prelude.rnf devices
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf devices `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

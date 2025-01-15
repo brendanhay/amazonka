@@ -93,6 +93,6 @@ instance Prelude.Hashable PathComponent where
 
 instance Prelude.NFData PathComponent where
   rnf PathComponent' {..} =
-    Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf sequence
+    Prelude.rnf destinationCidrBlock `Prelude.seq`
+      Prelude.rnf resource `Prelude.seq`
+        Prelude.rnf sequence

@@ -116,8 +116,8 @@ instance Prelude.Hashable RegisterTransitGateway where
 
 instance Prelude.NFData RegisterTransitGateway where
   rnf RegisterTransitGateway' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf transitGatewayArn
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf transitGatewayArn
 
 instance Data.ToHeaders RegisterTransitGateway where
   toHeaders =
@@ -194,5 +194,5 @@ instance
     RegisterTransitGatewayResponse
   where
   rnf RegisterTransitGatewayResponse' {..} =
-    Prelude.rnf transitGatewayRegistration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayRegistration `Prelude.seq`
+      Prelude.rnf httpStatus

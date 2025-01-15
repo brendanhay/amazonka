@@ -164,5 +164,5 @@ instance
     GetSiteToSiteVpnAttachmentResponse
   where
   rnf GetSiteToSiteVpnAttachmentResponse' {..} =
-    Prelude.rnf siteToSiteVpnAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf siteToSiteVpnAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

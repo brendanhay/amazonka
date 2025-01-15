@@ -155,5 +155,5 @@ getVpcAttachmentResponse_httpStatus = Lens.lens (\GetVpcAttachmentResponse' {htt
 
 instance Prelude.NFData GetVpcAttachmentResponse where
   rnf GetVpcAttachmentResponse' {..} =
-    Prelude.rnf vpcAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

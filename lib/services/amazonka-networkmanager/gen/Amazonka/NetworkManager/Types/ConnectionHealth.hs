@@ -93,6 +93,6 @@ instance Prelude.Hashable ConnectionHealth where
 
 instance Prelude.NFData ConnectionHealth where
   rnf ConnectionHealth' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf timestamp `Prelude.seq`
+        Prelude.rnf type'

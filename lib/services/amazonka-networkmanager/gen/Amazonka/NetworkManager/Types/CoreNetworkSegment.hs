@@ -96,6 +96,6 @@ instance Prelude.Hashable CoreNetworkSegment where
 
 instance Prelude.NFData CoreNetworkSegment where
   rnf CoreNetworkSegment' {..} =
-    Prelude.rnf edgeLocations
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sharedSegments
+    Prelude.rnf edgeLocations `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sharedSegments

@@ -180,13 +180,13 @@ instance Prelude.Hashable CreateConnection where
 
 instance Prelude.NFData CreateConnection where
   rnf CreateConnection' {..} =
-    Prelude.rnf connectedLinkId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf connectedDeviceId
+    Prelude.rnf connectedLinkId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf linkId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf globalNetworkId `Prelude.seq`
+              Prelude.rnf deviceId `Prelude.seq`
+                Prelude.rnf connectedDeviceId
 
 instance Data.ToHeaders CreateConnection where
   toHeaders =
@@ -266,5 +266,5 @@ createConnectionResponse_httpStatus = Lens.lens (\CreateConnectionResponse' {htt
 
 instance Prelude.NFData CreateConnectionResponse where
   rnf CreateConnectionResponse' {..} =
-    Prelude.rnf connection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connection `Prelude.seq`
+      Prelude.rnf httpStatus

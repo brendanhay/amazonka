@@ -132,12 +132,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTransitGatewayConnectPeerAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getTransitGatewayConnectPeerAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTransitGatewayConnectPeerAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getTransitGatewayConnectPeerAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -179,10 +179,10 @@ instance
     GetTransitGatewayConnectPeerAssociations
   where
   rnf GetTransitGatewayConnectPeerAssociations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerArns
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf transitGatewayConnectPeerArns `Prelude.seq`
+          Prelude.rnf globalNetworkId
 
 instance
   Data.ToHeaders
@@ -280,6 +280,6 @@ instance
   where
   rnf
     GetTransitGatewayConnectPeerAssociationsResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf transitGatewayConnectPeerAssociations
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf transitGatewayConnectPeerAssociations `Prelude.seq`
+          Prelude.rnf httpStatus

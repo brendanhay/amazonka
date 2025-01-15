@@ -130,12 +130,12 @@ instance Core.AWSPager GetCoreNetworkChangeSet where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getCoreNetworkChangeSet_nextToken
-          Lens..~ rs
-          Lens.^? getCoreNetworkChangeSetResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getCoreNetworkChangeSet_nextToken
+              Lens..~ rs
+              Lens.^? getCoreNetworkChangeSetResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCoreNetworkChangeSet where
   type
@@ -165,10 +165,10 @@ instance Prelude.Hashable GetCoreNetworkChangeSet where
 
 instance Prelude.NFData GetCoreNetworkChangeSet where
   rnf GetCoreNetworkChangeSet' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf policyVersionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf coreNetworkId `Prelude.seq`
+          Prelude.rnf policyVersionId
 
 instance Data.ToHeaders GetCoreNetworkChangeSet where
   toHeaders =
@@ -250,6 +250,6 @@ instance
     GetCoreNetworkChangeSetResponse
   where
   rnf GetCoreNetworkChangeSetResponse' {..} =
-    Prelude.rnf coreNetworkChanges
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetworkChanges `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

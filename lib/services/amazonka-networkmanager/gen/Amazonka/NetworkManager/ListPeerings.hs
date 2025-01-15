@@ -142,12 +142,12 @@ instance Core.AWSPager ListPeerings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPeerings_nextToken
-          Lens..~ rs
-          Lens.^? listPeeringsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPeerings_nextToken
+              Lens..~ rs
+              Lens.^? listPeeringsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPeerings where
   type AWSResponse ListPeerings = ListPeeringsResponse
@@ -174,12 +174,12 @@ instance Prelude.Hashable ListPeerings where
 
 instance Prelude.NFData ListPeerings where
   rnf ListPeerings' {..} =
-    Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf peeringType
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf coreNetworkId `Prelude.seq`
+      Prelude.rnf edgeLocation `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf peeringType `Prelude.seq`
+              Prelude.rnf state
 
 instance Data.ToHeaders ListPeerings where
   toHeaders =
@@ -255,6 +255,6 @@ listPeeringsResponse_httpStatus = Lens.lens (\ListPeeringsResponse' {httpStatus}
 
 instance Prelude.NFData ListPeeringsResponse where
   rnf ListPeeringsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf peerings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf peerings `Prelude.seq`
+        Prelude.rnf httpStatus

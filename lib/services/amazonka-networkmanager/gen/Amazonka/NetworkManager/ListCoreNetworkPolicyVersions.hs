@@ -115,12 +115,12 @@ instance Core.AWSPager ListCoreNetworkPolicyVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCoreNetworkPolicyVersions_nextToken
-          Lens..~ rs
-          Lens.^? listCoreNetworkPolicyVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCoreNetworkPolicyVersions_nextToken
+              Lens..~ rs
+              Lens.^? listCoreNetworkPolicyVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -155,9 +155,9 @@ instance
 
 instance Prelude.NFData ListCoreNetworkPolicyVersions where
   rnf ListCoreNetworkPolicyVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf coreNetworkId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf coreNetworkId
 
 instance Data.ToHeaders ListCoreNetworkPolicyVersions where
   toHeaders =
@@ -238,6 +238,6 @@ instance
     ListCoreNetworkPolicyVersionsResponse
   where
   rnf ListCoreNetworkPolicyVersionsResponse' {..} =
-    Prelude.rnf coreNetworkPolicyVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetworkPolicyVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -126,8 +126,8 @@ instance
     RestoreCoreNetworkPolicyVersion
   where
   rnf RestoreCoreNetworkPolicyVersion' {..} =
-    Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf policyVersionId
+    Prelude.rnf coreNetworkId `Prelude.seq`
+      Prelude.rnf policyVersionId
 
 instance
   Data.ToHeaders
@@ -204,5 +204,5 @@ instance
     RestoreCoreNetworkPolicyVersionResponse
   where
   rnf RestoreCoreNetworkPolicyVersionResponse' {..} =
-    Prelude.rnf coreNetworkPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetworkPolicy `Prelude.seq`
+      Prelude.rnf httpStatus

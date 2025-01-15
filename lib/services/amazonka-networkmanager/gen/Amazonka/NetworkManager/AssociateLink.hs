@@ -128,9 +128,9 @@ instance Prelude.Hashable AssociateLink where
 
 instance Prelude.NFData AssociateLink where
   rnf AssociateLink' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf linkId
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf linkId
 
 instance Data.ToHeaders AssociateLink where
   toHeaders =
@@ -204,5 +204,5 @@ associateLinkResponse_httpStatus = Lens.lens (\AssociateLinkResponse' {httpStatu
 
 instance Prelude.NFData AssociateLinkResponse where
   rnf AssociateLinkResponse' {..} =
-    Prelude.rnf linkAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf linkAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

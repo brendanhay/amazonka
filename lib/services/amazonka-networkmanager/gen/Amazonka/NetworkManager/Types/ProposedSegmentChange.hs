@@ -94,6 +94,6 @@ instance Prelude.Hashable ProposedSegmentChange where
 
 instance Prelude.NFData ProposedSegmentChange where
   rnf ProposedSegmentChange' {..} =
-    Prelude.rnf attachmentPolicyRuleNumber
-      `Prelude.seq` Prelude.rnf segmentName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf attachmentPolicyRuleNumber `Prelude.seq`
+      Prelude.rnf segmentName `Prelude.seq`
+        Prelude.rnf tags

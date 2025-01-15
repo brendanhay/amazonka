@@ -149,11 +149,11 @@ instance Prelude.Hashable Site where
 
 instance Prelude.NFData Site where
   rnf Site' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf siteArn
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf globalNetworkId `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf siteArn `Prelude.seq`
+              Prelude.rnf siteId `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf tags

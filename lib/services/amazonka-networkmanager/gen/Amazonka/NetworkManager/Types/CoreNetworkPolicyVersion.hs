@@ -129,9 +129,9 @@ instance Prelude.Hashable CoreNetworkPolicyVersion where
 
 instance Prelude.NFData CoreNetworkPolicyVersion where
   rnf CoreNetworkPolicyVersion' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf changeSetState
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf policyVersionId
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf changeSetState `Prelude.seq`
+        Prelude.rnf coreNetworkId `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf policyVersionId

@@ -83,5 +83,5 @@ instance Prelude.Hashable RouteAnalysisPath where
 
 instance Prelude.NFData RouteAnalysisPath where
   rnf RouteAnalysisPath' {..} =
-    Prelude.rnf completionStatus
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf completionStatus `Prelude.seq`
+      Prelude.rnf path

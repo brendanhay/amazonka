@@ -138,10 +138,10 @@ instance Prelude.Hashable ConnectPeerSummary where
 
 instance Prelude.NFData ConnectPeerSummary where
   rnf ConnectPeerSummary' {..} =
-    Prelude.rnf connectAttachmentId
-      `Prelude.seq` Prelude.rnf connectPeerId
-      `Prelude.seq` Prelude.rnf connectPeerState
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf connectAttachmentId `Prelude.seq`
+      Prelude.rnf connectPeerId `Prelude.seq`
+        Prelude.rnf connectPeerState `Prelude.seq`
+          Prelude.rnf coreNetworkId `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf edgeLocation `Prelude.seq`
+                Prelude.rnf tags

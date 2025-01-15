@@ -72,8 +72,8 @@ instance Prelude.Hashable RouteTableIdentifier where
 
 instance Prelude.NFData RouteTableIdentifier where
   rnf RouteTableIdentifier' {..} =
-    Prelude.rnf coreNetworkSegmentEdge
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableArn
+    Prelude.rnf coreNetworkSegmentEdge `Prelude.seq`
+      Prelude.rnf transitGatewayRouteTableArn
 
 instance Data.ToJSON RouteTableIdentifier where
   toJSON RouteTableIdentifier' {..} =

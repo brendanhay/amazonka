@@ -116,12 +116,12 @@ instance Core.AWSPager DescribeGlobalNetworks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeGlobalNetworks_nextToken
-          Lens..~ rs
-          Lens.^? describeGlobalNetworksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeGlobalNetworks_nextToken
+              Lens..~ rs
+              Lens.^? describeGlobalNetworksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGlobalNetworks where
   type
@@ -147,9 +147,9 @@ instance Prelude.Hashable DescribeGlobalNetworks where
 
 instance Prelude.NFData DescribeGlobalNetworks where
   rnf DescribeGlobalNetworks' {..} =
-    Prelude.rnf globalNetworkIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf globalNetworkIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeGlobalNetworks where
   toHeaders =
@@ -230,6 +230,6 @@ instance
     DescribeGlobalNetworksResponse
   where
   rnf DescribeGlobalNetworksResponse' {..} =
-    Prelude.rnf globalNetworks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalNetworks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

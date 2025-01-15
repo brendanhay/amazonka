@@ -157,5 +157,5 @@ deleteCoreNetworkResponse_httpStatus = Lens.lens (\DeleteCoreNetworkResponse' {h
 
 instance Prelude.NFData DeleteCoreNetworkResponse where
   rnf DeleteCoreNetworkResponse' {..} =
-    Prelude.rnf coreNetwork
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetwork `Prelude.seq`
+      Prelude.rnf httpStatus

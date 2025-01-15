@@ -155,5 +155,5 @@ getCoreNetworkResponse_httpStatus = Lens.lens (\GetCoreNetworkResponse' {httpSta
 
 instance Prelude.NFData GetCoreNetworkResponse where
   rnf GetCoreNetworkResponse' {..} =
-    Prelude.rnf coreNetwork
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetwork `Prelude.seq`
+      Prelude.rnf httpStatus

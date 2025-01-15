@@ -123,12 +123,12 @@ instance Core.AWSPager ListConnectPeers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listConnectPeers_nextToken
-          Lens..~ rs
-          Lens.^? listConnectPeersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listConnectPeers_nextToken
+              Lens..~ rs
+              Lens.^? listConnectPeersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConnectPeers where
   type
@@ -155,10 +155,10 @@ instance Prelude.Hashable ListConnectPeers where
 
 instance Prelude.NFData ListConnectPeers where
   rnf ListConnectPeers' {..} =
-    Prelude.rnf connectAttachmentId
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf connectAttachmentId `Prelude.seq`
+      Prelude.rnf coreNetworkId `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConnectPeers where
   toHeaders =
@@ -233,6 +233,6 @@ listConnectPeersResponse_httpStatus = Lens.lens (\ListConnectPeersResponse' {htt
 
 instance Prelude.NFData ListConnectPeersResponse where
   rnf ListConnectPeersResponse' {..} =
-    Prelude.rnf connectPeers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectPeers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

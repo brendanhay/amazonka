@@ -128,9 +128,9 @@ instance Prelude.Hashable DisassociateLink where
 
 instance Prelude.NFData DisassociateLink where
   rnf DisassociateLink' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf linkId
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf linkId
 
 instance Data.ToHeaders DisassociateLink where
   toHeaders =
@@ -199,5 +199,5 @@ disassociateLinkResponse_httpStatus = Lens.lens (\DisassociateLinkResponse' {htt
 
 instance Prelude.NFData DisassociateLinkResponse where
   rnf DisassociateLinkResponse' {..} =
-    Prelude.rnf linkAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf linkAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

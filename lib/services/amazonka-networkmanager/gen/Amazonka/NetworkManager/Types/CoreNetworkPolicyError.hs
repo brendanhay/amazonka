@@ -95,6 +95,6 @@ instance Prelude.Hashable CoreNetworkPolicyError where
 
 instance Prelude.NFData CoreNetworkPolicyError where
   rnf CoreNetworkPolicyError' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf message

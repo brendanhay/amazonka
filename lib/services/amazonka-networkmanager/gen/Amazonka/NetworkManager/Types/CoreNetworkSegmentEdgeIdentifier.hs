@@ -103,9 +103,9 @@ instance
     CoreNetworkSegmentEdgeIdentifier
   where
   rnf CoreNetworkSegmentEdgeIdentifier' {..} =
-    Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf segmentName
+    Prelude.rnf coreNetworkId `Prelude.seq`
+      Prelude.rnf edgeLocation `Prelude.seq`
+        Prelude.rnf segmentName
 
 instance Data.ToJSON CoreNetworkSegmentEdgeIdentifier where
   toJSON CoreNetworkSegmentEdgeIdentifier' {..} =

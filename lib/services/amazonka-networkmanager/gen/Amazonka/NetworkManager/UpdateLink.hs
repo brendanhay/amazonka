@@ -171,12 +171,12 @@ instance Prelude.Hashable UpdateLink where
 
 instance Prelude.NFData UpdateLink where
   rnf UpdateLink' {..} =
-    Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf linkId
+    Prelude.rnf bandwidth `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf provider `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf globalNetworkId `Prelude.seq`
+              Prelude.rnf linkId
 
 instance Data.ToHeaders UpdateLink where
   toHeaders =
@@ -252,5 +252,5 @@ updateLinkResponse_httpStatus = Lens.lens (\UpdateLinkResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateLinkResponse where
   rnf UpdateLinkResponse' {..} =
-    Prelude.rnf link
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf link `Prelude.seq`
+      Prelude.rnf httpStatus

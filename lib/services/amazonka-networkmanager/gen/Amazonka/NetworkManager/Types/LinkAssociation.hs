@@ -103,7 +103,7 @@ instance Prelude.Hashable LinkAssociation where
 
 instance Prelude.NFData LinkAssociation where
   rnf LinkAssociation' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf linkAssociationState
-      `Prelude.seq` Prelude.rnf linkId
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf globalNetworkId `Prelude.seq`
+        Prelude.rnf linkAssociationState `Prelude.seq`
+          Prelude.rnf linkId

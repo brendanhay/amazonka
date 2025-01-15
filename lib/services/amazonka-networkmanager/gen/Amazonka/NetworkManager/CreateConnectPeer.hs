@@ -170,13 +170,13 @@ instance Prelude.Hashable CreateConnectPeer where
 
 instance Prelude.NFData CreateConnectPeer where
   rnf CreateConnectPeer' {..} =
-    Prelude.rnf bgpOptions
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf coreNetworkAddress
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf connectAttachmentId
-      `Prelude.seq` Prelude.rnf peerAddress
-      `Prelude.seq` Prelude.rnf insideCidrBlocks
+    Prelude.rnf bgpOptions `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf coreNetworkAddress `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf connectAttachmentId `Prelude.seq`
+              Prelude.rnf peerAddress `Prelude.seq`
+                Prelude.rnf insideCidrBlocks
 
 instance Data.ToHeaders CreateConnectPeer where
   toHeaders =
@@ -253,5 +253,5 @@ createConnectPeerResponse_httpStatus = Lens.lens (\CreateConnectPeerResponse' {h
 
 instance Prelude.NFData CreateConnectPeerResponse where
   rnf CreateConnectPeerResponse' {..} =
-    Prelude.rnf connectPeer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectPeer `Prelude.seq`
+      Prelude.rnf httpStatus

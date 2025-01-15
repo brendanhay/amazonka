@@ -148,11 +148,11 @@ instance Prelude.Hashable PutCoreNetworkPolicy where
 
 instance Prelude.NFData PutCoreNetworkPolicy where
   rnf PutCoreNetworkPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf latestVersionId
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf latestVersionId `Prelude.seq`
+          Prelude.rnf coreNetworkId `Prelude.seq`
+            Prelude.rnf policyDocument
 
 instance Data.ToHeaders PutCoreNetworkPolicy where
   toHeaders =
@@ -230,5 +230,5 @@ putCoreNetworkPolicyResponse_httpStatus = Lens.lens (\PutCoreNetworkPolicyRespon
 
 instance Prelude.NFData PutCoreNetworkPolicyResponse where
   rnf PutCoreNetworkPolicyResponse' {..} =
-    Prelude.rnf coreNetworkPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetworkPolicy `Prelude.seq`
+      Prelude.rnf httpStatus

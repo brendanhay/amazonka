@@ -80,8 +80,8 @@ instance Prelude.Hashable Bandwidth where
 
 instance Prelude.NFData Bandwidth where
   rnf Bandwidth' {..} =
-    Prelude.rnf downloadSpeed
-      `Prelude.seq` Prelude.rnf uploadSpeed
+    Prelude.rnf downloadSpeed `Prelude.seq`
+      Prelude.rnf uploadSpeed
 
 instance Data.ToJSON Bandwidth where
   toJSON Bandwidth' {..} =

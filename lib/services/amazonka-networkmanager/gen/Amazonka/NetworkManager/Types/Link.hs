@@ -182,14 +182,14 @@ instance Prelude.Hashable Link where
 
 instance Prelude.NFData Link where
   rnf Link' {..} =
-    Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf linkArn
-      `Prelude.seq` Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf bandwidth `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf globalNetworkId `Prelude.seq`
+            Prelude.rnf linkArn `Prelude.seq`
+              Prelude.rnf linkId `Prelude.seq`
+                Prelude.rnf provider `Prelude.seq`
+                  Prelude.rnf siteId `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf type'

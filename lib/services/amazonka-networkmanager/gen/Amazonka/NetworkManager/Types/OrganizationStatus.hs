@@ -120,7 +120,7 @@ instance Prelude.Hashable OrganizationStatus where
 
 instance Prelude.NFData OrganizationStatus where
   rnf OrganizationStatus' {..} =
-    Prelude.rnf accountStatusList
-      `Prelude.seq` Prelude.rnf organizationAwsServiceAccessStatus
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf sLRDeploymentStatus
+    Prelude.rnf accountStatusList `Prelude.seq`
+      Prelude.rnf organizationAwsServiceAccessStatus `Prelude.seq`
+        Prelude.rnf organizationId `Prelude.seq`
+          Prelude.rnf sLRDeploymentStatus

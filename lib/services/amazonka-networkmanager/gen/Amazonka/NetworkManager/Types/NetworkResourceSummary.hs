@@ -128,9 +128,9 @@ instance Prelude.Hashable NetworkResourceSummary where
 
 instance Prelude.NFData NetworkResourceSummary where
   rnf NetworkResourceSummary' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf isMiddlebox
-      `Prelude.seq` Prelude.rnf nameTag
-      `Prelude.seq` Prelude.rnf registeredGatewayArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf isMiddlebox `Prelude.seq`
+        Prelude.rnf nameTag `Prelude.seq`
+          Prelude.rnf registeredGatewayArn `Prelude.seq`
+            Prelude.rnf resourceArn `Prelude.seq`
+              Prelude.rnf resourceType

@@ -161,12 +161,12 @@ instance Prelude.Hashable CoreNetwork where
 
 instance Prelude.NFData CoreNetwork where
   rnf CoreNetwork' {..} =
-    Prelude.rnf coreNetworkArn
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf edges
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf segments
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf coreNetworkArn `Prelude.seq`
+      Prelude.rnf coreNetworkId `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf edges `Prelude.seq`
+              Prelude.rnf globalNetworkId `Prelude.seq`
+                Prelude.rnf segments `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf tags

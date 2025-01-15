@@ -158,5 +158,5 @@ rejectAttachmentResponse_httpStatus = Lens.lens (\RejectAttachmentResponse' {htt
 
 instance Prelude.NFData RejectAttachmentResponse where
   rnf RejectAttachmentResponse' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf httpStatus

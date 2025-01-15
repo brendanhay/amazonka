@@ -132,9 +132,9 @@ instance
 
 instance Prelude.NFData UpdateNetworkResourceMetadata where
   rnf UpdateNetworkResourceMetadata' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf metadata
 
 instance Data.ToHeaders UpdateNetworkResourceMetadata where
   toHeaders =
@@ -220,6 +220,6 @@ instance
     UpdateNetworkResourceMetadataResponse
   where
   rnf UpdateNetworkResourceMetadataResponse' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf httpStatus

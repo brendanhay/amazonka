@@ -100,8 +100,8 @@ instance Prelude.Hashable FilterExpression where
 
 instance Prelude.NFData FilterExpression where
   rnf FilterExpression' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf valuesMap
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf valuesMap
 
 instance Data.ToJSON FilterExpression where
   toJSON FilterExpression' {..} =

@@ -104,9 +104,9 @@ instance Prelude.Hashable PathOptions where
 
 instance Prelude.NFData PathOptions where
   rnf PathOptions' {..} =
-    Prelude.rnf filesLimit
-      `Prelude.seq` Prelude.rnf lastModifiedDateCondition
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf filesLimit `Prelude.seq`
+      Prelude.rnf lastModifiedDateCondition `Prelude.seq`
+        Prelude.rnf parameters
 
 instance Data.ToJSON PathOptions where
   toJSON PathOptions' {..} =

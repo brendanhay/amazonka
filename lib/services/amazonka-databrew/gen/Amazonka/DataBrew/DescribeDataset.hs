@@ -289,16 +289,16 @@ describeDatasetResponse_input = Lens.lens (\DescribeDatasetResponse' {input} -> 
 
 instance Prelude.NFData DescribeDatasetResponse where
   rnf DescribeDatasetResponse' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf formatOptions
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf pathOptions
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf format `Prelude.seq`
+          Prelude.rnf formatOptions `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf pathOptions `Prelude.seq`
+                  Prelude.rnf resourceArn `Prelude.seq`
+                    Prelude.rnf source `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf httpStatus `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf input

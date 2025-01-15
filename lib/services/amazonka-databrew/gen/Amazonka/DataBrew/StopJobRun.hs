@@ -176,5 +176,5 @@ stopJobRunResponse_runId = Lens.lens (\StopJobRunResponse' {runId} -> runId) (\s
 
 instance Prelude.NFData StopJobRunResponse where
   rnf StopJobRunResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf runId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf runId

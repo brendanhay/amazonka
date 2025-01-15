@@ -82,8 +82,8 @@ instance Prelude.Hashable RecipeReference where
 
 instance Prelude.NFData RecipeReference where
   rnf RecipeReference' {..} =
-    Prelude.rnf recipeVersion
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf recipeVersion `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON RecipeReference where
   toJSON RecipeReference' {..} =

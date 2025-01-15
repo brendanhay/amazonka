@@ -155,11 +155,11 @@ instance Prelude.Hashable CreateRuleset where
 
 instance Prelude.NFData CreateRuleset where
   rnf CreateRuleset' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf targetArn `Prelude.seq`
+            Prelude.rnf rules
 
 instance Data.ToHeaders CreateRuleset where
   toHeaders =
@@ -232,5 +232,5 @@ createRulesetResponse_name = Lens.lens (\CreateRulesetResponse' {name} -> name) 
 
 instance Prelude.NFData CreateRulesetResponse where
   rnf CreateRulesetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

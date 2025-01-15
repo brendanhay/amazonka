@@ -110,9 +110,9 @@ instance Prelude.Hashable DatabaseOutput where
 
 instance Prelude.NFData DatabaseOutput where
   rnf DatabaseOutput' {..} =
-    Prelude.rnf databaseOutputMode
-      `Prelude.seq` Prelude.rnf glueConnectionName
-      `Prelude.seq` Prelude.rnf databaseOptions
+    Prelude.rnf databaseOutputMode `Prelude.seq`
+      Prelude.rnf glueConnectionName `Prelude.seq`
+        Prelude.rnf databaseOptions
 
 instance Data.ToJSON DatabaseOutput where
   toJSON DatabaseOutput' {..} =

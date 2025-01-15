@@ -155,5 +155,5 @@ deleteDatasetResponse_name = Lens.lens (\DeleteDatasetResponse' {name} -> name) 
 
 instance Prelude.NFData DeleteDatasetResponse where
   rnf DeleteDatasetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

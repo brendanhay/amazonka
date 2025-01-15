@@ -95,9 +95,9 @@ instance Prelude.Hashable FormatOptions where
 
 instance Prelude.NFData FormatOptions where
   rnf FormatOptions' {..} =
-    Prelude.rnf csv
-      `Prelude.seq` Prelude.rnf excel
-      `Prelude.seq` Prelude.rnf json
+    Prelude.rnf csv `Prelude.seq`
+      Prelude.rnf excel `Prelude.seq`
+        Prelude.rnf json
 
 instance Data.ToJSON FormatOptions where
   toJSON FormatOptions' {..} =

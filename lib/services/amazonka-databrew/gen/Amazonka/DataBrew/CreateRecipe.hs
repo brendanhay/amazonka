@@ -137,10 +137,10 @@ instance Prelude.Hashable CreateRecipe where
 
 instance Prelude.NFData CreateRecipe where
   rnf CreateRecipe' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf steps
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf steps
 
 instance Data.ToHeaders CreateRecipe where
   toHeaders =
@@ -212,5 +212,5 @@ createRecipeResponse_name = Lens.lens (\CreateRecipeResponse' {name} -> name) (\
 
 instance Prelude.NFData CreateRecipeResponse where
   rnf CreateRecipeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

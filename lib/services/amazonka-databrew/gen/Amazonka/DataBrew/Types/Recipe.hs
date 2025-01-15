@@ -237,16 +237,16 @@ instance Prelude.Hashable Recipe where
 
 instance Prelude.NFData Recipe where
   rnf Recipe' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf publishedBy
-      `Prelude.seq` Prelude.rnf publishedDate
-      `Prelude.seq` Prelude.rnf recipeVersion
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf steps
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastModifiedBy `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf projectName `Prelude.seq`
+                Prelude.rnf publishedBy `Prelude.seq`
+                  Prelude.rnf publishedDate `Prelude.seq`
+                    Prelude.rnf recipeVersion `Prelude.seq`
+                      Prelude.rnf resourceArn `Prelude.seq`
+                        Prelude.rnf steps `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf name

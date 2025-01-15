@@ -84,8 +84,8 @@ instance Prelude.Hashable RecipeAction where
 
 instance Prelude.NFData RecipeAction where
   rnf RecipeAction' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf operation
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf operation
 
 instance Data.ToJSON RecipeAction where
   toJSON RecipeAction' {..} =

@@ -146,8 +146,8 @@ instance Prelude.Hashable BatchDeleteRecipeVersion where
 
 instance Prelude.NFData BatchDeleteRecipeVersion where
   rnf BatchDeleteRecipeVersion' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recipeVersions
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf recipeVersions
 
 instance Data.ToHeaders BatchDeleteRecipeVersion where
   toHeaders =
@@ -240,6 +240,6 @@ instance
     BatchDeleteRecipeVersionResponse
   where
   rnf BatchDeleteRecipeVersionResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf name

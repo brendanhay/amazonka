@@ -140,10 +140,10 @@ instance Prelude.Hashable ProfileConfiguration where
 
 instance Prelude.NFData ProfileConfiguration where
   rnf ProfileConfiguration' {..} =
-    Prelude.rnf columnStatisticsConfigurations
-      `Prelude.seq` Prelude.rnf datasetStatisticsConfiguration
-      `Prelude.seq` Prelude.rnf entityDetectorConfiguration
-      `Prelude.seq` Prelude.rnf profileColumns
+    Prelude.rnf columnStatisticsConfigurations `Prelude.seq`
+      Prelude.rnf datasetStatisticsConfiguration `Prelude.seq`
+        Prelude.rnf entityDetectorConfiguration `Prelude.seq`
+          Prelude.rnf profileColumns
 
 instance Data.ToJSON ProfileConfiguration where
   toJSON ProfileConfiguration' {..} =

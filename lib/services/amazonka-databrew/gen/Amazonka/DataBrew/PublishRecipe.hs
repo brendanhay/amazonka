@@ -111,8 +111,8 @@ instance Prelude.Hashable PublishRecipe where
 
 instance Prelude.NFData PublishRecipe where
   rnf PublishRecipe' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders PublishRecipe where
   toHeaders =
@@ -182,5 +182,5 @@ publishRecipeResponse_name = Lens.lens (\PublishRecipeResponse' {name} -> name) 
 
 instance Prelude.NFData PublishRecipeResponse where
   rnf PublishRecipeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

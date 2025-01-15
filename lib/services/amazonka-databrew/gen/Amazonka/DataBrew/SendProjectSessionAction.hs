@@ -168,12 +168,12 @@ instance Prelude.Hashable SendProjectSessionAction where
 
 instance Prelude.NFData SendProjectSessionAction where
   rnf SendProjectSessionAction' {..} =
-    Prelude.rnf clientSessionId
-      `Prelude.seq` Prelude.rnf preview
-      `Prelude.seq` Prelude.rnf recipeStep
-      `Prelude.seq` Prelude.rnf stepIndex
-      `Prelude.seq` Prelude.rnf viewFrame
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientSessionId `Prelude.seq`
+      Prelude.rnf preview `Prelude.seq`
+        Prelude.rnf recipeStep `Prelude.seq`
+          Prelude.rnf stepIndex `Prelude.seq`
+            Prelude.rnf viewFrame `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders SendProjectSessionAction where
   toHeaders =
@@ -276,7 +276,7 @@ instance
     SendProjectSessionActionResponse
   where
   rnf SendProjectSessionActionResponse' {..} =
-    Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf actionId `Prelude.seq`
+      Prelude.rnf result `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf name

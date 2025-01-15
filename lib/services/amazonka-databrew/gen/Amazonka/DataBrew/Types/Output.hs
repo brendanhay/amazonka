@@ -154,13 +154,13 @@ instance Prelude.Hashable Output where
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf compressionFormat
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf formatOptions
-      `Prelude.seq` Prelude.rnf maxOutputFiles
-      `Prelude.seq` Prelude.rnf overwrite
-      `Prelude.seq` Prelude.rnf partitionColumns
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf compressionFormat `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf formatOptions `Prelude.seq`
+          Prelude.rnf maxOutputFiles `Prelude.seq`
+            Prelude.rnf overwrite `Prelude.seq`
+              Prelude.rnf partitionColumns `Prelude.seq`
+                Prelude.rnf location
 
 instance Data.ToJSON Output where
   toJSON Output' {..} =

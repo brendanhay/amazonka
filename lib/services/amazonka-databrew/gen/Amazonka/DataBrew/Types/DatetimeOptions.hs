@@ -112,9 +112,9 @@ instance Prelude.Hashable DatetimeOptions where
 
 instance Prelude.NFData DatetimeOptions where
   rnf DatetimeOptions' {..} =
-    Prelude.rnf localeCode
-      `Prelude.seq` Prelude.rnf timezoneOffset
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf localeCode `Prelude.seq`
+      Prelude.rnf timezoneOffset `Prelude.seq`
+        Prelude.rnf format
 
 instance Data.ToJSON DatetimeOptions where
   toJSON DatetimeOptions' {..} =

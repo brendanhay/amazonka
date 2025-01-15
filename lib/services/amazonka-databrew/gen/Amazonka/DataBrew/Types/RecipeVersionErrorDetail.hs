@@ -93,6 +93,6 @@ instance Prelude.Hashable RecipeVersionErrorDetail where
 
 instance Prelude.NFData RecipeVersionErrorDetail where
   rnf RecipeVersionErrorDetail' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf recipeVersion
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf recipeVersion

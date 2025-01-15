@@ -319,18 +319,18 @@ describeProjectResponse_name = Lens.lens (\DescribeProjectResponse' {name} -> na
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf openDate
-      `Prelude.seq` Prelude.rnf openedBy
-      `Prelude.seq` Prelude.rnf recipeName
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sample
-      `Prelude.seq` Prelude.rnf sessionStatus
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf datasetName `Prelude.seq`
+          Prelude.rnf lastModifiedBy `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf openDate `Prelude.seq`
+                Prelude.rnf openedBy `Prelude.seq`
+                  Prelude.rnf recipeName `Prelude.seq`
+                    Prelude.rnf resourceArn `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf sample `Prelude.seq`
+                          Prelude.rnf sessionStatus `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf httpStatus `Prelude.seq`
+                                Prelude.rnf name

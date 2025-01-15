@@ -111,10 +111,10 @@ instance Prelude.Hashable DatabaseInputDefinition where
 
 instance Prelude.NFData DatabaseInputDefinition where
   rnf DatabaseInputDefinition' {..} =
-    Prelude.rnf databaseTableName
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf tempDirectory
-      `Prelude.seq` Prelude.rnf glueConnectionName
+    Prelude.rnf databaseTableName `Prelude.seq`
+      Prelude.rnf queryString `Prelude.seq`
+        Prelude.rnf tempDirectory `Prelude.seq`
+          Prelude.rnf glueConnectionName
 
 instance Data.ToJSON DatabaseInputDefinition where
   toJSON DatabaseInputDefinition' {..} =

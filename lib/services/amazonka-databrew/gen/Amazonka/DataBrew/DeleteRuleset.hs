@@ -155,5 +155,5 @@ deleteRulesetResponse_name = Lens.lens (\DeleteRulesetResponse' {name} -> name) 
 
 instance Prelude.NFData DeleteRulesetResponse where
   rnf DeleteRulesetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

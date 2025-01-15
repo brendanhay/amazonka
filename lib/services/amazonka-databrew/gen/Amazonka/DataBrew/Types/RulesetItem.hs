@@ -189,14 +189,14 @@ instance Prelude.Hashable RulesetItem where
 
 instance Prelude.NFData RulesetItem where
   rnf RulesetItem' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf ruleCount
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf createdBy `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf resourceArn `Prelude.seq`
+                  Prelude.rnf ruleCount `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf targetArn

@@ -115,8 +115,8 @@ instance Prelude.Hashable StartProjectSession where
 
 instance Prelude.NFData StartProjectSession where
   rnf StartProjectSession' {..} =
-    Prelude.rnf assumeControl
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf assumeControl `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders StartProjectSession where
   toHeaders =
@@ -201,6 +201,6 @@ startProjectSessionResponse_name = Lens.lens (\StartProjectSessionResponse' {nam
 
 instance Prelude.NFData StartProjectSessionResponse where
   rnf StartProjectSessionResponse' {..} =
-    Prelude.rnf clientSessionId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientSessionId `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf name

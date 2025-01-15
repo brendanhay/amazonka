@@ -133,11 +133,11 @@ instance Prelude.Hashable DatasetParameter where
 
 instance Prelude.NFData DatasetParameter where
   rnf DatasetParameter' {..} =
-    Prelude.rnf createColumn
-      `Prelude.seq` Prelude.rnf datetimeOptions
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf createColumn `Prelude.seq`
+      Prelude.rnf datetimeOptions `Prelude.seq`
+        Prelude.rnf filter' `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON DatasetParameter where
   toJSON DatasetParameter' {..} =

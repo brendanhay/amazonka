@@ -121,9 +121,9 @@ instance Prelude.Hashable UpdateRecipe where
 
 instance Prelude.NFData UpdateRecipe where
   rnf UpdateRecipe' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf steps
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf steps `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateRecipe where
   toHeaders =
@@ -194,5 +194,5 @@ updateRecipeResponse_name = Lens.lens (\UpdateRecipeResponse' {name} -> name) (\
 
 instance Prelude.NFData UpdateRecipeResponse where
   rnf UpdateRecipeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

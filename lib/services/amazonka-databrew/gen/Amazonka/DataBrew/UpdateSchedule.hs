@@ -130,9 +130,9 @@ instance Prelude.Hashable UpdateSchedule where
 
 instance Prelude.NFData UpdateSchedule where
   rnf UpdateSchedule' {..} =
-    Prelude.rnf jobNames
-      `Prelude.seq` Prelude.rnf cronExpression
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf jobNames `Prelude.seq`
+      Prelude.rnf cronExpression `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateSchedule where
   toHeaders =
@@ -204,5 +204,5 @@ updateScheduleResponse_name = Lens.lens (\UpdateScheduleResponse' {name} -> name
 
 instance Prelude.NFData UpdateScheduleResponse where
   rnf UpdateScheduleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

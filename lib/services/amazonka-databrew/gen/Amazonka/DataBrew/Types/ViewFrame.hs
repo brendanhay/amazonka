@@ -125,12 +125,12 @@ instance Prelude.Hashable ViewFrame where
 
 instance Prelude.NFData ViewFrame where
   rnf ViewFrame' {..} =
-    Prelude.rnf analytics
-      `Prelude.seq` Prelude.rnf columnRange
-      `Prelude.seq` Prelude.rnf hiddenColumns
-      `Prelude.seq` Prelude.rnf rowRange
-      `Prelude.seq` Prelude.rnf startRowIndex
-      `Prelude.seq` Prelude.rnf startColumnIndex
+    Prelude.rnf analytics `Prelude.seq`
+      Prelude.rnf columnRange `Prelude.seq`
+        Prelude.rnf hiddenColumns `Prelude.seq`
+          Prelude.rnf rowRange `Prelude.seq`
+            Prelude.rnf startRowIndex `Prelude.seq`
+              Prelude.rnf startColumnIndex
 
 instance Data.ToJSON ViewFrame where
   toJSON ViewFrame' {..} =

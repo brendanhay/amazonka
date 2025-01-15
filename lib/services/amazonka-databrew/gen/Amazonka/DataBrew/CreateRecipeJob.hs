@@ -293,21 +293,21 @@ instance Prelude.Hashable CreateRecipeJob where
 
 instance Prelude.NFData CreateRecipeJob where
   rnf CreateRecipeJob' {..} =
-    Prelude.rnf dataCatalogOutputs
-      `Prelude.seq` Prelude.rnf databaseOutputs
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf encryptionMode
-      `Prelude.seq` Prelude.rnf logSubscription
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf recipeReference
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf dataCatalogOutputs `Prelude.seq`
+      Prelude.rnf databaseOutputs `Prelude.seq`
+        Prelude.rnf datasetName `Prelude.seq`
+          Prelude.rnf encryptionKeyArn `Prelude.seq`
+            Prelude.rnf encryptionMode `Prelude.seq`
+              Prelude.rnf logSubscription `Prelude.seq`
+                Prelude.rnf maxCapacity `Prelude.seq`
+                  Prelude.rnf maxRetries `Prelude.seq`
+                    Prelude.rnf outputs `Prelude.seq`
+                      Prelude.rnf projectName `Prelude.seq`
+                        Prelude.rnf recipeReference `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf timeout `Prelude.seq`
+                              Prelude.rnf name `Prelude.seq`
+                                Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateRecipeJob where
   toHeaders =
@@ -396,5 +396,5 @@ createRecipeJobResponse_name = Lens.lens (\CreateRecipeJobResponse' {name} -> na
 
 instance Prelude.NFData CreateRecipeJobResponse where
   rnf CreateRecipeJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

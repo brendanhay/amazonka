@@ -179,13 +179,13 @@ instance Prelude.Hashable Schedule where
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf cronExpression
-      `Prelude.seq` Prelude.rnf jobNames
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf createdBy `Prelude.seq`
+          Prelude.rnf cronExpression `Prelude.seq`
+            Prelude.rnf jobNames `Prelude.seq`
+              Prelude.rnf lastModifiedBy `Prelude.seq`
+                Prelude.rnf lastModifiedDate `Prelude.seq`
+                  Prelude.rnf resourceArn `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf name

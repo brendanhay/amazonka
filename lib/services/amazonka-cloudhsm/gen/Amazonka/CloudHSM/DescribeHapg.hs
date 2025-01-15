@@ -279,13 +279,13 @@ describeHapgResponse_httpStatus = Lens.lens (\DescribeHapgResponse' {httpStatus}
 
 instance Prelude.NFData DescribeHapgResponse where
   rnf DescribeHapgResponse' {..} =
-    Prelude.rnf hapgArn
-      `Prelude.seq` Prelude.rnf hapgSerial
-      `Prelude.seq` Prelude.rnf hsmsLastActionFailed
-      `Prelude.seq` Prelude.rnf hsmsPendingDeletion
-      `Prelude.seq` Prelude.rnf hsmsPendingRegistration
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
-      `Prelude.seq` Prelude.rnf partitionSerialList
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hapgArn `Prelude.seq`
+      Prelude.rnf hapgSerial `Prelude.seq`
+        Prelude.rnf hsmsLastActionFailed `Prelude.seq`
+          Prelude.rnf hsmsPendingDeletion `Prelude.seq`
+            Prelude.rnf hsmsPendingRegistration `Prelude.seq`
+              Prelude.rnf label `Prelude.seq`
+                Prelude.rnf lastModifiedTimestamp `Prelude.seq`
+                  Prelude.rnf partitionSerialList `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf httpStatus

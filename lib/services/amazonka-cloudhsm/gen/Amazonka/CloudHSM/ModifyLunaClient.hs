@@ -127,8 +127,8 @@ instance Prelude.Hashable ModifyLunaClient where
 
 instance Prelude.NFData ModifyLunaClient where
   rnf ModifyLunaClient' {..} =
-    Prelude.rnf clientArn
-      `Prelude.seq` Prelude.rnf certificate
+    Prelude.rnf clientArn `Prelude.seq`
+      Prelude.rnf certificate
 
 instance Data.ToHeaders ModifyLunaClient where
   toHeaders =
@@ -201,5 +201,5 @@ modifyLunaClientResponse_httpStatus = Lens.lens (\ModifyLunaClientResponse' {htt
 
 instance Prelude.NFData ModifyLunaClientResponse where
   rnf ModifyLunaClientResponse' {..} =
-    Prelude.rnf clientArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientArn `Prelude.seq`
+      Prelude.rnf httpStatus

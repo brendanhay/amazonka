@@ -193,12 +193,12 @@ instance Prelude.Hashable ModifyHsm where
 
 instance Prelude.NFData ModifyHsm where
   rnf ModifyHsm' {..} =
-    Prelude.rnf eniIp
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf syslogIp
-      `Prelude.seq` Prelude.rnf hsmArn
+    Prelude.rnf eniIp `Prelude.seq`
+      Prelude.rnf externalId `Prelude.seq`
+        Prelude.rnf iamRoleArn `Prelude.seq`
+          Prelude.rnf subnetId `Prelude.seq`
+            Prelude.rnf syslogIp `Prelude.seq`
+              Prelude.rnf hsmArn
 
 instance Data.ToHeaders ModifyHsm where
   toHeaders =
@@ -276,5 +276,5 @@ modifyHsmResponse_httpStatus = Lens.lens (\ModifyHsmResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ModifyHsmResponse where
   rnf ModifyHsmResponse' {..} =
-    Prelude.rnf hsmArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hsmArn `Prelude.seq`
+      Prelude.rnf httpStatus

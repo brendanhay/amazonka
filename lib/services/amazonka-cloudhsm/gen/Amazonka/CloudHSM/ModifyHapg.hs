@@ -134,9 +134,9 @@ instance Prelude.Hashable ModifyHapg where
 
 instance Prelude.NFData ModifyHapg where
   rnf ModifyHapg' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf partitionSerialList
-      `Prelude.seq` Prelude.rnf hapgArn
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf partitionSerialList `Prelude.seq`
+        Prelude.rnf hapgArn
 
 instance Data.ToHeaders ModifyHapg where
   toHeaders =
@@ -210,5 +210,5 @@ modifyHapgResponse_httpStatus = Lens.lens (\ModifyHapgResponse' {httpStatus} -> 
 
 instance Prelude.NFData ModifyHapgResponse where
   rnf ModifyHapgResponse' {..} =
-    Prelude.rnf hapgArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hapgArn `Prelude.seq`
+      Prelude.rnf httpStatus

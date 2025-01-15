@@ -181,5 +181,5 @@ deleteHsmResponse_status = Lens.lens (\DeleteHsmResponse' {status} -> status) (\
 
 instance Prelude.NFData DeleteHsmResponse where
   rnf DeleteHsmResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

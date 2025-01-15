@@ -226,14 +226,14 @@ instance Prelude.Hashable CreateHsm where
 
 instance Prelude.NFData CreateHsm where
   rnf CreateHsm' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf eniIp
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf syslogIp
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf sshKey
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf subscriptionType
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf eniIp `Prelude.seq`
+        Prelude.rnf externalId `Prelude.seq`
+          Prelude.rnf syslogIp `Prelude.seq`
+            Prelude.rnf subnetId `Prelude.seq`
+              Prelude.rnf sshKey `Prelude.seq`
+                Prelude.rnf iamRoleArn `Prelude.seq`
+                  Prelude.rnf subscriptionType
 
 instance Data.ToHeaders CreateHsm where
   toHeaders =
@@ -314,5 +314,5 @@ createHsmResponse_httpStatus = Lens.lens (\CreateHsmResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateHsmResponse where
   rnf CreateHsmResponse' {..} =
-    Prelude.rnf hsmArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hsmArn `Prelude.seq`
+      Prelude.rnf httpStatus

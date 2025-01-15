@@ -167,8 +167,8 @@ instance Prelude.Hashable DescribeHsm where
 
 instance Prelude.NFData DescribeHsm where
   rnf DescribeHsm' {..} =
-    Prelude.rnf hsmArn
-      `Prelude.seq` Prelude.rnf hsmSerialNumber
+    Prelude.rnf hsmArn `Prelude.seq`
+      Prelude.rnf hsmSerialNumber
 
 instance Data.ToHeaders DescribeHsm where
   toHeaders =
@@ -426,25 +426,25 @@ describeHsmResponse_httpStatus = Lens.lens (\DescribeHsmResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeHsmResponse where
   rnf DescribeHsmResponse' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf eniId
-      `Prelude.seq` Prelude.rnf eniIp
-      `Prelude.seq` Prelude.rnf hsmArn
-      `Prelude.seq` Prelude.rnf hsmType
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf partitions
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf serverCertLastUpdated
-      `Prelude.seq` Prelude.rnf serverCertUri
-      `Prelude.seq` Prelude.rnf softwareVersion
-      `Prelude.seq` Prelude.rnf sshKeyLastUpdated
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf subscriptionEndDate
-      `Prelude.seq` Prelude.rnf subscriptionStartDate
-      `Prelude.seq` Prelude.rnf subscriptionType
-      `Prelude.seq` Prelude.rnf vendorName
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf eniId `Prelude.seq`
+        Prelude.rnf eniIp `Prelude.seq`
+          Prelude.rnf hsmArn `Prelude.seq`
+            Prelude.rnf hsmType `Prelude.seq`
+              Prelude.rnf iamRoleArn `Prelude.seq`
+                Prelude.rnf partitions `Prelude.seq`
+                  Prelude.rnf serialNumber `Prelude.seq`
+                    Prelude.rnf serverCertLastUpdated `Prelude.seq`
+                      Prelude.rnf serverCertUri `Prelude.seq`
+                        Prelude.rnf softwareVersion `Prelude.seq`
+                          Prelude.rnf sshKeyLastUpdated `Prelude.seq`
+                            Prelude.rnf sshPublicKey `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf statusDetails `Prelude.seq`
+                                  Prelude.rnf subnetId `Prelude.seq`
+                                    Prelude.rnf subscriptionEndDate `Prelude.seq`
+                                      Prelude.rnf subscriptionStartDate `Prelude.seq`
+                                        Prelude.rnf subscriptionType `Prelude.seq`
+                                          Prelude.rnf vendorName `Prelude.seq`
+                                            Prelude.rnf vpcId `Prelude.seq`
+                                              Prelude.rnf httpStatus

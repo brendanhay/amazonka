@@ -180,5 +180,5 @@ createHapgResponse_httpStatus = Lens.lens (\CreateHapgResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateHapgResponse where
   rnf CreateHapgResponse' {..} =
-    Prelude.rnf hapgArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hapgArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -179,5 +179,5 @@ listTagsForResourceResponse_tagList = Lens.lens (\ListTagsForResourceResponse' {
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tagList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf tagList

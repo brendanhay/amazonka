@@ -109,12 +109,12 @@ instance Core.AWSPager ListLunaClients where
         (rs Lens.^. listLunaClientsResponse_clientList) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLunaClients_nextToken
-          Lens..~ rs
-          Lens.^? listLunaClientsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLunaClients_nextToken
+              Lens..~ rs
+              Lens.^? listLunaClientsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLunaClients where
   type
@@ -219,6 +219,6 @@ listLunaClientsResponse_clientList = Lens.lens (\ListLunaClientsResponse' {clien
 
 instance Prelude.NFData ListLunaClientsResponse where
   rnf ListLunaClientsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf clientList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf clientList

@@ -163,5 +163,5 @@ listAvailableZonesResponse_httpStatus = Lens.lens (\ListAvailableZonesResponse' 
 
 instance Prelude.NFData ListAvailableZonesResponse where
   rnf ListAvailableZonesResponse' {..} =
-    Prelude.rnf aZList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aZList `Prelude.seq`
+      Prelude.rnf httpStatus

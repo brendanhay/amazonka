@@ -171,5 +171,5 @@ batchAcknowledgeAlarmResponse_httpStatus = Lens.lens (\BatchAcknowledgeAlarmResp
 
 instance Prelude.NFData BatchAcknowledgeAlarmResponse where
   rnf BatchAcknowledgeAlarmResponse' {..} =
-    Prelude.rnf errorEntries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errorEntries `Prelude.seq`
+      Prelude.rnf httpStatus

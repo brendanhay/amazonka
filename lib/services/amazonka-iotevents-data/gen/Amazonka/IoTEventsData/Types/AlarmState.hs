@@ -181,7 +181,7 @@ instance Prelude.Hashable AlarmState where
 
 instance Prelude.NFData AlarmState where
   rnf AlarmState' {..} =
-    Prelude.rnf customerAction
-      `Prelude.seq` Prelude.rnf ruleEvaluation
-      `Prelude.seq` Prelude.rnf stateName
-      `Prelude.seq` Prelude.rnf systemEvent
+    Prelude.rnf customerAction `Prelude.seq`
+      Prelude.rnf ruleEvaluation `Prelude.seq`
+        Prelude.rnf stateName `Prelude.seq`
+          Prelude.rnf systemEvent

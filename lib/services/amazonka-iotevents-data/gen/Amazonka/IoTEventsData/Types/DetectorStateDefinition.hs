@@ -91,9 +91,9 @@ instance Prelude.Hashable DetectorStateDefinition where
 
 instance Prelude.NFData DetectorStateDefinition where
   rnf DetectorStateDefinition' {..} =
-    Prelude.rnf stateName
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf timers
+    Prelude.rnf stateName `Prelude.seq`
+      Prelude.rnf variables `Prelude.seq`
+        Prelude.rnf timers
 
 instance Data.ToJSON DetectorStateDefinition where
   toJSON DetectorStateDefinition' {..} =

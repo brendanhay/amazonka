@@ -138,10 +138,10 @@ instance Prelude.Hashable ListDetectors where
 
 instance Prelude.NFData ListDetectors where
   rnf ListDetectors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stateName
-      `Prelude.seq` Prelude.rnf detectorModelName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf stateName `Prelude.seq`
+          Prelude.rnf detectorModelName
 
 instance Data.ToHeaders ListDetectors where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,6 +212,6 @@ listDetectorsResponse_httpStatus = Lens.lens (\ListDetectorsResponse' {httpStatu
 
 instance Prelude.NFData ListDetectorsResponse where
   rnf ListDetectorsResponse' {..} =
-    Prelude.rnf detectorSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectorSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

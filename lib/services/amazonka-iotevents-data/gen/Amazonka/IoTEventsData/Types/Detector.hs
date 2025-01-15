@@ -128,9 +128,9 @@ instance Prelude.Hashable Detector where
 
 instance Prelude.NFData Detector where
   rnf Detector' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf detectorModelName
-      `Prelude.seq` Prelude.rnf detectorModelVersion
-      `Prelude.seq` Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf detectorModelName `Prelude.seq`
+        Prelude.rnf detectorModelVersion `Prelude.seq`
+          Prelude.rnf keyValue `Prelude.seq`
+            Prelude.rnf lastUpdateTime `Prelude.seq`
+              Prelude.rnf state

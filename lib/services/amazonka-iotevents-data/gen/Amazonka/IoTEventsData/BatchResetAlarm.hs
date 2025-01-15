@@ -168,5 +168,5 @@ batchResetAlarmResponse_httpStatus = Lens.lens (\BatchResetAlarmResponse' {httpS
 
 instance Prelude.NFData BatchResetAlarmResponse where
   rnf BatchResetAlarmResponse' {..} =
-    Prelude.rnf errorEntries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errorEntries `Prelude.seq`
+      Prelude.rnf httpStatus

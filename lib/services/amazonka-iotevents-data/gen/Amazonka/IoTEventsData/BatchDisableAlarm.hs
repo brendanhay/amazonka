@@ -170,5 +170,5 @@ batchDisableAlarmResponse_httpStatus = Lens.lens (\BatchDisableAlarmResponse' {h
 
 instance Prelude.NFData BatchDisableAlarmResponse where
   rnf BatchDisableAlarmResponse' {..} =
-    Prelude.rnf errorEntries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errorEntries `Prelude.seq`
+      Prelude.rnf httpStatus

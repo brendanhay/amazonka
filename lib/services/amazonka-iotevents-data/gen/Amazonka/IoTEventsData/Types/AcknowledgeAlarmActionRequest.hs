@@ -106,10 +106,10 @@ instance
 
 instance Prelude.NFData AcknowledgeAlarmActionRequest where
   rnf AcknowledgeAlarmActionRequest' {..} =
-    Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf note
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf alarmModelName
+    Prelude.rnf keyValue `Prelude.seq`
+      Prelude.rnf note `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf alarmModelName
 
 instance Data.ToJSON AcknowledgeAlarmActionRequest where
   toJSON AcknowledgeAlarmActionRequest' {..} =

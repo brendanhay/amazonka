@@ -85,5 +85,5 @@ instance Prelude.Hashable SystemEvent where
 
 instance Prelude.NFData SystemEvent where
   rnf SystemEvent' {..} =
-    Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf stateChangeConfiguration
+    Prelude.rnf eventType `Prelude.seq`
+      Prelude.rnf stateChangeConfiguration

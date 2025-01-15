@@ -169,5 +169,5 @@ batchDeleteDetectorResponse_httpStatus = Lens.lens (\BatchDeleteDetectorResponse
 
 instance Prelude.NFData BatchDeleteDetectorResponse where
   rnf BatchDeleteDetectorResponse' {..} =
-    Prelude.rnf batchDeleteDetectorErrorEntries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchDeleteDetectorErrorEntries `Prelude.seq`
+      Prelude.rnf httpStatus

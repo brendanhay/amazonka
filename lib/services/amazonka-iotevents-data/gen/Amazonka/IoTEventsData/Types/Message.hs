@@ -114,10 +114,10 @@ instance Prelude.Hashable Message where
 
 instance Prelude.NFData Message where
   rnf Message' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf inputName
-      `Prelude.seq` Prelude.rnf payload
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf inputName `Prelude.seq`
+          Prelude.rnf payload
 
 instance Data.ToJSON Message where
   toJSON Message' {..} =

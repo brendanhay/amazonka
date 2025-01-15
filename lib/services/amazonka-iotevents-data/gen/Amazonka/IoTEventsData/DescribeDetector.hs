@@ -114,8 +114,8 @@ instance Prelude.Hashable DescribeDetector where
 
 instance Prelude.NFData DescribeDetector where
   rnf DescribeDetector' {..} =
-    Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf detectorModelName
+    Prelude.rnf keyValue `Prelude.seq`
+      Prelude.rnf detectorModelName
 
 instance Data.ToHeaders DescribeDetector where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,5 +173,5 @@ describeDetectorResponse_httpStatus = Lens.lens (\DescribeDetectorResponse' {htt
 
 instance Prelude.NFData DescribeDetectorResponse where
   rnf DescribeDetectorResponse' {..} =
-    Prelude.rnf detector
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detector `Prelude.seq`
+      Prelude.rnf httpStatus

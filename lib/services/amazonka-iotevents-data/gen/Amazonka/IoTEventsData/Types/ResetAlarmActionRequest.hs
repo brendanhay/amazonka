@@ -103,10 +103,10 @@ instance Prelude.Hashable ResetAlarmActionRequest where
 
 instance Prelude.NFData ResetAlarmActionRequest where
   rnf ResetAlarmActionRequest' {..} =
-    Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf note
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf alarmModelName
+    Prelude.rnf keyValue `Prelude.seq`
+      Prelude.rnf note `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf alarmModelName
 
 instance Data.ToJSON ResetAlarmActionRequest where
   toJSON ResetAlarmActionRequest' {..} =

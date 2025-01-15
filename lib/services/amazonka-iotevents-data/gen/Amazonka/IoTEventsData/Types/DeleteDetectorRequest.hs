@@ -98,9 +98,9 @@ instance Prelude.Hashable DeleteDetectorRequest where
 
 instance Prelude.NFData DeleteDetectorRequest where
   rnf DeleteDetectorRequest' {..} =
-    Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf detectorModelName
+    Prelude.rnf keyValue `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf detectorModelName
 
 instance Data.ToJSON DeleteDetectorRequest where
   toJSON DeleteDetectorRequest' {..} =

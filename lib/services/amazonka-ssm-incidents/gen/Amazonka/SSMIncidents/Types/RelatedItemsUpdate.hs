@@ -72,8 +72,8 @@ instance Prelude.Hashable RelatedItemsUpdate where
 
 instance Prelude.NFData RelatedItemsUpdate where
   rnf RelatedItemsUpdate' {..} =
-    Prelude.rnf itemToAdd
-      `Prelude.seq` Prelude.rnf itemToRemove
+    Prelude.rnf itemToAdd `Prelude.seq`
+      Prelude.rnf itemToRemove
 
 instance Data.ToJSON RelatedItemsUpdate where
   toJSON RelatedItemsUpdate' {..} =

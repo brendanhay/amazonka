@@ -180,11 +180,11 @@ instance Prelude.Hashable ReplicationSet where
 
 instance Prelude.NFData ReplicationSet where
   rnf ReplicationSet' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf deletionProtected
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf regionMap
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf deletionProtected `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf regionMap `Prelude.seq`
+                  Prelude.rnf status

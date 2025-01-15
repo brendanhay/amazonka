@@ -104,6 +104,6 @@ instance Prelude.Hashable ResourcePolicy where
 
 instance Prelude.NFData ResourcePolicy where
   rnf ResourcePolicy' {..} =
-    Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf ramResourceShareRegion
+    Prelude.rnf policyDocument `Prelude.seq`
+      Prelude.rnf policyId `Prelude.seq`
+        Prelude.rnf ramResourceShareRegion

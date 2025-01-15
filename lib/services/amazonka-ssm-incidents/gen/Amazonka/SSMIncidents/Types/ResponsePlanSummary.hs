@@ -95,6 +95,6 @@ instance Prelude.Hashable ResponsePlanSummary where
 
 instance Prelude.NFData ResponsePlanSummary where
   rnf ResponsePlanSummary' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf name

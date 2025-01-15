@@ -125,9 +125,9 @@ instance Prelude.Hashable CreateReplicationSet where
 
 instance Prelude.NFData CreateReplicationSet where
   rnf CreateReplicationSet' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf regions
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf regions
 
 instance Data.ToHeaders CreateReplicationSet where
   toHeaders =
@@ -199,5 +199,5 @@ createReplicationSetResponse_arn = Lens.lens (\CreateReplicationSetResponse' {ar
 
 instance Prelude.NFData CreateReplicationSetResponse where
   rnf CreateReplicationSetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn

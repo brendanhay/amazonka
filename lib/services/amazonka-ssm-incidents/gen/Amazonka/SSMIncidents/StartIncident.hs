@@ -225,12 +225,12 @@ instance Prelude.Hashable StartIncident where
 
 instance Prelude.NFData StartIncident where
   rnf StartIncident' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf impact
-      `Prelude.seq` Prelude.rnf relatedItems
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf triggerDetails
-      `Prelude.seq` Prelude.rnf responsePlanArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf impact `Prelude.seq`
+        Prelude.rnf relatedItems `Prelude.seq`
+          Prelude.rnf title `Prelude.seq`
+            Prelude.rnf triggerDetails `Prelude.seq`
+              Prelude.rnf responsePlanArn
 
 instance Data.ToHeaders StartIncident where
   toHeaders =
@@ -308,5 +308,5 @@ startIncidentResponse_incidentRecordArn = Lens.lens (\StartIncidentResponse' {in
 
 instance Prelude.NFData StartIncidentResponse where
   rnf StartIncidentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf incidentRecordArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf incidentRecordArn

@@ -71,8 +71,8 @@ instance Prelude.Hashable AttributeValueList where
 
 instance Prelude.NFData AttributeValueList where
   rnf AttributeValueList' {..} =
-    Prelude.rnf integerValues
-      `Prelude.seq` Prelude.rnf stringValues
+    Prelude.rnf integerValues `Prelude.seq`
+      Prelude.rnf stringValues
 
 instance Data.ToJSON AttributeValueList where
   toJSON AttributeValueList' {..} =

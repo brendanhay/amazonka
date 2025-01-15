@@ -309,19 +309,19 @@ instance Prelude.Hashable UpdateResponsePlan where
 
 instance Prelude.NFData UpdateResponsePlan where
   rnf UpdateResponsePlan' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chatChannel
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf engagements
-      `Prelude.seq` Prelude.rnf incidentTemplateDedupeString
-      `Prelude.seq` Prelude.rnf incidentTemplateImpact
-      `Prelude.seq` Prelude.rnf incidentTemplateNotificationTargets
-      `Prelude.seq` Prelude.rnf incidentTemplateSummary
-      `Prelude.seq` Prelude.rnf incidentTemplateTags
-      `Prelude.seq` Prelude.rnf incidentTemplateTitle
-      `Prelude.seq` Prelude.rnf integrations
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chatChannel `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf engagements `Prelude.seq`
+              Prelude.rnf incidentTemplateDedupeString `Prelude.seq`
+                Prelude.rnf incidentTemplateImpact `Prelude.seq`
+                  Prelude.rnf incidentTemplateNotificationTargets `Prelude.seq`
+                    Prelude.rnf incidentTemplateSummary `Prelude.seq`
+                      Prelude.rnf incidentTemplateTags `Prelude.seq`
+                        Prelude.rnf incidentTemplateTitle `Prelude.seq`
+                          Prelude.rnf integrations `Prelude.seq`
+                            Prelude.rnf arn
 
 instance Data.ToHeaders UpdateResponsePlan where
   toHeaders =

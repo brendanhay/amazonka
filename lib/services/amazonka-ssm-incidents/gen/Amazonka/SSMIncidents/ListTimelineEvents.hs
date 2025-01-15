@@ -197,12 +197,12 @@ instance Core.AWSPager ListTimelineEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTimelineEvents_nextToken
-          Lens..~ rs
-          Lens.^? listTimelineEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTimelineEvents_nextToken
+              Lens..~ rs
+              Lens.^? listTimelineEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTimelineEvents where
   type
@@ -234,12 +234,12 @@ instance Prelude.Hashable ListTimelineEvents where
 
 instance Prelude.NFData ListTimelineEvents where
   rnf ListTimelineEvents' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf incidentRecordArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf sortOrder `Prelude.seq`
+              Prelude.rnf incidentRecordArn
 
 instance Data.ToHeaders ListTimelineEvents where
   toHeaders =
@@ -322,6 +322,6 @@ listTimelineEventsResponse_eventSummaries = Lens.lens (\ListTimelineEventsRespon
 
 instance Prelude.NFData ListTimelineEventsResponse where
   rnf ListTimelineEventsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf eventSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf eventSummaries

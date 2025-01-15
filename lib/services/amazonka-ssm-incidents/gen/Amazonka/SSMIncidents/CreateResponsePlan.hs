@@ -204,15 +204,15 @@ instance Prelude.Hashable CreateResponsePlan where
 
 instance Prelude.NFData CreateResponsePlan where
   rnf CreateResponsePlan' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chatChannel
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf engagements
-      `Prelude.seq` Prelude.rnf integrations
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf incidentTemplate
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chatChannel `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf engagements `Prelude.seq`
+              Prelude.rnf integrations `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf incidentTemplate `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders CreateResponsePlan where
   toHeaders =
@@ -291,5 +291,5 @@ createResponsePlanResponse_arn = Lens.lens (\CreateResponsePlanResponse' {arn} -
 
 instance Prelude.NFData CreateResponsePlanResponse where
   rnf CreateResponsePlanResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn

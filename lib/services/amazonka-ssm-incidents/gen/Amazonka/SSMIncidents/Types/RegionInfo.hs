@@ -117,7 +117,7 @@ instance Prelude.Hashable RegionInfo where
 
 instance Prelude.NFData RegionInfo where
   rnf RegionInfo' {..} =
-    Prelude.rnf sseKmsKeyId
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusUpdateDateTime
+    Prelude.rnf sseKmsKeyId `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusUpdateDateTime

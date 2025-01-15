@@ -73,8 +73,8 @@ instance Prelude.Hashable AddRegionAction where
 
 instance Prelude.NFData AddRegionAction where
   rnf AddRegionAction' {..} =
-    Prelude.rnf sseKmsKeyId
-      `Prelude.seq` Prelude.rnf regionName
+    Prelude.rnf sseKmsKeyId `Prelude.seq`
+      Prelude.rnf regionName
 
 instance Data.ToJSON AddRegionAction where
   toJSON AddRegionAction' {..} =

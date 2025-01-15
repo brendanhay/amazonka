@@ -161,5 +161,5 @@ getReplicationSetResponse_replicationSet = Lens.lens (\GetReplicationSetResponse
 
 instance Prelude.NFData GetReplicationSetResponse where
   rnf GetReplicationSetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf replicationSet
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf replicationSet

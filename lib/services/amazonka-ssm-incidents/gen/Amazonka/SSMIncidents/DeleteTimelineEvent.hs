@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteTimelineEvent where
 
 instance Prelude.NFData DeleteTimelineEvent where
   rnf DeleteTimelineEvent' {..} =
-    Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf incidentRecordArn
+    Prelude.rnf eventId `Prelude.seq`
+      Prelude.rnf incidentRecordArn
 
 instance Data.ToHeaders DeleteTimelineEvent where
   toHeaders =

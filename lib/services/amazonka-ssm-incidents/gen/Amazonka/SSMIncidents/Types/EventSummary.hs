@@ -147,9 +147,9 @@ instance Prelude.Hashable EventSummary where
 
 instance Prelude.NFData EventSummary where
   rnf EventSummary' {..} =
-    Prelude.rnf eventReferences
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf eventUpdatedTime
-      `Prelude.seq` Prelude.rnf incidentRecordArn
+    Prelude.rnf eventReferences `Prelude.seq`
+      Prelude.rnf eventId `Prelude.seq`
+        Prelude.rnf eventTime `Prelude.seq`
+          Prelude.rnf eventType `Prelude.seq`
+            Prelude.rnf eventUpdatedTime `Prelude.seq`
+              Prelude.rnf incidentRecordArn

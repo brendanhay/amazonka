@@ -90,8 +90,8 @@ instance Prelude.Hashable ChatChannel where
 
 instance Prelude.NFData ChatChannel where
   rnf ChatChannel' {..} =
-    Prelude.rnf chatbotSns
-      `Prelude.seq` Prelude.rnf empty
+    Prelude.rnf chatbotSns `Prelude.seq`
+      Prelude.rnf empty
 
 instance Data.ToJSON ChatChannel where
   toJSON ChatChannel' {..} =

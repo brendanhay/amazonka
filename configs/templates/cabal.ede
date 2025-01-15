@@ -52,7 +52,7 @@ library
       {% endfor %}
 
     build-depends:
-          amazonka-core == {{ clientVersion }}.*
+          amazonka-core == {{ libraryVersion }}.*
         , base >= 4.12 && < 5
       {% for dep in extraDependencies %}
         , {{ dep.value }}
@@ -75,8 +75,8 @@ test-suite {{ libraryName }}-test
         , Test.Amazonka.{{ serviceAbbrev }}.Internal
 
     build-depends:
-          amazonka-core == {{ clientVersion }}.*
-        , amazonka-test == {{ clientVersion }}.*
+          amazonka-core == {{ libraryVersion }}.*
+        , amazonka-test == {{ libraryVersion }}.*
         , {{ libraryName }}
         , base
         , bytestring

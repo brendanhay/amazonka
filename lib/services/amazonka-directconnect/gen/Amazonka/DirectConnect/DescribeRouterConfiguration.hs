@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeRouterConfiguration where
 
 instance Prelude.NFData DescribeRouterConfiguration where
   rnf DescribeRouterConfiguration' {..} =
-    Prelude.rnf routerTypeIdentifier
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf routerTypeIdentifier `Prelude.seq`
+      Prelude.rnf virtualInterfaceId
 
 instance Data.ToHeaders DescribeRouterConfiguration where
   toHeaders =
@@ -226,8 +226,8 @@ instance
     DescribeRouterConfigurationResponse
   where
   rnf DescribeRouterConfigurationResponse' {..} =
-    Prelude.rnf customerRouterConfig
-      `Prelude.seq` Prelude.rnf router
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
-      `Prelude.seq` Prelude.rnf virtualInterfaceName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customerRouterConfig `Prelude.seq`
+      Prelude.rnf router `Prelude.seq`
+        Prelude.rnf virtualInterfaceId `Prelude.seq`
+          Prelude.rnf virtualInterfaceName `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -155,8 +155,8 @@ instance
 
 instance Prelude.NFData CreatePrivateVirtualInterface where
   rnf CreatePrivateVirtualInterface' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf newPrivateVirtualInterface'
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf newPrivateVirtualInterface'
 
 instance Data.ToHeaders CreatePrivateVirtualInterface where
   toHeaders =

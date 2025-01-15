@@ -121,8 +121,8 @@ instance Prelude.Hashable CreateBGPPeer where
 
 instance Prelude.NFData CreateBGPPeer where
   rnf CreateBGPPeer' {..} =
-    Prelude.rnf newBGPPeer'
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf newBGPPeer' `Prelude.seq`
+      Prelude.rnf virtualInterfaceId
 
 instance Data.ToHeaders CreateBGPPeer where
   toHeaders =
@@ -196,5 +196,5 @@ createBGPPeerResponse_httpStatus = Lens.lens (\CreateBGPPeerResponse' {httpStatu
 
 instance Prelude.NFData CreateBGPPeerResponse where
   rnf CreateBGPPeerResponse' {..} =
-    Prelude.rnf virtualInterface
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterface `Prelude.seq`
+      Prelude.rnf httpStatus

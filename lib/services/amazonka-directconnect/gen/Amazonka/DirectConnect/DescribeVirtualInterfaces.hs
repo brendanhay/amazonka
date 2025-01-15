@@ -118,8 +118,8 @@ instance Prelude.Hashable DescribeVirtualInterfaces where
 
 instance Prelude.NFData DescribeVirtualInterfaces where
   rnf DescribeVirtualInterfaces' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf virtualInterfaceId
 
 instance Data.ToHeaders DescribeVirtualInterfaces where
   toHeaders =
@@ -196,5 +196,5 @@ instance
     DescribeVirtualInterfacesResponse
   where
   rnf DescribeVirtualInterfacesResponse' {..} =
-    Prelude.rnf virtualInterfaces
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterfaces `Prelude.seq`
+      Prelude.rnf httpStatus

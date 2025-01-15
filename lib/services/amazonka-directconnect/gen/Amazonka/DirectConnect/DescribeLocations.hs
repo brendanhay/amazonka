@@ -146,5 +146,5 @@ describeLocationsResponse_httpStatus = Lens.lens (\DescribeLocationsResponse' {h
 
 instance Prelude.NFData DescribeLocationsResponse where
   rnf DescribeLocationsResponse' {..} =
-    Prelude.rnf locations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locations `Prelude.seq`
+      Prelude.rnf httpStatus

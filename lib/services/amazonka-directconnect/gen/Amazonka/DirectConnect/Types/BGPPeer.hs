@@ -246,13 +246,13 @@ instance Prelude.Hashable BGPPeer where
 
 instance Prelude.NFData BGPPeer where
   rnf BGPPeer' {..} =
-    Prelude.rnf addressFamily
-      `Prelude.seq` Prelude.rnf amazonAddress
-      `Prelude.seq` Prelude.rnf asn
-      `Prelude.seq` Prelude.rnf authKey
-      `Prelude.seq` Prelude.rnf awsDeviceV2
-      `Prelude.seq` Prelude.rnf awsLogicalDeviceId
-      `Prelude.seq` Prelude.rnf bgpPeerId
-      `Prelude.seq` Prelude.rnf bgpPeerState
-      `Prelude.seq` Prelude.rnf bgpStatus
-      `Prelude.seq` Prelude.rnf customerAddress
+    Prelude.rnf addressFamily `Prelude.seq`
+      Prelude.rnf amazonAddress `Prelude.seq`
+        Prelude.rnf asn `Prelude.seq`
+          Prelude.rnf authKey `Prelude.seq`
+            Prelude.rnf awsDeviceV2 `Prelude.seq`
+              Prelude.rnf awsLogicalDeviceId `Prelude.seq`
+                Prelude.rnf bgpPeerId `Prelude.seq`
+                  Prelude.rnf bgpPeerState `Prelude.seq`
+                    Prelude.rnf bgpStatus `Prelude.seq`
+                      Prelude.rnf customerAddress

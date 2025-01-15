@@ -106,7 +106,7 @@ instance Prelude.Hashable AssociatedGateway where
 
 instance Prelude.NFData AssociatedGateway where
   rnf AssociatedGateway' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf ownerAccount `Prelude.seq`
+        Prelude.rnf region `Prelude.seq`
+          Prelude.rnf type'

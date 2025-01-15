@@ -129,12 +129,12 @@ instance Core.AWSPager DescribeDirectConnectGateways where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDirectConnectGateways_nextToken
-          Lens..~ rs
-          Lens.^? describeDirectConnectGatewaysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDirectConnectGateways_nextToken
+              Lens..~ rs
+              Lens.^? describeDirectConnectGatewaysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -169,9 +169,9 @@ instance
 
 instance Prelude.NFData DescribeDirectConnectGateways where
   rnf DescribeDirectConnectGateways' {..} =
-    Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf directConnectGatewayId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDirectConnectGateways where
   toHeaders =
@@ -258,6 +258,6 @@ instance
     DescribeDirectConnectGatewaysResponse
   where
   rnf DescribeDirectConnectGatewaysResponse' {..} =
-    Prelude.rnf directConnectGateways
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directConnectGateways `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

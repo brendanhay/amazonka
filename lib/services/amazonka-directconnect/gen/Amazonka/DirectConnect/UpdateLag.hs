@@ -173,10 +173,10 @@ instance Prelude.Hashable UpdateLag where
 
 instance Prelude.NFData UpdateLag where
   rnf UpdateLag' {..} =
-    Prelude.rnf encryptionMode
-      `Prelude.seq` Prelude.rnf lagName
-      `Prelude.seq` Prelude.rnf minimumLinks
-      `Prelude.seq` Prelude.rnf lagId
+    Prelude.rnf encryptionMode `Prelude.seq`
+      Prelude.rnf lagName `Prelude.seq`
+        Prelude.rnf minimumLinks `Prelude.seq`
+          Prelude.rnf lagId
 
 instance Data.ToHeaders UpdateLag where
   toHeaders =

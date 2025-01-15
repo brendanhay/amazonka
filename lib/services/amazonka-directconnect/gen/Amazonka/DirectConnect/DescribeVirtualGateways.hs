@@ -154,5 +154,5 @@ instance
     DescribeVirtualGatewaysResponse
   where
   rnf DescribeVirtualGatewaysResponse' {..} =
-    Prelude.rnf virtualGateways
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualGateways `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -137,9 +137,9 @@ instance
     DeleteDirectConnectGatewayAssociation
   where
   rnf DeleteDirectConnectGatewayAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf virtualGatewayId
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf directConnectGatewayId `Prelude.seq`
+        Prelude.rnf virtualGatewayId
 
 instance
   Data.ToHeaders
@@ -232,5 +232,5 @@ instance
   where
   rnf
     DeleteDirectConnectGatewayAssociationResponse' {..} =
-      Prelude.rnf directConnectGatewayAssociation
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf directConnectGatewayAssociation `Prelude.seq`
+        Prelude.rnf httpStatus

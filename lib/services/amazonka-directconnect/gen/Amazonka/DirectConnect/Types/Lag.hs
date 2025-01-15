@@ -369,24 +369,24 @@ instance Prelude.Hashable Lag where
 
 instance Prelude.NFData Lag where
   rnf Lag' {..} =
-    Prelude.rnf allowsHostedConnections
-      `Prelude.seq` Prelude.rnf awsDevice
-      `Prelude.seq` Prelude.rnf awsDeviceV2
-      `Prelude.seq` Prelude.rnf awsLogicalDeviceId
-      `Prelude.seq` Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf connectionsBandwidth
-      `Prelude.seq` Prelude.rnf encryptionMode
-      `Prelude.seq` Prelude.rnf hasLogicalRedundancy
-      `Prelude.seq` Prelude.rnf jumboFrameCapable
-      `Prelude.seq` Prelude.rnf lagId
-      `Prelude.seq` Prelude.rnf lagName
-      `Prelude.seq` Prelude.rnf lagState
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf macSecCapable
-      `Prelude.seq` Prelude.rnf macSecKeys
-      `Prelude.seq` Prelude.rnf minimumLinks
-      `Prelude.seq` Prelude.rnf numberOfConnections
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf allowsHostedConnections `Prelude.seq`
+      Prelude.rnf awsDevice `Prelude.seq`
+        Prelude.rnf awsDeviceV2 `Prelude.seq`
+          Prelude.rnf awsLogicalDeviceId `Prelude.seq`
+            Prelude.rnf connections `Prelude.seq`
+              Prelude.rnf connectionsBandwidth `Prelude.seq`
+                Prelude.rnf encryptionMode `Prelude.seq`
+                  Prelude.rnf hasLogicalRedundancy `Prelude.seq`
+                    Prelude.rnf jumboFrameCapable `Prelude.seq`
+                      Prelude.rnf lagId `Prelude.seq`
+                        Prelude.rnf lagName `Prelude.seq`
+                          Prelude.rnf lagState `Prelude.seq`
+                            Prelude.rnf location `Prelude.seq`
+                              Prelude.rnf macSecCapable `Prelude.seq`
+                                Prelude.rnf macSecKeys `Prelude.seq`
+                                  Prelude.rnf minimumLinks `Prelude.seq`
+                                    Prelude.rnf numberOfConnections `Prelude.seq`
+                                      Prelude.rnf ownerAccount `Prelude.seq`
+                                        Prelude.rnf providerName `Prelude.seq`
+                                          Prelude.rnf region `Prelude.seq`
+                                            Prelude.rnf tags

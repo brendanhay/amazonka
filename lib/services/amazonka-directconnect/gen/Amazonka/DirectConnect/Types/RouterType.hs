@@ -127,9 +127,9 @@ instance Prelude.Hashable RouterType where
 
 instance Prelude.NFData RouterType where
   rnf RouterType' {..} =
-    Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf routerTypeIdentifier
-      `Prelude.seq` Prelude.rnf software
-      `Prelude.seq` Prelude.rnf vendor
-      `Prelude.seq` Prelude.rnf xsltTemplateName
-      `Prelude.seq` Prelude.rnf xsltTemplateNameForMacSec
+    Prelude.rnf platform `Prelude.seq`
+      Prelude.rnf routerTypeIdentifier `Prelude.seq`
+        Prelude.rnf software `Prelude.seq`
+          Prelude.rnf vendor `Prelude.seq`
+            Prelude.rnf xsltTemplateName `Prelude.seq`
+              Prelude.rnf xsltTemplateNameForMacSec

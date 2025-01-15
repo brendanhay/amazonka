@@ -136,9 +136,9 @@ instance Prelude.Hashable DescribeLoa where
 
 instance Prelude.NFData DescribeLoa where
   rnf DescribeLoa' {..} =
-    Prelude.rnf loaContentType
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf connectionId
+    Prelude.rnf loaContentType `Prelude.seq`
+      Prelude.rnf providerName `Prelude.seq`
+        Prelude.rnf connectionId
 
 instance Data.ToHeaders DescribeLoa where
   toHeaders =
@@ -235,6 +235,6 @@ describeLoaResponse_httpStatus = Lens.lens (\DescribeLoaResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeLoaResponse where
   rnf DescribeLoaResponse' {..} =
-    Prelude.rnf loaContent
-      `Prelude.seq` Prelude.rnf loaContentType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loaContent `Prelude.seq`
+      Prelude.rnf loaContentType `Prelude.seq`
+        Prelude.rnf httpStatus

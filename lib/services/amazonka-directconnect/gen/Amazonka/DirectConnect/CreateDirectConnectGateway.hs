@@ -127,8 +127,8 @@ instance Prelude.Hashable CreateDirectConnectGateway where
 
 instance Prelude.NFData CreateDirectConnectGateway where
   rnf CreateDirectConnectGateway' {..} =
-    Prelude.rnf amazonSideAsn
-      `Prelude.seq` Prelude.rnf directConnectGatewayName
+    Prelude.rnf amazonSideAsn `Prelude.seq`
+      Prelude.rnf directConnectGatewayName
 
 instance Data.ToHeaders CreateDirectConnectGateway where
   toHeaders =
@@ -207,5 +207,5 @@ instance
     CreateDirectConnectGatewayResponse
   where
   rnf CreateDirectConnectGatewayResponse' {..} =
-    Prelude.rnf directConnectGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directConnectGateway `Prelude.seq`
+      Prelude.rnf httpStatus

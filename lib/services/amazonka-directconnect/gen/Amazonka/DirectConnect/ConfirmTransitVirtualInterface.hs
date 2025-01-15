@@ -130,8 +130,8 @@ instance
     ConfirmTransitVirtualInterface
   where
   rnf ConfirmTransitVirtualInterface' {..} =
-    Prelude.rnf virtualInterfaceId
-      `Prelude.seq` Prelude.rnf directConnectGatewayId
+    Prelude.rnf virtualInterfaceId `Prelude.seq`
+      Prelude.rnf directConnectGatewayId
 
 instance
   Data.ToHeaders
@@ -311,5 +311,5 @@ instance
     ConfirmTransitVirtualInterfaceResponse
   where
   rnf ConfirmTransitVirtualInterfaceResponse' {..} =
-    Prelude.rnf virtualInterfaceState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterfaceState `Prelude.seq`
+      Prelude.rnf httpStatus

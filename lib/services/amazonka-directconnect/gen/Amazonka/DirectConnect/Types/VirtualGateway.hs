@@ -114,5 +114,5 @@ instance Prelude.Hashable VirtualGateway where
 
 instance Prelude.NFData VirtualGateway where
   rnf VirtualGateway' {..} =
-    Prelude.rnf virtualGatewayId
-      `Prelude.seq` Prelude.rnf virtualGatewayState
+    Prelude.rnf virtualGatewayId `Prelude.seq`
+      Prelude.rnf virtualGatewayState

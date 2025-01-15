@@ -171,9 +171,9 @@ instance
     AllocatePrivateVirtualInterface
   where
   rnf AllocatePrivateVirtualInterface' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf newPrivateVirtualInterfaceAllocation'
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf ownerAccount `Prelude.seq`
+        Prelude.rnf newPrivateVirtualInterfaceAllocation'
 
 instance
   Data.ToHeaders

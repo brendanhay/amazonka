@@ -409,25 +409,25 @@ instance Prelude.Hashable Connection where
 
 instance Prelude.NFData Connection where
   rnf Connection' {..} =
-    Prelude.rnf awsDevice
-      `Prelude.seq` Prelude.rnf awsDeviceV2
-      `Prelude.seq` Prelude.rnf awsLogicalDeviceId
-      `Prelude.seq` Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf encryptionMode
-      `Prelude.seq` Prelude.rnf hasLogicalRedundancy
-      `Prelude.seq` Prelude.rnf jumboFrameCapable
-      `Prelude.seq` Prelude.rnf lagId
-      `Prelude.seq` Prelude.rnf loaIssueTime
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf macSecCapable
-      `Prelude.seq` Prelude.rnf macSecKeys
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf partnerName
-      `Prelude.seq` Prelude.rnf portEncryptionStatus
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vlan
+    Prelude.rnf awsDevice `Prelude.seq`
+      Prelude.rnf awsDeviceV2 `Prelude.seq`
+        Prelude.rnf awsLogicalDeviceId `Prelude.seq`
+          Prelude.rnf bandwidth `Prelude.seq`
+            Prelude.rnf connectionId `Prelude.seq`
+              Prelude.rnf connectionName `Prelude.seq`
+                Prelude.rnf connectionState `Prelude.seq`
+                  Prelude.rnf encryptionMode `Prelude.seq`
+                    Prelude.rnf hasLogicalRedundancy `Prelude.seq`
+                      Prelude.rnf jumboFrameCapable `Prelude.seq`
+                        Prelude.rnf lagId `Prelude.seq`
+                          Prelude.rnf loaIssueTime `Prelude.seq`
+                            Prelude.rnf location `Prelude.seq`
+                              Prelude.rnf macSecCapable `Prelude.seq`
+                                Prelude.rnf macSecKeys `Prelude.seq`
+                                  Prelude.rnf ownerAccount `Prelude.seq`
+                                    Prelude.rnf partnerName `Prelude.seq`
+                                      Prelude.rnf portEncryptionStatus `Prelude.seq`
+                                        Prelude.rnf providerName `Prelude.seq`
+                                          Prelude.rnf region `Prelude.seq`
+                                            Prelude.rnf tags `Prelude.seq`
+                                              Prelude.rnf vlan

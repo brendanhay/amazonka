@@ -246,13 +246,13 @@ instance
     DirectConnectGatewayAssociation
   where
   rnf DirectConnectGatewayAssociation' {..} =
-    Prelude.rnf allowedPrefixesToDirectConnectGateway
-      `Prelude.seq` Prelude.rnf associatedGateway
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf associationState
-      `Prelude.seq` Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf directConnectGatewayOwnerAccount
-      `Prelude.seq` Prelude.rnf stateChangeError
-      `Prelude.seq` Prelude.rnf virtualGatewayId
-      `Prelude.seq` Prelude.rnf virtualGatewayOwnerAccount
-      `Prelude.seq` Prelude.rnf virtualGatewayRegion
+    Prelude.rnf allowedPrefixesToDirectConnectGateway `Prelude.seq`
+      Prelude.rnf associatedGateway `Prelude.seq`
+        Prelude.rnf associationId `Prelude.seq`
+          Prelude.rnf associationState `Prelude.seq`
+            Prelude.rnf directConnectGatewayId `Prelude.seq`
+              Prelude.rnf directConnectGatewayOwnerAccount `Prelude.seq`
+                Prelude.rnf stateChangeError `Prelude.seq`
+                  Prelude.rnf virtualGatewayId `Prelude.seq`
+                    Prelude.rnf virtualGatewayOwnerAccount `Prelude.seq`
+                      Prelude.rnf virtualGatewayRegion

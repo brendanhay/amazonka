@@ -81,5 +81,5 @@ instance Prelude.Hashable ResourceTag where
 
 instance Prelude.NFData ResourceTag where
   rnf ResourceTag' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf tags

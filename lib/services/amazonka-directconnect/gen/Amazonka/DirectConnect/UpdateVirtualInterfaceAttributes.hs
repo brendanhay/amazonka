@@ -175,10 +175,10 @@ instance
     UpdateVirtualInterfaceAttributes
   where
   rnf UpdateVirtualInterfaceAttributes' {..} =
-    Prelude.rnf enableSiteLink
-      `Prelude.seq` Prelude.rnf mtu
-      `Prelude.seq` Prelude.rnf virtualInterfaceName
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf enableSiteLink `Prelude.seq`
+      Prelude.rnf mtu `Prelude.seq`
+        Prelude.rnf virtualInterfaceName `Prelude.seq`
+          Prelude.rnf virtualInterfaceId
 
 instance
   Data.ToHeaders

@@ -169,9 +169,9 @@ instance Prelude.Hashable DirectConnectGateway where
 
 instance Prelude.NFData DirectConnectGateway where
   rnf DirectConnectGateway' {..} =
-    Prelude.rnf amazonSideAsn
-      `Prelude.seq` Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf directConnectGatewayName
-      `Prelude.seq` Prelude.rnf directConnectGatewayState
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf stateChangeError
+    Prelude.rnf amazonSideAsn `Prelude.seq`
+      Prelude.rnf directConnectGatewayId `Prelude.seq`
+        Prelude.rnf directConnectGatewayName `Prelude.seq`
+          Prelude.rnf directConnectGatewayState `Prelude.seq`
+            Prelude.rnf ownerAccount `Prelude.seq`
+              Prelude.rnf stateChangeError

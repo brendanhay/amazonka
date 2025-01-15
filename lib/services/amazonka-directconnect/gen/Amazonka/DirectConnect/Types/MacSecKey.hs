@@ -147,7 +147,7 @@ instance Prelude.Hashable MacSecKey where
 
 instance Prelude.NFData MacSecKey where
   rnf MacSecKey' {..} =
-    Prelude.rnf ckn
-      `Prelude.seq` Prelude.rnf secretARN
-      `Prelude.seq` Prelude.rnf startOn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf ckn `Prelude.seq`
+      Prelude.rnf secretARN `Prelude.seq`
+        Prelude.rnf startOn `Prelude.seq`
+          Prelude.rnf state

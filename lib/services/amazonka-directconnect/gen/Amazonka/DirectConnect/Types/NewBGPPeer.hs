@@ -107,11 +107,11 @@ instance Prelude.Hashable NewBGPPeer where
 
 instance Prelude.NFData NewBGPPeer where
   rnf NewBGPPeer' {..} =
-    Prelude.rnf addressFamily
-      `Prelude.seq` Prelude.rnf amazonAddress
-      `Prelude.seq` Prelude.rnf asn
-      `Prelude.seq` Prelude.rnf authKey
-      `Prelude.seq` Prelude.rnf customerAddress
+    Prelude.rnf addressFamily `Prelude.seq`
+      Prelude.rnf amazonAddress `Prelude.seq`
+        Prelude.rnf asn `Prelude.seq`
+          Prelude.rnf authKey `Prelude.seq`
+            Prelude.rnf customerAddress
 
 instance Data.ToJSON NewBGPPeer where
   toJSON NewBGPPeer' {..} =

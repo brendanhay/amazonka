@@ -155,9 +155,9 @@ instance
     AllocateTransitVirtualInterface
   where
   rnf AllocateTransitVirtualInterface' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf newTransitVirtualInterfaceAllocation'
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf ownerAccount `Prelude.seq`
+        Prelude.rnf newTransitVirtualInterfaceAllocation'
 
 instance
   Data.ToHeaders
@@ -240,5 +240,5 @@ instance
     AllocateTransitVirtualInterfaceResponse
   where
   rnf AllocateTransitVirtualInterfaceResponse' {..} =
-    Prelude.rnf virtualInterface
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterface `Prelude.seq`
+      Prelude.rnf httpStatus

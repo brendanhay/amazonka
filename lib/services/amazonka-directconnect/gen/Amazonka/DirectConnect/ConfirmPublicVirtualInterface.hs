@@ -279,5 +279,5 @@ instance
     ConfirmPublicVirtualInterfaceResponse
   where
   rnf ConfirmPublicVirtualInterfaceResponse' {..} =
-    Prelude.rnf virtualInterfaceState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterfaceState `Prelude.seq`
+      Prelude.rnf httpStatus

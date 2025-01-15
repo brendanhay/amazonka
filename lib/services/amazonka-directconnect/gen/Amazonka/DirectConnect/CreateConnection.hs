@@ -218,13 +218,13 @@ instance Prelude.Hashable CreateConnection where
 
 instance Prelude.NFData CreateConnection where
   rnf CreateConnection' {..} =
-    Prelude.rnf lagId
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf requestMACSec
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf connectionName
+    Prelude.rnf lagId `Prelude.seq`
+      Prelude.rnf providerName `Prelude.seq`
+        Prelude.rnf requestMACSec `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf location `Prelude.seq`
+              Prelude.rnf bandwidth `Prelude.seq`
+                Prelude.rnf connectionName
 
 instance Data.ToHeaders CreateConnection where
   toHeaders =

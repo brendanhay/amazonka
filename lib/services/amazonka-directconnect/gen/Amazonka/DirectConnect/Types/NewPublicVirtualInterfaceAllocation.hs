@@ -184,15 +184,15 @@ instance
     NewPublicVirtualInterfaceAllocation
   where
   rnf NewPublicVirtualInterfaceAllocation' {..} =
-    Prelude.rnf addressFamily
-      `Prelude.seq` Prelude.rnf amazonAddress
-      `Prelude.seq` Prelude.rnf authKey
-      `Prelude.seq` Prelude.rnf customerAddress
-      `Prelude.seq` Prelude.rnf routeFilterPrefixes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf virtualInterfaceName
-      `Prelude.seq` Prelude.rnf vlan
-      `Prelude.seq` Prelude.rnf asn
+    Prelude.rnf addressFamily `Prelude.seq`
+      Prelude.rnf amazonAddress `Prelude.seq`
+        Prelude.rnf authKey `Prelude.seq`
+          Prelude.rnf customerAddress `Prelude.seq`
+            Prelude.rnf routeFilterPrefixes `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf virtualInterfaceName `Prelude.seq`
+                  Prelude.rnf vlan `Prelude.seq`
+                    Prelude.rnf asn
 
 instance
   Data.ToJSON

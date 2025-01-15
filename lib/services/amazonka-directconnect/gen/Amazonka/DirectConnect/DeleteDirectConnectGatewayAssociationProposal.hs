@@ -204,5 +204,5 @@ instance
   where
   rnf
     DeleteDirectConnectGatewayAssociationProposalResponse' {..} =
-      Prelude.rnf directConnectGatewayAssociationProposal
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf directConnectGatewayAssociationProposal `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -254,15 +254,15 @@ instance Prelude.Hashable CreateLag where
 
 instance Prelude.NFData CreateLag where
   rnf CreateLag' {..} =
-    Prelude.rnf childConnectionTags
-      `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf requestMACSec
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf numberOfConnections
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf connectionsBandwidth
-      `Prelude.seq` Prelude.rnf lagName
+    Prelude.rnf childConnectionTags `Prelude.seq`
+      Prelude.rnf connectionId `Prelude.seq`
+        Prelude.rnf providerName `Prelude.seq`
+          Prelude.rnf requestMACSec `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf numberOfConnections `Prelude.seq`
+                Prelude.rnf location `Prelude.seq`
+                  Prelude.rnf connectionsBandwidth `Prelude.seq`
+                    Prelude.rnf lagName
 
 instance Data.ToHeaders CreateLag where
   toHeaders =

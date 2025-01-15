@@ -159,5 +159,5 @@ describeLagsResponse_httpStatus = Lens.lens (\DescribeLagsResponse' {httpStatus}
 
 instance Prelude.NFData DescribeLagsResponse where
   rnf DescribeLagsResponse' {..} =
-    Prelude.rnf lags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lags `Prelude.seq`
+      Prelude.rnf httpStatus

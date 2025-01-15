@@ -188,6 +188,6 @@ instance
     DescribeCustomerMetadataResponse
   where
   rnf DescribeCustomerMetadataResponse' {..} =
-    Prelude.rnf agreements
-      `Prelude.seq` Prelude.rnf nniPartnerType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agreements `Prelude.seq`
+      Prelude.rnf nniPartnerType `Prelude.seq`
+        Prelude.rnf httpStatus

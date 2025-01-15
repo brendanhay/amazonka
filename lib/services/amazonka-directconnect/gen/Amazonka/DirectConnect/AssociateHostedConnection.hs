@@ -136,8 +136,8 @@ instance Prelude.Hashable AssociateHostedConnection where
 
 instance Prelude.NFData AssociateHostedConnection where
   rnf AssociateHostedConnection' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf parentConnectionId
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf parentConnectionId
 
 instance Data.ToHeaders AssociateHostedConnection where
   toHeaders =

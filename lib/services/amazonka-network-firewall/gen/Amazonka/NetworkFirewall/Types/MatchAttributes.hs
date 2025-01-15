@@ -179,12 +179,12 @@ instance Prelude.Hashable MatchAttributes where
 
 instance Prelude.NFData MatchAttributes where
   rnf MatchAttributes' {..} =
-    Prelude.rnf destinationPorts
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf sourcePorts
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf tCPFlags
+    Prelude.rnf destinationPorts `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf protocols `Prelude.seq`
+          Prelude.rnf sourcePorts `Prelude.seq`
+            Prelude.rnf sources `Prelude.seq`
+              Prelude.rnf tCPFlags
 
 instance Data.ToJSON MatchAttributes where
   toJSON MatchAttributes' {..} =

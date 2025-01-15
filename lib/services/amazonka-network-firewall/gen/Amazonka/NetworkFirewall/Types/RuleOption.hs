@@ -79,8 +79,8 @@ instance Prelude.Hashable RuleOption where
 
 instance Prelude.NFData RuleOption where
   rnf RuleOption' {..} =
-    Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf keyword
+    Prelude.rnf settings `Prelude.seq`
+      Prelude.rnf keyword
 
 instance Data.ToJSON RuleOption where
   toJSON RuleOption' {..} =

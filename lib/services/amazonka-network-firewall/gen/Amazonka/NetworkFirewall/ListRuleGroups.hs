@@ -170,12 +170,12 @@ instance Core.AWSPager ListRuleGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRuleGroups_nextToken
-          Lens..~ rs
-          Lens.^? listRuleGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRuleGroups_nextToken
+              Lens..~ rs
+              Lens.^? listRuleGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRuleGroups where
   type
@@ -203,11 +203,11 @@ instance Prelude.Hashable ListRuleGroups where
 
 instance Prelude.NFData ListRuleGroups where
   rnf ListRuleGroups' {..} =
-    Prelude.rnf managedType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf managedType `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf scope `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders ListRuleGroups where
   toHeaders =
@@ -310,6 +310,6 @@ listRuleGroupsResponse_httpStatus = Lens.lens (\ListRuleGroupsResponse' {httpSta
 
 instance Prelude.NFData ListRuleGroupsResponse where
   rnf ListRuleGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ruleGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf ruleGroups `Prelude.seq`
+        Prelude.rnf httpStatus

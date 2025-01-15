@@ -107,8 +107,8 @@ instance Prelude.Hashable CustomAction where
 
 instance Prelude.NFData CustomAction where
   rnf CustomAction' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf actionDefinition
+    Prelude.rnf actionName `Prelude.seq`
+      Prelude.rnf actionDefinition
 
 instance Data.ToJSON CustomAction where
   toJSON CustomAction' {..} =

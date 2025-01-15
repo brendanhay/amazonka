@@ -205,10 +205,10 @@ instance Prelude.Hashable AssociateFirewallPolicy where
 
 instance Prelude.NFData AssociateFirewallPolicy where
   rnf AssociateFirewallPolicy' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf updateToken `Prelude.seq`
+          Prelude.rnf firewallPolicyArn
 
 instance Data.ToHeaders AssociateFirewallPolicy where
   toHeaders =
@@ -365,8 +365,8 @@ instance
     AssociateFirewallPolicyResponse
   where
   rnf AssociateFirewallPolicyResponse' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf firewallPolicyArn `Prelude.seq`
+          Prelude.rnf updateToken `Prelude.seq`
+            Prelude.rnf httpStatus

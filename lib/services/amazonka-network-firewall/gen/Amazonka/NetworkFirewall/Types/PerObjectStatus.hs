@@ -92,5 +92,5 @@ instance Prelude.Hashable PerObjectStatus where
 
 instance Prelude.NFData PerObjectStatus where
   rnf PerObjectStatus' {..} =
-    Prelude.rnf syncStatus
-      `Prelude.seq` Prelude.rnf updateToken
+    Prelude.rnf syncStatus `Prelude.seq`
+      Prelude.rnf updateToken

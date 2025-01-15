@@ -226,10 +226,10 @@ instance
     UpdateFirewallDeleteProtection
   where
   rnf UpdateFirewallDeleteProtection' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf deleteProtection
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf updateToken `Prelude.seq`
+          Prelude.rnf deleteProtection
 
 instance
   Data.ToHeaders
@@ -402,8 +402,8 @@ instance
     UpdateFirewallDeleteProtectionResponse
   where
   rnf UpdateFirewallDeleteProtectionResponse' {..} =
-    Prelude.rnf deleteProtection
-      `Prelude.seq` Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deleteProtection `Prelude.seq`
+      Prelude.rnf firewallArn `Prelude.seq`
+        Prelude.rnf firewallName `Prelude.seq`
+          Prelude.rnf updateToken `Prelude.seq`
+            Prelude.rnf httpStatus

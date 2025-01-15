@@ -132,9 +132,9 @@ instance Prelude.Hashable StatefulRuleGroupReference where
 
 instance Prelude.NFData StatefulRuleGroupReference where
   rnf StatefulRuleGroupReference' {..} =
-    Prelude.rnf override
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf override `Prelude.seq`
+      Prelude.rnf priority `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToJSON StatefulRuleGroupReference where
   toJSON StatefulRuleGroupReference' {..} =

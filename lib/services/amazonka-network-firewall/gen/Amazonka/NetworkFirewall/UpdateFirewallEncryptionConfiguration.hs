@@ -198,10 +198,10 @@ instance
     UpdateFirewallEncryptionConfiguration
   where
   rnf UpdateFirewallEncryptionConfiguration' {..} =
-    Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
+    Prelude.rnf encryptionConfiguration `Prelude.seq`
+      Prelude.rnf firewallArn `Prelude.seq`
+        Prelude.rnf firewallName `Prelude.seq`
+          Prelude.rnf updateToken
 
 instance
   Data.ToHeaders
@@ -374,8 +374,8 @@ instance
   where
   rnf
     UpdateFirewallEncryptionConfigurationResponse' {..} =
-      Prelude.rnf encryptionConfiguration
-        `Prelude.seq` Prelude.rnf firewallArn
-        `Prelude.seq` Prelude.rnf firewallName
-        `Prelude.seq` Prelude.rnf updateToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf encryptionConfiguration `Prelude.seq`
+        Prelude.rnf firewallArn `Prelude.seq`
+          Prelude.rnf firewallName `Prelude.seq`
+            Prelude.rnf updateToken `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -144,12 +144,12 @@ instance Core.AWSPager ListFirewalls where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFirewalls_nextToken
-          Lens..~ rs
-          Lens.^? listFirewallsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFirewalls_nextToken
+              Lens..~ rs
+              Lens.^? listFirewallsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFirewalls where
   type
@@ -175,9 +175,9 @@ instance Prelude.Hashable ListFirewalls where
 
 instance Prelude.NFData ListFirewalls where
   rnf ListFirewalls' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcIds
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf vpcIds
 
 instance Data.ToHeaders ListFirewalls where
   toHeaders =
@@ -277,6 +277,6 @@ listFirewallsResponse_httpStatus = Lens.lens (\ListFirewallsResponse' {httpStatu
 
 instance Prelude.NFData ListFirewallsResponse where
   rnf ListFirewallsResponse' {..} =
-    Prelude.rnf firewalls
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewalls `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

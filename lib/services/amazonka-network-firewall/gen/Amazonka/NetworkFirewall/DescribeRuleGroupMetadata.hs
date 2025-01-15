@@ -166,9 +166,9 @@ instance Prelude.Hashable DescribeRuleGroupMetadata where
 
 instance Prelude.NFData DescribeRuleGroupMetadata where
   rnf DescribeRuleGroupMetadata' {..} =
-    Prelude.rnf ruleGroupArn
-      `Prelude.seq` Prelude.rnf ruleGroupName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf ruleGroupArn `Prelude.seq`
+      Prelude.rnf ruleGroupName `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders DescribeRuleGroupMetadata where
   toHeaders =
@@ -362,11 +362,11 @@ instance
     DescribeRuleGroupMetadataResponse
   where
   rnf DescribeRuleGroupMetadataResponse' {..} =
-    Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf statefulRuleOptions
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf ruleGroupArn
-      `Prelude.seq` Prelude.rnf ruleGroupName
+    Prelude.rnf capacity `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf statefulRuleOptions `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf ruleGroupArn `Prelude.seq`
+                  Prelude.rnf ruleGroupName

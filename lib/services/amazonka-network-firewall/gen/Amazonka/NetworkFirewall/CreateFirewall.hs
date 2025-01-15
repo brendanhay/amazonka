@@ -286,16 +286,16 @@ instance Prelude.Hashable CreateFirewall where
 
 instance Prelude.NFData CreateFirewall where
   rnf CreateFirewall' {..} =
-    Prelude.rnf deleteProtection
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
-      `Prelude.seq` Prelude.rnf subnetChangeProtection
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf subnetMappings
+    Prelude.rnf deleteProtection `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf encryptionConfiguration `Prelude.seq`
+          Prelude.rnf firewallPolicyChangeProtection `Prelude.seq`
+            Prelude.rnf subnetChangeProtection `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf firewallName `Prelude.seq`
+                  Prelude.rnf firewallPolicyArn `Prelude.seq`
+                    Prelude.rnf vpcId `Prelude.seq`
+                      Prelude.rnf subnetMappings
 
 instance Data.ToHeaders CreateFirewall where
   toHeaders =
@@ -402,6 +402,6 @@ createFirewallResponse_httpStatus = Lens.lens (\CreateFirewallResponse' {httpSta
 
 instance Prelude.NFData CreateFirewallResponse where
   rnf CreateFirewallResponse' {..} =
-    Prelude.rnf firewall
-      `Prelude.seq` Prelude.rnf firewallStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewall `Prelude.seq`
+      Prelude.rnf firewallStatus `Prelude.seq`
+        Prelude.rnf httpStatus

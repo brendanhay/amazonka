@@ -348,16 +348,16 @@ instance Prelude.Hashable UpdateRuleGroup where
 
 instance Prelude.NFData UpdateRuleGroup where
   rnf UpdateRuleGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf ruleGroup
-      `Prelude.seq` Prelude.rnf ruleGroupArn
-      `Prelude.seq` Prelude.rnf ruleGroupName
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf sourceMetadata
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updateToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf encryptionConfiguration `Prelude.seq`
+          Prelude.rnf ruleGroup `Prelude.seq`
+            Prelude.rnf ruleGroupArn `Prelude.seq`
+              Prelude.rnf ruleGroupName `Prelude.seq`
+                Prelude.rnf rules `Prelude.seq`
+                  Prelude.rnf sourceMetadata `Prelude.seq`
+                    Prelude.rnf type' `Prelude.seq`
+                      Prelude.rnf updateToken
 
 instance Data.ToHeaders UpdateRuleGroup where
   toHeaders =
@@ -491,6 +491,6 @@ updateRuleGroupResponse_ruleGroupResponse = Lens.lens (\UpdateRuleGroupResponse'
 
 instance Prelude.NFData UpdateRuleGroupResponse where
   rnf UpdateRuleGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf ruleGroupResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf updateToken `Prelude.seq`
+        Prelude.rnf ruleGroupResponse

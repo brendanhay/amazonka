@@ -168,9 +168,9 @@ instance Prelude.Hashable StatefulRule where
 
 instance Prelude.NFData StatefulRule where
   rnf StatefulRule' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf header
-      `Prelude.seq` Prelude.rnf ruleOptions
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf header `Prelude.seq`
+        Prelude.rnf ruleOptions
 
 instance Data.ToJSON StatefulRule where
   toJSON StatefulRule' {..} =

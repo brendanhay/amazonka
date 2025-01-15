@@ -254,13 +254,13 @@ instance Prelude.Hashable UpdateFirewallPolicy where
 
 instance Prelude.NFData UpdateFirewallPolicy where
   rnf UpdateFirewallPolicy' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
-      `Prelude.seq` Prelude.rnf firewallPolicyName
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewallPolicy
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf encryptionConfiguration `Prelude.seq`
+          Prelude.rnf firewallPolicyArn `Prelude.seq`
+            Prelude.rnf firewallPolicyName `Prelude.seq`
+              Prelude.rnf updateToken `Prelude.seq`
+                Prelude.rnf firewallPolicy
 
 instance Data.ToHeaders UpdateFirewallPolicy where
   toHeaders =
@@ -395,6 +395,6 @@ updateFirewallPolicyResponse_firewallPolicyResponse = Lens.lens (\UpdateFirewall
 
 instance Prelude.NFData UpdateFirewallPolicyResponse where
   rnf UpdateFirewallPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewallPolicyResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf updateToken `Prelude.seq`
+        Prelude.rnf firewallPolicyResponse

@@ -163,9 +163,9 @@ instance Prelude.Hashable UpdateLoggingConfiguration where
 
 instance Prelude.NFData UpdateLoggingConfiguration where
   rnf UpdateLoggingConfiguration' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf loggingConfiguration
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf loggingConfiguration
 
 instance Data.ToHeaders UpdateLoggingConfiguration where
   toHeaders =
@@ -263,7 +263,7 @@ instance
     UpdateLoggingConfigurationResponse
   where
   rnf UpdateLoggingConfigurationResponse' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf loggingConfiguration `Prelude.seq`
+          Prelude.rnf httpStatus

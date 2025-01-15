@@ -107,8 +107,8 @@ instance
     StatelessRulesAndCustomActions
   where
   rnf StatelessRulesAndCustomActions' {..} =
-    Prelude.rnf customActions
-      `Prelude.seq` Prelude.rnf statelessRules
+    Prelude.rnf customActions `Prelude.seq`
+      Prelude.rnf statelessRules
 
 instance Data.ToJSON StatelessRulesAndCustomActions where
   toJSON StatelessRulesAndCustomActions' {..} =

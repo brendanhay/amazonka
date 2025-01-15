@@ -297,17 +297,17 @@ instance Prelude.Hashable RuleGroupResponse where
 
 instance Prelude.NFData RuleGroupResponse where
   rnf RuleGroupResponse' {..} =
-    Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf numberOfAssociations
-      `Prelude.seq` Prelude.rnf ruleGroupStatus
-      `Prelude.seq` Prelude.rnf snsTopic
-      `Prelude.seq` Prelude.rnf sourceMetadata
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf ruleGroupArn
-      `Prelude.seq` Prelude.rnf ruleGroupName
-      `Prelude.seq` Prelude.rnf ruleGroupId
+    Prelude.rnf capacity `Prelude.seq`
+      Prelude.rnf consumedCapacity `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf encryptionConfiguration `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf numberOfAssociations `Prelude.seq`
+                Prelude.rnf ruleGroupStatus `Prelude.seq`
+                  Prelude.rnf snsTopic `Prelude.seq`
+                    Prelude.rnf sourceMetadata `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf ruleGroupArn `Prelude.seq`
+                            Prelude.rnf ruleGroupName `Prelude.seq`
+                              Prelude.rnf ruleGroupId

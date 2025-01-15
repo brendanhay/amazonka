@@ -125,8 +125,8 @@ instance Prelude.Hashable DescribeFirewall where
 
 instance Prelude.NFData DescribeFirewall where
   rnf DescribeFirewall' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName
 
 instance Data.ToHeaders DescribeFirewall where
   toHeaders =
@@ -277,7 +277,7 @@ describeFirewallResponse_httpStatus = Lens.lens (\DescribeFirewallResponse' {htt
 
 instance Prelude.NFData DescribeFirewallResponse where
   rnf DescribeFirewallResponse' {..} =
-    Prelude.rnf firewall
-      `Prelude.seq` Prelude.rnf firewallStatus
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewall `Prelude.seq`
+      Prelude.rnf firewallStatus `Prelude.seq`
+        Prelude.rnf updateToken `Prelude.seq`
+          Prelude.rnf httpStatus

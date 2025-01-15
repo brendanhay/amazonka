@@ -183,9 +183,9 @@ instance Prelude.Hashable LogDestinationConfig where
 
 instance Prelude.NFData LogDestinationConfig where
   rnf LogDestinationConfig' {..} =
-    Prelude.rnf logType
-      `Prelude.seq` Prelude.rnf logDestinationType
-      `Prelude.seq` Prelude.rnf logDestination
+    Prelude.rnf logType `Prelude.seq`
+      Prelude.rnf logDestinationType `Prelude.seq`
+        Prelude.rnf logDestination
 
 instance Data.ToJSON LogDestinationConfig where
   toJSON LogDestinationConfig' {..} =

@@ -150,7 +150,7 @@ instance Prelude.Hashable Attachment where
 
 instance Prelude.NFData Attachment where
   rnf Attachment' {..} =
-    Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf endpointId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf statusMessage `Prelude.seq`
+          Prelude.rnf subnetId

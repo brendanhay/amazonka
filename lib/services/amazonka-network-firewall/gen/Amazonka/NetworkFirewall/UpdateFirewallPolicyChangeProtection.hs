@@ -228,10 +228,10 @@ instance
     UpdateFirewallPolicyChangeProtection
   where
   rnf UpdateFirewallPolicyChangeProtection' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf updateToken `Prelude.seq`
+          Prelude.rnf firewallPolicyChangeProtection
 
 instance
   Data.ToHeaders
@@ -417,8 +417,8 @@ instance
     UpdateFirewallPolicyChangeProtectionResponse
   where
   rnf UpdateFirewallPolicyChangeProtectionResponse' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf firewallPolicyChangeProtection `Prelude.seq`
+          Prelude.rnf updateToken `Prelude.seq`
+            Prelude.rnf httpStatus

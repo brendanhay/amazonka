@@ -205,10 +205,10 @@ instance Prelude.Hashable AssociateSubnets where
 
 instance Prelude.NFData AssociateSubnets where
   rnf AssociateSubnets' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf subnetMappings
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf updateToken `Prelude.seq`
+          Prelude.rnf subnetMappings
 
 instance Data.ToHeaders AssociateSubnets where
   toHeaders =
@@ -362,8 +362,8 @@ associateSubnetsResponse_httpStatus = Lens.lens (\AssociateSubnetsResponse' {htt
 
 instance Prelude.NFData AssociateSubnetsResponse where
   rnf AssociateSubnetsResponse' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf subnetMappings
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf subnetMappings `Prelude.seq`
+          Prelude.rnf updateToken `Prelude.seq`
+            Prelude.rnf httpStatus

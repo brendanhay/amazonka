@@ -151,9 +151,9 @@ instance Prelude.Hashable DescribeRuleGroup where
 
 instance Prelude.NFData DescribeRuleGroup where
   rnf DescribeRuleGroup' {..} =
-    Prelude.rnf ruleGroupArn
-      `Prelude.seq` Prelude.rnf ruleGroupName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf ruleGroupArn `Prelude.seq`
+      Prelude.rnf ruleGroupName `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders DescribeRuleGroup where
   toHeaders =
@@ -324,7 +324,7 @@ describeRuleGroupResponse_ruleGroupResponse = Lens.lens (\DescribeRuleGroupRespo
 
 instance Prelude.NFData DescribeRuleGroupResponse where
   rnf DescribeRuleGroupResponse' {..} =
-    Prelude.rnf ruleGroup
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf ruleGroupResponse
+    Prelude.rnf ruleGroup `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf updateToken `Prelude.seq`
+          Prelude.rnf ruleGroupResponse

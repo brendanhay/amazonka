@@ -189,8 +189,8 @@ instance Prelude.Hashable RuleDefinition where
 
 instance Prelude.NFData RuleDefinition where
   rnf RuleDefinition' {..} =
-    Prelude.rnf matchAttributes
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf matchAttributes `Prelude.seq`
+      Prelude.rnf actions
 
 instance Data.ToJSON RuleDefinition where
   toJSON RuleDefinition' {..} =

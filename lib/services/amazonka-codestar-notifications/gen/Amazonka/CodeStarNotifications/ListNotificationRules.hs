@@ -134,12 +134,12 @@ instance Core.AWSPager ListNotificationRules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNotificationRules_nextToken
-          Lens..~ rs
-          Lens.^? listNotificationRulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNotificationRules_nextToken
+              Lens..~ rs
+              Lens.^? listNotificationRulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNotificationRules where
   type
@@ -168,9 +168,9 @@ instance Prelude.Hashable ListNotificationRules where
 
 instance Prelude.NFData ListNotificationRules where
   rnf ListNotificationRules' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListNotificationRules where
   toHeaders =
@@ -255,6 +255,6 @@ listNotificationRulesResponse_httpStatus = Lens.lens (\ListNotificationRulesResp
 
 instance Prelude.NFData ListNotificationRulesResponse where
   rnf ListNotificationRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notificationRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf notificationRules `Prelude.seq`
+        Prelude.rnf httpStatus

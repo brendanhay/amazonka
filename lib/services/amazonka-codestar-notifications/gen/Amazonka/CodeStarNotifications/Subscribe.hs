@@ -126,9 +126,9 @@ instance Prelude.Hashable Subscribe where
 
 instance Prelude.NFData Subscribe where
   rnf Subscribe' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf target
 
 instance Data.ToHeaders Subscribe where
   toHeaders =
@@ -201,5 +201,5 @@ subscribeResponse_httpStatus = Lens.lens (\SubscribeResponse' {httpStatus} -> ht
 
 instance Prelude.NFData SubscribeResponse where
   rnf SubscribeResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -111,8 +111,8 @@ instance Prelude.Hashable Unsubscribe where
 
 instance Prelude.NFData Unsubscribe where
   rnf Unsubscribe' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf targetAddress
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf targetAddress
 
 instance Data.ToHeaders Unsubscribe where
   toHeaders =
@@ -186,5 +186,5 @@ unsubscribeResponse_arn = Lens.lens (\UnsubscribeResponse' {arn} -> arn) (\s@Uns
 
 instance Prelude.NFData UnsubscribeResponse where
   rnf UnsubscribeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn

@@ -304,15 +304,15 @@ instance
     DescribeNotificationRuleResponse
   where
   rnf DescribeNotificationRuleResponse' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf detailType
-      `Prelude.seq` Prelude.rnf eventTypes
-      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf detailType `Prelude.seq`
+          Prelude.rnf eventTypes `Prelude.seq`
+            Prelude.rnf lastModifiedTimestamp `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf resource `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf targets `Prelude.seq`
+                        Prelude.rnf httpStatus `Prelude.seq`
+                          Prelude.rnf arn

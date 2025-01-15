@@ -174,5 +174,5 @@ tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -
 
 instance Prelude.NFData TagResourceResponse where
   rnf TagResourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus

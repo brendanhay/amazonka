@@ -112,7 +112,7 @@ instance Prelude.Hashable EventTypeSummary where
 
 instance Prelude.NFData EventTypeSummary where
   rnf EventTypeSummary' {..} =
-    Prelude.rnf eventTypeId
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf eventTypeId `Prelude.seq`
+      Prelude.rnf eventTypeName `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf serviceName

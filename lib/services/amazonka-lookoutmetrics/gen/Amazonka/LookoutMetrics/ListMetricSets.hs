@@ -134,9 +134,9 @@ instance Prelude.Hashable ListMetricSets where
 
 instance Prelude.NFData ListMetricSets where
   rnf ListMetricSets' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMetricSets where
   toHeaders =
@@ -225,6 +225,6 @@ listMetricSetsResponse_httpStatus = Lens.lens (\ListMetricSetsResponse' {httpSta
 
 instance Prelude.NFData ListMetricSetsResponse where
   rnf ListMetricSetsResponse' {..} =
-    Prelude.rnf metricSetSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricSetSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

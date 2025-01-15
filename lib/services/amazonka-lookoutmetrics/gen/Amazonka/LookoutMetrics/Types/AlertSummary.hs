@@ -162,12 +162,12 @@ instance Prelude.Hashable AlertSummary where
 
 instance Prelude.NFData AlertSummary where
   rnf AlertSummary' {..} =
-    Prelude.rnf alertArn
-      `Prelude.seq` Prelude.rnf alertName
-      `Prelude.seq` Prelude.rnf alertSensitivityThreshold
-      `Prelude.seq` Prelude.rnf alertStatus
-      `Prelude.seq` Prelude.rnf alertType
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf alertArn `Prelude.seq`
+      Prelude.rnf alertName `Prelude.seq`
+        Prelude.rnf alertSensitivityThreshold `Prelude.seq`
+          Prelude.rnf alertStatus `Prelude.seq`
+            Prelude.rnf alertType `Prelude.seq`
+              Prelude.rnf anomalyDetectorArn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf lastModificationTime `Prelude.seq`
+                    Prelude.rnf tags

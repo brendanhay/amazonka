@@ -98,9 +98,9 @@ instance
     AnomalyGroupTimeSeriesFeedback
   where
   rnf AnomalyGroupTimeSeriesFeedback' {..} =
-    Prelude.rnf anomalyGroupId
-      `Prelude.seq` Prelude.rnf timeSeriesId
-      `Prelude.seq` Prelude.rnf isAnomaly
+    Prelude.rnf anomalyGroupId `Prelude.seq`
+      Prelude.rnf timeSeriesId `Prelude.seq`
+        Prelude.rnf isAnomaly
 
 instance Data.ToJSON AnomalyGroupTimeSeriesFeedback where
   toJSON AnomalyGroupTimeSeriesFeedback' {..} =

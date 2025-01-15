@@ -96,6 +96,6 @@ instance Prelude.Hashable AnomalyGroupStatistics where
 
 instance Prelude.NFData AnomalyGroupStatistics where
   rnf AnomalyGroupStatistics' {..} =
-    Prelude.rnf evaluationStartDate
-      `Prelude.seq` Prelude.rnf itemizedMetricStatsList
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf evaluationStartDate `Prelude.seq`
+      Prelude.rnf itemizedMetricStatsList `Prelude.seq`
+        Prelude.rnf totalCount

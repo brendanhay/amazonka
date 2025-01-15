@@ -141,10 +141,10 @@ instance Prelude.Hashable GetFeedback where
 
 instance Prelude.NFData GetFeedback where
   rnf GetFeedback' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf anomalyGroupTimeSeriesFeedback
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf anomalyDetectorArn `Prelude.seq`
+          Prelude.rnf anomalyGroupTimeSeriesFeedback
 
 instance Data.ToHeaders GetFeedback where
   toHeaders =
@@ -228,6 +228,6 @@ getFeedbackResponse_httpStatus = Lens.lens (\GetFeedbackResponse' {httpStatus} -
 
 instance Prelude.NFData GetFeedbackResponse where
   rnf GetFeedbackResponse' {..} =
-    Prelude.rnf anomalyGroupTimeSeriesFeedback
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyGroupTimeSeriesFeedback `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

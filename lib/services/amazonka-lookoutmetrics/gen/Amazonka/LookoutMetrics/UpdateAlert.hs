@@ -142,11 +142,11 @@ instance Prelude.Hashable UpdateAlert where
 
 instance Prelude.NFData UpdateAlert where
   rnf UpdateAlert' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf alertDescription
-      `Prelude.seq` Prelude.rnf alertFilters
-      `Prelude.seq` Prelude.rnf alertSensitivityThreshold
-      `Prelude.seq` Prelude.rnf alertArn
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf alertDescription `Prelude.seq`
+        Prelude.rnf alertFilters `Prelude.seq`
+          Prelude.rnf alertSensitivityThreshold `Prelude.seq`
+            Prelude.rnf alertArn
 
 instance Data.ToHeaders UpdateAlert where
   toHeaders =
@@ -219,5 +219,5 @@ updateAlertResponse_httpStatus = Lens.lens (\UpdateAlertResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateAlertResponse where
   rnf UpdateAlertResponse' {..} =
-    Prelude.rnf alertArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alertArn `Prelude.seq`
+      Prelude.rnf httpStatus

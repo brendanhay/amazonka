@@ -172,11 +172,11 @@ instance
     ListAnomalyGroupRelatedMetrics
   where
   rnf ListAnomalyGroupRelatedMetrics' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf relationshipTypeFilter
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf anomalyGroupId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf relationshipTypeFilter `Prelude.seq`
+          Prelude.rnf anomalyDetectorArn `Prelude.seq`
+            Prelude.rnf anomalyGroupId
 
 instance
   Data.ToHeaders
@@ -271,6 +271,6 @@ instance
     ListAnomalyGroupRelatedMetricsResponse
   where
   rnf ListAnomalyGroupRelatedMetricsResponse' {..} =
-    Prelude.rnf interMetricImpactList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf interMetricImpactList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

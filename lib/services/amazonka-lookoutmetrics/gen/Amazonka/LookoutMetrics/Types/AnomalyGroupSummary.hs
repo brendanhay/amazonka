@@ -114,8 +114,8 @@ instance Prelude.Hashable AnomalyGroupSummary where
 
 instance Prelude.NFData AnomalyGroupSummary where
   rnf AnomalyGroupSummary' {..} =
-    Prelude.rnf anomalyGroupId
-      `Prelude.seq` Prelude.rnf anomalyGroupScore
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf primaryMetricName
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf anomalyGroupId `Prelude.seq`
+      Prelude.rnf anomalyGroupScore `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf primaryMetricName `Prelude.seq`
+            Prelude.rnf startTime

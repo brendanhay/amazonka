@@ -82,8 +82,8 @@ instance Prelude.Hashable JsonFormatDescriptor where
 
 instance Prelude.NFData JsonFormatDescriptor where
   rnf JsonFormatDescriptor' {..} =
-    Prelude.rnf charset
-      `Prelude.seq` Prelude.rnf fileCompression
+    Prelude.rnf charset `Prelude.seq`
+      Prelude.rnf fileCompression
 
 instance Data.ToJSON JsonFormatDescriptor where
   toJSON JsonFormatDescriptor' {..} =

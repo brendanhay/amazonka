@@ -85,5 +85,5 @@ instance Prelude.Hashable DimensionContribution where
 
 instance Prelude.NFData DimensionContribution where
   rnf DimensionContribution' {..} =
-    Prelude.rnf dimensionName
-      `Prelude.seq` Prelude.rnf dimensionValueContributionList
+    Prelude.rnf dimensionName `Prelude.seq`
+      Prelude.rnf dimensionValueContributionList

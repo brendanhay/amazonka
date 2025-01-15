@@ -85,8 +85,8 @@ instance Prelude.Hashable AlertFilters where
 
 instance Prelude.NFData AlertFilters where
   rnf AlertFilters' {..} =
-    Prelude.rnf dimensionFilterList
-      `Prelude.seq` Prelude.rnf metricList
+    Prelude.rnf dimensionFilterList `Prelude.seq`
+      Prelude.rnf metricList
 
 instance Data.ToJSON AlertFilters where
   toJSON AlertFilters' {..} =

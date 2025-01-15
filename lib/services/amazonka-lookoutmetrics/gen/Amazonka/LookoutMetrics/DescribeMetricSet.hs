@@ -320,18 +320,18 @@ describeMetricSetResponse_httpStatus = Lens.lens (\DescribeMetricSetResponse' {h
 
 instance Prelude.NFData DescribeMetricSetResponse where
   rnf DescribeMetricSetResponse' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dimensionFilterList
-      `Prelude.seq` Prelude.rnf dimensionList
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf metricList
-      `Prelude.seq` Prelude.rnf metricSetArn
-      `Prelude.seq` Prelude.rnf metricSetDescription
-      `Prelude.seq` Prelude.rnf metricSetFrequency
-      `Prelude.seq` Prelude.rnf metricSetName
-      `Prelude.seq` Prelude.rnf metricSource
-      `Prelude.seq` Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf timestampColumn
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf dimensionFilterList `Prelude.seq`
+          Prelude.rnf dimensionList `Prelude.seq`
+            Prelude.rnf lastModificationTime `Prelude.seq`
+              Prelude.rnf metricList `Prelude.seq`
+                Prelude.rnf metricSetArn `Prelude.seq`
+                  Prelude.rnf metricSetDescription `Prelude.seq`
+                    Prelude.rnf metricSetFrequency `Prelude.seq`
+                      Prelude.rnf metricSetName `Prelude.seq`
+                        Prelude.rnf metricSource `Prelude.seq`
+                          Prelude.rnf offset `Prelude.seq`
+                            Prelude.rnf timestampColumn `Prelude.seq`
+                              Prelude.rnf timezone `Prelude.seq`
+                                Prelude.rnf httpStatus

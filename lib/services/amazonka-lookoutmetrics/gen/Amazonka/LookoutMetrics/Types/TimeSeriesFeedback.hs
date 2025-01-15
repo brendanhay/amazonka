@@ -80,5 +80,5 @@ instance Prelude.Hashable TimeSeriesFeedback where
 
 instance Prelude.NFData TimeSeriesFeedback where
   rnf TimeSeriesFeedback' {..} =
-    Prelude.rnf isAnomaly
-      `Prelude.seq` Prelude.rnf timeSeriesId
+    Prelude.rnf isAnomaly `Prelude.seq`
+      Prelude.rnf timeSeriesId

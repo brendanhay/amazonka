@@ -85,5 +85,5 @@ instance
 
 instance Prelude.NFData DetectedJsonFormatDescriptor where
   rnf DetectedJsonFormatDescriptor' {..} =
-    Prelude.rnf charset
-      `Prelude.seq` Prelude.rnf fileCompression
+    Prelude.rnf charset `Prelude.seq`
+      Prelude.rnf fileCompression

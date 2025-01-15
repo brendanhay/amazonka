@@ -171,6 +171,6 @@ getSampleDataResponse_httpStatus = Lens.lens (\GetSampleDataResponse' {httpStatu
 
 instance Prelude.NFData GetSampleDataResponse where
   rnf GetSampleDataResponse' {..} =
-    Prelude.rnf headerValues
-      `Prelude.seq` Prelude.rnf sampleRows
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf headerValues `Prelude.seq`
+      Prelude.rnf sampleRows `Prelude.seq`
+        Prelude.rnf httpStatus

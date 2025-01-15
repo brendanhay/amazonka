@@ -93,6 +93,6 @@ instance Prelude.Hashable DetectedField where
 
 instance Prelude.NFData DetectedField where
   rnf DetectedField' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf value

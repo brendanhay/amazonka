@@ -140,13 +140,13 @@ instance Prelude.Hashable AthenaSourceConfig where
 
 instance Prelude.NFData AthenaSourceConfig where
   rnf AthenaSourceConfig' {..} =
-    Prelude.rnf backTestConfiguration
-      `Prelude.seq` Prelude.rnf dataCatalog
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf s3ResultsPath
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf workGroupName
+    Prelude.rnf backTestConfiguration `Prelude.seq`
+      Prelude.rnf dataCatalog `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf s3ResultsPath `Prelude.seq`
+              Prelude.rnf tableName `Prelude.seq`
+                Prelude.rnf workGroupName
 
 instance Data.ToJSON AthenaSourceConfig where
   toJSON AthenaSourceConfig' {..} =

@@ -83,8 +83,8 @@ instance Prelude.Hashable AppFlowConfig where
 
 instance Prelude.NFData AppFlowConfig where
   rnf AppFlowConfig' {..} =
-    Prelude.rnf flowName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf flowName `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON AppFlowConfig where
   toJSON AppFlowConfig' {..} =

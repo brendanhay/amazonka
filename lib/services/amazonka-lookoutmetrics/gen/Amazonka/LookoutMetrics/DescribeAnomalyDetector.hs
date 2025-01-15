@@ -274,14 +274,14 @@ instance
     DescribeAnomalyDetectorResponse
   where
   rnf DescribeAnomalyDetectorResponse' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf anomalyDetectorConfig
-      `Prelude.seq` Prelude.rnf anomalyDetectorDescription
-      `Prelude.seq` Prelude.rnf anomalyDetectorName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf failureType
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+      Prelude.rnf anomalyDetectorConfig `Prelude.seq`
+        Prelude.rnf anomalyDetectorDescription `Prelude.seq`
+          Prelude.rnf anomalyDetectorName `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf failureReason `Prelude.seq`
+                Prelude.rnf failureType `Prelude.seq`
+                  Prelude.rnf kmsKeyArn `Prelude.seq`
+                    Prelude.rnf lastModificationTime `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf httpStatus

@@ -94,6 +94,6 @@ instance Prelude.Hashable DetectedMetricSetConfig where
 
 instance Prelude.NFData DetectedMetricSetConfig where
   rnf DetectedMetricSetConfig' {..} =
-    Prelude.rnf metricSetFrequency
-      `Prelude.seq` Prelude.rnf metricSource
-      `Prelude.seq` Prelude.rnf offset
+    Prelude.rnf metricSetFrequency `Prelude.seq`
+      Prelude.rnf metricSource `Prelude.seq`
+        Prelude.rnf offset

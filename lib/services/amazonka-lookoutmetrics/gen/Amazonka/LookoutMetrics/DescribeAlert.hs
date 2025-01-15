@@ -164,5 +164,5 @@ describeAlertResponse_httpStatus = Lens.lens (\DescribeAlertResponse' {httpStatu
 
 instance Prelude.NFData DescribeAlertResponse where
   rnf DescribeAlertResponse' {..} =
-    Prelude.rnf alert
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alert `Prelude.seq`
+      Prelude.rnf httpStatus

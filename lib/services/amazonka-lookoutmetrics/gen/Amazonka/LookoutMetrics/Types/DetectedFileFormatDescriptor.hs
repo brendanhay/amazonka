@@ -86,5 +86,5 @@ instance
 
 instance Prelude.NFData DetectedFileFormatDescriptor where
   rnf DetectedFileFormatDescriptor' {..} =
-    Prelude.rnf csvFormatDescriptor
-      `Prelude.seq` Prelude.rnf jsonFormatDescriptor
+    Prelude.rnf csvFormatDescriptor `Prelude.seq`
+      Prelude.rnf jsonFormatDescriptor

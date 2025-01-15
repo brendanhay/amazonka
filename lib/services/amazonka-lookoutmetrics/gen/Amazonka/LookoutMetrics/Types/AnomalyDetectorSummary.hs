@@ -140,10 +140,10 @@ instance Prelude.Hashable AnomalyDetectorSummary where
 
 instance Prelude.NFData AnomalyDetectorSummary where
   rnf AnomalyDetectorSummary' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf anomalyDetectorDescription
-      `Prelude.seq` Prelude.rnf anomalyDetectorName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+      Prelude.rnf anomalyDetectorDescription `Prelude.seq`
+        Prelude.rnf anomalyDetectorName `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf lastModificationTime `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf tags

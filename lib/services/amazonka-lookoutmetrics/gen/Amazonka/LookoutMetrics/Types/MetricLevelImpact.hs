@@ -93,6 +93,6 @@ instance Prelude.Hashable MetricLevelImpact where
 
 instance Prelude.NFData MetricLevelImpact where
   rnf MetricLevelImpact' {..} =
-    Prelude.rnf contributionMatrix
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf numTimeSeries
+    Prelude.rnf contributionMatrix `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf numTimeSeries

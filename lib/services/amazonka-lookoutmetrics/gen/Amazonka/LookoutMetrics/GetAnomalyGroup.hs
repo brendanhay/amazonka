@@ -112,8 +112,8 @@ instance Prelude.Hashable GetAnomalyGroup where
 
 instance Prelude.NFData GetAnomalyGroup where
   rnf GetAnomalyGroup' {..} =
-    Prelude.rnf anomalyGroupId
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+    Prelude.rnf anomalyGroupId `Prelude.seq`
+      Prelude.rnf anomalyDetectorArn
 
 instance Data.ToHeaders GetAnomalyGroup where
   toHeaders =
@@ -184,5 +184,5 @@ getAnomalyGroupResponse_httpStatus = Lens.lens (\GetAnomalyGroupResponse' {httpS
 
 instance Prelude.NFData GetAnomalyGroupResponse where
   rnf GetAnomalyGroupResponse' {..} =
-    Prelude.rnf anomalyGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyGroup `Prelude.seq`
+      Prelude.rnf httpStatus

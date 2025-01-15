@@ -106,7 +106,7 @@ instance Prelude.Hashable DataQualityMetric where
 
 instance Prelude.NFData DataQualityMetric where
   rnf DataQualityMetric' {..} =
-    Prelude.rnf metricDescription
-      `Prelude.seq` Prelude.rnf metricType
-      `Prelude.seq` Prelude.rnf metricValue
-      `Prelude.seq` Prelude.rnf relatedColumnName
+    Prelude.rnf metricDescription `Prelude.seq`
+      Prelude.rnf metricType `Prelude.seq`
+        Prelude.rnf metricValue `Prelude.seq`
+          Prelude.rnf relatedColumnName

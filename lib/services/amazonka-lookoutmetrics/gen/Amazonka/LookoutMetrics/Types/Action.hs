@@ -83,8 +83,8 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf lambdaConfiguration
-      `Prelude.seq` Prelude.rnf sNSConfiguration
+    Prelude.rnf lambdaConfiguration `Prelude.seq`
+      Prelude.rnf sNSConfiguration
 
 instance Data.ToJSON Action where
   toJSON Action' {..} =

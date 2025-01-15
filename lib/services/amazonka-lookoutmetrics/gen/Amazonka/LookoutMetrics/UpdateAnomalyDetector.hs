@@ -135,10 +135,10 @@ instance Prelude.Hashable UpdateAnomalyDetector where
 
 instance Prelude.NFData UpdateAnomalyDetector where
   rnf UpdateAnomalyDetector' {..} =
-    Prelude.rnf anomalyDetectorConfig
-      `Prelude.seq` Prelude.rnf anomalyDetectorDescription
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+    Prelude.rnf anomalyDetectorConfig `Prelude.seq`
+      Prelude.rnf anomalyDetectorDescription `Prelude.seq`
+        Prelude.rnf kmsKeyArn `Prelude.seq`
+          Prelude.rnf anomalyDetectorArn
 
 instance Data.ToHeaders UpdateAnomalyDetector where
   toHeaders =
@@ -212,5 +212,5 @@ updateAnomalyDetectorResponse_httpStatus = Lens.lens (\UpdateAnomalyDetectorResp
 
 instance Prelude.NFData UpdateAnomalyDetectorResponse where
   rnf UpdateAnomalyDetectorResponse' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+      Prelude.rnf httpStatus

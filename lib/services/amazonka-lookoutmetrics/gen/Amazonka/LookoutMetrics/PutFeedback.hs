@@ -110,8 +110,8 @@ instance Prelude.Hashable PutFeedback where
 
 instance Prelude.NFData PutFeedback where
   rnf PutFeedback' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf anomalyGroupTimeSeriesFeedback
+    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+      Prelude.rnf anomalyGroupTimeSeriesFeedback
 
 instance Data.ToHeaders PutFeedback where
   toHeaders =

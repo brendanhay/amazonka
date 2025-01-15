@@ -115,8 +115,8 @@ instance Prelude.Hashable GetDataQualityMetrics where
 
 instance Prelude.NFData GetDataQualityMetrics where
   rnf GetDataQualityMetrics' {..} =
-    Prelude.rnf metricSetArn
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+    Prelude.rnf metricSetArn `Prelude.seq`
+      Prelude.rnf anomalyDetectorArn
 
 instance Data.ToHeaders GetDataQualityMetrics where
   toHeaders =
@@ -189,5 +189,5 @@ getDataQualityMetricsResponse_httpStatus = Lens.lens (\GetDataQualityMetricsResp
 
 instance Prelude.NFData GetDataQualityMetricsResponse where
   rnf GetDataQualityMetricsResponse' {..} =
-    Prelude.rnf anomalyDetectorDataQualityMetricList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyDetectorDataQualityMetricList `Prelude.seq`
+      Prelude.rnf httpStatus

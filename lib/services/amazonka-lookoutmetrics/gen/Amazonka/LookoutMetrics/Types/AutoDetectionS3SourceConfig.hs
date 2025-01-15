@@ -71,8 +71,8 @@ instance Prelude.Hashable AutoDetectionS3SourceConfig where
 
 instance Prelude.NFData AutoDetectionS3SourceConfig where
   rnf AutoDetectionS3SourceConfig' {..} =
-    Prelude.rnf historicalDataPathList
-      `Prelude.seq` Prelude.rnf templatedPathList
+    Prelude.rnf historicalDataPathList `Prelude.seq`
+      Prelude.rnf templatedPathList
 
 instance Data.ToJSON AutoDetectionS3SourceConfig where
   toJSON AutoDetectionS3SourceConfig' {..} =

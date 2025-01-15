@@ -126,12 +126,12 @@ instance Prelude.Hashable CsvFormatDescriptor where
 
 instance Prelude.NFData CsvFormatDescriptor where
   rnf CsvFormatDescriptor' {..} =
-    Prelude.rnf charset
-      `Prelude.seq` Prelude.rnf containsHeader
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf fileCompression
-      `Prelude.seq` Prelude.rnf headerList
-      `Prelude.seq` Prelude.rnf quoteSymbol
+    Prelude.rnf charset `Prelude.seq`
+      Prelude.rnf containsHeader `Prelude.seq`
+        Prelude.rnf delimiter `Prelude.seq`
+          Prelude.rnf fileCompression `Prelude.seq`
+            Prelude.rnf headerList `Prelude.seq`
+              Prelude.rnf quoteSymbol
 
 instance Data.ToJSON CsvFormatDescriptor where
   toJSON CsvFormatDescriptor' {..} =

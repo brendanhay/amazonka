@@ -162,9 +162,9 @@ instance
     UpdateIdentityProviderSettings
   where
   rnf UpdateIdentityProviderSettings' {..} =
-    Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf product
-      `Prelude.seq` Prelude.rnf updateSettings
+    Prelude.rnf identityProvider `Prelude.seq`
+      Prelude.rnf product `Prelude.seq`
+        Prelude.rnf updateSettings
 
 instance
   Data.ToHeaders
@@ -248,5 +248,5 @@ instance
     UpdateIdentityProviderSettingsResponse
   where
   rnf UpdateIdentityProviderSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf identityProviderSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf identityProviderSummary

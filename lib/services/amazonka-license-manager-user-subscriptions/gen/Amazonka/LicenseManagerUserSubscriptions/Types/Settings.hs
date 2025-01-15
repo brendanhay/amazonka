@@ -94,8 +94,8 @@ instance Prelude.Hashable Settings where
 
 instance Prelude.NFData Settings where
   rnf Settings' {..} =
-    Prelude.rnf securityGroupId
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf securityGroupId `Prelude.seq`
+      Prelude.rnf subnets
 
 instance Data.ToJSON Settings where
   toJSON Settings' {..} =

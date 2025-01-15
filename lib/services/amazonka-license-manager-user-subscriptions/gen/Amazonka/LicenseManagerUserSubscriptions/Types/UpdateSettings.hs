@@ -90,9 +90,9 @@ instance Prelude.Hashable UpdateSettings where
 
 instance Prelude.NFData UpdateSettings where
   rnf UpdateSettings' {..} =
-    Prelude.rnf securityGroupId
-      `Prelude.seq` Prelude.rnf addSubnets
-      `Prelude.seq` Prelude.rnf removeSubnets
+    Prelude.rnf securityGroupId `Prelude.seq`
+      Prelude.rnf addSubnets `Prelude.seq`
+        Prelude.rnf removeSubnets
 
 instance Data.ToJSON UpdateSettings where
   toJSON UpdateSettings' {..} =

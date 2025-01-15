@@ -138,10 +138,10 @@ instance Prelude.Hashable DisassociateUser where
 
 instance Prelude.NFData DisassociateUser where
   rnf DisassociateUser' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf identityProvider `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf username
 
 instance Data.ToHeaders DisassociateUser where
   toHeaders =
@@ -217,5 +217,5 @@ disassociateUserResponse_instanceUserSummary = Lens.lens (\DisassociateUserRespo
 
 instance Prelude.NFData DisassociateUserResponse where
   rnf DisassociateUserResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf instanceUserSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf instanceUserSummary

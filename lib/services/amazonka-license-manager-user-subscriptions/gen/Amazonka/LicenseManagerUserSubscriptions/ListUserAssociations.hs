@@ -141,12 +141,12 @@ instance Core.AWSPager ListUserAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUserAssociations_nextToken
-          Lens..~ rs
-          Lens.^? listUserAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUserAssociations_nextToken
+              Lens..~ rs
+              Lens.^? listUserAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserAssociations where
   type
@@ -177,11 +177,11 @@ instance Prelude.Hashable ListUserAssociations where
 
 instance Prelude.NFData ListUserAssociations where
   rnf ListUserAssociations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf identityProvider `Prelude.seq`
+            Prelude.rnf instanceId
 
 instance Data.ToHeaders ListUserAssociations where
   toHeaders =
@@ -263,6 +263,6 @@ listUserAssociationsResponse_httpStatus = Lens.lens (\ListUserAssociationsRespon
 
 instance Prelude.NFData ListUserAssociationsResponse where
   rnf ListUserAssociationsResponse' {..} =
-    Prelude.rnf instanceUserSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceUserSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

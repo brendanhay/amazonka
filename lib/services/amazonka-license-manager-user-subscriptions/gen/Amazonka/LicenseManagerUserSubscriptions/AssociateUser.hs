@@ -145,10 +145,10 @@ instance Prelude.Hashable AssociateUser where
 
 instance Prelude.NFData AssociateUser where
   rnf AssociateUser' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf identityProvider `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf username
 
 instance Data.ToHeaders AssociateUser where
   toHeaders =
@@ -223,5 +223,5 @@ associateUserResponse_instanceUserSummary = Lens.lens (\AssociateUserResponse' {
 
 instance Prelude.NFData AssociateUserResponse where
   rnf AssociateUserResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf instanceUserSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf instanceUserSummary

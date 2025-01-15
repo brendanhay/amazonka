@@ -159,11 +159,11 @@ instance Prelude.Hashable ProductUserSummary where
 
 instance Prelude.NFData ProductUserSummary where
   rnf ProductUserSummary' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf subscriptionEndDate
-      `Prelude.seq` Prelude.rnf subscriptionStartDate
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf product
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf subscriptionEndDate `Prelude.seq`
+          Prelude.rnf subscriptionStartDate `Prelude.seq`
+            Prelude.rnf identityProvider `Prelude.seq`
+              Prelude.rnf product `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf username

@@ -129,8 +129,8 @@ instance Prelude.Hashable GetResourceMetadata where
 
 instance Prelude.NFData GetResourceMetadata where
   rnf GetResourceMetadata' {..} =
-    Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf serviceType `Prelude.seq`
+      Prelude.rnf identifier
 
 instance Data.ToHeaders GetResourceMetadata where
   toHeaders =
@@ -227,6 +227,6 @@ getResourceMetadataResponse_httpStatus = Lens.lens (\GetResourceMetadataResponse
 
 instance Prelude.NFData GetResourceMetadataResponse where
   rnf GetResourceMetadataResponse' {..} =
-    Prelude.rnf features
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf features `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf httpStatus

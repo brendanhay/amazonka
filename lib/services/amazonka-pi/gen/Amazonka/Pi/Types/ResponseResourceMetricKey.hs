@@ -144,5 +144,5 @@ instance Prelude.Hashable ResponseResourceMetricKey where
 
 instance Prelude.NFData ResponseResourceMetricKey where
   rnf ResponseResourceMetricKey' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf metric
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf metric

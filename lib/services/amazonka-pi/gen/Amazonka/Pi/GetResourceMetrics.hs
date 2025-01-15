@@ -335,14 +335,14 @@ instance Prelude.Hashable GetResourceMetrics where
 
 instance Prelude.NFData GetResourceMetrics where
   rnf GetResourceMetrics' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf periodInSeconds
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf metricQueries
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf periodInSeconds `Prelude.seq`
+          Prelude.rnf serviceType `Prelude.seq`
+            Prelude.rnf identifier `Prelude.seq`
+              Prelude.rnf metricQueries `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf endTime
 
 instance Data.ToHeaders GetResourceMetrics where
   toHeaders =
@@ -491,9 +491,9 @@ getResourceMetricsResponse_httpStatus = Lens.lens (\GetResourceMetricsResponse' 
 
 instance Prelude.NFData GetResourceMetricsResponse where
   rnf GetResourceMetricsResponse' {..} =
-    Prelude.rnf alignedEndTime
-      `Prelude.seq` Prelude.rnf alignedStartTime
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf metricList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alignedEndTime `Prelude.seq`
+      Prelude.rnf alignedStartTime `Prelude.seq`
+        Prelude.rnf identifier `Prelude.seq`
+          Prelude.rnf metricList `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf httpStatus

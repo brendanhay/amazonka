@@ -93,6 +93,6 @@ instance Prelude.Hashable ResponseResourceMetric where
 
 instance Prelude.NFData ResponseResourceMetric where
   rnf ResponseResourceMetric' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf metric `Prelude.seq`
+        Prelude.rnf unit

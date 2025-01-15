@@ -158,6 +158,6 @@ instance Prelude.Hashable DimensionKeyDetail where
 
 instance Prelude.NFData DimensionKeyDetail where
   rnf DimensionKeyDetail' {..} =
-    Prelude.rnf dimension
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf dimension `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf value

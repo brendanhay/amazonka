@@ -81,5 +81,5 @@ instance Prelude.Hashable DimensionGroupDetail where
 
 instance Prelude.NFData DimensionGroupDetail where
   rnf DimensionGroupDetail' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf group'
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf group'

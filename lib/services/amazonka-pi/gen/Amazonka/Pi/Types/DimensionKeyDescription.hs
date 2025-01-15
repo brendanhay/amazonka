@@ -113,7 +113,7 @@ instance Prelude.Hashable DimensionKeyDescription where
 
 instance Prelude.NFData DimensionKeyDescription where
   rnf DimensionKeyDescription' {..} =
-    Prelude.rnf additionalMetrics
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf partitions
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf additionalMetrics `Prelude.seq`
+      Prelude.rnf dimensions `Prelude.seq`
+        Prelude.rnf partitions `Prelude.seq`
+          Prelude.rnf total

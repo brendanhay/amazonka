@@ -564,9 +564,9 @@ instance Prelude.Hashable DimensionGroup where
 
 instance Prelude.NFData DimensionGroup where
   rnf DimensionGroup' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf group'
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf group'
 
 instance Data.ToJSON DimensionGroup where
   toJSON DimensionGroup' {..} =

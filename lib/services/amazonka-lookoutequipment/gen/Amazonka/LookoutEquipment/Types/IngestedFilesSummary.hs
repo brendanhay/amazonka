@@ -106,6 +106,6 @@ instance Prelude.Hashable IngestedFilesSummary where
 
 instance Prelude.NFData IngestedFilesSummary where
   rnf IngestedFilesSummary' {..} =
-    Prelude.rnf discardedFiles
-      `Prelude.seq` Prelude.rnf totalNumberOfFiles
-      `Prelude.seq` Prelude.rnf ingestedNumberOfFiles
+    Prelude.rnf discardedFiles `Prelude.seq`
+      Prelude.rnf totalNumberOfFiles `Prelude.seq`
+        Prelude.rnf ingestedNumberOfFiles

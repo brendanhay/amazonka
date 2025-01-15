@@ -222,9 +222,9 @@ instance
     StopInferenceSchedulerResponse
   where
   rnf StopInferenceSchedulerResponse' {..} =
-    Prelude.rnf inferenceSchedulerArn
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inferenceSchedulerArn `Prelude.seq`
+      Prelude.rnf inferenceSchedulerName `Prelude.seq`
+        Prelude.rnf modelArn `Prelude.seq`
+          Prelude.rnf modelName `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf httpStatus

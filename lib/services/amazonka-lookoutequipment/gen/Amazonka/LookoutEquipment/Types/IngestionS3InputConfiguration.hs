@@ -113,9 +113,9 @@ instance
 
 instance Prelude.NFData IngestionS3InputConfiguration where
   rnf IngestionS3InputConfiguration' {..} =
-    Prelude.rnf keyPattern
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf keyPattern `Prelude.seq`
+      Prelude.rnf prefix `Prelude.seq`
+        Prelude.rnf bucket
 
 instance Data.ToJSON IngestionS3InputConfiguration where
   toJSON IngestionS3InputConfiguration' {..} =

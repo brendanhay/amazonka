@@ -104,9 +104,9 @@ instance Prelude.Hashable InferenceInputConfiguration where
 
 instance Prelude.NFData InferenceInputConfiguration where
   rnf InferenceInputConfiguration' {..} =
-    Prelude.rnf inferenceInputNameConfiguration
-      `Prelude.seq` Prelude.rnf inputTimeZoneOffset
-      `Prelude.seq` Prelude.rnf s3InputConfiguration
+    Prelude.rnf inferenceInputNameConfiguration `Prelude.seq`
+      Prelude.rnf inputTimeZoneOffset `Prelude.seq`
+        Prelude.rnf s3InputConfiguration
 
 instance Data.ToJSON InferenceInputConfiguration where
   toJSON InferenceInputConfiguration' {..} =

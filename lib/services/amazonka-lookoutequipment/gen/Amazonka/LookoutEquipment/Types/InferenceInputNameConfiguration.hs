@@ -96,8 +96,8 @@ instance
     InferenceInputNameConfiguration
   where
   rnf InferenceInputNameConfiguration' {..} =
-    Prelude.rnf componentTimestampDelimiter
-      `Prelude.seq` Prelude.rnf timestampFormat
+    Prelude.rnf componentTimestampDelimiter `Prelude.seq`
+      Prelude.rnf timestampFormat
 
 instance Data.ToJSON InferenceInputNameConfiguration where
   toJSON InferenceInputNameConfiguration' {..} =

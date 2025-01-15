@@ -89,5 +89,5 @@ instance Prelude.Hashable InvalidSensorData where
 
 instance Prelude.NFData InvalidSensorData where
   rnf InvalidSensorData' {..} =
-    Prelude.rnf affectedSensorCount
-      `Prelude.seq` Prelude.rnf totalNumberOfInvalidValues
+    Prelude.rnf affectedSensorCount `Prelude.seq`
+      Prelude.rnf totalNumberOfInvalidValues

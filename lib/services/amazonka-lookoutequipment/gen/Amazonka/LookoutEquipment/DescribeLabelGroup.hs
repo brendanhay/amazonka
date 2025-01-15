@@ -217,9 +217,9 @@ describeLabelGroupResponse_httpStatus = Lens.lens (\DescribeLabelGroupResponse' 
 
 instance Prelude.NFData DescribeLabelGroupResponse where
   rnf DescribeLabelGroupResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf faultCodes
-      `Prelude.seq` Prelude.rnf labelGroupArn
-      `Prelude.seq` Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf faultCodes `Prelude.seq`
+        Prelude.rnf labelGroupArn `Prelude.seq`
+          Prelude.rnf labelGroupName `Prelude.seq`
+            Prelude.rnf updatedAt `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -132,9 +132,9 @@ instance Prelude.Hashable InferenceEventSummary where
 
 instance Prelude.NFData InferenceEventSummary where
   rnf InferenceEventSummary' {..} =
-    Prelude.rnf diagnostics
-      `Prelude.seq` Prelude.rnf eventDurationInSeconds
-      `Prelude.seq` Prelude.rnf eventEndTime
-      `Prelude.seq` Prelude.rnf eventStartTime
-      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
+    Prelude.rnf diagnostics `Prelude.seq`
+      Prelude.rnf eventDurationInSeconds `Prelude.seq`
+        Prelude.rnf eventEndTime `Prelude.seq`
+          Prelude.rnf eventStartTime `Prelude.seq`
+            Prelude.rnf inferenceSchedulerArn `Prelude.seq`
+              Prelude.rnf inferenceSchedulerName

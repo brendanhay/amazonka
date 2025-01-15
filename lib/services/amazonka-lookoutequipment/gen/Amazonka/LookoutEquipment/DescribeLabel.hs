@@ -128,8 +128,8 @@ instance Prelude.Hashable DescribeLabel where
 
 instance Prelude.NFData DescribeLabel where
   rnf DescribeLabel' {..} =
-    Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf labelId
+    Prelude.rnf labelGroupName `Prelude.seq`
+      Prelude.rnf labelId
 
 instance Data.ToHeaders DescribeLabel where
   toHeaders =
@@ -301,14 +301,14 @@ describeLabelResponse_httpStatus = Lens.lens (\DescribeLabelResponse' {httpStatu
 
 instance Prelude.NFData DescribeLabelResponse where
   rnf DescribeLabelResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf equipment
-      `Prelude.seq` Prelude.rnf faultCode
-      `Prelude.seq` Prelude.rnf labelGroupArn
-      `Prelude.seq` Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf labelId
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf rating
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf equipment `Prelude.seq`
+          Prelude.rnf faultCode `Prelude.seq`
+            Prelude.rnf labelGroupArn `Prelude.seq`
+              Prelude.rnf labelGroupName `Prelude.seq`
+                Prelude.rnf labelId `Prelude.seq`
+                  Prelude.rnf notes `Prelude.seq`
+                    Prelude.rnf rating `Prelude.seq`
+                      Prelude.rnf startTime `Prelude.seq`
+                        Prelude.rnf httpStatus

@@ -153,10 +153,10 @@ instance Prelude.Hashable StartDataIngestionJob where
 
 instance Prelude.NFData StartDataIngestionJob where
   rnf StartDataIngestionJob' {..} =
-    Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf ingestionInputConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf datasetName `Prelude.seq`
+      Prelude.rnf ingestionInputConfiguration `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf clientToken
 
 instance Data.ToHeaders StartDataIngestionJob where
   toHeaders =
@@ -243,6 +243,6 @@ startDataIngestionJobResponse_httpStatus = Lens.lens (\StartDataIngestionJobResp
 
 instance Prelude.NFData StartDataIngestionJobResponse where
   rnf StartDataIngestionJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -202,11 +202,11 @@ instance Prelude.Hashable InferenceSchedulerSummary where
 
 instance Prelude.NFData InferenceSchedulerSummary where
   rnf InferenceSchedulerSummary' {..} =
-    Prelude.rnf dataDelayOffsetInMinutes
-      `Prelude.seq` Prelude.rnf dataUploadFrequency
-      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf latestInferenceResult
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dataDelayOffsetInMinutes `Prelude.seq`
+      Prelude.rnf dataUploadFrequency `Prelude.seq`
+        Prelude.rnf inferenceSchedulerArn `Prelude.seq`
+          Prelude.rnf inferenceSchedulerName `Prelude.seq`
+            Prelude.rnf latestInferenceResult `Prelude.seq`
+              Prelude.rnf modelArn `Prelude.seq`
+                Prelude.rnf modelName `Prelude.seq`
+                  Prelude.rnf status

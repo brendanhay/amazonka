@@ -138,10 +138,10 @@ instance Prelude.Hashable ListDataIngestionJobs where
 
 instance Prelude.NFData ListDataIngestionJobs where
   rnf ListDataIngestionJobs' {..} =
-    Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf datasetName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders ListDataIngestionJobs where
   toHeaders =
@@ -231,6 +231,6 @@ listDataIngestionJobsResponse_httpStatus = Lens.lens (\ListDataIngestionJobsResp
 
 instance Prelude.NFData ListDataIngestionJobsResponse where
   rnf ListDataIngestionJobsResponse' {..} =
-    Prelude.rnf dataIngestionJobSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataIngestionJobSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

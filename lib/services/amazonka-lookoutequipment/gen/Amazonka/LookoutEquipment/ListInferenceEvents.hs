@@ -165,11 +165,11 @@ instance Prelude.Hashable ListInferenceEvents where
 
 instance Prelude.NFData ListInferenceEvents where
   rnf ListInferenceEvents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf intervalStartTime
-      `Prelude.seq` Prelude.rnf intervalEndTime
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf inferenceSchedulerName `Prelude.seq`
+          Prelude.rnf intervalStartTime `Prelude.seq`
+            Prelude.rnf intervalEndTime
 
 instance Data.ToHeaders ListInferenceEvents where
   toHeaders =
@@ -268,6 +268,6 @@ listInferenceEventsResponse_httpStatus = Lens.lens (\ListInferenceEventsResponse
 
 instance Prelude.NFData ListInferenceEventsResponse where
   rnf ListInferenceEventsResponse' {..} =
-    Prelude.rnf inferenceEventSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inferenceEventSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

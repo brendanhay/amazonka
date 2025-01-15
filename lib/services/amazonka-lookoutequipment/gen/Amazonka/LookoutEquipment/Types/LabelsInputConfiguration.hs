@@ -86,8 +86,8 @@ instance Prelude.Hashable LabelsInputConfiguration where
 
 instance Prelude.NFData LabelsInputConfiguration where
   rnf LabelsInputConfiguration' {..} =
-    Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf s3InputConfiguration
+    Prelude.rnf labelGroupName `Prelude.seq`
+      Prelude.rnf s3InputConfiguration
 
 instance Data.ToJSON LabelsInputConfiguration where
   toJSON LabelsInputConfiguration' {..} =

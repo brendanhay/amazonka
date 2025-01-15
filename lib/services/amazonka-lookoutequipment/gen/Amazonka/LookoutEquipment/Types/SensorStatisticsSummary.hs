@@ -248,16 +248,16 @@ instance Prelude.Hashable SensorStatisticsSummary where
 
 instance Prelude.NFData SensorStatisticsSummary where
   rnf SensorStatisticsSummary' {..} =
-    Prelude.rnf categoricalValues
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf dataEndTime
-      `Prelude.seq` Prelude.rnf dataExists
-      `Prelude.seq` Prelude.rnf dataStartTime
-      `Prelude.seq` Prelude.rnf duplicateTimestamps
-      `Prelude.seq` Prelude.rnf invalidDateEntries
-      `Prelude.seq` Prelude.rnf invalidValues
-      `Prelude.seq` Prelude.rnf largeTimestampGaps
-      `Prelude.seq` Prelude.rnf missingValues
-      `Prelude.seq` Prelude.rnf monotonicValues
-      `Prelude.seq` Prelude.rnf multipleOperatingModes
-      `Prelude.seq` Prelude.rnf sensorName
+    Prelude.rnf categoricalValues `Prelude.seq`
+      Prelude.rnf componentName `Prelude.seq`
+        Prelude.rnf dataEndTime `Prelude.seq`
+          Prelude.rnf dataExists `Prelude.seq`
+            Prelude.rnf dataStartTime `Prelude.seq`
+              Prelude.rnf duplicateTimestamps `Prelude.seq`
+                Prelude.rnf invalidDateEntries `Prelude.seq`
+                  Prelude.rnf invalidValues `Prelude.seq`
+                    Prelude.rnf largeTimestampGaps `Prelude.seq`
+                      Prelude.rnf missingValues `Prelude.seq`
+                        Prelude.rnf monotonicValues `Prelude.seq`
+                          Prelude.rnf multipleOperatingModes `Prelude.seq`
+                            Prelude.rnf sensorName

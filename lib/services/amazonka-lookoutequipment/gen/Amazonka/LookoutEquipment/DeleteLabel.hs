@@ -104,8 +104,8 @@ instance Prelude.Hashable DeleteLabel where
 
 instance Prelude.NFData DeleteLabel where
   rnf DeleteLabel' {..} =
-    Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf labelId
+    Prelude.rnf labelGroupName `Prelude.seq`
+      Prelude.rnf labelId
 
 instance Data.ToHeaders DeleteLabel where
   toHeaders =

@@ -227,14 +227,14 @@ instance Prelude.Hashable CreateLabel where
 
 instance Prelude.NFData CreateLabel where
   rnf CreateLabel' {..} =
-    Prelude.rnf equipment
-      `Prelude.seq` Prelude.rnf faultCode
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf rating
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf equipment `Prelude.seq`
+      Prelude.rnf faultCode `Prelude.seq`
+        Prelude.rnf notes `Prelude.seq`
+          Prelude.rnf labelGroupName `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf endTime `Prelude.seq`
+                Prelude.rnf rating `Prelude.seq`
+                  Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateLabel where
   toHeaders =
@@ -313,5 +313,5 @@ createLabelResponse_httpStatus = Lens.lens (\CreateLabelResponse' {httpStatus} -
 
 instance Prelude.NFData CreateLabelResponse where
   rnf CreateLabelResponse' {..} =
-    Prelude.rnf labelId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf labelId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -196,12 +196,12 @@ instance Prelude.Hashable UpdateInferenceScheduler where
 
 instance Prelude.NFData UpdateInferenceScheduler where
   rnf UpdateInferenceScheduler' {..} =
-    Prelude.rnf dataDelayOffsetInMinutes
-      `Prelude.seq` Prelude.rnf dataInputConfiguration
-      `Prelude.seq` Prelude.rnf dataOutputConfiguration
-      `Prelude.seq` Prelude.rnf dataUploadFrequency
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
+    Prelude.rnf dataDelayOffsetInMinutes `Prelude.seq`
+      Prelude.rnf dataInputConfiguration `Prelude.seq`
+        Prelude.rnf dataOutputConfiguration `Prelude.seq`
+          Prelude.rnf dataUploadFrequency `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf inferenceSchedulerName
 
 instance Data.ToHeaders UpdateInferenceScheduler where
   toHeaders =

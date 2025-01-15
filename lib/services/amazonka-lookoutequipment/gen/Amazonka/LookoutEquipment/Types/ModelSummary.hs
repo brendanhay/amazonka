@@ -126,9 +126,9 @@ instance Prelude.Hashable ModelSummary where
 
 instance Prelude.NFData ModelSummary where
   rnf ModelSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf datasetArn `Prelude.seq`
+        Prelude.rnf datasetName `Prelude.seq`
+          Prelude.rnf modelArn `Prelude.seq`
+            Prelude.rnf modelName `Prelude.seq`
+              Prelude.rnf status

@@ -93,8 +93,8 @@ instance
 
 instance Prelude.NFData InferenceOutputConfiguration where
   rnf InferenceOutputConfiguration' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3OutputConfiguration
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf s3OutputConfiguration
 
 instance Data.ToJSON InferenceOutputConfiguration where
   toJSON InferenceOutputConfiguration' {..} =

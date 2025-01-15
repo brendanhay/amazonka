@@ -301,16 +301,16 @@ instance Prelude.Hashable CreateInferenceScheduler where
 
 instance Prelude.NFData CreateInferenceScheduler where
   rnf CreateInferenceScheduler' {..} =
-    Prelude.rnf dataDelayOffsetInMinutes
-      `Prelude.seq` Prelude.rnf serverSideKmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf dataUploadFrequency
-      `Prelude.seq` Prelude.rnf dataInputConfiguration
-      `Prelude.seq` Prelude.rnf dataOutputConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf dataDelayOffsetInMinutes `Prelude.seq`
+      Prelude.rnf serverSideKmsKeyId `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf modelName `Prelude.seq`
+            Prelude.rnf inferenceSchedulerName `Prelude.seq`
+              Prelude.rnf dataUploadFrequency `Prelude.seq`
+                Prelude.rnf dataInputConfiguration `Prelude.seq`
+                  Prelude.rnf dataOutputConfiguration `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateInferenceScheduler where
   toHeaders =
@@ -424,7 +424,7 @@ instance
     CreateInferenceSchedulerResponse
   where
   rnf CreateInferenceSchedulerResponse' {..} =
-    Prelude.rnf inferenceSchedulerArn
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inferenceSchedulerArn `Prelude.seq`
+      Prelude.rnf inferenceSchedulerName `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

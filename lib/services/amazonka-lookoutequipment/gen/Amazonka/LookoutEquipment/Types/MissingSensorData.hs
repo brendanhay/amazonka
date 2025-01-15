@@ -89,5 +89,5 @@ instance Prelude.Hashable MissingSensorData where
 
 instance Prelude.NFData MissingSensorData where
   rnf MissingSensorData' {..} =
-    Prelude.rnf affectedSensorCount
-      `Prelude.seq` Prelude.rnf totalNumberOfMissingValues
+    Prelude.rnf affectedSensorCount `Prelude.seq`
+      Prelude.rnf totalNumberOfMissingValues

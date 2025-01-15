@@ -139,9 +139,9 @@ instance Prelude.Hashable DescribeStream where
 
 instance Prelude.NFData DescribeStream where
   rnf DescribeStream' {..} =
-    Prelude.rnf exclusiveStartShardId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf streamArn
+    Prelude.rnf exclusiveStartShardId `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf streamArn
 
 instance Data.ToHeaders DescribeStream where
   toHeaders =
@@ -227,5 +227,5 @@ describeStreamResponse_httpStatus = Lens.lens (\DescribeStreamResponse' {httpSta
 
 instance Prelude.NFData DescribeStreamResponse where
   rnf DescribeStreamResponse' {..} =
-    Prelude.rnf streamDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamDescription `Prelude.seq`
+      Prelude.rnf httpStatus

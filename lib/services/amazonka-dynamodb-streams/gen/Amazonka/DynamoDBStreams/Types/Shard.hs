@@ -93,6 +93,6 @@ instance Prelude.Hashable Shard where
 
 instance Prelude.NFData Shard where
   rnf Shard' {..} =
-    Prelude.rnf parentShardId
-      `Prelude.seq` Prelude.rnf sequenceNumberRange
-      `Prelude.seq` Prelude.rnf shardId
+    Prelude.rnf parentShardId `Prelude.seq`
+      Prelude.rnf sequenceNumberRange `Prelude.seq`
+        Prelude.rnf shardId

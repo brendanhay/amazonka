@@ -292,12 +292,12 @@ instance Prelude.Hashable StreamDescription where
 
 instance Prelude.NFData StreamDescription where
   rnf StreamDescription' {..} =
-    Prelude.rnf creationRequestDateTime
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf lastEvaluatedShardId
-      `Prelude.seq` Prelude.rnf shards
-      `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf streamLabel
-      `Prelude.seq` Prelude.rnf streamStatus
-      `Prelude.seq` Prelude.rnf streamViewType
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf creationRequestDateTime `Prelude.seq`
+      Prelude.rnf keySchema `Prelude.seq`
+        Prelude.rnf lastEvaluatedShardId `Prelude.seq`
+          Prelude.rnf shards `Prelude.seq`
+            Prelude.rnf streamArn `Prelude.seq`
+              Prelude.rnf streamLabel `Prelude.seq`
+                Prelude.rnf streamStatus `Prelude.seq`
+                  Prelude.rnf streamViewType `Prelude.seq`
+                    Prelude.rnf tableName

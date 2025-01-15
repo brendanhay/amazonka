@@ -175,10 +175,10 @@ instance Prelude.Hashable StreamRecord where
 
 instance Prelude.NFData StreamRecord where
   rnf StreamRecord' {..} =
-    Prelude.rnf approximateCreationDateTime
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf newImage'
-      `Prelude.seq` Prelude.rnf oldImage
-      `Prelude.seq` Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf sizeBytes
-      `Prelude.seq` Prelude.rnf streamViewType
+    Prelude.rnf approximateCreationDateTime `Prelude.seq`
+      Prelude.rnf keys `Prelude.seq`
+        Prelude.rnf newImage' `Prelude.seq`
+          Prelude.rnf oldImage `Prelude.seq`
+            Prelude.rnf sequenceNumber `Prelude.seq`
+              Prelude.rnf sizeBytes `Prelude.seq`
+                Prelude.rnf streamViewType

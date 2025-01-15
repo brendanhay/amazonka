@@ -133,9 +133,9 @@ instance Prelude.Hashable ListStreams where
 
 instance Prelude.NFData ListStreams where
   rnf ListStreams' {..} =
-    Prelude.rnf exclusiveStartStreamArn
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf exclusiveStartStreamArn `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf tableName
 
 instance Data.ToHeaders ListStreams where
   toHeaders =
@@ -254,6 +254,6 @@ listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -
 
 instance Prelude.NFData ListStreamsResponse where
   rnf ListStreamsResponse' {..} =
-    Prelude.rnf lastEvaluatedStreamArn
-      `Prelude.seq` Prelude.rnf streams
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastEvaluatedStreamArn `Prelude.seq`
+      Prelude.rnf streams `Prelude.seq`
+        Prelude.rnf httpStatus

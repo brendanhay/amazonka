@@ -84,5 +84,5 @@ instance Prelude.Hashable Identity where
 
 instance Prelude.NFData Identity where
   rnf Identity' {..} =
-    Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf principalId `Prelude.seq`
+      Prelude.rnf type'

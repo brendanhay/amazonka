@@ -260,11 +260,11 @@ instance Prelude.Hashable GetLabelDetection where
 
 instance Prelude.NFData GetLabelDetection where
   rnf GetLabelDetection' {..} =
-    Prelude.rnf aggregateBy
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf aggregateBy `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf jobId
 
 instance Data.ToHeaders GetLabelDetection where
   toHeaders =
@@ -406,10 +406,10 @@ getLabelDetectionResponse_httpStatus = Lens.lens (\GetLabelDetectionResponse' {h
 
 instance Prelude.NFData GetLabelDetectionResponse where
   rnf GetLabelDetectionResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf labelModelVersion
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobStatus `Prelude.seq`
+      Prelude.rnf labelModelVersion `Prelude.seq`
+        Prelude.rnf labels `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf videoMetadata `Prelude.seq`
+                Prelude.rnf httpStatus

@@ -171,9 +171,9 @@ instance Prelude.Hashable StartProjectVersion where
 
 instance Prelude.NFData StartProjectVersion where
   rnf StartProjectVersion' {..} =
-    Prelude.rnf maxInferenceUnits
-      `Prelude.seq` Prelude.rnf projectVersionArn
-      `Prelude.seq` Prelude.rnf minInferenceUnits
+    Prelude.rnf maxInferenceUnits `Prelude.seq`
+      Prelude.rnf projectVersionArn `Prelude.seq`
+        Prelude.rnf minInferenceUnits
 
 instance Data.ToHeaders StartProjectVersion where
   toHeaders =
@@ -250,5 +250,5 @@ startProjectVersionResponse_httpStatus = Lens.lens (\StartProjectVersionResponse
 
 instance Prelude.NFData StartProjectVersionResponse where
   rnf StartProjectVersionResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

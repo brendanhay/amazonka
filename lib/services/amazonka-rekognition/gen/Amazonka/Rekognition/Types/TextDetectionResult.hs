@@ -90,5 +90,5 @@ instance Prelude.Hashable TextDetectionResult where
 
 instance Prelude.NFData TextDetectionResult where
   rnf TextDetectionResult' {..} =
-    Prelude.rnf textDetection
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf textDetection `Prelude.seq`
+      Prelude.rnf timestamp

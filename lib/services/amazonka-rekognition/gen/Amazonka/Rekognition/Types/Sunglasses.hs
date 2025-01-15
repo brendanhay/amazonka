@@ -84,5 +84,5 @@ instance Prelude.Hashable Sunglasses where
 
 instance Prelude.NFData Sunglasses where
   rnf Sunglasses' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf value

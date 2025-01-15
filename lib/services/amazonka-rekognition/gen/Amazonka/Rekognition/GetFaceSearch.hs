@@ -193,10 +193,10 @@ instance Prelude.Hashable GetFaceSearch where
 
 instance Prelude.NFData GetFaceSearch where
   rnf GetFaceSearch' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf jobId
 
 instance Data.ToHeaders GetFaceSearch where
   toHeaders =
@@ -336,9 +336,9 @@ getFaceSearchResponse_httpStatus = Lens.lens (\GetFaceSearchResponse' {httpStatu
 
 instance Prelude.NFData GetFaceSearchResponse where
   rnf GetFaceSearchResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf persons
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobStatus `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf persons `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf videoMetadata `Prelude.seq`
+              Prelude.rnf httpStatus

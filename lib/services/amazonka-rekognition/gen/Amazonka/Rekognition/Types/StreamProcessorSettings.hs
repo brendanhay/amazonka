@@ -85,8 +85,8 @@ instance Prelude.Hashable StreamProcessorSettings where
 
 instance Prelude.NFData StreamProcessorSettings where
   rnf StreamProcessorSettings' {..} =
-    Prelude.rnf connectedHome
-      `Prelude.seq` Prelude.rnf faceSearch
+    Prelude.rnf connectedHome `Prelude.seq`
+      Prelude.rnf faceSearch
 
 instance Data.ToJSON StreamProcessorSettings where
   toJSON StreamProcessorSettings' {..} =

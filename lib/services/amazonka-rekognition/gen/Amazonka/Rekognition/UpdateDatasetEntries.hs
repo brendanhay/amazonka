@@ -137,8 +137,8 @@ instance Prelude.Hashable UpdateDatasetEntries where
 
 instance Prelude.NFData UpdateDatasetEntries where
   rnf UpdateDatasetEntries' {..} =
-    Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf changes
+    Prelude.rnf datasetArn `Prelude.seq`
+      Prelude.rnf changes
 
 instance Data.ToHeaders UpdateDatasetEntries where
   toHeaders =

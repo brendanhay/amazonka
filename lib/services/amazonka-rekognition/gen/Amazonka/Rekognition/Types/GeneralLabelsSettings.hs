@@ -99,10 +99,10 @@ instance Prelude.Hashable GeneralLabelsSettings where
 
 instance Prelude.NFData GeneralLabelsSettings where
   rnf GeneralLabelsSettings' {..} =
-    Prelude.rnf labelCategoryExclusionFilters
-      `Prelude.seq` Prelude.rnf labelCategoryInclusionFilters
-      `Prelude.seq` Prelude.rnf labelExclusionFilters
-      `Prelude.seq` Prelude.rnf labelInclusionFilters
+    Prelude.rnf labelCategoryExclusionFilters `Prelude.seq`
+      Prelude.rnf labelCategoryInclusionFilters `Prelude.seq`
+        Prelude.rnf labelExclusionFilters `Prelude.seq`
+          Prelude.rnf labelInclusionFilters
 
 instance Data.ToJSON GeneralLabelsSettings where
   toJSON GeneralLabelsSettings' {..} =

@@ -257,11 +257,11 @@ instance Prelude.Hashable SearchFacesByImage where
 
 instance Prelude.NFData SearchFacesByImage where
   rnf SearchFacesByImage' {..} =
-    Prelude.rnf faceMatchThreshold
-      `Prelude.seq` Prelude.rnf maxFaces
-      `Prelude.seq` Prelude.rnf qualityFilter
-      `Prelude.seq` Prelude.rnf collectionId
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf faceMatchThreshold `Prelude.seq`
+      Prelude.rnf maxFaces `Prelude.seq`
+        Prelude.rnf qualityFilter `Prelude.seq`
+          Prelude.rnf collectionId `Prelude.seq`
+            Prelude.rnf image
 
 instance Data.ToHeaders SearchFacesByImage where
   toHeaders =
@@ -377,8 +377,8 @@ searchFacesByImageResponse_httpStatus = Lens.lens (\SearchFacesByImageResponse' 
 
 instance Prelude.NFData SearchFacesByImageResponse where
   rnf SearchFacesByImageResponse' {..} =
-    Prelude.rnf faceMatches
-      `Prelude.seq` Prelude.rnf faceModelVersion
-      `Prelude.seq` Prelude.rnf searchedFaceBoundingBox
-      `Prelude.seq` Prelude.rnf searchedFaceConfidence
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf faceMatches `Prelude.seq`
+      Prelude.rnf faceModelVersion `Prelude.seq`
+        Prelude.rnf searchedFaceBoundingBox `Prelude.seq`
+          Prelude.rnf searchedFaceConfidence `Prelude.seq`
+            Prelude.rnf httpStatus

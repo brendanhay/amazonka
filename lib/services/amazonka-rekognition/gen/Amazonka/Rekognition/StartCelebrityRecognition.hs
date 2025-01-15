@@ -179,10 +179,10 @@ instance Prelude.Hashable StartCelebrityRecognition where
 
 instance Prelude.NFData StartCelebrityRecognition where
   rnf StartCelebrityRecognition' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf video
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobTag `Prelude.seq`
+        Prelude.rnf notificationChannel `Prelude.seq`
+          Prelude.rnf video
 
 instance Data.ToHeaders StartCelebrityRecognition where
   toHeaders =
@@ -265,5 +265,5 @@ instance
     StartCelebrityRecognitionResponse
   where
   rnf StartCelebrityRecognitionResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

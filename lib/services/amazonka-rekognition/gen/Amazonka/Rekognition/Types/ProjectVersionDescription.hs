@@ -257,18 +257,18 @@ instance Prelude.Hashable ProjectVersionDescription where
 
 instance Prelude.NFData ProjectVersionDescription where
   rnf ProjectVersionDescription' {..} =
-    Prelude.rnf billableTrainingTimeInSeconds
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf evaluationResult
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf manifestSummary
-      `Prelude.seq` Prelude.rnf maxInferenceUnits
-      `Prelude.seq` Prelude.rnf minInferenceUnits
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf projectVersionArn
-      `Prelude.seq` Prelude.rnf sourceProjectVersionArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf testingDataResult
-      `Prelude.seq` Prelude.rnf trainingDataResult
-      `Prelude.seq` Prelude.rnf trainingEndTimestamp
+    Prelude.rnf billableTrainingTimeInSeconds `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf evaluationResult `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf manifestSummary `Prelude.seq`
+              Prelude.rnf maxInferenceUnits `Prelude.seq`
+                Prelude.rnf minInferenceUnits `Prelude.seq`
+                  Prelude.rnf outputConfig `Prelude.seq`
+                    Prelude.rnf projectVersionArn `Prelude.seq`
+                      Prelude.rnf sourceProjectVersionArn `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf statusMessage `Prelude.seq`
+                            Prelude.rnf testingDataResult `Prelude.seq`
+                              Prelude.rnf trainingDataResult `Prelude.seq`
+                                Prelude.rnf trainingEndTimestamp

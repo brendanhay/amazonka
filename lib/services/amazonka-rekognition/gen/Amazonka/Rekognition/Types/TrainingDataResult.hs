@@ -100,6 +100,6 @@ instance Prelude.Hashable TrainingDataResult where
 
 instance Prelude.NFData TrainingDataResult where
   rnf TrainingDataResult' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf validation
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf output `Prelude.seq`
+        Prelude.rnf validation

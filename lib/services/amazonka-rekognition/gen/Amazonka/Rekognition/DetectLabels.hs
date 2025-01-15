@@ -318,11 +318,11 @@ instance Prelude.Hashable DetectLabels where
 
 instance Prelude.NFData DetectLabels where
   rnf DetectLabels' {..} =
-    Prelude.rnf features
-      `Prelude.seq` Prelude.rnf maxLabels
-      `Prelude.seq` Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf features `Prelude.seq`
+      Prelude.rnf maxLabels `Prelude.seq`
+        Prelude.rnf minConfidence `Prelude.seq`
+          Prelude.rnf settings `Prelude.seq`
+            Prelude.rnf image
 
 instance Data.ToHeaders DetectLabels where
   toHeaders =
@@ -470,8 +470,8 @@ detectLabelsResponse_httpStatus = Lens.lens (\DetectLabelsResponse' {httpStatus}
 
 instance Prelude.NFData DetectLabelsResponse where
   rnf DetectLabelsResponse' {..} =
-    Prelude.rnf imageProperties
-      `Prelude.seq` Prelude.rnf labelModelVersion
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf orientationCorrection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageProperties `Prelude.seq`
+      Prelude.rnf labelModelVersion `Prelude.seq`
+        Prelude.rnf labels `Prelude.seq`
+          Prelude.rnf orientationCorrection `Prelude.seq`
+            Prelude.rnf httpStatus

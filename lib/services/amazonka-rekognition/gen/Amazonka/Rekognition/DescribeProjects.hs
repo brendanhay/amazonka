@@ -136,12 +136,12 @@ instance Core.AWSPager DescribeProjects where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeProjects_nextToken
-          Lens..~ rs
-          Lens.^? describeProjectsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeProjects_nextToken
+              Lens..~ rs
+              Lens.^? describeProjectsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeProjects where
   type
@@ -170,9 +170,9 @@ instance Prelude.Hashable DescribeProjects where
 
 instance Prelude.NFData DescribeProjects where
   rnf DescribeProjects' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectNames
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf projectNames
 
 instance Data.ToHeaders DescribeProjects where
   toHeaders =
@@ -267,6 +267,6 @@ describeProjectsResponse_httpStatus = Lens.lens (\DescribeProjectsResponse' {htt
 
 instance Prelude.NFData DescribeProjectsResponse where
   rnf DescribeProjectsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectDescriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf projectDescriptions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -81,5 +81,5 @@ instance Prelude.Hashable Mustache where
 
 instance Prelude.NFData Mustache where
   rnf Mustache' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf value

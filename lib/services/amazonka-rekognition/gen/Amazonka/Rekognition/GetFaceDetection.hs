@@ -166,9 +166,9 @@ instance Prelude.Hashable GetFaceDetection where
 
 instance Prelude.NFData GetFaceDetection where
   rnf GetFaceDetection' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetFaceDetection where
   toHeaders =
@@ -292,9 +292,9 @@ getFaceDetectionResponse_httpStatus = Lens.lens (\GetFaceDetectionResponse' {htt
 
 instance Prelude.NFData GetFaceDetectionResponse where
   rnf GetFaceDetectionResponse' {..} =
-    Prelude.rnf faces
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf faces `Prelude.seq`
+      Prelude.rnf jobStatus `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf videoMetadata `Prelude.seq`
+              Prelude.rnf httpStatus

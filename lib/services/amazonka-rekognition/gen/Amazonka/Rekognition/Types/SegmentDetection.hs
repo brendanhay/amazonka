@@ -231,15 +231,15 @@ instance Prelude.Hashable SegmentDetection where
 
 instance Prelude.NFData SegmentDetection where
   rnf SegmentDetection' {..} =
-    Prelude.rnf durationFrames
-      `Prelude.seq` Prelude.rnf durationMillis
-      `Prelude.seq` Prelude.rnf durationSMPTE
-      `Prelude.seq` Prelude.rnf endFrameNumber
-      `Prelude.seq` Prelude.rnf endTimecodeSMPTE
-      `Prelude.seq` Prelude.rnf endTimestampMillis
-      `Prelude.seq` Prelude.rnf shotSegment
-      `Prelude.seq` Prelude.rnf startFrameNumber
-      `Prelude.seq` Prelude.rnf startTimecodeSMPTE
-      `Prelude.seq` Prelude.rnf startTimestampMillis
-      `Prelude.seq` Prelude.rnf technicalCueSegment
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf durationFrames `Prelude.seq`
+      Prelude.rnf durationMillis `Prelude.seq`
+        Prelude.rnf durationSMPTE `Prelude.seq`
+          Prelude.rnf endFrameNumber `Prelude.seq`
+            Prelude.rnf endTimecodeSMPTE `Prelude.seq`
+              Prelude.rnf endTimestampMillis `Prelude.seq`
+                Prelude.rnf shotSegment `Prelude.seq`
+                  Prelude.rnf startFrameNumber `Prelude.seq`
+                    Prelude.rnf startTimecodeSMPTE `Prelude.seq`
+                      Prelude.rnf startTimestampMillis `Prelude.seq`
+                        Prelude.rnf technicalCueSegment `Prelude.seq`
+                          Prelude.rnf type'

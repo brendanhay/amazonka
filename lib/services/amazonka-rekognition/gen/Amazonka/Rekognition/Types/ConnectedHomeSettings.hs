@@ -98,8 +98,8 @@ instance Prelude.Hashable ConnectedHomeSettings where
 
 instance Prelude.NFData ConnectedHomeSettings where
   rnf ConnectedHomeSettings' {..} =
-    Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf labels
+    Prelude.rnf minConfidence `Prelude.seq`
+      Prelude.rnf labels
 
 instance Data.ToJSON ConnectedHomeSettings where
   toJSON ConnectedHomeSettings' {..} =

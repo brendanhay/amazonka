@@ -141,9 +141,9 @@ instance Prelude.Hashable Label where
 
 instance Prelude.NFData Label where
   rnf Label' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf categories
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parents
+    Prelude.rnf aliases `Prelude.seq`
+      Prelude.rnf categories `Prelude.seq`
+        Prelude.rnf confidence `Prelude.seq`
+          Prelude.rnf instances `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf parents

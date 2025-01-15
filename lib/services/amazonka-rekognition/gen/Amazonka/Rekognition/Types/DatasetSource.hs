@@ -83,8 +83,8 @@ instance Prelude.Hashable DatasetSource where
 
 instance Prelude.NFData DatasetSource where
   rnf DatasetSource' {..} =
-    Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf groundTruthManifest
+    Prelude.rnf datasetArn `Prelude.seq`
+      Prelude.rnf groundTruthManifest
 
 instance Data.ToJSON DatasetSource where
   toJSON DatasetSource' {..} =

@@ -99,6 +99,6 @@ instance Prelude.Hashable PersonDetail where
 
 instance Prelude.NFData PersonDetail where
   rnf PersonDetail' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf face
-      `Prelude.seq` Prelude.rnf index
+    Prelude.rnf boundingBox `Prelude.seq`
+      Prelude.rnf face `Prelude.seq`
+        Prelude.rnf index

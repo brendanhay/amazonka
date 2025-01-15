@@ -131,8 +131,8 @@ instance Prelude.Hashable CreateCollection where
 
 instance Prelude.NFData CreateCollection where
   rnf CreateCollection' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf collectionId
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf collectionId
 
 instance Data.ToHeaders CreateCollection where
   toHeaders =
@@ -229,7 +229,7 @@ createCollectionResponse_httpStatus = Lens.lens (\CreateCollectionResponse' {htt
 
 instance Prelude.NFData CreateCollectionResponse where
   rnf CreateCollectionResponse' {..} =
-    Prelude.rnf collectionArn
-      `Prelude.seq` Prelude.rnf faceModelVersion
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf collectionArn `Prelude.seq`
+      Prelude.rnf faceModelVersion `Prelude.seq`
+        Prelude.rnf statusCode `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -105,8 +105,8 @@ instance Prelude.Hashable Image where
 
 instance Prelude.NFData Image where
   rnf Image' {..} =
-    Prelude.rnf bytes
-      `Prelude.seq` Prelude.rnf s3Object
+    Prelude.rnf bytes `Prelude.seq`
+      Prelude.rnf s3Object
 
 instance Data.ToJSON Image where
   toJSON Image' {..} =

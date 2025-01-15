@@ -87,5 +87,5 @@ instance Prelude.Hashable FaceRecord where
 
 instance Prelude.NFData FaceRecord where
   rnf FaceRecord' {..} =
-    Prelude.rnf face
-      `Prelude.seq` Prelude.rnf faceDetail
+    Prelude.rnf face `Prelude.seq`
+      Prelude.rnf faceDetail

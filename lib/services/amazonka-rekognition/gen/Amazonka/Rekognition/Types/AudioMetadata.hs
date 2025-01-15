@@ -104,7 +104,7 @@ instance Prelude.Hashable AudioMetadata where
 
 instance Prelude.NFData AudioMetadata where
   rnf AudioMetadata' {..} =
-    Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf durationMillis
-      `Prelude.seq` Prelude.rnf numberOfChannels
-      `Prelude.seq` Prelude.rnf sampleRate
+    Prelude.rnf codec `Prelude.seq`
+      Prelude.rnf durationMillis `Prelude.seq`
+        Prelude.rnf numberOfChannels `Prelude.seq`
+          Prelude.rnf sampleRate

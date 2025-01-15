@@ -79,8 +79,8 @@ instance Prelude.Hashable StartTextDetectionFilters where
 
 instance Prelude.NFData StartTextDetectionFilters where
   rnf StartTextDetectionFilters' {..} =
-    Prelude.rnf regionsOfInterest
-      `Prelude.seq` Prelude.rnf wordFilter
+    Prelude.rnf regionsOfInterest `Prelude.seq`
+      Prelude.rnf wordFilter
 
 instance Data.ToJSON StartTextDetectionFilters where
   toJSON StartTextDetectionFilters' {..} =

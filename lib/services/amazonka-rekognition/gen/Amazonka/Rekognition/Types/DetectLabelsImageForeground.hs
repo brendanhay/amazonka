@@ -93,5 +93,5 @@ instance Prelude.Hashable DetectLabelsImageForeground where
 
 instance Prelude.NFData DetectLabelsImageForeground where
   rnf DetectLabelsImageForeground' {..} =
-    Prelude.rnf dominantColors
-      `Prelude.seq` Prelude.rnf quality
+    Prelude.rnf dominantColors `Prelude.seq`
+      Prelude.rnf quality

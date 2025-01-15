@@ -87,8 +87,8 @@ instance
     ConnectedHomeSettingsForUpdate
   where
   rnf ConnectedHomeSettingsForUpdate' {..} =
-    Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf minConfidence
+    Prelude.rnf labels `Prelude.seq`
+      Prelude.rnf minConfidence
 
 instance Data.ToJSON ConnectedHomeSettingsForUpdate where
   toJSON ConnectedHomeSettingsForUpdate' {..} =

@@ -85,5 +85,5 @@ instance Prelude.Hashable TechnicalCueSegment where
 
 instance Prelude.NFData TechnicalCueSegment where
   rnf TechnicalCueSegment' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf type'

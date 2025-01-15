@@ -214,10 +214,10 @@ instance Prelude.Hashable GetContentModeration where
 
 instance Prelude.NFData GetContentModeration where
   rnf GetContentModeration' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf jobId
 
 instance Data.ToHeaders GetContentModeration where
   toHeaders =
@@ -355,10 +355,10 @@ getContentModerationResponse_httpStatus = Lens.lens (\GetContentModerationRespon
 
 instance Prelude.NFData GetContentModerationResponse where
   rnf GetContentModerationResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf moderationLabels
-      `Prelude.seq` Prelude.rnf moderationModelVersion
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobStatus `Prelude.seq`
+      Prelude.rnf moderationLabels `Prelude.seq`
+        Prelude.rnf moderationModelVersion `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf videoMetadata `Prelude.seq`
+                Prelude.rnf httpStatus

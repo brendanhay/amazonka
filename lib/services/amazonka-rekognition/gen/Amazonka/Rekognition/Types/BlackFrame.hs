@@ -129,8 +129,8 @@ instance Prelude.Hashable BlackFrame where
 
 instance Prelude.NFData BlackFrame where
   rnf BlackFrame' {..} =
-    Prelude.rnf maxPixelThreshold
-      `Prelude.seq` Prelude.rnf minCoveragePercentage
+    Prelude.rnf maxPixelThreshold `Prelude.seq`
+      Prelude.rnf minCoveragePercentage
 
 instance Data.ToJSON BlackFrame where
   toJSON BlackFrame' {..} =

@@ -130,8 +130,8 @@ instance Prelude.Hashable LabelDetection where
 
 instance Prelude.NFData LabelDetection where
   rnf LabelDetection' {..} =
-    Prelude.rnf durationMillis
-      `Prelude.seq` Prelude.rnf endTimestampMillis
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf startTimestampMillis
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf durationMillis `Prelude.seq`
+      Prelude.rnf endTimestampMillis `Prelude.seq`
+        Prelude.rnf label `Prelude.seq`
+          Prelude.rnf startTimestampMillis `Prelude.seq`
+            Prelude.rnf timestamp

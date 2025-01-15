@@ -135,12 +135,12 @@ instance Core.AWSPager ListDatasetLabels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDatasetLabels_nextToken
-          Lens..~ rs
-          Lens.^? listDatasetLabelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDatasetLabels_nextToken
+              Lens..~ rs
+              Lens.^? listDatasetLabelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatasetLabels where
   type
@@ -169,9 +169,9 @@ instance Prelude.Hashable ListDatasetLabels where
 
 instance Prelude.NFData ListDatasetLabels where
   rnf ListDatasetLabels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf datasetArn
 
 instance Data.ToHeaders ListDatasetLabels where
   toHeaders =
@@ -263,6 +263,6 @@ listDatasetLabelsResponse_httpStatus = Lens.lens (\ListDatasetLabelsResponse' {h
 
 instance Prelude.NFData ListDatasetLabelsResponse where
   rnf ListDatasetLabelsResponse' {..} =
-    Prelude.rnf datasetLabelDescriptions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetLabelDescriptions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

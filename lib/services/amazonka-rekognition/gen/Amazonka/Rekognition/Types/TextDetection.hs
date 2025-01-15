@@ -158,9 +158,9 @@ instance Prelude.Hashable TextDetection where
 
 instance Prelude.NFData TextDetection where
   rnf TextDetection' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf detectedText
-      `Prelude.seq` Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf detectedText `Prelude.seq`
+        Prelude.rnf geometry `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf parentId `Prelude.seq`
+              Prelude.rnf type'

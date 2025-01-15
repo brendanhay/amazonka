@@ -81,5 +81,5 @@ instance Prelude.Hashable EyeOpen where
 
 instance Prelude.NFData EyeOpen where
   rnf EyeOpen' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf value

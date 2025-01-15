@@ -115,12 +115,12 @@ instance Core.AWSPager ListStreamProcessors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStreamProcessors_nextToken
-          Lens..~ rs
-          Lens.^? listStreamProcessorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStreamProcessors_nextToken
+              Lens..~ rs
+              Lens.^? listStreamProcessorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamProcessors where
   type
@@ -148,8 +148,8 @@ instance Prelude.Hashable ListStreamProcessors where
 
 instance Prelude.NFData ListStreamProcessors where
   rnf ListStreamProcessors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStreamProcessors where
   toHeaders =
@@ -237,6 +237,6 @@ listStreamProcessorsResponse_httpStatus = Lens.lens (\ListStreamProcessorsRespon
 
 instance Prelude.NFData ListStreamProcessorsResponse where
   rnf ListStreamProcessorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streamProcessors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf streamProcessors `Prelude.seq`
+        Prelude.rnf httpStatus

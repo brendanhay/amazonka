@@ -84,5 +84,5 @@ instance Prelude.Hashable MouthOpen where
 
 instance Prelude.NFData MouthOpen where
   rnf MouthOpen' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf value

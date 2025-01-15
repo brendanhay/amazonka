@@ -178,8 +178,8 @@ instance Prelude.Hashable DetectFaces where
 
 instance Prelude.NFData DetectFaces where
   rnf DetectFaces' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf image
 
 instance Data.ToHeaders DetectFaces where
   toHeaders =
@@ -299,6 +299,6 @@ detectFacesResponse_httpStatus = Lens.lens (\DetectFacesResponse' {httpStatus} -
 
 instance Prelude.NFData DetectFacesResponse where
   rnf DetectFacesResponse' {..} =
-    Prelude.rnf faceDetails
-      `Prelude.seq` Prelude.rnf orientationCorrection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf faceDetails `Prelude.seq`
+      Prelude.rnf orientationCorrection `Prelude.seq`
+        Prelude.rnf httpStatus

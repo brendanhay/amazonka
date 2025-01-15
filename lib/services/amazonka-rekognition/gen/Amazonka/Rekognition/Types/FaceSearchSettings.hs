@@ -92,8 +92,8 @@ instance Prelude.Hashable FaceSearchSettings where
 
 instance Prelude.NFData FaceSearchSettings where
   rnf FaceSearchSettings' {..} =
-    Prelude.rnf collectionId
-      `Prelude.seq` Prelude.rnf faceMatchThreshold
+    Prelude.rnf collectionId `Prelude.seq`
+      Prelude.rnf faceMatchThreshold
 
 instance Data.ToJSON FaceSearchSettings where
   toJSON FaceSearchSettings' {..} =

@@ -183,5 +183,5 @@ stopProjectVersionResponse_httpStatus = Lens.lens (\StopProjectVersionResponse' 
 
 instance Prelude.NFData StopProjectVersionResponse where
   rnf StopProjectVersionResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

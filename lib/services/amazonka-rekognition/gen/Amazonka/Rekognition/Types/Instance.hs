@@ -100,6 +100,6 @@ instance Prelude.Hashable Instance where
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf dominantColors
+    Prelude.rnf boundingBox `Prelude.seq`
+      Prelude.rnf confidence `Prelude.seq`
+        Prelude.rnf dominantColors

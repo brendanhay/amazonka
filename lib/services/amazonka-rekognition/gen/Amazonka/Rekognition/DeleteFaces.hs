@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteFaces where
 
 instance Prelude.NFData DeleteFaces where
   rnf DeleteFaces' {..} =
-    Prelude.rnf collectionId
-      `Prelude.seq` Prelude.rnf faceIds
+    Prelude.rnf collectionId `Prelude.seq`
+      Prelude.rnf faceIds
 
 instance Data.ToHeaders DeleteFaces where
   toHeaders =
@@ -186,5 +186,5 @@ deleteFacesResponse_httpStatus = Lens.lens (\DeleteFacesResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteFacesResponse where
   rnf DeleteFacesResponse' {..} =
-    Prelude.rnf deletedFaces
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deletedFaces `Prelude.seq`
+      Prelude.rnf httpStatus

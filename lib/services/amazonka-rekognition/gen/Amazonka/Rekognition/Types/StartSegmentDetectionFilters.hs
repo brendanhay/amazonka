@@ -77,8 +77,8 @@ instance
 
 instance Prelude.NFData StartSegmentDetectionFilters where
   rnf StartSegmentDetectionFilters' {..} =
-    Prelude.rnf shotFilter
-      `Prelude.seq` Prelude.rnf technicalCueFilter
+    Prelude.rnf shotFilter `Prelude.seq`
+      Prelude.rnf technicalCueFilter
 
 instance Data.ToJSON StartSegmentDetectionFilters where
   toJSON StartSegmentDetectionFilters' {..} =

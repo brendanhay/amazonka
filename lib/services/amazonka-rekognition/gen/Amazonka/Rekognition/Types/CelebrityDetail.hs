@@ -141,10 +141,10 @@ instance Prelude.Hashable CelebrityDetail where
 
 instance Prelude.NFData CelebrityDetail where
   rnf CelebrityDetail' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf face
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf knownGender
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf urls
+    Prelude.rnf boundingBox `Prelude.seq`
+      Prelude.rnf confidence `Prelude.seq`
+        Prelude.rnf face `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf knownGender `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf urls

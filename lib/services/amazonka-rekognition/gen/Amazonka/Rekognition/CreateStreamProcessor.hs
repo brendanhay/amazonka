@@ -345,16 +345,16 @@ instance Prelude.Hashable CreateStreamProcessor where
 
 instance Prelude.NFData CreateStreamProcessor where
   rnf CreateStreamProcessor' {..} =
-    Prelude.rnf dataSharingPreference
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf regionsOfInterest
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf dataSharingPreference `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf notificationChannel `Prelude.seq`
+          Prelude.rnf regionsOfInterest `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf input `Prelude.seq`
+                Prelude.rnf output `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf settings `Prelude.seq`
+                      Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateStreamProcessor where
   toHeaders =
@@ -438,5 +438,5 @@ createStreamProcessorResponse_httpStatus = Lens.lens (\CreateStreamProcessorResp
 
 instance Prelude.NFData CreateStreamProcessorResponse where
   rnf CreateStreamProcessorResponse' {..} =
-    Prelude.rnf streamProcessorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamProcessorArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -224,8 +224,8 @@ describeCollectionResponse_httpStatus = Lens.lens (\DescribeCollectionResponse' 
 
 instance Prelude.NFData DescribeCollectionResponse where
   rnf DescribeCollectionResponse' {..} =
-    Prelude.rnf collectionARN
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf faceCount
-      `Prelude.seq` Prelude.rnf faceModelVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf collectionARN `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf faceCount `Prelude.seq`
+          Prelude.rnf faceModelVersion `Prelude.seq`
+            Prelude.rnf httpStatus

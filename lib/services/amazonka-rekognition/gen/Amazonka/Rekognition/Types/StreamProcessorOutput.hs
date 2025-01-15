@@ -92,8 +92,8 @@ instance Prelude.Hashable StreamProcessorOutput where
 
 instance Prelude.NFData StreamProcessorOutput where
   rnf StreamProcessorOutput' {..} =
-    Prelude.rnf kinesisDataStream
-      `Prelude.seq` Prelude.rnf s3Destination
+    Prelude.rnf kinesisDataStream `Prelude.seq`
+      Prelude.rnf s3Destination
 
 instance Data.ToJSON StreamProcessorOutput where
   toJSON StreamProcessorOutput' {..} =

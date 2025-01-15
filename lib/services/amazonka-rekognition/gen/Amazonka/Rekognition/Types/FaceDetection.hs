@@ -88,5 +88,5 @@ instance Prelude.Hashable FaceDetection where
 
 instance Prelude.NFData FaceDetection where
   rnf FaceDetection' {..} =
-    Prelude.rnf face
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf face `Prelude.seq`
+      Prelude.rnf timestamp

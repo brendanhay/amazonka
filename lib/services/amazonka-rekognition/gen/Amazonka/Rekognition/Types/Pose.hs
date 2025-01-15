@@ -92,6 +92,6 @@ instance Prelude.Hashable Pose where
 
 instance Prelude.NFData Pose where
   rnf Pose' {..} =
-    Prelude.rnf pitch
-      `Prelude.seq` Prelude.rnf roll
-      `Prelude.seq` Prelude.rnf yaw
+    Prelude.rnf pitch `Prelude.seq`
+      Prelude.rnf roll `Prelude.seq`
+        Prelude.rnf yaw

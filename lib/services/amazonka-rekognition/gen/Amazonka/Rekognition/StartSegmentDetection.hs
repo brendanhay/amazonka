@@ -209,12 +209,12 @@ instance Prelude.Hashable StartSegmentDetection where
 
 instance Prelude.NFData StartSegmentDetection where
   rnf StartSegmentDetection' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf video
-      `Prelude.seq` Prelude.rnf segmentTypes
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf jobTag `Prelude.seq`
+          Prelude.rnf notificationChannel `Prelude.seq`
+            Prelude.rnf video `Prelude.seq`
+              Prelude.rnf segmentTypes
 
 instance Data.ToHeaders StartSegmentDetection where
   toHeaders =
@@ -296,5 +296,5 @@ startSegmentDetectionResponse_httpStatus = Lens.lens (\StartSegmentDetectionResp
 
 instance Prelude.NFData StartSegmentDetectionResponse where
   rnf StartSegmentDetectionResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

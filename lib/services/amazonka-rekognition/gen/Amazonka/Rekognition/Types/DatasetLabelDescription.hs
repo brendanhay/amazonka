@@ -82,5 +82,5 @@ instance Prelude.Hashable DatasetLabelDescription where
 
 instance Prelude.NFData DatasetLabelDescription where
   rnf DatasetLabelDescription' {..} =
-    Prelude.rnf labelName
-      `Prelude.seq` Prelude.rnf labelStats
+    Prelude.rnf labelName `Prelude.seq`
+      Prelude.rnf labelStats

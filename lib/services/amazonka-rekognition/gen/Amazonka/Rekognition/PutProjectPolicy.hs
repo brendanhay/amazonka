@@ -178,10 +178,10 @@ instance Prelude.Hashable PutProjectPolicy where
 
 instance Prelude.NFData PutProjectPolicy where
   rnf PutProjectPolicy' {..} =
-    Prelude.rnf policyRevisionId
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf policyRevisionId `Prelude.seq`
+      Prelude.rnf projectArn `Prelude.seq`
+        Prelude.rnf policyName `Prelude.seq`
+          Prelude.rnf policyDocument
 
 instance Data.ToHeaders PutProjectPolicy where
   toHeaders =
@@ -258,5 +258,5 @@ putProjectPolicyResponse_httpStatus = Lens.lens (\PutProjectPolicyResponse' {htt
 
 instance Prelude.NFData PutProjectPolicyResponse where
   rnf PutProjectPolicyResponse' {..} =
-    Prelude.rnf policyRevisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyRevisionId `Prelude.seq`
+      Prelude.rnf httpStatus

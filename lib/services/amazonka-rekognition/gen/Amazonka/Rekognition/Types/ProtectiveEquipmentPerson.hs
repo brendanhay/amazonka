@@ -116,7 +116,7 @@ instance Prelude.Hashable ProtectiveEquipmentPerson where
 
 instance Prelude.NFData ProtectiveEquipmentPerson where
   rnf ProtectiveEquipmentPerson' {..} =
-    Prelude.rnf bodyParts
-      `Prelude.seq` Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf bodyParts `Prelude.seq`
+      Prelude.rnf boundingBox `Prelude.seq`
+        Prelude.rnf confidence `Prelude.seq`
+          Prelude.rnf id

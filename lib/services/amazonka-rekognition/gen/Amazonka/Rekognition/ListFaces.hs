@@ -131,12 +131,12 @@ instance Core.AWSPager ListFaces where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFaces_nextToken
-          Lens..~ rs
-          Lens.^? listFacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFaces_nextToken
+              Lens..~ rs
+              Lens.^? listFacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFaces where
   type AWSResponse ListFaces = ListFacesResponse
@@ -161,9 +161,9 @@ instance Prelude.Hashable ListFaces where
 
 instance Prelude.NFData ListFaces where
   rnf ListFaces' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf collectionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf collectionId
 
 instance Data.ToHeaders ListFaces where
   toHeaders =
@@ -261,7 +261,7 @@ listFacesResponse_httpStatus = Lens.lens (\ListFacesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListFacesResponse where
   rnf ListFacesResponse' {..} =
-    Prelude.rnf faceModelVersion
-      `Prelude.seq` Prelude.rnf faces
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf faceModelVersion `Prelude.seq`
+      Prelude.rnf faces `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

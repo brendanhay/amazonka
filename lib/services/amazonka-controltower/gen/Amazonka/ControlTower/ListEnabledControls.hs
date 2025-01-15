@@ -117,12 +117,12 @@ instance Core.AWSPager ListEnabledControls where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEnabledControls_nextToken
-          Lens..~ rs
-          Lens.^? listEnabledControlsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEnabledControls_nextToken
+              Lens..~ rs
+              Lens.^? listEnabledControlsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEnabledControls where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListEnabledControls where
 
 instance Prelude.NFData ListEnabledControls where
   rnf ListEnabledControls' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf targetIdentifier
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf targetIdentifier
 
 instance Data.ToHeaders ListEnabledControls where
   toHeaders =
@@ -239,6 +239,6 @@ listEnabledControlsResponse_enabledControls = Lens.lens (\ListEnabledControlsRes
 
 instance Prelude.NFData ListEnabledControlsResponse where
   rnf ListEnabledControlsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf enabledControls
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf enabledControls

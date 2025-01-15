@@ -173,5 +173,5 @@ getControlOperationResponse_controlOperation = Lens.lens (\GetControlOperationRe
 
 instance Prelude.NFData GetControlOperationResponse where
   rnf GetControlOperationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf controlOperation
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf controlOperation

@@ -118,8 +118,8 @@ instance Prelude.Hashable ControlOperation where
 
 instance Prelude.NFData ControlOperation where
   rnf ControlOperation' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf operationType
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf operationType `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage

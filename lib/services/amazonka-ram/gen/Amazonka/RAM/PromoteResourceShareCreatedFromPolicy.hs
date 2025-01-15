@@ -211,5 +211,5 @@ instance
   where
   rnf
     PromoteResourceShareCreatedFromPolicyResponse' {..} =
-      Prelude.rnf returnValue
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf returnValue `Prelude.seq`
+        Prelude.rnf httpStatus

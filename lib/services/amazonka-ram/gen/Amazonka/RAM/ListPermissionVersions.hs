@@ -173,9 +173,9 @@ instance Prelude.Hashable ListPermissionVersions where
 
 instance Prelude.NFData ListPermissionVersions where
   rnf ListPermissionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissionArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf permissionArn
 
 instance Data.ToHeaders ListPermissionVersions where
   toHeaders =
@@ -276,6 +276,6 @@ instance
     ListPermissionVersionsResponse
   where
   rnf ListPermissionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -255,12 +255,12 @@ instance Core.AWSPager GetResourceShareAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getResourceShareAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getResourceShareAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getResourceShareAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getResourceShareAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResourceShareAssociations where
   type
@@ -296,13 +296,13 @@ instance
 
 instance Prelude.NFData GetResourceShareAssociations where
   rnf GetResourceShareAssociations' {..} =
-    Prelude.rnf associationStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceShareArns
-      `Prelude.seq` Prelude.rnf associationType
+    Prelude.rnf associationStatus `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf principal `Prelude.seq`
+            Prelude.rnf resourceArn `Prelude.seq`
+              Prelude.rnf resourceShareArns `Prelude.seq`
+                Prelude.rnf associationType
 
 instance Data.ToHeaders GetResourceShareAssociations where
   toHeaders =
@@ -408,6 +408,6 @@ instance
     GetResourceShareAssociationsResponse
   where
   rnf GetResourceShareAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceShareAssociations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceShareAssociations `Prelude.seq`
+        Prelude.rnf httpStatus

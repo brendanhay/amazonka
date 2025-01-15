@@ -227,12 +227,12 @@ instance Prelude.Hashable ResourceShareAssociation where
 
 instance Prelude.NFData ResourceShareAssociation where
   rnf ResourceShareAssociation' {..} =
-    Prelude.rnf associatedEntity
-      `Prelude.seq` Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf external
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf resourceShareArn
-      `Prelude.seq` Prelude.rnf resourceShareName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf associatedEntity `Prelude.seq`
+      Prelude.rnf associationType `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf external `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf resourceShareArn `Prelude.seq`
+                Prelude.rnf resourceShareName `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusMessage

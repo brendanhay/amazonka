@@ -232,10 +232,10 @@ instance
     ListPendingInvitationResources
   where
   rnf ListPendingInvitationResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceRegionScope
-      `Prelude.seq` Prelude.rnf resourceShareInvitationArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceRegionScope `Prelude.seq`
+          Prelude.rnf resourceShareInvitationArn
 
 instance
   Data.ToHeaders
@@ -345,6 +345,6 @@ instance
     ListPendingInvitationResourcesResponse
   where
   rnf ListPendingInvitationResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resources `Prelude.seq`
+        Prelude.rnf httpStatus

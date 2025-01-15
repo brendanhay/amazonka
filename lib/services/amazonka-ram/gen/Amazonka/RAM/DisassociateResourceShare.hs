@@ -257,10 +257,10 @@ instance Prelude.Hashable DisassociateResourceShare where
 
 instance Prelude.NFData DisassociateResourceShare where
   rnf DisassociateResourceShare' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf resourceShareArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf principals `Prelude.seq`
+        Prelude.rnf resourceArns `Prelude.seq`
+          Prelude.rnf resourceShareArn
 
 instance Data.ToHeaders DisassociateResourceShare where
   toHeaders =
@@ -360,6 +360,6 @@ instance
     DisassociateResourceShareResponse
   where
   rnf DisassociateResourceShareResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceShareAssociations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf resourceShareAssociations `Prelude.seq`
+        Prelude.rnf httpStatus

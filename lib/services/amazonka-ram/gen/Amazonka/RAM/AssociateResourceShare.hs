@@ -266,10 +266,10 @@ instance Prelude.Hashable AssociateResourceShare where
 
 instance Prelude.NFData AssociateResourceShare where
   rnf AssociateResourceShare' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf resourceShareArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf principals `Prelude.seq`
+        Prelude.rnf resourceArns `Prelude.seq`
+          Prelude.rnf resourceShareArn
 
 instance Data.ToHeaders AssociateResourceShare where
   toHeaders =
@@ -365,6 +365,6 @@ instance
     AssociateResourceShareResponse
   where
   rnf AssociateResourceShareResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceShareAssociations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf resourceShareAssociations `Prelude.seq`
+        Prelude.rnf httpStatus

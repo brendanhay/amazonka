@@ -229,13 +229,13 @@ instance Prelude.Hashable ResourceShare where
 
 instance Prelude.NFData ResourceShare where
   rnf ResourceShare' {..} =
-    Prelude.rnf allowExternalPrincipals
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf featureSet
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owningAccountId
-      `Prelude.seq` Prelude.rnf resourceShareArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf allowExternalPrincipals `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf featureSet `Prelude.seq`
+          Prelude.rnf lastUpdatedTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf owningAccountId `Prelude.seq`
+                Prelude.rnf resourceShareArn `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusMessage `Prelude.seq`
+                      Prelude.rnf tags

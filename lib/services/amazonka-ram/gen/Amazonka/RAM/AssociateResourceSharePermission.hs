@@ -253,11 +253,11 @@ instance
     AssociateResourceSharePermission
   where
   rnf AssociateResourceSharePermission' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf permissionVersion
-      `Prelude.seq` Prelude.rnf replace
-      `Prelude.seq` Prelude.rnf resourceShareArn
-      `Prelude.seq` Prelude.rnf permissionArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf permissionVersion `Prelude.seq`
+        Prelude.rnf replace `Prelude.seq`
+          Prelude.rnf resourceShareArn `Prelude.seq`
+            Prelude.rnf permissionArn
 
 instance
   Data.ToHeaders
@@ -367,6 +367,6 @@ instance
     AssociateResourceSharePermissionResponse
   where
   rnf AssociateResourceSharePermissionResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf returnValue `Prelude.seq`
+        Prelude.rnf httpStatus

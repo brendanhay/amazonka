@@ -128,8 +128,8 @@ instance Prelude.Hashable PutResourceSet where
 
 instance Prelude.NFData PutResourceSet where
   rnf PutResourceSet' {..} =
-    Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf resourceSet
+    Prelude.rnf tagList `Prelude.seq`
+      Prelude.rnf resourceSet
 
 instance Data.ToHeaders PutResourceSet where
   toHeaders =
@@ -217,6 +217,6 @@ putResourceSetResponse_resourceSetArn = Lens.lens (\PutResourceSetResponse' {res
 
 instance Prelude.NFData PutResourceSetResponse where
   rnf PutResourceSetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceSet
-      `Prelude.seq` Prelude.rnf resourceSetArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceSet `Prelude.seq`
+        Prelude.rnf resourceSetArn

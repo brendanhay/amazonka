@@ -283,19 +283,19 @@ instance
   where
   rnf
     NetworkFirewallInvalidRouteConfigurationViolation' {..} =
-      Prelude.rnf actualFirewallEndpoint
-        `Prelude.seq` Prelude.rnf actualFirewallSubnetId
-        `Prelude.seq` Prelude.rnf actualFirewallSubnetRoutes
-        `Prelude.seq` Prelude.rnf actualInternetGatewayRoutes
-        `Prelude.seq` Prelude.rnf affectedSubnets
-        `Prelude.seq` Prelude.rnf currentFirewallSubnetRouteTable
-        `Prelude.seq` Prelude.rnf currentInternetGatewayRouteTable
-        `Prelude.seq` Prelude.rnf expectedFirewallEndpoint
-        `Prelude.seq` Prelude.rnf expectedFirewallSubnetId
-        `Prelude.seq` Prelude.rnf expectedFirewallSubnetRoutes
-        `Prelude.seq` Prelude.rnf expectedInternetGatewayRoutes
-        `Prelude.seq` Prelude.rnf internetGatewayId
-        `Prelude.seq` Prelude.rnf isRouteTableUsedInDifferentAZ
-        `Prelude.seq` Prelude.rnf routeTableId
-        `Prelude.seq` Prelude.rnf violatingRoute
-        `Prelude.seq` Prelude.rnf vpcId
+      Prelude.rnf actualFirewallEndpoint `Prelude.seq`
+        Prelude.rnf actualFirewallSubnetId `Prelude.seq`
+          Prelude.rnf actualFirewallSubnetRoutes `Prelude.seq`
+            Prelude.rnf actualInternetGatewayRoutes `Prelude.seq`
+              Prelude.rnf affectedSubnets `Prelude.seq`
+                Prelude.rnf currentFirewallSubnetRouteTable `Prelude.seq`
+                  Prelude.rnf currentInternetGatewayRouteTable `Prelude.seq`
+                    Prelude.rnf expectedFirewallEndpoint `Prelude.seq`
+                      Prelude.rnf expectedFirewallSubnetId `Prelude.seq`
+                        Prelude.rnf expectedFirewallSubnetRoutes `Prelude.seq`
+                          Prelude.rnf expectedInternetGatewayRoutes `Prelude.seq`
+                            Prelude.rnf internetGatewayId `Prelude.seq`
+                              Prelude.rnf isRouteTableUsedInDifferentAZ `Prelude.seq`
+                                Prelude.rnf routeTableId `Prelude.seq`
+                                  Prelude.rnf violatingRoute `Prelude.seq`
+                                    Prelude.rnf vpcId

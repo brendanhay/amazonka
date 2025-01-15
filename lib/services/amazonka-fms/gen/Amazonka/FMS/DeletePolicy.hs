@@ -178,8 +178,8 @@ instance Prelude.Hashable DeletePolicy where
 
 instance Prelude.NFData DeletePolicy where
   rnf DeletePolicy' {..} =
-    Prelude.rnf deleteAllPolicyResources
-      `Prelude.seq` Prelude.rnf policyId
+    Prelude.rnf deleteAllPolicyResources `Prelude.seq`
+      Prelude.rnf policyId
 
 instance Data.ToHeaders DeletePolicy where
   toHeaders =

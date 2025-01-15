@@ -153,13 +153,13 @@ instance Prelude.Hashable AppsListData where
 
 instance Prelude.NFData AppsListData where
   rnf AppsListData' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf listId
-      `Prelude.seq` Prelude.rnf listUpdateToken
-      `Prelude.seq` Prelude.rnf previousAppsList
-      `Prelude.seq` Prelude.rnf listName
-      `Prelude.seq` Prelude.rnf appsList
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf lastUpdateTime `Prelude.seq`
+        Prelude.rnf listId `Prelude.seq`
+          Prelude.rnf listUpdateToken `Prelude.seq`
+            Prelude.rnf previousAppsList `Prelude.seq`
+              Prelude.rnf listName `Prelude.seq`
+                Prelude.rnf appsList
 
 instance Data.ToJSON AppsListData where
   toJSON AppsListData' {..} =

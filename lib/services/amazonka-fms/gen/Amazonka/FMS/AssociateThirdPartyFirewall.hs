@@ -227,5 +227,5 @@ instance
     AssociateThirdPartyFirewallResponse
   where
   rnf AssociateThirdPartyFirewallResponse' {..} =
-    Prelude.rnf thirdPartyFirewallStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf thirdPartyFirewallStatus `Prelude.seq`
+      Prelude.rnf httpStatus

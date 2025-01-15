@@ -226,10 +226,10 @@ instance
     NetworkFirewallPolicyDescription
   where
   rnf NetworkFirewallPolicyDescription' {..} =
-    Prelude.rnf statefulDefaultActions
-      `Prelude.seq` Prelude.rnf statefulEngineOptions
-      `Prelude.seq` Prelude.rnf statefulRuleGroups
-      `Prelude.seq` Prelude.rnf statelessCustomActions
-      `Prelude.seq` Prelude.rnf statelessDefaultActions
-      `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions
-      `Prelude.seq` Prelude.rnf statelessRuleGroups
+    Prelude.rnf statefulDefaultActions `Prelude.seq`
+      Prelude.rnf statefulEngineOptions `Prelude.seq`
+        Prelude.rnf statefulRuleGroups `Prelude.seq`
+          Prelude.rnf statelessCustomActions `Prelude.seq`
+            Prelude.rnf statelessDefaultActions `Prelude.seq`
+              Prelude.rnf statelessFragmentDefaultActions `Prelude.seq`
+                Prelude.rnf statelessRuleGroups

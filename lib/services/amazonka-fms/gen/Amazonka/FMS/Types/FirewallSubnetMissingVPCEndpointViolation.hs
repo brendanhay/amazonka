@@ -117,7 +117,7 @@ instance
     FirewallSubnetMissingVPCEndpointViolation
   where
   rnf FirewallSubnetMissingVPCEndpointViolation' {..} =
-    Prelude.rnf firewallSubnetId
-      `Prelude.seq` Prelude.rnf subnetAvailabilityZone
-      `Prelude.seq` Prelude.rnf subnetAvailabilityZoneId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf firewallSubnetId `Prelude.seq`
+      Prelude.rnf subnetAvailabilityZone `Prelude.seq`
+        Prelude.rnf subnetAvailabilityZoneId `Prelude.seq`
+          Prelude.rnf vpcId

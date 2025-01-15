@@ -87,5 +87,5 @@ instance Prelude.Hashable PartialMatch where
 
 instance Prelude.NFData PartialMatch where
   rnf PartialMatch' {..} =
-    Prelude.rnf reference
-      `Prelude.seq` Prelude.rnf targetViolationReasons
+    Prelude.rnf reference `Prelude.seq`
+      Prelude.rnf targetViolationReasons

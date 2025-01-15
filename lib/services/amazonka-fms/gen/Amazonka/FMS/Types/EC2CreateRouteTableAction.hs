@@ -84,5 +84,5 @@ instance Prelude.Hashable EC2CreateRouteTableAction where
 
 instance Prelude.NFData EC2CreateRouteTableAction where
   rnf EC2CreateRouteTableAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf vpcId

@@ -125,7 +125,7 @@ instance
     ThirdPartyFirewallMissingSubnetViolation
   where
   rnf ThirdPartyFirewallMissingSubnetViolation' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf targetViolationReason
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf violationTarget
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf targetViolationReason `Prelude.seq`
+        Prelude.rnf vpc `Prelude.seq`
+          Prelude.rnf violationTarget

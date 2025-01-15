@@ -153,10 +153,10 @@ instance Prelude.Hashable PolicyComplianceStatus where
 
 instance Prelude.NFData PolicyComplianceStatus where
   rnf PolicyComplianceStatus' {..} =
-    Prelude.rnf evaluationResults
-      `Prelude.seq` Prelude.rnf issueInfoMap
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf memberAccount
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyOwner
+    Prelude.rnf evaluationResults `Prelude.seq`
+      Prelude.rnf issueInfoMap `Prelude.seq`
+        Prelude.rnf lastUpdated `Prelude.seq`
+          Prelude.rnf memberAccount `Prelude.seq`
+            Prelude.rnf policyId `Prelude.seq`
+              Prelude.rnf policyName `Prelude.seq`
+                Prelude.rnf policyOwner

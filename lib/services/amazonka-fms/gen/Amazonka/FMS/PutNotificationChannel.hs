@@ -116,8 +116,8 @@ instance Prelude.Hashable PutNotificationChannel where
 
 instance Prelude.NFData PutNotificationChannel where
   rnf PutNotificationChannel' {..} =
-    Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf snsRoleName
+    Prelude.rnf snsTopicArn `Prelude.seq`
+      Prelude.rnf snsRoleName
 
 instance Data.ToHeaders PutNotificationChannel where
   toHeaders =

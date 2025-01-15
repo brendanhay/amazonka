@@ -108,8 +108,8 @@ instance Prelude.Hashable PutAppsList where
 
 instance Prelude.NFData PutAppsList where
   rnf PutAppsList' {..} =
-    Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf appsList
+    Prelude.rnf tagList `Prelude.seq`
+      Prelude.rnf appsList
 
 instance Data.ToHeaders PutAppsList where
   toHeaders =
@@ -190,6 +190,6 @@ putAppsListResponse_httpStatus = Lens.lens (\PutAppsListResponse' {httpStatus} -
 
 instance Prelude.NFData PutAppsListResponse where
   rnf PutAppsListResponse' {..} =
-    Prelude.rnf appsList
-      `Prelude.seq` Prelude.rnf appsListArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appsList `Prelude.seq`
+      Prelude.rnf appsListArn `Prelude.seq`
+        Prelude.rnf httpStatus

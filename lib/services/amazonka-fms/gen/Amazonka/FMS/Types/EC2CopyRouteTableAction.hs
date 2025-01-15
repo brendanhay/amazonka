@@ -106,6 +106,6 @@ instance Prelude.Hashable EC2CopyRouteTableAction where
 
 instance Prelude.NFData EC2CopyRouteTableAction where
   rnf EC2CopyRouteTableAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf vpcId `Prelude.seq`
+        Prelude.rnf routeTableId

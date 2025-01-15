@@ -103,5 +103,5 @@ instance
     FMSPolicyUpdateFirewallCreationConfigAction
   where
   rnf FMSPolicyUpdateFirewallCreationConfigAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firewallCreationConfig
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf firewallCreationConfig

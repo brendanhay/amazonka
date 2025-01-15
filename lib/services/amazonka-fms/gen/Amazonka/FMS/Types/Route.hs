@@ -104,7 +104,7 @@ instance Prelude.Hashable Route where
 
 instance Prelude.NFData Route where
   rnf Route' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf destinationType `Prelude.seq`
+        Prelude.rnf target `Prelude.seq`
+          Prelude.rnf targetType

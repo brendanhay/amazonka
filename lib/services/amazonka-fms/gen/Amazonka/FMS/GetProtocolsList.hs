@@ -116,8 +116,8 @@ instance Prelude.Hashable GetProtocolsList where
 
 instance Prelude.NFData GetProtocolsList where
   rnf GetProtocolsList' {..} =
-    Prelude.rnf defaultList
-      `Prelude.seq` Prelude.rnf listId
+    Prelude.rnf defaultList `Prelude.seq`
+      Prelude.rnf listId
 
 instance Data.ToHeaders GetProtocolsList where
   toHeaders =
@@ -199,6 +199,6 @@ getProtocolsListResponse_httpStatus = Lens.lens (\GetProtocolsListResponse' {htt
 
 instance Prelude.NFData GetProtocolsListResponse where
   rnf GetProtocolsListResponse' {..} =
-    Prelude.rnf protocolsList
-      `Prelude.seq` Prelude.rnf protocolsListArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf protocolsList `Prelude.seq`
+      Prelude.rnf protocolsListArn `Prelude.seq`
+        Prelude.rnf httpStatus

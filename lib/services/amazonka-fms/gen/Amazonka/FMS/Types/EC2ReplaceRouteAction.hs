@@ -143,9 +143,9 @@ instance Prelude.Hashable EC2ReplaceRouteAction where
 
 instance Prelude.NFData EC2ReplaceRouteAction where
   rnf EC2ReplaceRouteAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
-      `Prelude.seq` Prelude.rnf destinationPrefixListId
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf destinationCidrBlock `Prelude.seq`
+        Prelude.rnf destinationIpv6CidrBlock `Prelude.seq`
+          Prelude.rnf destinationPrefixListId `Prelude.seq`
+            Prelude.rnf gatewayId `Prelude.seq`
+              Prelude.rnf routeTableId

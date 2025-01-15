@@ -149,12 +149,12 @@ instance Core.AWSPager ListComplianceStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listComplianceStatus_nextToken
-          Lens..~ rs
-          Lens.^? listComplianceStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listComplianceStatus_nextToken
+              Lens..~ rs
+              Lens.^? listComplianceStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComplianceStatus where
   type
@@ -183,9 +183,9 @@ instance Prelude.Hashable ListComplianceStatus where
 
 instance Prelude.NFData ListComplianceStatus where
   rnf ListComplianceStatus' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policyId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf policyId
 
 instance Data.ToHeaders ListComplianceStatus where
   toHeaders =
@@ -280,6 +280,6 @@ listComplianceStatusResponse_httpStatus = Lens.lens (\ListComplianceStatusRespon
 
 instance Prelude.NFData ListComplianceStatusResponse where
   rnf ListComplianceStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policyComplianceStatusList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf policyComplianceStatusList `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -137,9 +137,9 @@ instance
 
 instance Prelude.NFData SecurityGroupRuleDescription where
   rnf SecurityGroupRuleDescription' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf iPV4Range
-      `Prelude.seq` Prelude.rnf iPV6Range
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf iPV4Range `Prelude.seq`
+        Prelude.rnf iPV6Range `Prelude.seq`
+          Prelude.rnf prefixListId `Prelude.seq`
+            Prelude.rnf protocol `Prelude.seq`
+              Prelude.rnf toPort

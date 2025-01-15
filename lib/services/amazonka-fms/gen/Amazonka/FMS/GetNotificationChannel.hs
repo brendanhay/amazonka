@@ -159,6 +159,6 @@ instance
     GetNotificationChannelResponse
   where
   rnf GetNotificationChannelResponse' {..} =
-    Prelude.rnf snsRoleName
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snsRoleName `Prelude.seq`
+      Prelude.rnf snsTopicArn `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -115,7 +115,7 @@ instance Prelude.Hashable ComplianceViolator where
 
 instance Prelude.NFData ComplianceViolator where
   rnf ComplianceViolator' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf violationReason
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf violationReason

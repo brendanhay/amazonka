@@ -103,9 +103,9 @@ instance Prelude.Hashable App where
 
 instance Prelude.NFData App where
   rnf App' {..} =
-    Prelude.rnf appName
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf port
+    Prelude.rnf appName `Prelude.seq`
+      Prelude.rnf protocol `Prelude.seq`
+        Prelude.rnf port
 
 instance Data.ToJSON App where
   toJSON App' {..} =

@@ -184,6 +184,6 @@ getResourceSetResponse_resourceSetArn = Lens.lens (\GetResourceSetResponse' {res
 
 instance Prelude.NFData GetResourceSetResponse where
   rnf GetResourceSetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceSet
-      `Prelude.seq` Prelude.rnf resourceSetArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceSet `Prelude.seq`
+        Prelude.rnf resourceSetArn

@@ -111,7 +111,7 @@ instance Prelude.Hashable ResourceSetSummary where
 
 instance Prelude.NFData ResourceSetSummary where
   rnf ResourceSetSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf lastUpdateTime `Prelude.seq`
+          Prelude.rnf name

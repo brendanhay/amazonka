@@ -116,7 +116,7 @@ instance
     SecurityGroupRemediationAction
   where
   rnf SecurityGroupRemediationAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isDefaultAction
-      `Prelude.seq` Prelude.rnf remediationActionType
-      `Prelude.seq` Prelude.rnf remediationResult
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf isDefaultAction `Prelude.seq`
+        Prelude.rnf remediationActionType `Prelude.seq`
+          Prelude.rnf remediationResult

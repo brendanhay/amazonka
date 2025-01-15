@@ -147,8 +147,8 @@ instance
     DnsRuleGroupPriorityConflictViolation
   where
   rnf DnsRuleGroupPriorityConflictViolation' {..} =
-    Prelude.rnf conflictingPolicyId
-      `Prelude.seq` Prelude.rnf conflictingPriority
-      `Prelude.seq` Prelude.rnf unavailablePriorities
-      `Prelude.seq` Prelude.rnf violationTarget
-      `Prelude.seq` Prelude.rnf violationTargetDescription
+    Prelude.rnf conflictingPolicyId `Prelude.seq`
+      Prelude.rnf conflictingPriority `Prelude.seq`
+        Prelude.rnf unavailablePriorities `Prelude.seq`
+          Prelude.rnf violationTarget `Prelude.seq`
+            Prelude.rnf violationTargetDescription

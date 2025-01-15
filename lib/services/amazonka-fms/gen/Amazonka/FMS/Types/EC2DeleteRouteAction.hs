@@ -123,8 +123,8 @@ instance Prelude.Hashable EC2DeleteRouteAction where
 
 instance Prelude.NFData EC2DeleteRouteAction where
   rnf EC2DeleteRouteAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
-      `Prelude.seq` Prelude.rnf destinationPrefixListId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf destinationCidrBlock `Prelude.seq`
+        Prelude.rnf destinationIpv6CidrBlock `Prelude.seq`
+          Prelude.rnf destinationPrefixListId `Prelude.seq`
+            Prelude.rnf routeTableId

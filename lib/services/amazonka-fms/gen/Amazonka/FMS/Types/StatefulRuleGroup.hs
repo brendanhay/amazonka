@@ -143,7 +143,7 @@ instance Prelude.Hashable StatefulRuleGroup where
 
 instance Prelude.NFData StatefulRuleGroup where
   rnf StatefulRuleGroup' {..} =
-    Prelude.rnf override
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf ruleGroupName
+    Prelude.rnf override `Prelude.seq`
+      Prelude.rnf priority `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf ruleGroupName

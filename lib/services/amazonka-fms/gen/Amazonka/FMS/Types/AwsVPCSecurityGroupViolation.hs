@@ -116,7 +116,7 @@ instance
 
 instance Prelude.NFData AwsVPCSecurityGroupViolation where
   rnf AwsVPCSecurityGroupViolation' {..} =
-    Prelude.rnf partialMatches
-      `Prelude.seq` Prelude.rnf possibleSecurityGroupRemediationActions
-      `Prelude.seq` Prelude.rnf violationTarget
-      `Prelude.seq` Prelude.rnf violationTargetDescription
+    Prelude.rnf partialMatches `Prelude.seq`
+      Prelude.rnf possibleSecurityGroupRemediationActions `Prelude.seq`
+        Prelude.rnf violationTarget `Prelude.seq`
+          Prelude.rnf violationTargetDescription

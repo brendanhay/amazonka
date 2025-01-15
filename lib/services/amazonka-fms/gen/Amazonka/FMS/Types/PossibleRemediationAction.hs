@@ -96,6 +96,6 @@ instance Prelude.Hashable PossibleRemediationAction where
 
 instance Prelude.NFData PossibleRemediationAction where
   rnf PossibleRemediationAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isDefaultAction
-      `Prelude.seq` Prelude.rnf orderedRemediationActions
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf isDefaultAction `Prelude.seq`
+        Prelude.rnf orderedRemediationActions

@@ -135,8 +135,8 @@ instance
     NetworkFirewallMissingExpectedRTViolation
   where
   rnf NetworkFirewallMissingExpectedRTViolation' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf currentRouteTable
-      `Prelude.seq` Prelude.rnf expectedRouteTable
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf violationTarget
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf currentRouteTable `Prelude.seq`
+        Prelude.rnf expectedRouteTable `Prelude.seq`
+          Prelude.rnf vpc `Prelude.seq`
+            Prelude.rnf violationTarget

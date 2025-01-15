@@ -113,6 +113,6 @@ instance
     EC2ReplaceRouteTableAssociationAction
   where
   rnf EC2ReplaceRouteTableAssociationAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf routeTableId

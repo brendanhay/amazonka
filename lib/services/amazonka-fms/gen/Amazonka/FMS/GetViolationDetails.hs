@@ -156,10 +156,10 @@ instance Prelude.Hashable GetViolationDetails where
 
 instance Prelude.NFData GetViolationDetails where
   rnf GetViolationDetails' {..} =
-    Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf memberAccount
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf policyId `Prelude.seq`
+      Prelude.rnf memberAccount `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf resourceType
 
 instance Data.ToHeaders GetViolationDetails where
   toHeaders =
@@ -234,5 +234,5 @@ getViolationDetailsResponse_httpStatus = Lens.lens (\GetViolationDetailsResponse
 
 instance Prelude.NFData GetViolationDetailsResponse where
   rnf GetViolationDetailsResponse' {..} =
-    Prelude.rnf violationDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf violationDetail `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -127,9 +127,9 @@ instance Prelude.Hashable ExpectedRoute where
 
 instance Prelude.NFData ExpectedRoute where
   rnf ExpectedRoute' {..} =
-    Prelude.rnf allowedTargets
-      `Prelude.seq` Prelude.rnf contributingSubnets
-      `Prelude.seq` Prelude.rnf ipV4Cidr
-      `Prelude.seq` Prelude.rnf ipV6Cidr
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf allowedTargets `Prelude.seq`
+      Prelude.rnf contributingSubnets `Prelude.seq`
+        Prelude.rnf ipV4Cidr `Prelude.seq`
+          Prelude.rnf ipV6Cidr `Prelude.seq`
+            Prelude.rnf prefixListId `Prelude.seq`
+              Prelude.rnf routeTableId

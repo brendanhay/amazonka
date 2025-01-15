@@ -103,8 +103,8 @@ instance Prelude.Hashable WriteEventStream where
 
 instance Prelude.NFData WriteEventStream where
   rnf WriteEventStream' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf destinationStreamArn
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf destinationStreamArn
 
 instance Data.ToJSON WriteEventStream where
   toJSON WriteEventStream' {..} =

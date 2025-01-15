@@ -263,18 +263,18 @@ instance Prelude.Hashable EmailChannelResponse where
 
 instance Prelude.NFData EmailChannelResponse where
   rnf EmailChannelResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationSet
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf fromAddress
-      `Prelude.seq` Prelude.rnf hasCredential
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf isArchived
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf messagesPerSecond
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf configurationSet `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf fromAddress `Prelude.seq`
+              Prelude.rnf hasCredential `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf identity `Prelude.seq`
+                    Prelude.rnf isArchived `Prelude.seq`
+                      Prelude.rnf lastModifiedBy `Prelude.seq`
+                        Prelude.rnf lastModifiedDate `Prelude.seq`
+                          Prelude.rnf messagesPerSecond `Prelude.seq`
+                            Prelude.rnf roleArn `Prelude.seq`
+                              Prelude.rnf version `Prelude.seq`
+                                Prelude.rnf platform

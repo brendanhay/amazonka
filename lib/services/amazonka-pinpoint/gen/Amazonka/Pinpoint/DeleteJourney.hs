@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteJourney where
 
 instance Prelude.NFData DeleteJourney where
   rnf DeleteJourney' {..} =
-    Prelude.rnf journeyId
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf journeyId `Prelude.seq`
+      Prelude.rnf applicationId
 
 instance Data.ToHeaders DeleteJourney where
   toHeaders =
@@ -182,5 +182,5 @@ deleteJourneyResponse_journeyResponse = Lens.lens (\DeleteJourneyResponse' {jour
 
 instance Prelude.NFData DeleteJourneyResponse where
   rnf DeleteJourneyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf journeyResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf journeyResponse

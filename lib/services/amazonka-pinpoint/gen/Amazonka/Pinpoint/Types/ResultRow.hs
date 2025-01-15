@@ -91,5 +91,5 @@ instance Prelude.Hashable ResultRow where
 
 instance Prelude.NFData ResultRow where
   rnf ResultRow' {..} =
-    Prelude.rnf groupedBys
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf groupedBys `Prelude.seq`
+      Prelude.rnf values

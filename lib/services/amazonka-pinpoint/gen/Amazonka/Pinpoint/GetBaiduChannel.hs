@@ -164,5 +164,5 @@ getBaiduChannelResponse_baiduChannelResponse = Lens.lens (\GetBaiduChannelRespon
 
 instance Prelude.NFData GetBaiduChannelResponse where
   rnf GetBaiduChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf baiduChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf baiduChannelResponse

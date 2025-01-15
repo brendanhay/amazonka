@@ -181,8 +181,8 @@ instance Prelude.Hashable GetVoiceTemplate where
 
 instance Prelude.NFData GetVoiceTemplate where
   rnf GetVoiceTemplate' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToHeaders GetVoiceTemplate where
   toHeaders =
@@ -248,5 +248,5 @@ getVoiceTemplateResponse_voiceTemplateResponse = Lens.lens (\GetVoiceTemplateRes
 
 instance Prelude.NFData GetVoiceTemplateResponse where
   rnf GetVoiceTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf voiceTemplateResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf voiceTemplateResponse

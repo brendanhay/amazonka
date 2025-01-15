@@ -130,12 +130,12 @@ instance Prelude.Hashable DefaultButtonConfiguration where
 
 instance Prelude.NFData DefaultButtonConfiguration where
   rnf DefaultButtonConfiguration' {..} =
-    Prelude.rnf backgroundColor
-      `Prelude.seq` Prelude.rnf borderRadius
-      `Prelude.seq` Prelude.rnf link
-      `Prelude.seq` Prelude.rnf textColor
-      `Prelude.seq` Prelude.rnf buttonAction
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf backgroundColor `Prelude.seq`
+      Prelude.rnf borderRadius `Prelude.seq`
+        Prelude.rnf link `Prelude.seq`
+          Prelude.rnf textColor `Prelude.seq`
+            Prelude.rnf buttonAction `Prelude.seq`
+              Prelude.rnf text
 
 instance Data.ToJSON DefaultButtonConfiguration where
   toJSON DefaultButtonConfiguration' {..} =

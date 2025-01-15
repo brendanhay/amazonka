@@ -256,16 +256,16 @@ instance Prelude.Hashable ExportJobResponse where
 
 instance Prelude.NFData ExportJobResponse where
   rnf ExportJobResponse' {..} =
-    Prelude.rnf completedPieces
-      `Prelude.seq` Prelude.rnf completionDate
-      `Prelude.seq` Prelude.rnf failedPieces
-      `Prelude.seq` Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf totalFailures
-      `Prelude.seq` Prelude.rnf totalPieces
-      `Prelude.seq` Prelude.rnf totalProcessed
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf completedPieces `Prelude.seq`
+      Prelude.rnf completionDate `Prelude.seq`
+        Prelude.rnf failedPieces `Prelude.seq`
+          Prelude.rnf failures `Prelude.seq`
+            Prelude.rnf totalFailures `Prelude.seq`
+              Prelude.rnf totalPieces `Prelude.seq`
+                Prelude.rnf totalProcessed `Prelude.seq`
+                  Prelude.rnf jobStatus `Prelude.seq`
+                    Prelude.rnf creationDate `Prelude.seq`
+                      Prelude.rnf type' `Prelude.seq`
+                        Prelude.rnf definition `Prelude.seq`
+                          Prelude.rnf id `Prelude.seq`
+                            Prelude.rnf applicationId

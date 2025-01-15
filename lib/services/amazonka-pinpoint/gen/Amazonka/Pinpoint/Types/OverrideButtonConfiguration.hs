@@ -84,8 +84,8 @@ instance Prelude.Hashable OverrideButtonConfiguration where
 
 instance Prelude.NFData OverrideButtonConfiguration where
   rnf OverrideButtonConfiguration' {..} =
-    Prelude.rnf link
-      `Prelude.seq` Prelude.rnf buttonAction
+    Prelude.rnf link `Prelude.seq`
+      Prelude.rnf buttonAction
 
 instance Data.ToJSON OverrideButtonConfiguration where
   toJSON OverrideButtonConfiguration' {..} =

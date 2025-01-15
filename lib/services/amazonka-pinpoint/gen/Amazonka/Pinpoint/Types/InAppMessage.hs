@@ -93,6 +93,6 @@ instance Prelude.Hashable InAppMessage where
 
 instance Prelude.NFData InAppMessage where
   rnf InAppMessage' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf customConfig
-      `Prelude.seq` Prelude.rnf layout
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf customConfig `Prelude.seq`
+        Prelude.rnf layout

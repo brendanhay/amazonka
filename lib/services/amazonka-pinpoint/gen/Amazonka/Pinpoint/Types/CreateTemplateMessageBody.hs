@@ -94,6 +94,6 @@ instance Prelude.Hashable CreateTemplateMessageBody where
 
 instance Prelude.NFData CreateTemplateMessageBody where
   rnf CreateTemplateMessageBody' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf requestID
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf requestID

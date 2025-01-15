@@ -127,6 +127,6 @@ instance Prelude.Hashable AttributesResource where
 
 instance Prelude.NFData AttributesResource where
   rnf AttributesResource' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf attributeType
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf attributeType `Prelude.seq`
+        Prelude.rnf applicationId

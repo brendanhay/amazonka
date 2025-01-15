@@ -99,8 +99,8 @@ instance Prelude.Hashable RecencyDimension where
 
 instance Prelude.NFData RecencyDimension where
   rnf RecencyDimension' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf recencyType
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf recencyType
 
 instance Data.ToJSON RecencyDimension where
   toJSON RecencyDimension' {..} =

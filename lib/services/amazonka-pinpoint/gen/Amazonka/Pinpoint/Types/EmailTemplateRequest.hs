@@ -179,13 +179,13 @@ instance Prelude.Hashable EmailTemplateRequest where
 
 instance Prelude.NFData EmailTemplateRequest where
   rnf EmailTemplateRequest' {..} =
-    Prelude.rnf defaultSubstitutions
-      `Prelude.seq` Prelude.rnf htmlPart
-      `Prelude.seq` Prelude.rnf recommenderId
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf textPart
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf defaultSubstitutions `Prelude.seq`
+      Prelude.rnf htmlPart `Prelude.seq`
+        Prelude.rnf recommenderId `Prelude.seq`
+          Prelude.rnf subject `Prelude.seq`
+            Prelude.rnf templateDescription `Prelude.seq`
+              Prelude.rnf textPart `Prelude.seq`
+                Prelude.rnf tags
 
 instance Data.ToJSON EmailTemplateRequest where
   toJSON EmailTemplateRequest' {..} =

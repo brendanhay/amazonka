@@ -94,5 +94,5 @@ instance Prelude.Hashable TemplatesResponse where
 
 instance Prelude.NFData TemplatesResponse where
   rnf TemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf item
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf item

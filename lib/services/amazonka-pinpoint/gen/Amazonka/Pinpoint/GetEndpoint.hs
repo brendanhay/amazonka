@@ -112,8 +112,8 @@ instance Prelude.Hashable GetEndpoint where
 
 instance Prelude.NFData GetEndpoint where
   rnf GetEndpoint' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf endpointId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf endpointId
 
 instance Data.ToHeaders GetEndpoint where
   toHeaders =
@@ -181,5 +181,5 @@ getEndpointResponse_endpointResponse = Lens.lens (\GetEndpointResponse' {endpoin
 
 instance Prelude.NFData GetEndpointResponse where
   rnf GetEndpointResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpointResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf endpointResponse

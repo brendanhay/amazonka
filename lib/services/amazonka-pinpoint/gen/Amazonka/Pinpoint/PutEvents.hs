@@ -111,8 +111,8 @@ instance Prelude.Hashable PutEvents where
 
 instance Prelude.NFData PutEvents where
   rnf PutEvents' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf eventsRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf eventsRequest
 
 instance Data.ToHeaders PutEvents where
   toHeaders =
@@ -177,5 +177,5 @@ putEventsResponse_eventsResponse = Lens.lens (\PutEventsResponse' {eventsRespons
 
 instance Prelude.NFData PutEventsResponse where
   rnf PutEventsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf eventsResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf eventsResponse

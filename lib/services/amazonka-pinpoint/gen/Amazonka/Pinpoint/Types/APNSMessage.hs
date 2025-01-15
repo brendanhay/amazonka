@@ -610,24 +610,24 @@ instance Prelude.Hashable APNSMessage where
 
 instance Prelude.NFData APNSMessage where
   rnf APNSMessage' {..} =
-    Prelude.rnf aPNSPushType
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf badge
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf collapseId
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf mediaUrl
-      `Prelude.seq` Prelude.rnf preferredAuthenticationMethod
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf rawContent
-      `Prelude.seq` Prelude.rnf silentPush
-      `Prelude.seq` Prelude.rnf sound
-      `Prelude.seq` Prelude.rnf substitutions
-      `Prelude.seq` Prelude.rnf threadId
-      `Prelude.seq` Prelude.rnf timeToLive
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf aPNSPushType `Prelude.seq`
+      Prelude.rnf action `Prelude.seq`
+        Prelude.rnf badge `Prelude.seq`
+          Prelude.rnf body `Prelude.seq`
+            Prelude.rnf category `Prelude.seq`
+              Prelude.rnf collapseId `Prelude.seq`
+                Prelude.rnf data' `Prelude.seq`
+                  Prelude.rnf mediaUrl `Prelude.seq`
+                    Prelude.rnf preferredAuthenticationMethod `Prelude.seq`
+                      Prelude.rnf priority `Prelude.seq`
+                        Prelude.rnf rawContent `Prelude.seq`
+                          Prelude.rnf silentPush `Prelude.seq`
+                            Prelude.rnf sound `Prelude.seq`
+                              Prelude.rnf substitutions `Prelude.seq`
+                                Prelude.rnf threadId `Prelude.seq`
+                                  Prelude.rnf timeToLive `Prelude.seq`
+                                    Prelude.rnf title `Prelude.seq`
+                                      Prelude.rnf url
 
 instance Data.ToJSON APNSMessage where
   toJSON APNSMessage' {..} =

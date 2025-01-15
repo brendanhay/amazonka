@@ -132,8 +132,8 @@ instance Prelude.Hashable ApplicationResponse where
 
 instance Prelude.NFData ApplicationResponse where
   rnf ApplicationResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf name

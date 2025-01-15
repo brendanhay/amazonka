@@ -128,12 +128,12 @@ instance Prelude.Hashable InAppMessageContent where
 
 instance Prelude.NFData InAppMessageContent where
   rnf InAppMessageContent' {..} =
-    Prelude.rnf backgroundColor
-      `Prelude.seq` Prelude.rnf bodyConfig
-      `Prelude.seq` Prelude.rnf headerConfig
-      `Prelude.seq` Prelude.rnf imageUrl
-      `Prelude.seq` Prelude.rnf primaryBtn
-      `Prelude.seq` Prelude.rnf secondaryBtn
+    Prelude.rnf backgroundColor `Prelude.seq`
+      Prelude.rnf bodyConfig `Prelude.seq`
+        Prelude.rnf headerConfig `Prelude.seq`
+          Prelude.rnf imageUrl `Prelude.seq`
+            Prelude.rnf primaryBtn `Prelude.seq`
+              Prelude.rnf secondaryBtn
 
 instance Data.ToJSON InAppMessageContent where
   toJSON InAppMessageContent' {..} =

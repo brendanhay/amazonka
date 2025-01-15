@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateJourneyState where
 
 instance Prelude.NFData UpdateJourneyState where
   rnf UpdateJourneyState' {..} =
-    Prelude.rnf journeyId
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf journeyStateRequest
+    Prelude.rnf journeyId `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf journeyStateRequest
 
 instance Data.ToHeaders UpdateJourneyState where
   toHeaders =
@@ -204,5 +204,5 @@ updateJourneyStateResponse_journeyResponse = Lens.lens (\UpdateJourneyStateRespo
 
 instance Prelude.NFData UpdateJourneyStateResponse where
   rnf UpdateJourneyStateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf journeyResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf journeyResponse

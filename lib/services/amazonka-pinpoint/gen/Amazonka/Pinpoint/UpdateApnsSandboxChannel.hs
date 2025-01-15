@@ -117,8 +117,8 @@ instance Prelude.Hashable UpdateApnsSandboxChannel where
 
 instance Prelude.NFData UpdateApnsSandboxChannel where
   rnf UpdateApnsSandboxChannel' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf aPNSSandboxChannelRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf aPNSSandboxChannelRequest
 
 instance Data.ToHeaders UpdateApnsSandboxChannel where
   toHeaders =
@@ -194,5 +194,5 @@ instance
     UpdateApnsSandboxChannelResponse
   where
   rnf UpdateApnsSandboxChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aPNSSandboxChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aPNSSandboxChannelResponse

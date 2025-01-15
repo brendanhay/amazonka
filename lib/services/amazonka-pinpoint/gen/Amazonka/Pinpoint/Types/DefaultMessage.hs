@@ -73,8 +73,8 @@ instance Prelude.Hashable DefaultMessage where
 
 instance Prelude.NFData DefaultMessage where
   rnf DefaultMessage' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf substitutions
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf substitutions
 
 instance Data.ToJSON DefaultMessage where
   toJSON DefaultMessage' {..} =

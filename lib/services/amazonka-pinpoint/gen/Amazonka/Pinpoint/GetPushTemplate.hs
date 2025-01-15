@@ -181,8 +181,8 @@ instance Prelude.Hashable GetPushTemplate where
 
 instance Prelude.NFData GetPushTemplate where
   rnf GetPushTemplate' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToHeaders GetPushTemplate where
   toHeaders =
@@ -248,5 +248,5 @@ getPushTemplateResponse_pushNotificationTemplateResponse = Lens.lens (\GetPushTe
 
 instance Prelude.NFData GetPushTemplateResponse where
   rnf GetPushTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pushNotificationTemplateResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf pushNotificationTemplateResponse

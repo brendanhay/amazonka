@@ -122,8 +122,8 @@ instance Prelude.Hashable CreatePushTemplate where
 
 instance Prelude.NFData CreatePushTemplate where
   rnf CreatePushTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf pushNotificationTemplateRequest
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf pushNotificationTemplateRequest
 
 instance Data.ToHeaders CreatePushTemplate where
   toHeaders =
@@ -193,5 +193,5 @@ createPushTemplateResponse_createTemplateMessageBody = Lens.lens (\CreatePushTem
 
 instance Prelude.NFData CreatePushTemplateResponse where
   rnf CreatePushTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTemplateMessageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf createTemplateMessageBody

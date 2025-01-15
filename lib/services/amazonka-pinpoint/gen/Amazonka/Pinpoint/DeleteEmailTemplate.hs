@@ -181,8 +181,8 @@ instance Prelude.Hashable DeleteEmailTemplate where
 
 instance Prelude.NFData DeleteEmailTemplate where
   rnf DeleteEmailTemplate' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToHeaders DeleteEmailTemplate where
   toHeaders =
@@ -248,5 +248,5 @@ deleteEmailTemplateResponse_messageBody = Lens.lens (\DeleteEmailTemplateRespons
 
 instance Prelude.NFData DeleteEmailTemplateResponse where
   rnf DeleteEmailTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

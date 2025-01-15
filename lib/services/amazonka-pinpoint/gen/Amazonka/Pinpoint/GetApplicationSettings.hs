@@ -169,5 +169,5 @@ instance
     GetApplicationSettingsResponse
   where
   rnf GetApplicationSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationSettingsResource
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationSettingsResource

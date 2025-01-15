@@ -77,8 +77,8 @@ instance Prelude.Hashable EventsBatch where
 
 instance Prelude.NFData EventsBatch where
   rnf EventsBatch' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf events
 
 instance Data.ToJSON EventsBatch where
   toJSON EventsBatch' {..} =

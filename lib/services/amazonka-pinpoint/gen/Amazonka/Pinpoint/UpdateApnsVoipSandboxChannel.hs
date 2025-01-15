@@ -120,8 +120,8 @@ instance
 
 instance Prelude.NFData UpdateApnsVoipSandboxChannel where
   rnf UpdateApnsVoipSandboxChannel' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf aPNSVoipSandboxChannelRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf aPNSVoipSandboxChannelRequest
 
 instance Data.ToHeaders UpdateApnsVoipSandboxChannel where
   toHeaders =
@@ -197,5 +197,5 @@ instance
     UpdateApnsVoipSandboxChannelResponse
   where
   rnf UpdateApnsVoipSandboxChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aPNSVoipSandboxChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aPNSVoipSandboxChannelResponse

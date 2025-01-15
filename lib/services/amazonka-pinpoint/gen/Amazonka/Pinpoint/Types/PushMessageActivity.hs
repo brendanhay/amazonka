@@ -147,10 +147,10 @@ instance Prelude.Hashable PushMessageActivity where
 
 instance Prelude.NFData PushMessageActivity where
   rnf PushMessageActivity' {..} =
-    Prelude.rnf messageConfig
-      `Prelude.seq` Prelude.rnf nextActivity
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateVersion
+    Prelude.rnf messageConfig `Prelude.seq`
+      Prelude.rnf nextActivity `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf templateVersion
 
 instance Data.ToJSON PushMessageActivity where
   toJSON PushMessageActivity' {..} =

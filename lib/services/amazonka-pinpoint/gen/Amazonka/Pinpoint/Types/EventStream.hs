@@ -170,9 +170,9 @@ instance Prelude.Hashable EventStream where
 
 instance Prelude.NFData EventStream where
   rnf EventStream' {..} =
-    Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf lastUpdatedBy
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf destinationStreamArn
+    Prelude.rnf externalId `Prelude.seq`
+      Prelude.rnf lastModifiedDate `Prelude.seq`
+        Prelude.rnf lastUpdatedBy `Prelude.seq`
+          Prelude.rnf applicationId `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf destinationStreamArn

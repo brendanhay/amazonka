@@ -177,12 +177,12 @@ instance Prelude.Hashable TreatmentResource where
 
 instance Prelude.NFData TreatmentResource where
   rnf TreatmentResource' {..} =
-    Prelude.rnf customDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf messageConfiguration
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf templateConfiguration
-      `Prelude.seq` Prelude.rnf treatmentDescription
-      `Prelude.seq` Prelude.rnf treatmentName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sizePercent
+    Prelude.rnf customDeliveryConfiguration `Prelude.seq`
+      Prelude.rnf messageConfiguration `Prelude.seq`
+        Prelude.rnf schedule `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf templateConfiguration `Prelude.seq`
+              Prelude.rnf treatmentDescription `Prelude.seq`
+                Prelude.rnf treatmentName `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf sizePercent

@@ -91,9 +91,9 @@ instance Prelude.Hashable BaiduChannelRequest where
 
 instance Prelude.NFData BaiduChannelRequest where
   rnf BaiduChannelRequest' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf secretKey
-      `Prelude.seq` Prelude.rnf apiKey
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf secretKey `Prelude.seq`
+        Prelude.rnf apiKey
 
 instance Data.ToJSON BaiduChannelRequest where
   toJSON BaiduChannelRequest' {..} =

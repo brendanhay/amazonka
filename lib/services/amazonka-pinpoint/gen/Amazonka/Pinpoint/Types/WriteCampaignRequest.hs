@@ -267,23 +267,23 @@ instance Prelude.Hashable WriteCampaignRequest where
 
 instance Prelude.NFData WriteCampaignRequest where
   rnf WriteCampaignRequest' {..} =
-    Prelude.rnf additionalTreatments
-      `Prelude.seq` Prelude.rnf customDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf holdoutPercent
-      `Prelude.seq` Prelude.rnf hook
-      `Prelude.seq` Prelude.rnf isPaused
-      `Prelude.seq` Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf messageConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf segmentVersion
-      `Prelude.seq` Prelude.rnf templateConfiguration
-      `Prelude.seq` Prelude.rnf treatmentDescription
-      `Prelude.seq` Prelude.rnf treatmentName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf additionalTreatments `Prelude.seq`
+      Prelude.rnf customDeliveryConfiguration `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf holdoutPercent `Prelude.seq`
+            Prelude.rnf hook `Prelude.seq`
+              Prelude.rnf isPaused `Prelude.seq`
+                Prelude.rnf limits `Prelude.seq`
+                  Prelude.rnf messageConfiguration `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf priority `Prelude.seq`
+                        Prelude.rnf schedule `Prelude.seq`
+                          Prelude.rnf segmentId `Prelude.seq`
+                            Prelude.rnf segmentVersion `Prelude.seq`
+                              Prelude.rnf templateConfiguration `Prelude.seq`
+                                Prelude.rnf treatmentDescription `Prelude.seq`
+                                  Prelude.rnf treatmentName `Prelude.seq`
+                                    Prelude.rnf tags
 
 instance Data.ToJSON WriteCampaignRequest where
   toJSON WriteCampaignRequest' {..} =

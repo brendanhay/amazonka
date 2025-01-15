@@ -210,14 +210,14 @@ instance Prelude.Hashable ImportJobRequest where
 
 instance Prelude.NFData ImportJobRequest where
   rnf ImportJobRequest' {..} =
-    Prelude.rnf defineSegment
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf registerEndpoints
-      `Prelude.seq` Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf segmentName
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf s3Url
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf defineSegment `Prelude.seq`
+      Prelude.rnf externalId `Prelude.seq`
+        Prelude.rnf registerEndpoints `Prelude.seq`
+          Prelude.rnf segmentId `Prelude.seq`
+            Prelude.rnf segmentName `Prelude.seq`
+              Prelude.rnf format `Prelude.seq`
+                Prelude.rnf s3Url `Prelude.seq`
+                  Prelude.rnf roleArn
 
 instance Data.ToJSON ImportJobRequest where
   toJSON ImportJobRequest' {..} =

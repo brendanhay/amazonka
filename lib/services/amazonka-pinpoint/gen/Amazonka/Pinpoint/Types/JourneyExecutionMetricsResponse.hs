@@ -134,7 +134,7 @@ instance
     JourneyExecutionMetricsResponse
   where
   rnf JourneyExecutionMetricsResponse' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf journeyId
-      `Prelude.seq` Prelude.rnf lastEvaluatedTime
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf metrics `Prelude.seq`
+      Prelude.rnf journeyId `Prelude.seq`
+        Prelude.rnf lastEvaluatedTime `Prelude.seq`
+          Prelude.rnf applicationId

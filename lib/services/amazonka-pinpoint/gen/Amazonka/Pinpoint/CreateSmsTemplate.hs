@@ -121,8 +121,8 @@ instance Prelude.Hashable CreateSmsTemplate where
 
 instance Prelude.NFData CreateSmsTemplate where
   rnf CreateSmsTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf sMSTemplateRequest
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf sMSTemplateRequest
 
 instance Data.ToHeaders CreateSmsTemplate where
   toHeaders =
@@ -192,5 +192,5 @@ createSmsTemplateResponse_createTemplateMessageBody = Lens.lens (\CreateSmsTempl
 
 instance Prelude.NFData CreateSmsTemplateResponse where
   rnf CreateSmsTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTemplateMessageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf createTemplateMessageBody

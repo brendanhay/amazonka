@@ -127,11 +127,11 @@ instance Prelude.Hashable EmailChannelRequest where
 
 instance Prelude.NFData EmailChannelRequest where
   rnf EmailChannelRequest' {..} =
-    Prelude.rnf configurationSet
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf fromAddress
-      `Prelude.seq` Prelude.rnf identity
+    Prelude.rnf configurationSet `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf fromAddress `Prelude.seq`
+            Prelude.rnf identity
 
 instance Data.ToJSON EmailChannelRequest where
   toJSON EmailChannelRequest' {..} =

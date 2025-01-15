@@ -165,5 +165,5 @@ deleteSmsChannelResponse_sMSChannelResponse = Lens.lens (\DeleteSmsChannelRespon
 
 instance Prelude.NFData DeleteSmsChannelResponse where
   rnf DeleteSmsChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf sMSChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf sMSChannelResponse

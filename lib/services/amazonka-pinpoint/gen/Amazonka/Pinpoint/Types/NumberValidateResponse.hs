@@ -251,17 +251,17 @@ instance Prelude.Hashable NumberValidateResponse where
 
 instance Prelude.NFData NumberValidateResponse where
   rnf NumberValidateResponse' {..} =
-    Prelude.rnf carrier
-      `Prelude.seq` Prelude.rnf city
-      `Prelude.seq` Prelude.rnf cleansedPhoneNumberE164
-      `Prelude.seq` Prelude.rnf cleansedPhoneNumberNational
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf countryCodeIso2
-      `Prelude.seq` Prelude.rnf countryCodeNumeric
-      `Prelude.seq` Prelude.rnf county
-      `Prelude.seq` Prelude.rnf originalCountryCodeIso2
-      `Prelude.seq` Prelude.rnf originalPhoneNumber
-      `Prelude.seq` Prelude.rnf phoneType
-      `Prelude.seq` Prelude.rnf phoneTypeCode
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf zipCode
+    Prelude.rnf carrier `Prelude.seq`
+      Prelude.rnf city `Prelude.seq`
+        Prelude.rnf cleansedPhoneNumberE164 `Prelude.seq`
+          Prelude.rnf cleansedPhoneNumberNational `Prelude.seq`
+            Prelude.rnf country `Prelude.seq`
+              Prelude.rnf countryCodeIso2 `Prelude.seq`
+                Prelude.rnf countryCodeNumeric `Prelude.seq`
+                  Prelude.rnf county `Prelude.seq`
+                    Prelude.rnf originalCountryCodeIso2 `Prelude.seq`
+                      Prelude.rnf originalPhoneNumber `Prelude.seq`
+                        Prelude.rnf phoneType `Prelude.seq`
+                          Prelude.rnf phoneTypeCode `Prelude.seq`
+                            Prelude.rnf timezone `Prelude.seq`
+                              Prelude.rnf zipCode

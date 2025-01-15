@@ -212,12 +212,12 @@ instance Prelude.Hashable GetApplicationDateRangeKpi where
 
 instance Prelude.NFData GetApplicationDateRangeKpi where
   rnf GetApplicationDateRangeKpi' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf kpiName
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf applicationId `Prelude.seq`
+              Prelude.rnf kpiName
 
 instance Data.ToHeaders GetApplicationDateRangeKpi where
   toHeaders =
@@ -296,5 +296,5 @@ instance
     GetApplicationDateRangeKpiResponse
   where
   rnf GetApplicationDateRangeKpiResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationDateRangeKpiResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationDateRangeKpiResponse

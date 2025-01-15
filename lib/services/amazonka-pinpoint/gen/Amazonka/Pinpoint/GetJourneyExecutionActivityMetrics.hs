@@ -176,11 +176,11 @@ instance
     GetJourneyExecutionActivityMetrics
   where
   rnf GetJourneyExecutionActivityMetrics' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf journeyActivityId
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf journeyId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf journeyActivityId `Prelude.seq`
+          Prelude.rnf applicationId `Prelude.seq`
+            Prelude.rnf journeyId
 
 instance
   Data.ToHeaders
@@ -269,5 +269,5 @@ instance
     GetJourneyExecutionActivityMetricsResponse
   where
   rnf GetJourneyExecutionActivityMetricsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf journeyExecutionActivityMetricsResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf journeyExecutionActivityMetricsResponse

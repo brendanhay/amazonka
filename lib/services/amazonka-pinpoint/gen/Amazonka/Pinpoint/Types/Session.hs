@@ -94,10 +94,10 @@ instance Prelude.Hashable Session where
 
 instance Prelude.NFData Session where
   rnf Session' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf stopTimestamp
-      `Prelude.seq` Prelude.rnf startTimestamp
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf stopTimestamp `Prelude.seq`
+        Prelude.rnf startTimestamp `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToJSON Session where
   toJSON Session' {..} =

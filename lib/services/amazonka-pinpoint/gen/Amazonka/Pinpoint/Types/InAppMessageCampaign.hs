@@ -160,11 +160,11 @@ instance Prelude.Hashable InAppMessageCampaign where
 
 instance Prelude.NFData InAppMessageCampaign where
   rnf InAppMessageCampaign' {..} =
-    Prelude.rnf campaignId
-      `Prelude.seq` Prelude.rnf dailyCap
-      `Prelude.seq` Prelude.rnf inAppMessage
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf sessionCap
-      `Prelude.seq` Prelude.rnf totalCap
-      `Prelude.seq` Prelude.rnf treatmentId
+    Prelude.rnf campaignId `Prelude.seq`
+      Prelude.rnf dailyCap `Prelude.seq`
+        Prelude.rnf inAppMessage `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf schedule `Prelude.seq`
+              Prelude.rnf sessionCap `Prelude.seq`
+                Prelude.rnf totalCap `Prelude.seq`
+                  Prelude.rnf treatmentId

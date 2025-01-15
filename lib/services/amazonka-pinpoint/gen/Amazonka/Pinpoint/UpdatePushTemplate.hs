@@ -232,10 +232,10 @@ instance Prelude.Hashable UpdatePushTemplate where
 
 instance Prelude.NFData UpdatePushTemplate where
   rnf UpdatePushTemplate' {..} =
-    Prelude.rnf createNewVersion
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf pushNotificationTemplateRequest
+    Prelude.rnf createNewVersion `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf pushNotificationTemplateRequest
 
 instance Data.ToHeaders UpdatePushTemplate where
   toHeaders =
@@ -308,5 +308,5 @@ updatePushTemplateResponse_messageBody = Lens.lens (\UpdatePushTemplateResponse'
 
 instance Prelude.NFData UpdatePushTemplateResponse where
   rnf UpdatePushTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

@@ -175,10 +175,10 @@ instance Prelude.Hashable TemplateVersionResponse where
 
 instance Prelude.NFData TemplateVersionResponse where
   rnf TemplateVersionResponse' {..} =
-    Prelude.rnf defaultSubstitutions
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf defaultSubstitutions `Prelude.seq`
+      Prelude.rnf templateDescription `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf lastModifiedDate `Prelude.seq`
+            Prelude.rnf creationDate `Prelude.seq`
+              Prelude.rnf templateName `Prelude.seq`
+                Prelude.rnf templateType

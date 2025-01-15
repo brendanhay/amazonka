@@ -146,10 +146,10 @@ instance Prelude.Hashable SegmentGroup where
 
 instance Prelude.NFData SegmentGroup where
   rnf SegmentGroup' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf sourceSegments
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf sourceSegments `Prelude.seq`
+        Prelude.rnf sourceType `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToJSON SegmentGroup where
   toJSON SegmentGroup' {..} =

@@ -120,8 +120,8 @@ instance
 
 instance Prelude.NFData GetRecommenderConfigurations where
   rnf GetRecommenderConfigurations' {..} =
-    Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf token
+    Prelude.rnf pageSize `Prelude.seq`
+      Prelude.rnf token
 
 instance Data.ToHeaders GetRecommenderConfigurations where
   toHeaders =
@@ -190,5 +190,5 @@ instance
     GetRecommenderConfigurationsResponse
   where
   rnf GetRecommenderConfigurationsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf listRecommenderConfigurationsResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf listRecommenderConfigurationsResponse

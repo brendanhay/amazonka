@@ -164,5 +164,5 @@ getAdmChannelResponse_aDMChannelResponse = Lens.lens (\GetAdmChannelResponse' {a
 
 instance Prelude.NFData GetAdmChannelResponse where
   rnf GetAdmChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aDMChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aDMChannelResponse

@@ -114,8 +114,8 @@ instance Prelude.Hashable EndpointUser where
 
 instance Prelude.NFData EndpointUser where
   rnf EndpointUser' {..} =
-    Prelude.rnf userAttributes
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf userAttributes `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToJSON EndpointUser where
   toJSON EndpointUser' {..} =

@@ -164,5 +164,5 @@ getVoiceChannelResponse_voiceChannelResponse = Lens.lens (\GetVoiceChannelRespon
 
 instance Prelude.NFData GetVoiceChannelResponse where
   rnf GetVoiceChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf voiceChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf voiceChannelResponse

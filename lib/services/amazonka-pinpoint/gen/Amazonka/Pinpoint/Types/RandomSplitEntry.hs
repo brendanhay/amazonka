@@ -102,8 +102,8 @@ instance Prelude.Hashable RandomSplitEntry where
 
 instance Prelude.NFData RandomSplitEntry where
   rnf RandomSplitEntry' {..} =
-    Prelude.rnf nextActivity
-      `Prelude.seq` Prelude.rnf percentage
+    Prelude.rnf nextActivity `Prelude.seq`
+      Prelude.rnf percentage
 
 instance Data.ToJSON RandomSplitEntry where
   toJSON RandomSplitEntry' {..} =

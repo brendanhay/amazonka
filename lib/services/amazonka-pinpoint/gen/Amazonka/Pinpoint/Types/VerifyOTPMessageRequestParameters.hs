@@ -99,9 +99,9 @@ instance
     VerifyOTPMessageRequestParameters
   where
   rnf VerifyOTPMessageRequestParameters' {..} =
-    Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf otp
-      `Prelude.seq` Prelude.rnf destinationIdentity
+    Prelude.rnf referenceId `Prelude.seq`
+      Prelude.rnf otp `Prelude.seq`
+        Prelude.rnf destinationIdentity
 
 instance
   Data.ToJSON

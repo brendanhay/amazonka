@@ -231,10 +231,10 @@ instance Prelude.Hashable UpdateInAppTemplate where
 
 instance Prelude.NFData UpdateInAppTemplate where
   rnf UpdateInAppTemplate' {..} =
-    Prelude.rnf createNewVersion
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf inAppTemplateRequest
+    Prelude.rnf createNewVersion `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf inAppTemplateRequest
 
 instance Data.ToHeaders UpdateInAppTemplate where
   toHeaders =
@@ -307,5 +307,5 @@ updateInAppTemplateResponse_messageBody = Lens.lens (\UpdateInAppTemplateRespons
 
 instance Prelude.NFData UpdateInAppTemplateResponse where
   rnf UpdateInAppTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

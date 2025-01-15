@@ -398,23 +398,23 @@ instance Prelude.Hashable GCMMessage where
 
 instance Prelude.NFData GCMMessage where
   rnf GCMMessage' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf collapseKey
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf iconReference
-      `Prelude.seq` Prelude.rnf imageIconUrl
-      `Prelude.seq` Prelude.rnf imageUrl
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf rawContent
-      `Prelude.seq` Prelude.rnf restrictedPackageName
-      `Prelude.seq` Prelude.rnf silentPush
-      `Prelude.seq` Prelude.rnf smallImageIconUrl
-      `Prelude.seq` Prelude.rnf sound
-      `Prelude.seq` Prelude.rnf substitutions
-      `Prelude.seq` Prelude.rnf timeToLive
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf collapseKey `Prelude.seq`
+          Prelude.rnf data' `Prelude.seq`
+            Prelude.rnf iconReference `Prelude.seq`
+              Prelude.rnf imageIconUrl `Prelude.seq`
+                Prelude.rnf imageUrl `Prelude.seq`
+                  Prelude.rnf priority `Prelude.seq`
+                    Prelude.rnf rawContent `Prelude.seq`
+                      Prelude.rnf restrictedPackageName `Prelude.seq`
+                        Prelude.rnf silentPush `Prelude.seq`
+                          Prelude.rnf smallImageIconUrl `Prelude.seq`
+                            Prelude.rnf sound `Prelude.seq`
+                              Prelude.rnf substitutions `Prelude.seq`
+                                Prelude.rnf timeToLive `Prelude.seq`
+                                  Prelude.rnf title `Prelude.seq`
+                                    Prelude.rnf url
 
 instance Data.ToJSON GCMMessage where
   toJSON GCMMessage' {..} =

@@ -170,5 +170,5 @@ getApnsSandboxChannelResponse_aPNSSandboxChannelResponse = Lens.lens (\GetApnsSa
 
 instance Prelude.NFData GetApnsSandboxChannelResponse where
   rnf GetApnsSandboxChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aPNSSandboxChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aPNSSandboxChannelResponse

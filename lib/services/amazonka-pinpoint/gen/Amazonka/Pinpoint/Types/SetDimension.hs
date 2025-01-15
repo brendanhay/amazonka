@@ -96,8 +96,8 @@ instance Prelude.Hashable SetDimension where
 
 instance Prelude.NFData SetDimension where
   rnf SetDimension' {..} =
-    Prelude.rnf dimensionType
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf dimensionType `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON SetDimension where
   toJSON SetDimension' {..} =

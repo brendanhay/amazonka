@@ -102,8 +102,8 @@ instance Prelude.Hashable EventFilter where
 
 instance Prelude.NFData EventFilter where
   rnf EventFilter' {..} =
-    Prelude.rnf filterType
-      `Prelude.seq` Prelude.rnf dimensions
+    Prelude.rnf filterType `Prelude.seq`
+      Prelude.rnf dimensions
 
 instance Data.ToJSON EventFilter where
   toJSON EventFilter' {..} =

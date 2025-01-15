@@ -121,8 +121,8 @@ instance Prelude.Hashable CreateInAppTemplate where
 
 instance Prelude.NFData CreateInAppTemplate where
   rnf CreateInAppTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf inAppTemplateRequest
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf inAppTemplateRequest
 
 instance Data.ToHeaders CreateInAppTemplate where
   toHeaders =
@@ -192,5 +192,5 @@ createInAppTemplateResponse_templateCreateMessageBody = Lens.lens (\CreateInAppT
 
 instance Prelude.NFData CreateInAppTemplateResponse where
   rnf CreateInAppTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf templateCreateMessageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf templateCreateMessageBody

@@ -89,8 +89,8 @@ instance Prelude.Hashable WaitActivity where
 
 instance Prelude.NFData WaitActivity where
   rnf WaitActivity' {..} =
-    Prelude.rnf nextActivity
-      `Prelude.seq` Prelude.rnf waitTime
+    Prelude.rnf nextActivity `Prelude.seq`
+      Prelude.rnf waitTime
 
 instance Data.ToJSON WaitActivity where
   toJSON WaitActivity' {..} =

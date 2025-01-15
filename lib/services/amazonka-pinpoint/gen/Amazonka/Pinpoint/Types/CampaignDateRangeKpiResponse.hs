@@ -193,10 +193,10 @@ instance
 
 instance Prelude.NFData CampaignDateRangeKpiResponse where
   rnf CampaignDateRangeKpiResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf kpiResult
-      `Prelude.seq` Prelude.rnf kpiName
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf campaignId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf kpiResult `Prelude.seq`
+        Prelude.rnf kpiName `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf campaignId `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf applicationId

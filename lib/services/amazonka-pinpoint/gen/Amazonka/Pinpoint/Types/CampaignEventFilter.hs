@@ -92,8 +92,8 @@ instance Prelude.Hashable CampaignEventFilter where
 
 instance Prelude.NFData CampaignEventFilter where
   rnf CampaignEventFilter' {..} =
-    Prelude.rnf filterType
-      `Prelude.seq` Prelude.rnf dimensions
+    Prelude.rnf filterType `Prelude.seq`
+      Prelude.rnf dimensions
 
 instance Data.ToJSON CampaignEventFilter where
   toJSON CampaignEventFilter' {..} =

@@ -145,10 +145,10 @@ instance Prelude.Hashable GetSegmentImportJobs where
 
 instance Prelude.NFData GetSegmentImportJobs where
   rnf GetSegmentImportJobs' {..} =
-    Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf pageSize `Prelude.seq`
+      Prelude.rnf token `Prelude.seq`
+        Prelude.rnf segmentId `Prelude.seq`
+          Prelude.rnf applicationId
 
 instance Data.ToHeaders GetSegmentImportJobs where
   toHeaders =
@@ -220,5 +220,5 @@ getSegmentImportJobsResponse_importJobsResponse = Lens.lens (\GetSegmentImportJo
 
 instance Prelude.NFData GetSegmentImportJobsResponse where
   rnf GetSegmentImportJobsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf importJobsResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf importJobsResponse

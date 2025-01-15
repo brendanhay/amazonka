@@ -336,18 +336,18 @@ instance Prelude.Hashable EndpointResponse where
 
 instance Prelude.NFData EndpointResponse where
   rnf EndpointResponse' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf channelType
-      `Prelude.seq` Prelude.rnf cohortId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf demographic
-      `Prelude.seq` Prelude.rnf effectiveDate
-      `Prelude.seq` Prelude.rnf endpointStatus
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf optOut
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf attributes `Prelude.seq`
+          Prelude.rnf channelType `Prelude.seq`
+            Prelude.rnf cohortId `Prelude.seq`
+              Prelude.rnf creationDate `Prelude.seq`
+                Prelude.rnf demographic `Prelude.seq`
+                  Prelude.rnf effectiveDate `Prelude.seq`
+                    Prelude.rnf endpointStatus `Prelude.seq`
+                      Prelude.rnf id `Prelude.seq`
+                        Prelude.rnf location `Prelude.seq`
+                          Prelude.rnf metrics `Prelude.seq`
+                            Prelude.rnf optOut `Prelude.seq`
+                              Prelude.rnf requestId `Prelude.seq`
+                                Prelude.rnf user

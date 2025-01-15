@@ -186,5 +186,5 @@ instance
     DeleteRecommenderConfigurationResponse
   where
   rnf DeleteRecommenderConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recommenderConfigurationResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf recommenderConfigurationResponse

@@ -85,8 +85,8 @@ instance Prelude.Hashable GPSPointDimension where
 
 instance Prelude.NFData GPSPointDimension where
   rnf GPSPointDimension' {..} =
-    Prelude.rnf rangeInKilometers
-      `Prelude.seq` Prelude.rnf coordinates
+    Prelude.rnf rangeInKilometers `Prelude.seq`
+      Prelude.rnf coordinates
 
 instance Data.ToJSON GPSPointDimension where
   toJSON GPSPointDimension' {..} =

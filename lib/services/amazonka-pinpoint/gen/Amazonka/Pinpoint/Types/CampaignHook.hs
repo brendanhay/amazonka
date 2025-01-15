@@ -129,9 +129,9 @@ instance Prelude.Hashable CampaignHook where
 
 instance Prelude.NFData CampaignHook where
   rnf CampaignHook' {..} =
-    Prelude.rnf lambdaFunctionName
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf webUrl
+    Prelude.rnf lambdaFunctionName `Prelude.seq`
+      Prelude.rnf mode `Prelude.seq`
+        Prelude.rnf webUrl
 
 instance Data.ToJSON CampaignHook where
   toJSON CampaignHook' {..} =

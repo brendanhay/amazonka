@@ -85,8 +85,8 @@ instance Prelude.Hashable SegmentLocation where
 
 instance Prelude.NFData SegmentLocation where
   rnf SegmentLocation' {..} =
-    Prelude.rnf country
-      `Prelude.seq` Prelude.rnf gPSPoint
+    Prelude.rnf country `Prelude.seq`
+      Prelude.rnf gPSPoint
 
 instance Data.ToJSON SegmentLocation where
   toJSON SegmentLocation' {..} =

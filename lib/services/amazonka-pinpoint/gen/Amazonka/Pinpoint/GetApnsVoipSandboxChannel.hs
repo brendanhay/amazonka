@@ -173,5 +173,5 @@ instance
     GetApnsVoipSandboxChannelResponse
   where
   rnf GetApnsVoipSandboxChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aPNSVoipSandboxChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aPNSVoipSandboxChannelResponse

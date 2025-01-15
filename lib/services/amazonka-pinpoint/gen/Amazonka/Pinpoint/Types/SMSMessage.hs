@@ -178,15 +178,15 @@ instance Prelude.Hashable SMSMessage where
 
 instance Prelude.NFData SMSMessage where
   rnf SMSMessage' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf keyword
-      `Prelude.seq` Prelude.rnf mediaUrl
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf originationNumber
-      `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf substitutions
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf keyword `Prelude.seq`
+          Prelude.rnf mediaUrl `Prelude.seq`
+            Prelude.rnf messageType `Prelude.seq`
+              Prelude.rnf originationNumber `Prelude.seq`
+                Prelude.rnf senderId `Prelude.seq`
+                  Prelude.rnf substitutions `Prelude.seq`
+                    Prelude.rnf templateId
 
 instance Data.ToJSON SMSMessage where
   toJSON SMSMessage' {..} =

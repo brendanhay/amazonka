@@ -115,10 +115,10 @@ instance Prelude.Hashable JourneyLimits where
 
 instance Prelude.NFData JourneyLimits where
   rnf JourneyLimits' {..} =
-    Prelude.rnf dailyCap
-      `Prelude.seq` Prelude.rnf endpointReentryCap
-      `Prelude.seq` Prelude.rnf endpointReentryInterval
-      `Prelude.seq` Prelude.rnf messagesPerSecond
+    Prelude.rnf dailyCap `Prelude.seq`
+      Prelude.rnf endpointReentryCap `Prelude.seq`
+        Prelude.rnf endpointReentryInterval `Prelude.seq`
+          Prelude.rnf messagesPerSecond
 
 instance Data.ToJSON JourneyLimits where
   toJSON JourneyLimits' {..} =

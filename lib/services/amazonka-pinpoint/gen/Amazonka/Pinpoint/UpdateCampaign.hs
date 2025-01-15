@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateCampaign where
 
 instance Prelude.NFData UpdateCampaign where
   rnf UpdateCampaign' {..} =
-    Prelude.rnf campaignId
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf writeCampaignRequest
+    Prelude.rnf campaignId `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf writeCampaignRequest
 
 instance Data.ToHeaders UpdateCampaign where
   toHeaders =
@@ -202,5 +202,5 @@ updateCampaignResponse_campaignResponse = Lens.lens (\UpdateCampaignResponse' {c
 
 instance Prelude.NFData UpdateCampaignResponse where
   rnf UpdateCampaignResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf campaignResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf campaignResponse

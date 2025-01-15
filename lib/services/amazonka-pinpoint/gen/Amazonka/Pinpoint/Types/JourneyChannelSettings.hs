@@ -84,8 +84,8 @@ instance Prelude.Hashable JourneyChannelSettings where
 
 instance Prelude.NFData JourneyChannelSettings where
   rnf JourneyChannelSettings' {..} =
-    Prelude.rnf connectCampaignArn
-      `Prelude.seq` Prelude.rnf connectCampaignExecutionRoleArn
+    Prelude.rnf connectCampaignArn `Prelude.seq`
+      Prelude.rnf connectCampaignExecutionRoleArn
 
 instance Data.ToJSON JourneyChannelSettings where
   toJSON JourneyChannelSettings' {..} =

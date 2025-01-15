@@ -204,11 +204,11 @@ instance
     WriteApplicationSettingsRequest
   where
   rnf WriteApplicationSettingsRequest' {..} =
-    Prelude.rnf campaignHook
-      `Prelude.seq` Prelude.rnf cloudWatchMetricsEnabled
-      `Prelude.seq` Prelude.rnf eventTaggingEnabled
-      `Prelude.seq` Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf quietTime
+    Prelude.rnf campaignHook `Prelude.seq`
+      Prelude.rnf cloudWatchMetricsEnabled `Prelude.seq`
+        Prelude.rnf eventTaggingEnabled `Prelude.seq`
+          Prelude.rnf limits `Prelude.seq`
+            Prelude.rnf quietTime
 
 instance Data.ToJSON WriteApplicationSettingsRequest where
   toJSON WriteApplicationSettingsRequest' {..} =

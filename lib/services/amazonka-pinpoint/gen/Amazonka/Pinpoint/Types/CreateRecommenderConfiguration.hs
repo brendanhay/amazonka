@@ -365,15 +365,15 @@ instance
     CreateRecommenderConfiguration
   where
   rnf CreateRecommenderConfiguration' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recommendationProviderIdType
-      `Prelude.seq` Prelude.rnf recommendationTransformerUri
-      `Prelude.seq` Prelude.rnf recommendationsDisplayName
-      `Prelude.seq` Prelude.rnf recommendationsPerMessage
-      `Prelude.seq` Prelude.rnf recommendationProviderUri
-      `Prelude.seq` Prelude.rnf recommendationProviderRoleArn
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf recommendationProviderIdType `Prelude.seq`
+            Prelude.rnf recommendationTransformerUri `Prelude.seq`
+              Prelude.rnf recommendationsDisplayName `Prelude.seq`
+                Prelude.rnf recommendationsPerMessage `Prelude.seq`
+                  Prelude.rnf recommendationProviderUri `Prelude.seq`
+                    Prelude.rnf recommendationProviderRoleArn
 
 instance Data.ToJSON CreateRecommenderConfiguration where
   toJSON CreateRecommenderConfiguration' {..} =

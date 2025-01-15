@@ -156,12 +156,12 @@ instance Prelude.Hashable CampaignSmsMessage where
 
 instance Prelude.NFData CampaignSmsMessage where
   rnf CampaignSmsMessage' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf originationNumber
-      `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf messageType `Prelude.seq`
+          Prelude.rnf originationNumber `Prelude.seq`
+            Prelude.rnf senderId `Prelude.seq`
+              Prelude.rnf templateId
 
 instance Data.ToJSON CampaignSmsMessage where
   toJSON CampaignSmsMessage' {..} =

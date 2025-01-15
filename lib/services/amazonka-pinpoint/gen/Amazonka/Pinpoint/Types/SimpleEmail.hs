@@ -97,9 +97,9 @@ instance Prelude.Hashable SimpleEmail where
 
 instance Prelude.NFData SimpleEmail where
   rnf SimpleEmail' {..} =
-    Prelude.rnf htmlPart
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf textPart
+    Prelude.rnf htmlPart `Prelude.seq`
+      Prelude.rnf subject `Prelude.seq`
+        Prelude.rnf textPart
 
 instance Data.ToJSON SimpleEmail where
   toJSON SimpleEmail' {..} =

@@ -112,10 +112,10 @@ instance Prelude.Hashable CampaignEmailMessage where
 
 instance Prelude.NFData CampaignEmailMessage where
   rnf CampaignEmailMessage' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf fromAddress
-      `Prelude.seq` Prelude.rnf htmlBody
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf fromAddress `Prelude.seq`
+        Prelude.rnf htmlBody `Prelude.seq`
+          Prelude.rnf title
 
 instance Data.ToJSON CampaignEmailMessage where
   toJSON CampaignEmailMessage' {..} =

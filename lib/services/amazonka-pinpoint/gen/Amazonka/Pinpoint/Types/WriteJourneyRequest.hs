@@ -373,24 +373,24 @@ instance Prelude.Hashable WriteJourneyRequest where
 
 instance Prelude.NFData WriteJourneyRequest where
   rnf WriteJourneyRequest' {..} =
-    Prelude.rnf activities
-      `Prelude.seq` Prelude.rnf closedDays
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf journeyChannelSettings
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf localTime
-      `Prelude.seq` Prelude.rnf openHours
-      `Prelude.seq` Prelude.rnf quietTime
-      `Prelude.seq` Prelude.rnf refreshFrequency
-      `Prelude.seq` Prelude.rnf refreshOnSegmentUpdate
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf sendingSchedule
-      `Prelude.seq` Prelude.rnf startActivity
-      `Prelude.seq` Prelude.rnf startCondition
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf waitForQuietTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf activities `Prelude.seq`
+      Prelude.rnf closedDays `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf journeyChannelSettings `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf limits `Prelude.seq`
+                Prelude.rnf localTime `Prelude.seq`
+                  Prelude.rnf openHours `Prelude.seq`
+                    Prelude.rnf quietTime `Prelude.seq`
+                      Prelude.rnf refreshFrequency `Prelude.seq`
+                        Prelude.rnf refreshOnSegmentUpdate `Prelude.seq`
+                          Prelude.rnf schedule `Prelude.seq`
+                            Prelude.rnf sendingSchedule `Prelude.seq`
+                              Prelude.rnf startActivity `Prelude.seq`
+                                Prelude.rnf startCondition `Prelude.seq`
+                                  Prelude.rnf state `Prelude.seq`
+                                    Prelude.rnf waitForQuietTime `Prelude.seq`
+                                      Prelude.rnf name
 
 instance Data.ToJSON WriteJourneyRequest where
   toJSON WriteJourneyRequest' {..} =

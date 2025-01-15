@@ -181,8 +181,8 @@ instance Prelude.Hashable GetSmsTemplate where
 
 instance Prelude.NFData GetSmsTemplate where
   rnf GetSmsTemplate' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToHeaders GetSmsTemplate where
   toHeaders =
@@ -247,5 +247,5 @@ getSmsTemplateResponse_sMSTemplateResponse = Lens.lens (\GetSmsTemplateResponse'
 
 instance Prelude.NFData GetSmsTemplateResponse where
   rnf GetSmsTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf sMSTemplateResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf sMSTemplateResponse

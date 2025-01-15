@@ -204,15 +204,15 @@ instance Prelude.Hashable MessageConfiguration where
 
 instance Prelude.NFData MessageConfiguration where
   rnf MessageConfiguration' {..} =
-    Prelude.rnf aDMMessage
-      `Prelude.seq` Prelude.rnf aPNSMessage
-      `Prelude.seq` Prelude.rnf baiduMessage
-      `Prelude.seq` Prelude.rnf customMessage
-      `Prelude.seq` Prelude.rnf defaultMessage
-      `Prelude.seq` Prelude.rnf emailMessage
-      `Prelude.seq` Prelude.rnf gCMMessage
-      `Prelude.seq` Prelude.rnf inAppMessage
-      `Prelude.seq` Prelude.rnf sMSMessage
+    Prelude.rnf aDMMessage `Prelude.seq`
+      Prelude.rnf aPNSMessage `Prelude.seq`
+        Prelude.rnf baiduMessage `Prelude.seq`
+          Prelude.rnf customMessage `Prelude.seq`
+            Prelude.rnf defaultMessage `Prelude.seq`
+              Prelude.rnf emailMessage `Prelude.seq`
+                Prelude.rnf gCMMessage `Prelude.seq`
+                  Prelude.rnf inAppMessage `Prelude.seq`
+                    Prelude.rnf sMSMessage
 
 instance Data.ToJSON MessageConfiguration where
   toJSON MessageConfiguration' {..} =

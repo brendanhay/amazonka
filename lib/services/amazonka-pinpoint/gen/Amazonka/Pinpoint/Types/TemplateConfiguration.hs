@@ -108,10 +108,10 @@ instance Prelude.Hashable TemplateConfiguration where
 
 instance Prelude.NFData TemplateConfiguration where
   rnf TemplateConfiguration' {..} =
-    Prelude.rnf emailTemplate
-      `Prelude.seq` Prelude.rnf pushTemplate
-      `Prelude.seq` Prelude.rnf sMSTemplate
-      `Prelude.seq` Prelude.rnf voiceTemplate
+    Prelude.rnf emailTemplate `Prelude.seq`
+      Prelude.rnf pushTemplate `Prelude.seq`
+        Prelude.rnf sMSTemplate `Prelude.seq`
+          Prelude.rnf voiceTemplate
 
 instance Data.ToJSON TemplateConfiguration where
   toJSON TemplateConfiguration' {..} =

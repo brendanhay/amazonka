@@ -86,9 +86,9 @@ instance Prelude.Hashable SMSChannelRequest where
 
 instance Prelude.NFData SMSChannelRequest where
   rnf SMSChannelRequest' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf shortCode
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf senderId `Prelude.seq`
+        Prelude.rnf shortCode
 
 instance Data.ToJSON SMSChannelRequest where
   toJSON SMSChannelRequest' {..} =

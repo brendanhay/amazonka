@@ -100,9 +100,9 @@ instance Prelude.Hashable SimpleCondition where
 
 instance Prelude.NFData SimpleCondition where
   rnf SimpleCondition' {..} =
-    Prelude.rnf eventCondition
-      `Prelude.seq` Prelude.rnf segmentCondition
-      `Prelude.seq` Prelude.rnf segmentDimensions
+    Prelude.rnf eventCondition `Prelude.seq`
+      Prelude.rnf segmentCondition `Prelude.seq`
+        Prelude.rnf segmentDimensions
 
 instance Data.ToJSON SimpleCondition where
   toJSON SimpleCondition' {..} =

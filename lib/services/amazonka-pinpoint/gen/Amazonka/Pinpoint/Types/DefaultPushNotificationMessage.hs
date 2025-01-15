@@ -194,13 +194,13 @@ instance
     DefaultPushNotificationMessage
   where
   rnf DefaultPushNotificationMessage' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf silentPush
-      `Prelude.seq` Prelude.rnf substitutions
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf data' `Prelude.seq`
+          Prelude.rnf silentPush `Prelude.seq`
+            Prelude.rnf substitutions `Prelude.seq`
+              Prelude.rnf title `Prelude.seq`
+                Prelude.rnf url
 
 instance Data.ToJSON DefaultPushNotificationMessage where
   toJSON DefaultPushNotificationMessage' {..} =

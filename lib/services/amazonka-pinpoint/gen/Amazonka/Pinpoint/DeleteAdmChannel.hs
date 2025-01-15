@@ -165,5 +165,5 @@ deleteAdmChannelResponse_aDMChannelResponse = Lens.lens (\DeleteAdmChannelRespon
 
 instance Prelude.NFData DeleteAdmChannelResponse where
   rnf DeleteAdmChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aDMChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aDMChannelResponse

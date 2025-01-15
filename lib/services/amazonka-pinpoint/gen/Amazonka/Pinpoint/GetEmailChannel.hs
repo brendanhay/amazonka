@@ -164,5 +164,5 @@ getEmailChannelResponse_emailChannelResponse = Lens.lens (\GetEmailChannelRespon
 
 instance Prelude.NFData GetEmailChannelResponse where
   rnf GetEmailChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf emailChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf emailChannelResponse

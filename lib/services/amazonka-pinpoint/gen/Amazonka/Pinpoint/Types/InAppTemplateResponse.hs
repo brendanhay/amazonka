@@ -206,14 +206,14 @@ instance Prelude.Hashable InAppTemplateResponse where
 
 instance Prelude.NFData InAppTemplateResponse where
   rnf InAppTemplateResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf customConfig
-      `Prelude.seq` Prelude.rnf layout
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf content `Prelude.seq`
+        Prelude.rnf customConfig `Prelude.seq`
+          Prelude.rnf layout `Prelude.seq`
+            Prelude.rnf templateDescription `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf lastModifiedDate `Prelude.seq`
+                    Prelude.rnf creationDate `Prelude.seq`
+                      Prelude.rnf templateName `Prelude.seq`
+                        Prelude.rnf templateType

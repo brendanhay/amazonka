@@ -255,16 +255,16 @@ instance Prelude.Hashable EmailTemplateResponse where
 
 instance Prelude.NFData EmailTemplateResponse where
   rnf EmailTemplateResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf defaultSubstitutions
-      `Prelude.seq` Prelude.rnf htmlPart
-      `Prelude.seq` Prelude.rnf recommenderId
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf textPart
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf defaultSubstitutions `Prelude.seq`
+        Prelude.rnf htmlPart `Prelude.seq`
+          Prelude.rnf recommenderId `Prelude.seq`
+            Prelude.rnf subject `Prelude.seq`
+              Prelude.rnf templateDescription `Prelude.seq`
+                Prelude.rnf textPart `Prelude.seq`
+                  Prelude.rnf version `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf lastModifiedDate `Prelude.seq`
+                        Prelude.rnf creationDate `Prelude.seq`
+                          Prelude.rnf templateName `Prelude.seq`
+                            Prelude.rnf templateType

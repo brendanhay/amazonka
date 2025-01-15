@@ -120,8 +120,8 @@ instance Prelude.Hashable UpdateEndpointsBatch where
 
 instance Prelude.NFData UpdateEndpointsBatch where
   rnf UpdateEndpointsBatch' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf endpointBatchRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf endpointBatchRequest
 
 instance Data.ToHeaders UpdateEndpointsBatch where
   toHeaders =
@@ -190,5 +190,5 @@ updateEndpointsBatchResponse_messageBody = Lens.lens (\UpdateEndpointsBatchRespo
 
 instance Prelude.NFData UpdateEndpointsBatchResponse where
   rnf UpdateEndpointsBatchResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

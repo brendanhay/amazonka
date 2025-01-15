@@ -95,8 +95,8 @@ instance Prelude.Hashable SegmentGroupList where
 
 instance Prelude.NFData SegmentGroupList where
   rnf SegmentGroupList' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf include
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf include
 
 instance Data.ToJSON SegmentGroupList where
   toJSON SegmentGroupList' {..} =

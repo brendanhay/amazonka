@@ -114,8 +114,8 @@ instance Prelude.Hashable CreateJourney where
 
 instance Prelude.NFData CreateJourney where
   rnf CreateJourney' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf writeJourneyRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf writeJourneyRequest
 
 instance Data.ToHeaders CreateJourney where
   toHeaders =
@@ -183,5 +183,5 @@ createJourneyResponse_journeyResponse = Lens.lens (\CreateJourneyResponse' {jour
 
 instance Prelude.NFData CreateJourneyResponse where
   rnf CreateJourneyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf journeyResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf journeyResponse

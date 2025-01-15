@@ -112,8 +112,8 @@ instance Prelude.Hashable VerifyOTPMessage where
 
 instance Prelude.NFData VerifyOTPMessage where
   rnf VerifyOTPMessage' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf verifyOTPMessageRequestParameters
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf verifyOTPMessageRequestParameters
 
 instance Data.ToHeaders VerifyOTPMessage where
   toHeaders =
@@ -182,5 +182,5 @@ verifyOTPMessageResponse_verificationResponse = Lens.lens (\VerifyOTPMessageResp
 
 instance Prelude.NFData VerifyOTPMessageResponse where
   rnf VerifyOTPMessageResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf verificationResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf verificationResponse

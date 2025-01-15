@@ -131,11 +131,11 @@ instance Prelude.Hashable VoiceMessage where
 
 instance Prelude.NFData VoiceMessage where
   rnf VoiceMessage' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf originationNumber
-      `Prelude.seq` Prelude.rnf substitutions
-      `Prelude.seq` Prelude.rnf voiceId
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf languageCode `Prelude.seq`
+        Prelude.rnf originationNumber `Prelude.seq`
+          Prelude.rnf substitutions `Prelude.seq`
+            Prelude.rnf voiceId
 
 instance Data.ToJSON VoiceMessage where
   toJSON VoiceMessage' {..} =

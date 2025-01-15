@@ -101,9 +101,9 @@ instance Prelude.Hashable InAppMessageBodyConfig where
 
 instance Prelude.NFData InAppMessageBodyConfig where
   rnf InAppMessageBodyConfig' {..} =
-    Prelude.rnf alignment
-      `Prelude.seq` Prelude.rnf textColor
-      `Prelude.seq` Prelude.rnf body
+    Prelude.rnf alignment `Prelude.seq`
+      Prelude.rnf textColor `Prelude.seq`
+        Prelude.rnf body
 
 instance Data.ToJSON InAppMessageBodyConfig where
   toJSON InAppMessageBodyConfig' {..} =

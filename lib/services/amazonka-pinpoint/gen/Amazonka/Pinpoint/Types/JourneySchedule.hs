@@ -115,9 +115,9 @@ instance Prelude.Hashable JourneySchedule where
 
 instance Prelude.NFData JourneySchedule where
   rnf JourneySchedule' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf timezone
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf timezone
 
 instance Data.ToJSON JourneySchedule where
   toJSON JourneySchedule' {..} =

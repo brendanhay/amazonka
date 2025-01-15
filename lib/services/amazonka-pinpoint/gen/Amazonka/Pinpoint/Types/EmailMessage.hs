@@ -135,13 +135,13 @@ instance Prelude.Hashable EmailMessage where
 
 instance Prelude.NFData EmailMessage where
   rnf EmailMessage' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf feedbackForwardingAddress
-      `Prelude.seq` Prelude.rnf fromAddress
-      `Prelude.seq` Prelude.rnf rawEmail
-      `Prelude.seq` Prelude.rnf replyToAddresses
-      `Prelude.seq` Prelude.rnf simpleEmail
-      `Prelude.seq` Prelude.rnf substitutions
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf feedbackForwardingAddress `Prelude.seq`
+        Prelude.rnf fromAddress `Prelude.seq`
+          Prelude.rnf rawEmail `Prelude.seq`
+            Prelude.rnf replyToAddresses `Prelude.seq`
+              Prelude.rnf simpleEmail `Prelude.seq`
+                Prelude.rnf substitutions
 
 instance Data.ToJSON EmailMessage where
   toJSON EmailMessage' {..} =

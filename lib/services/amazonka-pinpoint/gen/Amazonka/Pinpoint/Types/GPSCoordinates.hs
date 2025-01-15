@@ -84,8 +84,8 @@ instance Prelude.Hashable GPSCoordinates where
 
 instance Prelude.NFData GPSCoordinates where
   rnf GPSCoordinates' {..} =
-    Prelude.rnf latitude
-      `Prelude.seq` Prelude.rnf longitude
+    Prelude.rnf latitude `Prelude.seq`
+      Prelude.rnf longitude
 
 instance Data.ToJSON GPSCoordinates where
   toJSON GPSCoordinates' {..} =

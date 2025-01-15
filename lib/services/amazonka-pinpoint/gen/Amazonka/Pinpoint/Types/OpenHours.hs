@@ -116,11 +116,11 @@ instance Prelude.Hashable OpenHours where
 
 instance Prelude.NFData OpenHours where
   rnf OpenHours' {..} =
-    Prelude.rnf custom
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf push
-      `Prelude.seq` Prelude.rnf sms
-      `Prelude.seq` Prelude.rnf voice
+    Prelude.rnf custom `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf push `Prelude.seq`
+          Prelude.rnf sms `Prelude.seq`
+            Prelude.rnf voice
 
 instance Data.ToJSON OpenHours where
   toJSON OpenHours' {..} =

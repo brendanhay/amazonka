@@ -130,9 +130,9 @@ instance Prelude.Hashable ListJourneys where
 
 instance Prelude.NFData ListJourneys where
   rnf ListJourneys' {..} =
-    Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf pageSize `Prelude.seq`
+      Prelude.rnf token `Prelude.seq`
+        Prelude.rnf applicationId
 
 instance Data.ToHeaders ListJourneys where
   toHeaders =
@@ -198,5 +198,5 @@ listJourneysResponse_journeysResponse = Lens.lens (\ListJourneysResponse' {journ
 
 instance Prelude.NFData ListJourneysResponse where
   rnf ListJourneysResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf journeysResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf journeysResponse

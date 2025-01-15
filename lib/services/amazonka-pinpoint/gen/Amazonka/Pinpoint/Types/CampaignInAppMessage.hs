@@ -107,10 +107,10 @@ instance Prelude.Hashable CampaignInAppMessage where
 
 instance Prelude.NFData CampaignInAppMessage where
   rnf CampaignInAppMessage' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf customConfig
-      `Prelude.seq` Prelude.rnf layout
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf content `Prelude.seq`
+        Prelude.rnf customConfig `Prelude.seq`
+          Prelude.rnf layout
 
 instance Data.ToJSON CampaignInAppMessage where
   toJSON CampaignInAppMessage' {..} =

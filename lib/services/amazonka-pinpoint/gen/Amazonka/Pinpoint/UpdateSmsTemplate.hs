@@ -231,10 +231,10 @@ instance Prelude.Hashable UpdateSmsTemplate where
 
 instance Prelude.NFData UpdateSmsTemplate where
   rnf UpdateSmsTemplate' {..} =
-    Prelude.rnf createNewVersion
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf sMSTemplateRequest
+    Prelude.rnf createNewVersion `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf sMSTemplateRequest
 
 instance Data.ToHeaders UpdateSmsTemplate where
   toHeaders =
@@ -307,5 +307,5 @@ updateSmsTemplateResponse_messageBody = Lens.lens (\UpdateSmsTemplateResponse' {
 
 instance Prelude.NFData UpdateSmsTemplateResponse where
   rnf UpdateSmsTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

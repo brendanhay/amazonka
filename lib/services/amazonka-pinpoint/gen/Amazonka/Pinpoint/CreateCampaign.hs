@@ -115,8 +115,8 @@ instance Prelude.Hashable CreateCampaign where
 
 instance Prelude.NFData CreateCampaign where
   rnf CreateCampaign' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf writeCampaignRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf writeCampaignRequest
 
 instance Data.ToHeaders CreateCampaign where
   toHeaders =
@@ -184,5 +184,5 @@ createCampaignResponse_campaignResponse = Lens.lens (\CreateCampaignResponse' {c
 
 instance Prelude.NFData CreateCampaignResponse where
   rnf CreateCampaignResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf campaignResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf campaignResponse

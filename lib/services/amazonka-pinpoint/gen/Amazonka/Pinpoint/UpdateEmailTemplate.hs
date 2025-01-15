@@ -231,10 +231,10 @@ instance Prelude.Hashable UpdateEmailTemplate where
 
 instance Prelude.NFData UpdateEmailTemplate where
   rnf UpdateEmailTemplate' {..} =
-    Prelude.rnf createNewVersion
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf emailTemplateRequest
+    Prelude.rnf createNewVersion `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf emailTemplateRequest
 
 instance Data.ToHeaders UpdateEmailTemplate where
   toHeaders =
@@ -307,5 +307,5 @@ updateEmailTemplateResponse_messageBody = Lens.lens (\UpdateEmailTemplateRespons
 
 instance Prelude.NFData UpdateEmailTemplateResponse where
   rnf UpdateEmailTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

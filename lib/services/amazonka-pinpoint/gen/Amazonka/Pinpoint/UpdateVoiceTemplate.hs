@@ -231,10 +231,10 @@ instance Prelude.Hashable UpdateVoiceTemplate where
 
 instance Prelude.NFData UpdateVoiceTemplate where
   rnf UpdateVoiceTemplate' {..} =
-    Prelude.rnf createNewVersion
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf voiceTemplateRequest
+    Prelude.rnf createNewVersion `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf voiceTemplateRequest
 
 instance Data.ToHeaders UpdateVoiceTemplate where
   toHeaders =
@@ -307,5 +307,5 @@ updateVoiceTemplateResponse_messageBody = Lens.lens (\UpdateVoiceTemplateRespons
 
 instance Prelude.NFData UpdateVoiceTemplateResponse where
   rnf UpdateVoiceTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

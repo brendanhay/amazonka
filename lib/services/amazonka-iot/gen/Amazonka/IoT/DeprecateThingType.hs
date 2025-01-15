@@ -120,8 +120,8 @@ instance Prelude.Hashable DeprecateThingType where
 
 instance Prelude.NFData DeprecateThingType where
   rnf DeprecateThingType' {..} =
-    Prelude.rnf undoDeprecate
-      `Prelude.seq` Prelude.rnf thingTypeName
+    Prelude.rnf undoDeprecate `Prelude.seq`
+      Prelude.rnf thingTypeName
 
 instance Data.ToHeaders DeprecateThingType where
   toHeaders = Prelude.const Prelude.mempty

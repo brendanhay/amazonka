@@ -95,6 +95,6 @@ instance Prelude.Hashable NonCompliantResource where
 
 instance Prelude.NFData NonCompliantResource where
   rnf NonCompliantResource' {..} =
-    Prelude.rnf additionalInfo
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf additionalInfo `Prelude.seq`
+      Prelude.rnf resourceIdentifier `Prelude.seq`
+        Prelude.rnf resourceType

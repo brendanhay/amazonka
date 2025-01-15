@@ -254,14 +254,14 @@ describeThingGroupResponse_httpStatus = Lens.lens (\DescribeThingGroupResponse' 
 
 instance Prelude.NFData DescribeThingGroupResponse where
   rnf DescribeThingGroupResponse' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf thingGroupArn
-      `Prelude.seq` Prelude.rnf thingGroupId
-      `Prelude.seq` Prelude.rnf thingGroupMetadata
-      `Prelude.seq` Prelude.rnf thingGroupName
-      `Prelude.seq` Prelude.rnf thingGroupProperties
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf queryString `Prelude.seq`
+        Prelude.rnf queryVersion `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf thingGroupArn `Prelude.seq`
+              Prelude.rnf thingGroupId `Prelude.seq`
+                Prelude.rnf thingGroupMetadata `Prelude.seq`
+                  Prelude.rnf thingGroupName `Prelude.seq`
+                    Prelude.rnf thingGroupProperties `Prelude.seq`
+                      Prelude.rnf version `Prelude.seq`
+                        Prelude.rnf httpStatus

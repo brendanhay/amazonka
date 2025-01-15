@@ -80,5 +80,5 @@ instance Prelude.Hashable AuthorizerSummary where
 
 instance Prelude.NFData AuthorizerSummary where
   rnf AuthorizerSummary' {..} =
-    Prelude.rnf authorizerArn
-      `Prelude.seq` Prelude.rnf authorizerName
+    Prelude.rnf authorizerArn `Prelude.seq`
+      Prelude.rnf authorizerName

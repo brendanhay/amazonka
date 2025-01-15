@@ -267,12 +267,12 @@ describeThingResponse_httpStatus = Lens.lens (\DescribeThingResponse' {httpStatu
 
 instance Prelude.NFData DescribeThingResponse where
   rnf DescribeThingResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf billingGroupName
-      `Prelude.seq` Prelude.rnf defaultClientId
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf thingId
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf billingGroupName `Prelude.seq`
+        Prelude.rnf defaultClientId `Prelude.seq`
+          Prelude.rnf thingArn `Prelude.seq`
+            Prelude.rnf thingId `Prelude.seq`
+              Prelude.rnf thingName `Prelude.seq`
+                Prelude.rnf thingTypeName `Prelude.seq`
+                  Prelude.rnf version `Prelude.seq`
+                    Prelude.rnf httpStatus

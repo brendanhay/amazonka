@@ -106,6 +106,6 @@ instance Prelude.Hashable ThingConnectivity where
 
 instance Prelude.NFData ThingConnectivity where
   rnf ThingConnectivity' {..} =
-    Prelude.rnf connected
-      `Prelude.seq` Prelude.rnf disconnectReason
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf connected `Prelude.seq`
+      Prelude.rnf disconnectReason `Prelude.seq`
+        Prelude.rnf timestamp

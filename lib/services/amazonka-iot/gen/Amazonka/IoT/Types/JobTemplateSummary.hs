@@ -102,7 +102,7 @@ instance Prelude.Hashable JobTemplateSummary where
 
 instance Prelude.NFData JobTemplateSummary where
   rnf JobTemplateSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf jobTemplateArn
-      `Prelude.seq` Prelude.rnf jobTemplateId
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf jobTemplateArn `Prelude.seq`
+          Prelude.rnf jobTemplateId

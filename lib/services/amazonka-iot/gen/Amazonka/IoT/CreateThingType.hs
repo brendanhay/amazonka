@@ -135,9 +135,9 @@ instance Prelude.Hashable CreateThingType where
 
 instance Prelude.NFData CreateThingType where
   rnf CreateThingType' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf thingTypeProperties
-      `Prelude.seq` Prelude.rnf thingTypeName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf thingTypeProperties `Prelude.seq`
+        Prelude.rnf thingTypeName
 
 instance Data.ToHeaders CreateThingType where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,7 +221,7 @@ createThingTypeResponse_httpStatus = Lens.lens (\CreateThingTypeResponse' {httpS
 
 instance Prelude.NFData CreateThingTypeResponse where
   rnf CreateThingTypeResponse' {..} =
-    Prelude.rnf thingTypeArn
-      `Prelude.seq` Prelude.rnf thingTypeId
-      `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf thingTypeArn `Prelude.seq`
+      Prelude.rnf thingTypeId `Prelude.seq`
+        Prelude.rnf thingTypeName `Prelude.seq`
+          Prelude.rnf httpStatus

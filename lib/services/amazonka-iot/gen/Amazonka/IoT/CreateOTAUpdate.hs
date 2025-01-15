@@ -294,19 +294,19 @@ instance Prelude.Hashable CreateOTAUpdate where
 
 instance Prelude.NFData CreateOTAUpdate where
   rnf CreateOTAUpdate' {..} =
-    Prelude.rnf additionalParameters
-      `Prelude.seq` Prelude.rnf awsJobAbortConfig
-      `Prelude.seq` Prelude.rnf awsJobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf awsJobPresignedUrlConfig
-      `Prelude.seq` Prelude.rnf awsJobTimeoutConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetSelection
-      `Prelude.seq` Prelude.rnf otaUpdateId
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf files
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf additionalParameters `Prelude.seq`
+      Prelude.rnf awsJobAbortConfig `Prelude.seq`
+        Prelude.rnf awsJobExecutionsRolloutConfig `Prelude.seq`
+          Prelude.rnf awsJobPresignedUrlConfig `Prelude.seq`
+            Prelude.rnf awsJobTimeoutConfig `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf protocols `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf targetSelection `Prelude.seq`
+                      Prelude.rnf otaUpdateId `Prelude.seq`
+                        Prelude.rnf targets `Prelude.seq`
+                          Prelude.rnf files `Prelude.seq`
+                            Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateOTAUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -421,9 +421,9 @@ createOTAUpdateResponse_httpStatus = Lens.lens (\CreateOTAUpdateResponse' {httpS
 
 instance Prelude.NFData CreateOTAUpdateResponse where
   rnf CreateOTAUpdateResponse' {..} =
-    Prelude.rnf awsIotJobArn
-      `Prelude.seq` Prelude.rnf awsIotJobId
-      `Prelude.seq` Prelude.rnf otaUpdateArn
-      `Prelude.seq` Prelude.rnf otaUpdateId
-      `Prelude.seq` Prelude.rnf otaUpdateStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf awsIotJobArn `Prelude.seq`
+      Prelude.rnf awsIotJobId `Prelude.seq`
+        Prelude.rnf otaUpdateArn `Prelude.seq`
+          Prelude.rnf otaUpdateId `Prelude.seq`
+            Prelude.rnf otaUpdateStatus `Prelude.seq`
+              Prelude.rnf httpStatus

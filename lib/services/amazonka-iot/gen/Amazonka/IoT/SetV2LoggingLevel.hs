@@ -105,8 +105,8 @@ instance Prelude.Hashable SetV2LoggingLevel where
 
 instance Prelude.NFData SetV2LoggingLevel where
   rnf SetV2LoggingLevel' {..} =
-    Prelude.rnf logTarget
-      `Prelude.seq` Prelude.rnf logLevel
+    Prelude.rnf logTarget `Prelude.seq`
+      Prelude.rnf logLevel
 
 instance Data.ToHeaders SetV2LoggingLevel where
   toHeaders = Prelude.const Prelude.mempty

@@ -181,5 +181,5 @@ instance
     DescribeDetectMitigationActionsTaskResponse
   where
   rnf DescribeDetectMitigationActionsTaskResponse' {..} =
-    Prelude.rnf taskSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskSummary `Prelude.seq`
+      Prelude.rnf httpStatus

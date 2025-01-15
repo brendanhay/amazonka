@@ -190,11 +190,11 @@ instance Prelude.Hashable CancelJobExecution where
 
 instance Prelude.NFData CancelJobExecution where
   rnf CancelJobExecution' {..} =
-    Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf expectedVersion `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf statusDetails `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf thingName
 
 instance Data.ToHeaders CancelJobExecution where
   toHeaders = Prelude.const Prelude.mempty

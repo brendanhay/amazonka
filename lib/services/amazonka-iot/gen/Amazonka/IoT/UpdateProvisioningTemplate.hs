@@ -178,13 +178,13 @@ instance Prelude.Hashable UpdateProvisioningTemplate where
 
 instance Prelude.NFData UpdateProvisioningTemplate where
   rnf UpdateProvisioningTemplate' {..} =
-    Prelude.rnf defaultVersionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf preProvisioningHook
-      `Prelude.seq` Prelude.rnf provisioningRoleArn
-      `Prelude.seq` Prelude.rnf removePreProvisioningHook
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf defaultVersionId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf preProvisioningHook `Prelude.seq`
+            Prelude.rnf provisioningRoleArn `Prelude.seq`
+              Prelude.rnf removePreProvisioningHook `Prelude.seq`
+                Prelude.rnf templateName
 
 instance Data.ToHeaders UpdateProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty

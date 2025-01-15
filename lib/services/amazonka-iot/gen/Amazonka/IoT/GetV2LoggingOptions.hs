@@ -155,7 +155,7 @@ getV2LoggingOptionsResponse_httpStatus = Lens.lens (\GetV2LoggingOptionsResponse
 
 instance Prelude.NFData GetV2LoggingOptionsResponse where
   rnf GetV2LoggingOptionsResponse' {..} =
-    Prelude.rnf defaultLogLevel
-      `Prelude.seq` Prelude.rnf disableAllLogs
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf defaultLogLevel `Prelude.seq`
+      Prelude.rnf disableAllLogs `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf httpStatus

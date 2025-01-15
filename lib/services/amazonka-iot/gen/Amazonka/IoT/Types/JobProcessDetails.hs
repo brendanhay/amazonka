@@ -173,12 +173,12 @@ instance Prelude.Hashable JobProcessDetails where
 
 instance Prelude.NFData JobProcessDetails where
   rnf JobProcessDetails' {..} =
-    Prelude.rnf numberOfCanceledThings
-      `Prelude.seq` Prelude.rnf numberOfFailedThings
-      `Prelude.seq` Prelude.rnf numberOfInProgressThings
-      `Prelude.seq` Prelude.rnf numberOfQueuedThings
-      `Prelude.seq` Prelude.rnf numberOfRejectedThings
-      `Prelude.seq` Prelude.rnf numberOfRemovedThings
-      `Prelude.seq` Prelude.rnf numberOfSucceededThings
-      `Prelude.seq` Prelude.rnf numberOfTimedOutThings
-      `Prelude.seq` Prelude.rnf processingTargets
+    Prelude.rnf numberOfCanceledThings `Prelude.seq`
+      Prelude.rnf numberOfFailedThings `Prelude.seq`
+        Prelude.rnf numberOfInProgressThings `Prelude.seq`
+          Prelude.rnf numberOfQueuedThings `Prelude.seq`
+            Prelude.rnf numberOfRejectedThings `Prelude.seq`
+              Prelude.rnf numberOfRemovedThings `Prelude.seq`
+                Prelude.rnf numberOfSucceededThings `Prelude.seq`
+                  Prelude.rnf numberOfTimedOutThings `Prelude.seq`
+                    Prelude.rnf processingTargets

@@ -208,8 +208,8 @@ instance
     CreateKeysAndCertificateResponse
   where
   rnf CreateKeysAndCertificateResponse' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf certificatePem
-      `Prelude.seq` Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateId `Prelude.seq`
+        Prelude.rnf certificatePem `Prelude.seq`
+          Prelude.rnf keyPair `Prelude.seq`
+            Prelude.rnf httpStatus

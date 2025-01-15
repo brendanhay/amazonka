@@ -138,9 +138,9 @@ instance Prelude.Hashable JobExecutionSummary where
 
 instance Prelude.NFData JobExecutionSummary where
   rnf JobExecutionSummary' {..} =
-    Prelude.rnf executionNumber
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf queuedAt
-      `Prelude.seq` Prelude.rnf retryAttempt
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf executionNumber `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf queuedAt `Prelude.seq`
+          Prelude.rnf retryAttempt `Prelude.seq`
+            Prelude.rnf startedAt `Prelude.seq`
+              Prelude.rnf status

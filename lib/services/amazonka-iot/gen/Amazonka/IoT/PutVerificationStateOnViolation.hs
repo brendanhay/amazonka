@@ -137,9 +137,9 @@ instance
     PutVerificationStateOnViolation
   where
   rnf PutVerificationStateOnViolation' {..} =
-    Prelude.rnf verificationStateDescription
-      `Prelude.seq` Prelude.rnf violationId
-      `Prelude.seq` Prelude.rnf verificationState
+    Prelude.rnf verificationStateDescription `Prelude.seq`
+      Prelude.rnf violationId `Prelude.seq`
+        Prelude.rnf verificationState
 
 instance
   Data.ToHeaders

@@ -83,8 +83,8 @@ instance Prelude.Hashable MetricToRetain where
 
 instance Prelude.NFData MetricToRetain where
   rnf MetricToRetain' {..} =
-    Prelude.rnf metricDimension
-      `Prelude.seq` Prelude.rnf metric
+    Prelude.rnf metricDimension `Prelude.seq`
+      Prelude.rnf metric
 
 instance Data.ToJSON MetricToRetain where
   toJSON MetricToRetain' {..} =

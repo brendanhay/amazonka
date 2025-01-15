@@ -179,11 +179,11 @@ instance Prelude.Hashable UpdateThing where
 
 instance Prelude.NFData UpdateThing where
   rnf UpdateThing' {..} =
-    Prelude.rnf attributePayload
-      `Prelude.seq` Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf removeThingType
-      `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf attributePayload `Prelude.seq`
+      Prelude.rnf expectedVersion `Prelude.seq`
+        Prelude.rnf removeThingType `Prelude.seq`
+          Prelude.rnf thingTypeName `Prelude.seq`
+            Prelude.rnf thingName
 
 instance Data.ToHeaders UpdateThing where
   toHeaders = Prelude.const Prelude.mempty

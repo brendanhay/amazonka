@@ -171,11 +171,11 @@ instance Prelude.Hashable ThingDocument where
 
 instance Prelude.NFData ThingDocument where
   rnf ThingDocument' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf connectivity
-      `Prelude.seq` Prelude.rnf deviceDefender
-      `Prelude.seq` Prelude.rnf shadow
-      `Prelude.seq` Prelude.rnf thingGroupNames
-      `Prelude.seq` Prelude.rnf thingId
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf thingTypeName
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf connectivity `Prelude.seq`
+        Prelude.rnf deviceDefender `Prelude.seq`
+          Prelude.rnf shadow `Prelude.seq`
+            Prelude.rnf thingGroupNames `Prelude.seq`
+              Prelude.rnf thingId `Prelude.seq`
+                Prelude.rnf thingName `Prelude.seq`
+                  Prelude.rnf thingTypeName

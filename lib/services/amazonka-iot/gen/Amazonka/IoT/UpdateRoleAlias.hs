@@ -135,9 +135,9 @@ instance Prelude.Hashable UpdateRoleAlias where
 
 instance Prelude.NFData UpdateRoleAlias where
   rnf UpdateRoleAlias' {..} =
-    Prelude.rnf credentialDurationSeconds
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf roleAlias
+    Prelude.rnf credentialDurationSeconds `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf roleAlias
 
 instance Data.ToHeaders UpdateRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,6 +210,6 @@ updateRoleAliasResponse_httpStatus = Lens.lens (\UpdateRoleAliasResponse' {httpS
 
 instance Prelude.NFData UpdateRoleAliasResponse where
   rnf UpdateRoleAliasResponse' {..} =
-    Prelude.rnf roleAlias
-      `Prelude.seq` Prelude.rnf roleAliasArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf roleAlias `Prelude.seq`
+      Prelude.rnf roleAliasArn `Prelude.seq`
+        Prelude.rnf httpStatus

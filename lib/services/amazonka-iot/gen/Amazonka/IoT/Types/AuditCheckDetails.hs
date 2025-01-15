@@ -156,10 +156,10 @@ instance Prelude.Hashable AuditCheckDetails where
 
 instance Prelude.NFData AuditCheckDetails where
   rnf AuditCheckDetails' {..} =
-    Prelude.rnf checkCompliant
-      `Prelude.seq` Prelude.rnf checkRunStatus
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf nonCompliantResourcesCount
-      `Prelude.seq` Prelude.rnf suppressedNonCompliantResourcesCount
-      `Prelude.seq` Prelude.rnf totalResourcesCount
+    Prelude.rnf checkCompliant `Prelude.seq`
+      Prelude.rnf checkRunStatus `Prelude.seq`
+        Prelude.rnf errorCode `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf nonCompliantResourcesCount `Prelude.seq`
+              Prelude.rnf suppressedNonCompliantResourcesCount `Prelude.seq`
+                Prelude.rnf totalResourcesCount

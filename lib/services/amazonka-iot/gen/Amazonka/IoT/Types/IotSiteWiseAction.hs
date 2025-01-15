@@ -98,8 +98,8 @@ instance Prelude.Hashable IotSiteWiseAction where
 
 instance Prelude.NFData IotSiteWiseAction where
   rnf IotSiteWiseAction' {..} =
-    Prelude.rnf putAssetPropertyValueEntries
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf putAssetPropertyValueEntries `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON IotSiteWiseAction where
   toJSON IotSiteWiseAction' {..} =

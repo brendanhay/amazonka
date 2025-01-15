@@ -110,8 +110,8 @@ instance Prelude.Hashable ReplaceTopicRule where
 
 instance Prelude.NFData ReplaceTopicRule where
   rnf ReplaceTopicRule' {..} =
-    Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf topicRulePayload
+    Prelude.rnf ruleName `Prelude.seq`
+      Prelude.rnf topicRulePayload
 
 instance Data.ToHeaders ReplaceTopicRule where
   toHeaders = Prelude.const Prelude.mempty

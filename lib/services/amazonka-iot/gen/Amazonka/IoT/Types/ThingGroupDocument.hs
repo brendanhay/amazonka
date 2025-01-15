@@ -116,8 +116,8 @@ instance Prelude.Hashable ThingGroupDocument where
 
 instance Prelude.NFData ThingGroupDocument where
   rnf ThingGroupDocument' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf parentGroupNames
-      `Prelude.seq` Prelude.rnf thingGroupDescription
-      `Prelude.seq` Prelude.rnf thingGroupId
-      `Prelude.seq` Prelude.rnf thingGroupName
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf parentGroupNames `Prelude.seq`
+        Prelude.rnf thingGroupDescription `Prelude.seq`
+          Prelude.rnf thingGroupId `Prelude.seq`
+            Prelude.rnf thingGroupName

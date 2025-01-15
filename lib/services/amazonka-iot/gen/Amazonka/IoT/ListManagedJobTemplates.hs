@@ -129,9 +129,9 @@ instance Prelude.Hashable ListManagedJobTemplates where
 
 instance Prelude.NFData ListManagedJobTemplates where
   rnf ListManagedJobTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf templateName
 
 instance Data.ToHeaders ListManagedJobTemplates where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,6 +200,6 @@ instance
     ListManagedJobTemplatesResponse
   where
   rnf ListManagedJobTemplatesResponse' {..} =
-    Prelude.rnf managedJobTemplates
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf managedJobTemplates `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

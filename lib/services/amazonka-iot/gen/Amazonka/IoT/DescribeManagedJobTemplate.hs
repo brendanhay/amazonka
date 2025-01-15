@@ -127,8 +127,8 @@ instance Prelude.Hashable DescribeManagedJobTemplate where
 
 instance Prelude.NFData DescribeManagedJobTemplate where
   rnf DescribeManagedJobTemplate' {..} =
-    Prelude.rnf templateVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf templateVersion `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToHeaders DescribeManagedJobTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -256,11 +256,11 @@ instance
     DescribeManagedJobTemplateResponse
   where
   rnf DescribeManagedJobTemplateResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf document
-      `Prelude.seq` Prelude.rnf documentParameters
-      `Prelude.seq` Prelude.rnf environments
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf document `Prelude.seq`
+        Prelude.rnf documentParameters `Prelude.seq`
+          Prelude.rnf environments `Prelude.seq`
+            Prelude.rnf templateArn `Prelude.seq`
+              Prelude.rnf templateName `Prelude.seq`
+                Prelude.rnf templateVersion `Prelude.seq`
+                  Prelude.rnf httpStatus

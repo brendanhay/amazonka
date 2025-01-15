@@ -183,12 +183,12 @@ instance
     AuditMitigationActionExecutionMetadata
   where
   rnf AuditMitigationActionExecutionMetadata' {..} =
-    Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf findingId
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf actionId `Prelude.seq`
+      Prelude.rnf actionName `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf errorCode `Prelude.seq`
+            Prelude.rnf findingId `Prelude.seq`
+              Prelude.rnf message `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf taskId

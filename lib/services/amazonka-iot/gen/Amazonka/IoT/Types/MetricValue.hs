@@ -133,12 +133,12 @@ instance Prelude.Hashable MetricValue where
 
 instance Prelude.NFData MetricValue where
   rnf MetricValue' {..} =
-    Prelude.rnf cidrs
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf number
-      `Prelude.seq` Prelude.rnf numbers
-      `Prelude.seq` Prelude.rnf ports
-      `Prelude.seq` Prelude.rnf strings
+    Prelude.rnf cidrs `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf number `Prelude.seq`
+          Prelude.rnf numbers `Prelude.seq`
+            Prelude.rnf ports `Prelude.seq`
+              Prelude.rnf strings
 
 instance Data.ToJSON MetricValue where
   toJSON MetricValue' {..} =

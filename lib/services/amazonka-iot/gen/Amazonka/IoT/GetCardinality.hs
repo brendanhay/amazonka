@@ -134,10 +134,10 @@ instance Prelude.Hashable GetCardinality where
 
 instance Prelude.NFData GetCardinality where
   rnf GetCardinality' {..} =
-    Prelude.rnf aggregationField
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf aggregationField `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf queryVersion `Prelude.seq`
+          Prelude.rnf queryString
 
 instance Data.ToHeaders GetCardinality where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,5 +201,5 @@ getCardinalityResponse_httpStatus = Lens.lens (\GetCardinalityResponse' {httpSta
 
 instance Prelude.NFData GetCardinalityResponse where
   rnf GetCardinalityResponse' {..} =
-    Prelude.rnf cardinality
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cardinality `Prelude.seq`
+      Prelude.rnf httpStatus

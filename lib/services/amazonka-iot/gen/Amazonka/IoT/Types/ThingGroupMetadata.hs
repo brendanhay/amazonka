@@ -95,6 +95,6 @@ instance Prelude.Hashable ThingGroupMetadata where
 
 instance Prelude.NFData ThingGroupMetadata where
   rnf ThingGroupMetadata' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf parentGroupName
-      `Prelude.seq` Prelude.rnf rootToParentThingGroups
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf parentGroupName `Prelude.seq`
+        Prelude.rnf rootToParentThingGroups

@@ -73,8 +73,8 @@ instance Prelude.Hashable LoggingOptionsPayload where
 
 instance Prelude.NFData LoggingOptionsPayload where
   rnf LoggingOptionsPayload' {..} =
-    Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf logLevel `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON LoggingOptionsPayload where
   toJSON LoggingOptionsPayload' {..} =

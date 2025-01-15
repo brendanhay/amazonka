@@ -286,15 +286,15 @@ instance
     DescribeProvisioningTemplateResponse
   where
   rnf DescribeProvisioningTemplateResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf defaultVersionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf preProvisioningHook
-      `Prelude.seq` Prelude.rnf provisioningRoleArn
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf defaultVersionId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf preProvisioningHook `Prelude.seq`
+                Prelude.rnf provisioningRoleArn `Prelude.seq`
+                  Prelude.rnf templateArn `Prelude.seq`
+                    Prelude.rnf templateBody `Prelude.seq`
+                      Prelude.rnf templateName `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf httpStatus

@@ -130,10 +130,10 @@ instance Prelude.Hashable HttpAction where
 
 instance Prelude.NFData HttpAction where
   rnf HttpAction' {..} =
-    Prelude.rnf auth
-      `Prelude.seq` Prelude.rnf confirmationUrl
-      `Prelude.seq` Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf auth `Prelude.seq`
+      Prelude.rnf confirmationUrl `Prelude.seq`
+        Prelude.rnf headers `Prelude.seq`
+          Prelude.rnf url
 
 instance Data.ToJSON HttpAction where
   toJSON HttpAction' {..} =

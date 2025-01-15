@@ -81,8 +81,8 @@ instance
     TopicRuleDestinationConfiguration
   where
   rnf TopicRuleDestinationConfiguration' {..} =
-    Prelude.rnf httpUrlConfiguration
-      `Prelude.seq` Prelude.rnf vpcConfiguration
+    Prelude.rnf httpUrlConfiguration `Prelude.seq`
+      Prelude.rnf vpcConfiguration
 
 instance
   Data.ToJSON

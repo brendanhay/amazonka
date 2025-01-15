@@ -213,10 +213,10 @@ instance Prelude.Hashable TopicRuleDestinationSummary where
 
 instance Prelude.NFData TopicRuleDestinationSummary where
   rnf TopicRuleDestinationSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf httpUrlSummary
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf vpcDestinationSummary
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf httpUrlSummary `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusReason `Prelude.seq`
+                Prelude.rnf vpcDestinationSummary

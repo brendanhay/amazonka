@@ -89,5 +89,5 @@ instance
 
 instance Prelude.NFData SecurityProfileTargetMapping where
   rnf SecurityProfileTargetMapping' {..} =
-    Prelude.rnf securityProfileIdentifier
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf securityProfileIdentifier `Prelude.seq`
+      Prelude.rnf target

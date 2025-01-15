@@ -113,9 +113,9 @@ instance Prelude.Hashable SetV2LoggingOptions where
 
 instance Prelude.NFData SetV2LoggingOptions where
   rnf SetV2LoggingOptions' {..} =
-    Prelude.rnf defaultLogLevel
-      `Prelude.seq` Prelude.rnf disableAllLogs
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf defaultLogLevel `Prelude.seq`
+      Prelude.rnf disableAllLogs `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToHeaders SetV2LoggingOptions where
   toHeaders = Prelude.const Prelude.mempty

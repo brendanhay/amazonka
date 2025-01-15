@@ -121,11 +121,11 @@ instance Prelude.Hashable KafkaAction where
 
 instance Prelude.NFData KafkaAction where
   rnf KafkaAction' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf partition
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf topic
-      `Prelude.seq` Prelude.rnf clientProperties
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf partition `Prelude.seq`
+        Prelude.rnf destinationArn `Prelude.seq`
+          Prelude.rnf topic `Prelude.seq`
+            Prelude.rnf clientProperties
 
 instance Data.ToJSON KafkaAction where
   toJSON KafkaAction' {..} =

@@ -106,6 +106,6 @@ instance Prelude.Hashable DomainConfigurationSummary where
 
 instance Prelude.NFData DomainConfigurationSummary where
   rnf DomainConfigurationSummary' {..} =
-    Prelude.rnf domainConfigurationArn
-      `Prelude.seq` Prelude.rnf domainConfigurationName
-      `Prelude.seq` Prelude.rnf serviceType
+    Prelude.rnf domainConfigurationArn `Prelude.seq`
+      Prelude.rnf domainConfigurationName `Prelude.seq`
+        Prelude.rnf serviceType

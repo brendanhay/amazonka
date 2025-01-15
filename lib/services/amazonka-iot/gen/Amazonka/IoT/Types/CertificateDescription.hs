@@ -265,17 +265,17 @@ instance Prelude.Hashable CertificateDescription where
 
 instance Prelude.NFData CertificateDescription where
   rnf CertificateDescription' {..} =
-    Prelude.rnf caCertificateId
-      `Prelude.seq` Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf certificateMode
-      `Prelude.seq` Prelude.rnf certificatePem
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf customerVersion
-      `Prelude.seq` Prelude.rnf generationId
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf ownedBy
-      `Prelude.seq` Prelude.rnf previousOwnedBy
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf transferData
-      `Prelude.seq` Prelude.rnf validity
+    Prelude.rnf caCertificateId `Prelude.seq`
+      Prelude.rnf certificateArn `Prelude.seq`
+        Prelude.rnf certificateId `Prelude.seq`
+          Prelude.rnf certificateMode `Prelude.seq`
+            Prelude.rnf certificatePem `Prelude.seq`
+              Prelude.rnf creationDate `Prelude.seq`
+                Prelude.rnf customerVersion `Prelude.seq`
+                  Prelude.rnf generationId `Prelude.seq`
+                    Prelude.rnf lastModifiedDate `Prelude.seq`
+                      Prelude.rnf ownedBy `Prelude.seq`
+                        Prelude.rnf previousOwnedBy `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf transferData `Prelude.seq`
+                              Prelude.rnf validity

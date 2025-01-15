@@ -105,7 +105,7 @@ instance Prelude.Hashable VpcDestinationSummary where
 
 instance Prelude.NFData VpcDestinationSummary where
   rnf VpcDestinationSummary' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf securityGroups `Prelude.seq`
+        Prelude.rnf subnetIds `Prelude.seq`
+          Prelude.rnf vpcId

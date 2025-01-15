@@ -113,8 +113,8 @@ instance Prelude.Hashable TransferData where
 
 instance Prelude.NFData TransferData where
   rnf TransferData' {..} =
-    Prelude.rnf acceptDate
-      `Prelude.seq` Prelude.rnf rejectDate
-      `Prelude.seq` Prelude.rnf rejectReason
-      `Prelude.seq` Prelude.rnf transferDate
-      `Prelude.seq` Prelude.rnf transferMessage
+    Prelude.rnf acceptDate `Prelude.seq`
+      Prelude.rnf rejectDate `Prelude.seq`
+        Prelude.rnf rejectReason `Prelude.seq`
+          Prelude.rnf transferDate `Prelude.seq`
+            Prelude.rnf transferMessage

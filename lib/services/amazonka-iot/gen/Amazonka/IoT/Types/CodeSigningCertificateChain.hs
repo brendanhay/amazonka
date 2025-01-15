@@ -84,8 +84,8 @@ instance Prelude.Hashable CodeSigningCertificateChain where
 
 instance Prelude.NFData CodeSigningCertificateChain where
   rnf CodeSigningCertificateChain' {..} =
-    Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf inlineDocument
+    Prelude.rnf certificateName `Prelude.seq`
+      Prelude.rnf inlineDocument
 
 instance Data.ToJSON CodeSigningCertificateChain where
   toJSON CodeSigningCertificateChain' {..} =

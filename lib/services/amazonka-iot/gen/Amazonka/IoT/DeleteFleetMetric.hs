@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteFleetMetric where
 
 instance Prelude.NFData DeleteFleetMetric where
   rnf DeleteFleetMetric' {..} =
-    Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf expectedVersion `Prelude.seq`
+      Prelude.rnf metricName
 
 instance Data.ToHeaders DeleteFleetMetric where
   toHeaders = Prelude.const Prelude.mempty

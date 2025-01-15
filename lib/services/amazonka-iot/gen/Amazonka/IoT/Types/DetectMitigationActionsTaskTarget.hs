@@ -103,9 +103,9 @@ instance
     DetectMitigationActionsTaskTarget
   where
   rnf DetectMitigationActionsTaskTarget' {..} =
-    Prelude.rnf behaviorName
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf violationIds
+    Prelude.rnf behaviorName `Prelude.seq`
+      Prelude.rnf securityProfileName `Prelude.seq`
+        Prelude.rnf violationIds
 
 instance
   Data.ToJSON

@@ -109,7 +109,7 @@ instance Prelude.Hashable CACertificate where
 
 instance Prelude.NFData CACertificate where
   rnf CACertificate' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateId `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf status

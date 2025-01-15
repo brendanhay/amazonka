@@ -99,6 +99,6 @@ instance Prelude.Hashable AuditTaskMetadata where
 
 instance Prelude.NFData AuditTaskMetadata where
   rnf AuditTaskMetadata' {..} =
-    Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf taskStatus
-      `Prelude.seq` Prelude.rnf taskType
+    Prelude.rnf taskId `Prelude.seq`
+      Prelude.rnf taskStatus `Prelude.seq`
+        Prelude.rnf taskType

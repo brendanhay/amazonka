@@ -228,10 +228,10 @@ describeCustomMetricResponse_httpStatus = Lens.lens (\DescribeCustomMetricRespon
 
 instance Prelude.NFData DescribeCustomMetricResponse where
   rnf DescribeCustomMetricResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf metricArn
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf metricArn `Prelude.seq`
+            Prelude.rnf metricName `Prelude.seq`
+              Prelude.rnf metricType `Prelude.seq`
+                Prelude.rnf httpStatus

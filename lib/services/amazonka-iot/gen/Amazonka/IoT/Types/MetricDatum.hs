@@ -81,5 +81,5 @@ instance Prelude.Hashable MetricDatum where
 
 instance Prelude.NFData MetricDatum where
   rnf MetricDatum' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf value

@@ -103,6 +103,6 @@ instance
     DetectMitigationActionsTaskStatistics
   where
   rnf DetectMitigationActionsTaskStatistics' {..} =
-    Prelude.rnf actionsExecuted
-      `Prelude.seq` Prelude.rnf actionsFailed
-      `Prelude.seq` Prelude.rnf actionsSkipped
+    Prelude.rnf actionsExecuted `Prelude.seq`
+      Prelude.rnf actionsFailed `Prelude.seq`
+        Prelude.rnf actionsSkipped

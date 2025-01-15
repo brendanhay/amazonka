@@ -91,6 +91,6 @@ instance Prelude.Hashable PolicyVersion where
 
 instance Prelude.NFData PolicyVersion where
   rnf PolicyVersion' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf isDefaultVersion
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf isDefaultVersion `Prelude.seq`
+        Prelude.rnf versionId

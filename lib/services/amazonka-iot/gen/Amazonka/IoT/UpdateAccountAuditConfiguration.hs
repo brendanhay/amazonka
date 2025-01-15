@@ -179,9 +179,9 @@ instance
     UpdateAccountAuditConfiguration
   where
   rnf UpdateAccountAuditConfiguration' {..} =
-    Prelude.rnf auditCheckConfigurations
-      `Prelude.seq` Prelude.rnf auditNotificationTargetConfigurations
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf auditCheckConfigurations `Prelude.seq`
+      Prelude.rnf auditNotificationTargetConfigurations `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance
   Data.ToHeaders

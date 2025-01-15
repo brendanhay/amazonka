@@ -116,12 +116,12 @@ instance Core.AWSPager ListOTAUpdates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOTAUpdates_nextToken
-          Lens..~ rs
-          Lens.^? listOTAUpdatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOTAUpdates_nextToken
+              Lens..~ rs
+              Lens.^? listOTAUpdatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOTAUpdates where
   type
@@ -147,9 +147,9 @@ instance Prelude.Hashable ListOTAUpdates where
 
 instance Prelude.NFData ListOTAUpdates where
   rnf ListOTAUpdates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf otaUpdateStatus
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf otaUpdateStatus
 
 instance Data.ToHeaders ListOTAUpdates where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,6 +215,6 @@ listOTAUpdatesResponse_httpStatus = Lens.lens (\ListOTAUpdatesResponse' {httpSta
 
 instance Prelude.NFData ListOTAUpdatesResponse where
   rnf ListOTAUpdatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf otaUpdates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf otaUpdates `Prelude.seq`
+        Prelude.rnf httpStatus

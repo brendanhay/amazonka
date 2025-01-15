@@ -162,5 +162,5 @@ describeCertificateResponse_httpStatus = Lens.lens (\DescribeCertificateResponse
 
 instance Prelude.NFData DescribeCertificateResponse where
   rnf DescribeCertificateResponse' {..} =
-    Prelude.rnf certificateDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateDescription `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -125,9 +125,9 @@ instance Prelude.Hashable SchedulingConfig where
 
 instance Prelude.NFData SchedulingConfig where
   rnf SchedulingConfig' {..} =
-    Prelude.rnf endBehavior
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endBehavior `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf startTime
 
 instance Data.ToJSON SchedulingConfig where
   toJSON SchedulingConfig' {..} =

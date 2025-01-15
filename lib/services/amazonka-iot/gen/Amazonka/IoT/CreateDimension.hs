@@ -179,11 +179,11 @@ instance Prelude.Hashable CreateDimension where
 
 instance Prelude.NFData CreateDimension where
   rnf CreateDimension' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf stringValues
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf stringValues `Prelude.seq`
+            Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateDimension where
   toHeaders = Prelude.const Prelude.mempty
@@ -256,6 +256,6 @@ createDimensionResponse_httpStatus = Lens.lens (\CreateDimensionResponse' {httpS
 
 instance Prelude.NFData CreateDimensionResponse where
   rnf CreateDimensionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -124,9 +124,9 @@ instance
 
 instance Prelude.NFData AwsJobExponentialRolloutRate where
   rnf AwsJobExponentialRolloutRate' {..} =
-    Prelude.rnf baseRatePerMinute
-      `Prelude.seq` Prelude.rnf incrementFactor
-      `Prelude.seq` Prelude.rnf rateIncreaseCriteria
+    Prelude.rnf baseRatePerMinute `Prelude.seq`
+      Prelude.rnf incrementFactor `Prelude.seq`
+        Prelude.rnf rateIncreaseCriteria
 
 instance Data.ToJSON AwsJobExponentialRolloutRate where
   toJSON AwsJobExponentialRolloutRate' {..} =

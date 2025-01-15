@@ -83,8 +83,8 @@ instance Prelude.Hashable LogTarget where
 
 instance Prelude.NFData LogTarget where
   rnf LogTarget' {..} =
-    Prelude.rnf targetName
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf targetName `Prelude.seq`
+      Prelude.rnf targetType
 
 instance Data.ToJSON LogTarget where
   toJSON LogTarget' {..} =

@@ -210,10 +210,10 @@ describeBillingGroupResponse_httpStatus = Lens.lens (\DescribeBillingGroupRespon
 
 instance Prelude.NFData DescribeBillingGroupResponse where
   rnf DescribeBillingGroupResponse' {..} =
-    Prelude.rnf billingGroupArn
-      `Prelude.seq` Prelude.rnf billingGroupId
-      `Prelude.seq` Prelude.rnf billingGroupMetadata
-      `Prelude.seq` Prelude.rnf billingGroupName
-      `Prelude.seq` Prelude.rnf billingGroupProperties
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf billingGroupArn `Prelude.seq`
+      Prelude.rnf billingGroupId `Prelude.seq`
+        Prelude.rnf billingGroupMetadata `Prelude.seq`
+          Prelude.rnf billingGroupName `Prelude.seq`
+            Prelude.rnf billingGroupProperties `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf httpStatus

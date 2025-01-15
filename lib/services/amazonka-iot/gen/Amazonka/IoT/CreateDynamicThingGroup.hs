@@ -198,12 +198,12 @@ instance Prelude.Hashable CreateDynamicThingGroup where
 
 instance Prelude.NFData CreateDynamicThingGroup where
   rnf CreateDynamicThingGroup' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf thingGroupProperties
-      `Prelude.seq` Prelude.rnf thingGroupName
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf queryVersion `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf thingGroupProperties `Prelude.seq`
+            Prelude.rnf thingGroupName `Prelude.seq`
+              Prelude.rnf queryString
 
 instance Data.ToHeaders CreateDynamicThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -318,10 +318,10 @@ instance
     CreateDynamicThingGroupResponse
   where
   rnf CreateDynamicThingGroupResponse' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf thingGroupArn
-      `Prelude.seq` Prelude.rnf thingGroupId
-      `Prelude.seq` Prelude.rnf thingGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf queryString `Prelude.seq`
+        Prelude.rnf queryVersion `Prelude.seq`
+          Prelude.rnf thingGroupArn `Prelude.seq`
+            Prelude.rnf thingGroupId `Prelude.seq`
+              Prelude.rnf thingGroupName `Prelude.seq`
+                Prelude.rnf httpStatus

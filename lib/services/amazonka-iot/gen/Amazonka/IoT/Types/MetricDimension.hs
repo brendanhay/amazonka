@@ -98,8 +98,8 @@ instance Prelude.Hashable MetricDimension where
 
 instance Prelude.NFData MetricDimension where
   rnf MetricDimension' {..} =
-    Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf dimensionName
+    Prelude.rnf operator `Prelude.seq`
+      Prelude.rnf dimensionName
 
 instance Data.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =

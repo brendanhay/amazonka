@@ -180,9 +180,9 @@ instance Prelude.Hashable DeleteJob where
 
 instance Prelude.NFData DeleteJob where
   rnf DeleteJob' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf namespaceId `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders DeleteJob where
   toHeaders = Prelude.const Prelude.mempty

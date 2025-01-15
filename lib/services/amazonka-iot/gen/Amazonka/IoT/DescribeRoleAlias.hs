@@ -151,5 +151,5 @@ describeRoleAliasResponse_httpStatus = Lens.lens (\DescribeRoleAliasResponse' {h
 
 instance Prelude.NFData DescribeRoleAliasResponse where
   rnf DescribeRoleAliasResponse' {..} =
-    Prelude.rnf roleAliasDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf roleAliasDescription `Prelude.seq`
+      Prelude.rnf httpStatus

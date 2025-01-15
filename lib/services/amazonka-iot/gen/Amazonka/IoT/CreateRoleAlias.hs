@@ -178,10 +178,10 @@ instance Prelude.Hashable CreateRoleAlias where
 
 instance Prelude.NFData CreateRoleAlias where
   rnf CreateRoleAlias' {..} =
-    Prelude.rnf credentialDurationSeconds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf roleAlias
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf credentialDurationSeconds `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf roleAlias `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,6 +255,6 @@ createRoleAliasResponse_httpStatus = Lens.lens (\CreateRoleAliasResponse' {httpS
 
 instance Prelude.NFData CreateRoleAliasResponse where
   rnf CreateRoleAliasResponse' {..} =
-    Prelude.rnf roleAlias
-      `Prelude.seq` Prelude.rnf roleAliasArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf roleAlias `Prelude.seq`
+      Prelude.rnf roleAliasArn `Prelude.seq`
+        Prelude.rnf httpStatus

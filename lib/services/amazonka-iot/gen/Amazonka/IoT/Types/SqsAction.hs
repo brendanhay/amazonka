@@ -95,9 +95,9 @@ instance Prelude.Hashable SqsAction where
 
 instance Prelude.NFData SqsAction where
   rnf SqsAction' {..} =
-    Prelude.rnf useBase64
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf queueUrl
+    Prelude.rnf useBase64 `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf queueUrl
 
 instance Data.ToJSON SqsAction where
   toJSON SqsAction' {..} =

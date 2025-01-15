@@ -160,8 +160,8 @@ instance Prelude.Hashable Certificate where
 
 instance Prelude.NFData Certificate where
   rnf Certificate' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf certificateMode
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateId `Prelude.seq`
+        Prelude.rnf certificateMode `Prelude.seq`
+          Prelude.rnf creationDate `Prelude.seq`
+            Prelude.rnf status

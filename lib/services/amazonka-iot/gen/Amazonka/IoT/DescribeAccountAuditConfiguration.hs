@@ -205,7 +205,7 @@ instance
     DescribeAccountAuditConfigurationResponse
   where
   rnf DescribeAccountAuditConfigurationResponse' {..} =
-    Prelude.rnf auditCheckConfigurations
-      `Prelude.seq` Prelude.rnf auditNotificationTargetConfigurations
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf auditCheckConfigurations `Prelude.seq`
+      Prelude.rnf auditNotificationTargetConfigurations `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf httpStatus

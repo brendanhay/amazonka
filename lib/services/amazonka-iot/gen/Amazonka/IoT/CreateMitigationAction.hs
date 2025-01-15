@@ -151,10 +151,10 @@ instance Prelude.Hashable CreateMitigationAction where
 
 instance Prelude.NFData CreateMitigationAction where
   rnf CreateMitigationAction' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf actionParams
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf actionName `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf actionParams
 
 instance Data.ToHeaders CreateMitigationAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,6 +230,6 @@ instance
     CreateMitigationActionResponse
   where
   rnf CreateMitigationActionResponse' {..} =
-    Prelude.rnf actionArn
-      `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionArn `Prelude.seq`
+      Prelude.rnf actionId `Prelude.seq`
+        Prelude.rnf httpStatus

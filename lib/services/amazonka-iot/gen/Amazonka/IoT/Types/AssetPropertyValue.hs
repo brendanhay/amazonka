@@ -100,9 +100,9 @@ instance Prelude.Hashable AssetPropertyValue where
 
 instance Prelude.NFData AssetPropertyValue where
   rnf AssetPropertyValue' {..} =
-    Prelude.rnf quality
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf quality `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf timestamp
 
 instance Data.ToJSON AssetPropertyValue where
   toJSON AssetPropertyValue' {..} =

@@ -211,10 +211,10 @@ describeAuditTaskResponse_httpStatus = Lens.lens (\DescribeAuditTaskResponse' {h
 
 instance Prelude.NFData DescribeAuditTaskResponse where
   rnf DescribeAuditTaskResponse' {..} =
-    Prelude.rnf auditDetails
-      `Prelude.seq` Prelude.rnf scheduledAuditName
-      `Prelude.seq` Prelude.rnf taskStartTime
-      `Prelude.seq` Prelude.rnf taskStatistics
-      `Prelude.seq` Prelude.rnf taskStatus
-      `Prelude.seq` Prelude.rnf taskType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf auditDetails `Prelude.seq`
+      Prelude.rnf scheduledAuditName `Prelude.seq`
+        Prelude.rnf taskStartTime `Prelude.seq`
+          Prelude.rnf taskStatistics `Prelude.seq`
+            Prelude.rnf taskStatus `Prelude.seq`
+              Prelude.rnf taskType `Prelude.seq`
+                Prelude.rnf httpStatus

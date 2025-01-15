@@ -245,10 +245,10 @@ instance
     DescribeScheduledAuditResponse
   where
   rnf DescribeScheduledAuditResponse' {..} =
-    Prelude.rnf dayOfMonth
-      `Prelude.seq` Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf scheduledAuditArn
-      `Prelude.seq` Prelude.rnf scheduledAuditName
-      `Prelude.seq` Prelude.rnf targetCheckNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dayOfMonth `Prelude.seq`
+      Prelude.rnf dayOfWeek `Prelude.seq`
+        Prelude.rnf frequency `Prelude.seq`
+          Prelude.rnf scheduledAuditArn `Prelude.seq`
+            Prelude.rnf scheduledAuditName `Prelude.seq`
+              Prelude.rnf targetCheckNames `Prelude.seq`
+                Prelude.rnf httpStatus

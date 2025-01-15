@@ -97,8 +97,8 @@ instance Prelude.Hashable AddThingsToThingGroupParams where
 
 instance Prelude.NFData AddThingsToThingGroupParams where
   rnf AddThingsToThingGroupParams' {..} =
-    Prelude.rnf overrideDynamicGroups
-      `Prelude.seq` Prelude.rnf thingGroupNames
+    Prelude.rnf overrideDynamicGroups `Prelude.seq`
+      Prelude.rnf thingGroupNames
 
 instance Data.ToJSON AddThingsToThingGroupParams where
   toJSON AddThingsToThingGroupParams' {..} =

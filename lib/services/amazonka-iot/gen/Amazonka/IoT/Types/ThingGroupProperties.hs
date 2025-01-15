@@ -82,8 +82,8 @@ instance Prelude.Hashable ThingGroupProperties where
 
 instance Prelude.NFData ThingGroupProperties where
   rnf ThingGroupProperties' {..} =
-    Prelude.rnf attributePayload
-      `Prelude.seq` Prelude.rnf thingGroupDescription
+    Prelude.rnf attributePayload `Prelude.seq`
+      Prelude.rnf thingGroupDescription
 
 instance Data.ToJSON ThingGroupProperties where
   toJSON ThingGroupProperties' {..} =

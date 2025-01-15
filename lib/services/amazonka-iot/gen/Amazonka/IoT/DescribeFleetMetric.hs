@@ -292,17 +292,17 @@ describeFleetMetricResponse_httpStatus = Lens.lens (\DescribeFleetMetricResponse
 
 instance Prelude.NFData DescribeFleetMetricResponse where
   rnf DescribeFleetMetricResponse' {..} =
-    Prelude.rnf aggregationField
-      `Prelude.seq` Prelude.rnf aggregationType
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf metricArn
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aggregationField `Prelude.seq`
+      Prelude.rnf aggregationType `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf indexName `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf metricArn `Prelude.seq`
+                  Prelude.rnf metricName `Prelude.seq`
+                    Prelude.rnf period `Prelude.seq`
+                      Prelude.rnf queryString `Prelude.seq`
+                        Prelude.rnf queryVersion `Prelude.seq`
+                          Prelude.rnf unit `Prelude.seq`
+                            Prelude.rnf version `Prelude.seq`
+                              Prelude.rnf httpStatus

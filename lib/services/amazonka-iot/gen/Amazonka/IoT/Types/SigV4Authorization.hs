@@ -102,9 +102,9 @@ instance Prelude.Hashable SigV4Authorization where
 
 instance Prelude.NFData SigV4Authorization where
   rnf SigV4Authorization' {..} =
-    Prelude.rnf signingRegion
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf signingRegion `Prelude.seq`
+      Prelude.rnf serviceName `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToJSON SigV4Authorization where
   toJSON SigV4Authorization' {..} =

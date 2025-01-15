@@ -250,13 +250,13 @@ instance Prelude.Hashable ThingIndexingConfiguration where
 
 instance Prelude.NFData ThingIndexingConfiguration where
   rnf ThingIndexingConfiguration' {..} =
-    Prelude.rnf customFields
-      `Prelude.seq` Prelude.rnf deviceDefenderIndexingMode
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf managedFields
-      `Prelude.seq` Prelude.rnf namedShadowIndexingMode
-      `Prelude.seq` Prelude.rnf thingConnectivityIndexingMode
-      `Prelude.seq` Prelude.rnf thingIndexingMode
+    Prelude.rnf customFields `Prelude.seq`
+      Prelude.rnf deviceDefenderIndexingMode `Prelude.seq`
+        Prelude.rnf filter' `Prelude.seq`
+          Prelude.rnf managedFields `Prelude.seq`
+            Prelude.rnf namedShadowIndexingMode `Prelude.seq`
+              Prelude.rnf thingConnectivityIndexingMode `Prelude.seq`
+                Prelude.rnf thingIndexingMode
 
 instance Data.ToJSON ThingIndexingConfiguration where
   toJSON ThingIndexingConfiguration' {..} =

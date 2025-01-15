@@ -155,5 +155,5 @@ describeAuthorizerResponse_httpStatus = Lens.lens (\DescribeAuthorizerResponse' 
 
 instance Prelude.NFData DescribeAuthorizerResponse where
   rnf DescribeAuthorizerResponse' {..} =
-    Prelude.rnf authorizerDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizerDescription `Prelude.seq`
+      Prelude.rnf httpStatus

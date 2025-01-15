@@ -109,8 +109,8 @@ instance Prelude.Hashable UpdateIndexingConfiguration where
 
 instance Prelude.NFData UpdateIndexingConfiguration where
   rnf UpdateIndexingConfiguration' {..} =
-    Prelude.rnf thingGroupIndexingConfiguration
-      `Prelude.seq` Prelude.rnf thingIndexingConfiguration
+    Prelude.rnf thingGroupIndexingConfiguration `Prelude.seq`
+      Prelude.rnf thingIndexingConfiguration
 
 instance Data.ToHeaders UpdateIndexingConfiguration where
   toHeaders = Prelude.const Prelude.mempty

@@ -106,8 +106,8 @@ instance Prelude.Hashable DetachPolicy where
 
 instance Prelude.NFData DetachPolicy where
   rnf DetachPolicy' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf policyName `Prelude.seq`
+      Prelude.rnf target
 
 instance Data.ToHeaders DetachPolicy where
   toHeaders = Prelude.const Prelude.mempty

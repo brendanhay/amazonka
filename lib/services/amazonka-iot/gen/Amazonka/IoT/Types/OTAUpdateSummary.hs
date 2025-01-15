@@ -91,6 +91,6 @@ instance Prelude.Hashable OTAUpdateSummary where
 
 instance Prelude.NFData OTAUpdateSummary where
   rnf OTAUpdateSummary' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf otaUpdateArn
-      `Prelude.seq` Prelude.rnf otaUpdateId
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf otaUpdateArn `Prelude.seq`
+        Prelude.rnf otaUpdateId

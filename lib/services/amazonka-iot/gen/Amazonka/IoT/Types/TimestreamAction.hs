@@ -160,11 +160,11 @@ instance Prelude.Hashable TimestreamAction where
 
 instance Prelude.NFData TimestreamAction where
   rnf TimestreamAction' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf dimensions
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf tableName `Prelude.seq`
+            Prelude.rnf dimensions
 
 instance Data.ToJSON TimestreamAction where
   toJSON TimestreamAction' {..} =

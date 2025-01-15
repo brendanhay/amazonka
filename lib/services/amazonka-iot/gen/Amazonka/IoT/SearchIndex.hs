@@ -156,11 +156,11 @@ instance Prelude.Hashable SearchIndex where
 
 instance Prelude.NFData SearchIndex where
   rnf SearchIndex' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf queryVersion `Prelude.seq`
+            Prelude.rnf queryString
 
 instance Data.ToHeaders SearchIndex where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,7 +244,7 @@ searchIndexResponse_httpStatus = Lens.lens (\SearchIndexResponse' {httpStatus} -
 
 instance Prelude.NFData SearchIndexResponse where
   rnf SearchIndexResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf thingGroups
-      `Prelude.seq` Prelude.rnf things
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf thingGroups `Prelude.seq`
+        Prelude.rnf things `Prelude.seq`
+          Prelude.rnf httpStatus

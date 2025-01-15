@@ -91,6 +91,6 @@ instance Prelude.Hashable EffectivePolicy where
 
 instance Prelude.NFData EffectivePolicy where
   rnf EffectivePolicy' {..} =
-    Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf policyArn `Prelude.seq`
+      Prelude.rnf policyDocument `Prelude.seq`
+        Prelude.rnf policyName

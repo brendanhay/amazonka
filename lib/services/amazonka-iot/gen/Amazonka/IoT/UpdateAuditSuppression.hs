@@ -145,11 +145,11 @@ instance Prelude.Hashable UpdateAuditSuppression where
 
 instance Prelude.NFData UpdateAuditSuppression where
   rnf UpdateAuditSuppression' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf suppressIndefinitely
-      `Prelude.seq` Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf expirationDate `Prelude.seq`
+        Prelude.rnf suppressIndefinitely `Prelude.seq`
+          Prelude.rnf checkName `Prelude.seq`
+            Prelude.rnf resourceIdentifier
 
 instance Data.ToHeaders UpdateAuditSuppression where
   toHeaders = Prelude.const Prelude.mempty

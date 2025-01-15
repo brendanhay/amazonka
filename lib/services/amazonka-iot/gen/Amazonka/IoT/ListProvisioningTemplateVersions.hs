@@ -122,12 +122,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProvisioningTemplateVersions_nextToken
-          Lens..~ rs
-          Lens.^? listProvisioningTemplateVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProvisioningTemplateVersions_nextToken
+              Lens..~ rs
+              Lens.^? listProvisioningTemplateVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -164,9 +164,9 @@ instance
     ListProvisioningTemplateVersions
   where
   rnf ListProvisioningTemplateVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf templateName
 
 instance
   Data.ToHeaders
@@ -246,6 +246,6 @@ instance
     ListProvisioningTemplateVersionsResponse
   where
   rnf ListProvisioningTemplateVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

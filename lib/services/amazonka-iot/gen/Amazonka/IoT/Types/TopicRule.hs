@@ -150,11 +150,11 @@ instance Prelude.Hashable TopicRule where
 
 instance Prelude.NFData TopicRule where
   rnf TopicRule' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf awsIotSqlVersion
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorAction
-      `Prelude.seq` Prelude.rnf ruleDisabled
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf sql
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf awsIotSqlVersion `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf errorAction `Prelude.seq`
+              Prelude.rnf ruleDisabled `Prelude.seq`
+                Prelude.rnf ruleName `Prelude.seq`
+                  Prelude.rnf sql

@@ -80,5 +80,5 @@ instance Prelude.Hashable FleetMetricNameAndArn where
 
 instance Prelude.NFData FleetMetricNameAndArn where
   rnf FleetMetricNameAndArn' {..} =
-    Prelude.rnf metricArn
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf metricArn `Prelude.seq`
+      Prelude.rnf metricName

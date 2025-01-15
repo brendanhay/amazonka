@@ -86,8 +86,8 @@ instance Prelude.Hashable RetryCriteria where
 
 instance Prelude.NFData RetryCriteria where
   rnf RetryCriteria' {..} =
-    Prelude.rnf failureType
-      `Prelude.seq` Prelude.rnf numberOfRetries
+    Prelude.rnf failureType `Prelude.seq`
+      Prelude.rnf numberOfRetries
 
 instance Data.ToJSON RetryCriteria where
   toJSON RetryCriteria' {..} =

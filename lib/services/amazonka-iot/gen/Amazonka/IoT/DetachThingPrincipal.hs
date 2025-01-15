@@ -125,8 +125,8 @@ instance Prelude.Hashable DetachThingPrincipal where
 
 instance Prelude.NFData DetachThingPrincipal where
   rnf DetachThingPrincipal' {..} =
-    Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf principal
+    Prelude.rnf thingName `Prelude.seq`
+      Prelude.rnf principal
 
 instance Data.ToHeaders DetachThingPrincipal where
   toHeaders DetachThingPrincipal' {..} =

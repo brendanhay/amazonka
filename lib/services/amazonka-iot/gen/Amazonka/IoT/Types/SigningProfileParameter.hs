@@ -92,9 +92,9 @@ instance Prelude.Hashable SigningProfileParameter where
 
 instance Prelude.NFData SigningProfileParameter where
   rnf SigningProfileParameter' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificatePathOnDevice
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificatePathOnDevice `Prelude.seq`
+        Prelude.rnf platform
 
 instance Data.ToJSON SigningProfileParameter where
   toJSON SigningProfileParameter' {..} =

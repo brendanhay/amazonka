@@ -88,8 +88,8 @@ instance Prelude.Hashable RateIncreaseCriteria where
 
 instance Prelude.NFData RateIncreaseCriteria where
   rnf RateIncreaseCriteria' {..} =
-    Prelude.rnf numberOfNotifiedThings
-      `Prelude.seq` Prelude.rnf numberOfSucceededThings
+    Prelude.rnf numberOfNotifiedThings `Prelude.seq`
+      Prelude.rnf numberOfSucceededThings
 
 instance Data.ToJSON RateIncreaseCriteria where
   toJSON RateIncreaseCriteria' {..} =

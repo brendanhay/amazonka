@@ -102,7 +102,7 @@ instance Prelude.Hashable StreamSummary where
 
 instance Prelude.NFData StreamSummary where
   rnf StreamSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf streamVersion
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf streamArn `Prelude.seq`
+        Prelude.rnf streamId `Prelude.seq`
+          Prelude.rnf streamVersion

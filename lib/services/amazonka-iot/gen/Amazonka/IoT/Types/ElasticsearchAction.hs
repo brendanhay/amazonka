@@ -134,11 +134,11 @@ instance Prelude.Hashable ElasticsearchAction where
 
 instance Prelude.NFData ElasticsearchAction where
   rnf ElasticsearchAction' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf index
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf endpoint `Prelude.seq`
+        Prelude.rnf index `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToJSON ElasticsearchAction where
   toJSON ElasticsearchAction' {..} =

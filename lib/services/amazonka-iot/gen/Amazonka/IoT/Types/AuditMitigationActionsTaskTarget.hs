@@ -120,9 +120,9 @@ instance
     AuditMitigationActionsTaskTarget
   where
   rnf AuditMitigationActionsTaskTarget' {..} =
-    Prelude.rnf auditCheckToReasonCodeFilter
-      `Prelude.seq` Prelude.rnf auditTaskId
-      `Prelude.seq` Prelude.rnf findingIds
+    Prelude.rnf auditCheckToReasonCodeFilter `Prelude.seq`
+      Prelude.rnf auditTaskId `Prelude.seq`
+        Prelude.rnf findingIds
 
 instance Data.ToJSON AuditMitigationActionsTaskTarget where
   toJSON AuditMitigationActionsTaskTarget' {..} =

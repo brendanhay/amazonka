@@ -191,11 +191,11 @@ instance Prelude.Hashable CreateCustomMetric where
 
 instance Prelude.NFData CreateCustomMetric where
   rnf CreateCustomMetric' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricType
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf metricName `Prelude.seq`
+          Prelude.rnf metricType `Prelude.seq`
+            Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateCustomMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -273,6 +273,6 @@ createCustomMetricResponse_httpStatus = Lens.lens (\CreateCustomMetricResponse' 
 
 instance Prelude.NFData CreateCustomMetricResponse where
   rnf CreateCustomMetricResponse' {..} =
-    Prelude.rnf metricArn
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricArn `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -155,11 +155,11 @@ instance Prelude.Hashable GetPercentiles where
 
 instance Prelude.NFData GetPercentiles where
   rnf GetPercentiles' {..} =
-    Prelude.rnf aggregationField
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf percents
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf aggregationField `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf percents `Prelude.seq`
+          Prelude.rnf queryVersion `Prelude.seq`
+            Prelude.rnf queryString
 
 instance Data.ToHeaders GetPercentiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -224,5 +224,5 @@ getPercentilesResponse_httpStatus = Lens.lens (\GetPercentilesResponse' {httpSta
 
 instance Prelude.NFData GetPercentilesResponse where
   rnf GetPercentilesResponse' {..} =
-    Prelude.rnf percentiles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf percentiles `Prelude.seq`
+      Prelude.rnf httpStatus

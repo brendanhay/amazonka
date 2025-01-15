@@ -155,5 +155,5 @@ describeAuditFindingResponse_httpStatus = Lens.lens (\DescribeAuditFindingRespon
 
 instance Prelude.NFData DescribeAuditFindingResponse where
   rnf DescribeAuditFindingResponse' {..} =
-    Prelude.rnf finding
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf finding `Prelude.seq`
+      Prelude.rnf httpStatus

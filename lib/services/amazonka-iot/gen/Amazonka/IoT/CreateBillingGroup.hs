@@ -128,9 +128,9 @@ instance Prelude.Hashable CreateBillingGroup where
 
 instance Prelude.NFData CreateBillingGroup where
   rnf CreateBillingGroup' {..} =
-    Prelude.rnf billingGroupProperties
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf billingGroupName
+    Prelude.rnf billingGroupProperties `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf billingGroupName
 
 instance Data.ToHeaders CreateBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,7 +212,7 @@ createBillingGroupResponse_httpStatus = Lens.lens (\CreateBillingGroupResponse' 
 
 instance Prelude.NFData CreateBillingGroupResponse where
   rnf CreateBillingGroupResponse' {..} =
-    Prelude.rnf billingGroupArn
-      `Prelude.seq` Prelude.rnf billingGroupId
-      `Prelude.seq` Prelude.rnf billingGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf billingGroupArn `Prelude.seq`
+      Prelude.rnf billingGroupId `Prelude.seq`
+        Prelude.rnf billingGroupName `Prelude.seq`
+          Prelude.rnf httpStatus

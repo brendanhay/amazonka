@@ -94,9 +94,9 @@ instance Prelude.Hashable StartSigningJobParameter where
 
 instance Prelude.NFData StartSigningJobParameter where
   rnf StartSigningJobParameter' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf signingProfileName
-      `Prelude.seq` Prelude.rnf signingProfileParameter
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf signingProfileName `Prelude.seq`
+        Prelude.rnf signingProfileParameter
 
 instance Data.ToJSON StartSigningJobParameter where
   toJSON StartSigningJobParameter' {..} =

@@ -121,12 +121,12 @@ instance Core.AWSPager ListPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPolicies_marker
-          Lens..~ rs
-          Lens.^? listPoliciesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPolicies_marker
+              Lens..~ rs
+              Lens.^? listPoliciesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -150,9 +150,9 @@ instance Prelude.Hashable ListPolicies where
 
 instance Prelude.NFData ListPolicies where
   rnf ListPolicies' {..} =
-    Prelude.rnf ascendingOrder
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf ascendingOrder `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf pageSize
 
 instance Data.ToHeaders ListPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,6 +222,6 @@ listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus}
 
 instance Prelude.NFData ListPoliciesResponse where
   rnf ListPoliciesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf policies `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -147,11 +147,11 @@ instance Prelude.Hashable StreamInfo where
 
 instance Prelude.NFData StreamInfo where
   rnf StreamInfo' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf files
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf streamVersion
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf files `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf streamArn `Prelude.seq`
+                Prelude.rnf streamId `Prelude.seq`
+                  Prelude.rnf streamVersion

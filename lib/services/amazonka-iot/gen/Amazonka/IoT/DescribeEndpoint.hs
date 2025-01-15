@@ -196,5 +196,5 @@ describeEndpointResponse_httpStatus = Lens.lens (\DescribeEndpointResponse' {htt
 
 instance Prelude.NFData DescribeEndpointResponse where
   rnf DescribeEndpointResponse' {..} =
-    Prelude.rnf endpointAddress
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointAddress `Prelude.seq`
+      Prelude.rnf httpStatus

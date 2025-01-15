@@ -121,8 +121,8 @@ instance Prelude.Hashable AttachSecurityProfile where
 
 instance Prelude.NFData AttachSecurityProfile where
   rnf AttachSecurityProfile' {..} =
-    Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf securityProfileTargetArn
+    Prelude.rnf securityProfileName `Prelude.seq`
+      Prelude.rnf securityProfileTargetArn
 
 instance Data.ToHeaders AttachSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty

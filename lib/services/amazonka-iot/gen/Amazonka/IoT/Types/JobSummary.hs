@@ -192,12 +192,12 @@ instance Prelude.Hashable JobSummary where
 
 instance Prelude.NFData JobSummary where
   rnf JobSummary' {..} =
-    Prelude.rnf completedAt
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf isConcurrent
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetSelection
-      `Prelude.seq` Prelude.rnf thingGroupId
+    Prelude.rnf completedAt `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf isConcurrent `Prelude.seq`
+          Prelude.rnf jobArn `Prelude.seq`
+            Prelude.rnf jobId `Prelude.seq`
+              Prelude.rnf lastUpdatedAt `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf targetSelection `Prelude.seq`
+                    Prelude.rnf thingGroupId

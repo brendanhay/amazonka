@@ -175,10 +175,10 @@ instance
     StartAuditMitigationActionsTask
   where
   rnf StartAuditMitigationActionsTask' {..} =
-    Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf auditCheckToActionsMapping
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf taskId `Prelude.seq`
+      Prelude.rnf target `Prelude.seq`
+        Prelude.rnf auditCheckToActionsMapping `Prelude.seq`
+          Prelude.rnf clientRequestToken
 
 instance
   Data.ToHeaders
@@ -256,5 +256,5 @@ instance
     StartAuditMitigationActionsTaskResponse
   where
   rnf StartAuditMitigationActionsTaskResponse' {..} =
-    Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -132,10 +132,10 @@ instance Prelude.Hashable AbortCriteria where
 
 instance Prelude.NFData AbortCriteria where
   rnf AbortCriteria' {..} =
-    Prelude.rnf failureType
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf thresholdPercentage
-      `Prelude.seq` Prelude.rnf minNumberOfExecutedThings
+    Prelude.rnf failureType `Prelude.seq`
+      Prelude.rnf action `Prelude.seq`
+        Prelude.rnf thresholdPercentage `Prelude.seq`
+          Prelude.rnf minNumberOfExecutedThings
 
 instance Data.ToJSON AbortCriteria where
   toJSON AbortCriteria' {..} =

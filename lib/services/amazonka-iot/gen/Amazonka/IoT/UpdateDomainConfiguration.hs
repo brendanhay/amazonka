@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateDomainConfiguration where
 
 instance Prelude.NFData UpdateDomainConfiguration where
   rnf UpdateDomainConfiguration' {..} =
-    Prelude.rnf authorizerConfig
-      `Prelude.seq` Prelude.rnf domainConfigurationStatus
-      `Prelude.seq` Prelude.rnf removeAuthorizerConfig
-      `Prelude.seq` Prelude.rnf domainConfigurationName
+    Prelude.rnf authorizerConfig `Prelude.seq`
+      Prelude.rnf domainConfigurationStatus `Prelude.seq`
+        Prelude.rnf removeAuthorizerConfig `Prelude.seq`
+          Prelude.rnf domainConfigurationName
 
 instance Data.ToHeaders UpdateDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -225,6 +225,6 @@ instance
     UpdateDomainConfigurationResponse
   where
   rnf UpdateDomainConfigurationResponse' {..} =
-    Prelude.rnf domainConfigurationArn
-      `Prelude.seq` Prelude.rnf domainConfigurationName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainConfigurationArn `Prelude.seq`
+      Prelude.rnf domainConfigurationName `Prelude.seq`
+        Prelude.rnf httpStatus

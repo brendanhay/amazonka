@@ -119,8 +119,8 @@ instance Prelude.Hashable RejectCertificateTransfer where
 
 instance Prelude.NFData RejectCertificateTransfer where
   rnf RejectCertificateTransfer' {..} =
-    Prelude.rnf rejectReason
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf rejectReason `Prelude.seq`
+      Prelude.rnf certificateId
 
 instance Data.ToHeaders RejectCertificateTransfer where
   toHeaders = Prelude.const Prelude.mempty

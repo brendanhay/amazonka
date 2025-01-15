@@ -176,12 +176,12 @@ instance Prelude.Hashable UpdateDynamicThingGroup where
 
 instance Prelude.NFData UpdateDynamicThingGroup where
   rnf UpdateDynamicThingGroup' {..} =
-    Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf thingGroupName
-      `Prelude.seq` Prelude.rnf thingGroupProperties
+    Prelude.rnf expectedVersion `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf queryString `Prelude.seq`
+          Prelude.rnf queryVersion `Prelude.seq`
+            Prelude.rnf thingGroupName `Prelude.seq`
+              Prelude.rnf thingGroupProperties
 
 instance Data.ToHeaders UpdateDynamicThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,5 +254,5 @@ instance
     UpdateDynamicThingGroupResponse
   where
   rnf UpdateDynamicThingGroupResponse' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf httpStatus

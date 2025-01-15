@@ -135,10 +135,10 @@ instance Prelude.Hashable TaskStatistics where
 
 instance Prelude.NFData TaskStatistics where
   rnf TaskStatistics' {..} =
-    Prelude.rnf canceledChecks
-      `Prelude.seq` Prelude.rnf compliantChecks
-      `Prelude.seq` Prelude.rnf failedChecks
-      `Prelude.seq` Prelude.rnf inProgressChecks
-      `Prelude.seq` Prelude.rnf nonCompliantChecks
-      `Prelude.seq` Prelude.rnf totalChecks
-      `Prelude.seq` Prelude.rnf waitingForDataCollectionChecks
+    Prelude.rnf canceledChecks `Prelude.seq`
+      Prelude.rnf compliantChecks `Prelude.seq`
+        Prelude.rnf failedChecks `Prelude.seq`
+          Prelude.rnf inProgressChecks `Prelude.seq`
+            Prelude.rnf nonCompliantChecks `Prelude.seq`
+              Prelude.rnf totalChecks `Prelude.seq`
+                Prelude.rnf waitingForDataCollectionChecks

@@ -126,12 +126,12 @@ instance Core.AWSPager ListAuthorizers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAuthorizers_marker
-          Lens..~ rs
-          Lens.^? listAuthorizersResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAuthorizers_marker
+              Lens..~ rs
+              Lens.^? listAuthorizersResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAuthorizers where
   type
@@ -158,10 +158,10 @@ instance Prelude.Hashable ListAuthorizers where
 
 instance Prelude.NFData ListAuthorizers where
   rnf ListAuthorizers' {..} =
-    Prelude.rnf ascendingOrder
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf ascendingOrder `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders ListAuthorizers where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,6 +228,6 @@ listAuthorizersResponse_httpStatus = Lens.lens (\ListAuthorizersResponse' {httpS
 
 instance Prelude.NFData ListAuthorizersResponse where
   rnf ListAuthorizersResponse' {..} =
-    Prelude.rnf authorizers
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizers `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

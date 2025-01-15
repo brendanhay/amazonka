@@ -135,8 +135,8 @@ instance Prelude.Hashable DocumentParameter where
 
 instance Prelude.NFData DocumentParameter where
   rnf DocumentParameter' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf example
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf optional
-      `Prelude.seq` Prelude.rnf regex
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf example `Prelude.seq`
+        Prelude.rnf key `Prelude.seq`
+          Prelude.rnf optional `Prelude.seq`
+            Prelude.rnf regex

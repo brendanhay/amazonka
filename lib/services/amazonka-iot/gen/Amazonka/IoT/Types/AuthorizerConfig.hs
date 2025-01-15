@@ -84,8 +84,8 @@ instance Prelude.Hashable AuthorizerConfig where
 
 instance Prelude.NFData AuthorizerConfig where
   rnf AuthorizerConfig' {..} =
-    Prelude.rnf allowAuthorizerOverride
-      `Prelude.seq` Prelude.rnf defaultAuthorizerName
+    Prelude.rnf allowAuthorizerOverride `Prelude.seq`
+      Prelude.rnf defaultAuthorizerName
 
 instance Data.ToJSON AuthorizerConfig where
   toJSON AuthorizerConfig' {..} =

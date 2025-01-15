@@ -113,8 +113,8 @@ instance Prelude.Hashable AttributePayload where
 
 instance Prelude.NFData AttributePayload where
   rnf AttributePayload' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf merge
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf merge
 
 instance Data.ToJSON AttributePayload where
   toJSON AttributePayload' {..} =

@@ -137,12 +137,12 @@ instance Core.AWSPager ListCertificatesByCA where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCertificatesByCA_marker
-          Lens..~ rs
-          Lens.^? listCertificatesByCAResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCertificatesByCA_marker
+              Lens..~ rs
+              Lens.^? listCertificatesByCAResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCertificatesByCA where
   type
@@ -169,10 +169,10 @@ instance Prelude.Hashable ListCertificatesByCA where
 
 instance Prelude.NFData ListCertificatesByCA where
   rnf ListCertificatesByCA' {..} =
-    Prelude.rnf ascendingOrder
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf caCertificateId
+    Prelude.rnf ascendingOrder `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf caCertificateId
 
 instance Data.ToHeaders ListCertificatesByCA where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,6 +245,6 @@ listCertificatesByCAResponse_httpStatus = Lens.lens (\ListCertificatesByCARespon
 
 instance Prelude.NFData ListCertificatesByCAResponse where
   rnf ListCertificatesByCAResponse' {..} =
-    Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificates `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

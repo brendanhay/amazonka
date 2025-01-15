@@ -99,10 +99,10 @@ instance Prelude.Hashable VpcDestinationConfiguration where
 
 instance Prelude.NFData VpcDestinationConfiguration where
   rnf VpcDestinationConfiguration' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf securityGroups `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf vpcId `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance Data.ToJSON VpcDestinationConfiguration where
   toJSON VpcDestinationConfiguration' {..} =

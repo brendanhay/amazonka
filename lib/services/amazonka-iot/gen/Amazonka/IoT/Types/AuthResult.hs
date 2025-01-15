@@ -126,8 +126,8 @@ instance Prelude.Hashable AuthResult where
 
 instance Prelude.NFData AuthResult where
   rnf AuthResult' {..} =
-    Prelude.rnf allowed
-      `Prelude.seq` Prelude.rnf authDecision
-      `Prelude.seq` Prelude.rnf authInfo
-      `Prelude.seq` Prelude.rnf denied
-      `Prelude.seq` Prelude.rnf missingContextValues
+    Prelude.rnf allowed `Prelude.seq`
+      Prelude.rnf authDecision `Prelude.seq`
+        Prelude.rnf authInfo `Prelude.seq`
+          Prelude.rnf denied `Prelude.seq`
+            Prelude.rnf missingContextValues

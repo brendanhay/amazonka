@@ -175,5 +175,5 @@ instance
     StartOnDemandAuditTaskResponse
   where
   rnf StartOnDemandAuditTaskResponse' {..} =
-    Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskId `Prelude.seq`
+      Prelude.rnf httpStatus

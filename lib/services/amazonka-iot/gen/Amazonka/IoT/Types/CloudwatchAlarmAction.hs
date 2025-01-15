@@ -117,10 +117,10 @@ instance Prelude.Hashable CloudwatchAlarmAction where
 
 instance Prelude.NFData CloudwatchAlarmAction where
   rnf CloudwatchAlarmAction' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf stateValue
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf alarmName `Prelude.seq`
+        Prelude.rnf stateReason `Prelude.seq`
+          Prelude.rnf stateValue
 
 instance Data.ToJSON CloudwatchAlarmAction where
   toJSON CloudwatchAlarmAction' {..} =

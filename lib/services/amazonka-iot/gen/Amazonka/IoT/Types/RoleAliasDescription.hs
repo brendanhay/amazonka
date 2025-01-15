@@ -136,10 +136,10 @@ instance Prelude.Hashable RoleAliasDescription where
 
 instance Prelude.NFData RoleAliasDescription where
   rnf RoleAliasDescription' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf credentialDurationSeconds
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf roleAlias
-      `Prelude.seq` Prelude.rnf roleAliasArn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf credentialDurationSeconds `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf roleAlias `Prelude.seq`
+              Prelude.rnf roleAliasArn `Prelude.seq`
+                Prelude.rnf roleArn

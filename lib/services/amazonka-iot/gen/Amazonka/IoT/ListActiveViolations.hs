@@ -161,12 +161,12 @@ instance Core.AWSPager ListActiveViolations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listActiveViolations_nextToken
-          Lens..~ rs
-          Lens.^? listActiveViolationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listActiveViolations_nextToken
+              Lens..~ rs
+              Lens.^? listActiveViolationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListActiveViolations where
   type
@@ -199,13 +199,13 @@ instance Prelude.Hashable ListActiveViolations where
 
 instance Prelude.NFData ListActiveViolations where
   rnf ListActiveViolations' {..} =
-    Prelude.rnf behaviorCriteriaType
-      `Prelude.seq` Prelude.rnf listSuppressedAlerts
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf verificationState
+    Prelude.rnf behaviorCriteriaType `Prelude.seq`
+      Prelude.rnf listSuppressedAlerts `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf securityProfileName `Prelude.seq`
+              Prelude.rnf thingName `Prelude.seq`
+                Prelude.rnf verificationState
 
 instance Data.ToHeaders ListActiveViolations where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,6 +278,6 @@ listActiveViolationsResponse_httpStatus = Lens.lens (\ListActiveViolationsRespon
 
 instance Prelude.NFData ListActiveViolationsResponse where
   rnf ListActiveViolationsResponse' {..} =
-    Prelude.rnf activeViolations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activeViolations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

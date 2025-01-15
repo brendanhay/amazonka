@@ -199,6 +199,6 @@ instance
     ValidateSecurityProfileBehaviorsResponse
   where
   rnf ValidateSecurityProfileBehaviorsResponse' {..} =
-    Prelude.rnf valid
-      `Prelude.seq` Prelude.rnf validationErrors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf valid `Prelude.seq`
+      Prelude.rnf validationErrors `Prelude.seq`
+        Prelude.rnf httpStatus

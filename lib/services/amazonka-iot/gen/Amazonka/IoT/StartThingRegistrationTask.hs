@@ -151,10 +151,10 @@ instance Prelude.Hashable StartThingRegistrationTask where
 
 instance Prelude.NFData StartThingRegistrationTask where
   rnf StartThingRegistrationTask' {..} =
-    Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf inputFileBucket
-      `Prelude.seq` Prelude.rnf inputFileKey
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf templateBody `Prelude.seq`
+      Prelude.rnf inputFileBucket `Prelude.seq`
+        Prelude.rnf inputFileKey `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance Data.ToHeaders StartThingRegistrationTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,5 +221,5 @@ instance
     StartThingRegistrationTaskResponse
   where
   rnf StartThingRegistrationTaskResponse' {..} =
-    Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskId `Prelude.seq`
+      Prelude.rnf httpStatus

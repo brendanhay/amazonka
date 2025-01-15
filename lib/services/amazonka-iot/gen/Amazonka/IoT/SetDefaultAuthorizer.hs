@@ -174,6 +174,6 @@ setDefaultAuthorizerResponse_httpStatus = Lens.lens (\SetDefaultAuthorizerRespon
 
 instance Prelude.NFData SetDefaultAuthorizerResponse where
   rnf SetDefaultAuthorizerResponse' {..} =
-    Prelude.rnf authorizerArn
-      `Prelude.seq` Prelude.rnf authorizerName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizerArn `Prelude.seq`
+      Prelude.rnf authorizerName `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -91,9 +91,9 @@ instance Prelude.Hashable RegistrationConfig where
 
 instance Prelude.NFData RegistrationConfig where
   rnf RegistrationConfig' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf templateBody `Prelude.seq`
+        Prelude.rnf templateName
 
 instance Data.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =

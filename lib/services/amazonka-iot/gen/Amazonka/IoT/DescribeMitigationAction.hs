@@ -241,12 +241,12 @@ instance
     DescribeMitigationActionResponse
   where
   rnf DescribeMitigationActionResponse' {..} =
-    Prelude.rnf actionArn
-      `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf actionParams
-      `Prelude.seq` Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionArn `Prelude.seq`
+      Prelude.rnf actionId `Prelude.seq`
+        Prelude.rnf actionName `Prelude.seq`
+          Prelude.rnf actionParams `Prelude.seq`
+            Prelude.rnf actionType `Prelude.seq`
+              Prelude.rnf creationDate `Prelude.seq`
+                Prelude.rnf lastModifiedDate `Prelude.seq`
+                  Prelude.rnf roleArn `Prelude.seq`
+                    Prelude.rnf httpStatus

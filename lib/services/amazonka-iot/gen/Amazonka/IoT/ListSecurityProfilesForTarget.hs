@@ -135,12 +135,12 @@ instance Core.AWSPager ListSecurityProfilesForTarget where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSecurityProfilesForTarget_nextToken
-          Lens..~ rs
-          Lens.^? listSecurityProfilesForTargetResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSecurityProfilesForTarget_nextToken
+              Lens..~ rs
+              Lens.^? listSecurityProfilesForTargetResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -176,10 +176,10 @@ instance
 
 instance Prelude.NFData ListSecurityProfilesForTarget where
   rnf ListSecurityProfilesForTarget' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recursive
-      `Prelude.seq` Prelude.rnf securityProfileTargetArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf recursive `Prelude.seq`
+          Prelude.rnf securityProfileTargetArn
 
 instance Data.ToHeaders ListSecurityProfilesForTarget where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,6 +255,6 @@ instance
     ListSecurityProfilesForTargetResponse
   where
   rnf ListSecurityProfilesForTargetResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityProfileTargetMappings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf securityProfileTargetMappings `Prelude.seq`
+        Prelude.rnf httpStatus

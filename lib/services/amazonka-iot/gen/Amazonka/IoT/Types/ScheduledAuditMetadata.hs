@@ -128,8 +128,8 @@ instance Prelude.Hashable ScheduledAuditMetadata where
 
 instance Prelude.NFData ScheduledAuditMetadata where
   rnf ScheduledAuditMetadata' {..} =
-    Prelude.rnf dayOfMonth
-      `Prelude.seq` Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf scheduledAuditArn
-      `Prelude.seq` Prelude.rnf scheduledAuditName
+    Prelude.rnf dayOfMonth `Prelude.seq`
+      Prelude.rnf dayOfWeek `Prelude.seq`
+        Prelude.rnf frequency `Prelude.seq`
+          Prelude.rnf scheduledAuditArn `Prelude.seq`
+            Prelude.rnf scheduledAuditName

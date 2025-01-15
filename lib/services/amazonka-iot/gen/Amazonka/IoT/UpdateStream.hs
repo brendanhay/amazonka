@@ -142,10 +142,10 @@ instance Prelude.Hashable UpdateStream where
 
 instance Prelude.NFData UpdateStream where
   rnf UpdateStream' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf files
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf streamId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf files `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf streamId
 
 instance Data.ToHeaders UpdateStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,8 +235,8 @@ updateStreamResponse_httpStatus = Lens.lens (\UpdateStreamResponse' {httpStatus}
 
 instance Prelude.NFData UpdateStreamResponse where
   rnf UpdateStreamResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf streamVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf streamArn `Prelude.seq`
+        Prelude.rnf streamId `Prelude.seq`
+          Prelude.rnf streamVersion `Prelude.seq`
+            Prelude.rnf httpStatus

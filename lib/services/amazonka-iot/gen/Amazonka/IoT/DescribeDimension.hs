@@ -211,10 +211,10 @@ describeDimensionResponse_httpStatus = Lens.lens (\DescribeDimensionResponse' {h
 
 instance Prelude.NFData DescribeDimensionResponse where
   rnf DescribeDimensionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stringValues
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf stringValues `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf httpStatus

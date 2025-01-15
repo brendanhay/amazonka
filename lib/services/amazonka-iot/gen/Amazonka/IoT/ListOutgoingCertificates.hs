@@ -122,12 +122,12 @@ instance Core.AWSPager ListOutgoingCertificates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOutgoingCertificates_marker
-          Lens..~ rs
-          Lens.^? listOutgoingCertificatesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOutgoingCertificates_marker
+              Lens..~ rs
+              Lens.^? listOutgoingCertificatesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOutgoingCertificates where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListOutgoingCertificates where
 
 instance Prelude.NFData ListOutgoingCertificates where
   rnf ListOutgoingCertificates' {..} =
-    Prelude.rnf ascendingOrder
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf ascendingOrder `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf pageSize
 
 instance Data.ToHeaders ListOutgoingCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,6 +229,6 @@ instance
     ListOutgoingCertificatesResponse
   where
   rnf ListOutgoingCertificatesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf outgoingCertificates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf outgoingCertificates `Prelude.seq`
+        Prelude.rnf httpStatus

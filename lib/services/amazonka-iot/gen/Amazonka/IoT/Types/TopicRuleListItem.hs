@@ -113,8 +113,8 @@ instance Prelude.Hashable TopicRuleListItem where
 
 instance Prelude.NFData TopicRuleListItem where
   rnf TopicRuleListItem' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf ruleArn
-      `Prelude.seq` Prelude.rnf ruleDisabled
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf topicPattern
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf ruleArn `Prelude.seq`
+        Prelude.rnf ruleDisabled `Prelude.seq`
+          Prelude.rnf ruleName `Prelude.seq`
+            Prelude.rnf topicPattern

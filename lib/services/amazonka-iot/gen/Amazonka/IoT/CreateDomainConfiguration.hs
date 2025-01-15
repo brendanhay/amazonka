@@ -223,13 +223,13 @@ instance Prelude.Hashable CreateDomainConfiguration where
 
 instance Prelude.NFData CreateDomainConfiguration where
   rnf CreateDomainConfiguration' {..} =
-    Prelude.rnf authorizerConfig
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf serverCertificateArns
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf validationCertificateArn
-      `Prelude.seq` Prelude.rnf domainConfigurationName
+    Prelude.rnf authorizerConfig `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf serverCertificateArns `Prelude.seq`
+          Prelude.rnf serviceType `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf validationCertificateArn `Prelude.seq`
+                Prelude.rnf domainConfigurationName
 
 instance Data.ToHeaders CreateDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -314,6 +314,6 @@ instance
     CreateDomainConfigurationResponse
   where
   rnf CreateDomainConfigurationResponse' {..} =
-    Prelude.rnf domainConfigurationArn
-      `Prelude.seq` Prelude.rnf domainConfigurationName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainConfigurationArn `Prelude.seq`
+      Prelude.rnf domainConfigurationName `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -151,6 +151,6 @@ getLoggingOptionsResponse_httpStatus = Lens.lens (\GetLoggingOptionsResponse' {h
 
 instance Prelude.NFData GetLoggingOptionsResponse where
   rnf GetLoggingOptionsResponse' {..} =
-    Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logLevel `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf httpStatus

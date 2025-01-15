@@ -84,8 +84,8 @@ instance Prelude.Hashable AuthInfo where
 
 instance Prelude.NFData AuthInfo where
   rnf AuthInfo' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf actionType `Prelude.seq`
+      Prelude.rnf resources
 
 instance Data.ToJSON AuthInfo where
   toJSON AuthInfo' {..} =

@@ -107,12 +107,12 @@ instance Core.AWSPager ListDimensions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDimensions_nextToken
-          Lens..~ rs
-          Lens.^? listDimensionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDimensions_nextToken
+              Lens..~ rs
+              Lens.^? listDimensionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDimensions where
   type
@@ -137,8 +137,8 @@ instance Prelude.Hashable ListDimensions where
 
 instance Prelude.NFData ListDimensions where
   rnf ListDimensions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDimensions where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,6 +209,6 @@ listDimensionsResponse_httpStatus = Lens.lens (\ListDimensionsResponse' {httpSta
 
 instance Prelude.NFData ListDimensionsResponse where
   rnf ListDimensionsResponse' {..} =
-    Prelude.rnf dimensionNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dimensionNames `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

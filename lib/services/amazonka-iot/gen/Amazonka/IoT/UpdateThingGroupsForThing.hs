@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateThingGroupsForThing where
 
 instance Prelude.NFData UpdateThingGroupsForThing where
   rnf UpdateThingGroupsForThing' {..} =
-    Prelude.rnf overrideDynamicGroups
-      `Prelude.seq` Prelude.rnf thingGroupsToAdd
-      `Prelude.seq` Prelude.rnf thingGroupsToRemove
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf overrideDynamicGroups `Prelude.seq`
+      Prelude.rnf thingGroupsToAdd `Prelude.seq`
+        Prelude.rnf thingGroupsToRemove `Prelude.seq`
+          Prelude.rnf thingName
 
 instance Data.ToHeaders UpdateThingGroupsForThing where
   toHeaders = Prelude.const Prelude.mempty

@@ -125,12 +125,12 @@ instance Core.AWSPager ListV2LoggingLevels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listV2LoggingLevels_nextToken
-          Lens..~ rs
-          Lens.^? listV2LoggingLevelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listV2LoggingLevels_nextToken
+              Lens..~ rs
+              Lens.^? listV2LoggingLevelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListV2LoggingLevels where
   type
@@ -159,9 +159,9 @@ instance Prelude.Hashable ListV2LoggingLevels where
 
 instance Prelude.NFData ListV2LoggingLevels where
   rnf ListV2LoggingLevels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf targetType
 
 instance Data.ToHeaders ListV2LoggingLevels where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,6 +230,6 @@ listV2LoggingLevelsResponse_httpStatus = Lens.lens (\ListV2LoggingLevelsResponse
 
 instance Prelude.NFData ListV2LoggingLevelsResponse where
   rnf ListV2LoggingLevelsResponse' {..} =
-    Prelude.rnf logTargetConfigurations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logTargetConfigurations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

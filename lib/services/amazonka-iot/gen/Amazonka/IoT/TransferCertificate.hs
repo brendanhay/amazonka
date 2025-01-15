@@ -145,9 +145,9 @@ instance Prelude.Hashable TransferCertificate where
 
 instance Prelude.NFData TransferCertificate where
   rnf TransferCertificate' {..} =
-    Prelude.rnf transferMessage
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf targetAwsAccount
+    Prelude.rnf transferMessage `Prelude.seq`
+      Prelude.rnf certificateId `Prelude.seq`
+        Prelude.rnf targetAwsAccount
 
 instance Data.ToHeaders TransferCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,5 +214,5 @@ transferCertificateResponse_httpStatus = Lens.lens (\TransferCertificateResponse
 
 instance Prelude.NFData TransferCertificateResponse where
   rnf TransferCertificateResponse' {..} =
-    Prelude.rnf transferredCertificateArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transferredCertificateArn `Prelude.seq`
+      Prelude.rnf httpStatus

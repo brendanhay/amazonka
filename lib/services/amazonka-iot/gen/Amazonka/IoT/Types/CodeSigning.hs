@@ -93,9 +93,9 @@ instance Prelude.Hashable CodeSigning where
 
 instance Prelude.NFData CodeSigning where
   rnf CodeSigning' {..} =
-    Prelude.rnf awsSignerJobId
-      `Prelude.seq` Prelude.rnf customCodeSigning
-      `Prelude.seq` Prelude.rnf startSigningJobParameter
+    Prelude.rnf awsSignerJobId `Prelude.seq`
+      Prelude.rnf customCodeSigning `Prelude.seq`
+        Prelude.rnf startSigningJobParameter
 
 instance Data.ToJSON CodeSigning where
   toJSON CodeSigning' {..} =

@@ -89,8 +89,8 @@ instance Prelude.Hashable EnableIoTLoggingParams where
 
 instance Prelude.NFData EnableIoTLoggingParams where
   rnf EnableIoTLoggingParams' {..} =
-    Prelude.rnf roleArnForLogging
-      `Prelude.seq` Prelude.rnf logLevel
+    Prelude.rnf roleArnForLogging `Prelude.seq`
+      Prelude.rnf logLevel
 
 instance Data.ToJSON EnableIoTLoggingParams where
   toJSON EnableIoTLoggingParams' {..} =

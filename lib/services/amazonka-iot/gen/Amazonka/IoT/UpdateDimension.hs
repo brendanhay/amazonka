@@ -134,8 +134,8 @@ instance Prelude.Hashable UpdateDimension where
 
 instance Prelude.NFData UpdateDimension where
   rnf UpdateDimension' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stringValues
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf stringValues
 
 instance Data.ToHeaders UpdateDimension where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,10 +251,10 @@ updateDimensionResponse_httpStatus = Lens.lens (\UpdateDimensionResponse' {httpS
 
 instance Prelude.NFData UpdateDimensionResponse where
   rnf UpdateDimensionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stringValues
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf stringValues `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf httpStatus

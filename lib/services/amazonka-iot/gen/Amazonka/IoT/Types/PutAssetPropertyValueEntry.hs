@@ -145,11 +145,11 @@ instance Prelude.Hashable PutAssetPropertyValueEntry where
 
 instance Prelude.NFData PutAssetPropertyValueEntry where
   rnf PutAssetPropertyValueEntry' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf entryId
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf propertyValues
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf entryId `Prelude.seq`
+        Prelude.rnf propertyAlias `Prelude.seq`
+          Prelude.rnf propertyId `Prelude.seq`
+            Prelude.rnf propertyValues
 
 instance Data.ToJSON PutAssetPropertyValueEntry where
   toJSON PutAssetPropertyValueEntry' {..} =

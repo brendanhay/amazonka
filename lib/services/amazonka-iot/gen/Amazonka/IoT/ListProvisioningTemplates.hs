@@ -107,12 +107,12 @@ instance Core.AWSPager ListProvisioningTemplates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProvisioningTemplates_nextToken
-          Lens..~ rs
-          Lens.^? listProvisioningTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProvisioningTemplates_nextToken
+              Lens..~ rs
+              Lens.^? listProvisioningTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProvisioningTemplates where
   type
@@ -137,8 +137,8 @@ instance Prelude.Hashable ListProvisioningTemplates where
 
 instance Prelude.NFData ListProvisioningTemplates where
   rnf ListProvisioningTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProvisioningTemplates where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,6 +206,6 @@ instance
     ListProvisioningTemplatesResponse
   where
   rnf ListProvisioningTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf templates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf templates `Prelude.seq`
+        Prelude.rnf httpStatus

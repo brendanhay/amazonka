@@ -185,13 +185,13 @@ instance Prelude.Hashable AuthorizerDescription where
 
 instance Prelude.NFData AuthorizerDescription where
   rnf AuthorizerDescription' {..} =
-    Prelude.rnf authorizerArn
-      `Prelude.seq` Prelude.rnf authorizerFunctionArn
-      `Prelude.seq` Prelude.rnf authorizerName
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf enableCachingForHttp
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf signingDisabled
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tokenKeyName
-      `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
+    Prelude.rnf authorizerArn `Prelude.seq`
+      Prelude.rnf authorizerFunctionArn `Prelude.seq`
+        Prelude.rnf authorizerName `Prelude.seq`
+          Prelude.rnf creationDate `Prelude.seq`
+            Prelude.rnf enableCachingForHttp `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf signingDisabled `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf tokenKeyName `Prelude.seq`
+                      Prelude.rnf tokenSigningPublicKeys

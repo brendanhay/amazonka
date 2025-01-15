@@ -143,10 +143,10 @@ instance Prelude.Hashable CreateThingGroup where
 
 instance Prelude.NFData CreateThingGroup where
   rnf CreateThingGroup' {..} =
-    Prelude.rnf parentGroupName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf thingGroupProperties
-      `Prelude.seq` Prelude.rnf thingGroupName
+    Prelude.rnf parentGroupName `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf thingGroupProperties `Prelude.seq`
+          Prelude.rnf thingGroupName
 
 instance Data.ToHeaders CreateThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,7 +230,7 @@ createThingGroupResponse_httpStatus = Lens.lens (\CreateThingGroupResponse' {htt
 
 instance Prelude.NFData CreateThingGroupResponse where
   rnf CreateThingGroupResponse' {..} =
-    Prelude.rnf thingGroupArn
-      `Prelude.seq` Prelude.rnf thingGroupId
-      `Prelude.seq` Prelude.rnf thingGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf thingGroupArn `Prelude.seq`
+      Prelude.rnf thingGroupId `Prelude.seq`
+        Prelude.rnf thingGroupName `Prelude.seq`
+          Prelude.rnf httpStatus

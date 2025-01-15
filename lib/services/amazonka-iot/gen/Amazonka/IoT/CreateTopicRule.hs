@@ -144,9 +144,9 @@ instance Prelude.Hashable CreateTopicRule where
 
 instance Prelude.NFData CreateTopicRule where
   rnf CreateTopicRule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf topicRulePayload
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf ruleName `Prelude.seq`
+        Prelude.rnf topicRulePayload
 
 instance Data.ToHeaders CreateTopicRule where
   toHeaders CreateTopicRule' {..} =

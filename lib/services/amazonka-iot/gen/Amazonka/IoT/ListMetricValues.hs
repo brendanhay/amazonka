@@ -179,12 +179,12 @@ instance Core.AWSPager ListMetricValues where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMetricValues_nextToken
-          Lens..~ rs
-          Lens.^? listMetricValuesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMetricValues_nextToken
+              Lens..~ rs
+              Lens.^? listMetricValuesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMetricValues where
   type
@@ -218,14 +218,14 @@ instance Prelude.Hashable ListMetricValues where
 
 instance Prelude.NFData ListMetricValues where
   rnf ListMetricValues' {..} =
-    Prelude.rnf dimensionName
-      `Prelude.seq` Prelude.rnf dimensionValueOperator
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf dimensionName `Prelude.seq`
+      Prelude.rnf dimensionValueOperator `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf thingName `Prelude.seq`
+              Prelude.rnf metricName `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf endTime
 
 instance Data.ToHeaders ListMetricValues where
   toHeaders = Prelude.const Prelude.mempty
@@ -303,6 +303,6 @@ listMetricValuesResponse_httpStatus = Lens.lens (\ListMetricValuesResponse' {htt
 
 instance Prelude.NFData ListMetricValuesResponse where
   rnf ListMetricValuesResponse' {..} =
-    Prelude.rnf metricDatumList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricDatumList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

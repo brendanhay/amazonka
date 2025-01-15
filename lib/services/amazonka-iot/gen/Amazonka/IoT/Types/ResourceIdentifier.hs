@@ -170,16 +170,16 @@ instance Prelude.Hashable ResourceIdentifier where
 
 instance Prelude.NFData ResourceIdentifier where
   rnf ResourceIdentifier' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf caCertificateId
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf cognitoIdentityPoolId
-      `Prelude.seq` Prelude.rnf deviceCertificateArn
-      `Prelude.seq` Prelude.rnf deviceCertificateId
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf issuerCertificateIdentifier
-      `Prelude.seq` Prelude.rnf policyVersionIdentifier
-      `Prelude.seq` Prelude.rnf roleAliasArn
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf caCertificateId `Prelude.seq`
+        Prelude.rnf clientId `Prelude.seq`
+          Prelude.rnf cognitoIdentityPoolId `Prelude.seq`
+            Prelude.rnf deviceCertificateArn `Prelude.seq`
+              Prelude.rnf deviceCertificateId `Prelude.seq`
+                Prelude.rnf iamRoleArn `Prelude.seq`
+                  Prelude.rnf issuerCertificateIdentifier `Prelude.seq`
+                    Prelude.rnf policyVersionIdentifier `Prelude.seq`
+                      Prelude.rnf roleAliasArn
 
 instance Data.ToJSON ResourceIdentifier where
   toJSON ResourceIdentifier' {..} =

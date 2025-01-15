@@ -133,8 +133,8 @@ instance
     DisassociateResolverEndpointIpAddress
   where
   rnf DisassociateResolverEndpointIpAddress' {..} =
-    Prelude.rnf resolverEndpointId
-      `Prelude.seq` Prelude.rnf ipAddress
+    Prelude.rnf resolverEndpointId `Prelude.seq`
+      Prelude.rnf ipAddress
 
 instance
   Data.ToHeaders
@@ -225,5 +225,5 @@ instance
   where
   rnf
     DisassociateResolverEndpointIpAddressResponse' {..} =
-      Prelude.rnf resolverEndpoint
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf resolverEndpoint `Prelude.seq`
+        Prelude.rnf httpStatus

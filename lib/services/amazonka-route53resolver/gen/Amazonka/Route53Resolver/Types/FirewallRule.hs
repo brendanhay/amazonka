@@ -289,15 +289,15 @@ instance Prelude.Hashable FirewallRule where
 
 instance Prelude.NFData FirewallRule where
   rnf FirewallRule' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf blockOverrideDnsType
-      `Prelude.seq` Prelude.rnf blockOverrideDomain
-      `Prelude.seq` Prelude.rnf blockOverrideTtl
-      `Prelude.seq` Prelude.rnf blockResponse
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf firewallDomainListId
-      `Prelude.seq` Prelude.rnf firewallRuleGroupId
-      `Prelude.seq` Prelude.rnf modificationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf blockOverrideDnsType `Prelude.seq`
+        Prelude.rnf blockOverrideDomain `Prelude.seq`
+          Prelude.rnf blockOverrideTtl `Prelude.seq`
+            Prelude.rnf blockResponse `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf creatorRequestId `Prelude.seq`
+                  Prelude.rnf firewallDomainListId `Prelude.seq`
+                    Prelude.rnf firewallRuleGroupId `Prelude.seq`
+                      Prelude.rnf modificationTime `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf priority

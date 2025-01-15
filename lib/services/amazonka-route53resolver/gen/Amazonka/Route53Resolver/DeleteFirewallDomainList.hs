@@ -175,5 +175,5 @@ instance
     DeleteFirewallDomainListResponse
   where
   rnf DeleteFirewallDomainListResponse' {..} =
-    Prelude.rnf firewallDomainList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallDomainList `Prelude.seq`
+      Prelude.rnf httpStatus

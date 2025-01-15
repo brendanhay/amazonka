@@ -150,9 +150,9 @@ instance Prelude.Hashable FirewallRuleGroupMetadata where
 
 instance Prelude.NFData FirewallRuleGroupMetadata where
   rnf FirewallRuleGroupMetadata' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf shareStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creatorRequestId `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf ownerId `Prelude.seq`
+              Prelude.rnf shareStatus

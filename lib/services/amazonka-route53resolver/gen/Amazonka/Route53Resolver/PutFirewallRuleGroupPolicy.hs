@@ -121,8 +121,8 @@ instance Prelude.Hashable PutFirewallRuleGroupPolicy where
 
 instance Prelude.NFData PutFirewallRuleGroupPolicy where
   rnf PutFirewallRuleGroupPolicy' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf firewallRuleGroupPolicy
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf firewallRuleGroupPolicy
 
 instance Data.ToHeaders PutFirewallRuleGroupPolicy where
   toHeaders =
@@ -199,5 +199,5 @@ instance
     PutFirewallRuleGroupPolicyResponse
   where
   rnf PutFirewallRuleGroupPolicyResponse' {..} =
-    Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf returnValue `Prelude.seq`
+      Prelude.rnf httpStatus

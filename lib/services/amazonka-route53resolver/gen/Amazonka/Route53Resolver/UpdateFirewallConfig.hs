@@ -153,8 +153,8 @@ instance Prelude.Hashable UpdateFirewallConfig where
 
 instance Prelude.NFData UpdateFirewallConfig where
   rnf UpdateFirewallConfig' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf firewallFailOpen
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf firewallFailOpen
 
 instance Data.ToHeaders UpdateFirewallConfig where
   toHeaders =
@@ -231,5 +231,5 @@ updateFirewallConfigResponse_httpStatus = Lens.lens (\UpdateFirewallConfigRespon
 
 instance Prelude.NFData UpdateFirewallConfigResponse where
   rnf UpdateFirewallConfigResponse' {..} =
-    Prelude.rnf firewallConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallConfig `Prelude.seq`
+      Prelude.rnf httpStatus

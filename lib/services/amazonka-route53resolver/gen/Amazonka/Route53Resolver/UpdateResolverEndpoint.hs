@@ -108,8 +108,8 @@ instance Prelude.Hashable UpdateResolverEndpoint where
 
 instance Prelude.NFData UpdateResolverEndpoint where
   rnf UpdateResolverEndpoint' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resolverEndpointId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf resolverEndpointId
 
 instance Data.ToHeaders UpdateResolverEndpoint where
   toHeaders =
@@ -186,5 +186,5 @@ instance
     UpdateResolverEndpointResponse
   where
   rnf UpdateResolverEndpointResponse' {..} =
-    Prelude.rnf resolverEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -183,5 +183,5 @@ instance
     DeleteResolverEndpointResponse
   where
   rnf DeleteResolverEndpointResponse' {..} =
-    Prelude.rnf resolverEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

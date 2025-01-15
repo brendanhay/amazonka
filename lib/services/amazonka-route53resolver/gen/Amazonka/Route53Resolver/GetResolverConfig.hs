@@ -168,5 +168,5 @@ getResolverConfigResponse_httpStatus = Lens.lens (\GetResolverConfigResponse' {h
 
 instance Prelude.NFData GetResolverConfigResponse where
   rnf GetResolverConfigResponse' {..} =
-    Prelude.rnf resolverConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverConfig `Prelude.seq`
+      Prelude.rnf httpStatus

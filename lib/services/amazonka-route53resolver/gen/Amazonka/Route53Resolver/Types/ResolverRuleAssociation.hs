@@ -150,9 +150,9 @@ instance Prelude.Hashable ResolverRuleAssociation where
 
 instance Prelude.NFData ResolverRuleAssociation where
   rnf ResolverRuleAssociation' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resolverRuleId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf vPCId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf resolverRuleId `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf vPCId

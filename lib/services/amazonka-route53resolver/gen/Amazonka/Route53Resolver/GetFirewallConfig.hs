@@ -169,5 +169,5 @@ getFirewallConfigResponse_httpStatus = Lens.lens (\GetFirewallConfigResponse' {h
 
 instance Prelude.NFData GetFirewallConfigResponse where
   rnf GetFirewallConfigResponse' {..} =
-    Prelude.rnf firewallConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallConfig `Prelude.seq`
+      Prelude.rnf httpStatus

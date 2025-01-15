@@ -136,9 +136,9 @@ instance Prelude.Hashable CreateFirewallDomainList where
 
 instance Prelude.NFData CreateFirewallDomainList where
   rnf CreateFirewallDomainList' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf creatorRequestId `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateFirewallDomainList where
   toHeaders =
@@ -216,5 +216,5 @@ instance
     CreateFirewallDomainListResponse
   where
   rnf CreateFirewallDomainListResponse' {..} =
-    Prelude.rnf firewallDomainList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallDomainList `Prelude.seq`
+      Prelude.rnf httpStatus

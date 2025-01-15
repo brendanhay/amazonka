@@ -146,7 +146,7 @@ instance Prelude.Hashable FirewallConfig where
 
 instance Prelude.NFData FirewallConfig where
   rnf FirewallConfig' {..} =
-    Prelude.rnf firewallFailOpen
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf firewallFailOpen `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf ownerId `Prelude.seq`
+          Prelude.rnf resourceId

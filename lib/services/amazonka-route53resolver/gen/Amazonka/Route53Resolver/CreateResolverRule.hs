@@ -254,13 +254,13 @@ instance Prelude.Hashable CreateResolverRule where
 
 instance Prelude.NFData CreateResolverRule where
   rnf CreateResolverRule' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resolverEndpointId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetIps
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf ruleType
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf resolverEndpointId `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf targetIps `Prelude.seq`
+            Prelude.rnf creatorRequestId `Prelude.seq`
+              Prelude.rnf ruleType `Prelude.seq`
+                Prelude.rnf domainName
 
 instance Data.ToHeaders CreateResolverRule where
   toHeaders =
@@ -343,5 +343,5 @@ createResolverRuleResponse_httpStatus = Lens.lens (\CreateResolverRuleResponse' 
 
 instance Prelude.NFData CreateResolverRuleResponse where
   rnf CreateResolverRuleResponse' {..} =
-    Prelude.rnf resolverRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverRule `Prelude.seq`
+      Prelude.rnf httpStatus

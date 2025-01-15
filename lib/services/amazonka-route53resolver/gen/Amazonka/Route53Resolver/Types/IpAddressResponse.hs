@@ -148,10 +148,10 @@ instance Prelude.Hashable IpAddressResponse where
 
 instance Prelude.NFData IpAddressResponse where
   rnf IpAddressResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf ipId
-      `Prelude.seq` Prelude.rnf modificationTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf ip `Prelude.seq`
+        Prelude.rnf ipId `Prelude.seq`
+          Prelude.rnf modificationTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf subnetId

@@ -135,9 +135,9 @@ instance Prelude.Hashable AssociateResolverRule where
 
 instance Prelude.NFData AssociateResolverRule where
   rnf AssociateResolverRule' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resolverRuleId
-      `Prelude.seq` Prelude.rnf vPCId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf resolverRuleId `Prelude.seq`
+        Prelude.rnf vPCId
 
 instance Data.ToHeaders AssociateResolverRule where
   toHeaders =
@@ -215,5 +215,5 @@ associateResolverRuleResponse_httpStatus = Lens.lens (\AssociateResolverRuleResp
 
 instance Prelude.NFData AssociateResolverRuleResponse where
   rnf AssociateResolverRuleResponse' {..} =
-    Prelude.rnf resolverRuleAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverRuleAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

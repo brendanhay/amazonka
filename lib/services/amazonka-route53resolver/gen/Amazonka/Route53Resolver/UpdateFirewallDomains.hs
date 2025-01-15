@@ -190,9 +190,9 @@ instance Prelude.Hashable UpdateFirewallDomains where
 
 instance Prelude.NFData UpdateFirewallDomains where
   rnf UpdateFirewallDomains' {..} =
-    Prelude.rnf firewallDomainListId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf domains
+    Prelude.rnf firewallDomainListId `Prelude.seq`
+      Prelude.rnf operation `Prelude.seq`
+        Prelude.rnf domains
 
 instance Data.ToHeaders UpdateFirewallDomains where
   toHeaders =
@@ -294,8 +294,8 @@ updateFirewallDomainsResponse_httpStatus = Lens.lens (\UpdateFirewallDomainsResp
 
 instance Prelude.NFData UpdateFirewallDomainsResponse where
   rnf UpdateFirewallDomainsResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf httpStatus

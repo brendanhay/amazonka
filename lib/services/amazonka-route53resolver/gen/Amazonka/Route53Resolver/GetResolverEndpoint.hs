@@ -175,5 +175,5 @@ getResolverEndpointResponse_httpStatus = Lens.lens (\GetResolverEndpointResponse
 
 instance Prelude.NFData GetResolverEndpointResponse where
   rnf GetResolverEndpointResponse' {..} =
-    Prelude.rnf resolverEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

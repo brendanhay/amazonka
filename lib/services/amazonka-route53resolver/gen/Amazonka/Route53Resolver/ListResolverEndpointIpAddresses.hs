@@ -147,12 +147,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResolverEndpointIpAddresses_nextToken
-          Lens..~ rs
-          Lens.^? listResolverEndpointIpAddressesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResolverEndpointIpAddresses_nextToken
+              Lens..~ rs
+              Lens.^? listResolverEndpointIpAddressesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -190,9 +190,9 @@ instance
     ListResolverEndpointIpAddresses
   where
   rnf ListResolverEndpointIpAddresses' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resolverEndpointId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resolverEndpointId
 
 instance
   Data.ToHeaders
@@ -307,7 +307,7 @@ instance
     ListResolverEndpointIpAddressesResponse
   where
   rnf ListResolverEndpointIpAddressesResponse' {..} =
-    Prelude.rnf ipAddresses
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipAddresses `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

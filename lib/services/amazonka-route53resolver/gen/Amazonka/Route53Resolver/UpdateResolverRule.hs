@@ -113,8 +113,8 @@ instance Prelude.Hashable UpdateResolverRule where
 
 instance Prelude.NFData UpdateResolverRule where
   rnf UpdateResolverRule' {..} =
-    Prelude.rnf resolverRuleId
-      `Prelude.seq` Prelude.rnf config
+    Prelude.rnf resolverRuleId `Prelude.seq`
+      Prelude.rnf config
 
 instance Data.ToHeaders UpdateResolverRule where
   toHeaders =
@@ -188,5 +188,5 @@ updateResolverRuleResponse_httpStatus = Lens.lens (\UpdateResolverRuleResponse' 
 
 instance Prelude.NFData UpdateResolverRuleResponse where
   rnf UpdateResolverRuleResponse' {..} =
-    Prelude.rnf resolverRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverRule `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -156,7 +156,7 @@ instance Prelude.Hashable ResolverConfig where
 
 instance Prelude.NFData ResolverConfig where
   rnf ResolverConfig' {..} =
-    Prelude.rnf autodefinedReverse
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf autodefinedReverse `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf ownerId `Prelude.seq`
+          Prelude.rnf resourceId

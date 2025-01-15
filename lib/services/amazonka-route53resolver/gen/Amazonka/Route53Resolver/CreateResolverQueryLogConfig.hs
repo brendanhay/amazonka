@@ -223,10 +223,10 @@ instance
 
 instance Prelude.NFData CreateResolverQueryLogConfig where
   rnf CreateResolverQueryLogConfig' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf creatorRequestId
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf destinationArn `Prelude.seq`
+          Prelude.rnf creatorRequestId
 
 instance Data.ToHeaders CreateResolverQueryLogConfig where
   toHeaders =
@@ -309,5 +309,5 @@ instance
     CreateResolverQueryLogConfigResponse
   where
   rnf CreateResolverQueryLogConfigResponse' {..} =
-    Prelude.rnf resolverQueryLogConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverQueryLogConfig `Prelude.seq`
+      Prelude.rnf httpStatus

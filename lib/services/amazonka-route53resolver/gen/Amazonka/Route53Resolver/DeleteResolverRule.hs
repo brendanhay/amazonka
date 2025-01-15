@@ -176,5 +176,5 @@ deleteResolverRuleResponse_httpStatus = Lens.lens (\DeleteResolverRuleResponse' 
 
 instance Prelude.NFData DeleteResolverRuleResponse where
   rnf DeleteResolverRuleResponse' {..} =
-    Prelude.rnf resolverRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverRule `Prelude.seq`
+      Prelude.rnf httpStatus

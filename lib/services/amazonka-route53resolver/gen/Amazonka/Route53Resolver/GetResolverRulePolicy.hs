@@ -173,5 +173,5 @@ getResolverRulePolicyResponse_httpStatus = Lens.lens (\GetResolverRulePolicyResp
 
 instance Prelude.NFData GetResolverRulePolicyResponse where
   rnf GetResolverRulePolicyResponse' {..} =
-    Prelude.rnf resolverRulePolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverRulePolicy `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -178,8 +178,8 @@ instance
     PutResolverQueryLogConfigPolicy
   where
   rnf PutResolverQueryLogConfigPolicy' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf resolverQueryLogConfigPolicy
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf resolverQueryLogConfigPolicy
 
 instance
   Data.ToHeaders
@@ -264,5 +264,5 @@ instance
     PutResolverQueryLogConfigPolicyResponse
   where
   rnf PutResolverQueryLogConfigPolicyResponse' {..} =
-    Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf returnValue `Prelude.seq`
+      Prelude.rnf httpStatus

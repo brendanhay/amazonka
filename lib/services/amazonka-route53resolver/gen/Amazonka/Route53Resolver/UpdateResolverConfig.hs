@@ -137,8 +137,8 @@ instance Prelude.Hashable UpdateResolverConfig where
 
 instance Prelude.NFData UpdateResolverConfig where
   rnf UpdateResolverConfig' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf autodefinedReverseFlag
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf autodefinedReverseFlag
 
 instance Data.ToHeaders UpdateResolverConfig where
   toHeaders =
@@ -217,5 +217,5 @@ updateResolverConfigResponse_httpStatus = Lens.lens (\UpdateResolverConfigRespon
 
 instance Prelude.NFData UpdateResolverConfigResponse where
   rnf UpdateResolverConfigResponse' {..} =
-    Prelude.rnf resolverConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverConfig `Prelude.seq`
+      Prelude.rnf httpStatus

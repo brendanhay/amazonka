@@ -353,12 +353,12 @@ instance Core.AWSPager ListResolverQueryLogConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResolverQueryLogConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listResolverQueryLogConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResolverQueryLogConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listResolverQueryLogConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResolverQueryLogConfigs where
   type
@@ -391,11 +391,11 @@ instance Prelude.Hashable ListResolverQueryLogConfigs where
 
 instance Prelude.NFData ListResolverQueryLogConfigs where
   rnf ListResolverQueryLogConfigs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListResolverQueryLogConfigs where
   toHeaders =
@@ -541,8 +541,8 @@ instance
     ListResolverQueryLogConfigsResponse
   where
   rnf ListResolverQueryLogConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resolverQueryLogConfigs
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf totalFilteredCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resolverQueryLogConfigs `Prelude.seq`
+        Prelude.rnf totalCount `Prelude.seq`
+          Prelude.rnf totalFilteredCount `Prelude.seq`
+            Prelude.rnf httpStatus

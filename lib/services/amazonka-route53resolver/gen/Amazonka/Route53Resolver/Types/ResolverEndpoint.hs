@@ -362,15 +362,15 @@ instance Prelude.Hashable ResolverEndpoint where
 
 instance Prelude.NFData ResolverEndpoint where
   rnf ResolverEndpoint' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf hostVPCId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf ipAddressCount
-      `Prelude.seq` Prelude.rnf modificationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf creatorRequestId `Prelude.seq`
+          Prelude.rnf direction `Prelude.seq`
+            Prelude.rnf hostVPCId `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf ipAddressCount `Prelude.seq`
+                  Prelude.rnf modificationTime `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf securityGroupIds `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf statusMessage

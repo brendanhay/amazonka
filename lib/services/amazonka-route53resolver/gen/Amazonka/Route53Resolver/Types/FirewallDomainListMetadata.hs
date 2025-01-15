@@ -132,8 +132,8 @@ instance Prelude.Hashable FirewallDomainListMetadata where
 
 instance Prelude.NFData FirewallDomainListMetadata where
   rnf FirewallDomainListMetadata' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf managedOwnerName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creatorRequestId `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf managedOwnerName `Prelude.seq`
+            Prelude.rnf name

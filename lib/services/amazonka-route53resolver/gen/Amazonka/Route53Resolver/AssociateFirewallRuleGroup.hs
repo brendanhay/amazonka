@@ -235,13 +235,13 @@ instance Prelude.Hashable AssociateFirewallRuleGroup where
 
 instance Prelude.NFData AssociateFirewallRuleGroup where
   rnf AssociateFirewallRuleGroup' {..} =
-    Prelude.rnf mutationProtection
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf firewallRuleGroupId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf mutationProtection `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf creatorRequestId `Prelude.seq`
+          Prelude.rnf firewallRuleGroupId `Prelude.seq`
+            Prelude.rnf vpcId `Prelude.seq`
+              Prelude.rnf priority `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders AssociateFirewallRuleGroup where
   toHeaders =
@@ -328,5 +328,5 @@ instance
     AssociateFirewallRuleGroupResponse
   where
   rnf AssociateFirewallRuleGroupResponse' {..} =
-    Prelude.rnf firewallRuleGroupAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallRuleGroupAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

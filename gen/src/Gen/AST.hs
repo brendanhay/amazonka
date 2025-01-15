@@ -47,7 +47,7 @@ rewrite _version' _config' s' = do
             Lit {} -> []
 
       -- A 'Lens.Fold' over any type names that 't' will have to import.
-      importedTypes :: TypeOf t => Lens.Fold t Text
+      importedTypes :: (TypeOf t) => Lens.Fold t Text
       importedTypes = Lens.to (typeNames . typeOf) . traverse
         where
           typeNames = \case
@@ -137,7 +137,7 @@ type MemoR = StateT (HashMap Id Relation, HashSet (Id, Direction, Id)) (Either S
 -- /Note:/ This currently doesn't operate over the free AST, since it's also
 -- used by 'setDefaults'.
 relations ::
-  Show a =>
+  (Show a) =>
   HashMap Id (Operation Maybe (RefF b) c) ->
   HashMap Id (ShapeF a) ->
   Either String (HashMap Id Relation)
@@ -186,7 +186,7 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
 
 -- FIXME: Necessary to update the Relation?
 solve ::
-  Traversable t =>
+  (Traversable t) =>
   Config ->
   t (Shape Prefixed) ->
   t (Shape Solved)
@@ -231,7 +231,7 @@ separate os = State.runStateT (traverse go os)
             _opOutput = Identity (o ^. opOutput . _Identity & refAnn .~ y)
           }
 
-    remove :: HasRelation a => Direction -> Id -> MemoS a a
+    remove :: (HasRelation a) => Direction -> Id -> MemoS a a
     remove d n = do
       s <- State.get
 
@@ -251,7 +251,7 @@ separate os = State.runStateT (traverse go os)
 
 breakLoops ::
   forall node.
-  Ord node =>
+  (Ord node) =>
   -- | Edge relation
   (node -> [node]) ->
   -- | Set of nodes to explore from

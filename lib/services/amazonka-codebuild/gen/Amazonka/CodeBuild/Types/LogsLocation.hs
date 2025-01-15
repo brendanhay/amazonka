@@ -166,11 +166,11 @@ instance Prelude.Hashable LogsLocation where
 
 instance Prelude.NFData LogsLocation where
   rnf LogsLocation' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf cloudWatchLogsArn
-      `Prelude.seq` Prelude.rnf deepLink
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf s3DeepLink
-      `Prelude.seq` Prelude.rnf s3Logs
-      `Prelude.seq` Prelude.rnf s3LogsArn
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf cloudWatchLogsArn `Prelude.seq`
+        Prelude.rnf deepLink `Prelude.seq`
+          Prelude.rnf groupName `Prelude.seq`
+            Prelude.rnf s3DeepLink `Prelude.seq`
+              Prelude.rnf s3Logs `Prelude.seq`
+                Prelude.rnf s3LogsArn `Prelude.seq`
+                  Prelude.rnf streamName

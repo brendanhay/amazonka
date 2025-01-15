@@ -150,12 +150,12 @@ instance Prelude.Hashable S3ReportExportConfig where
 
 instance Prelude.NFData S3ReportExportConfig where
   rnf S3ReportExportConfig' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf bucketOwner
-      `Prelude.seq` Prelude.rnf encryptionDisabled
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf packaging
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf bucketOwner `Prelude.seq`
+        Prelude.rnf encryptionDisabled `Prelude.seq`
+          Prelude.rnf encryptionKey `Prelude.seq`
+            Prelude.rnf packaging `Prelude.seq`
+              Prelude.rnf path
 
 instance Data.ToJSON S3ReportExportConfig where
   toJSON S3ReportExportConfig' {..} =

@@ -207,11 +207,11 @@ instance Prelude.Hashable ReportGroup where
 
 instance Prelude.NFData ReportGroup where
   rnf ReportGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf exportConfig
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf created `Prelude.seq`
+        Prelude.rnf exportConfig `Prelude.seq`
+          Prelude.rnf lastModified `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf type'

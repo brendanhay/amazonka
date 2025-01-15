@@ -159,8 +159,8 @@ instance Prelude.Hashable ProjectSourceVersion where
 
 instance Prelude.NFData ProjectSourceVersion where
   rnf ProjectSourceVersion' {..} =
-    Prelude.rnf sourceIdentifier
-      `Prelude.seq` Prelude.rnf sourceVersion
+    Prelude.rnf sourceIdentifier `Prelude.seq`
+      Prelude.rnf sourceVersion
 
 instance Data.ToJSON ProjectSourceVersion where
   toJSON ProjectSourceVersion' {..} =

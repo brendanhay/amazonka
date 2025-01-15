@@ -155,11 +155,11 @@ instance Prelude.Hashable ProjectBuildBatchConfig where
 
 instance Prelude.NFData ProjectBuildBatchConfig where
   rnf ProjectBuildBatchConfig' {..} =
-    Prelude.rnf batchReportMode
-      `Prelude.seq` Prelude.rnf combineArtifacts
-      `Prelude.seq` Prelude.rnf restrictions
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf timeoutInMins
+    Prelude.rnf batchReportMode `Prelude.seq`
+      Prelude.rnf combineArtifacts `Prelude.seq`
+        Prelude.rnf restrictions `Prelude.seq`
+          Prelude.rnf serviceRole `Prelude.seq`
+            Prelude.rnf timeoutInMins
 
 instance Data.ToJSON ProjectBuildBatchConfig where
   toJSON ProjectBuildBatchConfig' {..} =

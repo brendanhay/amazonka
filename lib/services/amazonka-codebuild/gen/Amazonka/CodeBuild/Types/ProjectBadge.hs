@@ -86,5 +86,5 @@ instance Prelude.Hashable ProjectBadge where
 
 instance Prelude.NFData ProjectBadge where
   rnf ProjectBadge' {..} =
-    Prelude.rnf badgeEnabled
-      `Prelude.seq` Prelude.rnf badgeRequestUrl
+    Prelude.rnf badgeEnabled `Prelude.seq`
+      Prelude.rnf badgeRequestUrl

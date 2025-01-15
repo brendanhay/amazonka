@@ -165,11 +165,11 @@ instance Prelude.Hashable TestCase where
 
 instance Prelude.NFData TestCase where
   rnf TestCase' {..} =
-    Prelude.rnf durationInNanoSeconds
-      `Prelude.seq` Prelude.rnf expired
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf reportArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf testRawDataPath
+    Prelude.rnf durationInNanoSeconds `Prelude.seq`
+      Prelude.rnf expired `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf prefix `Prelude.seq`
+              Prelude.rnf reportArn `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf testRawDataPath

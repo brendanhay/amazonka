@@ -92,6 +92,6 @@ instance Prelude.Hashable ReportGroupTrendStats where
 
 instance Prelude.NFData ReportGroupTrendStats where
   rnf ReportGroupTrendStats' {..} =
-    Prelude.rnf average
-      `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf min
+    Prelude.rnf average `Prelude.seq`
+      Prelude.rnf max `Prelude.seq`
+        Prelude.rnf min

@@ -248,9 +248,9 @@ instance Prelude.Hashable GetReportGroupTrend where
 
 instance Prelude.NFData GetReportGroupTrend where
   rnf GetReportGroupTrend' {..} =
-    Prelude.rnf numOfReports
-      `Prelude.seq` Prelude.rnf reportGroupArn
-      `Prelude.seq` Prelude.rnf trendField
+    Prelude.rnf numOfReports `Prelude.seq`
+      Prelude.rnf reportGroupArn `Prelude.seq`
+        Prelude.rnf trendField
 
 instance Data.ToHeaders GetReportGroupTrend where
   toHeaders =
@@ -334,6 +334,6 @@ getReportGroupTrendResponse_httpStatus = Lens.lens (\GetReportGroupTrendResponse
 
 instance Prelude.NFData GetReportGroupTrendResponse where
   rnf GetReportGroupTrendResponse' {..} =
-    Prelude.rnf rawData
-      `Prelude.seq` Prelude.rnf stats
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rawData `Prelude.seq`
+      Prelude.rnf stats `Prelude.seq`
+        Prelude.rnf httpStatus

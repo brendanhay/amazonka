@@ -170,11 +170,11 @@ instance Prelude.Hashable UpdateWebhook where
 
 instance Prelude.NFData UpdateWebhook where
   rnf UpdateWebhook' {..} =
-    Prelude.rnf branchFilter
-      `Prelude.seq` Prelude.rnf buildType
-      `Prelude.seq` Prelude.rnf filterGroups
-      `Prelude.seq` Prelude.rnf rotateSecret
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf branchFilter `Prelude.seq`
+      Prelude.rnf buildType `Prelude.seq`
+        Prelude.rnf filterGroups `Prelude.seq`
+          Prelude.rnf rotateSecret `Prelude.seq`
+            Prelude.rnf projectName
 
 instance Data.ToHeaders UpdateWebhook where
   toHeaders =
@@ -252,5 +252,5 @@ updateWebhookResponse_httpStatus = Lens.lens (\UpdateWebhookResponse' {httpStatu
 
 instance Prelude.NFData UpdateWebhookResponse where
   rnf UpdateWebhookResponse' {..} =
-    Prelude.rnf webhook
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf webhook `Prelude.seq`
+      Prelude.rnf httpStatus

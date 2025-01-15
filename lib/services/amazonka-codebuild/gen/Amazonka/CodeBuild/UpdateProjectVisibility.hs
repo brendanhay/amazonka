@@ -163,9 +163,9 @@ instance Prelude.Hashable UpdateProjectVisibility where
 
 instance Prelude.NFData UpdateProjectVisibility where
   rnf UpdateProjectVisibility' {..} =
-    Prelude.rnf resourceAccessRole
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf projectVisibility
+    Prelude.rnf resourceAccessRole `Prelude.seq`
+      Prelude.rnf projectArn `Prelude.seq`
+        Prelude.rnf projectVisibility
 
 instance Data.ToHeaders UpdateProjectVisibility where
   toHeaders =
@@ -261,7 +261,7 @@ instance
     UpdateProjectVisibilityResponse
   where
   rnf UpdateProjectVisibilityResponse' {..} =
-    Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf projectVisibility
-      `Prelude.seq` Prelude.rnf publicProjectAlias
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf projectArn `Prelude.seq`
+      Prelude.rnf projectVisibility `Prelude.seq`
+        Prelude.rnf publicProjectAlias `Prelude.seq`
+          Prelude.rnf httpStatus

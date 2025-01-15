@@ -91,6 +91,6 @@ instance Prelude.Hashable EnvironmentImage where
 
 instance Prelude.NFData EnvironmentImage where
   rnf EnvironmentImage' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf versions
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf versions

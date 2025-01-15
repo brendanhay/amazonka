@@ -254,9 +254,9 @@ instance Prelude.Hashable ProjectCache where
 
 instance Prelude.NFData ProjectCache where
   rnf ProjectCache' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf modes
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf modes `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON ProjectCache where
   toJSON ProjectCache' {..} =

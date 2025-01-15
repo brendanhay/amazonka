@@ -98,8 +98,8 @@ instance Prelude.Hashable ReportExportConfig where
 
 instance Prelude.NFData ReportExportConfig where
   rnf ReportExportConfig' {..} =
-    Prelude.rnf exportConfigType
-      `Prelude.seq` Prelude.rnf s3Destination
+    Prelude.rnf exportConfigType `Prelude.seq`
+      Prelude.rnf s3Destination
 
 instance Data.ToJSON ReportExportConfig where
   toJSON ReportExportConfig' {..} =

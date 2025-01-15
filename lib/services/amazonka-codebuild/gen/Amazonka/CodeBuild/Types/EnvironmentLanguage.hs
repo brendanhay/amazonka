@@ -86,5 +86,5 @@ instance Prelude.Hashable EnvironmentLanguage where
 
 instance Prelude.NFData EnvironmentLanguage where
   rnf EnvironmentLanguage' {..} =
-    Prelude.rnf images
-      `Prelude.seq` Prelude.rnf language
+    Prelude.rnf images `Prelude.seq`
+      Prelude.rnf language

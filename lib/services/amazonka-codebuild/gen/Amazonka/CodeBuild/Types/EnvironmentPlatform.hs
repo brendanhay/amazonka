@@ -86,5 +86,5 @@ instance Prelude.Hashable EnvironmentPlatform where
 
 instance Prelude.NFData EnvironmentPlatform where
   rnf EnvironmentPlatform' {..} =
-    Prelude.rnf languages
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf languages `Prelude.seq`
+      Prelude.rnf platform

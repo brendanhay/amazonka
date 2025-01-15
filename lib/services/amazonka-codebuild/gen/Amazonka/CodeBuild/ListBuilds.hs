@@ -131,12 +131,12 @@ instance Core.AWSPager ListBuilds where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBuilds_nextToken
-          Lens..~ rs
-          Lens.^? listBuildsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBuilds_nextToken
+              Lens..~ rs
+              Lens.^? listBuildsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBuilds where
   type AWSResponse ListBuilds = ListBuildsResponse
@@ -159,8 +159,8 @@ instance Prelude.Hashable ListBuilds where
 
 instance Prelude.NFData ListBuilds where
   rnf ListBuilds' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListBuilds where
   toHeaders =
@@ -250,6 +250,6 @@ listBuildsResponse_httpStatus = Lens.lens (\ListBuildsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListBuildsResponse where
   rnf ListBuildsResponse' {..} =
-    Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ids `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

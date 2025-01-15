@@ -180,11 +180,11 @@ instance Prelude.Hashable ProjectFileSystemLocation where
 
 instance Prelude.NFData ProjectFileSystemLocation where
   rnf ProjectFileSystemLocation' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf mountPoint
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf identifier `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf mountOptions `Prelude.seq`
+          Prelude.rnf mountPoint `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON ProjectFileSystemLocation where
   toJSON ProjectFileSystemLocation' {..} =

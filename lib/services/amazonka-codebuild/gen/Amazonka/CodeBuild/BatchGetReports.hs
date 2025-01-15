@@ -180,6 +180,6 @@ batchGetReportsResponse_httpStatus = Lens.lens (\BatchGetReportsResponse' {httpS
 
 instance Prelude.NFData BatchGetReportsResponse where
   rnf BatchGetReportsResponse' {..} =
-    Prelude.rnf reports
-      `Prelude.seq` Prelude.rnf reportsNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reports `Prelude.seq`
+      Prelude.rnf reportsNotFound `Prelude.seq`
+        Prelude.rnf httpStatus

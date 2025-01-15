@@ -146,12 +146,12 @@ instance Core.AWSPager ListBuildBatches where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBuildBatches_nextToken
-          Lens..~ rs
-          Lens.^? listBuildBatchesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBuildBatches_nextToken
+              Lens..~ rs
+              Lens.^? listBuildBatchesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBuildBatches where
   type
@@ -178,10 +178,10 @@ instance Prelude.Hashable ListBuildBatches where
 
 instance Prelude.NFData ListBuildBatches where
   rnf ListBuildBatches' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListBuildBatches where
   toHeaders =
@@ -270,6 +270,6 @@ listBuildBatchesResponse_httpStatus = Lens.lens (\ListBuildBatchesResponse' {htt
 
 instance Prelude.NFData ListBuildBatchesResponse where
   rnf ListBuildBatchesResponse' {..} =
-    Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ids `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

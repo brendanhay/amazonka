@@ -179,12 +179,12 @@ instance Core.AWSPager DescribeCodeCoverages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCodeCoverages_nextToken
-          Lens..~ rs
-          Lens.^? describeCodeCoveragesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCodeCoverages_nextToken
+              Lens..~ rs
+              Lens.^? describeCodeCoveragesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCodeCoverages where
   type
@@ -214,13 +214,13 @@ instance Prelude.Hashable DescribeCodeCoverages where
 
 instance Prelude.NFData DescribeCodeCoverages where
   rnf DescribeCodeCoverages' {..} =
-    Prelude.rnf maxLineCoveragePercentage
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf minLineCoveragePercentage
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf reportArn
+    Prelude.rnf maxLineCoveragePercentage `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf minLineCoveragePercentage `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf sortOrder `Prelude.seq`
+                Prelude.rnf reportArn
 
 instance Data.ToHeaders DescribeCodeCoverages where
   toHeaders =
@@ -315,6 +315,6 @@ describeCodeCoveragesResponse_httpStatus = Lens.lens (\DescribeCodeCoveragesResp
 
 instance Prelude.NFData DescribeCodeCoveragesResponse where
   rnf DescribeCodeCoveragesResponse' {..} =
-    Prelude.rnf codeCoverages
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeCoverages `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

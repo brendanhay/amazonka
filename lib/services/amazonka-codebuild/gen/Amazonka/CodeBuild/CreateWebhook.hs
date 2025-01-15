@@ -175,10 +175,10 @@ instance Prelude.Hashable CreateWebhook where
 
 instance Prelude.NFData CreateWebhook where
   rnf CreateWebhook' {..} =
-    Prelude.rnf branchFilter
-      `Prelude.seq` Prelude.rnf buildType
-      `Prelude.seq` Prelude.rnf filterGroups
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf branchFilter `Prelude.seq`
+      Prelude.rnf buildType `Prelude.seq`
+        Prelude.rnf filterGroups `Prelude.seq`
+          Prelude.rnf projectName
 
 instance Data.ToHeaders CreateWebhook where
   toHeaders =
@@ -255,5 +255,5 @@ createWebhookResponse_httpStatus = Lens.lens (\CreateWebhookResponse' {httpStatu
 
 instance Prelude.NFData CreateWebhookResponse where
   rnf CreateWebhookResponse' {..} =
-    Prelude.rnf webhook
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf webhook `Prelude.seq`
+      Prelude.rnf httpStatus

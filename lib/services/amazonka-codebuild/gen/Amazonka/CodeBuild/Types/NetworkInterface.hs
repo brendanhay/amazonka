@@ -81,5 +81,5 @@ instance Prelude.Hashable NetworkInterface where
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf networkInterfaceId `Prelude.seq`
+      Prelude.rnf subnetId

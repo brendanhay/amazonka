@@ -93,6 +93,6 @@ instance Prelude.Hashable ResolvedArtifact where
 
 instance Prelude.NFData ResolvedArtifact where
   rnf ResolvedArtifact' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf identifier `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf type'

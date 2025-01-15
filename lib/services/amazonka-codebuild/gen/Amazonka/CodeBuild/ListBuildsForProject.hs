@@ -170,12 +170,12 @@ instance Core.AWSPager ListBuildsForProject where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBuildsForProject_nextToken
-          Lens..~ rs
-          Lens.^? listBuildsForProjectResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBuildsForProject_nextToken
+              Lens..~ rs
+              Lens.^? listBuildsForProjectResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBuildsForProject where
   type
@@ -201,9 +201,9 @@ instance Prelude.Hashable ListBuildsForProject where
 
 instance Prelude.NFData ListBuildsForProject where
   rnf ListBuildsForProject' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sortOrder `Prelude.seq`
+        Prelude.rnf projectName
 
 instance Data.ToHeaders ListBuildsForProject where
   toHeaders =
@@ -298,6 +298,6 @@ listBuildsForProjectResponse_httpStatus = Lens.lens (\ListBuildsForProjectRespon
 
 instance Prelude.NFData ListBuildsForProjectResponse where
   rnf ListBuildsForProjectResponse' {..} =
-    Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ids `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

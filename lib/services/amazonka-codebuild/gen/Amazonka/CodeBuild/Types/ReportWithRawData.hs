@@ -80,5 +80,5 @@ instance Prelude.Hashable ReportWithRawData where
 
 instance Prelude.NFData ReportWithRawData where
   rnf ReportWithRawData' {..} =
-    Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf reportArn
+    Prelude.rnf data' `Prelude.seq`
+      Prelude.rnf reportArn

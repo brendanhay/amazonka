@@ -175,12 +175,12 @@ instance Core.AWSPager ListReportGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listReportGroups_nextToken
-          Lens..~ rs
-          Lens.^? listReportGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listReportGroups_nextToken
+              Lens..~ rs
+              Lens.^? listReportGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReportGroups where
   type
@@ -207,10 +207,10 @@ instance Prelude.Hashable ListReportGroups where
 
 instance Prelude.NFData ListReportGroups where
   rnf ListReportGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListReportGroups where
   toHeaders =
@@ -315,6 +315,6 @@ listReportGroupsResponse_httpStatus = Lens.lens (\ListReportGroupsResponse' {htt
 
 instance Prelude.NFData ListReportGroupsResponse where
   rnf ListReportGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reportGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reportGroups `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -157,12 +157,12 @@ instance Core.AWSPager ListBuildBatchesForProject where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBuildBatchesForProject_nextToken
-          Lens..~ rs
-          Lens.^? listBuildBatchesForProjectResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBuildBatchesForProject_nextToken
+              Lens..~ rs
+              Lens.^? listBuildBatchesForProjectResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBuildBatchesForProject where
   type
@@ -190,11 +190,11 @@ instance Prelude.Hashable ListBuildBatchesForProject where
 
 instance Prelude.NFData ListBuildBatchesForProject where
   rnf ListBuildBatchesForProject' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf projectName `Prelude.seq`
+            Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListBuildBatchesForProject where
   toHeaders =
@@ -288,6 +288,6 @@ instance
     ListBuildBatchesForProjectResponse
   where
   rnf ListBuildBatchesForProjectResponse' {..} =
-    Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ids `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

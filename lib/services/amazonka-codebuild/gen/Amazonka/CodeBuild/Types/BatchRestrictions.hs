@@ -93,8 +93,8 @@ instance Prelude.Hashable BatchRestrictions where
 
 instance Prelude.NFData BatchRestrictions where
   rnf BatchRestrictions' {..} =
-    Prelude.rnf computeTypesAllowed
-      `Prelude.seq` Prelude.rnf maximumBuildsAllowed
+    Prelude.rnf computeTypesAllowed `Prelude.seq`
+      Prelude.rnf maximumBuildsAllowed
 
 instance Data.ToJSON BatchRestrictions where
   toJSON BatchRestrictions' {..} =

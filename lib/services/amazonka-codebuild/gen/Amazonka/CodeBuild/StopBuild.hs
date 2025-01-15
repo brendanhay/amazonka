@@ -158,5 +158,5 @@ stopBuildResponse_httpStatus = Lens.lens (\StopBuildResponse' {httpStatus} -> ht
 
 instance Prelude.NFData StopBuildResponse where
   rnf StopBuildResponse' {..} =
-    Prelude.rnf build
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf build `Prelude.seq`
+      Prelude.rnf httpStatus

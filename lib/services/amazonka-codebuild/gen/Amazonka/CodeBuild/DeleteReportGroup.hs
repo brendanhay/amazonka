@@ -131,8 +131,8 @@ instance Prelude.Hashable DeleteReportGroup where
 
 instance Prelude.NFData DeleteReportGroup where
   rnf DeleteReportGroup' {..} =
-    Prelude.rnf deleteReports
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf deleteReports `Prelude.seq`
+      Prelude.rnf arn
 
 instance Data.ToHeaders DeleteReportGroup where
   toHeaders =

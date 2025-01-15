@@ -484,14 +484,14 @@ instance Prelude.Hashable ProjectEnvironment where
 
 instance Prelude.NFData ProjectEnvironment where
   rnf ProjectEnvironment' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf environmentVariables
-      `Prelude.seq` Prelude.rnf imagePullCredentialsType
-      `Prelude.seq` Prelude.rnf privilegedMode
-      `Prelude.seq` Prelude.rnf registryCredential
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf computeType
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf environmentVariables `Prelude.seq`
+        Prelude.rnf imagePullCredentialsType `Prelude.seq`
+          Prelude.rnf privilegedMode `Prelude.seq`
+            Prelude.rnf registryCredential `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf image `Prelude.seq`
+                  Prelude.rnf computeType
 
 instance Data.ToJSON ProjectEnvironment where
   toJSON ProjectEnvironment' {..} =

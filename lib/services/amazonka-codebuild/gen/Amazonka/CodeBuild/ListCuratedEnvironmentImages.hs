@@ -154,5 +154,5 @@ instance
     ListCuratedEnvironmentImagesResponse
   where
   rnf ListCuratedEnvironmentImagesResponse' {..} =
-    Prelude.rnf platforms
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf platforms `Prelude.seq`
+      Prelude.rnf httpStatus

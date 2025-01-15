@@ -193,7 +193,7 @@ deleteBuildBatchResponse_httpStatus = Lens.lens (\DeleteBuildBatchResponse' {htt
 
 instance Prelude.NFData DeleteBuildBatchResponse where
   rnf DeleteBuildBatchResponse' {..} =
-    Prelude.rnf buildsDeleted
-      `Prelude.seq` Prelude.rnf buildsNotDeleted
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf buildsDeleted `Prelude.seq`
+      Prelude.rnf buildsNotDeleted `Prelude.seq`
+        Prelude.rnf statusCode `Prelude.seq`
+          Prelude.rnf httpStatus

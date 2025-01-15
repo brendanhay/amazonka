@@ -178,12 +178,12 @@ instance Core.AWSPager ListSharedProjects where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSharedProjects_nextToken
-          Lens..~ rs
-          Lens.^? listSharedProjectsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSharedProjects_nextToken
+              Lens..~ rs
+              Lens.^? listSharedProjectsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSharedProjects where
   type
@@ -210,10 +210,10 @@ instance Prelude.Hashable ListSharedProjects where
 
 instance Prelude.NFData ListSharedProjects where
   rnf ListSharedProjects' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListSharedProjects where
   toHeaders =
@@ -318,6 +318,6 @@ listSharedProjectsResponse_httpStatus = Lens.lens (\ListSharedProjectsResponse' 
 
 instance Prelude.NFData ListSharedProjectsResponse where
   rnf ListSharedProjectsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projects
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf projects `Prelude.seq`
+        Prelude.rnf httpStatus

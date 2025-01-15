@@ -110,8 +110,8 @@ instance Prelude.Hashable RegistryCredential where
 
 instance Prelude.NFData RegistryCredential where
   rnf RegistryCredential' {..} =
-    Prelude.rnf credential
-      `Prelude.seq` Prelude.rnf credentialProvider
+    Prelude.rnf credential `Prelude.seq`
+      Prelude.rnf credentialProvider
 
 instance Data.ToJSON RegistryCredential where
   toJSON RegistryCredential' {..} =

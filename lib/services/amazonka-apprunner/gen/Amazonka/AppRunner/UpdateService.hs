@@ -223,13 +223,13 @@ instance Prelude.Hashable UpdateService where
 
 instance Prelude.NFData UpdateService where
   rnf UpdateService' {..} =
-    Prelude.rnf autoScalingConfigurationArn
-      `Prelude.seq` Prelude.rnf healthCheckConfiguration
-      `Prelude.seq` Prelude.rnf instanceConfiguration
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf observabilityConfiguration
-      `Prelude.seq` Prelude.rnf sourceConfiguration
-      `Prelude.seq` Prelude.rnf serviceArn
+    Prelude.rnf autoScalingConfigurationArn `Prelude.seq`
+      Prelude.rnf healthCheckConfiguration `Prelude.seq`
+        Prelude.rnf instanceConfiguration `Prelude.seq`
+          Prelude.rnf networkConfiguration `Prelude.seq`
+            Prelude.rnf observabilityConfiguration `Prelude.seq`
+              Prelude.rnf sourceConfiguration `Prelude.seq`
+                Prelude.rnf serviceArn
 
 instance Data.ToHeaders UpdateService where
   toHeaders =
@@ -338,6 +338,6 @@ updateServiceResponse_operationId = Lens.lens (\UpdateServiceResponse' {operatio
 
 instance Prelude.NFData UpdateServiceResponse where
   rnf UpdateServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf service `Prelude.seq`
+        Prelude.rnf operationId

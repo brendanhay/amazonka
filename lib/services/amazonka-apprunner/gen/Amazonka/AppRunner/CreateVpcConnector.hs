@@ -160,10 +160,10 @@ instance Prelude.Hashable CreateVpcConnector where
 
 instance Prelude.NFData CreateVpcConnector where
   rnf CreateVpcConnector' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConnectorName
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf securityGroups `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf vpcConnectorName `Prelude.seq`
+          Prelude.rnf subnets
 
 instance Data.ToHeaders CreateVpcConnector where
   toHeaders =
@@ -247,5 +247,5 @@ createVpcConnectorResponse_vpcConnector = Lens.lens (\CreateVpcConnectorResponse
 
 instance Prelude.NFData CreateVpcConnectorResponse where
   rnf CreateVpcConnectorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcConnector
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcConnector

@@ -118,9 +118,9 @@ instance Prelude.Hashable ImageRepository where
 
 instance Prelude.NFData ImageRepository where
   rnf ImageRepository' {..} =
-    Prelude.rnf imageConfiguration
-      `Prelude.seq` Prelude.rnf imageIdentifier
-      `Prelude.seq` Prelude.rnf imageRepositoryType
+    Prelude.rnf imageConfiguration `Prelude.seq`
+      Prelude.rnf imageIdentifier `Prelude.seq`
+        Prelude.rnf imageRepositoryType
 
 instance Data.ToJSON ImageRepository where
   toJSON ImageRepository' {..} =

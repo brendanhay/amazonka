@@ -116,9 +116,9 @@ instance Prelude.Hashable InstanceConfiguration where
 
 instance Prelude.NFData InstanceConfiguration where
   rnf InstanceConfiguration' {..} =
-    Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf instanceRoleArn
-      `Prelude.seq` Prelude.rnf memory
+    Prelude.rnf cpu `Prelude.seq`
+      Prelude.rnf instanceRoleArn `Prelude.seq`
+        Prelude.rnf memory
 
 instance Data.ToJSON InstanceConfiguration where
   toJSON InstanceConfiguration' {..} =

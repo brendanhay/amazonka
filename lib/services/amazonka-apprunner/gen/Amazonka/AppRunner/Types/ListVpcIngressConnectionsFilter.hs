@@ -80,8 +80,8 @@ instance
     ListVpcIngressConnectionsFilter
   where
   rnf ListVpcIngressConnectionsFilter' {..} =
-    Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf vpcEndpointId
+    Prelude.rnf serviceArn `Prelude.seq`
+      Prelude.rnf vpcEndpointId
 
 instance Data.ToJSON ListVpcIngressConnectionsFilter where
   toJSON ListVpcIngressConnectionsFilter' {..} =

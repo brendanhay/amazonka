@@ -163,10 +163,10 @@ instance Prelude.Hashable ImageConfiguration where
 
 instance Prelude.NFData ImageConfiguration where
   rnf ImageConfiguration' {..} =
-    Prelude.rnf port
-      `Prelude.seq` Prelude.rnf runtimeEnvironmentSecrets
-      `Prelude.seq` Prelude.rnf runtimeEnvironmentVariables
-      `Prelude.seq` Prelude.rnf startCommand
+    Prelude.rnf port `Prelude.seq`
+      Prelude.rnf runtimeEnvironmentSecrets `Prelude.seq`
+        Prelude.rnf runtimeEnvironmentVariables `Prelude.seq`
+          Prelude.rnf startCommand
 
 instance Data.ToJSON ImageConfiguration where
   toJSON ImageConfiguration' {..} =

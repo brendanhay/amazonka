@@ -189,6 +189,6 @@ resumeServiceResponse_service = Lens.lens (\ResumeServiceResponse' {service} -> 
 
 instance Prelude.NFData ResumeServiceResponse where
   rnf ResumeServiceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf service

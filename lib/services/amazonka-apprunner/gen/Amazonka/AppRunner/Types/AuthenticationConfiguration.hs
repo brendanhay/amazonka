@@ -94,8 +94,8 @@ instance Prelude.Hashable AuthenticationConfiguration where
 
 instance Prelude.NFData AuthenticationConfiguration where
   rnf AuthenticationConfiguration' {..} =
-    Prelude.rnf accessRoleArn
-      `Prelude.seq` Prelude.rnf connectionArn
+    Prelude.rnf accessRoleArn `Prelude.seq`
+      Prelude.rnf connectionArn
 
 instance Data.ToJSON AuthenticationConfiguration where
   toJSON AuthenticationConfiguration' {..} =

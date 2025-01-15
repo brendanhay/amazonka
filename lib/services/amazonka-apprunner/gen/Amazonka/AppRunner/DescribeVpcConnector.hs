@@ -186,5 +186,5 @@ describeVpcConnectorResponse_vpcConnector = Lens.lens (\DescribeVpcConnectorResp
 
 instance Prelude.NFData DescribeVpcConnectorResponse where
   rnf DescribeVpcConnectorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcConnector
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcConnector

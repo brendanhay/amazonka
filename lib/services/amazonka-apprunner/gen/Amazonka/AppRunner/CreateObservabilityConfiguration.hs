@@ -192,9 +192,9 @@ instance
     CreateObservabilityConfiguration
   where
   rnf CreateObservabilityConfiguration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf traceConfiguration
-      `Prelude.seq` Prelude.rnf observabilityConfigurationName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf traceConfiguration `Prelude.seq`
+        Prelude.rnf observabilityConfigurationName
 
 instance
   Data.ToHeaders
@@ -289,5 +289,5 @@ instance
     CreateObservabilityConfigurationResponse
   where
   rnf CreateObservabilityConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf observabilityConfiguration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf observabilityConfiguration

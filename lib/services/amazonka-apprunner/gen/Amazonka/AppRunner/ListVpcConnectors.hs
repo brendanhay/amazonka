@@ -136,8 +136,8 @@ instance Prelude.Hashable ListVpcConnectors where
 
 instance Prelude.NFData ListVpcConnectors where
   rnf ListVpcConnectors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVpcConnectors where
   toHeaders =
@@ -225,6 +225,6 @@ listVpcConnectorsResponse_vpcConnectors = Lens.lens (\ListVpcConnectorsResponse'
 
 instance Prelude.NFData ListVpcConnectorsResponse where
   rnf ListVpcConnectorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcConnectors
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf vpcConnectors

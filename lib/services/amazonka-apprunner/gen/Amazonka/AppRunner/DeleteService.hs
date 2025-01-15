@@ -195,6 +195,6 @@ deleteServiceResponse_operationId = Lens.lens (\DeleteServiceResponse' {operatio
 
 instance Prelude.NFData DeleteServiceResponse where
   rnf DeleteServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf service `Prelude.seq`
+        Prelude.rnf operationId

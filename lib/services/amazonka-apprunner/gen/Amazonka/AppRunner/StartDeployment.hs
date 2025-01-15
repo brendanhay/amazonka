@@ -183,5 +183,5 @@ startDeploymentResponse_operationId = Lens.lens (\StartDeploymentResponse' {oper
 
 instance Prelude.NFData StartDeploymentResponse where
   rnf StartDeploymentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf operationId

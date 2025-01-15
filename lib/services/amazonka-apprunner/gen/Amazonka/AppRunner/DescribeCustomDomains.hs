@@ -159,9 +159,9 @@ instance Prelude.Hashable DescribeCustomDomains where
 
 instance Prelude.NFData DescribeCustomDomains where
   rnf DescribeCustomDomains' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serviceArn
 
 instance Data.ToHeaders DescribeCustomDomains where
   toHeaders =
@@ -293,9 +293,9 @@ describeCustomDomainsResponse_vpcDNSTargets = Lens.lens (\DescribeCustomDomainsR
 
 instance Prelude.NFData DescribeCustomDomainsResponse where
   rnf DescribeCustomDomainsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dNSTarget
-      `Prelude.seq` Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf customDomains
-      `Prelude.seq` Prelude.rnf vpcDNSTargets
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf dNSTarget `Prelude.seq`
+          Prelude.rnf serviceArn `Prelude.seq`
+            Prelude.rnf customDomains `Prelude.seq`
+              Prelude.rnf vpcDNSTargets

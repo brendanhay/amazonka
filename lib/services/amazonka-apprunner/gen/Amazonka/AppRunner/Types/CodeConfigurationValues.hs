@@ -188,12 +188,12 @@ instance Prelude.Hashable CodeConfigurationValues where
 
 instance Prelude.NFData CodeConfigurationValues where
   rnf CodeConfigurationValues' {..} =
-    Prelude.rnf buildCommand
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf runtimeEnvironmentSecrets
-      `Prelude.seq` Prelude.rnf runtimeEnvironmentVariables
-      `Prelude.seq` Prelude.rnf startCommand
-      `Prelude.seq` Prelude.rnf runtime
+    Prelude.rnf buildCommand `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf runtimeEnvironmentSecrets `Prelude.seq`
+          Prelude.rnf runtimeEnvironmentVariables `Prelude.seq`
+            Prelude.rnf startCommand `Prelude.seq`
+              Prelude.rnf runtime
 
 instance Data.ToJSON CodeConfigurationValues where
   toJSON CodeConfigurationValues' {..} =

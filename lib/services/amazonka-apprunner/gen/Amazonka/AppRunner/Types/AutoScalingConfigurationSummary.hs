@@ -123,6 +123,6 @@ instance
     AutoScalingConfigurationSummary
   where
   rnf AutoScalingConfigurationSummary' {..} =
-    Prelude.rnf autoScalingConfigurationArn
-      `Prelude.seq` Prelude.rnf autoScalingConfigurationName
-      `Prelude.seq` Prelude.rnf autoScalingConfigurationRevision
+    Prelude.rnf autoScalingConfigurationArn `Prelude.seq`
+      Prelude.rnf autoScalingConfigurationName `Prelude.seq`
+        Prelude.rnf autoScalingConfigurationRevision

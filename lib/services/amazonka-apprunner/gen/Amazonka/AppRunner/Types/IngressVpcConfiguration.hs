@@ -83,8 +83,8 @@ instance Prelude.Hashable IngressVpcConfiguration where
 
 instance Prelude.NFData IngressVpcConfiguration where
   rnf IngressVpcConfiguration' {..} =
-    Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf vpcEndpointId `Prelude.seq`
+      Prelude.rnf vpcId
 
 instance Data.ToJSON IngressVpcConfiguration where
   toJSON IngressVpcConfiguration' {..} =

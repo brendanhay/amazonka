@@ -192,5 +192,5 @@ instance
     DescribeVpcIngressConnectionResponse
   where
   rnf DescribeVpcIngressConnectionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcIngressConnection
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcIngressConnection

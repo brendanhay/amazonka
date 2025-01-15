@@ -169,5 +169,5 @@ describeServiceResponse_service = Lens.lens (\DescribeServiceResponse' {service}
 
 instance Prelude.NFData DescribeServiceResponse where
   rnf DescribeServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf service

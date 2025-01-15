@@ -146,10 +146,10 @@ instance Prelude.Hashable SourceConfiguration where
 
 instance Prelude.NFData SourceConfiguration where
   rnf SourceConfiguration' {..} =
-    Prelude.rnf authenticationConfiguration
-      `Prelude.seq` Prelude.rnf autoDeploymentsEnabled
-      `Prelude.seq` Prelude.rnf codeRepository
-      `Prelude.seq` Prelude.rnf imageRepository
+    Prelude.rnf authenticationConfiguration `Prelude.seq`
+      Prelude.rnf autoDeploymentsEnabled `Prelude.seq`
+        Prelude.rnf codeRepository `Prelude.seq`
+          Prelude.rnf imageRepository
 
 instance Data.ToJSON SourceConfiguration where
   toJSON SourceConfiguration' {..} =

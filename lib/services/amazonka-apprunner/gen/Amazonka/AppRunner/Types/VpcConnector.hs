@@ -191,11 +191,11 @@ instance Prelude.Hashable VpcConnector where
 
 instance Prelude.NFData VpcConnector where
   rnf VpcConnector' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deletedAt
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf vpcConnectorArn
-      `Prelude.seq` Prelude.rnf vpcConnectorName
-      `Prelude.seq` Prelude.rnf vpcConnectorRevision
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf deletedAt `Prelude.seq`
+        Prelude.rnf securityGroups `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf subnets `Prelude.seq`
+              Prelude.rnf vpcConnectorArn `Prelude.seq`
+                Prelude.rnf vpcConnectorName `Prelude.seq`
+                  Prelude.rnf vpcConnectorRevision

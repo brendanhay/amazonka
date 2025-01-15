@@ -129,7 +129,7 @@ instance Prelude.Hashable CustomDomain where
 
 instance Prelude.NFData CustomDomain where
   rnf CustomDomain' {..} =
-    Prelude.rnf certificateValidationRecords
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf enableWWWSubdomain
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf certificateValidationRecords `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf enableWWWSubdomain `Prelude.seq`
+          Prelude.rnf status

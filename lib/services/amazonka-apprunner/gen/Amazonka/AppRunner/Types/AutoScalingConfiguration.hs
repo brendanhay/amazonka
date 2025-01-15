@@ -251,13 +251,13 @@ instance Prelude.Hashable AutoScalingConfiguration where
 
 instance Prelude.NFData AutoScalingConfiguration where
   rnf AutoScalingConfiguration' {..} =
-    Prelude.rnf autoScalingConfigurationArn
-      `Prelude.seq` Prelude.rnf autoScalingConfigurationName
-      `Prelude.seq` Prelude.rnf autoScalingConfigurationRevision
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deletedAt
-      `Prelude.seq` Prelude.rnf latest
-      `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf autoScalingConfigurationArn `Prelude.seq`
+      Prelude.rnf autoScalingConfigurationName `Prelude.seq`
+        Prelude.rnf autoScalingConfigurationRevision `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf deletedAt `Prelude.seq`
+              Prelude.rnf latest `Prelude.seq`
+                Prelude.rnf maxConcurrency `Prelude.seq`
+                  Prelude.rnf maxSize `Prelude.seq`
+                    Prelude.rnf minSize `Prelude.seq`
+                      Prelude.rnf status

@@ -227,5 +227,5 @@ instance
     DescribeObservabilityConfigurationResponse
   where
   rnf DescribeObservabilityConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf observabilityConfiguration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf observabilityConfiguration

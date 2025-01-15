@@ -172,5 +172,5 @@ deleteConnectionResponse_httpStatus = Lens.lens (\DeleteConnectionResponse' {htt
 
 instance Prelude.NFData DeleteConnectionResponse where
   rnf DeleteConnectionResponse' {..} =
-    Prelude.rnf connection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connection `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -265,9 +265,9 @@ instance Prelude.Hashable Ec2Configuration where
 
 instance Prelude.NFData Ec2Configuration where
   rnf Ec2Configuration' {..} =
-    Prelude.rnf imageIdOverride
-      `Prelude.seq` Prelude.rnf imageKubernetesVersion
-      `Prelude.seq` Prelude.rnf imageType
+    Prelude.rnf imageIdOverride `Prelude.seq`
+      Prelude.rnf imageKubernetesVersion `Prelude.seq`
+        Prelude.rnf imageType
 
 instance Data.ToJSON Ec2Configuration where
   toJSON Ec2Configuration' {..} =

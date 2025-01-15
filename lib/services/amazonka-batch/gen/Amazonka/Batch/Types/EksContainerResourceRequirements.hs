@@ -282,8 +282,8 @@ instance
     EksContainerResourceRequirements
   where
   rnf EksContainerResourceRequirements' {..} =
-    Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf requests
+    Prelude.rnf limits `Prelude.seq`
+      Prelude.rnf requests
 
 instance Data.ToJSON EksContainerResourceRequirements where
   toJSON EksContainerResourceRequirements' {..} =

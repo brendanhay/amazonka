@@ -419,18 +419,18 @@ instance Prelude.Hashable RegisterJobDefinition where
 
 instance Prelude.NFData RegisterJobDefinition where
   rnf RegisterJobDefinition' {..} =
-    Prelude.rnf containerProperties
-      `Prelude.seq` Prelude.rnf eksProperties
-      `Prelude.seq` Prelude.rnf nodeProperties
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf platformCapabilities
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf schedulingPriority
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf jobDefinitionName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf containerProperties `Prelude.seq`
+      Prelude.rnf eksProperties `Prelude.seq`
+        Prelude.rnf nodeProperties `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf platformCapabilities `Prelude.seq`
+              Prelude.rnf propagateTags `Prelude.seq`
+                Prelude.rnf retryStrategy `Prelude.seq`
+                  Prelude.rnf schedulingPriority `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf timeout `Prelude.seq`
+                        Prelude.rnf jobDefinitionName `Prelude.seq`
+                          Prelude.rnf type'
 
 instance Data.ToHeaders RegisterJobDefinition where
   toHeaders =
@@ -542,7 +542,7 @@ registerJobDefinitionResponse_revision = Lens.lens (\RegisterJobDefinitionRespon
 
 instance Prelude.NFData RegisterJobDefinitionResponse where
   rnf RegisterJobDefinitionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobDefinitionName
-      `Prelude.seq` Prelude.rnf jobDefinitionArn
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobDefinitionName `Prelude.seq`
+        Prelude.rnf jobDefinitionArn `Prelude.seq`
+          Prelude.rnf revision

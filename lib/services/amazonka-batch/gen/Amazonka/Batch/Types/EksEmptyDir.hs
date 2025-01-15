@@ -119,8 +119,8 @@ instance Prelude.Hashable EksEmptyDir where
 
 instance Prelude.NFData EksEmptyDir where
   rnf EksEmptyDir' {..} =
-    Prelude.rnf medium
-      `Prelude.seq` Prelude.rnf sizeLimit
+    Prelude.rnf medium `Prelude.seq`
+      Prelude.rnf sizeLimit
 
 instance Data.ToJSON EksEmptyDir where
   toJSON EksEmptyDir' {..} =

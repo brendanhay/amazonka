@@ -88,5 +88,5 @@ instance Prelude.Hashable EksAttemptContainerDetail where
 
 instance Prelude.NFData EksAttemptContainerDetail where
   rnf EksAttemptContainerDetail' {..} =
-    Prelude.rnf exitCode
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf exitCode `Prelude.seq`
+      Prelude.rnf reason

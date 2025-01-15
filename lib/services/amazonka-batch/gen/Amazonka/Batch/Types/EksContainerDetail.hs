@@ -313,14 +313,14 @@ instance Prelude.Hashable EksContainerDetail where
 
 instance Prelude.NFData EksContainerDetail where
   rnf EksContainerDetail' {..} =
-    Prelude.rnf args
-      `Prelude.seq` Prelude.rnf command
-      `Prelude.seq` Prelude.rnf env
-      `Prelude.seq` Prelude.rnf exitCode
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf imagePullPolicy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf securityContext
-      `Prelude.seq` Prelude.rnf volumeMounts
+    Prelude.rnf args `Prelude.seq`
+      Prelude.rnf command `Prelude.seq`
+        Prelude.rnf env `Prelude.seq`
+          Prelude.rnf exitCode `Prelude.seq`
+            Prelude.rnf image `Prelude.seq`
+              Prelude.rnf imagePullPolicy `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf reason `Prelude.seq`
+                    Prelude.rnf resources `Prelude.seq`
+                      Prelude.rnf securityContext `Prelude.seq`
+                        Prelude.rnf volumeMounts

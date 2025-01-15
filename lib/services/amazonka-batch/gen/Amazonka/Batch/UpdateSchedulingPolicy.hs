@@ -109,8 +109,8 @@ instance Prelude.Hashable UpdateSchedulingPolicy where
 
 instance Prelude.NFData UpdateSchedulingPolicy where
   rnf UpdateSchedulingPolicy' {..} =
-    Prelude.rnf fairsharePolicy
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf fairsharePolicy `Prelude.seq`
+      Prelude.rnf arn
 
 instance Data.ToHeaders UpdateSchedulingPolicy where
   toHeaders =

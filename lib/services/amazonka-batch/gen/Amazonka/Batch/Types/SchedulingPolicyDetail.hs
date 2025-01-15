@@ -123,7 +123,7 @@ instance Prelude.Hashable SchedulingPolicyDetail where
 
 instance Prelude.NFData SchedulingPolicyDetail where
   rnf SchedulingPolicyDetail' {..} =
-    Prelude.rnf fairsharePolicy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf fairsharePolicy `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf arn

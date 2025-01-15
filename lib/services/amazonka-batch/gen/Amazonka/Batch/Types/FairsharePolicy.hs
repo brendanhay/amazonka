@@ -165,9 +165,9 @@ instance Prelude.Hashable FairsharePolicy where
 
 instance Prelude.NFData FairsharePolicy where
   rnf FairsharePolicy' {..} =
-    Prelude.rnf computeReservation
-      `Prelude.seq` Prelude.rnf shareDecaySeconds
-      `Prelude.seq` Prelude.rnf shareDistribution
+    Prelude.rnf computeReservation `Prelude.seq`
+      Prelude.rnf shareDecaySeconds `Prelude.seq`
+        Prelude.rnf shareDistribution
 
 instance Data.ToJSON FairsharePolicy where
   toJSON FairsharePolicy' {..} =

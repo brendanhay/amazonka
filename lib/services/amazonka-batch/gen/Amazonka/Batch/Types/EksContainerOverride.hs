@@ -157,11 +157,11 @@ instance Prelude.Hashable EksContainerOverride where
 
 instance Prelude.NFData EksContainerOverride where
   rnf EksContainerOverride' {..} =
-    Prelude.rnf args
-      `Prelude.seq` Prelude.rnf command
-      `Prelude.seq` Prelude.rnf env
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf args `Prelude.seq`
+      Prelude.rnf command `Prelude.seq`
+        Prelude.rnf env `Prelude.seq`
+          Prelude.rnf image `Prelude.seq`
+            Prelude.rnf resources
 
 instance Data.ToJSON EksContainerOverride where
   toJSON EksContainerOverride' {..} =

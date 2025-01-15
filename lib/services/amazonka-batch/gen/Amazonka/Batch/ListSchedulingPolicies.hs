@@ -150,12 +150,12 @@ instance Core.AWSPager ListSchedulingPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSchedulingPolicies_nextToken
-          Lens..~ rs
-          Lens.^? listSchedulingPoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSchedulingPolicies_nextToken
+              Lens..~ rs
+              Lens.^? listSchedulingPoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSchedulingPolicies where
   type
@@ -183,8 +183,8 @@ instance Prelude.Hashable ListSchedulingPolicies where
 
 instance Prelude.NFData ListSchedulingPolicies where
   rnf ListSchedulingPolicies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSchedulingPolicies where
   toHeaders =
@@ -274,6 +274,6 @@ instance
     ListSchedulingPoliciesResponse
   where
   rnf ListSchedulingPoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schedulingPolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf schedulingPolicies `Prelude.seq`
+        Prelude.rnf httpStatus

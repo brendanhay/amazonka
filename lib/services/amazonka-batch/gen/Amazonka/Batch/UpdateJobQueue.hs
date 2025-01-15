@@ -221,11 +221,11 @@ instance Prelude.Hashable UpdateJobQueue where
 
 instance Prelude.NFData UpdateJobQueue where
   rnf UpdateJobQueue' {..} =
-    Prelude.rnf computeEnvironmentOrder
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf schedulingPolicyArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf jobQueue
+    Prelude.rnf computeEnvironmentOrder `Prelude.seq`
+      Prelude.rnf priority `Prelude.seq`
+        Prelude.rnf schedulingPolicyArn `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf jobQueue
 
 instance Data.ToHeaders UpdateJobQueue where
   toHeaders =
@@ -308,6 +308,6 @@ updateJobQueueResponse_httpStatus = Lens.lens (\UpdateJobQueueResponse' {httpSta
 
 instance Prelude.NFData UpdateJobQueueResponse where
   rnf UpdateJobQueueResponse' {..} =
-    Prelude.rnf jobQueueArn
-      `Prelude.seq` Prelude.rnf jobQueueName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobQueueArn `Prelude.seq`
+      Prelude.rnf jobQueueName `Prelude.seq`
+        Prelude.rnf httpStatus

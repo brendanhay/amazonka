@@ -779,26 +779,26 @@ instance Prelude.Hashable ContainerProperties where
 
 instance Prelude.NFData ContainerProperties where
   rnf ContainerProperties' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf fargatePlatformConfiguration
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf jobRoleArn
-      `Prelude.seq` Prelude.rnf linuxParameters
-      `Prelude.seq` Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf mountPoints
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf privileged
-      `Prelude.seq` Prelude.rnf readonlyRootFilesystem
-      `Prelude.seq` Prelude.rnf resourceRequirements
-      `Prelude.seq` Prelude.rnf secrets
-      `Prelude.seq` Prelude.rnf ulimits
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf vcpus
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf executionRoleArn `Prelude.seq`
+          Prelude.rnf fargatePlatformConfiguration `Prelude.seq`
+            Prelude.rnf image `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf jobRoleArn `Prelude.seq`
+                  Prelude.rnf linuxParameters `Prelude.seq`
+                    Prelude.rnf logConfiguration `Prelude.seq`
+                      Prelude.rnf memory `Prelude.seq`
+                        Prelude.rnf mountPoints `Prelude.seq`
+                          Prelude.rnf networkConfiguration `Prelude.seq`
+                            Prelude.rnf privileged `Prelude.seq`
+                              Prelude.rnf readonlyRootFilesystem `Prelude.seq`
+                                Prelude.rnf resourceRequirements `Prelude.seq`
+                                  Prelude.rnf secrets `Prelude.seq`
+                                    Prelude.rnf ulimits `Prelude.seq`
+                                      Prelude.rnf user `Prelude.seq`
+                                        Prelude.rnf vcpus `Prelude.seq`
+                                          Prelude.rnf volumes
 
 instance Data.ToJSON ContainerProperties where
   toJSON ContainerProperties' {..} =

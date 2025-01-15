@@ -105,8 +105,8 @@ instance Prelude.Hashable RetryStrategy where
 
 instance Prelude.NFData RetryStrategy where
   rnf RetryStrategy' {..} =
-    Prelude.rnf attempts
-      `Prelude.seq` Prelude.rnf evaluateOnExit
+    Prelude.rnf attempts `Prelude.seq`
+      Prelude.rnf evaluateOnExit
 
 instance Data.ToJSON RetryStrategy where
   toJSON RetryStrategy' {..} =

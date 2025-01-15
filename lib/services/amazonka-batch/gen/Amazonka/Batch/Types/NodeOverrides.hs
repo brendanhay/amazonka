@@ -113,8 +113,8 @@ instance Prelude.Hashable NodeOverrides where
 
 instance Prelude.NFData NodeOverrides where
   rnf NodeOverrides' {..} =
-    Prelude.rnf nodePropertyOverrides
-      `Prelude.seq` Prelude.rnf numNodes
+    Prelude.rnf nodePropertyOverrides `Prelude.seq`
+      Prelude.rnf numNodes
 
 instance Data.ToJSON NodeOverrides where
   toJSON NodeOverrides' {..} =

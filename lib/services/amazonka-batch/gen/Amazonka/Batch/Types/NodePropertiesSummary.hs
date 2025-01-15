@@ -102,6 +102,6 @@ instance Prelude.Hashable NodePropertiesSummary where
 
 instance Prelude.NFData NodePropertiesSummary where
   rnf NodePropertiesSummary' {..} =
-    Prelude.rnf isMainNode
-      `Prelude.seq` Prelude.rnf nodeIndex
-      `Prelude.seq` Prelude.rnf numNodes
+    Prelude.rnf isMainNode `Prelude.seq`
+      Prelude.rnf nodeIndex `Prelude.seq`
+        Prelude.rnf numNodes

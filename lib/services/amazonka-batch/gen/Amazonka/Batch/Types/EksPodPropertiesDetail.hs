@@ -237,10 +237,10 @@ instance Prelude.Hashable EksPodPropertiesDetail where
 
 instance Prelude.NFData EksPodPropertiesDetail where
   rnf EksPodPropertiesDetail' {..} =
-    Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf dnsPolicy
-      `Prelude.seq` Prelude.rnf hostNetwork
-      `Prelude.seq` Prelude.rnf nodeName
-      `Prelude.seq` Prelude.rnf podName
-      `Prelude.seq` Prelude.rnf serviceAccountName
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf containers `Prelude.seq`
+      Prelude.rnf dnsPolicy `Prelude.seq`
+        Prelude.rnf hostNetwork `Prelude.seq`
+          Prelude.rnf nodeName `Prelude.seq`
+            Prelude.rnf podName `Prelude.seq`
+              Prelude.rnf serviceAccountName `Prelude.seq`
+                Prelude.rnf volumes

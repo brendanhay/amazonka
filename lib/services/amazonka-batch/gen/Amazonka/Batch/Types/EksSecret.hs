@@ -94,8 +94,8 @@ instance Prelude.Hashable EksSecret where
 
 instance Prelude.NFData EksSecret where
   rnf EksSecret' {..} =
-    Prelude.rnf optional
-      `Prelude.seq` Prelude.rnf secretName
+    Prelude.rnf optional `Prelude.seq`
+      Prelude.rnf secretName
 
 instance Data.ToJSON EksSecret where
   toJSON EksSecret' {..} =

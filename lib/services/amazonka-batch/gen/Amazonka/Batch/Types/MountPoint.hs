@@ -101,9 +101,9 @@ instance Prelude.Hashable MountPoint where
 
 instance Prelude.NFData MountPoint where
   rnf MountPoint' {..} =
-    Prelude.rnf containerPath
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf sourceVolume
+    Prelude.rnf containerPath `Prelude.seq`
+      Prelude.rnf readOnly `Prelude.seq`
+        Prelude.rnf sourceVolume
 
 instance Data.ToJSON MountPoint where
   toJSON MountPoint' {..} =

@@ -1065,24 +1065,24 @@ instance Prelude.Hashable ComputeResourceUpdate where
 
 instance Prelude.NFData ComputeResourceUpdate where
   rnf ComputeResourceUpdate' {..} =
-    Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf bidPercentage
-      `Prelude.seq` Prelude.rnf desiredvCpus
-      `Prelude.seq` Prelude.rnf ec2Configuration
-      `Prelude.seq` Prelude.rnf ec2KeyPair
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceRole
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf maxvCpus
-      `Prelude.seq` Prelude.rnf minvCpus
-      `Prelude.seq` Prelude.rnf placementGroup
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf
-        updateToLatestImageVersion
+    Prelude.rnf allocationStrategy `Prelude.seq`
+      Prelude.rnf bidPercentage `Prelude.seq`
+        Prelude.rnf desiredvCpus `Prelude.seq`
+          Prelude.rnf ec2Configuration `Prelude.seq`
+            Prelude.rnf ec2KeyPair `Prelude.seq`
+              Prelude.rnf imageId `Prelude.seq`
+                Prelude.rnf instanceRole `Prelude.seq`
+                  Prelude.rnf instanceTypes `Prelude.seq`
+                    Prelude.rnf launchTemplate `Prelude.seq`
+                      Prelude.rnf maxvCpus `Prelude.seq`
+                        Prelude.rnf minvCpus `Prelude.seq`
+                          Prelude.rnf placementGroup `Prelude.seq`
+                            Prelude.rnf securityGroupIds `Prelude.seq`
+                              Prelude.rnf subnets `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf type' `Prelude.seq`
+                                    Prelude.rnf
+                                      updateToLatestImageVersion
 
 instance Data.ToJSON ComputeResourceUpdate where
   toJSON ComputeResourceUpdate' {..} =

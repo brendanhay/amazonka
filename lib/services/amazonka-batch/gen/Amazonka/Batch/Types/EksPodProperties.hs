@@ -190,11 +190,11 @@ instance Prelude.Hashable EksPodProperties where
 
 instance Prelude.NFData EksPodProperties where
   rnf EksPodProperties' {..} =
-    Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf dnsPolicy
-      `Prelude.seq` Prelude.rnf hostNetwork
-      `Prelude.seq` Prelude.rnf serviceAccountName
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf containers `Prelude.seq`
+      Prelude.rnf dnsPolicy `Prelude.seq`
+        Prelude.rnf hostNetwork `Prelude.seq`
+          Prelude.rnf serviceAccountName `Prelude.seq`
+            Prelude.rnf volumes
 
 instance Data.ToJSON EksPodProperties where
   toJSON EksPodProperties' {..} =

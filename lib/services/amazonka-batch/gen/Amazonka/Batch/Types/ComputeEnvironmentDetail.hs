@@ -339,18 +339,18 @@ instance Prelude.Hashable ComputeEnvironmentDetail where
 
 instance Prelude.NFData ComputeEnvironmentDetail where
   rnf ComputeEnvironmentDetail' {..} =
-    Prelude.rnf computeResources
-      `Prelude.seq` Prelude.rnf containerOrchestrationType
-      `Prelude.seq` Prelude.rnf ecsClusterArn
-      `Prelude.seq` Prelude.rnf eksConfiguration
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf unmanagedvCpus
-      `Prelude.seq` Prelude.rnf updatePolicy
-      `Prelude.seq` Prelude.rnf uuid
-      `Prelude.seq` Prelude.rnf computeEnvironmentName
-      `Prelude.seq` Prelude.rnf computeEnvironmentArn
+    Prelude.rnf computeResources `Prelude.seq`
+      Prelude.rnf containerOrchestrationType `Prelude.seq`
+        Prelude.rnf ecsClusterArn `Prelude.seq`
+          Prelude.rnf eksConfiguration `Prelude.seq`
+            Prelude.rnf serviceRole `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusReason `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf type' `Prelude.seq`
+                        Prelude.rnf unmanagedvCpus `Prelude.seq`
+                          Prelude.rnf updatePolicy `Prelude.seq`
+                            Prelude.rnf uuid `Prelude.seq`
+                              Prelude.rnf computeEnvironmentName `Prelude.seq`
+                                Prelude.rnf computeEnvironmentArn

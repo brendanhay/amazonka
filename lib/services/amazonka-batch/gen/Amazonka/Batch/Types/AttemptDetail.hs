@@ -118,7 +118,7 @@ instance Prelude.Hashable AttemptDetail where
 
 instance Prelude.NFData AttemptDetail where
   rnf AttemptDetail' {..} =
-    Prelude.rnf container
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf stoppedAt
+    Prelude.rnf container `Prelude.seq`
+      Prelude.rnf startedAt `Prelude.seq`
+        Prelude.rnf statusReason `Prelude.seq`
+          Prelude.rnf stoppedAt

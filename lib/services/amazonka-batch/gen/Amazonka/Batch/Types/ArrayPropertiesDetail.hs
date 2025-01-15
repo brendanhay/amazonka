@@ -100,6 +100,6 @@ instance Prelude.Hashable ArrayPropertiesDetail where
 
 instance Prelude.NFData ArrayPropertiesDetail where
   rnf ArrayPropertiesDetail' {..} =
-    Prelude.rnf index
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf statusSummary
+    Prelude.rnf index `Prelude.seq`
+      Prelude.rnf size `Prelude.seq`
+        Prelude.rnf statusSummary

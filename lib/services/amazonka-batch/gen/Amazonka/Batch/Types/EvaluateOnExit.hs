@@ -156,10 +156,10 @@ instance Prelude.Hashable EvaluateOnExit where
 
 instance Prelude.NFData EvaluateOnExit where
   rnf EvaluateOnExit' {..} =
-    Prelude.rnf onExitCode
-      `Prelude.seq` Prelude.rnf onReason
-      `Prelude.seq` Prelude.rnf onStatusReason
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf onExitCode `Prelude.seq`
+      Prelude.rnf onReason `Prelude.seq`
+        Prelude.rnf onStatusReason `Prelude.seq`
+          Prelude.rnf action
 
 instance Data.ToJSON EvaluateOnExit where
   toJSON EvaluateOnExit' {..} =

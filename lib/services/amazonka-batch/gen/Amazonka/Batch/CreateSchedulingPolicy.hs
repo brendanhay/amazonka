@@ -160,9 +160,9 @@ instance Prelude.Hashable CreateSchedulingPolicy where
 
 instance Prelude.NFData CreateSchedulingPolicy where
   rnf CreateSchedulingPolicy' {..} =
-    Prelude.rnf fairsharePolicy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf fairsharePolicy `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateSchedulingPolicy where
   toHeaders =
@@ -261,6 +261,6 @@ instance
     CreateSchedulingPolicyResponse
   where
   rnf CreateSchedulingPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

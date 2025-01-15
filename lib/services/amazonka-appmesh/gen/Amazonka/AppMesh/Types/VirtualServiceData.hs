@@ -131,8 +131,8 @@ instance Prelude.Hashable VirtualServiceData where
 
 instance Prelude.NFData VirtualServiceData where
   rnf VirtualServiceData' {..} =
-    Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf virtualServiceName
+    Prelude.rnf meshName `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf spec `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf virtualServiceName

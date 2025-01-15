@@ -201,12 +201,12 @@ instance Prelude.Hashable CreateVirtualRouter where
 
 instance Prelude.NFData CreateVirtualRouter where
   rnf CreateVirtualRouter' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf virtualRouterName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf spec `Prelude.seq`
+              Prelude.rnf virtualRouterName
 
 instance Data.ToHeaders CreateVirtualRouter where
   toHeaders =
@@ -290,5 +290,5 @@ createVirtualRouterResponse_virtualRouter = Lens.lens (\CreateVirtualRouterRespo
 
 instance Prelude.NFData CreateVirtualRouterResponse where
   rnf CreateVirtualRouterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualRouter
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualRouter

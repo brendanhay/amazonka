@@ -99,8 +99,8 @@ instance Prelude.Hashable HttpTimeout where
 
 instance Prelude.NFData HttpTimeout where
   rnf HttpTimeout' {..} =
-    Prelude.rnf idle
-      `Prelude.seq` Prelude.rnf perRequest
+    Prelude.rnf idle `Prelude.seq`
+      Prelude.rnf perRequest
 
 instance Data.ToJSON HttpTimeout where
   toJSON HttpTimeout' {..} =

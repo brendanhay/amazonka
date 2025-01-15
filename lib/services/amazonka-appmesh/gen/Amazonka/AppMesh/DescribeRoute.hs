@@ -148,10 +148,10 @@ instance Prelude.Hashable DescribeRoute where
 
 instance Prelude.NFData DescribeRoute where
   rnf DescribeRoute' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf routeName
-      `Prelude.seq` Prelude.rnf virtualRouterName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf routeName `Prelude.seq`
+          Prelude.rnf virtualRouterName
 
 instance Data.ToHeaders DescribeRoute where
   toHeaders =
@@ -223,5 +223,5 @@ describeRouteResponse_route = Lens.lens (\DescribeRouteResponse' {route} -> rout
 
 instance Prelude.NFData DescribeRouteResponse where
   rnf DescribeRouteResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf route
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf route

@@ -133,9 +133,9 @@ instance Prelude.Hashable DescribeVirtualGateway where
 
 instance Prelude.NFData DescribeVirtualGateway where
   rnf DescribeVirtualGateway' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf virtualGatewayName
 
 instance Data.ToHeaders DescribeVirtualGateway where
   toHeaders =
@@ -209,5 +209,5 @@ instance
     DescribeVirtualGatewayResponse
   where
   rnf DescribeVirtualGatewayResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualGateway
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualGateway

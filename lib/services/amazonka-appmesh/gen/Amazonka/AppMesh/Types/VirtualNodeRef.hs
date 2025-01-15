@@ -197,11 +197,11 @@ instance Prelude.Hashable VirtualNodeRef where
 
 instance Prelude.NFData VirtualNodeRef where
   rnf VirtualNodeRef' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf virtualNodeName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf meshOwner `Prelude.seq`
+              Prelude.rnf resourceOwner `Prelude.seq`
+                Prelude.rnf version `Prelude.seq`
+                  Prelude.rnf virtualNodeName

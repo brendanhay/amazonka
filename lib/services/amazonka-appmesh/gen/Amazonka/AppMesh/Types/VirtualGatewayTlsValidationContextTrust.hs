@@ -116,9 +116,9 @@ instance
     VirtualGatewayTlsValidationContextTrust
   where
   rnf VirtualGatewayTlsValidationContextTrust' {..} =
-    Prelude.rnf acm
-      `Prelude.seq` Prelude.rnf file
-      `Prelude.seq` Prelude.rnf sds
+    Prelude.rnf acm `Prelude.seq`
+      Prelude.rnf file `Prelude.seq`
+        Prelude.rnf sds
 
 instance
   Data.ToJSON

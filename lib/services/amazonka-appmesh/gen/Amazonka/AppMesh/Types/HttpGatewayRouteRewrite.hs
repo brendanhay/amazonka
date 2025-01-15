@@ -95,9 +95,9 @@ instance Prelude.Hashable HttpGatewayRouteRewrite where
 
 instance Prelude.NFData HttpGatewayRouteRewrite where
   rnf HttpGatewayRouteRewrite' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf hostname `Prelude.seq`
+      Prelude.rnf path `Prelude.seq`
+        Prelude.rnf prefix
 
 instance Data.ToJSON HttpGatewayRouteRewrite where
   toJSON HttpGatewayRouteRewrite' {..} =

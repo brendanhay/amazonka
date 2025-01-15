@@ -123,10 +123,10 @@ instance Prelude.Hashable OutlierDetection where
 
 instance Prelude.NFData OutlierDetection where
   rnf OutlierDetection' {..} =
-    Prelude.rnf baseEjectionDuration
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf maxEjectionPercent
-      `Prelude.seq` Prelude.rnf maxServerErrors
+    Prelude.rnf baseEjectionDuration `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf maxEjectionPercent `Prelude.seq`
+          Prelude.rnf maxServerErrors
 
 instance Data.ToJSON OutlierDetection where
   toJSON OutlierDetection' {..} =

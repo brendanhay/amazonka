@@ -183,10 +183,10 @@ instance Prelude.Hashable MeshRef where
 
 instance Prelude.NFData MeshRef where
   rnf MeshRef' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf meshOwner `Prelude.seq`
+              Prelude.rnf resourceOwner `Prelude.seq`
+                Prelude.rnf version

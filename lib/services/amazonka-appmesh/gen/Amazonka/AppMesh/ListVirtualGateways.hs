@@ -162,12 +162,12 @@ instance Core.AWSPager ListVirtualGateways where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVirtualGateways_nextToken
-          Lens..~ rs
-          Lens.^? listVirtualGatewaysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVirtualGateways_nextToken
+              Lens..~ rs
+              Lens.^? listVirtualGatewaysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVirtualGateways where
   type
@@ -197,10 +197,10 @@ instance Prelude.Hashable ListVirtualGateways where
 
 instance Prelude.NFData ListVirtualGateways where
   rnf ListVirtualGateways' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf meshName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf meshName
 
 instance Data.ToHeaders ListVirtualGateways where
   toHeaders =
@@ -288,6 +288,6 @@ listVirtualGatewaysResponse_virtualGateways = Lens.lens (\ListVirtualGatewaysRes
 
 instance Prelude.NFData ListVirtualGatewaysResponse where
   rnf ListVirtualGatewaysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualGateways
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf virtualGateways

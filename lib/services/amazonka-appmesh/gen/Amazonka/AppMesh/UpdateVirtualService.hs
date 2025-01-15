@@ -169,11 +169,11 @@ instance Prelude.Hashable UpdateVirtualService where
 
 instance Prelude.NFData UpdateVirtualService where
   rnf UpdateVirtualService' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf virtualServiceName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf meshName `Prelude.seq`
+          Prelude.rnf spec `Prelude.seq`
+            Prelude.rnf virtualServiceName
 
 instance Data.ToHeaders UpdateVirtualService where
   toHeaders =
@@ -255,5 +255,5 @@ updateVirtualServiceResponse_virtualService = Lens.lens (\UpdateVirtualServiceRe
 
 instance Prelude.NFData UpdateVirtualServiceResponse where
   rnf UpdateVirtualServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualService
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualService

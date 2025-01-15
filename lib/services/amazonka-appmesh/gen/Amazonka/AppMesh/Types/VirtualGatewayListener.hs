@@ -112,10 +112,10 @@ instance Prelude.Hashable VirtualGatewayListener where
 
 instance Prelude.NFData VirtualGatewayListener where
   rnf VirtualGatewayListener' {..} =
-    Prelude.rnf connectionPool
-      `Prelude.seq` Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf tls
-      `Prelude.seq` Prelude.rnf portMapping
+    Prelude.rnf connectionPool `Prelude.seq`
+      Prelude.rnf healthCheck `Prelude.seq`
+        Prelude.rnf tls `Prelude.seq`
+          Prelude.rnf portMapping
 
 instance Data.ToJSON VirtualGatewayListener where
   toJSON VirtualGatewayListener' {..} =

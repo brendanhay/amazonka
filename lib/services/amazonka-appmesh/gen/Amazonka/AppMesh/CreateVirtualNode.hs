@@ -221,12 +221,12 @@ instance Prelude.Hashable CreateVirtualNode where
 
 instance Prelude.NFData CreateVirtualNode where
   rnf CreateVirtualNode' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf virtualNodeName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf spec `Prelude.seq`
+              Prelude.rnf virtualNodeName
 
 instance Data.ToHeaders CreateVirtualNode where
   toHeaders =
@@ -310,5 +310,5 @@ createVirtualNodeResponse_virtualNode = Lens.lens (\CreateVirtualNodeResponse' {
 
 instance Prelude.NFData CreateVirtualNodeResponse where
   rnf CreateVirtualNodeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualNode
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualNode

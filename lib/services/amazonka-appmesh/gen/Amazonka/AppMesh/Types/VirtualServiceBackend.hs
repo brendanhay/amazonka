@@ -90,8 +90,8 @@ instance Prelude.Hashable VirtualServiceBackend where
 
 instance Prelude.NFData VirtualServiceBackend where
   rnf VirtualServiceBackend' {..} =
-    Prelude.rnf clientPolicy
-      `Prelude.seq` Prelude.rnf virtualServiceName
+    Prelude.rnf clientPolicy `Prelude.seq`
+      Prelude.rnf virtualServiceName
 
 instance Data.ToJSON VirtualServiceBackend where
   toJSON VirtualServiceBackend' {..} =

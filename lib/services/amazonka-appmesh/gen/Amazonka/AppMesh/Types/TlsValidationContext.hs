@@ -113,8 +113,8 @@ instance Prelude.Hashable TlsValidationContext where
 
 instance Prelude.NFData TlsValidationContext where
   rnf TlsValidationContext' {..} =
-    Prelude.rnf subjectAlternativeNames
-      `Prelude.seq` Prelude.rnf trust
+    Prelude.rnf subjectAlternativeNames `Prelude.seq`
+      Prelude.rnf trust
 
 instance Data.ToJSON TlsValidationContext where
   toJSON TlsValidationContext' {..} =

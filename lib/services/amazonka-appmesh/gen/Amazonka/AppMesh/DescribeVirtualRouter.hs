@@ -134,9 +134,9 @@ instance Prelude.Hashable DescribeVirtualRouter where
 
 instance Prelude.NFData DescribeVirtualRouter where
   rnf DescribeVirtualRouter' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualRouterName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf virtualRouterName
 
 instance Data.ToHeaders DescribeVirtualRouter where
   toHeaders =
@@ -209,5 +209,5 @@ describeVirtualRouterResponse_virtualRouter = Lens.lens (\DescribeVirtualRouterR
 
 instance Prelude.NFData DescribeVirtualRouterResponse where
   rnf DescribeVirtualRouterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualRouter
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualRouter

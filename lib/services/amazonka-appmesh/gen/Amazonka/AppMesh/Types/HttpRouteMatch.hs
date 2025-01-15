@@ -159,13 +159,13 @@ instance Prelude.Hashable HttpRouteMatch where
 
 instance Prelude.NFData HttpRouteMatch where
   rnf HttpRouteMatch' {..} =
-    Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf method
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf queryParameters
-      `Prelude.seq` Prelude.rnf scheme
+    Prelude.rnf headers `Prelude.seq`
+      Prelude.rnf method `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf port `Prelude.seq`
+            Prelude.rnf prefix `Prelude.seq`
+              Prelude.rnf queryParameters `Prelude.seq`
+                Prelude.rnf scheme
 
 instance Data.ToJSON HttpRouteMatch where
   toJSON HttpRouteMatch' {..} =

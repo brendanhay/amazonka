@@ -110,10 +110,10 @@ instance Prelude.Hashable HttpRoute where
 
 instance Prelude.NFData HttpRoute where
   rnf HttpRoute' {..} =
-    Prelude.rnf retryPolicy
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf match
+    Prelude.rnf retryPolicy `Prelude.seq`
+      Prelude.rnf timeout `Prelude.seq`
+        Prelude.rnf action `Prelude.seq`
+          Prelude.rnf match
 
 instance Data.ToJSON HttpRoute where
   toJSON HttpRoute' {..} =

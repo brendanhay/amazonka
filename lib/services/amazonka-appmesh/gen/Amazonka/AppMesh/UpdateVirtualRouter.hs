@@ -168,11 +168,11 @@ instance Prelude.Hashable UpdateVirtualRouter where
 
 instance Prelude.NFData UpdateVirtualRouter where
   rnf UpdateVirtualRouter' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf virtualRouterName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf meshName `Prelude.seq`
+          Prelude.rnf spec `Prelude.seq`
+            Prelude.rnf virtualRouterName
 
 instance Data.ToHeaders UpdateVirtualRouter where
   toHeaders =
@@ -254,5 +254,5 @@ updateVirtualRouterResponse_virtualRouter = Lens.lens (\UpdateVirtualRouterRespo
 
 instance Prelude.NFData UpdateVirtualRouterResponse where
   rnf UpdateVirtualRouterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualRouter
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualRouter

@@ -117,8 +117,8 @@ instance Prelude.Hashable DescribeMesh where
 
 instance Prelude.NFData DescribeMesh where
   rnf DescribeMesh' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName
 
 instance Data.ToHeaders DescribeMesh where
   toHeaders =
@@ -184,5 +184,5 @@ describeMeshResponse_mesh = Lens.lens (\DescribeMeshResponse' {mesh} -> mesh) (\
 
 instance Prelude.NFData DescribeMeshResponse where
   rnf DescribeMeshResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mesh
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf mesh

@@ -110,10 +110,10 @@ instance Prelude.Hashable GrpcRoute where
 
 instance Prelude.NFData GrpcRoute where
   rnf GrpcRoute' {..} =
-    Prelude.rnf retryPolicy
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf match
+    Prelude.rnf retryPolicy `Prelude.seq`
+      Prelude.rnf timeout `Prelude.seq`
+        Prelude.rnf action `Prelude.seq`
+          Prelude.rnf match
 
 instance Data.ToJSON GrpcRoute where
   toJSON GrpcRoute' {..} =

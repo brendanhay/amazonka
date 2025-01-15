@@ -104,8 +104,8 @@ instance
     VirtualGatewayListenerTlsFileCertificate
   where
   rnf VirtualGatewayListenerTlsFileCertificate' {..} =
-    Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf privateKey
+    Prelude.rnf certificateChain `Prelude.seq`
+      Prelude.rnf privateKey
 
 instance
   Data.ToJSON

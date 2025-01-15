@@ -157,10 +157,10 @@ instance Prelude.Hashable CreateMesh where
 
 instance Prelude.NFData CreateMesh where
   rnf CreateMesh' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf meshName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf spec `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf meshName
 
 instance Data.ToHeaders CreateMesh where
   toHeaders =
@@ -234,5 +234,5 @@ createMeshResponse_mesh = Lens.lens (\CreateMeshResponse' {mesh} -> mesh) (\s@Cr
 
 instance Prelude.NFData CreateMeshResponse where
   rnf CreateMeshResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mesh
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf mesh

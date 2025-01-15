@@ -134,9 +134,9 @@ instance Prelude.Hashable DeleteVirtualService where
 
 instance Prelude.NFData DeleteVirtualService where
   rnf DeleteVirtualService' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualServiceName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf virtualServiceName
 
 instance Data.ToHeaders DeleteVirtualService where
   toHeaders =
@@ -209,5 +209,5 @@ deleteVirtualServiceResponse_virtualService = Lens.lens (\DeleteVirtualServiceRe
 
 instance Prelude.NFData DeleteVirtualServiceResponse where
   rnf DeleteVirtualServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualService
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualService

@@ -119,11 +119,11 @@ instance Prelude.Hashable RouteSpec where
 
 instance Prelude.NFData RouteSpec where
   rnf RouteSpec' {..} =
-    Prelude.rnf grpcRoute
-      `Prelude.seq` Prelude.rnf http2Route
-      `Prelude.seq` Prelude.rnf httpRoute
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf tcpRoute
+    Prelude.rnf grpcRoute `Prelude.seq`
+      Prelude.rnf http2Route `Prelude.seq`
+        Prelude.rnf httpRoute `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf tcpRoute
 
 instance Data.ToJSON RouteSpec where
   toJSON RouteSpec' {..} =

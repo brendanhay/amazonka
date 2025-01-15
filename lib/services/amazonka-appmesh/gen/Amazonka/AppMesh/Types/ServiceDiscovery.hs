@@ -83,8 +83,8 @@ instance Prelude.Hashable ServiceDiscovery where
 
 instance Prelude.NFData ServiceDiscovery where
   rnf ServiceDiscovery' {..} =
-    Prelude.rnf awsCloudMap
-      `Prelude.seq` Prelude.rnf dns
+    Prelude.rnf awsCloudMap `Prelude.seq`
+      Prelude.rnf dns
 
 instance Data.ToJSON ServiceDiscovery where
   toJSON ServiceDiscovery' {..} =

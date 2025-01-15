@@ -104,9 +104,9 @@ instance Prelude.Hashable TlsValidationContextTrust where
 
 instance Prelude.NFData TlsValidationContextTrust where
   rnf TlsValidationContextTrust' {..} =
-    Prelude.rnf acm
-      `Prelude.seq` Prelude.rnf file
-      `Prelude.seq` Prelude.rnf sds
+    Prelude.rnf acm `Prelude.seq`
+      Prelude.rnf file `Prelude.seq`
+        Prelude.rnf sds
 
 instance Data.ToJSON TlsValidationContextTrust where
   toJSON TlsValidationContextTrust' {..} =

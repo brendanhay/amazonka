@@ -184,12 +184,12 @@ instance Prelude.Hashable UpdateGatewayRoute where
 
 instance Prelude.NFData UpdateGatewayRoute where
   rnf UpdateGatewayRoute' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf gatewayRouteName
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf gatewayRouteName `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf spec `Prelude.seq`
+              Prelude.rnf virtualGatewayName
 
 instance Data.ToHeaders UpdateGatewayRoute where
   toHeaders =
@@ -271,5 +271,5 @@ updateGatewayRouteResponse_gatewayRoute = Lens.lens (\UpdateGatewayRouteResponse
 
 instance Prelude.NFData UpdateGatewayRouteResponse where
   rnf UpdateGatewayRouteResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf gatewayRoute
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf gatewayRoute

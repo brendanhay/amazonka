@@ -105,10 +105,10 @@ instance Prelude.Hashable GatewayRouteSpec where
 
 instance Prelude.NFData GatewayRouteSpec where
   rnf GatewayRouteSpec' {..} =
-    Prelude.rnf grpcRoute
-      `Prelude.seq` Prelude.rnf http2Route
-      `Prelude.seq` Prelude.rnf httpRoute
-      `Prelude.seq` Prelude.rnf priority
+    Prelude.rnf grpcRoute `Prelude.seq`
+      Prelude.rnf http2Route `Prelude.seq`
+        Prelude.rnf httpRoute `Prelude.seq`
+          Prelude.rnf priority
 
 instance Data.ToJSON GatewayRouteSpec where
   toJSON GatewayRouteSpec' {..} =

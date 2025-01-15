@@ -95,8 +95,8 @@ instance
 
 instance Prelude.NFData ListenerTlsValidationContext where
   rnf ListenerTlsValidationContext' {..} =
-    Prelude.rnf subjectAlternativeNames
-      `Prelude.seq` Prelude.rnf trust
+    Prelude.rnf subjectAlternativeNames `Prelude.seq`
+      Prelude.rnf trust
 
 instance Data.ToJSON ListenerTlsValidationContext where
   toJSON ListenerTlsValidationContext' {..} =

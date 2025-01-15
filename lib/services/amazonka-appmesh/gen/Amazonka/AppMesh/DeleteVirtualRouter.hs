@@ -135,9 +135,9 @@ instance Prelude.Hashable DeleteVirtualRouter where
 
 instance Prelude.NFData DeleteVirtualRouter where
   rnf DeleteVirtualRouter' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualRouterName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf virtualRouterName
 
 instance Data.ToHeaders DeleteVirtualRouter where
   toHeaders =
@@ -210,5 +210,5 @@ deleteVirtualRouterResponse_virtualRouter = Lens.lens (\DeleteVirtualRouterRespo
 
 instance Prelude.NFData DeleteVirtualRouterResponse where
   rnf DeleteVirtualRouterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualRouter
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualRouter

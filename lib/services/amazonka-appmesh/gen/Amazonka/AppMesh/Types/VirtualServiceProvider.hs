@@ -83,8 +83,8 @@ instance Prelude.Hashable VirtualServiceProvider where
 
 instance Prelude.NFData VirtualServiceProvider where
   rnf VirtualServiceProvider' {..} =
-    Prelude.rnf virtualNode
-      `Prelude.seq` Prelude.rnf virtualRouter
+    Prelude.rnf virtualNode `Prelude.seq`
+      Prelude.rnf virtualRouter
 
 instance Data.ToJSON VirtualServiceProvider where
   toJSON VirtualServiceProvider' {..} =

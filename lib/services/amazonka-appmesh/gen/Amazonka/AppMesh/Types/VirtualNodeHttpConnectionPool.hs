@@ -92,8 +92,8 @@ instance
 
 instance Prelude.NFData VirtualNodeHttpConnectionPool where
   rnf VirtualNodeHttpConnectionPool' {..} =
-    Prelude.rnf maxPendingRequests
-      `Prelude.seq` Prelude.rnf maxConnections
+    Prelude.rnf maxPendingRequests `Prelude.seq`
+      Prelude.rnf maxConnections
 
 instance Data.ToJSON VirtualNodeHttpConnectionPool where
   toJSON VirtualNodeHttpConnectionPool' {..} =

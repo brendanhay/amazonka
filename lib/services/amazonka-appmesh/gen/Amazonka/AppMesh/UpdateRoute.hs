@@ -178,12 +178,12 @@ instance Prelude.Hashable UpdateRoute where
 
 instance Prelude.NFData UpdateRoute where
   rnf UpdateRoute' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf routeName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf virtualRouterName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf meshName `Prelude.seq`
+          Prelude.rnf routeName `Prelude.seq`
+            Prelude.rnf spec `Prelude.seq`
+              Prelude.rnf virtualRouterName
 
 instance Data.ToHeaders UpdateRoute where
   toHeaders =
@@ -264,5 +264,5 @@ updateRouteResponse_route = Lens.lens (\UpdateRouteResponse' {route} -> route) (
 
 instance Prelude.NFData UpdateRouteResponse where
   rnf UpdateRouteResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf route
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf route

@@ -135,9 +135,9 @@ instance Prelude.Hashable DeleteVirtualNode where
 
 instance Prelude.NFData DeleteVirtualNode where
   rnf DeleteVirtualNode' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualNodeName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf virtualNodeName
 
 instance Data.ToHeaders DeleteVirtualNode where
   toHeaders =
@@ -210,5 +210,5 @@ deleteVirtualNodeResponse_virtualNode = Lens.lens (\DeleteVirtualNodeResponse' {
 
 instance Prelude.NFData DeleteVirtualNodeResponse where
   rnf DeleteVirtualNodeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualNode
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualNode

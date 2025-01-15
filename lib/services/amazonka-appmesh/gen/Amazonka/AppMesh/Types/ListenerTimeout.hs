@@ -105,10 +105,10 @@ instance Prelude.Hashable ListenerTimeout where
 
 instance Prelude.NFData ListenerTimeout where
   rnf ListenerTimeout' {..} =
-    Prelude.rnf grpc
-      `Prelude.seq` Prelude.rnf http
-      `Prelude.seq` Prelude.rnf http2
-      `Prelude.seq` Prelude.rnf tcp
+    Prelude.rnf grpc `Prelude.seq`
+      Prelude.rnf http `Prelude.seq`
+        Prelude.rnf http2 `Prelude.seq`
+          Prelude.rnf tcp
 
 instance Data.ToJSON ListenerTimeout where
   toJSON ListenerTimeout' {..} =

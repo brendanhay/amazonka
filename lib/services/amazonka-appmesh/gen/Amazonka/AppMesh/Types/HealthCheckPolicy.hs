@@ -176,13 +176,13 @@ instance Prelude.Hashable HealthCheckPolicy where
 
 instance Prelude.NFData HealthCheckPolicy where
   rnf HealthCheckPolicy' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf healthyThreshold
-      `Prelude.seq` Prelude.rnf intervalMillis
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf timeoutMillis
-      `Prelude.seq` Prelude.rnf unhealthyThreshold
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf healthyThreshold `Prelude.seq`
+          Prelude.rnf intervalMillis `Prelude.seq`
+            Prelude.rnf protocol `Prelude.seq`
+              Prelude.rnf timeoutMillis `Prelude.seq`
+                Prelude.rnf unhealthyThreshold
 
 instance Data.ToJSON HealthCheckPolicy where
   toJSON HealthCheckPolicy' {..} =

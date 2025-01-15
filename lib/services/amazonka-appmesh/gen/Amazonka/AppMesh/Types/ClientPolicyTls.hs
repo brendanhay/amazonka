@@ -110,10 +110,10 @@ instance Prelude.Hashable ClientPolicyTls where
 
 instance Prelude.NFData ClientPolicyTls where
   rnf ClientPolicyTls' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf enforce
-      `Prelude.seq` Prelude.rnf ports
-      `Prelude.seq` Prelude.rnf validation
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf enforce `Prelude.seq`
+        Prelude.rnf ports `Prelude.seq`
+          Prelude.rnf validation
 
 instance Data.ToJSON ClientPolicyTls where
   toJSON ClientPolicyTls' {..} =

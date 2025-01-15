@@ -145,10 +145,10 @@ instance Prelude.Hashable EnvironmentVpc where
 
 instance Prelude.NFData EnvironmentVpc where
   rnf EnvironmentVpc' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf cidrBlocks
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpcName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf cidrBlocks `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf environmentId `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf vpcId `Prelude.seq`
+                Prelude.rnf vpcName

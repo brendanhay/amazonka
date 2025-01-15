@@ -220,17 +220,17 @@ instance Prelude.Hashable ApplicationSummary where
 
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
-    Prelude.rnf apiGatewayProxy
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdByAccountId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf proxyType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf apiGatewayProxy `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf createdByAccountId `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf environmentId `Prelude.seq`
+                Prelude.rnf error `Prelude.seq`
+                  Prelude.rnf lastUpdatedTime `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf ownerAccountId `Prelude.seq`
+                        Prelude.rnf proxyType `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf vpcId

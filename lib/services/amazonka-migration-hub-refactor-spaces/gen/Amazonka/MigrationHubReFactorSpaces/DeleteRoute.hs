@@ -135,9 +135,9 @@ instance Prelude.Hashable DeleteRoute where
 
 instance Prelude.NFData DeleteRoute where
   rnf DeleteRoute' {..} =
-    Prelude.rnf applicationIdentifier
-      `Prelude.seq` Prelude.rnf environmentIdentifier
-      `Prelude.seq` Prelude.rnf routeIdentifier
+    Prelude.rnf applicationIdentifier `Prelude.seq`
+      Prelude.rnf environmentIdentifier `Prelude.seq`
+        Prelude.rnf routeIdentifier
 
 instance Data.ToHeaders DeleteRoute where
   toHeaders =
@@ -250,10 +250,10 @@ deleteRouteResponse_httpStatus = Lens.lens (\DeleteRouteResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteRouteResponse where
   rnf DeleteRouteResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf routeId
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf routeId `Prelude.seq`
+            Prelude.rnf serviceId `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf httpStatus

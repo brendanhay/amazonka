@@ -139,8 +139,8 @@ instance Prelude.Hashable GetApplication where
 
 instance Prelude.NFData GetApplication where
   rnf GetApplication' {..} =
-    Prelude.rnf applicationIdentifier
-      `Prelude.seq` Prelude.rnf environmentIdentifier
+    Prelude.rnf applicationIdentifier `Prelude.seq`
+      Prelude.rnf environmentIdentifier
 
 instance Data.ToHeaders GetApplication where
   toHeaders =
@@ -332,18 +332,18 @@ getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpSta
 
 instance Prelude.NFData GetApplicationResponse where
   rnf GetApplicationResponse' {..} =
-    Prelude.rnf apiGatewayProxy
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdByAccountId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf proxyType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiGatewayProxy `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf createdByAccountId `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf environmentId `Prelude.seq`
+                Prelude.rnf error `Prelude.seq`
+                  Prelude.rnf lastUpdatedTime `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf ownerAccountId `Prelude.seq`
+                        Prelude.rnf proxyType `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf vpcId `Prelude.seq`
+                                Prelude.rnf httpStatus

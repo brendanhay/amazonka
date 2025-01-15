@@ -121,12 +121,12 @@ instance Core.AWSPager ListEnvironmentVpcs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEnvironmentVpcs_nextToken
-          Lens..~ rs
-          Lens.^? listEnvironmentVpcsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEnvironmentVpcs_nextToken
+              Lens..~ rs
+              Lens.^? listEnvironmentVpcsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEnvironmentVpcs where
   type
@@ -155,9 +155,9 @@ instance Prelude.Hashable ListEnvironmentVpcs where
 
 instance Prelude.NFData ListEnvironmentVpcs where
   rnf ListEnvironmentVpcs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf environmentIdentifier
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf environmentIdentifier
 
 instance Data.ToHeaders ListEnvironmentVpcs where
   toHeaders =
@@ -235,6 +235,6 @@ listEnvironmentVpcsResponse_httpStatus = Lens.lens (\ListEnvironmentVpcsResponse
 
 instance Prelude.NFData ListEnvironmentVpcsResponse where
   rnf ListEnvironmentVpcsResponse' {..} =
-    Prelude.rnf environmentVpcList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environmentVpcList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

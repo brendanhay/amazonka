@@ -216,15 +216,15 @@ instance Prelude.Hashable NetworkProfile where
 
 instance Prelude.NFData NetworkProfile where
   rnf NetworkProfile' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf downlinkBandwidthBits
-      `Prelude.seq` Prelude.rnf downlinkDelayMs
-      `Prelude.seq` Prelude.rnf downlinkJitterMs
-      `Prelude.seq` Prelude.rnf downlinkLossPercent
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf uplinkBandwidthBits
-      `Prelude.seq` Prelude.rnf uplinkDelayMs
-      `Prelude.seq` Prelude.rnf uplinkJitterMs
-      `Prelude.seq` Prelude.rnf uplinkLossPercent
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf downlinkBandwidthBits `Prelude.seq`
+          Prelude.rnf downlinkDelayMs `Prelude.seq`
+            Prelude.rnf downlinkJitterMs `Prelude.seq`
+              Prelude.rnf downlinkLossPercent `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf uplinkBandwidthBits `Prelude.seq`
+                      Prelude.rnf uplinkDelayMs `Prelude.seq`
+                        Prelude.rnf uplinkJitterMs `Prelude.seq`
+                          Prelude.rnf uplinkLossPercent

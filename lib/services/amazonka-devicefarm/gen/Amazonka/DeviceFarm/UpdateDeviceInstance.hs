@@ -122,9 +122,9 @@ instance Prelude.Hashable UpdateDeviceInstance where
 
 instance Prelude.NFData UpdateDeviceInstance where
   rnf UpdateDeviceInstance' {..} =
-    Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf labels `Prelude.seq`
+      Prelude.rnf profileArn `Prelude.seq`
+        Prelude.rnf arn
 
 instance Data.ToHeaders UpdateDeviceInstance where
   toHeaders =
@@ -198,5 +198,5 @@ updateDeviceInstanceResponse_httpStatus = Lens.lens (\UpdateDeviceInstanceRespon
 
 instance Prelude.NFData UpdateDeviceInstanceResponse where
   rnf UpdateDeviceInstanceResponse' {..} =
-    Prelude.rnf deviceInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceInstance `Prelude.seq`
+      Prelude.rnf httpStatus

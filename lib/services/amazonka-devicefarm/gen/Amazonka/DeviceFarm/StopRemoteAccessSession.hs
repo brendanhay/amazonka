@@ -175,5 +175,5 @@ instance
     StopRemoteAccessSessionResponse
   where
   rnf StopRemoteAccessSessionResponse' {..} =
-    Prelude.rnf remoteAccessSession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf remoteAccessSession `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -135,10 +135,10 @@ instance Prelude.Hashable Counters where
 
 instance Prelude.NFData Counters where
   rnf Counters' {..} =
-    Prelude.rnf errored
-      `Prelude.seq` Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf passed
-      `Prelude.seq` Prelude.rnf skipped
-      `Prelude.seq` Prelude.rnf stopped
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf warned
+    Prelude.rnf errored `Prelude.seq`
+      Prelude.rnf failed `Prelude.seq`
+        Prelude.rnf passed `Prelude.seq`
+          Prelude.rnf skipped `Prelude.seq`
+            Prelude.rnf stopped `Prelude.seq`
+              Prelude.rnf total `Prelude.seq`
+                Prelude.rnf warned

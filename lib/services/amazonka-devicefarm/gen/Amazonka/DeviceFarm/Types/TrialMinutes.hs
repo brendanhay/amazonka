@@ -81,5 +81,5 @@ instance Prelude.Hashable TrialMinutes where
 
 instance Prelude.NFData TrialMinutes where
   rnf TrialMinutes' {..} =
-    Prelude.rnf remaining
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf remaining `Prelude.seq`
+      Prelude.rnf total

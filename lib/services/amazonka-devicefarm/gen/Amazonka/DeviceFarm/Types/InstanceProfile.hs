@@ -145,9 +145,9 @@ instance Prelude.Hashable InstanceProfile where
 
 instance Prelude.NFData InstanceProfile where
   rnf InstanceProfile' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf excludeAppPackagesFromCleanup
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf packageCleanup
-      `Prelude.seq` Prelude.rnf rebootAfterUse
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf excludeAppPackagesFromCleanup `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf packageCleanup `Prelude.seq`
+              Prelude.rnf rebootAfterUse

@@ -136,10 +136,10 @@ instance
 
 instance Prelude.NFData ListTestGridSessionArtifacts where
   rnf ListTestGridSessionArtifacts' {..} =
-    Prelude.rnf maxResult
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf sessionArn
+    Prelude.rnf maxResult `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf sessionArn
 
 instance Data.ToHeaders ListTestGridSessionArtifacts where
   toHeaders =
@@ -226,6 +226,6 @@ instance
     ListTestGridSessionArtifactsResponse
   where
   rnf ListTestGridSessionArtifactsResponse' {..} =
-    Prelude.rnf artifacts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifacts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

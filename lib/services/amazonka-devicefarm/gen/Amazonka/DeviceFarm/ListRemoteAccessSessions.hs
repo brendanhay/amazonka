@@ -117,12 +117,12 @@ instance Core.AWSPager ListRemoteAccessSessions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRemoteAccessSessions_nextToken
-          Lens..~ rs
-          Lens.^? listRemoteAccessSessionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRemoteAccessSessions_nextToken
+              Lens..~ rs
+              Lens.^? listRemoteAccessSessionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRemoteAccessSessions where
   type
@@ -247,6 +247,6 @@ instance
     ListRemoteAccessSessionsResponse
   where
   rnf ListRemoteAccessSessionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf remoteAccessSessions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf remoteAccessSessions `Prelude.seq`
+        Prelude.rnf httpStatus

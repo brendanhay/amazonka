@@ -100,6 +100,6 @@ instance
 
 instance Prelude.NFData DevicePoolCompatibilityResult where
   rnf DevicePoolCompatibilityResult' {..} =
-    Prelude.rnf compatible
-      `Prelude.seq` Prelude.rnf device
-      `Prelude.seq` Prelude.rnf incompatibilityMessages
+    Prelude.rnf compatible `Prelude.seq`
+      Prelude.rnf device `Prelude.seq`
+        Prelude.rnf incompatibilityMessages

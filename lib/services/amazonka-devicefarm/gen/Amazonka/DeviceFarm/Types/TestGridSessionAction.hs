@@ -116,8 +116,8 @@ instance Prelude.Hashable TestGridSessionAction where
 
 instance Prelude.NFData TestGridSessionAction where
   rnf TestGridSessionAction' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf requestMethod
-      `Prelude.seq` Prelude.rnf started
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf requestMethod `Prelude.seq`
+          Prelude.rnf started `Prelude.seq`
+            Prelude.rnf statusCode

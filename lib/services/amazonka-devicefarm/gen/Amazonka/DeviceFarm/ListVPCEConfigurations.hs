@@ -113,12 +113,12 @@ instance Core.AWSPager ListVPCEConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVPCEConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? listVPCEConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVPCEConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? listVPCEConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVPCEConfigurations where
   type
@@ -146,8 +146,8 @@ instance Prelude.Hashable ListVPCEConfigurations where
 
 instance Prelude.NFData ListVPCEConfigurations where
   rnf ListVPCEConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVPCEConfigurations where
   toHeaders =
@@ -241,6 +241,6 @@ instance
     ListVPCEConfigurationsResponse
   where
   rnf ListVPCEConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpceConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vpceConfigurations `Prelude.seq`
+        Prelude.rnf httpStatus

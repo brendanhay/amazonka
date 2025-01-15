@@ -116,8 +116,8 @@ instance Prelude.Hashable RenewOffering where
 
 instance Prelude.NFData RenewOffering where
   rnf RenewOffering' {..} =
-    Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf offeringId `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToHeaders RenewOffering where
   toHeaders =
@@ -192,5 +192,5 @@ renewOfferingResponse_httpStatus = Lens.lens (\RenewOfferingResponse' {httpStatu
 
 instance Prelude.NFData RenewOfferingResponse where
   rnf RenewOfferingResponse' {..} =
-    Prelude.rnf offeringTransaction
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf offeringTransaction `Prelude.seq`
+      Prelude.rnf httpStatus

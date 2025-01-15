@@ -331,18 +331,18 @@ instance Prelude.Hashable CreateRemoteAccessSession where
 
 instance Prelude.NFData CreateRemoteAccessSession where
   rnf CreateRemoteAccessSession' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf interactionMode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf remoteDebugEnabled
-      `Prelude.seq` Prelude.rnf remoteRecordAppArn
-      `Prelude.seq` Prelude.rnf remoteRecordEnabled
-      `Prelude.seq` Prelude.rnf skipAppResign
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf deviceArn
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf instanceArn `Prelude.seq`
+          Prelude.rnf interactionMode `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf remoteDebugEnabled `Prelude.seq`
+                Prelude.rnf remoteRecordAppArn `Prelude.seq`
+                  Prelude.rnf remoteRecordEnabled `Prelude.seq`
+                    Prelude.rnf skipAppResign `Prelude.seq`
+                      Prelude.rnf sshPublicKey `Prelude.seq`
+                        Prelude.rnf projectArn `Prelude.seq`
+                          Prelude.rnf deviceArn
 
 instance Data.ToHeaders CreateRemoteAccessSession where
   toHeaders =
@@ -438,5 +438,5 @@ instance
     CreateRemoteAccessSessionResponse
   where
   rnf CreateRemoteAccessSessionResponse' {..} =
-    Prelude.rnf remoteAccessSession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf remoteAccessSession `Prelude.seq`
+      Prelude.rnf httpStatus

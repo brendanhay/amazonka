@@ -131,10 +131,10 @@ instance Prelude.Hashable UpdateTestGridProject where
 
 instance Prelude.NFData UpdateTestGridProject where
   rnf UpdateTestGridProject' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf projectArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf vpcConfig `Prelude.seq`
+          Prelude.rnf projectArn
 
 instance Data.ToHeaders UpdateTestGridProject where
   toHeaders =
@@ -209,5 +209,5 @@ updateTestGridProjectResponse_httpStatus = Lens.lens (\UpdateTestGridProjectResp
 
 instance Prelude.NFData UpdateTestGridProjectResponse where
   rnf UpdateTestGridProjectResponse' {..} =
-    Prelude.rnf testGridProject
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf testGridProject `Prelude.seq`
+      Prelude.rnf httpStatus

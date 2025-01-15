@@ -151,10 +151,10 @@ instance Prelude.Hashable CreateVPCEConfiguration where
 
 instance Prelude.NFData CreateVPCEConfiguration where
   rnf CreateVPCEConfiguration' {..} =
-    Prelude.rnf vpceConfigurationDescription
-      `Prelude.seq` Prelude.rnf vpceConfigurationName
-      `Prelude.seq` Prelude.rnf vpceServiceName
-      `Prelude.seq` Prelude.rnf serviceDnsName
+    Prelude.rnf vpceConfigurationDescription `Prelude.seq`
+      Prelude.rnf vpceConfigurationName `Prelude.seq`
+        Prelude.rnf vpceServiceName `Prelude.seq`
+          Prelude.rnf serviceDnsName
 
 instance Data.ToHeaders CreateVPCEConfiguration where
   toHeaders =
@@ -241,5 +241,5 @@ instance
     CreateVPCEConfigurationResponse
   where
   rnf CreateVPCEConfigurationResponse' {..} =
-    Prelude.rnf vpceConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpceConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -128,9 +128,9 @@ instance Prelude.Hashable GetTestGridSession where
 
 instance Prelude.NFData GetTestGridSession where
   rnf GetTestGridSession' {..} =
-    Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf sessionArn
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf projectArn `Prelude.seq`
+      Prelude.rnf sessionArn `Prelude.seq`
+        Prelude.rnf sessionId
 
 instance Data.ToHeaders GetTestGridSession where
   toHeaders =
@@ -204,5 +204,5 @@ getTestGridSessionResponse_httpStatus = Lens.lens (\GetTestGridSessionResponse' 
 
 instance Prelude.NFData GetTestGridSessionResponse where
   rnf GetTestGridSessionResponse' {..} =
-    Prelude.rnf testGridSession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf testGridSession `Prelude.seq`
+      Prelude.rnf httpStatus

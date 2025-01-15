@@ -382,9 +382,9 @@ instance Prelude.Hashable DeviceFilter where
 
 instance Prelude.NFData DeviceFilter where
   rnf DeviceFilter' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON DeviceFilter where
   toJSON DeviceFilter' {..} =

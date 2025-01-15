@@ -162,5 +162,5 @@ getRunResponse_httpStatus = Lens.lens (\GetRunResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData GetRunResponse where
   rnf GetRunResponse' {..} =
-    Prelude.rnf run
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf run `Prelude.seq`
+      Prelude.rnf httpStatus

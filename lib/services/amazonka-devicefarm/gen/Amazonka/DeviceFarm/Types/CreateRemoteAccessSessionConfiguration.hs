@@ -82,8 +82,8 @@ instance
     CreateRemoteAccessSessionConfiguration
   where
   rnf CreateRemoteAccessSessionConfiguration' {..} =
-    Prelude.rnf billingMethod
-      `Prelude.seq` Prelude.rnf vpceConfigurationArns
+    Prelude.rnf billingMethod `Prelude.seq`
+      Prelude.rnf vpceConfigurationArns
 
 instance
   Data.ToJSON

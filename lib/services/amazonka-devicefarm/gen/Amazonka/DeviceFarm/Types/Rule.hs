@@ -336,9 +336,9 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON Rule where
   toJSON Rule' {..} =

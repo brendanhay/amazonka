@@ -137,10 +137,10 @@ instance Prelude.Hashable UpdateUpload where
 
 instance Prelude.NFData UpdateUpload where
   rnf UpdateUpload' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf editContent
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf editContent `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf arn
 
 instance Data.ToHeaders UpdateUpload where
   toHeaders =
@@ -214,5 +214,5 @@ updateUploadResponse_httpStatus = Lens.lens (\UpdateUploadResponse' {httpStatus}
 
 instance Prelude.NFData UpdateUploadResponse where
   rnf UpdateUploadResponse' {..} =
-    Prelude.rnf upload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf upload `Prelude.seq`
+      Prelude.rnf httpStatus

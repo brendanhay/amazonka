@@ -111,8 +111,8 @@ instance Prelude.Hashable ListTestGridProjects where
 
 instance Prelude.NFData ListTestGridProjects where
   rnf ListTestGridProjects' {..} =
-    Prelude.rnf maxResult
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResult `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTestGridProjects where
   toHeaders =
@@ -197,6 +197,6 @@ listTestGridProjectsResponse_httpStatus = Lens.lens (\ListTestGridProjectsRespon
 
 instance Prelude.NFData ListTestGridProjectsResponse where
   rnf ListTestGridProjectsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf testGridProjects
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf testGridProjects `Prelude.seq`
+        Prelude.rnf httpStatus

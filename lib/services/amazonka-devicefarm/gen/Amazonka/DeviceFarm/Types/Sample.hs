@@ -221,6 +221,6 @@ instance Prelude.Hashable Sample where
 
 instance Prelude.NFData Sample where
   rnf Sample' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf url

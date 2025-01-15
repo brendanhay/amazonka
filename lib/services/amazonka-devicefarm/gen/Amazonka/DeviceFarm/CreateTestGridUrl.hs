@@ -116,8 +116,8 @@ instance Prelude.Hashable CreateTestGridUrl where
 
 instance Prelude.NFData CreateTestGridUrl where
   rnf CreateTestGridUrl' {..} =
-    Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf expiresInSeconds
+    Prelude.rnf projectArn `Prelude.seq`
+      Prelude.rnf expiresInSeconds
 
 instance Data.ToHeaders CreateTestGridUrl where
   toHeaders =
@@ -206,6 +206,6 @@ createTestGridUrlResponse_httpStatus = Lens.lens (\CreateTestGridUrlResponse' {h
 
 instance Prelude.NFData CreateTestGridUrlResponse where
   rnf CreateTestGridUrlResponse' {..} =
-    Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf expires `Prelude.seq`
+      Prelude.rnf url `Prelude.seq`
+        Prelude.rnf httpStatus

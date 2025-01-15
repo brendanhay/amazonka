@@ -106,12 +106,12 @@ instance Core.AWSPager ListOfferingTransactions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOfferingTransactions_nextToken
-          Lens..~ rs
-          Lens.^? listOfferingTransactionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOfferingTransactions_nextToken
+              Lens..~ rs
+              Lens.^? listOfferingTransactionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOfferingTransactions where
   type
@@ -231,6 +231,6 @@ instance
     ListOfferingTransactionsResponse
   where
   rnf ListOfferingTransactionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf offeringTransactions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf offeringTransactions `Prelude.seq`
+        Prelude.rnf httpStatus

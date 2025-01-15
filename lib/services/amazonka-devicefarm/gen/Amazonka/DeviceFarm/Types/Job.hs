@@ -460,18 +460,18 @@ instance Prelude.Hashable Job where
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf counters
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf device
-      `Prelude.seq` Prelude.rnf deviceMinutes
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf started
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stopped
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf videoCapture
-      `Prelude.seq` Prelude.rnf videoEndpoint
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf counters `Prelude.seq`
+        Prelude.rnf created `Prelude.seq`
+          Prelude.rnf device `Prelude.seq`
+            Prelude.rnf deviceMinutes `Prelude.seq`
+              Prelude.rnf instanceArn `Prelude.seq`
+                Prelude.rnf message `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf result `Prelude.seq`
+                      Prelude.rnf started `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf stopped `Prelude.seq`
+                            Prelude.rnf type' `Prelude.seq`
+                              Prelude.rnf videoCapture `Prelude.seq`
+                                Prelude.rnf videoEndpoint

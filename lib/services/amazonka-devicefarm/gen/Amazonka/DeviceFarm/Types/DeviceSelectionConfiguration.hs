@@ -322,8 +322,8 @@ instance
 
 instance Prelude.NFData DeviceSelectionConfiguration where
   rnf DeviceSelectionConfiguration' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxDevices
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxDevices
 
 instance Data.ToJSON DeviceSelectionConfiguration where
   toJSON DeviceSelectionConfiguration' {..} =

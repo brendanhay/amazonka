@@ -170,15 +170,15 @@ instance Prelude.Hashable ScheduleRunConfiguration where
 
 instance Prelude.NFData ScheduleRunConfiguration where
   rnf ScheduleRunConfiguration' {..} =
-    Prelude.rnf auxiliaryApps
-      `Prelude.seq` Prelude.rnf billingMethod
-      `Prelude.seq` Prelude.rnf customerArtifactPaths
-      `Prelude.seq` Prelude.rnf extraDataPackageArn
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf networkProfileArn
-      `Prelude.seq` Prelude.rnf radios
-      `Prelude.seq` Prelude.rnf vpceConfigurationArns
+    Prelude.rnf auxiliaryApps `Prelude.seq`
+      Prelude.rnf billingMethod `Prelude.seq`
+        Prelude.rnf customerArtifactPaths `Prelude.seq`
+          Prelude.rnf extraDataPackageArn `Prelude.seq`
+            Prelude.rnf locale `Prelude.seq`
+              Prelude.rnf location `Prelude.seq`
+                Prelude.rnf networkProfileArn `Prelude.seq`
+                  Prelude.rnf radios `Prelude.seq`
+                    Prelude.rnf vpceConfigurationArns
 
 instance Data.ToJSON ScheduleRunConfiguration where
   toJSON ScheduleRunConfiguration' {..} =

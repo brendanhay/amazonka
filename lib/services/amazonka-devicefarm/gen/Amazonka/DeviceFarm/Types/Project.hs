@@ -118,8 +118,8 @@ instance Prelude.Hashable Project where
 
 instance Prelude.NFData Project where
   rnf Project' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf defaultJobTimeoutMinutes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf created `Prelude.seq`
+        Prelude.rnf defaultJobTimeoutMinutes `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf vpcConfig

@@ -112,12 +112,12 @@ instance Core.AWSPager ListSamples where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSamples_nextToken
-          Lens..~ rs
-          Lens.^? listSamplesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSamples_nextToken
+              Lens..~ rs
+              Lens.^? listSamplesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSamples where
   type AWSResponse ListSamples = ListSamplesResponse
@@ -229,6 +229,6 @@ listSamplesResponse_httpStatus = Lens.lens (\ListSamplesResponse' {httpStatus} -
 
 instance Prelude.NFData ListSamplesResponse where
   rnf ListSamplesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf samples
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf samples `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -353,10 +353,10 @@ instance Prelude.Hashable CreateUpload where
 
 instance Prelude.NFData CreateUpload where
   rnf CreateUpload' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf projectArn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders CreateUpload where
   toHeaders =
@@ -432,5 +432,5 @@ createUploadResponse_httpStatus = Lens.lens (\CreateUploadResponse' {httpStatus}
 
 instance Prelude.NFData CreateUploadResponse where
   rnf CreateUploadResponse' {..} =
-    Prelude.rnf upload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf upload `Prelude.seq`
+      Prelude.rnf httpStatus

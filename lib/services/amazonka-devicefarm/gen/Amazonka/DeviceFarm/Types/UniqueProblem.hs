@@ -81,5 +81,5 @@ instance Prelude.Hashable UniqueProblem where
 
 instance Prelude.NFData UniqueProblem where
   rnf UniqueProblem' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf problems
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf problems

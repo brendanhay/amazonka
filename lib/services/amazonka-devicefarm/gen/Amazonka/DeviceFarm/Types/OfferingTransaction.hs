@@ -115,8 +115,8 @@ instance Prelude.Hashable OfferingTransaction where
 
 instance Prelude.NFData OfferingTransaction where
   rnf OfferingTransaction' {..} =
-    Prelude.rnf cost
-      `Prelude.seq` Prelude.rnf createdOn
-      `Prelude.seq` Prelude.rnf offeringPromotionId
-      `Prelude.seq` Prelude.rnf offeringStatus
-      `Prelude.seq` Prelude.rnf transactionId
+    Prelude.rnf cost `Prelude.seq`
+      Prelude.rnf createdOn `Prelude.seq`
+        Prelude.rnf offeringPromotionId `Prelude.seq`
+          Prelude.rnf offeringStatus `Prelude.seq`
+            Prelude.rnf transactionId

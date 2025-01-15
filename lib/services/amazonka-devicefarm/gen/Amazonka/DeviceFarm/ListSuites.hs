@@ -112,12 +112,12 @@ instance Core.AWSPager ListSuites where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSuites_nextToken
-          Lens..~ rs
-          Lens.^? listSuitesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSuites_nextToken
+              Lens..~ rs
+              Lens.^? listSuitesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSuites where
   type AWSResponse ListSuites = ListSuitesResponse
@@ -229,6 +229,6 @@ listSuitesResponse_httpStatus = Lens.lens (\ListSuitesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListSuitesResponse where
   rnf ListSuitesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf suites
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf suites `Prelude.seq`
+        Prelude.rnf httpStatus

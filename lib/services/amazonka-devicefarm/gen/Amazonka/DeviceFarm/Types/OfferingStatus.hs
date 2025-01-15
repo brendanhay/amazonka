@@ -104,7 +104,7 @@ instance Prelude.Hashable OfferingStatus where
 
 instance Prelude.NFData OfferingStatus where
   rnf OfferingStatus' {..} =
-    Prelude.rnf effectiveOn
-      `Prelude.seq` Prelude.rnf offering
-      `Prelude.seq` Prelude.rnf quantity
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf effectiveOn `Prelude.seq`
+      Prelude.rnf offering `Prelude.seq`
+        Prelude.rnf quantity `Prelude.seq`
+          Prelude.rnf type'

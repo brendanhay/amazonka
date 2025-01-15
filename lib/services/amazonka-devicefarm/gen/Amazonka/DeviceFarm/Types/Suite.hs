@@ -421,14 +421,14 @@ instance Prelude.Hashable Suite where
 
 instance Prelude.NFData Suite where
   rnf Suite' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf counters
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf deviceMinutes
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf started
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stopped
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf counters `Prelude.seq`
+        Prelude.rnf created `Prelude.seq`
+          Prelude.rnf deviceMinutes `Prelude.seq`
+            Prelude.rnf message `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf result `Prelude.seq`
+                  Prelude.rnf started `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf stopped `Prelude.seq`
+                        Prelude.rnf type'

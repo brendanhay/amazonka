@@ -126,9 +126,9 @@ instance Prelude.Hashable DeviceInstance where
 
 instance Prelude.NFData DeviceInstance where
   rnf DeviceInstance' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf instanceProfile
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf udid
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf deviceArn `Prelude.seq`
+        Prelude.rnf instanceProfile `Prelude.seq`
+          Prelude.rnf labels `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf udid

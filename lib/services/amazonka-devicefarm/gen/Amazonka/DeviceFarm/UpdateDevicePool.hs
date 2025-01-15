@@ -214,12 +214,12 @@ instance Prelude.Hashable UpdateDevicePool where
 
 instance Prelude.NFData UpdateDevicePool where
   rnf UpdateDevicePool' {..} =
-    Prelude.rnf clearMaxDevices
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxDevices
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf clearMaxDevices `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf maxDevices `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf rules `Prelude.seq`
+              Prelude.rnf arn
 
 instance Data.ToHeaders UpdateDevicePool where
   toHeaders =
@@ -299,5 +299,5 @@ updateDevicePoolResponse_httpStatus = Lens.lens (\UpdateDevicePoolResponse' {htt
 
 instance Prelude.NFData UpdateDevicePoolResponse where
   rnf UpdateDevicePoolResponse' {..} =
-    Prelude.rnf devicePool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf devicePool `Prelude.seq`
+      Prelude.rnf httpStatus

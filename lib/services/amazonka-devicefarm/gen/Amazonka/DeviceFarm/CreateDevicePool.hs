@@ -166,11 +166,11 @@ instance Prelude.Hashable CreateDevicePool where
 
 instance Prelude.NFData CreateDevicePool where
   rnf CreateDevicePool' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxDevices
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf maxDevices `Prelude.seq`
+        Prelude.rnf projectArn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf rules
 
 instance Data.ToHeaders CreateDevicePool where
   toHeaders =
@@ -248,5 +248,5 @@ createDevicePoolResponse_httpStatus = Lens.lens (\CreateDevicePoolResponse' {htt
 
 instance Prelude.NFData CreateDevicePoolResponse where
   rnf CreateDevicePoolResponse' {..} =
-    Prelude.rnf devicePool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf devicePool `Prelude.seq`
+      Prelude.rnf httpStatus

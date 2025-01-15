@@ -80,5 +80,5 @@ instance Prelude.Hashable OfferingPromotion where
 
 instance Prelude.NFData OfferingPromotion where
   rnf OfferingPromotion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id

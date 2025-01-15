@@ -248,18 +248,18 @@ instance Prelude.Hashable CreateNetworkProfile where
 
 instance Prelude.NFData CreateNetworkProfile where
   rnf CreateNetworkProfile' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf downlinkBandwidthBits
-      `Prelude.seq` Prelude.rnf downlinkDelayMs
-      `Prelude.seq` Prelude.rnf downlinkJitterMs
-      `Prelude.seq` Prelude.rnf downlinkLossPercent
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf uplinkBandwidthBits
-      `Prelude.seq` Prelude.rnf uplinkDelayMs
-      `Prelude.seq` Prelude.rnf uplinkJitterMs
-      `Prelude.seq` Prelude.rnf uplinkLossPercent
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf downlinkBandwidthBits `Prelude.seq`
+        Prelude.rnf downlinkDelayMs `Prelude.seq`
+          Prelude.rnf downlinkJitterMs `Prelude.seq`
+            Prelude.rnf downlinkLossPercent `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf uplinkBandwidthBits `Prelude.seq`
+                  Prelude.rnf uplinkDelayMs `Prelude.seq`
+                    Prelude.rnf uplinkJitterMs `Prelude.seq`
+                      Prelude.rnf uplinkLossPercent `Prelude.seq`
+                        Prelude.rnf projectArn `Prelude.seq`
+                          Prelude.rnf name
 
 instance Data.ToHeaders CreateNetworkProfile where
   toHeaders =
@@ -352,5 +352,5 @@ createNetworkProfileResponse_httpStatus = Lens.lens (\CreateNetworkProfileRespon
 
 instance Prelude.NFData CreateNetworkProfileResponse where
   rnf CreateNetworkProfileResponse' {..} =
-    Prelude.rnf networkProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkProfile `Prelude.seq`
+      Prelude.rnf httpStatus

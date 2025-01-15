@@ -82,5 +82,5 @@ instance Prelude.Hashable RecurringCharge where
 
 instance Prelude.NFData RecurringCharge where
   rnf RecurringCharge' {..} =
-    Prelude.rnf cost
-      `Prelude.seq` Prelude.rnf frequency
+    Prelude.rnf cost `Prelude.seq`
+      Prelude.rnf frequency

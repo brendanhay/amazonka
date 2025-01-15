@@ -255,18 +255,18 @@ instance Prelude.Hashable UpdateNetworkProfile where
 
 instance Prelude.NFData UpdateNetworkProfile where
   rnf UpdateNetworkProfile' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf downlinkBandwidthBits
-      `Prelude.seq` Prelude.rnf downlinkDelayMs
-      `Prelude.seq` Prelude.rnf downlinkJitterMs
-      `Prelude.seq` Prelude.rnf downlinkLossPercent
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf uplinkBandwidthBits
-      `Prelude.seq` Prelude.rnf uplinkDelayMs
-      `Prelude.seq` Prelude.rnf uplinkJitterMs
-      `Prelude.seq` Prelude.rnf uplinkLossPercent
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf downlinkBandwidthBits `Prelude.seq`
+        Prelude.rnf downlinkDelayMs `Prelude.seq`
+          Prelude.rnf downlinkJitterMs `Prelude.seq`
+            Prelude.rnf downlinkLossPercent `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf uplinkBandwidthBits `Prelude.seq`
+                    Prelude.rnf uplinkDelayMs `Prelude.seq`
+                      Prelude.rnf uplinkJitterMs `Prelude.seq`
+                        Prelude.rnf uplinkLossPercent `Prelude.seq`
+                          Prelude.rnf arn
 
 instance Data.ToHeaders UpdateNetworkProfile where
   toHeaders =
@@ -356,5 +356,5 @@ updateNetworkProfileResponse_httpStatus = Lens.lens (\UpdateNetworkProfileRespon
 
 instance Prelude.NFData UpdateNetworkProfileResponse where
   rnf UpdateNetworkProfileResponse' {..} =
-    Prelude.rnf networkProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkProfile `Prelude.seq`
+      Prelude.rnf httpStatus

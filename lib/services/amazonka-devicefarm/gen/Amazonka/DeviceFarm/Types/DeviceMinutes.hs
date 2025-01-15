@@ -101,6 +101,6 @@ instance Prelude.Hashable DeviceMinutes where
 
 instance Prelude.NFData DeviceMinutes where
   rnf DeviceMinutes' {..} =
-    Prelude.rnf metered
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf unmetered
+    Prelude.rnf metered `Prelude.seq`
+      Prelude.rnf total `Prelude.seq`
+        Prelude.rnf unmetered

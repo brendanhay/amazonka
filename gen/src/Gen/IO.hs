@@ -11,21 +11,21 @@ import qualified Text.EDE as EDE
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
 
-title :: MonadIO m => String -> m ()
+title :: (MonadIO m) => String -> m ()
 title = liftIO . putStrLn
 
-say :: MonadIO m => String -> m ()
+say :: (MonadIO m) => String -> m ()
 say = title . mappend " -> "
 
-done :: MonadIO m => m ()
+done :: (MonadIO m) => m ()
 done = liftIO (putStrLn "")
 
-readBSFile :: MonadIO m => FilePath -> m ByteString
+readBSFile :: (MonadIO m) => FilePath -> m ByteString
 readBSFile path =
   say ("Reading " ++ path)
     >> liftIO (ByteString.readFile path)
 
-writeLTFile :: UnliftIO.MonadUnliftIO m => FilePath -> Text.Lazy.Text -> m ()
+writeLTFile :: (UnliftIO.MonadUnliftIO m) => FilePath -> Text.Lazy.Text -> m ()
 writeLTFile path text = do
   say ("Writing " ++ path)
   UnliftIO.withFile path IO.WriteMode $ \handle ->
@@ -33,20 +33,20 @@ writeLTFile path text = do
       IO.hSetEncoding handle IO.utf8
       Text.Lazy.IO.hPutStr handle text
 
-touchFile :: UnliftIO.MonadUnliftIO m => FilePath -> Text.Lazy.Text -> m ()
+touchFile :: (UnliftIO.MonadUnliftIO m) => FilePath -> Text.Lazy.Text -> m ()
 touchFile path text = do
   exists <- UnliftIO.doesFileExist path
   unless exists $
     writeLTFile path text
 
-createDir :: MonadIO m => FilePath -> m ()
+createDir :: (MonadIO m) => FilePath -> m ()
 createDir dir = do
   exists <- UnliftIO.doesDirectoryExist dir
   unless exists $ do
     say ("Creating " ++ dir)
     UnliftIO.createDirectoryIfMissing True dir
 
-copyDir :: MonadIO m => FilePath -> FilePath -> m ()
+copyDir :: (MonadIO m) => FilePath -> FilePath -> m ()
 copyDir src dst =
   UnliftIO.listDirectory src >>= mapM_ copy
   where
@@ -62,7 +62,7 @@ copyDir src dst =
       UnliftIO.copyFile fsrc fdst
 
 readTemplate ::
-  MonadIO m =>
+  (MonadIO m) =>
   FilePath ->
   FilePath ->
   m Template

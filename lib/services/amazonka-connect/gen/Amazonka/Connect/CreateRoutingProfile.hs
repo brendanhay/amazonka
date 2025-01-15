@@ -191,13 +191,13 @@ instance Prelude.Hashable CreateRoutingProfile where
 
 instance Prelude.NFData CreateRoutingProfile where
   rnf CreateRoutingProfile' {..} =
-    Prelude.rnf queueConfigs
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf defaultOutboundQueueId
-      `Prelude.seq` Prelude.rnf mediaConcurrencies
+    Prelude.rnf queueConfigs `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf defaultOutboundQueueId `Prelude.seq`
+                Prelude.rnf mediaConcurrencies
 
 instance Data.ToHeaders CreateRoutingProfile where
   toHeaders =
@@ -285,6 +285,6 @@ createRoutingProfileResponse_httpStatus = Lens.lens (\CreateRoutingProfileRespon
 
 instance Prelude.NFData CreateRoutingProfileResponse where
   rnf CreateRoutingProfileResponse' {..} =
-    Prelude.rnf routingProfileArn
-      `Prelude.seq` Prelude.rnf routingProfileId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf routingProfileArn `Prelude.seq`
+      Prelude.rnf routingProfileId `Prelude.seq`
+        Prelude.rnf httpStatus

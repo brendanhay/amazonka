@@ -119,8 +119,8 @@ instance Prelude.Hashable DescribeInstanceAttribute where
 
 instance Prelude.NFData DescribeInstanceAttribute where
   rnf DescribeInstanceAttribute' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf attributeType
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf attributeType
 
 instance Data.ToHeaders DescribeInstanceAttribute where
   toHeaders =
@@ -189,5 +189,5 @@ instance
     DescribeInstanceAttributeResponse
   where
   rnf DescribeInstanceAttributeResponse' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf httpStatus

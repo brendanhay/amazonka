@@ -87,8 +87,8 @@ instance Prelude.Hashable RuleTriggerEventSource where
 
 instance Prelude.NFData RuleTriggerEventSource where
   rnf RuleTriggerEventSource' {..} =
-    Prelude.rnf integrationAssociationId
-      `Prelude.seq` Prelude.rnf eventSourceName
+    Prelude.rnf integrationAssociationId `Prelude.seq`
+      Prelude.rnf eventSourceName
 
 instance Data.ToJSON RuleTriggerEventSource where
   toJSON RuleTriggerEventSource' {..} =

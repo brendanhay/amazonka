@@ -99,9 +99,9 @@ instance Prelude.Hashable HoursOfOperationConfig where
 
 instance Prelude.NFData HoursOfOperationConfig where
   rnf HoursOfOperationConfig' {..} =
-    Prelude.rnf day
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf day `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf endTime
 
 instance Data.ToJSON HoursOfOperationConfig where
   toJSON HoursOfOperationConfig' {..} =

@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteVocabulary where
 
 instance Prelude.NFData DeleteVocabulary where
   rnf DeleteVocabulary' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf vocabularyId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf vocabularyId
 
 instance Data.ToHeaders DeleteVocabulary where
   toHeaders =
@@ -215,7 +215,7 @@ deleteVocabularyResponse_state = Lens.lens (\DeleteVocabularyResponse' {state} -
 
 instance Prelude.NFData DeleteVocabularyResponse where
   rnf DeleteVocabularyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vocabularyArn
-      `Prelude.seq` Prelude.rnf vocabularyId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vocabularyArn `Prelude.seq`
+        Prelude.rnf vocabularyId `Prelude.seq`
+          Prelude.rnf state

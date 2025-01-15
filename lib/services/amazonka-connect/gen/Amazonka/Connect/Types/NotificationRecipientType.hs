@@ -87,8 +87,8 @@ instance Prelude.Hashable NotificationRecipientType where
 
 instance Prelude.NFData NotificationRecipientType where
   rnf NotificationRecipientType' {..} =
-    Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf userTags
+    Prelude.rnf userIds `Prelude.seq`
+      Prelude.rnf userTags
 
 instance Data.ToJSON NotificationRecipientType where
   toJSON NotificationRecipientType' {..} =

@@ -85,8 +85,8 @@ instance
 
 instance Prelude.NFData TaskTemplateDefaultFieldValue where
   rnf TaskTemplateDefaultFieldValue' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToJSON TaskTemplateDefaultFieldValue where
   toJSON TaskTemplateDefaultFieldValue' {..} =

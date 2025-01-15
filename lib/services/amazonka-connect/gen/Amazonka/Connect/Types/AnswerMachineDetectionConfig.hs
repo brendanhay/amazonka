@@ -81,8 +81,8 @@ instance
 
 instance Prelude.NFData AnswerMachineDetectionConfig where
   rnf AnswerMachineDetectionConfig' {..} =
-    Prelude.rnf awaitAnswerMachinePrompt
-      `Prelude.seq` Prelude.rnf enableAnswerMachineDetection
+    Prelude.rnf awaitAnswerMachinePrompt `Prelude.seq`
+      Prelude.rnf enableAnswerMachineDetection
 
 instance Data.ToJSON AnswerMachineDetectionConfig where
   toJSON AnswerMachineDetectionConfig' {..} =

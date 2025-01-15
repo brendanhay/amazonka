@@ -287,14 +287,14 @@ instance Prelude.Hashable StartChatContact where
 
 instance Prelude.NFData StartChatContact where
   rnf StartChatContact' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf chatDurationInMinutes
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf initialMessage
-      `Prelude.seq` Prelude.rnf supportedMessagingContentTypes
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactFlowId
-      `Prelude.seq` Prelude.rnf participantDetails
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf chatDurationInMinutes `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf initialMessage `Prelude.seq`
+            Prelude.rnf supportedMessagingContentTypes `Prelude.seq`
+              Prelude.rnf instanceId `Prelude.seq`
+                Prelude.rnf contactFlowId `Prelude.seq`
+                  Prelude.rnf participantDetails
 
 instance Data.ToHeaders StartChatContact where
   toHeaders =
@@ -400,7 +400,7 @@ startChatContactResponse_httpStatus = Lens.lens (\StartChatContactResponse' {htt
 
 instance Prelude.NFData StartChatContactResponse where
   rnf StartChatContactResponse' {..} =
-    Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf participantId
-      `Prelude.seq` Prelude.rnf participantToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactId `Prelude.seq`
+      Prelude.rnf participantId `Prelude.seq`
+        Prelude.rnf participantToken `Prelude.seq`
+          Prelude.rnf httpStatus

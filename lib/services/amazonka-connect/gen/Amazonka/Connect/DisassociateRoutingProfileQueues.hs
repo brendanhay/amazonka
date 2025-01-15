@@ -130,9 +130,9 @@ instance
     DisassociateRoutingProfileQueues
   where
   rnf DisassociateRoutingProfileQueues' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf routingProfileId
-      `Prelude.seq` Prelude.rnf queueReferences
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf routingProfileId `Prelude.seq`
+        Prelude.rnf queueReferences
 
 instance
   Data.ToHeaders

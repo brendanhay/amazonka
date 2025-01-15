@@ -97,6 +97,6 @@ instance Prelude.Hashable AvailableNumberSummary where
 
 instance Prelude.NFData AvailableNumberSummary where
   rnf AvailableNumberSummary' {..} =
-    Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
-      `Prelude.seq` Prelude.rnf phoneNumberType
+    Prelude.rnf phoneNumber `Prelude.seq`
+      Prelude.rnf phoneNumberCountryCode `Prelude.seq`
+        Prelude.rnf phoneNumberType

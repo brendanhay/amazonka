@@ -109,8 +109,8 @@ instance Prelude.Hashable DisassociateApprovedOrigin where
 
 instance Prelude.NFData DisassociateApprovedOrigin where
   rnf DisassociateApprovedOrigin' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf origin
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf origin
 
 instance Data.ToHeaders DisassociateApprovedOrigin where
   toHeaders =

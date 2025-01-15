@@ -116,9 +116,9 @@ instance
 
 instance Prelude.NFData ParticipantTimerConfiguration where
   rnf ParticipantTimerConfiguration' {..} =
-    Prelude.rnf participantRole
-      `Prelude.seq` Prelude.rnf timerType
-      `Prelude.seq` Prelude.rnf timerValue
+    Prelude.rnf participantRole `Prelude.seq`
+      Prelude.rnf timerType `Prelude.seq`
+        Prelude.rnf timerValue
 
 instance Data.ToJSON ParticipantTimerConfiguration where
   toJSON ParticipantTimerConfiguration' {..} =

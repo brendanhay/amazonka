@@ -108,8 +108,8 @@ instance Prelude.Hashable AssociateLexBot where
 
 instance Prelude.NFData AssociateLexBot where
   rnf AssociateLexBot' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf lexBot
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf lexBot
 
 instance Data.ToHeaders AssociateLexBot where
   toHeaders =

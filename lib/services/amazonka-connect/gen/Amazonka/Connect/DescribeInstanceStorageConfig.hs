@@ -143,9 +143,9 @@ instance
 
 instance Prelude.NFData DescribeInstanceStorageConfig where
   rnf DescribeInstanceStorageConfig' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf resourceType
 
 instance Data.ToHeaders DescribeInstanceStorageConfig where
   toHeaders =
@@ -216,5 +216,5 @@ instance
     DescribeInstanceStorageConfigResponse
   where
   rnf DescribeInstanceStorageConfigResponse' {..} =
-    Prelude.rnf storageConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf storageConfig `Prelude.seq`
+      Prelude.rnf httpStatus

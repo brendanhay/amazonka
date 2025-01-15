@@ -113,8 +113,8 @@ instance Prelude.Hashable DisassociateSecurityKey where
 
 instance Prelude.NFData DisassociateSecurityKey where
   rnf DisassociateSecurityKey' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf associationId
 
 instance Data.ToHeaders DisassociateSecurityKey where
   toHeaders =

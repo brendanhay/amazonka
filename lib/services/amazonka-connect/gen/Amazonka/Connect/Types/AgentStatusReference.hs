@@ -91,6 +91,6 @@ instance Prelude.Hashable AgentStatusReference where
 
 instance Prelude.NFData AgentStatusReference where
   rnf AgentStatusReference' {..} =
-    Prelude.rnf statusArn
-      `Prelude.seq` Prelude.rnf statusName
-      `Prelude.seq` Prelude.rnf statusStartTimestamp
+    Prelude.rnf statusArn `Prelude.seq`
+      Prelude.rnf statusName `Prelude.seq`
+        Prelude.rnf statusStartTimestamp

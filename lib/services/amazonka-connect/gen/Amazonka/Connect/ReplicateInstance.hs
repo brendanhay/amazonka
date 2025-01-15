@@ -165,10 +165,10 @@ instance Prelude.Hashable ReplicateInstance where
 
 instance Prelude.NFData ReplicateInstance where
   rnf ReplicateInstance' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf replicaRegion
-      `Prelude.seq` Prelude.rnf replicaAlias
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf replicaRegion `Prelude.seq`
+          Prelude.rnf replicaAlias
 
 instance Data.ToHeaders ReplicateInstance where
   toHeaders =
@@ -254,6 +254,6 @@ replicateInstanceResponse_httpStatus = Lens.lens (\ReplicateInstanceResponse' {h
 
 instance Prelude.NFData ReplicateInstanceResponse where
   rnf ReplicateInstanceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -80,8 +80,8 @@ instance Prelude.Hashable LexBot where
 
 instance Prelude.NFData LexBot where
   rnf LexBot' {..} =
-    Prelude.rnf lexRegion
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf lexRegion `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON LexBot where
   toJSON LexBot' {..} =

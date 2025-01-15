@@ -167,12 +167,12 @@ instance Core.AWSPager ListTaskTemplates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTaskTemplates_nextToken
-          Lens..~ rs
-          Lens.^? listTaskTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTaskTemplates_nextToken
+              Lens..~ rs
+              Lens.^? listTaskTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTaskTemplates where
   type
@@ -200,11 +200,11 @@ instance Prelude.Hashable ListTaskTemplates where
 
 instance Prelude.NFData ListTaskTemplates where
   rnf ListTaskTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf instanceId
 
 instance Data.ToHeaders ListTaskTemplates where
   toHeaders =
@@ -296,6 +296,6 @@ listTaskTemplatesResponse_httpStatus = Lens.lens (\ListTaskTemplatesResponse' {h
 
 instance Prelude.NFData ListTaskTemplatesResponse where
   rnf ListTaskTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskTemplates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf taskTemplates `Prelude.seq`
+        Prelude.rnf httpStatus

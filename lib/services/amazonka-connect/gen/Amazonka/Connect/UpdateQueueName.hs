@@ -130,10 +130,10 @@ instance Prelude.Hashable UpdateQueueName where
 
 instance Prelude.NFData UpdateQueueName where
   rnf UpdateQueueName' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf queueId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf queueId
 
 instance Data.ToHeaders UpdateQueueName where
   toHeaders =

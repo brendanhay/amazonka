@@ -127,12 +127,12 @@ instance Core.AWSPager ListSecurityKeys where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSecurityKeys_nextToken
-          Lens..~ rs
-          Lens.^? listSecurityKeysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSecurityKeys_nextToken
+              Lens..~ rs
+              Lens.^? listSecurityKeysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityKeys where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListSecurityKeys where
 
 instance Prelude.NFData ListSecurityKeys where
   rnf ListSecurityKeys' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders ListSecurityKeys where
   toHeaders =
@@ -241,6 +241,6 @@ listSecurityKeysResponse_httpStatus = Lens.lens (\ListSecurityKeysResponse' {htt
 
 instance Prelude.NFData ListSecurityKeysResponse where
   rnf ListSecurityKeysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityKeys
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf securityKeys `Prelude.seq`
+        Prelude.rnf httpStatus

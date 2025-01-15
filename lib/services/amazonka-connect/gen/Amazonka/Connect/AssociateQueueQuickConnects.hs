@@ -126,9 +126,9 @@ instance Prelude.Hashable AssociateQueueQuickConnects where
 
 instance Prelude.NFData AssociateQueueQuickConnects where
   rnf AssociateQueueQuickConnects' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf quickConnectIds
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf queueId `Prelude.seq`
+        Prelude.rnf quickConnectIds
 
 instance Data.ToHeaders AssociateQueueQuickConnects where
   toHeaders =

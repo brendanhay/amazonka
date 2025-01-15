@@ -193,5 +193,5 @@ instance
     DescribeTrafficDistributionGroupResponse
   where
   rnf DescribeTrafficDistributionGroupResponse' {..} =
-    Prelude.rnf trafficDistributionGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trafficDistributionGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -73,8 +73,8 @@ instance Prelude.Hashable HierarchyGroupCondition where
 
 instance Prelude.NFData HierarchyGroupCondition where
   rnf HierarchyGroupCondition' {..} =
-    Prelude.rnf hierarchyGroupMatchType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf hierarchyGroupMatchType `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON HierarchyGroupCondition where
   toJSON HierarchyGroupCondition' {..} =

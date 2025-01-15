@@ -133,9 +133,9 @@ instance Prelude.Hashable UpdateContactSchedule where
 
 instance Prelude.NFData UpdateContactSchedule where
   rnf UpdateContactSchedule' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf scheduledTime
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactId `Prelude.seq`
+        Prelude.rnf scheduledTime
 
 instance Data.ToHeaders UpdateContactSchedule where
   toHeaders =

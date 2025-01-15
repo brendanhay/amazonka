@@ -129,9 +129,9 @@ instance
 
 instance Prelude.NFData AssociateRoutingProfileQueues where
   rnf AssociateRoutingProfileQueues' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf routingProfileId
-      `Prelude.seq` Prelude.rnf queueConfigs
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf routingProfileId `Prelude.seq`
+        Prelude.rnf queueConfigs
 
 instance Data.ToHeaders AssociateRoutingProfileQueues where
   toHeaders =

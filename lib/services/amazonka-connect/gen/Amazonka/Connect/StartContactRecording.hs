@@ -165,10 +165,10 @@ instance Prelude.Hashable StartContactRecording where
 
 instance Prelude.NFData StartContactRecording where
   rnf StartContactRecording' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf initialContactId
-      `Prelude.seq` Prelude.rnf voiceRecordingConfiguration
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactId `Prelude.seq`
+        Prelude.rnf initialContactId `Prelude.seq`
+          Prelude.rnf voiceRecordingConfiguration
 
 instance Data.ToHeaders StartContactRecording where
   toHeaders =

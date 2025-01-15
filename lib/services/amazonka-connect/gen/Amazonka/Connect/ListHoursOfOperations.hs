@@ -132,12 +132,12 @@ instance Core.AWSPager ListHoursOfOperations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHoursOfOperations_nextToken
-          Lens..~ rs
-          Lens.^? listHoursOfOperationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHoursOfOperations_nextToken
+              Lens..~ rs
+              Lens.^? listHoursOfOperationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHoursOfOperations where
   type
@@ -166,9 +166,9 @@ instance Prelude.Hashable ListHoursOfOperations where
 
 instance Prelude.NFData ListHoursOfOperations where
   rnf ListHoursOfOperations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders ListHoursOfOperations where
   toHeaders =
@@ -248,6 +248,6 @@ listHoursOfOperationsResponse_httpStatus = Lens.lens (\ListHoursOfOperationsResp
 
 instance Prelude.NFData ListHoursOfOperationsResponse where
   rnf ListHoursOfOperationsResponse' {..} =
-    Prelude.rnf hoursOfOperationSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hoursOfOperationSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

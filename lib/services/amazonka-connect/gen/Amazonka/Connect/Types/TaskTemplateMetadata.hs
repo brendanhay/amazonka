@@ -145,10 +145,10 @@ instance Prelude.Hashable TaskTemplateMetadata where
 
 instance Prelude.NFData TaskTemplateMetadata where
   rnf TaskTemplateMetadata' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status

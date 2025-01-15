@@ -158,11 +158,11 @@ instance
     SendNotificationActionDefinition
   where
   rnf SendNotificationActionDefinition' {..} =
-    Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf deliveryMethod
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf recipient
+    Prelude.rnf subject `Prelude.seq`
+      Prelude.rnf deliveryMethod `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf contentType `Prelude.seq`
+            Prelude.rnf recipient
 
 instance Data.ToJSON SendNotificationActionDefinition where
   toJSON SendNotificationActionDefinition' {..} =

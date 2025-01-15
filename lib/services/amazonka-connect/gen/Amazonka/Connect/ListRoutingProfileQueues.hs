@@ -141,12 +141,12 @@ instance Core.AWSPager ListRoutingProfileQueues where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRoutingProfileQueues_nextToken
-          Lens..~ rs
-          Lens.^? listRoutingProfileQueuesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRoutingProfileQueues_nextToken
+              Lens..~ rs
+              Lens.^? listRoutingProfileQueuesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoutingProfileQueues where
   type
@@ -176,10 +176,10 @@ instance Prelude.Hashable ListRoutingProfileQueues where
 
 instance Prelude.NFData ListRoutingProfileQueues where
   rnf ListRoutingProfileQueues' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf routingProfileId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf routingProfileId
 
 instance Data.ToHeaders ListRoutingProfileQueues where
   toHeaders =
@@ -266,6 +266,6 @@ instance
     ListRoutingProfileQueuesResponse
   where
   rnf ListRoutingProfileQueuesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf routingProfileQueueConfigSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf routingProfileQueueConfigSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

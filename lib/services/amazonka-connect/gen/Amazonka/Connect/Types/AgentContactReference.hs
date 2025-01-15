@@ -144,10 +144,10 @@ instance Prelude.Hashable AgentContactReference where
 
 instance Prelude.NFData AgentContactReference where
   rnf AgentContactReference' {..} =
-    Prelude.rnf agentContactState
-      `Prelude.seq` Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf connectedToAgentTimestamp
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf initiationMethod
-      `Prelude.seq` Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf stateStartTimestamp
+    Prelude.rnf agentContactState `Prelude.seq`
+      Prelude.rnf channel `Prelude.seq`
+        Prelude.rnf connectedToAgentTimestamp `Prelude.seq`
+          Prelude.rnf contactId `Prelude.seq`
+            Prelude.rnf initiationMethod `Prelude.seq`
+              Prelude.rnf queue `Prelude.seq`
+                Prelude.rnf stateStartTimestamp

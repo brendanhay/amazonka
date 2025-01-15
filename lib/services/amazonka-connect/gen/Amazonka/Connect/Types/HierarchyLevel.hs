@@ -91,6 +91,6 @@ instance Prelude.Hashable HierarchyLevel where
 
 instance Prelude.NFData HierarchyLevel where
   rnf HierarchyLevel' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

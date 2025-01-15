@@ -127,12 +127,12 @@ instance Core.AWSPager ListInstanceAttributes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInstanceAttributes_nextToken
-          Lens..~ rs
-          Lens.^? listInstanceAttributesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInstanceAttributes_nextToken
+              Lens..~ rs
+              Lens.^? listInstanceAttributesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceAttributes where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListInstanceAttributes where
 
 instance Prelude.NFData ListInstanceAttributes where
   rnf ListInstanceAttributes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders ListInstanceAttributes where
   toHeaders =
@@ -241,6 +241,6 @@ instance
     ListInstanceAttributesResponse
   where
   rnf ListInstanceAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

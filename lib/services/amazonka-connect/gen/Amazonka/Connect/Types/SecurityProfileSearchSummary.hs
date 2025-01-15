@@ -131,9 +131,9 @@ instance
 
 instance Prelude.NFData SecurityProfileSearchSummary where
   rnf SecurityProfileSearchSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf organizationResourceId
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf organizationResourceId `Prelude.seq`
+            Prelude.rnf securityProfileName `Prelude.seq`
+              Prelude.rnf tags

@@ -116,8 +116,8 @@ instance Prelude.Hashable DescribeAgentStatus where
 
 instance Prelude.NFData DescribeAgentStatus where
   rnf DescribeAgentStatus' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf agentStatusId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf agentStatusId
 
 instance Data.ToHeaders DescribeAgentStatus where
   toHeaders =
@@ -183,5 +183,5 @@ describeAgentStatusResponse_httpStatus = Lens.lens (\DescribeAgentStatusResponse
 
 instance Prelude.NFData DescribeAgentStatusResponse where
   rnf DescribeAgentStatusResponse' {..} =
-    Prelude.rnf agentStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentStatus `Prelude.seq`
+      Prelude.rnf httpStatus

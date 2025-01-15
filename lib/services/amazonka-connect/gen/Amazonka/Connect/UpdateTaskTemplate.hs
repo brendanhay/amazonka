@@ -229,15 +229,15 @@ instance Prelude.Hashable UpdateTaskTemplate where
 
 instance Prelude.NFData UpdateTaskTemplate where
   rnf UpdateTaskTemplate' {..} =
-    Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf contactFlowId
-      `Prelude.seq` Prelude.rnf defaults
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskTemplateId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf constraints `Prelude.seq`
+      Prelude.rnf contactFlowId `Prelude.seq`
+        Prelude.rnf defaults `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf fields `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf taskTemplateId `Prelude.seq`
+                    Prelude.rnf instanceId
 
 instance Data.ToHeaders UpdateTaskTemplate where
   toHeaders =
@@ -433,16 +433,16 @@ updateTaskTemplateResponse_httpStatus = Lens.lens (\UpdateTaskTemplateResponse' 
 
 instance Prelude.NFData UpdateTaskTemplateResponse where
   rnf UpdateTaskTemplateResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf contactFlowId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf defaults
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf constraints `Prelude.seq`
+        Prelude.rnf contactFlowId `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf defaults `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf fields `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf instanceId `Prelude.seq`
+                      Prelude.rnf lastModifiedTime `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf httpStatus

@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteSecurityProfile where
 
 instance Prelude.NFData DeleteSecurityProfile where
   rnf DeleteSecurityProfile' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf securityProfileId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf securityProfileId
 
 instance Data.ToHeaders DeleteSecurityProfile where
   toHeaders =

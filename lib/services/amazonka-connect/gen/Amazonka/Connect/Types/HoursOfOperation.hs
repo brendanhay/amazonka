@@ -139,10 +139,10 @@ instance Prelude.Hashable HoursOfOperation where
 
 instance Prelude.NFData HoursOfOperation where
   rnf HoursOfOperation' {..} =
-    Prelude.rnf config
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hoursOfOperationArn
-      `Prelude.seq` Prelude.rnf hoursOfOperationId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeZone
+    Prelude.rnf config `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf hoursOfOperationArn `Prelude.seq`
+          Prelude.rnf hoursOfOperationId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf timeZone

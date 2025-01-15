@@ -116,9 +116,9 @@ instance Prelude.Hashable KinesisVideoStreamConfig where
 
 instance Prelude.NFData KinesisVideoStreamConfig where
   rnf KinesisVideoStreamConfig' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf retentionPeriodHours
-      `Prelude.seq` Prelude.rnf encryptionConfig
+    Prelude.rnf prefix `Prelude.seq`
+      Prelude.rnf retentionPeriodHours `Prelude.seq`
+        Prelude.rnf encryptionConfig
 
 instance Data.ToJSON KinesisVideoStreamConfig where
   toJSON KinesisVideoStreamConfig' {..} =

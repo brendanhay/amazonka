@@ -141,9 +141,9 @@ instance Prelude.Hashable UpdateParticipantRoleConfig where
 
 instance Prelude.NFData UpdateParticipantRoleConfig where
   rnf UpdateParticipantRoleConfig' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf channelConfiguration
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactId `Prelude.seq`
+        Prelude.rnf channelConfiguration
 
 instance Data.ToHeaders UpdateParticipantRoleConfig where
   toHeaders =

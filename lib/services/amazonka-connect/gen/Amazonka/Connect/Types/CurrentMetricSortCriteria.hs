@@ -74,8 +74,8 @@ instance Prelude.Hashable CurrentMetricSortCriteria where
 
 instance Prelude.NFData CurrentMetricSortCriteria where
   rnf CurrentMetricSortCriteria' {..} =
-    Prelude.rnf sortByMetric
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf sortByMetric `Prelude.seq`
+      Prelude.rnf sortOrder
 
 instance Data.ToJSON CurrentMetricSortCriteria where
   toJSON CurrentMetricSortCriteria' {..} =

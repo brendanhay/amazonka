@@ -213,14 +213,14 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf ruleArn
-      `Prelude.seq` Prelude.rnf triggerEventSource
-      `Prelude.seq` Prelude.rnf function
-      `Prelude.seq` Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf publishStatus
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf lastUpdatedBy
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ruleId `Prelude.seq`
+          Prelude.rnf ruleArn `Prelude.seq`
+            Prelude.rnf triggerEventSource `Prelude.seq`
+              Prelude.rnf function `Prelude.seq`
+                Prelude.rnf actions `Prelude.seq`
+                  Prelude.rnf publishStatus `Prelude.seq`
+                    Prelude.rnf createdTime `Prelude.seq`
+                      Prelude.rnf lastUpdatedTime `Prelude.seq`
+                        Prelude.rnf lastUpdatedBy

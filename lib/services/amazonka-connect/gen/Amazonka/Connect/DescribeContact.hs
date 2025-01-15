@@ -121,8 +121,8 @@ instance Prelude.Hashable DescribeContact where
 
 instance Prelude.NFData DescribeContact where
   rnf DescribeContact' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactId
 
 instance Data.ToHeaders DescribeContact where
   toHeaders =
@@ -187,5 +187,5 @@ describeContactResponse_httpStatus = Lens.lens (\DescribeContactResponse' {httpS
 
 instance Prelude.NFData DescribeContactResponse where
   rnf DescribeContactResponse' {..} =
-    Prelude.rnf contact
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contact `Prelude.seq`
+      Prelude.rnf httpStatus

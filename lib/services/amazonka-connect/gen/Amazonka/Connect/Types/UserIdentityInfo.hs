@@ -140,11 +140,11 @@ instance Prelude.Hashable UserIdentityInfo where
 
 instance Prelude.NFData UserIdentityInfo where
   rnf UserIdentityInfo' {..} =
-    Prelude.rnf email
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf mobile
-      `Prelude.seq` Prelude.rnf secondaryEmail
+    Prelude.rnf email `Prelude.seq`
+      Prelude.rnf firstName `Prelude.seq`
+        Prelude.rnf lastName `Prelude.seq`
+          Prelude.rnf mobile `Prelude.seq`
+            Prelude.rnf secondaryEmail
 
 instance Data.ToJSON UserIdentityInfo where
   toJSON UserIdentityInfo' {..} =

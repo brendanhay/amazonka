@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateQueueStatus where
 
 instance Prelude.NFData UpdateQueueStatus where
   rnf UpdateQueueStatus' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf queueId `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders UpdateQueueStatus where
   toHeaders =

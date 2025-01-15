@@ -104,8 +104,8 @@ instance Prelude.Hashable DeleteContactFlow where
 
 instance Prelude.NFData DeleteContactFlow where
   rnf DeleteContactFlow' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactFlowId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactFlowId
 
 instance Data.ToHeaders DeleteContactFlow where
   toHeaders =

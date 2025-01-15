@@ -154,12 +154,12 @@ instance Prelude.Hashable UpdateHoursOfOperation where
 
 instance Prelude.NFData UpdateHoursOfOperation where
   rnf UpdateHoursOfOperation' {..} =
-    Prelude.rnf config
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf hoursOfOperationId
+    Prelude.rnf config `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf timeZone `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf hoursOfOperationId
 
 instance Data.ToHeaders UpdateHoursOfOperation where
   toHeaders =

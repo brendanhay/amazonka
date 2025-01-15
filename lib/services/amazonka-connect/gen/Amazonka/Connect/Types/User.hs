@@ -174,13 +174,13 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf directoryUserId
-      `Prelude.seq` Prelude.rnf hierarchyGroupId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf identityInfo
-      `Prelude.seq` Prelude.rnf phoneConfig
-      `Prelude.seq` Prelude.rnf routingProfileId
-      `Prelude.seq` Prelude.rnf securityProfileIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf directoryUserId `Prelude.seq`
+        Prelude.rnf hierarchyGroupId `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf identityInfo `Prelude.seq`
+              Prelude.rnf phoneConfig `Prelude.seq`
+                Prelude.rnf routingProfileId `Prelude.seq`
+                  Prelude.rnf securityProfileIds `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf username

@@ -216,15 +216,15 @@ instance Prelude.Hashable CreateTaskTemplate where
 
 instance Prelude.NFData CreateTaskTemplate where
   rnf CreateTaskTemplate' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf contactFlowId
-      `Prelude.seq` Prelude.rnf defaults
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf constraints `Prelude.seq`
+        Prelude.rnf contactFlowId `Prelude.seq`
+          Prelude.rnf defaults `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf instanceId `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf fields
 
 instance Data.ToHeaders CreateTaskTemplate where
   toHeaders =
@@ -317,6 +317,6 @@ createTaskTemplateResponse_arn = Lens.lens (\CreateTaskTemplateResponse' {arn} -
 
 instance Prelude.NFData CreateTaskTemplateResponse where
   rnf CreateTaskTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf arn

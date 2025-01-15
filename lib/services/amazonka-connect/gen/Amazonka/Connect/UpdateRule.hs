@@ -169,12 +169,12 @@ instance Prelude.Hashable UpdateRule where
 
 instance Prelude.NFData UpdateRule where
   rnf UpdateRule' {..} =
-    Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf function
-      `Prelude.seq` Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf publishStatus
+    Prelude.rnf ruleId `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf function `Prelude.seq`
+            Prelude.rnf actions `Prelude.seq`
+              Prelude.rnf publishStatus
 
 instance Data.ToHeaders UpdateRule where
   toHeaders =

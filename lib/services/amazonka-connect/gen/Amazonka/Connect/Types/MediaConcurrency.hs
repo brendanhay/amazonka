@@ -104,8 +104,8 @@ instance Prelude.Hashable MediaConcurrency where
 
 instance Prelude.NFData MediaConcurrency where
   rnf MediaConcurrency' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf concurrency
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf concurrency
 
 instance Data.ToJSON MediaConcurrency where
   toJSON MediaConcurrency' {..} =

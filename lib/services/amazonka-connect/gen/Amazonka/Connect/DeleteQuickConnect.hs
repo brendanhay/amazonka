@@ -104,8 +104,8 @@ instance Prelude.Hashable DeleteQuickConnect where
 
 instance Prelude.NFData DeleteQuickConnect where
   rnf DeleteQuickConnect' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf quickConnectId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf quickConnectId
 
 instance Data.ToHeaders DeleteQuickConnect where
   toHeaders =

@@ -106,10 +106,10 @@ instance Prelude.Hashable UserSearchCriteria where
 
 instance Prelude.NFData UserSearchCriteria where
   rnf UserSearchCriteria' {..} =
-    Prelude.rnf andConditions
-      `Prelude.seq` Prelude.rnf hierarchyGroupCondition
-      `Prelude.seq` Prelude.rnf orConditions
-      `Prelude.seq` Prelude.rnf stringCondition
+    Prelude.rnf andConditions `Prelude.seq`
+      Prelude.rnf hierarchyGroupCondition `Prelude.seq`
+        Prelude.rnf orConditions `Prelude.seq`
+          Prelude.rnf stringCondition
 
 instance Data.ToJSON UserSearchCriteria where
   toJSON UserSearchCriteria' {..} =

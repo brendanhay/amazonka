@@ -166,12 +166,12 @@ instance Prelude.Hashable UpdateSecurityProfile where
 
 instance Prelude.NFData UpdateSecurityProfile where
   rnf UpdateSecurityProfile' {..} =
-    Prelude.rnf allowedAccessControlTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf tagRestrictedResources
-      `Prelude.seq` Prelude.rnf securityProfileId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf allowedAccessControlTags `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf tagRestrictedResources `Prelude.seq`
+            Prelude.rnf securityProfileId `Prelude.seq`
+              Prelude.rnf instanceId
 
 instance Data.ToHeaders UpdateSecurityProfile where
   toHeaders =

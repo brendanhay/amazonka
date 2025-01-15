@@ -115,8 +115,8 @@ instance Prelude.Hashable DisassociateLambdaFunction where
 
 instance Prelude.NFData DisassociateLambdaFunction where
   rnf DisassociateLambdaFunction' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf functionArn
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf functionArn
 
 instance Data.ToHeaders DisassociateLambdaFunction where
   toHeaders =

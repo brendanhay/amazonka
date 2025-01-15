@@ -133,12 +133,12 @@ instance Core.AWSPager ListLexBots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLexBots_nextToken
-          Lens..~ rs
-          Lens.^? listLexBotsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLexBots_nextToken
+              Lens..~ rs
+              Lens.^? listLexBotsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLexBots where
   type AWSResponse ListLexBots = ListLexBotsResponse
@@ -162,9 +162,9 @@ instance Prelude.Hashable ListLexBots where
 
 instance Prelude.NFData ListLexBots where
   rnf ListLexBots' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders ListLexBots where
   toHeaders =
@@ -244,6 +244,6 @@ listLexBotsResponse_httpStatus = Lens.lens (\ListLexBotsResponse' {httpStatus} -
 
 instance Prelude.NFData ListLexBotsResponse where
   rnf ListLexBotsResponse' {..} =
-    Prelude.rnf lexBots
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lexBots `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

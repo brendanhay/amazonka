@@ -123,10 +123,10 @@ instance Prelude.Hashable QuickConnectConfig where
 
 instance Prelude.NFData QuickConnectConfig where
   rnf QuickConnectConfig' {..} =
-    Prelude.rnf phoneConfig
-      `Prelude.seq` Prelude.rnf queueConfig
-      `Prelude.seq` Prelude.rnf userConfig
-      `Prelude.seq` Prelude.rnf quickConnectType
+    Prelude.rnf phoneConfig `Prelude.seq`
+      Prelude.rnf queueConfig `Prelude.seq`
+        Prelude.rnf userConfig `Prelude.seq`
+          Prelude.rnf quickConnectType
 
 instance Data.ToJSON QuickConnectConfig where
   toJSON QuickConnectConfig' {..} =

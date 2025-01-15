@@ -174,12 +174,12 @@ instance Prelude.Hashable CreateHoursOfOperation where
 
 instance Prelude.NFData CreateHoursOfOperation where
   rnf CreateHoursOfOperation' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf config
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf timeZone `Prelude.seq`
+              Prelude.rnf config
 
 instance Data.ToHeaders CreateHoursOfOperation where
   toHeaders =
@@ -265,6 +265,6 @@ instance
     CreateHoursOfOperationResponse
   where
   rnf CreateHoursOfOperationResponse' {..} =
-    Prelude.rnf hoursOfOperationArn
-      `Prelude.seq` Prelude.rnf hoursOfOperationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hoursOfOperationArn `Prelude.seq`
+      Prelude.rnf hoursOfOperationId `Prelude.seq`
+        Prelude.rnf httpStatus

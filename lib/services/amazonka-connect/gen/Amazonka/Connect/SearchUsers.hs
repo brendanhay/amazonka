@@ -143,12 +143,12 @@ instance Core.AWSPager SearchUsers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchUsers_nextToken
-          Lens..~ rs
-          Lens.^? searchUsersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchUsers_nextToken
+              Lens..~ rs
+              Lens.^? searchUsersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchUsers where
   type AWSResponse SearchUsers = SearchUsersResponse
@@ -175,11 +175,11 @@ instance Prelude.Hashable SearchUsers where
 
 instance Prelude.NFData SearchUsers where
   rnf SearchUsers' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf searchCriteria
-      `Prelude.seq` Prelude.rnf searchFilter
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf searchCriteria `Prelude.seq`
+            Prelude.rnf searchFilter
 
 instance Data.ToHeaders SearchUsers where
   toHeaders =
@@ -273,7 +273,7 @@ searchUsersResponse_httpStatus = Lens.lens (\SearchUsersResponse' {httpStatus} -
 
 instance Prelude.NFData SearchUsersResponse where
   rnf SearchUsersResponse' {..} =
-    Prelude.rnf approximateTotalCount
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approximateTotalCount `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf users `Prelude.seq`
+          Prelude.rnf httpStatus

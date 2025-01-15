@@ -135,10 +135,10 @@ instance Prelude.Hashable UpdateRoutingProfileName where
 
 instance Prelude.NFData UpdateRoutingProfileName where
   rnf UpdateRoutingProfileName' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf routingProfileId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf routingProfileId
 
 instance Data.ToHeaders UpdateRoutingProfileName where
   toHeaders =

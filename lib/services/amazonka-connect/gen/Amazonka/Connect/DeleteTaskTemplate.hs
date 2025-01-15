@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteTaskTemplate where
 
 instance Prelude.NFData DeleteTaskTemplate where
   rnf DeleteTaskTemplate' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf taskTemplateId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf taskTemplateId
 
 instance Data.ToHeaders DeleteTaskTemplate where
   toHeaders =

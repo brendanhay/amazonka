@@ -116,8 +116,8 @@ instance Prelude.Hashable StopContact where
 
 instance Prelude.NFData StopContact where
   rnf StopContact' {..} =
-    Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf contactId `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders StopContact where
   toHeaders =

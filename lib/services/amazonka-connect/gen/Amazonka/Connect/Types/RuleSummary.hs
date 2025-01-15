@@ -174,11 +174,11 @@ instance Prelude.Hashable RuleSummary where
 
 instance Prelude.NFData RuleSummary where
   rnf RuleSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf ruleArn
-      `Prelude.seq` Prelude.rnf eventSourceName
-      `Prelude.seq` Prelude.rnf publishStatus
-      `Prelude.seq` Prelude.rnf actionSummaries
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf ruleId `Prelude.seq`
+        Prelude.rnf ruleArn `Prelude.seq`
+          Prelude.rnf eventSourceName `Prelude.seq`
+            Prelude.rnf publishStatus `Prelude.seq`
+              Prelude.rnf actionSummaries `Prelude.seq`
+                Prelude.rnf createdTime `Prelude.seq`
+                  Prelude.rnf lastUpdatedTime

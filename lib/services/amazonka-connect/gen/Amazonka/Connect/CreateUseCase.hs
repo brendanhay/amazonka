@@ -149,10 +149,10 @@ instance Prelude.Hashable CreateUseCase where
 
 instance Prelude.NFData CreateUseCase where
   rnf CreateUseCase' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf integrationAssociationId
-      `Prelude.seq` Prelude.rnf useCaseType
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf integrationAssociationId `Prelude.seq`
+          Prelude.rnf useCaseType
 
 instance Data.ToHeaders CreateUseCase where
   toHeaders =
@@ -237,6 +237,6 @@ createUseCaseResponse_httpStatus = Lens.lens (\CreateUseCaseResponse' {httpStatu
 
 instance Prelude.NFData CreateUseCaseResponse where
   rnf CreateUseCaseResponse' {..} =
-    Prelude.rnf useCaseArn
-      `Prelude.seq` Prelude.rnf useCaseId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf useCaseArn `Prelude.seq`
+      Prelude.rnf useCaseId `Prelude.seq`
+        Prelude.rnf httpStatus

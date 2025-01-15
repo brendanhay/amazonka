@@ -83,9 +83,9 @@ instance Prelude.Hashable StringCondition where
 
 instance Prelude.NFData StringCondition where
   rnf StringCondition' {..} =
-    Prelude.rnf comparisonType
-      `Prelude.seq` Prelude.rnf fieldName
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf comparisonType `Prelude.seq`
+      Prelude.rnf fieldName `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON StringCondition where
   toJSON StringCondition' {..} =

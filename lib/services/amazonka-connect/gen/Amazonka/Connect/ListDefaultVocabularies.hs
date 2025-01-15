@@ -140,12 +140,12 @@ instance Core.AWSPager ListDefaultVocabularies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDefaultVocabularies_nextToken
-          Lens..~ rs
-          Lens.^? listDefaultVocabulariesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDefaultVocabularies_nextToken
+              Lens..~ rs
+              Lens.^? listDefaultVocabulariesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDefaultVocabularies where
   type
@@ -175,10 +175,10 @@ instance Prelude.Hashable ListDefaultVocabularies where
 
 instance Prelude.NFData ListDefaultVocabularies where
   rnf ListDefaultVocabularies' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf instanceId
 
 instance Data.ToHeaders ListDefaultVocabularies where
   toHeaders =
@@ -267,6 +267,6 @@ instance
     ListDefaultVocabulariesResponse
   where
   rnf ListDefaultVocabulariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf defaultVocabularyList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf defaultVocabularyList

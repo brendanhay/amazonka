@@ -112,8 +112,8 @@ instance Prelude.Hashable AssociateLambdaFunction where
 
 instance Prelude.NFData AssociateLambdaFunction where
   rnf AssociateLambdaFunction' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf functionArn
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf functionArn
 
 instance Data.ToHeaders AssociateLambdaFunction where
   toHeaders =

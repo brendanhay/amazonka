@@ -83,5 +83,5 @@ instance Prelude.Hashable HistoricalMetricResult where
 
 instance Prelude.NFData HistoricalMetricResult where
   rnf HistoricalMetricResult' {..} =
-    Prelude.rnf collections
-      `Prelude.seq` Prelude.rnf dimensions
+    Prelude.rnf collections `Prelude.seq`
+      Prelude.rnf dimensions

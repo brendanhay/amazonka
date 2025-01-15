@@ -135,9 +135,9 @@ instance Prelude.Hashable PutUserStatus where
 
 instance Prelude.NFData PutUserStatus where
   rnf PutUserStatus' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf agentStatusId
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf agentStatusId
 
 instance Data.ToHeaders PutUserStatus where
   toHeaders =

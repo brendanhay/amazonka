@@ -197,8 +197,8 @@ getFederationTokenResponse_httpStatus = Lens.lens (\GetFederationTokenResponse' 
 
 instance Prelude.NFData GetFederationTokenResponse where
   rnf GetFederationTokenResponse' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf signInUrl
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf signInUrl `Prelude.seq`
+        Prelude.rnf userArn `Prelude.seq`
+          Prelude.rnf userId `Prelude.seq`
+            Prelude.rnf httpStatus

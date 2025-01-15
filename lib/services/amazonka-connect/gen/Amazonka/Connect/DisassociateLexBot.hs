@@ -127,9 +127,9 @@ instance Prelude.Hashable DisassociateLexBot where
 
 instance Prelude.NFData DisassociateLexBot where
   rnf DisassociateLexBot' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf lexRegion
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf lexRegion
 
 instance Data.ToHeaders DisassociateLexBot where
   toHeaders =

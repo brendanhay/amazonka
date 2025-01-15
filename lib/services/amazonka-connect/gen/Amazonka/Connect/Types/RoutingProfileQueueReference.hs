@@ -81,8 +81,8 @@ instance
 
 instance Prelude.NFData RoutingProfileQueueReference where
   rnf RoutingProfileQueueReference' {..} =
-    Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf channel
+    Prelude.rnf queueId `Prelude.seq`
+      Prelude.rnf channel
 
 instance Data.ToJSON RoutingProfileQueueReference where
   toJSON RoutingProfileQueueReference' {..} =

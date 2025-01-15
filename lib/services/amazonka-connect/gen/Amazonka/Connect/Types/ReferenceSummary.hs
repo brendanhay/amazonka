@@ -150,9 +150,9 @@ instance Prelude.Hashable ReferenceSummary where
 
 instance Prelude.NFData ReferenceSummary where
   rnf ReferenceSummary' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf date
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf number
-      `Prelude.seq` Prelude.rnf string
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf date `Prelude.seq`
+        Prelude.rnf email `Prelude.seq`
+          Prelude.rnf number `Prelude.seq`
+            Prelude.rnf string `Prelude.seq`
+              Prelude.rnf url

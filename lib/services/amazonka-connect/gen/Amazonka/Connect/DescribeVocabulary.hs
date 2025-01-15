@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeVocabulary where
 
 instance Prelude.NFData DescribeVocabulary where
   rnf DescribeVocabulary' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf vocabularyId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf vocabularyId
 
 instance Data.ToHeaders DescribeVocabulary where
   toHeaders =
@@ -193,5 +193,5 @@ describeVocabularyResponse_vocabulary = Lens.lens (\DescribeVocabularyResponse' 
 
 instance Prelude.NFData DescribeVocabularyResponse where
   rnf DescribeVocabularyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vocabulary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vocabulary

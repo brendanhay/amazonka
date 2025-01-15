@@ -114,8 +114,8 @@ instance
 
 instance Prelude.NFData DeleteIntegrationAssociation where
   rnf DeleteIntegrationAssociation' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf integrationAssociationId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf integrationAssociationId
 
 instance Data.ToHeaders DeleteIntegrationAssociation where
   toHeaders =

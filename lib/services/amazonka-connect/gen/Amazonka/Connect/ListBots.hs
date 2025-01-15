@@ -140,12 +140,12 @@ instance Core.AWSPager ListBots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBots_nextToken
-          Lens..~ rs
-          Lens.^? listBotsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBots_nextToken
+              Lens..~ rs
+              Lens.^? listBotsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBots where
   type AWSResponse ListBots = ListBotsResponse
@@ -170,10 +170,10 @@ instance Prelude.Hashable ListBots where
 
 instance Prelude.NFData ListBots where
   rnf ListBots' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf lexVersion
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf lexVersion
 
 instance Data.ToHeaders ListBots where
   toHeaders =
@@ -254,6 +254,6 @@ listBotsResponse_httpStatus = Lens.lens (\ListBotsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListBotsResponse where
   rnf ListBotsResponse' {..} =
-    Prelude.rnf lexBots
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lexBots `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

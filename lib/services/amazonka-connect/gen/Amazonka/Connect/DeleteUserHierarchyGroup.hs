@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteUserHierarchyGroup where
 
 instance Prelude.NFData DeleteUserHierarchyGroup where
   rnf DeleteUserHierarchyGroup' {..} =
-    Prelude.rnf hierarchyGroupId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf hierarchyGroupId `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders DeleteUserHierarchyGroup where
   toHeaders =

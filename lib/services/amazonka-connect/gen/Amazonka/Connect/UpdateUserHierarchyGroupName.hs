@@ -124,9 +124,9 @@ instance
 
 instance Prelude.NFData UpdateUserHierarchyGroupName where
   rnf UpdateUserHierarchyGroupName' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf hierarchyGroupId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf hierarchyGroupId `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders UpdateUserHierarchyGroupName where
   toHeaders =

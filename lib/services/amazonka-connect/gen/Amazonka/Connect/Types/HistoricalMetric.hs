@@ -109,10 +109,10 @@ instance Prelude.Hashable HistoricalMetric where
 
 instance Prelude.NFData HistoricalMetric where
   rnf HistoricalMetric' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf statistic `Prelude.seq`
+        Prelude.rnf threshold `Prelude.seq`
+          Prelude.rnf unit
 
 instance Data.ToJSON HistoricalMetric where
   toJSON HistoricalMetric' {..} =

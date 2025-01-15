@@ -137,12 +137,12 @@ instance Core.AWSPager ListAgentStatuses where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAgentStatuses_nextToken
-          Lens..~ rs
-          Lens.^? listAgentStatusesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAgentStatuses_nextToken
+              Lens..~ rs
+              Lens.^? listAgentStatusesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAgentStatuses where
   type
@@ -172,10 +172,10 @@ instance Prelude.Hashable ListAgentStatuses where
 
 instance Prelude.NFData ListAgentStatuses where
   rnf ListAgentStatuses' {..} =
-    Prelude.rnf agentStatusTypes
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf agentStatusTypes `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf instanceId
 
 instance Data.ToHeaders ListAgentStatuses where
   toHeaders =
@@ -258,6 +258,6 @@ listAgentStatusesResponse_httpStatus = Lens.lens (\ListAgentStatusesResponse' {h
 
 instance Prelude.NFData ListAgentStatusesResponse where
   rnf ListAgentStatusesResponse' {..} =
-    Prelude.rnf agentStatusSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentStatusSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

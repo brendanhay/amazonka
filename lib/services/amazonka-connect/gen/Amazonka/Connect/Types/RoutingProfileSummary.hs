@@ -91,6 +91,6 @@ instance Prelude.Hashable RoutingProfileSummary where
 
 instance Prelude.NFData RoutingProfileSummary where
   rnf RoutingProfileSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

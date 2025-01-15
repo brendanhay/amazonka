@@ -160,10 +160,10 @@ instance Prelude.Hashable StartContactStreaming where
 
 instance Prelude.NFData StartContactStreaming where
   rnf StartContactStreaming' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf chatStreamingConfiguration
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactId `Prelude.seq`
+        Prelude.rnf chatStreamingConfiguration `Prelude.seq`
+          Prelude.rnf clientToken
 
 instance Data.ToHeaders StartContactStreaming where
   toHeaders =
@@ -241,5 +241,5 @@ startContactStreamingResponse_streamingId = Lens.lens (\StartContactStreamingRes
 
 instance Prelude.NFData StartContactStreamingResponse where
   rnf StartContactStreamingResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf streamingId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf streamingId

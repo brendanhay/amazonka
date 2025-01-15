@@ -131,9 +131,9 @@ instance Prelude.Hashable UpdateUserIdentityInfo where
 
 instance Prelude.NFData UpdateUserIdentityInfo where
   rnf UpdateUserIdentityInfo' {..} =
-    Prelude.rnf identityInfo
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf identityInfo `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders UpdateUserIdentityInfo where
   toHeaders =

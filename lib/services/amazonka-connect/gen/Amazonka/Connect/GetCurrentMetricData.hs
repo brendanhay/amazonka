@@ -581,13 +581,13 @@ instance Prelude.Hashable GetCurrentMetricData where
 
 instance Prelude.NFData GetCurrentMetricData where
   rnf GetCurrentMetricData' {..} =
-    Prelude.rnf groupings
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf currentMetrics
+    Prelude.rnf groupings `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf filters `Prelude.seq`
+                Prelude.rnf currentMetrics
 
 instance Data.ToHeaders GetCurrentMetricData where
   toHeaders =
@@ -705,8 +705,8 @@ getCurrentMetricDataResponse_httpStatus = Lens.lens (\GetCurrentMetricDataRespon
 
 instance Prelude.NFData GetCurrentMetricDataResponse where
   rnf GetCurrentMetricDataResponse' {..} =
-    Prelude.rnf approximateTotalCount
-      `Prelude.seq` Prelude.rnf dataSnapshotTime
-      `Prelude.seq` Prelude.rnf metricResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approximateTotalCount `Prelude.seq`
+      Prelude.rnf dataSnapshotTime `Prelude.seq`
+        Prelude.rnf metricResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -94,6 +94,6 @@ instance Prelude.Hashable SecurityKey where
 
 instance Prelude.NFData SecurityKey where
   rnf SecurityKey' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf key

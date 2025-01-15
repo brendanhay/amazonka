@@ -133,9 +133,9 @@ instance Prelude.Hashable UpdateInstanceAttribute where
 
 instance Prelude.NFData UpdateInstanceAttribute where
   rnf UpdateInstanceAttribute' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf attributeType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf attributeType `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToHeaders UpdateInstanceAttribute where
   toHeaders =

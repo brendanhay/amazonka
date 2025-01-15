@@ -85,8 +85,8 @@ instance Prelude.Hashable UserQuickConnectConfig where
 
 instance Prelude.NFData UserQuickConnectConfig where
   rnf UserQuickConnectConfig' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf contactFlowId
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf contactFlowId
 
 instance Data.ToJSON UserQuickConnectConfig where
   toJSON UserQuickConnectConfig' {..} =

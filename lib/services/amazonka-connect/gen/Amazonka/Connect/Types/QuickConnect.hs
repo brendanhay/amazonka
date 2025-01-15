@@ -128,9 +128,9 @@ instance Prelude.Hashable QuickConnect where
 
 instance Prelude.NFData QuickConnect where
   rnf QuickConnect' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf quickConnectARN
-      `Prelude.seq` Prelude.rnf quickConnectConfig
-      `Prelude.seq` Prelude.rnf quickConnectId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf quickConnectARN `Prelude.seq`
+          Prelude.rnf quickConnectConfig `Prelude.seq`
+            Prelude.rnf quickConnectId `Prelude.seq`
+              Prelude.rnf tags

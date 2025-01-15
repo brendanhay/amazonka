@@ -141,11 +141,11 @@ instance Prelude.Hashable UpdateContactFlowMetadata where
 
 instance Prelude.NFData UpdateContactFlowMetadata where
   rnf UpdateContactFlowMetadata' {..} =
-    Prelude.rnf contactFlowState
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactFlowId
+    Prelude.rnf contactFlowState `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf contactFlowId
 
 instance Data.ToHeaders UpdateContactFlowMetadata where
   toHeaders =

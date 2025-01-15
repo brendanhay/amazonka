@@ -80,5 +80,5 @@ instance Prelude.Hashable QueueInfo where
 
 instance Prelude.NFData QueueInfo where
   rnf QueueInfo' {..} =
-    Prelude.rnf enqueueTimestamp
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf enqueueTimestamp `Prelude.seq`
+      Prelude.rnf id

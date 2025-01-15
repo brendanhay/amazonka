@@ -116,8 +116,8 @@ instance Prelude.Hashable DescribeUserHierarchyGroup where
 
 instance Prelude.NFData DescribeUserHierarchyGroup where
   rnf DescribeUserHierarchyGroup' {..} =
-    Prelude.rnf hierarchyGroupId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf hierarchyGroupId `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders DescribeUserHierarchyGroup where
   toHeaders =
@@ -186,5 +186,5 @@ instance
     DescribeUserHierarchyGroupResponse
   where
   rnf DescribeUserHierarchyGroupResponse' {..} =
-    Prelude.rnf hierarchyGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hierarchyGroup `Prelude.seq`
+      Prelude.rnf httpStatus

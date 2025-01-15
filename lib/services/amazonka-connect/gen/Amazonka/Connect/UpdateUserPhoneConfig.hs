@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateUserPhoneConfig where
 
 instance Prelude.NFData UpdateUserPhoneConfig where
   rnf UpdateUserPhoneConfig' {..} =
-    Prelude.rnf phoneConfig
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf phoneConfig `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders UpdateUserPhoneConfig where
   toHeaders =

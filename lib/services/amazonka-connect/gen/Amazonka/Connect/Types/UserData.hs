@@ -199,12 +199,12 @@ instance Prelude.Hashable UserData where
 
 instance Prelude.NFData UserData where
   rnf UserData' {..} =
-    Prelude.rnf activeSlotsByChannel
-      `Prelude.seq` Prelude.rnf availableSlotsByChannel
-      `Prelude.seq` Prelude.rnf contacts
-      `Prelude.seq` Prelude.rnf hierarchyPath
-      `Prelude.seq` Prelude.rnf maxSlotsByChannel
-      `Prelude.seq` Prelude.rnf nextStatus
-      `Prelude.seq` Prelude.rnf routingProfile
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf activeSlotsByChannel `Prelude.seq`
+      Prelude.rnf availableSlotsByChannel `Prelude.seq`
+        Prelude.rnf contacts `Prelude.seq`
+          Prelude.rnf hierarchyPath `Prelude.seq`
+            Prelude.rnf maxSlotsByChannel `Prelude.seq`
+              Prelude.rnf nextStatus `Prelude.seq`
+                Prelude.rnf routingProfile `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf user

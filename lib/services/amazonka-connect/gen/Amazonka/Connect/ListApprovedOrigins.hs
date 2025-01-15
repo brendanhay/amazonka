@@ -127,12 +127,12 @@ instance Core.AWSPager ListApprovedOrigins where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApprovedOrigins_nextToken
-          Lens..~ rs
-          Lens.^? listApprovedOriginsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApprovedOrigins_nextToken
+              Lens..~ rs
+              Lens.^? listApprovedOriginsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApprovedOrigins where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListApprovedOrigins where
 
 instance Prelude.NFData ListApprovedOrigins where
   rnf ListApprovedOrigins' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders ListApprovedOrigins where
   toHeaders =
@@ -241,6 +241,6 @@ listApprovedOriginsResponse_httpStatus = Lens.lens (\ListApprovedOriginsResponse
 
 instance Prelude.NFData ListApprovedOriginsResponse where
   rnf ListApprovedOriginsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf origins
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf origins `Prelude.seq`
+        Prelude.rnf httpStatus

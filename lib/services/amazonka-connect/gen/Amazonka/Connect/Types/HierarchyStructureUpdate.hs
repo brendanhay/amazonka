@@ -102,11 +102,11 @@ instance Prelude.Hashable HierarchyStructureUpdate where
 
 instance Prelude.NFData HierarchyStructureUpdate where
   rnf HierarchyStructureUpdate' {..} =
-    Prelude.rnf levelFive
-      `Prelude.seq` Prelude.rnf levelFour
-      `Prelude.seq` Prelude.rnf levelOne
-      `Prelude.seq` Prelude.rnf levelThree
-      `Prelude.seq` Prelude.rnf levelTwo
+    Prelude.rnf levelFive `Prelude.seq`
+      Prelude.rnf levelFour `Prelude.seq`
+        Prelude.rnf levelOne `Prelude.seq`
+          Prelude.rnf levelThree `Prelude.seq`
+            Prelude.rnf levelTwo
 
 instance Data.ToJSON HierarchyStructureUpdate where
   toJSON HierarchyStructureUpdate' {..} =

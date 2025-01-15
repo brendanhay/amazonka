@@ -138,9 +138,9 @@ instance Prelude.Hashable SuspendContactRecording where
 
 instance Prelude.NFData SuspendContactRecording where
   rnf SuspendContactRecording' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf initialContactId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactId `Prelude.seq`
+        Prelude.rnf initialContactId
 
 instance Data.ToHeaders SuspendContactRecording where
   toHeaders =

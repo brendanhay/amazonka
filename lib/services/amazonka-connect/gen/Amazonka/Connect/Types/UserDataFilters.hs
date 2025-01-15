@@ -104,11 +104,11 @@ instance Prelude.Hashable UserDataFilters where
 
 instance Prelude.NFData UserDataFilters where
   rnf UserDataFilters' {..} =
-    Prelude.rnf agents
-      `Prelude.seq` Prelude.rnf contactFilter
-      `Prelude.seq` Prelude.rnf queues
-      `Prelude.seq` Prelude.rnf routingProfiles
-      `Prelude.seq` Prelude.rnf userHierarchyGroups
+    Prelude.rnf agents `Prelude.seq`
+      Prelude.rnf contactFilter `Prelude.seq`
+        Prelude.rnf queues `Prelude.seq`
+          Prelude.rnf routingProfiles `Prelude.seq`
+            Prelude.rnf userHierarchyGroups
 
 instance Data.ToJSON UserDataFilters where
   toJSON UserDataFilters' {..} =

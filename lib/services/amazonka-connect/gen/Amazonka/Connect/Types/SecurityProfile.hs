@@ -162,11 +162,11 @@ instance Prelude.Hashable SecurityProfile where
 
 instance Prelude.NFData SecurityProfile where
   rnf SecurityProfile' {..} =
-    Prelude.rnf allowedAccessControlTags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf organizationResourceId
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf tagRestrictedResources
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf allowedAccessControlTags `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf organizationResourceId `Prelude.seq`
+              Prelude.rnf securityProfileName `Prelude.seq`
+                Prelude.rnf tagRestrictedResources `Prelude.seq`
+                  Prelude.rnf tags

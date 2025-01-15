@@ -91,6 +91,6 @@ instance Prelude.Hashable UserSummary where
 
 instance Prelude.NFData UserSummary where
   rnf UserSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf username

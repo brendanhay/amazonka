@@ -160,12 +160,12 @@ instance Core.AWSPager SearchVocabularies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchVocabularies_nextToken
-          Lens..~ rs
-          Lens.^? searchVocabulariesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchVocabularies_nextToken
+              Lens..~ rs
+              Lens.^? searchVocabulariesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchVocabularies where
   type
@@ -197,12 +197,12 @@ instance Prelude.Hashable SearchVocabularies where
 
 instance Prelude.NFData SearchVocabularies where
   rnf SearchVocabularies' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameStartsWith
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nameStartsWith `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf instanceId
 
 instance Data.ToHeaders SearchVocabularies where
   toHeaders =
@@ -289,6 +289,6 @@ searchVocabulariesResponse_httpStatus = Lens.lens (\SearchVocabulariesResponse' 
 
 instance Prelude.NFData SearchVocabulariesResponse where
   rnf SearchVocabulariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vocabularySummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vocabularySummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

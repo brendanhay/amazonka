@@ -109,7 +109,7 @@ instance Prelude.Hashable QuickConnectSummary where
 
 instance Prelude.NFData QuickConnectSummary where
   rnf QuickConnectSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf quickConnectType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf quickConnectType

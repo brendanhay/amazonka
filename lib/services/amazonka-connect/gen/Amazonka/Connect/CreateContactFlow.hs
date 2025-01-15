@@ -176,12 +176,12 @@ instance Prelude.Hashable CreateContactFlow where
 
 instance Prelude.NFData CreateContactFlow where
   rnf CreateContactFlow' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf content
 
 instance Data.ToHeaders CreateContactFlow where
   toHeaders =
@@ -264,6 +264,6 @@ createContactFlowResponse_httpStatus = Lens.lens (\CreateContactFlowResponse' {h
 
 instance Prelude.NFData CreateContactFlowResponse where
   rnf CreateContactFlowResponse' {..} =
-    Prelude.rnf contactFlowArn
-      `Prelude.seq` Prelude.rnf contactFlowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactFlowArn `Prelude.seq`
+      Prelude.rnf contactFlowId `Prelude.seq`
+        Prelude.rnf httpStatus

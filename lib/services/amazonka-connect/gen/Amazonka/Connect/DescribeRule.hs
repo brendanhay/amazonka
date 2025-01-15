@@ -111,8 +111,8 @@ instance Prelude.Hashable DescribeRule where
 
 instance Prelude.NFData DescribeRule where
   rnf DescribeRule' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf ruleId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf ruleId
 
 instance Data.ToHeaders DescribeRule where
   toHeaders =
@@ -179,5 +179,5 @@ describeRuleResponse_rule = Lens.lens (\DescribeRuleResponse' {rule} -> rule) (\
 
 instance Prelude.NFData DescribeRuleResponse where
   rnf DescribeRuleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf rule
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf rule

@@ -152,9 +152,9 @@ instance Prelude.Hashable GetTaskTemplate where
 
 instance Prelude.NFData GetTaskTemplate where
   rnf GetTaskTemplate' {..} =
-    Prelude.rnf snapshotVersion
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf taskTemplateId
+    Prelude.rnf snapshotVersion `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf taskTemplateId
 
 instance Data.ToHeaders GetTaskTemplate where
   toHeaders =
@@ -361,17 +361,17 @@ getTaskTemplateResponse_name = Lens.lens (\GetTaskTemplateResponse' {name} -> na
 
 instance Prelude.NFData GetTaskTemplateResponse where
   rnf GetTaskTemplateResponse' {..} =
-    Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf contactFlowId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf defaults
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf constraints `Prelude.seq`
+      Prelude.rnf contactFlowId `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf defaults `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf fields `Prelude.seq`
+                Prelude.rnf instanceId `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf httpStatus `Prelude.seq`
+                          Prelude.rnf id `Prelude.seq`
+                            Prelude.rnf arn `Prelude.seq`
+                              Prelude.rnf name

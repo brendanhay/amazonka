@@ -103,7 +103,7 @@ instance Prelude.Hashable QueueSummary where
 
 instance Prelude.NFData QueueSummary where
   rnf QueueSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf queueType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf queueType

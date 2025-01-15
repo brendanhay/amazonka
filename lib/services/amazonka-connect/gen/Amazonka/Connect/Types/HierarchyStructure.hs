@@ -114,8 +114,8 @@ instance Prelude.Hashable HierarchyStructure where
 
 instance Prelude.NFData HierarchyStructure where
   rnf HierarchyStructure' {..} =
-    Prelude.rnf levelFive
-      `Prelude.seq` Prelude.rnf levelFour
-      `Prelude.seq` Prelude.rnf levelOne
-      `Prelude.seq` Prelude.rnf levelThree
-      `Prelude.seq` Prelude.rnf levelTwo
+    Prelude.rnf levelFive `Prelude.seq`
+      Prelude.rnf levelFour `Prelude.seq`
+        Prelude.rnf levelOne `Prelude.seq`
+          Prelude.rnf levelThree `Prelude.seq`
+            Prelude.rnf levelTwo

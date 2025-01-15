@@ -160,9 +160,9 @@ instance Prelude.Hashable UpdateContactAttributes where
 
 instance Prelude.NFData UpdateContactAttributes where
   rnf UpdateContactAttributes' {..} =
-    Prelude.rnf initialContactId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf initialContactId `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf attributes
 
 instance Data.ToHeaders UpdateContactAttributes where
   toHeaders =

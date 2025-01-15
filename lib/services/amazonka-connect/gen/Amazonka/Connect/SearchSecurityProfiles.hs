@@ -167,12 +167,12 @@ instance Core.AWSPager SearchSecurityProfiles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchSecurityProfiles_nextToken
-          Lens..~ rs
-          Lens.^? searchSecurityProfilesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchSecurityProfiles_nextToken
+              Lens..~ rs
+              Lens.^? searchSecurityProfilesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchSecurityProfiles where
   type
@@ -204,11 +204,11 @@ instance Prelude.Hashable SearchSecurityProfiles where
 
 instance Prelude.NFData SearchSecurityProfiles where
   rnf SearchSecurityProfiles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf searchCriteria
-      `Prelude.seq` Prelude.rnf searchFilter
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf searchCriteria `Prelude.seq`
+          Prelude.rnf searchFilter `Prelude.seq`
+            Prelude.rnf instanceId
 
 instance Data.ToHeaders SearchSecurityProfiles where
   toHeaders =
@@ -305,7 +305,7 @@ instance
     SearchSecurityProfilesResponse
   where
   rnf SearchSecurityProfilesResponse' {..} =
-    Prelude.rnf approximateTotalCount
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityProfiles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approximateTotalCount `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf securityProfiles `Prelude.seq`
+          Prelude.rnf httpStatus

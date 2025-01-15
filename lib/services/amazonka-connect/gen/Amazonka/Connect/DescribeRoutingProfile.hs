@@ -115,8 +115,8 @@ instance Prelude.Hashable DescribeRoutingProfile where
 
 instance Prelude.NFData DescribeRoutingProfile where
   rnf DescribeRoutingProfile' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf routingProfileId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf routingProfileId
 
 instance Data.ToHeaders DescribeRoutingProfile where
   toHeaders =
@@ -185,5 +185,5 @@ instance
     DescribeRoutingProfileResponse
   where
   rnf DescribeRoutingProfileResponse' {..} =
-    Prelude.rnf routingProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf routingProfile `Prelude.seq`
+      Prelude.rnf httpStatus

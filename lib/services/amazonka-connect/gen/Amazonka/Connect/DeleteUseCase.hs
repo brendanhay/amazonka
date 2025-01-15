@@ -121,9 +121,9 @@ instance Prelude.Hashable DeleteUseCase where
 
 instance Prelude.NFData DeleteUseCase where
   rnf DeleteUseCase' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf integrationAssociationId
-      `Prelude.seq` Prelude.rnf useCaseId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf integrationAssociationId `Prelude.seq`
+        Prelude.rnf useCaseId
 
 instance Data.ToHeaders DeleteUseCase where
   toHeaders =

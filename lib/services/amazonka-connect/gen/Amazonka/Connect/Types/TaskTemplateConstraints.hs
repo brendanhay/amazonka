@@ -101,9 +101,9 @@ instance Prelude.Hashable TaskTemplateConstraints where
 
 instance Prelude.NFData TaskTemplateConstraints where
   rnf TaskTemplateConstraints' {..} =
-    Prelude.rnf invisibleFields
-      `Prelude.seq` Prelude.rnf readOnlyFields
-      `Prelude.seq` Prelude.rnf requiredFields
+    Prelude.rnf invisibleFields `Prelude.seq`
+      Prelude.rnf readOnlyFields `Prelude.seq`
+        Prelude.rnf requiredFields
 
 instance Data.ToJSON TaskTemplateConstraints where
   toJSON TaskTemplateConstraints' {..} =

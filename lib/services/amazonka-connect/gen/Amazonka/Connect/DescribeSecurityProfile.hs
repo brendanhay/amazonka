@@ -119,8 +119,8 @@ instance Prelude.Hashable DescribeSecurityProfile where
 
 instance Prelude.NFData DescribeSecurityProfile where
   rnf DescribeSecurityProfile' {..} =
-    Prelude.rnf securityProfileId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf securityProfileId `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders DescribeSecurityProfile where
   toHeaders =
@@ -189,5 +189,5 @@ instance
     DescribeSecurityProfileResponse
   where
   rnf DescribeSecurityProfileResponse' {..} =
-    Prelude.rnf securityProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityProfile `Prelude.seq`
+      Prelude.rnf httpStatus

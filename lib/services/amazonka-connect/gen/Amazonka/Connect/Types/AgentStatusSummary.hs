@@ -103,7 +103,7 @@ instance Prelude.Hashable AgentStatusSummary where
 
 instance Prelude.NFData AgentStatusSummary where
   rnf AgentStatusSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'

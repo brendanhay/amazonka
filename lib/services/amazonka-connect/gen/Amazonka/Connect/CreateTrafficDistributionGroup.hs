@@ -177,11 +177,11 @@ instance
     CreateTrafficDistributionGroup
   where
   rnf CreateTrafficDistributionGroup' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf instanceId
 
 instance
   Data.ToHeaders
@@ -278,6 +278,6 @@ instance
     CreateTrafficDistributionGroupResponse
   where
   rnf CreateTrafficDistributionGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

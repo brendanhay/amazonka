@@ -116,8 +116,8 @@ instance Prelude.Hashable DescribeQueue where
 
 instance Prelude.NFData DescribeQueue where
   rnf DescribeQueue' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf queueId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf queueId
 
 instance Data.ToHeaders DescribeQueue where
   toHeaders =
@@ -182,5 +182,5 @@ describeQueueResponse_httpStatus = Lens.lens (\DescribeQueueResponse' {httpStatu
 
 instance Prelude.NFData DescribeQueueResponse where
   rnf DescribeQueueResponse' {..} =
-    Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queue `Prelude.seq`
+      Prelude.rnf httpStatus

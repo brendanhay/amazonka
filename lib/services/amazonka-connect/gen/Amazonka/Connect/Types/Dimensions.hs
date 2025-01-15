@@ -93,6 +93,6 @@ instance Prelude.Hashable Dimensions where
 
 instance Prelude.NFData Dimensions where
   rnf Dimensions' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf routingProfile
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf queue `Prelude.seq`
+        Prelude.rnf routingProfile

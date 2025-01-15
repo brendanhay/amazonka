@@ -92,6 +92,6 @@ instance Prelude.Hashable HoursOfOperationSummary where
 
 instance Prelude.NFData HoursOfOperationSummary where
   rnf HoursOfOperationSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateContactFlowContent where
 
 instance Prelude.NFData UpdateContactFlowContent where
   rnf UpdateContactFlowContent' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactFlowId
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactFlowId `Prelude.seq`
+        Prelude.rnf content
 
 instance Data.ToHeaders UpdateContactFlowContent where
   toHeaders =

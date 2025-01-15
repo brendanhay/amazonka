@@ -97,9 +97,9 @@ instance Prelude.Hashable S3Config where
 
 instance Prelude.NFData S3Config where
   rnf S3Config' {..} =
-    Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf bucketPrefix
+    Prelude.rnf encryptionConfig `Prelude.seq`
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf bucketPrefix
 
 instance Data.ToJSON S3Config where
   toJSON S3Config' {..} =

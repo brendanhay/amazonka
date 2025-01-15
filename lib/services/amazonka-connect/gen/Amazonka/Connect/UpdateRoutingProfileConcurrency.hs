@@ -131,9 +131,9 @@ instance
     UpdateRoutingProfileConcurrency
   where
   rnf UpdateRoutingProfileConcurrency' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf routingProfileId
-      `Prelude.seq` Prelude.rnf mediaConcurrencies
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf routingProfileId `Prelude.seq`
+        Prelude.rnf mediaConcurrencies
 
 instance
   Data.ToHeaders

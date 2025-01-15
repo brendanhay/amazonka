@@ -136,9 +136,9 @@ instance Prelude.Hashable AssociateDefaultVocabulary where
 
 instance Prelude.NFData AssociateDefaultVocabulary where
   rnf AssociateDefaultVocabulary' {..} =
-    Prelude.rnf vocabularyId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf vocabularyId `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf languageCode
 
 instance Data.ToHeaders AssociateDefaultVocabulary where
   toHeaders =

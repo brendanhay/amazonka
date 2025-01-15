@@ -107,9 +107,9 @@ instance Prelude.Hashable RoutingProfileQueueConfig where
 
 instance Prelude.NFData RoutingProfileQueueConfig where
   rnf RoutingProfileQueueConfig' {..} =
-    Prelude.rnf queueReference
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf delay
+    Prelude.rnf queueReference `Prelude.seq`
+      Prelude.rnf priority `Prelude.seq`
+        Prelude.rnf delay
 
 instance Data.ToJSON RoutingProfileQueueConfig where
   toJSON RoutingProfileQueueConfig' {..} =

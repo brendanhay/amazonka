@@ -94,9 +94,9 @@ instance
 
 instance Prelude.NFData RoutingProfileSearchCriteria where
   rnf RoutingProfileSearchCriteria' {..} =
-    Prelude.rnf andConditions
-      `Prelude.seq` Prelude.rnf orConditions
-      `Prelude.seq` Prelude.rnf stringCondition
+    Prelude.rnf andConditions `Prelude.seq`
+      Prelude.rnf orConditions `Prelude.seq`
+        Prelude.rnf stringCondition
 
 instance Data.ToJSON RoutingProfileSearchCriteria where
   toJSON RoutingProfileSearchCriteria' {..} =

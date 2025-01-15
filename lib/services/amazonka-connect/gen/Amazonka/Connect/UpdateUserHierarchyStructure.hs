@@ -112,8 +112,8 @@ instance
 
 instance Prelude.NFData UpdateUserHierarchyStructure where
   rnf UpdateUserHierarchyStructure' {..} =
-    Prelude.rnf hierarchyStructure
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf hierarchyStructure `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders UpdateUserHierarchyStructure where
   toHeaders =

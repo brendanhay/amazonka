@@ -118,8 +118,8 @@ instance Prelude.Hashable ReleasePhoneNumber where
 
 instance Prelude.NFData ReleasePhoneNumber where
   rnf ReleasePhoneNumber' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf phoneNumberId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf phoneNumberId
 
 instance Data.ToHeaders ReleasePhoneNumber where
   toHeaders =

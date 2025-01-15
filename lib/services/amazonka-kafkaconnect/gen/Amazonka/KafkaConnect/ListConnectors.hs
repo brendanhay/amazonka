@@ -122,12 +122,12 @@ instance Core.AWSPager ListConnectors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listConnectors_nextToken
-          Lens..~ rs
-          Lens.^? listConnectorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listConnectors_nextToken
+              Lens..~ rs
+              Lens.^? listConnectorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConnectors where
   type
@@ -153,9 +153,9 @@ instance Prelude.Hashable ListConnectors where
 
 instance Prelude.NFData ListConnectors where
   rnf ListConnectors' {..} =
-    Prelude.rnf connectorNamePrefix
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf connectorNamePrefix `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConnectors where
   toHeaders =
@@ -235,6 +235,6 @@ listConnectorsResponse_httpStatus = Lens.lens (\ListConnectorsResponse' {httpSta
 
 instance Prelude.NFData ListConnectorsResponse where
   rnf ListConnectorsResponse' {..} =
-    Prelude.rnf connectors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectors `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

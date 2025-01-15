@@ -80,8 +80,8 @@ instance Prelude.Hashable ApacheKafkaCluster where
 
 instance Prelude.NFData ApacheKafkaCluster where
   rnf ApacheKafkaCluster' {..} =
-    Prelude.rnf bootstrapServers
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf bootstrapServers `Prelude.seq`
+      Prelude.rnf vpc
 
 instance Data.ToJSON ApacheKafkaCluster where
   toJSON ApacheKafkaCluster' {..} =

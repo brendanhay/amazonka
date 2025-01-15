@@ -213,9 +213,9 @@ instance
     DescribeWorkerConfigurationResponse
   where
   rnf DescribeWorkerConfigurationResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workerConfigurationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf latestRevision `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf workerConfigurationArn `Prelude.seq`
+              Prelude.rnf httpStatus

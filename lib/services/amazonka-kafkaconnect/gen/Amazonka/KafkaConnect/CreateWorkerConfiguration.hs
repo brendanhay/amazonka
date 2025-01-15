@@ -131,9 +131,9 @@ instance Prelude.Hashable CreateWorkerConfiguration where
 
 instance Prelude.NFData CreateWorkerConfiguration where
   rnf CreateWorkerConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf propertiesFileContent
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf propertiesFileContent
 
 instance Data.ToHeaders CreateWorkerConfiguration where
   toHeaders =
@@ -239,8 +239,8 @@ instance
     CreateWorkerConfigurationResponse
   where
   rnf CreateWorkerConfigurationResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workerConfigurationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf latestRevision `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf workerConfigurationArn `Prelude.seq`
+            Prelude.rnf httpStatus

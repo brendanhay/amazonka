@@ -77,8 +77,8 @@ instance Prelude.Hashable ProvisionedCapacityUpdate where
 
 instance Prelude.NFData ProvisionedCapacityUpdate where
   rnf ProvisionedCapacityUpdate' {..} =
-    Prelude.rnf mcuCount
-      `Prelude.seq` Prelude.rnf workerCount
+    Prelude.rnf mcuCount `Prelude.seq`
+      Prelude.rnf workerCount
 
 instance Data.ToJSON ProvisionedCapacityUpdate where
   toJSON ProvisionedCapacityUpdate' {..} =

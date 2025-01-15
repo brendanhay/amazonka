@@ -76,8 +76,8 @@ instance Prelude.Hashable CloudWatchLogsLogDelivery where
 
 instance Prelude.NFData CloudWatchLogsLogDelivery where
   rnf CloudWatchLogsLogDelivery' {..} =
-    Prelude.rnf logGroup
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf logGroup `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON CloudWatchLogsLogDelivery where
   toJSON CloudWatchLogsLogDelivery' {..} =

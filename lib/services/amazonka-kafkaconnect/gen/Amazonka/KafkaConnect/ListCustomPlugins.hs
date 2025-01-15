@@ -108,12 +108,12 @@ instance Core.AWSPager ListCustomPlugins where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomPlugins_nextToken
-          Lens..~ rs
-          Lens.^? listCustomPluginsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomPlugins_nextToken
+              Lens..~ rs
+              Lens.^? listCustomPluginsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCustomPlugins where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListCustomPlugins where
 
 instance Prelude.NFData ListCustomPlugins where
   rnf ListCustomPlugins' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomPlugins where
   toHeaders =
@@ -218,6 +218,6 @@ listCustomPluginsResponse_httpStatus = Lens.lens (\ListCustomPluginsResponse' {h
 
 instance Prelude.NFData ListCustomPluginsResponse where
   rnf ListCustomPluginsResponse' {..} =
-    Prelude.rnf customPlugins
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customPlugins `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -73,8 +73,8 @@ instance Prelude.Hashable CapacityUpdate where
 
 instance Prelude.NFData CapacityUpdate where
   rnf CapacityUpdate' {..} =
-    Prelude.rnf autoScaling
-      `Prelude.seq` Prelude.rnf provisionedCapacity
+    Prelude.rnf autoScaling `Prelude.seq`
+      Prelude.rnf provisionedCapacity
 
 instance Data.ToJSON CapacityUpdate where
   toJSON CapacityUpdate' {..} =

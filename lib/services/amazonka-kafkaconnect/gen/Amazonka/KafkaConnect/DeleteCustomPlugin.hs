@@ -176,6 +176,6 @@ deleteCustomPluginResponse_httpStatus = Lens.lens (\DeleteCustomPluginResponse' 
 
 instance Prelude.NFData DeleteCustomPluginResponse where
   rnf DeleteCustomPluginResponse' {..} =
-    Prelude.rnf customPluginArn
-      `Prelude.seq` Prelude.rnf customPluginState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customPluginArn `Prelude.seq`
+      Prelude.rnf customPluginState `Prelude.seq`
+        Prelude.rnf httpStatus

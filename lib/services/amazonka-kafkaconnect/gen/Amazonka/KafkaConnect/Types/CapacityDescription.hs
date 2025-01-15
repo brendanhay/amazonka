@@ -82,5 +82,5 @@ instance Prelude.Hashable CapacityDescription where
 
 instance Prelude.NFData CapacityDescription where
   rnf CapacityDescription' {..} =
-    Prelude.rnf autoScaling
-      `Prelude.seq` Prelude.rnf provisionedCapacity
+    Prelude.rnf autoScaling `Prelude.seq`
+      Prelude.rnf provisionedCapacity

@@ -115,7 +115,7 @@ instance
     WorkerConfigurationRevisionDescription
   where
   rnf WorkerConfigurationRevisionDescription' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf propertiesFileContent
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf propertiesFileContent `Prelude.seq`
+          Prelude.rnf revision

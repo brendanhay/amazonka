@@ -110,12 +110,12 @@ instance Core.AWSPager ListWorkerConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkerConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? listWorkerConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkerConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? listWorkerConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkerConfigurations where
   type
@@ -143,8 +143,8 @@ instance Prelude.Hashable ListWorkerConfigurations where
 
 instance Prelude.NFData ListWorkerConfigurations where
   rnf ListWorkerConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkerConfigurations where
   toHeaders =
@@ -226,6 +226,6 @@ instance
     ListWorkerConfigurationsResponse
   where
   rnf ListWorkerConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workerConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workerConfigurations `Prelude.seq`
+        Prelude.rnf httpStatus

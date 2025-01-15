@@ -115,8 +115,8 @@ instance Prelude.Hashable WorkerConfigurationSummary where
 
 instance Prelude.NFData WorkerConfigurationSummary where
   rnf WorkerConfigurationSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workerConfigurationArn
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf latestRevision `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf workerConfigurationArn

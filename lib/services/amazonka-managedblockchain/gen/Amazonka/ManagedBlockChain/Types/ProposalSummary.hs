@@ -224,11 +224,11 @@ instance Prelude.Hashable ProposalSummary where
 
 instance Prelude.NFData ProposalSummary where
   rnf ProposalSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf proposalId
-      `Prelude.seq` Prelude.rnf proposedByMemberId
-      `Prelude.seq` Prelude.rnf proposedByMemberName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf expirationDate `Prelude.seq`
+            Prelude.rnf proposalId `Prelude.seq`
+              Prelude.rnf proposedByMemberId `Prelude.seq`
+                Prelude.rnf proposedByMemberName `Prelude.seq`
+                  Prelude.rnf status

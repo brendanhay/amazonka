@@ -115,8 +115,8 @@ instance Prelude.Hashable DeleteMember where
 
 instance Prelude.NFData DeleteMember where
   rnf DeleteMember' {..} =
-    Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf networkId `Prelude.seq`
+      Prelude.rnf memberId
 
 instance Data.ToHeaders DeleteMember where
   toHeaders =

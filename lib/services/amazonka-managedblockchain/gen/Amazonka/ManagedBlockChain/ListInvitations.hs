@@ -111,8 +111,8 @@ instance Prelude.Hashable ListInvitations where
 
 instance Prelude.NFData ListInvitations where
   rnf ListInvitations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInvitations where
   toHeaders =
@@ -185,6 +185,6 @@ listInvitationsResponse_httpStatus = Lens.lens (\ListInvitationsResponse' {httpS
 
 instance Prelude.NFData ListInvitationsResponse where
   rnf ListInvitationsResponse' {..} =
-    Prelude.rnf invitations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf invitations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

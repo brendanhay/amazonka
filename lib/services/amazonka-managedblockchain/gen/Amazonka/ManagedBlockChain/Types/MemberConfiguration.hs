@@ -210,12 +210,12 @@ instance Prelude.Hashable MemberConfiguration where
 
 instance Prelude.NFData MemberConfiguration where
   rnf MemberConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf logPublishingConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf frameworkConfiguration
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf kmsKeyArn `Prelude.seq`
+        Prelude.rnf logPublishingConfiguration `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf frameworkConfiguration
 
 instance Data.ToJSON MemberConfiguration where
   toJSON MemberConfiguration' {..} =

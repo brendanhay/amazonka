@@ -105,5 +105,5 @@ instance Prelude.Hashable NodeEthereumAttributes where
 
 instance Prelude.NFData NodeEthereumAttributes where
   rnf NodeEthereumAttributes' {..} =
-    Prelude.rnf httpEndpoint
-      `Prelude.seq` Prelude.rnf webSocketEndpoint
+    Prelude.rnf httpEndpoint `Prelude.seq`
+      Prelude.rnf webSocketEndpoint

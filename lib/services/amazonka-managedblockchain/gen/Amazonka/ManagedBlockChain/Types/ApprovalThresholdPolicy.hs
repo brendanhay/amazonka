@@ -135,9 +135,9 @@ instance Prelude.Hashable ApprovalThresholdPolicy where
 
 instance Prelude.NFData ApprovalThresholdPolicy where
   rnf ApprovalThresholdPolicy' {..} =
-    Prelude.rnf proposalDurationInHours
-      `Prelude.seq` Prelude.rnf thresholdComparator
-      `Prelude.seq` Prelude.rnf thresholdPercentage
+    Prelude.rnf proposalDurationInHours `Prelude.seq`
+      Prelude.rnf thresholdComparator `Prelude.seq`
+        Prelude.rnf thresholdPercentage
 
 instance Data.ToJSON ApprovalThresholdPolicy where
   toJSON ApprovalThresholdPolicy' {..} =

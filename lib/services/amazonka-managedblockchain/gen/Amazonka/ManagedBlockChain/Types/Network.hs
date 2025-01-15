@@ -230,15 +230,15 @@ instance Prelude.Hashable Network where
 
 instance Prelude.NFData Network where
   rnf Network' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf frameworkAttributes
-      `Prelude.seq` Prelude.rnf frameworkVersion
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf votingPolicy
-      `Prelude.seq` Prelude.rnf vpcEndpointServiceName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf framework `Prelude.seq`
+            Prelude.rnf frameworkAttributes `Prelude.seq`
+              Prelude.rnf frameworkVersion `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf votingPolicy `Prelude.seq`
+                          Prelude.rnf vpcEndpointServiceName

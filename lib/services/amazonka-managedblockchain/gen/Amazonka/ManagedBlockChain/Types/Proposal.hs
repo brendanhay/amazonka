@@ -321,17 +321,17 @@ instance Prelude.Hashable Proposal where
 
 instance Prelude.NFData Proposal where
   rnf Proposal' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf noVoteCount
-      `Prelude.seq` Prelude.rnf outstandingVoteCount
-      `Prelude.seq` Prelude.rnf proposalId
-      `Prelude.seq` Prelude.rnf proposedByMemberId
-      `Prelude.seq` Prelude.rnf proposedByMemberName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf yesVoteCount
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf expirationDate `Prelude.seq`
+              Prelude.rnf networkId `Prelude.seq`
+                Prelude.rnf noVoteCount `Prelude.seq`
+                  Prelude.rnf outstandingVoteCount `Prelude.seq`
+                    Prelude.rnf proposalId `Prelude.seq`
+                      Prelude.rnf proposedByMemberId `Prelude.seq`
+                        Prelude.rnf proposedByMemberName `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf yesVoteCount

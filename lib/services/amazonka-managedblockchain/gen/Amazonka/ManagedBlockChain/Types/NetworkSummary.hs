@@ -157,11 +157,11 @@ instance Prelude.Hashable NetworkSummary where
 
 instance Prelude.NFData NetworkSummary where
   rnf NetworkSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf frameworkVersion
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf framework `Prelude.seq`
+            Prelude.rnf frameworkVersion `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status

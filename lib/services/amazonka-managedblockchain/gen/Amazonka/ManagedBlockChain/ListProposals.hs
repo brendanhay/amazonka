@@ -123,9 +123,9 @@ instance Prelude.Hashable ListProposals where
 
 instance Prelude.NFData ListProposals where
   rnf ListProposals' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf networkId
 
 instance Data.ToHeaders ListProposals where
   toHeaders =
@@ -199,6 +199,6 @@ listProposalsResponse_httpStatus = Lens.lens (\ListProposalsResponse' {httpStatu
 
 instance Prelude.NFData ListProposalsResponse where
   rnf ListProposalsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf proposals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf proposals `Prelude.seq`
+        Prelude.rnf httpStatus

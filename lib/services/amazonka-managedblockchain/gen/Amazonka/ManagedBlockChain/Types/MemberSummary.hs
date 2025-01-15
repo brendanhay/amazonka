@@ -249,10 +249,10 @@ instance Prelude.Hashable MemberSummary where
 
 instance Prelude.NFData MemberSummary where
   rnf MemberSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf isOwned
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf isOwned `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status

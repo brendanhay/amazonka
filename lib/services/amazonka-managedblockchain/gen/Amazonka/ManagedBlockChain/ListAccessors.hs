@@ -109,12 +109,12 @@ instance Core.AWSPager ListAccessors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccessors_nextToken
-          Lens..~ rs
-          Lens.^? listAccessorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccessors_nextToken
+              Lens..~ rs
+              Lens.^? listAccessorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccessors where
   type
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListAccessors where
 
 instance Prelude.NFData ListAccessors where
   rnf ListAccessors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAccessors where
   toHeaders =
@@ -215,6 +215,6 @@ listAccessorsResponse_httpStatus = Lens.lens (\ListAccessorsResponse' {httpStatu
 
 instance Prelude.NFData ListAccessorsResponse where
   rnf ListAccessorsResponse' {..} =
-    Prelude.rnf accessors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessors `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

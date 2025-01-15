@@ -82,5 +82,5 @@ instance Prelude.Hashable MemberFabricAttributes where
 
 instance Prelude.NFData MemberFabricAttributes where
   rnf MemberFabricAttributes' {..} =
-    Prelude.rnf adminUsername
-      `Prelude.seq` Prelude.rnf caEndpoint
+    Prelude.rnf adminUsername `Prelude.seq`
+      Prelude.rnf caEndpoint

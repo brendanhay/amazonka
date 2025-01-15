@@ -191,9 +191,9 @@ instance Prelude.Hashable Invitation where
 
 instance Prelude.NFData Invitation where
   rnf Invitation' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf invitationId
-      `Prelude.seq` Prelude.rnf networkSummary
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf expirationDate `Prelude.seq`
+          Prelude.rnf invitationId `Prelude.seq`
+            Prelude.rnf networkSummary `Prelude.seq`
+              Prelude.rnf status

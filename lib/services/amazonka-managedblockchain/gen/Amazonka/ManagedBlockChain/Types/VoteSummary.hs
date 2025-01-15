@@ -94,6 +94,6 @@ instance Prelude.Hashable VoteSummary where
 
 instance Prelude.NFData VoteSummary where
   rnf VoteSummary' {..} =
-    Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf memberName
-      `Prelude.seq` Prelude.rnf vote
+    Prelude.rnf memberId `Prelude.seq`
+      Prelude.rnf memberName `Prelude.seq`
+        Prelude.rnf vote

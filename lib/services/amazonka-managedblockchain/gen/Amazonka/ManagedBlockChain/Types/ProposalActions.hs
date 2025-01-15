@@ -93,8 +93,8 @@ instance Prelude.Hashable ProposalActions where
 
 instance Prelude.NFData ProposalActions where
   rnf ProposalActions' {..} =
-    Prelude.rnf invitations
-      `Prelude.seq` Prelude.rnf removals
+    Prelude.rnf invitations `Prelude.seq`
+      Prelude.rnf removals
 
 instance Data.ToJSON ProposalActions where
   toJSON ProposalActions' {..} =

@@ -110,8 +110,8 @@ instance Prelude.Hashable GetMember where
 
 instance Prelude.NFData GetMember where
   rnf GetMember' {..} =
-    Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf networkId `Prelude.seq`
+      Prelude.rnf memberId
 
 instance Data.ToHeaders GetMember where
   toHeaders =
@@ -176,5 +176,5 @@ getMemberResponse_httpStatus = Lens.lens (\GetMemberResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetMemberResponse where
   rnf GetMemberResponse' {..} =
-    Prelude.rnf member
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf member `Prelude.seq`
+      Prelude.rnf httpStatus

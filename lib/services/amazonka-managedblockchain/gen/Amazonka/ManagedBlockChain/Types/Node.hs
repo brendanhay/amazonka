@@ -385,16 +385,16 @@ instance Prelude.Hashable Node where
 
 instance Prelude.NFData Node where
   rnf Node' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf frameworkAttributes
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf logPublishingConfiguration
-      `Prelude.seq` Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf stateDB
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf availabilityZone `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf frameworkAttributes `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf kmsKeyArn `Prelude.seq`
+                  Prelude.rnf logPublishingConfiguration `Prelude.seq`
+                    Prelude.rnf memberId `Prelude.seq`
+                      Prelude.rnf networkId `Prelude.seq`
+                        Prelude.rnf stateDB `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf tags

@@ -113,10 +113,10 @@ instance Prelude.Hashable NodeConfiguration where
 
 instance Prelude.NFData NodeConfiguration where
   rnf NodeConfiguration' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf logPublishingConfiguration
-      `Prelude.seq` Prelude.rnf stateDB
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf logPublishingConfiguration `Prelude.seq`
+        Prelude.rnf stateDB `Prelude.seq`
+          Prelude.rnf instanceType
 
 instance Data.ToJSON NodeConfiguration where
   toJSON NodeConfiguration' {..} =

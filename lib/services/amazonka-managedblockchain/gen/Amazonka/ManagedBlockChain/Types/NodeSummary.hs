@@ -134,9 +134,9 @@ instance Prelude.Hashable NodeSummary where
 
 instance Prelude.NFData NodeSummary where
   rnf NodeSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf availabilityZone `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf instanceType `Prelude.seq`
+              Prelude.rnf status

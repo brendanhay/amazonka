@@ -159,5 +159,5 @@ getAccessorResponse_httpStatus = Lens.lens (\GetAccessorResponse' {httpStatus} -
 
 instance Prelude.NFData GetAccessorResponse where
   rnf GetAccessorResponse' {..} =
-    Prelude.rnf accessor
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessor `Prelude.seq`
+      Prelude.rnf httpStatus

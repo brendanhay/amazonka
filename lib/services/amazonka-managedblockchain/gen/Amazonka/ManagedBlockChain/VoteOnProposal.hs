@@ -142,10 +142,10 @@ instance Prelude.Hashable VoteOnProposal where
 
 instance Prelude.NFData VoteOnProposal where
   rnf VoteOnProposal' {..} =
-    Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf proposalId
-      `Prelude.seq` Prelude.rnf voterMemberId
-      `Prelude.seq` Prelude.rnf vote
+    Prelude.rnf networkId `Prelude.seq`
+      Prelude.rnf proposalId `Prelude.seq`
+        Prelude.rnf voterMemberId `Prelude.seq`
+          Prelude.rnf vote
 
 instance Data.ToHeaders VoteOnProposal where
   toHeaders =

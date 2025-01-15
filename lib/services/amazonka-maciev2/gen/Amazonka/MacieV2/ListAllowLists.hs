@@ -109,12 +109,12 @@ instance Core.AWSPager ListAllowLists where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAllowLists_nextToken
-          Lens..~ rs
-          Lens.^? listAllowListsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAllowLists_nextToken
+              Lens..~ rs
+              Lens.^? listAllowListsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAllowLists where
   type
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListAllowLists where
 
 instance Prelude.NFData ListAllowLists where
   rnf ListAllowLists' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAllowLists where
   toHeaders =
@@ -219,6 +219,6 @@ listAllowListsResponse_httpStatus = Lens.lens (\ListAllowListsResponse' {httpSta
 
 instance Prelude.NFData ListAllowListsResponse where
   rnf ListAllowListsResponse' {..} =
-    Prelude.rnf allowLists
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf allowLists `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -203,5 +203,5 @@ instance
     PutClassificationExportConfigurationResponse
   where
   rnf PutClassificationExportConfigurationResponse' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf httpStatus

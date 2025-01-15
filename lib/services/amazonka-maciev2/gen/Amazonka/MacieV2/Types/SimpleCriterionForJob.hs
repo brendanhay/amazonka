@@ -158,9 +158,9 @@ instance Prelude.Hashable SimpleCriterionForJob where
 
 instance Prelude.NFData SimpleCriterionForJob where
   rnf SimpleCriterionForJob' {..} =
-    Prelude.rnf comparator
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf comparator `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON SimpleCriterionForJob where
   toJSON SimpleCriterionForJob' {..} =

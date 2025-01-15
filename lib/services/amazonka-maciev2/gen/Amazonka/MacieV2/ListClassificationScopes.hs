@@ -109,12 +109,12 @@ instance Core.AWSPager ListClassificationScopes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listClassificationScopes_nextToken
-          Lens..~ rs
-          Lens.^? listClassificationScopesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listClassificationScopes_nextToken
+              Lens..~ rs
+              Lens.^? listClassificationScopesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClassificationScopes where
   type
@@ -142,8 +142,8 @@ instance Prelude.Hashable ListClassificationScopes where
 
 instance Prelude.NFData ListClassificationScopes where
   rnf ListClassificationScopes' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListClassificationScopes where
   toHeaders =
@@ -226,6 +226,6 @@ instance
     ListClassificationScopesResponse
   where
   rnf ListClassificationScopesResponse' {..} =
-    Prelude.rnf classificationScopes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf classificationScopes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

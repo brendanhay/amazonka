@@ -220,12 +220,12 @@ instance Prelude.Hashable ResourceStatistics where
 
 instance Prelude.NFData ResourceStatistics where
   rnf ResourceStatistics' {..} =
-    Prelude.rnf totalBytesClassified
-      `Prelude.seq` Prelude.rnf totalDetections
-      `Prelude.seq` Prelude.rnf totalDetectionsSuppressed
-      `Prelude.seq` Prelude.rnf totalItemsClassified
-      `Prelude.seq` Prelude.rnf totalItemsSensitive
-      `Prelude.seq` Prelude.rnf totalItemsSkipped
-      `Prelude.seq` Prelude.rnf totalItemsSkippedInvalidEncryption
-      `Prelude.seq` Prelude.rnf totalItemsSkippedInvalidKms
-      `Prelude.seq` Prelude.rnf totalItemsSkippedPermissionDenied
+    Prelude.rnf totalBytesClassified `Prelude.seq`
+      Prelude.rnf totalDetections `Prelude.seq`
+        Prelude.rnf totalDetectionsSuppressed `Prelude.seq`
+          Prelude.rnf totalItemsClassified `Prelude.seq`
+            Prelude.rnf totalItemsSensitive `Prelude.seq`
+              Prelude.rnf totalItemsSkipped `Prelude.seq`
+                Prelude.rnf totalItemsSkippedInvalidEncryption `Prelude.seq`
+                  Prelude.rnf totalItemsSkippedInvalidKms `Prelude.seq`
+                    Prelude.rnf totalItemsSkippedPermissionDenied

@@ -123,8 +123,8 @@ instance Prelude.Hashable FindingsFilterListItem where
 
 instance Prelude.NFData FindingsFilterListItem where
   rnf FindingsFilterListItem' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf tags

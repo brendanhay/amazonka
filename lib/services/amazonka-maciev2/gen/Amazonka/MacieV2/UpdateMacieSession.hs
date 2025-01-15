@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateMacieSession where
 
 instance Prelude.NFData UpdateMacieSession where
   rnf UpdateMacieSession' {..} =
-    Prelude.rnf findingPublishingFrequency
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf findingPublishingFrequency `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToHeaders UpdateMacieSession where
   toHeaders =

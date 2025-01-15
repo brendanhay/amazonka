@@ -92,8 +92,8 @@ instance
 
 instance Prelude.NFData FindingStatisticsSortCriteria where
   rnf FindingStatisticsSortCriteria' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf orderBy
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf orderBy
 
 instance Data.ToJSON FindingStatisticsSortCriteria where
   toJSON FindingStatisticsSortCriteria' {..} =

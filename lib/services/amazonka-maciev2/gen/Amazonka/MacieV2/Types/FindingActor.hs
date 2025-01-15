@@ -107,6 +107,6 @@ instance Prelude.Hashable FindingActor where
 
 instance Prelude.NFData FindingActor where
   rnf FindingActor' {..} =
-    Prelude.rnf domainDetails
-      `Prelude.seq` Prelude.rnf ipAddressDetails
-      `Prelude.seq` Prelude.rnf userIdentity
+    Prelude.rnf domainDetails `Prelude.seq`
+      Prelude.rnf ipAddressDetails `Prelude.seq`
+        Prelude.rnf userIdentity

@@ -133,6 +133,6 @@ instance Prelude.Hashable ResourceProfileArtifact where
 
 instance Prelude.NFData ResourceProfileArtifact where
   rnf ResourceProfileArtifact' {..} =
-    Prelude.rnf sensitive
-      `Prelude.seq` Prelude.rnf classificationResultStatus
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf sensitive `Prelude.seq`
+      Prelude.rnf classificationResultStatus `Prelude.seq`
+        Prelude.rnf arn

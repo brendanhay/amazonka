@@ -129,8 +129,8 @@ instance Prelude.Hashable FederatedUser where
 
 instance Prelude.NFData FederatedUser where
   rnf FederatedUser' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf sessionContext
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf principalId `Prelude.seq`
+            Prelude.rnf sessionContext

@@ -133,9 +133,9 @@ instance Prelude.Hashable S3JobDefinition where
 
 instance Prelude.NFData S3JobDefinition where
   rnf S3JobDefinition' {..} =
-    Prelude.rnf bucketCriteria
-      `Prelude.seq` Prelude.rnf bucketDefinitions
-      `Prelude.seq` Prelude.rnf scoping
+    Prelude.rnf bucketCriteria `Prelude.seq`
+      Prelude.rnf bucketDefinitions `Prelude.seq`
+        Prelude.rnf scoping
 
 instance Data.ToJSON S3JobDefinition where
   toJSON S3JobDefinition' {..} =

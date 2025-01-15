@@ -170,10 +170,10 @@ instance Prelude.Hashable GetFindingStatistics where
 
 instance Prelude.NFData GetFindingStatistics where
   rnf GetFindingStatistics' {..} =
-    Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf sortCriteria
-      `Prelude.seq` Prelude.rnf groupBy
+    Prelude.rnf findingCriteria `Prelude.seq`
+      Prelude.rnf size `Prelude.seq`
+        Prelude.rnf sortCriteria `Prelude.seq`
+          Prelude.rnf groupBy
 
 instance Data.ToHeaders GetFindingStatistics where
   toHeaders =
@@ -248,5 +248,5 @@ getFindingStatisticsResponse_httpStatus = Lens.lens (\GetFindingStatisticsRespon
 
 instance Prelude.NFData GetFindingStatisticsResponse where
   rnf GetFindingStatisticsResponse' {..} =
-    Prelude.rnf countsByGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf countsByGroup `Prelude.seq`
+      Prelude.rnf httpStatus

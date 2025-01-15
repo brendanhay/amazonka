@@ -119,8 +119,8 @@ instance Prelude.Hashable UpdateResourceProfile where
 
 instance Prelude.NFData UpdateResourceProfile where
   rnf UpdateResourceProfile' {..} =
-    Prelude.rnf sensitivityScoreOverride
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf sensitivityScoreOverride `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders UpdateResourceProfile where
   toHeaders =

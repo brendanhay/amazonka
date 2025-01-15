@@ -180,11 +180,11 @@ instance Prelude.Hashable CreateAllowList where
 
 instance Prelude.NFData CreateAllowList where
   rnf CreateAllowList' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf criteria
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf criteria `Prelude.seq`
+          Prelude.rnf clientToken `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateAllowList where
   toHeaders =
@@ -264,6 +264,6 @@ createAllowListResponse_httpStatus = Lens.lens (\CreateAllowListResponse' {httpS
 
 instance Prelude.NFData CreateAllowListResponse where
   rnf CreateAllowListResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

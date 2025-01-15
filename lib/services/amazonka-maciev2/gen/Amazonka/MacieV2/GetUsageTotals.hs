@@ -184,6 +184,6 @@ getUsageTotalsResponse_httpStatus = Lens.lens (\GetUsageTotalsResponse' {httpSta
 
 instance Prelude.NFData GetUsageTotalsResponse where
   rnf GetUsageTotalsResponse' {..} =
-    Prelude.rnf timeRange
-      `Prelude.seq` Prelude.rnf usageTotals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf timeRange `Prelude.seq`
+      Prelude.rnf usageTotals `Prelude.seq`
+        Prelude.rnf httpStatus

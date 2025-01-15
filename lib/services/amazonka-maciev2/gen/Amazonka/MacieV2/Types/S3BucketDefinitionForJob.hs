@@ -87,8 +87,8 @@ instance Prelude.Hashable S3BucketDefinitionForJob where
 
 instance Prelude.NFData S3BucketDefinitionForJob where
   rnf S3BucketDefinitionForJob' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf buckets
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf buckets
 
 instance Data.ToJSON S3BucketDefinitionForJob where
   toJSON S3BucketDefinitionForJob' {..} =

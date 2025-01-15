@@ -89,8 +89,8 @@ instance Prelude.Hashable S3BucketCriteriaForJob where
 
 instance Prelude.NFData S3BucketCriteriaForJob where
   rnf S3BucketCriteriaForJob' {..} =
-    Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf includes
+    Prelude.rnf excludes `Prelude.seq`
+      Prelude.rnf includes
 
 instance Data.ToJSON S3BucketCriteriaForJob where
   toJSON S3BucketCriteriaForJob' {..} =

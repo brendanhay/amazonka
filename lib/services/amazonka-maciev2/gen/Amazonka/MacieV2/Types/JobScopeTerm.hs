@@ -91,8 +91,8 @@ instance Prelude.Hashable JobScopeTerm where
 
 instance Prelude.NFData JobScopeTerm where
   rnf JobScopeTerm' {..} =
-    Prelude.rnf simpleScopeTerm
-      `Prelude.seq` Prelude.rnf tagScopeTerm
+    Prelude.rnf simpleScopeTerm `Prelude.seq`
+      Prelude.rnf tagScopeTerm
 
 instance Data.ToJSON JobScopeTerm where
   toJSON JobScopeTerm' {..} =

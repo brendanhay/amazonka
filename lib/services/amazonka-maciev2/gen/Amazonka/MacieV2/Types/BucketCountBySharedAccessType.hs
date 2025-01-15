@@ -122,7 +122,7 @@ instance
 
 instance Prelude.NFData BucketCountBySharedAccessType where
   rnf BucketCountBySharedAccessType' {..} =
-    Prelude.rnf external
-      `Prelude.seq` Prelude.rnf internal
-      `Prelude.seq` Prelude.rnf notShared
-      `Prelude.seq` Prelude.rnf unknown
+    Prelude.rnf external `Prelude.seq`
+      Prelude.rnf internal `Prelude.seq`
+        Prelude.rnf notShared `Prelude.seq`
+          Prelude.rnf unknown

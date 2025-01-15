@@ -128,7 +128,7 @@ instance Prelude.Hashable UsageRecord where
 
 instance Prelude.NFData UsageRecord where
   rnf UsageRecord' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf automatedDiscoveryFreeTrialStartDate
-      `Prelude.seq` Prelude.rnf freeTrialStartDate
-      `Prelude.seq` Prelude.rnf usage
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf automatedDiscoveryFreeTrialStartDate `Prelude.seq`
+        Prelude.rnf freeTrialStartDate `Prelude.seq`
+          Prelude.rnf usage

@@ -85,8 +85,8 @@ instance Prelude.Hashable S3WordsList where
 
 instance Prelude.NFData S3WordsList where
   rnf S3WordsList' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf objectKey
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf objectKey
 
 instance Data.ToJSON S3WordsList where
   toJSON S3WordsList' {..} =

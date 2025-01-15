@@ -225,5 +225,5 @@ instance Prelude.Hashable AllowListStatus where
 
 instance Prelude.NFData AllowListStatus where
   rnf AllowListStatus' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf code

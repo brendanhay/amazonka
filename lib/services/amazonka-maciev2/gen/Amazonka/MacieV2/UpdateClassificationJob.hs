@@ -195,8 +195,8 @@ instance Prelude.Hashable UpdateClassificationJob where
 
 instance Prelude.NFData UpdateClassificationJob where
   rnf UpdateClassificationJob' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf jobStatus
 
 instance Data.ToHeaders UpdateClassificationJob where
   toHeaders =

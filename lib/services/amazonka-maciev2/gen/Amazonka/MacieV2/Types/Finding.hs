@@ -313,21 +313,21 @@ instance Prelude.Hashable Finding where
 
 instance Prelude.NFData Finding where
   rnf Finding' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf archived
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf classificationDetails
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf partition
-      `Prelude.seq` Prelude.rnf policyDetails
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resourcesAffected
-      `Prelude.seq` Prelude.rnf sample
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf archived `Prelude.seq`
+        Prelude.rnf category `Prelude.seq`
+          Prelude.rnf classificationDetails `Prelude.seq`
+            Prelude.rnf count `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf partition `Prelude.seq`
+                      Prelude.rnf policyDetails `Prelude.seq`
+                        Prelude.rnf region `Prelude.seq`
+                          Prelude.rnf resourcesAffected `Prelude.seq`
+                            Prelude.rnf sample `Prelude.seq`
+                              Prelude.rnf schemaVersion `Prelude.seq`
+                                Prelude.rnf severity `Prelude.seq`
+                                  Prelude.rnf title `Prelude.seq`
+                                    Prelude.rnf type' `Prelude.seq`
+                                      Prelude.rnf updatedAt

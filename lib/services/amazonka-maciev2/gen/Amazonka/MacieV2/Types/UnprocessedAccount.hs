@@ -96,6 +96,6 @@ instance Prelude.Hashable UnprocessedAccount where
 
 instance Prelude.NFData UnprocessedAccount where
   rnf UnprocessedAccount' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage

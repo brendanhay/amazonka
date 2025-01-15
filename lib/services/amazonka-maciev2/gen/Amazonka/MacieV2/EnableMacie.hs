@@ -126,9 +126,9 @@ instance Prelude.Hashable EnableMacie where
 
 instance Prelude.NFData EnableMacie where
   rnf EnableMacie' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf findingPublishingFrequency
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf findingPublishingFrequency `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders EnableMacie where
   toHeaders =

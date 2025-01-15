@@ -95,5 +95,5 @@ instance Prelude.Hashable FindingAction where
 
 instance Prelude.NFData FindingAction where
   rnf FindingAction' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf apiCallDetails
+    Prelude.rnf actionType `Prelude.seq`
+      Prelude.rnf apiCallDetails

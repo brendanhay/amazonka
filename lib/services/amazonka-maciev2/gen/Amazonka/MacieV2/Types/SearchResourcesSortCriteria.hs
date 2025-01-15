@@ -84,8 +84,8 @@ instance Prelude.Hashable SearchResourcesSortCriteria where
 
 instance Prelude.NFData SearchResourcesSortCriteria where
   rnf SearchResourcesSortCriteria' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf orderBy
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf orderBy
 
 instance Data.ToJSON SearchResourcesSortCriteria where
   toJSON SearchResourcesSortCriteria' {..} =

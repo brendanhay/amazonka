@@ -107,8 +107,8 @@ instance Prelude.Hashable SeverityLevel where
 
 instance Prelude.NFData SeverityLevel where
   rnf SeverityLevel' {..} =
-    Prelude.rnf occurrencesThreshold
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf occurrencesThreshold `Prelude.seq`
+      Prelude.rnf severity
 
 instance Data.ToJSON SeverityLevel where
   toJSON SeverityLevel' {..} =

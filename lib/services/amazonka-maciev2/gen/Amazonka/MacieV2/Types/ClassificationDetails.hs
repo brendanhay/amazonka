@@ -147,8 +147,8 @@ instance Prelude.Hashable ClassificationDetails where
 
 instance Prelude.NFData ClassificationDetails where
   rnf ClassificationDetails' {..} =
-    Prelude.rnf detailedResultsLocation
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf originType
-      `Prelude.seq` Prelude.rnf result
+    Prelude.rnf detailedResultsLocation `Prelude.seq`
+      Prelude.rnf jobArn `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf originType `Prelude.seq`
+            Prelude.rnf result

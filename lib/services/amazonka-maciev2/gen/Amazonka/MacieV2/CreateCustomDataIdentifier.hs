@@ -327,15 +327,15 @@ instance Prelude.Hashable CreateCustomDataIdentifier where
 
 instance Prelude.NFData CreateCustomDataIdentifier where
   rnf CreateCustomDataIdentifier' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ignoreWords
-      `Prelude.seq` Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf maximumMatchDistance
-      `Prelude.seq` Prelude.rnf severityLevels
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf ignoreWords `Prelude.seq`
+          Prelude.rnf keywords `Prelude.seq`
+            Prelude.rnf maximumMatchDistance `Prelude.seq`
+              Prelude.rnf severityLevels `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf regex `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders CreateCustomDataIdentifier where
   toHeaders =
@@ -416,5 +416,5 @@ instance
     CreateCustomDataIdentifierResponse
   where
   rnf CreateCustomDataIdentifierResponse' {..} =
-    Prelude.rnf customDataIdentifierId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customDataIdentifierId `Prelude.seq`
+      Prelude.rnf httpStatus

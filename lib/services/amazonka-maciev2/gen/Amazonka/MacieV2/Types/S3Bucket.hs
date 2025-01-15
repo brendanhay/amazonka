@@ -218,11 +218,11 @@ instance Prelude.Hashable S3Bucket where
 
 instance Prelude.NFData S3Bucket where
   rnf S3Bucket' {..} =
-    Prelude.rnf allowsUnencryptedObjectUploads
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf defaultServerSideEncryption
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf publicAccess
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf allowsUnencryptedObjectUploads `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf defaultServerSideEncryption `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf publicAccess `Prelude.seq`
+                  Prelude.rnf tags

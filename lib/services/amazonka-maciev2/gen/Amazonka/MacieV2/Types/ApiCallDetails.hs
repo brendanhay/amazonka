@@ -115,7 +115,7 @@ instance Prelude.Hashable ApiCallDetails where
 
 instance Prelude.NFData ApiCallDetails where
   rnf ApiCallDetails' {..} =
-    Prelude.rnf api
-      `Prelude.seq` Prelude.rnf apiServiceName
-      `Prelude.seq` Prelude.rnf firstSeen
-      `Prelude.seq` Prelude.rnf lastSeen
+    Prelude.rnf api `Prelude.seq`
+      Prelude.rnf apiServiceName `Prelude.seq`
+        Prelude.rnf firstSeen `Prelude.seq`
+          Prelude.rnf lastSeen

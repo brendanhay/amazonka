@@ -133,8 +133,8 @@ instance Prelude.Hashable DeleteAllowList where
 
 instance Prelude.NFData DeleteAllowList where
   rnf DeleteAllowList' {..} =
-    Prelude.rnf ignoreJobChecks
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ignoreJobChecks `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeleteAllowList where
   toHeaders =

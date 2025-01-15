@@ -121,8 +121,8 @@ instance Prelude.Hashable IpAddressDetails where
 
 instance Prelude.NFData IpAddressDetails where
   rnf IpAddressDetails' {..} =
-    Prelude.rnf ipAddressV4
-      `Prelude.seq` Prelude.rnf ipCity
-      `Prelude.seq` Prelude.rnf ipCountry
-      `Prelude.seq` Prelude.rnf ipGeoLocation
-      `Prelude.seq` Prelude.rnf ipOwner
+    Prelude.rnf ipAddressV4 `Prelude.seq`
+      Prelude.rnf ipCity `Prelude.seq`
+        Prelude.rnf ipCountry `Prelude.seq`
+          Prelude.rnf ipGeoLocation `Prelude.seq`
+            Prelude.rnf ipOwner

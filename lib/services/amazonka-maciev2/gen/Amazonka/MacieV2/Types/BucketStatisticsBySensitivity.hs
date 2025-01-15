@@ -122,7 +122,7 @@ instance
 
 instance Prelude.NFData BucketStatisticsBySensitivity where
   rnf BucketStatisticsBySensitivity' {..} =
-    Prelude.rnf classificationError
-      `Prelude.seq` Prelude.rnf notClassified
-      `Prelude.seq` Prelude.rnf notSensitive
-      `Prelude.seq` Prelude.rnf sensitive
+    Prelude.rnf classificationError `Prelude.seq`
+      Prelude.rnf notClassified `Prelude.seq`
+        Prelude.rnf notSensitive `Prelude.seq`
+          Prelude.rnf sensitive

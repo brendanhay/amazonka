@@ -113,12 +113,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSensitivityInspectionTemplates_nextToken
-          Lens..~ rs
-          Lens.^? listSensitivityInspectionTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSensitivityInspectionTemplates_nextToken
+              Lens..~ rs
+              Lens.^? listSensitivityInspectionTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -157,8 +157,8 @@ instance
     ListSensitivityInspectionTemplates
   where
   rnf ListSensitivityInspectionTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -255,6 +255,6 @@ instance
     ListSensitivityInspectionTemplatesResponse
   where
   rnf ListSensitivityInspectionTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sensitivityInspectionTemplates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sensitivityInspectionTemplates `Prelude.seq`
+        Prelude.rnf httpStatus

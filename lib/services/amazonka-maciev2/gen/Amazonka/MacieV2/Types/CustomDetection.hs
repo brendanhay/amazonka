@@ -114,7 +114,7 @@ instance Prelude.Hashable CustomDetection where
 
 instance Prelude.NFData CustomDetection where
   rnf CustomDetection' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf occurrences
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf occurrences

@@ -137,8 +137,8 @@ instance Prelude.Hashable ObjectCountByEncryptionType where
 
 instance Prelude.NFData ObjectCountByEncryptionType where
   rnf ObjectCountByEncryptionType' {..} =
-    Prelude.rnf customerManaged
-      `Prelude.seq` Prelude.rnf kmsManaged
-      `Prelude.seq` Prelude.rnf s3Managed
-      `Prelude.seq` Prelude.rnf unencrypted
-      `Prelude.seq` Prelude.rnf unknown
+    Prelude.rnf customerManaged `Prelude.seq`
+      Prelude.rnf kmsManaged `Prelude.seq`
+        Prelude.rnf s3Managed `Prelude.seq`
+          Prelude.rnf unencrypted `Prelude.seq`
+            Prelude.rnf unknown

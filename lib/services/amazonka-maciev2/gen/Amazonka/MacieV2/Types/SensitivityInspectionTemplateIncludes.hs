@@ -142,9 +142,9 @@ instance
     SensitivityInspectionTemplateIncludes
   where
   rnf SensitivityInspectionTemplateIncludes' {..} =
-    Prelude.rnf allowListIds
-      `Prelude.seq` Prelude.rnf customDataIdentifierIds
-      `Prelude.seq` Prelude.rnf managedDataIdentifierIds
+    Prelude.rnf allowListIds `Prelude.seq`
+      Prelude.rnf customDataIdentifierIds `Prelude.seq`
+        Prelude.rnf managedDataIdentifierIds
 
 instance
   Data.ToJSON

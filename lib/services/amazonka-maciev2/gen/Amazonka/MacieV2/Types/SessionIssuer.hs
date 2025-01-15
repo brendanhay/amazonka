@@ -132,8 +132,8 @@ instance Prelude.Hashable SessionIssuer where
 
 instance Prelude.NFData SessionIssuer where
   rnf SessionIssuer' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf principalId `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf userName

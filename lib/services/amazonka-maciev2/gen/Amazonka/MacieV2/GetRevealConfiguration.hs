@@ -144,5 +144,5 @@ instance
     GetRevealConfigurationResponse
   where
   rnf GetRevealConfigurationResponse' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -189,11 +189,11 @@ instance Prelude.Hashable TestCustomDataIdentifier where
 
 instance Prelude.NFData TestCustomDataIdentifier where
   rnf TestCustomDataIdentifier' {..} =
-    Prelude.rnf ignoreWords
-      `Prelude.seq` Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf maximumMatchDistance
-      `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf sampleText
+    Prelude.rnf ignoreWords `Prelude.seq`
+      Prelude.rnf keywords `Prelude.seq`
+        Prelude.rnf maximumMatchDistance `Prelude.seq`
+          Prelude.rnf regex `Prelude.seq`
+            Prelude.rnf sampleText
 
 instance Data.ToHeaders TestCustomDataIdentifier where
   toHeaders =
@@ -273,5 +273,5 @@ instance
     TestCustomDataIdentifierResponse
   where
   rnf TestCustomDataIdentifierResponse' {..} =
-    Prelude.rnf matchCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf matchCount `Prelude.seq`
+      Prelude.rnf httpStatus

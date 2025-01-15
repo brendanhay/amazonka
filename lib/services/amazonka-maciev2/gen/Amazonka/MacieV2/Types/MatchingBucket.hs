@@ -364,19 +364,19 @@ instance Prelude.Hashable MatchingBucket where
 
 instance Prelude.NFData MatchingBucket where
   rnf MatchingBucket' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf classifiableObjectCount
-      `Prelude.seq` Prelude.rnf classifiableSizeInBytes
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf jobDetails
-      `Prelude.seq` Prelude.rnf lastAutomatedDiscoveryTime
-      `Prelude.seq` Prelude.rnf objectCount
-      `Prelude.seq` Prelude.rnf objectCountByEncryptionType
-      `Prelude.seq` Prelude.rnf sensitivityScore
-      `Prelude.seq` Prelude.rnf sizeInBytes
-      `Prelude.seq` Prelude.rnf sizeInBytesCompressed
-      `Prelude.seq` Prelude.rnf unclassifiableObjectCount
-      `Prelude.seq` Prelude.rnf
-        unclassifiableObjectSizeInBytes
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf classifiableObjectCount `Prelude.seq`
+          Prelude.rnf classifiableSizeInBytes `Prelude.seq`
+            Prelude.rnf errorCode `Prelude.seq`
+              Prelude.rnf errorMessage `Prelude.seq`
+                Prelude.rnf jobDetails `Prelude.seq`
+                  Prelude.rnf lastAutomatedDiscoveryTime `Prelude.seq`
+                    Prelude.rnf objectCount `Prelude.seq`
+                      Prelude.rnf objectCountByEncryptionType `Prelude.seq`
+                        Prelude.rnf sensitivityScore `Prelude.seq`
+                          Prelude.rnf sizeInBytes `Prelude.seq`
+                            Prelude.rnf sizeInBytesCompressed `Prelude.seq`
+                              Prelude.rnf unclassifiableObjectCount `Prelude.seq`
+                                Prelude.rnf
+                                  unclassifiableObjectSizeInBytes

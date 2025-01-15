@@ -127,5 +127,5 @@ instance Prelude.Hashable Record where
 
 instance Prelude.NFData Record where
   rnf Record' {..} =
-    Prelude.rnf jsonPath
-      `Prelude.seq` Prelude.rnf recordIndex
+    Prelude.rnf jsonPath `Prelude.seq`
+      Prelude.rnf recordIndex

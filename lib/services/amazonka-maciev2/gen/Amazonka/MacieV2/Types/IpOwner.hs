@@ -114,7 +114,7 @@ instance Prelude.Hashable IpOwner where
 
 instance Prelude.NFData IpOwner where
   rnf IpOwner' {..} =
-    Prelude.rnf asn
-      `Prelude.seq` Prelude.rnf asnOrg
-      `Prelude.seq` Prelude.rnf isp
-      `Prelude.seq` Prelude.rnf org
+    Prelude.rnf asn `Prelude.seq`
+      Prelude.rnf asnOrg `Prelude.seq`
+        Prelude.rnf isp `Prelude.seq`
+          Prelude.rnf org

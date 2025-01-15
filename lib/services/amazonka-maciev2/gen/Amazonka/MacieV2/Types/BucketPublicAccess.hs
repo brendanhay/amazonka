@@ -111,5 +111,5 @@ instance Prelude.Hashable BucketPublicAccess where
 
 instance Prelude.NFData BucketPublicAccess where
   rnf BucketPublicAccess' {..} =
-    Prelude.rnf effectivePermission
-      `Prelude.seq` Prelude.rnf permissionConfiguration
+    Prelude.rnf effectivePermission `Prelude.seq`
+      Prelude.rnf permissionConfiguration

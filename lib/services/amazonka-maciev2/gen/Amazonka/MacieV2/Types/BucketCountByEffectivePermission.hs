@@ -131,7 +131,7 @@ instance
     BucketCountByEffectivePermission
   where
   rnf BucketCountByEffectivePermission' {..} =
-    Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf publiclyReadable
-      `Prelude.seq` Prelude.rnf publiclyWritable
-      `Prelude.seq` Prelude.rnf unknown
+    Prelude.rnf publiclyAccessible `Prelude.seq`
+      Prelude.rnf publiclyReadable `Prelude.seq`
+        Prelude.rnf publiclyWritable `Prelude.seq`
+          Prelude.rnf unknown

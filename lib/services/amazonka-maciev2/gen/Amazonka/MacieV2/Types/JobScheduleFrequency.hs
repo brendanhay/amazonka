@@ -95,9 +95,9 @@ instance Prelude.Hashable JobScheduleFrequency where
 
 instance Prelude.NFData JobScheduleFrequency where
   rnf JobScheduleFrequency' {..} =
-    Prelude.rnf dailySchedule
-      `Prelude.seq` Prelude.rnf monthlySchedule
-      `Prelude.seq` Prelude.rnf weeklySchedule
+    Prelude.rnf dailySchedule `Prelude.seq`
+      Prelude.rnf monthlySchedule `Prelude.seq`
+        Prelude.rnf weeklySchedule
 
 instance Data.ToJSON JobScheduleFrequency where
   toJSON JobScheduleFrequency' {..} =

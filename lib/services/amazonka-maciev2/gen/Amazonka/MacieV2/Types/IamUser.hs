@@ -112,7 +112,7 @@ instance Prelude.Hashable IamUser where
 
 instance Prelude.NFData IamUser where
   rnf IamUser' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf principalId `Prelude.seq`
+          Prelude.rnf userName

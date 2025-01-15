@@ -273,10 +273,10 @@ instance
     GetAutomatedDiscoveryConfigurationResponse
   where
   rnf GetAutomatedDiscoveryConfigurationResponse' {..} =
-    Prelude.rnf classificationScopeId
-      `Prelude.seq` Prelude.rnf disabledAt
-      `Prelude.seq` Prelude.rnf firstEnabledAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf sensitivityInspectionTemplateId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf classificationScopeId `Prelude.seq`
+      Prelude.rnf disabledAt `Prelude.seq`
+        Prelude.rnf firstEnabledAt `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf sensitivityInspectionTemplateId `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

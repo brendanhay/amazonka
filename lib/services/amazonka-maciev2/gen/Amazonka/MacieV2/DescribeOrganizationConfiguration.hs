@@ -179,6 +179,6 @@ instance
     DescribeOrganizationConfigurationResponse
   where
   rnf DescribeOrganizationConfigurationResponse' {..} =
-    Prelude.rnf autoEnable
-      `Prelude.seq` Prelude.rnf maxAccountLimitReached
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoEnable `Prelude.seq`
+      Prelude.rnf maxAccountLimitReached `Prelude.seq`
+        Prelude.rnf httpStatus

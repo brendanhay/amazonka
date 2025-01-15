@@ -183,12 +183,12 @@ instance Prelude.Hashable Member where
 
 instance Prelude.NFData Member where
   rnf Member' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf administratorAccountId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf invitedAt
-      `Prelude.seq` Prelude.rnf masterAccountId
-      `Prelude.seq` Prelude.rnf relationshipStatus
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf administratorAccountId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf email `Prelude.seq`
+            Prelude.rnf invitedAt `Prelude.seq`
+              Prelude.rnf masterAccountId `Prelude.seq`
+                Prelude.rnf relationshipStatus `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf updatedAt

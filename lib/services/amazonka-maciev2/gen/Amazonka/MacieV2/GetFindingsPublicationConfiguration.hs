@@ -165,5 +165,5 @@ instance
     GetFindingsPublicationConfigurationResponse
   where
   rnf GetFindingsPublicationConfigurationResponse' {..} =
-    Prelude.rnf securityHubConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityHubConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

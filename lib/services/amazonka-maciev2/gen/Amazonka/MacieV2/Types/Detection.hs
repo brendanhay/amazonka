@@ -163,9 +163,9 @@ instance Prelude.Hashable Detection where
 
 instance Prelude.NFData Detection where
   rnf Detection' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf suppressed
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf suppressed `Prelude.seq`
+              Prelude.rnf type'

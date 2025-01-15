@@ -104,6 +104,6 @@ instance Prelude.Hashable Range where
 
 instance Prelude.NFData Range where
   rnf Range' {..} =
-    Prelude.rnf end
-      `Prelude.seq` Prelude.rnf start
-      `Prelude.seq` Prelude.rnf startColumn
+    Prelude.rnf end `Prelude.seq`
+      Prelude.rnf start `Prelude.seq`
+        Prelude.rnf startColumn

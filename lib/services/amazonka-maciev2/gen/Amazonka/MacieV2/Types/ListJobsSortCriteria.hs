@@ -83,8 +83,8 @@ instance Prelude.Hashable ListJobsSortCriteria where
 
 instance Prelude.NFData ListJobsSortCriteria where
   rnf ListJobsSortCriteria' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf orderBy
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf orderBy
 
 instance Data.ToJSON ListJobsSortCriteria where
   toJSON ListJobsSortCriteria' {..} =

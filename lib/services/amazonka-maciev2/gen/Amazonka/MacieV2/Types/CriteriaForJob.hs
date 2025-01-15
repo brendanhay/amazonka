@@ -92,8 +92,8 @@ instance Prelude.Hashable CriteriaForJob where
 
 instance Prelude.NFData CriteriaForJob where
   rnf CriteriaForJob' {..} =
-    Prelude.rnf simpleCriterion
-      `Prelude.seq` Prelude.rnf tagCriterion
+    Prelude.rnf simpleCriterion `Prelude.seq`
+      Prelude.rnf tagCriterion
 
 instance Data.ToJSON CriteriaForJob where
   toJSON CriteriaForJob' {..} =

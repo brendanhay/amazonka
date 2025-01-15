@@ -112,12 +112,12 @@ instance Core.AWSPager ListResourceProfileArtifacts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceProfileArtifacts_nextToken
-          Lens..~ rs
-          Lens.^? listResourceProfileArtifactsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceProfileArtifacts_nextToken
+              Lens..~ rs
+              Lens.^? listResourceProfileArtifactsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceProfileArtifacts where
   type
@@ -145,8 +145,8 @@ instance
 
 instance Prelude.NFData ListResourceProfileArtifacts where
   rnf ListResourceProfileArtifacts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders ListResourceProfileArtifacts where
   toHeaders =
@@ -231,6 +231,6 @@ instance
     ListResourceProfileArtifactsResponse
   where
   rnf ListResourceProfileArtifactsResponse' {..} =
-    Prelude.rnf artifacts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifacts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

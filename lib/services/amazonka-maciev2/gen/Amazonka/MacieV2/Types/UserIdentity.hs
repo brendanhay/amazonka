@@ -173,10 +173,10 @@ instance Prelude.Hashable UserIdentity where
 
 instance Prelude.NFData UserIdentity where
   rnf UserIdentity' {..} =
-    Prelude.rnf assumedRole
-      `Prelude.seq` Prelude.rnf awsAccount
-      `Prelude.seq` Prelude.rnf awsService
-      `Prelude.seq` Prelude.rnf federatedUser
-      `Prelude.seq` Prelude.rnf iamUser
-      `Prelude.seq` Prelude.rnf root
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf assumedRole `Prelude.seq`
+      Prelude.rnf awsAccount `Prelude.seq`
+        Prelude.rnf awsService `Prelude.seq`
+          Prelude.rnf federatedUser `Prelude.seq`
+            Prelude.rnf iamUser `Prelude.seq`
+              Prelude.rnf root `Prelude.seq`
+                Prelude.rnf type'

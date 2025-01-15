@@ -128,7 +128,7 @@ instance Prelude.Hashable BucketCountByEncryptionType where
 
 instance Prelude.NFData BucketCountByEncryptionType where
   rnf BucketCountByEncryptionType' {..} =
-    Prelude.rnf kmsManaged
-      `Prelude.seq` Prelude.rnf s3Managed
-      `Prelude.seq` Prelude.rnf unencrypted
-      `Prelude.seq` Prelude.rnf unknown
+    Prelude.rnf kmsManaged `Prelude.seq`
+      Prelude.rnf s3Managed `Prelude.seq`
+        Prelude.rnf unencrypted `Prelude.seq`
+          Prelude.rnf unknown

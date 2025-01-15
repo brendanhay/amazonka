@@ -105,6 +105,6 @@ instance Prelude.Hashable DefaultDetection where
 
 instance Prelude.NFData DefaultDetection where
   rnf DefaultDetection' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf occurrences
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf occurrences `Prelude.seq`
+        Prelude.rnf type'

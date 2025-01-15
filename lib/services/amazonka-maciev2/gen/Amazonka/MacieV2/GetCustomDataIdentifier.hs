@@ -339,16 +339,16 @@ instance
     GetCustomDataIdentifierResponse
   where
   rnf GetCustomDataIdentifierResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deleted
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf ignoreWords
-      `Prelude.seq` Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf maximumMatchDistance
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf severityLevels
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf deleted `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf ignoreWords `Prelude.seq`
+                Prelude.rnf keywords `Prelude.seq`
+                  Prelude.rnf maximumMatchDistance `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf regex `Prelude.seq`
+                        Prelude.rnf severityLevels `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf httpStatus

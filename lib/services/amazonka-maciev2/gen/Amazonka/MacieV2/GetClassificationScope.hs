@@ -186,7 +186,7 @@ instance
     GetClassificationScopeResponse
   where
   rnf GetClassificationScopeResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf s3 `Prelude.seq`
+          Prelude.rnf httpStatus

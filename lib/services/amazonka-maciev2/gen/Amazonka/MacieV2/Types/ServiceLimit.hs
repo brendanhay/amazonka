@@ -98,6 +98,6 @@ instance Prelude.Hashable ServiceLimit where
 
 instance Prelude.NFData ServiceLimit where
   rnf ServiceLimit' {..} =
-    Prelude.rnf isServiceLimited
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf isServiceLimited `Prelude.seq`
+      Prelude.rnf unit `Prelude.seq`
+        Prelude.rnf value

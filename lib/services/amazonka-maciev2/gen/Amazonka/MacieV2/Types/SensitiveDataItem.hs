@@ -118,6 +118,6 @@ instance Prelude.Hashable SensitiveDataItem where
 
 instance Prelude.NFData SensitiveDataItem where
   rnf SensitiveDataItem' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf detections
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf detections `Prelude.seq`
+        Prelude.rnf totalCount

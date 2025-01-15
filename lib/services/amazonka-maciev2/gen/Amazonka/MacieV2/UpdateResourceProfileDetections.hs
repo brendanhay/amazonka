@@ -130,8 +130,8 @@ instance
     UpdateResourceProfileDetections
   where
   rnf UpdateResourceProfileDetections' {..} =
-    Prelude.rnf suppressDataIdentifiers
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf suppressDataIdentifiers `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance
   Data.ToHeaders

@@ -90,5 +90,5 @@ instance Prelude.Hashable CustomDataIdentifiers where
 
 instance Prelude.NFData CustomDataIdentifiers where
   rnf CustomDataIdentifiers' {..} =
-    Prelude.rnf detections
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf detections `Prelude.seq`
+      Prelude.rnf totalCount

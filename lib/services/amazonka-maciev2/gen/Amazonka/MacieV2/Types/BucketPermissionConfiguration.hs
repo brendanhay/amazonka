@@ -87,5 +87,5 @@ instance
 
 instance Prelude.NFData BucketPermissionConfiguration where
   rnf BucketPermissionConfiguration' {..} =
-    Prelude.rnf accountLevelPermissions
-      `Prelude.seq` Prelude.rnf bucketLevelPermissions
+    Prelude.rnf accountLevelPermissions `Prelude.seq`
+      Prelude.rnf bucketLevelPermissions

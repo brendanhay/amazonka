@@ -266,13 +266,13 @@ getMemberResponse_httpStatus = Lens.lens (\GetMemberResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetMemberResponse where
   rnf GetMemberResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf administratorAccountId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf invitedAt
-      `Prelude.seq` Prelude.rnf masterAccountId
-      `Prelude.seq` Prelude.rnf relationshipStatus
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf administratorAccountId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf email `Prelude.seq`
+            Prelude.rnf invitedAt `Prelude.seq`
+              Prelude.rnf masterAccountId `Prelude.seq`
+                Prelude.rnf relationshipStatus `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf updatedAt `Prelude.seq`
+                      Prelude.rnf httpStatus

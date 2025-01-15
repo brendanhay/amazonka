@@ -302,14 +302,14 @@ instance
     CreateSlackChannelConfiguration
   where
   rnf CreateSlackChannelConfiguration' {..} =
-    Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf notifyOnAddCorrespondenceToCase
-      `Prelude.seq` Prelude.rnf notifyOnCreateOrReopenCase
-      `Prelude.seq` Prelude.rnf notifyOnResolveCase
-      `Prelude.seq` Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf channelRoleArn
-      `Prelude.seq` Prelude.rnf notifyOnCaseSeverity
-      `Prelude.seq` Prelude.rnf teamId
+    Prelude.rnf channelName `Prelude.seq`
+      Prelude.rnf notifyOnAddCorrespondenceToCase `Prelude.seq`
+        Prelude.rnf notifyOnCreateOrReopenCase `Prelude.seq`
+          Prelude.rnf notifyOnResolveCase `Prelude.seq`
+            Prelude.rnf channelId `Prelude.seq`
+              Prelude.rnf channelRoleArn `Prelude.seq`
+                Prelude.rnf notifyOnCaseSeverity `Prelude.seq`
+                  Prelude.rnf teamId
 
 instance
   Data.ToHeaders

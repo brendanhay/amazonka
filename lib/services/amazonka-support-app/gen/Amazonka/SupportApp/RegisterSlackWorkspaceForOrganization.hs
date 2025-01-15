@@ -261,7 +261,7 @@ instance
   where
   rnf
     RegisterSlackWorkspaceForOrganizationResponse' {..} =
-      Prelude.rnf accountType
-        `Prelude.seq` Prelude.rnf teamId
-        `Prelude.seq` Prelude.rnf teamName
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf accountType `Prelude.seq`
+        Prelude.rnf teamId `Prelude.seq`
+          Prelude.rnf teamName `Prelude.seq`
+            Prelude.rnf httpStatus

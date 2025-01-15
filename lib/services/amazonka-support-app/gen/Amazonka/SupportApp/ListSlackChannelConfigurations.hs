@@ -213,6 +213,6 @@ instance
     ListSlackChannelConfigurationsResponse
   where
   rnf ListSlackChannelConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf slackChannelConfigurations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf slackChannelConfigurations

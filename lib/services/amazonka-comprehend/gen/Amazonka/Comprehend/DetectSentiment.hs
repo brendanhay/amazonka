@@ -132,8 +132,8 @@ instance Prelude.Hashable DetectSentiment where
 
 instance Prelude.NFData DetectSentiment where
   rnf DetectSentiment' {..} =
-    Prelude.rnf text
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf text `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders DetectSentiment where
   toHeaders =
@@ -221,6 +221,6 @@ detectSentimentResponse_httpStatus = Lens.lens (\DetectSentimentResponse' {httpS
 
 instance Prelude.NFData DetectSentimentResponse where
   rnf DetectSentimentResponse' {..} =
-    Prelude.rnf sentiment
-      `Prelude.seq` Prelude.rnf sentimentScore
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sentiment `Prelude.seq`
+      Prelude.rnf sentimentScore `Prelude.seq`
+        Prelude.rnf httpStatus

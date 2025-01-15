@@ -202,5 +202,5 @@ instance
     DescribeDominantLanguageDetectionJobResponse
   where
   rnf DescribeDominantLanguageDetectionJobResponse' {..} =
-    Prelude.rnf dominantLanguageDetectionJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dominantLanguageDetectionJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

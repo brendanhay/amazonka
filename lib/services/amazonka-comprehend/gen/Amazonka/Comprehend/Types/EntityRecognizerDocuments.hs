@@ -125,9 +125,9 @@ instance Prelude.Hashable EntityRecognizerDocuments where
 
 instance Prelude.NFData EntityRecognizerDocuments where
   rnf EntityRecognizerDocuments' {..} =
-    Prelude.rnf inputFormat
-      `Prelude.seq` Prelude.rnf testS3Uri
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf inputFormat `Prelude.seq`
+      Prelude.rnf testS3Uri `Prelude.seq`
+        Prelude.rnf s3Uri
 
 instance Data.ToJSON EntityRecognizerDocuments where
   toJSON EntityRecognizerDocuments' {..} =

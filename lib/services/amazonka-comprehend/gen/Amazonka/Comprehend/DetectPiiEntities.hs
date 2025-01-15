@@ -114,8 +114,8 @@ instance Prelude.Hashable DetectPiiEntities where
 
 instance Prelude.NFData DetectPiiEntities where
   rnf DetectPiiEntities' {..} =
-    Prelude.rnf text
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf text `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders DetectPiiEntities where
   toHeaders =
@@ -197,5 +197,5 @@ detectPiiEntitiesResponse_httpStatus = Lens.lens (\DetectPiiEntitiesResponse' {h
 
 instance Prelude.NFData DetectPiiEntitiesResponse where
   rnf DetectPiiEntitiesResponse' {..} =
-    Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entities `Prelude.seq`
+      Prelude.rnf httpStatus

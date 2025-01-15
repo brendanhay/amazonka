@@ -106,6 +106,6 @@ instance
     BatchDetectSentimentItemResult
   where
   rnf BatchDetectSentimentItemResult' {..} =
-    Prelude.rnf index
-      `Prelude.seq` Prelude.rnf sentiment
-      `Prelude.seq` Prelude.rnf sentimentScore
+    Prelude.rnf index `Prelude.seq`
+      Prelude.rnf sentiment `Prelude.seq`
+        Prelude.rnf sentimentScore

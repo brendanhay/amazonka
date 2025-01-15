@@ -122,8 +122,8 @@ instance
 
 instance Prelude.NFData ListEntityRecognizerSummaries where
   rnf ListEntityRecognizerSummaries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEntityRecognizerSummaries where
   toHeaders =
@@ -208,6 +208,6 @@ instance
     ListEntityRecognizerSummariesResponse
   where
   rnf ListEntityRecognizerSummariesResponse' {..} =
-    Prelude.rnf entityRecognizerSummariesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entityRecognizerSummariesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

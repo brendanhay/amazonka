@@ -211,12 +211,12 @@ instance Prelude.Hashable ImportModel where
 
 instance Prelude.NFData ImportModel where
   rnf ImportModel' {..} =
-    Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf modelKmsKeyId
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf sourceModelArn
+    Prelude.rnf dataAccessRoleArn `Prelude.seq`
+      Prelude.rnf modelKmsKeyId `Prelude.seq`
+        Prelude.rnf modelName `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf versionName `Prelude.seq`
+              Prelude.rnf sourceModelArn
 
 instance Data.ToHeaders ImportModel where
   toHeaders =
@@ -294,5 +294,5 @@ importModelResponse_httpStatus = Lens.lens (\ImportModelResponse' {httpStatus} -
 
 instance Prelude.NFData ImportModelResponse where
   rnf ImportModelResponse' {..} =
-    Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelArn `Prelude.seq`
+      Prelude.rnf httpStatus

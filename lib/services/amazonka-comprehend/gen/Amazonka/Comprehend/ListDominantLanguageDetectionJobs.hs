@@ -126,12 +126,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDominantLanguageDetectionJobs_nextToken
-          Lens..~ rs
-          Lens.^? listDominantLanguageDetectionJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDominantLanguageDetectionJobs_nextToken
+              Lens..~ rs
+              Lens.^? listDominantLanguageDetectionJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -171,9 +171,9 @@ instance
     ListDominantLanguageDetectionJobs
   where
   rnf ListDominantLanguageDetectionJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders

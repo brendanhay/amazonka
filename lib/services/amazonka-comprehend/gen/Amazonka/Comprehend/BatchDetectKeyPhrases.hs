@@ -127,8 +127,8 @@ instance Prelude.Hashable BatchDetectKeyPhrases where
 
 instance Prelude.NFData BatchDetectKeyPhrases where
   rnf BatchDetectKeyPhrases' {..} =
-    Prelude.rnf textList
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf textList `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders BatchDetectKeyPhrases where
   toHeaders =
@@ -228,6 +228,6 @@ batchDetectKeyPhrasesResponse_errorList = Lens.lens (\BatchDetectKeyPhrasesRespo
 
 instance Prelude.NFData BatchDetectKeyPhrasesResponse where
   rnf BatchDetectKeyPhrasesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resultList
-      `Prelude.seq` Prelude.rnf errorList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resultList `Prelude.seq`
+        Prelude.rnf errorList

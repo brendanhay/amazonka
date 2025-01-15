@@ -86,5 +86,5 @@ instance Prelude.Hashable BatchDetectSyntaxItemResult where
 
 instance Prelude.NFData BatchDetectSyntaxItemResult where
   rnf BatchDetectSyntaxItemResult' {..} =
-    Prelude.rnf index
-      `Prelude.seq` Prelude.rnf syntaxTokens
+    Prelude.rnf index `Prelude.seq`
+      Prelude.rnf syntaxTokens

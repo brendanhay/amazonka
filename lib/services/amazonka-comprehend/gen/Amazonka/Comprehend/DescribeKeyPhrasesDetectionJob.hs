@@ -190,5 +190,5 @@ instance
     DescribeKeyPhrasesDetectionJobResponse
   where
   rnf DescribeKeyPhrasesDetectionJobResponse' {..} =
-    Prelude.rnf keyPhrasesDetectionJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyPhrasesDetectionJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -399,19 +399,19 @@ instance Prelude.Hashable CreateDocumentClassifier where
 
 instance Prelude.NFData CreateDocumentClassifier where
   rnf CreateDocumentClassifier' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf modelKmsKeyId
-      `Prelude.seq` Prelude.rnf modelPolicy
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf documentClassifierName
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf mode `Prelude.seq`
+        Prelude.rnf modelKmsKeyId `Prelude.seq`
+          Prelude.rnf modelPolicy `Prelude.seq`
+            Prelude.rnf outputDataConfig `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf versionName `Prelude.seq`
+                  Prelude.rnf volumeKmsKeyId `Prelude.seq`
+                    Prelude.rnf vpcConfig `Prelude.seq`
+                      Prelude.rnf documentClassifierName `Prelude.seq`
+                        Prelude.rnf dataAccessRoleArn `Prelude.seq`
+                          Prelude.rnf inputDataConfig `Prelude.seq`
+                            Prelude.rnf languageCode
 
 instance Data.ToHeaders CreateDocumentClassifier where
   toHeaders =
@@ -506,5 +506,5 @@ instance
     CreateDocumentClassifierResponse
   where
   rnf CreateDocumentClassifierResponse' {..} =
-    Prelude.rnf documentClassifierArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentClassifierArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -209,14 +209,14 @@ instance Prelude.Hashable StartEventsDetectionJob where
 
 instance Prelude.NFData StartEventsDetectionJob where
   rnf StartEventsDetectionJob' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf targetEventTypes
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf inputDataConfig `Prelude.seq`
+            Prelude.rnf outputDataConfig `Prelude.seq`
+              Prelude.rnf dataAccessRoleArn `Prelude.seq`
+                Prelude.rnf languageCode `Prelude.seq`
+                  Prelude.rnf targetEventTypes
 
 instance Data.ToHeaders StartEventsDetectionJob where
   toHeaders =
@@ -348,7 +348,7 @@ instance
     StartEventsDetectionJobResponse
   where
   rnf StartEventsDetectionJobResponse' {..} =
-    Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobArn `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf jobStatus `Prelude.seq`
+          Prelude.rnf httpStatus

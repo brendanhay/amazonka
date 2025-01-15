@@ -117,6 +117,6 @@ instance
 
 instance Prelude.NFData EntityTypesEvaluationMetrics where
   rnf EntityTypesEvaluationMetrics' {..} =
-    Prelude.rnf f1Score
-      `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf recall
+    Prelude.rnf f1Score `Prelude.seq`
+      Prelude.rnf precision `Prelude.seq`
+        Prelude.rnf recall

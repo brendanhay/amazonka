@@ -122,12 +122,12 @@ instance Core.AWSPager ListEntitiesDetectionJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEntitiesDetectionJobs_nextToken
-          Lens..~ rs
-          Lens.^? listEntitiesDetectionJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEntitiesDetectionJobs_nextToken
+              Lens..~ rs
+              Lens.^? listEntitiesDetectionJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEntitiesDetectionJobs where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListEntitiesDetectionJobs where
 
 instance Prelude.NFData ListEntitiesDetectionJobs where
   rnf ListEntitiesDetectionJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEntitiesDetectionJobs where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     ListEntitiesDetectionJobsResponse
   where
   rnf ListEntitiesDetectionJobsResponse' {..} =
-    Prelude.rnf entitiesDetectionJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitiesDetectionJobPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

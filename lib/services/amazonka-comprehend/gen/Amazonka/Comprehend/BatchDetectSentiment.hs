@@ -140,8 +140,8 @@ instance Prelude.Hashable BatchDetectSentiment where
 
 instance Prelude.NFData BatchDetectSentiment where
   rnf BatchDetectSentiment' {..} =
-    Prelude.rnf textList
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf textList `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders BatchDetectSentiment where
   toHeaders =
@@ -241,6 +241,6 @@ batchDetectSentimentResponse_errorList = Lens.lens (\BatchDetectSentimentRespons
 
 instance Prelude.NFData BatchDetectSentimentResponse where
   rnf BatchDetectSentimentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resultList
-      `Prelude.seq` Prelude.rnf errorList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resultList `Prelude.seq`
+        Prelude.rnf errorList

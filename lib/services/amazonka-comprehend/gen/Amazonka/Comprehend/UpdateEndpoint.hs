@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateEndpoint where
 
 instance Prelude.NFData UpdateEndpoint where
   rnf UpdateEndpoint' {..} =
-    Prelude.rnf desiredDataAccessRoleArn
-      `Prelude.seq` Prelude.rnf desiredInferenceUnits
-      `Prelude.seq` Prelude.rnf desiredModelArn
-      `Prelude.seq` Prelude.rnf endpointArn
+    Prelude.rnf desiredDataAccessRoleArn `Prelude.seq`
+      Prelude.rnf desiredInferenceUnits `Prelude.seq`
+        Prelude.rnf desiredModelArn `Prelude.seq`
+          Prelude.rnf endpointArn
 
 instance Data.ToHeaders UpdateEndpoint where
   toHeaders =

@@ -181,5 +181,5 @@ instance
     DescribeSentimentDetectionJobResponse
   where
   rnf DescribeSentimentDetectionJobResponse' {..} =
-    Prelude.rnf sentimentDetectionJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sentimentDetectionJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

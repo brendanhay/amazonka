@@ -115,6 +115,6 @@ instance
     EntityRecognizerMetadataEntityTypesListItem
   where
   rnf EntityRecognizerMetadataEntityTypesListItem' {..} =
-    Prelude.rnf evaluationMetrics
-      `Prelude.seq` Prelude.rnf numberOfTrainMentions
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf evaluationMetrics `Prelude.seq`
+      Prelude.rnf numberOfTrainMentions `Prelude.seq`
+        Prelude.rnf type'

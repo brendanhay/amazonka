@@ -121,7 +121,7 @@ instance Prelude.Hashable BoundingBox where
 
 instance Prelude.NFData BoundingBox where
   rnf BoundingBox' {..} =
-    Prelude.rnf height
-      `Prelude.seq` Prelude.rnf left
-      `Prelude.seq` Prelude.rnf top
-      `Prelude.seq` Prelude.rnf width
+    Prelude.rnf height `Prelude.seq`
+      Prelude.rnf left `Prelude.seq`
+        Prelude.rnf top `Prelude.seq`
+          Prelude.rnf width

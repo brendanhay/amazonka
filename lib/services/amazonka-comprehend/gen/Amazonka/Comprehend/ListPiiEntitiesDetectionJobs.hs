@@ -119,12 +119,12 @@ instance Core.AWSPager ListPiiEntitiesDetectionJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPiiEntitiesDetectionJobs_nextToken
-          Lens..~ rs
-          Lens.^? listPiiEntitiesDetectionJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPiiEntitiesDetectionJobs_nextToken
+              Lens..~ rs
+              Lens.^? listPiiEntitiesDetectionJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPiiEntitiesDetectionJobs where
   type
@@ -156,9 +156,9 @@ instance
 
 instance Prelude.NFData ListPiiEntitiesDetectionJobs where
   rnf ListPiiEntitiesDetectionJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPiiEntitiesDetectionJobs where
   toHeaders =
@@ -245,6 +245,6 @@ instance
     ListPiiEntitiesDetectionJobsResponse
   where
   rnf ListPiiEntitiesDetectionJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf piiEntitiesDetectionJobPropertiesList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf piiEntitiesDetectionJobPropertiesList `Prelude.seq`
+        Prelude.rnf httpStatus

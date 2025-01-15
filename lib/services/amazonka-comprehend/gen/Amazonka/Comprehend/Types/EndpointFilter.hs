@@ -106,10 +106,10 @@ instance Prelude.Hashable EndpointFilter where
 
 instance Prelude.NFData EndpointFilter where
   rnf EndpointFilter' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf modelArn `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToJSON EndpointFilter where
   toJSON EndpointFilter' {..} =

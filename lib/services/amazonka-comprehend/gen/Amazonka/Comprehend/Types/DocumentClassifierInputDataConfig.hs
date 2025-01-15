@@ -251,11 +251,11 @@ instance
     DocumentClassifierInputDataConfig
   where
   rnf DocumentClassifierInputDataConfig' {..} =
-    Prelude.rnf augmentedManifests
-      `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf labelDelimiter
-      `Prelude.seq` Prelude.rnf s3Uri
-      `Prelude.seq` Prelude.rnf testS3Uri
+    Prelude.rnf augmentedManifests `Prelude.seq`
+      Prelude.rnf dataFormat `Prelude.seq`
+        Prelude.rnf labelDelimiter `Prelude.seq`
+          Prelude.rnf s3Uri `Prelude.seq`
+            Prelude.rnf testS3Uri
 
 instance
   Data.ToJSON

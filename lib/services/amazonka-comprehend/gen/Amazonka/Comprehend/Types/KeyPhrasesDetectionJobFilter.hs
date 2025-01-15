@@ -111,10 +111,10 @@ instance
 
 instance Prelude.NFData KeyPhrasesDetectionJobFilter where
   rnf KeyPhrasesDetectionJobFilter' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf submitTimeAfter
-      `Prelude.seq` Prelude.rnf submitTimeBefore
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobStatus `Prelude.seq`
+        Prelude.rnf submitTimeAfter `Prelude.seq`
+          Prelude.rnf submitTimeBefore
 
 instance Data.ToJSON KeyPhrasesDetectionJobFilter where
   toJSON KeyPhrasesDetectionJobFilter' {..} =

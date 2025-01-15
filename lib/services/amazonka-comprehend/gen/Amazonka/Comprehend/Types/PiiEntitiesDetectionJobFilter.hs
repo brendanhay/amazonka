@@ -110,10 +110,10 @@ instance
 
 instance Prelude.NFData PiiEntitiesDetectionJobFilter where
   rnf PiiEntitiesDetectionJobFilter' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf submitTimeAfter
-      `Prelude.seq` Prelude.rnf submitTimeBefore
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobStatus `Prelude.seq`
+        Prelude.rnf submitTimeAfter `Prelude.seq`
+          Prelude.rnf submitTimeBefore
 
 instance Data.ToJSON PiiEntitiesDetectionJobFilter where
   toJSON PiiEntitiesDetectionJobFilter' {..} =

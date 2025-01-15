@@ -121,12 +121,12 @@ instance Core.AWSPager ListTopicsDetectionJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTopicsDetectionJobs_nextToken
-          Lens..~ rs
-          Lens.^? listTopicsDetectionJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTopicsDetectionJobs_nextToken
+              Lens..~ rs
+              Lens.^? listTopicsDetectionJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTopicsDetectionJobs where
   type
@@ -155,9 +155,9 @@ instance Prelude.Hashable ListTopicsDetectionJobs where
 
 instance Prelude.NFData ListTopicsDetectionJobs where
   rnf ListTopicsDetectionJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTopicsDetectionJobs where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     ListTopicsDetectionJobsResponse
   where
   rnf ListTopicsDetectionJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf topicsDetectionJobPropertiesList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf topicsDetectionJobPropertiesList `Prelude.seq`
+        Prelude.rnf httpStatus

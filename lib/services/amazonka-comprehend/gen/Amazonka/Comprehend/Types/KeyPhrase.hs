@@ -111,7 +111,7 @@ instance Prelude.Hashable KeyPhrase where
 
 instance Prelude.NFData KeyPhrase where
   rnf KeyPhrase' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf endOffset `Prelude.seq`
+        Prelude.rnf score `Prelude.seq`
+          Prelude.rnf text

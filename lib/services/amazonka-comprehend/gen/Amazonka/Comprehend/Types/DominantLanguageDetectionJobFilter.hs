@@ -116,10 +116,10 @@ instance
     DominantLanguageDetectionJobFilter
   where
   rnf DominantLanguageDetectionJobFilter' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf submitTimeAfter
-      `Prelude.seq` Prelude.rnf submitTimeBefore
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobStatus `Prelude.seq`
+        Prelude.rnf submitTimeAfter `Prelude.seq`
+          Prelude.rnf submitTimeBefore
 
 instance
   Data.ToJSON

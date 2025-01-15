@@ -97,5 +97,5 @@ instance
     BatchDetectKeyPhrasesItemResult
   where
   rnf BatchDetectKeyPhrasesItemResult' {..} =
-    Prelude.rnf index
-      `Prelude.seq` Prelude.rnf keyPhrases
+    Prelude.rnf index `Prelude.seq`
+      Prelude.rnf keyPhrases

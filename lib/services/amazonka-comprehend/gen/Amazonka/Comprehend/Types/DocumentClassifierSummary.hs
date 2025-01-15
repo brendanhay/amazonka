@@ -118,8 +118,8 @@ instance Prelude.Hashable DocumentClassifierSummary where
 
 instance Prelude.NFData DocumentClassifierSummary where
   rnf DocumentClassifierSummary' {..} =
-    Prelude.rnf documentClassifierName
-      `Prelude.seq` Prelude.rnf latestVersionCreatedAt
-      `Prelude.seq` Prelude.rnf latestVersionName
-      `Prelude.seq` Prelude.rnf latestVersionStatus
-      `Prelude.seq` Prelude.rnf numberOfVersions
+    Prelude.rnf documentClassifierName `Prelude.seq`
+      Prelude.rnf latestVersionCreatedAt `Prelude.seq`
+        Prelude.rnf latestVersionName `Prelude.seq`
+          Prelude.rnf latestVersionStatus `Prelude.seq`
+            Prelude.rnf numberOfVersions

@@ -174,5 +174,5 @@ instance
     DescribeEntityRecognizerResponse
   where
   rnf DescribeEntityRecognizerResponse' {..} =
-    Prelude.rnf entityRecognizerProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entityRecognizerProperties `Prelude.seq`
+      Prelude.rnf httpStatus

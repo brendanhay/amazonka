@@ -171,5 +171,5 @@ instance
     DescribeEventsDetectionJobResponse
   where
   rnf DescribeEventsDetectionJobResponse' {..} =
-    Prelude.rnf eventsDetectionJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventsDetectionJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

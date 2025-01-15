@@ -101,5 +101,5 @@ instance Prelude.Hashable TargetedSentimentEntity where
 
 instance Prelude.NFData TargetedSentimentEntity where
   rnf TargetedSentimentEntity' {..} =
-    Prelude.rnf descriptiveMentionIndex
-      `Prelude.seq` Prelude.rnf mentions
+    Prelude.rnf descriptiveMentionIndex `Prelude.seq`
+      Prelude.rnf mentions

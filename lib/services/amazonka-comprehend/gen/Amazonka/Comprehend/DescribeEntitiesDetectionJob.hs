@@ -178,5 +178,5 @@ instance
     DescribeEntitiesDetectionJobResponse
   where
   rnf DescribeEntitiesDetectionJobResponse' {..} =
-    Prelude.rnf entitiesDetectionJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitiesDetectionJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

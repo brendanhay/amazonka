@@ -93,5 +93,5 @@ instance
     BatchDetectTargetedSentimentItemResult
   where
   rnf BatchDetectTargetedSentimentItemResult' {..} =
-    Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf index
+    Prelude.rnf entities `Prelude.seq`
+      Prelude.rnf index

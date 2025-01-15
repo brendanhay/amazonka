@@ -211,6 +211,6 @@ instance
     BatchDetectDominantLanguageResponse
   where
   rnf BatchDetectDominantLanguageResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resultList
-      `Prelude.seq` Prelude.rnf errorList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resultList `Prelude.seq`
+        Prelude.rnf errorList

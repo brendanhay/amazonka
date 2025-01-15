@@ -121,8 +121,8 @@ instance Prelude.Hashable VpcConfig where
 
 instance Prelude.NFData VpcConfig where
   rnf VpcConfig' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnets
 
 instance Data.ToJSON VpcConfig where
   toJSON VpcConfig' {..} =

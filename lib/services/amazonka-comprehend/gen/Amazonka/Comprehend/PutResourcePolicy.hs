@@ -169,9 +169,9 @@ instance Prelude.Hashable PutResourcePolicy where
 
 instance Prelude.NFData PutResourcePolicy where
   rnf PutResourcePolicy' {..} =
-    Prelude.rnf policyRevisionId
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourcePolicy
+    Prelude.rnf policyRevisionId `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf resourcePolicy
 
 instance Data.ToHeaders PutResourcePolicy where
   toHeaders =
@@ -253,5 +253,5 @@ putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {h
 
 instance Prelude.NFData PutResourcePolicyResponse where
   rnf PutResourcePolicyResponse' {..} =
-    Prelude.rnf policyRevisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyRevisionId `Prelude.seq`
+      Prelude.rnf httpStatus

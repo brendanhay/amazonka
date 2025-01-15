@@ -215,14 +215,14 @@ instance Prelude.Hashable EndpointProperties where
 
 instance Prelude.NFData EndpointProperties where
   rnf EndpointProperties' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentInferenceUnits
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf desiredDataAccessRoleArn
-      `Prelude.seq` Prelude.rnf desiredInferenceUnits
-      `Prelude.seq` Prelude.rnf desiredModelArn
-      `Prelude.seq` Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf currentInferenceUnits `Prelude.seq`
+        Prelude.rnf dataAccessRoleArn `Prelude.seq`
+          Prelude.rnf desiredDataAccessRoleArn `Prelude.seq`
+            Prelude.rnf desiredInferenceUnits `Prelude.seq`
+              Prelude.rnf desiredModelArn `Prelude.seq`
+                Prelude.rnf endpointArn `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf message `Prelude.seq`
+                      Prelude.rnf modelArn `Prelude.seq`
+                        Prelude.rnf status

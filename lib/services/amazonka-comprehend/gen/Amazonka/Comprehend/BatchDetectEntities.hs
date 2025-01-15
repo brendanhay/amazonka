@@ -130,8 +130,8 @@ instance Prelude.Hashable BatchDetectEntities where
 
 instance Prelude.NFData BatchDetectEntities where
   rnf BatchDetectEntities' {..} =
-    Prelude.rnf textList
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf textList `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders BatchDetectEntities where
   toHeaders =
@@ -231,6 +231,6 @@ batchDetectEntitiesResponse_errorList = Lens.lens (\BatchDetectEntitiesResponse'
 
 instance Prelude.NFData BatchDetectEntitiesResponse where
   rnf BatchDetectEntitiesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resultList
-      `Prelude.seq` Prelude.rnf errorList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resultList `Prelude.seq`
+        Prelude.rnf errorList

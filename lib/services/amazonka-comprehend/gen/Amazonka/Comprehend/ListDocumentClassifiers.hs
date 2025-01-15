@@ -121,12 +121,12 @@ instance Core.AWSPager ListDocumentClassifiers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDocumentClassifiers_nextToken
-          Lens..~ rs
-          Lens.^? listDocumentClassifiersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDocumentClassifiers_nextToken
+              Lens..~ rs
+              Lens.^? listDocumentClassifiersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDocumentClassifiers where
   type
@@ -155,9 +155,9 @@ instance Prelude.Hashable ListDocumentClassifiers where
 
 instance Prelude.NFData ListDocumentClassifiers where
   rnf ListDocumentClassifiers' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDocumentClassifiers where
   toHeaders =
@@ -243,6 +243,6 @@ instance
     ListDocumentClassifiersResponse
   where
   rnf ListDocumentClassifiersResponse' {..} =
-    Prelude.rnf documentClassifierPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentClassifierPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

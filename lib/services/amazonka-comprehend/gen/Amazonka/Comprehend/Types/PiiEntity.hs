@@ -112,7 +112,7 @@ instance Prelude.Hashable PiiEntity where
 
 instance Prelude.NFData PiiEntity where
   rnf PiiEntity' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf endOffset `Prelude.seq`
+        Prelude.rnf score `Prelude.seq`
+          Prelude.rnf type'

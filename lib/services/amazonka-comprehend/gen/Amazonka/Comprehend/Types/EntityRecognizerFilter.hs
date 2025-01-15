@@ -106,10 +106,10 @@ instance Prelude.Hashable EntityRecognizerFilter where
 
 instance Prelude.NFData EntityRecognizerFilter where
   rnf EntityRecognizerFilter' {..} =
-    Prelude.rnf recognizerName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf submitTimeAfter
-      `Prelude.seq` Prelude.rnf submitTimeBefore
+    Prelude.rnf recognizerName `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf submitTimeAfter `Prelude.seq`
+          Prelude.rnf submitTimeBefore
 
 instance Data.ToJSON EntityRecognizerFilter where
   toJSON EntityRecognizerFilter' {..} =

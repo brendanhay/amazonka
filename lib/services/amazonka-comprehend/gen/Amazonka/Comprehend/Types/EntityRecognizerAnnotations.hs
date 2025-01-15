@@ -95,8 +95,8 @@ instance Prelude.Hashable EntityRecognizerAnnotations where
 
 instance Prelude.NFData EntityRecognizerAnnotations where
   rnf EntityRecognizerAnnotations' {..} =
-    Prelude.rnf testS3Uri
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf testS3Uri `Prelude.seq`
+      Prelude.rnf s3Uri
 
 instance Data.ToJSON EntityRecognizerAnnotations where
   toJSON EntityRecognizerAnnotations' {..} =

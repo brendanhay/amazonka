@@ -117,7 +117,7 @@ instance Prelude.Hashable EntityRecognizerMetadata where
 
 instance Prelude.NFData EntityRecognizerMetadata where
   rnf EntityRecognizerMetadata' {..} =
-    Prelude.rnf entityTypes
-      `Prelude.seq` Prelude.rnf evaluationMetrics
-      `Prelude.seq` Prelude.rnf numberOfTestDocuments
-      `Prelude.seq` Prelude.rnf numberOfTrainedDocuments
+    Prelude.rnf entityTypes `Prelude.seq`
+      Prelude.rnf evaluationMetrics `Prelude.seq`
+        Prelude.rnf numberOfTestDocuments `Prelude.seq`
+          Prelude.rnf numberOfTrainedDocuments

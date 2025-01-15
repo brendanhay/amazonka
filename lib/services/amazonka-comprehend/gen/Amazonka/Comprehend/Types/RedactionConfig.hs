@@ -102,9 +102,9 @@ instance Prelude.Hashable RedactionConfig where
 
 instance Prelude.NFData RedactionConfig where
   rnf RedactionConfig' {..} =
-    Prelude.rnf maskCharacter
-      `Prelude.seq` Prelude.rnf maskMode
-      `Prelude.seq` Prelude.rnf piiEntityTypes
+    Prelude.rnf maskCharacter `Prelude.seq`
+      Prelude.rnf maskMode `Prelude.seq`
+        Prelude.rnf piiEntityTypes
 
 instance Data.ToJSON RedactionConfig where
   toJSON RedactionConfig' {..} =

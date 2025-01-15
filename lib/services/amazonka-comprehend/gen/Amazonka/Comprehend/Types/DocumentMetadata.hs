@@ -88,5 +88,5 @@ instance Prelude.Hashable DocumentMetadata where
 
 instance Prelude.NFData DocumentMetadata where
   rnf DocumentMetadata' {..} =
-    Prelude.rnf extractedCharacters
-      `Prelude.seq` Prelude.rnf pages
+    Prelude.rnf extractedCharacters `Prelude.seq`
+      Prelude.rnf pages

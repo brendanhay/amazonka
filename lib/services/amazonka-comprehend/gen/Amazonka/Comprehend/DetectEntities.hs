@@ -291,11 +291,11 @@ instance Prelude.Hashable DetectEntities where
 
 instance Prelude.NFData DetectEntities where
   rnf DetectEntities' {..} =
-    Prelude.rnf bytes
-      `Prelude.seq` Prelude.rnf documentReaderConfig
-      `Prelude.seq` Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf bytes `Prelude.seq`
+      Prelude.rnf documentReaderConfig `Prelude.seq`
+        Prelude.rnf endpointArn `Prelude.seq`
+          Prelude.rnf languageCode `Prelude.seq`
+            Prelude.rnf text
 
 instance Data.ToHeaders DetectEntities where
   toHeaders =
@@ -470,9 +470,9 @@ detectEntitiesResponse_httpStatus = Lens.lens (\DetectEntitiesResponse' {httpSta
 
 instance Prelude.NFData DetectEntitiesResponse where
   rnf DetectEntitiesResponse' {..} =
-    Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf documentType
-      `Prelude.seq` Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blocks `Prelude.seq`
+      Prelude.rnf documentMetadata `Prelude.seq`
+        Prelude.rnf documentType `Prelude.seq`
+          Prelude.rnf entities `Prelude.seq`
+            Prelude.rnf errors `Prelude.seq`
+              Prelude.rnf httpStatus

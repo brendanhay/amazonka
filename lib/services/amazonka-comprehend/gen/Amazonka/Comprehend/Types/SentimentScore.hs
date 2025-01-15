@@ -115,7 +115,7 @@ instance Prelude.Hashable SentimentScore where
 
 instance Prelude.NFData SentimentScore where
   rnf SentimentScore' {..} =
-    Prelude.rnf mixed
-      `Prelude.seq` Prelude.rnf negative
-      `Prelude.seq` Prelude.rnf neutral
-      `Prelude.seq` Prelude.rnf positive
+    Prelude.rnf mixed `Prelude.seq`
+      Prelude.rnf negative `Prelude.seq`
+        Prelude.rnf neutral `Prelude.seq`
+          Prelude.rnf positive

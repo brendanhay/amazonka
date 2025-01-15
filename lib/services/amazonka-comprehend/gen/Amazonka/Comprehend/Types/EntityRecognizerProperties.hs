@@ -306,19 +306,19 @@ instance Prelude.Hashable EntityRecognizerProperties where
 
 instance Prelude.NFData EntityRecognizerProperties where
   rnf EntityRecognizerProperties' {..} =
-    Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf entityRecognizerArn
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf modelKmsKeyId
-      `Prelude.seq` Prelude.rnf recognizerMetadata
-      `Prelude.seq` Prelude.rnf sourceModelArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf submitTime
-      `Prelude.seq` Prelude.rnf trainingEndTime
-      `Prelude.seq` Prelude.rnf trainingStartTime
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf dataAccessRoleArn `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf entityRecognizerArn `Prelude.seq`
+          Prelude.rnf inputDataConfig `Prelude.seq`
+            Prelude.rnf languageCode `Prelude.seq`
+              Prelude.rnf message `Prelude.seq`
+                Prelude.rnf modelKmsKeyId `Prelude.seq`
+                  Prelude.rnf recognizerMetadata `Prelude.seq`
+                    Prelude.rnf sourceModelArn `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf submitTime `Prelude.seq`
+                          Prelude.rnf trainingEndTime `Prelude.seq`
+                            Prelude.rnf trainingStartTime `Prelude.seq`
+                              Prelude.rnf versionName `Prelude.seq`
+                                Prelude.rnf volumeKmsKeyId `Prelude.seq`
+                                  Prelude.rnf vpcConfig

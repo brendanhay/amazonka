@@ -118,8 +118,8 @@ instance Prelude.Hashable DetectTargetedSentiment where
 
 instance Prelude.NFData DetectTargetedSentiment where
   rnf DetectTargetedSentiment' {..} =
-    Prelude.rnf text
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf text `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders DetectTargetedSentiment where
   toHeaders =
@@ -198,5 +198,5 @@ instance
     DetectTargetedSentimentResponse
   where
   rnf DetectTargetedSentimentResponse' {..} =
-    Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entities `Prelude.seq`
+      Prelude.rnf httpStatus

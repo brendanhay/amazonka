@@ -197,12 +197,12 @@ instance Core.AWSPager ListBackups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBackups_exclusiveStartBackupArn
-          Lens..~ rs
-          Lens.^? listBackupsResponse_lastEvaluatedBackupArn
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBackups_exclusiveStartBackupArn
+              Lens..~ rs
+              Lens.^? listBackupsResponse_lastEvaluatedBackupArn
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackups where
   type AWSResponse ListBackups = ListBackupsResponse
@@ -232,12 +232,12 @@ instance Prelude.Hashable ListBackups where
 
 instance Prelude.NFData ListBackups where
   rnf ListBackups' {..} =
-    Prelude.rnf backupType
-      `Prelude.seq` Prelude.rnf exclusiveStartBackupArn
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf timeRangeLowerBound
-      `Prelude.seq` Prelude.rnf timeRangeUpperBound
+    Prelude.rnf backupType `Prelude.seq`
+      Prelude.rnf exclusiveStartBackupArn `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf tableName `Prelude.seq`
+            Prelude.rnf timeRangeLowerBound `Prelude.seq`
+              Prelude.rnf timeRangeUpperBound
 
 instance Data.ToHeaders ListBackups where
   toHeaders =
@@ -359,6 +359,6 @@ listBackupsResponse_httpStatus = Lens.lens (\ListBackupsResponse' {httpStatus} -
 
 instance Prelude.NFData ListBackupsResponse where
   rnf ListBackupsResponse' {..} =
-    Prelude.rnf backupSummaries
-      `Prelude.seq` Prelude.rnf lastEvaluatedBackupArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupSummaries `Prelude.seq`
+      Prelude.rnf lastEvaluatedBackupArn `Prelude.seq`
+        Prelude.rnf httpStatus

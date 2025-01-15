@@ -199,12 +199,12 @@ instance Prelude.Hashable ImportTable where
 
 instance Prelude.NFData ImportTable where
   rnf ImportTable' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf inputCompressionType
-      `Prelude.seq` Prelude.rnf inputFormatOptions
-      `Prelude.seq` Prelude.rnf s3BucketSource
-      `Prelude.seq` Prelude.rnf inputFormat
-      `Prelude.seq` Prelude.rnf tableCreationParameters
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf inputCompressionType `Prelude.seq`
+        Prelude.rnf inputFormatOptions `Prelude.seq`
+          Prelude.rnf s3BucketSource `Prelude.seq`
+            Prelude.rnf inputFormat `Prelude.seq`
+              Prelude.rnf tableCreationParameters
 
 instance Data.ToHeaders ImportTable where
   toHeaders =
@@ -296,5 +296,5 @@ importTableResponse_importTableDescription = Lens.lens (\ImportTableResponse' {i
 
 instance Prelude.NFData ImportTableResponse where
   rnf ImportTableResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf importTableDescription
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf importTableDescription

@@ -85,9 +85,9 @@ instance Prelude.Hashable BatchStatementRequest where
 
 instance Prelude.NFData BatchStatementRequest where
   rnf BatchStatementRequest' {..} =
-    Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf statement
+    Prelude.rnf consistentRead `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf statement
 
 instance Data.ToJSON BatchStatementRequest where
   toJSON BatchStatementRequest' {..} =

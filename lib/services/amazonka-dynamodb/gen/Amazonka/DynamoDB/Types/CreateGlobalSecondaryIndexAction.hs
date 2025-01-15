@@ -136,10 +136,10 @@ instance
     CreateGlobalSecondaryIndexAction
   where
   rnf CreateGlobalSecondaryIndexAction' {..} =
-    Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf projection
+    Prelude.rnf provisionedThroughput `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf keySchema `Prelude.seq`
+          Prelude.rnf projection
 
 instance Data.ToJSON CreateGlobalSecondaryIndexAction where
   toJSON CreateGlobalSecondaryIndexAction' {..} =

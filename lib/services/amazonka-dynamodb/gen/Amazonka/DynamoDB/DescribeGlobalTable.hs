@@ -178,5 +178,5 @@ describeGlobalTableResponse_httpStatus = Lens.lens (\DescribeGlobalTableResponse
 
 instance Prelude.NFData DescribeGlobalTableResponse where
   rnf DescribeGlobalTableResponse' {..} =
-    Prelude.rnf globalTableDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalTableDescription `Prelude.seq`
+      Prelude.rnf httpStatus

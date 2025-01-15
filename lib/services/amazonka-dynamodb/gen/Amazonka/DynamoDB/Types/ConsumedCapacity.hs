@@ -158,10 +158,10 @@ instance Prelude.Hashable ConsumedCapacity where
 
 instance Prelude.NFData ConsumedCapacity where
   rnf ConsumedCapacity' {..} =
-    Prelude.rnf capacityUnits
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
-      `Prelude.seq` Prelude.rnf localSecondaryIndexes
-      `Prelude.seq` Prelude.rnf readCapacityUnits
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf writeCapacityUnits
+    Prelude.rnf capacityUnits `Prelude.seq`
+      Prelude.rnf globalSecondaryIndexes `Prelude.seq`
+        Prelude.rnf localSecondaryIndexes `Prelude.seq`
+          Prelude.rnf readCapacityUnits `Prelude.seq`
+            Prelude.rnf table `Prelude.seq`
+              Prelude.rnf tableName `Prelude.seq`
+                Prelude.rnf writeCapacityUnits

@@ -94,6 +94,6 @@ instance Prelude.Hashable BatchStatementResponse where
 
 instance Prelude.NFData BatchStatementResponse where
   rnf BatchStatementResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf item
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf item `Prelude.seq`
+        Prelude.rnf tableName

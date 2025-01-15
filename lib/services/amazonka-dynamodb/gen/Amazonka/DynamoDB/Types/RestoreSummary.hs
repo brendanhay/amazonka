@@ -114,7 +114,7 @@ instance Prelude.Hashable RestoreSummary where
 
 instance Prelude.NFData RestoreSummary where
   rnf RestoreSummary' {..} =
-    Prelude.rnf sourceBackupArn
-      `Prelude.seq` Prelude.rnf sourceTableArn
-      `Prelude.seq` Prelude.rnf restoreDateTime
-      `Prelude.seq` Prelude.rnf restoreInProgress
+    Prelude.rnf sourceBackupArn `Prelude.seq`
+      Prelude.rnf sourceTableArn `Prelude.seq`
+        Prelude.rnf restoreDateTime `Prelude.seq`
+          Prelude.rnf restoreInProgress

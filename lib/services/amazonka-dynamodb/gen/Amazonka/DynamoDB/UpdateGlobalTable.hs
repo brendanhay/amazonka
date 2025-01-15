@@ -128,8 +128,8 @@ instance Prelude.Hashable UpdateGlobalTable where
 
 instance Prelude.NFData UpdateGlobalTable where
   rnf UpdateGlobalTable' {..} =
-    Prelude.rnf globalTableName
-      `Prelude.seq` Prelude.rnf replicaUpdates
+    Prelude.rnf globalTableName `Prelude.seq`
+      Prelude.rnf replicaUpdates
 
 instance Data.ToHeaders UpdateGlobalTable where
   toHeaders =
@@ -204,5 +204,5 @@ updateGlobalTableResponse_httpStatus = Lens.lens (\UpdateGlobalTableResponse' {h
 
 instance Prelude.NFData UpdateGlobalTableResponse where
   rnf UpdateGlobalTableResponse' {..} =
-    Prelude.rnf globalTableDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalTableDescription `Prelude.seq`
+      Prelude.rnf httpStatus

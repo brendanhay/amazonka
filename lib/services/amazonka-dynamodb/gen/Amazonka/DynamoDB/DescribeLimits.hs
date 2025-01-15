@@ -267,8 +267,8 @@ describeLimitsResponse_httpStatus = Lens.lens (\DescribeLimitsResponse' {httpSta
 
 instance Prelude.NFData DescribeLimitsResponse where
   rnf DescribeLimitsResponse' {..} =
-    Prelude.rnf accountMaxReadCapacityUnits
-      `Prelude.seq` Prelude.rnf accountMaxWriteCapacityUnits
-      `Prelude.seq` Prelude.rnf tableMaxReadCapacityUnits
-      `Prelude.seq` Prelude.rnf tableMaxWriteCapacityUnits
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountMaxReadCapacityUnits `Prelude.seq`
+      Prelude.rnf accountMaxWriteCapacityUnits `Prelude.seq`
+        Prelude.rnf tableMaxReadCapacityUnits `Prelude.seq`
+          Prelude.rnf tableMaxWriteCapacityUnits `Prelude.seq`
+            Prelude.rnf httpStatus

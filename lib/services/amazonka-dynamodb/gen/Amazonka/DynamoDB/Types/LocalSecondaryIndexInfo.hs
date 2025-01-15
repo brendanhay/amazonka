@@ -148,6 +148,6 @@ instance Prelude.Hashable LocalSecondaryIndexInfo where
 
 instance Prelude.NFData LocalSecondaryIndexInfo where
   rnf LocalSecondaryIndexInfo' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf projection
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf keySchema `Prelude.seq`
+        Prelude.rnf projection

@@ -125,8 +125,8 @@ instance Prelude.Hashable UpdateContinuousBackups where
 
 instance Prelude.NFData UpdateContinuousBackups where
   rnf UpdateContinuousBackups' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf pointInTimeRecoverySpecification
+    Prelude.rnf tableName `Prelude.seq`
+      Prelude.rnf pointInTimeRecoverySpecification
 
 instance Data.ToHeaders UpdateContinuousBackups where
   toHeaders =
@@ -208,5 +208,5 @@ instance
     UpdateContinuousBackupsResponse
   where
   rnf UpdateContinuousBackupsResponse' {..} =
-    Prelude.rnf continuousBackupsDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf continuousBackupsDescription `Prelude.seq`
+      Prelude.rnf httpStatus

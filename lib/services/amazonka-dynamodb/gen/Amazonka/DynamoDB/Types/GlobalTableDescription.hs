@@ -145,8 +145,8 @@ instance Prelude.Hashable GlobalTableDescription where
 
 instance Prelude.NFData GlobalTableDescription where
   rnf GlobalTableDescription' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf globalTableArn
-      `Prelude.seq` Prelude.rnf globalTableName
-      `Prelude.seq` Prelude.rnf globalTableStatus
-      `Prelude.seq` Prelude.rnf replicationGroup
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf globalTableArn `Prelude.seq`
+        Prelude.rnf globalTableName `Prelude.seq`
+          Prelude.rnf globalTableStatus `Prelude.seq`
+            Prelude.rnf replicationGroup

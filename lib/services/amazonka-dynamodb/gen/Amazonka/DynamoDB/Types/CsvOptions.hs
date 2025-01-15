@@ -94,8 +94,8 @@ instance Prelude.Hashable CsvOptions where
 
 instance Prelude.NFData CsvOptions where
   rnf CsvOptions' {..} =
-    Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf headerList
+    Prelude.rnf delimiter `Prelude.seq`
+      Prelude.rnf headerList
 
 instance Data.ToJSON CsvOptions where
   toJSON CsvOptions' {..} =

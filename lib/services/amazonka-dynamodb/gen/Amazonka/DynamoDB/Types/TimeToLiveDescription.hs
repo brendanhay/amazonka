@@ -84,5 +84,5 @@ instance Prelude.Hashable TimeToLiveDescription where
 
 instance Prelude.NFData TimeToLiveDescription where
   rnf TimeToLiveDescription' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf timeToLiveStatus
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf timeToLiveStatus

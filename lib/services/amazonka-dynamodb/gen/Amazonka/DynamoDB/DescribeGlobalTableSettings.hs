@@ -191,6 +191,6 @@ instance
     DescribeGlobalTableSettingsResponse
   where
   rnf DescribeGlobalTableSettingsResponse' {..} =
-    Prelude.rnf globalTableName
-      `Prelude.seq` Prelude.rnf replicaSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalTableName `Prelude.seq`
+      Prelude.rnf replicaSettings `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -274,10 +274,10 @@ instance Prelude.Hashable TransactWriteItems where
 
 instance Prelude.NFData TransactWriteItems where
   rnf TransactWriteItems' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
-      `Prelude.seq` Prelude.rnf transactItems
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf returnConsumedCapacity `Prelude.seq`
+        Prelude.rnf returnItemCollectionMetrics `Prelude.seq`
+          Prelude.rnf transactItems
 
 instance Data.ToHeaders TransactWriteItems where
   toHeaders =
@@ -377,6 +377,6 @@ transactWriteItemsResponse_httpStatus = Lens.lens (\TransactWriteItemsResponse' 
 
 instance Prelude.NFData TransactWriteItemsResponse where
   rnf TransactWriteItemsResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf itemCollectionMetrics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf itemCollectionMetrics `Prelude.seq`
+        Prelude.rnf httpStatus

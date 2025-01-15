@@ -164,5 +164,5 @@ describeExportResponse_httpStatus = Lens.lens (\DescribeExportResponse' {httpSta
 
 instance Prelude.NFData DescribeExportResponse where
   rnf DescribeExportResponse' {..} =
-    Prelude.rnf exportDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportDescription `Prelude.seq`
+      Prelude.rnf httpStatus

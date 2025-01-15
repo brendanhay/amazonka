@@ -147,10 +147,10 @@ instance
 
 instance Prelude.NFData UpdateTableReplicaAutoScaling where
   rnf UpdateTableReplicaAutoScaling' {..} =
-    Prelude.rnf globalSecondaryIndexUpdates
-      `Prelude.seq` Prelude.rnf provisionedWriteCapacityAutoScalingUpdate
-      `Prelude.seq` Prelude.rnf replicaUpdates
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf globalSecondaryIndexUpdates `Prelude.seq`
+      Prelude.rnf provisionedWriteCapacityAutoScalingUpdate `Prelude.seq`
+        Prelude.rnf replicaUpdates `Prelude.seq`
+          Prelude.rnf tableName
 
 instance Data.ToHeaders UpdateTableReplicaAutoScaling where
   toHeaders =
@@ -234,5 +234,5 @@ instance
     UpdateTableReplicaAutoScalingResponse
   where
   rnf UpdateTableReplicaAutoScalingResponse' {..} =
-    Prelude.rnf tableAutoScalingDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableAutoScalingDescription `Prelude.seq`
+      Prelude.rnf httpStatus

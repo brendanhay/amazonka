@@ -131,8 +131,8 @@ instance Prelude.Hashable StreamSpecification where
 
 instance Prelude.NFData StreamSpecification where
   rnf StreamSpecification' {..} =
-    Prelude.rnf streamViewType
-      `Prelude.seq` Prelude.rnf streamEnabled
+    Prelude.rnf streamViewType `Prelude.seq`
+      Prelude.rnf streamEnabled
 
 instance Data.ToJSON StreamSpecification where
   toJSON StreamSpecification' {..} =

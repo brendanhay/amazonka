@@ -141,8 +141,8 @@ instance Prelude.Hashable KeySchemaElement where
 
 instance Prelude.NFData KeySchemaElement where
   rnf KeySchemaElement' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf keyType
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf keyType
 
 instance Data.ToJSON KeySchemaElement where
   toJSON KeySchemaElement' {..} =

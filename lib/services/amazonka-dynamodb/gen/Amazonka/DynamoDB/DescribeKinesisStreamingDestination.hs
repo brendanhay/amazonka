@@ -209,6 +209,6 @@ instance
     DescribeKinesisStreamingDestinationResponse
   where
   rnf DescribeKinesisStreamingDestinationResponse' {..} =
-    Prelude.rnf kinesisDataStreamDestinations
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf kinesisDataStreamDestinations `Prelude.seq`
+      Prelude.rnf tableName `Prelude.seq`
+        Prelude.rnf httpStatus

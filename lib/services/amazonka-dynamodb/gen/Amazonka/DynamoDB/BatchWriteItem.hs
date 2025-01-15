@@ -305,9 +305,9 @@ instance Prelude.Hashable BatchWriteItem where
 
 instance Prelude.NFData BatchWriteItem where
   rnf BatchWriteItem' {..} =
-    Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
-      `Prelude.seq` Prelude.rnf requestItems
+    Prelude.rnf returnConsumedCapacity `Prelude.seq`
+      Prelude.rnf returnItemCollectionMetrics `Prelude.seq`
+        Prelude.rnf requestItems
 
 instance Data.ToHeaders BatchWriteItem where
   toHeaders =
@@ -571,7 +571,7 @@ batchWriteItemResponse_unprocessedItems = Lens.lens (\BatchWriteItemResponse' {u
 
 instance Prelude.NFData BatchWriteItemResponse where
   rnf BatchWriteItemResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf itemCollectionMetrics
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf unprocessedItems
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf itemCollectionMetrics `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf unprocessedItems

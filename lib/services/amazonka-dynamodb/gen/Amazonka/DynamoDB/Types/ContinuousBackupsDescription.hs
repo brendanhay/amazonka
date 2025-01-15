@@ -99,5 +99,5 @@ instance
 
 instance Prelude.NFData ContinuousBackupsDescription where
   rnf ContinuousBackupsDescription' {..} =
-    Prelude.rnf pointInTimeRecoveryDescription
-      `Prelude.seq` Prelude.rnf continuousBackupsStatus
+    Prelude.rnf pointInTimeRecoveryDescription `Prelude.seq`
+      Prelude.rnf continuousBackupsStatus

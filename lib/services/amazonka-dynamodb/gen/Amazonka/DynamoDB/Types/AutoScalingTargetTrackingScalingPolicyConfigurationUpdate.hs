@@ -157,10 +157,10 @@ instance
   where
   rnf
     AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {..} =
-      Prelude.rnf disableScaleIn
-        `Prelude.seq` Prelude.rnf scaleInCooldown
-        `Prelude.seq` Prelude.rnf scaleOutCooldown
-        `Prelude.seq` Prelude.rnf targetValue
+      Prelude.rnf disableScaleIn `Prelude.seq`
+        Prelude.rnf scaleInCooldown `Prelude.seq`
+          Prelude.rnf scaleOutCooldown `Prelude.seq`
+            Prelude.rnf targetValue
 
 instance
   Data.ToJSON

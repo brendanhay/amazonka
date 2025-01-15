@@ -385,8 +385,8 @@ instance Prelude.Hashable BatchGetItem where
 
 instance Prelude.NFData BatchGetItem where
   rnf BatchGetItem' {..} =
-    Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf requestItems
+    Prelude.rnf returnConsumedCapacity `Prelude.seq`
+      Prelude.rnf requestItems
 
 instance Data.ToHeaders BatchGetItem where
   toHeaders =
@@ -564,7 +564,7 @@ batchGetItemResponse_unprocessedKeys = Lens.lens (\BatchGetItemResponse' {unproc
 
 instance Prelude.NFData BatchGetItemResponse where
   rnf BatchGetItemResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf responses
-      `Prelude.seq` Prelude.rnf unprocessedKeys
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf responses `Prelude.seq`
+          Prelude.rnf unprocessedKeys

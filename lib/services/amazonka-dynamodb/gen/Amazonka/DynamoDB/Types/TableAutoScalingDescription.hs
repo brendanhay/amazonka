@@ -120,6 +120,6 @@ instance Prelude.Hashable TableAutoScalingDescription where
 
 instance Prelude.NFData TableAutoScalingDescription where
   rnf TableAutoScalingDescription' {..} =
-    Prelude.rnf replicas
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf tableStatus
+    Prelude.rnf replicas `Prelude.seq`
+      Prelude.rnf tableName `Prelude.seq`
+        Prelude.rnf tableStatus

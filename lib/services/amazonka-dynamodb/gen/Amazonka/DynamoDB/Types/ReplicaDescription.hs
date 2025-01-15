@@ -247,12 +247,12 @@ instance Prelude.Hashable ReplicaDescription where
 
 instance Prelude.NFData ReplicaDescription where
   rnf ReplicaDescription' {..} =
-    Prelude.rnf globalSecondaryIndexes
-      `Prelude.seq` Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf replicaInaccessibleDateTime
-      `Prelude.seq` Prelude.rnf replicaStatus
-      `Prelude.seq` Prelude.rnf replicaStatusDescription
-      `Prelude.seq` Prelude.rnf replicaStatusPercentProgress
-      `Prelude.seq` Prelude.rnf replicaTableClassSummary
+    Prelude.rnf globalSecondaryIndexes `Prelude.seq`
+      Prelude.rnf kmsMasterKeyId `Prelude.seq`
+        Prelude.rnf provisionedThroughputOverride `Prelude.seq`
+          Prelude.rnf regionName `Prelude.seq`
+            Prelude.rnf replicaInaccessibleDateTime `Prelude.seq`
+              Prelude.rnf replicaStatus `Prelude.seq`
+                Prelude.rnf replicaStatusDescription `Prelude.seq`
+                  Prelude.rnf replicaStatusPercentProgress `Prelude.seq`
+                    Prelude.rnf replicaTableClassSummary

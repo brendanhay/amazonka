@@ -135,11 +135,11 @@ instance
     CreateReplicationGroupMemberAction
   where
   rnf CreateReplicationGroupMemberAction' {..} =
-    Prelude.rnf globalSecondaryIndexes
-      `Prelude.seq` Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
-      `Prelude.seq` Prelude.rnf tableClassOverride
-      `Prelude.seq` Prelude.rnf regionName
+    Prelude.rnf globalSecondaryIndexes `Prelude.seq`
+      Prelude.rnf kmsMasterKeyId `Prelude.seq`
+        Prelude.rnf provisionedThroughputOverride `Prelude.seq`
+          Prelude.rnf tableClassOverride `Prelude.seq`
+            Prelude.rnf regionName
 
 instance
   Data.ToJSON

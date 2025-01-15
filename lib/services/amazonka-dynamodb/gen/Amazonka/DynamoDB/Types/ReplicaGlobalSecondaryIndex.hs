@@ -79,8 +79,8 @@ instance Prelude.Hashable ReplicaGlobalSecondaryIndex where
 
 instance Prelude.NFData ReplicaGlobalSecondaryIndex where
   rnf ReplicaGlobalSecondaryIndex' {..} =
-    Prelude.rnf provisionedThroughputOverride
-      `Prelude.seq` Prelude.rnf indexName
+    Prelude.rnf provisionedThroughputOverride `Prelude.seq`
+      Prelude.rnf indexName
 
 instance Data.ToJSON ReplicaGlobalSecondaryIndex where
   toJSON ReplicaGlobalSecondaryIndex' {..} =

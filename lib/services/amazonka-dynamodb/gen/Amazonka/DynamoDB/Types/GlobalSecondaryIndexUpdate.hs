@@ -130,9 +130,9 @@ instance Prelude.Hashable GlobalSecondaryIndexUpdate where
 
 instance Prelude.NFData GlobalSecondaryIndexUpdate where
   rnf GlobalSecondaryIndexUpdate' {..} =
-    Prelude.rnf create
-      `Prelude.seq` Prelude.rnf delete'
-      `Prelude.seq` Prelude.rnf update
+    Prelude.rnf create `Prelude.seq`
+      Prelude.rnf delete' `Prelude.seq`
+        Prelude.rnf update
 
 instance Data.ToJSON GlobalSecondaryIndexUpdate where
   toJSON GlobalSecondaryIndexUpdate' {..} =

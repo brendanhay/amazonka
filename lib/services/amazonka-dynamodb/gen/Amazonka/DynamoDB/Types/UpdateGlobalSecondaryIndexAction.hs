@@ -105,8 +105,8 @@ instance
     UpdateGlobalSecondaryIndexAction
   where
   rnf UpdateGlobalSecondaryIndexAction' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf provisionedThroughput
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf provisionedThroughput
 
 instance Data.ToJSON UpdateGlobalSecondaryIndexAction where
   toJSON UpdateGlobalSecondaryIndexAction' {..} =

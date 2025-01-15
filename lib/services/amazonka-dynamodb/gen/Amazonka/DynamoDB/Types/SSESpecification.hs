@@ -130,9 +130,9 @@ instance Prelude.Hashable SSESpecification where
 
 instance Prelude.NFData SSESpecification where
   rnf SSESpecification' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf sSEType
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf kmsMasterKeyId `Prelude.seq`
+        Prelude.rnf sSEType
 
 instance Data.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =

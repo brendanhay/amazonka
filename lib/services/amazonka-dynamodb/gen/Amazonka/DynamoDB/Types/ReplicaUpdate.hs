@@ -83,8 +83,8 @@ instance Prelude.Hashable ReplicaUpdate where
 
 instance Prelude.NFData ReplicaUpdate where
   rnf ReplicaUpdate' {..} =
-    Prelude.rnf create
-      `Prelude.seq` Prelude.rnf delete'
+    Prelude.rnf create `Prelude.seq`
+      Prelude.rnf delete'
 
 instance Data.ToJSON ReplicaUpdate where
   toJSON ReplicaUpdate' {..} =

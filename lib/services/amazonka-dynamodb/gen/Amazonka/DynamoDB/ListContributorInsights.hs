@@ -124,9 +124,9 @@ instance Prelude.Hashable ListContributorInsights where
 
 instance Prelude.NFData ListContributorInsights where
   rnf ListContributorInsights' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf tableName
 
 instance Data.ToHeaders ListContributorInsights where
   toHeaders =
@@ -212,6 +212,6 @@ instance
     ListContributorInsightsResponse
   where
   rnf ListContributorInsightsResponse' {..} =
-    Prelude.rnf contributorInsightsSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contributorInsightsSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

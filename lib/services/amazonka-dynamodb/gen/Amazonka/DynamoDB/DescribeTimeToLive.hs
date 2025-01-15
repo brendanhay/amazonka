@@ -163,5 +163,5 @@ describeTimeToLiveResponse_httpStatus = Lens.lens (\DescribeTimeToLiveResponse' 
 
 instance Prelude.NFData DescribeTimeToLiveResponse where
   rnf DescribeTimeToLiveResponse' {..} =
-    Prelude.rnf timeToLiveDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf timeToLiveDescription `Prelude.seq`
+      Prelude.rnf httpStatus

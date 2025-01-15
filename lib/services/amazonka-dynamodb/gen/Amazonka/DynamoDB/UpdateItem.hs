@@ -810,18 +810,18 @@ instance Prelude.Hashable UpdateItem where
 
 instance Prelude.NFData UpdateItem where
   rnf UpdateItem' {..} =
-    Prelude.rnf attributeUpdates
-      `Prelude.seq` Prelude.rnf conditionExpression
-      `Prelude.seq` Prelude.rnf conditionalOperator
-      `Prelude.seq` Prelude.rnf expected
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
-      `Prelude.seq` Prelude.rnf returnValues
-      `Prelude.seq` Prelude.rnf updateExpression
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf attributeUpdates `Prelude.seq`
+      Prelude.rnf conditionExpression `Prelude.seq`
+        Prelude.rnf conditionalOperator `Prelude.seq`
+          Prelude.rnf expected `Prelude.seq`
+            Prelude.rnf expressionAttributeNames `Prelude.seq`
+              Prelude.rnf expressionAttributeValues `Prelude.seq`
+                Prelude.rnf returnConsumedCapacity `Prelude.seq`
+                  Prelude.rnf returnItemCollectionMetrics `Prelude.seq`
+                    Prelude.rnf returnValues `Prelude.seq`
+                      Prelude.rnf updateExpression `Prelude.seq`
+                        Prelude.rnf tableName `Prelude.seq`
+                          Prelude.rnf key
 
 instance Data.ToHeaders UpdateItem where
   toHeaders =
@@ -1027,7 +1027,7 @@ updateItemResponse_httpStatus = Lens.lens (\UpdateItemResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateItemResponse where
   rnf UpdateItemResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf itemCollectionMetrics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf consumedCapacity `Prelude.seq`
+        Prelude.rnf itemCollectionMetrics `Prelude.seq`
+          Prelude.rnf httpStatus

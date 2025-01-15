@@ -104,6 +104,6 @@ instance
     KinesisStreamingDestinationOutput
   where
   rnf KinesisStreamingDestinationOutput' {..} =
-    Prelude.rnf destinationStatus
-      `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf destinationStatus `Prelude.seq`
+      Prelude.rnf streamArn `Prelude.seq`
+        Prelude.rnf tableName

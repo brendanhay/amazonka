@@ -516,16 +516,16 @@ instance Prelude.Hashable DeleteItem where
 
 instance Prelude.NFData DeleteItem where
   rnf DeleteItem' {..} =
-    Prelude.rnf conditionExpression
-      `Prelude.seq` Prelude.rnf conditionalOperator
-      `Prelude.seq` Prelude.rnf expected
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
-      `Prelude.seq` Prelude.rnf returnValues
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf conditionExpression `Prelude.seq`
+      Prelude.rnf conditionalOperator `Prelude.seq`
+        Prelude.rnf expected `Prelude.seq`
+          Prelude.rnf expressionAttributeNames `Prelude.seq`
+            Prelude.rnf expressionAttributeValues `Prelude.seq`
+              Prelude.rnf returnConsumedCapacity `Prelude.seq`
+                Prelude.rnf returnItemCollectionMetrics `Prelude.seq`
+                  Prelude.rnf returnValues `Prelude.seq`
+                    Prelude.rnf tableName `Prelude.seq`
+                      Prelude.rnf key
 
 instance Data.ToHeaders DeleteItem where
   toHeaders =
@@ -721,7 +721,7 @@ deleteItemResponse_httpStatus = Lens.lens (\DeleteItemResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteItemResponse where
   rnf DeleteItemResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf itemCollectionMetrics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf consumedCapacity `Prelude.seq`
+        Prelude.rnf itemCollectionMetrics `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -121,6 +121,6 @@ instance
     PointInTimeRecoveryDescription
   where
   rnf PointInTimeRecoveryDescription' {..} =
-    Prelude.rnf earliestRestorableDateTime
-      `Prelude.seq` Prelude.rnf latestRestorableDateTime
-      `Prelude.seq` Prelude.rnf pointInTimeRecoveryStatus
+    Prelude.rnf earliestRestorableDateTime `Prelude.seq`
+      Prelude.rnf latestRestorableDateTime `Prelude.seq`
+        Prelude.rnf pointInTimeRecoveryStatus

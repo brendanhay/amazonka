@@ -309,22 +309,22 @@ instance Prelude.Hashable ExportDescription where
 
 instance Prelude.NFData ExportDescription where
   rnf ExportDescription' {..} =
-    Prelude.rnf billedSizeBytes
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf exportArn
-      `Prelude.seq` Prelude.rnf exportFormat
-      `Prelude.seq` Prelude.rnf exportManifest
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf exportTime
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3BucketOwner
-      `Prelude.seq` Prelude.rnf s3Prefix
-      `Prelude.seq` Prelude.rnf s3SseAlgorithm
-      `Prelude.seq` Prelude.rnf s3SseKmsKeyId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf tableId
+    Prelude.rnf billedSizeBytes `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf exportArn `Prelude.seq`
+            Prelude.rnf exportFormat `Prelude.seq`
+              Prelude.rnf exportManifest `Prelude.seq`
+                Prelude.rnf exportStatus `Prelude.seq`
+                  Prelude.rnf exportTime `Prelude.seq`
+                    Prelude.rnf failureCode `Prelude.seq`
+                      Prelude.rnf failureMessage `Prelude.seq`
+                        Prelude.rnf itemCount `Prelude.seq`
+                          Prelude.rnf s3Bucket `Prelude.seq`
+                            Prelude.rnf s3BucketOwner `Prelude.seq`
+                              Prelude.rnf s3Prefix `Prelude.seq`
+                                Prelude.rnf s3SseAlgorithm `Prelude.seq`
+                                  Prelude.rnf s3SseKmsKeyId `Prelude.seq`
+                                    Prelude.rnf startTime `Prelude.seq`
+                                      Prelude.rnf tableArn `Prelude.seq`
+                                        Prelude.rnf tableId

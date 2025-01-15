@@ -143,8 +143,8 @@ instance Prelude.Hashable SourceTableFeatureDetails where
 
 instance Prelude.NFData SourceTableFeatureDetails where
   rnf SourceTableFeatureDetails' {..} =
-    Prelude.rnf globalSecondaryIndexes
-      `Prelude.seq` Prelude.rnf localSecondaryIndexes
-      `Prelude.seq` Prelude.rnf sSEDescription
-      `Prelude.seq` Prelude.rnf streamDescription
-      `Prelude.seq` Prelude.rnf timeToLiveDescription
+    Prelude.rnf globalSecondaryIndexes `Prelude.seq`
+      Prelude.rnf localSecondaryIndexes `Prelude.seq`
+        Prelude.rnf sSEDescription `Prelude.seq`
+          Prelude.rnf streamDescription `Prelude.seq`
+            Prelude.rnf timeToLiveDescription

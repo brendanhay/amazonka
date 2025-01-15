@@ -130,8 +130,8 @@ instance Prelude.Hashable Projection where
 
 instance Prelude.NFData Projection where
   rnf Projection' {..} =
-    Prelude.rnf nonKeyAttributes
-      `Prelude.seq` Prelude.rnf projectionType
+    Prelude.rnf nonKeyAttributes `Prelude.seq`
+      Prelude.rnf projectionType
 
 instance Data.ToJSON Projection where
   toJSON Projection' {..} =

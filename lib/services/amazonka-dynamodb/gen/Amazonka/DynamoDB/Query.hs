@@ -1045,12 +1045,12 @@ instance Core.AWSPager Query where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& query_exclusiveStartKey
-          Lens..~ rs
-          Lens.^? queryResponse_lastEvaluatedKey
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& query_exclusiveStartKey
+              Lens..~ rs
+              Lens.^? queryResponse_lastEvaluatedKey
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest Query where
   type AWSResponse Query = QueryResponse
@@ -1094,23 +1094,23 @@ instance Prelude.Hashable Query where
 
 instance Prelude.NFData Query where
   rnf Query' {..} =
-    Prelude.rnf attributesToGet
-      `Prelude.seq` Prelude.rnf conditionalOperator
-      `Prelude.seq` Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf exclusiveStartKey
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf keyConditionExpression
-      `Prelude.seq` Prelude.rnf keyConditions
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf projectionExpression
-      `Prelude.seq` Prelude.rnf queryFilter
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf scanIndexForward
-      `Prelude.seq` Prelude.rnf select
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf attributesToGet `Prelude.seq`
+      Prelude.rnf conditionalOperator `Prelude.seq`
+        Prelude.rnf consistentRead `Prelude.seq`
+          Prelude.rnf exclusiveStartKey `Prelude.seq`
+            Prelude.rnf expressionAttributeNames `Prelude.seq`
+              Prelude.rnf expressionAttributeValues `Prelude.seq`
+                Prelude.rnf filterExpression `Prelude.seq`
+                  Prelude.rnf indexName `Prelude.seq`
+                    Prelude.rnf keyConditionExpression `Prelude.seq`
+                      Prelude.rnf keyConditions `Prelude.seq`
+                        Prelude.rnf limit `Prelude.seq`
+                          Prelude.rnf projectionExpression `Prelude.seq`
+                            Prelude.rnf queryFilter `Prelude.seq`
+                              Prelude.rnf returnConsumedCapacity `Prelude.seq`
+                                Prelude.rnf scanIndexForward `Prelude.seq`
+                                  Prelude.rnf select `Prelude.seq`
+                                    Prelude.rnf tableName
 
 instance Data.ToHeaders Query where
   toHeaders =
@@ -1337,9 +1337,9 @@ queryResponse_items = Lens.lens (\QueryResponse' {items} -> items) (\s@QueryResp
 
 instance Prelude.NFData QueryResponse where
   rnf QueryResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf lastEvaluatedKey
-      `Prelude.seq` Prelude.rnf scannedCount
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf lastEvaluatedKey `Prelude.seq`
+          Prelude.rnf scannedCount `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf items

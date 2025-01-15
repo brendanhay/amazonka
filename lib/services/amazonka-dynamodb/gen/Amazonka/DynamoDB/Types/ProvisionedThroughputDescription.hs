@@ -162,8 +162,8 @@ instance
     ProvisionedThroughputDescription
   where
   rnf ProvisionedThroughputDescription' {..} =
-    Prelude.rnf lastDecreaseDateTime
-      `Prelude.seq` Prelude.rnf lastIncreaseDateTime
-      `Prelude.seq` Prelude.rnf numberOfDecreasesToday
-      `Prelude.seq` Prelude.rnf readCapacityUnits
-      `Prelude.seq` Prelude.rnf writeCapacityUnits
+    Prelude.rnf lastDecreaseDateTime `Prelude.seq`
+      Prelude.rnf lastIncreaseDateTime `Prelude.seq`
+        Prelude.rnf numberOfDecreasesToday `Prelude.seq`
+          Prelude.rnf readCapacityUnits `Prelude.seq`
+            Prelude.rnf writeCapacityUnits

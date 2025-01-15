@@ -98,10 +98,10 @@ instance Prelude.Hashable TransactWriteItem where
 
 instance Prelude.NFData TransactWriteItem where
   rnf TransactWriteItem' {..} =
-    Prelude.rnf conditionCheck
-      `Prelude.seq` Prelude.rnf delete'
-      `Prelude.seq` Prelude.rnf put
-      `Prelude.seq` Prelude.rnf update
+    Prelude.rnf conditionCheck `Prelude.seq`
+      Prelude.rnf delete' `Prelude.seq`
+        Prelude.rnf put `Prelude.seq`
+          Prelude.rnf update
 
 instance Data.ToJSON TransactWriteItem where
   toJSON TransactWriteItem' {..} =

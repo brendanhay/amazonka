@@ -145,9 +145,9 @@ instance Prelude.Hashable ListGlobalTables where
 
 instance Prelude.NFData ListGlobalTables where
   rnf ListGlobalTables' {..} =
-    Prelude.rnf exclusiveStartGlobalTableName
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf regionName
+    Prelude.rnf exclusiveStartGlobalTableName `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf regionName
 
 instance Data.ToHeaders ListGlobalTables where
   toHeaders =
@@ -231,6 +231,6 @@ listGlobalTablesResponse_httpStatus = Lens.lens (\ListGlobalTablesResponse' {htt
 
 instance Prelude.NFData ListGlobalTablesResponse where
   rnf ListGlobalTablesResponse' {..} =
-    Prelude.rnf globalTables
-      `Prelude.seq` Prelude.rnf lastEvaluatedGlobalTableName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalTables `Prelude.seq`
+      Prelude.rnf lastEvaluatedGlobalTableName `Prelude.seq`
+        Prelude.rnf httpStatus

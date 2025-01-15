@@ -135,12 +135,12 @@ instance Prelude.Hashable ConditionCheck where
 
 instance Prelude.NFData ConditionCheck where
   rnf ConditionCheck' {..} =
-    Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf conditionExpression
+    Prelude.rnf expressionAttributeNames `Prelude.seq`
+      Prelude.rnf expressionAttributeValues `Prelude.seq`
+        Prelude.rnf returnValuesOnConditionCheckFailure `Prelude.seq`
+          Prelude.rnf key `Prelude.seq`
+            Prelude.rnf tableName `Prelude.seq`
+              Prelude.rnf conditionExpression
 
 instance Data.ToJSON ConditionCheck where
   toJSON ConditionCheck' {..} =

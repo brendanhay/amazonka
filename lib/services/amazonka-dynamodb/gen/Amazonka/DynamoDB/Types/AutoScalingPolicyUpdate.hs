@@ -78,8 +78,8 @@ instance Prelude.Hashable AutoScalingPolicyUpdate where
 
 instance Prelude.NFData AutoScalingPolicyUpdate where
   rnf AutoScalingPolicyUpdate' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration
+    Prelude.rnf policyName `Prelude.seq`
+      Prelude.rnf targetTrackingScalingPolicyConfiguration
 
 instance Data.ToJSON AutoScalingPolicyUpdate where
   toJSON AutoScalingPolicyUpdate' {..} =

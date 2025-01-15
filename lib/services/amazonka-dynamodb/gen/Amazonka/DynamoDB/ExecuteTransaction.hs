@@ -152,9 +152,9 @@ instance Prelude.Hashable ExecuteTransaction where
 
 instance Prelude.NFData ExecuteTransaction where
   rnf ExecuteTransaction' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf transactStatements
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf returnConsumedCapacity `Prelude.seq`
+        Prelude.rnf transactStatements
 
 instance Data.ToHeaders ExecuteTransaction where
   toHeaders =
@@ -243,6 +243,6 @@ executeTransactionResponse_httpStatus = Lens.lens (\ExecuteTransactionResponse' 
 
 instance Prelude.NFData ExecuteTransactionResponse where
   rnf ExecuteTransactionResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf responses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf responses `Prelude.seq`
+        Prelude.rnf httpStatus

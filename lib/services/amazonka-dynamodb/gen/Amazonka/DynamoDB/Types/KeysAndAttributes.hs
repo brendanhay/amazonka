@@ -286,11 +286,11 @@ instance Prelude.Hashable KeysAndAttributes where
 
 instance Prelude.NFData KeysAndAttributes where
   rnf KeysAndAttributes' {..} =
-    Prelude.rnf attributesToGet
-      `Prelude.seq` Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf projectionExpression
-      `Prelude.seq` Prelude.rnf keys
+    Prelude.rnf attributesToGet `Prelude.seq`
+      Prelude.rnf consistentRead `Prelude.seq`
+        Prelude.rnf expressionAttributeNames `Prelude.seq`
+          Prelude.rnf projectionExpression `Prelude.seq`
+            Prelude.rnf keys
 
 instance Data.ToJSON KeysAndAttributes where
   toJSON KeysAndAttributes' {..} =

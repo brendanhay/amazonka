@@ -116,5 +116,5 @@ instance Prelude.Hashable BillingModeSummary where
 
 instance Prelude.NFData BillingModeSummary where
   rnf BillingModeSummary' {..} =
-    Prelude.rnf billingMode
-      `Prelude.seq` Prelude.rnf lastUpdateToPayPerRequestDateTime
+    Prelude.rnf billingMode `Prelude.seq`
+      Prelude.rnf lastUpdateToPayPerRequestDateTime

@@ -126,8 +126,8 @@ instance Prelude.Hashable BatchExecuteStatement where
 
 instance Prelude.NFData BatchExecuteStatement where
   rnf BatchExecuteStatement' {..} =
-    Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf statements
+    Prelude.rnf returnConsumedCapacity `Prelude.seq`
+      Prelude.rnf statements
 
 instance Data.ToHeaders BatchExecuteStatement where
   toHeaders =
@@ -213,6 +213,6 @@ batchExecuteStatementResponse_httpStatus = Lens.lens (\BatchExecuteStatementResp
 
 instance Prelude.NFData BatchExecuteStatementResponse where
   rnf BatchExecuteStatementResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf responses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf responses `Prelude.seq`
+        Prelude.rnf httpStatus

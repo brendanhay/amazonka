@@ -124,8 +124,8 @@ instance
     EnableKinesisStreamingDestination
   where
   rnf EnableKinesisStreamingDestination' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf streamArn
+    Prelude.rnf tableName `Prelude.seq`
+      Prelude.rnf streamArn
 
 instance
   Data.ToHeaders

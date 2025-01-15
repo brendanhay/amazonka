@@ -199,13 +199,13 @@ instance Prelude.Hashable RestoreTableFromBackup where
 
 instance Prelude.NFData RestoreTableFromBackup where
   rnf RestoreTableFromBackup' {..} =
-    Prelude.rnf billingModeOverride
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexOverride
-      `Prelude.seq` Prelude.rnf localSecondaryIndexOverride
-      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
-      `Prelude.seq` Prelude.rnf sSESpecificationOverride
-      `Prelude.seq` Prelude.rnf targetTableName
-      `Prelude.seq` Prelude.rnf backupArn
+    Prelude.rnf billingModeOverride `Prelude.seq`
+      Prelude.rnf globalSecondaryIndexOverride `Prelude.seq`
+        Prelude.rnf localSecondaryIndexOverride `Prelude.seq`
+          Prelude.rnf provisionedThroughputOverride `Prelude.seq`
+            Prelude.rnf sSESpecificationOverride `Prelude.seq`
+              Prelude.rnf targetTableName `Prelude.seq`
+                Prelude.rnf backupArn
 
 instance Data.ToHeaders RestoreTableFromBackup where
   toHeaders =
@@ -292,5 +292,5 @@ instance
     RestoreTableFromBackupResponse
   where
   rnf RestoreTableFromBackupResponse' {..} =
-    Prelude.rnf tableDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableDescription `Prelude.seq`
+      Prelude.rnf httpStatus

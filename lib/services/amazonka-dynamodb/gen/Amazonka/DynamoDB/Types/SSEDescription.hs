@@ -150,7 +150,7 @@ instance Prelude.Hashable SSEDescription where
 
 instance Prelude.NFData SSEDescription where
   rnf SSEDescription' {..} =
-    Prelude.rnf inaccessibleEncryptionDateTime
-      `Prelude.seq` Prelude.rnf kmsMasterKeyArn
-      `Prelude.seq` Prelude.rnf sSEType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf inaccessibleEncryptionDateTime `Prelude.seq`
+      Prelude.rnf kmsMasterKeyArn `Prelude.seq`
+        Prelude.rnf sSEType `Prelude.seq`
+          Prelude.rnf status

@@ -97,6 +97,6 @@ instance Prelude.Hashable Capacity where
 
 instance Prelude.NFData Capacity where
   rnf Capacity' {..} =
-    Prelude.rnf capacityUnits
-      `Prelude.seq` Prelude.rnf readCapacityUnits
-      `Prelude.seq` Prelude.rnf writeCapacityUnits
+    Prelude.rnf capacityUnits `Prelude.seq`
+      Prelude.rnf readCapacityUnits `Prelude.seq`
+        Prelude.rnf writeCapacityUnits

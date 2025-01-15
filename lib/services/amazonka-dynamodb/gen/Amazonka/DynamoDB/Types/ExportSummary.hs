@@ -86,5 +86,5 @@ instance Prelude.Hashable ExportSummary where
 
 instance Prelude.NFData ExportSummary where
   rnf ExportSummary' {..} =
-    Prelude.rnf exportArn
-      `Prelude.seq` Prelude.rnf exportStatus
+    Prelude.rnf exportArn `Prelude.seq`
+      Prelude.rnf exportStatus

@@ -99,6 +99,6 @@ instance Prelude.Hashable BackupDescription where
 
 instance Prelude.NFData BackupDescription where
   rnf BackupDescription' {..} =
-    Prelude.rnf backupDetails
-      `Prelude.seq` Prelude.rnf sourceTableDetails
-      `Prelude.seq` Prelude.rnf sourceTableFeatureDetails
+    Prelude.rnf backupDetails `Prelude.seq`
+      Prelude.rnf sourceTableDetails `Prelude.seq`
+        Prelude.rnf sourceTableFeatureDetails

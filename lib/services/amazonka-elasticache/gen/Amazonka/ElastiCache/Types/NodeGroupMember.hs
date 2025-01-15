@@ -136,9 +136,9 @@ instance Prelude.Hashable NodeGroupMember where
 
 instance Prelude.NFData NodeGroupMember where
   rnf NodeGroupMember' {..} =
-    Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf cacheNodeId
-      `Prelude.seq` Prelude.rnf currentRole
-      `Prelude.seq` Prelude.rnf preferredAvailabilityZone
-      `Prelude.seq` Prelude.rnf preferredOutpostArn
-      `Prelude.seq` Prelude.rnf readEndpoint
+    Prelude.rnf cacheClusterId `Prelude.seq`
+      Prelude.rnf cacheNodeId `Prelude.seq`
+        Prelude.rnf currentRole `Prelude.seq`
+          Prelude.rnf preferredAvailabilityZone `Prelude.seq`
+            Prelude.rnf preferredOutpostArn `Prelude.seq`
+              Prelude.rnf readEndpoint

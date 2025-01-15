@@ -187,10 +187,10 @@ instance
     PurchaseReservedCacheNodesOffering
   where
   rnf PurchaseReservedCacheNodesOffering' {..} =
-    Prelude.rnf cacheNodeCount
-      `Prelude.seq` Prelude.rnf reservedCacheNodeId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId
+    Prelude.rnf cacheNodeCount `Prelude.seq`
+      Prelude.rnf reservedCacheNodeId `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf reservedCacheNodesOfferingId
 
 instance
   Data.ToHeaders
@@ -269,5 +269,5 @@ instance
     PurchaseReservedCacheNodesOfferingResponse
   where
   rnf PurchaseReservedCacheNodesOfferingResponse' {..} =
-    Prelude.rnf reservedCacheNode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedCacheNode `Prelude.seq`
+      Prelude.rnf httpStatus

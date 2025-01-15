@@ -150,9 +150,9 @@ instance
     DisassociateGlobalReplicationGroup
   where
   rnf DisassociateGlobalReplicationGroup' {..} =
-    Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf replicationGroupRegion
+    Prelude.rnf globalReplicationGroupId `Prelude.seq`
+      Prelude.rnf replicationGroupId `Prelude.seq`
+        Prelude.rnf replicationGroupRegion
 
 instance
   Data.ToHeaders
@@ -229,5 +229,5 @@ instance
     DisassociateGlobalReplicationGroupResponse
   where
   rnf DisassociateGlobalReplicationGroupResponse' {..} =
-    Prelude.rnf globalReplicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalReplicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

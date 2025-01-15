@@ -132,9 +132,7 @@ instance Data.FromXML UserGroup where
                   )
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "UserGroupId")
-      Prelude.<*> ( x
-                      Data..@? "UserIds"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "UserIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -152,11 +150,11 @@ instance Prelude.Hashable UserGroup where
 
 instance Prelude.NFData UserGroup where
   rnf UserGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf minimumEngineVersion
-      `Prelude.seq` Prelude.rnf pendingChanges
-      `Prelude.seq` Prelude.rnf replicationGroups
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userGroupId
-      `Prelude.seq` Prelude.rnf userIds
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf engine `Prelude.seq`
+        Prelude.rnf minimumEngineVersion `Prelude.seq`
+          Prelude.rnf pendingChanges `Prelude.seq`
+            Prelude.rnf replicationGroups `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf userGroupId `Prelude.seq`
+                  Prelude.rnf userIds

@@ -119,9 +119,9 @@ instance Prelude.Hashable BatchApplyUpdateAction where
 
 instance Prelude.NFData BatchApplyUpdateAction where
   rnf BatchApplyUpdateAction' {..} =
-    Prelude.rnf cacheClusterIds
-      `Prelude.seq` Prelude.rnf replicationGroupIds
-      `Prelude.seq` Prelude.rnf serviceUpdateName
+    Prelude.rnf cacheClusterIds `Prelude.seq`
+      Prelude.rnf replicationGroupIds `Prelude.seq`
+        Prelude.rnf serviceUpdateName
 
 instance Data.ToHeaders BatchApplyUpdateAction where
   toHeaders = Prelude.const Prelude.mempty

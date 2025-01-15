@@ -178,9 +178,9 @@ instance
 
 instance Prelude.NFData CreateGlobalReplicationGroup where
   rnf CreateGlobalReplicationGroup' {..} =
-    Prelude.rnf globalReplicationGroupDescription
-      `Prelude.seq` Prelude.rnf globalReplicationGroupIdSuffix
-      `Prelude.seq` Prelude.rnf primaryReplicationGroupId
+    Prelude.rnf globalReplicationGroupDescription `Prelude.seq`
+      Prelude.rnf globalReplicationGroupIdSuffix `Prelude.seq`
+        Prelude.rnf primaryReplicationGroupId
 
 instance Data.ToHeaders CreateGlobalReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,5 +248,5 @@ instance
     CreateGlobalReplicationGroupResponse
   where
   rnf CreateGlobalReplicationGroupResponse' {..} =
-    Prelude.rnf globalReplicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalReplicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

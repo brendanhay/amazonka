@@ -72,8 +72,8 @@ instance Prelude.Hashable ParameterNameValue where
 
 instance Prelude.NFData ParameterNameValue where
   rnf ParameterNameValue' {..} =
-    Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf parameterValue
+    Prelude.rnf parameterName `Prelude.seq`
+      Prelude.rnf parameterValue
 
 instance Data.ToQuery ParameterNameValue where
   toQuery ParameterNameValue' {..} =

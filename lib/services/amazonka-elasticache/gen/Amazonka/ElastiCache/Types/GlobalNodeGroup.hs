@@ -78,5 +78,5 @@ instance Prelude.Hashable GlobalNodeGroup where
 
 instance Prelude.NFData GlobalNodeGroup where
   rnf GlobalNodeGroup' {..} =
-    Prelude.rnf globalNodeGroupId
-      `Prelude.seq` Prelude.rnf slots
+    Prelude.rnf globalNodeGroupId `Prelude.seq`
+      Prelude.rnf slots

@@ -117,7 +117,7 @@ instance
     PendingLogDeliveryConfiguration
   where
   rnf PendingLogDeliveryConfiguration' {..} =
-    Prelude.rnf destinationDetails
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf logFormat
-      `Prelude.seq` Prelude.rnf logType
+    Prelude.rnf destinationDetails `Prelude.seq`
+      Prelude.rnf destinationType `Prelude.seq`
+        Prelude.rnf logFormat `Prelude.seq`
+          Prelude.rnf logType

@@ -894,9 +894,7 @@ instance Data.FromXML CacheCluster where
       Prelude.<*> (x Data..@? "CacheClusterId")
       Prelude.<*> (x Data..@? "CacheClusterStatus")
       Prelude.<*> (x Data..@? "CacheNodeType")
-      Prelude.<*> ( x
-                      Data..@? "CacheNodes"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "CacheNodes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CacheNode")
                   )
       Prelude.<*> (x Data..@? "CacheParameterGroup")
@@ -926,9 +924,7 @@ instance Data.FromXML CacheCluster where
       Prelude.<*> (x Data..@? "PreferredOutpostArn")
       Prelude.<*> (x Data..@? "ReplicationGroupId")
       Prelude.<*> (x Data..@? "ReplicationGroupLogDeliveryEnabled")
-      Prelude.<*> ( x
-                      Data..@? "SecurityGroups"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "SnapshotRetentionLimit")

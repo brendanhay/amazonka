@@ -80,8 +80,8 @@ instance Prelude.Hashable DestinationDetails where
 
 instance Prelude.NFData DestinationDetails where
   rnf DestinationDetails' {..} =
-    Prelude.rnf cloudWatchLogsDetails
-      `Prelude.seq` Prelude.rnf kinesisFirehoseDetails
+    Prelude.rnf cloudWatchLogsDetails `Prelude.seq`
+      Prelude.rnf kinesisFirehoseDetails
 
 instance Data.ToQuery DestinationDetails where
   toQuery DestinationDetails' {..} =

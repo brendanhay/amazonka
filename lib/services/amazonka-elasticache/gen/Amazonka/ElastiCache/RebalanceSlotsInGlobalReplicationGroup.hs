@@ -128,8 +128,8 @@ instance
     RebalanceSlotsInGlobalReplicationGroup
   where
   rnf RebalanceSlotsInGlobalReplicationGroup' {..} =
-    Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf applyImmediately
+    Prelude.rnf globalReplicationGroupId `Prelude.seq`
+      Prelude.rnf applyImmediately
 
 instance
   Data.ToHeaders
@@ -205,5 +205,5 @@ instance
   where
   rnf
     RebalanceSlotsInGlobalReplicationGroupResponse' {..} =
-      Prelude.rnf globalReplicationGroup
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf globalReplicationGroup `Prelude.seq`
+        Prelude.rnf httpStatus

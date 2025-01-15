@@ -166,13 +166,13 @@ instance Prelude.Hashable NodeGroupConfiguration where
 
 instance Prelude.NFData NodeGroupConfiguration where
   rnf NodeGroupConfiguration' {..} =
-    Prelude.rnf nodeGroupId
-      `Prelude.seq` Prelude.rnf primaryAvailabilityZone
-      `Prelude.seq` Prelude.rnf primaryOutpostArn
-      `Prelude.seq` Prelude.rnf replicaAvailabilityZones
-      `Prelude.seq` Prelude.rnf replicaCount
-      `Prelude.seq` Prelude.rnf replicaOutpostArns
-      `Prelude.seq` Prelude.rnf slots
+    Prelude.rnf nodeGroupId `Prelude.seq`
+      Prelude.rnf primaryAvailabilityZone `Prelude.seq`
+        Prelude.rnf primaryOutpostArn `Prelude.seq`
+          Prelude.rnf replicaAvailabilityZones `Prelude.seq`
+            Prelude.rnf replicaCount `Prelude.seq`
+              Prelude.rnf replicaOutpostArns `Prelude.seq`
+                Prelude.rnf slots
 
 instance Data.ToQuery NodeGroupConfiguration where
   toQuery NodeGroupConfiguration' {..} =

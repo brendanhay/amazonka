@@ -135,9 +135,9 @@ instance Prelude.Hashable LogDeliveryConfiguration where
 
 instance Prelude.NFData LogDeliveryConfiguration where
   rnf LogDeliveryConfiguration' {..} =
-    Prelude.rnf destinationDetails
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf logFormat
-      `Prelude.seq` Prelude.rnf logType
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf destinationDetails `Prelude.seq`
+      Prelude.rnf destinationType `Prelude.seq`
+        Prelude.rnf logFormat `Prelude.seq`
+          Prelude.rnf logType `Prelude.seq`
+            Prelude.rnf message `Prelude.seq`
+              Prelude.rnf status

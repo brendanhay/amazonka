@@ -771,9 +771,7 @@ instance Data.FromXML Snapshot where
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EngineVersion")
       Prelude.<*> (x Data..@? "KmsKeyId")
-      Prelude.<*> ( x
-                      Data..@? "NodeSnapshots"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "NodeSnapshots" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "NodeSnapshot")
                   )
       Prelude.<*> (x Data..@? "NumCacheNodes")

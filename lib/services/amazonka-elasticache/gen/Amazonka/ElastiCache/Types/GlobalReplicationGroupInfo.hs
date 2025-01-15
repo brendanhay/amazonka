@@ -82,5 +82,5 @@ instance Prelude.Hashable GlobalReplicationGroupInfo where
 
 instance Prelude.NFData GlobalReplicationGroupInfo where
   rnf GlobalReplicationGroupInfo' {..} =
-    Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf globalReplicationGroupMemberRole
+    Prelude.rnf globalReplicationGroupId `Prelude.seq`
+      Prelude.rnf globalReplicationGroupMemberRole

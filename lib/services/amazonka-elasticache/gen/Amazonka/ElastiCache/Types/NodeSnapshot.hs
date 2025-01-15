@@ -135,10 +135,10 @@ instance Prelude.Hashable NodeSnapshot where
 
 instance Prelude.NFData NodeSnapshot where
   rnf NodeSnapshot' {..} =
-    Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf cacheNodeCreateTime
-      `Prelude.seq` Prelude.rnf cacheNodeId
-      `Prelude.seq` Prelude.rnf cacheSize
-      `Prelude.seq` Prelude.rnf nodeGroupConfiguration
-      `Prelude.seq` Prelude.rnf nodeGroupId
-      `Prelude.seq` Prelude.rnf snapshotCreateTime
+    Prelude.rnf cacheClusterId `Prelude.seq`
+      Prelude.rnf cacheNodeCreateTime `Prelude.seq`
+        Prelude.rnf cacheNodeId `Prelude.seq`
+          Prelude.rnf cacheSize `Prelude.seq`
+            Prelude.rnf nodeGroupConfiguration `Prelude.seq`
+              Prelude.rnf nodeGroupId `Prelude.seq`
+                Prelude.rnf snapshotCreateTime

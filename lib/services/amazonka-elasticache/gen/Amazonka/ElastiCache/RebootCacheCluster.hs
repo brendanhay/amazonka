@@ -136,8 +136,8 @@ instance Prelude.Hashable RebootCacheCluster where
 
 instance Prelude.NFData RebootCacheCluster where
   rnf RebootCacheCluster' {..} =
-    Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf cacheNodeIdsToReboot
+    Prelude.rnf cacheClusterId `Prelude.seq`
+      Prelude.rnf cacheNodeIdsToReboot
 
 instance Data.ToHeaders RebootCacheCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,5 +197,5 @@ rebootCacheClusterResponse_httpStatus = Lens.lens (\RebootCacheClusterResponse' 
 
 instance Prelude.NFData RebootCacheClusterResponse where
   rnf RebootCacheClusterResponse' {..} =
-    Prelude.rnf cacheCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheCluster `Prelude.seq`
+      Prelude.rnf httpStatus

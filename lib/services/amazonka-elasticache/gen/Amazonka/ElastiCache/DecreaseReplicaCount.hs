@@ -213,11 +213,11 @@ instance Prelude.Hashable DecreaseReplicaCount where
 
 instance Prelude.NFData DecreaseReplicaCount where
   rnf DecreaseReplicaCount' {..} =
-    Prelude.rnf newReplicaCount'
-      `Prelude.seq` Prelude.rnf replicaConfiguration
-      `Prelude.seq` Prelude.rnf replicasToRemove
-      `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf applyImmediately
+    Prelude.rnf newReplicaCount' `Prelude.seq`
+      Prelude.rnf replicaConfiguration `Prelude.seq`
+        Prelude.rnf replicasToRemove `Prelude.seq`
+          Prelude.rnf replicationGroupId `Prelude.seq`
+            Prelude.rnf applyImmediately
 
 instance Data.ToHeaders DecreaseReplicaCount where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,5 +287,5 @@ decreaseReplicaCountResponse_httpStatus = Lens.lens (\DecreaseReplicaCountRespon
 
 instance Prelude.NFData DecreaseReplicaCountResponse where
   rnf DecreaseReplicaCountResponse' {..} =
-    Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

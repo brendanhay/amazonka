@@ -141,9 +141,9 @@ instance Prelude.Hashable ModifyCacheSubnetGroup where
 
 instance Prelude.NFData ModifyCacheSubnetGroup where
   rnf ModifyCacheSubnetGroup' {..} =
-    Prelude.rnf cacheSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
+    Prelude.rnf cacheSubnetGroupDescription `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf cacheSubnetGroupName
 
 instance Data.ToHeaders ModifyCacheSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,5 +211,5 @@ instance
     ModifyCacheSubnetGroupResponse
   where
   rnf ModifyCacheSubnetGroupResponse' {..} =
-    Prelude.rnf cacheSubnetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheSubnetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

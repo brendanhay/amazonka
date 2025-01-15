@@ -125,8 +125,8 @@ instance Prelude.Hashable CacheEngineVersion where
 
 instance Prelude.NFData CacheEngineVersion where
   rnf CacheEngineVersion' {..} =
-    Prelude.rnf cacheEngineDescription
-      `Prelude.seq` Prelude.rnf cacheEngineVersionDescription
-      `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
+    Prelude.rnf cacheEngineDescription `Prelude.seq`
+      Prelude.rnf cacheEngineVersionDescription `Prelude.seq`
+        Prelude.rnf cacheParameterGroupFamily `Prelude.seq`
+          Prelude.rnf engine `Prelude.seq`
+            Prelude.rnf engineVersion

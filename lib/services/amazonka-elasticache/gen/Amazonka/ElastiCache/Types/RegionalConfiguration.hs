@@ -91,9 +91,9 @@ instance Prelude.Hashable RegionalConfiguration where
 
 instance Prelude.NFData RegionalConfiguration where
   rnf RegionalConfiguration' {..} =
-    Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf replicationGroupRegion
-      `Prelude.seq` Prelude.rnf reshardingConfiguration
+    Prelude.rnf replicationGroupId `Prelude.seq`
+      Prelude.rnf replicationGroupRegion `Prelude.seq`
+        Prelude.rnf reshardingConfiguration
 
 instance Data.ToQuery RegionalConfiguration where
   toQuery RegionalConfiguration' {..} =

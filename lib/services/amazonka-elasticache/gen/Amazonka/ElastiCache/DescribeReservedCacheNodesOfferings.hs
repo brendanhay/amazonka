@@ -529,12 +529,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedCacheNodesOfferings_marker
-          Lens..~ rs
-          Lens.^? describeReservedCacheNodesOfferingsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedCacheNodesOfferings_marker
+              Lens..~ rs
+              Lens.^? describeReservedCacheNodesOfferingsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -581,13 +581,13 @@ instance
     DescribeReservedCacheNodesOfferings
   where
   rnf DescribeReservedCacheNodesOfferings' {..} =
-    Prelude.rnf cacheNodeType
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId
+    Prelude.rnf cacheNodeType `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf offeringType `Prelude.seq`
+              Prelude.rnf productDescription `Prelude.seq`
+                Prelude.rnf reservedCacheNodesOfferingId
 
 instance
   Data.ToHeaders
@@ -684,6 +684,6 @@ instance
     DescribeReservedCacheNodesOfferingsResponse
   where
   rnf DescribeReservedCacheNodesOfferingsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf reservedCacheNodesOfferings `Prelude.seq`
+        Prelude.rnf httpStatus

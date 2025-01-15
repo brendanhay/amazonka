@@ -195,13 +195,13 @@ instance
 
 instance Prelude.NFData ModifyGlobalReplicationGroup where
   rnf ModifyGlobalReplicationGroup' {..} =
-    Prelude.rnf automaticFailoverEnabled
-      `Prelude.seq` Prelude.rnf cacheNodeType
-      `Prelude.seq` Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf globalReplicationGroupDescription
-      `Prelude.seq` Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf applyImmediately
+    Prelude.rnf automaticFailoverEnabled `Prelude.seq`
+      Prelude.rnf cacheNodeType `Prelude.seq`
+        Prelude.rnf cacheParameterGroupName `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf globalReplicationGroupDescription `Prelude.seq`
+              Prelude.rnf globalReplicationGroupId `Prelude.seq`
+                Prelude.rnf applyImmediately
 
 instance Data.ToHeaders ModifyGlobalReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,5 +274,5 @@ instance
     ModifyGlobalReplicationGroupResponse
   where
   rnf ModifyGlobalReplicationGroupResponse' {..} =
-    Prelude.rnf globalReplicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalReplicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

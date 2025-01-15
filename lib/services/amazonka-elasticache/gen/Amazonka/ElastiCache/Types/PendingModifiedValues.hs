@@ -173,11 +173,11 @@ instance Prelude.Hashable PendingModifiedValues where
 
 instance Prelude.NFData PendingModifiedValues where
   rnf PendingModifiedValues' {..} =
-    Prelude.rnf authTokenStatus
-      `Prelude.seq` Prelude.rnf cacheNodeIdsToRemove
-      `Prelude.seq` Prelude.rnf cacheNodeType
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf numCacheNodes
-      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
-      `Prelude.seq` Prelude.rnf transitEncryptionMode
+    Prelude.rnf authTokenStatus `Prelude.seq`
+      Prelude.rnf cacheNodeIdsToRemove `Prelude.seq`
+        Prelude.rnf cacheNodeType `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf logDeliveryConfigurations `Prelude.seq`
+              Prelude.rnf numCacheNodes `Prelude.seq`
+                Prelude.rnf transitEncryptionEnabled `Prelude.seq`
+                  Prelude.rnf transitEncryptionMode

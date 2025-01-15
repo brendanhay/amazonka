@@ -194,12 +194,12 @@ instance
     CacheNodeTypeSpecificParameter
   where
   rnf CacheNodeTypeSpecificParameter' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf cacheNodeTypeSpecificValues
-      `Prelude.seq` Prelude.rnf changeType
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isModifiable
-      `Prelude.seq` Prelude.rnf minimumEngineVersion
-      `Prelude.seq` Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf cacheNodeTypeSpecificValues `Prelude.seq`
+        Prelude.rnf changeType `Prelude.seq`
+          Prelude.rnf dataType `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf isModifiable `Prelude.seq`
+                Prelude.rnf minimumEngineVersion `Prelude.seq`
+                  Prelude.rnf parameterName `Prelude.seq`
+                    Prelude.rnf source

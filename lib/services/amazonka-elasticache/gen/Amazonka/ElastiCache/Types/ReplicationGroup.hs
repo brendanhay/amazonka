@@ -528,9 +528,7 @@ instance Data.FromXML ReplicationGroup where
                       Prelude.>>= Core.may
                         (Data.parseXMLList "LogDeliveryConfiguration")
                   )
-      Prelude.<*> ( x
-                      Data..@? "MemberClusters"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "MemberClusters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterId")
                   )
       Prelude.<*> ( x
@@ -541,9 +539,7 @@ instance Data.FromXML ReplicationGroup where
                   )
       Prelude.<*> (x Data..@? "MultiAZ")
       Prelude.<*> (x Data..@? "NetworkType")
-      Prelude.<*> ( x
-                      Data..@? "NodeGroups"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "NodeGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "NodeGroup")
                   )
       Prelude.<*> (x Data..@? "PendingModifiedValues")
@@ -555,9 +551,7 @@ instance Data.FromXML ReplicationGroup where
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "TransitEncryptionEnabled")
       Prelude.<*> (x Data..@? "TransitEncryptionMode")
-      Prelude.<*> ( x
-                      Data..@? "UserGroupIds"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "UserGroupIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

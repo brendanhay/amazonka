@@ -86,5 +86,5 @@ instance Prelude.Hashable UpdateActionResultsMessage where
 
 instance Prelude.NFData UpdateActionResultsMessage where
   rnf UpdateActionResultsMessage' {..} =
-    Prelude.rnf processedUpdateActions
-      `Prelude.seq` Prelude.rnf unprocessedUpdateActions
+    Prelude.rnf processedUpdateActions `Prelude.seq`
+      Prelude.rnf unprocessedUpdateActions

@@ -127,12 +127,12 @@ instance Core.AWSPager DescribeUserGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeUserGroups_marker
-          Lens..~ rs
-          Lens.^? describeUserGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeUserGroups_marker
+              Lens..~ rs
+              Lens.^? describeUserGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUserGroups where
   type
@@ -146,9 +146,7 @@ instance Core.AWSRequest DescribeUserGroups where
       ( \s h x ->
           DescribeUserGroupsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "UserGroups"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "UserGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,9 +161,9 @@ instance Prelude.Hashable DescribeUserGroups where
 
 instance Prelude.NFData DescribeUserGroups where
   rnf DescribeUserGroups' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf userGroupId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf userGroupId
 
 instance Data.ToHeaders DescribeUserGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,6 +242,6 @@ describeUserGroupsResponse_httpStatus = Lens.lens (\DescribeUserGroupsResponse' 
 
 instance Prelude.NFData DescribeUserGroupsResponse where
   rnf DescribeUserGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf userGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf userGroups `Prelude.seq`
+        Prelude.rnf httpStatus

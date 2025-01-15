@@ -174,8 +174,8 @@ instance
     ListAllowedNodeTypeModifications
   where
   rnf ListAllowedNodeTypeModifications' {..} =
-    Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf replicationGroupId
+    Prelude.rnf cacheClusterId `Prelude.seq`
+      Prelude.rnf replicationGroupId
 
 instance
   Data.ToHeaders
@@ -287,6 +287,6 @@ instance
     ListAllowedNodeTypeModificationsResponse
   where
   rnf ListAllowedNodeTypeModificationsResponse' {..} =
-    Prelude.rnf scaleDownModifications
-      `Prelude.seq` Prelude.rnf scaleUpModifications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf scaleDownModifications `Prelude.seq`
+      Prelude.rnf scaleUpModifications `Prelude.seq`
+        Prelude.rnf httpStatus

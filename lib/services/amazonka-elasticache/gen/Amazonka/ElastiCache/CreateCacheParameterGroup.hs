@@ -174,10 +174,10 @@ instance Prelude.Hashable CreateCacheParameterGroup where
 
 instance Prelude.NFData CreateCacheParameterGroup where
   rnf CreateCacheParameterGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf cacheParameterGroupName `Prelude.seq`
+        Prelude.rnf cacheParameterGroupFamily `Prelude.seq`
+          Prelude.rnf description
 
 instance Data.ToHeaders CreateCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,5 +245,5 @@ instance
     CreateCacheParameterGroupResponse
   where
   rnf CreateCacheParameterGroupResponse' {..} =
-    Prelude.rnf cacheParameterGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheParameterGroup `Prelude.seq`
+      Prelude.rnf httpStatus

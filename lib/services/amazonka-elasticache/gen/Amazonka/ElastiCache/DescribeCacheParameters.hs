@@ -162,12 +162,12 @@ instance Core.AWSPager DescribeCacheParameters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCacheParameters_marker
-          Lens..~ rs
-          Lens.^? describeCacheParametersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCacheParameters_marker
+              Lens..~ rs
+              Lens.^? describeCacheParametersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheParameters where
   type
@@ -187,9 +187,7 @@ instance Core.AWSRequest DescribeCacheParameters where
                               (Data.parseXMLList "CacheNodeTypeSpecificParameter")
                         )
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Parameters"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -205,10 +203,10 @@ instance Prelude.Hashable DescribeCacheParameters where
 
 instance Prelude.NFData DescribeCacheParameters where
   rnf DescribeCacheParameters' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf source `Prelude.seq`
+          Prelude.rnf cacheParameterGroupName
 
 instance Data.ToHeaders DescribeCacheParameters where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,7 +295,7 @@ instance
     DescribeCacheParametersResponse
   where
   rnf DescribeCacheParametersResponse' {..} =
-    Prelude.rnf cacheNodeTypeSpecificParameters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheNodeTypeSpecificParameters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf httpStatus

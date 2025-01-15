@@ -98,6 +98,6 @@ instance Prelude.Hashable CacheParameterGroupStatus where
 
 instance Prelude.NFData CacheParameterGroupStatus where
   rnf CacheParameterGroupStatus' {..} =
-    Prelude.rnf cacheNodeIdsToReboot
-      `Prelude.seq` Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf parameterApplyStatus
+    Prelude.rnf cacheNodeIdsToReboot `Prelude.seq`
+      Prelude.rnf cacheParameterGroupName `Prelude.seq`
+        Prelude.rnf parameterApplyStatus

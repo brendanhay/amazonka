@@ -254,12 +254,12 @@ instance
     ModifyReplicationGroupShardConfiguration
   where
   rnf ModifyReplicationGroupShardConfiguration' {..} =
-    Prelude.rnf nodeGroupsToRemove
-      `Prelude.seq` Prelude.rnf nodeGroupsToRetain
-      `Prelude.seq` Prelude.rnf reshardingConfiguration
-      `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf nodeGroupCount
-      `Prelude.seq` Prelude.rnf applyImmediately
+    Prelude.rnf nodeGroupsToRemove `Prelude.seq`
+      Prelude.rnf nodeGroupsToRetain `Prelude.seq`
+        Prelude.rnf reshardingConfiguration `Prelude.seq`
+          Prelude.rnf replicationGroupId `Prelude.seq`
+            Prelude.rnf nodeGroupCount `Prelude.seq`
+              Prelude.rnf applyImmediately
 
 instance
   Data.ToHeaders
@@ -350,5 +350,5 @@ instance
   where
   rnf
     ModifyReplicationGroupShardConfigurationResponse' {..} =
-      Prelude.rnf replicationGroup
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf replicationGroup `Prelude.seq`
+        Prelude.rnf httpStatus

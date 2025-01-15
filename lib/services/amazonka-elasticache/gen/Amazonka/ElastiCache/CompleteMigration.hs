@@ -115,8 +115,8 @@ instance Prelude.Hashable CompleteMigration where
 
 instance Prelude.NFData CompleteMigration where
   rnf CompleteMigration' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf replicationGroupId
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf replicationGroupId
 
 instance Data.ToHeaders CompleteMigration where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,5 +175,5 @@ completeMigrationResponse_httpStatus = Lens.lens (\CompleteMigrationResponse' {h
 
 instance Prelude.NFData CompleteMigrationResponse where
   rnf CompleteMigrationResponse' {..} =
-    Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -451,11 +451,11 @@ instance Prelude.Hashable ReservedCacheNodesOffering where
 
 instance Prelude.NFData ReservedCacheNodesOffering where
   rnf ReservedCacheNodesOffering' {..} =
-    Prelude.rnf cacheNodeType
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId
-      `Prelude.seq` Prelude.rnf usagePrice
+    Prelude.rnf cacheNodeType `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf fixedPrice `Prelude.seq`
+          Prelude.rnf offeringType `Prelude.seq`
+            Prelude.rnf productDescription `Prelude.seq`
+              Prelude.rnf recurringCharges `Prelude.seq`
+                Prelude.rnf reservedCacheNodesOfferingId `Prelude.seq`
+                  Prelude.rnf usagePrice

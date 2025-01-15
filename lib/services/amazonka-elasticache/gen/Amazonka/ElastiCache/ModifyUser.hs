@@ -154,12 +154,12 @@ instance Prelude.Hashable ModifyUser where
 
 instance Prelude.NFData ModifyUser where
   rnf ModifyUser' {..} =
-    Prelude.rnf accessString
-      `Prelude.seq` Prelude.rnf appendAccessString
-      `Prelude.seq` Prelude.rnf authenticationMode
-      `Prelude.seq` Prelude.rnf noPasswordRequired
-      `Prelude.seq` Prelude.rnf passwords
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf accessString `Prelude.seq`
+      Prelude.rnf appendAccessString `Prelude.seq`
+        Prelude.rnf authenticationMode `Prelude.seq`
+          Prelude.rnf noPasswordRequired `Prelude.seq`
+            Prelude.rnf passwords `Prelude.seq`
+              Prelude.rnf userId
 
 instance Data.ToHeaders ModifyUser where
   toHeaders = Prelude.const Prelude.mempty

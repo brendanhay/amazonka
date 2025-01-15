@@ -119,11 +119,11 @@ instance
     LogDeliveryConfigurationRequest
   where
   rnf LogDeliveryConfigurationRequest' {..} =
-    Prelude.rnf destinationDetails
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf logFormat
-      `Prelude.seq` Prelude.rnf logType
+    Prelude.rnf destinationDetails `Prelude.seq`
+      Prelude.rnf destinationType `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf logFormat `Prelude.seq`
+            Prelude.rnf logType
 
 instance Data.ToQuery LogDeliveryConfigurationRequest where
   toQuery LogDeliveryConfigurationRequest' {..} =

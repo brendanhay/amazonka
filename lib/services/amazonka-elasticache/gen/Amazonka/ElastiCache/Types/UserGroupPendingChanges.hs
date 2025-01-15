@@ -66,14 +66,10 @@ userGroupPendingChanges_userIdsToRemove = Lens.lens (\UserGroupPendingChanges' {
 instance Data.FromXML UserGroupPendingChanges where
   parseXML x =
     UserGroupPendingChanges'
-      Prelude.<$> ( x
-                      Data..@? "UserIdsToAdd"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "UserIdsToAdd" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "UserIdsToRemove"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "UserIdsToRemove" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -85,5 +81,5 @@ instance Prelude.Hashable UserGroupPendingChanges where
 
 instance Prelude.NFData UserGroupPendingChanges where
   rnf UserGroupPendingChanges' {..} =
-    Prelude.rnf userIdsToAdd
-      `Prelude.seq` Prelude.rnf userIdsToRemove
+    Prelude.rnf userIdsToAdd `Prelude.seq`
+      Prelude.rnf userIdsToRemove

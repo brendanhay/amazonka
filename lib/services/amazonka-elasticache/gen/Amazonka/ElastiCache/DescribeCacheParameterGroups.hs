@@ -144,12 +144,12 @@ instance Core.AWSPager DescribeCacheParameterGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCacheParameterGroups_marker
-          Lens..~ rs
-          Lens.^? describeCacheParameterGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCacheParameterGroups_marker
+              Lens..~ rs
+              Lens.^? describeCacheParameterGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheParameterGroups where
   type
@@ -183,9 +183,9 @@ instance
 
 instance Prelude.NFData DescribeCacheParameterGroups where
   rnf DescribeCacheParameterGroups' {..} =
-    Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf cacheParameterGroupName `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeCacheParameterGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -266,6 +266,6 @@ instance
     DescribeCacheParameterGroupsResponse
   where
   rnf DescribeCacheParameterGroupsResponse' {..} =
-    Prelude.rnf cacheParameterGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheParameterGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

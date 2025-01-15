@@ -120,9 +120,9 @@ instance Prelude.Hashable ModifyUserGroup where
 
 instance Prelude.NFData ModifyUserGroup where
   rnf ModifyUserGroup' {..} =
-    Prelude.rnf userIdsToAdd
-      `Prelude.seq` Prelude.rnf userIdsToRemove
-      `Prelude.seq` Prelude.rnf userGroupId
+    Prelude.rnf userIdsToAdd `Prelude.seq`
+      Prelude.rnf userIdsToRemove `Prelude.seq`
+        Prelude.rnf userGroupId
 
 instance Data.ToHeaders ModifyUserGroup where
   toHeaders = Prelude.const Prelude.mempty

@@ -1691,5 +1691,5 @@ instance
     CreateReplicationGroupResponse
   where
   rnf CreateReplicationGroupResponse' {..} =
-    Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

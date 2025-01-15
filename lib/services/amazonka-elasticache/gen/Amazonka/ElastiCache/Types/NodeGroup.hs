@@ -146,9 +146,9 @@ instance Prelude.Hashable NodeGroup where
 
 instance Prelude.NFData NodeGroup where
   rnf NodeGroup' {..} =
-    Prelude.rnf nodeGroupId
-      `Prelude.seq` Prelude.rnf nodeGroupMembers
-      `Prelude.seq` Prelude.rnf primaryEndpoint
-      `Prelude.seq` Prelude.rnf readerEndpoint
-      `Prelude.seq` Prelude.rnf slots
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf nodeGroupId `Prelude.seq`
+      Prelude.rnf nodeGroupMembers `Prelude.seq`
+        Prelude.rnf primaryEndpoint `Prelude.seq`
+          Prelude.rnf readerEndpoint `Prelude.seq`
+            Prelude.rnf slots `Prelude.seq`
+              Prelude.rnf status

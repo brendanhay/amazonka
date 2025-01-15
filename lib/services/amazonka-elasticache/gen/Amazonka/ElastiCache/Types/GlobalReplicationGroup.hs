@@ -232,9 +232,7 @@ instance Data.FromXML GlobalReplicationGroup where
                   )
       Prelude.<*> (x Data..@? "GlobalReplicationGroupDescription")
       Prelude.<*> (x Data..@? "GlobalReplicationGroupId")
-      Prelude.<*> ( x
-                      Data..@? "Members"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Members" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "GlobalReplicationGroupMember")
                   )
@@ -260,16 +258,16 @@ instance Prelude.Hashable GlobalReplicationGroup where
 
 instance Prelude.NFData GlobalReplicationGroup where
   rnf GlobalReplicationGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
-      `Prelude.seq` Prelude.rnf authTokenEnabled
-      `Prelude.seq` Prelude.rnf cacheNodeType
-      `Prelude.seq` Prelude.rnf clusterEnabled
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf globalNodeGroups
-      `Prelude.seq` Prelude.rnf globalReplicationGroupDescription
-      `Prelude.seq` Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf members
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf atRestEncryptionEnabled `Prelude.seq`
+        Prelude.rnf authTokenEnabled `Prelude.seq`
+          Prelude.rnf cacheNodeType `Prelude.seq`
+            Prelude.rnf clusterEnabled `Prelude.seq`
+              Prelude.rnf engine `Prelude.seq`
+                Prelude.rnf engineVersion `Prelude.seq`
+                  Prelude.rnf globalNodeGroups `Prelude.seq`
+                    Prelude.rnf globalReplicationGroupDescription `Prelude.seq`
+                      Prelude.rnf globalReplicationGroupId `Prelude.seq`
+                        Prelude.rnf members `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf transitEncryptionEnabled

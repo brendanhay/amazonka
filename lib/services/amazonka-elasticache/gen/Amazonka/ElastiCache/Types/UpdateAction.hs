@@ -275,21 +275,21 @@ instance Prelude.Hashable UpdateAction where
 
 instance Prelude.NFData UpdateAction where
   rnf UpdateAction' {..} =
-    Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf cacheNodeUpdateStatus
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf estimatedUpdateTime
-      `Prelude.seq` Prelude.rnf nodeGroupUpdateStatus
-      `Prelude.seq` Prelude.rnf nodesUpdated
-      `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf serviceUpdateName
-      `Prelude.seq` Prelude.rnf serviceUpdateRecommendedApplyByDate
-      `Prelude.seq` Prelude.rnf serviceUpdateReleaseDate
-      `Prelude.seq` Prelude.rnf serviceUpdateSeverity
-      `Prelude.seq` Prelude.rnf serviceUpdateStatus
-      `Prelude.seq` Prelude.rnf serviceUpdateType
-      `Prelude.seq` Prelude.rnf slaMet
-      `Prelude.seq` Prelude.rnf updateActionAvailableDate
-      `Prelude.seq` Prelude.rnf updateActionStatus
-      `Prelude.seq` Prelude.rnf
-        updateActionStatusModifiedDate
+    Prelude.rnf cacheClusterId `Prelude.seq`
+      Prelude.rnf cacheNodeUpdateStatus `Prelude.seq`
+        Prelude.rnf engine `Prelude.seq`
+          Prelude.rnf estimatedUpdateTime `Prelude.seq`
+            Prelude.rnf nodeGroupUpdateStatus `Prelude.seq`
+              Prelude.rnf nodesUpdated `Prelude.seq`
+                Prelude.rnf replicationGroupId `Prelude.seq`
+                  Prelude.rnf serviceUpdateName `Prelude.seq`
+                    Prelude.rnf serviceUpdateRecommendedApplyByDate `Prelude.seq`
+                      Prelude.rnf serviceUpdateReleaseDate `Prelude.seq`
+                        Prelude.rnf serviceUpdateSeverity `Prelude.seq`
+                          Prelude.rnf serviceUpdateStatus `Prelude.seq`
+                            Prelude.rnf serviceUpdateType `Prelude.seq`
+                              Prelude.rnf slaMet `Prelude.seq`
+                                Prelude.rnf updateActionAvailableDate `Prelude.seq`
+                                  Prelude.rnf updateActionStatus `Prelude.seq`
+                                    Prelude.rnf
+                                      updateActionStatusModifiedDate

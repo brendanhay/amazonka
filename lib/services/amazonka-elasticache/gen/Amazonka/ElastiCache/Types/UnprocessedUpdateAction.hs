@@ -114,8 +114,8 @@ instance Prelude.Hashable UnprocessedUpdateAction where
 
 instance Prelude.NFData UnprocessedUpdateAction where
   rnf UnprocessedUpdateAction' {..} =
-    Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorType
-      `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf serviceUpdateName
+    Prelude.rnf cacheClusterId `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf errorType `Prelude.seq`
+          Prelude.rnf replicationGroupId `Prelude.seq`
+            Prelude.rnf serviceUpdateName

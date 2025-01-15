@@ -71,8 +71,8 @@ instance Prelude.Hashable TimeRangeFilter where
 
 instance Prelude.NFData TimeRangeFilter where
   rnf TimeRangeFilter' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime
 
 instance Data.ToQuery TimeRangeFilter where
   toQuery TimeRangeFilter' {..} =

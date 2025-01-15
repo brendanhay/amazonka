@@ -234,8 +234,8 @@ instance
     GetApplicationComponentDetailsResponse
   where
   rnf GetApplicationComponentDetailsResponse' {..} =
-    Prelude.rnf applicationComponentDetail
-      `Prelude.seq` Prelude.rnf associatedApplications
-      `Prelude.seq` Prelude.rnf associatedServerIds
-      `Prelude.seq` Prelude.rnf moreApplicationResource
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationComponentDetail `Prelude.seq`
+      Prelude.rnf associatedApplications `Prelude.seq`
+        Prelude.rnf associatedServerIds `Prelude.seq`
+          Prelude.rnf moreApplicationResource `Prelude.seq`
+            Prelude.rnf httpStatus

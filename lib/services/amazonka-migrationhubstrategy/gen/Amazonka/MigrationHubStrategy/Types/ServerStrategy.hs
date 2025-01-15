@@ -107,7 +107,7 @@ instance Prelude.Hashable ServerStrategy where
 
 instance Prelude.NFData ServerStrategy where
   rnf ServerStrategy' {..} =
-    Prelude.rnf isPreferred
-      `Prelude.seq` Prelude.rnf numberOfApplicationComponents
-      `Prelude.seq` Prelude.rnf recommendation
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf isPreferred `Prelude.seq`
+      Prelude.rnf numberOfApplicationComponents `Prelude.seq`
+        Prelude.rnf recommendation `Prelude.seq`
+          Prelude.rnf status

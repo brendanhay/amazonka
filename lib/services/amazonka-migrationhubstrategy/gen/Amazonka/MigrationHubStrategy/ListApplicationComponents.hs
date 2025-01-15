@@ -170,12 +170,12 @@ instance Core.AWSPager ListApplicationComponents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApplicationComponents_nextToken
-          Lens..~ rs
-          Lens.^? listApplicationComponentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApplicationComponents_nextToken
+              Lens..~ rs
+              Lens.^? listApplicationComponentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationComponents where
   type
@@ -207,12 +207,12 @@ instance Prelude.Hashable ListApplicationComponents where
 
 instance Prelude.NFData ListApplicationComponents where
   rnf ListApplicationComponents' {..} =
-    Prelude.rnf applicationComponentCriteria
-      `Prelude.seq` Prelude.rnf filterValue
-      `Prelude.seq` Prelude.rnf groupIdFilter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sort
+    Prelude.rnf applicationComponentCriteria `Prelude.seq`
+      Prelude.rnf filterValue `Prelude.seq`
+        Prelude.rnf groupIdFilter `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sort
 
 instance Data.ToHeaders ListApplicationComponents where
   toHeaders =
@@ -304,6 +304,6 @@ instance
     ListApplicationComponentsResponse
   where
   rnf ListApplicationComponentsResponse' {..} =
-    Prelude.rnf applicationComponentInfos
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationComponentInfos `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

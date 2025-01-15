@@ -131,8 +131,8 @@ instance Prelude.Hashable ConfigurationSummary where
 
 instance Prelude.NFData ConfigurationSummary where
   rnf ConfigurationSummary' {..} =
-    Prelude.rnf ipAddressBasedRemoteInfoList
-      `Prelude.seq` Prelude.rnf pipelineInfoList
-      `Prelude.seq` Prelude.rnf remoteSourceCodeAnalysisServerInfo
-      `Prelude.seq` Prelude.rnf vcenterBasedRemoteInfoList
-      `Prelude.seq` Prelude.rnf versionControlInfoList
+    Prelude.rnf ipAddressBasedRemoteInfoList `Prelude.seq`
+      Prelude.rnf pipelineInfoList `Prelude.seq`
+        Prelude.rnf remoteSourceCodeAnalysisServerInfo `Prelude.seq`
+          Prelude.rnf vcenterBasedRemoteInfoList `Prelude.seq`
+            Prelude.rnf versionControlInfoList

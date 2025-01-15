@@ -175,12 +175,12 @@ instance Prelude.Hashable StartImportFileTask where
 
 instance Prelude.NFData StartImportFileTask where
   rnf StartImportFileTask' {..} =
-    Prelude.rnf dataSourceType
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf s3bucketForReportData
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf s3key
+    Prelude.rnf dataSourceType `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf s3bucketForReportData `Prelude.seq`
+          Prelude.rnf s3Bucket `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf s3key
 
 instance Data.ToHeaders StartImportFileTask where
   toHeaders =

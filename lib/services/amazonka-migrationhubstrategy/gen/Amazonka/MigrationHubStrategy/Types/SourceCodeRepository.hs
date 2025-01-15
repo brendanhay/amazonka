@@ -103,7 +103,7 @@ instance Prelude.Hashable SourceCodeRepository where
 
 instance Prelude.NFData SourceCodeRepository where
   rnf SourceCodeRepository' {..} =
-    Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf versionControlType
+    Prelude.rnf branch `Prelude.seq`
+      Prelude.rnf projectName `Prelude.seq`
+        Prelude.rnf repository `Prelude.seq`
+          Prelude.rnf versionControlType

@@ -107,7 +107,7 @@ instance Prelude.Hashable SystemInfo where
 
 instance Prelude.NFData SystemInfo where
   rnf SystemInfo' {..} =
-    Prelude.rnf cpuArchitecture
-      `Prelude.seq` Prelude.rnf fileSystemType
-      `Prelude.seq` Prelude.rnf networkInfoList
-      `Prelude.seq` Prelude.rnf osInfo
+    Prelude.rnf cpuArchitecture `Prelude.seq`
+      Prelude.rnf fileSystemType `Prelude.seq`
+        Prelude.rnf networkInfoList `Prelude.seq`
+          Prelude.rnf osInfo

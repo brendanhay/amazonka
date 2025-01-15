@@ -114,12 +114,12 @@ instance Core.AWSPager ListImportFileTask where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listImportFileTask_nextToken
-          Lens..~ rs
-          Lens.^? listImportFileTaskResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listImportFileTask_nextToken
+              Lens..~ rs
+              Lens.^? listImportFileTaskResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImportFileTask where
   type
@@ -144,8 +144,8 @@ instance Prelude.Hashable ListImportFileTask where
 
 instance Prelude.NFData ListImportFileTask where
   rnf ListImportFileTask' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListImportFileTask where
   toHeaders =
@@ -221,6 +221,6 @@ listImportFileTaskResponse_httpStatus = Lens.lens (\ListImportFileTaskResponse' 
 
 instance Prelude.NFData ListImportFileTaskResponse where
   rnf ListImportFileTaskResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskInfos
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf taskInfos `Prelude.seq`
+        Prelude.rnf httpStatus

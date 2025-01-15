@@ -94,6 +94,6 @@ instance Prelude.Hashable RecommendationSet where
 
 instance Prelude.NFData RecommendationSet where
   rnf RecommendationSet' {..} =
-    Prelude.rnf strategy
-      `Prelude.seq` Prelude.rnf targetDestination
-      `Prelude.seq` Prelude.rnf transformationTool
+    Prelude.rnf strategy `Prelude.seq`
+      Prelude.rnf targetDestination `Prelude.seq`
+        Prelude.rnf transformationTool

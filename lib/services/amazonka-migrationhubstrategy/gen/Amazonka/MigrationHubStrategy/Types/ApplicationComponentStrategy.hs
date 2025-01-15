@@ -98,6 +98,6 @@ instance
 
 instance Prelude.NFData ApplicationComponentStrategy where
   rnf ApplicationComponentStrategy' {..} =
-    Prelude.rnf isPreferred
-      `Prelude.seq` Prelude.rnf recommendation
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf isPreferred `Prelude.seq`
+      Prelude.rnf recommendation `Prelude.seq`
+        Prelude.rnf status

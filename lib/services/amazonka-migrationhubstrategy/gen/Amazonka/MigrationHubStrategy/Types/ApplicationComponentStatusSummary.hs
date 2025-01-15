@@ -97,5 +97,5 @@ instance
     ApplicationComponentStatusSummary
   where
   rnf ApplicationComponentStatusSummary' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf srcCodeOrDbAnalysisStatus
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf srcCodeOrDbAnalysisStatus

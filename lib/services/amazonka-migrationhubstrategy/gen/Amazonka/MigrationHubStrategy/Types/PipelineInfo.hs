@@ -82,5 +82,5 @@ instance Prelude.Hashable PipelineInfo where
 
 instance Prelude.NFData PipelineInfo where
   rnf PipelineInfo' {..} =
-    Prelude.rnf pipelineConfigurationTimeStamp
-      `Prelude.seq` Prelude.rnf pipelineType
+    Prelude.rnf pipelineConfigurationTimeStamp `Prelude.seq`
+      Prelude.rnf pipelineType

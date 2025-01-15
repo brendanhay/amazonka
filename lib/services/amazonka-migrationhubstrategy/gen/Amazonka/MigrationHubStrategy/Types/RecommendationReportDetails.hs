@@ -126,9 +126,9 @@ instance Prelude.Hashable RecommendationReportDetails where
 
 instance Prelude.NFData RecommendationReportDetails where
   rnf RecommendationReportDetails' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Keys
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf s3Bucket `Prelude.seq`
+        Prelude.rnf s3Keys `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusMessage

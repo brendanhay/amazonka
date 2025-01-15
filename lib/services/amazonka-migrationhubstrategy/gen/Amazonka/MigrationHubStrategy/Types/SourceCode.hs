@@ -92,10 +92,10 @@ instance Prelude.Hashable SourceCode where
 
 instance Prelude.NFData SourceCode where
   rnf SourceCode' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf versionControl
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf projectName `Prelude.seq`
+        Prelude.rnf sourceVersion `Prelude.seq`
+          Prelude.rnf versionControl
 
 instance Data.ToJSON SourceCode where
   toJSON SourceCode' {..} =

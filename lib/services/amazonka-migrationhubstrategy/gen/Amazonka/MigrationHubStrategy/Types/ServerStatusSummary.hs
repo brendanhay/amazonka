@@ -84,5 +84,5 @@ instance Prelude.Hashable ServerStatusSummary where
 
 instance Prelude.NFData ServerStatusSummary where
   rnf ServerStatusSummary' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf runTimeAssessmentStatus
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf runTimeAssessmentStatus

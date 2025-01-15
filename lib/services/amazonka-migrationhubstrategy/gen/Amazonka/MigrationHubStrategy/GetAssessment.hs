@@ -178,7 +178,7 @@ getAssessmentResponse_httpStatus = Lens.lens (\GetAssessmentResponse' {httpStatu
 
 instance Prelude.NFData GetAssessmentResponse where
   rnf GetAssessmentResponse' {..} =
-    Prelude.rnf assessmentTargets
-      `Prelude.seq` Prelude.rnf dataCollectionDetails
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessmentTargets `Prelude.seq`
+      Prelude.rnf dataCollectionDetails `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf httpStatus

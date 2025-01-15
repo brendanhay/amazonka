@@ -110,8 +110,8 @@ instance Prelude.Hashable UpdateServerConfig where
 
 instance Prelude.NFData UpdateServerConfig where
   rnf UpdateServerConfig' {..} =
-    Prelude.rnf strategyOption
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf strategyOption `Prelude.seq`
+      Prelude.rnf serverId
 
 instance Data.ToHeaders UpdateServerConfig where
   toHeaders =

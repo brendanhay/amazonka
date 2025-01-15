@@ -130,12 +130,12 @@ instance Core.AWSPager GetServerDetails where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getServerDetails_nextToken
-          Lens..~ rs
-          Lens.^? getServerDetailsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getServerDetails_nextToken
+              Lens..~ rs
+              Lens.^? getServerDetailsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetServerDetails where
   type
@@ -165,9 +165,9 @@ instance Prelude.Hashable GetServerDetails where
 
 instance Prelude.NFData GetServerDetails where
   rnf GetServerDetails' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serverId
 
 instance Data.ToHeaders GetServerDetails where
   toHeaders =
@@ -257,7 +257,7 @@ getServerDetailsResponse_httpStatus = Lens.lens (\GetServerDetailsResponse' {htt
 
 instance Prelude.NFData GetServerDetailsResponse where
   rnf GetServerDetailsResponse' {..} =
-    Prelude.rnf associatedApplications
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serverDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associatedApplications `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serverDetail `Prelude.seq`
+          Prelude.rnf httpStatus

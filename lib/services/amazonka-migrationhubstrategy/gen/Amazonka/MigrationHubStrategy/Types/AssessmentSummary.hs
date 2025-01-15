@@ -211,14 +211,14 @@ instance Prelude.Hashable AssessmentSummary where
 
 instance Prelude.NFData AssessmentSummary where
   rnf AssessmentSummary' {..} =
-    Prelude.rnf antipatternReportS3Object
-      `Prelude.seq` Prelude.rnf antipatternReportStatus
-      `Prelude.seq` Prelude.rnf antipatternReportStatusMessage
-      `Prelude.seq` Prelude.rnf lastAnalyzedTimestamp
-      `Prelude.seq` Prelude.rnf listAntipatternSeveritySummary
-      `Prelude.seq` Prelude.rnf listApplicationComponentStatusSummary
-      `Prelude.seq` Prelude.rnf listApplicationComponentStrategySummary
-      `Prelude.seq` Prelude.rnf listApplicationComponentSummary
-      `Prelude.seq` Prelude.rnf listServerStatusSummary
-      `Prelude.seq` Prelude.rnf listServerStrategySummary
-      `Prelude.seq` Prelude.rnf listServerSummary
+    Prelude.rnf antipatternReportS3Object `Prelude.seq`
+      Prelude.rnf antipatternReportStatus `Prelude.seq`
+        Prelude.rnf antipatternReportStatusMessage `Prelude.seq`
+          Prelude.rnf lastAnalyzedTimestamp `Prelude.seq`
+            Prelude.rnf listAntipatternSeveritySummary `Prelude.seq`
+              Prelude.rnf listApplicationComponentStatusSummary `Prelude.seq`
+                Prelude.rnf listApplicationComponentStrategySummary `Prelude.seq`
+                  Prelude.rnf listApplicationComponentSummary `Prelude.seq`
+                    Prelude.rnf listServerStatusSummary `Prelude.seq`
+                      Prelude.rnf listServerStrategySummary `Prelude.seq`
+                        Prelude.rnf listServerSummary

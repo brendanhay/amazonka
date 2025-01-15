@@ -82,5 +82,5 @@ instance Prelude.Hashable ServerSummary where
 
 instance Prelude.NFData ServerSummary where
   rnf ServerSummary' {..} =
-    Prelude.rnf serverOsType
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf serverOsType `Prelude.seq`
+      Prelude.rnf count

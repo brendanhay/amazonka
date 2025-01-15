@@ -158,5 +158,5 @@ getServerStrategiesResponse_httpStatus = Lens.lens (\GetServerStrategiesResponse
 
 instance Prelude.NFData GetServerStrategiesResponse where
   rnf GetServerStrategiesResponse' {..} =
-    Prelude.rnf serverStrategies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serverStrategies `Prelude.seq`
+      Prelude.rnf httpStatus

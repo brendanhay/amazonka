@@ -81,5 +81,5 @@ instance Prelude.Hashable VcenterBasedRemoteInfo where
 
 instance Prelude.NFData VcenterBasedRemoteInfo where
   rnf VcenterBasedRemoteInfo' {..} =
-    Prelude.rnf osType
-      `Prelude.seq` Prelude.rnf vcenterConfigurationTimeStamp
+    Prelude.rnf osType `Prelude.seq`
+      Prelude.rnf vcenterConfigurationTimeStamp

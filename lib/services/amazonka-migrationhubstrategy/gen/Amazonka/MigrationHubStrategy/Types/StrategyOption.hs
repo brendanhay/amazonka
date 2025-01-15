@@ -103,10 +103,10 @@ instance Prelude.Hashable StrategyOption where
 
 instance Prelude.NFData StrategyOption where
   rnf StrategyOption' {..} =
-    Prelude.rnf isPreferred
-      `Prelude.seq` Prelude.rnf strategy
-      `Prelude.seq` Prelude.rnf targetDestination
-      `Prelude.seq` Prelude.rnf toolName
+    Prelude.rnf isPreferred `Prelude.seq`
+      Prelude.rnf strategy `Prelude.seq`
+        Prelude.rnf targetDestination `Prelude.seq`
+          Prelude.rnf toolName
 
 instance Data.ToJSON StrategyOption where
   toJSON StrategyOption' {..} =

@@ -80,5 +80,5 @@ instance Prelude.Hashable S3Object where
 
 instance Prelude.NFData S3Object where
   rnf S3Object' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3key
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf s3key

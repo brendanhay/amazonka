@@ -209,12 +209,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeOrderableDBInstanceOptions_marker
-          Lens..~ rs
-          Lens.^? describeOrderableDBInstanceOptionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeOrderableDBInstanceOptions_marker
+              Lens..~ rs
+              Lens.^? describeOrderableDBInstanceOptionsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -262,14 +262,14 @@ instance
     DescribeOrderableDBInstanceOptions
   where
   rnf DescribeOrderableDBInstanceOptions' {..} =
-    Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf licenseModel
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf engine
+    Prelude.rnf dbInstanceClass `Prelude.seq`
+      Prelude.rnf engineVersion `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf licenseModel `Prelude.seq`
+            Prelude.rnf marker `Prelude.seq`
+              Prelude.rnf maxRecords `Prelude.seq`
+                Prelude.rnf vpc `Prelude.seq`
+                  Prelude.rnf engine
 
 instance
   Data.ToHeaders
@@ -370,6 +370,6 @@ instance
     DescribeOrderableDBInstanceOptionsResponse
   where
   rnf DescribeOrderableDBInstanceOptionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf orderableDBInstanceOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf orderableDBInstanceOptions `Prelude.seq`
+        Prelude.rnf httpStatus

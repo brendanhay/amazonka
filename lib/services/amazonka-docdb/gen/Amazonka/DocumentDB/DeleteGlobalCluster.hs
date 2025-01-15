@@ -164,5 +164,5 @@ deleteGlobalClusterResponse_httpStatus = Lens.lens (\DeleteGlobalClusterResponse
 
 instance Prelude.NFData DeleteGlobalClusterResponse where
   rnf DeleteGlobalClusterResponse' {..} =
-    Prelude.rnf globalCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalCluster `Prelude.seq`
+      Prelude.rnf httpStatus

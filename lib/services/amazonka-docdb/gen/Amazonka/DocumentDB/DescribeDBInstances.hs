@@ -204,12 +204,12 @@ instance Core.AWSPager DescribeDBInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBInstances_marker
-          Lens..~ rs
-          Lens.^? describeDBInstancesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBInstances_marker
+              Lens..~ rs
+              Lens.^? describeDBInstancesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBInstances where
   type
@@ -222,9 +222,7 @@ instance Core.AWSRequest DescribeDBInstances where
       "DescribeDBInstancesResult"
       ( \s h x ->
           DescribeDBInstancesResponse'
-            Prelude.<$> ( x
-                            Data..@? "DBInstances"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DBInstances" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBInstance")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -241,10 +239,10 @@ instance Prelude.Hashable DescribeDBInstances where
 
 instance Prelude.NFData DescribeDBInstances where
   rnf DescribeDBInstances' {..} =
-    Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -325,6 +323,6 @@ describeDBInstancesResponse_httpStatus = Lens.lens (\DescribeDBInstancesResponse
 
 instance Prelude.NFData DescribeDBInstancesResponse where
   rnf DescribeDBInstancesResponse' {..} =
-    Prelude.rnf dbInstances
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstances `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

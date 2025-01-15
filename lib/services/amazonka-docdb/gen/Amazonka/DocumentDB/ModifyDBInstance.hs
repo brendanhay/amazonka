@@ -417,17 +417,17 @@ instance Prelude.Hashable ModifyDBInstance where
 
 instance Prelude.NFData ModifyDBInstance where
   rnf ModifyDBInstance' {..} =
-    Prelude.rnf applyImmediately
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf cACertificateIdentifier
-      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
-      `Prelude.seq` Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf enablePerformanceInsights
-      `Prelude.seq` Prelude.rnf newDBInstanceIdentifier'
-      `Prelude.seq` Prelude.rnf performanceInsightsKMSKeyId
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf promotionTier
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+    Prelude.rnf applyImmediately `Prelude.seq`
+      Prelude.rnf autoMinorVersionUpgrade `Prelude.seq`
+        Prelude.rnf cACertificateIdentifier `Prelude.seq`
+          Prelude.rnf copyTagsToSnapshot `Prelude.seq`
+            Prelude.rnf dbInstanceClass `Prelude.seq`
+              Prelude.rnf enablePerformanceInsights `Prelude.seq`
+                Prelude.rnf newDBInstanceIdentifier' `Prelude.seq`
+                  Prelude.rnf performanceInsightsKMSKeyId `Prelude.seq`
+                    Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                      Prelude.rnf promotionTier `Prelude.seq`
+                        Prelude.rnf dbInstanceIdentifier
 
 instance Data.ToHeaders ModifyDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -501,5 +501,5 @@ modifyDBInstanceResponse_httpStatus = Lens.lens (\ModifyDBInstanceResponse' {htt
 
 instance Prelude.NFData ModifyDBInstanceResponse where
   rnf ModifyDBInstanceResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

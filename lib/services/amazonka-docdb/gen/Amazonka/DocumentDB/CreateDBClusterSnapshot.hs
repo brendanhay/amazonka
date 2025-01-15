@@ -181,9 +181,9 @@ instance Prelude.Hashable CreateDBClusterSnapshot where
 
 instance Prelude.NFData CreateDBClusterSnapshot where
   rnf CreateDBClusterSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf dbClusterSnapshotIdentifier `Prelude.seq`
+        Prelude.rnf dbClusterIdentifier
 
 instance Data.ToHeaders CreateDBClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,5 +249,5 @@ instance
     CreateDBClusterSnapshotResponse
   where
   rnf CreateDBClusterSnapshotResponse' {..} =
-    Prelude.rnf dbClusterSnapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterSnapshot `Prelude.seq`
+      Prelude.rnf httpStatus

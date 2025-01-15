@@ -179,10 +179,10 @@ instance
     DescribeEngineDefaultClusterParameters
   where
   rnf DescribeEngineDefaultClusterParameters' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf dbParameterGroupFamily
 
 instance
   Data.ToHeaders
@@ -262,5 +262,5 @@ instance
   where
   rnf
     DescribeEngineDefaultClusterParametersResponse' {..} =
-      Prelude.rnf engineDefaults
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf engineDefaults `Prelude.seq`
+        Prelude.rnf httpStatus

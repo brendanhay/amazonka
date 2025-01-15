@@ -84,8 +84,8 @@ instance
     CloudwatchLogsExportConfiguration
   where
   rnf CloudwatchLogsExportConfiguration' {..} =
-    Prelude.rnf disableLogTypes
-      `Prelude.seq` Prelude.rnf enableLogTypes
+    Prelude.rnf disableLogTypes `Prelude.seq`
+      Prelude.rnf enableLogTypes
 
 instance
   Data.ToQuery

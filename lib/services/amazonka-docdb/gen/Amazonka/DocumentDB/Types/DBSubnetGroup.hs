@@ -106,9 +106,7 @@ instance Data.FromXML DBSubnetGroup where
       Prelude.<*> (x Data..@? "DBSubnetGroupDescription")
       Prelude.<*> (x Data..@? "DBSubnetGroupName")
       Prelude.<*> (x Data..@? "SubnetGroupStatus")
-      Prelude.<*> ( x
-                      Data..@? "Subnets"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
       Prelude.<*> (x Data..@? "VpcId")
@@ -125,9 +123,9 @@ instance Prelude.Hashable DBSubnetGroup where
 
 instance Prelude.NFData DBSubnetGroup where
   rnf DBSubnetGroup' {..} =
-    Prelude.rnf dbSubnetGroupArn
-      `Prelude.seq` Prelude.rnf dbSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf subnetGroupStatus
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dbSubnetGroupArn `Prelude.seq`
+      Prelude.rnf dbSubnetGroupDescription `Prelude.seq`
+        Prelude.rnf dbSubnetGroupName `Prelude.seq`
+          Prelude.rnf subnetGroupStatus `Prelude.seq`
+            Prelude.rnf subnets `Prelude.seq`
+              Prelude.rnf vpcId

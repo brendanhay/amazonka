@@ -472,19 +472,19 @@ instance Prelude.Hashable ModifyDBCluster where
 
 instance Prelude.NFData ModifyDBCluster where
   rnf ModifyDBCluster' {..} =
-    Prelude.rnf applyImmediately
-      `Prelude.seq` Prelude.rnf backupRetentionPeriod
-      `Prelude.seq` Prelude.rnf cloudwatchLogsExportConfiguration
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
-      `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf newDBClusterIdentifier'
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf preferredBackupWindow
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+    Prelude.rnf applyImmediately `Prelude.seq`
+      Prelude.rnf backupRetentionPeriod `Prelude.seq`
+        Prelude.rnf cloudwatchLogsExportConfiguration `Prelude.seq`
+          Prelude.rnf dbClusterParameterGroupName `Prelude.seq`
+            Prelude.rnf deletionProtection `Prelude.seq`
+              Prelude.rnf engineVersion `Prelude.seq`
+                Prelude.rnf masterUserPassword `Prelude.seq`
+                  Prelude.rnf newDBClusterIdentifier' `Prelude.seq`
+                    Prelude.rnf port `Prelude.seq`
+                      Prelude.rnf preferredBackupWindow `Prelude.seq`
+                        Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                          Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+                            Prelude.rnf dbClusterIdentifier
 
 instance Data.ToHeaders ModifyDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -564,5 +564,5 @@ modifyDBClusterResponse_httpStatus = Lens.lens (\ModifyDBClusterResponse' {httpS
 
 instance Prelude.NFData ModifyDBClusterResponse where
   rnf ModifyDBClusterResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

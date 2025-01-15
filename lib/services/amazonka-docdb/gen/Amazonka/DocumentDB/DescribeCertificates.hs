@@ -187,12 +187,12 @@ instance Core.AWSPager DescribeCertificates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCertificates_marker
-          Lens..~ rs
-          Lens.^? describeCertificatesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCertificates_marker
+              Lens..~ rs
+              Lens.^? describeCertificatesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCertificates where
   type
@@ -205,9 +205,7 @@ instance Core.AWSRequest DescribeCertificates where
       "DescribeCertificatesResult"
       ( \s h x ->
           DescribeCertificatesResponse'
-            Prelude.<$> ( x
-                            Data..@? "Certificates"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Certificate")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -224,10 +222,10 @@ instance Prelude.Hashable DescribeCertificates where
 
 instance Prelude.NFData DescribeCertificates where
   rnf DescribeCertificates' {..} =
-    Prelude.rnf certificateIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf certificateIdentifier `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,6 +311,6 @@ describeCertificatesResponse_httpStatus = Lens.lens (\DescribeCertificatesRespon
 
 instance Prelude.NFData DescribeCertificatesResponse where
   rnf DescribeCertificatesResponse' {..} =
-    Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificates `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

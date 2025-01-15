@@ -191,13 +191,13 @@ instance Prelude.Hashable CreateGlobalCluster where
 
 instance Prelude.NFData CreateGlobalCluster where
   rnf CreateGlobalCluster' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf sourceDBClusterIdentifier
-      `Prelude.seq` Prelude.rnf storageEncrypted
-      `Prelude.seq` Prelude.rnf globalClusterIdentifier
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf deletionProtection `Prelude.seq`
+        Prelude.rnf engine `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf sourceDBClusterIdentifier `Prelude.seq`
+              Prelude.rnf storageEncrypted `Prelude.seq`
+                Prelude.rnf globalClusterIdentifier
 
 instance Data.ToHeaders CreateGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,5 +263,5 @@ createGlobalClusterResponse_httpStatus = Lens.lens (\CreateGlobalClusterResponse
 
 instance Prelude.NFData CreateGlobalClusterResponse where
   rnf CreateGlobalClusterResponse' {..} =
-    Prelude.rnf globalCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalCluster `Prelude.seq`
+      Prelude.rnf httpStatus

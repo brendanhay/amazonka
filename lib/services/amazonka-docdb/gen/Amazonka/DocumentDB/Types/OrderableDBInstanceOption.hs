@@ -126,9 +126,9 @@ instance Prelude.Hashable OrderableDBInstanceOption where
 
 instance Prelude.NFData OrderableDBInstanceOption where
   rnf OrderableDBInstanceOption' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf licenseModel
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf dbInstanceClass `Prelude.seq`
+        Prelude.rnf engine `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf licenseModel `Prelude.seq`
+              Prelude.rnf vpc

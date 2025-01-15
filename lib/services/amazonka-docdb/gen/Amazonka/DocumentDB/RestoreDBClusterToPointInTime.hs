@@ -484,18 +484,18 @@ instance
 
 instance Prelude.NFData RestoreDBClusterToPointInTime where
   rnf RestoreDBClusterToPointInTime' {..} =
-    Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf restoreToTime
-      `Prelude.seq` Prelude.rnf restoreType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf useLatestRestorableTime
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf sourceDBClusterIdentifier
+    Prelude.rnf dbSubnetGroupName `Prelude.seq`
+      Prelude.rnf deletionProtection `Prelude.seq`
+        Prelude.rnf enableCloudwatchLogsExports `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf port `Prelude.seq`
+              Prelude.rnf restoreToTime `Prelude.seq`
+                Prelude.rnf restoreType `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf useLatestRestorableTime `Prelude.seq`
+                      Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+                        Prelude.rnf dbClusterIdentifier `Prelude.seq`
+                          Prelude.rnf sourceDBClusterIdentifier
 
 instance Data.ToHeaders RestoreDBClusterToPointInTime where
   toHeaders = Prelude.const Prelude.mempty
@@ -581,5 +581,5 @@ instance
     RestoreDBClusterToPointInTimeResponse
   where
   rnf RestoreDBClusterToPointInTimeResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

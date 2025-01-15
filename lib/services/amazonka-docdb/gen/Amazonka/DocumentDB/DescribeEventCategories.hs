@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeEventCategories where
 
 instance Prelude.NFData DescribeEventCategories where
   rnf DescribeEventCategories' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf sourceType
 
 instance Data.ToHeaders DescribeEventCategories where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,5 +188,5 @@ instance
     DescribeEventCategoriesResponse
   where
   rnf DescribeEventCategoriesResponse' {..} =
-    Prelude.rnf eventCategoriesMapList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventCategoriesMapList `Prelude.seq`
+      Prelude.rnf httpStatus

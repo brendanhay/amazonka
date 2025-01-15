@@ -408,12 +408,12 @@ instance Prelude.Hashable CopyDBClusterSnapshot where
 
 instance Prelude.NFData CopyDBClusterSnapshot where
   rnf CopyDBClusterSnapshot' {..} =
-    Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf preSignedUrl
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceDBClusterSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf targetDBClusterSnapshotIdentifier
+    Prelude.rnf copyTags `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf preSignedUrl `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf sourceDBClusterSnapshotIdentifier `Prelude.seq`
+              Prelude.rnf targetDBClusterSnapshotIdentifier
 
 instance Data.ToHeaders CopyDBClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -480,5 +480,5 @@ copyDBClusterSnapshotResponse_httpStatus = Lens.lens (\CopyDBClusterSnapshotResp
 
 instance Prelude.NFData CopyDBClusterSnapshotResponse where
   rnf CopyDBClusterSnapshotResponse' {..} =
-    Prelude.rnf dbClusterSnapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterSnapshot `Prelude.seq`
+      Prelude.rnf httpStatus

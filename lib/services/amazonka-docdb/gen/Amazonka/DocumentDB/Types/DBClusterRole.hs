@@ -110,5 +110,5 @@ instance Prelude.Hashable DBClusterRole where
 
 instance Prelude.NFData DBClusterRole where
   rnf DBClusterRole' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf status

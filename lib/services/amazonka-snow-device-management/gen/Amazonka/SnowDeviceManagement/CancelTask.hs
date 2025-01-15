@@ -163,5 +163,5 @@ cancelTaskResponse_httpStatus = Lens.lens (\CancelTaskResponse' {httpStatus} -> 
 
 instance Prelude.NFData CancelTaskResponse where
   rnf CancelTaskResponse' {..} =
-    Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskId `Prelude.seq`
+      Prelude.rnf httpStatus

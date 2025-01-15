@@ -108,7 +108,7 @@ instance Prelude.Hashable DeviceSummary where
 
 instance Prelude.NFData DeviceSummary where
   rnf DeviceSummary' {..} =
-    Prelude.rnf associatedWithJob
-      `Prelude.seq` Prelude.rnf managedDeviceArn
-      `Prelude.seq` Prelude.rnf managedDeviceId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf associatedWithJob `Prelude.seq`
+      Prelude.rnf managedDeviceArn `Prelude.seq`
+        Prelude.rnf managedDeviceId `Prelude.seq`
+          Prelude.rnf tags

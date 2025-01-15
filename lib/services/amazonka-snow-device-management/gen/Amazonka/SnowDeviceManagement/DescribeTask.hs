@@ -249,13 +249,13 @@ describeTaskResponse_httpStatus = Lens.lens (\DescribeTaskResponse' {httpStatus}
 
 instance Prelude.NFData DescribeTaskResponse where
   rnf DescribeTaskResponse' {..} =
-    Prelude.rnf completedAt
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf completedAt `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf targets `Prelude.seq`
+                  Prelude.rnf taskArn `Prelude.seq`
+                    Prelude.rnf taskId `Prelude.seq`
+                      Prelude.rnf httpStatus

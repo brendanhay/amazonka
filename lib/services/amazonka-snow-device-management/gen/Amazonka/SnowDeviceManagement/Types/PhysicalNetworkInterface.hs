@@ -138,10 +138,10 @@ instance Prelude.Hashable PhysicalNetworkInterface where
 
 instance Prelude.NFData PhysicalNetworkInterface where
   rnf PhysicalNetworkInterface' {..} =
-    Prelude.rnf defaultGateway
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf ipAddressAssignment
-      `Prelude.seq` Prelude.rnf macAddress
-      `Prelude.seq` Prelude.rnf netmask
-      `Prelude.seq` Prelude.rnf physicalConnectorType
-      `Prelude.seq` Prelude.rnf physicalNetworkInterfaceId
+    Prelude.rnf defaultGateway `Prelude.seq`
+      Prelude.rnf ipAddress `Prelude.seq`
+        Prelude.rnf ipAddressAssignment `Prelude.seq`
+          Prelude.rnf macAddress `Prelude.seq`
+            Prelude.rnf netmask `Prelude.seq`
+              Prelude.rnf physicalConnectorType `Prelude.seq`
+                Prelude.rnf physicalNetworkInterfaceId

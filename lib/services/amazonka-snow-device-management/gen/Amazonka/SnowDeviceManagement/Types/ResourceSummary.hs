@@ -93,6 +93,6 @@ instance Prelude.Hashable ResourceSummary where
 
 instance Prelude.NFData ResourceSummary where
   rnf ResourceSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf resourceType

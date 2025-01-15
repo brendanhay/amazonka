@@ -112,8 +112,8 @@ instance Prelude.Hashable DescribeDeviceEc2Instances where
 
 instance Prelude.NFData DescribeDeviceEc2Instances where
   rnf DescribeDeviceEc2Instances' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf managedDeviceId
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf managedDeviceId
 
 instance Data.ToHeaders DescribeDeviceEc2Instances where
   toHeaders =
@@ -188,5 +188,5 @@ instance
     DescribeDeviceEc2InstancesResponse
   where
   rnf DescribeDeviceEc2InstancesResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf httpStatus

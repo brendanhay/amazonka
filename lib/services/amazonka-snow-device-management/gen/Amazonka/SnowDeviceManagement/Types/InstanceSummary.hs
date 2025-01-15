@@ -81,5 +81,5 @@ instance Prelude.Hashable InstanceSummary where
 
 instance Prelude.NFData InstanceSummary where
   rnf InstanceSummary' {..} =
-    Prelude.rnf instance'
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf instance' `Prelude.seq`
+      Prelude.rnf lastUpdatedAt

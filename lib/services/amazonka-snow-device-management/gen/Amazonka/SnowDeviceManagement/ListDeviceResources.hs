@@ -126,12 +126,12 @@ instance Core.AWSPager ListDeviceResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDeviceResources_nextToken
-          Lens..~ rs
-          Lens.^? listDeviceResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDeviceResources_nextToken
+              Lens..~ rs
+              Lens.^? listDeviceResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeviceResources where
   type
@@ -158,10 +158,10 @@ instance Prelude.Hashable ListDeviceResources where
 
 instance Prelude.NFData ListDeviceResources where
   rnf ListDeviceResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf managedDeviceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf managedDeviceId
 
 instance Data.ToHeaders ListDeviceResources where
   toHeaders =
@@ -243,6 +243,6 @@ listDeviceResourcesResponse_httpStatus = Lens.lens (\ListDeviceResourcesResponse
 
 instance Prelude.NFData ListDeviceResourcesResponse where
   rnf ListDeviceResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resources `Prelude.seq`
+        Prelude.rnf httpStatus

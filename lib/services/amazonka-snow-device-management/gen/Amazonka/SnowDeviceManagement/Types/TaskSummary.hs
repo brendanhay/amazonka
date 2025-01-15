@@ -111,7 +111,7 @@ instance Prelude.Hashable TaskSummary where
 
 instance Prelude.NFData TaskSummary where
   rnf TaskSummary' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf taskArn `Prelude.seq`
+          Prelude.rnf taskId

@@ -122,8 +122,8 @@ instance Prelude.Hashable DescribeExecution where
 
 instance Prelude.NFData DescribeExecution where
   rnf DescribeExecution' {..} =
-    Prelude.rnf managedDeviceId
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf managedDeviceId `Prelude.seq`
+      Prelude.rnf taskId
 
 instance Data.ToHeaders DescribeExecution where
   toHeaders =
@@ -237,10 +237,10 @@ describeExecutionResponse_httpStatus = Lens.lens (\DescribeExecutionResponse' {h
 
 instance Prelude.NFData DescribeExecutionResponse where
   rnf DescribeExecutionResponse' {..} =
-    Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf managedDeviceId
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf executionId `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf managedDeviceId `Prelude.seq`
+          Prelude.rnf startedAt `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf taskId `Prelude.seq`
+                Prelude.rnf httpStatus

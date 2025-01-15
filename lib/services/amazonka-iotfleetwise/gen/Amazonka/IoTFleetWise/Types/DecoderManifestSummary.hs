@@ -162,10 +162,10 @@ instance Prelude.Hashable DecoderManifestSummary where
 
 instance Prelude.NFData DecoderManifestSummary where
   rnf DecoderManifestSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf modelManifestArn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf lastModificationTime

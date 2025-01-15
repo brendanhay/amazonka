@@ -106,9 +106,9 @@ instance Prelude.Hashable SignalInformation where
 
 instance Prelude.NFData SignalInformation where
   rnf SignalInformation' {..} =
-    Prelude.rnf maxSampleCount
-      `Prelude.seq` Prelude.rnf minimumSamplingIntervalMs
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxSampleCount `Prelude.seq`
+      Prelude.rnf minimumSamplingIntervalMs `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON SignalInformation where
   toJSON SignalInformation' {..} =

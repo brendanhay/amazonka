@@ -242,11 +242,11 @@ getVehicleResponse_httpStatus = Lens.lens (\GetVehicleResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetVehicleResponse where
   rnf GetVehicleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf decoderManifestArn
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf decoderManifestArn `Prelude.seq`
+            Prelude.rnf lastModificationTime `Prelude.seq`
+              Prelude.rnf modelManifestArn `Prelude.seq`
+                Prelude.rnf vehicleName `Prelude.seq`
+                  Prelude.rnf httpStatus

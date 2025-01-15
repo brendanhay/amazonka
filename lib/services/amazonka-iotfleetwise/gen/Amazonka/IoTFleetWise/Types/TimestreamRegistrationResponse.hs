@@ -151,9 +151,9 @@ instance
     TimestreamRegistrationResponse
   where
   rnf TimestreamRegistrationResponse' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf timestreamDatabaseArn
-      `Prelude.seq` Prelude.rnf timestreamTableArn
-      `Prelude.seq` Prelude.rnf timestreamDatabaseName
-      `Prelude.seq` Prelude.rnf timestreamTableName
-      `Prelude.seq` Prelude.rnf registrationStatus
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf timestreamDatabaseArn `Prelude.seq`
+        Prelude.rnf timestreamTableArn `Prelude.seq`
+          Prelude.rnf timestreamDatabaseName `Prelude.seq`
+            Prelude.rnf timestreamTableName `Prelude.seq`
+              Prelude.rnf registrationStatus

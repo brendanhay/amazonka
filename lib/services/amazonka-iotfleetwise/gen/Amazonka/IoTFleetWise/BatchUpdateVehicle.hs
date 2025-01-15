@@ -192,6 +192,6 @@ batchUpdateVehicleResponse_httpStatus = Lens.lens (\BatchUpdateVehicleResponse' 
 
 instance Prelude.NFData BatchUpdateVehicleResponse where
   rnf BatchUpdateVehicleResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf vehicles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf vehicles `Prelude.seq`
+        Prelude.rnf httpStatus

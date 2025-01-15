@@ -152,9 +152,9 @@ instance Prelude.Hashable VehicleSummary where
 
 instance Prelude.NFData VehicleSummary where
   rnf VehicleSummary' {..} =
-    Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf decoderManifestArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf vehicleName `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf modelManifestArn `Prelude.seq`
+          Prelude.rnf decoderManifestArn `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf lastModificationTime

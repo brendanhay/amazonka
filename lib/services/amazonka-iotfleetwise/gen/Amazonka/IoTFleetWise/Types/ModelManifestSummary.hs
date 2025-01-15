@@ -156,10 +156,10 @@ instance Prelude.Hashable ModelManifestSummary where
 
 instance Prelude.NFData ModelManifestSummary where
   rnf ModelManifestSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf signalCatalogArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf signalCatalogArn `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf lastModificationTime

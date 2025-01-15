@@ -178,6 +178,6 @@ deleteFleetResponse_httpStatus = Lens.lens (\DeleteFleetResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteFleetResponse where
   rnf DeleteFleetResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

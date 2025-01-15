@@ -185,6 +185,6 @@ deleteSignalCatalogResponse_arn = Lens.lens (\DeleteSignalCatalogResponse' {arn}
 
 instance Prelude.NFData DeleteSignalCatalogResponse where
   rnf DeleteSignalCatalogResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

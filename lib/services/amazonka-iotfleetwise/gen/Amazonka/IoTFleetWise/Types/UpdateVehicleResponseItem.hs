@@ -80,5 +80,5 @@ instance Prelude.Hashable UpdateVehicleResponseItem where
 
 instance Prelude.NFData UpdateVehicleResponseItem where
   rnf UpdateVehicleResponseItem' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf vehicleName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf vehicleName

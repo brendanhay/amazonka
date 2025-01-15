@@ -128,10 +128,10 @@ instance Prelude.Hashable NetworkInterface where
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf canInterface
-      `Prelude.seq` Prelude.rnf obdInterface
-      `Prelude.seq` Prelude.rnf interfaceId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf canInterface `Prelude.seq`
+      Prelude.rnf obdInterface `Prelude.seq`
+        Prelude.rnf interfaceId `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToJSON NetworkInterface where
   toJSON NetworkInterface' {..} =

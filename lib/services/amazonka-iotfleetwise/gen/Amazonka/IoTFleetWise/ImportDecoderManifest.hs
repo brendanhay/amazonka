@@ -111,8 +111,8 @@ instance Prelude.Hashable ImportDecoderManifest where
 
 instance Prelude.NFData ImportDecoderManifest where
   rnf ImportDecoderManifest' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkFileDefinitions
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf networkFileDefinitions
 
 instance Data.ToHeaders ImportDecoderManifest where
   toHeaders =
@@ -207,6 +207,6 @@ importDecoderManifestResponse_arn = Lens.lens (\ImportDecoderManifestResponse' {
 
 instance Prelude.NFData ImportDecoderManifestResponse where
   rnf ImportDecoderManifestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

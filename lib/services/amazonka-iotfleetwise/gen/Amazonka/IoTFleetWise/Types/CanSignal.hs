@@ -168,14 +168,14 @@ instance Prelude.Hashable CanSignal where
 
 instance Prelude.NFData CanSignal where
   rnf CanSignal' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf isBigEndian
-      `Prelude.seq` Prelude.rnf isSigned
-      `Prelude.seq` Prelude.rnf startBit
-      `Prelude.seq` Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf factor
-      `Prelude.seq` Prelude.rnf length
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf isBigEndian `Prelude.seq`
+          Prelude.rnf isSigned `Prelude.seq`
+            Prelude.rnf startBit `Prelude.seq`
+              Prelude.rnf offset `Prelude.seq`
+                Prelude.rnf factor `Prelude.seq`
+                  Prelude.rnf length
 
 instance Data.ToJSON CanSignal where
   toJSON CanSignal' {..} =

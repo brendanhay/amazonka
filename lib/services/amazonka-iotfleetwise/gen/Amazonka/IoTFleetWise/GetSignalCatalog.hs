@@ -236,10 +236,10 @@ getSignalCatalogResponse_lastModificationTime = Lens.lens (\GetSignalCatalogResp
 
 instance Prelude.NFData GetSignalCatalogResponse where
   rnf GetSignalCatalogResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf nodeCounts
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf nodeCounts `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf lastModificationTime

@@ -185,6 +185,6 @@ deleteModelManifestResponse_arn = Lens.lens (\DeleteModelManifestResponse' {arn}
 
 instance Prelude.NFData DeleteModelManifestResponse where
   rnf DeleteModelManifestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

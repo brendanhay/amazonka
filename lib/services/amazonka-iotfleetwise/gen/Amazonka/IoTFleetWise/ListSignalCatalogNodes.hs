@@ -137,12 +137,12 @@ instance Core.AWSPager ListSignalCatalogNodes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSignalCatalogNodes_nextToken
-          Lens..~ rs
-          Lens.^? listSignalCatalogNodesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSignalCatalogNodes_nextToken
+              Lens..~ rs
+              Lens.^? listSignalCatalogNodesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSignalCatalogNodes where
   type
@@ -168,9 +168,9 @@ instance Prelude.Hashable ListSignalCatalogNodes where
 
 instance Prelude.NFData ListSignalCatalogNodes where
   rnf ListSignalCatalogNodes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders ListSignalCatalogNodes where
   toHeaders =
@@ -259,6 +259,6 @@ instance
     ListSignalCatalogNodesResponse
   where
   rnf ListSignalCatalogNodesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nodes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf nodes `Prelude.seq`
+        Prelude.rnf httpStatus

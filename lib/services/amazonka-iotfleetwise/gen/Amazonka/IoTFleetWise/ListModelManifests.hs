@@ -136,12 +136,12 @@ instance Core.AWSPager ListModelManifests where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelManifests_nextToken
-          Lens..~ rs
-          Lens.^? listModelManifestsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelManifests_nextToken
+              Lens..~ rs
+              Lens.^? listModelManifestsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelManifests where
   type
@@ -167,9 +167,9 @@ instance Prelude.Hashable ListModelManifests where
 
 instance Prelude.NFData ListModelManifests where
   rnf ListModelManifests' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf signalCatalogArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf signalCatalogArn
 
 instance Data.ToHeaders ListModelManifests where
   toHeaders =
@@ -256,6 +256,6 @@ listModelManifestsResponse_httpStatus = Lens.lens (\ListModelManifestsResponse' 
 
 instance Prelude.NFData ListModelManifestsResponse where
   rnf ListModelManifestsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

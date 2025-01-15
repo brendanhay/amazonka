@@ -126,12 +126,12 @@ instance Core.AWSPager ListSignalCatalogs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSignalCatalogs_nextToken
-          Lens..~ rs
-          Lens.^? listSignalCatalogsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSignalCatalogs_nextToken
+              Lens..~ rs
+              Lens.^? listSignalCatalogsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSignalCatalogs where
   type
@@ -156,8 +156,8 @@ instance Prelude.Hashable ListSignalCatalogs where
 
 instance Prelude.NFData ListSignalCatalogs where
   rnf ListSignalCatalogs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSignalCatalogs where
   toHeaders =
@@ -242,6 +242,6 @@ listSignalCatalogsResponse_httpStatus = Lens.lens (\ListSignalCatalogsResponse' 
 
 instance Prelude.NFData ListSignalCatalogsResponse where
   rnf ListSignalCatalogsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

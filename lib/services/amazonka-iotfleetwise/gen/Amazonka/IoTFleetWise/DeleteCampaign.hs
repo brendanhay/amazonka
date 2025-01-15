@@ -181,6 +181,6 @@ deleteCampaignResponse_httpStatus = Lens.lens (\DeleteCampaignResponse' {httpSta
 
 instance Prelude.NFData DeleteCampaignResponse where
   rnf DeleteCampaignResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

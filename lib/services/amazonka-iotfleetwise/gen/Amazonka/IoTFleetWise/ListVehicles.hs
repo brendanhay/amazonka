@@ -139,12 +139,12 @@ instance Core.AWSPager ListVehicles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVehicles_nextToken
-          Lens..~ rs
-          Lens.^? listVehiclesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVehicles_nextToken
+              Lens..~ rs
+              Lens.^? listVehiclesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVehicles where
   type AWSResponse ListVehicles = ListVehiclesResponse
@@ -171,9 +171,9 @@ instance Prelude.Hashable ListVehicles where
 
 instance Prelude.NFData ListVehicles where
   rnf ListVehicles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf modelManifestArn `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVehicles where
   toHeaders =
@@ -259,6 +259,6 @@ listVehiclesResponse_httpStatus = Lens.lens (\ListVehiclesResponse' {httpStatus}
 
 instance Prelude.NFData ListVehiclesResponse where
   rnf ListVehiclesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vehicleSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vehicleSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

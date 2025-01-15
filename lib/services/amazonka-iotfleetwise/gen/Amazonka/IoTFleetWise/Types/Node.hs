@@ -124,10 +124,10 @@ instance Prelude.Hashable Node where
 
 instance Prelude.NFData Node where
   rnf Node' {..} =
-    Prelude.rnf actuator
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf sensor
+    Prelude.rnf actuator `Prelude.seq`
+      Prelude.rnf attribute `Prelude.seq`
+        Prelude.rnf branch `Prelude.seq`
+          Prelude.rnf sensor
 
 instance Data.ToJSON Node where
   toJSON Node' {..} =

@@ -91,6 +91,6 @@ instance Prelude.Hashable CreateVehicleError where
 
 instance Prelude.NFData CreateVehicleError where
   rnf CreateVehicleError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf vehicleName
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf vehicleName

@@ -253,11 +253,11 @@ getModelManifestResponse_lastModificationTime = Lens.lens (\GetModelManifestResp
 
 instance Prelude.NFData GetModelManifestResponse where
   rnf GetModelManifestResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf signalCatalogArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf signalCatalogArn `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf arn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf lastModificationTime

@@ -88,8 +88,8 @@ instance Prelude.Hashable TimestreamResources where
 
 instance Prelude.NFData TimestreamResources where
   rnf TimestreamResources' {..} =
-    Prelude.rnf timestreamDatabaseName
-      `Prelude.seq` Prelude.rnf timestreamTableName
+    Prelude.rnf timestreamDatabaseName `Prelude.seq`
+      Prelude.rnf timestreamTableName
 
 instance Data.ToJSON TimestreamResources where
   toJSON TimestreamResources' {..} =

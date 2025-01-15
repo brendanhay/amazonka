@@ -128,11 +128,11 @@ instance Prelude.Hashable UpdateVehicleRequestItem where
 
 instance Prelude.NFData UpdateVehicleRequestItem where
   rnf UpdateVehicleRequestItem' {..} =
-    Prelude.rnf attributeUpdateMode
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf decoderManifestArn
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf vehicleName
+    Prelude.rnf attributeUpdateMode `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf decoderManifestArn `Prelude.seq`
+          Prelude.rnf modelManifestArn `Prelude.seq`
+            Prelude.rnf vehicleName
 
 instance Data.ToJSON UpdateVehicleRequestItem where
   toJSON UpdateVehicleRequestItem' {..} =

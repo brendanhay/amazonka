@@ -136,12 +136,12 @@ instance Core.AWSPager ListDecoderManifests where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDecoderManifests_nextToken
-          Lens..~ rs
-          Lens.^? listDecoderManifestsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDecoderManifests_nextToken
+              Lens..~ rs
+              Lens.^? listDecoderManifestsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDecoderManifests where
   type
@@ -167,9 +167,9 @@ instance Prelude.Hashable ListDecoderManifests where
 
 instance Prelude.NFData ListDecoderManifests where
   rnf ListDecoderManifests' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf modelManifestArn `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDecoderManifests where
   toHeaders =
@@ -256,6 +256,6 @@ listDecoderManifestsResponse_httpStatus = Lens.lens (\ListDecoderManifestsRespon
 
 instance Prelude.NFData ListDecoderManifestsResponse where
   rnf ListDecoderManifestsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

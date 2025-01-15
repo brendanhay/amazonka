@@ -209,15 +209,15 @@ instance Prelude.Hashable UpdateDecoderManifest where
 
 instance Prelude.NFData UpdateDecoderManifest where
   rnf UpdateDecoderManifest' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf networkInterfacesToAdd
-      `Prelude.seq` Prelude.rnf networkInterfacesToRemove
-      `Prelude.seq` Prelude.rnf networkInterfacesToUpdate
-      `Prelude.seq` Prelude.rnf signalDecodersToAdd
-      `Prelude.seq` Prelude.rnf signalDecodersToRemove
-      `Prelude.seq` Prelude.rnf signalDecodersToUpdate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf networkInterfacesToAdd `Prelude.seq`
+        Prelude.rnf networkInterfacesToRemove `Prelude.seq`
+          Prelude.rnf networkInterfacesToUpdate `Prelude.seq`
+            Prelude.rnf signalDecodersToAdd `Prelude.seq`
+              Prelude.rnf signalDecodersToRemove `Prelude.seq`
+                Prelude.rnf signalDecodersToUpdate `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders UpdateDecoderManifest where
   toHeaders =
@@ -319,6 +319,6 @@ updateDecoderManifestResponse_arn = Lens.lens (\UpdateDecoderManifestResponse' {
 
 instance Prelude.NFData UpdateDecoderManifestResponse where
   rnf UpdateDecoderManifestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

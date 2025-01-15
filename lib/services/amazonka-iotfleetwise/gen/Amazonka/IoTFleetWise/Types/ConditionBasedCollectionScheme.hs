@@ -142,10 +142,10 @@ instance
     ConditionBasedCollectionScheme
   where
   rnf ConditionBasedCollectionScheme' {..} =
-    Prelude.rnf conditionLanguageVersion
-      `Prelude.seq` Prelude.rnf minimumTriggerIntervalMs
-      `Prelude.seq` Prelude.rnf triggerMode
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf conditionLanguageVersion `Prelude.seq`
+      Prelude.rnf minimumTriggerIntervalMs `Prelude.seq`
+        Prelude.rnf triggerMode `Prelude.seq`
+          Prelude.rnf expression
 
 instance Data.ToJSON ConditionBasedCollectionScheme where
   toJSON ConditionBasedCollectionScheme' {..} =

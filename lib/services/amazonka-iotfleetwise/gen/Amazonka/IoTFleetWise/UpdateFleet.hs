@@ -111,8 +111,8 @@ instance Prelude.Hashable UpdateFleet where
 
 instance Prelude.NFData UpdateFleet where
   rnf UpdateFleet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf fleetId
 
 instance Data.ToHeaders UpdateFleet where
   toHeaders =
@@ -193,6 +193,6 @@ updateFleetResponse_httpStatus = Lens.lens (\UpdateFleetResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateFleetResponse where
   rnf UpdateFleetResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

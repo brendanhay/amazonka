@@ -85,8 +85,8 @@ instance Prelude.Hashable Branch where
 
 instance Prelude.NFData Branch where
   rnf Branch' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fullyQualifiedName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf fullyQualifiedName
 
 instance Data.ToJSON Branch where
   toJSON Branch' {..} =

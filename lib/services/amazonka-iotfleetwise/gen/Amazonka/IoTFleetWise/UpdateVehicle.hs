@@ -162,11 +162,11 @@ instance Prelude.Hashable UpdateVehicle where
 
 instance Prelude.NFData UpdateVehicle where
   rnf UpdateVehicle' {..} =
-    Prelude.rnf attributeUpdateMode
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf decoderManifestArn
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf vehicleName
+    Prelude.rnf attributeUpdateMode `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf decoderManifestArn `Prelude.seq`
+          Prelude.rnf modelManifestArn `Prelude.seq`
+            Prelude.rnf vehicleName
 
 instance Data.ToHeaders UpdateVehicle where
   toHeaders =
@@ -253,6 +253,6 @@ updateVehicleResponse_httpStatus = Lens.lens (\UpdateVehicleResponse' {httpStatu
 
 instance Prelude.NFData UpdateVehicleResponse where
   rnf UpdateVehicleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf vehicleName `Prelude.seq`
+        Prelude.rnf httpStatus

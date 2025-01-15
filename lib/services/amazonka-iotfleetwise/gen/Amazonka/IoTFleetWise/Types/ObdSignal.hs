@@ -179,15 +179,15 @@ instance Prelude.Hashable ObdSignal where
 
 instance Prelude.NFData ObdSignal where
   rnf ObdSignal' {..} =
-    Prelude.rnf bitMaskLength
-      `Prelude.seq` Prelude.rnf bitRightShift
-      `Prelude.seq` Prelude.rnf pidResponseLength
-      `Prelude.seq` Prelude.rnf serviceMode
-      `Prelude.seq` Prelude.rnf pid
-      `Prelude.seq` Prelude.rnf scaling
-      `Prelude.seq` Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf startByte
-      `Prelude.seq` Prelude.rnf byteLength
+    Prelude.rnf bitMaskLength `Prelude.seq`
+      Prelude.rnf bitRightShift `Prelude.seq`
+        Prelude.rnf pidResponseLength `Prelude.seq`
+          Prelude.rnf serviceMode `Prelude.seq`
+            Prelude.rnf pid `Prelude.seq`
+              Prelude.rnf scaling `Prelude.seq`
+                Prelude.rnf offset `Prelude.seq`
+                  Prelude.rnf startByte `Prelude.seq`
+                    Prelude.rnf byteLength
 
 instance Data.ToJSON ObdSignal where
   toJSON ObdSignal' {..} =

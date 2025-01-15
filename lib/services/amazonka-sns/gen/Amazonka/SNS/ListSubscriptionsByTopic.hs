@@ -113,12 +113,12 @@ instance Core.AWSPager ListSubscriptionsByTopic where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSubscriptionsByTopic_nextToken
-          Lens..~ rs
-          Lens.^? listSubscriptionsByTopicResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSubscriptionsByTopic_nextToken
+              Lens..~ rs
+              Lens.^? listSubscriptionsByTopicResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubscriptionsByTopic where
   type
@@ -132,9 +132,7 @@ instance Core.AWSRequest ListSubscriptionsByTopic where
       ( \s h x ->
           ListSubscriptionsByTopicResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "Subscriptions"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Subscriptions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,8 +146,8 @@ instance Prelude.Hashable ListSubscriptionsByTopic where
 
 instance Prelude.NFData ListSubscriptionsByTopic where
   rnf ListSubscriptionsByTopic' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf topicArn
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf topicArn
 
 instance Data.ToHeaders ListSubscriptionsByTopic where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,6 +224,6 @@ instance
     ListSubscriptionsByTopicResponse
   where
   rnf ListSubscriptionsByTopicResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subscriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subscriptions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -89,5 +89,5 @@ instance Prelude.Hashable SMSSandboxPhoneNumber where
 
 instance Prelude.NFData SMSSandboxPhoneNumber where
   rnf SMSSandboxPhoneNumber' {..} =
-    Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf phoneNumber `Prelude.seq`
+      Prelude.rnf status

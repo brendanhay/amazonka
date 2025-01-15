@@ -127,8 +127,8 @@ instance Prelude.Hashable VerifySMSSandboxPhoneNumber where
 
 instance Prelude.NFData VerifySMSSandboxPhoneNumber where
   rnf VerifySMSSandboxPhoneNumber' {..} =
-    Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf oneTimePassword
+    Prelude.rnf phoneNumber `Prelude.seq`
+      Prelude.rnf oneTimePassword
 
 instance Data.ToHeaders VerifySMSSandboxPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty

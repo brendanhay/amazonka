@@ -97,12 +97,12 @@ instance Core.AWSPager ListSubscriptions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSubscriptions_nextToken
-          Lens..~ rs
-          Lens.^? listSubscriptionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSubscriptions_nextToken
+              Lens..~ rs
+              Lens.^? listSubscriptionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubscriptions where
   type
@@ -116,9 +116,7 @@ instance Core.AWSRequest ListSubscriptions where
       ( \s h x ->
           ListSubscriptionsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "Subscriptions"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Subscriptions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -202,6 +200,6 @@ listSubscriptionsResponse_httpStatus = Lens.lens (\ListSubscriptionsResponse' {h
 
 instance Prelude.NFData ListSubscriptionsResponse where
   rnf ListSubscriptionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subscriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subscriptions `Prelude.seq`
+        Prelude.rnf httpStatus

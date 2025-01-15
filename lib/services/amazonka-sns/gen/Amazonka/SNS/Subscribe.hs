@@ -458,11 +458,11 @@ instance Prelude.Hashable Subscribe where
 
 instance Prelude.NFData Subscribe where
   rnf Subscribe' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf returnSubscriptionArn
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf endpoint `Prelude.seq`
+        Prelude.rnf returnSubscriptionArn `Prelude.seq`
+          Prelude.rnf topicArn `Prelude.seq`
+            Prelude.rnf protocol
 
 instance Data.ToHeaders Subscribe where
   toHeaders = Prelude.const Prelude.mempty
@@ -544,5 +544,5 @@ subscribeResponse_httpStatus = Lens.lens (\SubscribeResponse' {httpStatus} -> ht
 
 instance Prelude.NFData SubscribeResponse where
   rnf SubscribeResponse' {..} =
-    Prelude.rnf subscriptionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subscriptionArn `Prelude.seq`
+      Prelude.rnf httpStatus

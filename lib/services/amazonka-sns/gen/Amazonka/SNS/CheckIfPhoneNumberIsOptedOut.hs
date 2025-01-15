@@ -192,5 +192,5 @@ instance
     CheckIfPhoneNumberIsOptedOutResponse
   where
   rnf CheckIfPhoneNumberIsOptedOutResponse' {..} =
-    Prelude.rnf isOptedOut
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isOptedOut `Prelude.seq`
+      Prelude.rnf httpStatus

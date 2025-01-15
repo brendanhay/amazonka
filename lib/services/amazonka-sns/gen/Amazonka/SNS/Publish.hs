@@ -511,15 +511,15 @@ instance Prelude.Hashable Publish where
 
 instance Prelude.NFData Publish where
   rnf Publish' {..} =
-    Prelude.rnf messageAttributes
-      `Prelude.seq` Prelude.rnf messageDeduplicationId
-      `Prelude.seq` Prelude.rnf messageGroupId
-      `Prelude.seq` Prelude.rnf messageStructure
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf messageAttributes `Prelude.seq`
+      Prelude.rnf messageDeduplicationId `Prelude.seq`
+        Prelude.rnf messageGroupId `Prelude.seq`
+          Prelude.rnf messageStructure `Prelude.seq`
+            Prelude.rnf phoneNumber `Prelude.seq`
+              Prelude.rnf subject `Prelude.seq`
+                Prelude.rnf targetArn `Prelude.seq`
+                  Prelude.rnf topicArn `Prelude.seq`
+                    Prelude.rnf message
 
 instance Data.ToHeaders Publish where
   toHeaders = Prelude.const Prelude.mempty
@@ -618,6 +618,6 @@ publishResponse_httpStatus = Lens.lens (\PublishResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData PublishResponse where
   rnf PublishResponse' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf sequenceNumber `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -90,9 +90,7 @@ instance Core.AWSRequest GetEndpointAttributes where
       "GetEndpointAttributesResult"
       ( \s h x ->
           GetEndpointAttributesResponse'
-            Prelude.<$> ( x
-                            Data..@? "Attributes"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -213,5 +211,5 @@ getEndpointAttributesResponse_httpStatus = Lens.lens (\GetEndpointAttributesResp
 
 instance Prelude.NFData GetEndpointAttributesResponse where
   rnf GetEndpointAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

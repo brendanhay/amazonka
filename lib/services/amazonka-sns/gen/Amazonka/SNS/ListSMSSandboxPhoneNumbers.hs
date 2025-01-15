@@ -117,12 +117,12 @@ instance Core.AWSPager ListSMSSandboxPhoneNumbers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSMSSandboxPhoneNumbers_nextToken
-          Lens..~ rs
-          Lens.^? listSMSSandboxPhoneNumbersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSMSSandboxPhoneNumbers_nextToken
+              Lens..~ rs
+              Lens.^? listSMSSandboxPhoneNumbersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSMSSandboxPhoneNumbers where
   type
@@ -137,9 +137,7 @@ instance Core.AWSRequest ListSMSSandboxPhoneNumbers where
           ListSMSSandboxPhoneNumbersResponse'
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "PhoneNumbers"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "PhoneNumbers" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -152,8 +150,8 @@ instance Prelude.Hashable ListSMSSandboxPhoneNumbers where
 
 instance Prelude.NFData ListSMSSandboxPhoneNumbers where
   rnf ListSMSSandboxPhoneNumbers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSMSSandboxPhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,6 +229,6 @@ instance
     ListSMSSandboxPhoneNumbersResponse
   where
   rnf ListSMSSandboxPhoneNumbersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf phoneNumbers
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf phoneNumbers

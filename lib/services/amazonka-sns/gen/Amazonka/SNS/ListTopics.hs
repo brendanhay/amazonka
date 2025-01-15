@@ -95,12 +95,12 @@ instance Core.AWSPager ListTopics where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTopics_nextToken
-          Lens..~ rs
-          Lens.^? listTopicsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTopics_nextToken
+              Lens..~ rs
+              Lens.^? listTopicsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTopics where
   type AWSResponse ListTopics = ListTopicsResponse
@@ -112,9 +112,7 @@ instance Core.AWSRequest ListTopics where
       ( \s h x ->
           ListTopicsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "Topics"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Topics" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -197,6 +195,6 @@ listTopicsResponse_httpStatus = Lens.lens (\ListTopicsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTopicsResponse where
   rnf ListTopicsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf topics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf topics `Prelude.seq`
+        Prelude.rnf httpStatus

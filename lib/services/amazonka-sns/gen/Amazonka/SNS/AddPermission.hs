@@ -140,10 +140,10 @@ instance Prelude.Hashable AddPermission where
 
 instance Prelude.NFData AddPermission where
   rnf AddPermission' {..} =
-    Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf aWSAccountId
-      `Prelude.seq` Prelude.rnf actionName
+    Prelude.rnf topicArn `Prelude.seq`
+      Prelude.rnf label `Prelude.seq`
+        Prelude.rnf aWSAccountId `Prelude.seq`
+          Prelude.rnf actionName
 
 instance Data.ToHeaders AddPermission where
   toHeaders = Prelude.const Prelude.mempty

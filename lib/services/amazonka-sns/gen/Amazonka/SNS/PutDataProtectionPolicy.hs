@@ -133,8 +133,8 @@ instance Prelude.Hashable PutDataProtectionPolicy where
 
 instance Prelude.NFData PutDataProtectionPolicy where
   rnf PutDataProtectionPolicy' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf dataProtectionPolicy
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf dataProtectionPolicy
 
 instance Data.ToHeaders PutDataProtectionPolicy where
   toHeaders = Prelude.const Prelude.mempty

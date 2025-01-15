@@ -130,9 +130,9 @@ instance Prelude.Hashable PhoneNumberInformation where
 
 instance Prelude.NFData PhoneNumberInformation where
   rnf PhoneNumberInformation' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf iso2CountryCode
-      `Prelude.seq` Prelude.rnf numberCapabilities
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf routeType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf iso2CountryCode `Prelude.seq`
+        Prelude.rnf numberCapabilities `Prelude.seq`
+          Prelude.rnf phoneNumber `Prelude.seq`
+            Prelude.rnf routeType `Prelude.seq`
+              Prelude.rnf status

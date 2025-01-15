@@ -65,9 +65,7 @@ platformApplication_platformApplicationArn = Lens.lens (\PlatformApplication' {p
 instance Data.FromXML PlatformApplication where
   parseXML x =
     PlatformApplication'
-      Prelude.<$> ( x
-                      Data..@? "Attributes"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
       Prelude.<*> (x Data..@? "PlatformApplicationArn")
@@ -80,5 +78,5 @@ instance Prelude.Hashable PlatformApplication where
 
 instance Prelude.NFData PlatformApplication where
   rnf PlatformApplication' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf platformApplicationArn
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf platformApplicationArn

@@ -158,12 +158,12 @@ instance Prelude.Hashable PasswordPolicyType where
 
 instance Prelude.NFData PasswordPolicyType where
   rnf PasswordPolicyType' {..} =
-    Prelude.rnf minimumLength
-      `Prelude.seq` Prelude.rnf requireLowercase
-      `Prelude.seq` Prelude.rnf requireNumbers
-      `Prelude.seq` Prelude.rnf requireSymbols
-      `Prelude.seq` Prelude.rnf requireUppercase
-      `Prelude.seq` Prelude.rnf temporaryPasswordValidityDays
+    Prelude.rnf minimumLength `Prelude.seq`
+      Prelude.rnf requireLowercase `Prelude.seq`
+        Prelude.rnf requireNumbers `Prelude.seq`
+          Prelude.rnf requireSymbols `Prelude.seq`
+            Prelude.rnf requireUppercase `Prelude.seq`
+              Prelude.rnf temporaryPasswordValidityDays
 
 instance Data.ToJSON PasswordPolicyType where
   toJSON PasswordPolicyType' {..} =

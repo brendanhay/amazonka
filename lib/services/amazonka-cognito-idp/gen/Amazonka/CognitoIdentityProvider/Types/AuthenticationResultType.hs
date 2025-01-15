@@ -129,9 +129,9 @@ instance Prelude.Hashable AuthenticationResultType where
 
 instance Prelude.NFData AuthenticationResultType where
   rnf AuthenticationResultType' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf expiresIn
-      `Prelude.seq` Prelude.rnf idToken
-      `Prelude.seq` Prelude.rnf newDeviceMetadata'
-      `Prelude.seq` Prelude.rnf refreshToken
-      `Prelude.seq` Prelude.rnf tokenType
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf expiresIn `Prelude.seq`
+        Prelude.rnf idToken `Prelude.seq`
+          Prelude.rnf newDeviceMetadata' `Prelude.seq`
+            Prelude.rnf refreshToken `Prelude.seq`
+              Prelude.rnf tokenType

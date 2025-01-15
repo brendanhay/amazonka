@@ -108,8 +108,8 @@ instance
     CustomSMSLambdaVersionConfigType
   where
   rnf CustomSMSLambdaVersionConfigType' {..} =
-    Prelude.rnf lambdaVersion
-      `Prelude.seq` Prelude.rnf lambdaArn
+    Prelude.rnf lambdaVersion `Prelude.seq`
+      Prelude.rnf lambdaArn
 
 instance Data.ToJSON CustomSMSLambdaVersionConfigType where
   toJSON CustomSMSLambdaVersionConfigType' {..} =

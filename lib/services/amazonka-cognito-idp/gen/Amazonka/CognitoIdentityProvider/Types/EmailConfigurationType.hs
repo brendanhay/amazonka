@@ -360,11 +360,11 @@ instance Prelude.Hashable EmailConfigurationType where
 
 instance Prelude.NFData EmailConfigurationType where
   rnf EmailConfigurationType' {..} =
-    Prelude.rnf configurationSet
-      `Prelude.seq` Prelude.rnf emailSendingAccount
-      `Prelude.seq` Prelude.rnf from
-      `Prelude.seq` Prelude.rnf replyToEmailAddress
-      `Prelude.seq` Prelude.rnf sourceArn
+    Prelude.rnf configurationSet `Prelude.seq`
+      Prelude.rnf emailSendingAccount `Prelude.seq`
+        Prelude.rnf from `Prelude.seq`
+          Prelude.rnf replyToEmailAddress `Prelude.seq`
+            Prelude.rnf sourceArn
 
 instance Data.ToJSON EmailConfigurationType where
   toJSON EmailConfigurationType' {..} =

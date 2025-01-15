@@ -104,7 +104,7 @@ instance Prelude.Hashable ProviderDescription where
 
 instance Prelude.NFData ProviderDescription where
   rnf ProviderDescription' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf providerType
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf lastModifiedDate `Prelude.seq`
+        Prelude.rnf providerName `Prelude.seq`
+          Prelude.rnf providerType

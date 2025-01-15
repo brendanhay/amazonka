@@ -255,9 +255,9 @@ instance Prelude.Hashable AdminLinkProviderForUser where
 
 instance Prelude.NFData AdminLinkProviderForUser where
   rnf AdminLinkProviderForUser' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf destinationUser
-      `Prelude.seq` Prelude.rnf sourceUser
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf destinationUser `Prelude.seq`
+        Prelude.rnf sourceUser
 
 instance Data.ToHeaders AdminLinkProviderForUser where
   toHeaders =

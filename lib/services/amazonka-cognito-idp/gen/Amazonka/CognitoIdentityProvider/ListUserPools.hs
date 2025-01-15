@@ -115,12 +115,12 @@ instance Core.AWSPager ListUserPools where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUserPools_nextToken
-          Lens..~ rs
-          Lens.^? listUserPoolsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUserPools_nextToken
+              Lens..~ rs
+              Lens.^? listUserPoolsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserPools where
   type
@@ -145,8 +145,8 @@ instance Prelude.Hashable ListUserPools where
 
 instance Prelude.NFData ListUserPools where
   rnf ListUserPools' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf maxResults
 
 instance Data.ToHeaders ListUserPools where
   toHeaders =
@@ -235,6 +235,6 @@ listUserPoolsResponse_httpStatus = Lens.lens (\ListUserPoolsResponse' {httpStatu
 
 instance Prelude.NFData ListUserPoolsResponse where
   rnf ListUserPoolsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userPools
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf userPools `Prelude.seq`
+        Prelude.rnf httpStatus

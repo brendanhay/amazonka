@@ -252,9 +252,9 @@ instance
     GetUserAttributeVerificationCode
   where
   rnf GetUserAttributeVerificationCode' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf clientMetadata `Prelude.seq`
+      Prelude.rnf accessToken `Prelude.seq`
+        Prelude.rnf attributeName
 
 instance
   Data.ToHeaders
@@ -346,5 +346,5 @@ instance
     GetUserAttributeVerificationCodeResponse
   where
   rnf GetUserAttributeVerificationCodeResponse' {..} =
-    Prelude.rnf codeDeliveryDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeDeliveryDetails `Prelude.seq`
+      Prelude.rnf httpStatus

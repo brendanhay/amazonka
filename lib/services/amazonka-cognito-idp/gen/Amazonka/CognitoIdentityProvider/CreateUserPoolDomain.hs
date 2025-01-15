@@ -152,9 +152,9 @@ instance Prelude.Hashable CreateUserPoolDomain where
 
 instance Prelude.NFData CreateUserPoolDomain where
   rnf CreateUserPoolDomain' {..} =
-    Prelude.rnf customDomainConfig
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf customDomainConfig `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf userPoolId
 
 instance Data.ToHeaders CreateUserPoolDomain where
   toHeaders =
@@ -232,5 +232,5 @@ createUserPoolDomainResponse_httpStatus = Lens.lens (\CreateUserPoolDomainRespon
 
 instance Prelude.NFData CreateUserPoolDomainResponse where
   rnf CreateUserPoolDomainResponse' {..} =
-    Prelude.rnf cloudFrontDomain
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cloudFrontDomain `Prelude.seq`
+      Prelude.rnf httpStatus

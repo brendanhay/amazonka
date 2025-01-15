@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeUserPoolClient where
 
 instance Prelude.NFData DescribeUserPoolClient where
   rnf DescribeUserPoolClient' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf clientId
 
 instance Data.ToHeaders DescribeUserPoolClient where
   toHeaders =
@@ -196,5 +196,5 @@ instance
     DescribeUserPoolClientResponse
   where
   rnf DescribeUserPoolClientResponse' {..} =
-    Prelude.rnf userPoolClient
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userPoolClient `Prelude.seq`
+      Prelude.rnf httpStatus

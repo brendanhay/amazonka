@@ -181,9 +181,9 @@ instance Prelude.Hashable UpdateUserPoolDomain where
 
 instance Prelude.NFData UpdateUserPoolDomain where
   rnf UpdateUserPoolDomain' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf customDomainConfig
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf customDomainConfig
 
 instance Data.ToHeaders UpdateUserPoolDomain where
   toHeaders =
@@ -263,5 +263,5 @@ updateUserPoolDomainResponse_httpStatus = Lens.lens (\UpdateUserPoolDomainRespon
 
 instance Prelude.NFData UpdateUserPoolDomainResponse where
   rnf UpdateUserPoolDomainResponse' {..} =
-    Prelude.rnf cloudFrontDomain
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cloudFrontDomain `Prelude.seq`
+      Prelude.rnf httpStatus

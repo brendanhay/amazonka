@@ -297,14 +297,14 @@ instance Prelude.Hashable ConfirmForgotPassword where
 
 instance Prelude.NFData ConfirmForgotPassword where
   rnf ConfirmForgotPassword' {..} =
-    Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf secretHash
-      `Prelude.seq` Prelude.rnf userContextData
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf confirmationCode
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf analyticsMetadata `Prelude.seq`
+      Prelude.rnf clientMetadata `Prelude.seq`
+        Prelude.rnf secretHash `Prelude.seq`
+          Prelude.rnf userContextData `Prelude.seq`
+            Prelude.rnf clientId `Prelude.seq`
+              Prelude.rnf username `Prelude.seq`
+                Prelude.rnf confirmationCode `Prelude.seq`
+                  Prelude.rnf password
 
 instance Data.ToHeaders ConfirmForgotPassword where
   toHeaders =

@@ -81,8 +81,8 @@ instance Prelude.Hashable UserContextDataType where
 
 instance Prelude.NFData UserContextDataType where
   rnf UserContextDataType' {..} =
-    Prelude.rnf encodedData
-      `Prelude.seq` Prelude.rnf ipAddress
+    Prelude.rnf encodedData `Prelude.seq`
+      Prelude.rnf ipAddress
 
 instance Data.ToJSON UserContextDataType where
   toJSON UserContextDataType' {..} =

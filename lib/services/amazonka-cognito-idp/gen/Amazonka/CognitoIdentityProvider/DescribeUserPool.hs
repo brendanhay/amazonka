@@ -169,5 +169,5 @@ describeUserPoolResponse_httpStatus = Lens.lens (\DescribeUserPoolResponse' {htt
 
 instance Prelude.NFData DescribeUserPoolResponse where
   rnf DescribeUserPoolResponse' {..} =
-    Prelude.rnf userPool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userPool `Prelude.seq`
+      Prelude.rnf httpStatus

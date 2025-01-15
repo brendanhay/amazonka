@@ -184,10 +184,10 @@ instance Prelude.Hashable SetUserPoolMfaConfig where
 
 instance Prelude.NFData SetUserPoolMfaConfig where
   rnf SetUserPoolMfaConfig' {..} =
-    Prelude.rnf mfaConfiguration
-      `Prelude.seq` Prelude.rnf smsMfaConfiguration
-      `Prelude.seq` Prelude.rnf softwareTokenMfaConfiguration
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf mfaConfiguration `Prelude.seq`
+      Prelude.rnf smsMfaConfiguration `Prelude.seq`
+        Prelude.rnf softwareTokenMfaConfiguration `Prelude.seq`
+          Prelude.rnf userPoolId
 
 instance Data.ToHeaders SetUserPoolMfaConfig where
   toHeaders =
@@ -305,7 +305,7 @@ setUserPoolMfaConfigResponse_httpStatus = Lens.lens (\SetUserPoolMfaConfigRespon
 
 instance Prelude.NFData SetUserPoolMfaConfigResponse where
   rnf SetUserPoolMfaConfigResponse' {..} =
-    Prelude.rnf mfaConfiguration
-      `Prelude.seq` Prelude.rnf smsMfaConfiguration
-      `Prelude.seq` Prelude.rnf softwareTokenMfaConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mfaConfiguration `Prelude.seq`
+      Prelude.rnf smsMfaConfiguration `Prelude.seq`
+        Prelude.rnf softwareTokenMfaConfiguration `Prelude.seq`
+          Prelude.rnf httpStatus

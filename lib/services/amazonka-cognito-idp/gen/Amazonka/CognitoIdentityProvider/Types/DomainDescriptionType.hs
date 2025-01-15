@@ -158,11 +158,11 @@ instance Prelude.Hashable DomainDescriptionType where
 
 instance Prelude.NFData DomainDescriptionType where
   rnf DomainDescriptionType' {..} =
-    Prelude.rnf aWSAccountId
-      `Prelude.seq` Prelude.rnf cloudFrontDistribution
-      `Prelude.seq` Prelude.rnf customDomainConfig
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf aWSAccountId `Prelude.seq`
+      Prelude.rnf cloudFrontDistribution `Prelude.seq`
+        Prelude.rnf customDomainConfig `Prelude.seq`
+          Prelude.rnf domain `Prelude.seq`
+            Prelude.rnf s3Bucket `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf userPoolId `Prelude.seq`
+                  Prelude.rnf version

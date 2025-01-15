@@ -678,5 +678,5 @@ createUserPoolResponse_httpStatus = Lens.lens (\CreateUserPoolResponse' {httpSta
 
 instance Prelude.NFData CreateUserPoolResponse where
   rnf CreateUserPoolResponse' {..} =
-    Prelude.rnf userPool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userPool `Prelude.seq`
+      Prelude.rnf httpStatus

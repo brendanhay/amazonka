@@ -127,9 +127,9 @@ instance Prelude.Hashable AdminGetDevice where
 
 instance Prelude.NFData AdminGetDevice where
   rnf AdminGetDevice' {..} =
-    Prelude.rnf deviceKey
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf deviceKey `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf username
 
 instance Data.ToHeaders AdminGetDevice where
   toHeaders =
@@ -206,5 +206,5 @@ adminGetDeviceResponse_device = Lens.lens (\AdminGetDeviceResponse' {device} -> 
 
 instance Prelude.NFData AdminGetDeviceResponse where
   rnf AdminGetDeviceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf device
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf device

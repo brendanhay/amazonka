@@ -132,9 +132,9 @@ instance Prelude.Hashable AdminCreateUserConfigType where
 
 instance Prelude.NFData AdminCreateUserConfigType where
   rnf AdminCreateUserConfigType' {..} =
-    Prelude.rnf allowAdminCreateUserOnly
-      `Prelude.seq` Prelude.rnf inviteMessageTemplate
-      `Prelude.seq` Prelude.rnf unusedAccountValidityDays
+    Prelude.rnf allowAdminCreateUserOnly `Prelude.seq`
+      Prelude.rnf inviteMessageTemplate `Prelude.seq`
+        Prelude.rnf unusedAccountValidityDays
 
 instance Data.ToJSON AdminCreateUserConfigType where
   toJSON AdminCreateUserConfigType' {..} =

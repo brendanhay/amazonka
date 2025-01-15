@@ -137,8 +137,8 @@ instance Prelude.Hashable AssociateSoftwareToken where
 
 instance Prelude.NFData AssociateSoftwareToken where
   rnf AssociateSoftwareToken' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf session
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf session
 
 instance Data.ToHeaders AssociateSoftwareToken where
   toHeaders =
@@ -232,6 +232,6 @@ instance
     AssociateSoftwareTokenResponse
   where
   rnf AssociateSoftwareTokenResponse' {..} =
-    Prelude.rnf secretCode
-      `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf secretCode `Prelude.seq`
+      Prelude.rnf session `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -436,13 +436,13 @@ instance Prelude.Hashable RespondToAuthChallenge where
 
 instance Prelude.NFData RespondToAuthChallenge where
   rnf RespondToAuthChallenge' {..} =
-    Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf challengeResponses
-      `Prelude.seq` Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf userContextData
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf challengeName
+    Prelude.rnf analyticsMetadata `Prelude.seq`
+      Prelude.rnf challengeResponses `Prelude.seq`
+        Prelude.rnf clientMetadata `Prelude.seq`
+          Prelude.rnf session `Prelude.seq`
+            Prelude.rnf userContextData `Prelude.seq`
+              Prelude.rnf clientId `Prelude.seq`
+                Prelude.rnf challengeName
 
 instance Data.ToHeaders RespondToAuthChallenge where
   toHeaders =
@@ -575,8 +575,8 @@ instance
     RespondToAuthChallengeResponse
   where
   rnf RespondToAuthChallengeResponse' {..} =
-    Prelude.rnf authenticationResult
-      `Prelude.seq` Prelude.rnf challengeName
-      `Prelude.seq` Prelude.rnf challengeParameters
-      `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authenticationResult `Prelude.seq`
+      Prelude.rnf challengeName `Prelude.seq`
+        Prelude.rnf challengeParameters `Prelude.seq`
+          Prelude.rnf session `Prelude.seq`
+            Prelude.rnf httpStatus

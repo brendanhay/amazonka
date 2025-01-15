@@ -84,9 +84,9 @@ instance Prelude.Hashable ProviderUserIdentifierType where
 
 instance Prelude.NFData ProviderUserIdentifierType where
   rnf ProviderUserIdentifierType' {..} =
-    Prelude.rnf providerAttributeName
-      `Prelude.seq` Prelude.rnf providerAttributeValue
-      `Prelude.seq` Prelude.rnf providerName
+    Prelude.rnf providerAttributeName `Prelude.seq`
+      Prelude.rnf providerAttributeValue `Prelude.seq`
+        Prelude.rnf providerName
 
 instance Data.ToJSON ProviderUserIdentifierType where
   toJSON ProviderUserIdentifierType' {..} =

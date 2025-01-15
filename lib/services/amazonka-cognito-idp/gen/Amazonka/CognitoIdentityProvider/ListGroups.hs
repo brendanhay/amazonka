@@ -122,12 +122,12 @@ instance Core.AWSPager ListGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGroups_nextToken
-          Lens..~ rs
-          Lens.^? listGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGroups_nextToken
+              Lens..~ rs
+              Lens.^? listGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroups where
   type AWSResponse ListGroups = ListGroupsResponse
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListGroups where
 
 instance Prelude.NFData ListGroups where
   rnf ListGroups' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf userPoolId
 
 instance Data.ToHeaders ListGroups where
   toHeaders =
@@ -241,6 +241,6 @@ listGroupsResponse_httpStatus = Lens.lens (\ListGroupsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListGroupsResponse where
   rnf ListGroupsResponse' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

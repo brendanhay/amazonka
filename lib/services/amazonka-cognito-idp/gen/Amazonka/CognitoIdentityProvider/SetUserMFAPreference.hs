@@ -131,9 +131,9 @@ instance Prelude.Hashable SetUserMFAPreference where
 
 instance Prelude.NFData SetUserMFAPreference where
   rnf SetUserMFAPreference' {..} =
-    Prelude.rnf sMSMfaSettings
-      `Prelude.seq` Prelude.rnf softwareTokenMfaSettings
-      `Prelude.seq` Prelude.rnf accessToken
+    Prelude.rnf sMSMfaSettings `Prelude.seq`
+      Prelude.rnf softwareTokenMfaSettings `Prelude.seq`
+        Prelude.rnf accessToken
 
 instance Data.ToHeaders SetUserMFAPreference where
   toHeaders =

@@ -282,12 +282,12 @@ instance Prelude.Hashable ResendConfirmationCode where
 
 instance Prelude.NFData ResendConfirmationCode where
   rnf ResendConfirmationCode' {..} =
-    Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf secretHash
-      `Prelude.seq` Prelude.rnf userContextData
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf analyticsMetadata `Prelude.seq`
+      Prelude.rnf clientMetadata `Prelude.seq`
+        Prelude.rnf secretHash `Prelude.seq`
+          Prelude.rnf userContextData `Prelude.seq`
+            Prelude.rnf clientId `Prelude.seq`
+              Prelude.rnf username
 
 instance Data.ToHeaders ResendConfirmationCode where
   toHeaders =
@@ -376,5 +376,5 @@ instance
     ResendConfirmationCodeResponse
   where
   rnf ResendConfirmationCodeResponse' {..} =
-    Prelude.rnf codeDeliveryDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeDeliveryDetails `Prelude.seq`
+      Prelude.rnf httpStatus

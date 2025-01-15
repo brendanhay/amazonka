@@ -141,10 +141,10 @@ instance Prelude.Hashable UpdateResourceServer where
 
 instance Prelude.NFData UpdateResourceServer where
   rnf UpdateResourceServer' {..} =
-    Prelude.rnf scopes
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf scopes `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf identifier `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateResourceServer where
   toHeaders =
@@ -223,5 +223,5 @@ updateResourceServerResponse_resourceServer = Lens.lens (\UpdateResourceServerRe
 
 instance Prelude.NFData UpdateResourceServerResponse where
   rnf UpdateResourceServerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceServer
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceServer

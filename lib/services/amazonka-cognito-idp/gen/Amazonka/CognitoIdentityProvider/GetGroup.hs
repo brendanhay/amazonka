@@ -110,8 +110,8 @@ instance Prelude.Hashable GetGroup where
 
 instance Prelude.NFData GetGroup where
   rnf GetGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf userPoolId
 
 instance Data.ToHeaders GetGroup where
   toHeaders =
@@ -183,5 +183,5 @@ getGroupResponse_httpStatus = Lens.lens (\GetGroupResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetGroupResponse where
   rnf GetGroupResponse' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf httpStatus

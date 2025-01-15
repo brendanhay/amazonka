@@ -520,15 +520,15 @@ instance Prelude.Hashable AdminCreateUser where
 
 instance Prelude.NFData AdminCreateUser where
   rnf AdminCreateUser' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf desiredDeliveryMediums
-      `Prelude.seq` Prelude.rnf forceAliasCreation
-      `Prelude.seq` Prelude.rnf messageAction
-      `Prelude.seq` Prelude.rnf temporaryPassword
-      `Prelude.seq` Prelude.rnf userAttributes
-      `Prelude.seq` Prelude.rnf validationData
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf clientMetadata `Prelude.seq`
+      Prelude.rnf desiredDeliveryMediums `Prelude.seq`
+        Prelude.rnf forceAliasCreation `Prelude.seq`
+          Prelude.rnf messageAction `Prelude.seq`
+            Prelude.rnf temporaryPassword `Prelude.seq`
+              Prelude.rnf userAttributes `Prelude.seq`
+                Prelude.rnf validationData `Prelude.seq`
+                  Prelude.rnf userPoolId `Prelude.seq`
+                    Prelude.rnf username
 
 instance Data.ToHeaders AdminCreateUser where
   toHeaders =
@@ -616,5 +616,5 @@ adminCreateUserResponse_httpStatus = Lens.lens (\AdminCreateUserResponse' {httpS
 
 instance Prelude.NFData AdminCreateUserResponse where
   rnf AdminCreateUserResponse' {..} =
-    Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf user `Prelude.seq`
+      Prelude.rnf httpStatus

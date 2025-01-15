@@ -70,8 +70,8 @@ instance Prelude.Hashable HttpHeader where
 
 instance Prelude.NFData HttpHeader where
   rnf HttpHeader' {..} =
-    Prelude.rnf headerName
-      `Prelude.seq` Prelude.rnf headerValue
+    Prelude.rnf headerName `Prelude.seq`
+      Prelude.rnf headerValue
 
 instance Data.ToJSON HttpHeader where
   toJSON HttpHeader' {..} =

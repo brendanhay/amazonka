@@ -96,6 +96,6 @@ instance Prelude.Hashable EventFeedbackType where
 
 instance Prelude.NFData EventFeedbackType where
   rnf EventFeedbackType' {..} =
-    Prelude.rnf feedbackDate
-      `Prelude.seq` Prelude.rnf feedbackValue
-      `Prelude.seq` Prelude.rnf provider
+    Prelude.rnf feedbackDate `Prelude.seq`
+      Prelude.rnf feedbackValue `Prelude.seq`
+        Prelude.rnf provider

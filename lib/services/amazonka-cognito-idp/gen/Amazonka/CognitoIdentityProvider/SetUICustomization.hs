@@ -150,10 +150,10 @@ instance Prelude.Hashable SetUICustomization where
 
 instance Prelude.NFData SetUICustomization where
   rnf SetUICustomization' {..} =
-    Prelude.rnf css
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf imageFile
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf css `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf imageFile `Prelude.seq`
+          Prelude.rnf userPoolId
 
 instance Data.ToHeaders SetUICustomization where
   toHeaders =
@@ -232,5 +232,5 @@ setUICustomizationResponse_uICustomization = Lens.lens (\SetUICustomizationRespo
 
 instance Prelude.NFData SetUICustomizationResponse where
   rnf SetUICustomizationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf uICustomization
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf uICustomization

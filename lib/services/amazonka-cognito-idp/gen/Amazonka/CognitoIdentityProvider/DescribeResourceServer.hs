@@ -110,8 +110,8 @@ instance Prelude.Hashable DescribeResourceServer where
 
 instance Prelude.NFData DescribeResourceServer where
   rnf DescribeResourceServer' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf identifier
 
 instance Data.ToHeaders DescribeResourceServer where
   toHeaders =
@@ -191,5 +191,5 @@ instance
     DescribeResourceServerResponse
   where
   rnf DescribeResourceServerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceServer
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceServer

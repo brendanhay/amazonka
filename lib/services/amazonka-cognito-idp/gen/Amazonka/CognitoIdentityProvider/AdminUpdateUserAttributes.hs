@@ -303,10 +303,10 @@ instance Prelude.Hashable AdminUpdateUserAttributes where
 
 instance Prelude.NFData AdminUpdateUserAttributes where
   rnf AdminUpdateUserAttributes' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf userAttributes
+    Prelude.rnf clientMetadata `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf userAttributes
 
 instance Data.ToHeaders AdminUpdateUserAttributes where
   toHeaders =

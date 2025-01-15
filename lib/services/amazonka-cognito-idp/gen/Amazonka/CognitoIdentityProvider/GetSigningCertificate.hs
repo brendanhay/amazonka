@@ -175,5 +175,5 @@ getSigningCertificateResponse_httpStatus = Lens.lens (\GetSigningCertificateResp
 
 instance Prelude.NFData GetSigningCertificateResponse where
   rnf GetSigningCertificateResponse' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf httpStatus

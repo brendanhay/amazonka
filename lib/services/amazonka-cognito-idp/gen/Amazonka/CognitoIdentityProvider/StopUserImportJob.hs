@@ -115,8 +115,8 @@ instance Prelude.Hashable StopUserImportJob where
 
 instance Prelude.NFData StopUserImportJob where
   rnf StopUserImportJob' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf jobId
 
 instance Data.ToHeaders StopUserImportJob where
   toHeaders =
@@ -192,5 +192,5 @@ stopUserImportJobResponse_httpStatus = Lens.lens (\StopUserImportJobResponse' {h
 
 instance Prelude.NFData StopUserImportJobResponse where
   rnf StopUserImportJobResponse' {..} =
-    Prelude.rnf userImportJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userImportJob `Prelude.seq`
+      Prelude.rnf httpStatus

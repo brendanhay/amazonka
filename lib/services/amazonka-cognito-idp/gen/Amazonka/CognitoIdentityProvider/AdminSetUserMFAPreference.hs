@@ -136,10 +136,10 @@ instance Prelude.Hashable AdminSetUserMFAPreference where
 
 instance Prelude.NFData AdminSetUserMFAPreference where
   rnf AdminSetUserMFAPreference' {..} =
-    Prelude.rnf sMSMfaSettings
-      `Prelude.seq` Prelude.rnf softwareTokenMfaSettings
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf sMSMfaSettings `Prelude.seq`
+      Prelude.rnf softwareTokenMfaSettings `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf userPoolId
 
 instance Data.ToHeaders AdminSetUserMFAPreference where
   toHeaders =

@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteUserPoolDomain where
 
 instance Prelude.NFData DeleteUserPoolDomain where
   rnf DeleteUserPoolDomain' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf userPoolId
 
 instance Data.ToHeaders DeleteUserPoolDomain where
   toHeaders =

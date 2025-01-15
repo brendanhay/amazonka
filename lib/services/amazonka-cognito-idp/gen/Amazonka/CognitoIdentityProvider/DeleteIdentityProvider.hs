@@ -102,8 +102,8 @@ instance Prelude.Hashable DeleteIdentityProvider where
 
 instance Prelude.NFData DeleteIdentityProvider where
   rnf DeleteIdentityProvider' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf providerName
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf providerName
 
 instance Data.ToHeaders DeleteIdentityProvider where
   toHeaders =

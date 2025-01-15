@@ -107,8 +107,8 @@ instance Prelude.Hashable SmsMfaConfigType where
 
 instance Prelude.NFData SmsMfaConfigType where
   rnf SmsMfaConfigType' {..} =
-    Prelude.rnf smsAuthenticationMessage
-      `Prelude.seq` Prelude.rnf smsConfiguration
+    Prelude.rnf smsAuthenticationMessage `Prelude.seq`
+      Prelude.rnf smsConfiguration
 
 instance Data.ToJSON SmsMfaConfigType where
   toJSON SmsMfaConfigType' {..} =

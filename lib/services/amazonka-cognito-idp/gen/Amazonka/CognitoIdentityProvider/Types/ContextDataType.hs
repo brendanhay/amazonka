@@ -120,11 +120,11 @@ instance Prelude.Hashable ContextDataType where
 
 instance Prelude.NFData ContextDataType where
   rnf ContextDataType' {..} =
-    Prelude.rnf encodedData
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf serverPath
-      `Prelude.seq` Prelude.rnf httpHeaders
+    Prelude.rnf encodedData `Prelude.seq`
+      Prelude.rnf ipAddress `Prelude.seq`
+        Prelude.rnf serverName `Prelude.seq`
+          Prelude.rnf serverPath `Prelude.seq`
+            Prelude.rnf httpHeaders
 
 instance Data.ToJSON ContextDataType where
   toJSON ContextDataType' {..} =

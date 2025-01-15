@@ -123,9 +123,9 @@ instance Prelude.Hashable RevokeToken where
 
 instance Prelude.NFData RevokeToken where
   rnf RevokeToken' {..} =
-    Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf clientSecret `Prelude.seq`
+      Prelude.rnf token `Prelude.seq`
+        Prelude.rnf clientId
 
 instance Data.ToHeaders RevokeToken where
   toHeaders =

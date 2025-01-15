@@ -114,8 +114,8 @@ instance Prelude.Hashable EventContextDataType where
 
 instance Prelude.NFData EventContextDataType where
   rnf EventContextDataType' {..} =
-    Prelude.rnf city
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf timezone
+    Prelude.rnf city `Prelude.seq`
+      Prelude.rnf country `Prelude.seq`
+        Prelude.rnf deviceName `Prelude.seq`
+          Prelude.rnf ipAddress `Prelude.seq`
+            Prelude.rnf timezone

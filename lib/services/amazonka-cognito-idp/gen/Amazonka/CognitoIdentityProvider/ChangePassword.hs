@@ -131,9 +131,9 @@ instance Prelude.Hashable ChangePassword where
 
 instance Prelude.NFData ChangePassword where
   rnf ChangePassword' {..} =
-    Prelude.rnf previousPassword
-      `Prelude.seq` Prelude.rnf proposedPassword
-      `Prelude.seq` Prelude.rnf accessToken
+    Prelude.rnf previousPassword `Prelude.seq`
+      Prelude.rnf proposedPassword `Prelude.seq`
+        Prelude.rnf accessToken
 
 instance Data.ToHeaders ChangePassword where
   toHeaders =

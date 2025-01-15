@@ -155,8 +155,8 @@ instance Prelude.Hashable DeviceConfigurationType where
 
 instance Prelude.NFData DeviceConfigurationType where
   rnf DeviceConfigurationType' {..} =
-    Prelude.rnf challengeRequiredOnNewDevice
-      `Prelude.seq` Prelude.rnf deviceOnlyRememberedOnUserPrompt
+    Prelude.rnf challengeRequiredOnNewDevice `Prelude.seq`
+      Prelude.rnf deviceOnlyRememberedOnUserPrompt
 
 instance Data.ToJSON DeviceConfigurationType where
   toJSON DeviceConfigurationType' {..} =

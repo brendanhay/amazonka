@@ -975,5 +975,5 @@ updateUserPoolClientResponse_httpStatus = Lens.lens (\UpdateUserPoolClientRespon
 
 instance Prelude.NFData UpdateUserPoolClientResponse where
   rnf UpdateUserPoolClientResponse' {..} =
-    Prelude.rnf userPoolClient
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userPoolClient `Prelude.seq`
+      Prelude.rnf httpStatus

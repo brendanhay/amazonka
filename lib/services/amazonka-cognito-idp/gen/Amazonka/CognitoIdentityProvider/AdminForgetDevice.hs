@@ -121,9 +121,9 @@ instance Prelude.Hashable AdminForgetDevice where
 
 instance Prelude.NFData AdminForgetDevice where
   rnf AdminForgetDevice' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf deviceKey
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf deviceKey
 
 instance Data.ToHeaders AdminForgetDevice where
   toHeaders =

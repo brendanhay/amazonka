@@ -135,9 +135,9 @@ instance Prelude.Hashable VerifyUserAttribute where
 
 instance Prelude.NFData VerifyUserAttribute where
   rnf VerifyUserAttribute' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf attributeName `Prelude.seq`
+        Prelude.rnf code
 
 instance Data.ToHeaders VerifyUserAttribute where
   toHeaders =

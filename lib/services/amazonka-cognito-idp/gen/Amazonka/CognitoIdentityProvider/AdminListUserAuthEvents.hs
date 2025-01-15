@@ -134,12 +134,12 @@ instance Core.AWSPager AdminListUserAuthEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& adminListUserAuthEvents_nextToken
-          Lens..~ rs
-          Lens.^? adminListUserAuthEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& adminListUserAuthEvents_nextToken
+              Lens..~ rs
+              Lens.^? adminListUserAuthEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest AdminListUserAuthEvents where
   type
@@ -166,10 +166,10 @@ instance Prelude.Hashable AdminListUserAuthEvents where
 
 instance Prelude.NFData AdminListUserAuthEvents where
   rnf AdminListUserAuthEvents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf userPoolId `Prelude.seq`
+          Prelude.rnf username
 
 instance Data.ToHeaders AdminListUserAuthEvents where
   toHeaders =
@@ -259,6 +259,6 @@ instance
     AdminListUserAuthEventsResponse
   where
   rnf AdminListUserAuthEventsResponse' {..} =
-    Prelude.rnf authEvents
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authEvents `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

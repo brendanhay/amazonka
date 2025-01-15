@@ -100,8 +100,8 @@ instance
     CompromisedCredentialsRiskConfigurationType
   where
   rnf CompromisedCredentialsRiskConfigurationType' {..} =
-    Prelude.rnf eventFilter
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf eventFilter `Prelude.seq`
+      Prelude.rnf actions
 
 instance
   Data.ToJSON

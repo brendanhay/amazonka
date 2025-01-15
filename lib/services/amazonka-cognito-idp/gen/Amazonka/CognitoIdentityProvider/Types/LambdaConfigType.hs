@@ -213,19 +213,19 @@ instance Prelude.Hashable LambdaConfigType where
 
 instance Prelude.NFData LambdaConfigType where
   rnf LambdaConfigType' {..} =
-    Prelude.rnf createAuthChallenge
-      `Prelude.seq` Prelude.rnf customEmailSender
-      `Prelude.seq` Prelude.rnf customMessage
-      `Prelude.seq` Prelude.rnf customSMSSender
-      `Prelude.seq` Prelude.rnf defineAuthChallenge
-      `Prelude.seq` Prelude.rnf kmsKeyID
-      `Prelude.seq` Prelude.rnf postAuthentication
-      `Prelude.seq` Prelude.rnf postConfirmation
-      `Prelude.seq` Prelude.rnf preAuthentication
-      `Prelude.seq` Prelude.rnf preSignUp
-      `Prelude.seq` Prelude.rnf preTokenGeneration
-      `Prelude.seq` Prelude.rnf userMigration
-      `Prelude.seq` Prelude.rnf verifyAuthChallengeResponse
+    Prelude.rnf createAuthChallenge `Prelude.seq`
+      Prelude.rnf customEmailSender `Prelude.seq`
+        Prelude.rnf customMessage `Prelude.seq`
+          Prelude.rnf customSMSSender `Prelude.seq`
+            Prelude.rnf defineAuthChallenge `Prelude.seq`
+              Prelude.rnf kmsKeyID `Prelude.seq`
+                Prelude.rnf postAuthentication `Prelude.seq`
+                  Prelude.rnf postConfirmation `Prelude.seq`
+                    Prelude.rnf preAuthentication `Prelude.seq`
+                      Prelude.rnf preSignUp `Prelude.seq`
+                        Prelude.rnf preTokenGeneration `Prelude.seq`
+                          Prelude.rnf userMigration `Prelude.seq`
+                            Prelude.rnf verifyAuthChallengeResponse
 
 instance Data.ToJSON LambdaConfigType where
   toJSON LambdaConfigType' {..} =

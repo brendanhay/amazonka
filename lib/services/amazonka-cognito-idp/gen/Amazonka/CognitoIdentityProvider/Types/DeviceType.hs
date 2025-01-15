@@ -117,8 +117,8 @@ instance Prelude.Hashable DeviceType where
 
 instance Prelude.NFData DeviceType where
   rnf DeviceType' {..} =
-    Prelude.rnf deviceAttributes
-      `Prelude.seq` Prelude.rnf deviceCreateDate
-      `Prelude.seq` Prelude.rnf deviceKey
-      `Prelude.seq` Prelude.rnf deviceLastAuthenticatedDate
-      `Prelude.seq` Prelude.rnf deviceLastModifiedDate
+    Prelude.rnf deviceAttributes `Prelude.seq`
+      Prelude.rnf deviceCreateDate `Prelude.seq`
+        Prelude.rnf deviceKey `Prelude.seq`
+          Prelude.rnf deviceLastAuthenticatedDate `Prelude.seq`
+            Prelude.rnf deviceLastModifiedDate

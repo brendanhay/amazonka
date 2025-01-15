@@ -103,8 +103,8 @@ instance Prelude.Hashable DeleteUserPoolClient where
 
 instance Prelude.NFData DeleteUserPoolClient where
   rnf DeleteUserPoolClient' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf clientId
 
 instance Data.ToHeaders DeleteUserPoolClient where
   toHeaders =

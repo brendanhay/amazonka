@@ -111,8 +111,8 @@ instance Prelude.Hashable GetDevice where
 
 instance Prelude.NFData GetDevice where
   rnf GetDevice' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf deviceKey
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf deviceKey
 
 instance Data.ToHeaders GetDevice where
   toHeaders =
@@ -188,5 +188,5 @@ getDeviceResponse_device = Lens.lens (\GetDeviceResponse' {device} -> device) (\
 
 instance Prelude.NFData GetDeviceResponse where
   rnf GetDeviceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf device
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf device

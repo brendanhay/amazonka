@@ -104,9 +104,9 @@ instance Prelude.Hashable MessageTemplateType where
 
 instance Prelude.NFData MessageTemplateType where
   rnf MessageTemplateType' {..} =
-    Prelude.rnf emailMessage
-      `Prelude.seq` Prelude.rnf emailSubject
-      `Prelude.seq` Prelude.rnf sMSMessage
+    Prelude.rnf emailMessage `Prelude.seq`
+      Prelude.rnf emailSubject `Prelude.seq`
+        Prelude.rnf sMSMessage
 
 instance Data.ToJSON MessageTemplateType where
   toJSON MessageTemplateType' {..} =

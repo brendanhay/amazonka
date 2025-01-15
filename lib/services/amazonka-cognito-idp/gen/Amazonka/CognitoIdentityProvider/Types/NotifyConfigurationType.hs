@@ -143,12 +143,12 @@ instance Prelude.Hashable NotifyConfigurationType where
 
 instance Prelude.NFData NotifyConfigurationType where
   rnf NotifyConfigurationType' {..} =
-    Prelude.rnf blockEmail
-      `Prelude.seq` Prelude.rnf from
-      `Prelude.seq` Prelude.rnf mfaEmail
-      `Prelude.seq` Prelude.rnf noActionEmail
-      `Prelude.seq` Prelude.rnf replyTo
-      `Prelude.seq` Prelude.rnf sourceArn
+    Prelude.rnf blockEmail `Prelude.seq`
+      Prelude.rnf from `Prelude.seq`
+        Prelude.rnf mfaEmail `Prelude.seq`
+          Prelude.rnf noActionEmail `Prelude.seq`
+            Prelude.rnf replyTo `Prelude.seq`
+              Prelude.rnf sourceArn
 
 instance Data.ToJSON NotifyConfigurationType where
   toJSON NotifyConfigurationType' {..} =

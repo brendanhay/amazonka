@@ -144,11 +144,11 @@ instance Prelude.Hashable UpdateIdentityProvider where
 
 instance Prelude.NFData UpdateIdentityProvider where
   rnf UpdateIdentityProvider' {..} =
-    Prelude.rnf attributeMapping
-      `Prelude.seq` Prelude.rnf idpIdentifiers
-      `Prelude.seq` Prelude.rnf providerDetails
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf providerName
+    Prelude.rnf attributeMapping `Prelude.seq`
+      Prelude.rnf idpIdentifiers `Prelude.seq`
+        Prelude.rnf providerDetails `Prelude.seq`
+          Prelude.rnf userPoolId `Prelude.seq`
+            Prelude.rnf providerName
 
 instance Data.ToHeaders UpdateIdentityProvider where
   toHeaders =
@@ -234,5 +234,5 @@ instance
     UpdateIdentityProviderResponse
   where
   rnf UpdateIdentityProviderResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf identityProvider
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf identityProvider

@@ -524,13 +524,13 @@ instance Prelude.Hashable AdminInitiateAuth where
 
 instance Prelude.NFData AdminInitiateAuth where
   rnf AdminInitiateAuth' {..} =
-    Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf authParameters
-      `Prelude.seq` Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf contextData
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf authFlow
+    Prelude.rnf analyticsMetadata `Prelude.seq`
+      Prelude.rnf authParameters `Prelude.seq`
+        Prelude.rnf clientMetadata `Prelude.seq`
+          Prelude.rnf contextData `Prelude.seq`
+            Prelude.rnf userPoolId `Prelude.seq`
+              Prelude.rnf clientId `Prelude.seq`
+                Prelude.rnf authFlow
 
 instance Data.ToHeaders AdminInitiateAuth where
   toHeaders =
@@ -874,8 +874,8 @@ adminInitiateAuthResponse_httpStatus = Lens.lens (\AdminInitiateAuthResponse' {h
 
 instance Prelude.NFData AdminInitiateAuthResponse where
   rnf AdminInitiateAuthResponse' {..} =
-    Prelude.rnf authenticationResult
-      `Prelude.seq` Prelude.rnf challengeName
-      `Prelude.seq` Prelude.rnf challengeParameters
-      `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authenticationResult `Prelude.seq`
+      Prelude.rnf challengeName `Prelude.seq`
+        Prelude.rnf challengeParameters `Prelude.seq`
+          Prelude.rnf session `Prelude.seq`
+            Prelude.rnf httpStatus

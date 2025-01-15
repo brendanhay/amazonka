@@ -165,11 +165,11 @@ instance Prelude.Hashable AuthEventType where
 
 instance Prelude.NFData AuthEventType where
   rnf AuthEventType' {..} =
-    Prelude.rnf challengeResponses
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf eventContextData
-      `Prelude.seq` Prelude.rnf eventFeedback
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventResponse
-      `Prelude.seq` Prelude.rnf eventRisk
-      `Prelude.seq` Prelude.rnf eventType
+    Prelude.rnf challengeResponses `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf eventContextData `Prelude.seq`
+          Prelude.rnf eventFeedback `Prelude.seq`
+            Prelude.rnf eventId `Prelude.seq`
+              Prelude.rnf eventResponse `Prelude.seq`
+                Prelude.rnf eventRisk `Prelude.seq`
+                  Prelude.rnf eventType

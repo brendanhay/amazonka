@@ -134,12 +134,12 @@ instance Core.AWSPager AdminListGroupsForUser where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& adminListGroupsForUser_nextToken
-          Lens..~ rs
-          Lens.^? adminListGroupsForUserResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& adminListGroupsForUser_nextToken
+              Lens..~ rs
+              Lens.^? adminListGroupsForUserResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest AdminListGroupsForUser where
   type
@@ -166,10 +166,10 @@ instance Prelude.Hashable AdminListGroupsForUser where
 
 instance Prelude.NFData AdminListGroupsForUser where
   rnf AdminListGroupsForUser' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf userPoolId
 
 instance Data.ToHeaders AdminListGroupsForUser where
   toHeaders =
@@ -262,6 +262,6 @@ instance
     AdminListGroupsForUserResponse
   where
   rnf AdminListGroupsForUserResponse' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

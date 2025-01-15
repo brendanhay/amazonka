@@ -173,5 +173,5 @@ instance
     DescribeUserPoolDomainResponse
   where
   rnf DescribeUserPoolDomainResponse' {..} =
-    Prelude.rnf domainDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainDescription `Prelude.seq`
+      Prelude.rnf httpStatus

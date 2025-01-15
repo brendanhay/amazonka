@@ -135,9 +135,9 @@ instance Prelude.Hashable ListUserImportJobs where
 
 instance Prelude.NFData ListUserImportJobs where
   rnf ListUserImportJobs' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf maxResults
 
 instance Data.ToHeaders ListUserImportJobs where
   toHeaders =
@@ -227,6 +227,6 @@ listUserImportJobsResponse_httpStatus = Lens.lens (\ListUserImportJobsResponse' 
 
 instance Prelude.NFData ListUserImportJobsResponse where
   rnf ListUserImportJobsResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf userImportJobs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf userImportJobs `Prelude.seq`
+        Prelude.rnf httpStatus

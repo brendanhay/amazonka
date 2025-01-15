@@ -191,11 +191,11 @@ instance Prelude.Hashable CreateGroup where
 
 instance Prelude.NFData CreateGroup where
   rnf CreateGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf precedence
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf precedence `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf groupName `Prelude.seq`
+            Prelude.rnf userPoolId
 
 instance Data.ToHeaders CreateGroup where
   toHeaders =
@@ -270,5 +270,5 @@ createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -
 
 instance Prelude.NFData CreateGroupResponse where
   rnf CreateGroupResponse' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -143,9 +143,9 @@ instance Prelude.Hashable AdminDeleteUserAttributes where
 
 instance Prelude.NFData AdminDeleteUserAttributes where
   rnf AdminDeleteUserAttributes' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf userAttributeNames
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf userAttributeNames
 
 instance Data.ToHeaders AdminDeleteUserAttributes where
   toHeaders =

@@ -209,9 +209,9 @@ instance Prelude.Hashable AdminConfirmSignUp where
 
 instance Prelude.NFData AdminConfirmSignUp where
   rnf AdminConfirmSignUp' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf clientMetadata `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf username
 
 instance Data.ToHeaders AdminConfirmSignUp where
   toHeaders =

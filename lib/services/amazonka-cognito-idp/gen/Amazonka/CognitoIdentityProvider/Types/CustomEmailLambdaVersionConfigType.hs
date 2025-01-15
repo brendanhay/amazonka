@@ -108,8 +108,8 @@ instance
     CustomEmailLambdaVersionConfigType
   where
   rnf CustomEmailLambdaVersionConfigType' {..} =
-    Prelude.rnf lambdaVersion
-      `Prelude.seq` Prelude.rnf lambdaArn
+    Prelude.rnf lambdaVersion `Prelude.seq`
+      Prelude.rnf lambdaArn
 
 instance
   Data.ToJSON

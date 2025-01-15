@@ -83,5 +83,5 @@ instance Prelude.Hashable ChallengeResponseType where
 
 instance Prelude.NFData ChallengeResponseType where
   rnf ChallengeResponseType' {..} =
-    Prelude.rnf challengeName
-      `Prelude.seq` Prelude.rnf challengeResponse
+    Prelude.rnf challengeName `Prelude.seq`
+      Prelude.rnf challengeResponse

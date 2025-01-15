@@ -140,9 +140,9 @@ instance Prelude.Hashable RiskConfigurationType where
 
 instance Prelude.NFData RiskConfigurationType where
   rnf RiskConfigurationType' {..} =
-    Prelude.rnf accountTakeoverRiskConfiguration
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf compromisedCredentialsRiskConfiguration
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf riskExceptionConfiguration
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf accountTakeoverRiskConfiguration `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf compromisedCredentialsRiskConfiguration `Prelude.seq`
+          Prelude.rnf lastModifiedDate `Prelude.seq`
+            Prelude.rnf riskExceptionConfiguration `Prelude.seq`
+              Prelude.rnf userPoolId

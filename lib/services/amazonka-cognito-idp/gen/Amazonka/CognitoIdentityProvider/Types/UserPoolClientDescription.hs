@@ -95,6 +95,6 @@ instance Prelude.Hashable UserPoolClientDescription where
 
 instance Prelude.NFData UserPoolClientDescription where
   rnf UserPoolClientDescription' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientName
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf clientName `Prelude.seq`
+        Prelude.rnf userPoolId

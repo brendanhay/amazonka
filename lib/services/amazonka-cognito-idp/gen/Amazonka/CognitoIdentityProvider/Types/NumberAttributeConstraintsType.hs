@@ -90,8 +90,8 @@ instance
     NumberAttributeConstraintsType
   where
   rnf NumberAttributeConstraintsType' {..} =
-    Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf minValue
+    Prelude.rnf maxValue `Prelude.seq`
+      Prelude.rnf minValue
 
 instance Data.ToJSON NumberAttributeConstraintsType where
   toJSON NumberAttributeConstraintsType' {..} =

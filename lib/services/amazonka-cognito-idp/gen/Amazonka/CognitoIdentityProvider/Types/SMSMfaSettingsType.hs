@@ -86,8 +86,8 @@ instance Prelude.Hashable SMSMfaSettingsType where
 
 instance Prelude.NFData SMSMfaSettingsType where
   rnf SMSMfaSettingsType' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf preferredMfa
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf preferredMfa
 
 instance Data.ToJSON SMSMfaSettingsType where
   toJSON SMSMfaSettingsType' {..} =

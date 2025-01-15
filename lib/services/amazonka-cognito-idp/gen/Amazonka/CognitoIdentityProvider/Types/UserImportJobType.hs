@@ -275,16 +275,16 @@ instance Prelude.Hashable UserImportJobType where
 
 instance Prelude.NFData UserImportJobType where
   rnf UserImportJobType' {..} =
-    Prelude.rnf cloudWatchLogsRoleArn
-      `Prelude.seq` Prelude.rnf completionDate
-      `Prelude.seq` Prelude.rnf completionMessage
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf failedUsers
-      `Prelude.seq` Prelude.rnf importedUsers
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf preSignedUrl
-      `Prelude.seq` Prelude.rnf skippedUsers
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf cloudWatchLogsRoleArn `Prelude.seq`
+      Prelude.rnf completionDate `Prelude.seq`
+        Prelude.rnf completionMessage `Prelude.seq`
+          Prelude.rnf creationDate `Prelude.seq`
+            Prelude.rnf failedUsers `Prelude.seq`
+              Prelude.rnf importedUsers `Prelude.seq`
+                Prelude.rnf jobId `Prelude.seq`
+                  Prelude.rnf jobName `Prelude.seq`
+                    Prelude.rnf preSignedUrl `Prelude.seq`
+                      Prelude.rnf skippedUsers `Prelude.seq`
+                        Prelude.rnf startDate `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf userPoolId

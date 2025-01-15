@@ -89,8 +89,8 @@ instance Prelude.Hashable MFAOptionType where
 
 instance Prelude.NFData MFAOptionType where
   rnf MFAOptionType' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf deliveryMedium
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf deliveryMedium
 
 instance Data.ToJSON MFAOptionType where
   toJSON MFAOptionType' {..} =

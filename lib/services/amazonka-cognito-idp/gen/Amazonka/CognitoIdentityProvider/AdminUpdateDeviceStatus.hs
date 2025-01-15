@@ -140,10 +140,10 @@ instance Prelude.Hashable AdminUpdateDeviceStatus where
 
 instance Prelude.NFData AdminUpdateDeviceStatus where
   rnf AdminUpdateDeviceStatus' {..} =
-    Prelude.rnf deviceRememberedStatus
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf deviceKey
+    Prelude.rnf deviceRememberedStatus `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf deviceKey
 
 instance Data.ToHeaders AdminUpdateDeviceStatus where
   toHeaders =

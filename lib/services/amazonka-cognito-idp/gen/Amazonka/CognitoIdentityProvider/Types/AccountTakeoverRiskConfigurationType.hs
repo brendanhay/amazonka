@@ -97,8 +97,8 @@ instance
     AccountTakeoverRiskConfigurationType
   where
   rnf AccountTakeoverRiskConfigurationType' {..} =
-    Prelude.rnf notifyConfiguration
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf notifyConfiguration `Prelude.seq`
+      Prelude.rnf actions
 
 instance
   Data.ToJSON

@@ -97,6 +97,6 @@ instance Prelude.Hashable CodeDeliveryDetailsType where
 
 instance Prelude.NFData CodeDeliveryDetailsType where
   rnf CodeDeliveryDetailsType' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf deliveryMedium
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf deliveryMedium `Prelude.seq`
+        Prelude.rnf destination

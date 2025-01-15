@@ -92,6 +92,6 @@ instance Prelude.Hashable GroupResult where
 
 instance Prelude.NFData GroupResult where
   rnf GroupResult' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf tests
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf tests

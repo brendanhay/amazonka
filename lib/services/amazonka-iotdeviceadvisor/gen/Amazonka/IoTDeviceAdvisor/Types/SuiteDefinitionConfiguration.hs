@@ -151,13 +151,13 @@ instance
 
 instance Prelude.NFData SuiteDefinitionConfiguration where
   rnf SuiteDefinitionConfiguration' {..} =
-    Prelude.rnf devices
-      `Prelude.seq` Prelude.rnf intendedForQualification
-      `Prelude.seq` Prelude.rnf isLongDurationTest
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf suiteDefinitionName
-      `Prelude.seq` Prelude.rnf rootGroup
-      `Prelude.seq` Prelude.rnf devicePermissionRoleArn
+    Prelude.rnf devices `Prelude.seq`
+      Prelude.rnf intendedForQualification `Prelude.seq`
+        Prelude.rnf isLongDurationTest `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf suiteDefinitionName `Prelude.seq`
+              Prelude.rnf rootGroup `Prelude.seq`
+                Prelude.rnf devicePermissionRoleArn
 
 instance Data.ToJSON SuiteDefinitionConfiguration where
   toJSON SuiteDefinitionConfiguration' {..} =

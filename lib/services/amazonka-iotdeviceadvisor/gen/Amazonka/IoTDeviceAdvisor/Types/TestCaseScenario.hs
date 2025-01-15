@@ -179,8 +179,8 @@ instance Prelude.Hashable TestCaseScenario where
 
 instance Prelude.NFData TestCaseScenario where
   rnf TestCaseScenario' {..} =
-    Prelude.rnf failure
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf systemMessage
-      `Prelude.seq` Prelude.rnf testCaseScenarioId
-      `Prelude.seq` Prelude.rnf testCaseScenarioType
+    Prelude.rnf failure `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf systemMessage `Prelude.seq`
+          Prelude.rnf testCaseScenarioId `Prelude.seq`
+            Prelude.rnf testCaseScenarioType

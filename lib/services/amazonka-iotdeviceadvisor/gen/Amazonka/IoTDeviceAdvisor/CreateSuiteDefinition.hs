@@ -120,8 +120,8 @@ instance Prelude.Hashable CreateSuiteDefinition where
 
 instance Prelude.NFData CreateSuiteDefinition where
   rnf CreateSuiteDefinition' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf suiteDefinitionConfiguration
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf suiteDefinitionConfiguration
 
 instance Data.ToHeaders CreateSuiteDefinition where
   toHeaders =
@@ -223,8 +223,8 @@ createSuiteDefinitionResponse_httpStatus = Lens.lens (\CreateSuiteDefinitionResp
 
 instance Prelude.NFData CreateSuiteDefinitionResponse where
   rnf CreateSuiteDefinitionResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf suiteDefinitionArn
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteDefinitionName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf suiteDefinitionArn `Prelude.seq`
+        Prelude.rnf suiteDefinitionId `Prelude.seq`
+          Prelude.rnf suiteDefinitionName `Prelude.seq`
+            Prelude.rnf httpStatus

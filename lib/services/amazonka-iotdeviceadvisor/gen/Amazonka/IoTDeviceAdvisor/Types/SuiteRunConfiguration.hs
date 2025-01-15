@@ -101,9 +101,9 @@ instance Prelude.Hashable SuiteRunConfiguration where
 
 instance Prelude.NFData SuiteRunConfiguration where
   rnf SuiteRunConfiguration' {..} =
-    Prelude.rnf parallelRun
-      `Prelude.seq` Prelude.rnf selectedTestList
-      `Prelude.seq` Prelude.rnf primaryDevice
+    Prelude.rnf parallelRun `Prelude.seq`
+      Prelude.rnf selectedTestList `Prelude.seq`
+        Prelude.rnf primaryDevice
 
 instance Data.ToJSON SuiteRunConfiguration where
   toJSON SuiteRunConfiguration' {..} =

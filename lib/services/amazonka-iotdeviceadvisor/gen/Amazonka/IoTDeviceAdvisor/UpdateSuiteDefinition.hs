@@ -128,8 +128,8 @@ instance Prelude.Hashable UpdateSuiteDefinition where
 
 instance Prelude.NFData UpdateSuiteDefinition where
   rnf UpdateSuiteDefinition' {..} =
-    Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteDefinitionConfiguration
+    Prelude.rnf suiteDefinitionId `Prelude.seq`
+      Prelude.rnf suiteDefinitionConfiguration
 
 instance Data.ToHeaders UpdateSuiteDefinition where
   toHeaders =
@@ -247,10 +247,10 @@ updateSuiteDefinitionResponse_httpStatus = Lens.lens (\UpdateSuiteDefinitionResp
 
 instance Prelude.NFData UpdateSuiteDefinitionResponse where
   rnf UpdateSuiteDefinitionResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf suiteDefinitionArn
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteDefinitionName
-      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf suiteDefinitionArn `Prelude.seq`
+          Prelude.rnf suiteDefinitionId `Prelude.seq`
+            Prelude.rnf suiteDefinitionName `Prelude.seq`
+              Prelude.rnf suiteDefinitionVersion `Prelude.seq`
+                Prelude.rnf httpStatus

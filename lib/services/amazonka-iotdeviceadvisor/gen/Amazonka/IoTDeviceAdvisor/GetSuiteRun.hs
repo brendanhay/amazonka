@@ -133,8 +133,8 @@ instance Prelude.Hashable GetSuiteRun where
 
 instance Prelude.NFData GetSuiteRun where
   rnf GetSuiteRun' {..} =
-    Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteRunId
+    Prelude.rnf suiteDefinitionId `Prelude.seq`
+      Prelude.rnf suiteRunId
 
 instance Data.ToHeaders GetSuiteRun where
   toHeaders =
@@ -289,15 +289,15 @@ getSuiteRunResponse_httpStatus = Lens.lens (\GetSuiteRunResponse' {httpStatus} -
 
 instance Prelude.NFData GetSuiteRunResponse where
   rnf GetSuiteRunResponse' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf errorReason
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
-      `Prelude.seq` Prelude.rnf suiteRunArn
-      `Prelude.seq` Prelude.rnf suiteRunConfiguration
-      `Prelude.seq` Prelude.rnf suiteRunId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf testResult
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf errorReason `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf suiteDefinitionId `Prelude.seq`
+              Prelude.rnf suiteDefinitionVersion `Prelude.seq`
+                Prelude.rnf suiteRunArn `Prelude.seq`
+                  Prelude.rnf suiteRunConfiguration `Prelude.seq`
+                    Prelude.rnf suiteRunId `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf testResult `Prelude.seq`
+                          Prelude.rnf httpStatus

@@ -127,8 +127,8 @@ instance Prelude.Hashable GetSuiteDefinition where
 
 instance Prelude.NFData GetSuiteDefinition where
   rnf GetSuiteDefinition' {..} =
-    Prelude.rnf suiteDefinitionVersion
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
+    Prelude.rnf suiteDefinitionVersion `Prelude.seq`
+      Prelude.rnf suiteDefinitionId
 
 instance Data.ToHeaders GetSuiteDefinition where
   toHeaders =
@@ -257,12 +257,12 @@ getSuiteDefinitionResponse_httpStatus = Lens.lens (\GetSuiteDefinitionResponse' 
 
 instance Prelude.NFData GetSuiteDefinitionResponse where
   rnf GetSuiteDefinitionResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastModifiedAt
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf suiteDefinitionArn
-      `Prelude.seq` Prelude.rnf suiteDefinitionConfiguration
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf lastModifiedAt `Prelude.seq`
+        Prelude.rnf latestVersion `Prelude.seq`
+          Prelude.rnf suiteDefinitionArn `Prelude.seq`
+            Prelude.rnf suiteDefinitionConfiguration `Prelude.seq`
+              Prelude.rnf suiteDefinitionId `Prelude.seq`
+                Prelude.rnf suiteDefinitionVersion `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf httpStatus

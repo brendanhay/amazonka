@@ -116,8 +116,8 @@ instance Prelude.Hashable GetSuiteRunReport where
 
 instance Prelude.NFData GetSuiteRunReport where
   rnf GetSuiteRunReport' {..} =
-    Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteRunId
+    Prelude.rnf suiteDefinitionId `Prelude.seq`
+      Prelude.rnf suiteRunId
 
 instance Data.ToHeaders GetSuiteRunReport where
   toHeaders =
@@ -184,5 +184,5 @@ getSuiteRunReportResponse_httpStatus = Lens.lens (\GetSuiteRunReportResponse' {h
 
 instance Prelude.NFData GetSuiteRunReportResponse where
   rnf GetSuiteRunReportResponse' {..} =
-    Prelude.rnf qualificationReportDownloadUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf qualificationReportDownloadUrl `Prelude.seq`
+      Prelude.rnf httpStatus

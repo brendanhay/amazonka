@@ -112,12 +112,12 @@ instance Core.AWSPager ListDataCellsFilter where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDataCellsFilter_nextToken
-          Lens..~ rs
-          Lens.^? listDataCellsFilterResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDataCellsFilter_nextToken
+              Lens..~ rs
+              Lens.^? listDataCellsFilterResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDataCellsFilter where
   type
@@ -146,9 +146,9 @@ instance Prelude.Hashable ListDataCellsFilter where
 
 instance Prelude.NFData ListDataCellsFilter where
   rnf ListDataCellsFilter' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf table
 
 instance Data.ToHeaders ListDataCellsFilter where
   toHeaders =
@@ -230,6 +230,6 @@ listDataCellsFilterResponse_httpStatus = Lens.lens (\ListDataCellsFilterResponse
 
 instance Prelude.NFData ListDataCellsFilterResponse where
   rnf ListDataCellsFilterResponse' {..} =
-    Prelude.rnf dataCellsFilters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataCellsFilters `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

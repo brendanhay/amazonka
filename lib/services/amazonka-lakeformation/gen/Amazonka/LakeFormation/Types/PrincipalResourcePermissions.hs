@@ -133,8 +133,8 @@ instance
 
 instance Prelude.NFData PrincipalResourcePermissions where
   rnf PrincipalResourcePermissions' {..} =
-    Prelude.rnf additionalDetails
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf permissionsWithGrantOption
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf additionalDetails `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf permissionsWithGrantOption `Prelude.seq`
+          Prelude.rnf principal `Prelude.seq`
+            Prelude.rnf resource

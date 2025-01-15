@@ -92,6 +92,6 @@ instance Prelude.Hashable ExecutionStatistics where
 
 instance Prelude.NFData ExecutionStatistics where
   rnf ExecutionStatistics' {..} =
-    Prelude.rnf averageExecutionTimeMillis
-      `Prelude.seq` Prelude.rnf dataScannedBytes
-      `Prelude.seq` Prelude.rnf workUnitsExecutedCount
+    Prelude.rnf averageExecutionTimeMillis `Prelude.seq`
+      Prelude.rnf dataScannedBytes `Prelude.seq`
+        Prelude.rnf workUnitsExecutedCount

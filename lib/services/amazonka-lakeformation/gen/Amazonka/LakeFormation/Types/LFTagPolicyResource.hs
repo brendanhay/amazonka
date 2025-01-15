@@ -107,9 +107,9 @@ instance Prelude.Hashable LFTagPolicyResource where
 
 instance Prelude.NFData LFTagPolicyResource where
   rnf LFTagPolicyResource' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf expression
 
 instance Data.ToJSON LFTagPolicyResource where
   toJSON LFTagPolicyResource' {..} =

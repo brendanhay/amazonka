@@ -316,14 +316,14 @@ instance Prelude.Hashable DataLakeSettings where
 
 instance Prelude.NFData DataLakeSettings where
   rnf DataLakeSettings' {..} =
-    Prelude.rnf allowExternalDataFiltering
-      `Prelude.seq` Prelude.rnf authorizedSessionTagValueList
-      `Prelude.seq` Prelude.rnf createDatabaseDefaultPermissions
-      `Prelude.seq` Prelude.rnf createTableDefaultPermissions
-      `Prelude.seq` Prelude.rnf dataLakeAdmins
-      `Prelude.seq` Prelude.rnf externalDataFilteringAllowList
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf trustedResourceOwners
+    Prelude.rnf allowExternalDataFiltering `Prelude.seq`
+      Prelude.rnf authorizedSessionTagValueList `Prelude.seq`
+        Prelude.rnf createDatabaseDefaultPermissions `Prelude.seq`
+          Prelude.rnf createTableDefaultPermissions `Prelude.seq`
+            Prelude.rnf dataLakeAdmins `Prelude.seq`
+              Prelude.rnf externalDataFilteringAllowList `Prelude.seq`
+                Prelude.rnf parameters `Prelude.seq`
+                  Prelude.rnf trustedResourceOwners
 
 instance Data.ToJSON DataLakeSettings where
   toJSON DataLakeSettings' {..} =

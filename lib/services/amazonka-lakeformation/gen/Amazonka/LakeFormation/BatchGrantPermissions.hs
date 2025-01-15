@@ -118,8 +118,8 @@ instance Prelude.Hashable BatchGrantPermissions where
 
 instance Prelude.NFData BatchGrantPermissions where
   rnf BatchGrantPermissions' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf entries
 
 instance Data.ToHeaders BatchGrantPermissions where
   toHeaders =
@@ -188,5 +188,5 @@ batchGrantPermissionsResponse_httpStatus = Lens.lens (\BatchGrantPermissionsResp
 
 instance Prelude.NFData BatchGrantPermissionsResponse where
   rnf BatchGrantPermissionsResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf httpStatus

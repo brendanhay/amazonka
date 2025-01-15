@@ -165,5 +165,5 @@ commitTransactionResponse_httpStatus = Lens.lens (\CommitTransactionResponse' {h
 
 instance Prelude.NFData CommitTransactionResponse where
   rnf CommitTransactionResponse' {..} =
-    Prelude.rnf transactionStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transactionStatus `Prelude.seq`
+      Prelude.rnf httpStatus

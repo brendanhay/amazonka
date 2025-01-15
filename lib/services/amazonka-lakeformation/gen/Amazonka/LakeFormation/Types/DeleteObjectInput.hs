@@ -88,9 +88,9 @@ instance Prelude.Hashable DeleteObjectInput where
 
 instance Prelude.NFData DeleteObjectInput where
   rnf DeleteObjectInput' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf partitionValues
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf partitionValues `Prelude.seq`
+        Prelude.rnf uri
 
 instance Data.ToJSON DeleteObjectInput where
   toJSON DeleteObjectInput' {..} =

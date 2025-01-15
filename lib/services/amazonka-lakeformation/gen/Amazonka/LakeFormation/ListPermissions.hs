@@ -199,13 +199,13 @@ instance Prelude.Hashable ListPermissions where
 
 instance Prelude.NFData ListPermissions where
   rnf ListPermissions' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf includeRelated
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf includeRelated `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf principal `Prelude.seq`
+              Prelude.rnf resource `Prelude.seq`
+                Prelude.rnf resourceType
 
 instance Data.ToHeaders ListPermissions where
   toHeaders =
@@ -295,6 +295,6 @@ listPermissionsResponse_httpStatus = Lens.lens (\ListPermissionsResponse' {httpS
 
 instance Prelude.NFData ListPermissionsResponse where
   rnf ListPermissionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf principalResourcePermissions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf principalResourcePermissions `Prelude.seq`
+        Prelude.rnf httpStatus

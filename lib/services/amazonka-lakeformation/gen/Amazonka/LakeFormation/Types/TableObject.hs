@@ -94,6 +94,6 @@ instance Prelude.Hashable TableObject where
 
 instance Prelude.NFData TableObject where
   rnf TableObject' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf size `Prelude.seq`
+        Prelude.rnf uri

@@ -104,9 +104,9 @@ instance Prelude.Hashable LFTagKeyResource where
 
 instance Prelude.NFData LFTagKeyResource where
   rnf LFTagKeyResource' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tagKey `Prelude.seq`
+        Prelude.rnf tagValues
 
 instance Data.ToJSON LFTagKeyResource where
   toJSON LFTagKeyResource' {..} =

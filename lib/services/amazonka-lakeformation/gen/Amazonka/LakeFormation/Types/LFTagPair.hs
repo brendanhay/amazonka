@@ -104,9 +104,9 @@ instance Prelude.Hashable LFTagPair where
 
 instance Prelude.NFData LFTagPair where
   rnf LFTagPair' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tagKey `Prelude.seq`
+        Prelude.rnf tagValues
 
 instance Data.ToJSON LFTagPair where
   toJSON LFTagPair' {..} =

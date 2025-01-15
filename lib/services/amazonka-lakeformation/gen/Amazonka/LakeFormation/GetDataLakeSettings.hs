@@ -171,5 +171,5 @@ getDataLakeSettingsResponse_httpStatus = Lens.lens (\GetDataLakeSettingsResponse
 
 instance Prelude.NFData GetDataLakeSettingsResponse where
   rnf GetDataLakeSettingsResponse' {..} =
-    Prelude.rnf dataLakeSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataLakeSettings `Prelude.seq`
+      Prelude.rnf httpStatus

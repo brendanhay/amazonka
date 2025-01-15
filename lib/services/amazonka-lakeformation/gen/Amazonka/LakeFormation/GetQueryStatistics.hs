@@ -182,7 +182,7 @@ getQueryStatisticsResponse_httpStatus = Lens.lens (\GetQueryStatisticsResponse' 
 
 instance Prelude.NFData GetQueryStatisticsResponse where
   rnf GetQueryStatisticsResponse' {..} =
-    Prelude.rnf executionStatistics
-      `Prelude.seq` Prelude.rnf planningStatistics
-      `Prelude.seq` Prelude.rnf querySubmissionTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf executionStatistics `Prelude.seq`
+      Prelude.rnf planningStatistics `Prelude.seq`
+        Prelude.rnf querySubmissionTime `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -137,9 +137,9 @@ instance Prelude.Hashable GetWorkUnitResults where
 
 instance Prelude.NFData GetWorkUnitResults where
   rnf GetWorkUnitResults' {..} =
-    Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf workUnitId
-      `Prelude.seq` Prelude.rnf workUnitToken
+    Prelude.rnf queryId `Prelude.seq`
+      Prelude.rnf workUnitId `Prelude.seq`
+        Prelude.rnf workUnitToken
 
 instance Data.ToHeaders GetWorkUnitResults where
   toHeaders =

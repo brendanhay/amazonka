@@ -155,13 +155,13 @@ instance Prelude.Hashable DataCellsFilter where
 
 instance Prelude.NFData DataCellsFilter where
   rnf DataCellsFilter' {..} =
-    Prelude.rnf columnNames
-      `Prelude.seq` Prelude.rnf columnWildcard
-      `Prelude.seq` Prelude.rnf rowFilter
-      `Prelude.seq` Prelude.rnf tableCatalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf columnNames `Prelude.seq`
+      Prelude.rnf columnWildcard `Prelude.seq`
+        Prelude.rnf rowFilter `Prelude.seq`
+          Prelude.rnf tableCatalogId `Prelude.seq`
+            Prelude.rnf databaseName `Prelude.seq`
+              Prelude.rnf tableName `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToJSON DataCellsFilter where
   toJSON DataCellsFilter' {..} =

@@ -72,8 +72,8 @@ instance Prelude.Hashable WriteOperation where
 
 instance Prelude.NFData WriteOperation where
   rnf WriteOperation' {..} =
-    Prelude.rnf addObject
-      `Prelude.seq` Prelude.rnf deleteObject
+    Prelude.rnf addObject `Prelude.seq`
+      Prelude.rnf deleteObject
 
 instance Data.ToJSON WriteOperation where
   toJSON WriteOperation' {..} =

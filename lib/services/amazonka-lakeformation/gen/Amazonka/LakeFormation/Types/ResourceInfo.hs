@@ -91,6 +91,6 @@ instance Prelude.Hashable ResourceInfo where
 
 instance Prelude.NFData ResourceInfo where
   rnf ResourceInfo' {..} =
-    Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf lastModified `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf roleArn

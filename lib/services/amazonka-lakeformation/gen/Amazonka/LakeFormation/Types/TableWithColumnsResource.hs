@@ -147,11 +147,11 @@ instance Prelude.Hashable TableWithColumnsResource where
 
 instance Prelude.NFData TableWithColumnsResource where
   rnf TableWithColumnsResource' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf columnNames
-      `Prelude.seq` Prelude.rnf columnWildcard
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf columnNames `Prelude.seq`
+        Prelude.rnf columnWildcard `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToJSON TableWithColumnsResource where
   toJSON TableWithColumnsResource' {..} =

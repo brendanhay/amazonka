@@ -145,12 +145,12 @@ instance Core.AWSPager SearchDatabasesByLFTags where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchDatabasesByLFTags_nextToken
-          Lens..~ rs
-          Lens.^? searchDatabasesByLFTagsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchDatabasesByLFTags_nextToken
+              Lens..~ rs
+              Lens.^? searchDatabasesByLFTagsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchDatabasesByLFTags where
   type
@@ -177,10 +177,10 @@ instance Prelude.Hashable SearchDatabasesByLFTags where
 
 instance Prelude.NFData SearchDatabasesByLFTags where
   rnf SearchDatabasesByLFTags' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf expression
 
 instance Data.ToHeaders SearchDatabasesByLFTags where
   toHeaders =
@@ -266,6 +266,6 @@ instance
     SearchDatabasesByLFTagsResponse
   where
   rnf SearchDatabasesByLFTagsResponse' {..} =
-    Prelude.rnf databaseList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf databaseList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

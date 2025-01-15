@@ -125,11 +125,11 @@ instance
 
 instance Prelude.NFData BatchPermissionsRequestEntry where
   rnf BatchPermissionsRequestEntry' {..} =
-    Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf permissionsWithGrantOption
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf permissions `Prelude.seq`
+      Prelude.rnf permissionsWithGrantOption `Prelude.seq`
+        Prelude.rnf principal `Prelude.seq`
+          Prelude.rnf resource `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToJSON BatchPermissionsRequestEntry where
   toJSON BatchPermissionsRequestEntry' {..} =

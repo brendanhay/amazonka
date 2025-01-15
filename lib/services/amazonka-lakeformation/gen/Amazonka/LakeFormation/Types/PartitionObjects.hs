@@ -81,5 +81,5 @@ instance Prelude.Hashable PartitionObjects where
 
 instance Prelude.NFData PartitionObjects where
   rnf PartitionObjects' {..} =
-    Prelude.rnf objects
-      `Prelude.seq` Prelude.rnf partitionValues
+    Prelude.rnf objects `Prelude.seq`
+      Prelude.rnf partitionValues

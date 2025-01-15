@@ -82,5 +82,5 @@ instance Prelude.Hashable TaggedDatabase where
 
 instance Prelude.NFData TaggedDatabase where
   rnf TaggedDatabase' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf lFTags
+    Prelude.rnf database `Prelude.seq`
+      Prelude.rnf lFTags

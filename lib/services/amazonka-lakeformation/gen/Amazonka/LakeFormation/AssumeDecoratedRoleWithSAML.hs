@@ -179,10 +179,10 @@ instance Prelude.Hashable AssumeDecoratedRoleWithSAML where
 
 instance Prelude.NFData AssumeDecoratedRoleWithSAML where
   rnf AssumeDecoratedRoleWithSAML' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf sAMLAssertion
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf principalArn
+    Prelude.rnf durationSeconds `Prelude.seq`
+      Prelude.rnf sAMLAssertion `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf principalArn
 
 instance Data.ToHeaders AssumeDecoratedRoleWithSAML where
   toHeaders =
@@ -290,8 +290,8 @@ instance
     AssumeDecoratedRoleWithSAMLResponse
   where
   rnf AssumeDecoratedRoleWithSAMLResponse' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf sessionToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf expiration `Prelude.seq`
+        Prelude.rnf secretAccessKey `Prelude.seq`
+          Prelude.rnf sessionToken `Prelude.seq`
+            Prelude.rnf httpStatus

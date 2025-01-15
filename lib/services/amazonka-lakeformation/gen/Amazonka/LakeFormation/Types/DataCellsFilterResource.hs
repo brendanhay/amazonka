@@ -103,10 +103,10 @@ instance Prelude.Hashable DataCellsFilterResource where
 
 instance Prelude.NFData DataCellsFilterResource where
   rnf DataCellsFilterResource' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tableCatalogId
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf tableCatalogId `Prelude.seq`
+          Prelude.rnf tableName
 
 instance Data.ToJSON DataCellsFilterResource where
   toJSON DataCellsFilterResource' {..} =

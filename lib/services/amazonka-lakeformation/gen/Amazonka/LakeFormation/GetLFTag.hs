@@ -119,8 +119,8 @@ instance Prelude.Hashable GetLFTag where
 
 instance Prelude.NFData GetLFTag where
   rnf GetLFTag' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tagKey
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tagKey
 
 instance Data.ToHeaders GetLFTag where
   toHeaders =
@@ -215,7 +215,7 @@ getLFTagResponse_httpStatus = Lens.lens (\GetLFTagResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetLFTagResponse where
   rnf GetLFTagResponse' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tagKey `Prelude.seq`
+        Prelude.rnf tagValues `Prelude.seq`
+          Prelude.rnf httpStatus

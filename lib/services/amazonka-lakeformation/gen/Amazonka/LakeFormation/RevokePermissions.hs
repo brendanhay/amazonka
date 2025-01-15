@@ -160,11 +160,11 @@ instance Prelude.Hashable RevokePermissions where
 
 instance Prelude.NFData RevokePermissions where
   rnf RevokePermissions' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf permissionsWithGrantOption
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf permissionsWithGrantOption `Prelude.seq`
+        Prelude.rnf principal `Prelude.seq`
+          Prelude.rnf resource `Prelude.seq`
+            Prelude.rnf permissions
 
 instance Data.ToHeaders RevokePermissions where
   toHeaders =

@@ -128,10 +128,10 @@ instance Prelude.Hashable TableResource where
 
 instance Prelude.NFData TableResource where
   rnf TableResource' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tableWildcard
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf tableWildcard `Prelude.seq`
+          Prelude.rnf databaseName
 
 instance Data.ToJSON TableResource where
   toJSON TableResource' {..} =

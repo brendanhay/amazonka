@@ -109,8 +109,8 @@ instance Prelude.Hashable UpdateResource where
 
 instance Prelude.NFData UpdateResource where
   rnf UpdateResource' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders UpdateResource where
   toHeaders =

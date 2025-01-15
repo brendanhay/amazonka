@@ -228,14 +228,14 @@ instance Prelude.Hashable GetTableObjects where
 
 instance Prelude.NFData GetTableObjects where
   rnf GetTableObjects' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf partitionPredicate
-      `Prelude.seq` Prelude.rnf queryAsOfTime
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf partitionPredicate `Prelude.seq`
+            Prelude.rnf queryAsOfTime `Prelude.seq`
+              Prelude.rnf transactionId `Prelude.seq`
+                Prelude.rnf databaseName `Prelude.seq`
+                  Prelude.rnf tableName
 
 instance Data.ToHeaders GetTableObjects where
   toHeaders =
@@ -320,6 +320,6 @@ getTableObjectsResponse_httpStatus = Lens.lens (\GetTableObjectsResponse' {httpS
 
 instance Prelude.NFData GetTableObjectsResponse where
   rnf GetTableObjectsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf objects
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf objects `Prelude.seq`
+        Prelude.rnf httpStatus

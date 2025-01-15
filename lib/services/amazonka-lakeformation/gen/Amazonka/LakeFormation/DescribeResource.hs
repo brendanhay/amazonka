@@ -161,5 +161,5 @@ describeResourceResponse_httpStatus = Lens.lens (\DescribeResourceResponse' {htt
 
 instance Prelude.NFData DescribeResourceResponse where
   rnf DescribeResourceResponse' {..} =
-    Prelude.rnf resourceInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceInfo `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -135,10 +135,10 @@ instance Prelude.Hashable UpdateTableStorageOptimizer where
 
 instance Prelude.NFData UpdateTableStorageOptimizer where
   rnf UpdateTableStorageOptimizer' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf storageOptimizerConfig
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf storageOptimizerConfig
 
 instance Data.ToHeaders UpdateTableStorageOptimizer where
   toHeaders =
@@ -215,5 +215,5 @@ instance
     UpdateTableStorageOptimizerResponse
   where
   rnf UpdateTableStorageOptimizerResponse' {..} =
-    Prelude.rnf result
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf result `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -114,10 +114,10 @@ instance Prelude.Hashable AddObjectInput where
 
 instance Prelude.NFData AddObjectInput where
   rnf AddObjectInput' {..} =
-    Prelude.rnf partitionValues
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf partitionValues `Prelude.seq`
+      Prelude.rnf uri `Prelude.seq`
+        Prelude.rnf eTag `Prelude.seq`
+          Prelude.rnf size
 
 instance Data.ToJSON AddObjectInput where
   toJSON AddObjectInput' {..} =

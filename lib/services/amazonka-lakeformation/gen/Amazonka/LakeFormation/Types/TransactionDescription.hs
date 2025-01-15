@@ -107,7 +107,7 @@ instance Prelude.Hashable TransactionDescription where
 
 instance Prelude.NFData TransactionDescription where
   rnf TransactionDescription' {..} =
-    Prelude.rnf transactionEndTime
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf transactionStartTime
-      `Prelude.seq` Prelude.rnf transactionStatus
+    Prelude.rnf transactionEndTime `Prelude.seq`
+      Prelude.rnf transactionId `Prelude.seq`
+        Prelude.rnf transactionStartTime `Prelude.seq`
+          Prelude.rnf transactionStatus

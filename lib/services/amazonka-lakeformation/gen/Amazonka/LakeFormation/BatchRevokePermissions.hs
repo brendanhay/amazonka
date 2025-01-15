@@ -119,8 +119,8 @@ instance Prelude.Hashable BatchRevokePermissions where
 
 instance Prelude.NFData BatchRevokePermissions where
   rnf BatchRevokePermissions' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf entries
 
 instance Data.ToHeaders BatchRevokePermissions where
   toHeaders =
@@ -192,5 +192,5 @@ instance
     BatchRevokePermissionsResponse
   where
   rnf BatchRevokePermissionsResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf httpStatus

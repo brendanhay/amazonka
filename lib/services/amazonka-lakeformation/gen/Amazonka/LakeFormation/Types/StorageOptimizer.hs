@@ -145,8 +145,8 @@ instance Prelude.Hashable StorageOptimizer where
 
 instance Prelude.NFData StorageOptimizer where
   rnf StorageOptimizer' {..} =
-    Prelude.rnf config
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf lastRunDetails
-      `Prelude.seq` Prelude.rnf storageOptimizerType
-      `Prelude.seq` Prelude.rnf warnings
+    Prelude.rnf config `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf lastRunDetails `Prelude.seq`
+          Prelude.rnf storageOptimizerType `Prelude.seq`
+            Prelude.rnf warnings

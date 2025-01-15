@@ -104,6 +104,6 @@ instance Prelude.Hashable WorkUnitRange where
 
 instance Prelude.NFData WorkUnitRange where
   rnf WorkUnitRange' {..} =
-    Prelude.rnf workUnitIdMax
-      `Prelude.seq` Prelude.rnf workUnitIdMin
-      `Prelude.seq` Prelude.rnf workUnitToken
+    Prelude.rnf workUnitIdMax `Prelude.seq`
+      Prelude.rnf workUnitIdMin `Prelude.seq`
+        Prelude.rnf workUnitToken

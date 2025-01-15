@@ -125,12 +125,12 @@ instance Core.AWSPager GetWorkUnits where
         (rs Lens.^. getWorkUnitsResponse_workUnitRanges) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getWorkUnits_nextToken
-          Lens..~ rs
-          Lens.^? getWorkUnitsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getWorkUnits_nextToken
+              Lens..~ rs
+              Lens.^? getWorkUnitsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetWorkUnits where
   type AWSResponse GetWorkUnits = GetWorkUnitsResponse
@@ -158,9 +158,9 @@ instance Prelude.Hashable GetWorkUnits where
 
 instance Prelude.NFData GetWorkUnits where
   rnf GetWorkUnits' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf queryId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf queryId
 
 instance Data.ToHeaders GetWorkUnits where
   toHeaders =
@@ -257,7 +257,7 @@ getWorkUnitsResponse_workUnitRanges = Lens.lens (\GetWorkUnitsResponse' {workUni
 
 instance Prelude.NFData GetWorkUnitsResponse where
   rnf GetWorkUnitsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf workUnitRanges
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf queryId `Prelude.seq`
+          Prelude.rnf workUnitRanges

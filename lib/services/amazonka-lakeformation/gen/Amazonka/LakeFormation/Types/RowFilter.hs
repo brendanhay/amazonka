@@ -81,8 +81,8 @@ instance Prelude.Hashable RowFilter where
 
 instance Prelude.NFData RowFilter where
   rnf RowFilter' {..} =
-    Prelude.rnf allRowsWildcard
-      `Prelude.seq` Prelude.rnf filterExpression
+    Prelude.rnf allRowsWildcard `Prelude.seq`
+      Prelude.rnf filterExpression
 
 instance Data.ToJSON RowFilter where
   toJSON RowFilter' {..} =

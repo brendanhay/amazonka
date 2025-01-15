@@ -184,14 +184,14 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf dataCellsFilter
-      `Prelude.seq` Prelude.rnf dataLocation
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf lFTag
-      `Prelude.seq` Prelude.rnf lFTagPolicy
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf tableWithColumns
+    Prelude.rnf catalog `Prelude.seq`
+      Prelude.rnf dataCellsFilter `Prelude.seq`
+        Prelude.rnf dataLocation `Prelude.seq`
+          Prelude.rnf database `Prelude.seq`
+            Prelude.rnf lFTag `Prelude.seq`
+              Prelude.rnf lFTagPolicy `Prelude.seq`
+                Prelude.rnf table `Prelude.seq`
+                  Prelude.rnf tableWithColumns
 
 instance Data.ToJSON Resource where
   toJSON Resource' {..} =

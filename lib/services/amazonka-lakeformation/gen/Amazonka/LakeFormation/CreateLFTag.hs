@@ -126,9 +126,9 @@ instance Prelude.Hashable CreateLFTag where
 
 instance Prelude.NFData CreateLFTag where
   rnf CreateLFTag' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tagKey `Prelude.seq`
+        Prelude.rnf tagValues
 
 instance Data.ToHeaders CreateLFTag where
   toHeaders =

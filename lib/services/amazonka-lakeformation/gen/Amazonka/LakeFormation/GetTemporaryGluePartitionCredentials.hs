@@ -195,12 +195,12 @@ instance
     GetTemporaryGluePartitionCredentials
   where
   rnf GetTemporaryGluePartitionCredentials' {..} =
-    Prelude.rnf auditContext
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf partition
-      `Prelude.seq` Prelude.rnf supportedPermissionTypes
+    Prelude.rnf auditContext `Prelude.seq`
+      Prelude.rnf durationSeconds `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf tableArn `Prelude.seq`
+            Prelude.rnf partition `Prelude.seq`
+              Prelude.rnf supportedPermissionTypes
 
 instance
   Data.ToHeaders
@@ -324,8 +324,8 @@ instance
     GetTemporaryGluePartitionCredentialsResponse
   where
   rnf GetTemporaryGluePartitionCredentialsResponse' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf sessionToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf expiration `Prelude.seq`
+        Prelude.rnf secretAccessKey `Prelude.seq`
+          Prelude.rnf sessionToken `Prelude.seq`
+            Prelude.rnf httpStatus

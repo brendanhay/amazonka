@@ -128,9 +128,9 @@ instance Prelude.Hashable CreateScheduleGroup where
 
 instance Prelude.NFData CreateScheduleGroup where
   rnf CreateScheduleGroup' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateScheduleGroup where
   toHeaders =
@@ -205,5 +205,5 @@ createScheduleGroupResponse_scheduleGroupArn = Lens.lens (\CreateScheduleGroupRe
 
 instance Prelude.NFData CreateScheduleGroupResponse where
   rnf CreateScheduleGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf scheduleGroupArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf scheduleGroupArn

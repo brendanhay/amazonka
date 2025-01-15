@@ -89,8 +89,8 @@ instance Prelude.Hashable EventBridgeParameters where
 
 instance Prelude.NFData EventBridgeParameters where
   rnf EventBridgeParameters' {..} =
-    Prelude.rnf detailType
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf detailType `Prelude.seq`
+      Prelude.rnf source
 
 instance Data.ToJSON EventBridgeParameters where
   toJSON EventBridgeParameters' {..} =

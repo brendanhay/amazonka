@@ -114,8 +114,8 @@ instance Prelude.Hashable ScheduleGroupSummary where
 
 instance Prelude.NFData ScheduleGroupSummary where
   rnf ScheduleGroupSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModificationDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf lastModificationDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf state

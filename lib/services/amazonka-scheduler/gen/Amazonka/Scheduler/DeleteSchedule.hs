@@ -129,9 +129,9 @@ instance Prelude.Hashable DeleteSchedule where
 
 instance Prelude.NFData DeleteSchedule where
   rnf DeleteSchedule' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders DeleteSchedule where
   toHeaders =

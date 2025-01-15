@@ -345,18 +345,18 @@ instance Prelude.Hashable CreateSchedule where
 
 instance Prelude.NFData CreateSchedule where
   rnf CreateSchedule' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf scheduleExpressionTimezone
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf flexibleTimeWindow
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf endDate `Prelude.seq`
+          Prelude.rnf groupName `Prelude.seq`
+            Prelude.rnf kmsKeyArn `Prelude.seq`
+              Prelude.rnf scheduleExpressionTimezone `Prelude.seq`
+                Prelude.rnf startDate `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf flexibleTimeWindow `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf scheduleExpression `Prelude.seq`
+                          Prelude.rnf target
 
 instance Data.ToHeaders CreateSchedule where
   toHeaders =
@@ -439,5 +439,5 @@ createScheduleResponse_scheduleArn = Lens.lens (\CreateScheduleResponse' {schedu
 
 instance Prelude.NFData CreateScheduleResponse where
   rnf CreateScheduleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf scheduleArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf scheduleArn

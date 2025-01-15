@@ -201,15 +201,15 @@ instance Prelude.Hashable CreateNamespace where
 
 instance Prelude.NFData CreateNamespace where
   rnf CreateNamespace' {..} =
-    Prelude.rnf adminUserPassword
-      `Prelude.seq` Prelude.rnf adminUsername
-      `Prelude.seq` Prelude.rnf dbName
-      `Prelude.seq` Prelude.rnf defaultIamRoleArn
-      `Prelude.seq` Prelude.rnf iamRoles
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf logExports
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf namespaceName
+    Prelude.rnf adminUserPassword `Prelude.seq`
+      Prelude.rnf adminUsername `Prelude.seq`
+        Prelude.rnf dbName `Prelude.seq`
+          Prelude.rnf defaultIamRoleArn `Prelude.seq`
+            Prelude.rnf iamRoles `Prelude.seq`
+              Prelude.rnf kmsKeyId `Prelude.seq`
+                Prelude.rnf logExports `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf namespaceName
 
 instance Data.ToHeaders CreateNamespace where
   toHeaders =
@@ -292,5 +292,5 @@ createNamespaceResponse_httpStatus = Lens.lens (\CreateNamespaceResponse' {httpS
 
 instance Prelude.NFData CreateNamespaceResponse where
   rnf CreateNamespaceResponse' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf httpStatus

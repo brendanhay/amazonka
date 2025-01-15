@@ -195,14 +195,14 @@ instance Prelude.Hashable UpdateWorkgroup where
 
 instance Prelude.NFData UpdateWorkgroup where
   rnf UpdateWorkgroup' {..} =
-    Prelude.rnf baseCapacity
-      `Prelude.seq` Prelude.rnf configParameters
-      `Prelude.seq` Prelude.rnf enhancedVpcRouting
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf baseCapacity `Prelude.seq`
+      Prelude.rnf configParameters `Prelude.seq`
+        Prelude.rnf enhancedVpcRouting `Prelude.seq`
+          Prelude.rnf port `Prelude.seq`
+            Prelude.rnf publiclyAccessible `Prelude.seq`
+              Prelude.rnf securityGroupIds `Prelude.seq`
+                Prelude.rnf subnetIds `Prelude.seq`
+                  Prelude.rnf workgroupName
 
 instance Data.ToHeaders UpdateWorkgroup where
   toHeaders =
@@ -287,5 +287,5 @@ updateWorkgroupResponse_workgroup = Lens.lens (\UpdateWorkgroupResponse' {workgr
 
 instance Prelude.NFData UpdateWorkgroupResponse where
   rnf UpdateWorkgroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workgroup
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workgroup

@@ -129,9 +129,9 @@ instance Prelude.Hashable RestoreFromRecoveryPoint where
 
 instance Prelude.NFData RestoreFromRecoveryPoint where
   rnf RestoreFromRecoveryPoint' {..} =
-    Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf recoveryPointId
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf namespaceName `Prelude.seq`
+      Prelude.rnf recoveryPointId `Prelude.seq`
+        Prelude.rnf workgroupName
 
 instance Data.ToHeaders RestoreFromRecoveryPoint where
   toHeaders =
@@ -220,6 +220,6 @@ instance
     RestoreFromRecoveryPointResponse
   where
   rnf RestoreFromRecoveryPointResponse' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf recoveryPointId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf recoveryPointId `Prelude.seq`
+        Prelude.rnf httpStatus

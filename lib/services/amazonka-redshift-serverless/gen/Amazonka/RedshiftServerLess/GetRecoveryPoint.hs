@@ -170,5 +170,5 @@ getRecoveryPointResponse_httpStatus = Lens.lens (\GetRecoveryPointResponse' {htt
 
 instance Prelude.NFData GetRecoveryPointResponse where
   rnf GetRecoveryPointResponse' {..} =
-    Prelude.rnf recoveryPoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recoveryPoint `Prelude.seq`
+      Prelude.rnf httpStatus

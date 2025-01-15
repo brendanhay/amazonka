@@ -81,5 +81,5 @@ instance Prelude.Hashable ResourcePolicy where
 
 instance Prelude.NFData ResourcePolicy where
   rnf ResourcePolicy' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf resourceArn

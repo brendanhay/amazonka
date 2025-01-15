@@ -180,9 +180,9 @@ instance Prelude.Hashable GetCredentials where
 
 instance Prelude.NFData GetCredentials where
   rnf GetCredentials' {..} =
-    Prelude.rnf dbName
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf dbName `Prelude.seq`
+      Prelude.rnf durationSeconds `Prelude.seq`
+        Prelude.rnf workgroupName
 
 instance Data.ToHeaders GetCredentials where
   toHeaders =
@@ -303,8 +303,8 @@ getCredentialsResponse_httpStatus = Lens.lens (\GetCredentialsResponse' {httpSta
 
 instance Prelude.NFData GetCredentialsResponse where
   rnf GetCredentialsResponse' {..} =
-    Prelude.rnf dbPassword
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf nextRefreshTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbPassword `Prelude.seq`
+      Prelude.rnf dbUser `Prelude.seq`
+        Prelude.rnf expiration `Prelude.seq`
+          Prelude.rnf nextRefreshTime `Prelude.seq`
+            Prelude.rnf httpStatus

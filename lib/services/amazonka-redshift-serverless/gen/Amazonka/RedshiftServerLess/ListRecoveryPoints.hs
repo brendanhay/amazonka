@@ -154,12 +154,12 @@ instance Core.AWSPager ListRecoveryPoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecoveryPoints_nextToken
-          Lens..~ rs
-          Lens.^? listRecoveryPointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecoveryPoints_nextToken
+              Lens..~ rs
+              Lens.^? listRecoveryPointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecoveryPoints where
   type
@@ -188,12 +188,12 @@ instance Prelude.Hashable ListRecoveryPoints where
 
 instance Prelude.NFData ListRecoveryPoints where
   rnf ListRecoveryPoints' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf namespaceArn
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf namespaceArn `Prelude.seq`
+          Prelude.rnf namespaceName `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders ListRecoveryPoints where
   toHeaders =
@@ -285,6 +285,6 @@ listRecoveryPointsResponse_httpStatus = Lens.lens (\ListRecoveryPointsResponse' 
 
 instance Prelude.NFData ListRecoveryPointsResponse where
   rnf ListRecoveryPointsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recoveryPoints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recoveryPoints `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -87,8 +87,8 @@ instance Prelude.Hashable ConfigParameter where
 
 instance Prelude.NFData ConfigParameter where
   rnf ConfigParameter' {..} =
-    Prelude.rnf parameterKey
-      `Prelude.seq` Prelude.rnf parameterValue
+    Prelude.rnf parameterKey `Prelude.seq`
+      Prelude.rnf parameterValue
 
 instance Data.ToJSON ConfigParameter where
   toJSON ConfigParameter' {..} =

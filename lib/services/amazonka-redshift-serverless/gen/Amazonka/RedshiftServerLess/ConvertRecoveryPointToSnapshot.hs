@@ -154,10 +154,10 @@ instance
     ConvertRecoveryPointToSnapshot
   where
   rnf ConvertRecoveryPointToSnapshot' {..} =
-    Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf recoveryPointId
-      `Prelude.seq` Prelude.rnf snapshotName
+    Prelude.rnf retentionPeriod `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf recoveryPointId `Prelude.seq`
+          Prelude.rnf snapshotName
 
 instance
   Data.ToHeaders
@@ -241,5 +241,5 @@ instance
     ConvertRecoveryPointToSnapshotResponse
   where
   rnf ConvertRecoveryPointToSnapshotResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

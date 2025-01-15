@@ -242,17 +242,17 @@ instance Prelude.Hashable Workgroup where
 
 instance Prelude.NFData Workgroup where
   rnf Workgroup' {..} =
-    Prelude.rnf baseCapacity
-      `Prelude.seq` Prelude.rnf configParameters
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf enhancedVpcRouting
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf workgroupArn
-      `Prelude.seq` Prelude.rnf workgroupId
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf baseCapacity `Prelude.seq`
+      Prelude.rnf configParameters `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf endpoint `Prelude.seq`
+            Prelude.rnf enhancedVpcRouting `Prelude.seq`
+              Prelude.rnf namespaceName `Prelude.seq`
+                Prelude.rnf port `Prelude.seq`
+                  Prelude.rnf publiclyAccessible `Prelude.seq`
+                    Prelude.rnf securityGroupIds `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf subnetIds `Prelude.seq`
+                          Prelude.rnf workgroupArn `Prelude.seq`
+                            Prelude.rnf workgroupId `Prelude.seq`
+                              Prelude.rnf workgroupName

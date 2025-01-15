@@ -132,9 +132,9 @@ instance Prelude.Hashable UpdateUsageLimit where
 
 instance Prelude.NFData UpdateUsageLimit where
   rnf UpdateUsageLimit' {..} =
-    Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf breachAction
-      `Prelude.seq` Prelude.rnf usageLimitId
+    Prelude.rnf amount `Prelude.seq`
+      Prelude.rnf breachAction `Prelude.seq`
+        Prelude.rnf usageLimitId
 
 instance Data.ToHeaders UpdateUsageLimit where
   toHeaders =
@@ -208,5 +208,5 @@ updateUsageLimitResponse_httpStatus = Lens.lens (\UpdateUsageLimitResponse' {htt
 
 instance Prelude.NFData UpdateUsageLimitResponse where
   rnf UpdateUsageLimitResponse' {..} =
-    Prelude.rnf usageLimit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf usageLimit `Prelude.seq`
+      Prelude.rnf httpStatus

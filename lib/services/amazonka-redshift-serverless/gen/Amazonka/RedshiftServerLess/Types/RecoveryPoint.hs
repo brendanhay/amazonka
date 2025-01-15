@@ -128,9 +128,9 @@ instance Prelude.Hashable RecoveryPoint where
 
 instance Prelude.NFData RecoveryPoint where
   rnf RecoveryPoint' {..} =
-    Prelude.rnf namespaceArn
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf recoveryPointCreateTime
-      `Prelude.seq` Prelude.rnf recoveryPointId
-      `Prelude.seq` Prelude.rnf totalSizeInMegaBytes
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf namespaceArn `Prelude.seq`
+      Prelude.rnf namespaceName `Prelude.seq`
+        Prelude.rnf recoveryPointCreateTime `Prelude.seq`
+          Prelude.rnf recoveryPointId `Prelude.seq`
+            Prelude.rnf totalSizeInMegaBytes `Prelude.seq`
+              Prelude.rnf workgroupName

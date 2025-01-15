@@ -168,11 +168,11 @@ instance Prelude.Hashable RestoreFromSnapshot where
 
 instance Prelude.NFData RestoreFromSnapshot where
   rnf RestoreFromSnapshot' {..} =
-    Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf ownerAccount `Prelude.seq`
+      Prelude.rnf snapshotArn `Prelude.seq`
+        Prelude.rnf snapshotName `Prelude.seq`
+          Prelude.rnf namespaceName `Prelude.seq`
+            Prelude.rnf workgroupName
 
 instance Data.ToHeaders RestoreFromSnapshot where
   toHeaders =
@@ -269,7 +269,7 @@ restoreFromSnapshotResponse_httpStatus = Lens.lens (\RestoreFromSnapshotResponse
 
 instance Prelude.NFData RestoreFromSnapshotResponse where
   rnf RestoreFromSnapshotResponse' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf ownerAccount `Prelude.seq`
+        Prelude.rnf snapshotName `Prelude.seq`
+          Prelude.rnf httpStatus

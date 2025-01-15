@@ -219,16 +219,16 @@ instance Prelude.Hashable CreateWorkgroup where
 
 instance Prelude.NFData CreateWorkgroup where
   rnf CreateWorkgroup' {..} =
-    Prelude.rnf baseCapacity
-      `Prelude.seq` Prelude.rnf configParameters
-      `Prelude.seq` Prelude.rnf enhancedVpcRouting
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf baseCapacity `Prelude.seq`
+      Prelude.rnf configParameters `Prelude.seq`
+        Prelude.rnf enhancedVpcRouting `Prelude.seq`
+          Prelude.rnf port `Prelude.seq`
+            Prelude.rnf publiclyAccessible `Prelude.seq`
+              Prelude.rnf securityGroupIds `Prelude.seq`
+                Prelude.rnf subnetIds `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf namespaceName `Prelude.seq`
+                      Prelude.rnf workgroupName
 
 instance Data.ToHeaders CreateWorkgroup where
   toHeaders =
@@ -314,5 +314,5 @@ createWorkgroupResponse_httpStatus = Lens.lens (\CreateWorkgroupResponse' {httpS
 
 instance Prelude.NFData CreateWorkgroupResponse where
   rnf CreateWorkgroupResponse' {..} =
-    Prelude.rnf workgroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf workgroup `Prelude.seq`
+      Prelude.rnf httpStatus

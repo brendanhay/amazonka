@@ -112,8 +112,8 @@ instance Prelude.Hashable UpdateEndpointAccess where
 
 instance Prelude.NFData UpdateEndpointAccess where
   rnf UpdateEndpointAccess' {..} =
-    Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf endpointName
+    Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+      Prelude.rnf endpointName
 
 instance Data.ToHeaders UpdateEndpointAccess where
   toHeaders =
@@ -187,5 +187,5 @@ updateEndpointAccessResponse_httpStatus = Lens.lens (\UpdateEndpointAccessRespon
 
 instance Prelude.NFData UpdateEndpointAccessResponse where
   rnf UpdateEndpointAccessResponse' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf httpStatus

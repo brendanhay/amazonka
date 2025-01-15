@@ -122,7 +122,7 @@ instance Prelude.Hashable TableDataImportJobMetadata where
 
 instance Prelude.NFData TableDataImportJobMetadata where
   rnf TableDataImportJobMetadata' {..} =
-    Prelude.rnf submitter
-      `Prelude.seq` Prelude.rnf submitTime
-      `Prelude.seq` Prelude.rnf importOptions
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf submitter `Prelude.seq`
+      Prelude.rnf submitTime `Prelude.seq`
+        Prelude.rnf importOptions `Prelude.seq`
+          Prelude.rnf dataSource

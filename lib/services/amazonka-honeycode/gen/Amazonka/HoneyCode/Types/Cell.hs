@@ -333,8 +333,8 @@ instance Prelude.Hashable Cell where
 
 instance Prelude.NFData Cell where
   rnf Cell' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf formattedValue
-      `Prelude.seq` Prelude.rnf formattedValues
-      `Prelude.seq` Prelude.rnf formula
-      `Prelude.seq` Prelude.rnf rawValue
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf formattedValue `Prelude.seq`
+        Prelude.rnf formattedValues `Prelude.seq`
+          Prelude.rnf formula `Prelude.seq`
+            Prelude.rnf rawValue

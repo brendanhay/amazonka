@@ -81,5 +81,5 @@ instance Prelude.Hashable ResultRow where
 
 instance Prelude.NFData ResultRow where
   rnf ResultRow' {..} =
-    Prelude.rnf rowId
-      `Prelude.seq` Prelude.rnf dataItems
+    Prelude.rnf rowId `Prelude.seq`
+      Prelude.rnf dataItems

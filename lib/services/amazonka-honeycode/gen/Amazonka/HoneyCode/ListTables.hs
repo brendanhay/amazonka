@@ -133,12 +133,12 @@ instance Core.AWSPager ListTables where
     | Core.stop (rs Lens.^. listTablesResponse_tables) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTables_nextToken
-          Lens..~ rs
-          Lens.^? listTablesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTables_nextToken
+              Lens..~ rs
+              Lens.^? listTablesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTables where
   type AWSResponse ListTables = ListTablesResponse
@@ -163,9 +163,9 @@ instance Prelude.Hashable ListTables where
 
 instance Prelude.NFData ListTables where
   rnf ListTables' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workbookId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workbookId
 
 instance Data.ToHeaders ListTables where
   toHeaders =
@@ -263,7 +263,7 @@ listTablesResponse_tables = Lens.lens (\ListTablesResponse' {tables} -> tables) 
 
 instance Prelude.NFData ListTablesResponse where
   rnf ListTablesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workbookCursor
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tables
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workbookCursor `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf tables

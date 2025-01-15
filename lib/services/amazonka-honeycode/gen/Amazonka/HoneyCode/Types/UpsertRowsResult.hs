@@ -98,5 +98,5 @@ instance Prelude.Hashable UpsertRowsResult where
 
 instance Prelude.NFData UpsertRowsResult where
   rnf UpsertRowsResult' {..} =
-    Prelude.rnf rowIds
-      `Prelude.seq` Prelude.rnf upsertAction
+    Prelude.rnf rowIds `Prelude.seq`
+      Prelude.rnf upsertAction

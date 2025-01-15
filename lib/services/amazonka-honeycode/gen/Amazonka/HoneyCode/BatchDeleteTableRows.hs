@@ -202,10 +202,10 @@ instance Prelude.Hashable BatchDeleteTableRows where
 
 instance Prelude.NFData BatchDeleteTableRows where
   rnf BatchDeleteTableRows' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf rowIds
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf workbookId `Prelude.seq`
+        Prelude.rnf tableId `Prelude.seq`
+          Prelude.rnf rowIds
 
 instance Data.ToHeaders BatchDeleteTableRows where
   toHeaders =
@@ -304,6 +304,6 @@ batchDeleteTableRowsResponse_workbookCursor = Lens.lens (\BatchDeleteTableRowsRe
 
 instance Prelude.NFData BatchDeleteTableRowsResponse where
   rnf BatchDeleteTableRowsResponse' {..} =
-    Prelude.rnf failedBatchItems
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workbookCursor
+    Prelude.rnf failedBatchItems `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf workbookCursor

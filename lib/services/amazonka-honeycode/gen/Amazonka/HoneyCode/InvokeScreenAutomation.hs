@@ -220,13 +220,13 @@ instance Prelude.Hashable InvokeScreenAutomation where
 
 instance Prelude.NFData InvokeScreenAutomation where
   rnf InvokeScreenAutomation' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf rowId
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf screenId
-      `Prelude.seq` Prelude.rnf screenAutomationId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf rowId `Prelude.seq`
+        Prelude.rnf variables `Prelude.seq`
+          Prelude.rnf workbookId `Prelude.seq`
+            Prelude.rnf appId `Prelude.seq`
+              Prelude.rnf screenId `Prelude.seq`
+                Prelude.rnf screenAutomationId
 
 instance Data.ToHeaders InvokeScreenAutomation where
   toHeaders =
@@ -314,5 +314,5 @@ instance
     InvokeScreenAutomationResponse
   where
   rnf InvokeScreenAutomationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workbookCursor
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workbookCursor

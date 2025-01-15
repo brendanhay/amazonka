@@ -98,6 +98,6 @@ instance Prelude.Hashable DataItem where
 
 instance Prelude.NFData DataItem where
   rnf DataItem' {..} =
-    Prelude.rnf formattedValue
-      `Prelude.seq` Prelude.rnf overrideFormat
-      `Prelude.seq` Prelude.rnf rawValue
+    Prelude.rnf formattedValue `Prelude.seq`
+      Prelude.rnf overrideFormat `Prelude.seq`
+        Prelude.rnf rawValue

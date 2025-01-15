@@ -216,10 +216,10 @@ instance Prelude.Hashable BatchUpdateTableRows where
 
 instance Prelude.NFData BatchUpdateTableRows where
   rnf BatchUpdateTableRows' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf rowsToUpdate
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf workbookId `Prelude.seq`
+        Prelude.rnf tableId `Prelude.seq`
+          Prelude.rnf rowsToUpdate
 
 instance Data.ToHeaders BatchUpdateTableRows where
   toHeaders =
@@ -321,6 +321,6 @@ batchUpdateTableRowsResponse_workbookCursor = Lens.lens (\BatchUpdateTableRowsRe
 
 instance Prelude.NFData BatchUpdateTableRowsResponse where
   rnf BatchUpdateTableRowsResponse' {..} =
-    Prelude.rnf failedBatchItems
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workbookCursor
+    Prelude.rnf failedBatchItems `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf workbookCursor

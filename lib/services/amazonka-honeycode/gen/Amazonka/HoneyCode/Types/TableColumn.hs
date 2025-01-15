@@ -95,6 +95,6 @@ instance Prelude.Hashable TableColumn where
 
 instance Prelude.NFData TableColumn where
   rnf TableColumn' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf tableColumnId
-      `Prelude.seq` Prelude.rnf tableColumnName
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf tableColumnId `Prelude.seq`
+        Prelude.rnf tableColumnName

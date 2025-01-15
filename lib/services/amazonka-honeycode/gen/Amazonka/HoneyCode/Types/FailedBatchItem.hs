@@ -91,5 +91,5 @@ instance Prelude.Hashable FailedBatchItem where
 
 instance Prelude.NFData FailedBatchItem where
   rnf FailedBatchItem' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf errorMessage

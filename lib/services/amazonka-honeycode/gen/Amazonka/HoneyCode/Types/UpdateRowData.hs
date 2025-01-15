@@ -80,8 +80,8 @@ instance Prelude.Hashable UpdateRowData where
 
 instance Prelude.NFData UpdateRowData where
   rnf UpdateRowData' {..} =
-    Prelude.rnf rowId
-      `Prelude.seq` Prelude.rnf cellsToUpdate
+    Prelude.rnf rowId `Prelude.seq`
+      Prelude.rnf cellsToUpdate
 
 instance Data.ToJSON UpdateRowData where
   toJSON UpdateRowData' {..} =

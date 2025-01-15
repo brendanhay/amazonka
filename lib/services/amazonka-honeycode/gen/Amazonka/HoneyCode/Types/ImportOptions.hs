@@ -87,8 +87,8 @@ instance Prelude.Hashable ImportOptions where
 
 instance Prelude.NFData ImportOptions where
   rnf ImportOptions' {..} =
-    Prelude.rnf delimitedTextOptions
-      `Prelude.seq` Prelude.rnf destinationOptions
+    Prelude.rnf delimitedTextOptions `Prelude.seq`
+      Prelude.rnf destinationOptions
 
 instance Data.ToJSON ImportOptions where
   toJSON ImportOptions' {..} =

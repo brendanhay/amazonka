@@ -175,12 +175,12 @@ instance Core.AWSPager ListTableRows where
     | Core.stop (rs Lens.^. listTableRowsResponse_rows) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTableRows_nextToken
-          Lens..~ rs
-          Lens.^? listTableRowsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTableRows_nextToken
+              Lens..~ rs
+              Lens.^? listTableRowsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTableRows where
   type
@@ -211,11 +211,11 @@ instance Prelude.Hashable ListTableRows where
 
 instance Prelude.NFData ListTableRows where
   rnf ListTableRows' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf rowIds
-      `Prelude.seq` Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf tableId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf rowIds `Prelude.seq`
+          Prelude.rnf workbookId `Prelude.seq`
+            Prelude.rnf tableId
 
 instance Data.ToHeaders ListTableRows where
   toHeaders =
@@ -358,9 +358,9 @@ listTableRowsResponse_workbookCursor = Lens.lens (\ListTableRowsResponse' {workb
 
 instance Prelude.NFData ListTableRowsResponse where
   rnf ListTableRowsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf rowIdsNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf columnIds
-      `Prelude.seq` Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf workbookCursor
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf rowIdsNotFound `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf columnIds `Prelude.seq`
+            Prelude.rnf rows `Prelude.seq`
+              Prelude.rnf workbookCursor

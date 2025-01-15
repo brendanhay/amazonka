@@ -198,12 +198,12 @@ instance Prelude.Hashable GetScreenData where
 
 instance Prelude.NFData GetScreenData where
   rnf GetScreenData' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf screenId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf variables `Prelude.seq`
+          Prelude.rnf workbookId `Prelude.seq`
+            Prelude.rnf appId `Prelude.seq`
+              Prelude.rnf screenId
 
 instance Data.ToHeaders GetScreenData where
   toHeaders =
@@ -309,7 +309,7 @@ getScreenDataResponse_workbookCursor = Lens.lens (\GetScreenDataResponse' {workb
 
 instance Prelude.NFData GetScreenDataResponse where
   rnf GetScreenDataResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf workbookCursor
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf results `Prelude.seq`
+          Prelude.rnf workbookCursor

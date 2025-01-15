@@ -92,8 +92,8 @@ instance Prelude.Hashable CreateRowData where
 
 instance Prelude.NFData CreateRowData where
   rnf CreateRowData' {..} =
-    Prelude.rnf batchItemId
-      `Prelude.seq` Prelude.rnf cellsToCreate
+    Prelude.rnf batchItemId `Prelude.seq`
+      Prelude.rnf cellsToCreate
 
 instance Data.ToJSON CreateRowData where
   toJSON CreateRowData' {..} =

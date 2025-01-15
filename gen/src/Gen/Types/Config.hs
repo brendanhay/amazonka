@@ -19,7 +19,6 @@ import Gen.Types.NS
 import Gen.Types.Service
 import Gen.Types.TypeOf
 import qualified System.FilePath as FilePath
-import Text.EDE (Template)
 
 data Replace = Replace
   { _replaceName :: Id,
@@ -198,26 +197,6 @@ exposedModules = Lens.to f
             x ^. waitersNS
           ]
             ++ x ^.. operations . Lens.each . Lens.to (operationNS ns . Lens.view opName)
-
-data Templates = Templates
-  { cabalTemplate :: Template,
-    tocTemplate :: Template,
-    waitersTemplate :: Template,
-    licenseTemplate :: Template,
-    readmeTemplate :: Template,
-    operationTemplate :: Template,
-    typesTemplate :: Template,
-    lensTemplate :: Template,
-    sumTemplate :: Template,
-    productTemplate :: Template,
-    bootProductTemplate :: Template,
-    testMainTemplate :: Template,
-    testNamespaceTemplate :: Template,
-    testInternalTemplate :: Template,
-    fixturesTemplate :: Template,
-    fixtureRequestTemplate :: Template,
-    blankTemplate :: Template
-  }
 
 data Model = Model
   { _modelName :: Text,

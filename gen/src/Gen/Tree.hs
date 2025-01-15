@@ -14,6 +14,7 @@ import Data.Set.Lens (setOf)
 import qualified Data.Text as Text
 import Gen.Import
 import qualified Gen.JSON as JSON
+import Gen.Output.Template (Templates (..))
 import Gen.Prelude hiding (mod)
 import Gen.Types
 import System.Directory.Tree

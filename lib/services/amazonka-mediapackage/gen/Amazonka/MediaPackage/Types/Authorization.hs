@@ -95,8 +95,8 @@ instance Prelude.Hashable Authorization where
 
 instance Prelude.NFData Authorization where
   rnf Authorization' {..} =
-    Prelude.rnf secretsRoleArn
-      `Prelude.seq` Prelude.rnf cdnIdentifierSecret
+    Prelude.rnf secretsRoleArn `Prelude.seq`
+      Prelude.rnf cdnIdentifierSecret
 
 instance Data.ToJSON Authorization where
   toJSON Authorization' {..} =

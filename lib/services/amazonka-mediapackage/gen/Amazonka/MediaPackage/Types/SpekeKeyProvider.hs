@@ -140,12 +140,12 @@ instance Prelude.Hashable SpekeKeyProvider where
 
 instance Prelude.NFData SpekeKeyProvider where
   rnf SpekeKeyProvider' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf encryptionContractConfiguration
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf systemIds
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf encryptionContractConfiguration `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf systemIds `Prelude.seq`
+            Prelude.rnf url `Prelude.seq`
+              Prelude.rnf roleArn
 
 instance Data.ToJSON SpekeKeyProvider where
   toJSON SpekeKeyProvider' {..} =

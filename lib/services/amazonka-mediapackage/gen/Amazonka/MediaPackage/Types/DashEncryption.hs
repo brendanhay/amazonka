@@ -83,8 +83,8 @@ instance Prelude.Hashable DashEncryption where
 
 instance Prelude.NFData DashEncryption where
   rnf DashEncryption' {..} =
-    Prelude.rnf keyRotationIntervalSeconds
-      `Prelude.seq` Prelude.rnf spekeKeyProvider
+    Prelude.rnf keyRotationIntervalSeconds `Prelude.seq`
+      Prelude.rnf spekeKeyProvider
 
 instance Data.ToJSON DashEncryption where
   toJSON DashEncryption' {..} =

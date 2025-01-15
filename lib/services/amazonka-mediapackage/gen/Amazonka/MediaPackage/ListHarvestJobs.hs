@@ -129,12 +129,12 @@ instance Core.AWSPager ListHarvestJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHarvestJobs_nextToken
-          Lens..~ rs
-          Lens.^? listHarvestJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHarvestJobs_nextToken
+              Lens..~ rs
+              Lens.^? listHarvestJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHarvestJobs where
   type
@@ -161,10 +161,10 @@ instance Prelude.Hashable ListHarvestJobs where
 
 instance Prelude.NFData ListHarvestJobs where
   rnf ListHarvestJobs' {..} =
-    Prelude.rnf includeChannelId
-      `Prelude.seq` Prelude.rnf includeStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf includeChannelId `Prelude.seq`
+      Prelude.rnf includeStatus `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListHarvestJobs where
   toHeaders =
@@ -242,6 +242,6 @@ listHarvestJobsResponse_httpStatus = Lens.lens (\ListHarvestJobsResponse' {httpS
 
 instance Prelude.NFData ListHarvestJobsResponse where
   rnf ListHarvestJobsResponse' {..} =
-    Prelude.rnf harvestJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf harvestJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -217,15 +217,15 @@ instance
     HlsManifestCreateOrUpdateParameters
   where
   rnf HlsManifestCreateOrUpdateParameters' {..} =
-    Prelude.rnf adMarkers
-      `Prelude.seq` Prelude.rnf adTriggers
-      `Prelude.seq` Prelude.rnf adsOnDeliveryRestrictions
-      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf playlistType
-      `Prelude.seq` Prelude.rnf playlistWindowSeconds
-      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf adMarkers `Prelude.seq`
+      Prelude.rnf adTriggers `Prelude.seq`
+        Prelude.rnf adsOnDeliveryRestrictions `Prelude.seq`
+          Prelude.rnf includeIframeOnlyStream `Prelude.seq`
+            Prelude.rnf manifestName `Prelude.seq`
+              Prelude.rnf playlistType `Prelude.seq`
+                Prelude.rnf playlistWindowSeconds `Prelude.seq`
+                  Prelude.rnf programDateTimeIntervalSeconds `Prelude.seq`
+                    Prelude.rnf id
 
 instance
   Data.ToJSON

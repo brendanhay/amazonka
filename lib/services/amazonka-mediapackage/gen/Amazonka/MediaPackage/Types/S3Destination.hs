@@ -101,9 +101,9 @@ instance Prelude.Hashable S3Destination where
 
 instance Prelude.NFData S3Destination where
   rnf S3Destination' {..} =
-    Prelude.rnf manifestKey
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf manifestKey `Prelude.seq`
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToJSON S3Destination where
   toJSON S3Destination' {..} =

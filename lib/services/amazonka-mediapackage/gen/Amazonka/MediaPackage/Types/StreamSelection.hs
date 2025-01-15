@@ -93,9 +93,9 @@ instance Prelude.Hashable StreamSelection where
 
 instance Prelude.NFData StreamSelection where
   rnf StreamSelection' {..} =
-    Prelude.rnf maxVideoBitsPerSecond
-      `Prelude.seq` Prelude.rnf minVideoBitsPerSecond
-      `Prelude.seq` Prelude.rnf streamOrder
+    Prelude.rnf maxVideoBitsPerSecond `Prelude.seq`
+      Prelude.rnf minVideoBitsPerSecond `Prelude.seq`
+        Prelude.rnf streamOrder
 
 instance Data.ToJSON StreamSelection where
   toJSON StreamSelection' {..} =

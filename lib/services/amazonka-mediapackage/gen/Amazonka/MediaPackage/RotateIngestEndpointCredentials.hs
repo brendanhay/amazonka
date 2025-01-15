@@ -137,8 +137,8 @@ instance
     RotateIngestEndpointCredentials
   where
   rnf RotateIngestEndpointCredentials' {..} =
-    Prelude.rnf ingestEndpointId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ingestEndpointId `Prelude.seq`
+      Prelude.rnf id
 
 instance
   Data.ToHeaders
@@ -266,11 +266,11 @@ instance
     RotateIngestEndpointCredentialsResponse
   where
   rnf RotateIngestEndpointCredentialsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf hlsIngest
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf ingressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf egressAccessLogs `Prelude.seq`
+          Prelude.rnf hlsIngest `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf ingressAccessLogs `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

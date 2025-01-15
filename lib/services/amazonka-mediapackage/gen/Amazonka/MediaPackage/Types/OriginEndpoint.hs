@@ -261,19 +261,19 @@ instance Prelude.Hashable OriginEndpoint where
 
 instance Prelude.NFData OriginEndpoint where
   rnf OriginEndpoint' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf cmafPackage
-      `Prelude.seq` Prelude.rnf dashPackage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hlsPackage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf mssPackage
-      `Prelude.seq` Prelude.rnf origination
-      `Prelude.seq` Prelude.rnf startoverWindowSeconds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeDelaySeconds
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf whitelist
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf authorization `Prelude.seq`
+        Prelude.rnf channelId `Prelude.seq`
+          Prelude.rnf cmafPackage `Prelude.seq`
+            Prelude.rnf dashPackage `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf hlsPackage `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf manifestName `Prelude.seq`
+                      Prelude.rnf mssPackage `Prelude.seq`
+                        Prelude.rnf origination `Prelude.seq`
+                          Prelude.rnf startoverWindowSeconds `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf timeDelaySeconds `Prelude.seq`
+                                Prelude.rnf url `Prelude.seq`
+                                  Prelude.rnf whitelist

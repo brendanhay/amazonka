@@ -111,7 +111,7 @@ instance Prelude.Hashable RepositoryBranch where
 
 instance Prelude.NFData RepositoryBranch where
   rnf RepositoryBranch' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf provider
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf branch `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf provider

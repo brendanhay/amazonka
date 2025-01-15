@@ -205,5 +205,5 @@ instance
     CancelServicePipelineDeploymentResponse
   where
   rnf CancelServicePipelineDeploymentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pipeline
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf pipeline

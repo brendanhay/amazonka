@@ -257,13 +257,13 @@ instance
     EnvironmentAccountConnectionSummary
   where
   rnf EnvironmentAccountConnectionSummary' {..} =
-    Prelude.rnf componentRoleArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf environmentAccountId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedAt
-      `Prelude.seq` Prelude.rnf managementAccountId
-      `Prelude.seq` Prelude.rnf requestedAt
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf componentRoleArn `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf environmentAccountId `Prelude.seq`
+          Prelude.rnf environmentName `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf lastModifiedAt `Prelude.seq`
+                Prelude.rnf managementAccountId `Prelude.seq`
+                  Prelude.rnf requestedAt `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf status

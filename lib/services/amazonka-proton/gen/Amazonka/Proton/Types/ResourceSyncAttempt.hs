@@ -143,9 +143,9 @@ instance Prelude.Hashable ResourceSyncAttempt where
 
 instance Prelude.NFData ResourceSyncAttempt where
   rnf ResourceSyncAttempt' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf initialRevision
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf targetRevision
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf initialRevision `Prelude.seq`
+        Prelude.rnf startedAt `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf target `Prelude.seq`
+              Prelude.rnf targetRevision

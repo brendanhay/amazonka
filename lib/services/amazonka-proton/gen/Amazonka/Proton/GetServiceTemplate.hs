@@ -168,5 +168,5 @@ getServiceTemplateResponse_serviceTemplate = Lens.lens (\GetServiceTemplateRespo
 
 instance Prelude.NFData GetServiceTemplateResponse where
   rnf GetServiceTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serviceTemplate

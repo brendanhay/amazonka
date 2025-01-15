@@ -168,5 +168,5 @@ deleteComponentResponse_httpStatus = Lens.lens (\DeleteComponentResponse' {httpS
 
 instance Prelude.NFData DeleteComponentResponse where
   rnf DeleteComponentResponse' {..} =
-    Prelude.rnf component
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf component `Prelude.seq`
+      Prelude.rnf httpStatus

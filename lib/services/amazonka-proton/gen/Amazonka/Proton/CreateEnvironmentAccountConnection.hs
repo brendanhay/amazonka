@@ -272,13 +272,13 @@ instance
     CreateEnvironmentAccountConnection
   where
   rnf CreateEnvironmentAccountConnection' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf codebuildRoleArn
-      `Prelude.seq` Prelude.rnf componentRoleArn
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf managementAccountId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf codebuildRoleArn `Prelude.seq`
+        Prelude.rnf componentRoleArn `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf environmentName `Prelude.seq`
+                Prelude.rnf managementAccountId
 
 instance
   Data.ToHeaders
@@ -383,5 +383,5 @@ instance
     CreateEnvironmentAccountConnectionResponse
   where
   rnf CreateEnvironmentAccountConnectionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentAccountConnection
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentAccountConnection

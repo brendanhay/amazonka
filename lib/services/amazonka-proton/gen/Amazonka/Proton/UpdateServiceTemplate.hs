@@ -123,9 +123,9 @@ instance Prelude.Hashable UpdateServiceTemplate where
 
 instance Prelude.NFData UpdateServiceTemplate where
   rnf UpdateServiceTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateServiceTemplate where
   toHeaders =
@@ -203,5 +203,5 @@ updateServiceTemplateResponse_serviceTemplate = Lens.lens (\UpdateServiceTemplat
 
 instance Prelude.NFData UpdateServiceTemplateResponse where
   rnf UpdateServiceTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serviceTemplate

@@ -237,16 +237,16 @@ instance Prelude.Hashable Component where
 
 instance Prelude.NFData Component where
   rnf Component' {..} =
-    Prelude.rnf deploymentStatusMessage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastDeploymentAttemptedAt
-      `Prelude.seq` Prelude.rnf lastDeploymentSucceededAt
-      `Prelude.seq` Prelude.rnf serviceInstanceName
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceSpec
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf lastModifiedAt
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf deploymentStatusMessage `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastDeploymentAttemptedAt `Prelude.seq`
+          Prelude.rnf lastDeploymentSucceededAt `Prelude.seq`
+            Prelude.rnf serviceInstanceName `Prelude.seq`
+              Prelude.rnf serviceName `Prelude.seq`
+                Prelude.rnf serviceSpec `Prelude.seq`
+                  Prelude.rnf arn `Prelude.seq`
+                    Prelude.rnf createdAt `Prelude.seq`
+                      Prelude.rnf deploymentStatus `Prelude.seq`
+                        Prelude.rnf environmentName `Prelude.seq`
+                          Prelude.rnf lastModifiedAt `Prelude.seq`
+                            Prelude.rnf name

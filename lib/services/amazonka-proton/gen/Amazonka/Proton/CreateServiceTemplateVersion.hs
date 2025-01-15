@@ -250,14 +250,14 @@ instance
 
 instance Prelude.NFData CreateServiceTemplateVersion where
   rnf CreateServiceTemplateVersion' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf supportedComponentSources
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf majorVersion `Prelude.seq`
+          Prelude.rnf supportedComponentSources `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf compatibleEnvironmentTemplates `Prelude.seq`
+                Prelude.rnf source `Prelude.seq`
+                  Prelude.rnf templateName
 
 instance Data.ToHeaders CreateServiceTemplateVersion where
   toHeaders =
@@ -351,5 +351,5 @@ instance
     CreateServiceTemplateVersionResponse
   where
   rnf CreateServiceTemplateVersionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceTemplateVersion
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serviceTemplateVersion

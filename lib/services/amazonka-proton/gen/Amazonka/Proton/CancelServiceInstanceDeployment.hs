@@ -140,8 +140,8 @@ instance
     CancelServiceInstanceDeployment
   where
   rnf CancelServiceInstanceDeployment' {..} =
-    Prelude.rnf serviceInstanceName
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf serviceInstanceName `Prelude.seq`
+      Prelude.rnf serviceName
 
 instance
   Data.ToHeaders
@@ -226,5 +226,5 @@ instance
     CancelServiceInstanceDeploymentResponse
   where
   rnf CancelServiceInstanceDeploymentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceInstance
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serviceInstance

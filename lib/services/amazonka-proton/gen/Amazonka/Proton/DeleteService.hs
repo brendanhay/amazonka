@@ -170,5 +170,5 @@ deleteServiceResponse_httpStatus = Lens.lens (\DeleteServiceResponse' {httpStatu
 
 instance Prelude.NFData DeleteServiceResponse where
   rnf DeleteServiceResponse' {..} =
-    Prelude.rnf service
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf service `Prelude.seq`
+      Prelude.rnf httpStatus

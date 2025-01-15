@@ -149,9 +149,9 @@ instance
     DeleteEnvironmentTemplateVersion
   where
   rnf DeleteEnvironmentTemplateVersion' {..} =
-    Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf minorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf majorVersion `Prelude.seq`
+      Prelude.rnf minorVersion `Prelude.seq`
+        Prelude.rnf templateName
 
 instance
   Data.ToHeaders
@@ -235,5 +235,5 @@ instance
     DeleteEnvironmentTemplateVersionResponse
   where
   rnf DeleteEnvironmentTemplateVersionResponse' {..} =
-    Prelude.rnf environmentTemplateVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environmentTemplateVersion `Prelude.seq`
+      Prelude.rnf httpStatus

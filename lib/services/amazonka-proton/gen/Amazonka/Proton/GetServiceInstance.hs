@@ -114,8 +114,8 @@ instance Prelude.Hashable GetServiceInstance where
 
 instance Prelude.NFData GetServiceInstance where
   rnf GetServiceInstance' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf serviceName
 
 instance Data.ToHeaders GetServiceInstance where
   toHeaders =
@@ -192,5 +192,5 @@ getServiceInstanceResponse_serviceInstance = Lens.lens (\GetServiceInstanceRespo
 
 instance Prelude.NFData GetServiceInstanceResponse where
   rnf GetServiceInstanceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceInstance
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serviceInstance

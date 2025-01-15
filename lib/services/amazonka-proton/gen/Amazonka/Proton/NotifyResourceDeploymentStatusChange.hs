@@ -159,11 +159,11 @@ instance
     NotifyResourceDeploymentStatusChange
   where
   rnf NotifyResourceDeploymentStatusChange' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf outputs `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf resourceArn
 
 instance
   Data.ToHeaders

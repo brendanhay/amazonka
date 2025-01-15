@@ -126,8 +126,8 @@ instance Prelude.Hashable Repository where
 
 instance Prelude.NFData Repository where
   rnf Repository' {..} =
-    Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf provider
+    Prelude.rnf encryptionKey `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf connectionArn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf provider

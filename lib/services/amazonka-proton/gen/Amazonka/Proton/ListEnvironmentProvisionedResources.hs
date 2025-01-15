@@ -114,12 +114,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEnvironmentProvisionedResources_nextToken
-          Lens..~ rs
-          Lens.^? listEnvironmentProvisionedResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEnvironmentProvisionedResources_nextToken
+              Lens..~ rs
+              Lens.^? listEnvironmentProvisionedResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -158,8 +158,8 @@ instance
     ListEnvironmentProvisionedResources
   where
   rnf ListEnvironmentProvisionedResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf environmentName
 
 instance
   Data.ToHeaders
@@ -265,6 +265,6 @@ instance
     ListEnvironmentProvisionedResourcesResponse
   where
   rnf ListEnvironmentProvisionedResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf provisionedResources
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf provisionedResources

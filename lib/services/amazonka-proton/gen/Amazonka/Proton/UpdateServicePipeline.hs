@@ -291,11 +291,11 @@ instance Prelude.Hashable UpdateServicePipeline where
 
 instance Prelude.NFData UpdateServicePipeline where
   rnf UpdateServicePipeline' {..} =
-    Prelude.rnf templateMajorVersion
-      `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf spec
+    Prelude.rnf templateMajorVersion `Prelude.seq`
+      Prelude.rnf templateMinorVersion `Prelude.seq`
+        Prelude.rnf deploymentType `Prelude.seq`
+          Prelude.rnf serviceName `Prelude.seq`
+            Prelude.rnf spec
 
 instance Data.ToHeaders UpdateServicePipeline where
   toHeaders =
@@ -378,5 +378,5 @@ updateServicePipelineResponse_pipeline = Lens.lens (\UpdateServicePipelineRespon
 
 instance Prelude.NFData UpdateServicePipelineResponse where
   rnf UpdateServicePipelineResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pipeline
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf pipeline

@@ -164,5 +164,5 @@ getComponentResponse_httpStatus = Lens.lens (\GetComponentResponse' {httpStatus}
 
 instance Prelude.NFData GetComponentResponse where
   rnf GetComponentResponse' {..} =
-    Prelude.rnf component
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf component `Prelude.seq`
+      Prelude.rnf httpStatus

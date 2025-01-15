@@ -132,8 +132,8 @@ instance Prelude.Hashable Revision where
 
 instance Prelude.NFData Revision where
   rnf Revision' {..} =
-    Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf directory
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf repositoryProvider
-      `Prelude.seq` Prelude.rnf sha
+    Prelude.rnf branch `Prelude.seq`
+      Prelude.rnf directory `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf repositoryProvider `Prelude.seq`
+            Prelude.rnf sha

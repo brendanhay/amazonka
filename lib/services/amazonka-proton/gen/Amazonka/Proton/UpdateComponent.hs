@@ -263,13 +263,13 @@ instance Prelude.Hashable UpdateComponent where
 
 instance Prelude.NFData UpdateComponent where
   rnf UpdateComponent' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf serviceInstanceName
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceSpec
-      `Prelude.seq` Prelude.rnf templateFile
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf serviceInstanceName `Prelude.seq`
+        Prelude.rnf serviceName `Prelude.seq`
+          Prelude.rnf serviceSpec `Prelude.seq`
+            Prelude.rnf templateFile `Prelude.seq`
+              Prelude.rnf deploymentType `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders UpdateComponent where
   toHeaders =
@@ -350,5 +350,5 @@ updateComponentResponse_component = Lens.lens (\UpdateComponentResponse' {compon
 
 instance Prelude.NFData UpdateComponentResponse where
   rnf UpdateComponentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf component
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf component

@@ -118,6 +118,6 @@ instance Prelude.Hashable AccountSettings where
 
 instance Prelude.NFData AccountSettings where
   rnf AccountSettings' {..} =
-    Prelude.rnf pipelineCodebuildRoleArn
-      `Prelude.seq` Prelude.rnf pipelineProvisioningRepository
-      `Prelude.seq` Prelude.rnf pipelineServiceRoleArn
+    Prelude.rnf pipelineCodebuildRoleArn `Prelude.seq`
+      Prelude.rnf pipelineProvisioningRepository `Prelude.seq`
+        Prelude.rnf pipelineServiceRoleArn

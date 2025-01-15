@@ -108,12 +108,12 @@ instance Core.AWSPager ListEnvironmentTemplates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEnvironmentTemplates_nextToken
-          Lens..~ rs
-          Lens.^? listEnvironmentTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEnvironmentTemplates_nextToken
+              Lens..~ rs
+              Lens.^? listEnvironmentTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEnvironmentTemplates where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListEnvironmentTemplates where
 
 instance Prelude.NFData ListEnvironmentTemplates where
   rnf ListEnvironmentTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEnvironmentTemplates where
   toHeaders =
@@ -230,6 +230,6 @@ instance
     ListEnvironmentTemplatesResponse
   where
   rnf ListEnvironmentTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf templates
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf templates

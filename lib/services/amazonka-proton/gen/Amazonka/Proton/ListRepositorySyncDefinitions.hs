@@ -137,12 +137,12 @@ instance Core.AWSPager ListRepositorySyncDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRepositorySyncDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? listRepositorySyncDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRepositorySyncDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? listRepositorySyncDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -178,10 +178,10 @@ instance
 
 instance Prelude.NFData ListRepositorySyncDefinitions where
   rnf ListRepositorySyncDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf repositoryProvider
-      `Prelude.seq` Prelude.rnf syncType
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf repositoryProvider `Prelude.seq`
+          Prelude.rnf syncType
 
 instance Data.ToHeaders ListRepositorySyncDefinitions where
   toHeaders =
@@ -276,6 +276,6 @@ instance
     ListRepositorySyncDefinitionsResponse
   where
   rnf ListRepositorySyncDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf syncDefinitions
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf syncDefinitions

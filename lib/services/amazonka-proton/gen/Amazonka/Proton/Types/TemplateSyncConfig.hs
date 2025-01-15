@@ -141,9 +141,9 @@ instance Prelude.Hashable TemplateSyncConfig where
 
 instance Prelude.NFData TemplateSyncConfig where
   rnf TemplateSyncConfig' {..} =
-    Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf repositoryProvider
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf subdirectory `Prelude.seq`
+      Prelude.rnf branch `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf repositoryProvider `Prelude.seq`
+            Prelude.rnf templateName `Prelude.seq`
+              Prelude.rnf templateType

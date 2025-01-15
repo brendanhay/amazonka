@@ -131,9 +131,9 @@ instance Prelude.Hashable GetTemplateSyncStatus where
 
 instance Prelude.NFData GetTemplateSyncStatus where
   rnf GetTemplateSyncStatus' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateType
-      `Prelude.seq` Prelude.rnf templateVersion
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf templateType `Prelude.seq`
+        Prelude.rnf templateVersion
 
 instance Data.ToHeaders GetTemplateSyncStatus where
   toHeaders =
@@ -226,7 +226,7 @@ getTemplateSyncStatusResponse_httpStatus = Lens.lens (\GetTemplateSyncStatusResp
 
 instance Prelude.NFData GetTemplateSyncStatusResponse where
   rnf GetTemplateSyncStatusResponse' {..} =
-    Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf latestSuccessfulSync
-      `Prelude.seq` Prelude.rnf latestSync
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf desiredState `Prelude.seq`
+      Prelude.rnf latestSuccessfulSync `Prelude.seq`
+        Prelude.rnf latestSync `Prelude.seq`
+          Prelude.rnf httpStatus

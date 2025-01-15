@@ -194,12 +194,12 @@ instance Prelude.Hashable CreateServiceTemplate where
 
 instance Prelude.NFData CreateServiceTemplate where
   rnf CreateServiceTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf pipelineProvisioning
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf encryptionKey `Prelude.seq`
+          Prelude.rnf pipelineProvisioning `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders CreateServiceTemplate where
   toHeaders =
@@ -281,5 +281,5 @@ createServiceTemplateResponse_serviceTemplate = Lens.lens (\CreateServiceTemplat
 
 instance Prelude.NFData CreateServiceTemplateResponse where
   rnf CreateServiceTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serviceTemplate

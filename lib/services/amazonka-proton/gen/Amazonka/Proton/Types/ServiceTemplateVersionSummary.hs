@@ -198,13 +198,13 @@ instance
 
 instance Prelude.NFData ServiceTemplateVersionSummary where
   rnf ServiceTemplateVersionSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf recommendedMinorVersion
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastModifiedAt
-      `Prelude.seq` Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf minorVersion
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf recommendedMinorVersion `Prelude.seq`
+        Prelude.rnf statusMessage `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf lastModifiedAt `Prelude.seq`
+                Prelude.rnf majorVersion `Prelude.seq`
+                  Prelude.rnf minorVersion `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf templateName

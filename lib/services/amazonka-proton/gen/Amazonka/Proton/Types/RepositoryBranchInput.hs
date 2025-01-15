@@ -87,9 +87,9 @@ instance Prelude.Hashable RepositoryBranchInput where
 
 instance Prelude.NFData RepositoryBranchInput where
   rnf RepositoryBranchInput' {..} =
-    Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf provider
+    Prelude.rnf branch `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf provider
 
 instance Data.ToJSON RepositoryBranchInput where
   toJSON RepositoryBranchInput' {..} =

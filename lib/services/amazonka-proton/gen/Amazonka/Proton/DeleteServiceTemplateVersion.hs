@@ -141,9 +141,9 @@ instance
 
 instance Prelude.NFData DeleteServiceTemplateVersion where
   rnf DeleteServiceTemplateVersion' {..} =
-    Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf minorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf majorVersion `Prelude.seq`
+      Prelude.rnf minorVersion `Prelude.seq`
+        Prelude.rnf templateName
 
 instance Data.ToHeaders DeleteServiceTemplateVersion where
   toHeaders =
@@ -220,5 +220,5 @@ instance
     DeleteServiceTemplateVersionResponse
   where
   rnf DeleteServiceTemplateVersionResponse' {..} =
-    Prelude.rnf serviceTemplateVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceTemplateVersion `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -165,5 +165,5 @@ getEnvironmentResponse_environment = Lens.lens (\GetEnvironmentResponse' {enviro
 
 instance Prelude.NFData GetEnvironmentResponse where
   rnf GetEnvironmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environment

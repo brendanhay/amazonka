@@ -192,10 +192,10 @@ instance
     UpdateEnvironmentAccountConnection
   where
   rnf UpdateEnvironmentAccountConnection' {..} =
-    Prelude.rnf codebuildRoleArn
-      `Prelude.seq` Prelude.rnf componentRoleArn
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf codebuildRoleArn `Prelude.seq`
+      Prelude.rnf componentRoleArn `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf id
 
 instance
   Data.ToHeaders
@@ -295,5 +295,5 @@ instance
     UpdateEnvironmentAccountConnectionResponse
   where
   rnf UpdateEnvironmentAccountConnectionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentAccountConnection
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentAccountConnection

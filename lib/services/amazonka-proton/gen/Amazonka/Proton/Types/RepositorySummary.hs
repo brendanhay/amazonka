@@ -99,6 +99,6 @@ instance Prelude.Hashable RepositorySummary where
 
 instance Prelude.NFData RepositorySummary where
   rnf RepositorySummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf provider
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf provider

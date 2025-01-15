@@ -182,12 +182,12 @@ instance Prelude.Hashable CreateTemplateSyncConfig where
 
 instance Prelude.NFData CreateTemplateSyncConfig where
   rnf CreateTemplateSyncConfig' {..} =
-    Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf repositoryProvider
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf subdirectory `Prelude.seq`
+      Prelude.rnf branch `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf repositoryProvider `Prelude.seq`
+            Prelude.rnf templateName `Prelude.seq`
+              Prelude.rnf templateType
 
 instance Data.ToHeaders CreateTemplateSyncConfig where
   toHeaders =
@@ -269,5 +269,5 @@ instance
     CreateTemplateSyncConfigResponse
   where
   rnf CreateTemplateSyncConfigResponse' {..} =
-    Prelude.rnf templateSyncConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf templateSyncConfig `Prelude.seq`
+      Prelude.rnf httpStatus

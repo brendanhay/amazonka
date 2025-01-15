@@ -193,5 +193,5 @@ instance
     GetEnvironmentAccountConnectionResponse
   where
   rnf GetEnvironmentAccountConnectionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentAccountConnection
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentAccountConnection

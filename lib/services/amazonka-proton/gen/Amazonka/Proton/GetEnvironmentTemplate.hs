@@ -174,5 +174,5 @@ instance
     GetEnvironmentTemplateResponse
   where
   rnf GetEnvironmentTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentTemplate

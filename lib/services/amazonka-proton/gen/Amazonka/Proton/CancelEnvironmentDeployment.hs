@@ -192,5 +192,5 @@ instance
     CancelEnvironmentDeploymentResponse
   where
   rnf CancelEnvironmentDeploymentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environment

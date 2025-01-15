@@ -153,12 +153,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEnvironmentAccountConnections_nextToken
-          Lens..~ rs
-          Lens.^? listEnvironmentAccountConnectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEnvironmentAccountConnections_nextToken
+              Lens..~ rs
+              Lens.^? listEnvironmentAccountConnectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -200,11 +200,11 @@ instance
     ListEnvironmentAccountConnections
   where
   rnf ListEnvironmentAccountConnections' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statuses
-      `Prelude.seq` Prelude.rnf requestedBy
+    Prelude.rnf environmentName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf statuses `Prelude.seq`
+            Prelude.rnf requestedBy
 
 instance
   Data.ToHeaders
@@ -316,6 +316,6 @@ instance
     ListEnvironmentAccountConnectionsResponse
   where
   rnf ListEnvironmentAccountConnectionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentAccountConnections
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf environmentAccountConnections

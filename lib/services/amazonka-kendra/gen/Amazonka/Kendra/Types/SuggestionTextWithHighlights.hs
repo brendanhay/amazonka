@@ -89,5 +89,5 @@ instance
 
 instance Prelude.NFData SuggestionTextWithHighlights where
   rnf SuggestionTextWithHighlights' {..} =
-    Prelude.rnf highlights
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf highlights `Prelude.seq`
+      Prelude.rnf text

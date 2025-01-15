@@ -81,5 +81,5 @@ instance Prelude.Hashable TextWithHighlights where
 
 instance Prelude.NFData TextWithHighlights where
   rnf TextWithHighlights' {..} =
-    Prelude.rnf highlights
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf highlights `Prelude.seq`
+      Prelude.rnf text

@@ -149,9 +149,9 @@ instance Prelude.Hashable DocumentAttributeCondition where
 
 instance Prelude.NFData DocumentAttributeCondition where
   rnf DocumentAttributeCondition' {..} =
-    Prelude.rnf conditionOnValue
-      `Prelude.seq` Prelude.rnf conditionDocumentAttributeKey
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf conditionOnValue `Prelude.seq`
+      Prelude.rnf conditionDocumentAttributeKey `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON DocumentAttributeCondition where
   toJSON DocumentAttributeCondition' {..} =

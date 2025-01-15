@@ -149,10 +149,10 @@ instance Prelude.Hashable DataSourceSummary where
 
 instance Prelude.NFData DataSourceSummary where
   rnf DataSourceSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf languageCode `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf updatedAt

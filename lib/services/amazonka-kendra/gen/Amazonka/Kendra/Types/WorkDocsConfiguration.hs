@@ -234,12 +234,12 @@ instance Prelude.Hashable WorkDocsConfiguration where
 
 instance Prelude.NFData WorkDocsConfiguration where
   rnf WorkDocsConfiguration' {..} =
-    Prelude.rnf crawlComments
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf useChangeLog
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf crawlComments `Prelude.seq`
+      Prelude.rnf exclusionPatterns `Prelude.seq`
+        Prelude.rnf fieldMappings `Prelude.seq`
+          Prelude.rnf inclusionPatterns `Prelude.seq`
+            Prelude.rnf useChangeLog `Prelude.seq`
+              Prelude.rnf organizationId
 
 instance Data.ToJSON WorkDocsConfiguration where
   toJSON WorkDocsConfiguration' {..} =

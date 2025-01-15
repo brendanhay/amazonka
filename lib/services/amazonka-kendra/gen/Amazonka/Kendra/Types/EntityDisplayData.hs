@@ -113,8 +113,8 @@ instance Prelude.Hashable EntityDisplayData where
 
 instance Prelude.NFData EntityDisplayData where
   rnf EntityDisplayData' {..} =
-    Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf identifiedUserName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf firstName `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf identifiedUserName `Prelude.seq`
+          Prelude.rnf lastName `Prelude.seq`
+            Prelude.rnf userName

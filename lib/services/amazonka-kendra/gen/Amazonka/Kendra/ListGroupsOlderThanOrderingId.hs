@@ -182,11 +182,11 @@ instance
 
 instance Prelude.NFData ListGroupsOlderThanOrderingId where
   rnf ListGroupsOlderThanOrderingId' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf orderingId
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf indexId `Prelude.seq`
+            Prelude.rnf orderingId
 
 instance Data.ToHeaders ListGroupsOlderThanOrderingId where
   toHeaders =
@@ -286,6 +286,6 @@ instance
     ListGroupsOlderThanOrderingIdResponse
   where
   rnf ListGroupsOlderThanOrderingIdResponse' {..} =
-    Prelude.rnf groupsSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groupsSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -132,9 +132,9 @@ instance Prelude.Hashable OnPremiseConfiguration where
 
 instance Prelude.NFData OnPremiseConfiguration where
   rnf OnPremiseConfiguration' {..} =
-    Prelude.rnf hostUrl
-      `Prelude.seq` Prelude.rnf organizationName
-      `Prelude.seq` Prelude.rnf sslCertificateS3Path
+    Prelude.rnf hostUrl `Prelude.seq`
+      Prelude.rnf organizationName `Prelude.seq`
+        Prelude.rnf sslCertificateS3Path
 
 instance Data.ToJSON OnPremiseConfiguration where
   toJSON OnPremiseConfiguration' {..} =

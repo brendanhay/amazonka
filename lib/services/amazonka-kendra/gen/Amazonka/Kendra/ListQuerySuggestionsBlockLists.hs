@@ -163,9 +163,9 @@ instance
     ListQuerySuggestionsBlockLists
   where
   rnf ListQuerySuggestionsBlockLists' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf indexId
 
 instance
   Data.ToHeaders
@@ -282,6 +282,6 @@ instance
     ListQuerySuggestionsBlockListsResponse
   where
   rnf ListQuerySuggestionsBlockListsResponse' {..} =
-    Prelude.rnf blockListSummaryItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blockListSummaryItems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -89,8 +89,8 @@ instance
     DocumentRelevanceConfiguration
   where
   rnf DocumentRelevanceConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf relevance
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf relevance
 
 instance Data.ToJSON DocumentRelevanceConfiguration where
   toJSON DocumentRelevanceConfiguration' {..} =

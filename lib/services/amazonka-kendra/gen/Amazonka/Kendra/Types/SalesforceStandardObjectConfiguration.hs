@@ -145,10 +145,10 @@ instance
     SalesforceStandardObjectConfiguration
   where
   rnf SalesforceStandardObjectConfiguration' {..} =
-    Prelude.rnf documentTitleFieldName
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf documentDataFieldName
+    Prelude.rnf documentTitleFieldName `Prelude.seq`
+      Prelude.rnf fieldMappings `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf documentDataFieldName
 
 instance
   Data.ToJSON

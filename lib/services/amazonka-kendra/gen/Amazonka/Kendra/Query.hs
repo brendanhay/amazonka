@@ -378,19 +378,19 @@ instance Prelude.Hashable Query where
 
 instance Prelude.NFData Query where
   rnf Query' {..} =
-    Prelude.rnf attributeFilter
-      `Prelude.seq` Prelude.rnf documentRelevanceOverrideConfigurations
-      `Prelude.seq` Prelude.rnf facets
-      `Prelude.seq` Prelude.rnf pageNumber
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf queryResultTypeFilter
-      `Prelude.seq` Prelude.rnf queryText
-      `Prelude.seq` Prelude.rnf requestedDocumentAttributes
-      `Prelude.seq` Prelude.rnf sortingConfiguration
-      `Prelude.seq` Prelude.rnf spellCorrectionConfiguration
-      `Prelude.seq` Prelude.rnf userContext
-      `Prelude.seq` Prelude.rnf visitorId
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf attributeFilter `Prelude.seq`
+      Prelude.rnf documentRelevanceOverrideConfigurations `Prelude.seq`
+        Prelude.rnf facets `Prelude.seq`
+          Prelude.rnf pageNumber `Prelude.seq`
+            Prelude.rnf pageSize `Prelude.seq`
+              Prelude.rnf queryResultTypeFilter `Prelude.seq`
+                Prelude.rnf queryText `Prelude.seq`
+                  Prelude.rnf requestedDocumentAttributes `Prelude.seq`
+                    Prelude.rnf sortingConfiguration `Prelude.seq`
+                      Prelude.rnf spellCorrectionConfiguration `Prelude.seq`
+                        Prelude.rnf userContext `Prelude.seq`
+                          Prelude.rnf visitorId `Prelude.seq`
+                            Prelude.rnf indexId
 
 instance Data.ToHeaders Query where
   toHeaders =
@@ -554,10 +554,10 @@ queryResponse_httpStatus = Lens.lens (\QueryResponse' {httpStatus} -> httpStatus
 
 instance Prelude.NFData QueryResponse where
   rnf QueryResponse' {..} =
-    Prelude.rnf facetResults
-      `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf resultItems
-      `Prelude.seq` Prelude.rnf spellCorrectedQueries
-      `Prelude.seq` Prelude.rnf totalNumberOfResults
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf facetResults `Prelude.seq`
+      Prelude.rnf queryId `Prelude.seq`
+        Prelude.rnf resultItems `Prelude.seq`
+          Prelude.rnf spellCorrectedQueries `Prelude.seq`
+            Prelude.rnf totalNumberOfResults `Prelude.seq`
+              Prelude.rnf warnings `Prelude.seq`
+                Prelude.rnf httpStatus

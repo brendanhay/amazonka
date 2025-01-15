@@ -427,20 +427,20 @@ instance Prelude.Hashable SharePointConfiguration where
 
 instance Prelude.NFData SharePointConfiguration where
   rnf SharePointConfiguration' {..} =
-    Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf crawlAttachments
-      `Prelude.seq` Prelude.rnf disableLocalGroups
-      `Prelude.seq` Prelude.rnf documentTitleFieldName
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf proxyConfiguration
-      `Prelude.seq` Prelude.rnf sslCertificateS3Path
-      `Prelude.seq` Prelude.rnf useChangeLog
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf sharePointVersion
-      `Prelude.seq` Prelude.rnf urls
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf authenticationType `Prelude.seq`
+      Prelude.rnf crawlAttachments `Prelude.seq`
+        Prelude.rnf disableLocalGroups `Prelude.seq`
+          Prelude.rnf documentTitleFieldName `Prelude.seq`
+            Prelude.rnf exclusionPatterns `Prelude.seq`
+              Prelude.rnf fieldMappings `Prelude.seq`
+                Prelude.rnf inclusionPatterns `Prelude.seq`
+                  Prelude.rnf proxyConfiguration `Prelude.seq`
+                    Prelude.rnf sslCertificateS3Path `Prelude.seq`
+                      Prelude.rnf useChangeLog `Prelude.seq`
+                        Prelude.rnf vpcConfiguration `Prelude.seq`
+                          Prelude.rnf sharePointVersion `Prelude.seq`
+                            Prelude.rnf urls `Prelude.seq`
+                              Prelude.rnf secretArn
 
 instance Data.ToJSON SharePointConfiguration where
   toJSON SharePointConfiguration' {..} =

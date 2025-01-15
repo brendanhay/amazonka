@@ -135,9 +135,9 @@ instance Prelude.Hashable Facet where
 
 instance Prelude.NFData Facet where
   rnf Facet' {..} =
-    Prelude.rnf documentAttributeKey
-      `Prelude.seq` Prelude.rnf facets
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf documentAttributeKey `Prelude.seq`
+      Prelude.rnf facets `Prelude.seq`
+        Prelude.rnf maxResults
 
 instance Data.ToJSON Facet where
   toJSON Facet' {..} =

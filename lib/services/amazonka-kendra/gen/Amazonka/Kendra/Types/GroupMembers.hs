@@ -124,9 +124,9 @@ instance Prelude.Hashable GroupMembers where
 
 instance Prelude.NFData GroupMembers where
   rnf GroupMembers' {..} =
-    Prelude.rnf memberGroups
-      `Prelude.seq` Prelude.rnf memberUsers
-      `Prelude.seq` Prelude.rnf s3PathforGroupMembers
+    Prelude.rnf memberGroups `Prelude.seq`
+      Prelude.rnf memberUsers `Prelude.seq`
+        Prelude.rnf s3PathforGroupMembers
 
 instance Data.ToJSON GroupMembers where
   toJSON GroupMembers' {..} =

@@ -368,15 +368,15 @@ instance Prelude.Hashable WebCrawlerConfiguration where
 
 instance Prelude.NFData WebCrawlerConfiguration where
   rnf WebCrawlerConfiguration' {..} =
-    Prelude.rnf authenticationConfiguration
-      `Prelude.seq` Prelude.rnf crawlDepth
-      `Prelude.seq` Prelude.rnf maxContentSizePerPageInMegaBytes
-      `Prelude.seq` Prelude.rnf maxLinksPerPage
-      `Prelude.seq` Prelude.rnf maxUrlsPerMinuteCrawlRate
-      `Prelude.seq` Prelude.rnf proxyConfiguration
-      `Prelude.seq` Prelude.rnf urlExclusionPatterns
-      `Prelude.seq` Prelude.rnf urlInclusionPatterns
-      `Prelude.seq` Prelude.rnf urls
+    Prelude.rnf authenticationConfiguration `Prelude.seq`
+      Prelude.rnf crawlDepth `Prelude.seq`
+        Prelude.rnf maxContentSizePerPageInMegaBytes `Prelude.seq`
+          Prelude.rnf maxLinksPerPage `Prelude.seq`
+            Prelude.rnf maxUrlsPerMinuteCrawlRate `Prelude.seq`
+              Prelude.rnf proxyConfiguration `Prelude.seq`
+                Prelude.rnf urlExclusionPatterns `Prelude.seq`
+                  Prelude.rnf urlInclusionPatterns `Prelude.seq`
+                    Prelude.rnf urls
 
 instance Data.ToJSON WebCrawlerConfiguration where
   toJSON WebCrawlerConfiguration' {..} =

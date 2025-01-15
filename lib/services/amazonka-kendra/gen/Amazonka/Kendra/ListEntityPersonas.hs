@@ -144,10 +144,10 @@ instance Prelude.Hashable ListEntityPersonas where
 
 instance Prelude.NFData ListEntityPersonas where
   rnf ListEntityPersonas' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf indexId
 
 instance Data.ToHeaders ListEntityPersonas where
   toHeaders =
@@ -237,6 +237,6 @@ listEntityPersonasResponse_httpStatus = Lens.lens (\ListEntityPersonasResponse' 
 
 instance Prelude.NFData ListEntityPersonasResponse where
   rnf ListEntityPersonasResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaryItems
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaryItems `Prelude.seq`
+        Prelude.rnf httpStatus

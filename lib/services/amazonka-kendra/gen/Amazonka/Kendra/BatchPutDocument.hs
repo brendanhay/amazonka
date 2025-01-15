@@ -214,10 +214,10 @@ instance Prelude.Hashable BatchPutDocument where
 
 instance Prelude.NFData BatchPutDocument where
   rnf BatchPutDocument' {..} =
-    Prelude.rnf customDocumentEnrichmentConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf documents
+    Prelude.rnf customDocumentEnrichmentConfiguration `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf indexId `Prelude.seq`
+          Prelude.rnf documents
 
 instance Data.ToHeaders BatchPutDocument where
   toHeaders =
@@ -314,5 +314,5 @@ batchPutDocumentResponse_httpStatus = Lens.lens (\BatchPutDocumentResponse' {htt
 
 instance Prelude.NFData BatchPutDocumentResponse where
   rnf BatchPutDocumentResponse' {..} =
-    Prelude.rnf failedDocuments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedDocuments `Prelude.seq`
+      Prelude.rnf httpStatus

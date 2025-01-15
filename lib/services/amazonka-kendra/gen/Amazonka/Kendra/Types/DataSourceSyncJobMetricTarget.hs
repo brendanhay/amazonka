@@ -100,8 +100,8 @@ instance
 
 instance Prelude.NFData DataSourceSyncJobMetricTarget where
   rnf DataSourceSyncJobMetricTarget' {..} =
-    Prelude.rnf dataSourceSyncJobId
-      `Prelude.seq` Prelude.rnf dataSourceId
+    Prelude.rnf dataSourceSyncJobId `Prelude.seq`
+      Prelude.rnf dataSourceId
 
 instance Data.ToJSON DataSourceSyncJobMetricTarget where
   toJSON DataSourceSyncJobMetricTarget' {..} =

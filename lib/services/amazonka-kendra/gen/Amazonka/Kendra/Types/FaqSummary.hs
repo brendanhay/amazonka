@@ -153,10 +153,10 @@ instance Prelude.Hashable FaqSummary where
 
 instance Prelude.NFData FaqSummary where
   rnf FaqSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf fileFormat `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf languageCode `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf updatedAt

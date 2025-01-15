@@ -83,5 +83,5 @@ instance Prelude.Hashable SuggestionHighlight where
 
 instance Prelude.NFData SuggestionHighlight where
   rnf SuggestionHighlight' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf endOffset
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf endOffset

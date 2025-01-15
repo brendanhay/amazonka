@@ -240,12 +240,12 @@ instance Prelude.Hashable S3DataSourceConfiguration where
 
 instance Prelude.NFData S3DataSourceConfiguration where
   rnf S3DataSourceConfiguration' {..} =
-    Prelude.rnf accessControlListConfiguration
-      `Prelude.seq` Prelude.rnf documentsMetadataConfiguration
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf inclusionPrefixes
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf accessControlListConfiguration `Prelude.seq`
+      Prelude.rnf documentsMetadataConfiguration `Prelude.seq`
+        Prelude.rnf exclusionPatterns `Prelude.seq`
+          Prelude.rnf inclusionPatterns `Prelude.seq`
+            Prelude.rnf inclusionPrefixes `Prelude.seq`
+              Prelude.rnf bucketName
 
 instance Data.ToJSON S3DataSourceConfiguration where
   toJSON S3DataSourceConfiguration' {..} =

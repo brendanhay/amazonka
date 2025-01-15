@@ -137,8 +137,8 @@ instance Prelude.Hashable SeedUrlConfiguration where
 
 instance Prelude.NFData SeedUrlConfiguration where
   rnf SeedUrlConfiguration' {..} =
-    Prelude.rnf webCrawlerMode
-      `Prelude.seq` Prelude.rnf seedUrls
+    Prelude.rnf webCrawlerMode `Prelude.seq`
+      Prelude.rnf seedUrls
 
 instance Data.ToJSON SeedUrlConfiguration where
   toJSON SeedUrlConfiguration' {..} =

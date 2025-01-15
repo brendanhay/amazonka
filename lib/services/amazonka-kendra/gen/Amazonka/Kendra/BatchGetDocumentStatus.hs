@@ -146,8 +146,8 @@ instance Prelude.Hashable BatchGetDocumentStatus where
 
 instance Prelude.NFData BatchGetDocumentStatus where
   rnf BatchGetDocumentStatus' {..} =
-    Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf documentInfoList
+    Prelude.rnf indexId `Prelude.seq`
+      Prelude.rnf documentInfoList
 
 instance Data.ToHeaders BatchGetDocumentStatus where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     BatchGetDocumentStatusResponse
   where
   rnf BatchGetDocumentStatusResponse' {..} =
-    Prelude.rnf documentStatusList
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentStatusList `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf httpStatus

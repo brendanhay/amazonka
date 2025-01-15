@@ -148,12 +148,12 @@ instance Prelude.Hashable DatabaseConfiguration where
 
 instance Prelude.NFData DatabaseConfiguration where
   rnf DatabaseConfiguration' {..} =
-    Prelude.rnf aclConfiguration
-      `Prelude.seq` Prelude.rnf sqlConfiguration
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf databaseEngineType
-      `Prelude.seq` Prelude.rnf connectionConfiguration
-      `Prelude.seq` Prelude.rnf columnConfiguration
+    Prelude.rnf aclConfiguration `Prelude.seq`
+      Prelude.rnf sqlConfiguration `Prelude.seq`
+        Prelude.rnf vpcConfiguration `Prelude.seq`
+          Prelude.rnf databaseEngineType `Prelude.seq`
+            Prelude.rnf connectionConfiguration `Prelude.seq`
+              Prelude.rnf columnConfiguration
 
 instance Data.ToJSON DatabaseConfiguration where
   toJSON DatabaseConfiguration' {..} =

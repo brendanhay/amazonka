@@ -147,12 +147,12 @@ instance Prelude.Hashable UpdateThesaurus where
 
 instance Prelude.NFData UpdateThesaurus where
   rnf UpdateThesaurus' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sourceS3Path
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf sourceS3Path `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf indexId
 
 instance Data.ToHeaders UpdateThesaurus where
   toHeaders =

@@ -224,12 +224,12 @@ instance
     CreateAccessControlConfiguration
   where
   rnf CreateAccessControlConfiguration' {..} =
-    Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hierarchicalAccessControlList
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accessControlList `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf hierarchicalAccessControlList `Prelude.seq`
+            Prelude.rnf indexId `Prelude.seq`
+              Prelude.rnf name
 
 instance
   Data.ToHeaders

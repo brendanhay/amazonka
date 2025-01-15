@@ -114,10 +114,10 @@ instance Prelude.Hashable Principal where
 
 instance Prelude.NFData Principal where
   rnf Principal' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf access
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf access
 
 instance Data.ToJSON Principal where
   toJSON Principal' {..} =

@@ -121,8 +121,8 @@ instance Prelude.Hashable ExperiencesSummary where
 
 instance Prelude.NFData ExperiencesSummary where
   rnf ExperiencesSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf endpoints `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status

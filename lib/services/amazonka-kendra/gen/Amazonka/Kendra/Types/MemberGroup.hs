@@ -75,8 +75,8 @@ instance Prelude.Hashable MemberGroup where
 
 instance Prelude.NFData MemberGroup where
   rnf MemberGroup' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf groupId
 
 instance Data.ToJSON MemberGroup where
   toJSON MemberGroup' {..} =

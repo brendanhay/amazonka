@@ -362,19 +362,19 @@ instance Prelude.Hashable AlfrescoConfiguration where
 
 instance Prelude.NFData AlfrescoConfiguration where
   rnf AlfrescoConfiguration' {..} =
-    Prelude.rnf blogFieldMappings
-      `Prelude.seq` Prelude.rnf crawlComments
-      `Prelude.seq` Prelude.rnf crawlSystemFolders
-      `Prelude.seq` Prelude.rnf documentLibraryFieldMappings
-      `Prelude.seq` Prelude.rnf entityFilter
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf wikiFieldMappings
-      `Prelude.seq` Prelude.rnf siteUrl
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf sslCertificateS3Path
+    Prelude.rnf blogFieldMappings `Prelude.seq`
+      Prelude.rnf crawlComments `Prelude.seq`
+        Prelude.rnf crawlSystemFolders `Prelude.seq`
+          Prelude.rnf documentLibraryFieldMappings `Prelude.seq`
+            Prelude.rnf entityFilter `Prelude.seq`
+              Prelude.rnf exclusionPatterns `Prelude.seq`
+                Prelude.rnf inclusionPatterns `Prelude.seq`
+                  Prelude.rnf vpcConfiguration `Prelude.seq`
+                    Prelude.rnf wikiFieldMappings `Prelude.seq`
+                      Prelude.rnf siteUrl `Prelude.seq`
+                        Prelude.rnf siteId `Prelude.seq`
+                          Prelude.rnf secretArn `Prelude.seq`
+                            Prelude.rnf sslCertificateS3Path
 
 instance Data.ToJSON AlfrescoConfiguration where
   toJSON AlfrescoConfiguration' {..} =

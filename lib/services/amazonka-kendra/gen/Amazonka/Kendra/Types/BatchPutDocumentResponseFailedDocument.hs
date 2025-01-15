@@ -104,6 +104,6 @@ instance
     BatchPutDocumentResponseFailedDocument
   where
   rnf BatchPutDocumentResponseFailedDocument' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf id

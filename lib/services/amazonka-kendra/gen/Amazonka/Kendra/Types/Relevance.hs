@@ -221,11 +221,11 @@ instance Prelude.Hashable Relevance where
 
 instance Prelude.NFData Relevance where
   rnf Relevance' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf freshness
-      `Prelude.seq` Prelude.rnf importance
-      `Prelude.seq` Prelude.rnf rankOrder
-      `Prelude.seq` Prelude.rnf valueImportanceMap
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf freshness `Prelude.seq`
+        Prelude.rnf importance `Prelude.seq`
+          Prelude.rnf rankOrder `Prelude.seq`
+            Prelude.rnf valueImportanceMap
 
 instance Data.ToJSON Relevance where
   toJSON Relevance' {..} =

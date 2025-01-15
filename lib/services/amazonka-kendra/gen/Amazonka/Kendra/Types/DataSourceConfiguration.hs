@@ -325,24 +325,24 @@ instance Prelude.Hashable DataSourceConfiguration where
 
 instance Prelude.NFData DataSourceConfiguration where
   rnf DataSourceConfiguration' {..} =
-    Prelude.rnf alfrescoConfiguration
-      `Prelude.seq` Prelude.rnf boxConfiguration
-      `Prelude.seq` Prelude.rnf confluenceConfiguration
-      `Prelude.seq` Prelude.rnf databaseConfiguration
-      `Prelude.seq` Prelude.rnf fsxConfiguration
-      `Prelude.seq` Prelude.rnf gitHubConfiguration
-      `Prelude.seq` Prelude.rnf googleDriveConfiguration
-      `Prelude.seq` Prelude.rnf jiraConfiguration
-      `Prelude.seq` Prelude.rnf oneDriveConfiguration
-      `Prelude.seq` Prelude.rnf quipConfiguration
-      `Prelude.seq` Prelude.rnf s3Configuration
-      `Prelude.seq` Prelude.rnf salesforceConfiguration
-      `Prelude.seq` Prelude.rnf serviceNowConfiguration
-      `Prelude.seq` Prelude.rnf sharePointConfiguration
-      `Prelude.seq` Prelude.rnf slackConfiguration
-      `Prelude.seq` Prelude.rnf templateConfiguration
-      `Prelude.seq` Prelude.rnf webCrawlerConfiguration
-      `Prelude.seq` Prelude.rnf workDocsConfiguration
+    Prelude.rnf alfrescoConfiguration `Prelude.seq`
+      Prelude.rnf boxConfiguration `Prelude.seq`
+        Prelude.rnf confluenceConfiguration `Prelude.seq`
+          Prelude.rnf databaseConfiguration `Prelude.seq`
+            Prelude.rnf fsxConfiguration `Prelude.seq`
+              Prelude.rnf gitHubConfiguration `Prelude.seq`
+                Prelude.rnf googleDriveConfiguration `Prelude.seq`
+                  Prelude.rnf jiraConfiguration `Prelude.seq`
+                    Prelude.rnf oneDriveConfiguration `Prelude.seq`
+                      Prelude.rnf quipConfiguration `Prelude.seq`
+                        Prelude.rnf s3Configuration `Prelude.seq`
+                          Prelude.rnf salesforceConfiguration `Prelude.seq`
+                            Prelude.rnf serviceNowConfiguration `Prelude.seq`
+                              Prelude.rnf sharePointConfiguration `Prelude.seq`
+                                Prelude.rnf slackConfiguration `Prelude.seq`
+                                  Prelude.rnf templateConfiguration `Prelude.seq`
+                                    Prelude.rnf webCrawlerConfiguration `Prelude.seq`
+                                      Prelude.rnf workDocsConfiguration
 
 instance Data.ToJSON DataSourceConfiguration where
   toJSON DataSourceConfiguration' {..} =

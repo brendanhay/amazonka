@@ -213,10 +213,10 @@ instance Prelude.Hashable DeletePrincipalMapping where
 
 instance Prelude.NFData DeletePrincipalMapping where
   rnf DeletePrincipalMapping' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf orderingId
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf orderingId `Prelude.seq`
+        Prelude.rnf indexId `Prelude.seq`
+          Prelude.rnf groupId
 
 instance Data.ToHeaders DeletePrincipalMapping where
   toHeaders =

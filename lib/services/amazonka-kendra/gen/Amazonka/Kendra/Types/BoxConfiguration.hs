@@ -386,19 +386,19 @@ instance Prelude.Hashable BoxConfiguration where
 
 instance Prelude.NFData BoxConfiguration where
   rnf BoxConfiguration' {..} =
-    Prelude.rnf commentFieldMappings
-      `Prelude.seq` Prelude.rnf crawlComments
-      `Prelude.seq` Prelude.rnf crawlTasks
-      `Prelude.seq` Prelude.rnf crawlWebLinks
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf fileFieldMappings
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf taskFieldMappings
-      `Prelude.seq` Prelude.rnf useChangeLog
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf webLinkFieldMappings
-      `Prelude.seq` Prelude.rnf enterpriseId
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf commentFieldMappings `Prelude.seq`
+      Prelude.rnf crawlComments `Prelude.seq`
+        Prelude.rnf crawlTasks `Prelude.seq`
+          Prelude.rnf crawlWebLinks `Prelude.seq`
+            Prelude.rnf exclusionPatterns `Prelude.seq`
+              Prelude.rnf fileFieldMappings `Prelude.seq`
+                Prelude.rnf inclusionPatterns `Prelude.seq`
+                  Prelude.rnf taskFieldMappings `Prelude.seq`
+                    Prelude.rnf useChangeLog `Prelude.seq`
+                      Prelude.rnf vpcConfiguration `Prelude.seq`
+                        Prelude.rnf webLinkFieldMappings `Prelude.seq`
+                          Prelude.rnf enterpriseId `Prelude.seq`
+                            Prelude.rnf secretArn
 
 instance Data.ToJSON BoxConfiguration where
   toJSON BoxConfiguration' {..} =

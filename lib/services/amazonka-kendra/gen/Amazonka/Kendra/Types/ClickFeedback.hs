@@ -76,8 +76,8 @@ instance Prelude.Hashable ClickFeedback where
 
 instance Prelude.NFData ClickFeedback where
   rnf ClickFeedback' {..} =
-    Prelude.rnf resultId
-      `Prelude.seq` Prelude.rnf clickTime
+    Prelude.rnf resultId `Prelude.seq`
+      Prelude.rnf clickTime
 
 instance Data.ToJSON ClickFeedback where
   toJSON ClickFeedback' {..} =

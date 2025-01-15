@@ -151,9 +151,9 @@ instance Prelude.Hashable IndexConfigurationSummary where
 
 instance Prelude.NFData IndexConfigurationSummary where
   rnf IndexConfigurationSummary' {..} =
-    Prelude.rnf edition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf edition `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf updatedAt `Prelude.seq`
+              Prelude.rnf status

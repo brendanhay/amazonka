@@ -187,12 +187,12 @@ instance Prelude.Hashable CreateExperience where
 
 instance Prelude.NFData CreateExperience where
   rnf CreateExperience' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf indexId
 
 instance Data.ToHeaders CreateExperience where
   toHeaders =

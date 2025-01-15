@@ -188,5 +188,5 @@ instance
     StartDataSourceSyncJobResponse
   where
   rnf StartDataSourceSyncJobResponse' {..} =
-    Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf executionId `Prelude.seq`
+      Prelude.rnf httpStatus

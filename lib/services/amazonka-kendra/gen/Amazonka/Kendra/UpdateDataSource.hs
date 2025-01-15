@@ -235,16 +235,16 @@ instance Prelude.Hashable UpdateDataSource where
 
 instance Prelude.NFData UpdateDataSource where
   rnf UpdateDataSource' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf customDocumentEnrichmentConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf customDocumentEnrichmentConfiguration `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf languageCode `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf schedule `Prelude.seq`
+                  Prelude.rnf vpcConfiguration `Prelude.seq`
+                    Prelude.rnf id `Prelude.seq`
+                      Prelude.rnf indexId
 
 instance Data.ToHeaders UpdateDataSource where
   toHeaders =

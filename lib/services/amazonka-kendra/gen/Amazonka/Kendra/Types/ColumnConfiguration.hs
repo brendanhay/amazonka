@@ -135,11 +135,11 @@ instance Prelude.Hashable ColumnConfiguration where
 
 instance Prelude.NFData ColumnConfiguration where
   rnf ColumnConfiguration' {..} =
-    Prelude.rnf documentTitleColumnName
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf documentIdColumnName
-      `Prelude.seq` Prelude.rnf documentDataColumnName
-      `Prelude.seq` Prelude.rnf changeDetectingColumns
+    Prelude.rnf documentTitleColumnName `Prelude.seq`
+      Prelude.rnf fieldMappings `Prelude.seq`
+        Prelude.rnf documentIdColumnName `Prelude.seq`
+          Prelude.rnf documentDataColumnName `Prelude.seq`
+            Prelude.rnf changeDetectingColumns
 
 instance Data.ToJSON ColumnConfiguration where
   toJSON ColumnConfiguration' {..} =

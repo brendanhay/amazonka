@@ -88,5 +88,5 @@ instance Prelude.Hashable FailedEntity where
 
 instance Prelude.NFData FailedEntity where
   rnf FailedEntity' {..} =
-    Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf entityId `Prelude.seq`
+      Prelude.rnf errorMessage

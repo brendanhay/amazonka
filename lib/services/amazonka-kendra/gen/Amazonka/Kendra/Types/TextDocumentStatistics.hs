@@ -87,5 +87,5 @@ instance Prelude.Hashable TextDocumentStatistics where
 
 instance Prelude.NFData TextDocumentStatistics where
   rnf TextDocumentStatistics' {..} =
-    Prelude.rnf indexedTextDocumentsCount
-      `Prelude.seq` Prelude.rnf indexedTextBytes
+    Prelude.rnf indexedTextDocumentsCount `Prelude.seq`
+      Prelude.rnf indexedTextBytes

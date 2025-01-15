@@ -145,9 +145,9 @@ instance
     DisassociatePersonasFromEntities
   where
   rnf DisassociatePersonasFromEntities' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf entityIds
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf indexId `Prelude.seq`
+        Prelude.rnf entityIds
 
 instance
   Data.ToHeaders
@@ -234,5 +234,5 @@ instance
     DisassociatePersonasFromEntitiesResponse
   where
   rnf DisassociatePersonasFromEntitiesResponse' {..} =
-    Prelude.rnf failedEntityList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedEntityList `Prelude.seq`
+      Prelude.rnf httpStatus

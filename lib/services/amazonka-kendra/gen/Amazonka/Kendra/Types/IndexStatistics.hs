@@ -89,5 +89,5 @@ instance Prelude.Hashable IndexStatistics where
 
 instance Prelude.NFData IndexStatistics where
   rnf IndexStatistics' {..} =
-    Prelude.rnf faqStatistics
-      `Prelude.seq` Prelude.rnf textDocumentStatistics
+    Prelude.rnf faqStatistics `Prelude.seq`
+      Prelude.rnf textDocumentStatistics

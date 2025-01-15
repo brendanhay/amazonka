@@ -125,10 +125,10 @@ instance Prelude.Hashable DocumentAttributeValue where
 
 instance Prelude.NFData DocumentAttributeValue where
   rnf DocumentAttributeValue' {..} =
-    Prelude.rnf dateValue
-      `Prelude.seq` Prelude.rnf longValue
-      `Prelude.seq` Prelude.rnf stringListValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf dateValue `Prelude.seq`
+      Prelude.rnf longValue `Prelude.seq`
+        Prelude.rnf stringListValue `Prelude.seq`
+          Prelude.rnf stringValue
 
 instance Data.ToJSON DocumentAttributeValue where
   toJSON DocumentAttributeValue' {..} =

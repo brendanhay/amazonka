@@ -415,21 +415,21 @@ instance Prelude.Hashable JiraConfiguration where
 
 instance Prelude.NFData JiraConfiguration where
   rnf JiraConfiguration' {..} =
-    Prelude.rnf attachmentFieldMappings
-      `Prelude.seq` Prelude.rnf commentFieldMappings
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf issueFieldMappings
-      `Prelude.seq` Prelude.rnf issueSubEntityFilter
-      `Prelude.seq` Prelude.rnf issueType
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf projectFieldMappings
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf useChangeLog
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf workLogFieldMappings
-      `Prelude.seq` Prelude.rnf jiraAccountUrl
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf attachmentFieldMappings `Prelude.seq`
+      Prelude.rnf commentFieldMappings `Prelude.seq`
+        Prelude.rnf exclusionPatterns `Prelude.seq`
+          Prelude.rnf inclusionPatterns `Prelude.seq`
+            Prelude.rnf issueFieldMappings `Prelude.seq`
+              Prelude.rnf issueSubEntityFilter `Prelude.seq`
+                Prelude.rnf issueType `Prelude.seq`
+                  Prelude.rnf project `Prelude.seq`
+                    Prelude.rnf projectFieldMappings `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf useChangeLog `Prelude.seq`
+                          Prelude.rnf vpcConfiguration `Prelude.seq`
+                            Prelude.rnf workLogFieldMappings `Prelude.seq`
+                              Prelude.rnf jiraAccountUrl `Prelude.seq`
+                                Prelude.rnf secretArn
 
 instance Data.ToJSON JiraConfiguration where
   toJSON JiraConfiguration' {..} =

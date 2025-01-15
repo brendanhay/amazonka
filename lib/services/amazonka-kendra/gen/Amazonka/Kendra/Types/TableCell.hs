@@ -114,7 +114,7 @@ instance Prelude.Hashable TableCell where
 
 instance Prelude.NFData TableCell where
   rnf TableCell' {..} =
-    Prelude.rnf header
-      `Prelude.seq` Prelude.rnf highlighted
-      `Prelude.seq` Prelude.rnf topAnswer
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf header `Prelude.seq`
+      Prelude.rnf highlighted `Prelude.seq`
+        Prelude.rnf topAnswer `Prelude.seq`
+          Prelude.rnf value

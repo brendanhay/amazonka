@@ -239,15 +239,15 @@ instance Prelude.Hashable Document where
 
 instance Prelude.NFData Document where
   rnf Document' {..} =
-    Prelude.rnf accessControlConfigurationId
-      `Prelude.seq` Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf blob
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf hierarchicalAccessControlList
-      `Prelude.seq` Prelude.rnf s3Path
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf accessControlConfigurationId `Prelude.seq`
+      Prelude.rnf accessControlList `Prelude.seq`
+        Prelude.rnf attributes `Prelude.seq`
+          Prelude.rnf blob `Prelude.seq`
+            Prelude.rnf contentType `Prelude.seq`
+              Prelude.rnf hierarchicalAccessControlList `Prelude.seq`
+                Prelude.rnf s3Path `Prelude.seq`
+                  Prelude.rnf title `Prelude.seq`
+                    Prelude.rnf id
 
 instance Data.ToJSON Document where
   toJSON Document' {..} =

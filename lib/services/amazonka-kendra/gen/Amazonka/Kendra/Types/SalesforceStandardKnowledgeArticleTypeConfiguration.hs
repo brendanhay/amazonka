@@ -126,9 +126,9 @@ instance
   where
   rnf
     SalesforceStandardKnowledgeArticleTypeConfiguration' {..} =
-      Prelude.rnf documentTitleFieldName
-        `Prelude.seq` Prelude.rnf fieldMappings
-        `Prelude.seq` Prelude.rnf documentDataFieldName
+      Prelude.rnf documentTitleFieldName `Prelude.seq`
+        Prelude.rnf fieldMappings `Prelude.seq`
+          Prelude.rnf documentDataFieldName
 
 instance
   Data.ToJSON

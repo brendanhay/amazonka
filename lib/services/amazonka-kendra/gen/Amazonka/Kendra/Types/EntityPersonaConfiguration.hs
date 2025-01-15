@@ -93,8 +93,8 @@ instance Prelude.Hashable EntityPersonaConfiguration where
 
 instance Prelude.NFData EntityPersonaConfiguration where
   rnf EntityPersonaConfiguration' {..} =
-    Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf persona
+    Prelude.rnf entityId `Prelude.seq`
+      Prelude.rnf persona
 
 instance Data.ToJSON EntityPersonaConfiguration where
   toJSON EntityPersonaConfiguration' {..} =

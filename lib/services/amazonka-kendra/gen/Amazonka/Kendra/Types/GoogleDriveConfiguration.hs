@@ -230,13 +230,13 @@ instance Prelude.Hashable GoogleDriveConfiguration where
 
 instance Prelude.NFData GoogleDriveConfiguration where
   rnf GoogleDriveConfiguration' {..} =
-    Prelude.rnf excludeMimeTypes
-      `Prelude.seq` Prelude.rnf excludeSharedDrives
-      `Prelude.seq` Prelude.rnf excludeUserAccounts
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf excludeMimeTypes `Prelude.seq`
+      Prelude.rnf excludeSharedDrives `Prelude.seq`
+        Prelude.rnf excludeUserAccounts `Prelude.seq`
+          Prelude.rnf exclusionPatterns `Prelude.seq`
+            Prelude.rnf fieldMappings `Prelude.seq`
+              Prelude.rnf inclusionPatterns `Prelude.seq`
+                Prelude.rnf secretArn
 
 instance Data.ToJSON GoogleDriveConfiguration where
   toJSON GoogleDriveConfiguration' {..} =

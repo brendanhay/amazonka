@@ -151,9 +151,9 @@ instance
     BasicAuthenticationConfiguration
   where
   rnf BasicAuthenticationConfiguration' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf credentials
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf credentials
 
 instance Data.ToJSON BasicAuthenticationConfiguration where
   toJSON BasicAuthenticationConfiguration' {..} =

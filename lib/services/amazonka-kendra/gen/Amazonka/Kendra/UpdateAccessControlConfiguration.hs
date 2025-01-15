@@ -207,12 +207,12 @@ instance
     UpdateAccessControlConfiguration
   where
   rnf UpdateAccessControlConfiguration' {..} =
-    Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hierarchicalAccessControlList
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf accessControlList `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf hierarchicalAccessControlList `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf indexId `Prelude.seq`
+              Prelude.rnf id
 
 instance
   Data.ToHeaders

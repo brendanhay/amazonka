@@ -98,8 +98,8 @@ instance Prelude.Hashable SaaSConfiguration where
 
 instance Prelude.NFData SaaSConfiguration where
   rnf SaaSConfiguration' {..} =
-    Prelude.rnf organizationName
-      `Prelude.seq` Prelude.rnf hostUrl
+    Prelude.rnf organizationName `Prelude.seq`
+      Prelude.rnf hostUrl
 
 instance Data.ToJSON SaaSConfiguration where
   toJSON SaaSConfiguration' {..} =

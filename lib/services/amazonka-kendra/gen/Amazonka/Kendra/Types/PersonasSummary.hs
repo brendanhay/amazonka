@@ -124,7 +124,7 @@ instance Prelude.Hashable PersonasSummary where
 
 instance Prelude.NFData PersonasSummary where
   rnf PersonasSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf persona
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf persona `Prelude.seq`
+          Prelude.rnf updatedAt

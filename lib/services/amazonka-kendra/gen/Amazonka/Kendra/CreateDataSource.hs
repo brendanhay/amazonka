@@ -358,18 +358,18 @@ instance Prelude.Hashable CreateDataSource where
 
 instance Prelude.NFData CreateDataSource where
   rnf CreateDataSource' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf customDocumentEnrichmentConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf customDocumentEnrichmentConfiguration `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf languageCode `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf schedule `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf vpcConfiguration `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf indexId `Prelude.seq`
+                          Prelude.rnf type'
 
 instance Data.ToHeaders CreateDataSource where
   toHeaders =

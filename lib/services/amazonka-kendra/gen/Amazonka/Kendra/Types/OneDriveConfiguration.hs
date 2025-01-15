@@ -223,13 +223,13 @@ instance Prelude.Hashable OneDriveConfiguration where
 
 instance Prelude.NFData OneDriveConfiguration where
   rnf OneDriveConfiguration' {..} =
-    Prelude.rnf disableLocalGroups
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf tenantDomain
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf oneDriveUsers
+    Prelude.rnf disableLocalGroups `Prelude.seq`
+      Prelude.rnf exclusionPatterns `Prelude.seq`
+        Prelude.rnf fieldMappings `Prelude.seq`
+          Prelude.rnf inclusionPatterns `Prelude.seq`
+            Prelude.rnf tenantDomain `Prelude.seq`
+              Prelude.rnf secretArn `Prelude.seq`
+                Prelude.rnf oneDriveUsers
 
 instance Data.ToJSON OneDriveConfiguration where
   toJSON OneDriveConfiguration' {..} =

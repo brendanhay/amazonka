@@ -119,7 +119,7 @@ instance Prelude.Hashable Status where
 
 instance Prelude.NFData Status where
   rnf Status' {..} =
-    Prelude.rnf documentId
-      `Prelude.seq` Prelude.rnf documentStatus
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureReason
+    Prelude.rnf documentId `Prelude.seq`
+      Prelude.rnf documentStatus `Prelude.seq`
+        Prelude.rnf failureCode `Prelude.seq`
+          Prelude.rnf failureReason

@@ -389,19 +389,19 @@ describeDataSourceResponse_httpStatus = Lens.lens (\DescribeDataSourceResponse' 
 
 instance Prelude.NFData DescribeDataSourceResponse where
   rnf DescribeDataSourceResponse' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf customDocumentEnrichmentConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf customDocumentEnrichmentConfiguration `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf errorMessage `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf indexId `Prelude.seq`
+                  Prelude.rnf languageCode `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf schedule `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf type' `Prelude.seq`
+                              Prelude.rnf updatedAt `Prelude.seq`
+                                Prelude.rnf vpcConfiguration `Prelude.seq`
+                                  Prelude.rnf httpStatus

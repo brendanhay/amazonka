@@ -82,5 +82,5 @@ instance Prelude.Hashable Prometheus where
 
 instance Prelude.NFData Prometheus where
   rnf Prometheus' {..} =
-    Prelude.rnf jmxExporter
-      `Prelude.seq` Prelude.rnf nodeExporter
+    Prelude.rnf jmxExporter `Prelude.seq`
+      Prelude.rnf nodeExporter

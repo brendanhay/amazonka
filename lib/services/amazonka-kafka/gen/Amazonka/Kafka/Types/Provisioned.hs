@@ -203,14 +203,14 @@ instance Prelude.Hashable Provisioned where
 
 instance Prelude.NFData Provisioned where
   rnf Provisioned' {..} =
-    Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf currentBrokerSoftwareInfo
-      `Prelude.seq` Prelude.rnf encryptionInfo
-      `Prelude.seq` Prelude.rnf enhancedMonitoring
-      `Prelude.seq` Prelude.rnf loggingInfo
-      `Prelude.seq` Prelude.rnf openMonitoring
-      `Prelude.seq` Prelude.rnf storageMode
-      `Prelude.seq` Prelude.rnf zookeeperConnectString
-      `Prelude.seq` Prelude.rnf zookeeperConnectStringTls
-      `Prelude.seq` Prelude.rnf brokerNodeGroupInfo
-      `Prelude.seq` Prelude.rnf numberOfBrokerNodes
+    Prelude.rnf clientAuthentication `Prelude.seq`
+      Prelude.rnf currentBrokerSoftwareInfo `Prelude.seq`
+        Prelude.rnf encryptionInfo `Prelude.seq`
+          Prelude.rnf enhancedMonitoring `Prelude.seq`
+            Prelude.rnf loggingInfo `Prelude.seq`
+              Prelude.rnf openMonitoring `Prelude.seq`
+                Prelude.rnf storageMode `Prelude.seq`
+                  Prelude.rnf zookeeperConnectString `Prelude.seq`
+                    Prelude.rnf zookeeperConnectStringTls `Prelude.seq`
+                      Prelude.rnf brokerNodeGroupInfo `Prelude.seq`
+                        Prelude.rnf numberOfBrokerNodes

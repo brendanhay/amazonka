@@ -163,5 +163,5 @@ instance
     GetCompatibleKafkaVersionsResponse
   where
   rnf GetCompatibleKafkaVersionsResponse' {..} =
-    Prelude.rnf compatibleKafkaVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compatibleKafkaVersions `Prelude.seq`
+      Prelude.rnf httpStatus

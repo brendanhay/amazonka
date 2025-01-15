@@ -296,23 +296,23 @@ instance Prelude.Hashable ClusterInfo where
 
 instance Prelude.NFData ClusterInfo where
   rnf ClusterInfo' {..} =
-    Prelude.rnf activeOperationArn
-      `Prelude.seq` Prelude.rnf brokerNodeGroupInfo
-      `Prelude.seq` Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentBrokerSoftwareInfo
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf encryptionInfo
-      `Prelude.seq` Prelude.rnf enhancedMonitoring
-      `Prelude.seq` Prelude.rnf loggingInfo
-      `Prelude.seq` Prelude.rnf numberOfBrokerNodes
-      `Prelude.seq` Prelude.rnf openMonitoring
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateInfo
-      `Prelude.seq` Prelude.rnf storageMode
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf zookeeperConnectString
-      `Prelude.seq` Prelude.rnf
-        zookeeperConnectStringTls
+    Prelude.rnf activeOperationArn `Prelude.seq`
+      Prelude.rnf brokerNodeGroupInfo `Prelude.seq`
+        Prelude.rnf clientAuthentication `Prelude.seq`
+          Prelude.rnf clusterArn `Prelude.seq`
+            Prelude.rnf clusterName `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf currentBrokerSoftwareInfo `Prelude.seq`
+                  Prelude.rnf currentVersion `Prelude.seq`
+                    Prelude.rnf encryptionInfo `Prelude.seq`
+                      Prelude.rnf enhancedMonitoring `Prelude.seq`
+                        Prelude.rnf loggingInfo `Prelude.seq`
+                          Prelude.rnf numberOfBrokerNodes `Prelude.seq`
+                            Prelude.rnf openMonitoring `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf stateInfo `Prelude.seq`
+                                  Prelude.rnf storageMode `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf zookeeperConnectString `Prelude.seq`
+                                        Prelude.rnf
+                                          zookeeperConnectStringTls

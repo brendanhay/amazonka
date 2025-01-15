@@ -128,9 +128,9 @@ instance Prelude.Hashable BrokerNodeInfo where
 
 instance Prelude.NFData BrokerNodeInfo where
   rnf BrokerNodeInfo' {..} =
-    Prelude.rnf attachedENIId
-      `Prelude.seq` Prelude.rnf brokerId
-      `Prelude.seq` Prelude.rnf clientSubnet
-      `Prelude.seq` Prelude.rnf clientVpcIpAddress
-      `Prelude.seq` Prelude.rnf currentBrokerSoftwareInfo
-      `Prelude.seq` Prelude.rnf endpoints
+    Prelude.rnf attachedENIId `Prelude.seq`
+      Prelude.rnf brokerId `Prelude.seq`
+        Prelude.rnf clientSubnet `Prelude.seq`
+          Prelude.rnf clientVpcIpAddress `Prelude.seq`
+            Prelude.rnf currentBrokerSoftwareInfo `Prelude.seq`
+              Prelude.rnf endpoints

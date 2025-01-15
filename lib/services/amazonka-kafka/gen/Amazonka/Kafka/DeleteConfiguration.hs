@@ -174,6 +174,6 @@ deleteConfigurationResponse_httpStatus = Lens.lens (\DeleteConfigurationResponse
 
 instance Prelude.NFData DeleteConfigurationResponse where
   rnf DeleteConfigurationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf httpStatus

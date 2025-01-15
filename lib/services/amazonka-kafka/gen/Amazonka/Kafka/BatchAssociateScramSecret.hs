@@ -116,8 +116,8 @@ instance Prelude.Hashable BatchAssociateScramSecret where
 
 instance Prelude.NFData BatchAssociateScramSecret where
   rnf BatchAssociateScramSecret' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf secretArnList
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf secretArnList
 
 instance Data.ToHeaders BatchAssociateScramSecret where
   toHeaders =
@@ -204,6 +204,6 @@ instance
     BatchAssociateScramSecretResponse
   where
   rnf BatchAssociateScramSecretResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf unprocessedScramSecrets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf unprocessedScramSecrets `Prelude.seq`
+        Prelude.rnf httpStatus

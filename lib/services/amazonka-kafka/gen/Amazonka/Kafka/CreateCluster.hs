@@ -241,18 +241,18 @@ instance Prelude.Hashable CreateCluster where
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf configurationInfo
-      `Prelude.seq` Prelude.rnf encryptionInfo
-      `Prelude.seq` Prelude.rnf enhancedMonitoring
-      `Prelude.seq` Prelude.rnf loggingInfo
-      `Prelude.seq` Prelude.rnf openMonitoring
-      `Prelude.seq` Prelude.rnf storageMode
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf brokerNodeGroupInfo
-      `Prelude.seq` Prelude.rnf kafkaVersion
-      `Prelude.seq` Prelude.rnf numberOfBrokerNodes
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf clientAuthentication `Prelude.seq`
+      Prelude.rnf configurationInfo `Prelude.seq`
+        Prelude.rnf encryptionInfo `Prelude.seq`
+          Prelude.rnf enhancedMonitoring `Prelude.seq`
+            Prelude.rnf loggingInfo `Prelude.seq`
+              Prelude.rnf openMonitoring `Prelude.seq`
+                Prelude.rnf storageMode `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf brokerNodeGroupInfo `Prelude.seq`
+                      Prelude.rnf kafkaVersion `Prelude.seq`
+                        Prelude.rnf numberOfBrokerNodes `Prelude.seq`
+                          Prelude.rnf clusterName
 
 instance Data.ToHeaders CreateCluster where
   toHeaders =
@@ -359,7 +359,7 @@ createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatu
 
 instance Prelude.NFData CreateClusterResponse where
   rnf CreateClusterResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterName `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -83,8 +83,8 @@ instance Prelude.Hashable Tls where
 
 instance Prelude.NFData Tls where
   rnf Tls' {..} =
-    Prelude.rnf certificateAuthorityArnList
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf certificateAuthorityArnList `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON Tls where
   toJSON Tls' {..} =

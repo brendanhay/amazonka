@@ -129,9 +129,9 @@ instance Prelude.Hashable UpdateBrokerStorage where
 
 instance Prelude.NFData UpdateBrokerStorage where
   rnf UpdateBrokerStorage' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf targetBrokerEBSVolumeInfo
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf targetBrokerEBSVolumeInfo `Prelude.seq`
+        Prelude.rnf currentVersion
 
 instance Data.ToHeaders UpdateBrokerStorage where
   toHeaders =
@@ -218,6 +218,6 @@ updateBrokerStorageResponse_httpStatus = Lens.lens (\UpdateBrokerStorageResponse
 
 instance Prelude.NFData UpdateBrokerStorageResponse where
   rnf UpdateBrokerStorageResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

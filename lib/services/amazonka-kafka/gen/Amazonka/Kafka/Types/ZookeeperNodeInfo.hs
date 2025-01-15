@@ -113,8 +113,8 @@ instance Prelude.Hashable ZookeeperNodeInfo where
 
 instance Prelude.NFData ZookeeperNodeInfo where
   rnf ZookeeperNodeInfo' {..} =
-    Prelude.rnf attachedENIId
-      `Prelude.seq` Prelude.rnf clientVpcIpAddress
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf zookeeperId
-      `Prelude.seq` Prelude.rnf zookeeperVersion
+    Prelude.rnf attachedENIId `Prelude.seq`
+      Prelude.rnf clientVpcIpAddress `Prelude.seq`
+        Prelude.rnf endpoints `Prelude.seq`
+          Prelude.rnf zookeeperId `Prelude.seq`
+            Prelude.rnf zookeeperVersion

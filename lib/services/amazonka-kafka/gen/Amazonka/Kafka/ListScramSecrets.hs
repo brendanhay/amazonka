@@ -115,12 +115,12 @@ instance Core.AWSPager ListScramSecrets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listScramSecrets_nextToken
-          Lens..~ rs
-          Lens.^? listScramSecretsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listScramSecrets_nextToken
+              Lens..~ rs
+              Lens.^? listScramSecretsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListScramSecrets where
   type
@@ -146,9 +146,9 @@ instance Prelude.Hashable ListScramSecrets where
 
 instance Prelude.NFData ListScramSecrets where
   rnf ListScramSecrets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clusterArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf clusterArn
 
 instance Data.ToHeaders ListScramSecrets where
   toHeaders =
@@ -226,6 +226,6 @@ listScramSecretsResponse_httpStatus = Lens.lens (\ListScramSecretsResponse' {htt
 
 instance Prelude.NFData ListScramSecretsResponse where
   rnf ListScramSecretsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf secretArnList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf secretArnList `Prelude.seq`
+        Prelude.rnf httpStatus

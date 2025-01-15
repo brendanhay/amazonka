@@ -165,5 +165,5 @@ instance
     DescribeClusterOperationResponse
   where
   rnf DescribeClusterOperationResponse' {..} =
-    Prelude.rnf clusterOperationInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterOperationInfo `Prelude.seq`
+      Prelude.rnf httpStatus

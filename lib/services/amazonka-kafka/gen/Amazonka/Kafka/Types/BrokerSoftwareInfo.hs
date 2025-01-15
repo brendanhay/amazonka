@@ -98,6 +98,6 @@ instance Prelude.Hashable BrokerSoftwareInfo where
 
 instance Prelude.NFData BrokerSoftwareInfo where
   rnf BrokerSoftwareInfo' {..} =
-    Prelude.rnf configurationArn
-      `Prelude.seq` Prelude.rnf configurationRevision
-      `Prelude.seq` Prelude.rnf kafkaVersion
+    Prelude.rnf configurationArn `Prelude.seq`
+      Prelude.rnf configurationRevision `Prelude.seq`
+        Prelude.rnf kafkaVersion

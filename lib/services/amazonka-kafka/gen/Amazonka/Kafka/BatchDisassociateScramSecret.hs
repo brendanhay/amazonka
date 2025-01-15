@@ -119,8 +119,8 @@ instance
 
 instance Prelude.NFData BatchDisassociateScramSecret where
   rnf BatchDisassociateScramSecret' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf secretArnList
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf secretArnList
 
 instance Data.ToHeaders BatchDisassociateScramSecret where
   toHeaders =
@@ -207,6 +207,6 @@ instance
     BatchDisassociateScramSecretResponse
   where
   rnf BatchDisassociateScramSecretResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf unprocessedScramSecrets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf unprocessedScramSecrets `Prelude.seq`
+        Prelude.rnf httpStatus

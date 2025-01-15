@@ -161,10 +161,10 @@ instance Prelude.Hashable CreateConfiguration where
 
 instance Prelude.NFData CreateConfiguration where
   rnf CreateConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kafkaVersions
-      `Prelude.seq` Prelude.rnf serverProperties
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf kafkaVersions `Prelude.seq`
+        Prelude.rnf serverProperties `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders CreateConfiguration where
   toHeaders =
@@ -274,9 +274,9 @@ createConfigurationResponse_httpStatus = Lens.lens (\CreateConfigurationResponse
 
 instance Prelude.NFData CreateConfigurationResponse where
   rnf CreateConfigurationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf latestRevision `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf httpStatus

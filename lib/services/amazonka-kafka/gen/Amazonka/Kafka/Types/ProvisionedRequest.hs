@@ -177,16 +177,16 @@ instance Prelude.Hashable ProvisionedRequest where
 
 instance Prelude.NFData ProvisionedRequest where
   rnf ProvisionedRequest' {..} =
-    Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf configurationInfo
-      `Prelude.seq` Prelude.rnf encryptionInfo
-      `Prelude.seq` Prelude.rnf enhancedMonitoring
-      `Prelude.seq` Prelude.rnf loggingInfo
-      `Prelude.seq` Prelude.rnf openMonitoring
-      `Prelude.seq` Prelude.rnf storageMode
-      `Prelude.seq` Prelude.rnf brokerNodeGroupInfo
-      `Prelude.seq` Prelude.rnf kafkaVersion
-      `Prelude.seq` Prelude.rnf numberOfBrokerNodes
+    Prelude.rnf clientAuthentication `Prelude.seq`
+      Prelude.rnf configurationInfo `Prelude.seq`
+        Prelude.rnf encryptionInfo `Prelude.seq`
+          Prelude.rnf enhancedMonitoring `Prelude.seq`
+            Prelude.rnf loggingInfo `Prelude.seq`
+              Prelude.rnf openMonitoring `Prelude.seq`
+                Prelude.rnf storageMode `Prelude.seq`
+                  Prelude.rnf brokerNodeGroupInfo `Prelude.seq`
+                    Prelude.rnf kafkaVersion `Prelude.seq`
+                      Prelude.rnf numberOfBrokerNodes
 
 instance Data.ToJSON ProvisionedRequest where
   toJSON ProvisionedRequest' {..} =

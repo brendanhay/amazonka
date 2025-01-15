@@ -162,11 +162,11 @@ instance Prelude.Hashable UpdateMonitoring where
 
 instance Prelude.NFData UpdateMonitoring where
   rnf UpdateMonitoring' {..} =
-    Prelude.rnf enhancedMonitoring
-      `Prelude.seq` Prelude.rnf loggingInfo
-      `Prelude.seq` Prelude.rnf openMonitoring
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf enhancedMonitoring `Prelude.seq`
+      Prelude.rnf loggingInfo `Prelude.seq`
+        Prelude.rnf openMonitoring `Prelude.seq`
+          Prelude.rnf clusterArn `Prelude.seq`
+            Prelude.rnf currentVersion
 
 instance Data.ToHeaders UpdateMonitoring where
   toHeaders =
@@ -254,6 +254,6 @@ updateMonitoringResponse_httpStatus = Lens.lens (\UpdateMonitoringResponse' {htt
 
 instance Prelude.NFData UpdateMonitoringResponse where
   rnf UpdateMonitoringResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

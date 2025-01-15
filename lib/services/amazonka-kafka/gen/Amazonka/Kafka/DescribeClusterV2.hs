@@ -156,5 +156,5 @@ describeClusterV2Response_httpStatus = Lens.lens (\DescribeClusterV2Response' {h
 
 instance Prelude.NFData DescribeClusterV2Response where
   rnf DescribeClusterV2Response' {..} =
-    Prelude.rnf clusterInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterInfo `Prelude.seq`
+      Prelude.rnf httpStatus

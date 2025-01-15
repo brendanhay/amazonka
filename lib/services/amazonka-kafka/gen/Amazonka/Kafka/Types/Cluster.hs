@@ -190,14 +190,14 @@ instance Prelude.Hashable Cluster where
 
 instance Prelude.NFData Cluster where
   rnf Cluster' {..} =
-    Prelude.rnf activeOperationArn
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf clusterType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf provisioned
-      `Prelude.seq` Prelude.rnf serverless
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateInfo
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf activeOperationArn `Prelude.seq`
+      Prelude.rnf clusterArn `Prelude.seq`
+        Prelude.rnf clusterName `Prelude.seq`
+          Prelude.rnf clusterType `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf currentVersion `Prelude.seq`
+                Prelude.rnf provisioned `Prelude.seq`
+                  Prelude.rnf serverless `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf stateInfo `Prelude.seq`
+                        Prelude.rnf tags

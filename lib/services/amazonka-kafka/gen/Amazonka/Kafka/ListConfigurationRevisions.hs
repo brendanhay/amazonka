@@ -127,12 +127,12 @@ instance Core.AWSPager ListConfigurationRevisions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listConfigurationRevisions_nextToken
-          Lens..~ rs
-          Lens.^? listConfigurationRevisionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listConfigurationRevisions_nextToken
+              Lens..~ rs
+              Lens.^? listConfigurationRevisionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConfigurationRevisions where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListConfigurationRevisions where
 
 instance Prelude.NFData ListConfigurationRevisions where
   rnf ListConfigurationRevisions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf arn
 
 instance Data.ToHeaders ListConfigurationRevisions where
   toHeaders =
@@ -238,6 +238,6 @@ instance
     ListConfigurationRevisionsResponse
   where
   rnf ListConfigurationRevisionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf revisions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf revisions `Prelude.seq`
+        Prelude.rnf httpStatus

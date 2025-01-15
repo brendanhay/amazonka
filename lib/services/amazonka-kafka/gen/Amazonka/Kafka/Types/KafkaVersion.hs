@@ -77,5 +77,5 @@ instance Prelude.Hashable KafkaVersion where
 
 instance Prelude.NFData KafkaVersion where
   rnf KafkaVersion' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf version

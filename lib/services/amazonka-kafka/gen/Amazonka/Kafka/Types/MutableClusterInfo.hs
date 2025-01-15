@@ -216,15 +216,15 @@ instance Prelude.Hashable MutableClusterInfo where
 
 instance Prelude.NFData MutableClusterInfo where
   rnf MutableClusterInfo' {..} =
-    Prelude.rnf brokerEBSVolumeInfo
-      `Prelude.seq` Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf configurationInfo
-      `Prelude.seq` Prelude.rnf connectivityInfo
-      `Prelude.seq` Prelude.rnf encryptionInfo
-      `Prelude.seq` Prelude.rnf enhancedMonitoring
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf kafkaVersion
-      `Prelude.seq` Prelude.rnf loggingInfo
-      `Prelude.seq` Prelude.rnf numberOfBrokerNodes
-      `Prelude.seq` Prelude.rnf openMonitoring
-      `Prelude.seq` Prelude.rnf storageMode
+    Prelude.rnf brokerEBSVolumeInfo `Prelude.seq`
+      Prelude.rnf clientAuthentication `Prelude.seq`
+        Prelude.rnf configurationInfo `Prelude.seq`
+          Prelude.rnf connectivityInfo `Prelude.seq`
+            Prelude.rnf encryptionInfo `Prelude.seq`
+              Prelude.rnf enhancedMonitoring `Prelude.seq`
+                Prelude.rnf instanceType `Prelude.seq`
+                  Prelude.rnf kafkaVersion `Prelude.seq`
+                    Prelude.rnf loggingInfo `Prelude.seq`
+                      Prelude.rnf numberOfBrokerNodes `Prelude.seq`
+                        Prelude.rnf openMonitoring `Prelude.seq`
+                          Prelude.rnf storageMode

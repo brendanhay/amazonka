@@ -84,8 +84,8 @@ instance Prelude.Hashable ProvisionedThroughput where
 
 instance Prelude.NFData ProvisionedThroughput where
   rnf ProvisionedThroughput' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf volumeThroughput
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf volumeThroughput
 
 instance Data.ToJSON ProvisionedThroughput where
   toJSON ProvisionedThroughput' {..} =

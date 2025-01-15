@@ -86,8 +86,8 @@ instance Prelude.Hashable EBSStorageInfo where
 
 instance Prelude.NFData EBSStorageInfo where
   rnf EBSStorageInfo' {..} =
-    Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf volumeSize
+    Prelude.rnf provisionedThroughput `Prelude.seq`
+      Prelude.rnf volumeSize
 
 instance Data.ToJSON EBSStorageInfo where
   toJSON EBSStorageInfo' {..} =

@@ -183,14 +183,14 @@ instance Prelude.Hashable ClusterOperationInfo where
 
 instance Prelude.NFData ClusterOperationInfo where
   rnf ClusterOperationInfo' {..} =
-    Prelude.rnf clientRequestId
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf operationArn
-      `Prelude.seq` Prelude.rnf operationState
-      `Prelude.seq` Prelude.rnf operationSteps
-      `Prelude.seq` Prelude.rnf operationType
-      `Prelude.seq` Prelude.rnf sourceClusterInfo
-      `Prelude.seq` Prelude.rnf targetClusterInfo
+    Prelude.rnf clientRequestId `Prelude.seq`
+      Prelude.rnf clusterArn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf errorInfo `Prelude.seq`
+              Prelude.rnf operationArn `Prelude.seq`
+                Prelude.rnf operationState `Prelude.seq`
+                  Prelude.rnf operationSteps `Prelude.seq`
+                    Prelude.rnf operationType `Prelude.seq`
+                      Prelude.rnf sourceClusterInfo `Prelude.seq`
+                        Prelude.rnf targetClusterInfo

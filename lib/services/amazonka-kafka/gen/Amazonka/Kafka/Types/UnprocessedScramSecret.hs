@@ -92,6 +92,6 @@ instance Prelude.Hashable UnprocessedScramSecret where
 
 instance Prelude.NFData UnprocessedScramSecret where
   rnf UnprocessedScramSecret' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf secretArn

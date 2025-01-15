@@ -81,5 +81,5 @@ instance Prelude.Hashable ClusterOperationStep where
 
 instance Prelude.NFData ClusterOperationStep where
   rnf ClusterOperationStep' {..} =
-    Prelude.rnf stepInfo
-      `Prelude.seq` Prelude.rnf stepName
+    Prelude.rnf stepInfo `Prelude.seq`
+      Prelude.rnf stepName

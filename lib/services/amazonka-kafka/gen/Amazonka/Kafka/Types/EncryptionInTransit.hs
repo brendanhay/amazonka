@@ -127,8 +127,8 @@ instance Prelude.Hashable EncryptionInTransit where
 
 instance Prelude.NFData EncryptionInTransit where
   rnf EncryptionInTransit' {..} =
-    Prelude.rnf clientBroker
-      `Prelude.seq` Prelude.rnf inCluster
+    Prelude.rnf clientBroker `Prelude.seq`
+      Prelude.rnf inCluster
 
 instance Data.ToJSON EncryptionInTransit where
   toJSON EncryptionInTransit' {..} =

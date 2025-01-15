@@ -84,8 +84,8 @@ instance Prelude.Hashable EncryptionInfo where
 
 instance Prelude.NFData EncryptionInfo where
   rnf EncryptionInfo' {..} =
-    Prelude.rnf encryptionAtRest
-      `Prelude.seq` Prelude.rnf encryptionInTransit
+    Prelude.rnf encryptionAtRest `Prelude.seq`
+      Prelude.rnf encryptionInTransit
 
 instance Data.ToJSON EncryptionInfo where
   toJSON EncryptionInfo' {..} =

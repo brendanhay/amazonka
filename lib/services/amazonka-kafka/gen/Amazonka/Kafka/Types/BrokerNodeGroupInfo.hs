@@ -182,12 +182,12 @@ instance Prelude.Hashable BrokerNodeGroupInfo where
 
 instance Prelude.NFData BrokerNodeGroupInfo where
   rnf BrokerNodeGroupInfo' {..} =
-    Prelude.rnf brokerAZDistribution
-      `Prelude.seq` Prelude.rnf connectivityInfo
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf storageInfo
-      `Prelude.seq` Prelude.rnf clientSubnets
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf brokerAZDistribution `Prelude.seq`
+      Prelude.rnf connectivityInfo `Prelude.seq`
+        Prelude.rnf securityGroups `Prelude.seq`
+          Prelude.rnf storageInfo `Prelude.seq`
+            Prelude.rnf clientSubnets `Prelude.seq`
+              Prelude.rnf instanceType
 
 instance Data.ToJSON BrokerNodeGroupInfo where
   toJSON BrokerNodeGroupInfo' {..} =

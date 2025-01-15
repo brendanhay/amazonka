@@ -99,8 +99,8 @@ instance
     ParametricConfigurationOverrides
   where
   rnf ParametricConfigurationOverrides' {..} =
-    Prelude.rnf applicationConfiguration
-      `Prelude.seq` Prelude.rnf monitoringConfiguration
+    Prelude.rnf applicationConfiguration `Prelude.seq`
+      Prelude.rnf monitoringConfiguration
 
 instance Data.ToJSON ParametricConfigurationOverrides where
   toJSON ParametricConfigurationOverrides' {..} =

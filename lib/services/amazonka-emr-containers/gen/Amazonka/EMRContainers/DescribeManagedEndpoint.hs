@@ -112,8 +112,8 @@ instance Prelude.Hashable DescribeManagedEndpoint where
 
 instance Prelude.NFData DescribeManagedEndpoint where
   rnf DescribeManagedEndpoint' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf virtualClusterId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf virtualClusterId
 
 instance Data.ToHeaders DescribeManagedEndpoint where
   toHeaders =
@@ -182,5 +182,5 @@ instance
     DescribeManagedEndpointResponse
   where
   rnf DescribeManagedEndpointResponse' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf httpStatus

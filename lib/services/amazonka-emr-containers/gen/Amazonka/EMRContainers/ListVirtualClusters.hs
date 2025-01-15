@@ -161,12 +161,12 @@ instance Core.AWSPager ListVirtualClusters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVirtualClusters_nextToken
-          Lens..~ rs
-          Lens.^? listVirtualClustersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVirtualClusters_nextToken
+              Lens..~ rs
+              Lens.^? listVirtualClustersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVirtualClusters where
   type
@@ -199,13 +199,13 @@ instance Prelude.Hashable ListVirtualClusters where
 
 instance Prelude.NFData ListVirtualClusters where
   rnf ListVirtualClusters' {..} =
-    Prelude.rnf containerProviderId
-      `Prelude.seq` Prelude.rnf containerProviderType
-      `Prelude.seq` Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf states
+    Prelude.rnf containerProviderId `Prelude.seq`
+      Prelude.rnf containerProviderType `Prelude.seq`
+        Prelude.rnf createdAfter `Prelude.seq`
+          Prelude.rnf createdBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf states
 
 instance Data.ToHeaders ListVirtualClusters where
   toHeaders =
@@ -286,6 +286,6 @@ listVirtualClustersResponse_httpStatus = Lens.lens (\ListVirtualClustersResponse
 
 instance Prelude.NFData ListVirtualClustersResponse where
   rnf ListVirtualClustersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf virtualClusters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf virtualClusters `Prelude.seq`
+        Prelude.rnf httpStatus

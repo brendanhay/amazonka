@@ -156,12 +156,12 @@ instance Core.AWSPager ListJobRuns where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listJobRuns_nextToken
-          Lens..~ rs
-          Lens.^? listJobRunsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listJobRuns_nextToken
+              Lens..~ rs
+              Lens.^? listJobRunsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobRuns where
   type AWSResponse ListJobRuns = ListJobRunsResponse
@@ -189,13 +189,13 @@ instance Prelude.Hashable ListJobRuns where
 
 instance Prelude.NFData ListJobRuns where
   rnf ListJobRuns' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf states
-      `Prelude.seq` Prelude.rnf virtualClusterId
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf states `Prelude.seq`
+                Prelude.rnf virtualClusterId
 
 instance Data.ToHeaders ListJobRuns where
   toHeaders =
@@ -278,6 +278,6 @@ listJobRunsResponse_httpStatus = Lens.lens (\ListJobRunsResponse' {httpStatus} -
 
 instance Prelude.NFData ListJobRunsResponse where
   rnf ListJobRunsResponse' {..} =
-    Prelude.rnf jobRuns
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobRuns `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

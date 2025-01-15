@@ -164,12 +164,12 @@ instance Prelude.Hashable JobTemplate where
 
 instance Prelude.NFData JobTemplate where
   rnf JobTemplate' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf decryptionError
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobTemplateData
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf createdBy `Prelude.seq`
+          Prelude.rnf decryptionError `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf kmsKeyArn `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf jobTemplateData

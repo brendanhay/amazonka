@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteManagedEndpoint where
 
 instance Prelude.NFData DeleteManagedEndpoint where
   rnf DeleteManagedEndpoint' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf virtualClusterId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf virtualClusterId
 
 instance Data.ToHeaders DeleteManagedEndpoint where
   toHeaders =
@@ -190,6 +190,6 @@ deleteManagedEndpointResponse_httpStatus = Lens.lens (\DeleteManagedEndpointResp
 
 instance Prelude.NFData DeleteManagedEndpointResponse where
   rnf DeleteManagedEndpointResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf virtualClusterId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf virtualClusterId `Prelude.seq`
+        Prelude.rnf httpStatus

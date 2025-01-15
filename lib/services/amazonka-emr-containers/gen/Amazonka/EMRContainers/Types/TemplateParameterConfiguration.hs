@@ -93,8 +93,8 @@ instance
     TemplateParameterConfiguration
   where
   rnf TemplateParameterConfiguration' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON TemplateParameterConfiguration where
   toJSON TemplateParameterConfiguration' {..} =

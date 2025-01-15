@@ -126,12 +126,12 @@ instance Core.AWSPager ListJobTemplates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listJobTemplates_nextToken
-          Lens..~ rs
-          Lens.^? listJobTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listJobTemplates_nextToken
+              Lens..~ rs
+              Lens.^? listJobTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobTemplates where
   type
@@ -158,10 +158,10 @@ instance Prelude.Hashable ListJobTemplates where
 
 instance Prelude.NFData ListJobTemplates where
   rnf ListJobTemplates' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListJobTemplates where
   toHeaders =
@@ -236,6 +236,6 @@ listJobTemplatesResponse_httpStatus = Lens.lens (\ListJobTemplatesResponse' {htt
 
 instance Prelude.NFData ListJobTemplatesResponse where
   rnf ListJobTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf templates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf templates `Prelude.seq`
+        Prelude.rnf httpStatus

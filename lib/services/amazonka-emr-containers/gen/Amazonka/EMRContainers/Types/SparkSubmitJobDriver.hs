@@ -97,9 +97,9 @@ instance Prelude.Hashable SparkSubmitJobDriver where
 
 instance Prelude.NFData SparkSubmitJobDriver where
   rnf SparkSubmitJobDriver' {..} =
-    Prelude.rnf entryPointArguments
-      `Prelude.seq` Prelude.rnf sparkSubmitParameters
-      `Prelude.seq` Prelude.rnf entryPoint
+    Prelude.rnf entryPointArguments `Prelude.seq`
+      Prelude.rnf sparkSubmitParameters `Prelude.seq`
+        Prelude.rnf entryPoint
 
 instance Data.ToJSON SparkSubmitJobDriver where
   toJSON SparkSubmitJobDriver' {..} =

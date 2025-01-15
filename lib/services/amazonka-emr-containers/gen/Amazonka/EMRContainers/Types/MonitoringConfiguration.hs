@@ -95,9 +95,9 @@ instance Prelude.Hashable MonitoringConfiguration where
 
 instance Prelude.NFData MonitoringConfiguration where
   rnf MonitoringConfiguration' {..} =
-    Prelude.rnf cloudWatchMonitoringConfiguration
-      `Prelude.seq` Prelude.rnf persistentAppUI
-      `Prelude.seq` Prelude.rnf s3MonitoringConfiguration
+    Prelude.rnf cloudWatchMonitoringConfiguration `Prelude.seq`
+      Prelude.rnf persistentAppUI `Prelude.seq`
+        Prelude.rnf s3MonitoringConfiguration
 
 instance Data.ToJSON MonitoringConfiguration where
   toJSON MonitoringConfiguration' {..} =

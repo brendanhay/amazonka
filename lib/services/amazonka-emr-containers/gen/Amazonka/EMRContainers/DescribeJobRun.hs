@@ -112,8 +112,8 @@ instance Prelude.Hashable DescribeJobRun where
 
 instance Prelude.NFData DescribeJobRun where
   rnf DescribeJobRun' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf virtualClusterId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf virtualClusterId
 
 instance Data.ToHeaders DescribeJobRun where
   toHeaders =
@@ -178,5 +178,5 @@ describeJobRunResponse_httpStatus = Lens.lens (\DescribeJobRunResponse' {httpSta
 
 instance Prelude.NFData DescribeJobRunResponse where
   rnf DescribeJobRunResponse' {..} =
-    Prelude.rnf jobRun
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobRun `Prelude.seq`
+      Prelude.rnf httpStatus

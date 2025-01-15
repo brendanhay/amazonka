@@ -142,12 +142,12 @@ instance Core.AWSPager GetStatementResult where
         (rs Lens.^. getStatementResultResponse_records) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getStatementResult_nextToken
-          Lens..~ rs
-          Lens.^? getStatementResultResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getStatementResult_nextToken
+              Lens..~ rs
+              Lens.^? getStatementResultResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetStatementResult where
   type
@@ -295,8 +295,8 @@ getStatementResultResponse_records = Lens.lens (\GetStatementResultResponse' {re
 
 instance Prelude.NFData GetStatementResultResponse where
   rnf GetStatementResultResponse' {..} =
-    Prelude.rnf columnMetadata
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf totalNumRows
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf records
+    Prelude.rnf columnMetadata `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf totalNumRows `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf records

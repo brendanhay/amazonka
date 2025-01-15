@@ -256,15 +256,15 @@ instance Prelude.Hashable BatchExecuteStatement where
 
 instance Prelude.NFData BatchExecuteStatement where
   rnf BatchExecuteStatement' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf withEvent
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf sqls
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf dbUser `Prelude.seq`
+          Prelude.rnf secretArn `Prelude.seq`
+            Prelude.rnf statementName `Prelude.seq`
+              Prelude.rnf withEvent `Prelude.seq`
+                Prelude.rnf workgroupName `Prelude.seq`
+                  Prelude.rnf database `Prelude.seq`
+                    Prelude.rnf sqls
 
 instance Data.ToHeaders BatchExecuteStatement where
   toHeaders =
@@ -414,11 +414,11 @@ batchExecuteStatementResponse_httpStatus = Lens.lens (\BatchExecuteStatementResp
 
 instance Prelude.NFData BatchExecuteStatementResponse where
   rnf BatchExecuteStatementResponse' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf database `Prelude.seq`
+          Prelude.rnf dbUser `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf secretArn `Prelude.seq`
+                Prelude.rnf workgroupName `Prelude.seq`
+                  Prelude.rnf httpStatus

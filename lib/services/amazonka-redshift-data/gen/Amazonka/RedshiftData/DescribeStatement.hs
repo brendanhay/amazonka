@@ -475,23 +475,23 @@ describeStatementResponse_id = Lens.lens (\DescribeStatementResponse' {id} -> id
 
 instance Prelude.NFData DescribeStatementResponse where
   rnf DescribeStatementResponse' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf hasResultSet
-      `Prelude.seq` Prelude.rnf queryParameters
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf redshiftPid
-      `Prelude.seq` Prelude.rnf redshiftQueryId
-      `Prelude.seq` Prelude.rnf resultRows
-      `Prelude.seq` Prelude.rnf resultSize
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subStatements
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf database `Prelude.seq`
+          Prelude.rnf dbUser `Prelude.seq`
+            Prelude.rnf duration `Prelude.seq`
+              Prelude.rnf error `Prelude.seq`
+                Prelude.rnf hasResultSet `Prelude.seq`
+                  Prelude.rnf queryParameters `Prelude.seq`
+                    Prelude.rnf queryString `Prelude.seq`
+                      Prelude.rnf redshiftPid `Prelude.seq`
+                        Prelude.rnf redshiftQueryId `Prelude.seq`
+                          Prelude.rnf resultRows `Prelude.seq`
+                            Prelude.rnf resultSize `Prelude.seq`
+                              Prelude.rnf secretArn `Prelude.seq`
+                                Prelude.rnf status `Prelude.seq`
+                                  Prelude.rnf subStatements `Prelude.seq`
+                                    Prelude.rnf updatedAt `Prelude.seq`
+                                      Prelude.rnf workgroupName `Prelude.seq`
+                                        Prelude.rnf httpStatus `Prelude.seq`
+                                          Prelude.rnf id

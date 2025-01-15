@@ -261,16 +261,16 @@ instance Prelude.Hashable ExecuteStatement where
 
 instance Prelude.NFData ExecuteStatement where
   rnf ExecuteStatement' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf withEvent
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf sql
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf dbUser `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf secretArn `Prelude.seq`
+              Prelude.rnf statementName `Prelude.seq`
+                Prelude.rnf withEvent `Prelude.seq`
+                  Prelude.rnf workgroupName `Prelude.seq`
+                    Prelude.rnf database `Prelude.seq`
+                      Prelude.rnf sql
 
 instance Data.ToHeaders ExecuteStatement where
   toHeaders =
@@ -418,11 +418,11 @@ executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {htt
 
 instance Prelude.NFData ExecuteStatementResponse where
   rnf ExecuteStatementResponse' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf database `Prelude.seq`
+          Prelude.rnf dbUser `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf secretArn `Prelude.seq`
+                Prelude.rnf workgroupName `Prelude.seq`
+                  Prelude.rnf httpStatus

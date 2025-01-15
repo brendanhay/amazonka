@@ -218,14 +218,14 @@ instance Prelude.Hashable SubStatementData where
 
 instance Prelude.NFData SubStatementData where
   rnf SubStatementData' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf hasResultSet
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf redshiftQueryId
-      `Prelude.seq` Prelude.rnf resultRows
-      `Prelude.seq` Prelude.rnf resultSize
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf hasResultSet `Prelude.seq`
+            Prelude.rnf queryString `Prelude.seq`
+              Prelude.rnf redshiftQueryId `Prelude.seq`
+                Prelude.rnf resultRows `Prelude.seq`
+                  Prelude.rnf resultSize `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf updatedAt `Prelude.seq`
+                        Prelude.rnf id

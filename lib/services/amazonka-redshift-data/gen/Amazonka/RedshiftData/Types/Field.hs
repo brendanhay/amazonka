@@ -132,9 +132,9 @@ instance Prelude.Hashable Field where
 
 instance Prelude.NFData Field where
   rnf Field' {..} =
-    Prelude.rnf blobValue
-      `Prelude.seq` Prelude.rnf booleanValue
-      `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf isNull
-      `Prelude.seq` Prelude.rnf longValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf blobValue `Prelude.seq`
+      Prelude.rnf booleanValue `Prelude.seq`
+        Prelude.rnf doubleValue `Prelude.seq`
+          Prelude.rnf isNull `Prelude.seq`
+            Prelude.rnf longValue `Prelude.seq`
+              Prelude.rnf stringValue

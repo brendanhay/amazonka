@@ -231,12 +231,12 @@ instance Core.AWSPager ListStatements where
         (rs Lens.^. listStatementsResponse_statements) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStatements_nextToken
-          Lens..~ rs
-          Lens.^? listStatementsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStatements_nextToken
+              Lens..~ rs
+              Lens.^? listStatementsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStatements where
   type
@@ -264,11 +264,11 @@ instance Prelude.Hashable ListStatements where
 
 instance Prelude.NFData ListStatements where
   rnf ListStatements' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf roleLevel
-      `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf roleLevel `Prelude.seq`
+          Prelude.rnf statementName `Prelude.seq`
+            Prelude.rnf status
 
 instance Data.ToHeaders ListStatements where
   toHeaders =
@@ -368,6 +368,6 @@ listStatementsResponse_statements = Lens.lens (\ListStatementsResponse' {stateme
 
 instance Prelude.NFData ListStatementsResponse where
   rnf ListStatementsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf statements
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf statements

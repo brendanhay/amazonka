@@ -89,8 +89,8 @@ instance Prelude.Hashable UsageAllocation where
 
 instance Prelude.NFData UsageAllocation where
   rnf UsageAllocation' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf allocatedUsageQuantity
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf allocatedUsageQuantity
 
 instance Data.ToJSON UsageAllocation where
   toJSON UsageAllocation' {..} =

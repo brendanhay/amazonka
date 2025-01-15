@@ -234,7 +234,7 @@ resolveCustomerResponse_httpStatus = Lens.lens (\ResolveCustomerResponse' {httpS
 
 instance Prelude.NFData ResolveCustomerResponse where
   rnf ResolveCustomerResponse' {..} =
-    Prelude.rnf customerAWSAccountId
-      `Prelude.seq` Prelude.rnf customerIdentifier
-      `Prelude.seq` Prelude.rnf productCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customerAWSAccountId `Prelude.seq`
+      Prelude.rnf customerIdentifier `Prelude.seq`
+        Prelude.rnf productCode `Prelude.seq`
+          Prelude.rnf httpStatus

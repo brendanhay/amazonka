@@ -9,7 +9,7 @@ import Data.Aeson (toJSON)
 import qualified Data.Aeson as Aeson
 import qualified Data.HashMap.Strict as HashMap
 import Gen.Prelude
-import Gen.Types.Config (Library)
+import Gen.Types.Config (Library, exposedModules, otherModules)
 import qualified Gen.Types.Config as Config
 import Gen.Types.NS (unNS)
 import Gen.Types.Service (metadata, service)
@@ -22,8 +22,7 @@ data CabalFile = CabalFile
     serviceAbbrev :: Text,
     serviceFullName :: Text,
     apiVersion :: Text,
-    exposedModules :: [Text],
-    otherModules :: [Text],
+    modules :: [Text],
     extraDependencies :: [Text]
   }
   deriving (Generic)
@@ -36,8 +35,7 @@ arguments CabalFile {..} =
       ("serviceAbbrev", toJSON serviceAbbrev),
       ("serviceFullName", toJSON serviceFullName),
       ("apiVersion", toJSON apiVersion),
-      ("exposedModules", toJSON exposedModules),
-      ("otherModules", toJSON otherModules),
+      ("modules", toJSON modules),
       ("extraDependencies", toJSON extraDependencies)
     ]
 
@@ -49,7 +47,6 @@ fromLibrary lib =
       serviceAbbrev = lib ^. service . metadata . Service.serviceAbbrev,
       serviceFullName = lib ^. service . metadata . Service.serviceFullName,
       apiVersion = lib ^. service . metadata . Service.apiVersion,
-      exposedModules = unNS <$> lib ^. Config.exposedModules,
-      otherModules = unNS <$> lib ^. Config.otherModules,
+      modules = unNS <$> lib ^. exposedModules <> lib ^. otherModules,
       extraDependencies = lib ^. Config.config . Config.extraDependencies
     }

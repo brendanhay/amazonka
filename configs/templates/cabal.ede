@@ -42,12 +42,7 @@ library
 
     exposed-modules:
           Amazonka.{{ serviceAbbrev }}
-
-      {% for module in exposedModules %}
-        , {{ module.value }}
-      {% endfor %}
-
-      {% for module in otherModules %}
+      {% for module in modules %}
         , {{ module.value }}
       {% endfor %}
 

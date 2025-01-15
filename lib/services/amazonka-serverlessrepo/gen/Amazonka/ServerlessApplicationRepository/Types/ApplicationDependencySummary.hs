@@ -90,5 +90,5 @@ instance
 
 instance Prelude.NFData ApplicationDependencySummary where
   rnf ApplicationDependencySummary' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf semanticVersion
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf semanticVersion

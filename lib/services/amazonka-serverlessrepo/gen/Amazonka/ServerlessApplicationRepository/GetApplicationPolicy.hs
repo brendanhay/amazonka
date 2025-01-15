@@ -162,5 +162,5 @@ getApplicationPolicyResponse_httpStatus = Lens.lens (\GetApplicationPolicyRespon
 
 instance Prelude.NFData GetApplicationPolicyResponse where
   rnf GetApplicationPolicyResponse' {..} =
-    Prelude.rnf statements
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statements `Prelude.seq`
+      Prelude.rnf httpStatus

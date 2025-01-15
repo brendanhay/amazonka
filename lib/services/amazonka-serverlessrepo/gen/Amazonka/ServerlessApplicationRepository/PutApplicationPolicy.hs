@@ -112,8 +112,8 @@ instance Prelude.Hashable PutApplicationPolicy where
 
 instance Prelude.NFData PutApplicationPolicy where
   rnf PutApplicationPolicy' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf statements
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf statements
 
 instance Data.ToHeaders PutApplicationPolicy where
   toHeaders =
@@ -185,5 +185,5 @@ putApplicationPolicyResponse_httpStatus = Lens.lens (\PutApplicationPolicyRespon
 
 instance Prelude.NFData PutApplicationPolicyResponse where
   rnf PutApplicationPolicyResponse' {..} =
-    Prelude.rnf statements
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statements `Prelude.seq`
+      Prelude.rnf httpStatus

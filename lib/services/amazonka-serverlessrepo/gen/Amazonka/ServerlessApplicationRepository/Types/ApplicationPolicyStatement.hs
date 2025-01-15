@@ -115,10 +115,10 @@ instance Prelude.Hashable ApplicationPolicyStatement where
 
 instance Prelude.NFData ApplicationPolicyStatement where
   rnf ApplicationPolicyStatement' {..} =
-    Prelude.rnf principalOrgIDs
-      `Prelude.seq` Prelude.rnf statementId
-      `Prelude.seq` Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf principalOrgIDs `Prelude.seq`
+      Prelude.rnf statementId `Prelude.seq`
+        Prelude.rnf principals `Prelude.seq`
+          Prelude.rnf actions
 
 instance Data.ToJSON ApplicationPolicyStatement where
   toJSON ApplicationPolicyStatement' {..} =

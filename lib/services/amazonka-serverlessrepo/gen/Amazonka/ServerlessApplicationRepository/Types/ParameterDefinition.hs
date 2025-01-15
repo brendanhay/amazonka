@@ -357,16 +357,16 @@ instance Prelude.Hashable ParameterDefinition where
 
 instance Prelude.NFData ParameterDefinition where
   rnf ParameterDefinition' {..} =
-    Prelude.rnf allowedPattern
-      `Prelude.seq` Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf constraintDescription
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxLength
-      `Prelude.seq` Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf minLength
-      `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf noEcho
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf referencedByResources
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf allowedPattern `Prelude.seq`
+      Prelude.rnf allowedValues `Prelude.seq`
+        Prelude.rnf constraintDescription `Prelude.seq`
+          Prelude.rnf defaultValue `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf maxLength `Prelude.seq`
+                Prelude.rnf maxValue `Prelude.seq`
+                  Prelude.rnf minLength `Prelude.seq`
+                    Prelude.rnf minValue `Prelude.seq`
+                      Prelude.rnf noEcho `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf referencedByResources `Prelude.seq`
+                            Prelude.rnf name

@@ -107,8 +107,8 @@ instance Prelude.Hashable UnshareApplication where
 
 instance Prelude.NFData UnshareApplication where
   rnf UnshareApplication' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf organizationId
 
 instance Data.ToHeaders UnshareApplication where
   toHeaders =

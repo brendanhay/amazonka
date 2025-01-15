@@ -120,7 +120,7 @@ instance Prelude.Hashable VersionSummary where
 
 instance Prelude.NFData VersionSummary where
   rnf VersionSummary' {..} =
-    Prelude.rnf sourceCodeUrl
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf semanticVersion
+    Prelude.rnf sourceCodeUrl `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf applicationId `Prelude.seq`
+          Prelude.rnf semanticVersion

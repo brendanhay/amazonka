@@ -132,8 +132,8 @@ instance Prelude.Hashable GetApplication where
 
 instance Prelude.NFData GetApplication where
   rnf GetApplication' {..} =
-    Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf semanticVersion `Prelude.seq`
+      Prelude.rnf applicationId
 
 instance Data.ToHeaders GetApplication where
   toHeaders =
@@ -380,17 +380,17 @@ getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpSta
 
 instance Prelude.NFData GetApplicationResponse where
   rnf GetApplicationResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf author
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf homePageUrl
-      `Prelude.seq` Prelude.rnf isVerifiedAuthor
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf licenseUrl
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf readmeUrl
-      `Prelude.seq` Prelude.rnf spdxLicenseId
-      `Prelude.seq` Prelude.rnf verifiedAuthorUrl
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf author `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf homePageUrl `Prelude.seq`
+              Prelude.rnf isVerifiedAuthor `Prelude.seq`
+                Prelude.rnf labels `Prelude.seq`
+                  Prelude.rnf licenseUrl `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf readmeUrl `Prelude.seq`
+                        Prelude.rnf spdxLicenseId `Prelude.seq`
+                          Prelude.rnf verifiedAuthorUrl `Prelude.seq`
+                            Prelude.rnf version `Prelude.seq`
+                              Prelude.rnf httpStatus

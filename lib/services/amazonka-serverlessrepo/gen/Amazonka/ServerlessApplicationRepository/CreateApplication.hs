@@ -445,21 +445,21 @@ instance Prelude.Hashable CreateApplication where
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf homePageUrl
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf licenseBody
-      `Prelude.seq` Prelude.rnf licenseUrl
-      `Prelude.seq` Prelude.rnf readmeBody
-      `Prelude.seq` Prelude.rnf readmeUrl
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf sourceCodeArchiveUrl
-      `Prelude.seq` Prelude.rnf sourceCodeUrl
-      `Prelude.seq` Prelude.rnf spdxLicenseId
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateUrl
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf author
+    Prelude.rnf homePageUrl `Prelude.seq`
+      Prelude.rnf labels `Prelude.seq`
+        Prelude.rnf licenseBody `Prelude.seq`
+          Prelude.rnf licenseUrl `Prelude.seq`
+            Prelude.rnf readmeBody `Prelude.seq`
+              Prelude.rnf readmeUrl `Prelude.seq`
+                Prelude.rnf semanticVersion `Prelude.seq`
+                  Prelude.rnf sourceCodeArchiveUrl `Prelude.seq`
+                    Prelude.rnf sourceCodeUrl `Prelude.seq`
+                      Prelude.rnf spdxLicenseId `Prelude.seq`
+                        Prelude.rnf templateBody `Prelude.seq`
+                          Prelude.rnf templateUrl `Prelude.seq`
+                            Prelude.rnf description `Prelude.seq`
+                              Prelude.rnf name `Prelude.seq`
+                                Prelude.rnf author
 
 instance Data.ToHeaders CreateApplication where
   toHeaders =
@@ -726,17 +726,17 @@ createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {h
 
 instance Prelude.NFData CreateApplicationResponse where
   rnf CreateApplicationResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf author
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf homePageUrl
-      `Prelude.seq` Prelude.rnf isVerifiedAuthor
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf licenseUrl
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf readmeUrl
-      `Prelude.seq` Prelude.rnf spdxLicenseId
-      `Prelude.seq` Prelude.rnf verifiedAuthorUrl
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf author `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf homePageUrl `Prelude.seq`
+              Prelude.rnf isVerifiedAuthor `Prelude.seq`
+                Prelude.rnf labels `Prelude.seq`
+                  Prelude.rnf licenseUrl `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf readmeUrl `Prelude.seq`
+                        Prelude.rnf spdxLicenseId `Prelude.seq`
+                          Prelude.rnf verifiedAuthorUrl `Prelude.seq`
+                            Prelude.rnf version `Prelude.seq`
+                              Prelude.rnf httpStatus

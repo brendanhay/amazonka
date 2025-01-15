@@ -156,9 +156,9 @@ instance
     DeleteApplicationCloudWatchLoggingOption
   where
   rnf DeleteApplicationCloudWatchLoggingOption' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionId
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf cloudWatchLoggingOptionId
 
 instance
   Data.ToHeaders

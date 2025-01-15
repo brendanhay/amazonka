@@ -145,9 +145,9 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf applicationUpdate
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf applicationUpdate
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders =

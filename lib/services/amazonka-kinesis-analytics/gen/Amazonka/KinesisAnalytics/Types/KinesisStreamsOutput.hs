@@ -83,8 +83,8 @@ instance Prelude.Hashable KinesisStreamsOutput where
 
 instance Prelude.NFData KinesisStreamsOutput where
   rnf KinesisStreamsOutput' {..} =
-    Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf resourceARN `Prelude.seq`
+      Prelude.rnf roleARN
 
 instance Data.ToJSON KinesisStreamsOutput where
   toJSON KinesisStreamsOutput' {..} =

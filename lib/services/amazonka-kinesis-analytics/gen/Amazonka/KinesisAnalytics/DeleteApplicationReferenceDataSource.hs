@@ -178,9 +178,9 @@ instance
     DeleteApplicationReferenceDataSource
   where
   rnf DeleteApplicationReferenceDataSource' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf referenceId
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf referenceId
 
 instance
   Data.ToHeaders

@@ -85,5 +85,5 @@ instance Prelude.Hashable LambdaOutputDescription where
 
 instance Prelude.NFData LambdaOutputDescription where
   rnf LambdaOutputDescription' {..} =
-    Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf resourceARN `Prelude.seq`
+      Prelude.rnf roleARN

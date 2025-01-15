@@ -153,7 +153,7 @@ instance
     ReferenceDataSourceDescription
   where
   rnf ReferenceDataSourceDescription' {..} =
-    Prelude.rnf referenceSchema
-      `Prelude.seq` Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf s3ReferenceDataSourceDescription
+    Prelude.rnf referenceSchema `Prelude.seq`
+      Prelude.rnf referenceId `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf s3ReferenceDataSourceDescription

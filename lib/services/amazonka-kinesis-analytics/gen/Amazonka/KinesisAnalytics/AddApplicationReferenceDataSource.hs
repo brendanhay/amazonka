@@ -193,9 +193,9 @@ instance
     AddApplicationReferenceDataSource
   where
   rnf AddApplicationReferenceDataSource' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf referenceDataSource
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf referenceDataSource
 
 instance
   Data.ToHeaders

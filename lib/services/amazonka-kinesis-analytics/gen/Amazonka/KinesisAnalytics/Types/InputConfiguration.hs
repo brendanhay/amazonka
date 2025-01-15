@@ -89,8 +89,8 @@ instance Prelude.Hashable InputConfiguration where
 
 instance Prelude.NFData InputConfiguration where
   rnf InputConfiguration' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf inputStartingPositionConfiguration
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf inputStartingPositionConfiguration
 
 instance Data.ToJSON InputConfiguration where
   toJSON InputConfiguration' {..} =

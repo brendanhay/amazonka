@@ -78,8 +78,8 @@ instance Prelude.Hashable KinesisStreamsInputUpdate where
 
 instance Prelude.NFData KinesisStreamsInputUpdate where
   rnf KinesisStreamsInputUpdate' {..} =
-    Prelude.rnf resourceARNUpdate
-      `Prelude.seq` Prelude.rnf roleARNUpdate
+    Prelude.rnf resourceARNUpdate `Prelude.seq`
+      Prelude.rnf roleARNUpdate
 
 instance Data.ToJSON KinesisStreamsInputUpdate where
   toJSON KinesisStreamsInputUpdate' {..} =

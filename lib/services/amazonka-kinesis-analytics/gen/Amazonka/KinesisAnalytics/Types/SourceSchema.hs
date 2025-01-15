@@ -102,9 +102,9 @@ instance Prelude.Hashable SourceSchema where
 
 instance Prelude.NFData SourceSchema where
   rnf SourceSchema' {..} =
-    Prelude.rnf recordEncoding
-      `Prelude.seq` Prelude.rnf recordFormat
-      `Prelude.seq` Prelude.rnf recordColumns
+    Prelude.rnf recordEncoding `Prelude.seq`
+      Prelude.rnf recordFormat `Prelude.seq`
+        Prelude.rnf recordColumns
 
 instance Data.ToJSON SourceSchema where
   toJSON SourceSchema' {..} =

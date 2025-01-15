@@ -153,9 +153,9 @@ instance
     AddApplicationCloudWatchLoggingOption
   where
   rnf AddApplicationCloudWatchLoggingOption' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOption
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf cloudWatchLoggingOption
 
 instance
   Data.ToHeaders

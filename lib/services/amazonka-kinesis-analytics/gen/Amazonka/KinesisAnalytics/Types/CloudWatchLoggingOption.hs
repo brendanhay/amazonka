@@ -82,8 +82,8 @@ instance Prelude.Hashable CloudWatchLoggingOption where
 
 instance Prelude.NFData CloudWatchLoggingOption where
   rnf CloudWatchLoggingOption' {..} =
-    Prelude.rnf logStreamARN
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf logStreamARN `Prelude.seq`
+      Prelude.rnf roleARN
 
 instance Data.ToJSON CloudWatchLoggingOption where
   toJSON CloudWatchLoggingOption' {..} =

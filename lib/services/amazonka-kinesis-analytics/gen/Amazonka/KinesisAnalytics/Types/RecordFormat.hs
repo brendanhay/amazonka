@@ -94,8 +94,8 @@ instance Prelude.Hashable RecordFormat where
 
 instance Prelude.NFData RecordFormat where
   rnf RecordFormat' {..} =
-    Prelude.rnf mappingParameters
-      `Prelude.seq` Prelude.rnf recordFormatType
+    Prelude.rnf mappingParameters `Prelude.seq`
+      Prelude.rnf recordFormatType
 
 instance Data.ToJSON RecordFormat where
   toJSON RecordFormat' {..} =

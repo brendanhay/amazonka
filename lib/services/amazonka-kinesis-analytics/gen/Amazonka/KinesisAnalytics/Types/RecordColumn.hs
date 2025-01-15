@@ -113,9 +113,9 @@ instance Prelude.Hashable RecordColumn where
 
 instance Prelude.NFData RecordColumn where
   rnf RecordColumn' {..} =
-    Prelude.rnf mapping
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sqlType
+    Prelude.rnf mapping `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sqlType
 
 instance Data.ToJSON RecordColumn where
   toJSON RecordColumn' {..} =

@@ -83,8 +83,8 @@ instance Prelude.Hashable KinesisFirehoseOutputUpdate where
 
 instance Prelude.NFData KinesisFirehoseOutputUpdate where
   rnf KinesisFirehoseOutputUpdate' {..} =
-    Prelude.rnf resourceARNUpdate
-      `Prelude.seq` Prelude.rnf roleARNUpdate
+    Prelude.rnf resourceARNUpdate `Prelude.seq`
+      Prelude.rnf roleARNUpdate
 
 instance Data.ToJSON KinesisFirehoseOutputUpdate where
   toJSON KinesisFirehoseOutputUpdate' {..} =

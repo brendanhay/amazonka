@@ -119,6 +119,6 @@ instance
     S3ReferenceDataSourceDescription
   where
   rnf S3ReferenceDataSourceDescription' {..} =
-    Prelude.rnf bucketARN
-      `Prelude.seq` Prelude.rnf fileKey
-      `Prelude.seq` Prelude.rnf referenceRoleARN
+    Prelude.rnf bucketARN `Prelude.seq`
+      Prelude.rnf fileKey `Prelude.seq`
+        Prelude.rnf referenceRoleARN

@@ -118,10 +118,10 @@ instance Prelude.Hashable ReferenceDataSourceUpdate where
 
 instance Prelude.NFData ReferenceDataSourceUpdate where
   rnf ReferenceDataSourceUpdate' {..} =
-    Prelude.rnf referenceSchemaUpdate
-      `Prelude.seq` Prelude.rnf s3ReferenceDataSourceUpdate
-      `Prelude.seq` Prelude.rnf tableNameUpdate
-      `Prelude.seq` Prelude.rnf referenceId
+    Prelude.rnf referenceSchemaUpdate `Prelude.seq`
+      Prelude.rnf s3ReferenceDataSourceUpdate `Prelude.seq`
+        Prelude.rnf tableNameUpdate `Prelude.seq`
+          Prelude.rnf referenceId
 
 instance Data.ToJSON ReferenceDataSourceUpdate where
   toJSON ReferenceDataSourceUpdate' {..} =

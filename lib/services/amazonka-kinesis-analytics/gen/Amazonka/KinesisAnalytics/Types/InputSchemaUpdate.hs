@@ -92,9 +92,9 @@ instance Prelude.Hashable InputSchemaUpdate where
 
 instance Prelude.NFData InputSchemaUpdate where
   rnf InputSchemaUpdate' {..} =
-    Prelude.rnf recordColumnUpdates
-      `Prelude.seq` Prelude.rnf recordEncodingUpdate
-      `Prelude.seq` Prelude.rnf recordFormatUpdate
+    Prelude.rnf recordColumnUpdates `Prelude.seq`
+      Prelude.rnf recordEncodingUpdate `Prelude.seq`
+        Prelude.rnf recordFormatUpdate
 
 instance Data.ToJSON InputSchemaUpdate where
   toJSON InputSchemaUpdate' {..} =

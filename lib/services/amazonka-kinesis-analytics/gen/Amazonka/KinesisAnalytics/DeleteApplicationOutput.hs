@@ -175,9 +175,9 @@ instance Prelude.Hashable DeleteApplicationOutput where
 
 instance Prelude.NFData DeleteApplicationOutput where
   rnf DeleteApplicationOutput' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf outputId
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf outputId
 
 instance Data.ToHeaders DeleteApplicationOutput where
   toHeaders =

@@ -98,5 +98,5 @@ instance
     InputLambdaProcessorDescription
   where
   rnf InputLambdaProcessorDescription' {..} =
-    Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf resourceARN `Prelude.seq`
+      Prelude.rnf roleARN

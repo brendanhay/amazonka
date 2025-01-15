@@ -135,8 +135,8 @@ instance Prelude.Hashable DeleteAlias where
 
 instance Prelude.NFData DeleteAlias where
   rnf DeleteAlias' {..} =
-    Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf functionName `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DeleteAlias where
   toHeaders = Prelude.const Prelude.mempty

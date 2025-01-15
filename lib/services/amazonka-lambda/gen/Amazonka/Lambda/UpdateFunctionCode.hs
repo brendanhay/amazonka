@@ -335,16 +335,16 @@ instance Prelude.Hashable UpdateFunctionCode where
 
 instance Prelude.NFData UpdateFunctionCode where
   rnf UpdateFunctionCode' {..} =
-    Prelude.rnf architectures
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf imageUri
-      `Prelude.seq` Prelude.rnf publish
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
-      `Prelude.seq` Prelude.rnf s3ObjectVersion
-      `Prelude.seq` Prelude.rnf zipFile
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf architectures `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf imageUri `Prelude.seq`
+          Prelude.rnf publish `Prelude.seq`
+            Prelude.rnf revisionId `Prelude.seq`
+              Prelude.rnf s3Bucket `Prelude.seq`
+                Prelude.rnf s3Key `Prelude.seq`
+                  Prelude.rnf s3ObjectVersion `Prelude.seq`
+                    Prelude.rnf zipFile `Prelude.seq`
+                      Prelude.rnf functionName
 
 instance Data.ToHeaders UpdateFunctionCode where
   toHeaders = Prelude.const Prelude.mempty

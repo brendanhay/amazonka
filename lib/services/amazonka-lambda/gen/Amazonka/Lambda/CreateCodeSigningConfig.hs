@@ -127,9 +127,9 @@ instance Prelude.Hashable CreateCodeSigningConfig where
 
 instance Prelude.NFData CreateCodeSigningConfig where
   rnf CreateCodeSigningConfig' {..} =
-    Prelude.rnf codeSigningPolicies
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf allowedPublishers
+    Prelude.rnf codeSigningPolicies `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf allowedPublishers
 
 instance Data.ToHeaders CreateCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,5 +201,5 @@ instance
     CreateCodeSigningConfigResponse
   where
   rnf CreateCodeSigningConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf codeSigningConfig
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf codeSigningConfig

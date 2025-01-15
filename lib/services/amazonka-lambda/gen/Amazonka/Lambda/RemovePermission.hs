@@ -176,10 +176,10 @@ instance Prelude.Hashable RemovePermission where
 
 instance Prelude.NFData RemovePermission where
   rnf RemovePermission' {..} =
-    Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf statementId
+    Prelude.rnf qualifier `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf functionName `Prelude.seq`
+          Prelude.rnf statementId
 
 instance Data.ToHeaders RemovePermission where
   toHeaders = Prelude.const Prelude.mempty

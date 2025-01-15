@@ -149,8 +149,8 @@ instance Prelude.Hashable FunctionEventInvokeConfig where
 
 instance Prelude.NFData FunctionEventInvokeConfig where
   rnf FunctionEventInvokeConfig' {..} =
-    Prelude.rnf destinationConfig
-      `Prelude.seq` Prelude.rnf functionArn
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf maximumEventAgeInSeconds
-      `Prelude.seq` Prelude.rnf maximumRetryAttempts
+    Prelude.rnf destinationConfig `Prelude.seq`
+      Prelude.rnf functionArn `Prelude.seq`
+        Prelude.rnf lastModified `Prelude.seq`
+          Prelude.rnf maximumEventAgeInSeconds `Prelude.seq`
+            Prelude.rnf maximumRetryAttempts

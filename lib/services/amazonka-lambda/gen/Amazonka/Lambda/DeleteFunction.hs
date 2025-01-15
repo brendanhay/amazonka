@@ -151,8 +151,8 @@ instance Prelude.Hashable DeleteFunction where
 
 instance Prelude.NFData DeleteFunction where
   rnf DeleteFunction' {..} =
-    Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf qualifier `Prelude.seq`
+      Prelude.rnf functionName
 
 instance Data.ToHeaders DeleteFunction where
   toHeaders = Prelude.const Prelude.mempty

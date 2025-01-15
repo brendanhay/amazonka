@@ -195,9 +195,9 @@ instance
     PutProvisionedConcurrencyConfig
   where
   rnf PutProvisionedConcurrencyConfig' {..} =
-    Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf provisionedConcurrentExecutions
+    Prelude.rnf functionName `Prelude.seq`
+      Prelude.rnf qualifier `Prelude.seq`
+        Prelude.rnf provisionedConcurrentExecutions
 
 instance
   Data.ToHeaders

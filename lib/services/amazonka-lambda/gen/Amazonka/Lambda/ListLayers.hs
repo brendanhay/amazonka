@@ -133,12 +133,12 @@ instance Core.AWSPager ListLayers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLayers_marker
-          Lens..~ rs
-          Lens.^? listLayersResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLayers_marker
+              Lens..~ rs
+              Lens.^? listLayersResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLayers where
   type AWSResponse ListLayers = ListLayersResponse
@@ -163,10 +163,10 @@ instance Prelude.Hashable ListLayers where
 
 instance Prelude.NFData ListLayers where
   rnf ListLayers' {..} =
-    Prelude.rnf compatibleArchitecture
-      `Prelude.seq` Prelude.rnf compatibleRuntime
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf compatibleArchitecture `Prelude.seq`
+      Prelude.rnf compatibleRuntime `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxItems
 
 instance Data.ToHeaders ListLayers where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,6 +236,6 @@ listLayersResponse_httpStatus = Lens.lens (\ListLayersResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListLayersResponse where
   rnf ListLayersResponse' {..} =
-    Prelude.rnf layers
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf layers `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -82,5 +82,5 @@ instance Prelude.Hashable ImageConfigResponse where
 
 instance Prelude.NFData ImageConfigResponse where
   rnf ImageConfigResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf imageConfig
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf imageConfig

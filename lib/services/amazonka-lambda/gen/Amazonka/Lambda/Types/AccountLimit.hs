@@ -129,8 +129,8 @@ instance Prelude.Hashable AccountLimit where
 
 instance Prelude.NFData AccountLimit where
   rnf AccountLimit' {..} =
-    Prelude.rnf codeSizeUnzipped
-      `Prelude.seq` Prelude.rnf codeSizeZipped
-      `Prelude.seq` Prelude.rnf concurrentExecutions
-      `Prelude.seq` Prelude.rnf totalCodeSize
-      `Prelude.seq` Prelude.rnf unreservedConcurrentExecutions
+    Prelude.rnf codeSizeUnzipped `Prelude.seq`
+      Prelude.rnf codeSizeZipped `Prelude.seq`
+        Prelude.rnf concurrentExecutions `Prelude.seq`
+          Prelude.rnf totalCodeSize `Prelude.seq`
+            Prelude.rnf unreservedConcurrentExecutions

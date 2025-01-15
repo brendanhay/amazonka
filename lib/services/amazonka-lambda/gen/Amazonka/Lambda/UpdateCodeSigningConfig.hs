@@ -133,10 +133,10 @@ instance Prelude.Hashable UpdateCodeSigningConfig where
 
 instance Prelude.NFData UpdateCodeSigningConfig where
   rnf UpdateCodeSigningConfig' {..} =
-    Prelude.rnf allowedPublishers
-      `Prelude.seq` Prelude.rnf codeSigningPolicies
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf codeSigningConfigArn
+    Prelude.rnf allowedPublishers `Prelude.seq`
+      Prelude.rnf codeSigningPolicies `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf codeSigningConfigArn
 
 instance Data.ToHeaders UpdateCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,5 +211,5 @@ instance
     UpdateCodeSigningConfigResponse
   where
   rnf UpdateCodeSigningConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf codeSigningConfig
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf codeSigningConfig

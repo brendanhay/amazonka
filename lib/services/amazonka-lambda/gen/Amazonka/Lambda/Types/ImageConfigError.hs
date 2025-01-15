@@ -80,5 +80,5 @@ instance Prelude.Hashable ImageConfigError where
 
 instance Prelude.NFData ImageConfigError where
   rnf ImageConfigError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf message

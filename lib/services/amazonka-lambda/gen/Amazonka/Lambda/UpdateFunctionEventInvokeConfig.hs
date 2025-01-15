@@ -234,11 +234,11 @@ instance
     UpdateFunctionEventInvokeConfig
   where
   rnf UpdateFunctionEventInvokeConfig' {..} =
-    Prelude.rnf destinationConfig
-      `Prelude.seq` Prelude.rnf maximumEventAgeInSeconds
-      `Prelude.seq` Prelude.rnf maximumRetryAttempts
-      `Prelude.seq` Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf destinationConfig `Prelude.seq`
+      Prelude.rnf maximumEventAgeInSeconds `Prelude.seq`
+        Prelude.rnf maximumRetryAttempts `Prelude.seq`
+          Prelude.rnf qualifier `Prelude.seq`
+            Prelude.rnf functionName
 
 instance
   Data.ToHeaders

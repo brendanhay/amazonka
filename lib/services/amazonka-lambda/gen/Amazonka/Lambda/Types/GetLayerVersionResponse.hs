@@ -174,12 +174,12 @@ instance Prelude.Hashable GetLayerVersionResponse where
 
 instance Prelude.NFData GetLayerVersionResponse where
   rnf GetLayerVersionResponse' {..} =
-    Prelude.rnf compatibleArchitectures
-      `Prelude.seq` Prelude.rnf compatibleRuntimes
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf layerArn
-      `Prelude.seq` Prelude.rnf layerVersionArn
-      `Prelude.seq` Prelude.rnf licenseInfo
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf compatibleArchitectures `Prelude.seq`
+      Prelude.rnf compatibleRuntimes `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf createdDate `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf layerArn `Prelude.seq`
+                Prelude.rnf layerVersionArn `Prelude.seq`
+                  Prelude.rnf licenseInfo `Prelude.seq`
+                    Prelude.rnf version

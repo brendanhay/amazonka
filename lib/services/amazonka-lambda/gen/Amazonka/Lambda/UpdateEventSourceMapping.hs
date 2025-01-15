@@ -494,20 +494,20 @@ instance Prelude.Hashable UpdateEventSourceMapping where
 
 instance Prelude.NFData UpdateEventSourceMapping where
   rnf UpdateEventSourceMapping' {..} =
-    Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf bisectBatchOnFunctionError
-      `Prelude.seq` Prelude.rnf destinationConfig
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf filterCriteria
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf functionResponseTypes
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
-      `Prelude.seq` Prelude.rnf maximumRecordAgeInSeconds
-      `Prelude.seq` Prelude.rnf maximumRetryAttempts
-      `Prelude.seq` Prelude.rnf parallelizationFactor
-      `Prelude.seq` Prelude.rnf sourceAccessConfigurations
-      `Prelude.seq` Prelude.rnf tumblingWindowInSeconds
-      `Prelude.seq` Prelude.rnf uuid
+    Prelude.rnf batchSize `Prelude.seq`
+      Prelude.rnf bisectBatchOnFunctionError `Prelude.seq`
+        Prelude.rnf destinationConfig `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf filterCriteria `Prelude.seq`
+              Prelude.rnf functionName `Prelude.seq`
+                Prelude.rnf functionResponseTypes `Prelude.seq`
+                  Prelude.rnf maximumBatchingWindowInSeconds `Prelude.seq`
+                    Prelude.rnf maximumRecordAgeInSeconds `Prelude.seq`
+                      Prelude.rnf maximumRetryAttempts `Prelude.seq`
+                        Prelude.rnf parallelizationFactor `Prelude.seq`
+                          Prelude.rnf sourceAccessConfigurations `Prelude.seq`
+                            Prelude.rnf tumblingWindowInSeconds `Prelude.seq`
+                              Prelude.rnf uuid
 
 instance Data.ToHeaders UpdateEventSourceMapping where
   toHeaders = Prelude.const Prelude.mempty

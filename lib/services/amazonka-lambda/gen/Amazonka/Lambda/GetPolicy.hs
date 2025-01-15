@@ -152,8 +152,8 @@ instance Prelude.Hashable GetPolicy where
 
 instance Prelude.NFData GetPolicy where
   rnf GetPolicy' {..} =
-    Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf qualifier `Prelude.seq`
+      Prelude.rnf functionName
 
 instance Data.ToHeaders GetPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,6 +219,6 @@ getPolicyResponse_httpStatus = Lens.lens (\GetPolicyResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetPolicyResponse where
   rnf GetPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf httpStatus

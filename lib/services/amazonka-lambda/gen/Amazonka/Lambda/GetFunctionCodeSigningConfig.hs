@@ -251,6 +251,6 @@ instance
     GetFunctionCodeSigningConfigResponse
   where
   rnf GetFunctionCodeSigningConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf codeSigningConfigArn
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf codeSigningConfigArn `Prelude.seq`
+        Prelude.rnf functionName

@@ -195,10 +195,10 @@ instance Prelude.Hashable UpdateFunctionUrlConfig where
 
 instance Prelude.NFData UpdateFunctionUrlConfig where
   rnf UpdateFunctionUrlConfig' {..} =
-    Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf cors
-      `Prelude.seq` Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf authType `Prelude.seq`
+      Prelude.rnf cors `Prelude.seq`
+        Prelude.rnf qualifier `Prelude.seq`
+          Prelude.rnf functionName
 
 instance Data.ToHeaders UpdateFunctionUrlConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -359,10 +359,10 @@ instance
     UpdateFunctionUrlConfigResponse
   where
   rnf UpdateFunctionUrlConfigResponse' {..} =
-    Prelude.rnf cors
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf functionUrl
-      `Prelude.seq` Prelude.rnf functionArn
-      `Prelude.seq` Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf cors `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf functionUrl `Prelude.seq`
+          Prelude.rnf functionArn `Prelude.seq`
+            Prelude.rnf authType `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf lastModifiedTime

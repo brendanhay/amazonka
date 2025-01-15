@@ -224,10 +224,10 @@ instance Prelude.Hashable PublishVersion where
 
 instance Prelude.NFData PublishVersion where
   rnf PublishVersion' {..} =
-    Prelude.rnf codeSha256
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf codeSha256 `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf revisionId `Prelude.seq`
+          Prelude.rnf functionName
 
 instance Data.ToHeaders PublishVersion where
   toHeaders = Prelude.const Prelude.mempty

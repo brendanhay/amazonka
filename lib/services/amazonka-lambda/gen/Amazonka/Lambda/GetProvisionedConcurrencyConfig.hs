@@ -177,8 +177,8 @@ instance
     GetProvisionedConcurrencyConfig
   where
   rnf GetProvisionedConcurrencyConfig' {..} =
-    Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf qualifier
+    Prelude.rnf functionName `Prelude.seq`
+      Prelude.rnf qualifier
 
 instance
   Data.ToHeaders

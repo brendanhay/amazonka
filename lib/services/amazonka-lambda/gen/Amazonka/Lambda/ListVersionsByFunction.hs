@@ -162,12 +162,12 @@ instance Core.AWSPager ListVersionsByFunction where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVersionsByFunction_marker
-          Lens..~ rs
-          Lens.^? listVersionsByFunctionResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVersionsByFunction_marker
+              Lens..~ rs
+              Lens.^? listVersionsByFunctionResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVersionsByFunction where
   type
@@ -193,9 +193,9 @@ instance Prelude.Hashable ListVersionsByFunction where
 
 instance Prelude.NFData ListVersionsByFunction where
   rnf ListVersionsByFunction' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf functionName
 
 instance Data.ToHeaders ListVersionsByFunction where
   toHeaders = Prelude.const Prelude.mempty
@@ -268,6 +268,6 @@ instance
     ListVersionsByFunctionResponse
   where
   rnf ListVersionsByFunctionResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

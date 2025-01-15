@@ -96,5 +96,5 @@ instance Prelude.Hashable SnapStartResponse where
 
 instance Prelude.NFData SnapStartResponse where
   rnf SnapStartResponse' {..} =
-    Prelude.rnf applyOn
-      `Prelude.seq` Prelude.rnf optimizationStatus
+    Prelude.rnf applyOn `Prelude.seq`
+      Prelude.rnf optimizationStatus

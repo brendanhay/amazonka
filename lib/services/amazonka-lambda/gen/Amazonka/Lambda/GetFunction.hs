@@ -160,8 +160,8 @@ instance Prelude.Hashable GetFunction where
 
 instance Prelude.NFData GetFunction where
   rnf GetFunction' {..} =
-    Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf qualifier `Prelude.seq`
+      Prelude.rnf functionName
 
 instance Data.ToHeaders GetFunction where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,8 +248,8 @@ getFunctionResponse_httpStatus = Lens.lens (\GetFunctionResponse' {httpStatus} -
 
 instance Prelude.NFData GetFunctionResponse where
   rnf GetFunctionResponse' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf concurrency
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf concurrency `Prelude.seq`
+        Prelude.rnf configuration `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -156,8 +156,8 @@ instance
 
 instance Prelude.NFData PutFunctionCodeSigningConfig where
   rnf PutFunctionCodeSigningConfig' {..} =
-    Prelude.rnf codeSigningConfigArn
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf codeSigningConfigArn `Prelude.seq`
+      Prelude.rnf functionName
 
 instance Data.ToHeaders PutFunctionCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -281,6 +281,6 @@ instance
     PutFunctionCodeSigningConfigResponse
   where
   rnf PutFunctionCodeSigningConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf codeSigningConfigArn
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf codeSigningConfigArn `Prelude.seq`
+        Prelude.rnf functionName

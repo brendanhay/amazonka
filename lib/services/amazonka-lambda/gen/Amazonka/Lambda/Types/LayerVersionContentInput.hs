@@ -105,10 +105,10 @@ instance Prelude.Hashable LayerVersionContentInput where
 
 instance Prelude.NFData LayerVersionContentInput where
   rnf LayerVersionContentInput' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
-      `Prelude.seq` Prelude.rnf s3ObjectVersion
-      `Prelude.seq` Prelude.rnf zipFile
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf s3Key `Prelude.seq`
+        Prelude.rnf s3ObjectVersion `Prelude.seq`
+          Prelude.rnf zipFile
 
 instance Data.ToJSON LayerVersionContentInput where
   toJSON LayerVersionContentInput' {..} =

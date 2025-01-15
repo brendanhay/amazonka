@@ -243,11 +243,11 @@ instance
 
 instance Prelude.NFData PutFunctionEventInvokeConfig where
   rnf PutFunctionEventInvokeConfig' {..} =
-    Prelude.rnf destinationConfig
-      `Prelude.seq` Prelude.rnf maximumEventAgeInSeconds
-      `Prelude.seq` Prelude.rnf maximumRetryAttempts
-      `Prelude.seq` Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf destinationConfig `Prelude.seq`
+      Prelude.rnf maximumEventAgeInSeconds `Prelude.seq`
+        Prelude.rnf maximumRetryAttempts `Prelude.seq`
+          Prelude.rnf qualifier `Prelude.seq`
+            Prelude.rnf functionName
 
 instance Data.ToHeaders PutFunctionEventInvokeConfig where
   toHeaders = Prelude.const Prelude.mempty

@@ -201,12 +201,12 @@ instance Prelude.Hashable UpdateAlias where
 
 instance Prelude.NFData UpdateAlias where
   rnf UpdateAlias' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf functionVersion
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf functionVersion `Prelude.seq`
+        Prelude.rnf revisionId `Prelude.seq`
+          Prelude.rnf routingConfig `Prelude.seq`
+            Prelude.rnf functionName `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders UpdateAlias where
   toHeaders = Prelude.const Prelude.mempty

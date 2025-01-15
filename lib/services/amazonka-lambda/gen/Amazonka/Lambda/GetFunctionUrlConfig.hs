@@ -154,8 +154,8 @@ instance Prelude.Hashable GetFunctionUrlConfig where
 
 instance Prelude.NFData GetFunctionUrlConfig where
   rnf GetFunctionUrlConfig' {..} =
-    Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf qualifier `Prelude.seq`
+      Prelude.rnf functionName
 
 instance Data.ToHeaders GetFunctionUrlConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -304,10 +304,10 @@ getFunctionUrlConfigResponse_lastModifiedTime = Lens.lens (\GetFunctionUrlConfig
 
 instance Prelude.NFData GetFunctionUrlConfigResponse where
   rnf GetFunctionUrlConfigResponse' {..} =
-    Prelude.rnf cors
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf functionUrl
-      `Prelude.seq` Prelude.rnf functionArn
-      `Prelude.seq` Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf cors `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf functionUrl `Prelude.seq`
+          Prelude.rnf functionArn `Prelude.seq`
+            Prelude.rnf authType `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf lastModifiedTime

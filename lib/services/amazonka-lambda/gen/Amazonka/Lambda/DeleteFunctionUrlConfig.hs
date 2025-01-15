@@ -139,8 +139,8 @@ instance Prelude.Hashable DeleteFunctionUrlConfig where
 
 instance Prelude.NFData DeleteFunctionUrlConfig where
   rnf DeleteFunctionUrlConfig' {..} =
-    Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf qualifier `Prelude.seq`
+      Prelude.rnf functionName
 
 instance Data.ToHeaders DeleteFunctionUrlConfig where
   toHeaders = Prelude.const Prelude.mempty

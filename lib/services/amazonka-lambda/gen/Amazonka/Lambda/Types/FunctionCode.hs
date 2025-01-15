@@ -125,11 +125,11 @@ instance Prelude.Hashable FunctionCode where
 
 instance Prelude.NFData FunctionCode where
   rnf FunctionCode' {..} =
-    Prelude.rnf imageUri
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
-      `Prelude.seq` Prelude.rnf s3ObjectVersion
-      `Prelude.seq` Prelude.rnf zipFile
+    Prelude.rnf imageUri `Prelude.seq`
+      Prelude.rnf s3Bucket `Prelude.seq`
+        Prelude.rnf s3Key `Prelude.seq`
+          Prelude.rnf s3ObjectVersion `Prelude.seq`
+            Prelude.rnf zipFile
 
 instance Data.ToJSON FunctionCode where
   toJSON FunctionCode' {..} =

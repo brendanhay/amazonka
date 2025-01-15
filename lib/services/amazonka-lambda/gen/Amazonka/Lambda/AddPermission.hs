@@ -343,17 +343,17 @@ instance Prelude.Hashable AddPermission where
 
 instance Prelude.NFData AddPermission where
   rnf AddPermission' {..} =
-    Prelude.rnf eventSourceToken
-      `Prelude.seq` Prelude.rnf functionUrlAuthType
-      `Prelude.seq` Prelude.rnf principalOrgID
-      `Prelude.seq` Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf sourceAccount
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf statementId
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf principal
+    Prelude.rnf eventSourceToken `Prelude.seq`
+      Prelude.rnf functionUrlAuthType `Prelude.seq`
+        Prelude.rnf principalOrgID `Prelude.seq`
+          Prelude.rnf qualifier `Prelude.seq`
+            Prelude.rnf revisionId `Prelude.seq`
+              Prelude.rnf sourceAccount `Prelude.seq`
+                Prelude.rnf sourceArn `Prelude.seq`
+                  Prelude.rnf functionName `Prelude.seq`
+                    Prelude.rnf statementId `Prelude.seq`
+                      Prelude.rnf action `Prelude.seq`
+                        Prelude.rnf principal
 
 instance Data.ToHeaders AddPermission where
   toHeaders = Prelude.const Prelude.mempty
@@ -429,5 +429,5 @@ addPermissionResponse_httpStatus = Lens.lens (\AddPermissionResponse' {httpStatu
 
 instance Prelude.NFData AddPermissionResponse where
   rnf AddPermissionResponse' {..} =
-    Prelude.rnf statement
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statement `Prelude.seq`
+      Prelude.rnf httpStatus

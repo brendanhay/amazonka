@@ -216,12 +216,12 @@ instance Prelude.Hashable PublishLayerVersion where
 
 instance Prelude.NFData PublishLayerVersion where
   rnf PublishLayerVersion' {..} =
-    Prelude.rnf compatibleArchitectures
-      `Prelude.seq` Prelude.rnf compatibleRuntimes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf licenseInfo
-      `Prelude.seq` Prelude.rnf layerName
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf compatibleArchitectures `Prelude.seq`
+      Prelude.rnf compatibleRuntimes `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf licenseInfo `Prelude.seq`
+            Prelude.rnf layerName `Prelude.seq`
+              Prelude.rnf content
 
 instance Data.ToHeaders PublishLayerVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -373,13 +373,13 @@ publishLayerVersionResponse_httpStatus = Lens.lens (\PublishLayerVersionResponse
 
 instance Prelude.NFData PublishLayerVersionResponse where
   rnf PublishLayerVersionResponse' {..} =
-    Prelude.rnf compatibleArchitectures
-      `Prelude.seq` Prelude.rnf compatibleRuntimes
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf layerArn
-      `Prelude.seq` Prelude.rnf layerVersionArn
-      `Prelude.seq` Prelude.rnf licenseInfo
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compatibleArchitectures `Prelude.seq`
+      Prelude.rnf compatibleRuntimes `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf createdDate `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf layerArn `Prelude.seq`
+                Prelude.rnf layerVersionArn `Prelude.seq`
+                  Prelude.rnf licenseInfo `Prelude.seq`
+                    Prelude.rnf version `Prelude.seq`
+                      Prelude.rnf httpStatus

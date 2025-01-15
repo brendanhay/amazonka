@@ -145,8 +145,8 @@ instance Prelude.Hashable GetAlias where
 
 instance Prelude.NFData GetAlias where
   rnf GetAlias' {..} =
-    Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf functionName `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders GetAlias where
   toHeaders = Prelude.const Prelude.mempty

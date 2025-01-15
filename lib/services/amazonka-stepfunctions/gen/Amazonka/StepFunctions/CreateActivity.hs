@@ -295,6 +295,6 @@ createActivityResponse_creationDate = Lens.lens (\CreateActivityResponse' {creat
 
 instance Prelude.NFData CreateActivityResponse where
   rnf CreateActivityResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf activityArn
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf activityArn `Prelude.seq`
+        Prelude.rnf creationDate

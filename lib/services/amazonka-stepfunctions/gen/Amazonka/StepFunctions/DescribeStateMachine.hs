@@ -362,14 +362,14 @@ describeStateMachineResponse_creationDate = Lens.lens (\DescribeStateMachineResp
 
 instance Prelude.NFData DescribeStateMachineResponse where
   rnf DescribeStateMachineResponse' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tracingConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf stateMachineArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf loggingConfiguration `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf tracingConfiguration `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf stateMachineArn `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf definition `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf type' `Prelude.seq`
+                        Prelude.rnf creationDate

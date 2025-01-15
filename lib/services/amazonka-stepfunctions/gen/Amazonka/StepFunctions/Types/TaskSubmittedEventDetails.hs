@@ -113,7 +113,7 @@ instance Prelude.Hashable TaskSubmittedEventDetails where
 
 instance Prelude.NFData TaskSubmittedEventDetails where
   rnf TaskSubmittedEventDetails' {..} =
-    Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputDetails
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf output `Prelude.seq`
+      Prelude.rnf outputDetails `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf resource

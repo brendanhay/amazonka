@@ -109,7 +109,7 @@ instance Prelude.Hashable TaskStartFailedEventDetails where
 
 instance Prelude.NFData TaskStartFailedEventDetails where
   rnf TaskStartFailedEventDetails' {..} =
-    Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf cause `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf resource

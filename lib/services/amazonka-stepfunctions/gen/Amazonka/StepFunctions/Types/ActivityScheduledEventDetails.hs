@@ -126,8 +126,8 @@ instance
 
 instance Prelude.NFData ActivityScheduledEventDetails where
   rnf ActivityScheduledEventDetails' {..} =
-    Prelude.rnf heartbeatInSeconds
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf inputDetails
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf heartbeatInSeconds `Prelude.seq`
+      Prelude.rnf input `Prelude.seq`
+        Prelude.rnf inputDetails `Prelude.seq`
+          Prelude.rnf timeoutInSeconds `Prelude.seq`
+            Prelude.rnf resource

@@ -126,8 +126,8 @@ instance Prelude.Hashable SendTaskSuccess where
 
 instance Prelude.NFData SendTaskSuccess where
   rnf SendTaskSuccess' {..} =
-    Prelude.rnf taskToken
-      `Prelude.seq` Prelude.rnf output
+    Prelude.rnf taskToken `Prelude.seq`
+      Prelude.rnf output
 
 instance Data.ToHeaders SendTaskSuccess where
   toHeaders =

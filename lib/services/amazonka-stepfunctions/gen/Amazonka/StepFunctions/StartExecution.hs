@@ -237,10 +237,10 @@ instance Prelude.Hashable StartExecution where
 
 instance Prelude.NFData StartExecution where
   rnf StartExecution' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf traceHeader
-      `Prelude.seq` Prelude.rnf stateMachineArn
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf traceHeader `Prelude.seq`
+          Prelude.rnf stateMachineArn
 
 instance Data.ToHeaders StartExecution where
   toHeaders =
@@ -331,6 +331,6 @@ startExecutionResponse_startDate = Lens.lens (\StartExecutionResponse' {startDat
 
 instance Prelude.NFData StartExecutionResponse where
   rnf StartExecutionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf executionArn
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf executionArn `Prelude.seq`
+        Prelude.rnf startDate

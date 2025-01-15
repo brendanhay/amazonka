@@ -93,5 +93,5 @@ instance
     ExecutionSucceededEventDetails
   where
   rnf ExecutionSucceededEventDetails' {..} =
-    Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputDetails
+    Prelude.rnf output `Prelude.seq`
+      Prelude.rnf outputDetails

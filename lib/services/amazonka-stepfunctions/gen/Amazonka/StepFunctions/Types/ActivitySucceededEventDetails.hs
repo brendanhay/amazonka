@@ -89,5 +89,5 @@ instance
 
 instance Prelude.NFData ActivitySucceededEventDetails where
   rnf ActivitySucceededEventDetails' {..} =
-    Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputDetails
+    Prelude.rnf output `Prelude.seq`
+      Prelude.rnf outputDetails

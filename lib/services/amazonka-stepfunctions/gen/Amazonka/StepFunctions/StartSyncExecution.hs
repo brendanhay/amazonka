@@ -195,10 +195,10 @@ instance Prelude.Hashable StartSyncExecution where
 
 instance Prelude.NFData StartSyncExecution where
   rnf StartSyncExecution' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf traceHeader
-      `Prelude.seq` Prelude.rnf stateMachineArn
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf traceHeader `Prelude.seq`
+          Prelude.rnf stateMachineArn
 
 instance Data.ToHeaders StartSyncExecution where
   toHeaders =
@@ -423,18 +423,18 @@ startSyncExecutionResponse_status = Lens.lens (\StartSyncExecutionResponse' {sta
 
 instance Prelude.NFData StartSyncExecutionResponse where
   rnf StartSyncExecutionResponse' {..} =
-    Prelude.rnf billingDetails
-      `Prelude.seq` Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf inputDetails
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputDetails
-      `Prelude.seq` Prelude.rnf stateMachineArn
-      `Prelude.seq` Prelude.rnf traceHeader
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf executionArn
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf stopDate
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf billingDetails `Prelude.seq`
+      Prelude.rnf cause `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf input `Prelude.seq`
+            Prelude.rnf inputDetails `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf output `Prelude.seq`
+                  Prelude.rnf outputDetails `Prelude.seq`
+                    Prelude.rnf stateMachineArn `Prelude.seq`
+                      Prelude.rnf traceHeader `Prelude.seq`
+                        Prelude.rnf httpStatus `Prelude.seq`
+                          Prelude.rnf executionArn `Prelude.seq`
+                            Prelude.rnf startDate `Prelude.seq`
+                              Prelude.rnf stopDate `Prelude.seq`
+                                Prelude.rnf status

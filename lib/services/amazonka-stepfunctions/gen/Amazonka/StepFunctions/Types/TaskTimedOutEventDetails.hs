@@ -107,7 +107,7 @@ instance Prelude.Hashable TaskTimedOutEventDetails where
 
 instance Prelude.NFData TaskTimedOutEventDetails where
   rnf TaskTimedOutEventDetails' {..} =
-    Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf cause `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf resource

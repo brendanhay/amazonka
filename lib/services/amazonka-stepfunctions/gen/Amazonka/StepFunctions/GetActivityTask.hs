@@ -136,8 +136,8 @@ instance Prelude.Hashable GetActivityTask where
 
 instance Prelude.NFData GetActivityTask where
   rnf GetActivityTask' {..} =
-    Prelude.rnf workerName
-      `Prelude.seq` Prelude.rnf activityArn
+    Prelude.rnf workerName `Prelude.seq`
+      Prelude.rnf activityArn
 
 instance Data.ToHeaders GetActivityTask where
   toHeaders =
@@ -233,6 +233,6 @@ getActivityTaskResponse_httpStatus = Lens.lens (\GetActivityTaskResponse' {httpS
 
 instance Prelude.NFData GetActivityTaskResponse where
   rnf GetActivityTaskResponse' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf taskToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf taskToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -121,9 +121,9 @@ instance Prelude.Hashable StopExecution where
 
 instance Prelude.NFData StopExecution where
   rnf StopExecution' {..} =
-    Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf executionArn
+    Prelude.rnf cause `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf executionArn
 
 instance Data.ToHeaders StopExecution where
   toHeaders =
@@ -198,5 +198,5 @@ stopExecutionResponse_stopDate = Lens.lens (\StopExecutionResponse' {stopDate} -
 
 instance Prelude.NFData StopExecutionResponse where
   rnf StopExecutionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf stopDate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf stopDate

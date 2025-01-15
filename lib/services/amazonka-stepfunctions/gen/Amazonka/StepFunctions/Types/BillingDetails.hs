@@ -81,5 +81,5 @@ instance Prelude.Hashable BillingDetails where
 
 instance Prelude.NFData BillingDetails where
   rnf BillingDetails' {..} =
-    Prelude.rnf billedDurationInMilliseconds
-      `Prelude.seq` Prelude.rnf billedMemoryUsedInMB
+    Prelude.rnf billedDurationInMilliseconds `Prelude.seq`
+      Prelude.rnf billedMemoryUsedInMB

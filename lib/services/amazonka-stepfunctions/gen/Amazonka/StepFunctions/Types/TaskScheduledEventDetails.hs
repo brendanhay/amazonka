@@ -155,10 +155,10 @@ instance Prelude.Hashable TaskScheduledEventDetails where
 
 instance Prelude.NFData TaskScheduledEventDetails where
   rnf TaskScheduledEventDetails' {..} =
-    Prelude.rnf heartbeatInSeconds
-      `Prelude.seq` Prelude.rnf taskCredentials
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf heartbeatInSeconds `Prelude.seq`
+      Prelude.rnf taskCredentials `Prelude.seq`
+        Prelude.rnf timeoutInSeconds `Prelude.seq`
+          Prelude.rnf resourceType `Prelude.seq`
+            Prelude.rnf resource `Prelude.seq`
+              Prelude.rnf region `Prelude.seq`
+                Prelude.rnf parameters

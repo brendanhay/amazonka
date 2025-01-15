@@ -257,12 +257,12 @@ instance Prelude.Hashable CreateBotLocale where
 
 instance Prelude.NFData CreateBotLocale where
   rnf CreateBotLocale' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf voiceSettings
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf voiceSettings `Prelude.seq`
+        Prelude.rnf botId `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf localeId `Prelude.seq`
+              Prelude.rnf nluIntentConfidenceThreshold
 
 instance Data.ToHeaders CreateBotLocale where
   toHeaders =
@@ -456,13 +456,13 @@ createBotLocaleResponse_httpStatus = Lens.lens (\CreateBotLocaleResponse' {httpS
 
 instance Prelude.NFData CreateBotLocaleResponse where
   rnf CreateBotLocaleResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botLocaleStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf localeName
-      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
-      `Prelude.seq` Prelude.rnf voiceSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botLocaleStatus `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf creationDateTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf localeId `Prelude.seq`
+                Prelude.rnf localeName `Prelude.seq`
+                  Prelude.rnf nluIntentConfidenceThreshold `Prelude.seq`
+                    Prelude.rnf voiceSettings `Prelude.seq`
+                      Prelude.rnf httpStatus

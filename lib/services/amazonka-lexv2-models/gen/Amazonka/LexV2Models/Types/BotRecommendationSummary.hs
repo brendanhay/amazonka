@@ -126,7 +126,7 @@ instance Prelude.Hashable BotRecommendationSummary where
 
 instance Prelude.NFData BotRecommendationSummary where
   rnf BotRecommendationSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf botRecommendationStatus
-      `Prelude.seq` Prelude.rnf botRecommendationId
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+        Prelude.rnf botRecommendationStatus `Prelude.seq`
+          Prelude.rnf botRecommendationId

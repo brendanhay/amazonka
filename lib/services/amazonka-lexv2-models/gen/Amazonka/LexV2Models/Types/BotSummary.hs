@@ -139,9 +139,9 @@ instance Prelude.Hashable BotSummary where
 
 instance Prelude.NFData BotSummary where
   rnf BotSummary' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botStatus
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf latestBotVersion
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf botStatus `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf latestBotVersion

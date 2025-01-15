@@ -154,12 +154,12 @@ instance Prelude.Hashable SlotValueElicitationSetting where
 
 instance Prelude.NFData SlotValueElicitationSetting where
   rnf SlotValueElicitationSetting' {..} =
-    Prelude.rnf defaultValueSpecification
-      `Prelude.seq` Prelude.rnf promptSpecification
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf slotCaptureSetting
-      `Prelude.seq` Prelude.rnf waitAndContinueSpecification
-      `Prelude.seq` Prelude.rnf slotConstraint
+    Prelude.rnf defaultValueSpecification `Prelude.seq`
+      Prelude.rnf promptSpecification `Prelude.seq`
+        Prelude.rnf sampleUtterances `Prelude.seq`
+          Prelude.rnf slotCaptureSetting `Prelude.seq`
+            Prelude.rnf waitAndContinueSpecification `Prelude.seq`
+              Prelude.rnf slotConstraint
 
 instance Data.ToJSON SlotValueElicitationSetting where
   toJSON SlotValueElicitationSetting' {..} =

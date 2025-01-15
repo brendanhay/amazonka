@@ -129,9 +129,9 @@ instance
     FulfillmentUpdateResponseSpecification
   where
   rnf FulfillmentUpdateResponseSpecification' {..} =
-    Prelude.rnf allowInterrupt
-      `Prelude.seq` Prelude.rnf frequencyInSeconds
-      `Prelude.seq` Prelude.rnf messageGroups
+    Prelude.rnf allowInterrupt `Prelude.seq`
+      Prelude.rnf frequencyInSeconds `Prelude.seq`
+        Prelude.rnf messageGroups
 
 instance
   Data.ToJSON

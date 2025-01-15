@@ -98,6 +98,6 @@ instance Prelude.Hashable RecommendedIntentSummary where
 
 instance Prelude.NFData RecommendedIntentSummary where
   rnf RecommendedIntentSummary' {..} =
-    Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf sampleUtterancesCount
+    Prelude.rnf intentId `Prelude.seq`
+      Prelude.rnf intentName `Prelude.seq`
+        Prelude.rnf sampleUtterancesCount

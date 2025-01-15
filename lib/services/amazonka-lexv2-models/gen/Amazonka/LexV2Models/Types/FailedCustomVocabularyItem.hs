@@ -103,6 +103,6 @@ instance Prelude.Hashable FailedCustomVocabularyItem where
 
 instance Prelude.NFData FailedCustomVocabularyItem where
   rnf FailedCustomVocabularyItem' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf itemId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf itemId

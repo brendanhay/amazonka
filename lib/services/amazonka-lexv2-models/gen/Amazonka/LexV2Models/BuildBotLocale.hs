@@ -157,9 +157,9 @@ instance Prelude.Hashable BuildBotLocale where
 
 instance Prelude.NFData BuildBotLocale where
   rnf BuildBotLocale' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf localeId
 
 instance Data.ToHeaders BuildBotLocale where
   toHeaders =
@@ -281,9 +281,9 @@ buildBotLocaleResponse_httpStatus = Lens.lens (\BuildBotLocaleResponse' {httpSta
 
 instance Prelude.NFData BuildBotLocaleResponse where
   rnf BuildBotLocaleResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botLocaleStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf lastBuildSubmittedDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botLocaleStatus `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf lastBuildSubmittedDateTime `Prelude.seq`
+            Prelude.rnf localeId `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -224,13 +224,13 @@ instance Prelude.Hashable ListIntents where
 
 instance Prelude.NFData ListIntents where
   rnf ListIntents' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf botId `Prelude.seq`
+              Prelude.rnf botVersion `Prelude.seq`
+                Prelude.rnf localeId
 
 instance Data.ToHeaders ListIntents where
   toHeaders =
@@ -366,9 +366,9 @@ listIntentsResponse_httpStatus = Lens.lens (\ListIntentsResponse' {httpStatus} -
 
 instance Prelude.NFData ListIntentsResponse where
   rnf ListIntentsResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf intentSummaries
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf intentSummaries `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf httpStatus

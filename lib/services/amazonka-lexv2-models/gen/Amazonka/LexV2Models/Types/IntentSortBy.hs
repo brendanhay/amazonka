@@ -76,8 +76,8 @@ instance Prelude.Hashable IntentSortBy where
 
 instance Prelude.NFData IntentSortBy where
   rnf IntentSortBy' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf order
 
 instance Data.ToJSON IntentSortBy where
   toJSON IntentSortBy' {..} =

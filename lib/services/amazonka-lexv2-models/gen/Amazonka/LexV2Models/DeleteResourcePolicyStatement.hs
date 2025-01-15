@@ -153,9 +153,9 @@ instance
 
 instance Prelude.NFData DeleteResourcePolicyStatement where
   rnf DeleteResourcePolicyStatement' {..} =
-    Prelude.rnf expectedRevisionId
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf statementId
+    Prelude.rnf expectedRevisionId `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf statementId
 
 instance Data.ToHeaders DeleteResourcePolicyStatement where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     DeleteResourcePolicyStatementResponse
   where
   rnf DeleteResourcePolicyStatementResponse' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf httpStatus

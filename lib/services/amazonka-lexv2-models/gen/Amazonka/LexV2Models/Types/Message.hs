@@ -109,10 +109,10 @@ instance Prelude.Hashable Message where
 
 instance Prelude.NFData Message where
   rnf Message' {..} =
-    Prelude.rnf customPayload
-      `Prelude.seq` Prelude.rnf imageResponseCard
-      `Prelude.seq` Prelude.rnf plainTextMessage
-      `Prelude.seq` Prelude.rnf ssmlMessage
+    Prelude.rnf customPayload `Prelude.seq`
+      Prelude.rnf imageResponseCard `Prelude.seq`
+        Prelude.rnf plainTextMessage `Prelude.seq`
+          Prelude.rnf ssmlMessage
 
 instance Data.ToJSON Message where
   toJSON Message' {..} =

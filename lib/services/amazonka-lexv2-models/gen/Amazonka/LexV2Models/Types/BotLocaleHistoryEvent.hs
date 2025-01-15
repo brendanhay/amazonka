@@ -85,5 +85,5 @@ instance Prelude.Hashable BotLocaleHistoryEvent where
 
 instance Prelude.NFData BotLocaleHistoryEvent where
   rnf BotLocaleHistoryEvent' {..} =
-    Prelude.rnf event
-      `Prelude.seq` Prelude.rnf eventDate
+    Prelude.rnf event `Prelude.seq`
+      Prelude.rnf eventDate

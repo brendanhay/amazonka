@@ -110,9 +110,9 @@ instance
     AudioAndDTMFInputSpecification
   where
   rnf AudioAndDTMFInputSpecification' {..} =
-    Prelude.rnf audioSpecification
-      `Prelude.seq` Prelude.rnf dtmfSpecification
-      `Prelude.seq` Prelude.rnf startTimeoutMs
+    Prelude.rnf audioSpecification `Prelude.seq`
+      Prelude.rnf dtmfSpecification `Prelude.seq`
+        Prelude.rnf startTimeoutMs
 
 instance Data.ToJSON AudioAndDTMFInputSpecification where
   toJSON AudioAndDTMFInputSpecification' {..} =

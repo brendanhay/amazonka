@@ -196,12 +196,12 @@ instance Prelude.Hashable ListRecommendedIntents where
 
 instance Prelude.NFData ListRecommendedIntents where
   rnf ListRecommendedIntents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botRecommendationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf botId `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf localeId `Prelude.seq`
+              Prelude.rnf botRecommendationId
 
 instance Data.ToHeaders ListRecommendedIntents where
   toHeaders =
@@ -365,10 +365,10 @@ instance
     ListRecommendedIntentsResponse
   where
   rnf ListRecommendedIntentsResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botRecommendationId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botRecommendationId `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf summaryList `Prelude.seq`
+                Prelude.rnf httpStatus

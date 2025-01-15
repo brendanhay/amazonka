@@ -88,8 +88,8 @@ instance Prelude.Hashable BotAliasLocaleSettings where
 
 instance Prelude.NFData BotAliasLocaleSettings where
   rnf BotAliasLocaleSettings' {..} =
-    Prelude.rnf codeHookSpecification
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf codeHookSpecification `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON BotAliasLocaleSettings where
   toJSON BotAliasLocaleSettings' {..} =

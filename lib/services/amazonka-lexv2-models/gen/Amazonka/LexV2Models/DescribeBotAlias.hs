@@ -138,8 +138,8 @@ instance Prelude.Hashable DescribeBotAlias where
 
 instance Prelude.NFData DescribeBotAlias where
   rnf DescribeBotAlias' {..} =
-    Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botAliasId `Prelude.seq`
+      Prelude.rnf botId
 
 instance Data.ToHeaders DescribeBotAlias where
   toHeaders =
@@ -313,16 +313,16 @@ describeBotAliasResponse_httpStatus = Lens.lens (\DescribeBotAliasResponse' {htt
 
 instance Prelude.NFData DescribeBotAliasResponse where
   rnf DescribeBotAliasResponse' {..} =
-    Prelude.rnf botAliasHistoryEvents
-      `Prelude.seq` Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botAliasLocaleSettings
-      `Prelude.seq` Prelude.rnf botAliasName
-      `Prelude.seq` Prelude.rnf botAliasStatus
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf conversationLogSettings
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf sentimentAnalysisSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botAliasHistoryEvents `Prelude.seq`
+      Prelude.rnf botAliasId `Prelude.seq`
+        Prelude.rnf botAliasLocaleSettings `Prelude.seq`
+          Prelude.rnf botAliasName `Prelude.seq`
+            Prelude.rnf botAliasStatus `Prelude.seq`
+              Prelude.rnf botId `Prelude.seq`
+                Prelude.rnf botVersion `Prelude.seq`
+                  Prelude.rnf conversationLogSettings `Prelude.seq`
+                    Prelude.rnf creationDateTime `Prelude.seq`
+                      Prelude.rnf description `Prelude.seq`
+                        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                          Prelude.rnf sentimentAnalysisSettings `Prelude.seq`
+                            Prelude.rnf httpStatus

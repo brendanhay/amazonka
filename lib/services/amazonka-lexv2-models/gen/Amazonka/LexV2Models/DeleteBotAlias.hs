@@ -129,9 +129,9 @@ instance Prelude.Hashable DeleteBotAlias where
 
 instance Prelude.NFData DeleteBotAlias where
   rnf DeleteBotAlias' {..} =
-    Prelude.rnf skipResourceInUseCheck
-      `Prelude.seq` Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf skipResourceInUseCheck `Prelude.seq`
+      Prelude.rnf botAliasId `Prelude.seq`
+        Prelude.rnf botId
 
 instance Data.ToHeaders DeleteBotAlias where
   toHeaders =
@@ -229,7 +229,7 @@ deleteBotAliasResponse_httpStatus = Lens.lens (\DeleteBotAliasResponse' {httpSta
 
 instance Prelude.NFData DeleteBotAliasResponse where
   rnf DeleteBotAliasResponse' {..} =
-    Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botAliasStatus
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botAliasId `Prelude.seq`
+      Prelude.rnf botAliasStatus `Prelude.seq`
+        Prelude.rnf botId `Prelude.seq`
+          Prelude.rnf httpStatus

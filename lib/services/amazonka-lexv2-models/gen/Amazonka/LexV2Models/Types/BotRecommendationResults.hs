@@ -95,6 +95,6 @@ instance Prelude.Hashable BotRecommendationResults where
 
 instance Prelude.NFData BotRecommendationResults where
   rnf BotRecommendationResults' {..} =
-    Prelude.rnf associatedTranscriptsUrl
-      `Prelude.seq` Prelude.rnf botLocaleExportUrl
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf associatedTranscriptsUrl `Prelude.seq`
+      Prelude.rnf botLocaleExportUrl `Prelude.seq`
+        Prelude.rnf statistics

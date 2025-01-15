@@ -161,6 +161,6 @@ createUploadUrlResponse_httpStatus = Lens.lens (\CreateUploadUrlResponse' {httpS
 
 instance Prelude.NFData CreateUploadUrlResponse where
   rnf CreateUploadUrlResponse' {..} =
-    Prelude.rnf importId
-      `Prelude.seq` Prelude.rnf uploadUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf importId `Prelude.seq`
+      Prelude.rnf uploadUrl `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -165,11 +165,11 @@ instance Prelude.Hashable DeleteSlotType where
 
 instance Prelude.NFData DeleteSlotType where
   rnf DeleteSlotType' {..} =
-    Prelude.rnf skipResourceInUseCheck
-      `Prelude.seq` Prelude.rnf slotTypeId
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf skipResourceInUseCheck `Prelude.seq`
+      Prelude.rnf slotTypeId `Prelude.seq`
+        Prelude.rnf botId `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf localeId
 
 instance Data.ToHeaders DeleteSlotType where
   toHeaders =

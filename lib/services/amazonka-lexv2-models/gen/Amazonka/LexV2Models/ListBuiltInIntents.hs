@@ -173,10 +173,10 @@ instance Prelude.Hashable ListBuiltInIntents where
 
 instance Prelude.NFData ListBuiltInIntents where
   rnf ListBuiltInIntents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf localeId
 
 instance Data.ToHeaders ListBuiltInIntents where
   toHeaders =
@@ -290,7 +290,7 @@ listBuiltInIntentsResponse_httpStatus = Lens.lens (\ListBuiltInIntentsResponse' 
 
 instance Prelude.NFData ListBuiltInIntentsResponse where
   rnf ListBuiltInIntentsResponse' {..} =
-    Prelude.rnf builtInIntentSummaries
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf builtInIntentSummaries `Prelude.seq`
+      Prelude.rnf localeId `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

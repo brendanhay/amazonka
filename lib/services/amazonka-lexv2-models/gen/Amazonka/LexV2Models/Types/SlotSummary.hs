@@ -145,10 +145,10 @@ instance Prelude.Hashable SlotSummary where
 
 instance Prelude.NFData SlotSummary where
   rnf SlotSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf slotConstraint
-      `Prelude.seq` Prelude.rnf slotId
-      `Prelude.seq` Prelude.rnf slotName
-      `Prelude.seq` Prelude.rnf slotTypeId
-      `Prelude.seq` Prelude.rnf valueElicitationPromptSpecification
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+        Prelude.rnf slotConstraint `Prelude.seq`
+          Prelude.rnf slotId `Prelude.seq`
+            Prelude.rnf slotName `Prelude.seq`
+              Prelude.rnf slotTypeId `Prelude.seq`
+                Prelude.rnf valueElicitationPromptSpecification

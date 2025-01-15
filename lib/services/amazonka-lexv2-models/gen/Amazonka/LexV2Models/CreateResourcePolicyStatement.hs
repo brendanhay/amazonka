@@ -250,13 +250,13 @@ instance
 
 instance Prelude.NFData CreateResourcePolicyStatement where
   rnf CreateResourcePolicyStatement' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf expectedRevisionId
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf statementId
-      `Prelude.seq` Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf expectedRevisionId `Prelude.seq`
+        Prelude.rnf resourceArn `Prelude.seq`
+          Prelude.rnf statementId `Prelude.seq`
+            Prelude.rnf effect `Prelude.seq`
+              Prelude.rnf principal `Prelude.seq`
+                Prelude.rnf action
 
 instance Data.ToHeaders CreateResourcePolicyStatement where
   toHeaders =
@@ -356,6 +356,6 @@ instance
     CreateResourcePolicyStatementResponse
   where
   rnf CreateResourcePolicyStatementResponse' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf httpStatus

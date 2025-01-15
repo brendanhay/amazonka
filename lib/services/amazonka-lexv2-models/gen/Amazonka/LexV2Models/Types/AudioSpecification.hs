@@ -90,8 +90,8 @@ instance Prelude.Hashable AudioSpecification where
 
 instance Prelude.NFData AudioSpecification where
   rnf AudioSpecification' {..} =
-    Prelude.rnf maxLengthMs
-      `Prelude.seq` Prelude.rnf endTimeoutMs
+    Prelude.rnf maxLengthMs `Prelude.seq`
+      Prelude.rnf endTimeoutMs
 
 instance Data.ToJSON AudioSpecification where
   toJSON AudioSpecification' {..} =

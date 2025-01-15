@@ -87,8 +87,8 @@ instance Prelude.Hashable AllowedInputTypes where
 
 instance Prelude.NFData AllowedInputTypes where
   rnf AllowedInputTypes' {..} =
-    Prelude.rnf allowAudioInput
-      `Prelude.seq` Prelude.rnf allowDTMFInput
+    Prelude.rnf allowAudioInput `Prelude.seq`
+      Prelude.rnf allowDTMFInput
 
 instance Data.ToJSON AllowedInputTypes where
   toJSON AllowedInputTypes' {..} =

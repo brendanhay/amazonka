@@ -140,10 +140,10 @@ instance
     FulfillmentUpdatesSpecification
   where
   rnf FulfillmentUpdatesSpecification' {..} =
-    Prelude.rnf startResponse
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf updateResponse
-      `Prelude.seq` Prelude.rnf active
+    Prelude.rnf startResponse `Prelude.seq`
+      Prelude.rnf timeoutInSeconds `Prelude.seq`
+        Prelude.rnf updateResponse `Prelude.seq`
+          Prelude.rnf active
 
 instance Data.ToJSON FulfillmentUpdatesSpecification where
   toJSON FulfillmentUpdatesSpecification' {..} =

@@ -99,8 +99,8 @@ instance Prelude.Hashable VoiceSettings where
 
 instance Prelude.NFData VoiceSettings where
   rnf VoiceSettings' {..} =
-    Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf voiceId
+    Prelude.rnf engine `Prelude.seq`
+      Prelude.rnf voiceId
 
 instance Data.ToJSON VoiceSettings where
   toJSON VoiceSettings' {..} =

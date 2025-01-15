@@ -187,11 +187,11 @@ instance Prelude.Hashable DescribeSlot where
 
 instance Prelude.NFData DescribeSlot where
   rnf DescribeSlot' {..} =
-    Prelude.rnf slotId
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf intentId
+    Prelude.rnf slotId `Prelude.seq`
+      Prelude.rnf botId `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf intentId
 
 instance Data.ToHeaders DescribeSlot where
   toHeaders =
@@ -398,18 +398,18 @@ describeSlotResponse_httpStatus = Lens.lens (\DescribeSlotResponse' {httpStatus}
 
 instance Prelude.NFData DescribeSlotResponse where
   rnf DescribeSlotResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf multipleValuesSetting
-      `Prelude.seq` Prelude.rnf obfuscationSetting
-      `Prelude.seq` Prelude.rnf slotId
-      `Prelude.seq` Prelude.rnf slotName
-      `Prelude.seq` Prelude.rnf slotTypeId
-      `Prelude.seq` Prelude.rnf subSlotSetting
-      `Prelude.seq` Prelude.rnf valueElicitationSetting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf intentId `Prelude.seq`
+              Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                Prelude.rnf localeId `Prelude.seq`
+                  Prelude.rnf multipleValuesSetting `Prelude.seq`
+                    Prelude.rnf obfuscationSetting `Prelude.seq`
+                      Prelude.rnf slotId `Prelude.seq`
+                        Prelude.rnf slotName `Prelude.seq`
+                          Prelude.rnf slotTypeId `Prelude.seq`
+                            Prelude.rnf subSlotSetting `Prelude.seq`
+                              Prelude.rnf valueElicitationSetting `Prelude.seq`
+                                Prelude.rnf httpStatus

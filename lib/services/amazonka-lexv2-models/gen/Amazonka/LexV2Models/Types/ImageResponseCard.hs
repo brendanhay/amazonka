@@ -127,10 +127,10 @@ instance Prelude.Hashable ImageResponseCard where
 
 instance Prelude.NFData ImageResponseCard where
   rnf ImageResponseCard' {..} =
-    Prelude.rnf buttons
-      `Prelude.seq` Prelude.rnf imageUrl
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf buttons `Prelude.seq`
+      Prelude.rnf imageUrl `Prelude.seq`
+        Prelude.rnf subtitle `Prelude.seq`
+          Prelude.rnf title
 
 instance Data.ToJSON ImageResponseCard where
   toJSON ImageResponseCard' {..} =

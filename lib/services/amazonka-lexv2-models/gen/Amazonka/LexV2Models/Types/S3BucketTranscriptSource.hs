@@ -154,11 +154,11 @@ instance Prelude.Hashable S3BucketTranscriptSource where
 
 instance Prelude.NFData S3BucketTranscriptSource where
   rnf S3BucketTranscriptSource' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf pathFormat
-      `Prelude.seq` Prelude.rnf transcriptFilter
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf transcriptFormat
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf pathFormat `Prelude.seq`
+        Prelude.rnf transcriptFilter `Prelude.seq`
+          Prelude.rnf s3BucketName `Prelude.seq`
+            Prelude.rnf transcriptFormat
 
 instance Data.ToJSON S3BucketTranscriptSource where
   toJSON S3BucketTranscriptSource' {..} =

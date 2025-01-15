@@ -97,9 +97,9 @@ instance Prelude.Hashable IntentFilter where
 
 instance Prelude.NFData IntentFilter where
   rnf IntentFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON IntentFilter where
   toJSON IntentFilter' {..} =

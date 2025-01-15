@@ -127,8 +127,8 @@ instance Prelude.Hashable RelativeAggregationDuration where
 
 instance Prelude.NFData RelativeAggregationDuration where
   rnf RelativeAggregationDuration' {..} =
-    Prelude.rnf timeDimension
-      `Prelude.seq` Prelude.rnf timeValue
+    Prelude.rnf timeDimension `Prelude.seq`
+      Prelude.rnf timeValue
 
 instance Data.ToJSON RelativeAggregationDuration where
   toJSON RelativeAggregationDuration' {..} =

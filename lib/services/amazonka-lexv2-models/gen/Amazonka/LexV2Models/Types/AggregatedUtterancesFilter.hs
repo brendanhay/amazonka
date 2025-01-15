@@ -103,9 +103,9 @@ instance Prelude.Hashable AggregatedUtterancesFilter where
 
 instance Prelude.NFData AggregatedUtterancesFilter where
   rnf AggregatedUtterancesFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON AggregatedUtterancesFilter where
   toJSON AggregatedUtterancesFilter' {..} =

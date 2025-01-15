@@ -98,9 +98,9 @@ instance Prelude.Hashable DialogAction where
 
 instance Prelude.NFData DialogAction where
   rnf DialogAction' {..} =
-    Prelude.rnf slotToElicit
-      `Prelude.seq` Prelude.rnf suppressNextMessage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf slotToElicit `Prelude.seq`
+      Prelude.rnf suppressNextMessage `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON DialogAction where
   toJSON DialogAction' {..} =

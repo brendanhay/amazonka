@@ -79,8 +79,8 @@ instance Prelude.Hashable BotLocaleSortBy where
 
 instance Prelude.NFData BotLocaleSortBy where
   rnf BotLocaleSortBy' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf order
 
 instance Data.ToJSON BotLocaleSortBy where
   toJSON BotLocaleSortBy' {..} =

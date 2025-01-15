@@ -102,9 +102,9 @@ instance Prelude.Hashable S3BucketLogDestination where
 
 instance Prelude.NFData S3BucketLogDestination where
   rnf S3BucketLogDestination' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf logPrefix
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf s3BucketArn `Prelude.seq`
+        Prelude.rnf logPrefix
 
 instance Data.ToJSON S3BucketLogDestination where
   toJSON S3BucketLogDestination' {..} =

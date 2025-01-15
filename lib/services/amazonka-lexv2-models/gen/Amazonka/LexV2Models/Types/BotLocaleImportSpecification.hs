@@ -195,11 +195,11 @@ instance
 
 instance Prelude.NFData BotLocaleImportSpecification where
   rnf BotLocaleImportSpecification' {..} =
-    Prelude.rnf nluIntentConfidenceThreshold
-      `Prelude.seq` Prelude.rnf voiceSettings
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf nluIntentConfidenceThreshold `Prelude.seq`
+      Prelude.rnf voiceSettings `Prelude.seq`
+        Prelude.rnf botId `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf localeId
 
 instance Data.ToJSON BotLocaleImportSpecification where
   toJSON BotLocaleImportSpecification' {..} =

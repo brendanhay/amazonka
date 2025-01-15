@@ -163,14 +163,14 @@ instance Prelude.Hashable SlotCaptureSetting where
 
 instance Prelude.NFData SlotCaptureSetting where
   rnf SlotCaptureSetting' {..} =
-    Prelude.rnf captureConditional
-      `Prelude.seq` Prelude.rnf captureNextStep
-      `Prelude.seq` Prelude.rnf captureResponse
-      `Prelude.seq` Prelude.rnf codeHook
-      `Prelude.seq` Prelude.rnf elicitationCodeHook
-      `Prelude.seq` Prelude.rnf failureConditional
-      `Prelude.seq` Prelude.rnf failureNextStep
-      `Prelude.seq` Prelude.rnf failureResponse
+    Prelude.rnf captureConditional `Prelude.seq`
+      Prelude.rnf captureNextStep `Prelude.seq`
+        Prelude.rnf captureResponse `Prelude.seq`
+          Prelude.rnf codeHook `Prelude.seq`
+            Prelude.rnf elicitationCodeHook `Prelude.seq`
+              Prelude.rnf failureConditional `Prelude.seq`
+                Prelude.rnf failureNextStep `Prelude.seq`
+                  Prelude.rnf failureResponse
 
 instance Data.ToJSON SlotCaptureSetting where
   toJSON SlotCaptureSetting' {..} =

@@ -79,8 +79,8 @@ instance Prelude.Hashable BotVersionSortBy where
 
 instance Prelude.NFData BotVersionSortBy where
   rnf BotVersionSortBy' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf order
 
 instance Data.ToJSON BotVersionSortBy where
   toJSON BotVersionSortBy' {..} =

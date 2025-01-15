@@ -195,15 +195,15 @@ instance
     PostDialogCodeHookInvocationSpecification
   where
   rnf PostDialogCodeHookInvocationSpecification' {..} =
-    Prelude.rnf failureConditional
-      `Prelude.seq` Prelude.rnf failureNextStep
-      `Prelude.seq` Prelude.rnf failureResponse
-      `Prelude.seq` Prelude.rnf successConditional
-      `Prelude.seq` Prelude.rnf successNextStep
-      `Prelude.seq` Prelude.rnf successResponse
-      `Prelude.seq` Prelude.rnf timeoutConditional
-      `Prelude.seq` Prelude.rnf timeoutNextStep
-      `Prelude.seq` Prelude.rnf timeoutResponse
+    Prelude.rnf failureConditional `Prelude.seq`
+      Prelude.rnf failureNextStep `Prelude.seq`
+        Prelude.rnf failureResponse `Prelude.seq`
+          Prelude.rnf successConditional `Prelude.seq`
+            Prelude.rnf successNextStep `Prelude.seq`
+              Prelude.rnf successResponse `Prelude.seq`
+                Prelude.rnf timeoutConditional `Prelude.seq`
+                  Prelude.rnf timeoutNextStep `Prelude.seq`
+                    Prelude.rnf timeoutResponse
 
 instance
   Data.ToJSON

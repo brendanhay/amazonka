@@ -97,9 +97,9 @@ instance Prelude.Hashable ImportResourceSpecification where
 
 instance Prelude.NFData ImportResourceSpecification where
   rnf ImportResourceSpecification' {..} =
-    Prelude.rnf botImportSpecification
-      `Prelude.seq` Prelude.rnf botLocaleImportSpecification
-      `Prelude.seq` Prelude.rnf customVocabularyImportSpecification
+    Prelude.rnf botImportSpecification `Prelude.seq`
+      Prelude.rnf botLocaleImportSpecification `Prelude.seq`
+        Prelude.rnf customVocabularyImportSpecification
 
 instance Data.ToJSON ImportResourceSpecification where
   toJSON ImportResourceSpecification' {..} =

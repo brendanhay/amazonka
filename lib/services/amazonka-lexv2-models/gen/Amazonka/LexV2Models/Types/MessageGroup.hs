@@ -89,8 +89,8 @@ instance Prelude.Hashable MessageGroup where
 
 instance Prelude.NFData MessageGroup where
   rnf MessageGroup' {..} =
-    Prelude.rnf variations
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf variations `Prelude.seq`
+      Prelude.rnf message
 
 instance Data.ToJSON MessageGroup where
   toJSON MessageGroup' {..} =

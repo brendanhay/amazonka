@@ -174,10 +174,10 @@ instance
     BatchUpdateCustomVocabularyItem
   where
   rnf BatchUpdateCustomVocabularyItem' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf customVocabularyItemList
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf localeId `Prelude.seq`
+          Prelude.rnf customVocabularyItemList
 
 instance
   Data.ToHeaders
@@ -315,9 +315,9 @@ instance
     BatchUpdateCustomVocabularyItemResponse
   where
   rnf BatchUpdateCustomVocabularyItemResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf errors `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf resources `Prelude.seq`
+              Prelude.rnf httpStatus

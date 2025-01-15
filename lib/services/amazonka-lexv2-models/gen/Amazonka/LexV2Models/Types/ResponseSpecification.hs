@@ -91,8 +91,8 @@ instance Prelude.Hashable ResponseSpecification where
 
 instance Prelude.NFData ResponseSpecification where
   rnf ResponseSpecification' {..} =
-    Prelude.rnf allowInterrupt
-      `Prelude.seq` Prelude.rnf messageGroups
+    Prelude.rnf allowInterrupt `Prelude.seq`
+      Prelude.rnf messageGroups
 
 instance Data.ToJSON ResponseSpecification where
   toJSON ResponseSpecification' {..} =

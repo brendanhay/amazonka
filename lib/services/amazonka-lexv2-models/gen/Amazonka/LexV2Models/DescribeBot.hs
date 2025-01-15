@@ -251,13 +251,13 @@ describeBotResponse_httpStatus = Lens.lens (\DescribeBotResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeBotResponse where
   rnf DescribeBotResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botStatus
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf dataPrivacy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf botStatus `Prelude.seq`
+          Prelude.rnf creationDateTime `Prelude.seq`
+            Prelude.rnf dataPrivacy `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf idleSessionTTLInSeconds `Prelude.seq`
+                  Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf httpStatus

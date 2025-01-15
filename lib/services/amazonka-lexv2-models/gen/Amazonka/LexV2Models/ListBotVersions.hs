@@ -166,10 +166,10 @@ instance Prelude.Hashable ListBotVersions where
 
 instance Prelude.NFData ListBotVersions where
   rnf ListBotVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf botId
 
 instance Data.ToHeaders ListBotVersions where
   toHeaders =
@@ -279,7 +279,7 @@ listBotVersionsResponse_httpStatus = Lens.lens (\ListBotVersionsResponse' {httpS
 
 instance Prelude.NFData ListBotVersionsResponse where
   rnf ListBotVersionsResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersionSummaries `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

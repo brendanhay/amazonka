@@ -115,9 +115,9 @@ instance
     CustomVocabularyImportSpecification
   where
   rnf CustomVocabularyImportSpecification' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf localeId
 
 instance
   Data.ToJSON

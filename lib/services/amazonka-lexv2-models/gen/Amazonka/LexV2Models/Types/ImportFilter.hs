@@ -102,9 +102,9 @@ instance Prelude.Hashable ImportFilter where
 
 instance Prelude.NFData ImportFilter where
   rnf ImportFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON ImportFilter where
   toJSON ImportFilter' {..} =

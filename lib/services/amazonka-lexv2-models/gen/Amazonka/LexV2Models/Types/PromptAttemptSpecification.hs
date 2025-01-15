@@ -112,10 +112,10 @@ instance Prelude.Hashable PromptAttemptSpecification where
 
 instance Prelude.NFData PromptAttemptSpecification where
   rnf PromptAttemptSpecification' {..} =
-    Prelude.rnf allowInterrupt
-      `Prelude.seq` Prelude.rnf audioAndDTMFInputSpecification
-      `Prelude.seq` Prelude.rnf textInputSpecification
-      `Prelude.seq` Prelude.rnf allowedInputTypes
+    Prelude.rnf allowInterrupt `Prelude.seq`
+      Prelude.rnf audioAndDTMFInputSpecification `Prelude.seq`
+        Prelude.rnf textInputSpecification `Prelude.seq`
+          Prelude.rnf allowedInputTypes
 
 instance Data.ToJSON PromptAttemptSpecification where
   toJSON PromptAttemptSpecification' {..} =

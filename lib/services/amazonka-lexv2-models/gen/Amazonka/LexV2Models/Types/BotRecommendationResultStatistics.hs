@@ -100,5 +100,5 @@ instance
     BotRecommendationResultStatistics
   where
   rnf BotRecommendationResultStatistics' {..} =
-    Prelude.rnf intents
-      `Prelude.seq` Prelude.rnf slotTypes
+    Prelude.rnf intents `Prelude.seq`
+      Prelude.rnf slotTypes

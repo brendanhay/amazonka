@@ -76,8 +76,8 @@ instance Prelude.Hashable SlotTypeSortBy where
 
 instance Prelude.NFData SlotTypeSortBy where
   rnf SlotTypeSortBy' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf order
 
 instance Data.ToJSON SlotTypeSortBy where
   toJSON SlotTypeSortBy' {..} =

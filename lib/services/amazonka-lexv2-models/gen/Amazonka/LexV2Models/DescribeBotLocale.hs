@@ -165,9 +165,9 @@ instance Prelude.Hashable DescribeBotLocale where
 
 instance Prelude.NFData DescribeBotLocale where
   rnf DescribeBotLocale' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf localeId
 
 instance Data.ToHeaders DescribeBotLocale where
   toHeaders =
@@ -391,20 +391,20 @@ describeBotLocaleResponse_httpStatus = Lens.lens (\DescribeBotLocaleResponse' {h
 
 instance Prelude.NFData DescribeBotLocaleResponse where
   rnf DescribeBotLocaleResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botLocaleHistoryEvents
-      `Prelude.seq` Prelude.rnf botLocaleStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf failureReasons
-      `Prelude.seq` Prelude.rnf intentsCount
-      `Prelude.seq` Prelude.rnf lastBuildSubmittedDateTime
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf localeName
-      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
-      `Prelude.seq` Prelude.rnf recommendedActions
-      `Prelude.seq` Prelude.rnf slotTypesCount
-      `Prelude.seq` Prelude.rnf voiceSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botLocaleHistoryEvents `Prelude.seq`
+        Prelude.rnf botLocaleStatus `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf creationDateTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf failureReasons `Prelude.seq`
+                  Prelude.rnf intentsCount `Prelude.seq`
+                    Prelude.rnf lastBuildSubmittedDateTime `Prelude.seq`
+                      Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                        Prelude.rnf localeId `Prelude.seq`
+                          Prelude.rnf localeName `Prelude.seq`
+                            Prelude.rnf nluIntentConfidenceThreshold `Prelude.seq`
+                              Prelude.rnf recommendedActions `Prelude.seq`
+                                Prelude.rnf slotTypesCount `Prelude.seq`
+                                  Prelude.rnf voiceSettings `Prelude.seq`
+                                    Prelude.rnf httpStatus

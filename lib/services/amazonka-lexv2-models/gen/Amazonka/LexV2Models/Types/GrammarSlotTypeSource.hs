@@ -99,9 +99,9 @@ instance Prelude.Hashable GrammarSlotTypeSource where
 
 instance Prelude.NFData GrammarSlotTypeSource where
   rnf GrammarSlotTypeSource' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3ObjectKey
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf s3BucketName `Prelude.seq`
+        Prelude.rnf s3ObjectKey
 
 instance Data.ToJSON GrammarSlotTypeSource where
   toJSON GrammarSlotTypeSource' {..} =

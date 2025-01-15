@@ -247,12 +247,12 @@ describeExportResponse_httpStatus = Lens.lens (\DescribeExportResponse' {httpSta
 
 instance Prelude.NFData DescribeExportResponse where
   rnf DescribeExportResponse' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf downloadUrl
-      `Prelude.seq` Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf failureReasons
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf downloadUrl `Prelude.seq`
+        Prelude.rnf exportId `Prelude.seq`
+          Prelude.rnf exportStatus `Prelude.seq`
+            Prelude.rnf failureReasons `Prelude.seq`
+              Prelude.rnf fileFormat `Prelude.seq`
+                Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                  Prelude.rnf resourceSpecification `Prelude.seq`
+                    Prelude.rnf httpStatus

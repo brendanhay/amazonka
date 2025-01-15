@@ -161,11 +161,11 @@ instance Prelude.Hashable ListCustomVocabularyItems where
 
 instance Prelude.NFData ListCustomVocabularyItems where
   rnf ListCustomVocabularyItems' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf botId `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf localeId
 
 instance Data.ToHeaders ListCustomVocabularyItems where
   toHeaders =
@@ -282,9 +282,9 @@ instance
     ListCustomVocabularyItemsResponse
   where
   rnf ListCustomVocabularyItemsResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf customVocabularyItems
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf customVocabularyItems `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf httpStatus

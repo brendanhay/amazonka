@@ -82,8 +82,8 @@ instance Prelude.Hashable SlotTypeValue where
 
 instance Prelude.NFData SlotTypeValue where
   rnf SlotTypeValue' {..} =
-    Prelude.rnf sampleValue
-      `Prelude.seq` Prelude.rnf synonyms
+    Prelude.rnf sampleValue `Prelude.seq`
+      Prelude.rnf synonyms
 
 instance Data.ToJSON SlotTypeValue where
   toJSON SlotTypeValue' {..} =

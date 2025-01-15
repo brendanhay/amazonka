@@ -87,8 +87,8 @@ instance Prelude.Hashable SubSlotTypeComposition where
 
 instance Prelude.NFData SubSlotTypeComposition where
   rnf SubSlotTypeComposition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf slotTypeId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf slotTypeId
 
 instance Data.ToJSON SubSlotTypeComposition where
   toJSON SubSlotTypeComposition' {..} =

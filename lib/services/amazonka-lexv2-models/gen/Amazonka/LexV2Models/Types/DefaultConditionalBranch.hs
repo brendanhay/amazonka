@@ -83,8 +83,8 @@ instance Prelude.Hashable DefaultConditionalBranch where
 
 instance Prelude.NFData DefaultConditionalBranch where
   rnf DefaultConditionalBranch' {..} =
-    Prelude.rnf nextStep
-      `Prelude.seq` Prelude.rnf response
+    Prelude.rnf nextStep `Prelude.seq`
+      Prelude.rnf response
 
 instance Data.ToJSON DefaultConditionalBranch where
   toJSON DefaultConditionalBranch' {..} =

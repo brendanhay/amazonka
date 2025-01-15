@@ -76,8 +76,8 @@ instance Prelude.Hashable ExportSortBy where
 
 instance Prelude.NFData ExportSortBy where
   rnf ExportSortBy' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf order
 
 instance Data.ToJSON ExportSortBy where
   toJSON ExportSortBy' {..} =

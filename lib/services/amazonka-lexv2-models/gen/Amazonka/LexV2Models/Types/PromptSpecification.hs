@@ -132,11 +132,11 @@ instance Prelude.Hashable PromptSpecification where
 
 instance Prelude.NFData PromptSpecification where
   rnf PromptSpecification' {..} =
-    Prelude.rnf allowInterrupt
-      `Prelude.seq` Prelude.rnf messageSelectionStrategy
-      `Prelude.seq` Prelude.rnf promptAttemptsSpecification
-      `Prelude.seq` Prelude.rnf messageGroups
-      `Prelude.seq` Prelude.rnf maxRetries
+    Prelude.rnf allowInterrupt `Prelude.seq`
+      Prelude.rnf messageSelectionStrategy `Prelude.seq`
+        Prelude.rnf promptAttemptsSpecification `Prelude.seq`
+          Prelude.rnf messageGroups `Prelude.seq`
+            Prelude.rnf maxRetries
 
 instance Data.ToJSON PromptSpecification where
   toJSON PromptSpecification' {..} =

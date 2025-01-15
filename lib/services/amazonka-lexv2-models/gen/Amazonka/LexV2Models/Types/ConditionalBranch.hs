@@ -113,10 +113,10 @@ instance Prelude.Hashable ConditionalBranch where
 
 instance Prelude.NFData ConditionalBranch where
   rnf ConditionalBranch' {..} =
-    Prelude.rnf response
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf nextStep
+    Prelude.rnf response `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf condition `Prelude.seq`
+          Prelude.rnf nextStep
 
 instance Data.ToJSON ConditionalBranch where
   toJSON ConditionalBranch' {..} =

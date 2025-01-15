@@ -206,12 +206,12 @@ instance Prelude.Hashable UpdateBotLocale where
 
 instance Prelude.NFData UpdateBotLocale where
   rnf UpdateBotLocale' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf voiceSettings
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf voiceSettings `Prelude.seq`
+        Prelude.rnf botId `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf localeId `Prelude.seq`
+              Prelude.rnf nluIntentConfidenceThreshold
 
 instance Data.ToHeaders UpdateBotLocale where
   toHeaders =
@@ -409,16 +409,16 @@ updateBotLocaleResponse_httpStatus = Lens.lens (\UpdateBotLocaleResponse' {httpS
 
 instance Prelude.NFData UpdateBotLocaleResponse where
   rnf UpdateBotLocaleResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botLocaleStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf failureReasons
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf localeName
-      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
-      `Prelude.seq` Prelude.rnf recommendedActions
-      `Prelude.seq` Prelude.rnf voiceSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botLocaleStatus `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf creationDateTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf failureReasons `Prelude.seq`
+                Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                  Prelude.rnf localeId `Prelude.seq`
+                    Prelude.rnf localeName `Prelude.seq`
+                      Prelude.rnf nluIntentConfidenceThreshold `Prelude.seq`
+                        Prelude.rnf recommendedActions `Prelude.seq`
+                          Prelude.rnf voiceSettings `Prelude.seq`
+                            Prelude.rnf httpStatus

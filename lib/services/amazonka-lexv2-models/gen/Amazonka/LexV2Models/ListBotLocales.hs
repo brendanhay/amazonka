@@ -187,12 +187,12 @@ instance Prelude.Hashable ListBotLocales where
 
 instance Prelude.NFData ListBotLocales where
   rnf ListBotLocales' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf botId `Prelude.seq`
+              Prelude.rnf botVersion
 
 instance Data.ToHeaders ListBotLocales where
   toHeaders =
@@ -317,8 +317,8 @@ listBotLocalesResponse_httpStatus = Lens.lens (\ListBotLocalesResponse' {httpSta
 
 instance Prelude.NFData ListBotLocalesResponse where
   rnf ListBotLocalesResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botLocaleSummaries
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botLocaleSummaries `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf httpStatus

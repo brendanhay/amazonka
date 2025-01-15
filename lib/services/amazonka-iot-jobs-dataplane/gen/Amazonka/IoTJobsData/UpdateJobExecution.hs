@@ -249,15 +249,15 @@ instance Prelude.Hashable UpdateJobExecution where
 
 instance Prelude.NFData UpdateJobExecution where
   rnf UpdateJobExecution' {..} =
-    Prelude.rnf executionNumber
-      `Prelude.seq` Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf includeJobDocument
-      `Prelude.seq` Prelude.rnf includeJobExecutionState
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf stepTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf executionNumber `Prelude.seq`
+      Prelude.rnf expectedVersion `Prelude.seq`
+        Prelude.rnf includeJobDocument `Prelude.seq`
+          Prelude.rnf includeJobExecutionState `Prelude.seq`
+            Prelude.rnf statusDetails `Prelude.seq`
+              Prelude.rnf stepTimeoutInMinutes `Prelude.seq`
+                Prelude.rnf jobId `Prelude.seq`
+                  Prelude.rnf thingName `Prelude.seq`
+                    Prelude.rnf status
 
 instance Data.ToHeaders UpdateJobExecution where
   toHeaders = Prelude.const Prelude.mempty
@@ -343,6 +343,6 @@ updateJobExecutionResponse_httpStatus = Lens.lens (\UpdateJobExecutionResponse' 
 
 instance Prelude.NFData UpdateJobExecutionResponse where
   rnf UpdateJobExecutionResponse' {..} =
-    Prelude.rnf executionState
-      `Prelude.seq` Prelude.rnf jobDocument
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf executionState `Prelude.seq`
+      Prelude.rnf jobDocument `Prelude.seq`
+        Prelude.rnf httpStatus

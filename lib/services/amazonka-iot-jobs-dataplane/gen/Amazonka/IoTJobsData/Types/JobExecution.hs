@@ -211,14 +211,14 @@ instance Prelude.Hashable JobExecution where
 
 instance Prelude.NFData JobExecution where
   rnf JobExecution' {..} =
-    Prelude.rnf approximateSecondsBeforeTimedOut
-      `Prelude.seq` Prelude.rnf executionNumber
-      `Prelude.seq` Prelude.rnf jobDocument
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf queuedAt
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf approximateSecondsBeforeTimedOut `Prelude.seq`
+      Prelude.rnf executionNumber `Prelude.seq`
+        Prelude.rnf jobDocument `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf lastUpdatedAt `Prelude.seq`
+              Prelude.rnf queuedAt `Prelude.seq`
+                Prelude.rnf startedAt `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusDetails `Prelude.seq`
+                      Prelude.rnf thingName `Prelude.seq`
+                        Prelude.rnf versionNumber

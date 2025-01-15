@@ -145,10 +145,10 @@ instance Prelude.Hashable DescribeJobExecution where
 
 instance Prelude.NFData DescribeJobExecution where
   rnf DescribeJobExecution' {..} =
-    Prelude.rnf executionNumber
-      `Prelude.seq` Prelude.rnf includeJobDocument
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf executionNumber `Prelude.seq`
+      Prelude.rnf includeJobDocument `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf thingName
 
 instance Data.ToHeaders DescribeJobExecution where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,5 +210,5 @@ describeJobExecutionResponse_httpStatus = Lens.lens (\DescribeJobExecutionRespon
 
 instance Prelude.NFData DescribeJobExecutionResponse where
   rnf DescribeJobExecutionResponse' {..} =
-    Prelude.rnf execution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf execution `Prelude.seq`
+      Prelude.rnf httpStatus

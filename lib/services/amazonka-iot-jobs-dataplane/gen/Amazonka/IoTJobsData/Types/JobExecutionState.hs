@@ -104,6 +104,6 @@ instance Prelude.Hashable JobExecutionState where
 
 instance Prelude.NFData JobExecutionState where
   rnf JobExecutionState' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf statusDetails `Prelude.seq`
+        Prelude.rnf versionNumber

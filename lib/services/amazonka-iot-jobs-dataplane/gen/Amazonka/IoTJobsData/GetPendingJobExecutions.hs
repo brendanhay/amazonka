@@ -162,6 +162,6 @@ instance
     GetPendingJobExecutionsResponse
   where
   rnf GetPendingJobExecutionsResponse' {..} =
-    Prelude.rnf inProgressJobs
-      `Prelude.seq` Prelude.rnf queuedJobs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inProgressJobs `Prelude.seq`
+      Prelude.rnf queuedJobs `Prelude.seq`
+        Prelude.rnf httpStatus

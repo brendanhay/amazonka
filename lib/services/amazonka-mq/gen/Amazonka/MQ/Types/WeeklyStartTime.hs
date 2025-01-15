@@ -100,9 +100,9 @@ instance Prelude.Hashable WeeklyStartTime where
 
 instance Prelude.NFData WeeklyStartTime where
   rnf WeeklyStartTime' {..} =
-    Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf timeOfDay
-      `Prelude.seq` Prelude.rnf dayOfWeek
+    Prelude.rnf timeZone `Prelude.seq`
+      Prelude.rnf timeOfDay `Prelude.seq`
+        Prelude.rnf dayOfWeek
 
 instance Data.ToJSON WeeklyStartTime where
   toJSON WeeklyStartTime' {..} =

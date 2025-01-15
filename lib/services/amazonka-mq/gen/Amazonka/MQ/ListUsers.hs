@@ -129,9 +129,9 @@ instance Prelude.Hashable ListUsers where
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf brokerId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf brokerId
 
 instance Data.ToHeaders ListUsers where
   toHeaders =
@@ -232,8 +232,8 @@ listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListUsersResponse where
   rnf ListUsersResponse' {..} =
-    Prelude.rnf brokerId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf brokerId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf users `Prelude.seq`
+            Prelude.rnf httpStatus

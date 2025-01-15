@@ -131,9 +131,9 @@ instance Prelude.Hashable DescribeBrokerEngineTypes where
 
 instance Prelude.NFData DescribeBrokerEngineTypes where
   rnf DescribeBrokerEngineTypes' {..} =
-    Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf engineType `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeBrokerEngineTypes where
   toHeaders =
@@ -225,7 +225,7 @@ instance
     DescribeBrokerEngineTypesResponse
   where
   rnf DescribeBrokerEngineTypesResponse' {..} =
-    Prelude.rnf brokerEngineTypes
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf brokerEngineTypes `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

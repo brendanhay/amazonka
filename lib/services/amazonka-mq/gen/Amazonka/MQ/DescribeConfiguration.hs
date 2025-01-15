@@ -276,14 +276,14 @@ describeConfigurationResponse_httpStatus = Lens.lens (\DescribeConfigurationResp
 
 instance Prelude.NFData DescribeConfigurationResponse where
   rnf DescribeConfigurationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authenticationStrategy
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf authenticationStrategy `Prelude.seq`
+        Prelude.rnf created `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf engineType `Prelude.seq`
+              Prelude.rnf engineVersion `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf latestRevision `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf httpStatus

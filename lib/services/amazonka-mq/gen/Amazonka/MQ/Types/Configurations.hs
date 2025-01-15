@@ -92,6 +92,6 @@ instance Prelude.Hashable Configurations where
 
 instance Prelude.NFData Configurations where
   rnf Configurations' {..} =
-    Prelude.rnf current
-      `Prelude.seq` Prelude.rnf history
-      `Prelude.seq` Prelude.rnf pending
+    Prelude.rnf current `Prelude.seq`
+      Prelude.rnf history `Prelude.seq`
+        Prelude.rnf pending

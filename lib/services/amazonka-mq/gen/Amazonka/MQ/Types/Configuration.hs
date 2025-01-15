@@ -216,13 +216,13 @@ instance Prelude.Hashable Configuration where
 
 instance Prelude.NFData Configuration where
   rnf Configuration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf authenticationStrategy
-      `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf created
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf latestRevision `Prelude.seq`
+            Prelude.rnf authenticationStrategy `Prelude.seq`
+              Prelude.rnf engineType `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf arn `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf created

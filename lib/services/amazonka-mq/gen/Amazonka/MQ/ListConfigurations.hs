@@ -116,8 +116,8 @@ instance Prelude.Hashable ListConfigurations where
 
 instance Prelude.NFData ListConfigurations where
   rnf ListConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConfigurations where
   toHeaders =
@@ -205,7 +205,7 @@ listConfigurationsResponse_httpStatus = Lens.lens (\ListConfigurationsResponse' 
 
 instance Prelude.NFData ListConfigurationsResponse where
   rnf ListConfigurationsResponse' {..} =
-    Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurations `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

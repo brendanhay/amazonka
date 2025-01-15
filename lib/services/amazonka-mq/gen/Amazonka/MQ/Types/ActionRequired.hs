@@ -103,5 +103,5 @@ instance Prelude.Hashable ActionRequired where
 
 instance Prelude.NFData ActionRequired where
   rnf ActionRequired' {..} =
-    Prelude.rnf actionRequiredCode
-      `Prelude.seq` Prelude.rnf actionRequiredInfo
+    Prelude.rnf actionRequiredCode `Prelude.seq`
+      Prelude.rnf actionRequiredInfo

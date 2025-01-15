@@ -94,6 +94,6 @@ instance Prelude.Hashable BrokerInstance where
 
 instance Prelude.NFData BrokerInstance where
   rnf BrokerInstance' {..} =
-    Prelude.rnf consoleURL
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf ipAddress
+    Prelude.rnf consoleURL `Prelude.seq`
+      Prelude.rnf endpoints `Prelude.seq`
+        Prelude.rnf ipAddress

@@ -105,6 +105,6 @@ instance Prelude.Hashable UserPendingChanges where
 
 instance Prelude.NFData UserPendingChanges where
   rnf UserPendingChanges' {..} =
-    Prelude.rnf consoleAccess
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf pendingChange
+    Prelude.rnf consoleAccess `Prelude.seq`
+      Prelude.rnf groups `Prelude.seq`
+        Prelude.rnf pendingChange

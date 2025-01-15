@@ -152,5 +152,5 @@ deleteBrokerResponse_httpStatus = Lens.lens (\DeleteBrokerResponse' {httpStatus}
 
 instance Prelude.NFData DeleteBrokerResponse where
   rnf DeleteBrokerResponse' {..} =
-    Prelude.rnf brokerId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf brokerId `Prelude.seq`
+      Prelude.rnf httpStatus

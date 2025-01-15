@@ -138,9 +138,9 @@ instance Prelude.Hashable BrokerInstanceOption where
 
 instance Prelude.NFData BrokerInstanceOption where
   rnf BrokerInstanceOption' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf hostInstanceType
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf supportedDeploymentModes
-      `Prelude.seq` Prelude.rnf supportedEngineVersions
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf engineType `Prelude.seq`
+        Prelude.rnf hostInstanceType `Prelude.seq`
+          Prelude.rnf storageType `Prelude.seq`
+            Prelude.rnf supportedDeploymentModes `Prelude.seq`
+              Prelude.rnf supportedEngineVersions

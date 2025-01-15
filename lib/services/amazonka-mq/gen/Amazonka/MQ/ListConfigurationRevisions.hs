@@ -132,9 +132,9 @@ instance Prelude.Hashable ListConfigurationRevisions where
 
 instance Prelude.NFData ListConfigurationRevisions where
   rnf ListConfigurationRevisions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf configurationId
 
 instance Data.ToHeaders ListConfigurationRevisions where
   toHeaders =
@@ -239,8 +239,8 @@ instance
     ListConfigurationRevisionsResponse
   where
   rnf ListConfigurationRevisionsResponse' {..} =
-    Prelude.rnf configurationId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf revisions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf revisions `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -122,8 +122,8 @@ instance Prelude.Hashable DescribeUser where
 
 instance Prelude.NFData DescribeUser where
   rnf DescribeUser' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf brokerId
+    Prelude.rnf username `Prelude.seq`
+      Prelude.rnf brokerId
 
 instance Data.ToHeaders DescribeUser where
   toHeaders =
@@ -239,9 +239,9 @@ describeUserResponse_httpStatus = Lens.lens (\DescribeUserResponse' {httpStatus}
 
 instance Prelude.NFData DescribeUserResponse where
   rnf DescribeUserResponse' {..} =
-    Prelude.rnf brokerId
-      `Prelude.seq` Prelude.rnf consoleAccess
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf brokerId `Prelude.seq`
+      Prelude.rnf consoleAccess `Prelude.seq`
+        Prelude.rnf groups `Prelude.seq`
+          Prelude.rnf pending `Prelude.seq`
+            Prelude.rnf username `Prelude.seq`
+              Prelude.rnf httpStatus

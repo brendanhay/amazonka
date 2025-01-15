@@ -265,15 +265,15 @@ instance Prelude.Hashable UpdateEndpointGroup where
 
 instance Prelude.NFData UpdateEndpointGroup where
   rnf UpdateEndpointGroup' {..} =
-    Prelude.rnf endpointConfigurations
-      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
-      `Prelude.seq` Prelude.rnf healthCheckPath
-      `Prelude.seq` Prelude.rnf healthCheckPort
-      `Prelude.seq` Prelude.rnf healthCheckProtocol
-      `Prelude.seq` Prelude.rnf portOverrides
-      `Prelude.seq` Prelude.rnf thresholdCount
-      `Prelude.seq` Prelude.rnf trafficDialPercentage
-      `Prelude.seq` Prelude.rnf endpointGroupArn
+    Prelude.rnf endpointConfigurations `Prelude.seq`
+      Prelude.rnf healthCheckIntervalSeconds `Prelude.seq`
+        Prelude.rnf healthCheckPath `Prelude.seq`
+          Prelude.rnf healthCheckPort `Prelude.seq`
+            Prelude.rnf healthCheckProtocol `Prelude.seq`
+              Prelude.rnf portOverrides `Prelude.seq`
+                Prelude.rnf thresholdCount `Prelude.seq`
+                  Prelude.rnf trafficDialPercentage `Prelude.seq`
+                    Prelude.rnf endpointGroupArn
 
 instance Data.ToHeaders UpdateEndpointGroup where
   toHeaders =
@@ -361,5 +361,5 @@ updateEndpointGroupResponse_httpStatus = Lens.lens (\UpdateEndpointGroupResponse
 
 instance Prelude.NFData UpdateEndpointGroupResponse where
   rnf UpdateEndpointGroupResponse' {..} =
-    Prelude.rnf endpointGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -172,10 +172,10 @@ instance
     CreateCustomRoutingEndpointGroup
   where
   rnf CreateCustomRoutingEndpointGroup' {..} =
-    Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf endpointGroupRegion
-      `Prelude.seq` Prelude.rnf destinationConfigurations
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf listenerArn `Prelude.seq`
+      Prelude.rnf endpointGroupRegion `Prelude.seq`
+        Prelude.rnf destinationConfigurations `Prelude.seq`
+          Prelude.rnf idempotencyToken
 
 instance
   Data.ToHeaders
@@ -268,5 +268,5 @@ instance
     CreateCustomRoutingEndpointGroupResponse
   where
   rnf CreateCustomRoutingEndpointGroupResponse' {..} =
-    Prelude.rnf endpointGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointGroup `Prelude.seq`
+      Prelude.rnf httpStatus

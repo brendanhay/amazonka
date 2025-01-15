@@ -127,8 +127,8 @@ instance Prelude.Hashable AddEndpoints where
 
 instance Prelude.NFData AddEndpoints where
   rnf AddEndpoints' {..} =
-    Prelude.rnf endpointConfigurations
-      `Prelude.seq` Prelude.rnf endpointGroupArn
+    Prelude.rnf endpointConfigurations `Prelude.seq`
+      Prelude.rnf endpointGroupArn
 
 instance Data.ToHeaders AddEndpoints where
   toHeaders =
@@ -214,6 +214,6 @@ addEndpointsResponse_httpStatus = Lens.lens (\AddEndpointsResponse' {httpStatus}
 
 instance Prelude.NFData AddEndpointsResponse where
   rnf AddEndpointsResponse' {..} =
-    Prelude.rnf endpointDescriptions
-      `Prelude.seq` Prelude.rnf endpointGroupArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointDescriptions `Prelude.seq`
+      Prelude.rnf endpointGroupArn `Prelude.seq`
+        Prelude.rnf httpStatus

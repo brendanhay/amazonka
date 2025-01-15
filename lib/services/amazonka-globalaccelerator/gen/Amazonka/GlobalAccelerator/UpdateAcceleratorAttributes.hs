@@ -179,10 +179,10 @@ instance Prelude.Hashable UpdateAcceleratorAttributes where
 
 instance Prelude.NFData UpdateAcceleratorAttributes where
   rnf UpdateAcceleratorAttributes' {..} =
-    Prelude.rnf flowLogsEnabled
-      `Prelude.seq` Prelude.rnf flowLogsS3Bucket
-      `Prelude.seq` Prelude.rnf flowLogsS3Prefix
-      `Prelude.seq` Prelude.rnf acceleratorArn
+    Prelude.rnf flowLogsEnabled `Prelude.seq`
+      Prelude.rnf flowLogsS3Bucket `Prelude.seq`
+        Prelude.rnf flowLogsS3Prefix `Prelude.seq`
+          Prelude.rnf acceleratorArn
 
 instance Data.ToHeaders UpdateAcceleratorAttributes where
   toHeaders =
@@ -264,5 +264,5 @@ instance
     UpdateAcceleratorAttributesResponse
   where
   rnf UpdateAcceleratorAttributesResponse' {..} =
-    Prelude.rnf acceleratorAttributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acceleratorAttributes `Prelude.seq`
+      Prelude.rnf httpStatus

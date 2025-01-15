@@ -107,8 +107,8 @@ instance Prelude.Hashable EndpointIdentifier where
 
 instance Prelude.NFData EndpointIdentifier where
   rnf EndpointIdentifier' {..} =
-    Prelude.rnf clientIPPreservationEnabled
-      `Prelude.seq` Prelude.rnf endpointId
+    Prelude.rnf clientIPPreservationEnabled `Prelude.seq`
+      Prelude.rnf endpointId
 
 instance Data.ToJSON EndpointIdentifier where
   toJSON EndpointIdentifier' {..} =

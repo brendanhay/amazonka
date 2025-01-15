@@ -163,10 +163,10 @@ instance
     UpdateCustomRoutingAccelerator
   where
   rnf UpdateCustomRoutingAccelerator' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf acceleratorArn
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf ipAddressType `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf acceleratorArn
 
 instance
   Data.ToHeaders
@@ -249,5 +249,5 @@ instance
     UpdateCustomRoutingAcceleratorResponse
   where
   rnf UpdateCustomRoutingAcceleratorResponse' {..} =
-    Prelude.rnf accelerator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accelerator `Prelude.seq`
+      Prelude.rnf httpStatus

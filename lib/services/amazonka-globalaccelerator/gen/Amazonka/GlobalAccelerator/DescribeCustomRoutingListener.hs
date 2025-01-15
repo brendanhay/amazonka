@@ -177,5 +177,5 @@ instance
     DescribeCustomRoutingListenerResponse
   where
   rnf DescribeCustomRoutingListenerResponse' {..} =
-    Prelude.rnf listener
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listener `Prelude.seq`
+      Prelude.rnf httpStatus

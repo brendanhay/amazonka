@@ -128,8 +128,8 @@ instance Prelude.Hashable UpdateCustomRoutingListener where
 
 instance Prelude.NFData UpdateCustomRoutingListener where
   rnf UpdateCustomRoutingListener' {..} =
-    Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf portRanges
+    Prelude.rnf listenerArn `Prelude.seq`
+      Prelude.rnf portRanges
 
 instance Data.ToHeaders UpdateCustomRoutingListener where
   toHeaders =
@@ -205,5 +205,5 @@ instance
     UpdateCustomRoutingListenerResponse
   where
   rnf UpdateCustomRoutingListenerResponse' {..} =
-    Prelude.rnf listener
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listener `Prelude.seq`
+      Prelude.rnf httpStatus

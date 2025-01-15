@@ -115,6 +115,6 @@ instance
     CustomRoutingDestinationDescription
   where
   rnf CustomRoutingDestinationDescription' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf protocols `Prelude.seq`
+        Prelude.rnf toPort

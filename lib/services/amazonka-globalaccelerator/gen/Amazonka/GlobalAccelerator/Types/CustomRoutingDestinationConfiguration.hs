@@ -111,9 +111,9 @@ instance
     CustomRoutingDestinationConfiguration
   where
   rnf CustomRoutingDestinationConfiguration' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf protocols
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf toPort `Prelude.seq`
+        Prelude.rnf protocols
 
 instance
   Data.ToJSON

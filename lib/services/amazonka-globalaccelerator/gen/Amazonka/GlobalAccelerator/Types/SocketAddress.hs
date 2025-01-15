@@ -80,5 +80,5 @@ instance Prelude.Hashable SocketAddress where
 
 instance Prelude.NFData SocketAddress where
   rnf SocketAddress' {..} =
-    Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf port
+    Prelude.rnf ipAddress `Prelude.seq`
+      Prelude.rnf port

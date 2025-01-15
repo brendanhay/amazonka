@@ -97,8 +97,8 @@ instance Prelude.Hashable PortOverride where
 
 instance Prelude.NFData PortOverride where
   rnf PortOverride' {..} =
-    Prelude.rnf endpointPort
-      `Prelude.seq` Prelude.rnf listenerPort
+    Prelude.rnf endpointPort `Prelude.seq`
+      Prelude.rnf listenerPort
 
 instance Data.ToJSON PortOverride where
   toJSON PortOverride' {..} =

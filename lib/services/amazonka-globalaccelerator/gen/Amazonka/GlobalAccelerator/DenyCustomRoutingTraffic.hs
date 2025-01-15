@@ -204,11 +204,11 @@ instance Prelude.Hashable DenyCustomRoutingTraffic where
 
 instance Prelude.NFData DenyCustomRoutingTraffic where
   rnf DenyCustomRoutingTraffic' {..} =
-    Prelude.rnf denyAllTrafficToEndpoint
-      `Prelude.seq` Prelude.rnf destinationAddresses
-      `Prelude.seq` Prelude.rnf destinationPorts
-      `Prelude.seq` Prelude.rnf endpointGroupArn
-      `Prelude.seq` Prelude.rnf endpointId
+    Prelude.rnf denyAllTrafficToEndpoint `Prelude.seq`
+      Prelude.rnf destinationAddresses `Prelude.seq`
+        Prelude.rnf destinationPorts `Prelude.seq`
+          Prelude.rnf endpointGroupArn `Prelude.seq`
+            Prelude.rnf endpointId
 
 instance Data.ToHeaders DenyCustomRoutingTraffic where
   toHeaders =

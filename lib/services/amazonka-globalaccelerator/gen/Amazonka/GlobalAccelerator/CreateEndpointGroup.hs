@@ -298,17 +298,17 @@ instance Prelude.Hashable CreateEndpointGroup where
 
 instance Prelude.NFData CreateEndpointGroup where
   rnf CreateEndpointGroup' {..} =
-    Prelude.rnf endpointConfigurations
-      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
-      `Prelude.seq` Prelude.rnf healthCheckPath
-      `Prelude.seq` Prelude.rnf healthCheckPort
-      `Prelude.seq` Prelude.rnf healthCheckProtocol
-      `Prelude.seq` Prelude.rnf portOverrides
-      `Prelude.seq` Prelude.rnf thresholdCount
-      `Prelude.seq` Prelude.rnf trafficDialPercentage
-      `Prelude.seq` Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf endpointGroupRegion
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf endpointConfigurations `Prelude.seq`
+      Prelude.rnf healthCheckIntervalSeconds `Prelude.seq`
+        Prelude.rnf healthCheckPath `Prelude.seq`
+          Prelude.rnf healthCheckPort `Prelude.seq`
+            Prelude.rnf healthCheckProtocol `Prelude.seq`
+              Prelude.rnf portOverrides `Prelude.seq`
+                Prelude.rnf thresholdCount `Prelude.seq`
+                  Prelude.rnf trafficDialPercentage `Prelude.seq`
+                    Prelude.rnf listenerArn `Prelude.seq`
+                      Prelude.rnf endpointGroupRegion `Prelude.seq`
+                        Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreateEndpointGroup where
   toHeaders =
@@ -399,5 +399,5 @@ createEndpointGroupResponse_httpStatus = Lens.lens (\CreateEndpointGroupResponse
 
 instance Prelude.NFData CreateEndpointGroupResponse where
   rnf CreateEndpointGroupResponse' {..} =
-    Prelude.rnf endpointGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointGroup `Prelude.seq`
+      Prelude.rnf httpStatus

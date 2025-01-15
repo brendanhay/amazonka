@@ -171,11 +171,11 @@ instance Prelude.Hashable DestinationPortMapping where
 
 instance Prelude.NFData DestinationPortMapping where
   rnf DestinationPortMapping' {..} =
-    Prelude.rnf acceleratorArn
-      `Prelude.seq` Prelude.rnf acceleratorSocketAddresses
-      `Prelude.seq` Prelude.rnf destinationSocketAddress
-      `Prelude.seq` Prelude.rnf destinationTrafficState
-      `Prelude.seq` Prelude.rnf endpointGroupArn
-      `Prelude.seq` Prelude.rnf endpointGroupRegion
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf ipAddressType
+    Prelude.rnf acceleratorArn `Prelude.seq`
+      Prelude.rnf acceleratorSocketAddresses `Prelude.seq`
+        Prelude.rnf destinationSocketAddress `Prelude.seq`
+          Prelude.rnf destinationTrafficState `Prelude.seq`
+            Prelude.rnf endpointGroupArn `Prelude.seq`
+              Prelude.rnf endpointGroupRegion `Prelude.seq`
+                Prelude.rnf endpointId `Prelude.seq`
+                  Prelude.rnf ipAddressType

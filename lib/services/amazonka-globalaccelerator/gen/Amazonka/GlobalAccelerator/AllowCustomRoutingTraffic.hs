@@ -214,11 +214,11 @@ instance Prelude.Hashable AllowCustomRoutingTraffic where
 
 instance Prelude.NFData AllowCustomRoutingTraffic where
   rnf AllowCustomRoutingTraffic' {..} =
-    Prelude.rnf allowAllTrafficToEndpoint
-      `Prelude.seq` Prelude.rnf destinationAddresses
-      `Prelude.seq` Prelude.rnf destinationPorts
-      `Prelude.seq` Prelude.rnf endpointGroupArn
-      `Prelude.seq` Prelude.rnf endpointId
+    Prelude.rnf allowAllTrafficToEndpoint `Prelude.seq`
+      Prelude.rnf destinationAddresses `Prelude.seq`
+        Prelude.rnf destinationPorts `Prelude.seq`
+          Prelude.rnf endpointGroupArn `Prelude.seq`
+            Prelude.rnf endpointId
 
 instance Data.ToHeaders AllowCustomRoutingTraffic where
   toHeaders =

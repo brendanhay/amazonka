@@ -169,9 +169,9 @@ instance Prelude.Hashable EndpointConfiguration where
 
 instance Prelude.NFData EndpointConfiguration where
   rnf EndpointConfiguration' {..} =
-    Prelude.rnf clientIPPreservationEnabled
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf clientIPPreservationEnabled `Prelude.seq`
+      Prelude.rnf endpointId `Prelude.seq`
+        Prelude.rnf weight
 
 instance Data.ToJSON EndpointConfiguration where
   toJSON EndpointConfiguration' {..} =

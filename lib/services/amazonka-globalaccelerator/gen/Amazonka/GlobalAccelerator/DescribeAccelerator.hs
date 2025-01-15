@@ -170,5 +170,5 @@ describeAcceleratorResponse_httpStatus = Lens.lens (\DescribeAcceleratorResponse
 
 instance Prelude.NFData DescribeAcceleratorResponse where
   rnf DescribeAcceleratorResponse' {..} =
-    Prelude.rnf accelerator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accelerator `Prelude.seq`
+      Prelude.rnf httpStatus

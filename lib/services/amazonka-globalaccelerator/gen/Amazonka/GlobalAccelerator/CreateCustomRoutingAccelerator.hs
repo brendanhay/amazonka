@@ -285,12 +285,12 @@ instance
     CreateCustomRoutingAccelerator
   where
   rnf CreateCustomRoutingAccelerator' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf ipAddresses
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf ipAddressType `Prelude.seq`
+        Prelude.rnf ipAddresses `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf idempotencyToken
 
 instance
   Data.ToHeaders
@@ -375,5 +375,5 @@ instance
     CreateCustomRoutingAcceleratorResponse
   where
   rnf CreateCustomRoutingAcceleratorResponse' {..} =
-    Prelude.rnf accelerator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accelerator `Prelude.seq`
+      Prelude.rnf httpStatus

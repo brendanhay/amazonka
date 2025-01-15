@@ -121,8 +121,8 @@ instance Prelude.Hashable RemoveEndpoints where
 
 instance Prelude.NFData RemoveEndpoints where
   rnf RemoveEndpoints' {..} =
-    Prelude.rnf endpointIdentifiers
-      `Prelude.seq` Prelude.rnf endpointGroupArn
+    Prelude.rnf endpointIdentifiers `Prelude.seq`
+      Prelude.rnf endpointGroupArn
 
 instance Data.ToHeaders RemoveEndpoints where
   toHeaders =

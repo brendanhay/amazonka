@@ -173,5 +173,5 @@ withdrawByoipCidrResponse_httpStatus = Lens.lens (\WithdrawByoipCidrResponse' {h
 
 instance Prelude.NFData WithdrawByoipCidrResponse where
   rnf WithdrawByoipCidrResponse' {..} =
-    Prelude.rnf byoipCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byoipCidr `Prelude.seq`
+      Prelude.rnf httpStatus

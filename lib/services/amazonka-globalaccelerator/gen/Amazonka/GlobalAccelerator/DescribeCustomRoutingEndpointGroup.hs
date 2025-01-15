@@ -198,5 +198,5 @@ instance
     DescribeCustomRoutingEndpointGroupResponse
   where
   rnf DescribeCustomRoutingEndpointGroupResponse' {..} =
-    Prelude.rnf endpointGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointGroup `Prelude.seq`
+      Prelude.rnf httpStatus

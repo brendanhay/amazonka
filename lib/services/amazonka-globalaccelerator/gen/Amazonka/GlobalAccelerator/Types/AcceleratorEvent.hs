@@ -93,5 +93,5 @@ instance Prelude.Hashable AcceleratorEvent where
 
 instance Prelude.NFData AcceleratorEvent where
   rnf AcceleratorEvent' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf timestamp

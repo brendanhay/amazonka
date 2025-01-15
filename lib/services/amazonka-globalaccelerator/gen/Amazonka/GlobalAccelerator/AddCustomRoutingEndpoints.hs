@@ -137,8 +137,8 @@ instance Prelude.Hashable AddCustomRoutingEndpoints where
 
 instance Prelude.NFData AddCustomRoutingEndpoints where
   rnf AddCustomRoutingEndpoints' {..} =
-    Prelude.rnf endpointConfigurations
-      `Prelude.seq` Prelude.rnf endpointGroupArn
+    Prelude.rnf endpointConfigurations `Prelude.seq`
+      Prelude.rnf endpointGroupArn
 
 instance Data.ToHeaders AddCustomRoutingEndpoints where
   toHeaders =
@@ -230,6 +230,6 @@ instance
     AddCustomRoutingEndpointsResponse
   where
   rnf AddCustomRoutingEndpointsResponse' {..} =
-    Prelude.rnf endpointDescriptions
-      `Prelude.seq` Prelude.rnf endpointGroupArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointDescriptions `Prelude.seq`
+      Prelude.rnf endpointGroupArn `Prelude.seq`
+        Prelude.rnf httpStatus

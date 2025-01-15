@@ -248,13 +248,13 @@ instance Prelude.Hashable EndpointGroup where
 
 instance Prelude.NFData EndpointGroup where
   rnf EndpointGroup' {..} =
-    Prelude.rnf endpointDescriptions
-      `Prelude.seq` Prelude.rnf endpointGroupArn
-      `Prelude.seq` Prelude.rnf endpointGroupRegion
-      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
-      `Prelude.seq` Prelude.rnf healthCheckPath
-      `Prelude.seq` Prelude.rnf healthCheckPort
-      `Prelude.seq` Prelude.rnf healthCheckProtocol
-      `Prelude.seq` Prelude.rnf portOverrides
-      `Prelude.seq` Prelude.rnf thresholdCount
-      `Prelude.seq` Prelude.rnf trafficDialPercentage
+    Prelude.rnf endpointDescriptions `Prelude.seq`
+      Prelude.rnf endpointGroupArn `Prelude.seq`
+        Prelude.rnf endpointGroupRegion `Prelude.seq`
+          Prelude.rnf healthCheckIntervalSeconds `Prelude.seq`
+            Prelude.rnf healthCheckPath `Prelude.seq`
+              Prelude.rnf healthCheckPort `Prelude.seq`
+                Prelude.rnf healthCheckProtocol `Prelude.seq`
+                  Prelude.rnf portOverrides `Prelude.seq`
+                    Prelude.rnf thresholdCount `Prelude.seq`
+                      Prelude.rnf trafficDialPercentage

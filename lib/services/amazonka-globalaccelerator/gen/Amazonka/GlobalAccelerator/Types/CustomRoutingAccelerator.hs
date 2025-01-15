@@ -227,12 +227,12 @@ instance Prelude.Hashable CustomRoutingAccelerator where
 
 instance Prelude.NFData CustomRoutingAccelerator where
   rnf CustomRoutingAccelerator' {..} =
-    Prelude.rnf acceleratorArn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf ipSets
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf acceleratorArn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf dnsName `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf ipAddressType `Prelude.seq`
+              Prelude.rnf ipSets `Prelude.seq`
+                Prelude.rnf lastModifiedTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf status

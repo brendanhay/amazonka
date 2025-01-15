@@ -110,8 +110,8 @@ instance
 
 instance Prelude.NFData RemoveCustomRoutingEndpoints where
   rnf RemoveCustomRoutingEndpoints' {..} =
-    Prelude.rnf endpointIds
-      `Prelude.seq` Prelude.rnf endpointGroupArn
+    Prelude.rnf endpointIds `Prelude.seq`
+      Prelude.rnf endpointGroupArn
 
 instance Data.ToHeaders RemoveCustomRoutingEndpoints where
   toHeaders =

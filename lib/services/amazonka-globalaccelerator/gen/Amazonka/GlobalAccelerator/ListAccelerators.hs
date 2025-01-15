@@ -108,12 +108,12 @@ instance Core.AWSPager ListAccelerators where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccelerators_nextToken
-          Lens..~ rs
-          Lens.^? listAcceleratorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccelerators_nextToken
+              Lens..~ rs
+              Lens.^? listAcceleratorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccelerators where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListAccelerators where
 
 instance Prelude.NFData ListAccelerators where
   rnf ListAccelerators' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAccelerators where
   toHeaders =
@@ -224,6 +224,6 @@ listAcceleratorsResponse_httpStatus = Lens.lens (\ListAcceleratorsResponse' {htt
 
 instance Prelude.NFData ListAcceleratorsResponse where
   rnf ListAcceleratorsResponse' {..} =
-    Prelude.rnf accelerators
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accelerators `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

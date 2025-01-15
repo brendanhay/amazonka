@@ -122,12 +122,12 @@ instance Core.AWSPager ListServiceQuotas where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listServiceQuotas_nextToken
-          Lens..~ rs
-          Lens.^? listServiceQuotasResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listServiceQuotas_nextToken
+              Lens..~ rs
+              Lens.^? listServiceQuotasResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceQuotas where
   type
@@ -153,9 +153,9 @@ instance Prelude.Hashable ListServiceQuotas where
 
 instance Prelude.NFData ListServiceQuotas where
   rnf ListServiceQuotas' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceCode
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serviceCode
 
 instance Data.ToHeaders ListServiceQuotas where
   toHeaders =
@@ -241,6 +241,6 @@ listServiceQuotasResponse_httpStatus = Lens.lens (\ListServiceQuotasResponse' {h
 
 instance Prelude.NFData ListServiceQuotasResponse where
   rnf ListServiceQuotasResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf quotas
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf quotas `Prelude.seq`
+        Prelude.rnf httpStatus

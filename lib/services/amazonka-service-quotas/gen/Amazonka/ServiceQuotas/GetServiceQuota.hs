@@ -112,8 +112,8 @@ instance Prelude.Hashable GetServiceQuota where
 
 instance Prelude.NFData GetServiceQuota where
   rnf GetServiceQuota' {..} =
-    Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf quotaCode
+    Prelude.rnf serviceCode `Prelude.seq`
+      Prelude.rnf quotaCode
 
 instance Data.ToHeaders GetServiceQuota where
   toHeaders =
@@ -185,5 +185,5 @@ getServiceQuotaResponse_httpStatus = Lens.lens (\GetServiceQuotaResponse' {httpS
 
 instance Prelude.NFData GetServiceQuotaResponse where
   rnf GetServiceQuotaResponse' {..} =
-    Prelude.rnf quota
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf quota `Prelude.seq`
+      Prelude.rnf httpStatus

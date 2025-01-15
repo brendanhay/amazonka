@@ -153,10 +153,10 @@ instance
     PutServiceQuotaIncreaseRequestIntoTemplate
   where
   rnf PutServiceQuotaIncreaseRequestIntoTemplate' {..} =
-    Prelude.rnf quotaCode
-      `Prelude.seq` Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf desiredValue
+    Prelude.rnf quotaCode `Prelude.seq`
+      Prelude.rnf serviceCode `Prelude.seq`
+        Prelude.rnf awsRegion `Prelude.seq`
+          Prelude.rnf desiredValue
 
 instance
   Data.ToHeaders
@@ -250,5 +250,5 @@ instance
   where
   rnf
     PutServiceQuotaIncreaseRequestIntoTemplateResponse' {..} =
-      Prelude.rnf serviceQuotaIncreaseRequestInTemplate
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf serviceQuotaIncreaseRequestInTemplate `Prelude.seq`
+        Prelude.rnf httpStatus

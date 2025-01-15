@@ -122,12 +122,12 @@ instance Core.AWSPager ListAWSDefaultServiceQuotas where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAWSDefaultServiceQuotas_nextToken
-          Lens..~ rs
-          Lens.^? listAWSDefaultServiceQuotasResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAWSDefaultServiceQuotas_nextToken
+              Lens..~ rs
+              Lens.^? listAWSDefaultServiceQuotasResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAWSDefaultServiceQuotas where
   type
@@ -153,9 +153,9 @@ instance Prelude.Hashable ListAWSDefaultServiceQuotas where
 
 instance Prelude.NFData ListAWSDefaultServiceQuotas where
   rnf ListAWSDefaultServiceQuotas' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceCode
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serviceCode
 
 instance Data.ToHeaders ListAWSDefaultServiceQuotas where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     ListAWSDefaultServiceQuotasResponse
   where
   rnf ListAWSDefaultServiceQuotasResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf quotas
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf quotas `Prelude.seq`
+        Prelude.rnf httpStatus

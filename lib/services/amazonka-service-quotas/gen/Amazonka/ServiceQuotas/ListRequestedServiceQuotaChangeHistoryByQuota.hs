@@ -148,12 +148,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRequestedServiceQuotaChangeHistoryByQuota_nextToken
-          Lens..~ rs
-          Lens.^? listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRequestedServiceQuotaChangeHistoryByQuota_nextToken
+              Lens..~ rs
+              Lens.^? listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -197,11 +197,11 @@ instance
   where
   rnf
     ListRequestedServiceQuotaChangeHistoryByQuota' {..} =
-      Prelude.rnf maxResults
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf status
-        `Prelude.seq` Prelude.rnf serviceCode
-        `Prelude.seq` Prelude.rnf quotaCode
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf serviceCode `Prelude.seq`
+              Prelude.rnf quotaCode
 
 instance
   Data.ToHeaders
@@ -309,6 +309,6 @@ instance
   where
   rnf
     ListRequestedServiceQuotaChangeHistoryByQuotaResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf requestedQuotas
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestedQuotas `Prelude.seq`
+          Prelude.rnf httpStatus

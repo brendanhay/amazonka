@@ -133,12 +133,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listServiceQuotaIncreaseRequestsInTemplate_nextToken
-          Lens..~ rs
-          Lens.^? listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listServiceQuotaIncreaseRequestsInTemplate_nextToken
+              Lens..~ rs
+              Lens.^? listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -180,10 +180,10 @@ instance
     ListServiceQuotaIncreaseRequestsInTemplate
   where
   rnf ListServiceQuotaIncreaseRequestsInTemplate' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceCode
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf serviceCode
 
 instance
   Data.ToHeaders
@@ -290,6 +290,6 @@ instance
   where
   rnf
     ListServiceQuotaIncreaseRequestsInTemplateResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf serviceQuotaIncreaseRequestInTemplateList
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serviceQuotaIncreaseRequestInTemplateList `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -186,5 +186,5 @@ instance
     GetRequestedServiceQuotaChangeResponse
   where
   rnf GetRequestedServiceQuotaChangeResponse' {..} =
-    Prelude.rnf requestedQuota
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestedQuota `Prelude.seq`
+      Prelude.rnf httpStatus

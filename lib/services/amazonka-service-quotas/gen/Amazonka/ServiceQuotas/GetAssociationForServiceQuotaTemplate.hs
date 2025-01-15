@@ -178,5 +178,5 @@ instance
   where
   rnf
     GetAssociationForServiceQuotaTemplateResponse' {..} =
-      Prelude.rnf serviceQuotaTemplateAssociationStatus
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf serviceQuotaTemplateAssociationStatus `Prelude.seq`
+        Prelude.rnf httpStatus

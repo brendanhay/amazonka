@@ -81,5 +81,5 @@ instance Prelude.Hashable QuotaPeriod where
 
 instance Prelude.NFData QuotaPeriod where
   rnf QuotaPeriod' {..} =
-    Prelude.rnf periodUnit
-      `Prelude.seq` Prelude.rnf periodValue
+    Prelude.rnf periodUnit `Prelude.seq`
+      Prelude.rnf periodValue

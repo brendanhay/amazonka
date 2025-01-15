@@ -114,10 +114,10 @@ data Library = Library
   { _version' :: Version,
     _config' :: Config,
     _service' :: Service Identity SData SData WData,
-    -- | @(x, y)@ in cuts' means that:
+    -- | @(x, y)@ in sourceImports' means that:
     -- * The module for @x@ should @import {-# SOURCE #-} y@, and
     -- * We should generate a @.hs-boot@ for @y@.
-    _cuts' :: Set (Text, Text),
+    _sourceImports' :: Set (Text, Text),
     _instance' :: Fun
   }
 

@@ -61,12 +61,12 @@ rewrite _version' _config' s' = do
             TList1 t -> typeNames t
             TMap k v -> typeNames k ++ typeNames v
 
-      -- Compute cuts that we will need to turn into @{-# SOURCE #-}@ imports.
-      -- Ignore cuts from a type to itself; they don't cause circular imports.
-      _cuts' = Set.filter (uncurry (/=)) $ breakLoops edges nodes
+      -- Compute imports for which we need to use @{-# SOURCE #-}@ pragmas.
+      -- Ignore imports from a type to itself; they don't cause circular imports.
+      _sourceImports' = Set.filter (uncurry (/=)) $ breakLoops edges nodes
 
   _instance' <- serviceData (_service' ^. metadata) (_service' ^. retry)
-  pure $ Library {_version', _config', _service', _cuts', _instance'}
+  pure $ Library {_version', _config', _service', _sourceImports', _instance'}
 
 deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ HashMap.filter (not . Lens.view opDeprecated)

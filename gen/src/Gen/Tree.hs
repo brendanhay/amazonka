@@ -122,7 +122,7 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
       where
         template = case s of
           Prod _ p _
-            | _prodName p `elem` Set.map snd (l ^. cuts') ->
+            | _prodName p `elem` Set.map snd (l ^. sourceImports') ->
                 Just bootProductTemplate
           _ -> Nothing
 

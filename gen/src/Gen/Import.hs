@@ -56,7 +56,7 @@ productDependencies l p =
   Set.toList (Set.map buildImport moduleDependencies)
   where
     buildImport t
-      | (_prodName p, t) `elem` (l ^. cuts') = addSource t'
+      | (_prodName p, t) `elem` (l ^. sourceImports') = addSource t'
       | otherwise = t'
       where
         t' = l ^. typesNS <> mkNS t

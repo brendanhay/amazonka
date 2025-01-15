@@ -248,11 +248,11 @@ getReportDefinitionResponse_lastUpdated = Lens.lens (\GetReportDefinitionRespons
 
 instance Prelude.NFData GetReportDefinitionResponse where
   rnf GetReportDefinitionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf reportDescription
-      `Prelude.seq` Prelude.rnf reportFrequency
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf destinationS3Location
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdated
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf reportId `Prelude.seq`
+        Prelude.rnf reportDescription `Prelude.seq`
+          Prelude.rnf reportFrequency `Prelude.seq`
+            Prelude.rnf format `Prelude.seq`
+              Prelude.rnf destinationS3Location `Prelude.seq`
+                Prelude.rnf createdAt `Prelude.seq`
+                  Prelude.rnf lastUpdated

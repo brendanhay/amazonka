@@ -160,11 +160,11 @@ instance Prelude.Hashable PutReportDefinition where
 
 instance Prelude.NFData PutReportDefinition where
   rnf PutReportDefinition' {..} =
-    Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf reportDescription
-      `Prelude.seq` Prelude.rnf reportFrequency
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf destinationS3Location
+    Prelude.rnf reportId `Prelude.seq`
+      Prelude.rnf reportDescription `Prelude.seq`
+        Prelude.rnf reportFrequency `Prelude.seq`
+          Prelude.rnf format `Prelude.seq`
+            Prelude.rnf destinationS3Location
 
 instance Data.ToHeaders PutReportDefinition where
   toHeaders =
@@ -241,5 +241,5 @@ putReportDefinitionResponse_httpStatus = Lens.lens (\PutReportDefinitionResponse
 
 instance Prelude.NFData PutReportDefinitionResponse where
   rnf PutReportDefinitionResponse' {..} =
-    Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reportId `Prelude.seq`
+      Prelude.rnf httpStatus

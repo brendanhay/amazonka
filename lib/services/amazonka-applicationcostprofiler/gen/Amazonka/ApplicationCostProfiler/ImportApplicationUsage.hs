@@ -178,5 +178,5 @@ instance
     ImportApplicationUsageResponse
   where
   rnf ImportApplicationUsageResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf importId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf importId

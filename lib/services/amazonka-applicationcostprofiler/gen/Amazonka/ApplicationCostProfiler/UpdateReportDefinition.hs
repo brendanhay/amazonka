@@ -157,11 +157,11 @@ instance Prelude.Hashable UpdateReportDefinition where
 
 instance Prelude.NFData UpdateReportDefinition where
   rnf UpdateReportDefinition' {..} =
-    Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf reportDescription
-      `Prelude.seq` Prelude.rnf reportFrequency
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf destinationS3Location
+    Prelude.rnf reportId `Prelude.seq`
+      Prelude.rnf reportDescription `Prelude.seq`
+        Prelude.rnf reportFrequency `Prelude.seq`
+          Prelude.rnf format `Prelude.seq`
+            Prelude.rnf destinationS3Location
 
 instance Data.ToHeaders UpdateReportDefinition where
   toHeaders =
@@ -242,5 +242,5 @@ instance
     UpdateReportDefinitionResponse
   where
   rnf UpdateReportDefinitionResponse' {..} =
-    Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reportId `Prelude.seq`
+      Prelude.rnf httpStatus

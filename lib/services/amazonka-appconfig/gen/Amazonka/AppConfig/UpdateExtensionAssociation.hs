@@ -114,8 +114,8 @@ instance Prelude.Hashable UpdateExtensionAssociation where
 
 instance Prelude.NFData UpdateExtensionAssociation where
   rnf UpdateExtensionAssociation' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf extensionAssociationId
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf extensionAssociationId
 
 instance Data.ToHeaders UpdateExtensionAssociation where
   toHeaders =

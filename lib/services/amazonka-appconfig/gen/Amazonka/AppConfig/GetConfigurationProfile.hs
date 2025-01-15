@@ -118,8 +118,8 @@ instance Prelude.Hashable GetConfigurationProfile where
 
 instance Prelude.NFData GetConfigurationProfile where
   rnf GetConfigurationProfile' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf configurationProfileId
 
 instance Data.ToHeaders GetConfigurationProfile where
   toHeaders =

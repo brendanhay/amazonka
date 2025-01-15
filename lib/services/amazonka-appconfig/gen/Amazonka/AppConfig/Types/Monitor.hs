@@ -85,8 +85,8 @@ instance Prelude.Hashable Monitor where
 
 instance Prelude.NFData Monitor where
   rnf Monitor' {..} =
-    Prelude.rnf alarmRoleArn
-      `Prelude.seq` Prelude.rnf alarmArn
+    Prelude.rnf alarmRoleArn `Prelude.seq`
+      Prelude.rnf alarmArn
 
 instance Data.ToJSON Monitor where
   toJSON Monitor' {..} =

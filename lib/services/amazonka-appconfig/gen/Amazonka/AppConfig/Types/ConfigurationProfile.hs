@@ -173,11 +173,11 @@ instance Prelude.Hashable ConfigurationProfile where
 
 instance Prelude.NFData ConfigurationProfile where
   rnf ConfigurationProfile' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf retrievalRoleArn
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf validators
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf locationUri `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf retrievalRoleArn `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf validators

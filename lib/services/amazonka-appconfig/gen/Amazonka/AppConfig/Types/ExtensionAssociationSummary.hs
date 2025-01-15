@@ -104,6 +104,6 @@ instance Prelude.Hashable ExtensionAssociationSummary where
 
 instance Prelude.NFData ExtensionAssociationSummary where
   rnf ExtensionAssociationSummary' {..} =
-    Prelude.rnf extensionArn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf extensionArn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf resourceArn

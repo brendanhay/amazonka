@@ -190,14 +190,14 @@ instance Prelude.Hashable DeploymentSummary where
 
 instance Prelude.NFData DeploymentSummary where
   rnf DeploymentSummary' {..} =
-    Prelude.rnf completedAt
-      `Prelude.seq` Prelude.rnf configurationName
-      `Prelude.seq` Prelude.rnf configurationVersion
-      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
-      `Prelude.seq` Prelude.rnf deploymentNumber
-      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
-      `Prelude.seq` Prelude.rnf growthFactor
-      `Prelude.seq` Prelude.rnf growthType
-      `Prelude.seq` Prelude.rnf percentageComplete
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf completedAt `Prelude.seq`
+      Prelude.rnf configurationName `Prelude.seq`
+        Prelude.rnf configurationVersion `Prelude.seq`
+          Prelude.rnf deploymentDurationInMinutes `Prelude.seq`
+            Prelude.rnf deploymentNumber `Prelude.seq`
+              Prelude.rnf finalBakeTimeInMinutes `Prelude.seq`
+                Prelude.rnf growthFactor `Prelude.seq`
+                  Prelude.rnf growthType `Prelude.seq`
+                    Prelude.rnf percentageComplete `Prelude.seq`
+                      Prelude.rnf startedAt `Prelude.seq`
+                        Prelude.rnf state

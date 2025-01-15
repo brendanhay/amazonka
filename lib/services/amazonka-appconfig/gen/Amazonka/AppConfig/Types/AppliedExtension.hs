@@ -103,7 +103,7 @@ instance Prelude.Hashable AppliedExtension where
 
 instance Prelude.NFData AppliedExtension where
   rnf AppliedExtension' {..} =
-    Prelude.rnf extensionAssociationId
-      `Prelude.seq` Prelude.rnf extensionId
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf extensionAssociationId `Prelude.seq`
+      Prelude.rnf extensionId `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf versionNumber

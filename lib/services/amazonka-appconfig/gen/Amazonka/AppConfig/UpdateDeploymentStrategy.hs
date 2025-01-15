@@ -242,12 +242,12 @@ instance Prelude.Hashable UpdateDeploymentStrategy where
 
 instance Prelude.NFData UpdateDeploymentStrategy where
   rnf UpdateDeploymentStrategy' {..} =
-    Prelude.rnf deploymentDurationInMinutes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
-      `Prelude.seq` Prelude.rnf growthFactor
-      `Prelude.seq` Prelude.rnf growthType
-      `Prelude.seq` Prelude.rnf deploymentStrategyId
+    Prelude.rnf deploymentDurationInMinutes `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf finalBakeTimeInMinutes `Prelude.seq`
+          Prelude.rnf growthFactor `Prelude.seq`
+            Prelude.rnf growthType `Prelude.seq`
+              Prelude.rnf deploymentStrategyId
 
 instance Data.ToHeaders UpdateDeploymentStrategy where
   toHeaders =

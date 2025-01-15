@@ -85,8 +85,8 @@ instance Prelude.Hashable Parameter where
 
 instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf required
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf required
 
 instance Data.ToJSON Parameter where
   toJSON Parameter' {..} =

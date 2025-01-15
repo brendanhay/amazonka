@@ -188,12 +188,12 @@ instance Prelude.Hashable CreateExtension where
 
 instance Prelude.NFData CreateExtension where
   rnf CreateExtension' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf latestVersionNumber
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf latestVersionNumber `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf actions
 
 instance Data.ToHeaders CreateExtension where
   toHeaders CreateExtension' {..} =

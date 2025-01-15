@@ -132,9 +132,9 @@ instance
     DeleteHostedConfigurationVersion
   where
   rnf DeleteHostedConfigurationVersion' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf configurationProfileId `Prelude.seq`
+        Prelude.rnf versionNumber
 
 instance
   Data.ToHeaders

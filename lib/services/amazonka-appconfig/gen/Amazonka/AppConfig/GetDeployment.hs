@@ -137,9 +137,9 @@ instance Prelude.Hashable GetDeployment where
 
 instance Prelude.NFData GetDeployment where
   rnf GetDeployment' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf deploymentNumber
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf environmentId `Prelude.seq`
+        Prelude.rnf deploymentNumber
 
 instance Data.ToHeaders GetDeployment where
   toHeaders =

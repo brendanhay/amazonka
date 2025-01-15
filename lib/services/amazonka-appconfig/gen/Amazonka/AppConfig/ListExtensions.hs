@@ -131,9 +131,9 @@ instance Prelude.Hashable ListExtensions where
 
 instance Prelude.NFData ListExtensions where
   rnf ListExtensions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListExtensions where
   toHeaders =
@@ -212,6 +212,6 @@ listExtensionsResponse_httpStatus = Lens.lens (\ListExtensionsResponse' {httpSta
 
 instance Prelude.NFData ListExtensionsResponse where
   rnf ListExtensionsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

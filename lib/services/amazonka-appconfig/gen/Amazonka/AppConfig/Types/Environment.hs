@@ -130,9 +130,9 @@ instance Prelude.Hashable Environment where
 
 instance Prelude.NFData Environment where
   rnf Environment' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf monitors
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf monitors `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state

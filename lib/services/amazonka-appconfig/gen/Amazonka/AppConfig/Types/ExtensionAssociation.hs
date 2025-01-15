@@ -125,9 +125,9 @@ instance Prelude.Hashable ExtensionAssociation where
 
 instance Prelude.NFData ExtensionAssociation where
   rnf ExtensionAssociation' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf extensionArn
-      `Prelude.seq` Prelude.rnf extensionVersionNumber
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf extensionArn `Prelude.seq`
+        Prelude.rnf extensionVersionNumber `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf parameters `Prelude.seq`
+              Prelude.rnf resourceArn

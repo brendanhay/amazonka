@@ -156,11 +156,11 @@ instance Prelude.Hashable DeploymentStrategy where
 
 instance Prelude.NFData DeploymentStrategy where
   rnf DeploymentStrategy' {..} =
-    Prelude.rnf deploymentDurationInMinutes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
-      `Prelude.seq` Prelude.rnf growthFactor
-      `Prelude.seq` Prelude.rnf growthType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf replicateTo
+    Prelude.rnf deploymentDurationInMinutes `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf finalBakeTimeInMinutes `Prelude.seq`
+          Prelude.rnf growthFactor `Prelude.seq`
+            Prelude.rnf growthType `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf replicateTo

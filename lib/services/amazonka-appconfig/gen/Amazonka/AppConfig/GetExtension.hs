@@ -110,8 +110,8 @@ instance Prelude.Hashable GetExtension where
 
 instance Prelude.NFData GetExtension where
   rnf GetExtension' {..} =
-    Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf extensionIdentifier
+    Prelude.rnf versionNumber `Prelude.seq`
+      Prelude.rnf extensionIdentifier
 
 instance Data.ToHeaders GetExtension where
   toHeaders =

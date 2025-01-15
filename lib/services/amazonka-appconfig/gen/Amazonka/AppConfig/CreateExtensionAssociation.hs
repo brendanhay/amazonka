@@ -174,11 +174,11 @@ instance Prelude.Hashable CreateExtensionAssociation where
 
 instance Prelude.NFData CreateExtensionAssociation where
   rnf CreateExtensionAssociation' {..} =
-    Prelude.rnf extensionVersionNumber
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf extensionIdentifier
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf extensionVersionNumber `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf extensionIdentifier `Prelude.seq`
+            Prelude.rnf resourceIdentifier
 
 instance Data.ToHeaders CreateExtensionAssociation where
   toHeaders =

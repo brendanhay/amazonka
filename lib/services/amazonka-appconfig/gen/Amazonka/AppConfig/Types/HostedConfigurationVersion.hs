@@ -115,9 +115,9 @@ instance Prelude.Hashable HostedConfigurationVersion where
 
 instance Prelude.NFData HostedConfigurationVersion where
   rnf HostedConfigurationVersion' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf configurationProfileId `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf contentType `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf versionNumber

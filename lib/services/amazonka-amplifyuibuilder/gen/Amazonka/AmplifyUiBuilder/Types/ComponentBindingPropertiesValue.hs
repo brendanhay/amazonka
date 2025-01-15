@@ -107,9 +107,9 @@ instance
     ComponentBindingPropertiesValue
   where
   rnf ComponentBindingPropertiesValue' {..} =
-    Prelude.rnf bindingProperties
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf bindingProperties `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON ComponentBindingPropertiesValue where
   toJSON ComponentBindingPropertiesValue' {..} =

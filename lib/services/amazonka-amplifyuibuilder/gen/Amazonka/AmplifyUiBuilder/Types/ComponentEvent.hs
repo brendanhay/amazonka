@@ -97,9 +97,9 @@ instance Prelude.Hashable ComponentEvent where
 
 instance Prelude.NFData ComponentEvent where
   rnf ComponentEvent' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf bindingEvent
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf bindingEvent `Prelude.seq`
+        Prelude.rnf parameters
 
 instance Data.ToJSON ComponentEvent where
   toJSON ComponentEvent' {..} =

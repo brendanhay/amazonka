@@ -84,8 +84,8 @@ instance Prelude.Hashable ValueMapping where
 
 instance Prelude.NFData ValueMapping where
   rnf ValueMapping' {..} =
-    Prelude.rnf displayValue
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf displayValue `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON ValueMapping where
   toJSON ValueMapping' {..} =

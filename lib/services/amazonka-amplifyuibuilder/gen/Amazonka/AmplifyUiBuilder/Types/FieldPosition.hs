@@ -95,9 +95,9 @@ instance Prelude.Hashable FieldPosition where
 
 instance Prelude.NFData FieldPosition where
   rnf FieldPosition' {..} =
-    Prelude.rnf below
-      `Prelude.seq` Prelude.rnf fixed
-      `Prelude.seq` Prelude.rnf rightOf
+    Prelude.rnf below `Prelude.seq`
+      Prelude.rnf fixed `Prelude.seq`
+        Prelude.rnf rightOf
 
 instance Data.ToJSON FieldPosition where
   toJSON FieldPosition' {..} =

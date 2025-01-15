@@ -123,12 +123,12 @@ instance Core.AWSPager ListThemes where
     | Core.stop (rs Lens.^. listThemesResponse_entities) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThemes_nextToken
-          Lens..~ rs
-          Lens.^? listThemesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThemes_nextToken
+              Lens..~ rs
+              Lens.^? listThemesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThemes where
   type AWSResponse ListThemes = ListThemesResponse
@@ -153,10 +153,10 @@ instance Prelude.Hashable ListThemes where
 
 instance Prelude.NFData ListThemes where
   rnf ListThemes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appId `Prelude.seq`
+          Prelude.rnf environmentName
 
 instance Data.ToHeaders ListThemes where
   toHeaders =
@@ -235,6 +235,6 @@ listThemesResponse_entities = Lens.lens (\ListThemesResponse' {entities} -> enti
 
 instance Prelude.NFData ListThemesResponse where
   rnf ListThemesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entities

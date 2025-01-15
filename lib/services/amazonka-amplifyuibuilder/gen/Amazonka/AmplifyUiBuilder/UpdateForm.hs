@@ -149,11 +149,11 @@ instance Prelude.Hashable UpdateForm where
 
 instance Prelude.NFData UpdateForm where
   rnf UpdateForm' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf updatedForm
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf environmentName `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf updatedForm
 
 instance Data.ToHeaders UpdateForm where
   toHeaders =
@@ -224,5 +224,5 @@ updateFormResponse_httpStatus = Lens.lens (\UpdateFormResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateFormResponse where
   rnf UpdateFormResponse' {..} =
-    Prelude.rnf entity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entity `Prelude.seq`
+      Prelude.rnf httpStatus

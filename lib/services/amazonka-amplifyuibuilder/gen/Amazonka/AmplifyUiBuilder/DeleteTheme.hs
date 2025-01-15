@@ -111,9 +111,9 @@ instance Prelude.Hashable DeleteTheme where
 
 instance Prelude.NFData DeleteTheme where
   rnf DeleteTheme' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders DeleteTheme where
   toHeaders =

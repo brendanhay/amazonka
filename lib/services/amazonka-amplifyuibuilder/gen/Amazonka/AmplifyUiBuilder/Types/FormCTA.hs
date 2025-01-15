@@ -104,10 +104,10 @@ instance Prelude.Hashable FormCTA where
 
 instance Prelude.NFData FormCTA where
   rnf FormCTA' {..} =
-    Prelude.rnf cancel
-      `Prelude.seq` Prelude.rnf clear
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf submit
+    Prelude.rnf cancel `Prelude.seq`
+      Prelude.rnf clear `Prelude.seq`
+        Prelude.rnf position `Prelude.seq`
+          Prelude.rnf submit
 
 instance Data.ToJSON FormCTA where
   toJSON FormCTA' {..} =

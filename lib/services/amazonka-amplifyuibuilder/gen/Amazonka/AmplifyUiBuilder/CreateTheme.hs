@@ -135,10 +135,10 @@ instance Prelude.Hashable CreateTheme where
 
 instance Prelude.NFData CreateTheme where
   rnf CreateTheme' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf themeToCreate
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf environmentName `Prelude.seq`
+          Prelude.rnf themeToCreate
 
 instance Data.ToHeaders CreateTheme where
   toHeaders =
@@ -208,5 +208,5 @@ createThemeResponse_httpStatus = Lens.lens (\CreateThemeResponse' {httpStatus} -
 
 instance Prelude.NFData CreateThemeResponse where
   rnf CreateThemeResponse' {..} =
-    Prelude.rnf entity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entity `Prelude.seq`
+      Prelude.rnf httpStatus

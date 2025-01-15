@@ -137,10 +137,10 @@ instance Prelude.Hashable CreateComponent where
 
 instance Prelude.NFData CreateComponent where
   rnf CreateComponent' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf componentToCreate
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf componentToCreate `Prelude.seq`
+          Prelude.rnf environmentName
 
 instance Data.ToHeaders CreateComponent where
   toHeaders =
@@ -211,5 +211,5 @@ createComponentResponse_httpStatus = Lens.lens (\CreateComponentResponse' {httpS
 
 instance Prelude.NFData CreateComponentResponse where
   rnf CreateComponentResponse' {..} =
-    Prelude.rnf entity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entity `Prelude.seq`
+      Prelude.rnf httpStatus

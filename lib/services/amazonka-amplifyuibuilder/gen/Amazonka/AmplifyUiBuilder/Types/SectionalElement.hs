@@ -130,11 +130,11 @@ instance Prelude.Hashable SectionalElement where
 
 instance Prelude.NFData SectionalElement where
   rnf SectionalElement' {..} =
-    Prelude.rnf level
-      `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf level `Prelude.seq`
+      Prelude.rnf orientation `Prelude.seq`
+        Prelude.rnf position `Prelude.seq`
+          Prelude.rnf text `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON SectionalElement where
   toJSON SectionalElement' {..} =

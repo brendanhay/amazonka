@@ -114,11 +114,11 @@ instance Prelude.Hashable Predicate where
 
 instance Prelude.NFData Predicate where
   rnf Predicate' {..} =
-    Prelude.rnf and
-      `Prelude.seq` Prelude.rnf field
-      `Prelude.seq` Prelude.rnf operand
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf or
+    Prelude.rnf and `Prelude.seq`
+      Prelude.rnf field `Prelude.seq`
+        Prelude.rnf operand `Prelude.seq`
+          Prelude.rnf operator `Prelude.seq`
+            Prelude.rnf or
 
 instance Data.ToJSON Predicate where
   toJSON Predicate' {..} =

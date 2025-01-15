@@ -110,8 +110,8 @@ instance Prelude.Hashable RefreshToken where
 
 instance Prelude.NFData RefreshToken where
   rnf RefreshToken' {..} =
-    Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf refreshTokenBody
+    Prelude.rnf provider `Prelude.seq`
+      Prelude.rnf refreshTokenBody
 
 instance Data.ToHeaders RefreshToken where
   toHeaders =
@@ -192,6 +192,6 @@ refreshTokenResponse_expiresIn = Lens.lens (\RefreshTokenResponse' {expiresIn} -
 
 instance Prelude.NFData RefreshTokenResponse where
   rnf RefreshTokenResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf expiresIn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accessToken `Prelude.seq`
+        Prelude.rnf expiresIn

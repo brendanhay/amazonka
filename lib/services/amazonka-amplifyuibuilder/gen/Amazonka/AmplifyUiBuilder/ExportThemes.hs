@@ -114,12 +114,12 @@ instance Core.AWSPager ExportThemes where
         (rs Lens.^. exportThemesResponse_entities) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& exportThemes_nextToken
-          Lens..~ rs
-          Lens.^? exportThemesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& exportThemes_nextToken
+              Lens..~ rs
+              Lens.^? exportThemesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ExportThemes where
   type AWSResponse ExportThemes = ExportThemesResponse
@@ -143,9 +143,9 @@ instance Prelude.Hashable ExportThemes where
 
 instance Prelude.NFData ExportThemes where
   rnf ExportThemes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf environmentName
 
 instance Data.ToHeaders ExportThemes where
   toHeaders =
@@ -221,6 +221,6 @@ exportThemesResponse_entities = Lens.lens (\ExportThemesResponse' {entities} -> 
 
 instance Prelude.NFData ExportThemesResponse where
   rnf ExportThemesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entities

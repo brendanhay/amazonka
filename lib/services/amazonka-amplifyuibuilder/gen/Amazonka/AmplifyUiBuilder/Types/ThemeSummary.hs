@@ -110,7 +110,7 @@ instance Prelude.Hashable ThemeSummary where
 
 instance Prelude.NFData ThemeSummary where
   rnf ThemeSummary' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name

@@ -199,18 +199,18 @@ instance Prelude.Hashable CreateComponentData where
 
 instance Prelude.NFData CreateComponentData where
   rnf CreateComponentData' {..} =
-    Prelude.rnf children
-      `Prelude.seq` Prelude.rnf collectionProperties
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf bindingProperties
-      `Prelude.seq` Prelude.rnf componentType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf variants
+    Prelude.rnf children `Prelude.seq`
+      Prelude.rnf collectionProperties `Prelude.seq`
+        Prelude.rnf events `Prelude.seq`
+          Prelude.rnf schemaVersion `Prelude.seq`
+            Prelude.rnf sourceId `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf bindingProperties `Prelude.seq`
+                  Prelude.rnf componentType `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf overrides `Prelude.seq`
+                        Prelude.rnf properties `Prelude.seq`
+                          Prelude.rnf variants
 
 instance Data.ToJSON CreateComponentData where
   toJSON CreateComponentData' {..} =

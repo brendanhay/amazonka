@@ -91,10 +91,10 @@ instance Prelude.Hashable UpdateThemeData where
 
 instance Prelude.NFData UpdateThemeData where
   rnf UpdateThemeData' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf overrides `Prelude.seq`
+          Prelude.rnf values
 
 instance Data.ToJSON UpdateThemeData where
   toJSON UpdateThemeData' {..} =

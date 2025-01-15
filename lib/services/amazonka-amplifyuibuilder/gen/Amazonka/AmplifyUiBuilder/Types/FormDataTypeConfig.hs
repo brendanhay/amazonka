@@ -93,8 +93,8 @@ instance Prelude.Hashable FormDataTypeConfig where
 
 instance Prelude.NFData FormDataTypeConfig where
   rnf FormDataTypeConfig' {..} =
-    Prelude.rnf dataSourceType
-      `Prelude.seq` Prelude.rnf dataTypeName
+    Prelude.rnf dataSourceType `Prelude.seq`
+      Prelude.rnf dataTypeName
 
 instance Data.ToJSON FormDataTypeConfig where
   toJSON FormDataTypeConfig' {..} =

@@ -135,10 +135,10 @@ instance Prelude.Hashable CreateForm where
 
 instance Prelude.NFData CreateForm where
   rnf CreateForm' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf formToCreate
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf environmentName `Prelude.seq`
+          Prelude.rnf formToCreate
 
 instance Data.ToHeaders CreateForm where
   toHeaders =
@@ -208,5 +208,5 @@ createFormResponse_httpStatus = Lens.lens (\CreateFormResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateFormResponse where
   rnf CreateFormResponse' {..} =
-    Prelude.rnf entity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entity `Prelude.seq`
+      Prelude.rnf httpStatus

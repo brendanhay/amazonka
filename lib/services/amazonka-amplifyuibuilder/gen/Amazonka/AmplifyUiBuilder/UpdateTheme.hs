@@ -149,11 +149,11 @@ instance Prelude.Hashable UpdateTheme where
 
 instance Prelude.NFData UpdateTheme where
   rnf UpdateTheme' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf updatedTheme
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf environmentName `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf updatedTheme
 
 instance Data.ToHeaders UpdateTheme where
   toHeaders =
@@ -224,5 +224,5 @@ updateThemeResponse_httpStatus = Lens.lens (\UpdateThemeResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateThemeResponse where
   rnf UpdateThemeResponse' {..} =
-    Prelude.rnf entity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entity `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -113,12 +113,12 @@ instance Core.AWSPager ExportForms where
     | Core.stop (rs Lens.^. exportFormsResponse_entities) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& exportForms_nextToken
-          Lens..~ rs
-          Lens.^? exportFormsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& exportForms_nextToken
+              Lens..~ rs
+              Lens.^? exportFormsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ExportForms where
   type AWSResponse ExportForms = ExportFormsResponse
@@ -142,9 +142,9 @@ instance Prelude.Hashable ExportForms where
 
 instance Prelude.NFData ExportForms where
   rnf ExportForms' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf environmentName
 
 instance Data.ToHeaders ExportForms where
   toHeaders =
@@ -220,6 +220,6 @@ exportFormsResponse_entities = Lens.lens (\ExportFormsResponse' {entities} -> en
 
 instance Prelude.NFData ExportFormsResponse where
   rnf ExportFormsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entities

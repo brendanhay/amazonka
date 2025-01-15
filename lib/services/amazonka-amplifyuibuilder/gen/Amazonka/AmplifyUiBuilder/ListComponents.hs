@@ -124,12 +124,12 @@ instance Core.AWSPager ListComponents where
         (rs Lens.^. listComponentsResponse_entities) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listComponents_nextToken
-          Lens..~ rs
-          Lens.^? listComponentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listComponents_nextToken
+              Lens..~ rs
+              Lens.^? listComponentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComponents where
   type
@@ -156,10 +156,10 @@ instance Prelude.Hashable ListComponents where
 
 instance Prelude.NFData ListComponents where
   rnf ListComponents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appId `Prelude.seq`
+          Prelude.rnf environmentName
 
 instance Data.ToHeaders ListComponents where
   toHeaders =
@@ -239,6 +239,6 @@ listComponentsResponse_entities = Lens.lens (\ListComponentsResponse' {entities}
 
 instance Prelude.NFData ListComponentsResponse where
   rnf ListComponentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entities

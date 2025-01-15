@@ -131,10 +131,10 @@ instance Prelude.Hashable PutMetadataFlag where
 
 instance Prelude.NFData PutMetadataFlag where
   rnf PutMetadataFlag' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf featureName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf environmentName `Prelude.seq`
+          Prelude.rnf featureName
 
 instance Data.ToHeaders PutMetadataFlag where
   toHeaders =

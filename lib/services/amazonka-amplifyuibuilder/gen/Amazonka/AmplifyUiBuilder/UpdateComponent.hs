@@ -151,11 +151,11 @@ instance Prelude.Hashable UpdateComponent where
 
 instance Prelude.NFData UpdateComponent where
   rnf UpdateComponent' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf updatedComponent
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf environmentName `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf updatedComponent
 
 instance Data.ToHeaders UpdateComponent where
   toHeaders =
@@ -227,5 +227,5 @@ updateComponentResponse_httpStatus = Lens.lens (\UpdateComponentResponse' {httpS
 
 instance Prelude.NFData UpdateComponentResponse where
   rnf UpdateComponentResponse' {..} =
-    Prelude.rnf entity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entity `Prelude.seq`
+      Prelude.rnf httpStatus

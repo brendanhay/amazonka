@@ -93,9 +93,9 @@ instance Prelude.Hashable FormButton where
 
 instance Prelude.NFData FormButton where
   rnf FormButton' {..} =
-    Prelude.rnf children
-      `Prelude.seq` Prelude.rnf excluded
-      `Prelude.seq` Prelude.rnf position
+    Prelude.rnf children `Prelude.seq`
+      Prelude.rnf excluded `Prelude.seq`
+        Prelude.rnf position
 
 instance Data.ToJSON FormButton where
   toJSON FormButton' {..} =

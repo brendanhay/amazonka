@@ -144,9 +144,9 @@ instance Prelude.Hashable FormSummary where
 
 instance Prelude.NFData FormSummary where
   rnf FormSummary' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf formActionType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf dataType `Prelude.seq`
+        Prelude.rnf environmentName `Prelude.seq`
+          Prelude.rnf formActionType `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name

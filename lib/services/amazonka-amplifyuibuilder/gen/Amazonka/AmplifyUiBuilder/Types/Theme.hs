@@ -174,12 +174,12 @@ instance Prelude.Hashable Theme where
 
 instance Prelude.NFData Theme where
   rnf Theme' {..} =
-    Prelude.rnf modifiedAt
-      `Prelude.seq` Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf modifiedAt `Prelude.seq`
+      Prelude.rnf overrides `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf appId `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf environmentName `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf values

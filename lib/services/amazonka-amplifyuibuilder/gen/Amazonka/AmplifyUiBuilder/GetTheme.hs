@@ -121,9 +121,9 @@ instance Prelude.Hashable GetTheme where
 
 instance Prelude.NFData GetTheme where
   rnf GetTheme' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders GetTheme where
   toHeaders =
@@ -190,5 +190,5 @@ getThemeResponse_httpStatus = Lens.lens (\GetThemeResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetThemeResponse where
   rnf GetThemeResponse' {..} =
-    Prelude.rnf theme
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf theme `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -85,8 +85,8 @@ instance Prelude.Hashable SortProperty where
 
 instance Prelude.NFData SortProperty where
   rnf SortProperty' {..} =
-    Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf field
+    Prelude.rnf direction `Prelude.seq`
+      Prelude.rnf field
 
 instance Data.ToJSON SortProperty where
   toJSON SortProperty' {..} =

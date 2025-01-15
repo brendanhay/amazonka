@@ -187,15 +187,15 @@ instance Prelude.Hashable ActionParameters where
 
 instance Prelude.NFData ActionParameters where
   rnf ActionParameters' {..} =
-    Prelude.rnf anchor
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf global
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf anchor `Prelude.seq`
+      Prelude.rnf fields `Prelude.seq`
+        Prelude.rnf global `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf model `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf target `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf url
 
 instance Data.ToJSON ActionParameters where
   toJSON ActionParameters' {..} =

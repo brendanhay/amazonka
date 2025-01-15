@@ -164,9 +164,9 @@ instance
     BatchUpdateAttendeeCapabilitiesExcept
   where
   rnf BatchUpdateAttendeeCapabilitiesExcept' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf excludedAttendeeIds
-      `Prelude.seq` Prelude.rnf capabilities
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf excludedAttendeeIds `Prelude.seq`
+        Prelude.rnf capabilities
 
 instance
   Data.ToHeaders

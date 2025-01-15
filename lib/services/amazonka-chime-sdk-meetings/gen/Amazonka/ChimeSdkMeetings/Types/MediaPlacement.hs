@@ -147,11 +147,11 @@ instance Prelude.Hashable MediaPlacement where
 
 instance Prelude.NFData MediaPlacement where
   rnf MediaPlacement' {..} =
-    Prelude.rnf audioFallbackUrl
-      `Prelude.seq` Prelude.rnf audioHostUrl
-      `Prelude.seq` Prelude.rnf eventIngestionUrl
-      `Prelude.seq` Prelude.rnf screenDataUrl
-      `Prelude.seq` Prelude.rnf screenSharingUrl
-      `Prelude.seq` Prelude.rnf screenViewingUrl
-      `Prelude.seq` Prelude.rnf signalingUrl
-      `Prelude.seq` Prelude.rnf turnControlUrl
+    Prelude.rnf audioFallbackUrl `Prelude.seq`
+      Prelude.rnf audioHostUrl `Prelude.seq`
+        Prelude.rnf eventIngestionUrl `Prelude.seq`
+          Prelude.rnf screenDataUrl `Prelude.seq`
+            Prelude.rnf screenSharingUrl `Prelude.seq`
+              Prelude.rnf screenViewingUrl `Prelude.seq`
+                Prelude.rnf signalingUrl `Prelude.seq`
+                  Prelude.rnf turnControlUrl

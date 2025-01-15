@@ -261,16 +261,16 @@ instance Prelude.Hashable CreateMeetingWithAttendees where
 
 instance Prelude.NFData CreateMeetingWithAttendees where
   rnf CreateMeetingWithAttendees' {..} =
-    Prelude.rnf meetingFeatures
-      `Prelude.seq` Prelude.rnf meetingHostId
-      `Prelude.seq` Prelude.rnf notificationsConfiguration
-      `Prelude.seq` Prelude.rnf primaryMeetingId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tenantIds
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf mediaRegion
-      `Prelude.seq` Prelude.rnf externalMeetingId
-      `Prelude.seq` Prelude.rnf attendees
+    Prelude.rnf meetingFeatures `Prelude.seq`
+      Prelude.rnf meetingHostId `Prelude.seq`
+        Prelude.rnf notificationsConfiguration `Prelude.seq`
+          Prelude.rnf primaryMeetingId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf tenantIds `Prelude.seq`
+                Prelude.rnf clientRequestToken `Prelude.seq`
+                  Prelude.rnf mediaRegion `Prelude.seq`
+                    Prelude.rnf externalMeetingId `Prelude.seq`
+                      Prelude.rnf attendees
 
 instance Data.ToHeaders CreateMeetingWithAttendees where
   toHeaders = Prelude.const Prelude.mempty
@@ -373,7 +373,7 @@ instance
     CreateMeetingWithAttendeesResponse
   where
   rnf CreateMeetingWithAttendeesResponse' {..} =
-    Prelude.rnf attendees
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf meeting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attendees `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf meeting `Prelude.seq`
+          Prelude.rnf httpStatus

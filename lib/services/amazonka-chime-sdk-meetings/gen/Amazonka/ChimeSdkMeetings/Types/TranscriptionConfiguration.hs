@@ -77,8 +77,8 @@ instance Prelude.Hashable TranscriptionConfiguration where
 
 instance Prelude.NFData TranscriptionConfiguration where
   rnf TranscriptionConfiguration' {..} =
-    Prelude.rnf engineTranscribeMedicalSettings
-      `Prelude.seq` Prelude.rnf engineTranscribeSettings
+    Prelude.rnf engineTranscribeMedicalSettings `Prelude.seq`
+      Prelude.rnf engineTranscribeSettings
 
 instance Data.ToJSON TranscriptionConfiguration where
   toJSON TranscriptionConfiguration' {..} =

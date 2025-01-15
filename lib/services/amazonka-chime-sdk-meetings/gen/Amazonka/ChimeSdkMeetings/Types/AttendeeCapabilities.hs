@@ -122,9 +122,9 @@ instance Prelude.Hashable AttendeeCapabilities where
 
 instance Prelude.NFData AttendeeCapabilities where
   rnf AttendeeCapabilities' {..} =
-    Prelude.rnf audio
-      `Prelude.seq` Prelude.rnf video
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf audio `Prelude.seq`
+      Prelude.rnf video `Prelude.seq`
+        Prelude.rnf content
 
 instance Data.ToJSON AttendeeCapabilities where
   toJSON AttendeeCapabilities' {..} =

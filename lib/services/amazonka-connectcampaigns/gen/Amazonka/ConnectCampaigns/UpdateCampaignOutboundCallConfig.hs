@@ -133,10 +133,10 @@ instance
     UpdateCampaignOutboundCallConfig
   where
   rnf UpdateCampaignOutboundCallConfig' {..} =
-    Prelude.rnf answerMachineDetectionConfig
-      `Prelude.seq` Prelude.rnf connectContactFlowId
-      `Prelude.seq` Prelude.rnf connectSourcePhoneNumber
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf answerMachineDetectionConfig `Prelude.seq`
+      Prelude.rnf connectContactFlowId `Prelude.seq`
+        Prelude.rnf connectSourcePhoneNumber `Prelude.seq`
+          Prelude.rnf id
 
 instance
   Data.ToHeaders

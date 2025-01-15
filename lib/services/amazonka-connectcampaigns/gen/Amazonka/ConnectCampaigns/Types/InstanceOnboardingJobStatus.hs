@@ -97,6 +97,6 @@ instance Prelude.Hashable InstanceOnboardingJobStatus where
 
 instance Prelude.NFData InstanceOnboardingJobStatus where
   rnf InstanceOnboardingJobStatus' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf connectInstanceId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureCode `Prelude.seq`
+      Prelude.rnf connectInstanceId `Prelude.seq`
+        Prelude.rnf status

@@ -148,10 +148,10 @@ instance Prelude.Hashable Campaign where
 
 instance Prelude.NFData Campaign where
   rnf Campaign' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf connectInstanceId
-      `Prelude.seq` Prelude.rnf dialerConfig
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outboundCallConfig
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf connectInstanceId `Prelude.seq`
+          Prelude.rnf dialerConfig `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf outboundCallConfig

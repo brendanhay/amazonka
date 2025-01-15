@@ -80,5 +80,5 @@ instance Prelude.Hashable FailedCampaignStateResponse where
 
 instance Prelude.NFData FailedCampaignStateResponse where
   rnf FailedCampaignStateResponse' {..} =
-    Prelude.rnf campaignId
-      `Prelude.seq` Prelude.rnf failureCode
+    Prelude.rnf campaignId `Prelude.seq`
+      Prelude.rnf failureCode

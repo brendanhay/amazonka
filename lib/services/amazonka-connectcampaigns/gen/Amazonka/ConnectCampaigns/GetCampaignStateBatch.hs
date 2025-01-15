@@ -179,6 +179,6 @@ getCampaignStateBatchResponse_httpStatus = Lens.lens (\GetCampaignStateBatchResp
 
 instance Prelude.NFData GetCampaignStateBatchResponse where
   rnf GetCampaignStateBatchResponse' {..} =
-    Prelude.rnf failedRequests
-      `Prelude.seq` Prelude.rnf successfulRequests
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedRequests `Prelude.seq`
+      Prelude.rnf successfulRequests `Prelude.seq`
+        Prelude.rnf httpStatus

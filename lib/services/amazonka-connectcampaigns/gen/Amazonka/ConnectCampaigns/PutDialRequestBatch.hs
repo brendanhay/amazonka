@@ -117,8 +117,8 @@ instance Prelude.Hashable PutDialRequestBatch where
 
 instance Prelude.NFData PutDialRequestBatch where
   rnf PutDialRequestBatch' {..} =
-    Prelude.rnf dialRequests
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf dialRequests `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders PutDialRequestBatch where
   toHeaders =
@@ -196,6 +196,6 @@ putDialRequestBatchResponse_httpStatus = Lens.lens (\PutDialRequestBatchResponse
 
 instance Prelude.NFData PutDialRequestBatchResponse where
   rnf PutDialRequestBatchResponse' {..} =
-    Prelude.rnf failedRequests
-      `Prelude.seq` Prelude.rnf successfulRequests
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedRequests `Prelude.seq`
+      Prelude.rnf successfulRequests `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -91,5 +91,5 @@ instance
     SuccessfulCampaignStateResponse
   where
   rnf SuccessfulCampaignStateResponse' {..} =
-    Prelude.rnf campaignId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf campaignId `Prelude.seq`
+      Prelude.rnf state

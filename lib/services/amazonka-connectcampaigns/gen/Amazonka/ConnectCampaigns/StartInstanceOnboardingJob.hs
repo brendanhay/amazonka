@@ -113,8 +113,8 @@ instance Prelude.Hashable StartInstanceOnboardingJob where
 
 instance Prelude.NFData StartInstanceOnboardingJob where
   rnf StartInstanceOnboardingJob' {..} =
-    Prelude.rnf connectInstanceId
-      `Prelude.seq` Prelude.rnf encryptionConfig
+    Prelude.rnf connectInstanceId `Prelude.seq`
+      Prelude.rnf encryptionConfig
 
 instance Data.ToHeaders StartInstanceOnboardingJob where
   toHeaders =
@@ -192,5 +192,5 @@ instance
     StartInstanceOnboardingJobResponse
   where
   rnf StartInstanceOnboardingJobResponse' {..} =
-    Prelude.rnf connectInstanceOnboardingJobStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectInstanceOnboardingJobStatus `Prelude.seq`
+      Prelude.rnf httpStatus

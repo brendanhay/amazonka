@@ -247,11 +247,11 @@ describeLocationEfsResponse_httpStatus = Lens.lens (\DescribeLocationEfsResponse
 
 instance Prelude.NFData DescribeLocationEfsResponse where
   rnf DescribeLocationEfsResponse' {..} =
-    Prelude.rnf accessPointArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf ec2Config
-      `Prelude.seq` Prelude.rnf fileSystemAccessRoleArn
-      `Prelude.seq` Prelude.rnf inTransitEncryption
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessPointArn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf ec2Config `Prelude.seq`
+          Prelude.rnf fileSystemAccessRoleArn `Prelude.seq`
+            Prelude.rnf inTransitEncryption `Prelude.seq`
+              Prelude.rnf locationArn `Prelude.seq`
+                Prelude.rnf locationUri `Prelude.seq`
+                  Prelude.rnf httpStatus

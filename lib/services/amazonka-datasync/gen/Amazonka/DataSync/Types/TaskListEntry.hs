@@ -96,6 +96,6 @@ instance Prelude.Hashable TaskListEntry where
 
 instance Prelude.NFData TaskListEntry where
   rnf TaskListEntry' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskArn
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf taskArn

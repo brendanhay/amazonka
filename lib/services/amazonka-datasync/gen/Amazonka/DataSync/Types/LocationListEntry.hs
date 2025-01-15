@@ -146,5 +146,5 @@ instance Prelude.Hashable LocationListEntry where
 
 instance Prelude.NFData LocationListEntry where
   rnf LocationListEntry' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf locationUri

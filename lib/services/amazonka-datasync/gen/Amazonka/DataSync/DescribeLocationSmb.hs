@@ -245,11 +245,11 @@ describeLocationSmbResponse_httpStatus = Lens.lens (\DescribeLocationSmbResponse
 
 instance Prelude.NFData DescribeLocationSmbResponse where
   rnf DescribeLocationSmbResponse' {..} =
-    Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentArns `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf locationArn `Prelude.seq`
+            Prelude.rnf locationUri `Prelude.seq`
+              Prelude.rnf mountOptions `Prelude.seq`
+                Prelude.rnf user `Prelude.seq`
+                  Prelude.rnf httpStatus

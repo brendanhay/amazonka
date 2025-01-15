@@ -289,19 +289,19 @@ instance Prelude.Hashable UpdateLocationHdfs where
 
 instance Prelude.NFData UpdateLocationHdfs where
   rnf UpdateLocationHdfs' {..} =
-    Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf blockSize
-      `Prelude.seq` Prelude.rnf kerberosKeytab
-      `Prelude.seq` Prelude.rnf kerberosKrb5Conf
-      `Prelude.seq` Prelude.rnf kerberosPrincipal
-      `Prelude.seq` Prelude.rnf kmsKeyProviderUri
-      `Prelude.seq` Prelude.rnf nameNodes
-      `Prelude.seq` Prelude.rnf qopConfiguration
-      `Prelude.seq` Prelude.rnf replicationFactor
-      `Prelude.seq` Prelude.rnf simpleUser
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf locationArn
+    Prelude.rnf agentArns `Prelude.seq`
+      Prelude.rnf authenticationType `Prelude.seq`
+        Prelude.rnf blockSize `Prelude.seq`
+          Prelude.rnf kerberosKeytab `Prelude.seq`
+            Prelude.rnf kerberosKrb5Conf `Prelude.seq`
+              Prelude.rnf kerberosPrincipal `Prelude.seq`
+                Prelude.rnf kmsKeyProviderUri `Prelude.seq`
+                  Prelude.rnf nameNodes `Prelude.seq`
+                    Prelude.rnf qopConfiguration `Prelude.seq`
+                      Prelude.rnf replicationFactor `Prelude.seq`
+                        Prelude.rnf simpleUser `Prelude.seq`
+                          Prelude.rnf subdirectory `Prelude.seq`
+                            Prelude.rnf locationArn
 
 instance Data.ToHeaders UpdateLocationHdfs where
   toHeaders =

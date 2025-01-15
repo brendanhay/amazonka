@@ -212,9 +212,9 @@ describeLocationNfsResponse_httpStatus = Lens.lens (\DescribeLocationNfsResponse
 
 instance Prelude.NFData DescribeLocationNfsResponse where
   rnf DescribeLocationNfsResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf onPremConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf locationArn `Prelude.seq`
+        Prelude.rnf locationUri `Prelude.seq`
+          Prelude.rnf mountOptions `Prelude.seq`
+            Prelude.rnf onPremConfig `Prelude.seq`
+              Prelude.rnf httpStatus

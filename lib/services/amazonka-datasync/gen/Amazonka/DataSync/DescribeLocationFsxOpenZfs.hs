@@ -237,9 +237,9 @@ instance
     DescribeLocationFsxOpenZfsResponse
   where
   rnf DescribeLocationFsxOpenZfsResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf locationArn `Prelude.seq`
+        Prelude.rnf locationUri `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf securityGroupArns `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -214,8 +214,8 @@ instance
     DescribeLocationFsxLustreResponse
   where
   rnf DescribeLocationFsxLustreResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf locationArn `Prelude.seq`
+        Prelude.rnf locationUri `Prelude.seq`
+          Prelude.rnf securityGroupArns `Prelude.seq`
+            Prelude.rnf httpStatus

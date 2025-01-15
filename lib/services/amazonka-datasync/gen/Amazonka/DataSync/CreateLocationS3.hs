@@ -214,12 +214,12 @@ instance Prelude.Hashable CreateLocationS3 where
 
 instance Prelude.NFData CreateLocationS3 where
   rnf CreateLocationS3' {..} =
-    Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf s3StorageClass
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf s3Config
+    Prelude.rnf agentArns `Prelude.seq`
+      Prelude.rnf s3StorageClass `Prelude.seq`
+        Prelude.rnf subdirectory `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf s3BucketArn `Prelude.seq`
+              Prelude.rnf s3Config
 
 instance Data.ToHeaders CreateLocationS3 where
   toHeaders =
@@ -302,5 +302,5 @@ createLocationS3Response_httpStatus = Lens.lens (\CreateLocationS3Response' {htt
 
 instance Prelude.NFData CreateLocationS3Response where
   rnf CreateLocationS3Response' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

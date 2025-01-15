@@ -104,9 +104,9 @@ instance Prelude.Hashable LocationFilter where
 
 instance Prelude.NFData LocationFilter where
   rnf LocationFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON LocationFilter where
   toJSON LocationFilter' {..} =

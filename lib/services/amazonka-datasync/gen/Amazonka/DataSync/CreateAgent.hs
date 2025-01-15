@@ -273,12 +273,12 @@ instance Prelude.Hashable CreateAgent where
 
 instance Prelude.NFData CreateAgent where
   rnf CreateAgent' {..} =
-    Prelude.rnf agentName
-      `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf subnetArns
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf activationKey
+    Prelude.rnf agentName `Prelude.seq`
+      Prelude.rnf securityGroupArns `Prelude.seq`
+        Prelude.rnf subnetArns `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf vpcEndpointId `Prelude.seq`
+              Prelude.rnf activationKey
 
 instance Data.ToHeaders CreateAgent where
   toHeaders =
@@ -362,5 +362,5 @@ createAgentResponse_httpStatus = Lens.lens (\CreateAgentResponse' {httpStatus} -
 
 instance Prelude.NFData CreateAgentResponse where
   rnf CreateAgentResponse' {..} =
-    Prelude.rnf agentArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentArn `Prelude.seq`
+      Prelude.rnf httpStatus

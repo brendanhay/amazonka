@@ -131,12 +131,12 @@ instance Core.AWSPager ListLocations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLocations_nextToken
-          Lens..~ rs
-          Lens.^? listLocationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLocations_nextToken
+              Lens..~ rs
+              Lens.^? listLocationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLocations where
   type
@@ -162,9 +162,9 @@ instance Prelude.Hashable ListLocations where
 
 instance Prelude.NFData ListLocations where
   rnf ListLocations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLocations where
   toHeaders =
@@ -249,6 +249,6 @@ listLocationsResponse_httpStatus = Lens.lens (\ListLocationsResponse' {httpStatu
 
 instance Prelude.NFData ListLocationsResponse where
   rnf ListLocationsResponse' {..} =
-    Prelude.rnf locations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

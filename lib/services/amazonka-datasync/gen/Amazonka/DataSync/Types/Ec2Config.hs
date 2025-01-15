@@ -128,8 +128,8 @@ instance Prelude.Hashable Ec2Config where
 
 instance Prelude.NFData Ec2Config where
   rnf Ec2Config' {..} =
-    Prelude.rnf subnetArn
-      `Prelude.seq` Prelude.rnf securityGroupArns
+    Prelude.rnf subnetArn `Prelude.seq`
+      Prelude.rnf securityGroupArns
 
 instance Data.ToJSON Ec2Config where
   toJSON Ec2Config' {..} =

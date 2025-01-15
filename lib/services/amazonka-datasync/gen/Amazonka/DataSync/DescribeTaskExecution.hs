@@ -404,17 +404,17 @@ describeTaskExecutionResponse_httpStatus = Lens.lens (\DescribeTaskExecutionResp
 
 instance Prelude.NFData DescribeTaskExecutionResponse where
   rnf DescribeTaskExecutionResponse' {..} =
-    Prelude.rnf bytesCompressed
-      `Prelude.seq` Prelude.rnf bytesTransferred
-      `Prelude.seq` Prelude.rnf bytesWritten
-      `Prelude.seq` Prelude.rnf estimatedBytesToTransfer
-      `Prelude.seq` Prelude.rnf estimatedFilesToTransfer
-      `Prelude.seq` Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf filesTransferred
-      `Prelude.seq` Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskExecutionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bytesCompressed `Prelude.seq`
+      Prelude.rnf bytesTransferred `Prelude.seq`
+        Prelude.rnf bytesWritten `Prelude.seq`
+          Prelude.rnf estimatedBytesToTransfer `Prelude.seq`
+            Prelude.rnf estimatedFilesToTransfer `Prelude.seq`
+              Prelude.rnf excludes `Prelude.seq`
+                Prelude.rnf filesTransferred `Prelude.seq`
+                  Prelude.rnf includes `Prelude.seq`
+                    Prelude.rnf options `Prelude.seq`
+                      Prelude.rnf result `Prelude.seq`
+                        Prelude.rnf startTime `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf taskExecutionArn `Prelude.seq`
+                              Prelude.rnf httpStatus

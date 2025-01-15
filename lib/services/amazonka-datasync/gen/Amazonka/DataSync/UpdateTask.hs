@@ -194,13 +194,13 @@ instance Prelude.Hashable UpdateTask where
 
 instance Prelude.NFData UpdateTask where
   rnf UpdateTask' {..} =
-    Prelude.rnf cloudWatchLogGroupArn
-      `Prelude.seq` Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf taskArn
+    Prelude.rnf cloudWatchLogGroupArn `Prelude.seq`
+      Prelude.rnf excludes `Prelude.seq`
+        Prelude.rnf includes `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf options `Prelude.seq`
+              Prelude.rnf schedule `Prelude.seq`
+                Prelude.rnf taskArn
 
 instance Data.ToHeaders UpdateTask where
   toHeaders =

@@ -282,12 +282,12 @@ instance
     DescribeLocationObjectStorageResponse
   where
   rnf DescribeLocationObjectStorageResponse' {..} =
-    Prelude.rnf accessKey
-      `Prelude.seq` Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf serverCertificate
-      `Prelude.seq` Prelude.rnf serverPort
-      `Prelude.seq` Prelude.rnf serverProtocol
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessKey `Prelude.seq`
+      Prelude.rnf agentArns `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf locationArn `Prelude.seq`
+            Prelude.rnf locationUri `Prelude.seq`
+              Prelude.rnf serverCertificate `Prelude.seq`
+                Prelude.rnf serverPort `Prelude.seq`
+                  Prelude.rnf serverProtocol `Prelude.seq`
+                    Prelude.rnf httpStatus

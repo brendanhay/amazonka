@@ -207,10 +207,10 @@ instance Prelude.Hashable UpdateLocationNfs where
 
 instance Prelude.NFData UpdateLocationNfs where
   rnf UpdateLocationNfs' {..} =
-    Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf onPremConfig
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf locationArn
+    Prelude.rnf mountOptions `Prelude.seq`
+      Prelude.rnf onPremConfig `Prelude.seq`
+        Prelude.rnf subdirectory `Prelude.seq`
+          Prelude.rnf locationArn
 
 instance Data.ToHeaders UpdateLocationNfs where
   toHeaders =

@@ -258,11 +258,11 @@ describeAgentResponse_httpStatus = Lens.lens (\DescribeAgentResponse' {httpStatu
 
 instance Prelude.NFData DescribeAgentResponse where
   rnf DescribeAgentResponse' {..} =
-    Prelude.rnf agentArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf lastConnectionTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf privateLinkConfig
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentArn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf endpointType `Prelude.seq`
+          Prelude.rnf lastConnectionTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf privateLinkConfig `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf httpStatus

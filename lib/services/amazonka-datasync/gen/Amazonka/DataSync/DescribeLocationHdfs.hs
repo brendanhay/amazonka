@@ -308,16 +308,16 @@ describeLocationHdfsResponse_httpStatus = Lens.lens (\DescribeLocationHdfsRespon
 
 instance Prelude.NFData DescribeLocationHdfsResponse where
   rnf DescribeLocationHdfsResponse' {..} =
-    Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf blockSize
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf kerberosPrincipal
-      `Prelude.seq` Prelude.rnf kmsKeyProviderUri
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf nameNodes
-      `Prelude.seq` Prelude.rnf qopConfiguration
-      `Prelude.seq` Prelude.rnf replicationFactor
-      `Prelude.seq` Prelude.rnf simpleUser
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentArns `Prelude.seq`
+      Prelude.rnf authenticationType `Prelude.seq`
+        Prelude.rnf blockSize `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf kerberosPrincipal `Prelude.seq`
+              Prelude.rnf kmsKeyProviderUri `Prelude.seq`
+                Prelude.rnf locationArn `Prelude.seq`
+                  Prelude.rnf locationUri `Prelude.seq`
+                    Prelude.rnf nameNodes `Prelude.seq`
+                      Prelude.rnf qopConfiguration `Prelude.seq`
+                        Prelude.rnf replicationFactor `Prelude.seq`
+                          Prelude.rnf simpleUser `Prelude.seq`
+                            Prelude.rnf httpStatus

@@ -85,5 +85,5 @@ instance Prelude.Hashable TaskExecutionListEntry where
 
 instance Prelude.NFData TaskExecutionListEntry where
   rnf TaskExecutionListEntry' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskExecutionArn
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf taskExecutionArn

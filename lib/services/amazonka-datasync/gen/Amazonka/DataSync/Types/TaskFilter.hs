@@ -104,9 +104,9 @@ instance Prelude.Hashable TaskFilter where
 
 instance Prelude.NFData TaskFilter where
   rnf TaskFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON TaskFilter where
   toJSON TaskFilter' {..} =

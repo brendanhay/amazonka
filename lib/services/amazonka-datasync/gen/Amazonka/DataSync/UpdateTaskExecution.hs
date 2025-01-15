@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateTaskExecution where
 
 instance Prelude.NFData UpdateTaskExecution where
   rnf UpdateTaskExecution' {..} =
-    Prelude.rnf taskExecutionArn
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf taskExecutionArn `Prelude.seq`
+      Prelude.rnf options
 
 instance Data.ToHeaders UpdateTaskExecution where
   toHeaders =

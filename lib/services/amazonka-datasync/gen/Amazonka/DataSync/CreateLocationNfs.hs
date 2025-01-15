@@ -274,11 +274,11 @@ instance Prelude.Hashable CreateLocationNfs where
 
 instance Prelude.NFData CreateLocationNfs where
   rnf CreateLocationNfs' {..} =
-    Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf serverHostname
-      `Prelude.seq` Prelude.rnf onPremConfig
+    Prelude.rnf mountOptions `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf subdirectory `Prelude.seq`
+          Prelude.rnf serverHostname `Prelude.seq`
+            Prelude.rnf onPremConfig
 
 instance Data.ToHeaders CreateLocationNfs where
   toHeaders =
@@ -360,5 +360,5 @@ createLocationNfsResponse_httpStatus = Lens.lens (\CreateLocationNfsResponse' {h
 
 instance Prelude.NFData CreateLocationNfsResponse where
   rnf CreateLocationNfsResponse' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

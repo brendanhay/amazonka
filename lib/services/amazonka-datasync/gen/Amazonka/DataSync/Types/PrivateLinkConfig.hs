@@ -134,7 +134,7 @@ instance Prelude.Hashable PrivateLinkConfig where
 
 instance Prelude.NFData PrivateLinkConfig where
   rnf PrivateLinkConfig' {..} =
-    Prelude.rnf privateLinkEndpoint
-      `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf subnetArns
-      `Prelude.seq` Prelude.rnf vpcEndpointId
+    Prelude.rnf privateLinkEndpoint `Prelude.seq`
+      Prelude.rnf securityGroupArns `Prelude.seq`
+        Prelude.rnf subnetArns `Prelude.seq`
+          Prelude.rnf vpcEndpointId

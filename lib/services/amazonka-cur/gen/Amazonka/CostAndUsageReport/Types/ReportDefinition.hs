@@ -244,18 +244,18 @@ instance Prelude.Hashable ReportDefinition where
 
 instance Prelude.NFData ReportDefinition where
   rnf ReportDefinition' {..} =
-    Prelude.rnf additionalArtifacts
-      `Prelude.seq` Prelude.rnf billingViewArn
-      `Prelude.seq` Prelude.rnf refreshClosedReports
-      `Prelude.seq` Prelude.rnf reportVersioning
-      `Prelude.seq` Prelude.rnf reportName
-      `Prelude.seq` Prelude.rnf timeUnit
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf compression
-      `Prelude.seq` Prelude.rnf additionalSchemaElements
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Prefix
-      `Prelude.seq` Prelude.rnf s3Region
+    Prelude.rnf additionalArtifacts `Prelude.seq`
+      Prelude.rnf billingViewArn `Prelude.seq`
+        Prelude.rnf refreshClosedReports `Prelude.seq`
+          Prelude.rnf reportVersioning `Prelude.seq`
+            Prelude.rnf reportName `Prelude.seq`
+              Prelude.rnf timeUnit `Prelude.seq`
+                Prelude.rnf format `Prelude.seq`
+                  Prelude.rnf compression `Prelude.seq`
+                    Prelude.rnf additionalSchemaElements `Prelude.seq`
+                      Prelude.rnf s3Bucket `Prelude.seq`
+                        Prelude.rnf s3Prefix `Prelude.seq`
+                          Prelude.rnf s3Region
 
 instance Data.ToJSON ReportDefinition where
   toJSON ReportDefinition' {..} =

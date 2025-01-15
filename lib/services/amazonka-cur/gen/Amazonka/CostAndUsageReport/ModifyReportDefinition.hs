@@ -108,8 +108,8 @@ instance Prelude.Hashable ModifyReportDefinition where
 
 instance Prelude.NFData ModifyReportDefinition where
   rnf ModifyReportDefinition' {..} =
-    Prelude.rnf reportName
-      `Prelude.seq` Prelude.rnf reportDefinition
+    Prelude.rnf reportName `Prelude.seq`
+      Prelude.rnf reportDefinition
 
 instance Data.ToHeaders ModifyReportDefinition where
   toHeaders =

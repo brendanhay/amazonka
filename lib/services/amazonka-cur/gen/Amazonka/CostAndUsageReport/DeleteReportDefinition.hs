@@ -176,5 +176,5 @@ instance
     DeleteReportDefinitionResponse
   where
   rnf DeleteReportDefinitionResponse' {..} =
-    Prelude.rnf responseMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf responseMessage `Prelude.seq`
+      Prelude.rnf httpStatus

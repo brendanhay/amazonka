@@ -89,5 +89,5 @@ instance Prelude.Hashable Websocket where
 
 instance Prelude.NFData Websocket where
   rnf Websocket' {..} =
-    Prelude.rnf connectionExpiry
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf connectionExpiry `Prelude.seq`
+      Prelude.rnf url

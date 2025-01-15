@@ -184,13 +184,13 @@ instance Prelude.Hashable Item where
 
 instance Prelude.NFData Item where
   rnf Item' {..} =
-    Prelude.rnf absoluteTime
-      `Prelude.seq` Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf messageMetadata
-      `Prelude.seq` Prelude.rnf participantId
-      `Prelude.seq` Prelude.rnf participantRole
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf absoluteTime `Prelude.seq`
+      Prelude.rnf attachments `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf contentType `Prelude.seq`
+            Prelude.rnf displayName `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf messageMetadata `Prelude.seq`
+                  Prelude.rnf participantId `Prelude.seq`
+                    Prelude.rnf participantRole `Prelude.seq`
+                      Prelude.rnf type'

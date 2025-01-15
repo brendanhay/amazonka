@@ -186,10 +186,10 @@ instance Prelude.Hashable SendEvent where
 
 instance Prelude.NFData SendEvent where
   rnf SendEvent' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf connectionToken
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf content `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf connectionToken
 
 instance Data.ToHeaders SendEvent where
   toHeaders SendEvent' {..} =
@@ -273,6 +273,6 @@ sendEventResponse_httpStatus = Lens.lens (\SendEventResponse' {httpStatus} -> ht
 
 instance Prelude.NFData SendEventResponse where
   rnf SendEventResponse' {..} =
-    Prelude.rnf absoluteTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf absoluteTime `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

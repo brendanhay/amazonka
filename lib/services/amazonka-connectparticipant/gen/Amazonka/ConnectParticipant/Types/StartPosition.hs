@@ -90,9 +90,9 @@ instance Prelude.Hashable StartPosition where
 
 instance Prelude.NFData StartPosition where
   rnf StartPosition' {..} =
-    Prelude.rnf absoluteTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf mostRecent
+    Prelude.rnf absoluteTime `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf mostRecent
 
 instance Data.ToJSON StartPosition where
   toJSON StartPosition' {..} =

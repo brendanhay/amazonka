@@ -176,9 +176,9 @@ instance Prelude.Hashable CreateParticipantConnection where
 
 instance Prelude.NFData CreateParticipantConnection where
   rnf CreateParticipantConnection' {..} =
-    Prelude.rnf connectParticipant
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf participantToken
+    Prelude.rnf connectParticipant `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf participantToken
 
 instance Data.ToHeaders CreateParticipantConnection where
   toHeaders CreateParticipantConnection' {..} =
@@ -260,6 +260,6 @@ instance
     CreateParticipantConnectionResponse
   where
   rnf CreateParticipantConnectionResponse' {..} =
-    Prelude.rnf connectionCredentials
-      `Prelude.seq` Prelude.rnf websocket
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionCredentials `Prelude.seq`
+      Prelude.rnf websocket `Prelude.seq`
+        Prelude.rnf httpStatus

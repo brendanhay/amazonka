@@ -186,13 +186,13 @@ instance Prelude.Hashable GetTranscript where
 
 instance Prelude.NFData GetTranscript where
   rnf GetTranscript' {..} =
-    Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scanDirection
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf startPosition
-      `Prelude.seq` Prelude.rnf connectionToken
+    Prelude.rnf contactId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf scanDirection `Prelude.seq`
+            Prelude.rnf sortOrder `Prelude.seq`
+              Prelude.rnf startPosition `Prelude.seq`
+                Prelude.rnf connectionToken
 
 instance Data.ToHeaders GetTranscript where
   toHeaders GetTranscript' {..} =
@@ -283,7 +283,7 @@ getTranscriptResponse_httpStatus = Lens.lens (\GetTranscriptResponse' {httpStatu
 
 instance Prelude.NFData GetTranscriptResponse where
   rnf GetTranscriptResponse' {..} =
-    Prelude.rnf initialContactId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transcript
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf initialContactId `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf transcript `Prelude.seq`
+          Prelude.rnf httpStatus

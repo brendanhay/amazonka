@@ -119,8 +119,8 @@ instance Prelude.Hashable GetAttachment where
 
 instance Prelude.NFData GetAttachment where
   rnf GetAttachment' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf connectionToken
+    Prelude.rnf attachmentId `Prelude.seq`
+      Prelude.rnf connectionToken
 
 instance Data.ToHeaders GetAttachment where
   toHeaders GetAttachment' {..} =
@@ -204,6 +204,6 @@ getAttachmentResponse_httpStatus = Lens.lens (\GetAttachmentResponse' {httpStatu
 
 instance Prelude.NFData GetAttachmentResponse where
   rnf GetAttachmentResponse' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf urlExpiry
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf url `Prelude.seq`
+      Prelude.rnf urlExpiry `Prelude.seq`
+        Prelude.rnf httpStatus

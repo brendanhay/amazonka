@@ -181,11 +181,11 @@ instance Prelude.Hashable StartAttachmentUpload where
 
 instance Prelude.NFData StartAttachmentUpload where
   rnf StartAttachmentUpload' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf attachmentSizeInBytes
-      `Prelude.seq` Prelude.rnf attachmentName
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf connectionToken
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf attachmentSizeInBytes `Prelude.seq`
+        Prelude.rnf attachmentName `Prelude.seq`
+          Prelude.rnf clientToken `Prelude.seq`
+            Prelude.rnf connectionToken
 
 instance Data.ToHeaders StartAttachmentUpload where
   toHeaders StartAttachmentUpload' {..} =
@@ -268,6 +268,6 @@ startAttachmentUploadResponse_httpStatus = Lens.lens (\StartAttachmentUploadResp
 
 instance Prelude.NFData StartAttachmentUploadResponse where
   rnf StartAttachmentUploadResponse' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf uploadMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachmentId `Prelude.seq`
+      Prelude.rnf uploadMetadata `Prelude.seq`
+        Prelude.rnf httpStatus

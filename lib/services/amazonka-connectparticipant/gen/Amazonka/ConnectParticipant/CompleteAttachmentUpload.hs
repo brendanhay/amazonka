@@ -141,9 +141,9 @@ instance Prelude.Hashable CompleteAttachmentUpload where
 
 instance Prelude.NFData CompleteAttachmentUpload where
   rnf CompleteAttachmentUpload' {..} =
-    Prelude.rnf attachmentIds
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf connectionToken
+    Prelude.rnf attachmentIds `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf connectionToken
 
 instance Data.ToHeaders CompleteAttachmentUpload where
   toHeaders CompleteAttachmentUpload' {..} =

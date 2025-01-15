@@ -212,9 +212,9 @@ instance Prelude.Hashable RotationRulesType where
 
 instance Prelude.NFData RotationRulesType where
   rnf RotationRulesType' {..} =
-    Prelude.rnf automaticallyAfterDays
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf scheduleExpression
+    Prelude.rnf automaticallyAfterDays `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf scheduleExpression
 
 instance Data.ToJSON RotationRulesType where
   toJSON RotationRulesType' {..} =

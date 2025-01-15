@@ -293,11 +293,11 @@ instance Prelude.Hashable RotateSecret where
 
 instance Prelude.NFData RotateSecret where
   rnf RotateSecret' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf rotateImmediately
-      `Prelude.seq` Prelude.rnf rotationLambdaARN
-      `Prelude.seq` Prelude.rnf rotationRules
-      `Prelude.seq` Prelude.rnf secretId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf rotateImmediately `Prelude.seq`
+        Prelude.rnf rotationLambdaARN `Prelude.seq`
+          Prelude.rnf rotationRules `Prelude.seq`
+            Prelude.rnf secretId
 
 instance Data.ToHeaders RotateSecret where
   toHeaders =
@@ -393,7 +393,7 @@ rotateSecretResponse_httpStatus = Lens.lens (\RotateSecretResponse' {httpStatus}
 
 instance Prelude.NFData RotateSecretResponse where
   rnf RotateSecretResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf httpStatus

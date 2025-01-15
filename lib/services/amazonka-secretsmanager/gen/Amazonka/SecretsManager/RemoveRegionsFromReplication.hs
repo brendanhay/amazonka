@@ -134,8 +134,8 @@ instance
 
 instance Prelude.NFData RemoveRegionsFromReplication where
   rnf RemoveRegionsFromReplication' {..} =
-    Prelude.rnf secretId
-      `Prelude.seq` Prelude.rnf removeReplicaRegions
+    Prelude.rnf secretId `Prelude.seq`
+      Prelude.rnf removeReplicaRegions
 
 instance Data.ToHeaders RemoveRegionsFromReplication where
   toHeaders =
@@ -223,6 +223,6 @@ instance
     RemoveRegionsFromReplicationResponse
   where
   rnf RemoveRegionsFromReplicationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf replicationStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf replicationStatus `Prelude.seq`
+        Prelude.rnf httpStatus

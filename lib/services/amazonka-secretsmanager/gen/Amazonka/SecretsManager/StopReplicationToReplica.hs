@@ -186,5 +186,5 @@ instance
     StopReplicationToReplicaResponse
   where
   rnf StopReplicationToReplicaResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

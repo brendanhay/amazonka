@@ -208,10 +208,10 @@ instance Prelude.Hashable UpdateSecretVersionStage where
 
 instance Prelude.NFData UpdateSecretVersionStage where
   rnf UpdateSecretVersionStage' {..} =
-    Prelude.rnf moveToVersionId
-      `Prelude.seq` Prelude.rnf removeFromVersionId
-      `Prelude.seq` Prelude.rnf secretId
-      `Prelude.seq` Prelude.rnf versionStage
+    Prelude.rnf moveToVersionId `Prelude.seq`
+      Prelude.rnf removeFromVersionId `Prelude.seq`
+        Prelude.rnf secretId `Prelude.seq`
+          Prelude.rnf versionStage
 
 instance Data.ToHeaders UpdateSecretVersionStage where
   toHeaders =
@@ -300,6 +300,6 @@ instance
     UpdateSecretVersionStageResponse
   where
   rnf UpdateSecretVersionStageResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -83,5 +83,5 @@ instance Prelude.Hashable ValidationErrorsEntry where
 
 instance Prelude.NFData ValidationErrorsEntry where
   rnf ValidationErrorsEntry' {..} =
-    Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf checkName `Prelude.seq`
+      Prelude.rnf errorMessage

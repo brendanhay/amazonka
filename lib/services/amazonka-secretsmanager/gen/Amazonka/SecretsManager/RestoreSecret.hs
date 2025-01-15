@@ -198,6 +198,6 @@ restoreSecretResponse_httpStatus = Lens.lens (\RestoreSecretResponse' {httpStatu
 
 instance Prelude.NFData RestoreSecretResponse where
   rnf RestoreSecretResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

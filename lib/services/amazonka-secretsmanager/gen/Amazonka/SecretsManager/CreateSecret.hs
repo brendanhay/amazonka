@@ -594,15 +594,15 @@ instance Prelude.Hashable CreateSecret where
 
 instance Prelude.NFData CreateSecret where
   rnf CreateSecret' {..} =
-    Prelude.rnf addReplicaRegions
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf forceOverwriteReplicaSecret
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf secretBinary
-      `Prelude.seq` Prelude.rnf secretString
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf addReplicaRegions `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf forceOverwriteReplicaSecret `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf secretBinary `Prelude.seq`
+                Prelude.rnf secretString `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders CreateSecret where
   toHeaders =
@@ -744,8 +744,8 @@ createSecretResponse_httpStatus = Lens.lens (\CreateSecretResponse' {httpStatus}
 
 instance Prelude.NFData CreateSecretResponse where
   rnf CreateSecretResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf replicationStatus
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf replicationStatus `Prelude.seq`
+          Prelude.rnf versionId `Prelude.seq`
+            Prelude.rnf httpStatus

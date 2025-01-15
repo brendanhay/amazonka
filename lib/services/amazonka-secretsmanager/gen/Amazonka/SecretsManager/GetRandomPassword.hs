@@ -216,14 +216,14 @@ instance Prelude.Hashable GetRandomPassword where
 
 instance Prelude.NFData GetRandomPassword where
   rnf GetRandomPassword' {..} =
-    Prelude.rnf excludeCharacters
-      `Prelude.seq` Prelude.rnf excludeLowercase
-      `Prelude.seq` Prelude.rnf excludeNumbers
-      `Prelude.seq` Prelude.rnf excludePunctuation
-      `Prelude.seq` Prelude.rnf excludeUppercase
-      `Prelude.seq` Prelude.rnf includeSpace
-      `Prelude.seq` Prelude.rnf passwordLength
-      `Prelude.seq` Prelude.rnf requireEachIncludedType
+    Prelude.rnf excludeCharacters `Prelude.seq`
+      Prelude.rnf excludeLowercase `Prelude.seq`
+        Prelude.rnf excludeNumbers `Prelude.seq`
+          Prelude.rnf excludePunctuation `Prelude.seq`
+            Prelude.rnf excludeUppercase `Prelude.seq`
+              Prelude.rnf includeSpace `Prelude.seq`
+                Prelude.rnf passwordLength `Prelude.seq`
+                  Prelude.rnf requireEachIncludedType
 
 instance Data.ToHeaders GetRandomPassword where
   toHeaders =
@@ -309,5 +309,5 @@ getRandomPasswordResponse_httpStatus = Lens.lens (\GetRandomPasswordResponse' {h
 
 instance Prelude.NFData GetRandomPasswordResponse where
   rnf GetRandomPasswordResponse' {..} =
-    Prelude.rnf randomPassword
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf randomPassword `Prelude.seq`
+      Prelude.rnf httpStatus

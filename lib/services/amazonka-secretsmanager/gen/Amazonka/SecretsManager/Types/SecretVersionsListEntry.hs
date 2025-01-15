@@ -123,8 +123,8 @@ instance Prelude.Hashable SecretVersionsListEntry where
 
 instance Prelude.NFData SecretVersionsListEntry where
   rnf SecretVersionsListEntry' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf kmsKeyIds
-      `Prelude.seq` Prelude.rnf lastAccessedDate
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf versionStages
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf kmsKeyIds `Prelude.seq`
+        Prelude.rnf lastAccessedDate `Prelude.seq`
+          Prelude.rnf versionId `Prelude.seq`
+            Prelude.rnf versionStages

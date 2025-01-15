@@ -202,6 +202,6 @@ deleteResourcePolicyResponse_httpStatus = Lens.lens (\DeleteResourcePolicyRespon
 
 instance Prelude.NFData DeleteResourcePolicyResponse where
   rnf DeleteResourcePolicyResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

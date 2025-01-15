@@ -147,8 +147,8 @@ instance Prelude.Hashable ValidateResourcePolicy where
 
 instance Prelude.NFData ValidateResourcePolicy where
   rnf ValidateResourcePolicy' {..} =
-    Prelude.rnf secretId
-      `Prelude.seq` Prelude.rnf resourcePolicy
+    Prelude.rnf secretId `Prelude.seq`
+      Prelude.rnf resourcePolicy
 
 instance Data.ToHeaders ValidateResourcePolicy where
   toHeaders =
@@ -234,6 +234,6 @@ instance
     ValidateResourcePolicyResponse
   where
   rnf ValidateResourcePolicyResponse' {..} =
-    Prelude.rnf policyValidationPassed
-      `Prelude.seq` Prelude.rnf validationErrors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyValidationPassed `Prelude.seq`
+      Prelude.rnf validationErrors `Prelude.seq`
+        Prelude.rnf httpStatus

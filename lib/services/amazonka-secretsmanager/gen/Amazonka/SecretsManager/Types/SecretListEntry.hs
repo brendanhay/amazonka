@@ -343,20 +343,20 @@ instance Prelude.Hashable SecretListEntry where
 
 instance Prelude.NFData SecretListEntry where
   rnf SecretListEntry' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf deletedDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lastAccessedDate
-      `Prelude.seq` Prelude.rnf lastChangedDate
-      `Prelude.seq` Prelude.rnf lastRotatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextRotationDate
-      `Prelude.seq` Prelude.rnf owningService
-      `Prelude.seq` Prelude.rnf primaryRegion
-      `Prelude.seq` Prelude.rnf rotationEnabled
-      `Prelude.seq` Prelude.rnf rotationLambdaARN
-      `Prelude.seq` Prelude.rnf rotationRules
-      `Prelude.seq` Prelude.rnf secretVersionsToStages
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf deletedDate `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf lastAccessedDate `Prelude.seq`
+                Prelude.rnf lastChangedDate `Prelude.seq`
+                  Prelude.rnf lastRotatedDate `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf nextRotationDate `Prelude.seq`
+                        Prelude.rnf owningService `Prelude.seq`
+                          Prelude.rnf primaryRegion `Prelude.seq`
+                            Prelude.rnf rotationEnabled `Prelude.seq`
+                              Prelude.rnf rotationLambdaARN `Prelude.seq`
+                                Prelude.rnf rotationRules `Prelude.seq`
+                                  Prelude.rnf secretVersionsToStages `Prelude.seq`
+                                    Prelude.rnf tags

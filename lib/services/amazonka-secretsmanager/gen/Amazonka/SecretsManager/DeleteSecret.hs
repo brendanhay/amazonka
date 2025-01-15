@@ -231,9 +231,9 @@ instance Prelude.Hashable DeleteSecret where
 
 instance Prelude.NFData DeleteSecret where
   rnf DeleteSecret' {..} =
-    Prelude.rnf forceDeleteWithoutRecovery
-      `Prelude.seq` Prelude.rnf recoveryWindowInDays
-      `Prelude.seq` Prelude.rnf secretId
+    Prelude.rnf forceDeleteWithoutRecovery `Prelude.seq`
+      Prelude.rnf recoveryWindowInDays `Prelude.seq`
+        Prelude.rnf secretId
 
 instance Data.ToHeaders DeleteSecret where
   toHeaders =
@@ -335,7 +335,7 @@ deleteSecretResponse_httpStatus = Lens.lens (\DeleteSecretResponse' {httpStatus}
 
 instance Prelude.NFData DeleteSecretResponse where
   rnf DeleteSecretResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf deletionDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf deletionDate `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf httpStatus

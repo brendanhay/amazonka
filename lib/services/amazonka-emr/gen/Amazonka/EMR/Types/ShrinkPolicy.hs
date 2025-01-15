@@ -89,8 +89,8 @@ instance Prelude.Hashable ShrinkPolicy where
 
 instance Prelude.NFData ShrinkPolicy where
   rnf ShrinkPolicy' {..} =
-    Prelude.rnf decommissionTimeout
-      `Prelude.seq` Prelude.rnf instanceResizePolicy
+    Prelude.rnf decommissionTimeout `Prelude.seq`
+      Prelude.rnf instanceResizePolicy
 
 instance Data.ToJSON ShrinkPolicy where
   toJSON ShrinkPolicy' {..} =

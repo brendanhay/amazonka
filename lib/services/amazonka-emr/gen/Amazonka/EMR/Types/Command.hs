@@ -91,6 +91,6 @@ instance Prelude.Hashable Command where
 
 instance Prelude.NFData Command where
   rnf Command' {..} =
-    Prelude.rnf args
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scriptPath
+    Prelude.rnf args `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf scriptPath

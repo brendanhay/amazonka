@@ -229,12 +229,12 @@ instance Core.AWSPager ListNotebookExecutions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNotebookExecutions_marker
-          Lens..~ rs
-          Lens.^? listNotebookExecutionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNotebookExecutions_marker
+              Lens..~ rs
+              Lens.^? listNotebookExecutionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNotebookExecutions where
   type
@@ -265,11 +265,11 @@ instance Prelude.Hashable ListNotebookExecutions where
 
 instance Prelude.NFData ListNotebookExecutions where
   rnf ListNotebookExecutions' {..} =
-    Prelude.rnf editorId
-      `Prelude.seq` Prelude.rnf from
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf to
+    Prelude.rnf editorId `Prelude.seq`
+      Prelude.rnf from `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf to
 
 instance Data.ToHeaders ListNotebookExecutions where
   toHeaders =
@@ -360,6 +360,6 @@ instance
     ListNotebookExecutionsResponse
   where
   rnf ListNotebookExecutionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf notebookExecutions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf notebookExecutions `Prelude.seq`
+        Prelude.rnf httpStatus

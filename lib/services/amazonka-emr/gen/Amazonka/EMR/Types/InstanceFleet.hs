@@ -307,13 +307,13 @@ instance Prelude.Hashable InstanceFleet where
 
 instance Prelude.NFData InstanceFleet where
   rnf InstanceFleet' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceFleetType
-      `Prelude.seq` Prelude.rnf instanceTypeSpecifications
-      `Prelude.seq` Prelude.rnf launchSpecifications
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf provisionedOnDemandCapacity
-      `Prelude.seq` Prelude.rnf provisionedSpotCapacity
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetOnDemandCapacity
-      `Prelude.seq` Prelude.rnf targetSpotCapacity
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf instanceFleetType `Prelude.seq`
+        Prelude.rnf instanceTypeSpecifications `Prelude.seq`
+          Prelude.rnf launchSpecifications `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf provisionedOnDemandCapacity `Prelude.seq`
+                Prelude.rnf provisionedSpotCapacity `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf targetOnDemandCapacity `Prelude.seq`
+                      Prelude.rnf targetSpotCapacity

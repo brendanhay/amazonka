@@ -110,6 +110,6 @@ instance
 
 instance Prelude.NFData AutoScalingPolicyDescription where
   rnf AutoScalingPolicyDescription' {..} =
-    Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf constraints `Prelude.seq`
+      Prelude.rnf rules `Prelude.seq`
+        Prelude.rnf status

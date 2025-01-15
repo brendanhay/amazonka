@@ -221,12 +221,12 @@ instance Prelude.Hashable InstanceFleetConfig where
 
 instance Prelude.NFData InstanceFleetConfig where
   rnf InstanceFleetConfig' {..} =
-    Prelude.rnf instanceTypeConfigs
-      `Prelude.seq` Prelude.rnf launchSpecifications
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetOnDemandCapacity
-      `Prelude.seq` Prelude.rnf targetSpotCapacity
-      `Prelude.seq` Prelude.rnf instanceFleetType
+    Prelude.rnf instanceTypeConfigs `Prelude.seq`
+      Prelude.rnf launchSpecifications `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf targetOnDemandCapacity `Prelude.seq`
+            Prelude.rnf targetSpotCapacity `Prelude.seq`
+              Prelude.rnf instanceFleetType
 
 instance Data.ToJSON InstanceFleetConfig where
   toJSON InstanceFleetConfig' {..} =

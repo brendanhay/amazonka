@@ -84,8 +84,8 @@ instance Prelude.Hashable PortRange where
 
 instance Prelude.NFData PortRange where
   rnf PortRange' {..} =
-    Prelude.rnf maxRange
-      `Prelude.seq` Prelude.rnf minRange
+    Prelude.rnf maxRange `Prelude.seq`
+      Prelude.rnf minRange
 
 instance Data.ToJSON PortRange where
   toJSON PortRange' {..} =

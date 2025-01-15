@@ -206,15 +206,15 @@ instance Prelude.Hashable CloudWatchAlarmDefinition where
 
 instance Prelude.NFData CloudWatchAlarmDefinition where
   rnf CloudWatchAlarmDefinition' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf evaluationPeriods
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf threshold
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf evaluationPeriods `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf statistic `Prelude.seq`
+            Prelude.rnf unit `Prelude.seq`
+              Prelude.rnf comparisonOperator `Prelude.seq`
+                Prelude.rnf metricName `Prelude.seq`
+                  Prelude.rnf period `Prelude.seq`
+                    Prelude.rnf threshold
 
 instance Data.ToJSON CloudWatchAlarmDefinition where
   toJSON CloudWatchAlarmDefinition' {..} =

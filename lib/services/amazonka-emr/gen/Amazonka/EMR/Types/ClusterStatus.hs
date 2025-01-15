@@ -97,6 +97,6 @@ instance Prelude.Hashable ClusterStatus where
 
 instance Prelude.NFData ClusterStatus where
   rnf ClusterStatus' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
-      `Prelude.seq` Prelude.rnf timeline
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf stateChangeReason `Prelude.seq`
+        Prelude.rnf timeline

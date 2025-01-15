@@ -86,8 +86,8 @@ instance Prelude.Hashable AutoScalingPolicy where
 
 instance Prelude.NFData AutoScalingPolicy where
   rnf AutoScalingPolicy' {..} =
-    Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf constraints `Prelude.seq`
+      Prelude.rnf rules
 
 instance Data.ToJSON AutoScalingPolicy where
   toJSON AutoScalingPolicy' {..} =

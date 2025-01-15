@@ -130,8 +130,8 @@ instance Prelude.Hashable SetVisibleToAllUsers where
 
 instance Prelude.NFData SetVisibleToAllUsers where
   rnf SetVisibleToAllUsers' {..} =
-    Prelude.rnf jobFlowIds
-      `Prelude.seq` Prelude.rnf visibleToAllUsers
+    Prelude.rnf jobFlowIds `Prelude.seq`
+      Prelude.rnf visibleToAllUsers
 
 instance Data.ToHeaders SetVisibleToAllUsers where
   toHeaders =

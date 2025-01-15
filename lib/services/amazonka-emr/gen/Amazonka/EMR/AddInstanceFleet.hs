@@ -117,8 +117,8 @@ instance Prelude.Hashable AddInstanceFleet where
 
 instance Prelude.NFData AddInstanceFleet where
   rnf AddInstanceFleet' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf instanceFleet
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf instanceFleet
 
 instance Data.ToHeaders AddInstanceFleet where
   toHeaders =
@@ -210,7 +210,7 @@ addInstanceFleetResponse_httpStatus = Lens.lens (\AddInstanceFleetResponse' {htt
 
 instance Prelude.NFData AddInstanceFleetResponse where
   rnf AddInstanceFleetResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf instanceFleetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterId `Prelude.seq`
+        Prelude.rnf instanceFleetId `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -145,11 +145,11 @@ instance Prelude.Hashable UpdateStudio where
 
 instance Prelude.NFData UpdateStudio where
   rnf UpdateStudio' {..} =
-    Prelude.rnf defaultS3Location
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf defaultS3Location `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf subnetIds `Prelude.seq`
+            Prelude.rnf studioId
 
 instance Data.ToHeaders UpdateStudio where
   toHeaders =

@@ -178,11 +178,11 @@ instance Prelude.Hashable UpdateStudioSessionMapping where
 
 instance Prelude.NFData UpdateStudioSessionMapping where
   rnf UpdateStudioSessionMapping' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityName
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf sessionPolicyArn
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf identityName `Prelude.seq`
+        Prelude.rnf studioId `Prelude.seq`
+          Prelude.rnf identityType `Prelude.seq`
+            Prelude.rnf sessionPolicyArn
 
 instance Data.ToHeaders UpdateStudioSessionMapping where
   toHeaders =

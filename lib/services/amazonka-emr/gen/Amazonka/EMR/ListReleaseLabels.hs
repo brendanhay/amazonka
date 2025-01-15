@@ -147,9 +147,9 @@ instance Prelude.Hashable ListReleaseLabels where
 
 instance Prelude.NFData ListReleaseLabels where
   rnf ListReleaseLabels' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReleaseLabels where
   toHeaders =
@@ -235,6 +235,6 @@ listReleaseLabelsResponse_httpStatus = Lens.lens (\ListReleaseLabelsResponse' {h
 
 instance Prelude.NFData ListReleaseLabelsResponse where
   rnf ListReleaseLabelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf releaseLabels
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf releaseLabels `Prelude.seq`
+        Prelude.rnf httpStatus

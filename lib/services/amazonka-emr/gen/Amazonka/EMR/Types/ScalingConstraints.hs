@@ -98,8 +98,8 @@ instance Prelude.Hashable ScalingConstraints where
 
 instance Prelude.NFData ScalingConstraints where
   rnf ScalingConstraints' {..} =
-    Prelude.rnf minCapacity
-      `Prelude.seq` Prelude.rnf maxCapacity
+    Prelude.rnf minCapacity `Prelude.seq`
+      Prelude.rnf maxCapacity
 
 instance Data.ToJSON ScalingConstraints where
   toJSON ScalingConstraints' {..} =

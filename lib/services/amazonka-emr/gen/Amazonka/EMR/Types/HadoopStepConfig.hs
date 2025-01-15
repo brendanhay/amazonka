@@ -113,7 +113,7 @@ instance Prelude.Hashable HadoopStepConfig where
 
 instance Prelude.NFData HadoopStepConfig where
   rnf HadoopStepConfig' {..} =
-    Prelude.rnf args
-      `Prelude.seq` Prelude.rnf jar
-      `Prelude.seq` Prelude.rnf mainClass
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf args `Prelude.seq`
+      Prelude.rnf jar `Prelude.seq`
+        Prelude.rnf mainClass `Prelude.seq`
+          Prelude.rnf properties

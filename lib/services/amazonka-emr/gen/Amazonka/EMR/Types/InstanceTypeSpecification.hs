@@ -184,11 +184,11 @@ instance Prelude.Hashable InstanceTypeSpecification where
 
 instance Prelude.NFData InstanceTypeSpecification where
   rnf InstanceTypeSpecification' {..} =
-    Prelude.rnf bidPrice
-      `Prelude.seq` Prelude.rnf bidPriceAsPercentageOfOnDemandPrice
-      `Prelude.seq` Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf customAmiId
-      `Prelude.seq` Prelude.rnf ebsBlockDevices
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf weightedCapacity
+    Prelude.rnf bidPrice `Prelude.seq`
+      Prelude.rnf bidPriceAsPercentageOfOnDemandPrice `Prelude.seq`
+        Prelude.rnf configurations `Prelude.seq`
+          Prelude.rnf customAmiId `Prelude.seq`
+            Prelude.rnf ebsBlockDevices `Prelude.seq`
+              Prelude.rnf ebsOptimized `Prelude.seq`
+                Prelude.rnf instanceType `Prelude.seq`
+                  Prelude.rnf weightedCapacity

@@ -97,6 +97,6 @@ instance Prelude.Hashable InstanceFleetTimeline where
 
 instance Prelude.NFData InstanceFleetTimeline where
   rnf InstanceFleetTimeline' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf readyDateTime
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf endDateTime `Prelude.seq`
+        Prelude.rnf readyDateTime

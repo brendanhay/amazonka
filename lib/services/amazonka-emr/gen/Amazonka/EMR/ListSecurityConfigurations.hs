@@ -97,12 +97,12 @@ instance Core.AWSPager ListSecurityConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSecurityConfigurations_marker
-          Lens..~ rs
-          Lens.^? listSecurityConfigurationsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSecurityConfigurations_marker
+              Lens..~ rs
+              Lens.^? listSecurityConfigurationsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityConfigurations where
   type
@@ -218,6 +218,6 @@ instance
     ListSecurityConfigurationsResponse
   where
   rnf ListSecurityConfigurationsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf securityConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf securityConfigurations `Prelude.seq`
+        Prelude.rnf httpStatus

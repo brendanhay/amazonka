@@ -118,8 +118,8 @@ instance Prelude.Hashable PutAutoTerminationPolicy where
 
 instance Prelude.NFData PutAutoTerminationPolicy where
   rnf PutAutoTerminationPolicy' {..} =
-    Prelude.rnf autoTerminationPolicy
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf autoTerminationPolicy `Prelude.seq`
+      Prelude.rnf clusterId
 
 instance Data.ToHeaders PutAutoTerminationPolicy where
   toHeaders =

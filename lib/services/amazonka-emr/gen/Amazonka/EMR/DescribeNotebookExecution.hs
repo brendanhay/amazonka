@@ -173,5 +173,5 @@ instance
     DescribeNotebookExecutionResponse
   where
   rnf DescribeNotebookExecutionResponse' {..} =
-    Prelude.rnf notebookExecution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notebookExecution `Prelude.seq`
+      Prelude.rnf httpStatus

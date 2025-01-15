@@ -324,23 +324,23 @@ instance Prelude.Hashable JobFlowInstancesConfig where
 
 instance Prelude.NFData JobFlowInstancesConfig where
   rnf JobFlowInstancesConfig' {..} =
-    Prelude.rnf additionalMasterSecurityGroups
-      `Prelude.seq` Prelude.rnf additionalSlaveSecurityGroups
-      `Prelude.seq` Prelude.rnf ec2KeyName
-      `Prelude.seq` Prelude.rnf ec2SubnetId
-      `Prelude.seq` Prelude.rnf ec2SubnetIds
-      `Prelude.seq` Prelude.rnf emrManagedMasterSecurityGroup
-      `Prelude.seq` Prelude.rnf emrManagedSlaveSecurityGroup
-      `Prelude.seq` Prelude.rnf hadoopVersion
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceFleets
-      `Prelude.seq` Prelude.rnf instanceGroups
-      `Prelude.seq` Prelude.rnf keepJobFlowAliveWhenNoSteps
-      `Prelude.seq` Prelude.rnf masterInstanceType
-      `Prelude.seq` Prelude.rnf placement
-      `Prelude.seq` Prelude.rnf serviceAccessSecurityGroup
-      `Prelude.seq` Prelude.rnf slaveInstanceType
-      `Prelude.seq` Prelude.rnf terminationProtected
+    Prelude.rnf additionalMasterSecurityGroups `Prelude.seq`
+      Prelude.rnf additionalSlaveSecurityGroups `Prelude.seq`
+        Prelude.rnf ec2KeyName `Prelude.seq`
+          Prelude.rnf ec2SubnetId `Prelude.seq`
+            Prelude.rnf ec2SubnetIds `Prelude.seq`
+              Prelude.rnf emrManagedMasterSecurityGroup `Prelude.seq`
+                Prelude.rnf emrManagedSlaveSecurityGroup `Prelude.seq`
+                  Prelude.rnf hadoopVersion `Prelude.seq`
+                    Prelude.rnf instanceCount `Prelude.seq`
+                      Prelude.rnf instanceFleets `Prelude.seq`
+                        Prelude.rnf instanceGroups `Prelude.seq`
+                          Prelude.rnf keepJobFlowAliveWhenNoSteps `Prelude.seq`
+                            Prelude.rnf masterInstanceType `Prelude.seq`
+                              Prelude.rnf placement `Prelude.seq`
+                                Prelude.rnf serviceAccessSecurityGroup `Prelude.seq`
+                                  Prelude.rnf slaveInstanceType `Prelude.seq`
+                                    Prelude.rnf terminationProtected
 
 instance Data.ToJSON JobFlowInstancesConfig where
   toJSON JobFlowInstancesConfig' {..} =

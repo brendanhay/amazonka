@@ -167,9 +167,9 @@ instance Prelude.Hashable AddJobFlowSteps where
 
 instance Prelude.NFData AddJobFlowSteps where
   rnf AddJobFlowSteps' {..} =
-    Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf jobFlowId
-      `Prelude.seq` Prelude.rnf steps
+    Prelude.rnf executionRoleArn `Prelude.seq`
+      Prelude.rnf jobFlowId `Prelude.seq`
+        Prelude.rnf steps
 
 instance Data.ToHeaders AddJobFlowSteps where
   toHeaders =
@@ -245,5 +245,5 @@ addJobFlowStepsResponse_httpStatus = Lens.lens (\AddJobFlowStepsResponse' {httpS
 
 instance Prelude.NFData AddJobFlowStepsResponse where
   rnf AddJobFlowStepsResponse' {..} =
-    Prelude.rnf stepIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stepIds `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -122,8 +122,8 @@ instance Prelude.Hashable StepSummary where
 
 instance Prelude.NFData StepSummary where
   rnf StepSummary' {..} =
-    Prelude.rnf actionOnFailure
-      `Prelude.seq` Prelude.rnf config
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf actionOnFailure `Prelude.seq`
+      Prelude.rnf config `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status

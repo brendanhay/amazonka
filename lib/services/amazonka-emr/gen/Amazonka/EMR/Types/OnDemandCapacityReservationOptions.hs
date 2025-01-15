@@ -173,9 +173,9 @@ instance
     OnDemandCapacityReservationOptions
   where
   rnf OnDemandCapacityReservationOptions' {..} =
-    Prelude.rnf capacityReservationPreference
-      `Prelude.seq` Prelude.rnf capacityReservationResourceGroupArn
-      `Prelude.seq` Prelude.rnf usageStrategy
+    Prelude.rnf capacityReservationPreference `Prelude.seq`
+      Prelude.rnf capacityReservationResourceGroupArn `Prelude.seq`
+        Prelude.rnf usageStrategy
 
 instance
   Data.ToJSON

@@ -138,11 +138,11 @@ instance Prelude.Hashable KerberosAttributes where
 
 instance Prelude.NFData KerberosAttributes where
   rnf KerberosAttributes' {..} =
-    Prelude.rnf aDDomainJoinPassword
-      `Prelude.seq` Prelude.rnf aDDomainJoinUser
-      `Prelude.seq` Prelude.rnf crossRealmTrustPrincipalPassword
-      `Prelude.seq` Prelude.rnf kdcAdminPassword
-      `Prelude.seq` Prelude.rnf realm
+    Prelude.rnf aDDomainJoinPassword `Prelude.seq`
+      Prelude.rnf aDDomainJoinUser `Prelude.seq`
+        Prelude.rnf crossRealmTrustPrincipalPassword `Prelude.seq`
+          Prelude.rnf kdcAdminPassword `Prelude.seq`
+            Prelude.rnf realm
 
 instance Data.ToJSON KerberosAttributes where
   toJSON KerberosAttributes' {..} =

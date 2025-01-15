@@ -77,8 +77,8 @@ instance Prelude.Hashable BootstrapActionConfig where
 
 instance Prelude.NFData BootstrapActionConfig where
   rnf BootstrapActionConfig' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scriptBootstrapAction
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf scriptBootstrapAction
 
 instance Data.ToJSON BootstrapActionConfig where
   toJSON BootstrapActionConfig' {..} =

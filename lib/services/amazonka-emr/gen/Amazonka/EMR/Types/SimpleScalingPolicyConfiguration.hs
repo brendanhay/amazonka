@@ -170,9 +170,9 @@ instance
     SimpleScalingPolicyConfiguration
   where
   rnf SimpleScalingPolicyConfiguration' {..} =
-    Prelude.rnf adjustmentType
-      `Prelude.seq` Prelude.rnf coolDown
-      `Prelude.seq` Prelude.rnf scalingAdjustment
+    Prelude.rnf adjustmentType `Prelude.seq`
+      Prelude.rnf coolDown `Prelude.seq`
+        Prelude.rnf scalingAdjustment
 
 instance Data.ToJSON SimpleScalingPolicyConfiguration where
   toJSON SimpleScalingPolicyConfiguration' {..} =

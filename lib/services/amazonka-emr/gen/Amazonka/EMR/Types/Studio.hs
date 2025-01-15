@@ -278,20 +278,20 @@ instance Prelude.Hashable Studio where
 
 instance Prelude.NFData Studio where
   rnf Studio' {..} =
-    Prelude.rnf authMode
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf defaultS3Location
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engineSecurityGroupId
-      `Prelude.seq` Prelude.rnf idpAuthUrl
-      `Prelude.seq` Prelude.rnf idpRelayStateParameterName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf studioArn
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf userRole
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf workspaceSecurityGroupId
+    Prelude.rnf authMode `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf defaultS3Location `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf engineSecurityGroupId `Prelude.seq`
+              Prelude.rnf idpAuthUrl `Prelude.seq`
+                Prelude.rnf idpRelayStateParameterName `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf serviceRole `Prelude.seq`
+                      Prelude.rnf studioArn `Prelude.seq`
+                        Prelude.rnf studioId `Prelude.seq`
+                          Prelude.rnf subnetIds `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf url `Prelude.seq`
+                                Prelude.rnf userRole `Prelude.seq`
+                                  Prelude.rnf vpcId `Prelude.seq`
+                                    Prelude.rnf workspaceSecurityGroupId

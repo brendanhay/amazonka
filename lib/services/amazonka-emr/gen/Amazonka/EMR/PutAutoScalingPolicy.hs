@@ -141,9 +141,9 @@ instance Prelude.Hashable PutAutoScalingPolicy where
 
 instance Prelude.NFData PutAutoScalingPolicy where
   rnf PutAutoScalingPolicy' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf instanceGroupId
-      `Prelude.seq` Prelude.rnf autoScalingPolicy
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf instanceGroupId `Prelude.seq`
+        Prelude.rnf autoScalingPolicy
 
 instance Data.ToHeaders PutAutoScalingPolicy where
   toHeaders =
@@ -252,8 +252,8 @@ putAutoScalingPolicyResponse_httpStatus = Lens.lens (\PutAutoScalingPolicyRespon
 
 instance Prelude.NFData PutAutoScalingPolicyResponse where
   rnf PutAutoScalingPolicyResponse' {..} =
-    Prelude.rnf autoScalingPolicy
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf instanceGroupId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoScalingPolicy `Prelude.seq`
+      Prelude.rnf clusterArn `Prelude.seq`
+        Prelude.rnf clusterId `Prelude.seq`
+          Prelude.rnf instanceGroupId `Prelude.seq`
+            Prelude.rnf httpStatus

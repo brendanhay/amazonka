@@ -148,9 +148,9 @@ instance Prelude.Hashable SessionMappingSummary where
 
 instance Prelude.NFData SessionMappingSummary where
   rnf SessionMappingSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityName
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf sessionPolicyArn
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf identityName `Prelude.seq`
+          Prelude.rnf identityType `Prelude.seq`
+            Prelude.rnf sessionPolicyArn `Prelude.seq`
+              Prelude.rnf studioId

@@ -92,9 +92,9 @@ instance Prelude.Hashable InstanceFleetModifyConfig where
 
 instance Prelude.NFData InstanceFleetModifyConfig where
   rnf InstanceFleetModifyConfig' {..} =
-    Prelude.rnf targetOnDemandCapacity
-      `Prelude.seq` Prelude.rnf targetSpotCapacity
-      `Prelude.seq` Prelude.rnf instanceFleetId
+    Prelude.rnf targetOnDemandCapacity `Prelude.seq`
+      Prelude.rnf targetSpotCapacity `Prelude.seq`
+        Prelude.rnf instanceFleetId
 
 instance Data.ToJSON InstanceFleetModifyConfig where
   toJSON InstanceFleetModifyConfig' {..} =

@@ -104,10 +104,10 @@ instance Prelude.Hashable HadoopJarStepConfig where
 
 instance Prelude.NFData HadoopJarStepConfig where
   rnf HadoopJarStepConfig' {..} =
-    Prelude.rnf args
-      `Prelude.seq` Prelude.rnf mainClass
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf jar
+    Prelude.rnf args `Prelude.seq`
+      Prelude.rnf mainClass `Prelude.seq`
+        Prelude.rnf properties `Prelude.seq`
+          Prelude.rnf jar
 
 instance Data.ToJSON HadoopJarStepConfig where
   toJSON HadoopJarStepConfig' {..} =

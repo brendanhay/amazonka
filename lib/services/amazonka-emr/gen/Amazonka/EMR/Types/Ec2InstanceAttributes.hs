@@ -272,14 +272,14 @@ instance Prelude.Hashable Ec2InstanceAttributes where
 
 instance Prelude.NFData Ec2InstanceAttributes where
   rnf Ec2InstanceAttributes' {..} =
-    Prelude.rnf additionalMasterSecurityGroups
-      `Prelude.seq` Prelude.rnf additionalSlaveSecurityGroups
-      `Prelude.seq` Prelude.rnf ec2AvailabilityZone
-      `Prelude.seq` Prelude.rnf ec2KeyName
-      `Prelude.seq` Prelude.rnf ec2SubnetId
-      `Prelude.seq` Prelude.rnf emrManagedMasterSecurityGroup
-      `Prelude.seq` Prelude.rnf emrManagedSlaveSecurityGroup
-      `Prelude.seq` Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf requestedEc2AvailabilityZones
-      `Prelude.seq` Prelude.rnf requestedEc2SubnetIds
-      `Prelude.seq` Prelude.rnf serviceAccessSecurityGroup
+    Prelude.rnf additionalMasterSecurityGroups `Prelude.seq`
+      Prelude.rnf additionalSlaveSecurityGroups `Prelude.seq`
+        Prelude.rnf ec2AvailabilityZone `Prelude.seq`
+          Prelude.rnf ec2KeyName `Prelude.seq`
+            Prelude.rnf ec2SubnetId `Prelude.seq`
+              Prelude.rnf emrManagedMasterSecurityGroup `Prelude.seq`
+                Prelude.rnf emrManagedSlaveSecurityGroup `Prelude.seq`
+                  Prelude.rnf iamInstanceProfile `Prelude.seq`
+                    Prelude.rnf requestedEc2AvailabilityZones `Prelude.seq`
+                      Prelude.rnf requestedEc2SubnetIds `Prelude.seq`
+                        Prelude.rnf serviceAccessSecurityGroup

@@ -158,9 +158,9 @@ instance Prelude.Hashable StepConfig where
 
 instance Prelude.NFData StepConfig where
   rnf StepConfig' {..} =
-    Prelude.rnf actionOnFailure
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf hadoopJarStep
+    Prelude.rnf actionOnFailure `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf hadoopJarStep
 
 instance Data.ToJSON StepConfig where
   toJSON StepConfig' {..} =

@@ -92,8 +92,8 @@ instance Prelude.Hashable ScalingAction where
 
 instance Prelude.NFData ScalingAction where
   rnf ScalingAction' {..} =
-    Prelude.rnf market
-      `Prelude.seq` Prelude.rnf simpleScalingPolicyConfiguration
+    Prelude.rnf market `Prelude.seq`
+      Prelude.rnf simpleScalingPolicyConfiguration
 
 instance Data.ToJSON ScalingAction where
   toJSON ScalingAction' {..} =

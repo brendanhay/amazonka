@@ -91,6 +91,6 @@ instance Prelude.Hashable StepTimeline where
 
 instance Prelude.NFData StepTimeline where
   rnf StepTimeline' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf startDateTime
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf endDateTime `Prelude.seq`
+        Prelude.rnf startDateTime

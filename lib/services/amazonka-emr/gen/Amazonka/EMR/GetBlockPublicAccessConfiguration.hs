@@ -254,6 +254,6 @@ instance
     GetBlockPublicAccessConfigurationResponse
   where
   rnf GetBlockPublicAccessConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf blockPublicAccessConfiguration
-      `Prelude.seq` Prelude.rnf blockPublicAccessConfigurationMetadata
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf blockPublicAccessConfiguration `Prelude.seq`
+        Prelude.rnf blockPublicAccessConfigurationMetadata

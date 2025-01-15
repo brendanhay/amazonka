@@ -106,12 +106,12 @@ instance Core.AWSPager ListInstanceGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInstanceGroups_marker
-          Lens..~ rs
-          Lens.^? listInstanceGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInstanceGroups_marker
+              Lens..~ rs
+              Lens.^? listInstanceGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceGroups where
   type
@@ -136,8 +136,8 @@ instance Prelude.Hashable ListInstanceGroups where
 
 instance Prelude.NFData ListInstanceGroups where
   rnf ListInstanceGroups' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf clusterId
 
 instance Data.ToHeaders ListInstanceGroups where
   toHeaders =
@@ -221,6 +221,6 @@ listInstanceGroupsResponse_httpStatus = Lens.lens (\ListInstanceGroupsResponse' 
 
 instance Prelude.NFData ListInstanceGroupsResponse where
   rnf ListInstanceGroupsResponse' {..} =
-    Prelude.rnf instanceGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

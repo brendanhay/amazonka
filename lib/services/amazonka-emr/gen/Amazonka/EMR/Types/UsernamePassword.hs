@@ -86,5 +86,5 @@ instance Prelude.Hashable UsernamePassword where
 
 instance Prelude.NFData UsernamePassword where
   rnf UsernamePassword' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf password `Prelude.seq`
+      Prelude.rnf username

@@ -211,9 +211,9 @@ instance Prelude.Hashable NotebookExecutionSummary where
 
 instance Prelude.NFData NotebookExecutionSummary where
   rnf NotebookExecutionSummary' {..} =
-    Prelude.rnf editorId
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf notebookExecutionId
-      `Prelude.seq` Prelude.rnf notebookExecutionName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf editorId `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf notebookExecutionId `Prelude.seq`
+          Prelude.rnf notebookExecutionName `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf status

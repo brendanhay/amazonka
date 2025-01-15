@@ -107,6 +107,6 @@ instance Prelude.Hashable FailureDetails where
 
 instance Prelude.NFData FailureDetails where
   rnf FailureDetails' {..} =
-    Prelude.rnf logFile
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf logFile `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf reason

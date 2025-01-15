@@ -95,8 +95,8 @@ instance Prelude.Hashable PlacementType where
 
 instance Prelude.NFData PlacementType where
   rnf PlacementType' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZones
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZones
 
 instance Data.ToJSON PlacementType where
   toJSON PlacementType' {..} =

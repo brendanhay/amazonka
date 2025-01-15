@@ -133,8 +133,8 @@ instance
 
 instance Prelude.NFData GetClusterSessionCredentials where
   rnf GetClusterSessionCredentials' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf executionRoleArn
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf executionRoleArn
 
 instance Data.ToHeaders GetClusterSessionCredentials where
   toHeaders =
@@ -226,6 +226,6 @@ instance
     GetClusterSessionCredentialsResponse
   where
   rnf GetClusterSessionCredentialsResponse' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf expiresAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf expiresAt `Prelude.seq`
+        Prelude.rnf httpStatus

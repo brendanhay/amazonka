@@ -136,12 +136,12 @@ instance Core.AWSPager ListClusters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listClusters_marker
-          Lens..~ rs
-          Lens.^? listClustersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listClusters_marker
+              Lens..~ rs
+              Lens.^? listClustersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClusters where
   type AWSResponse ListClusters = ListClustersResponse
@@ -166,10 +166,10 @@ instance Prelude.Hashable ListClusters where
 
 instance Prelude.NFData ListClusters where
   rnf ListClusters' {..} =
-    Prelude.rnf clusterStates
-      `Prelude.seq` Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf clusterStates `Prelude.seq`
+      Prelude.rnf createdAfter `Prelude.seq`
+        Prelude.rnf createdBefore `Prelude.seq`
+          Prelude.rnf marker
 
 instance Data.ToHeaders ListClusters where
   toHeaders =
@@ -255,6 +255,6 @@ listClustersResponse_httpStatus = Lens.lens (\ListClustersResponse' {httpStatus}
 
 instance Prelude.NFData ListClustersResponse where
   rnf ListClustersResponse' {..} =
-    Prelude.rnf clusters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

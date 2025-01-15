@@ -174,5 +174,5 @@ instance
     GetManagedScalingPolicyResponse
   where
   rnf GetManagedScalingPolicyResponse' {..} =
-    Prelude.rnf managedScalingPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf managedScalingPolicy `Prelude.seq`
+      Prelude.rnf httpStatus

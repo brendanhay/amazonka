@@ -328,15 +328,15 @@ instance Prelude.Hashable CaseDetails where
 
 instance Prelude.NFData CaseDetails where
   rnf CaseDetails' {..} =
-    Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf categoryCode
-      `Prelude.seq` Prelude.rnf ccEmailAddresses
-      `Prelude.seq` Prelude.rnf displayId
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf recentCommunications
-      `Prelude.seq` Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf severityCode
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf submittedBy
-      `Prelude.seq` Prelude.rnf timeCreated
+    Prelude.rnf caseId `Prelude.seq`
+      Prelude.rnf categoryCode `Prelude.seq`
+        Prelude.rnf ccEmailAddresses `Prelude.seq`
+          Prelude.rnf displayId `Prelude.seq`
+            Prelude.rnf language `Prelude.seq`
+              Prelude.rnf recentCommunications `Prelude.seq`
+                Prelude.rnf serviceCode `Prelude.seq`
+                  Prelude.rnf severityCode `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf subject `Prelude.seq`
+                        Prelude.rnf submittedBy `Prelude.seq`
+                          Prelude.rnf timeCreated

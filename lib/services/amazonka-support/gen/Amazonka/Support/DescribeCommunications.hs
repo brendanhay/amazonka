@@ -171,12 +171,12 @@ instance Core.AWSPager DescribeCommunications where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCommunications_nextToken
-          Lens..~ rs
-          Lens.^? describeCommunicationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCommunications_nextToken
+              Lens..~ rs
+              Lens.^? describeCommunicationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCommunications where
   type
@@ -204,11 +204,11 @@ instance Prelude.Hashable DescribeCommunications where
 
 instance Prelude.NFData DescribeCommunications where
   rnf DescribeCommunications' {..} =
-    Prelude.rnf afterTime
-      `Prelude.seq` Prelude.rnf beforeTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf caseId
+    Prelude.rnf afterTime `Prelude.seq`
+      Prelude.rnf beforeTime `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf caseId
 
 instance Data.ToHeaders DescribeCommunications where
   toHeaders =
@@ -298,6 +298,6 @@ instance
     DescribeCommunicationsResponse
   where
   rnf DescribeCommunicationsResponse' {..} =
-    Prelude.rnf communications
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf communications `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -158,6 +158,6 @@ instance
     TrustedAdvisorCheckRefreshStatus
   where
   rnf TrustedAdvisorCheckRefreshStatus' {..} =
-    Prelude.rnf checkId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf millisUntilNextRefreshable
+    Prelude.rnf checkId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf millisUntilNextRefreshable

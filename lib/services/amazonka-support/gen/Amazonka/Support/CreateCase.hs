@@ -304,15 +304,15 @@ instance Prelude.Hashable CreateCase where
 
 instance Prelude.NFData CreateCase where
   rnf CreateCase' {..} =
-    Prelude.rnf attachmentSetId
-      `Prelude.seq` Prelude.rnf categoryCode
-      `Prelude.seq` Prelude.rnf ccEmailAddresses
-      `Prelude.seq` Prelude.rnf issueType
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf severityCode
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf communicationBody
+    Prelude.rnf attachmentSetId `Prelude.seq`
+      Prelude.rnf categoryCode `Prelude.seq`
+        Prelude.rnf ccEmailAddresses `Prelude.seq`
+          Prelude.rnf issueType `Prelude.seq`
+            Prelude.rnf language `Prelude.seq`
+              Prelude.rnf serviceCode `Prelude.seq`
+                Prelude.rnf severityCode `Prelude.seq`
+                  Prelude.rnf subject `Prelude.seq`
+                    Prelude.rnf communicationBody
 
 instance Data.ToHeaders CreateCase where
   toHeaders =
@@ -403,5 +403,5 @@ createCaseResponse_httpStatus = Lens.lens (\CreateCaseResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateCaseResponse where
   rnf CreateCaseResponse' {..} =
-    Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf caseId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -153,8 +153,8 @@ instance Prelude.Hashable AddAttachmentsToSet where
 
 instance Prelude.NFData AddAttachmentsToSet where
   rnf AddAttachmentsToSet' {..} =
-    Prelude.rnf attachmentSetId
-      `Prelude.seq` Prelude.rnf attachments
+    Prelude.rnf attachmentSetId `Prelude.seq`
+      Prelude.rnf attachments
 
 instance Data.ToHeaders AddAttachmentsToSet where
   toHeaders =
@@ -249,6 +249,6 @@ addAttachmentsToSetResponse_httpStatus = Lens.lens (\AddAttachmentsToSetResponse
 
 instance Prelude.NFData AddAttachmentsToSetResponse where
   rnf AddAttachmentsToSetResponse' {..} =
-    Prelude.rnf attachmentSetId
-      `Prelude.seq` Prelude.rnf expiryTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachmentSetId `Prelude.seq`
+      Prelude.rnf expiryTime `Prelude.seq`
+        Prelude.rnf httpStatus

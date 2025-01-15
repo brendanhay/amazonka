@@ -189,6 +189,6 @@ resolveCaseResponse_httpStatus = Lens.lens (\ResolveCaseResponse' {httpStatus} -
 
 instance Prelude.NFData ResolveCaseResponse where
   rnf ResolveCaseResponse' {..} =
-    Prelude.rnf finalCaseStatus
-      `Prelude.seq` Prelude.rnf initialCaseStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf finalCaseStatus `Prelude.seq`
+      Prelude.rnf initialCaseStatus `Prelude.seq`
+        Prelude.rnf httpStatus

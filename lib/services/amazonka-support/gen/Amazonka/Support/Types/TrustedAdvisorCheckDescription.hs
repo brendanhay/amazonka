@@ -148,8 +148,8 @@ instance
     TrustedAdvisorCheckDescription
   where
   rnf TrustedAdvisorCheckDescription' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf category `Prelude.seq`
+            Prelude.rnf metadata

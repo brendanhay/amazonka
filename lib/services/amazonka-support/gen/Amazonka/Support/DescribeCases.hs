@@ -227,12 +227,12 @@ instance Core.AWSPager DescribeCases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCases_nextToken
-          Lens..~ rs
-          Lens.^? describeCasesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCases_nextToken
+              Lens..~ rs
+              Lens.^? describeCasesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCases where
   type
@@ -264,15 +264,15 @@ instance Prelude.Hashable DescribeCases where
 
 instance Prelude.NFData DescribeCases where
   rnf DescribeCases' {..} =
-    Prelude.rnf afterTime
-      `Prelude.seq` Prelude.rnf beforeTime
-      `Prelude.seq` Prelude.rnf caseIdList
-      `Prelude.seq` Prelude.rnf displayId
-      `Prelude.seq` Prelude.rnf includeCommunications
-      `Prelude.seq` Prelude.rnf includeResolvedCases
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf afterTime `Prelude.seq`
+      Prelude.rnf beforeTime `Prelude.seq`
+        Prelude.rnf caseIdList `Prelude.seq`
+          Prelude.rnf displayId `Prelude.seq`
+            Prelude.rnf includeCommunications `Prelude.seq`
+              Prelude.rnf includeResolvedCases `Prelude.seq`
+                Prelude.rnf language `Prelude.seq`
+                  Prelude.rnf maxResults `Prelude.seq`
+                    Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeCases where
   toHeaders =
@@ -367,6 +367,6 @@ describeCasesResponse_httpStatus = Lens.lens (\DescribeCasesResponse' {httpStatu
 
 instance Prelude.NFData DescribeCasesResponse where
   rnf DescribeCasesResponse' {..} =
-    Prelude.rnf cases
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cases `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

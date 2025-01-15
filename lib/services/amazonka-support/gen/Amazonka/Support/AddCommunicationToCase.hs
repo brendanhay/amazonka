@@ -156,10 +156,10 @@ instance Prelude.Hashable AddCommunicationToCase where
 
 instance Prelude.NFData AddCommunicationToCase where
   rnf AddCommunicationToCase' {..} =
-    Prelude.rnf attachmentSetId
-      `Prelude.seq` Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf ccEmailAddresses
-      `Prelude.seq` Prelude.rnf communicationBody
+    Prelude.rnf attachmentSetId `Prelude.seq`
+      Prelude.rnf caseId `Prelude.seq`
+        Prelude.rnf ccEmailAddresses `Prelude.seq`
+          Prelude.rnf communicationBody
 
 instance Data.ToHeaders AddCommunicationToCase where
   toHeaders =
@@ -242,5 +242,5 @@ instance
     AddCommunicationToCaseResponse
   where
   rnf AddCommunicationToCaseResponse' {..} =
-    Prelude.rnf result
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf result `Prelude.seq`
+      Prelude.rnf httpStatus

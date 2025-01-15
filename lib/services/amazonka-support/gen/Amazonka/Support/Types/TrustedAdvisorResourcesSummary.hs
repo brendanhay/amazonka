@@ -136,7 +136,7 @@ instance
     TrustedAdvisorResourcesSummary
   where
   rnf TrustedAdvisorResourcesSummary' {..} =
-    Prelude.rnf resourcesProcessed
-      `Prelude.seq` Prelude.rnf resourcesFlagged
-      `Prelude.seq` Prelude.rnf resourcesIgnored
-      `Prelude.seq` Prelude.rnf resourcesSuppressed
+    Prelude.rnf resourcesProcessed `Prelude.seq`
+      Prelude.rnf resourcesFlagged `Prelude.seq`
+        Prelude.rnf resourcesIgnored `Prelude.seq`
+          Prelude.rnf resourcesSuppressed

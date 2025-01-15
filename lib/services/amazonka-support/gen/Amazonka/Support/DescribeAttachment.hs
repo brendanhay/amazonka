@@ -200,5 +200,5 @@ describeAttachmentResponse_httpStatus = Lens.lens (\DescribeAttachmentResponse' 
 
 instance Prelude.NFData DescribeAttachmentResponse where
   rnf DescribeAttachmentResponse' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -216,5 +216,5 @@ instance
     DescribeTrustedAdvisorCheckSummariesResponse
   where
   rnf DescribeTrustedAdvisorCheckSummariesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf summaries
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf summaries

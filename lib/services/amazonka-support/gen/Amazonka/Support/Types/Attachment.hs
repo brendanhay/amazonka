@@ -89,8 +89,8 @@ instance Prelude.Hashable Attachment where
 
 instance Prelude.NFData Attachment where
   rnf Attachment' {..} =
-    Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf fileName
+    Prelude.rnf data' `Prelude.seq`
+      Prelude.rnf fileName
 
 instance Data.ToJSON Attachment where
   toJSON Attachment' {..} =

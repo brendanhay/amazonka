@@ -195,5 +195,5 @@ instance
     DescribeSeverityLevelsResponse
   where
   rnf DescribeSeverityLevelsResponse' {..} =
-    Prelude.rnf severityLevels
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf severityLevels `Prelude.seq`
+      Prelude.rnf httpStatus

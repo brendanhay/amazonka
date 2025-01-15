@@ -138,8 +138,8 @@ instance Prelude.Hashable Communication where
 
 instance Prelude.NFData Communication where
   rnf Communication' {..} =
-    Prelude.rnf attachmentSet
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf submittedBy
-      `Prelude.seq` Prelude.rnf timeCreated
+    Prelude.rnf attachmentSet `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf caseId `Prelude.seq`
+          Prelude.rnf submittedBy `Prelude.seq`
+            Prelude.rnf timeCreated

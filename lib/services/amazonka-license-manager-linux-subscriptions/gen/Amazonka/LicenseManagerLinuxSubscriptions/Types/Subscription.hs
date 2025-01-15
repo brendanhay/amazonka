@@ -103,6 +103,6 @@ instance Prelude.Hashable Subscription where
 
 instance Prelude.NFData Subscription where
   rnf Subscription' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf instanceCount `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type'

@@ -184,13 +184,13 @@ instance Prelude.Hashable Instance where
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf accountID
-      `Prelude.seq` Prelude.rnf amiId
-      `Prelude.seq` Prelude.rnf instanceID
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf productCode
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subscriptionName
-      `Prelude.seq` Prelude.rnf usageOperation
+    Prelude.rnf accountID `Prelude.seq`
+      Prelude.rnf amiId `Prelude.seq`
+        Prelude.rnf instanceID `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf productCode `Prelude.seq`
+                Prelude.rnf region `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf subscriptionName `Prelude.seq`
+                      Prelude.rnf usageOperation

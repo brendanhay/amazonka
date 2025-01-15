@@ -146,9 +146,9 @@ instance Prelude.Hashable UpdateServiceSettings where
 
 instance Prelude.NFData UpdateServiceSettings where
   rnf UpdateServiceSettings' {..} =
-    Prelude.rnf allowUpdate
-      `Prelude.seq` Prelude.rnf linuxSubscriptionsDiscovery
-      `Prelude.seq` Prelude.rnf linuxSubscriptionsDiscoverySettings
+    Prelude.rnf allowUpdate `Prelude.seq`
+      Prelude.rnf linuxSubscriptionsDiscovery `Prelude.seq`
+        Prelude.rnf linuxSubscriptionsDiscoverySettings
 
 instance Data.ToHeaders UpdateServiceSettings where
   toHeaders =
@@ -275,9 +275,9 @@ updateServiceSettingsResponse_httpStatus = Lens.lens (\UpdateServiceSettingsResp
 
 instance Prelude.NFData UpdateServiceSettingsResponse where
   rnf UpdateServiceSettingsResponse' {..} =
-    Prelude.rnf homeRegions
-      `Prelude.seq` Prelude.rnf linuxSubscriptionsDiscovery
-      `Prelude.seq` Prelude.rnf linuxSubscriptionsDiscoverySettings
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf homeRegions `Prelude.seq`
+      Prelude.rnf linuxSubscriptionsDiscovery `Prelude.seq`
+        Prelude.rnf linuxSubscriptionsDiscoverySettings `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf httpStatus

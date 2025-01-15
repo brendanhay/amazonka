@@ -198,9 +198,9 @@ getServiceSettingsResponse_httpStatus = Lens.lens (\GetServiceSettingsResponse' 
 
 instance Prelude.NFData GetServiceSettingsResponse where
   rnf GetServiceSettingsResponse' {..} =
-    Prelude.rnf homeRegions
-      `Prelude.seq` Prelude.rnf linuxSubscriptionsDiscovery
-      `Prelude.seq` Prelude.rnf linuxSubscriptionsDiscoverySettings
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf homeRegions `Prelude.seq`
+      Prelude.rnf linuxSubscriptionsDiscovery `Prelude.seq`
+        Prelude.rnf linuxSubscriptionsDiscoverySettings `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf httpStatus

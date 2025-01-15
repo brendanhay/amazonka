@@ -91,5 +91,5 @@ instance Prelude.Hashable BatchGetViewError where
 
 instance Prelude.NFData BatchGetViewError where
   rnf BatchGetViewError' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf viewArn
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf viewArn

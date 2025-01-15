@@ -169,9 +169,9 @@ instance Prelude.Hashable View where
 
 instance Prelude.NFData View where
   rnf View' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includedProperties
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf viewArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf includedProperties `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf scope `Prelude.seq`
+              Prelude.rnf viewArn

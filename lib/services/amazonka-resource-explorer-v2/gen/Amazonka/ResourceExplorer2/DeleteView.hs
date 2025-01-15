@@ -174,5 +174,5 @@ deleteViewResponse_httpStatus = Lens.lens (\DeleteViewResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteViewResponse where
   rnf DeleteViewResponse' {..} =
-    Prelude.rnf viewArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf viewArn `Prelude.seq`
+      Prelude.rnf httpStatus

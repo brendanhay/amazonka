@@ -175,8 +175,8 @@ instance Prelude.Hashable CreateIndex where
 
 instance Prelude.NFData CreateIndex where
   rnf CreateIndex' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders CreateIndex where
   toHeaders =
@@ -283,7 +283,7 @@ createIndexResponse_httpStatus = Lens.lens (\CreateIndexResponse' {httpStatus} -
 
 instance Prelude.NFData CreateIndexResponse where
   rnf CreateIndexResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf httpStatus

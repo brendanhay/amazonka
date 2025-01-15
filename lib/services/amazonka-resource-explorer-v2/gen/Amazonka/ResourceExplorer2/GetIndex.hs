@@ -254,12 +254,12 @@ getIndexResponse_httpStatus = Lens.lens (\GetIndexResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetIndexResponse where
   rnf GetIndexResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf replicatingFrom
-      `Prelude.seq` Prelude.rnf replicatingTo
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf replicatingFrom `Prelude.seq`
+            Prelude.rnf replicatingTo `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf httpStatus

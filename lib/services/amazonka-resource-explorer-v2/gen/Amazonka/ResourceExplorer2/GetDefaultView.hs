@@ -150,5 +150,5 @@ getDefaultViewResponse_httpStatus = Lens.lens (\GetDefaultViewResponse' {httpSta
 
 instance Prelude.NFData GetDefaultViewResponse where
   rnf GetDefaultViewResponse' {..} =
-    Prelude.rnf viewArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf viewArn `Prelude.seq`
+      Prelude.rnf httpStatus

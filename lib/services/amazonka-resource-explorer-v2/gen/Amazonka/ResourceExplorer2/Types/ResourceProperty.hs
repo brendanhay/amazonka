@@ -98,6 +98,6 @@ instance Prelude.Hashable ResourceProperty where
 
 instance Prelude.NFData ResourceProperty where
   rnf ResourceProperty' {..} =
-    Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf lastReportedAt
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf data' `Prelude.seq`
+      Prelude.rnf lastReportedAt `Prelude.seq`
+        Prelude.rnf name

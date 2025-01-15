@@ -239,11 +239,11 @@ instance Prelude.Hashable CreateView where
 
 instance Prelude.NFData CreateView where
   rnf CreateView' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includedProperties
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf viewName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf includedProperties `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf viewName
 
 instance Data.ToHeaders CreateView where
   toHeaders =
@@ -315,5 +315,5 @@ createViewResponse_httpStatus = Lens.lens (\CreateViewResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateViewResponse where
   rnf CreateViewResponse' {..} =
-    Prelude.rnf view
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf view `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -178,6 +178,6 @@ batchGetViewResponse_httpStatus = Lens.lens (\BatchGetViewResponse' {httpStatus}
 
 instance Prelude.NFData BatchGetViewResponse where
   rnf BatchGetViewResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf views
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf views `Prelude.seq`
+        Prelude.rnf httpStatus

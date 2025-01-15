@@ -146,12 +146,12 @@ instance Core.AWSPager ListSupportedResourceTypes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSupportedResourceTypes_nextToken
-          Lens..~ rs
-          Lens.^? listSupportedResourceTypesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSupportedResourceTypes_nextToken
+              Lens..~ rs
+              Lens.^? listSupportedResourceTypesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSupportedResourceTypes where
   type
@@ -176,8 +176,8 @@ instance Prelude.Hashable ListSupportedResourceTypes where
 
 instance Prelude.NFData ListSupportedResourceTypes where
   rnf ListSupportedResourceTypes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSupportedResourceTypes where
   toHeaders =
@@ -270,6 +270,6 @@ instance
     ListSupportedResourceTypesResponse
   where
   rnf ListSupportedResourceTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceTypes `Prelude.seq`
+        Prelude.rnf httpStatus

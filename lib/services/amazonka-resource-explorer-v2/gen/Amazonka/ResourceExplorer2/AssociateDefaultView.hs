@@ -192,5 +192,5 @@ associateDefaultViewResponse_httpStatus = Lens.lens (\AssociateDefaultViewRespon
 
 instance Prelude.NFData AssociateDefaultViewResponse where
   rnf AssociateDefaultViewResponse' {..} =
-    Prelude.rnf viewArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf viewArn `Prelude.seq`
+      Prelude.rnf httpStatus

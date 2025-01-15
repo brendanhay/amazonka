@@ -159,10 +159,10 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastReportedAt
-      `Prelude.seq` Prelude.rnf owningAccountId
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf lastReportedAt `Prelude.seq`
+        Prelude.rnf owningAccountId `Prelude.seq`
+          Prelude.rnf properties `Prelude.seq`
+            Prelude.rnf region `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf service

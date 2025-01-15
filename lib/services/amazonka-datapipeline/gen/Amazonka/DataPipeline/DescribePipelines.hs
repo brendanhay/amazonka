@@ -184,5 +184,5 @@ describePipelinesResponse_pipelineDescriptionList = Lens.lens (\DescribePipeline
 
 instance Prelude.NFData DescribePipelinesResponse where
   rnf DescribePipelinesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pipelineDescriptionList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf pipelineDescriptionList

@@ -148,12 +148,12 @@ instance Core.AWSPager DescribeObjects where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeObjects_marker
-          Lens..~ rs
-          Lens.^? describeObjectsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeObjects_marker
+              Lens..~ rs
+              Lens.^? describeObjectsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeObjects where
   type
@@ -184,10 +184,10 @@ instance Prelude.Hashable DescribeObjects where
 
 instance Prelude.NFData DescribeObjects where
   rnf DescribeObjects' {..} =
-    Prelude.rnf evaluateExpressions
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf objectIds
+    Prelude.rnf evaluateExpressions `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf pipelineId `Prelude.seq`
+          Prelude.rnf objectIds
 
 instance Data.ToHeaders DescribeObjects where
   toHeaders =
@@ -289,7 +289,7 @@ describeObjectsResponse_pipelineObjects = Lens.lens (\DescribeObjectsResponse' {
 
 instance Prelude.NFData DescribeObjectsResponse where
   rnf DescribeObjectsResponse' {..} =
-    Prelude.rnf hasMoreResults
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pipelineObjects
+    Prelude.rnf hasMoreResults `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf pipelineObjects

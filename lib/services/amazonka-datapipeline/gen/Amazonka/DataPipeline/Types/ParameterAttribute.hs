@@ -84,8 +84,8 @@ instance Prelude.Hashable ParameterAttribute where
 
 instance Prelude.NFData ParameterAttribute where
   rnf ParameterAttribute' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf stringValue
 
 instance Data.ToJSON ParameterAttribute where
   toJSON ParameterAttribute' {..} =

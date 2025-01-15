@@ -180,11 +180,11 @@ instance Prelude.Hashable SetTaskStatus where
 
 instance Prelude.NFData SetTaskStatus where
   rnf SetTaskStatus' {..} =
-    Prelude.rnf errorId
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorStackTrace
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf taskStatus
+    Prelude.rnf errorId `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf errorStackTrace `Prelude.seq`
+          Prelude.rnf taskId `Prelude.seq`
+            Prelude.rnf taskStatus
 
 instance Data.ToHeaders SetTaskStatus where
   toHeaders =

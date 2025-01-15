@@ -134,8 +134,8 @@ instance Prelude.Hashable PipelineDescription where
 
 instance Prelude.NFData PipelineDescription where
   rnf PipelineDescription' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf pipelineId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf fields

@@ -113,7 +113,7 @@ instance Prelude.Hashable TaskObject where
 
 instance Prelude.NFData TaskObject where
   rnf TaskObject' {..} =
-    Prelude.rnf attemptId
-      `Prelude.seq` Prelude.rnf objects
-      `Prelude.seq` Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf attemptId `Prelude.seq`
+      Prelude.rnf objects `Prelude.seq`
+        Prelude.rnf pipelineId `Prelude.seq`
+          Prelude.rnf taskId

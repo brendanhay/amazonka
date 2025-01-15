@@ -130,9 +130,9 @@ instance Prelude.Hashable ActivatePipeline where
 
 instance Prelude.NFData ActivatePipeline where
   rnf ActivatePipeline' {..} =
-    Prelude.rnf parameterValues
-      `Prelude.seq` Prelude.rnf startTimestamp
-      `Prelude.seq` Prelude.rnf pipelineId
+    Prelude.rnf parameterValues `Prelude.seq`
+      Prelude.rnf startTimestamp `Prelude.seq`
+        Prelude.rnf pipelineId
 
 instance Data.ToHeaders ActivatePipeline where
   toHeaders =

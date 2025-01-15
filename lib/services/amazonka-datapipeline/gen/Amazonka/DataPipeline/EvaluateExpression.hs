@@ -130,9 +130,9 @@ instance Prelude.Hashable EvaluateExpression where
 
 instance Prelude.NFData EvaluateExpression where
   rnf EvaluateExpression' {..} =
-    Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf objectId
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf pipelineId `Prelude.seq`
+      Prelude.rnf objectId `Prelude.seq`
+        Prelude.rnf expression
 
 instance Data.ToHeaders EvaluateExpression where
   toHeaders =
@@ -212,5 +212,5 @@ evaluateExpressionResponse_evaluatedExpression = Lens.lens (\EvaluateExpressionR
 
 instance Prelude.NFData EvaluateExpressionResponse where
   rnf EvaluateExpressionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf evaluatedExpression
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf evaluatedExpression

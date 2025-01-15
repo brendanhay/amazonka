@@ -153,9 +153,9 @@ instance Prelude.Hashable ReportTaskRunnerHeartbeat where
 
 instance Prelude.NFData ReportTaskRunnerHeartbeat where
   rnf ReportTaskRunnerHeartbeat' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf workerGroup
-      `Prelude.seq` Prelude.rnf taskrunnerId
+    Prelude.rnf hostname `Prelude.seq`
+      Prelude.rnf workerGroup `Prelude.seq`
+        Prelude.rnf taskrunnerId
 
 instance Data.ToHeaders ReportTaskRunnerHeartbeat where
   toHeaders =
@@ -238,5 +238,5 @@ instance
     ReportTaskRunnerHeartbeatResponse
   where
   rnf ReportTaskRunnerHeartbeatResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf terminate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf terminate

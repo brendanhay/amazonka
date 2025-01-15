@@ -103,12 +103,12 @@ instance Core.AWSPager ListPipelines where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPipelines_marker
-          Lens..~ rs
-          Lens.^? listPipelinesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPipelines_marker
+              Lens..~ rs
+              Lens.^? listPipelinesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipelines where
   type
@@ -238,7 +238,7 @@ listPipelinesResponse_pipelineIdList = Lens.lens (\ListPipelinesResponse' {pipel
 
 instance Prelude.NFData ListPipelinesResponse where
   rnf ListPipelinesResponse' {..} =
-    Prelude.rnf hasMoreResults
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pipelineIdList
+    Prelude.rnf hasMoreResults `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf pipelineIdList

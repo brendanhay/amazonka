@@ -164,12 +164,12 @@ instance Core.AWSPager QueryObjects where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& queryObjects_marker
-          Lens..~ rs
-          Lens.^? queryObjectsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& queryObjects_marker
+              Lens..~ rs
+              Lens.^? queryObjectsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest QueryObjects where
   type AWSResponse QueryObjects = QueryObjectsResponse
@@ -196,11 +196,11 @@ instance Prelude.Hashable QueryObjects where
 
 instance Prelude.NFData QueryObjects where
   rnf QueryObjects' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf query
-      `Prelude.seq` Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf sphere
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf query `Prelude.seq`
+          Prelude.rnf pipelineId `Prelude.seq`
+            Prelude.rnf sphere
 
 instance Data.ToHeaders QueryObjects where
   toHeaders =
@@ -303,7 +303,7 @@ queryObjectsResponse_httpStatus = Lens.lens (\QueryObjectsResponse' {httpStatus}
 
 instance Prelude.NFData QueryObjectsResponse where
   rnf QueryObjectsResponse' {..} =
-    Prelude.rnf hasMoreResults
-      `Prelude.seq` Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hasMoreResults `Prelude.seq`
+      Prelude.rnf ids `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf httpStatus

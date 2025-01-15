@@ -80,8 +80,8 @@ instance Prelude.Hashable Selector where
 
 instance Prelude.NFData Selector where
   rnf Selector' {..} =
-    Prelude.rnf fieldName
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf fieldName `Prelude.seq`
+      Prelude.rnf operator
 
 instance Data.ToJSON Selector where
   toJSON Selector' {..} =

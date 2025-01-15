@@ -169,9 +169,9 @@ instance Prelude.Hashable PollForTask where
 
 instance Prelude.NFData PollForTask where
   rnf PollForTask' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf instanceIdentity
-      `Prelude.seq` Prelude.rnf workerGroup
+    Prelude.rnf hostname `Prelude.seq`
+      Prelude.rnf instanceIdentity `Prelude.seq`
+        Prelude.rnf workerGroup
 
 instance Data.ToHeaders PollForTask where
   toHeaders =
@@ -257,5 +257,5 @@ pollForTaskResponse_httpStatus = Lens.lens (\PollForTaskResponse' {httpStatus} -
 
 instance Prelude.NFData PollForTaskResponse where
   rnf PollForTaskResponse' {..} =
-    Prelude.rnf taskObject
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskObject `Prelude.seq`
+      Prelude.rnf httpStatus

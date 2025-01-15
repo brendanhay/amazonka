@@ -98,9 +98,9 @@ instance Prelude.Hashable PipelineObject where
 
 instance Prelude.NFData PipelineObject where
   rnf PipelineObject' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf fields
 
 instance Data.ToJSON PipelineObject where
   toJSON PipelineObject' {..} =

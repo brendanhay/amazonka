@@ -147,10 +147,10 @@ instance Prelude.Hashable ValidatePipelineDefinition where
 
 instance Prelude.NFData ValidatePipelineDefinition where
   rnf ValidatePipelineDefinition' {..} =
-    Prelude.rnf parameterObjects
-      `Prelude.seq` Prelude.rnf parameterValues
-      `Prelude.seq` Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf pipelineObjects
+    Prelude.rnf parameterObjects `Prelude.seq`
+      Prelude.rnf parameterValues `Prelude.seq`
+        Prelude.rnf pipelineId `Prelude.seq`
+          Prelude.rnf pipelineObjects
 
 instance Data.ToHeaders ValidatePipelineDefinition where
   toHeaders =
@@ -255,7 +255,7 @@ instance
     ValidatePipelineDefinitionResponse
   where
   rnf ValidatePipelineDefinitionResponse' {..} =
-    Prelude.rnf validationErrors
-      `Prelude.seq` Prelude.rnf validationWarnings
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errored
+    Prelude.rnf validationErrors `Prelude.seq`
+      Prelude.rnf validationWarnings `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf errored

@@ -157,10 +157,10 @@ instance Prelude.Hashable CreateSafetyRule where
 
 instance Prelude.NFData CreateSafetyRule where
   rnf CreateSafetyRule' {..} =
-    Prelude.rnf assertionRule
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf gatingRule
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf assertionRule `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf gatingRule `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToHeaders CreateSafetyRule where
   toHeaders =
@@ -240,6 +240,6 @@ createSafetyRuleResponse_httpStatus = Lens.lens (\CreateSafetyRuleResponse' {htt
 
 instance Prelude.NFData CreateSafetyRuleResponse where
   rnf CreateSafetyRuleResponse' {..} =
-    Prelude.rnf assertionRule
-      `Prelude.seq` Prelude.rnf gatingRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assertionRule `Prelude.seq`
+      Prelude.rnf gatingRule `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -159,5 +159,5 @@ describeControlPanelResponse_httpStatus = Lens.lens (\DescribeControlPanelRespon
 
 instance Prelude.NFData DescribeControlPanelResponse where
   rnf DescribeControlPanelResponse' {..} =
-    Prelude.rnf controlPanel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf controlPanel `Prelude.seq`
+      Prelude.rnf httpStatus

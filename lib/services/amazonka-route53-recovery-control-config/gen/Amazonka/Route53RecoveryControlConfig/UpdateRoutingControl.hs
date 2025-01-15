@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateRoutingControl where
 
 instance Prelude.NFData UpdateRoutingControl where
   rnf UpdateRoutingControl' {..} =
-    Prelude.rnf routingControlName
-      `Prelude.seq` Prelude.rnf routingControlArn
+    Prelude.rnf routingControlName `Prelude.seq`
+      Prelude.rnf routingControlArn
 
 instance Data.ToHeaders UpdateRoutingControl where
   toHeaders =
@@ -190,5 +190,5 @@ updateRoutingControlResponse_httpStatus = Lens.lens (\UpdateRoutingControlRespon
 
 instance Prelude.NFData UpdateRoutingControlResponse where
   rnf UpdateRoutingControlResponse' {..} =
-    Prelude.rnf routingControl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf routingControl `Prelude.seq`
+      Prelude.rnf httpStatus

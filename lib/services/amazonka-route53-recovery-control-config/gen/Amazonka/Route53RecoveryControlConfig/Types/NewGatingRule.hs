@@ -171,12 +171,12 @@ instance Prelude.Hashable NewGatingRule where
 
 instance Prelude.NFData NewGatingRule where
   rnf NewGatingRule' {..} =
-    Prelude.rnf targetControls
-      `Prelude.seq` Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf gatingControls
-      `Prelude.seq` Prelude.rnf ruleConfig
-      `Prelude.seq` Prelude.rnf waitPeriodMs
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf targetControls `Prelude.seq`
+      Prelude.rnf controlPanelArn `Prelude.seq`
+        Prelude.rnf gatingControls `Prelude.seq`
+          Prelude.rnf ruleConfig `Prelude.seq`
+            Prelude.rnf waitPeriodMs `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToJSON NewGatingRule where
   toJSON NewGatingRule' {..} =

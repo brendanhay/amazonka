@@ -206,10 +206,10 @@ instance Prelude.Hashable AssertionRule where
 
 instance Prelude.NFData AssertionRule where
   rnf AssertionRule' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf safetyRuleArn
-      `Prelude.seq` Prelude.rnf assertedControls
-      `Prelude.seq` Prelude.rnf ruleConfig
-      `Prelude.seq` Prelude.rnf waitPeriodMs
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf controlPanelArn `Prelude.seq`
+        Prelude.rnf safetyRuleArn `Prelude.seq`
+          Prelude.rnf assertedControls `Prelude.seq`
+            Prelude.rnf ruleConfig `Prelude.seq`
+              Prelude.rnf waitPeriodMs `Prelude.seq`
+                Prelude.rnf name

@@ -104,9 +104,9 @@ instance Prelude.Hashable AssertionRuleUpdate where
 
 instance Prelude.NFData AssertionRuleUpdate where
   rnf AssertionRuleUpdate' {..} =
-    Prelude.rnf safetyRuleArn
-      `Prelude.seq` Prelude.rnf waitPeriodMs
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf safetyRuleArn `Prelude.seq`
+      Prelude.rnf waitPeriodMs `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON AssertionRuleUpdate where
   toJSON AssertionRuleUpdate' {..} =

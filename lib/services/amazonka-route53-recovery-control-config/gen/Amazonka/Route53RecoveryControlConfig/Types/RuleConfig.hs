@@ -109,9 +109,9 @@ instance Prelude.Hashable RuleConfig where
 
 instance Prelude.NFData RuleConfig where
   rnf RuleConfig' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf inverted
-      `Prelude.seq` Prelude.rnf threshold
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf inverted `Prelude.seq`
+        Prelude.rnf threshold
 
 instance Data.ToJSON RuleConfig where
   toJSON RuleConfig' {..} =

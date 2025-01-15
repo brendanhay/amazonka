@@ -103,9 +103,9 @@ instance Prelude.Hashable GatingRuleUpdate where
 
 instance Prelude.NFData GatingRuleUpdate where
   rnf GatingRuleUpdate' {..} =
-    Prelude.rnf safetyRuleArn
-      `Prelude.seq` Prelude.rnf waitPeriodMs
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf safetyRuleArn `Prelude.seq`
+      Prelude.rnf waitPeriodMs `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON GatingRuleUpdate where
   toJSON GatingRuleUpdate' {..} =

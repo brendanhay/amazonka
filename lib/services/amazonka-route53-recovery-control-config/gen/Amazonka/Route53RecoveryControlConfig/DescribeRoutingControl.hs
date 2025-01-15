@@ -169,5 +169,5 @@ instance
     DescribeRoutingControlResponse
   where
   rnf DescribeRoutingControlResponse' {..} =
-    Prelude.rnf routingControl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf routingControl `Prelude.seq`
+      Prelude.rnf httpStatus

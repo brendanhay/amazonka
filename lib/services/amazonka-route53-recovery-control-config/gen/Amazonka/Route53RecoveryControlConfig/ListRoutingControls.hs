@@ -118,12 +118,12 @@ instance Core.AWSPager ListRoutingControls where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRoutingControls_nextToken
-          Lens..~ rs
-          Lens.^? listRoutingControlsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRoutingControls_nextToken
+              Lens..~ rs
+              Lens.^? listRoutingControlsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoutingControls where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListRoutingControls where
 
 instance Prelude.NFData ListRoutingControls where
   rnf ListRoutingControls' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf controlPanelArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf controlPanelArn
 
 instance Data.ToHeaders ListRoutingControls where
   toHeaders =
@@ -232,6 +232,6 @@ listRoutingControlsResponse_httpStatus = Lens.lens (\ListRoutingControlsResponse
 
 instance Prelude.NFData ListRoutingControlsResponse where
   rnf ListRoutingControlsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf routingControls
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf routingControls `Prelude.seq`
+        Prelude.rnf httpStatus

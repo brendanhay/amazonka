@@ -145,10 +145,10 @@ instance Prelude.Hashable CreateControlPanel where
 
 instance Prelude.NFData CreateControlPanel where
   rnf CreateControlPanel' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf controlPanelName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf clusterArn `Prelude.seq`
+          Prelude.rnf controlPanelName
 
 instance Data.ToHeaders CreateControlPanel where
   toHeaders =
@@ -220,5 +220,5 @@ createControlPanelResponse_httpStatus = Lens.lens (\CreateControlPanelResponse' 
 
 instance Prelude.NFData CreateControlPanelResponse where
   rnf CreateControlPanelResponse' {..} =
-    Prelude.rnf controlPanel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf controlPanel `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -111,7 +111,7 @@ instance Prelude.Hashable RoutingControl where
 
 instance Prelude.NFData RoutingControl where
   rnf RoutingControl' {..} =
-    Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf routingControlArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf controlPanelArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf routingControlArn `Prelude.seq`
+          Prelude.rnf status

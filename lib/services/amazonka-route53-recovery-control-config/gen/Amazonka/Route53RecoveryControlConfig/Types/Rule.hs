@@ -130,5 +130,5 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf assertion
-      `Prelude.seq` Prelude.rnf gating
+    Prelude.rnf assertion `Prelude.seq`
+      Prelude.rnf gating

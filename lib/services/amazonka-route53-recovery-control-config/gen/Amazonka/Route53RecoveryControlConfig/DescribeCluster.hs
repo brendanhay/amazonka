@@ -154,5 +154,5 @@ describeClusterResponse_httpStatus = Lens.lens (\DescribeClusterResponse' {httpS
 
 instance Prelude.NFData DescribeClusterResponse where
   rnf DescribeClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

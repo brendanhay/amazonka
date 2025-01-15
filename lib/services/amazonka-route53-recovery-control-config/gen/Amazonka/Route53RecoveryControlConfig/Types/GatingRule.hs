@@ -224,11 +224,11 @@ instance Prelude.Hashable GatingRule where
 
 instance Prelude.NFData GatingRule where
   rnf GatingRule' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetControls
-      `Prelude.seq` Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf safetyRuleArn
-      `Prelude.seq` Prelude.rnf gatingControls
-      `Prelude.seq` Prelude.rnf ruleConfig
-      `Prelude.seq` Prelude.rnf waitPeriodMs
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf targetControls `Prelude.seq`
+        Prelude.rnf controlPanelArn `Prelude.seq`
+          Prelude.rnf safetyRuleArn `Prelude.seq`
+            Prelude.rnf gatingControls `Prelude.seq`
+              Prelude.rnf ruleConfig `Prelude.seq`
+                Prelude.rnf waitPeriodMs `Prelude.seq`
+                  Prelude.rnf name

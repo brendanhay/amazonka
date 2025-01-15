@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateSafetyRule where
 
 instance Prelude.NFData UpdateSafetyRule where
   rnf UpdateSafetyRule' {..} =
-    Prelude.rnf assertionRuleUpdate
-      `Prelude.seq` Prelude.rnf gatingRuleUpdate
+    Prelude.rnf assertionRuleUpdate `Prelude.seq`
+      Prelude.rnf gatingRuleUpdate
 
 instance Data.ToHeaders UpdateSafetyRule where
   toHeaders =
@@ -196,6 +196,6 @@ updateSafetyRuleResponse_httpStatus = Lens.lens (\UpdateSafetyRuleResponse' {htt
 
 instance Prelude.NFData UpdateSafetyRuleResponse where
   rnf UpdateSafetyRuleResponse' {..} =
-    Prelude.rnf assertionRule
-      `Prelude.seq` Prelude.rnf gatingRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assertionRule `Prelude.seq`
+      Prelude.rnf gatingRule `Prelude.seq`
+        Prelude.rnf httpStatus

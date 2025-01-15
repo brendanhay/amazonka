@@ -179,10 +179,10 @@ instance Prelude.Hashable StartSelector where
 
 instance Prelude.NFData StartSelector where
   rnf StartSelector' {..} =
-    Prelude.rnf afterFragmentNumber
-      `Prelude.seq` Prelude.rnf continuationToken
-      `Prelude.seq` Prelude.rnf startTimestamp
-      `Prelude.seq` Prelude.rnf startSelectorType
+    Prelude.rnf afterFragmentNumber `Prelude.seq`
+      Prelude.rnf continuationToken `Prelude.seq`
+        Prelude.rnf startTimestamp `Prelude.seq`
+          Prelude.rnf startSelectorType
 
 instance Data.ToJSON StartSelector where
   toJSON StartSelector' {..} =

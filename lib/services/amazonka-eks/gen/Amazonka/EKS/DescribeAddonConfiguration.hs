@@ -132,8 +132,8 @@ instance Prelude.Hashable DescribeAddonConfiguration where
 
 instance Prelude.NFData DescribeAddonConfiguration where
   rnf DescribeAddonConfiguration' {..} =
-    Prelude.rnf addonName
-      `Prelude.seq` Prelude.rnf addonVersion
+    Prelude.rnf addonName `Prelude.seq`
+      Prelude.rnf addonVersion
 
 instance Data.ToHeaders DescribeAddonConfiguration where
   toHeaders =
@@ -231,7 +231,7 @@ instance
     DescribeAddonConfigurationResponse
   where
   rnf DescribeAddonConfigurationResponse' {..} =
-    Prelude.rnf addonName
-      `Prelude.seq` Prelude.rnf addonVersion
-      `Prelude.seq` Prelude.rnf configurationSchema
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addonName `Prelude.seq`
+      Prelude.rnf addonVersion `Prelude.seq`
+        Prelude.rnf configurationSchema `Prelude.seq`
+          Prelude.rnf httpStatus

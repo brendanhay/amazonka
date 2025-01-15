@@ -287,13 +287,13 @@ instance Prelude.Hashable UpdateNodegroupVersion where
 
 instance Prelude.NFData UpdateNodegroupVersion where
   rnf UpdateNodegroupVersion' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf releaseVersion
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf nodegroupName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf launchTemplate `Prelude.seq`
+          Prelude.rnf releaseVersion `Prelude.seq`
+            Prelude.rnf version `Prelude.seq`
+              Prelude.rnf clusterName `Prelude.seq`
+                Prelude.rnf nodegroupName
 
 instance Data.ToHeaders UpdateNodegroupVersion where
   toHeaders =
@@ -377,5 +377,5 @@ instance
     UpdateNodegroupVersionResponse
   where
   rnf UpdateNodegroupVersionResponse' {..} =
-    Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf update `Prelude.seq`
+      Prelude.rnf httpStatus

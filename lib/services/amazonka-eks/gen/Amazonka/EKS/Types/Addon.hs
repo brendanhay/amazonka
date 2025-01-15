@@ -232,17 +232,17 @@ instance Prelude.Hashable Addon where
 
 instance Prelude.NFData Addon where
   rnf Addon' {..} =
-    Prelude.rnf addonArn
-      `Prelude.seq` Prelude.rnf addonName
-      `Prelude.seq` Prelude.rnf addonVersion
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf configurationValues
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf marketplaceInformation
-      `Prelude.seq` Prelude.rnf modifiedAt
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf publisher
-      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf addonArn `Prelude.seq`
+      Prelude.rnf addonName `Prelude.seq`
+        Prelude.rnf addonVersion `Prelude.seq`
+          Prelude.rnf clusterName `Prelude.seq`
+            Prelude.rnf configurationValues `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf health `Prelude.seq`
+                  Prelude.rnf marketplaceInformation `Prelude.seq`
+                    Prelude.rnf modifiedAt `Prelude.seq`
+                      Prelude.rnf owner `Prelude.seq`
+                        Prelude.rnf publisher `Prelude.seq`
+                          Prelude.rnf serviceAccountRoleArn `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf tags

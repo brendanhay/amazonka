@@ -78,8 +78,8 @@ instance Prelude.Hashable ConnectorConfigRequest where
 
 instance Prelude.NFData ConnectorConfigRequest where
   rnf ConnectorConfigRequest' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf provider
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf provider
 
 instance Data.ToJSON ConnectorConfigRequest where
   toJSON ConnectorConfigRequest' {..} =

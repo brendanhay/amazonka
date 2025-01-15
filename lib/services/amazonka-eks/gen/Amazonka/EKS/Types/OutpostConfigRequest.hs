@@ -128,9 +128,9 @@ instance Prelude.Hashable OutpostConfigRequest where
 
 instance Prelude.NFData OutpostConfigRequest where
   rnf OutpostConfigRequest' {..} =
-    Prelude.rnf controlPlanePlacement
-      `Prelude.seq` Prelude.rnf outpostArns
-      `Prelude.seq` Prelude.rnf controlPlaneInstanceType
+    Prelude.rnf controlPlanePlacement `Prelude.seq`
+      Prelude.rnf outpostArns `Prelude.seq`
+        Prelude.rnf controlPlaneInstanceType
 
 instance Data.ToJSON OutpostConfigRequest where
   toJSON OutpostConfigRequest' {..} =

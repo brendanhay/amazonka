@@ -225,14 +225,14 @@ instance
     OidcIdentityProviderConfigRequest
   where
   rnf OidcIdentityProviderConfigRequest' {..} =
-    Prelude.rnf groupsClaim
-      `Prelude.seq` Prelude.rnf groupsPrefix
-      `Prelude.seq` Prelude.rnf requiredClaims
-      `Prelude.seq` Prelude.rnf usernameClaim
-      `Prelude.seq` Prelude.rnf usernamePrefix
-      `Prelude.seq` Prelude.rnf identityProviderConfigName
-      `Prelude.seq` Prelude.rnf issuerUrl
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf groupsClaim `Prelude.seq`
+      Prelude.rnf groupsPrefix `Prelude.seq`
+        Prelude.rnf requiredClaims `Prelude.seq`
+          Prelude.rnf usernameClaim `Prelude.seq`
+            Prelude.rnf usernamePrefix `Prelude.seq`
+              Prelude.rnf identityProviderConfigName `Prelude.seq`
+                Prelude.rnf issuerUrl `Prelude.seq`
+                  Prelude.rnf clientId
 
 instance
   Data.ToJSON

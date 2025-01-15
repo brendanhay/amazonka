@@ -120,8 +120,8 @@ instance Prelude.Hashable ConnectorConfigResponse where
 
 instance Prelude.NFData ConnectorConfigResponse where
   rnf ConnectorConfigResponse' {..} =
-    Prelude.rnf activationCode
-      `Prelude.seq` Prelude.rnf activationExpiry
-      `Prelude.seq` Prelude.rnf activationId
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf activationCode `Prelude.seq`
+      Prelude.rnf activationExpiry `Prelude.seq`
+        Prelude.rnf activationId `Prelude.seq`
+          Prelude.rnf provider `Prelude.seq`
+            Prelude.rnf roleArn

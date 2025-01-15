@@ -146,10 +146,10 @@ instance Prelude.Hashable DescribeUpdate where
 
 instance Prelude.NFData DescribeUpdate where
   rnf DescribeUpdate' {..} =
-    Prelude.rnf addonName
-      `Prelude.seq` Prelude.rnf nodegroupName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf updateId
+    Prelude.rnf addonName `Prelude.seq`
+      Prelude.rnf nodegroupName `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf updateId
 
 instance Data.ToHeaders DescribeUpdate where
   toHeaders =
@@ -218,5 +218,5 @@ describeUpdateResponse_httpStatus = Lens.lens (\DescribeUpdateResponse' {httpSta
 
 instance Prelude.NFData DescribeUpdateResponse where
   rnf DescribeUpdateResponse' {..} =
-    Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf update `Prelude.seq`
+      Prelude.rnf httpStatus

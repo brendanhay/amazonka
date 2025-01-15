@@ -155,5 +155,5 @@ deregisterClusterResponse_httpStatus = Lens.lens (\DeregisterClusterResponse' {h
 
 instance Prelude.NFData DeregisterClusterResponse where
   rnf DeregisterClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

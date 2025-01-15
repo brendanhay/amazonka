@@ -142,9 +142,9 @@ instance
     DisassociateIdentityProviderConfig
   where
   rnf DisassociateIdentityProviderConfig' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf identityProviderConfig
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf clusterName `Prelude.seq`
+        Prelude.rnf identityProviderConfig
 
 instance
   Data.ToHeaders
@@ -237,5 +237,5 @@ instance
     DisassociateIdentityProviderConfigResponse
   where
   rnf DisassociateIdentityProviderConfigResponse' {..} =
-    Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf update `Prelude.seq`
+      Prelude.rnf httpStatus

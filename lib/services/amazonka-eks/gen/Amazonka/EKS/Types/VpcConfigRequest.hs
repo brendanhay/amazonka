@@ -198,11 +198,11 @@ instance Prelude.Hashable VpcConfigRequest where
 
 instance Prelude.NFData VpcConfigRequest where
   rnf VpcConfigRequest' {..} =
-    Prelude.rnf endpointPrivateAccess
-      `Prelude.seq` Prelude.rnf endpointPublicAccess
-      `Prelude.seq` Prelude.rnf publicAccessCidrs
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf endpointPrivateAccess `Prelude.seq`
+      Prelude.rnf endpointPublicAccess `Prelude.seq`
+        Prelude.rnf publicAccessCidrs `Prelude.seq`
+          Prelude.rnf securityGroupIds `Prelude.seq`
+            Prelude.rnf subnetIds
 
 instance Data.ToJSON VpcConfigRequest where
   toJSON VpcConfigRequest' {..} =

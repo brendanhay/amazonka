@@ -211,10 +211,10 @@ instance Prelude.Hashable VpcConfigResponse where
 
 instance Prelude.NFData VpcConfigResponse where
   rnf VpcConfigResponse' {..} =
-    Prelude.rnf clusterSecurityGroupId
-      `Prelude.seq` Prelude.rnf endpointPrivateAccess
-      `Prelude.seq` Prelude.rnf endpointPublicAccess
-      `Prelude.seq` Prelude.rnf publicAccessCidrs
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf clusterSecurityGroupId `Prelude.seq`
+      Prelude.rnf endpointPrivateAccess `Prelude.seq`
+        Prelude.rnf endpointPublicAccess `Prelude.seq`
+          Prelude.rnf publicAccessCidrs `Prelude.seq`
+            Prelude.rnf securityGroupIds `Prelude.seq`
+              Prelude.rnf subnetIds `Prelude.seq`
+                Prelude.rnf vpcId

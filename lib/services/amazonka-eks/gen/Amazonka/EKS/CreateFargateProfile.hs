@@ -257,13 +257,13 @@ instance Prelude.Hashable CreateFargateProfile where
 
 instance Prelude.NFData CreateFargateProfile where
   rnf CreateFargateProfile' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf selectors
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fargateProfileName
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf podExecutionRoleArn
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf selectors `Prelude.seq`
+        Prelude.rnf subnets `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf fargateProfileName `Prelude.seq`
+              Prelude.rnf clusterName `Prelude.seq`
+                Prelude.rnf podExecutionRoleArn
 
 instance Data.ToHeaders CreateFargateProfile where
   toHeaders =
@@ -344,5 +344,5 @@ createFargateProfileResponse_httpStatus = Lens.lens (\CreateFargateProfileRespon
 
 instance Prelude.NFData CreateFargateProfileResponse where
   rnf CreateFargateProfileResponse' {..} =
-    Prelude.rnf fargateProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fargateProfile `Prelude.seq`
+      Prelude.rnf httpStatus

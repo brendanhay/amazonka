@@ -123,8 +123,8 @@ instance Prelude.Hashable RemoteAccessConfig where
 
 instance Prelude.NFData RemoteAccessConfig where
   rnf RemoteAccessConfig' {..} =
-    Prelude.rnf ec2SshKey
-      `Prelude.seq` Prelude.rnf sourceSecurityGroups
+    Prelude.rnf ec2SshKey `Prelude.seq`
+      Prelude.rnf sourceSecurityGroups
 
 instance Data.ToJSON RemoteAccessConfig where
   toJSON RemoteAccessConfig' {..} =

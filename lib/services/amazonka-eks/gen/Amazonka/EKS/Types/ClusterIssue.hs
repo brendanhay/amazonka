@@ -94,6 +94,6 @@ instance Prelude.Hashable ClusterIssue where
 
 instance Prelude.NFData ClusterIssue where
   rnf ClusterIssue' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resourceIds
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf resourceIds

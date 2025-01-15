@@ -125,8 +125,8 @@ instance Prelude.Hashable DeleteFargateProfile where
 
 instance Prelude.NFData DeleteFargateProfile where
   rnf DeleteFargateProfile' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf fargateProfileName
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf fargateProfileName
 
 instance Data.ToHeaders DeleteFargateProfile where
   toHeaders =
@@ -192,5 +192,5 @@ deleteFargateProfileResponse_httpStatus = Lens.lens (\DeleteFargateProfileRespon
 
 instance Prelude.NFData DeleteFargateProfileResponse where
   rnf DeleteFargateProfileResponse' {..} =
-    Prelude.rnf fargateProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fargateProfile `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -89,5 +89,5 @@ instance Prelude.Hashable NodegroupResources where
 
 instance Prelude.NFData NodegroupResources where
   rnf NodegroupResources' {..} =
-    Prelude.rnf autoScalingGroups
-      `Prelude.seq` Prelude.rnf remoteAccessSecurityGroup
+    Prelude.rnf autoScalingGroups `Prelude.seq`
+      Prelude.rnf remoteAccessSecurityGroup

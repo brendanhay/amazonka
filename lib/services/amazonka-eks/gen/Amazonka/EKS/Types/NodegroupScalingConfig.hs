@@ -164,9 +164,9 @@ instance Prelude.Hashable NodegroupScalingConfig where
 
 instance Prelude.NFData NodegroupScalingConfig where
   rnf NodegroupScalingConfig' {..} =
-    Prelude.rnf desiredSize
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf minSize
+    Prelude.rnf desiredSize `Prelude.seq`
+      Prelude.rnf maxSize `Prelude.seq`
+        Prelude.rnf minSize
 
 instance Data.ToJSON NodegroupScalingConfig where
   toJSON NodegroupScalingConfig' {..} =

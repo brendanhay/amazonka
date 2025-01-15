@@ -110,8 +110,8 @@ instance Prelude.Hashable DescribeNodegroup where
 
 instance Prelude.NFData DescribeNodegroup where
   rnf DescribeNodegroup' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf nodegroupName
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf nodegroupName
 
 instance Data.ToHeaders DescribeNodegroup where
   toHeaders =
@@ -177,5 +177,5 @@ describeNodegroupResponse_httpStatus = Lens.lens (\DescribeNodegroupResponse' {h
 
 instance Prelude.NFData DescribeNodegroupResponse where
   rnf DescribeNodegroupResponse' {..} =
-    Prelude.rnf nodegroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nodegroup `Prelude.seq`
+      Prelude.rnf httpStatus

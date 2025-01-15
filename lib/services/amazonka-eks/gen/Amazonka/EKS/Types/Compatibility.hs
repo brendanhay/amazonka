@@ -94,6 +94,6 @@ instance Prelude.Hashable Compatibility where
 
 instance Prelude.NFData Compatibility where
   rnf Compatibility' {..} =
-    Prelude.rnf clusterVersion
-      `Prelude.seq` Prelude.rnf defaultVersion
-      `Prelude.seq` Prelude.rnf platformVersions
+    Prelude.rnf clusterVersion `Prelude.seq`
+      Prelude.rnf defaultVersion `Prelude.seq`
+        Prelude.rnf platformVersions

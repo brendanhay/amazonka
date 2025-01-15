@@ -106,7 +106,7 @@ instance Prelude.Hashable AddonVersionInfo where
 
 instance Prelude.NFData AddonVersionInfo where
   rnf AddonVersionInfo' {..} =
-    Prelude.rnf addonVersion
-      `Prelude.seq` Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf compatibilities
-      `Prelude.seq` Prelude.rnf requiresConfiguration
+    Prelude.rnf addonVersion `Prelude.seq`
+      Prelude.rnf architecture `Prelude.seq`
+        Prelude.rnf compatibilities `Prelude.seq`
+          Prelude.rnf requiresConfiguration

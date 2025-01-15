@@ -186,12 +186,12 @@ instance Prelude.Hashable FargateProfile where
 
 instance Prelude.NFData FargateProfile where
   rnf FargateProfile' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf fargateProfileArn
-      `Prelude.seq` Prelude.rnf fargateProfileName
-      `Prelude.seq` Prelude.rnf podExecutionRoleArn
-      `Prelude.seq` Prelude.rnf selectors
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf fargateProfileArn `Prelude.seq`
+          Prelude.rnf fargateProfileName `Prelude.seq`
+            Prelude.rnf podExecutionRoleArn `Prelude.seq`
+              Prelude.rnf selectors `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf subnets `Prelude.seq`
+                    Prelude.rnf tags

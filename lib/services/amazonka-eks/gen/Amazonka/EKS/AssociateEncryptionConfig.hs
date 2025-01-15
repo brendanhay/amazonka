@@ -131,9 +131,9 @@ instance Prelude.Hashable AssociateEncryptionConfig where
 
 instance Prelude.NFData AssociateEncryptionConfig where
   rnf AssociateEncryptionConfig' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf encryptionConfig
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf clusterName `Prelude.seq`
+        Prelude.rnf encryptionConfig
 
 instance Data.ToHeaders AssociateEncryptionConfig where
   toHeaders =
@@ -211,5 +211,5 @@ instance
     AssociateEncryptionConfigResponse
   where
   rnf AssociateEncryptionConfigResponse' {..} =
-    Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf update `Prelude.seq`
+      Prelude.rnf httpStatus

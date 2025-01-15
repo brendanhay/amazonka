@@ -137,9 +137,9 @@ instance Prelude.Hashable UpdateClusterVersion where
 
 instance Prelude.NFData UpdateClusterVersion where
   rnf UpdateClusterVersion' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf version
 
 instance Data.ToHeaders UpdateClusterVersion where
   toHeaders =
@@ -211,5 +211,5 @@ updateClusterVersionResponse_httpStatus = Lens.lens (\UpdateClusterVersionRespon
 
 instance Prelude.NFData UpdateClusterVersionResponse where
   rnf UpdateClusterVersionResponse' {..} =
-    Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf update `Prelude.seq`
+      Prelude.rnf httpStatus

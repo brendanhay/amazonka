@@ -92,6 +92,6 @@ instance Prelude.Hashable AddonIssue where
 
 instance Prelude.NFData AddonIssue where
   rnf AddonIssue' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resourceIds
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf resourceIds

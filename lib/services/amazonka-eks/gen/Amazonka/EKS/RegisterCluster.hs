@@ -166,10 +166,10 @@ instance Prelude.Hashable RegisterCluster where
 
 instance Prelude.NFData RegisterCluster where
   rnf RegisterCluster' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf connectorConfig
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf connectorConfig
 
 instance Data.ToHeaders RegisterCluster where
   toHeaders =
@@ -240,5 +240,5 @@ registerClusterResponse_httpStatus = Lens.lens (\RegisterClusterResponse' {httpS
 
 instance Prelude.NFData RegisterClusterResponse where
   rnf RegisterClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

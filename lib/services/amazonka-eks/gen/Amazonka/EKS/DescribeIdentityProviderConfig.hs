@@ -129,8 +129,8 @@ instance
     DescribeIdentityProviderConfig
   where
   rnf DescribeIdentityProviderConfig' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf identityProviderConfig
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf identityProviderConfig
 
 instance
   Data.ToHeaders
@@ -216,5 +216,5 @@ instance
     DescribeIdentityProviderConfigResponse
   where
   rnf DescribeIdentityProviderConfigResponse' {..} =
-    Prelude.rnf identityProviderConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityProviderConfig `Prelude.seq`
+      Prelude.rnf httpStatus

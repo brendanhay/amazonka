@@ -135,9 +135,9 @@ instance Prelude.Hashable DeleteAddon where
 
 instance Prelude.NFData DeleteAddon where
   rnf DeleteAddon' {..} =
-    Prelude.rnf preserve
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf addonName
+    Prelude.rnf preserve `Prelude.seq`
+      Prelude.rnf clusterName `Prelude.seq`
+        Prelude.rnf addonName
 
 instance Data.ToHeaders DeleteAddon where
   toHeaders =
@@ -202,5 +202,5 @@ deleteAddonResponse_httpStatus = Lens.lens (\DeleteAddonResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteAddonResponse where
   rnf DeleteAddonResponse' {..} =
-    Prelude.rnf addon
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addon `Prelude.seq`
+      Prelude.rnf httpStatus

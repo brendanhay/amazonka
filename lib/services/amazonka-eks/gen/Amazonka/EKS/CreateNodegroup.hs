@@ -570,24 +570,24 @@ instance Prelude.Hashable CreateNodegroup where
 
 instance Prelude.NFData CreateNodegroup where
   rnf CreateNodegroup' {..} =
-    Prelude.rnf amiType
-      `Prelude.seq` Prelude.rnf capacityType
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf diskSize
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf releaseVersion
-      `Prelude.seq` Prelude.rnf remoteAccess
-      `Prelude.seq` Prelude.rnf scalingConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taints
-      `Prelude.seq` Prelude.rnf updateConfig
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf nodegroupName
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf nodeRole
+    Prelude.rnf amiType `Prelude.seq`
+      Prelude.rnf capacityType `Prelude.seq`
+        Prelude.rnf clientRequestToken `Prelude.seq`
+          Prelude.rnf diskSize `Prelude.seq`
+            Prelude.rnf instanceTypes `Prelude.seq`
+              Prelude.rnf labels `Prelude.seq`
+                Prelude.rnf launchTemplate `Prelude.seq`
+                  Prelude.rnf releaseVersion `Prelude.seq`
+                    Prelude.rnf remoteAccess `Prelude.seq`
+                      Prelude.rnf scalingConfig `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf taints `Prelude.seq`
+                            Prelude.rnf updateConfig `Prelude.seq`
+                              Prelude.rnf version `Prelude.seq`
+                                Prelude.rnf clusterName `Prelude.seq`
+                                  Prelude.rnf nodegroupName `Prelude.seq`
+                                    Prelude.rnf subnets `Prelude.seq`
+                                      Prelude.rnf nodeRole
 
 instance Data.ToHeaders CreateNodegroup where
   toHeaders =
@@ -676,5 +676,5 @@ createNodegroupResponse_httpStatus = Lens.lens (\CreateNodegroupResponse' {httpS
 
 instance Prelude.NFData CreateNodegroupResponse where
   rnf CreateNodegroupResponse' {..} =
-    Prelude.rnf nodegroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nodegroup `Prelude.seq`
+      Prelude.rnf httpStatus

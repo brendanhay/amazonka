@@ -249,12 +249,12 @@ instance Prelude.Hashable PutPermission where
 
 instance Prelude.NFData PutPermission where
   rnf PutPermission' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf statementId
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf condition `Prelude.seq`
+        Prelude.rnf eventBusName `Prelude.seq`
+          Prelude.rnf policy `Prelude.seq`
+            Prelude.rnf principal `Prelude.seq`
+              Prelude.rnf statementId
 
 instance Data.ToHeaders PutPermission where
   toHeaders =

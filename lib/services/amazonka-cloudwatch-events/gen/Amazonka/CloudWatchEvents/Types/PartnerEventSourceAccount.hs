@@ -126,7 +126,7 @@ instance Prelude.Hashable PartnerEventSourceAccount where
 
 instance Prelude.NFData PartnerEventSourceAccount where
   rnf PartnerEventSourceAccount' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf expirationTime `Prelude.seq`
+          Prelude.rnf state

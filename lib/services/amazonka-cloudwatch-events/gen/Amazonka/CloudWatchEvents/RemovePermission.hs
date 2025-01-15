@@ -119,9 +119,9 @@ instance Prelude.Hashable RemovePermission where
 
 instance Prelude.NFData RemovePermission where
   rnf RemovePermission' {..} =
-    Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf removeAllPermissions
-      `Prelude.seq` Prelude.rnf statementId
+    Prelude.rnf eventBusName `Prelude.seq`
+      Prelude.rnf removeAllPermissions `Prelude.seq`
+        Prelude.rnf statementId
 
 instance Data.ToHeaders RemovePermission where
   toHeaders =

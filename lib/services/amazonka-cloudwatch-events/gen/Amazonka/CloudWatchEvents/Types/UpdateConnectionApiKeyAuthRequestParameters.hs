@@ -80,8 +80,8 @@ instance
     UpdateConnectionApiKeyAuthRequestParameters
   where
   rnf UpdateConnectionApiKeyAuthRequestParameters' {..} =
-    Prelude.rnf apiKeyName
-      `Prelude.seq` Prelude.rnf apiKeyValue
+    Prelude.rnf apiKeyName `Prelude.seq`
+      Prelude.rnf apiKeyValue
 
 instance
   Data.ToJSON

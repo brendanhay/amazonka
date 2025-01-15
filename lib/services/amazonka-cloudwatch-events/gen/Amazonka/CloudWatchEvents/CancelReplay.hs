@@ -181,7 +181,7 @@ cancelReplayResponse_httpStatus = Lens.lens (\CancelReplayResponse' {httpStatus}
 
 instance Prelude.NFData CancelReplayResponse where
   rnf CancelReplayResponse' {..} =
-    Prelude.rnf replayArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replayArn `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf stateReason `Prelude.seq`
+          Prelude.rnf httpStatus

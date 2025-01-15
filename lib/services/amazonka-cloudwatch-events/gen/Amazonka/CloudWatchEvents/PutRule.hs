@@ -265,14 +265,14 @@ instance Prelude.Hashable PutRule where
 
 instance Prelude.NFData PutRule where
   rnf PutRule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eventBusName `Prelude.seq`
+        Prelude.rnf eventPattern `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf scheduleExpression `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf name
 
 instance Data.ToHeaders PutRule where
   toHeaders =
@@ -349,5 +349,5 @@ putRuleResponse_httpStatus = Lens.lens (\PutRuleResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData PutRuleResponse where
   rnf PutRuleResponse' {..} =
-    Prelude.rnf ruleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ruleArn `Prelude.seq`
+      Prelude.rnf httpStatus

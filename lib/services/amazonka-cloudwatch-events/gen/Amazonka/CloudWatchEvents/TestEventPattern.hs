@@ -173,8 +173,8 @@ instance Prelude.Hashable TestEventPattern where
 
 instance Prelude.NFData TestEventPattern where
   rnf TestEventPattern' {..} =
-    Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf event
+    Prelude.rnf eventPattern `Prelude.seq`
+      Prelude.rnf event
 
 instance Data.ToHeaders TestEventPattern where
   toHeaders =
@@ -244,5 +244,5 @@ testEventPatternResponse_httpStatus = Lens.lens (\TestEventPatternResponse' {htt
 
 instance Prelude.NFData TestEventPatternResponse where
   rnf TestEventPatternResponse' {..} =
-    Prelude.rnf result
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf result `Prelude.seq`
+      Prelude.rnf httpStatus

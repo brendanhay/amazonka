@@ -116,11 +116,11 @@ instance
 
 instance Prelude.NFData PutPartnerEventsRequestEntry where
   rnf PutPartnerEventsRequestEntry' {..} =
-    Prelude.rnf detail
-      `Prelude.seq` Prelude.rnf detailType
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf time
+    Prelude.rnf detail `Prelude.seq`
+      Prelude.rnf detailType `Prelude.seq`
+        Prelude.rnf resources `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf time
 
 instance Data.ToJSON PutPartnerEventsRequestEntry where
   toJSON PutPartnerEventsRequestEntry' {..} =

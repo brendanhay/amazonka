@@ -151,9 +151,9 @@ instance
     ListPartnerEventSourceAccounts
   where
   rnf ListPartnerEventSourceAccounts' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventSourceName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf eventSourceName
 
 instance
   Data.ToHeaders
@@ -248,6 +248,6 @@ instance
     ListPartnerEventSourceAccountsResponse
   where
   rnf ListPartnerEventSourceAccountsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf partnerEventSourceAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf partnerEventSourceAccounts `Prelude.seq`
+        Prelude.rnf httpStatus

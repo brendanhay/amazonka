@@ -295,16 +295,16 @@ describeReplayResponse_httpStatus = Lens.lens (\DescribeReplayResponse' {httpSta
 
 instance Prelude.NFData DescribeReplayResponse where
   rnf DescribeReplayResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf eventEndTime
-      `Prelude.seq` Prelude.rnf eventLastReplayedTime
-      `Prelude.seq` Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf eventStartTime
-      `Prelude.seq` Prelude.rnf replayArn
-      `Prelude.seq` Prelude.rnf replayEndTime
-      `Prelude.seq` Prelude.rnf replayName
-      `Prelude.seq` Prelude.rnf replayStartTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf eventEndTime `Prelude.seq`
+          Prelude.rnf eventLastReplayedTime `Prelude.seq`
+            Prelude.rnf eventSourceArn `Prelude.seq`
+              Prelude.rnf eventStartTime `Prelude.seq`
+                Prelude.rnf replayArn `Prelude.seq`
+                  Prelude.rnf replayEndTime `Prelude.seq`
+                    Prelude.rnf replayName `Prelude.seq`
+                      Prelude.rnf replayStartTime `Prelude.seq`
+                        Prelude.rnf state `Prelude.seq`
+                          Prelude.rnf stateReason `Prelude.seq`
+                            Prelude.rnf httpStatus

@@ -391,22 +391,22 @@ instance Prelude.Hashable Target where
 
 instance Prelude.NFData Target where
   rnf Target' {..} =
-    Prelude.rnf batchParameters
-      `Prelude.seq` Prelude.rnf deadLetterConfig
-      `Prelude.seq` Prelude.rnf ecsParameters
-      `Prelude.seq` Prelude.rnf httpParameters
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf inputPath
-      `Prelude.seq` Prelude.rnf inputTransformer
-      `Prelude.seq` Prelude.rnf kinesisParameters
-      `Prelude.seq` Prelude.rnf redshiftDataParameters
-      `Prelude.seq` Prelude.rnf retryPolicy
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf runCommandParameters
-      `Prelude.seq` Prelude.rnf sageMakerPipelineParameters
-      `Prelude.seq` Prelude.rnf sqsParameters
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf batchParameters `Prelude.seq`
+      Prelude.rnf deadLetterConfig `Prelude.seq`
+        Prelude.rnf ecsParameters `Prelude.seq`
+          Prelude.rnf httpParameters `Prelude.seq`
+            Prelude.rnf input `Prelude.seq`
+              Prelude.rnf inputPath `Prelude.seq`
+                Prelude.rnf inputTransformer `Prelude.seq`
+                  Prelude.rnf kinesisParameters `Prelude.seq`
+                    Prelude.rnf redshiftDataParameters `Prelude.seq`
+                      Prelude.rnf retryPolicy `Prelude.seq`
+                        Prelude.rnf roleArn `Prelude.seq`
+                          Prelude.rnf runCommandParameters `Prelude.seq`
+                            Prelude.rnf sageMakerPipelineParameters `Prelude.seq`
+                              Prelude.rnf sqsParameters `Prelude.seq`
+                                Prelude.rnf id `Prelude.seq`
+                                  Prelude.rnf arn
 
 instance Data.ToJSON Target where
   toJSON Target' {..} =

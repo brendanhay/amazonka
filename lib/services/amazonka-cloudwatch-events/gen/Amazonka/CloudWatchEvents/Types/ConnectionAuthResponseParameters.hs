@@ -122,7 +122,7 @@ instance
     ConnectionAuthResponseParameters
   where
   rnf ConnectionAuthResponseParameters' {..} =
-    Prelude.rnf apiKeyAuthParameters
-      `Prelude.seq` Prelude.rnf basicAuthParameters
-      `Prelude.seq` Prelude.rnf invocationHttpParameters
-      `Prelude.seq` Prelude.rnf oAuthParameters
+    Prelude.rnf apiKeyAuthParameters `Prelude.seq`
+      Prelude.rnf basicAuthParameters `Prelude.seq`
+        Prelude.rnf invocationHttpParameters `Prelude.seq`
+          Prelude.rnf oAuthParameters

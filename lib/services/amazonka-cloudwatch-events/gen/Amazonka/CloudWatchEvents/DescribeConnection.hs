@@ -277,15 +277,15 @@ describeConnectionResponse_httpStatus = Lens.lens (\DescribeConnectionResponse' 
 
 instance Prelude.NFData DescribeConnectionResponse where
   rnf DescribeConnectionResponse' {..} =
-    Prelude.rnf authParameters
-      `Prelude.seq` Prelude.rnf authorizationType
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastAuthorizedTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authParameters `Prelude.seq`
+      Prelude.rnf authorizationType `Prelude.seq`
+        Prelude.rnf connectionArn `Prelude.seq`
+          Prelude.rnf connectionState `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf lastAuthorizedTime `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf secretArn `Prelude.seq`
+                        Prelude.rnf stateReason `Prelude.seq`
+                          Prelude.rnf httpStatus

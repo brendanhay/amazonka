@@ -138,9 +138,9 @@ instance Prelude.Hashable DeleteRule where
 
 instance Prelude.NFData DeleteRule where
   rnf DeleteRule' {..} =
-    Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf eventBusName `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders DeleteRule where
   toHeaders =

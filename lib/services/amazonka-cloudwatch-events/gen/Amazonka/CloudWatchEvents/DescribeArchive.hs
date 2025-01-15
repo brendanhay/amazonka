@@ -272,15 +272,15 @@ describeArchiveResponse_httpStatus = Lens.lens (\DescribeArchiveResponse' {httpS
 
 instance Prelude.NFData DescribeArchiveResponse where
   rnf DescribeArchiveResponse' {..} =
-    Prelude.rnf archiveArn
-      `Prelude.seq` Prelude.rnf archiveName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventCount
-      `Prelude.seq` Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf retentionDays
-      `Prelude.seq` Prelude.rnf sizeBytes
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf archiveArn `Prelude.seq`
+      Prelude.rnf archiveName `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf eventCount `Prelude.seq`
+              Prelude.rnf eventPattern `Prelude.seq`
+                Prelude.rnf eventSourceArn `Prelude.seq`
+                  Prelude.rnf retentionDays `Prelude.seq`
+                    Prelude.rnf sizeBytes `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf stateReason `Prelude.seq`
+                          Prelude.rnf httpStatus

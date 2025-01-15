@@ -212,9 +212,9 @@ deleteConnectionResponse_httpStatus = Lens.lens (\DeleteConnectionResponse' {htt
 
 instance Prelude.NFData DeleteConnectionResponse where
   rnf DeleteConnectionResponse' {..} =
-    Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastAuthorizedTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionArn `Prelude.seq`
+      Prelude.rnf connectionState `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastAuthorizedTime `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf httpStatus

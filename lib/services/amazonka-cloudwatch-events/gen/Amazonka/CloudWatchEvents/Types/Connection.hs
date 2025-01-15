@@ -148,11 +148,11 @@ instance Prelude.Hashable Connection where
 
 instance Prelude.NFData Connection where
   rnf Connection' {..} =
-    Prelude.rnf authorizationType
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastAuthorizedTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stateReason
+    Prelude.rnf authorizationType `Prelude.seq`
+      Prelude.rnf connectionArn `Prelude.seq`
+        Prelude.rnf connectionState `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf lastAuthorizedTime `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf stateReason

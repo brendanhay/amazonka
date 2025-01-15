@@ -163,10 +163,10 @@ instance Prelude.Hashable RemoveTargets where
 
 instance Prelude.NFData RemoveTargets where
   rnf RemoveTargets' {..} =
-    Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf ids
+    Prelude.rnf eventBusName `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf rule `Prelude.seq`
+          Prelude.rnf ids
 
 instance Data.ToHeaders RemoveTargets where
   toHeaders =
@@ -248,6 +248,6 @@ removeTargetsResponse_httpStatus = Lens.lens (\RemoveTargetsResponse' {httpStatu
 
 instance Prelude.NFData RemoveTargetsResponse where
   rnf RemoveTargetsResponse' {..} =
-    Prelude.rnf failedEntries
-      `Prelude.seq` Prelude.rnf failedEntryCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedEntries `Prelude.seq`
+      Prelude.rnf failedEntryCount `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -146,9 +146,9 @@ instance Prelude.Hashable CreateEventBus where
 
 instance Prelude.NFData CreateEventBus where
   rnf CreateEventBus' {..} =
-    Prelude.rnf eventSourceName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf eventSourceName `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateEventBus where
   toHeaders =
@@ -221,5 +221,5 @@ createEventBusResponse_httpStatus = Lens.lens (\CreateEventBusResponse' {httpSta
 
 instance Prelude.NFData CreateEventBusResponse where
   rnf CreateEventBusResponse' {..} =
-    Prelude.rnf eventBusArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventBusArn `Prelude.seq`
+      Prelude.rnf httpStatus

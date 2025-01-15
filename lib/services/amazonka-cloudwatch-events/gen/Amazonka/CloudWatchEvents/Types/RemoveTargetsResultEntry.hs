@@ -98,6 +98,6 @@ instance Prelude.Hashable RemoveTargetsResultEntry where
 
 instance Prelude.NFData RemoveTargetsResultEntry where
   rnf RemoveTargetsResultEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf targetId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf targetId

@@ -132,12 +132,12 @@ instance Core.AWSPager ListRuleNamesByTarget where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRuleNamesByTarget_nextToken
-          Lens..~ rs
-          Lens.^? listRuleNamesByTargetResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRuleNamesByTarget_nextToken
+              Lens..~ rs
+              Lens.^? listRuleNamesByTargetResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRuleNamesByTarget where
   type
@@ -164,10 +164,10 @@ instance Prelude.Hashable ListRuleNamesByTarget where
 
 instance Prelude.NFData ListRuleNamesByTarget where
   rnf ListRuleNamesByTarget' {..} =
-    Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf eventBusName `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf targetArn
 
 instance Data.ToHeaders ListRuleNamesByTarget where
   toHeaders =
@@ -254,6 +254,6 @@ listRuleNamesByTargetResponse_httpStatus = Lens.lens (\ListRuleNamesByTargetResp
 
 instance Prelude.NFData ListRuleNamesByTargetResponse where
   rnf ListRuleNamesByTargetResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ruleNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf ruleNames `Prelude.seq`
+        Prelude.rnf httpStatus

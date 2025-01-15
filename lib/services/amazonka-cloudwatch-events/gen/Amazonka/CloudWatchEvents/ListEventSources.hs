@@ -134,9 +134,9 @@ instance Prelude.Hashable ListEventSources where
 
 instance Prelude.NFData ListEventSources where
   rnf ListEventSources' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf namePrefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf namePrefix `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventSources where
   toHeaders =
@@ -220,6 +220,6 @@ listEventSourcesResponse_httpStatus = Lens.lens (\ListEventSourcesResponse' {htt
 
 instance Prelude.NFData ListEventSourcesResponse where
   rnf ListEventSourcesResponse' {..} =
-    Prelude.rnf eventSources
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventSources `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

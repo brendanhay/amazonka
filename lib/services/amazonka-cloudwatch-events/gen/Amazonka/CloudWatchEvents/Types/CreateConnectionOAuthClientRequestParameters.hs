@@ -88,8 +88,8 @@ instance
     CreateConnectionOAuthClientRequestParameters
   where
   rnf CreateConnectionOAuthClientRequestParameters' {..} =
-    Prelude.rnf clientID
-      `Prelude.seq` Prelude.rnf clientSecret
+    Prelude.rnf clientID `Prelude.seq`
+      Prelude.rnf clientSecret
 
 instance
   Data.ToJSON

@@ -122,10 +122,10 @@ instance
     CreateConnectionOAuthRequestParameters
   where
   rnf CreateConnectionOAuthRequestParameters' {..} =
-    Prelude.rnf oAuthHttpParameters
-      `Prelude.seq` Prelude.rnf clientParameters
-      `Prelude.seq` Prelude.rnf authorizationEndpoint
-      `Prelude.seq` Prelude.rnf httpMethod
+    Prelude.rnf oAuthHttpParameters `Prelude.seq`
+      Prelude.rnf clientParameters `Prelude.seq`
+        Prelude.rnf authorizationEndpoint `Prelude.seq`
+          Prelude.rnf httpMethod
 
 instance
   Data.ToJSON

@@ -132,10 +132,10 @@ instance Prelude.Hashable BatchParameters where
 
 instance Prelude.NFData BatchParameters where
   rnf BatchParameters' {..} =
-    Prelude.rnf arrayProperties
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf jobDefinition
-      `Prelude.seq` Prelude.rnf jobName
+    Prelude.rnf arrayProperties `Prelude.seq`
+      Prelude.rnf retryStrategy `Prelude.seq`
+        Prelude.rnf jobDefinition `Prelude.seq`
+          Prelude.rnf jobName
 
 instance Data.ToJSON BatchParameters where
   toJSON BatchParameters' {..} =

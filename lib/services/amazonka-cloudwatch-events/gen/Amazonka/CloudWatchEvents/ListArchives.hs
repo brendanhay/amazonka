@@ -147,11 +147,11 @@ instance Prelude.Hashable ListArchives where
 
 instance Prelude.NFData ListArchives where
   rnf ListArchives' {..} =
-    Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf namePrefix
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf eventSourceArn `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf namePrefix `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf state
 
 instance Data.ToHeaders ListArchives where
   toHeaders =
@@ -237,6 +237,6 @@ listArchivesResponse_httpStatus = Lens.lens (\ListArchivesResponse' {httpStatus}
 
 instance Prelude.NFData ListArchivesResponse where
   rnf ListArchivesResponse' {..} =
-    Prelude.rnf archives
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf archives `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

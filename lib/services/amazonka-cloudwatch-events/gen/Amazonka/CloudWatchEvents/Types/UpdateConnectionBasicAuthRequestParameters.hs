@@ -82,8 +82,8 @@ instance
     UpdateConnectionBasicAuthRequestParameters
   where
   rnf UpdateConnectionBasicAuthRequestParameters' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf password `Prelude.seq`
+      Prelude.rnf username
 
 instance
   Data.ToJSON

@@ -153,11 +153,11 @@ instance Prelude.Hashable Archive where
 
 instance Prelude.NFData Archive where
   rnf Archive' {..} =
-    Prelude.rnf archiveName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf eventCount
-      `Prelude.seq` Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf retentionDays
-      `Prelude.seq` Prelude.rnf sizeBytes
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
+    Prelude.rnf archiveName `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf eventCount `Prelude.seq`
+          Prelude.rnf eventSourceArn `Prelude.seq`
+            Prelude.rnf retentionDays `Prelude.seq`
+              Prelude.rnf sizeBytes `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf stateReason

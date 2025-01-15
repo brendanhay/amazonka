@@ -91,8 +91,8 @@ instance Prelude.Hashable RetryPolicy where
 
 instance Prelude.NFData RetryPolicy where
   rnf RetryPolicy' {..} =
-    Prelude.rnf maximumEventAgeInSeconds
-      `Prelude.seq` Prelude.rnf maximumRetryAttempts
+    Prelude.rnf maximumEventAgeInSeconds `Prelude.seq`
+      Prelude.rnf maximumRetryAttempts
 
 instance Data.ToJSON RetryPolicy where
   toJSON RetryPolicy' {..} =

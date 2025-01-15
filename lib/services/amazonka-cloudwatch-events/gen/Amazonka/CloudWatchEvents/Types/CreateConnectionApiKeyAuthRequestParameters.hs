@@ -85,8 +85,8 @@ instance
     CreateConnectionApiKeyAuthRequestParameters
   where
   rnf CreateConnectionApiKeyAuthRequestParameters' {..} =
-    Prelude.rnf apiKeyName
-      `Prelude.seq` Prelude.rnf apiKeyValue
+    Prelude.rnf apiKeyName `Prelude.seq`
+      Prelude.rnf apiKeyValue
 
 instance
   Data.ToJSON

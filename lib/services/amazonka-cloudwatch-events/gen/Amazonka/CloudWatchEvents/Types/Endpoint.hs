@@ -215,16 +215,16 @@ instance Prelude.Hashable Endpoint where
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf endpointUrl
-      `Prelude.seq` Prelude.rnf eventBuses
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf replicationConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf endpointId `Prelude.seq`
+            Prelude.rnf endpointUrl `Prelude.seq`
+              Prelude.rnf eventBuses `Prelude.seq`
+                Prelude.rnf lastModifiedTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf replicationConfig `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf routingConfig `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf stateReason

@@ -145,12 +145,12 @@ instance Prelude.Hashable RedshiftDataParameters where
 
 instance Prelude.NFData RedshiftDataParameters where
   rnf RedshiftDataParameters' {..} =
-    Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf secretManagerArn
-      `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf withEvent
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf sql
+    Prelude.rnf dbUser `Prelude.seq`
+      Prelude.rnf secretManagerArn `Prelude.seq`
+        Prelude.rnf statementName `Prelude.seq`
+          Prelude.rnf withEvent `Prelude.seq`
+            Prelude.rnf database `Prelude.seq`
+              Prelude.rnf sql
 
 instance Data.ToJSON RedshiftDataParameters where
   toJSON RedshiftDataParameters' {..} =

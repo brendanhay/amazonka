@@ -85,8 +85,8 @@ instance Prelude.Hashable ReplayDestination where
 
 instance Prelude.NFData ReplayDestination where
   rnf ReplayDestination' {..} =
-    Prelude.rnf filterArns
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf filterArns `Prelude.seq`
+      Prelude.rnf arn
 
 instance Data.ToJSON ReplayDestination where
   toJSON ReplayDestination' {..} =

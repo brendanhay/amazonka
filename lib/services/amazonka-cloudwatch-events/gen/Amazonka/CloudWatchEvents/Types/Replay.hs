@@ -167,12 +167,12 @@ instance Prelude.Hashable Replay where
 
 instance Prelude.NFData Replay where
   rnf Replay' {..} =
-    Prelude.rnf eventEndTime
-      `Prelude.seq` Prelude.rnf eventLastReplayedTime
-      `Prelude.seq` Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf eventStartTime
-      `Prelude.seq` Prelude.rnf replayEndTime
-      `Prelude.seq` Prelude.rnf replayName
-      `Prelude.seq` Prelude.rnf replayStartTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
+    Prelude.rnf eventEndTime `Prelude.seq`
+      Prelude.rnf eventLastReplayedTime `Prelude.seq`
+        Prelude.rnf eventSourceArn `Prelude.seq`
+          Prelude.rnf eventStartTime `Prelude.seq`
+            Prelude.rnf replayEndTime `Prelude.seq`
+              Prelude.rnf replayName `Prelude.seq`
+                Prelude.rnf replayStartTime `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf stateReason

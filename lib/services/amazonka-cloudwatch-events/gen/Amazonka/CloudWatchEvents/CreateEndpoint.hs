@@ -186,12 +186,12 @@ instance Prelude.Hashable CreateEndpoint where
 
 instance Prelude.NFData CreateEndpoint where
   rnf CreateEndpoint' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf replicationConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf eventBuses
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf replicationConfig `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf routingConfig `Prelude.seq`
+              Prelude.rnf eventBuses
 
 instance Data.ToHeaders CreateEndpoint where
   toHeaders =
@@ -320,11 +320,11 @@ createEndpointResponse_httpStatus = Lens.lens (\CreateEndpointResponse' {httpSta
 
 instance Prelude.NFData CreateEndpointResponse where
   rnf CreateEndpointResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf eventBuses
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf replicationConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf eventBuses `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf replicationConfig `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf routingConfig `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -141,8 +141,8 @@ instance Prelude.Hashable DescribeEndpoint where
 
 instance Prelude.NFData DescribeEndpoint where
   rnf DescribeEndpoint' {..} =
-    Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf homeRegion `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DescribeEndpoint where
   toHeaders =
@@ -335,17 +335,17 @@ describeEndpointResponse_httpStatus = Lens.lens (\DescribeEndpointResponse' {htt
 
 instance Prelude.NFData DescribeEndpointResponse where
   rnf DescribeEndpointResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf endpointUrl
-      `Prelude.seq` Prelude.rnf eventBuses
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf replicationConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf endpointId `Prelude.seq`
+            Prelude.rnf endpointUrl `Prelude.seq`
+              Prelude.rnf eventBuses `Prelude.seq`
+                Prelude.rnf lastModifiedTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf replicationConfig `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf routingConfig `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf stateReason `Prelude.seq`
+                              Prelude.rnf httpStatus

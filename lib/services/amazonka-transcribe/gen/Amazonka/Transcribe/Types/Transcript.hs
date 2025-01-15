@@ -178,5 +178,5 @@ instance Prelude.Hashable Transcript where
 
 instance Prelude.NFData Transcript where
   rnf Transcript' {..} =
-    Prelude.rnf redactedTranscriptFileUri
-      `Prelude.seq` Prelude.rnf transcriptFileUri
+    Prelude.rnf redactedTranscriptFileUri `Prelude.seq`
+      Prelude.rnf transcriptFileUri

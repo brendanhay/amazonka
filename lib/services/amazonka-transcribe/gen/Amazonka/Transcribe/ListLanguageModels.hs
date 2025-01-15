@@ -165,10 +165,10 @@ instance Prelude.Hashable ListLanguageModels where
 
 instance Prelude.NFData ListLanguageModels where
   rnf ListLanguageModels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nameContains `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListLanguageModels where
   toHeaders =
@@ -267,6 +267,6 @@ listLanguageModelsResponse_httpStatus = Lens.lens (\ListLanguageModelsResponse' 
 
 instance Prelude.NFData ListLanguageModelsResponse where
   rnf ListLanguageModelsResponse' {..} =
-    Prelude.rnf models
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf models `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

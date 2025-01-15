@@ -191,5 +191,5 @@ instance
     GetMedicalTranscriptionJobResponse
   where
   rnf GetMedicalTranscriptionJobResponse' {..} =
-    Prelude.rnf medicalTranscriptionJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf medicalTranscriptionJob `Prelude.seq`
+      Prelude.rnf httpStatus

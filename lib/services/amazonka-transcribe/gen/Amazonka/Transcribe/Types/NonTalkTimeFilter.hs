@@ -137,10 +137,10 @@ instance Prelude.Hashable NonTalkTimeFilter where
 
 instance Prelude.NFData NonTalkTimeFilter where
   rnf NonTalkTimeFilter' {..} =
-    Prelude.rnf absoluteTimeRange
-      `Prelude.seq` Prelude.rnf negate
-      `Prelude.seq` Prelude.rnf relativeTimeRange
-      `Prelude.seq` Prelude.rnf threshold
+    Prelude.rnf absoluteTimeRange `Prelude.seq`
+      Prelude.rnf negate `Prelude.seq`
+        Prelude.rnf relativeTimeRange `Prelude.seq`
+          Prelude.rnf threshold
 
 instance Data.ToJSON NonTalkTimeFilter where
   toJSON NonTalkTimeFilter' {..} =

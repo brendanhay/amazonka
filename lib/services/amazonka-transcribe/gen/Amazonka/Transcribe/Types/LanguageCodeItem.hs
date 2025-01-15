@@ -88,5 +88,5 @@ instance Prelude.Hashable LanguageCodeItem where
 
 instance Prelude.NFData LanguageCodeItem where
   rnf LanguageCodeItem' {..} =
-    Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf durationInSeconds `Prelude.seq`
+      Prelude.rnf languageCode

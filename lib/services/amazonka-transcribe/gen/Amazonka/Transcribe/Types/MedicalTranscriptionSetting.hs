@@ -308,12 +308,12 @@ instance Prelude.Hashable MedicalTranscriptionSetting where
 
 instance Prelude.NFData MedicalTranscriptionSetting where
   rnf MedicalTranscriptionSetting' {..} =
-    Prelude.rnf channelIdentification
-      `Prelude.seq` Prelude.rnf maxAlternatives
-      `Prelude.seq` Prelude.rnf maxSpeakerLabels
-      `Prelude.seq` Prelude.rnf showAlternatives
-      `Prelude.seq` Prelude.rnf showSpeakerLabels
-      `Prelude.seq` Prelude.rnf vocabularyName
+    Prelude.rnf channelIdentification `Prelude.seq`
+      Prelude.rnf maxAlternatives `Prelude.seq`
+        Prelude.rnf maxSpeakerLabels `Prelude.seq`
+          Prelude.rnf showAlternatives `Prelude.seq`
+            Prelude.rnf showSpeakerLabels `Prelude.seq`
+              Prelude.rnf vocabularyName
 
 instance Data.ToJSON MedicalTranscriptionSetting where
   toJSON MedicalTranscriptionSetting' {..} =

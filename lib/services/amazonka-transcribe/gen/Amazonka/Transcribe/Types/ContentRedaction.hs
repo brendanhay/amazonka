@@ -134,9 +134,9 @@ instance Prelude.Hashable ContentRedaction where
 
 instance Prelude.NFData ContentRedaction where
   rnf ContentRedaction' {..} =
-    Prelude.rnf piiEntityTypes
-      `Prelude.seq` Prelude.rnf redactionType
-      `Prelude.seq` Prelude.rnf redactionOutput
+    Prelude.rnf piiEntityTypes `Prelude.seq`
+      Prelude.rnf redactionType `Prelude.seq`
+        Prelude.rnf redactionOutput
 
 instance Data.ToJSON ContentRedaction where
   toJSON ContentRedaction' {..} =

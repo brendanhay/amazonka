@@ -154,8 +154,8 @@ instance Prelude.Hashable JobExecutionSettings where
 
 instance Prelude.NFData JobExecutionSettings where
   rnf JobExecutionSettings' {..} =
-    Prelude.rnf allowDeferredExecution
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+    Prelude.rnf allowDeferredExecution `Prelude.seq`
+      Prelude.rnf dataAccessRoleArn
 
 instance Data.ToJSON JobExecutionSettings where
   toJSON JobExecutionSettings' {..} =

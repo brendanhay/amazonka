@@ -193,5 +193,5 @@ getCallAnalyticsJobResponse_httpStatus = Lens.lens (\GetCallAnalyticsJobResponse
 
 instance Prelude.NFData GetCallAnalyticsJobResponse where
   rnf GetCallAnalyticsJobResponse' {..} =
-    Prelude.rnf callAnalyticsJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf callAnalyticsJob `Prelude.seq`
+      Prelude.rnf httpStatus

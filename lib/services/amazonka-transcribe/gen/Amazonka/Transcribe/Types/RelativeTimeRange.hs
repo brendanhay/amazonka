@@ -140,10 +140,10 @@ instance Prelude.Hashable RelativeTimeRange where
 
 instance Prelude.NFData RelativeTimeRange where
   rnf RelativeTimeRange' {..} =
-    Prelude.rnf endPercentage
-      `Prelude.seq` Prelude.rnf first
-      `Prelude.seq` Prelude.rnf last
-      `Prelude.seq` Prelude.rnf startPercentage
+    Prelude.rnf endPercentage `Prelude.seq`
+      Prelude.rnf first `Prelude.seq`
+        Prelude.rnf last `Prelude.seq`
+          Prelude.rnf startPercentage
 
 instance Data.ToJSON RelativeTimeRange where
   toJSON RelativeTimeRange' {..} =

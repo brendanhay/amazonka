@@ -204,5 +204,5 @@ describeLanguageModelResponse_httpStatus = Lens.lens (\DescribeLanguageModelResp
 
 instance Prelude.NFData DescribeLanguageModelResponse where
   rnf DescribeLanguageModelResponse' {..} =
-    Prelude.rnf languageModel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf languageModel `Prelude.seq`
+      Prelude.rnf httpStatus

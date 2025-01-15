@@ -341,17 +341,17 @@ instance Prelude.Hashable TranscriptionJobSummary where
 
 instance Prelude.NFData TranscriptionJobSummary where
   rnf TranscriptionJobSummary' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf contentRedaction
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf identifiedLanguageScore
-      `Prelude.seq` Prelude.rnf identifyLanguage
-      `Prelude.seq` Prelude.rnf identifyMultipleLanguages
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf languageCodes
-      `Prelude.seq` Prelude.rnf modelSettings
-      `Prelude.seq` Prelude.rnf outputLocationType
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf transcriptionJobName
-      `Prelude.seq` Prelude.rnf transcriptionJobStatus
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf contentRedaction `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf identifiedLanguageScore `Prelude.seq`
+              Prelude.rnf identifyLanguage `Prelude.seq`
+                Prelude.rnf identifyMultipleLanguages `Prelude.seq`
+                  Prelude.rnf languageCode `Prelude.seq`
+                    Prelude.rnf languageCodes `Prelude.seq`
+                      Prelude.rnf modelSettings `Prelude.seq`
+                        Prelude.rnf outputLocationType `Prelude.seq`
+                          Prelude.rnf startTime `Prelude.seq`
+                            Prelude.rnf transcriptionJobName `Prelude.seq`
+                              Prelude.rnf transcriptionJobStatus

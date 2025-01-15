@@ -145,7 +145,7 @@ instance Prelude.Hashable VocabularyInfo where
 
 instance Prelude.NFData VocabularyInfo where
   rnf VocabularyInfo' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf vocabularyState
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf vocabularyName `Prelude.seq`
+          Prelude.rnf vocabularyState

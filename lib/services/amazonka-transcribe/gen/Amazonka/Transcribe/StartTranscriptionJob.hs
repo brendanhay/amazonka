@@ -1030,25 +1030,25 @@ instance Prelude.Hashable StartTranscriptionJob where
 
 instance Prelude.NFData StartTranscriptionJob where
   rnf StartTranscriptionJob' {..} =
-    Prelude.rnf contentRedaction
-      `Prelude.seq` Prelude.rnf identifyLanguage
-      `Prelude.seq` Prelude.rnf identifyMultipleLanguages
-      `Prelude.seq` Prelude.rnf jobExecutionSettings
-      `Prelude.seq` Prelude.rnf kmsEncryptionContext
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf languageIdSettings
-      `Prelude.seq` Prelude.rnf languageOptions
-      `Prelude.seq` Prelude.rnf mediaFormat
-      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
-      `Prelude.seq` Prelude.rnf modelSettings
-      `Prelude.seq` Prelude.rnf outputBucketName
-      `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
-      `Prelude.seq` Prelude.rnf outputKey
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf subtitles
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transcriptionJobName
-      `Prelude.seq` Prelude.rnf media
+    Prelude.rnf contentRedaction `Prelude.seq`
+      Prelude.rnf identifyLanguage `Prelude.seq`
+        Prelude.rnf identifyMultipleLanguages `Prelude.seq`
+          Prelude.rnf jobExecutionSettings `Prelude.seq`
+            Prelude.rnf kmsEncryptionContext `Prelude.seq`
+              Prelude.rnf languageCode `Prelude.seq`
+                Prelude.rnf languageIdSettings `Prelude.seq`
+                  Prelude.rnf languageOptions `Prelude.seq`
+                    Prelude.rnf mediaFormat `Prelude.seq`
+                      Prelude.rnf mediaSampleRateHertz `Prelude.seq`
+                        Prelude.rnf modelSettings `Prelude.seq`
+                          Prelude.rnf outputBucketName `Prelude.seq`
+                            Prelude.rnf outputEncryptionKMSKeyId `Prelude.seq`
+                              Prelude.rnf outputKey `Prelude.seq`
+                                Prelude.rnf settings `Prelude.seq`
+                                  Prelude.rnf subtitles `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf transcriptionJobName `Prelude.seq`
+                                        Prelude.rnf media
 
 instance Data.ToHeaders StartTranscriptionJob where
   toHeaders =
@@ -1154,5 +1154,5 @@ startTranscriptionJobResponse_httpStatus = Lens.lens (\StartTranscriptionJobResp
 
 instance Prelude.NFData StartTranscriptionJobResponse where
   rnf StartTranscriptionJobResponse' {..} =
-    Prelude.rnf transcriptionJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transcriptionJob `Prelude.seq`
+      Prelude.rnf httpStatus

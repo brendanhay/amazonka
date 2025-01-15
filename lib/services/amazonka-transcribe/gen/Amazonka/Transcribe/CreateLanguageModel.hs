@@ -291,11 +291,11 @@ instance Prelude.Hashable CreateLanguageModel where
 
 instance Prelude.NFData CreateLanguageModel where
   rnf CreateLanguageModel' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf baseModelName
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf inputDataConfig
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf languageCode `Prelude.seq`
+        Prelude.rnf baseModelName `Prelude.seq`
+          Prelude.rnf modelName `Prelude.seq`
+            Prelude.rnf inputDataConfig
 
 instance Data.ToHeaders CreateLanguageModel where
   toHeaders =
@@ -420,9 +420,9 @@ createLanguageModelResponse_httpStatus = Lens.lens (\CreateLanguageModelResponse
 
 instance Prelude.NFData CreateLanguageModelResponse where
   rnf CreateLanguageModelResponse' {..} =
-    Prelude.rnf baseModelName
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baseModelName `Prelude.seq`
+      Prelude.rnf inputDataConfig `Prelude.seq`
+        Prelude.rnf languageCode `Prelude.seq`
+          Prelude.rnf modelName `Prelude.seq`
+            Prelude.rnf modelStatus `Prelude.seq`
+              Prelude.rnf httpStatus

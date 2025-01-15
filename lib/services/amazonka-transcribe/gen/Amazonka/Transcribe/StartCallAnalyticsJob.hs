@@ -438,13 +438,13 @@ instance Prelude.Hashable StartCallAnalyticsJob where
 
 instance Prelude.NFData StartCallAnalyticsJob where
   rnf StartCallAnalyticsJob' {..} =
-    Prelude.rnf channelDefinitions
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf callAnalyticsJobName
-      `Prelude.seq` Prelude.rnf media
+    Prelude.rnf channelDefinitions `Prelude.seq`
+      Prelude.rnf dataAccessRoleArn `Prelude.seq`
+        Prelude.rnf outputEncryptionKMSKeyId `Prelude.seq`
+          Prelude.rnf outputLocation `Prelude.seq`
+            Prelude.rnf settings `Prelude.seq`
+              Prelude.rnf callAnalyticsJobName `Prelude.seq`
+                Prelude.rnf media
 
 instance Data.ToHeaders StartCallAnalyticsJob where
   toHeaders =
@@ -532,5 +532,5 @@ startCallAnalyticsJobResponse_httpStatus = Lens.lens (\StartCallAnalyticsJobResp
 
 instance Prelude.NFData StartCallAnalyticsJobResponse where
   rnf StartCallAnalyticsJobResponse' {..} =
-    Prelude.rnf callAnalyticsJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf callAnalyticsJob `Prelude.seq`
+      Prelude.rnf httpStatus

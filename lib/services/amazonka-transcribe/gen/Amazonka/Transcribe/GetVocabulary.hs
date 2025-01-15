@@ -253,10 +253,10 @@ getVocabularyResponse_httpStatus = Lens.lens (\GetVocabularyResponse' {httpStatu
 
 instance Prelude.NFData GetVocabularyResponse where
   rnf GetVocabularyResponse' {..} =
-    Prelude.rnf downloadUri
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf vocabularyState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf downloadUri `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf languageCode `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf vocabularyName `Prelude.seq`
+              Prelude.rnf vocabularyState `Prelude.seq`
+                Prelude.rnf httpStatus

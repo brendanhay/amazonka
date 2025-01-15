@@ -245,10 +245,10 @@ instance Prelude.Hashable UpdateVocabulary where
 
 instance Prelude.NFData UpdateVocabulary where
   rnf UpdateVocabulary' {..} =
-    Prelude.rnf phrases
-      `Prelude.seq` Prelude.rnf vocabularyFileUri
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf phrases `Prelude.seq`
+      Prelude.rnf vocabularyFileUri `Prelude.seq`
+        Prelude.rnf vocabularyName `Prelude.seq`
+          Prelude.rnf languageCode
 
 instance Data.ToHeaders UpdateVocabulary where
   toHeaders =
@@ -367,8 +367,8 @@ updateVocabularyResponse_httpStatus = Lens.lens (\UpdateVocabularyResponse' {htt
 
 instance Prelude.NFData UpdateVocabularyResponse where
   rnf UpdateVocabularyResponse' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf vocabularyState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf vocabularyName `Prelude.seq`
+          Prelude.rnf vocabularyState `Prelude.seq`
+            Prelude.rnf httpStatus

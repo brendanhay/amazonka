@@ -189,9 +189,9 @@ instance Prelude.Hashable LanguageIdSettings where
 
 instance Prelude.NFData LanguageIdSettings where
   rnf LanguageIdSettings' {..} =
-    Prelude.rnf languageModelName
-      `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf vocabularyName
+    Prelude.rnf languageModelName `Prelude.seq`
+      Prelude.rnf vocabularyFilterName `Prelude.seq`
+        Prelude.rnf vocabularyName
 
 instance Data.ToJSON LanguageIdSettings where
   toJSON LanguageIdSettings' {..} =

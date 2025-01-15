@@ -294,11 +294,11 @@ instance Prelude.Hashable CreateVocabularyFilter where
 
 instance Prelude.NFData CreateVocabularyFilter where
   rnf CreateVocabularyFilter' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vocabularyFilterFileUri
-      `Prelude.seq` Prelude.rnf words
-      `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf vocabularyFilterFileUri `Prelude.seq`
+        Prelude.rnf words `Prelude.seq`
+          Prelude.rnf vocabularyFilterName `Prelude.seq`
+            Prelude.rnf languageCode
 
 instance Data.ToHeaders CreateVocabularyFilter where
   toHeaders =
@@ -411,7 +411,7 @@ instance
     CreateVocabularyFilterResponse
   where
   rnf CreateVocabularyFilterResponse' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf vocabularyFilterName `Prelude.seq`
+          Prelude.rnf httpStatus

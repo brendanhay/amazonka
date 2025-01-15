@@ -160,11 +160,11 @@ instance Prelude.Hashable SentimentFilter where
 
 instance Prelude.NFData SentimentFilter where
   rnf SentimentFilter' {..} =
-    Prelude.rnf absoluteTimeRange
-      `Prelude.seq` Prelude.rnf negate
-      `Prelude.seq` Prelude.rnf participantRole
-      `Prelude.seq` Prelude.rnf relativeTimeRange
-      `Prelude.seq` Prelude.rnf sentiments
+    Prelude.rnf absoluteTimeRange `Prelude.seq`
+      Prelude.rnf negate `Prelude.seq`
+        Prelude.rnf participantRole `Prelude.seq`
+          Prelude.rnf relativeTimeRange `Prelude.seq`
+            Prelude.rnf sentiments
 
 instance Data.ToJSON SentimentFilter where
   toJSON SentimentFilter' {..} =

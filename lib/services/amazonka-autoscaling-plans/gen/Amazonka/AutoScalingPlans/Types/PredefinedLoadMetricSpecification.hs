@@ -175,8 +175,8 @@ instance
     PredefinedLoadMetricSpecification
   where
   rnf PredefinedLoadMetricSpecification' {..} =
-    Prelude.rnf resourceLabel
-      `Prelude.seq` Prelude.rnf predefinedLoadMetricType
+    Prelude.rnf resourceLabel `Prelude.seq`
+      Prelude.rnf predefinedLoadMetricType
 
 instance
   Data.ToJSON

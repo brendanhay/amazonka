@@ -135,12 +135,12 @@ instance Core.AWSPager DescribeScalingPlanResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScalingPlanResources_nextToken
-          Lens..~ rs
-          Lens.^? describeScalingPlanResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScalingPlanResources_nextToken
+              Lens..~ rs
+              Lens.^? describeScalingPlanResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingPlanResources where
   type
@@ -173,10 +173,10 @@ instance
 
 instance Prelude.NFData DescribeScalingPlanResources where
   rnf DescribeScalingPlanResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalingPlanName
-      `Prelude.seq` Prelude.rnf scalingPlanVersion
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf scalingPlanName `Prelude.seq`
+          Prelude.rnf scalingPlanVersion
 
 instance Data.ToHeaders DescribeScalingPlanResources where
   toHeaders =
@@ -269,6 +269,6 @@ instance
     DescribeScalingPlanResourcesResponse
   where
   rnf DescribeScalingPlanResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalingPlanResources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scalingPlanResources `Prelude.seq`
+        Prelude.rnf httpStatus

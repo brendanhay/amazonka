@@ -176,8 +176,8 @@ instance
     PredefinedScalingMetricSpecification
   where
   rnf PredefinedScalingMetricSpecification' {..} =
-    Prelude.rnf resourceLabel
-      `Prelude.seq` Prelude.rnf predefinedScalingMetricType
+    Prelude.rnf resourceLabel `Prelude.seq`
+      Prelude.rnf predefinedScalingMetricType
 
 instance
   Data.ToJSON

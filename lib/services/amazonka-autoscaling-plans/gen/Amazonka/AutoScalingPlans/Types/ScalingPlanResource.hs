@@ -349,11 +349,11 @@ instance Prelude.Hashable ScalingPlanResource where
 
 instance Prelude.NFData ScalingPlanResource where
   rnf ScalingPlanResource' {..} =
-    Prelude.rnf scalingPolicies
-      `Prelude.seq` Prelude.rnf scalingStatusMessage
-      `Prelude.seq` Prelude.rnf scalingPlanName
-      `Prelude.seq` Prelude.rnf scalingPlanVersion
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf scalingStatusCode
+    Prelude.rnf scalingPolicies `Prelude.seq`
+      Prelude.rnf scalingStatusMessage `Prelude.seq`
+        Prelude.rnf scalingPlanName `Prelude.seq`
+          Prelude.rnf scalingPlanVersion `Prelude.seq`
+            Prelude.rnf serviceNamespace `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf scalableDimension `Prelude.seq`
+                  Prelude.rnf scalingStatusCode

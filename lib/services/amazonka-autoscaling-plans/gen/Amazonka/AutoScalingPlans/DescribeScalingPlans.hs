@@ -154,12 +154,12 @@ instance Core.AWSPager DescribeScalingPlans where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScalingPlans_nextToken
-          Lens..~ rs
-          Lens.^? describeScalingPlansResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScalingPlans_nextToken
+              Lens..~ rs
+              Lens.^? describeScalingPlansResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingPlans where
   type
@@ -187,11 +187,11 @@ instance Prelude.Hashable DescribeScalingPlans where
 
 instance Prelude.NFData DescribeScalingPlans where
   rnf DescribeScalingPlans' {..} =
-    Prelude.rnf applicationSources
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalingPlanNames
-      `Prelude.seq` Prelude.rnf scalingPlanVersion
+    Prelude.rnf applicationSources `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf scalingPlanNames `Prelude.seq`
+            Prelude.rnf scalingPlanVersion
 
 instance Data.ToHeaders DescribeScalingPlans where
   toHeaders =
@@ -282,6 +282,6 @@ describeScalingPlansResponse_httpStatus = Lens.lens (\DescribeScalingPlansRespon
 
 instance Prelude.NFData DescribeScalingPlansResponse where
   rnf DescribeScalingPlansResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalingPlans
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scalingPlans `Prelude.seq`
+        Prelude.rnf httpStatus

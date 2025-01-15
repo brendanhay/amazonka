@@ -218,11 +218,11 @@ instance Prelude.Hashable ScalingPlan where
 
 instance Prelude.NFData ScalingPlan where
   rnf ScalingPlan' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf statusStartTime
-      `Prelude.seq` Prelude.rnf scalingPlanName
-      `Prelude.seq` Prelude.rnf scalingPlanVersion
-      `Prelude.seq` Prelude.rnf applicationSource
-      `Prelude.seq` Prelude.rnf scalingInstructions
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf statusStartTime `Prelude.seq`
+          Prelude.rnf scalingPlanName `Prelude.seq`
+            Prelude.rnf scalingPlanVersion `Prelude.seq`
+              Prelude.rnf applicationSource `Prelude.seq`
+                Prelude.rnf scalingInstructions `Prelude.seq`
+                  Prelude.rnf statusCode

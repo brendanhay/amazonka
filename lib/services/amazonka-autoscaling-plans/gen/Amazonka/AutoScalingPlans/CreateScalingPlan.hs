@@ -154,9 +154,9 @@ instance Prelude.Hashable CreateScalingPlan where
 
 instance Prelude.NFData CreateScalingPlan where
   rnf CreateScalingPlan' {..} =
-    Prelude.rnf scalingPlanName
-      `Prelude.seq` Prelude.rnf applicationSource
-      `Prelude.seq` Prelude.rnf scalingInstructions
+    Prelude.rnf scalingPlanName `Prelude.seq`
+      Prelude.rnf applicationSource `Prelude.seq`
+        Prelude.rnf scalingInstructions
 
 instance Data.ToHeaders CreateScalingPlan where
   toHeaders =
@@ -240,5 +240,5 @@ createScalingPlanResponse_scalingPlanVersion = Lens.lens (\CreateScalingPlanResp
 
 instance Prelude.NFData CreateScalingPlanResponse where
   rnf CreateScalingPlanResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf scalingPlanVersion
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf scalingPlanVersion

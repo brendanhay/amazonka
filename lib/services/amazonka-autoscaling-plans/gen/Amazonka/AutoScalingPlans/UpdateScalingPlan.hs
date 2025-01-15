@@ -163,10 +163,10 @@ instance Prelude.Hashable UpdateScalingPlan where
 
 instance Prelude.NFData UpdateScalingPlan where
   rnf UpdateScalingPlan' {..} =
-    Prelude.rnf applicationSource
-      `Prelude.seq` Prelude.rnf scalingInstructions
-      `Prelude.seq` Prelude.rnf scalingPlanName
-      `Prelude.seq` Prelude.rnf scalingPlanVersion
+    Prelude.rnf applicationSource `Prelude.seq`
+      Prelude.rnf scalingInstructions `Prelude.seq`
+        Prelude.rnf scalingPlanName `Prelude.seq`
+          Prelude.rnf scalingPlanVersion
 
 instance Data.ToHeaders UpdateScalingPlan where
   toHeaders =

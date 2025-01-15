@@ -611,20 +611,20 @@ instance Prelude.Hashable ScalingInstruction where
 
 instance Prelude.NFData ScalingInstruction where
   rnf ScalingInstruction' {..} =
-    Prelude.rnf customizedLoadMetricSpecification
-      `Prelude.seq` Prelude.rnf disableDynamicScaling
-      `Prelude.seq` Prelude.rnf predefinedLoadMetricSpecification
-      `Prelude.seq` Prelude.rnf predictiveScalingMaxCapacityBehavior
-      `Prelude.seq` Prelude.rnf predictiveScalingMaxCapacityBuffer
-      `Prelude.seq` Prelude.rnf predictiveScalingMode
-      `Prelude.seq` Prelude.rnf scalingPolicyUpdateBehavior
-      `Prelude.seq` Prelude.rnf scheduledActionBufferTime
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf minCapacity
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf targetTrackingConfigurations
+    Prelude.rnf customizedLoadMetricSpecification `Prelude.seq`
+      Prelude.rnf disableDynamicScaling `Prelude.seq`
+        Prelude.rnf predefinedLoadMetricSpecification `Prelude.seq`
+          Prelude.rnf predictiveScalingMaxCapacityBehavior `Prelude.seq`
+            Prelude.rnf predictiveScalingMaxCapacityBuffer `Prelude.seq`
+              Prelude.rnf predictiveScalingMode `Prelude.seq`
+                Prelude.rnf scalingPolicyUpdateBehavior `Prelude.seq`
+                  Prelude.rnf scheduledActionBufferTime `Prelude.seq`
+                    Prelude.rnf serviceNamespace `Prelude.seq`
+                      Prelude.rnf resourceId `Prelude.seq`
+                        Prelude.rnf scalableDimension `Prelude.seq`
+                          Prelude.rnf minCapacity `Prelude.seq`
+                            Prelude.rnf maxCapacity `Prelude.seq`
+                              Prelude.rnf targetTrackingConfigurations
 
 instance Data.ToJSON ScalingInstruction where
   toJSON ScalingInstruction' {..} =

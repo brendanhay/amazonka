@@ -82,8 +82,8 @@ instance Prelude.Hashable ApplicationSource where
 
 instance Prelude.NFData ApplicationSource where
   rnf ApplicationSource' {..} =
-    Prelude.rnf cloudFormationStackARN
-      `Prelude.seq` Prelude.rnf tagFilters
+    Prelude.rnf cloudFormationStackARN `Prelude.seq`
+      Prelude.rnf tagFilters
 
 instance Data.ToJSON ApplicationSource where
   toJSON ApplicationSource' {..} =

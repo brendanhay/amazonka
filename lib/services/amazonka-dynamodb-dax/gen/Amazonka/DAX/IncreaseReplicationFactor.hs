@@ -133,9 +133,9 @@ instance Prelude.Hashable IncreaseReplicationFactor where
 
 instance Prelude.NFData IncreaseReplicationFactor where
   rnf IncreaseReplicationFactor' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf newReplicationFactor'
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf clusterName `Prelude.seq`
+        Prelude.rnf newReplicationFactor'
 
 instance Data.ToHeaders IncreaseReplicationFactor where
   toHeaders =
@@ -216,5 +216,5 @@ instance
     IncreaseReplicationFactorResponse
   where
   rnf IncreaseReplicationFactorResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

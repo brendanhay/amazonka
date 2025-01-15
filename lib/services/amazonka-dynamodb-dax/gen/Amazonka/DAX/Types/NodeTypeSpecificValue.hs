@@ -81,5 +81,5 @@ instance Prelude.Hashable NodeTypeSpecificValue where
 
 instance Prelude.NFData NodeTypeSpecificValue where
   rnf NodeTypeSpecificValue' {..} =
-    Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf nodeType `Prelude.seq`
+      Prelude.rnf value

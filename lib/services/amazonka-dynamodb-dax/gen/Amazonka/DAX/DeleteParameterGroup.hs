@@ -174,5 +174,5 @@ deleteParameterGroupResponse_httpStatus = Lens.lens (\DeleteParameterGroupRespon
 
 instance Prelude.NFData DeleteParameterGroupResponse where
   rnf DeleteParameterGroupResponse' {..} =
-    Prelude.rnf deletionMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deletionMessage `Prelude.seq`
+      Prelude.rnf httpStatus

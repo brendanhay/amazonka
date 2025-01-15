@@ -81,5 +81,5 @@ instance Prelude.Hashable ParameterGroup where
 
 instance Prelude.NFData ParameterGroup where
   rnf ParameterGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameterGroupName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameterGroupName

@@ -186,13 +186,13 @@ instance Prelude.Hashable UpdateCluster where
 
 instance Prelude.NFData UpdateCluster where
   rnf UpdateCluster' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf notificationTopicArn
-      `Prelude.seq` Prelude.rnf notificationTopicStatus
-      `Prelude.seq` Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf notificationTopicArn `Prelude.seq`
+        Prelude.rnf notificationTopicStatus `Prelude.seq`
+          Prelude.rnf parameterGroupName `Prelude.seq`
+            Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+              Prelude.rnf securityGroupIds `Prelude.seq`
+                Prelude.rnf clusterName
 
 instance Data.ToHeaders UpdateCluster where
   toHeaders =
@@ -272,5 +272,5 @@ updateClusterResponse_httpStatus = Lens.lens (\UpdateClusterResponse' {httpStatu
 
 instance Prelude.NFData UpdateClusterResponse where
   rnf UpdateClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

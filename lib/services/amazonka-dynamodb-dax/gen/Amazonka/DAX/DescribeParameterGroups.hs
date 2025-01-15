@@ -136,12 +136,12 @@ instance Core.AWSPager DescribeParameterGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeParameterGroups_nextToken
-          Lens..~ rs
-          Lens.^? describeParameterGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeParameterGroups_nextToken
+              Lens..~ rs
+              Lens.^? describeParameterGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeParameterGroups where
   type
@@ -170,9 +170,9 @@ instance Prelude.Hashable DescribeParameterGroups where
 
 instance Prelude.NFData DescribeParameterGroups where
   rnf DescribeParameterGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parameterGroupNames
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf parameterGroupNames
 
 instance Data.ToHeaders DescribeParameterGroups where
   toHeaders =
@@ -262,6 +262,6 @@ instance
     DescribeParameterGroupsResponse
   where
   rnf DescribeParameterGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parameterGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf parameterGroups `Prelude.seq`
+        Prelude.rnf httpStatus

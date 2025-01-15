@@ -317,21 +317,21 @@ instance Prelude.Hashable Cluster where
 
 instance Prelude.NFData Cluster where
   rnf Cluster' {..} =
-    Prelude.rnf activeNodes
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterDiscoveryEndpoint
-      `Prelude.seq` Prelude.rnf clusterEndpointEncryptionType
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf nodeIdsToRemove
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf nodes
-      `Prelude.seq` Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf parameterGroup
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf sSEDescription
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnetGroup
-      `Prelude.seq` Prelude.rnf totalNodes
+    Prelude.rnf activeNodes `Prelude.seq`
+      Prelude.rnf clusterArn `Prelude.seq`
+        Prelude.rnf clusterDiscoveryEndpoint `Prelude.seq`
+          Prelude.rnf clusterEndpointEncryptionType `Prelude.seq`
+            Prelude.rnf clusterName `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf iamRoleArn `Prelude.seq`
+                  Prelude.rnf nodeIdsToRemove `Prelude.seq`
+                    Prelude.rnf nodeType `Prelude.seq`
+                      Prelude.rnf nodes `Prelude.seq`
+                        Prelude.rnf notificationConfiguration `Prelude.seq`
+                          Prelude.rnf parameterGroup `Prelude.seq`
+                            Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                              Prelude.rnf sSEDescription `Prelude.seq`
+                                Prelude.rnf securityGroups `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf subnetGroup `Prelude.seq`
+                                      Prelude.rnf totalNodes

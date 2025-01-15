@@ -113,8 +113,8 @@ instance Prelude.Hashable RebootNode where
 
 instance Prelude.NFData RebootNode where
   rnf RebootNode' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf nodeId
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf nodeId
 
 instance Data.ToHeaders RebootNode where
   toHeaders =
@@ -184,5 +184,5 @@ rebootNodeResponse_httpStatus = Lens.lens (\RebootNodeResponse' {httpStatus} -> 
 
 instance Prelude.NFData RebootNodeResponse where
   rnf RebootNodeResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

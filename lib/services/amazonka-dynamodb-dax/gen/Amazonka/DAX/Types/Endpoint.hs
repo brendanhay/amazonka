@@ -98,6 +98,6 @@ instance Prelude.Hashable Endpoint where
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf url

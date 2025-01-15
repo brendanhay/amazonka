@@ -287,15 +287,15 @@ instance Prelude.Hashable GetRecommendations where
 
 instance Prelude.NFData GetRecommendations where
   rnf GetRecommendations' {..} =
-    Prelude.rnf campaignArn
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf filterArn
-      `Prelude.seq` Prelude.rnf filterValues
-      `Prelude.seq` Prelude.rnf itemId
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf promotions
-      `Prelude.seq` Prelude.rnf recommenderArn
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf campaignArn `Prelude.seq`
+      Prelude.rnf context `Prelude.seq`
+        Prelude.rnf filterArn `Prelude.seq`
+          Prelude.rnf filterValues `Prelude.seq`
+            Prelude.rnf itemId `Prelude.seq`
+              Prelude.rnf numResults `Prelude.seq`
+                Prelude.rnf promotions `Prelude.seq`
+                  Prelude.rnf recommenderArn `Prelude.seq`
+                    Prelude.rnf userId
 
 instance Data.ToHeaders GetRecommendations where
   toHeaders =
@@ -384,6 +384,6 @@ getRecommendationsResponse_httpStatus = Lens.lens (\GetRecommendationsResponse' 
 
 instance Prelude.NFData GetRecommendationsResponse where
   rnf GetRecommendationsResponse' {..} =
-    Prelude.rnf itemList
-      `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf itemList `Prelude.seq`
+      Prelude.rnf recommendationId `Prelude.seq`
+        Prelude.rnf httpStatus

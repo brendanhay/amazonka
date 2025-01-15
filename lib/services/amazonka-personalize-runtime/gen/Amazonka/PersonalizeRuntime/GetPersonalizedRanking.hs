@@ -233,12 +233,12 @@ instance Prelude.Hashable GetPersonalizedRanking where
 
 instance Prelude.NFData GetPersonalizedRanking where
   rnf GetPersonalizedRanking' {..} =
-    Prelude.rnf context
-      `Prelude.seq` Prelude.rnf filterArn
-      `Prelude.seq` Prelude.rnf filterValues
-      `Prelude.seq` Prelude.rnf campaignArn
-      `Prelude.seq` Prelude.rnf inputList
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf context `Prelude.seq`
+      Prelude.rnf filterArn `Prelude.seq`
+        Prelude.rnf filterValues `Prelude.seq`
+          Prelude.rnf campaignArn `Prelude.seq`
+            Prelude.rnf inputList `Prelude.seq`
+              Prelude.rnf userId
 
 instance Data.ToHeaders GetPersonalizedRanking where
   toHeaders =
@@ -326,6 +326,6 @@ instance
     GetPersonalizedRankingResponse
   where
   rnf GetPersonalizedRankingResponse' {..} =
-    Prelude.rnf personalizedRanking
-      `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf personalizedRanking `Prelude.seq`
+      Prelude.rnf recommendationId `Prelude.seq`
+        Prelude.rnf httpStatus

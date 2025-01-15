@@ -214,10 +214,10 @@ instance Prelude.Hashable StartInstanceRefresh where
 
 instance Prelude.NFData StartInstanceRefresh where
   rnf StartInstanceRefresh' {..} =
-    Prelude.rnf desiredConfiguration
-      `Prelude.seq` Prelude.rnf preferences
-      `Prelude.seq` Prelude.rnf strategy
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf desiredConfiguration `Prelude.seq`
+      Prelude.rnf preferences `Prelude.seq`
+        Prelude.rnf strategy `Prelude.seq`
+          Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders StartInstanceRefresh where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,5 +279,5 @@ startInstanceRefreshResponse_httpStatus = Lens.lens (\StartInstanceRefreshRespon
 
 instance Prelude.NFData StartInstanceRefreshResponse where
   rnf StartInstanceRefreshResponse' {..} =
-    Prelude.rnf instanceRefreshId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceRefreshId `Prelude.seq`
+      Prelude.rnf httpStatus

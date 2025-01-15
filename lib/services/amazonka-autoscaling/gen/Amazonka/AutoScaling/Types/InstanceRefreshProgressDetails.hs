@@ -95,5 +95,5 @@ instance
     InstanceRefreshProgressDetails
   where
   rnf InstanceRefreshProgressDetails' {..} =
-    Prelude.rnf livePoolProgress
-      `Prelude.seq` Prelude.rnf warmPoolProgress
+    Prelude.rnf livePoolProgress `Prelude.seq`
+      Prelude.rnf warmPoolProgress

@@ -170,8 +170,8 @@ instance Prelude.Hashable SuspendProcesses where
 
 instance Prelude.NFData SuspendProcesses where
   rnf SuspendProcesses' {..} =
-    Prelude.rnf scalingProcesses
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf scalingProcesses `Prelude.seq`
+      Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders SuspendProcesses where
   toHeaders = Prelude.const Prelude.mempty

@@ -296,16 +296,16 @@ instance
 
 instance Prelude.NFData PutScheduledUpdateGroupAction where
   rnf PutScheduledUpdateGroupAction' {..} =
-    Prelude.rnf desiredCapacity
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf recurrence
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf scheduledActionName
+    Prelude.rnf desiredCapacity `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf maxSize `Prelude.seq`
+          Prelude.rnf minSize `Prelude.seq`
+            Prelude.rnf recurrence `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf time `Prelude.seq`
+                  Prelude.rnf timeZone `Prelude.seq`
+                    Prelude.rnf autoScalingGroupName `Prelude.seq`
+                      Prelude.rnf scheduledActionName
 
 instance Data.ToHeaders PutScheduledUpdateGroupAction where
   toHeaders = Prelude.const Prelude.mempty

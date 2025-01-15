@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteWarmPool where
 
 instance Prelude.NFData DeleteWarmPool where
   rnf DeleteWarmPool' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders DeleteWarmPool where
   toHeaders = Prelude.const Prelude.mempty

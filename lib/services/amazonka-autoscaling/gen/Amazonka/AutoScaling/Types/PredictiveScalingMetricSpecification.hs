@@ -222,13 +222,13 @@ instance
     PredictiveScalingMetricSpecification
   where
   rnf PredictiveScalingMetricSpecification' {..} =
-    Prelude.rnf customizedCapacityMetricSpecification
-      `Prelude.seq` Prelude.rnf customizedLoadMetricSpecification
-      `Prelude.seq` Prelude.rnf customizedScalingMetricSpecification
-      `Prelude.seq` Prelude.rnf predefinedLoadMetricSpecification
-      `Prelude.seq` Prelude.rnf predefinedMetricPairSpecification
-      `Prelude.seq` Prelude.rnf predefinedScalingMetricSpecification
-      `Prelude.seq` Prelude.rnf targetValue
+    Prelude.rnf customizedCapacityMetricSpecification `Prelude.seq`
+      Prelude.rnf customizedLoadMetricSpecification `Prelude.seq`
+        Prelude.rnf customizedScalingMetricSpecification `Prelude.seq`
+          Prelude.rnf predefinedLoadMetricSpecification `Prelude.seq`
+            Prelude.rnf predefinedMetricPairSpecification `Prelude.seq`
+              Prelude.rnf predefinedScalingMetricSpecification `Prelude.seq`
+                Prelude.rnf targetValue
 
 instance
   Data.ToQuery

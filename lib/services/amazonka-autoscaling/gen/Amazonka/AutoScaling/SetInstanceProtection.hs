@@ -135,9 +135,9 @@ instance Prelude.Hashable SetInstanceProtection where
 
 instance Prelude.NFData SetInstanceProtection where
   rnf SetInstanceProtection' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf protectedFromScaleIn
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf autoScalingGroupName `Prelude.seq`
+        Prelude.rnf protectedFromScaleIn
 
 instance Data.ToHeaders SetInstanceProtection where
   toHeaders = Prelude.const Prelude.mempty

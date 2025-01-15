@@ -104,8 +104,8 @@ instance Prelude.Hashable DeleteScheduledAction where
 
 instance Prelude.NFData DeleteScheduledAction where
   rnf DeleteScheduledAction' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf scheduledActionName
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf scheduledActionName
 
 instance Data.ToHeaders DeleteScheduledAction where
   toHeaders = Prelude.const Prelude.mempty

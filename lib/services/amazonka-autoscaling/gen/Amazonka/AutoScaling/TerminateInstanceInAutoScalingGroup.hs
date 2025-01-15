@@ -147,8 +147,8 @@ instance
     TerminateInstanceInAutoScalingGroup
   where
   rnf TerminateInstanceInAutoScalingGroup' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf shouldDecrementDesiredCapacity
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf shouldDecrementDesiredCapacity
 
 instance
   Data.ToHeaders
@@ -224,5 +224,5 @@ instance
     TerminateInstanceInAutoScalingGroupResponse
   where
   rnf TerminateInstanceInAutoScalingGroupResponse' {..} =
-    Prelude.rnf activity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activity `Prelude.seq`
+      Prelude.rnf httpStatus

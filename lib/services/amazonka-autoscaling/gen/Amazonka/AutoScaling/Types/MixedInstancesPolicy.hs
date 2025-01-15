@@ -89,8 +89,8 @@ instance Prelude.Hashable MixedInstancesPolicy where
 
 instance Prelude.NFData MixedInstancesPolicy where
   rnf MixedInstancesPolicy' {..} =
-    Prelude.rnf instancesDistribution
-      `Prelude.seq` Prelude.rnf launchTemplate
+    Prelude.rnf instancesDistribution `Prelude.seq`
+      Prelude.rnf launchTemplate
 
 instance Data.ToQuery MixedInstancesPolicy where
   toQuery MixedInstancesPolicy' {..} =

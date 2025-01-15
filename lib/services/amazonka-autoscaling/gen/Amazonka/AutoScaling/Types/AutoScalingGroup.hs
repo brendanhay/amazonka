@@ -436,15 +436,11 @@ instance Data.FromXML AutoScalingGroup where
       Prelude.<*> (x Data..@? "Context")
       Prelude.<*> (x Data..@? "DefaultInstanceWarmup")
       Prelude.<*> (x Data..@? "DesiredCapacityType")
-      Prelude.<*> ( x
-                      Data..@? "EnabledMetrics"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "EnabledMetrics" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "HealthCheckGracePeriod")
-      Prelude.<*> ( x
-                      Data..@? "Instances"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Instances" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "LaunchConfigurationName")
@@ -466,14 +462,10 @@ instance Data.FromXML AutoScalingGroup where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "TargetGroupARNs"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "TargetGroupARNs" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> ( x
@@ -481,9 +473,7 @@ instance Data.FromXML AutoScalingGroup where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "TrafficSources"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "TrafficSources" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "VPCZoneIdentifier")

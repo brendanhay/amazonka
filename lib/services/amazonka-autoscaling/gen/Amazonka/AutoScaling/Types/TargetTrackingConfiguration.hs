@@ -141,10 +141,10 @@ instance Prelude.Hashable TargetTrackingConfiguration where
 
 instance Prelude.NFData TargetTrackingConfiguration where
   rnf TargetTrackingConfiguration' {..} =
-    Prelude.rnf customizedMetricSpecification
-      `Prelude.seq` Prelude.rnf disableScaleIn
-      `Prelude.seq` Prelude.rnf predefinedMetricSpecification
-      `Prelude.seq` Prelude.rnf targetValue
+    Prelude.rnf customizedMetricSpecification `Prelude.seq`
+      Prelude.rnf disableScaleIn `Prelude.seq`
+        Prelude.rnf predefinedMetricSpecification `Prelude.seq`
+          Prelude.rnf targetValue
 
 instance Data.ToQuery TargetTrackingConfiguration where
   toQuery TargetTrackingConfiguration' {..} =

@@ -169,8 +169,8 @@ instance
     PredictiveScalingPredefinedLoadMetric
   where
   rnf PredictiveScalingPredefinedLoadMetric' {..} =
-    Prelude.rnf resourceLabel
-      `Prelude.seq` Prelude.rnf predefinedMetricType
+    Prelude.rnf resourceLabel `Prelude.seq`
+      Prelude.rnf predefinedMetricType
 
 instance
   Data.ToQuery

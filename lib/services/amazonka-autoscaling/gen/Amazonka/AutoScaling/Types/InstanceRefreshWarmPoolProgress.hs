@@ -98,5 +98,5 @@ instance
     InstanceRefreshWarmPoolProgress
   where
   rnf InstanceRefreshWarmPoolProgress' {..} =
-    Prelude.rnf instancesToUpdate
-      `Prelude.seq` Prelude.rnf percentageComplete
+    Prelude.rnf instancesToUpdate `Prelude.seq`
+      Prelude.rnf percentageComplete

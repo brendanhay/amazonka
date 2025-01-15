@@ -118,8 +118,8 @@ instance Prelude.Hashable BatchDeleteScheduledAction where
 
 instance Prelude.NFData BatchDeleteScheduledAction where
   rnf BatchDeleteScheduledAction' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf scheduledActionNames
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf scheduledActionNames
 
 instance Data.ToHeaders BatchDeleteScheduledAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,5 +186,5 @@ instance
     BatchDeleteScheduledActionResponse
   where
   rnf BatchDeleteScheduledActionResponse' {..} =
-    Prelude.rnf failedScheduledActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedScheduledActions `Prelude.seq`
+      Prelude.rnf httpStatus

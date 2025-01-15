@@ -119,8 +119,8 @@ instance Prelude.Hashable WarmPoolConfiguration where
 
 instance Prelude.NFData WarmPoolConfiguration where
   rnf WarmPoolConfiguration' {..} =
-    Prelude.rnf instanceReusePolicy
-      `Prelude.seq` Prelude.rnf maxGroupPreparedCapacity
-      `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf poolState
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf instanceReusePolicy `Prelude.seq`
+      Prelude.rnf maxGroupPreparedCapacity `Prelude.seq`
+        Prelude.rnf minSize `Prelude.seq`
+          Prelude.rnf poolState `Prelude.seq`
+            Prelude.rnf status

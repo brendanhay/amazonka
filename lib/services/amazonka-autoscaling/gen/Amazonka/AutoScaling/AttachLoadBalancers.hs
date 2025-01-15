@@ -128,8 +128,8 @@ instance Prelude.Hashable AttachLoadBalancers where
 
 instance Prelude.NFData AttachLoadBalancers where
   rnf AttachLoadBalancers' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf loadBalancerNames
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf loadBalancerNames
 
 instance Data.ToHeaders AttachLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty

@@ -131,8 +131,8 @@ instance Prelude.Hashable ScalingProcessQuery where
 
 instance Prelude.NFData ScalingProcessQuery where
   rnf ScalingProcessQuery' {..} =
-    Prelude.rnf scalingProcesses
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf scalingProcesses `Prelude.seq`
+      Prelude.rnf autoScalingGroupName
 
 instance Data.ToQuery ScalingProcessQuery where
   toQuery ScalingProcessQuery' {..} =

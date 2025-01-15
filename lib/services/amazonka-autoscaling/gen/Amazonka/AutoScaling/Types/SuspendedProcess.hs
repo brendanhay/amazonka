@@ -80,5 +80,5 @@ instance Prelude.Hashable SuspendedProcess where
 
 instance Prelude.NFData SuspendedProcess where
   rnf SuspendedProcess' {..} =
-    Prelude.rnf processName
-      `Prelude.seq` Prelude.rnf suspensionReason
+    Prelude.rnf processName `Prelude.seq`
+      Prelude.rnf suspensionReason

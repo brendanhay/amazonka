@@ -191,11 +191,11 @@ instance Prelude.Hashable ExecutePolicy where
 
 instance Prelude.NFData ExecutePolicy where
   rnf ExecutePolicy' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf breachThreshold
-      `Prelude.seq` Prelude.rnf honorCooldown
-      `Prelude.seq` Prelude.rnf metricValue
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf breachThreshold `Prelude.seq`
+        Prelude.rnf honorCooldown `Prelude.seq`
+          Prelude.rnf metricValue `Prelude.seq`
+            Prelude.rnf policyName
 
 instance Data.ToHeaders ExecutePolicy where
   toHeaders = Prelude.const Prelude.mempty

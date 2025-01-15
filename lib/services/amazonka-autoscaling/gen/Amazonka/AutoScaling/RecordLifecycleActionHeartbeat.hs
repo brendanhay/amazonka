@@ -186,10 +186,10 @@ instance
     RecordLifecycleActionHeartbeat
   where
   rnf RecordLifecycleActionHeartbeat' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf lifecycleActionToken
-      `Prelude.seq` Prelude.rnf lifecycleHookName
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf lifecycleActionToken `Prelude.seq`
+        Prelude.rnf lifecycleHookName `Prelude.seq`
+          Prelude.rnf autoScalingGroupName
 
 instance
   Data.ToHeaders

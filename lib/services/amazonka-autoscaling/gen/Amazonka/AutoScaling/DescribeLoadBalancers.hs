@@ -150,12 +150,12 @@ instance Core.AWSPager DescribeLoadBalancers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLoadBalancers_nextToken
-          Lens..~ rs
-          Lens.^? describeLoadBalancersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLoadBalancers_nextToken
+              Lens..~ rs
+              Lens.^? describeLoadBalancersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLoadBalancers where
   type
@@ -168,9 +168,7 @@ instance Core.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Prelude.<$> ( x
-                            Data..@? "LoadBalancers"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -186,9 +184,9 @@ instance Prelude.Hashable DescribeLoadBalancers where
 
 instance Prelude.NFData DescribeLoadBalancers where
   rnf DescribeLoadBalancers' {..} =
-    Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf maxRecords `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders DescribeLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,6 +265,6 @@ describeLoadBalancersResponse_httpStatus = Lens.lens (\DescribeLoadBalancersResp
 
 instance Prelude.NFData DescribeLoadBalancersResponse where
   rnf DescribeLoadBalancersResponse' {..} =
-    Prelude.rnf loadBalancers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loadBalancers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

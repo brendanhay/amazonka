@@ -201,11 +201,11 @@ instance
 
 instance Prelude.NFData TargetTrackingMetricDataQuery where
   rnf TargetTrackingMetricDataQuery' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf metricStat
-      `Prelude.seq` Prelude.rnf returnData
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf label `Prelude.seq`
+        Prelude.rnf metricStat `Prelude.seq`
+          Prelude.rnf returnData `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToQuery TargetTrackingMetricDataQuery where
   toQuery TargetTrackingMetricDataQuery' {..} =

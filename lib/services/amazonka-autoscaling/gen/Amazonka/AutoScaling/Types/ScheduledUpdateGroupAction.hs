@@ -197,14 +197,14 @@ instance Prelude.Hashable ScheduledUpdateGroupAction where
 
 instance Prelude.NFData ScheduledUpdateGroupAction where
   rnf ScheduledUpdateGroupAction' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf desiredCapacity
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf recurrence
-      `Prelude.seq` Prelude.rnf scheduledActionARN
-      `Prelude.seq` Prelude.rnf scheduledActionName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf timeZone
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf desiredCapacity `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf maxSize `Prelude.seq`
+            Prelude.rnf minSize `Prelude.seq`
+              Prelude.rnf recurrence `Prelude.seq`
+                Prelude.rnf scheduledActionARN `Prelude.seq`
+                  Prelude.rnf scheduledActionName `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf time `Prelude.seq`
+                        Prelude.rnf timeZone

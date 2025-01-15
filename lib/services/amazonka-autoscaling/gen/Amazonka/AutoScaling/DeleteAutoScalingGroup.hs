@@ -133,8 +133,8 @@ instance Prelude.Hashable DeleteAutoScalingGroup where
 
 instance Prelude.NFData DeleteAutoScalingGroup where
   rnf DeleteAutoScalingGroup' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders DeleteAutoScalingGroup where
   toHeaders = Prelude.const Prelude.mempty

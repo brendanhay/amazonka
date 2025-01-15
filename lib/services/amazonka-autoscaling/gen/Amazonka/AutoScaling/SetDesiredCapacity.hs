@@ -136,9 +136,9 @@ instance Prelude.Hashable SetDesiredCapacity where
 
 instance Prelude.NFData SetDesiredCapacity where
   rnf SetDesiredCapacity' {..} =
-    Prelude.rnf honorCooldown
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf desiredCapacity
+    Prelude.rnf honorCooldown `Prelude.seq`
+      Prelude.rnf autoScalingGroupName `Prelude.seq`
+        Prelude.rnf desiredCapacity
 
 instance Data.ToHeaders SetDesiredCapacity where
   toHeaders = Prelude.const Prelude.mempty

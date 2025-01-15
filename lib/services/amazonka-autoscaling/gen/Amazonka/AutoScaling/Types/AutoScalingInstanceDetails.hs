@@ -241,13 +241,13 @@ instance Prelude.Hashable AutoScalingInstanceDetails where
 
 instance Prelude.NFData AutoScalingInstanceDetails where
   rnf AutoScalingInstanceDetails' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf launchConfigurationName
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf weightedCapacity
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf lifecycleState
-      `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf protectedFromScaleIn
+    Prelude.rnf instanceType `Prelude.seq`
+      Prelude.rnf launchConfigurationName `Prelude.seq`
+        Prelude.rnf launchTemplate `Prelude.seq`
+          Prelude.rnf weightedCapacity `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf autoScalingGroupName `Prelude.seq`
+                Prelude.rnf availabilityZone `Prelude.seq`
+                  Prelude.rnf lifecycleState `Prelude.seq`
+                    Prelude.rnf healthStatus `Prelude.seq`
+                      Prelude.rnf protectedFromScaleIn

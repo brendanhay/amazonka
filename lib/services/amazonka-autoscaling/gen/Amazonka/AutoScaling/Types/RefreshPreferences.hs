@@ -195,11 +195,11 @@ instance Prelude.Hashable RefreshPreferences where
 
 instance Prelude.NFData RefreshPreferences where
   rnf RefreshPreferences' {..} =
-    Prelude.rnf checkpointDelay
-      `Prelude.seq` Prelude.rnf checkpointPercentages
-      `Prelude.seq` Prelude.rnf instanceWarmup
-      `Prelude.seq` Prelude.rnf minHealthyPercentage
-      `Prelude.seq` Prelude.rnf skipMatching
+    Prelude.rnf checkpointDelay `Prelude.seq`
+      Prelude.rnf checkpointPercentages `Prelude.seq`
+        Prelude.rnf instanceWarmup `Prelude.seq`
+          Prelude.rnf minHealthyPercentage `Prelude.seq`
+            Prelude.rnf skipMatching
 
 instance Data.ToQuery RefreshPreferences where
   toQuery RefreshPreferences' {..} =

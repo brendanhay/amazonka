@@ -164,5 +164,5 @@ cancelInstanceRefreshResponse_httpStatus = Lens.lens (\CancelInstanceRefreshResp
 
 instance Prelude.NFData CancelInstanceRefreshResponse where
   rnf CancelInstanceRefreshResponse' {..} =
-    Prelude.rnf instanceRefreshId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceRefreshId `Prelude.seq`
+      Prelude.rnf httpStatus

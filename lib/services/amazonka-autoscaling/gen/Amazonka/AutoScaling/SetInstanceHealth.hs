@@ -147,9 +147,9 @@ instance Prelude.Hashable SetInstanceHealth where
 
 instance Prelude.NFData SetInstanceHealth where
   rnf SetInstanceHealth' {..} =
-    Prelude.rnf shouldRespectGracePeriod
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf healthStatus
+    Prelude.rnf shouldRespectGracePeriod `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf healthStatus
 
 instance Data.ToHeaders SetInstanceHealth where
   toHeaders = Prelude.const Prelude.mempty

@@ -128,12 +128,12 @@ instance Core.AWSPager DescribeLaunchConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLaunchConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? describeLaunchConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLaunchConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? describeLaunchConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLaunchConfigurations where
   type
@@ -167,9 +167,9 @@ instance
 
 instance Prelude.NFData DescribeLaunchConfigurations where
   rnf DescribeLaunchConfigurations' {..} =
-    Prelude.rnf launchConfigurationNames
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf launchConfigurationNames `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeLaunchConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -257,6 +257,6 @@ instance
     DescribeLaunchConfigurationsResponse
   where
   rnf DescribeLaunchConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf launchConfigurations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf launchConfigurations

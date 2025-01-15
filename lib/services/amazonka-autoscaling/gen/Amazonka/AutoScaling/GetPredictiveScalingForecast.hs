@@ -169,9 +169,7 @@ instance Core.AWSRequest GetPredictiveScalingForecast where
       ( \s h x ->
           GetPredictiveScalingForecastResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "LoadForecast"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "LoadForecast" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
             Prelude.<*> (x Data..@ "CapacityForecast")
@@ -191,10 +189,10 @@ instance
 
 instance Prelude.NFData GetPredictiveScalingForecast where
   rnf GetPredictiveScalingForecast' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf policyName `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf endTime
 
 instance Data.ToHeaders GetPredictiveScalingForecast where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,7 +285,7 @@ instance
     GetPredictiveScalingForecastResponse
   where
   rnf GetPredictiveScalingForecastResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf loadForecast
-      `Prelude.seq` Prelude.rnf capacityForecast
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf loadForecast `Prelude.seq`
+        Prelude.rnf capacityForecast `Prelude.seq`
+          Prelude.rnf updateTime

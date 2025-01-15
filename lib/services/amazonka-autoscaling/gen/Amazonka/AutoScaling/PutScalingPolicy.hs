@@ -542,9 +542,7 @@ instance Core.AWSRequest PutScalingPolicy where
       "PutScalingPolicyResult"
       ( \s h x ->
           PutScalingPolicyResponse'
-            Prelude.<$> ( x
-                            Data..@? "Alarms"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Alarms" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "PolicyARN")
@@ -571,20 +569,20 @@ instance Prelude.Hashable PutScalingPolicy where
 
 instance Prelude.NFData PutScalingPolicy where
   rnf PutScalingPolicy' {..} =
-    Prelude.rnf adjustmentType
-      `Prelude.seq` Prelude.rnf cooldown
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf estimatedInstanceWarmup
-      `Prelude.seq` Prelude.rnf metricAggregationType
-      `Prelude.seq` Prelude.rnf minAdjustmentMagnitude
-      `Prelude.seq` Prelude.rnf minAdjustmentStep
-      `Prelude.seq` Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf predictiveScalingConfiguration
-      `Prelude.seq` Prelude.rnf scalingAdjustment
-      `Prelude.seq` Prelude.rnf stepAdjustments
-      `Prelude.seq` Prelude.rnf targetTrackingConfiguration
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf adjustmentType `Prelude.seq`
+      Prelude.rnf cooldown `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf estimatedInstanceWarmup `Prelude.seq`
+            Prelude.rnf metricAggregationType `Prelude.seq`
+              Prelude.rnf minAdjustmentMagnitude `Prelude.seq`
+                Prelude.rnf minAdjustmentStep `Prelude.seq`
+                  Prelude.rnf policyType `Prelude.seq`
+                    Prelude.rnf predictiveScalingConfiguration `Prelude.seq`
+                      Prelude.rnf scalingAdjustment `Prelude.seq`
+                        Prelude.rnf stepAdjustments `Prelude.seq`
+                          Prelude.rnf targetTrackingConfiguration `Prelude.seq`
+                            Prelude.rnf autoScalingGroupName `Prelude.seq`
+                              Prelude.rnf policyName
 
 instance Data.ToHeaders PutScalingPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -675,6 +673,6 @@ putScalingPolicyResponse_httpStatus = Lens.lens (\PutScalingPolicyResponse' {htt
 
 instance Prelude.NFData PutScalingPolicyResponse where
   rnf PutScalingPolicyResponse' {..} =
-    Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf policyARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarms `Prelude.seq`
+      Prelude.rnf policyARN `Prelude.seq`
+        Prelude.rnf httpStatus

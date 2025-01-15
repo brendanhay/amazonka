@@ -165,8 +165,8 @@ instance Prelude.Hashable ResumeProcesses where
 
 instance Prelude.NFData ResumeProcesses where
   rnf ResumeProcesses' {..} =
-    Prelude.rnf scalingProcesses
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf scalingProcesses `Prelude.seq`
+      Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders ResumeProcesses where
   toHeaders = Prelude.const Prelude.mempty

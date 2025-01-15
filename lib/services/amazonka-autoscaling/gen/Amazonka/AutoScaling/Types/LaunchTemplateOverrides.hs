@@ -275,10 +275,10 @@ instance Prelude.Hashable LaunchTemplateOverrides where
 
 instance Prelude.NFData LaunchTemplateOverrides where
   rnf LaunchTemplateOverrides' {..} =
-    Prelude.rnf instanceRequirements
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf launchTemplateSpecification
-      `Prelude.seq` Prelude.rnf weightedCapacity
+    Prelude.rnf instanceRequirements `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf launchTemplateSpecification `Prelude.seq`
+          Prelude.rnf weightedCapacity
 
 instance Data.ToQuery LaunchTemplateOverrides where
   toQuery LaunchTemplateOverrides' {..} =

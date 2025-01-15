@@ -168,5 +168,5 @@ instance
     DescribeAutoScalingNotificationTypesResponse
   where
   rnf DescribeAutoScalingNotificationTypesResponse' {..} =
-    Prelude.rnf autoScalingNotificationTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoScalingNotificationTypes `Prelude.seq`
+      Prelude.rnf httpStatus

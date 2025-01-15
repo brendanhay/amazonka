@@ -67,14 +67,10 @@ capacityForecast_values = Lens.lens (\CapacityForecast' {values} -> values) (\s@
 instance Data.FromXML CapacityForecast where
   parseXML x =
     CapacityForecast'
-      Prelude.<$> ( x
-                      Data..@? "Timestamps"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Timestamps" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
-      Prelude.<*> ( x
-                      Data..@? "Values"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
 
@@ -86,5 +82,5 @@ instance Prelude.Hashable CapacityForecast where
 
 instance Prelude.NFData CapacityForecast where
   rnf CapacityForecast' {..} =
-    Prelude.rnf timestamps
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf timestamps `Prelude.seq`
+      Prelude.rnf values

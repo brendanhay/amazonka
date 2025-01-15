@@ -113,8 +113,8 @@ instance Prelude.Hashable AttachInstances where
 
 instance Prelude.NFData AttachInstances where
   rnf AttachInstances' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders AttachInstances where
   toHeaders = Prelude.const Prelude.mempty

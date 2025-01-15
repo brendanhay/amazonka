@@ -128,8 +128,8 @@ instance
     BatchPutScheduledUpdateGroupAction
   where
   rnf BatchPutScheduledUpdateGroupAction' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf scheduledUpdateGroupActions
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf scheduledUpdateGroupActions
 
 instance
   Data.ToHeaders
@@ -210,5 +210,5 @@ instance
     BatchPutScheduledUpdateGroupActionResponse
   where
   rnf BatchPutScheduledUpdateGroupActionResponse' {..} =
-    Prelude.rnf failedScheduledUpdateGroupActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedScheduledUpdateGroupActions `Prelude.seq`
+      Prelude.rnf httpStatus

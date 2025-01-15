@@ -118,11 +118,11 @@ instance Prelude.Hashable Tag where
 
 instance Prelude.NFData Tag where
   rnf Tag' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf propagateAtLaunch
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf propagateAtLaunch `Prelude.seq`
+            Prelude.rnf value
 
 instance Data.ToQuery Tag where
   toQuery Tag' {..} =

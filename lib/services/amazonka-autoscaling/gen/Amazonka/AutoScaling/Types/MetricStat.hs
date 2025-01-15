@@ -139,9 +139,9 @@ instance Prelude.Hashable MetricStat where
 
 instance Prelude.NFData MetricStat where
   rnf MetricStat' {..} =
-    Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf stat
+    Prelude.rnf unit `Prelude.seq`
+      Prelude.rnf metric `Prelude.seq`
+        Prelude.rnf stat
 
 instance Data.ToQuery MetricStat where
   toQuery MetricStat' {..} =

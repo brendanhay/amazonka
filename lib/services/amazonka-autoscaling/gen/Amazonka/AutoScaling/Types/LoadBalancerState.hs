@@ -128,5 +128,5 @@ instance Prelude.Hashable LoadBalancerState where
 
 instance Prelude.NFData LoadBalancerState where
   rnf LoadBalancerState' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf state

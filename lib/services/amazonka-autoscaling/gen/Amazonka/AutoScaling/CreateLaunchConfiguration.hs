@@ -635,26 +635,26 @@ instance Prelude.Hashable CreateLaunchConfiguration where
 
 instance Prelude.NFData CreateLaunchConfiguration where
   rnf CreateLaunchConfiguration' {..} =
-    Prelude.rnf associatePublicIpAddress
-      `Prelude.seq` Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf classicLinkVPCId
-      `Prelude.seq` Prelude.rnf classicLinkVPCSecurityGroups
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceMonitoring
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf kernelId
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf metadataOptions
-      `Prelude.seq` Prelude.rnf placementTenancy
-      `Prelude.seq` Prelude.rnf ramdiskId
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf spotPrice
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf
-        launchConfigurationName
+    Prelude.rnf associatePublicIpAddress `Prelude.seq`
+      Prelude.rnf blockDeviceMappings `Prelude.seq`
+        Prelude.rnf classicLinkVPCId `Prelude.seq`
+          Prelude.rnf classicLinkVPCSecurityGroups `Prelude.seq`
+            Prelude.rnf ebsOptimized `Prelude.seq`
+              Prelude.rnf iamInstanceProfile `Prelude.seq`
+                Prelude.rnf imageId `Prelude.seq`
+                  Prelude.rnf instanceId `Prelude.seq`
+                    Prelude.rnf instanceMonitoring `Prelude.seq`
+                      Prelude.rnf instanceType `Prelude.seq`
+                        Prelude.rnf kernelId `Prelude.seq`
+                          Prelude.rnf keyName `Prelude.seq`
+                            Prelude.rnf metadataOptions `Prelude.seq`
+                              Prelude.rnf placementTenancy `Prelude.seq`
+                                Prelude.rnf ramdiskId `Prelude.seq`
+                                  Prelude.rnf securityGroups `Prelude.seq`
+                                    Prelude.rnf spotPrice `Prelude.seq`
+                                      Prelude.rnf userData `Prelude.seq`
+                                        Prelude.rnf
+                                          launchConfigurationName
 
 instance Data.ToHeaders CreateLaunchConfiguration where
   toHeaders = Prelude.const Prelude.mempty

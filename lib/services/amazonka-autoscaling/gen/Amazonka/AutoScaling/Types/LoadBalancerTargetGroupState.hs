@@ -131,5 +131,5 @@ instance
 
 instance Prelude.NFData LoadBalancerTargetGroupState where
   rnf LoadBalancerTargetGroupState' {..} =
-    Prelude.rnf loadBalancerTargetGroupARN
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf loadBalancerTargetGroupARN `Prelude.seq`
+      Prelude.rnf state

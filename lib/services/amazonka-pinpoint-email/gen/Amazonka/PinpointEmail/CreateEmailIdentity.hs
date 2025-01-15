@@ -134,8 +134,8 @@ instance Prelude.Hashable CreateEmailIdentity where
 
 instance Prelude.NFData CreateEmailIdentity where
   rnf CreateEmailIdentity' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf emailIdentity
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf emailIdentity
 
 instance Data.ToHeaders CreateEmailIdentity where
   toHeaders =
@@ -248,7 +248,7 @@ createEmailIdentityResponse_httpStatus = Lens.lens (\CreateEmailIdentityResponse
 
 instance Prelude.NFData CreateEmailIdentityResponse where
   rnf CreateEmailIdentityResponse' {..} =
-    Prelude.rnf dkimAttributes
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf verifiedForSendingStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dkimAttributes `Prelude.seq`
+      Prelude.rnf identityType `Prelude.seq`
+        Prelude.rnf verifiedForSendingStatus `Prelude.seq`
+          Prelude.rnf httpStatus

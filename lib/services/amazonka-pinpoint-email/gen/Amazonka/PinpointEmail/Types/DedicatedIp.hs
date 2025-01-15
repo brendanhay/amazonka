@@ -140,7 +140,7 @@ instance Prelude.Hashable DedicatedIp where
 
 instance Prelude.NFData DedicatedIp where
   rnf DedicatedIp' {..} =
-    Prelude.rnf poolName
-      `Prelude.seq` Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf warmupStatus
-      `Prelude.seq` Prelude.rnf warmupPercentage
+    Prelude.rnf poolName `Prelude.seq`
+      Prelude.rnf ip `Prelude.seq`
+        Prelude.rnf warmupStatus `Prelude.seq`
+          Prelude.rnf warmupPercentage

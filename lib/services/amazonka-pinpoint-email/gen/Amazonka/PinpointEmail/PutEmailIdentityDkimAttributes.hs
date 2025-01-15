@@ -136,8 +136,8 @@ instance
     PutEmailIdentityDkimAttributes
   where
   rnf PutEmailIdentityDkimAttributes' {..} =
-    Prelude.rnf signingEnabled
-      `Prelude.seq` Prelude.rnf emailIdentity
+    Prelude.rnf signingEnabled `Prelude.seq`
+      Prelude.rnf emailIdentity
 
 instance
   Data.ToHeaders

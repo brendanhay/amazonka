@@ -151,9 +151,9 @@ instance Prelude.Hashable DeliverabilityTestReport where
 
 instance Prelude.NFData DeliverabilityTestReport where
   rnf DeliverabilityTestReport' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf deliverabilityTestStatus
-      `Prelude.seq` Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf reportName
-      `Prelude.seq` Prelude.rnf subject
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf deliverabilityTestStatus `Prelude.seq`
+        Prelude.rnf fromEmailAddress `Prelude.seq`
+          Prelude.rnf reportId `Prelude.seq`
+            Prelude.rnf reportName `Prelude.seq`
+              Prelude.rnf subject

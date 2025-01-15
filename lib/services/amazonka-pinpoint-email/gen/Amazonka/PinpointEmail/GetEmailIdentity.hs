@@ -279,10 +279,10 @@ getEmailIdentityResponse_httpStatus = Lens.lens (\GetEmailIdentityResponse' {htt
 
 instance Prelude.NFData GetEmailIdentityResponse where
   rnf GetEmailIdentityResponse' {..} =
-    Prelude.rnf dkimAttributes
-      `Prelude.seq` Prelude.rnf feedbackForwardingStatus
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf mailFromAttributes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf verifiedForSendingStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dkimAttributes `Prelude.seq`
+      Prelude.rnf feedbackForwardingStatus `Prelude.seq`
+        Prelude.rnf identityType `Prelude.seq`
+          Prelude.rnf mailFromAttributes `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf verifiedForSendingStatus `Prelude.seq`
+                Prelude.rnf httpStatus

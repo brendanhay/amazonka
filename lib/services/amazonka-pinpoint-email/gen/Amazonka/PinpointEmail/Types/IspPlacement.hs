@@ -85,5 +85,5 @@ instance Prelude.Hashable IspPlacement where
 
 instance Prelude.NFData IspPlacement where
   rnf IspPlacement' {..} =
-    Prelude.rnf ispName
-      `Prelude.seq` Prelude.rnf placementStatistics
+    Prelude.rnf ispName `Prelude.seq`
+      Prelude.rnf placementStatistics

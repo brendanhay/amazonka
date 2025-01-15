@@ -169,6 +169,6 @@ instance Prelude.Hashable MailFromAttributes where
 
 instance Prelude.NFData MailFromAttributes where
   rnf MailFromAttributes' {..} =
-    Prelude.rnf mailFromDomain
-      `Prelude.seq` Prelude.rnf mailFromDomainStatus
-      `Prelude.seq` Prelude.rnf behaviorOnMxFailure
+    Prelude.rnf mailFromDomain `Prelude.seq`
+      Prelude.rnf mailFromDomainStatus `Prelude.seq`
+        Prelude.rnf behaviorOnMxFailure

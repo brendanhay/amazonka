@@ -112,7 +112,7 @@ instance Prelude.Hashable VolumeStatistics where
 
 instance Prelude.NFData VolumeStatistics where
   rnf VolumeStatistics' {..} =
-    Prelude.rnf inboxRawCount
-      `Prelude.seq` Prelude.rnf projectedInbox
-      `Prelude.seq` Prelude.rnf projectedSpam
-      `Prelude.seq` Prelude.rnf spamRawCount
+    Prelude.rnf inboxRawCount `Prelude.seq`
+      Prelude.rnf projectedInbox `Prelude.seq`
+        Prelude.rnf projectedSpam `Prelude.seq`
+          Prelude.rnf spamRawCount

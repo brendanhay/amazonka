@@ -97,8 +97,8 @@ instance Prelude.Hashable ReputationOptions where
 
 instance Prelude.NFData ReputationOptions where
   rnf ReputationOptions' {..} =
-    Prelude.rnf lastFreshStart
-      `Prelude.seq` Prelude.rnf reputationMetricsEnabled
+    Prelude.rnf lastFreshStart `Prelude.seq`
+      Prelude.rnf reputationMetricsEnabled
 
 instance Data.ToJSON ReputationOptions where
   toJSON ReputationOptions' {..} =

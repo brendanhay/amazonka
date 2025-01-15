@@ -200,13 +200,13 @@ instance Prelude.Hashable SendEmail where
 
 instance Prelude.NFData SendEmail where
   rnf SendEmail' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf emailTags
-      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddress
-      `Prelude.seq` Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf replyToAddresses
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf emailTags `Prelude.seq`
+        Prelude.rnf feedbackForwardingEmailAddress `Prelude.seq`
+          Prelude.rnf fromEmailAddress `Prelude.seq`
+            Prelude.rnf replyToAddresses `Prelude.seq`
+              Prelude.rnf destination `Prelude.seq`
+                Prelude.rnf content
 
 instance Data.ToHeaders SendEmail where
   toHeaders =
@@ -304,5 +304,5 @@ sendEmailResponse_httpStatus = Lens.lens (\SendEmailResponse' {httpStatus} -> ht
 
 instance Prelude.NFData SendEmailResponse where
   rnf SendEmailResponse' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf httpStatus

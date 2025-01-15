@@ -105,6 +105,6 @@ instance Prelude.Hashable SendQuota where
 
 instance Prelude.NFData SendQuota where
   rnf SendQuota' {..} =
-    Prelude.rnf max24HourSend
-      `Prelude.seq` Prelude.rnf maxSendRate
-      `Prelude.seq` Prelude.rnf sentLast24Hours
+    Prelude.rnf max24HourSend `Prelude.seq`
+      Prelude.rnf maxSendRate `Prelude.seq`
+        Prelude.rnf sentLast24Hours

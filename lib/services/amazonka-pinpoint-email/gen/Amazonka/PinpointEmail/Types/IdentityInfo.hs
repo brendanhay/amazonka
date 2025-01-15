@@ -125,6 +125,6 @@ instance Prelude.Hashable IdentityInfo where
 
 instance Prelude.NFData IdentityInfo where
   rnf IdentityInfo' {..} =
-    Prelude.rnf identityName
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf sendingEnabled
+    Prelude.rnf identityName `Prelude.seq`
+      Prelude.rnf identityType `Prelude.seq`
+        Prelude.rnf sendingEnabled

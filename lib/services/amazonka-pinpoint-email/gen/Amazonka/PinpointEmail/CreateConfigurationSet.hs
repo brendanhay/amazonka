@@ -176,12 +176,12 @@ instance Prelude.Hashable CreateConfigurationSet where
 
 instance Prelude.NFData CreateConfigurationSet where
   rnf CreateConfigurationSet' {..} =
-    Prelude.rnf deliveryOptions
-      `Prelude.seq` Prelude.rnf reputationOptions
-      `Prelude.seq` Prelude.rnf sendingOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trackingOptions
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf deliveryOptions `Prelude.seq`
+      Prelude.rnf reputationOptions `Prelude.seq`
+        Prelude.rnf sendingOptions `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf trackingOptions `Prelude.seq`
+              Prelude.rnf configurationSetName
 
 instance Data.ToHeaders CreateConfigurationSet where
   toHeaders =

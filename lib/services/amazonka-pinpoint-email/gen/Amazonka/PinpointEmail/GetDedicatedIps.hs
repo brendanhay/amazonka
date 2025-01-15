@@ -130,12 +130,12 @@ instance Core.AWSPager GetDedicatedIps where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDedicatedIps_nextToken
-          Lens..~ rs
-          Lens.^? getDedicatedIpsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDedicatedIps_nextToken
+              Lens..~ rs
+              Lens.^? getDedicatedIpsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDedicatedIps where
   type
@@ -161,9 +161,9 @@ instance Prelude.Hashable GetDedicatedIps where
 
 instance Prelude.NFData GetDedicatedIps where
   rnf GetDedicatedIps' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf poolName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf poolName
 
 instance Data.ToHeaders GetDedicatedIps where
   toHeaders =
@@ -249,6 +249,6 @@ getDedicatedIpsResponse_httpStatus = Lens.lens (\GetDedicatedIpsResponse' {httpS
 
 instance Prelude.NFData GetDedicatedIpsResponse where
   rnf GetDedicatedIpsResponse' {..} =
-    Prelude.rnf dedicatedIps
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dedicatedIps `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

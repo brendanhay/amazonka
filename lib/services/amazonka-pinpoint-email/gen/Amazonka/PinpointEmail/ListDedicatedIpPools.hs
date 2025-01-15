@@ -117,12 +117,12 @@ instance Core.AWSPager ListDedicatedIpPools where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDedicatedIpPools_nextToken
-          Lens..~ rs
-          Lens.^? listDedicatedIpPoolsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDedicatedIpPools_nextToken
+              Lens..~ rs
+              Lens.^? listDedicatedIpPoolsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDedicatedIpPools where
   type
@@ -150,8 +150,8 @@ instance Prelude.Hashable ListDedicatedIpPools where
 
 instance Prelude.NFData ListDedicatedIpPools where
   rnf ListDedicatedIpPools' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListDedicatedIpPools where
   toHeaders =
@@ -235,6 +235,6 @@ listDedicatedIpPoolsResponse_httpStatus = Lens.lens (\ListDedicatedIpPoolsRespon
 
 instance Prelude.NFData ListDedicatedIpPoolsResponse where
   rnf ListDedicatedIpPoolsResponse' {..} =
-    Prelude.rnf dedicatedIpPools
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dedicatedIpPools `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

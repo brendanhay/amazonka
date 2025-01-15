@@ -166,5 +166,5 @@ getDedicatedIpResponse_httpStatus = Lens.lens (\GetDedicatedIpResponse' {httpSta
 
 instance Prelude.NFData GetDedicatedIpResponse where
   rnf GetDedicatedIpResponse' {..} =
-    Prelude.rnf dedicatedIp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dedicatedIp `Prelude.seq`
+      Prelude.rnf httpStatus

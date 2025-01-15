@@ -231,7 +231,7 @@ instance
     GetRoutingControlStateResponse
   where
   rnf GetRoutingControlStateResponse' {..} =
-    Prelude.rnf routingControlName
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf routingControlArn
-      `Prelude.seq` Prelude.rnf routingControlState
+    Prelude.rnf routingControlName `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf routingControlArn `Prelude.seq`
+          Prelude.rnf routingControlState

@@ -228,11 +228,11 @@ instance
     ListConformancePackComplianceScores
   where
   rnf ListConformancePackComplianceScores' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf sortOrder
 
 instance
   Data.ToHeaders
@@ -337,6 +337,6 @@ instance
     ListConformancePackComplianceScoresResponse
   where
   rnf ListConformancePackComplianceScoresResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf conformancePackComplianceScores
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf conformancePackComplianceScores

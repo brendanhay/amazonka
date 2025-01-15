@@ -93,8 +93,8 @@ instance
     RemediationExceptionResourceKey
   where
   rnf RemediationExceptionResourceKey' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceType
 
 instance Data.ToJSON RemediationExceptionResourceKey where
   toJSON RemediationExceptionResourceKey' {..} =

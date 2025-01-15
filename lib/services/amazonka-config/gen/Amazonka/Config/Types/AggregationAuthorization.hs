@@ -104,7 +104,7 @@ instance Prelude.Hashable AggregationAuthorization where
 
 instance Prelude.NFData AggregationAuthorization where
   rnf AggregationAuthorization' {..} =
-    Prelude.rnf aggregationAuthorizationArn
-      `Prelude.seq` Prelude.rnf authorizedAccountId
-      `Prelude.seq` Prelude.rnf authorizedAwsRegion
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf aggregationAuthorizationArn `Prelude.seq`
+      Prelude.rnf authorizedAccountId `Prelude.seq`
+        Prelude.rnf authorizedAwsRegion `Prelude.seq`
+          Prelude.rnf creationTime

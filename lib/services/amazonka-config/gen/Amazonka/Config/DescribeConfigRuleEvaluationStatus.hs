@@ -151,12 +151,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeConfigRuleEvaluationStatus_nextToken
-          Lens..~ rs
-          Lens.^? describeConfigRuleEvaluationStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeConfigRuleEvaluationStatus_nextToken
+              Lens..~ rs
+              Lens.^? describeConfigRuleEvaluationStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -196,9 +196,9 @@ instance
     DescribeConfigRuleEvaluationStatus
   where
   rnf DescribeConfigRuleEvaluationStatus' {..} =
-    Prelude.rnf configRuleNames
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf configRuleNames `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -303,6 +303,6 @@ instance
     DescribeConfigRuleEvaluationStatusResponse
   where
   rnf DescribeConfigRuleEvaluationStatusResponse' {..} =
-    Prelude.rnf configRulesEvaluationStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configRulesEvaluationStatus `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

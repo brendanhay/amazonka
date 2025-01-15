@@ -189,5 +189,5 @@ instance
     PutRetentionConfigurationResponse
   where
   rnf PutRetentionConfigurationResponse' {..} =
-    Prelude.rnf retentionConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf retentionConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

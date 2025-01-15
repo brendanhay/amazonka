@@ -82,5 +82,5 @@ instance Prelude.Hashable PendingAggregationRequest where
 
 instance Prelude.NFData PendingAggregationRequest where
   rnf PendingAggregationRequest' {..} =
-    Prelude.rnf requesterAccountId
-      `Prelude.seq` Prelude.rnf requesterAwsRegion
+    Prelude.rnf requesterAccountId `Prelude.seq`
+      Prelude.rnf requesterAwsRegion

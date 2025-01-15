@@ -86,5 +86,5 @@ instance Prelude.Hashable EvaluationStatus where
 
 instance Prelude.NFData EvaluationStatus where
   rnf EvaluationStatus' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf status

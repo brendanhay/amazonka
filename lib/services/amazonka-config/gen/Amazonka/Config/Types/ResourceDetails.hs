@@ -116,10 +116,10 @@ instance Prelude.Hashable ResourceDetails where
 
 instance Prelude.NFData ResourceDetails where
   rnf ResourceDetails' {..} =
-    Prelude.rnf resourceConfigurationSchemaType
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceConfiguration
+    Prelude.rnf resourceConfigurationSchemaType `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf resourceConfiguration
 
 instance Data.ToJSON ResourceDetails where
   toJSON ResourceDetails' {..} =

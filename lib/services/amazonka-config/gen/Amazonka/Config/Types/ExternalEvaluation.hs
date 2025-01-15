@@ -127,11 +127,11 @@ instance Prelude.Hashable ExternalEvaluation where
 
 instance Prelude.NFData ExternalEvaluation where
   rnf ExternalEvaluation' {..} =
-    Prelude.rnf annotation
-      `Prelude.seq` Prelude.rnf complianceResourceType
-      `Prelude.seq` Prelude.rnf complianceResourceId
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf orderingTimestamp
+    Prelude.rnf annotation `Prelude.seq`
+      Prelude.rnf complianceResourceType `Prelude.seq`
+        Prelude.rnf complianceResourceId `Prelude.seq`
+          Prelude.rnf complianceType `Prelude.seq`
+            Prelude.rnf orderingTimestamp
 
 instance Data.ToJSON ExternalEvaluation where
   toJSON ExternalEvaluation' {..} =

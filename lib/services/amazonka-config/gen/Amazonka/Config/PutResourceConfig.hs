@@ -206,12 +206,12 @@ instance Prelude.Hashable PutResourceConfig where
 
 instance Prelude.NFData PutResourceConfig where
   rnf PutResourceConfig' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf resourceName `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf schemaVersionId `Prelude.seq`
+            Prelude.rnf resourceId `Prelude.seq`
+              Prelude.rnf configuration
 
 instance Data.ToHeaders PutResourceConfig where
   toHeaders =

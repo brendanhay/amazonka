@@ -187,5 +187,5 @@ deliverConfigSnapshotResponse_httpStatus = Lens.lens (\DeliverConfigSnapshotResp
 
 instance Prelude.NFData DeliverConfigSnapshotResponse where
   rnf DeliverConfigSnapshotResponse' {..} =
-    Prelude.rnf configSnapshotId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configSnapshotId `Prelude.seq`
+      Prelude.rnf httpStatus

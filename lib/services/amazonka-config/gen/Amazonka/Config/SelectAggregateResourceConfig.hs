@@ -166,12 +166,12 @@ instance Core.AWSPager SelectAggregateResourceConfig where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& selectAggregateResourceConfig_nextToken
-          Lens..~ rs
-          Lens.^? selectAggregateResourceConfigResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& selectAggregateResourceConfig_nextToken
+              Lens..~ rs
+              Lens.^? selectAggregateResourceConfigResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -206,11 +206,11 @@ instance
 
 instance Prelude.NFData SelectAggregateResourceConfig where
   rnf SelectAggregateResourceConfig' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf configurationAggregatorName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf expression `Prelude.seq`
+            Prelude.rnf configurationAggregatorName
 
 instance Data.ToHeaders SelectAggregateResourceConfig where
   toHeaders =
@@ -312,7 +312,7 @@ instance
     SelectAggregateResourceConfigResponse
   where
   rnf SelectAggregateResourceConfigResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryInfo
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf queryInfo `Prelude.seq`
+        Prelude.rnf results `Prelude.seq`
+          Prelude.rnf httpStatus

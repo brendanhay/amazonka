@@ -168,10 +168,10 @@ instance
 
 instance Prelude.NFData DescribeRemediationExceptions where
   rnf DescribeRemediationExceptions' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceKeys
-      `Prelude.seq` Prelude.rnf configRuleName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceKeys `Prelude.seq`
+          Prelude.rnf configRuleName
 
 instance Data.ToHeaders DescribeRemediationExceptions where
   toHeaders =
@@ -263,6 +263,6 @@ instance
     DescribeRemediationExceptionsResponse
   where
   rnf DescribeRemediationExceptionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf remediationExceptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf remediationExceptions `Prelude.seq`
+        Prelude.rnf httpStatus

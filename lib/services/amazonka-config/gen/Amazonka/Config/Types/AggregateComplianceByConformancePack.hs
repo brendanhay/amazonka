@@ -126,7 +126,7 @@ instance
     AggregateComplianceByConformancePack
   where
   rnf AggregateComplianceByConformancePack' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf compliance
-      `Prelude.seq` Prelude.rnf conformancePackName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf awsRegion `Prelude.seq`
+        Prelude.rnf compliance `Prelude.seq`
+          Prelude.rnf conformancePackName

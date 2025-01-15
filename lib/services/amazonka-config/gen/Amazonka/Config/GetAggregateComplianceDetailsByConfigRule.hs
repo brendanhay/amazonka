@@ -197,12 +197,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getAggregateComplianceDetailsByConfigRule_nextToken
-          Lens..~ rs
-          Lens.^? getAggregateComplianceDetailsByConfigRuleResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getAggregateComplianceDetailsByConfigRule_nextToken
+              Lens..~ rs
+              Lens.^? getAggregateComplianceDetailsByConfigRuleResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -247,13 +247,13 @@ instance
     GetAggregateComplianceDetailsByConfigRule
   where
   rnf GetAggregateComplianceDetailsByConfigRule' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationAggregatorName
-      `Prelude.seq` Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf awsRegion
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf configurationAggregatorName `Prelude.seq`
+            Prelude.rnf configRuleName `Prelude.seq`
+              Prelude.rnf accountId `Prelude.seq`
+                Prelude.rnf awsRegion
 
 instance
   Data.ToHeaders
@@ -367,6 +367,6 @@ instance
   where
   rnf
     GetAggregateComplianceDetailsByConfigRuleResponse' {..} =
-      Prelude.rnf aggregateEvaluationResults
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf aggregateEvaluationResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

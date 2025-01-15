@@ -248,15 +248,15 @@ instance
     OrganizationCustomRuleMetadata
   where
   rnf OrganizationCustomRuleMetadata' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inputParameters
-      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
-      `Prelude.seq` Prelude.rnf resourceIdScope
-      `Prelude.seq` Prelude.rnf resourceTypesScope
-      `Prelude.seq` Prelude.rnf tagKeyScope
-      `Prelude.seq` Prelude.rnf tagValueScope
-      `Prelude.seq` Prelude.rnf lambdaFunctionArn
-      `Prelude.seq` Prelude.rnf organizationConfigRuleTriggerTypes
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf inputParameters `Prelude.seq`
+        Prelude.rnf maximumExecutionFrequency `Prelude.seq`
+          Prelude.rnf resourceIdScope `Prelude.seq`
+            Prelude.rnf resourceTypesScope `Prelude.seq`
+              Prelude.rnf tagKeyScope `Prelude.seq`
+                Prelude.rnf tagValueScope `Prelude.seq`
+                  Prelude.rnf lambdaFunctionArn `Prelude.seq`
+                    Prelude.rnf organizationConfigRuleTriggerTypes
 
 instance Data.ToJSON OrganizationCustomRuleMetadata where
   toJSON OrganizationCustomRuleMetadata' {..} =

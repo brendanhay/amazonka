@@ -129,9 +129,9 @@ instance Prelude.Hashable ConfigExportDeliveryInfo where
 
 instance Prelude.NFData ConfigExportDeliveryInfo where
   rnf ConfigExportDeliveryInfo' {..} =
-    Prelude.rnf lastAttemptTime
-      `Prelude.seq` Prelude.rnf lastErrorCode
-      `Prelude.seq` Prelude.rnf lastErrorMessage
-      `Prelude.seq` Prelude.rnf lastStatus
-      `Prelude.seq` Prelude.rnf lastSuccessfulTime
-      `Prelude.seq` Prelude.rnf nextDeliveryTime
+    Prelude.rnf lastAttemptTime `Prelude.seq`
+      Prelude.rnf lastErrorCode `Prelude.seq`
+        Prelude.rnf lastErrorMessage `Prelude.seq`
+          Prelude.rnf lastStatus `Prelude.seq`
+            Prelude.rnf lastSuccessfulTime `Prelude.seq`
+              Prelude.rnf nextDeliveryTime

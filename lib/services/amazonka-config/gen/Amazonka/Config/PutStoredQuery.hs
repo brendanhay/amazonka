@@ -126,8 +126,8 @@ instance Prelude.Hashable PutStoredQuery where
 
 instance Prelude.NFData PutStoredQuery where
   rnf PutStoredQuery' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf storedQuery
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf storedQuery
 
 instance Data.ToHeaders PutStoredQuery where
   toHeaders =
@@ -202,5 +202,5 @@ putStoredQueryResponse_httpStatus = Lens.lens (\PutStoredQueryResponse' {httpSta
 
 instance Prelude.NFData PutStoredQueryResponse where
   rnf PutStoredQueryResponse' {..} =
-    Prelude.rnf queryArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queryArn `Prelude.seq`
+      Prelude.rnf httpStatus

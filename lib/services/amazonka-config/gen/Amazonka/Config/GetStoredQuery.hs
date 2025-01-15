@@ -164,5 +164,5 @@ getStoredQueryResponse_httpStatus = Lens.lens (\GetStoredQueryResponse' {httpSta
 
 instance Prelude.NFData GetStoredQueryResponse where
   rnf GetStoredQueryResponse' {..} =
-    Prelude.rnf storedQuery
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf storedQuery `Prelude.seq`
+      Prelude.rnf httpStatus

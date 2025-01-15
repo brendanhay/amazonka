@@ -106,7 +106,7 @@ instance Prelude.Hashable ResourceIdentifier where
 
 instance Prelude.NFData ResourceIdentifier where
   rnf ResourceIdentifier' {..} =
-    Prelude.rnf resourceDeletionTime
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceDeletionTime `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceName `Prelude.seq`
+          Prelude.rnf resourceType

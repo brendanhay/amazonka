@@ -246,8 +246,8 @@ instance
 
 instance Prelude.NFData OrganizationConfigRuleStatus where
   rnf OrganizationConfigRuleStatus' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf organizationConfigRuleName
-      `Prelude.seq` Prelude.rnf organizationRuleStatus
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf lastUpdateTime `Prelude.seq`
+          Prelude.rnf organizationConfigRuleName `Prelude.seq`
+            Prelude.rnf organizationRuleStatus

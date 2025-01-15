@@ -116,9 +116,9 @@ instance Prelude.Hashable CustomPolicyDetails where
 
 instance Prelude.NFData CustomPolicyDetails where
   rnf CustomPolicyDetails' {..} =
-    Prelude.rnf enableDebugLogDelivery
-      `Prelude.seq` Prelude.rnf policyRuntime
-      `Prelude.seq` Prelude.rnf policyText
+    Prelude.rnf enableDebugLogDelivery `Prelude.seq`
+      Prelude.rnf policyRuntime `Prelude.seq`
+        Prelude.rnf policyText
 
 instance Data.ToJSON CustomPolicyDetails where
   toJSON CustomPolicyDetails' {..} =

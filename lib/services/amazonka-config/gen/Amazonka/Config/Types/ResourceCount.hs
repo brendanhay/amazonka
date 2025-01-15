@@ -81,5 +81,5 @@ instance Prelude.Hashable ResourceCount where
 
 instance Prelude.NFData ResourceCount where
   rnf ResourceCount' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf resourceType

@@ -103,7 +103,7 @@ instance Prelude.Hashable Relationship where
 
 instance Prelude.NFData Relationship where
   rnf Relationship' {..} =
-    Prelude.rnf relationshipName
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf relationshipName `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceName `Prelude.seq`
+          Prelude.rnf resourceType

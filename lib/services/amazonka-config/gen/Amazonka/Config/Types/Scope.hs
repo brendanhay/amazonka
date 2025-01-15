@@ -131,10 +131,10 @@ instance Prelude.Hashable Scope where
 
 instance Prelude.NFData Scope where
   rnf Scope' {..} =
-    Prelude.rnf complianceResourceId
-      `Prelude.seq` Prelude.rnf complianceResourceTypes
-      `Prelude.seq` Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf tagValue
+    Prelude.rnf complianceResourceId `Prelude.seq`
+      Prelude.rnf complianceResourceTypes `Prelude.seq`
+        Prelude.rnf tagKey `Prelude.seq`
+          Prelude.rnf tagValue
 
 instance Data.ToJSON Scope where
   toJSON Scope' {..} =

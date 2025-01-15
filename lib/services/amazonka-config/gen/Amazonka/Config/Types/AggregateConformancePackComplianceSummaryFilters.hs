@@ -81,8 +81,8 @@ instance
   where
   rnf
     AggregateConformancePackComplianceSummaryFilters' {..} =
-      Prelude.rnf accountId
-        `Prelude.seq` Prelude.rnf awsRegion
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf awsRegion
 
 instance
   Data.ToJSON

@@ -117,8 +117,8 @@ instance
     DeleteAggregationAuthorization
   where
   rnf DeleteAggregationAuthorization' {..} =
-    Prelude.rnf authorizedAccountId
-      `Prelude.seq` Prelude.rnf authorizedAwsRegion
+    Prelude.rnf authorizedAccountId `Prelude.seq`
+      Prelude.rnf authorizedAwsRegion
 
 instance
   Data.ToHeaders

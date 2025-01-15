@@ -121,12 +121,12 @@ instance Core.AWSPager ListResourceEvaluations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceEvaluations_nextToken
-          Lens..~ rs
-          Lens.^? listResourceEvaluationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceEvaluations_nextToken
+              Lens..~ rs
+              Lens.^? listResourceEvaluationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceEvaluations where
   type
@@ -155,9 +155,9 @@ instance Prelude.Hashable ListResourceEvaluations where
 
 instance Prelude.NFData ListResourceEvaluations where
   rnf ListResourceEvaluations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResourceEvaluations where
   toHeaders =
@@ -246,6 +246,6 @@ instance
     ListResourceEvaluationsResponse
   where
   rnf ListResourceEvaluationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceEvaluations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceEvaluations `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -93,5 +93,5 @@ instance
     AggregateConformancePackComplianceCount
   where
   rnf AggregateConformancePackComplianceCount' {..} =
-    Prelude.rnf compliantConformancePackCount
-      `Prelude.seq` Prelude.rnf nonCompliantConformancePackCount
+    Prelude.rnf compliantConformancePackCount `Prelude.seq`
+      Prelude.rnf nonCompliantConformancePackCount

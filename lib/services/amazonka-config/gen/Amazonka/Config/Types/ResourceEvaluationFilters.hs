@@ -89,9 +89,9 @@ instance Prelude.Hashable ResourceEvaluationFilters where
 
 instance Prelude.NFData ResourceEvaluationFilters where
   rnf ResourceEvaluationFilters' {..} =
-    Prelude.rnf evaluationContextIdentifier
-      `Prelude.seq` Prelude.rnf evaluationMode
-      `Prelude.seq` Prelude.rnf timeWindow
+    Prelude.rnf evaluationContextIdentifier `Prelude.seq`
+      Prelude.rnf evaluationMode `Prelude.seq`
+        Prelude.rnf timeWindow
 
 instance Data.ToJSON ResourceEvaluationFilters where
   toJSON ResourceEvaluationFilters' {..} =

@@ -93,6 +93,6 @@ instance Prelude.Hashable ResourceEvaluation where
 
 instance Prelude.NFData ResourceEvaluation where
   rnf ResourceEvaluation' {..} =
-    Prelude.rnf evaluationMode
-      `Prelude.seq` Prelude.rnf evaluationStartTimestamp
-      `Prelude.seq` Prelude.rnf resourceEvaluationId
+    Prelude.rnf evaluationMode `Prelude.seq`
+      Prelude.rnf evaluationStartTimestamp `Prelude.seq`
+        Prelude.rnf resourceEvaluationId

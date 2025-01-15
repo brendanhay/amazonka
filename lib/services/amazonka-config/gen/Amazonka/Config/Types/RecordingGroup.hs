@@ -235,9 +235,9 @@ instance Prelude.Hashable RecordingGroup where
 
 instance Prelude.NFData RecordingGroup where
   rnf RecordingGroup' {..} =
-    Prelude.rnf allSupported
-      `Prelude.seq` Prelude.rnf includeGlobalResourceTypes
-      `Prelude.seq` Prelude.rnf resourceTypes
+    Prelude.rnf allSupported `Prelude.seq`
+      Prelude.rnf includeGlobalResourceTypes `Prelude.seq`
+        Prelude.rnf resourceTypes
 
 instance Data.ToJSON RecordingGroup where
   toJSON RecordingGroup' {..} =

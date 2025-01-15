@@ -87,5 +87,5 @@ instance Prelude.Hashable GroupedResourceCount where
 
 instance Prelude.NFData GroupedResourceCount where
   rnf GroupedResourceCount' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf resourceCount
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf resourceCount

@@ -195,12 +195,12 @@ instance Prelude.Hashable ConformancePackDetail where
 
 instance Prelude.NFData ConformancePackDetail where
   rnf ConformancePackDetail' {..} =
-    Prelude.rnf conformancePackInputParameters
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf deliveryS3Bucket
-      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
-      `Prelude.seq` Prelude.rnf lastUpdateRequestedTime
-      `Prelude.seq` Prelude.rnf templateSSMDocumentDetails
-      `Prelude.seq` Prelude.rnf conformancePackName
-      `Prelude.seq` Prelude.rnf conformancePackArn
-      `Prelude.seq` Prelude.rnf conformancePackId
+    Prelude.rnf conformancePackInputParameters `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf deliveryS3Bucket `Prelude.seq`
+          Prelude.rnf deliveryS3KeyPrefix `Prelude.seq`
+            Prelude.rnf lastUpdateRequestedTime `Prelude.seq`
+              Prelude.rnf templateSSMDocumentDetails `Prelude.seq`
+                Prelude.rnf conformancePackName `Prelude.seq`
+                  Prelude.rnf conformancePackArn `Prelude.seq`
+                    Prelude.rnf conformancePackId

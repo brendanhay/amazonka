@@ -367,21 +367,21 @@ instance Prelude.Hashable ConfigurationItem where
 
 instance Prelude.NFData ConfigurationItem where
   rnf ConfigurationItem' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf configurationItemCaptureTime
-      `Prelude.seq` Prelude.rnf configurationItemMD5Hash
-      `Prelude.seq` Prelude.rnf configurationItemStatus
-      `Prelude.seq` Prelude.rnf configurationStateId
-      `Prelude.seq` Prelude.rnf relatedEvents
-      `Prelude.seq` Prelude.rnf relationships
-      `Prelude.seq` Prelude.rnf resourceCreationTime
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf supplementaryConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf availabilityZone `Prelude.seq`
+          Prelude.rnf awsRegion `Prelude.seq`
+            Prelude.rnf configuration `Prelude.seq`
+              Prelude.rnf configurationItemCaptureTime `Prelude.seq`
+                Prelude.rnf configurationItemMD5Hash `Prelude.seq`
+                  Prelude.rnf configurationItemStatus `Prelude.seq`
+                    Prelude.rnf configurationStateId `Prelude.seq`
+                      Prelude.rnf relatedEvents `Prelude.seq`
+                        Prelude.rnf relationships `Prelude.seq`
+                          Prelude.rnf resourceCreationTime `Prelude.seq`
+                            Prelude.rnf resourceId `Prelude.seq`
+                              Prelude.rnf resourceName `Prelude.seq`
+                                Prelude.rnf resourceType `Prelude.seq`
+                                  Prelude.rnf supplementaryConfiguration `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf version

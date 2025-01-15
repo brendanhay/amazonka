@@ -101,9 +101,9 @@ instance
 
 instance Prelude.NFData OrganizationAggregationSource where
   rnf OrganizationAggregationSource' {..} =
-    Prelude.rnf allAwsRegions
-      `Prelude.seq` Prelude.rnf awsRegions
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf allAwsRegions `Prelude.seq`
+      Prelude.rnf awsRegions `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToJSON OrganizationAggregationSource where
   toJSON OrganizationAggregationSource' {..} =

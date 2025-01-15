@@ -113,8 +113,8 @@ instance Prelude.Hashable PutExternalEvaluation where
 
 instance Prelude.NFData PutExternalEvaluation where
   rnf PutExternalEvaluation' {..} =
-    Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf externalEvaluation
+    Prelude.rnf configRuleName `Prelude.seq`
+      Prelude.rnf externalEvaluation
 
 instance Data.ToHeaders PutExternalEvaluation where
   toHeaders =

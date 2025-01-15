@@ -126,8 +126,8 @@ instance Prelude.Hashable RemediationException where
 
 instance Prelude.NFData RemediationException where
   rnf RemediationException' {..} =
-    Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf expirationTime `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf configRuleName `Prelude.seq`
+          Prelude.rnf resourceType `Prelude.seq`
+            Prelude.rnf resourceId

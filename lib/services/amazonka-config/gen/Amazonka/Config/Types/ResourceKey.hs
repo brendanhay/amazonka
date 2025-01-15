@@ -86,8 +86,8 @@ instance Prelude.Hashable ResourceKey where
 
 instance Prelude.NFData ResourceKey where
   rnf ResourceKey' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance Data.ToJSON ResourceKey where
   toJSON ResourceKey' {..} =

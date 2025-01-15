@@ -181,11 +181,11 @@ instance
     GetAggregateConformancePackComplianceSummary
   where
   rnf GetAggregateConformancePackComplianceSummary' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf groupByKey
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationAggregatorName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf groupByKey `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf configurationAggregatorName
 
 instance
   Data.ToHeaders

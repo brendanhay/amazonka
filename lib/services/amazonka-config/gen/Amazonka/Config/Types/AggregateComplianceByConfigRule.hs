@@ -126,7 +126,7 @@ instance
     AggregateComplianceByConfigRule
   where
   rnf AggregateComplianceByConfigRule' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf compliance
-      `Prelude.seq` Prelude.rnf configRuleName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf awsRegion `Prelude.seq`
+        Prelude.rnf compliance `Prelude.seq`
+          Prelude.rnf configRuleName

@@ -116,7 +116,7 @@ instance Prelude.Hashable DeliveryChannelStatus where
 
 instance Prelude.NFData DeliveryChannelStatus where
   rnf DeliveryChannelStatus' {..} =
-    Prelude.rnf configHistoryDeliveryInfo
-      `Prelude.seq` Prelude.rnf configSnapshotDeliveryInfo
-      `Prelude.seq` Prelude.rnf configStreamDeliveryInfo
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf configHistoryDeliveryInfo `Prelude.seq`
+      Prelude.rnf configSnapshotDeliveryInfo `Prelude.seq`
+        Prelude.rnf configStreamDeliveryInfo `Prelude.seq`
+          Prelude.rnf name

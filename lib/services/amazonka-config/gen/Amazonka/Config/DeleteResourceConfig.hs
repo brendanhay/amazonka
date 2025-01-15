@@ -105,8 +105,8 @@ instance Prelude.Hashable DeleteResourceConfig where
 
 instance Prelude.NFData DeleteResourceConfig where
   rnf DeleteResourceConfig' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance Data.ToHeaders DeleteResourceConfig where
   toHeaders =

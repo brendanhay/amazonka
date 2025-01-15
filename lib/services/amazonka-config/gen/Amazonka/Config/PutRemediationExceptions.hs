@@ -154,10 +154,10 @@ instance Prelude.Hashable PutRemediationExceptions where
 
 instance Prelude.NFData PutRemediationExceptions where
   rnf PutRemediationExceptions' {..} =
-    Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf resourceKeys
+    Prelude.rnf expirationTime `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf configRuleName `Prelude.seq`
+          Prelude.rnf resourceKeys
 
 instance Data.ToHeaders PutRemediationExceptions where
   toHeaders =
@@ -243,5 +243,5 @@ instance
     PutRemediationExceptionsResponse
   where
   rnf PutRemediationExceptionsResponse' {..} =
-    Prelude.rnf failedBatches
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedBatches `Prelude.seq`
+      Prelude.rnf httpStatus

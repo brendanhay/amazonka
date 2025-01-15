@@ -97,5 +97,5 @@ instance
     ComplianceSummaryByResourceType
   where
   rnf ComplianceSummaryByResourceType' {..} =
-    Prelude.rnf complianceSummary
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf complianceSummary `Prelude.seq`
+      Prelude.rnf resourceType

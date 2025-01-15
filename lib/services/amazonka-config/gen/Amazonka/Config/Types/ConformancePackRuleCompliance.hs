@@ -115,6 +115,6 @@ instance
 
 instance Prelude.NFData ConformancePackRuleCompliance where
   rnf ConformancePackRuleCompliance' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf controls
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf configRuleName `Prelude.seq`
+        Prelude.rnf controls

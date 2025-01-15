@@ -115,8 +115,8 @@ instance Prelude.Hashable RemediationExecutionStep where
 
 instance Prelude.NFData RemediationExecutionStep where
   rnf RemediationExecutionStep' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stopTime
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf stopTime

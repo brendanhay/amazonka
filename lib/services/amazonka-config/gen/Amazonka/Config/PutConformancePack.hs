@@ -233,13 +233,13 @@ instance Prelude.Hashable PutConformancePack where
 
 instance Prelude.NFData PutConformancePack where
   rnf PutConformancePack' {..} =
-    Prelude.rnf conformancePackInputParameters
-      `Prelude.seq` Prelude.rnf deliveryS3Bucket
-      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateS3Uri
-      `Prelude.seq` Prelude.rnf templateSSMDocumentDetails
-      `Prelude.seq` Prelude.rnf conformancePackName
+    Prelude.rnf conformancePackInputParameters `Prelude.seq`
+      Prelude.rnf deliveryS3Bucket `Prelude.seq`
+        Prelude.rnf deliveryS3KeyPrefix `Prelude.seq`
+          Prelude.rnf templateBody `Prelude.seq`
+            Prelude.rnf templateS3Uri `Prelude.seq`
+              Prelude.rnf templateSSMDocumentDetails `Prelude.seq`
+                Prelude.rnf conformancePackName
 
 instance Data.ToHeaders PutConformancePack where
   toHeaders =
@@ -322,5 +322,5 @@ putConformancePackResponse_httpStatus = Lens.lens (\PutConformancePackResponse' 
 
 instance Prelude.NFData PutConformancePackResponse where
   rnf PutConformancePackResponse' {..} =
-    Prelude.rnf conformancePackArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conformancePackArn `Prelude.seq`
+      Prelude.rnf httpStatus

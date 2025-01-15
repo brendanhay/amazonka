@@ -130,12 +130,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRetentionConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? describeRetentionConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRetentionConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? describeRetentionConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -174,8 +174,8 @@ instance
     DescribeRetentionConfigurations
   where
   rnf DescribeRetentionConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf retentionConfigurationNames
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf retentionConfigurationNames
 
 instance
   Data.ToHeaders
@@ -269,6 +269,6 @@ instance
     DescribeRetentionConfigurationsResponse
   where
   rnf DescribeRetentionConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf retentionConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf retentionConfigurations `Prelude.seq`
+        Prelude.rnf httpStatus

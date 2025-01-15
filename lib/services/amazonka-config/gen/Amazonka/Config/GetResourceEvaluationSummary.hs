@@ -264,11 +264,11 @@ instance
     GetResourceEvaluationSummaryResponse
   where
   rnf GetResourceEvaluationSummaryResponse' {..} =
-    Prelude.rnf compliance
-      `Prelude.seq` Prelude.rnf evaluationContext
-      `Prelude.seq` Prelude.rnf evaluationMode
-      `Prelude.seq` Prelude.rnf evaluationStartTimestamp
-      `Prelude.seq` Prelude.rnf evaluationStatus
-      `Prelude.seq` Prelude.rnf resourceDetails
-      `Prelude.seq` Prelude.rnf resourceEvaluationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compliance `Prelude.seq`
+      Prelude.rnf evaluationContext `Prelude.seq`
+        Prelude.rnf evaluationMode `Prelude.seq`
+          Prelude.rnf evaluationStartTimestamp `Prelude.seq`
+            Prelude.rnf evaluationStatus `Prelude.seq`
+              Prelude.rnf resourceDetails `Prelude.seq`
+                Prelude.rnf resourceEvaluationId `Prelude.seq`
+                  Prelude.rnf httpStatus

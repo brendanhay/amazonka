@@ -70,8 +70,8 @@ instance Prelude.Hashable TimeWindow where
 
 instance Prelude.NFData TimeWindow where
   rnf TimeWindow' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime
 
 instance Data.ToJSON TimeWindow where
   toJSON TimeWindow' {..} =

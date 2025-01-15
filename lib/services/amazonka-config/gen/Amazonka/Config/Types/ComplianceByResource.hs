@@ -99,6 +99,6 @@ instance Prelude.Hashable ComplianceByResource where
 
 instance Prelude.NFData ComplianceByResource where
   rnf ComplianceByResource' {..} =
-    Prelude.rnf compliance
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf compliance `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceType

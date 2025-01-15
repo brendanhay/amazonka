@@ -113,8 +113,8 @@ instance Prelude.Hashable TemplateSSMDocumentDetails where
 
 instance Prelude.NFData TemplateSSMDocumentDetails where
   rnf TemplateSSMDocumentDetails' {..} =
-    Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf documentName
+    Prelude.rnf documentVersion `Prelude.seq`
+      Prelude.rnf documentName
 
 instance Data.ToJSON TemplateSSMDocumentDetails where
   toJSON TemplateSSMDocumentDetails' {..} =

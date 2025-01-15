@@ -276,18 +276,18 @@ instance Prelude.Hashable ConfigRuleEvaluationStatus where
 
 instance Prelude.NFData ConfigRuleEvaluationStatus where
   rnf ConfigRuleEvaluationStatus' {..} =
-    Prelude.rnf configRuleArn
-      `Prelude.seq` Prelude.rnf configRuleId
-      `Prelude.seq` Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf firstActivatedTime
-      `Prelude.seq` Prelude.rnf firstEvaluationStarted
-      `Prelude.seq` Prelude.rnf lastDeactivatedTime
-      `Prelude.seq` Prelude.rnf lastDebugLogDeliveryStatus
-      `Prelude.seq` Prelude.rnf lastDebugLogDeliveryStatusReason
-      `Prelude.seq` Prelude.rnf lastDebugLogDeliveryTime
-      `Prelude.seq` Prelude.rnf lastErrorCode
-      `Prelude.seq` Prelude.rnf lastErrorMessage
-      `Prelude.seq` Prelude.rnf lastFailedEvaluationTime
-      `Prelude.seq` Prelude.rnf lastFailedInvocationTime
-      `Prelude.seq` Prelude.rnf lastSuccessfulEvaluationTime
-      `Prelude.seq` Prelude.rnf lastSuccessfulInvocationTime
+    Prelude.rnf configRuleArn `Prelude.seq`
+      Prelude.rnf configRuleId `Prelude.seq`
+        Prelude.rnf configRuleName `Prelude.seq`
+          Prelude.rnf firstActivatedTime `Prelude.seq`
+            Prelude.rnf firstEvaluationStarted `Prelude.seq`
+              Prelude.rnf lastDeactivatedTime `Prelude.seq`
+                Prelude.rnf lastDebugLogDeliveryStatus `Prelude.seq`
+                  Prelude.rnf lastDebugLogDeliveryStatusReason `Prelude.seq`
+                    Prelude.rnf lastDebugLogDeliveryTime `Prelude.seq`
+                      Prelude.rnf lastErrorCode `Prelude.seq`
+                        Prelude.rnf lastErrorMessage `Prelude.seq`
+                          Prelude.rnf lastFailedEvaluationTime `Prelude.seq`
+                            Prelude.rnf lastFailedInvocationTime `Prelude.seq`
+                              Prelude.rnf lastSuccessfulEvaluationTime `Prelude.seq`
+                                Prelude.rnf lastSuccessfulInvocationTime

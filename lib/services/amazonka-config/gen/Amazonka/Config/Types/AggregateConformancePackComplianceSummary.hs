@@ -96,5 +96,5 @@ instance
     AggregateConformancePackComplianceSummary
   where
   rnf AggregateConformancePackComplianceSummary' {..} =
-    Prelude.rnf complianceSummary
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf complianceSummary `Prelude.seq`
+      Prelude.rnf groupName

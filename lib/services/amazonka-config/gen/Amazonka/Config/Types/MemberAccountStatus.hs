@@ -250,9 +250,9 @@ instance Prelude.Hashable MemberAccountStatus where
 
 instance Prelude.NFData MemberAccountStatus where
   rnf MemberAccountStatus' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf memberAccountRuleStatus
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf lastUpdateTime `Prelude.seq`
+          Prelude.rnf accountId `Prelude.seq`
+            Prelude.rnf configRuleName `Prelude.seq`
+              Prelude.rnf memberAccountRuleStatus

@@ -198,5 +198,5 @@ instance
     PutRemediationConfigurationsResponse
   where
   rnf PutRemediationConfigurationsResponse' {..} =
-    Prelude.rnf failedBatches
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedBatches `Prelude.seq`
+      Prelude.rnf httpStatus

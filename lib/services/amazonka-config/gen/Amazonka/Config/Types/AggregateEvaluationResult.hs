@@ -159,10 +159,10 @@ instance Prelude.Hashable AggregateEvaluationResult where
 
 instance Prelude.NFData AggregateEvaluationResult where
   rnf AggregateEvaluationResult' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf annotation
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf configRuleInvokedTime
-      `Prelude.seq` Prelude.rnf evaluationResultIdentifier
-      `Prelude.seq` Prelude.rnf resultRecordedTime
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf annotation `Prelude.seq`
+        Prelude.rnf awsRegion `Prelude.seq`
+          Prelude.rnf complianceType `Prelude.seq`
+            Prelude.rnf configRuleInvokedTime `Prelude.seq`
+              Prelude.rnf evaluationResultIdentifier `Prelude.seq`
+                Prelude.rnf resultRecordedTime

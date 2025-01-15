@@ -85,5 +85,5 @@ instance Prelude.Hashable ComplianceContributorCount where
 
 instance Prelude.NFData ComplianceContributorCount where
   rnf ComplianceContributorCount' {..} =
-    Prelude.rnf capExceeded
-      `Prelude.seq` Prelude.rnf cappedCount
+    Prelude.rnf capExceeded `Prelude.seq`
+      Prelude.rnf cappedCount

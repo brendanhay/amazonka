@@ -114,7 +114,7 @@ instance Prelude.Hashable StoredQueryMetadata where
 
 instance Prelude.NFData StoredQueryMetadata where
   rnf StoredQueryMetadata' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf queryArn
-      `Prelude.seq` Prelude.rnf queryName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf queryId `Prelude.seq`
+        Prelude.rnf queryArn `Prelude.seq`
+          Prelude.rnf queryName

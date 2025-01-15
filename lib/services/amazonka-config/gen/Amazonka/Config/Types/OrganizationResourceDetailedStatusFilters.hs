@@ -189,8 +189,8 @@ instance
     OrganizationResourceDetailedStatusFilters
   where
   rnf OrganizationResourceDetailedStatusFilters' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf status
 
 instance
   Data.ToJSON

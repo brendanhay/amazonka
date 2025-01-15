@@ -180,8 +180,8 @@ instance Prelude.Hashable StatusDetailFilters where
 
 instance Prelude.NFData StatusDetailFilters where
   rnf StatusDetailFilters' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf memberAccountRuleStatus
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf memberAccountRuleStatus
 
 instance Data.ToJSON StatusDetailFilters where
   toJSON StatusDetailFilters' {..} =

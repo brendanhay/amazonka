@@ -148,12 +148,12 @@ instance Core.AWSPager DescribeComplianceByConfigRule where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeComplianceByConfigRule_nextToken
-          Lens..~ rs
-          Lens.^? describeComplianceByConfigRuleResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeComplianceByConfigRule_nextToken
+              Lens..~ rs
+              Lens.^? describeComplianceByConfigRuleResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -193,9 +193,9 @@ instance
     DescribeComplianceByConfigRule
   where
   rnf DescribeComplianceByConfigRule' {..} =
-    Prelude.rnf complianceTypes
-      `Prelude.seq` Prelude.rnf configRuleNames
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf complianceTypes `Prelude.seq`
+      Prelude.rnf configRuleNames `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -292,6 +292,6 @@ instance
     DescribeComplianceByConfigRuleResponse
   where
   rnf DescribeComplianceByConfigRuleResponse' {..} =
-    Prelude.rnf complianceByConfigRules
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf complianceByConfigRules `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

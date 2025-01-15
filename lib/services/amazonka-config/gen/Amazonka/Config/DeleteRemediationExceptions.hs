@@ -128,8 +128,8 @@ instance Prelude.Hashable DeleteRemediationExceptions where
 
 instance Prelude.NFData DeleteRemediationExceptions where
   rnf DeleteRemediationExceptions' {..} =
-    Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf resourceKeys
+    Prelude.rnf configRuleName `Prelude.seq`
+      Prelude.rnf resourceKeys
 
 instance Data.ToHeaders DeleteRemediationExceptions where
   toHeaders =
@@ -212,5 +212,5 @@ instance
     DeleteRemediationExceptionsResponse
   where
   rnf DeleteRemediationExceptionsResponse' {..} =
-    Prelude.rnf failedBatches
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedBatches `Prelude.seq`
+      Prelude.rnf httpStatus

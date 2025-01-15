@@ -185,12 +185,12 @@ instance Core.AWSPager ListDiscoveredResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDiscoveredResources_nextToken
-          Lens..~ rs
-          Lens.^? listDiscoveredResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDiscoveredResources_nextToken
+              Lens..~ rs
+              Lens.^? listDiscoveredResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDiscoveredResources where
   type
@@ -222,12 +222,12 @@ instance Prelude.Hashable ListDiscoveredResources where
 
 instance Prelude.NFData ListDiscoveredResources where
   rnf ListDiscoveredResources' {..} =
-    Prelude.rnf includeDeletedResources
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf includeDeletedResources `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf resourceIds `Prelude.seq`
+            Prelude.rnf resourceName `Prelude.seq`
+              Prelude.rnf resourceType
 
 instance Data.ToHeaders ListDiscoveredResources where
   toHeaders =
@@ -328,6 +328,6 @@ instance
     ListDiscoveredResourcesResponse
   where
   rnf ListDiscoveredResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceIdentifiers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceIdentifiers `Prelude.seq`
+        Prelude.rnf httpStatus

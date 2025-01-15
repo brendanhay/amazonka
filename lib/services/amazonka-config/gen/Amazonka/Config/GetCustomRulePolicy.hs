@@ -172,5 +172,5 @@ getCustomRulePolicyResponse_httpStatus = Lens.lens (\GetCustomRulePolicyResponse
 
 instance Prelude.NFData GetCustomRulePolicyResponse where
   rnf GetCustomRulePolicyResponse' {..} =
-    Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyText `Prelude.seq`
+      Prelude.rnf httpStatus

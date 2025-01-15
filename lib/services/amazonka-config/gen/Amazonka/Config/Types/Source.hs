@@ -197,10 +197,10 @@ instance Prelude.Hashable Source where
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
-    Prelude.rnf customPolicyDetails
-      `Prelude.seq` Prelude.rnf sourceDetails
-      `Prelude.seq` Prelude.rnf sourceIdentifier
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf customPolicyDetails `Prelude.seq`
+      Prelude.rnf sourceDetails `Prelude.seq`
+        Prelude.rnf sourceIdentifier `Prelude.seq`
+          Prelude.rnf owner
 
 instance Data.ToJSON Source where
   toJSON Source' {..} =

@@ -102,10 +102,10 @@ instance
     AggregateConformancePackComplianceFilters
   where
   rnf AggregateConformancePackComplianceFilters' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf conformancePackName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf awsRegion `Prelude.seq`
+        Prelude.rnf complianceType `Prelude.seq`
+          Prelude.rnf conformancePackName
 
 instance
   Data.ToJSON

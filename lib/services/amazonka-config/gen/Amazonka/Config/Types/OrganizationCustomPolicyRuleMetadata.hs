@@ -259,17 +259,17 @@ instance
     OrganizationCustomPolicyRuleMetadata
   where
   rnf OrganizationCustomPolicyRuleMetadata' {..} =
-    Prelude.rnf debugLogDeliveryAccounts
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inputParameters
-      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
-      `Prelude.seq` Prelude.rnf organizationConfigRuleTriggerTypes
-      `Prelude.seq` Prelude.rnf resourceIdScope
-      `Prelude.seq` Prelude.rnf resourceTypesScope
-      `Prelude.seq` Prelude.rnf tagKeyScope
-      `Prelude.seq` Prelude.rnf tagValueScope
-      `Prelude.seq` Prelude.rnf policyRuntime
-      `Prelude.seq` Prelude.rnf policyText
+    Prelude.rnf debugLogDeliveryAccounts `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf inputParameters `Prelude.seq`
+          Prelude.rnf maximumExecutionFrequency `Prelude.seq`
+            Prelude.rnf organizationConfigRuleTriggerTypes `Prelude.seq`
+              Prelude.rnf resourceIdScope `Prelude.seq`
+                Prelude.rnf resourceTypesScope `Prelude.seq`
+                  Prelude.rnf tagKeyScope `Prelude.seq`
+                    Prelude.rnf tagValueScope `Prelude.seq`
+                      Prelude.rnf policyRuntime `Prelude.seq`
+                        Prelude.rnf policyText
 
 instance
   Data.ToJSON

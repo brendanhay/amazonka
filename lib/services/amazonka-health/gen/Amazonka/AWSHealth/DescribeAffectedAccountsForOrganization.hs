@@ -163,12 +163,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAffectedAccountsForOrganization_nextToken
-          Lens..~ rs
-          Lens.^? describeAffectedAccountsForOrganizationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAffectedAccountsForOrganization_nextToken
+              Lens..~ rs
+              Lens.^? describeAffectedAccountsForOrganizationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -210,9 +210,9 @@ instance
     DescribeAffectedAccountsForOrganization
   where
   rnf DescribeAffectedAccountsForOrganization' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf eventArn
 
 instance
   Data.ToHeaders
@@ -377,7 +377,7 @@ instance
   where
   rnf
     DescribeAffectedAccountsForOrganizationResponse' {..} =
-      Prelude.rnf affectedAccounts
-        `Prelude.seq` Prelude.rnf eventScopeCode
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf affectedAccounts `Prelude.seq`
+        Prelude.rnf eventScopeCode `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf httpStatus

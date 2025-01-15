@@ -168,8 +168,8 @@ instance
     DescribeEventDetailsForOrganization
   where
   rnf DescribeEventDetailsForOrganization' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf organizationEventDetailFilters
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf organizationEventDetailFilters
 
 instance
   Data.ToHeaders
@@ -271,6 +271,6 @@ instance
     DescribeEventDetailsForOrganizationResponse
   where
   rnf DescribeEventDetailsForOrganizationResponse' {..} =
-    Prelude.rnf failedSet
-      `Prelude.seq` Prelude.rnf successfulSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedSet `Prelude.seq`
+      Prelude.rnf successfulSet `Prelude.seq`
+        Prelude.rnf httpStatus

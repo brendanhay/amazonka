@@ -186,11 +186,11 @@ instance Prelude.Hashable AffectedEntity where
 
 instance Prelude.NFData AffectedEntity where
   rnf AffectedEntity' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf entityArn
-      `Prelude.seq` Prelude.rnf entityUrl
-      `Prelude.seq` Prelude.rnf entityValue
-      `Prelude.seq` Prelude.rnf eventArn
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf entityArn `Prelude.seq`
+        Prelude.rnf entityUrl `Prelude.seq`
+          Prelude.rnf entityValue `Prelude.seq`
+            Prelude.rnf eventArn `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf statusCode `Prelude.seq`
+                  Prelude.rnf tags

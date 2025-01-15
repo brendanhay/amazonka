@@ -162,12 +162,12 @@ instance Core.AWSPager DescribeAffectedEntities where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAffectedEntities_nextToken
-          Lens..~ rs
-          Lens.^? describeAffectedEntitiesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAffectedEntities_nextToken
+              Lens..~ rs
+              Lens.^? describeAffectedEntitiesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAffectedEntities where
   type
@@ -194,10 +194,10 @@ instance Prelude.Hashable DescribeAffectedEntities where
 
 instance Prelude.NFData DescribeAffectedEntities where
   rnf DescribeAffectedEntities' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf filter'
 
 instance Data.ToHeaders DescribeAffectedEntities where
   toHeaders =
@@ -296,6 +296,6 @@ instance
     DescribeAffectedEntitiesResponse
   where
   rnf DescribeAffectedEntitiesResponse' {..} =
-    Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entities `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

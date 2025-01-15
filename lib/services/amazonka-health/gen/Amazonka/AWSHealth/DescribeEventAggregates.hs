@@ -144,12 +144,12 @@ instance Core.AWSPager DescribeEventAggregates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEventAggregates_nextToken
-          Lens..~ rs
-          Lens.^? describeEventAggregatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEventAggregates_nextToken
+              Lens..~ rs
+              Lens.^? describeEventAggregatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEventAggregates where
   type
@@ -179,10 +179,10 @@ instance Prelude.Hashable DescribeEventAggregates where
 
 instance Prelude.NFData DescribeEventAggregates where
   rnf DescribeEventAggregates' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf aggregateField
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf aggregateField
 
 instance Data.ToHeaders DescribeEventAggregates where
   toHeaders =
@@ -285,6 +285,6 @@ instance
     DescribeEventAggregatesResponse
   where
   rnf DescribeEventAggregatesResponse' {..} =
-    Prelude.rnf eventAggregates
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventAggregates `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -179,5 +179,5 @@ instance
     DescribeEntityAggregatesResponse
   where
   rnf DescribeEntityAggregatesResponse' {..} =
-    Prelude.rnf entityAggregates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entityAggregates `Prelude.seq`
+      Prelude.rnf httpStatus

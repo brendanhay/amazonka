@@ -93,9 +93,9 @@ instance Prelude.Hashable EventTypeFilter where
 
 instance Prelude.NFData EventTypeFilter where
   rnf EventTypeFilter' {..} =
-    Prelude.rnf eventTypeCategories
-      `Prelude.seq` Prelude.rnf eventTypeCodes
-      `Prelude.seq` Prelude.rnf services
+    Prelude.rnf eventTypeCategories `Prelude.seq`
+      Prelude.rnf eventTypeCodes `Prelude.seq`
+        Prelude.rnf services
 
 instance Data.ToJSON EventTypeFilter where
   toJSON EventTypeFilter' {..} =

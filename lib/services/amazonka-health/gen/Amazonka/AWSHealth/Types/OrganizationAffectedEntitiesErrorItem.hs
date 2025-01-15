@@ -143,7 +143,7 @@ instance
     OrganizationAffectedEntitiesErrorItem
   where
   rnf OrganizationAffectedEntitiesErrorItem' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorName
-      `Prelude.seq` Prelude.rnf eventArn
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf errorName `Prelude.seq`
+          Prelude.rnf eventArn

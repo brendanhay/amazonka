@@ -121,6 +121,6 @@ instance Prelude.Hashable EventType where
 
 instance Prelude.NFData EventType where
   rnf EventType' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf service

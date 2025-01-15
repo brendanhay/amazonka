@@ -211,19 +211,19 @@ instance Prelude.Hashable EventFilter where
 
 instance Prelude.NFData EventFilter where
   rnf EventFilter' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf endTimes
-      `Prelude.seq` Prelude.rnf entityArns
-      `Prelude.seq` Prelude.rnf entityValues
-      `Prelude.seq` Prelude.rnf eventArns
-      `Prelude.seq` Prelude.rnf eventStatusCodes
-      `Prelude.seq` Prelude.rnf eventTypeCategories
-      `Prelude.seq` Prelude.rnf eventTypeCodes
-      `Prelude.seq` Prelude.rnf lastUpdatedTimes
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf services
-      `Prelude.seq` Prelude.rnf startTimes
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf endTimes `Prelude.seq`
+        Prelude.rnf entityArns `Prelude.seq`
+          Prelude.rnf entityValues `Prelude.seq`
+            Prelude.rnf eventArns `Prelude.seq`
+              Prelude.rnf eventStatusCodes `Prelude.seq`
+                Prelude.rnf eventTypeCategories `Prelude.seq`
+                  Prelude.rnf eventTypeCodes `Prelude.seq`
+                    Prelude.rnf lastUpdatedTimes `Prelude.seq`
+                      Prelude.rnf regions `Prelude.seq`
+                        Prelude.rnf services `Prelude.seq`
+                          Prelude.rnf startTimes `Prelude.seq`
+                            Prelude.rnf tags
 
 instance Data.ToJSON EventFilter where
   toJSON EventFilter' {..} =

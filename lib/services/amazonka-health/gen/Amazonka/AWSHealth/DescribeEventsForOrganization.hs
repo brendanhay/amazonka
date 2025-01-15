@@ -167,12 +167,12 @@ instance Core.AWSPager DescribeEventsForOrganization where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEventsForOrganization_nextToken
-          Lens..~ rs
-          Lens.^? describeEventsForOrganizationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEventsForOrganization_nextToken
+              Lens..~ rs
+              Lens.^? describeEventsForOrganizationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -205,10 +205,10 @@ instance
 
 instance Prelude.NFData DescribeEventsForOrganization where
   rnf DescribeEventsForOrganization' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf locale `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeEventsForOrganization where
   toHeaders =
@@ -307,6 +307,6 @@ instance
     DescribeEventsForOrganizationResponse
   where
   rnf DescribeEventsForOrganizationResponse' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

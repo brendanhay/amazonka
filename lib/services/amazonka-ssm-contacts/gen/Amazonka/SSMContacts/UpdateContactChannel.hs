@@ -124,9 +124,9 @@ instance Prelude.Hashable UpdateContactChannel where
 
 instance Prelude.NFData UpdateContactChannel where
   rnf UpdateContactChannel' {..} =
-    Prelude.rnf deliveryAddress
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf contactChannelId
+    Prelude.rnf deliveryAddress `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf contactChannelId
 
 instance Data.ToHeaders UpdateContactChannel where
   toHeaders =

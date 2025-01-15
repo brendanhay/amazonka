@@ -201,14 +201,14 @@ instance Prelude.Hashable StartEngagement where
 
 instance Prelude.NFData StartEngagement where
   rnf StartEngagement' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf incidentId
-      `Prelude.seq` Prelude.rnf publicContent
-      `Prelude.seq` Prelude.rnf publicSubject
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf sender
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf idempotencyToken `Prelude.seq`
+      Prelude.rnf incidentId `Prelude.seq`
+        Prelude.rnf publicContent `Prelude.seq`
+          Prelude.rnf publicSubject `Prelude.seq`
+            Prelude.rnf contactId `Prelude.seq`
+              Prelude.rnf sender `Prelude.seq`
+                Prelude.rnf subject `Prelude.seq`
+                  Prelude.rnf content
 
 instance Data.ToHeaders StartEngagement where
   toHeaders =
@@ -291,5 +291,5 @@ startEngagementResponse_engagementArn = Lens.lens (\StartEngagementResponse' {en
 
 instance Prelude.NFData StartEngagementResponse where
   rnf StartEngagementResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf engagementArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf engagementArn

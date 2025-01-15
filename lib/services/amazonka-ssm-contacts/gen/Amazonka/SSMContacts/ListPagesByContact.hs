@@ -117,12 +117,12 @@ instance Core.AWSPager ListPagesByContact where
         (rs Lens.^. listPagesByContactResponse_pages) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPagesByContact_nextToken
-          Lens..~ rs
-          Lens.^? listPagesByContactResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPagesByContact_nextToken
+              Lens..~ rs
+              Lens.^? listPagesByContactResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPagesByContact where
   type
@@ -148,9 +148,9 @@ instance Prelude.Hashable ListPagesByContact where
 
 instance Prelude.NFData ListPagesByContact where
   rnf ListPagesByContact' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf contactId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf contactId
 
 instance Data.ToHeaders ListPagesByContact where
   toHeaders =
@@ -233,6 +233,6 @@ listPagesByContactResponse_pages = Lens.lens (\ListPagesByContactResponse' {page
 
 instance Prelude.NFData ListPagesByContactResponse where
   rnf ListPagesByContactResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pages
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf pages

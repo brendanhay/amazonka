@@ -118,12 +118,12 @@ instance Core.AWSPager ListPageReceipts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPageReceipts_nextToken
-          Lens..~ rs
-          Lens.^? listPageReceiptsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPageReceipts_nextToken
+              Lens..~ rs
+              Lens.^? listPageReceiptsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPageReceipts where
   type
@@ -149,9 +149,9 @@ instance Prelude.Hashable ListPageReceipts where
 
 instance Prelude.NFData ListPageReceipts where
   rnf ListPageReceipts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pageId
 
 instance Data.ToHeaders ListPageReceipts where
   toHeaders =
@@ -234,6 +234,6 @@ listPageReceiptsResponse_httpStatus = Lens.lens (\ListPageReceiptsResponse' {htt
 
 instance Prelude.NFData ListPageReceiptsResponse where
   rnf ListPageReceiptsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf receipts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf receipts `Prelude.seq`
+        Prelude.rnf httpStatus

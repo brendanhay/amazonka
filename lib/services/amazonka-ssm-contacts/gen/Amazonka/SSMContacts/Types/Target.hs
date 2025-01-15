@@ -82,8 +82,8 @@ instance Prelude.Hashable Target where
 
 instance Prelude.NFData Target where
   rnf Target' {..} =
-    Prelude.rnf channelTargetInfo
-      `Prelude.seq` Prelude.rnf contactTargetInfo
+    Prelude.rnf channelTargetInfo `Prelude.seq`
+      Prelude.rnf contactTargetInfo
 
 instance Data.ToJSON Target where
   toJSON Target' {..} =

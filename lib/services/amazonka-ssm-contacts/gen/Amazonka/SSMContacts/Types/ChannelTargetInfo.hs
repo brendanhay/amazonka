@@ -87,8 +87,8 @@ instance Prelude.Hashable ChannelTargetInfo where
 
 instance Prelude.NFData ChannelTargetInfo where
   rnf ChannelTargetInfo' {..} =
-    Prelude.rnf retryIntervalInMinutes
-      `Prelude.seq` Prelude.rnf contactChannelId
+    Prelude.rnf retryIntervalInMinutes `Prelude.seq`
+      Prelude.rnf contactChannelId
 
 instance Data.ToJSON ChannelTargetInfo where
   toJSON ChannelTargetInfo' {..} =

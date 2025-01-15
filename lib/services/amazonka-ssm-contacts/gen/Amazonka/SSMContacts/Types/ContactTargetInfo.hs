@@ -85,8 +85,8 @@ instance Prelude.Hashable ContactTargetInfo where
 
 instance Prelude.NFData ContactTargetInfo where
   rnf ContactTargetInfo' {..} =
-    Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf isEssential
+    Prelude.rnf contactId `Prelude.seq`
+      Prelude.rnf isEssential
 
 instance Data.ToJSON ContactTargetInfo where
   toJSON ContactTargetInfo' {..} =

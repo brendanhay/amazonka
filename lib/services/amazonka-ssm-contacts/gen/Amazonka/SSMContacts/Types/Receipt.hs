@@ -110,7 +110,7 @@ instance Prelude.Hashable Receipt where
 
 instance Prelude.NFData Receipt where
   rnf Receipt' {..} =
-    Prelude.rnf contactChannelArn
-      `Prelude.seq` Prelude.rnf receiptInfo
-      `Prelude.seq` Prelude.rnf receiptType
-      `Prelude.seq` Prelude.rnf receiptTime
+    Prelude.rnf contactChannelArn `Prelude.seq`
+      Prelude.rnf receiptInfo `Prelude.seq`
+        Prelude.rnf receiptType `Prelude.seq`
+          Prelude.rnf receiptTime

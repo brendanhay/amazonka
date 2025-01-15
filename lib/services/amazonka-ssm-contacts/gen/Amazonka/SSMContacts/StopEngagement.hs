@@ -107,8 +107,8 @@ instance Prelude.Hashable StopEngagement where
 
 instance Prelude.NFData StopEngagement where
   rnf StopEngagement' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf engagementId
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf engagementId
 
 instance Data.ToHeaders StopEngagement where
   toHeaders =

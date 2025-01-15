@@ -180,12 +180,12 @@ instance Prelude.Hashable AcceptPage where
 
 instance Prelude.NFData AcceptPage where
   rnf AcceptPage' {..} =
-    Prelude.rnf acceptCodeValidation
-      `Prelude.seq` Prelude.rnf contactChannelId
-      `Prelude.seq` Prelude.rnf note
-      `Prelude.seq` Prelude.rnf pageId
-      `Prelude.seq` Prelude.rnf acceptType
-      `Prelude.seq` Prelude.rnf acceptCode
+    Prelude.rnf acceptCodeValidation `Prelude.seq`
+      Prelude.rnf contactChannelId `Prelude.seq`
+        Prelude.rnf note `Prelude.seq`
+          Prelude.rnf pageId `Prelude.seq`
+            Prelude.rnf acceptType `Prelude.seq`
+              Prelude.rnf acceptCode
 
 instance Data.ToHeaders AcceptPage where
   toHeaders =

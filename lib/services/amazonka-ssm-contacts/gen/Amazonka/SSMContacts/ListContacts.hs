@@ -128,12 +128,12 @@ instance Core.AWSPager ListContacts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listContacts_nextToken
-          Lens..~ rs
-          Lens.^? listContactsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listContacts_nextToken
+              Lens..~ rs
+              Lens.^? listContactsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContacts where
   type AWSResponse ListContacts = ListContactsResponse
@@ -158,10 +158,10 @@ instance Prelude.Hashable ListContacts where
 
 instance Prelude.NFData ListContacts where
   rnf ListContacts' {..} =
-    Prelude.rnf aliasPrefix
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf aliasPrefix `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders ListContacts where
   toHeaders =
@@ -245,6 +245,6 @@ listContactsResponse_httpStatus = Lens.lens (\ListContactsResponse' {httpStatus}
 
 instance Prelude.NFData ListContactsResponse where
   rnf ListContactsResponse' {..} =
-    Prelude.rnf contacts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contacts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

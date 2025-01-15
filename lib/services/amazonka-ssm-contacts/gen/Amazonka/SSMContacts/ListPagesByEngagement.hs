@@ -116,12 +116,12 @@ instance Core.AWSPager ListPagesByEngagement where
         (rs Lens.^. listPagesByEngagementResponse_pages) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPagesByEngagement_nextToken
-          Lens..~ rs
-          Lens.^? listPagesByEngagementResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPagesByEngagement_nextToken
+              Lens..~ rs
+              Lens.^? listPagesByEngagementResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPagesByEngagement where
   type
@@ -147,9 +147,9 @@ instance Prelude.Hashable ListPagesByEngagement where
 
 instance Prelude.NFData ListPagesByEngagement where
   rnf ListPagesByEngagement' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf engagementId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf engagementId
 
 instance Data.ToHeaders ListPagesByEngagement where
   toHeaders =
@@ -232,6 +232,6 @@ listPagesByEngagementResponse_pages = Lens.lens (\ListPagesByEngagementResponse'
 
 instance Prelude.NFData ListPagesByEngagementResponse where
   rnf ListPagesByEngagementResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pages
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf pages

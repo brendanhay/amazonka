@@ -113,12 +113,12 @@ instance Core.AWSPager ListContactChannels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listContactChannels_nextToken
-          Lens..~ rs
-          Lens.^? listContactChannelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listContactChannels_nextToken
+              Lens..~ rs
+              Lens.^? listContactChannelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContactChannels where
   type
@@ -147,9 +147,9 @@ instance Prelude.Hashable ListContactChannels where
 
 instance Prelude.NFData ListContactChannels where
   rnf ListContactChannels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf contactId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf contactId
 
 instance Data.ToHeaders ListContactChannels where
   toHeaders =
@@ -232,6 +232,6 @@ listContactChannelsResponse_contactChannels = Lens.lens (\ListContactChannelsRes
 
 instance Prelude.NFData ListContactChannelsResponse where
   rnf ListContactChannelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf contactChannels
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf contactChannels

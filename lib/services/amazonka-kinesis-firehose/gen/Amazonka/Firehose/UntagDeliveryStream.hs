@@ -118,8 +118,8 @@ instance Prelude.Hashable UntagDeliveryStream where
 
 instance Prelude.NFData UntagDeliveryStream where
   rnf UntagDeliveryStream' {..} =
-    Prelude.rnf deliveryStreamName
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf deliveryStreamName `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagDeliveryStream where
   toHeaders =

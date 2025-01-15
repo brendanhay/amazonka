@@ -168,8 +168,8 @@ instance
     DeliveryStreamEncryptionConfigurationInput
   where
   rnf DeliveryStreamEncryptionConfigurationInput' {..} =
-    Prelude.rnf keyARN
-      `Prelude.seq` Prelude.rnf keyType
+    Prelude.rnf keyARN `Prelude.seq`
+      Prelude.rnf keyType
 
 instance
   Data.ToJSON

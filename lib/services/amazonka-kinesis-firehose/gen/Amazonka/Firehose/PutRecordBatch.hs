@@ -179,8 +179,8 @@ instance Prelude.Hashable PutRecordBatch where
 
 instance Prelude.NFData PutRecordBatch where
   rnf PutRecordBatch' {..} =
-    Prelude.rnf deliveryStreamName
-      `Prelude.seq` Prelude.rnf records
+    Prelude.rnf deliveryStreamName `Prelude.seq`
+      Prelude.rnf records
 
 instance Data.ToHeaders PutRecordBatch where
   toHeaders =
@@ -295,7 +295,7 @@ putRecordBatchResponse_requestResponses = Lens.lens (\PutRecordBatchResponse' {r
 
 instance Prelude.NFData PutRecordBatchResponse where
   rnf PutRecordBatchResponse' {..} =
-    Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf failedPutCount
-      `Prelude.seq` Prelude.rnf requestResponses
+    Prelude.rnf encrypted `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf failedPutCount `Prelude.seq`
+          Prelude.rnf requestResponses

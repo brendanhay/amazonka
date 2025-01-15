@@ -163,14 +163,14 @@ instance
     AmazonOpenSearchServerlessDestinationUpdate
   where
   rnf AmazonOpenSearchServerlessDestinationUpdate' {..} =
-    Prelude.rnf bufferingHints
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf collectionEndpoint
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf processingConfiguration
-      `Prelude.seq` Prelude.rnf retryOptions
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf s3Update
+    Prelude.rnf bufferingHints `Prelude.seq`
+      Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+        Prelude.rnf collectionEndpoint `Prelude.seq`
+          Prelude.rnf indexName `Prelude.seq`
+            Prelude.rnf processingConfiguration `Prelude.seq`
+              Prelude.rnf retryOptions `Prelude.seq`
+                Prelude.rnf roleARN `Prelude.seq`
+                  Prelude.rnf s3Update
 
 instance
   Data.ToJSON

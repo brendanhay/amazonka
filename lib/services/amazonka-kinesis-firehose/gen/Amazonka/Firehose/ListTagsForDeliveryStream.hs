@@ -138,9 +138,9 @@ instance Prelude.Hashable ListTagsForDeliveryStream where
 
 instance Prelude.NFData ListTagsForDeliveryStream where
   rnf ListTagsForDeliveryStream' {..} =
-    Prelude.rnf exclusiveStartTagKey
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf deliveryStreamName
+    Prelude.rnf exclusiveStartTagKey `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf deliveryStreamName
 
 instance Data.ToHeaders ListTagsForDeliveryStream where
   toHeaders =
@@ -241,6 +241,6 @@ instance
     ListTagsForDeliveryStreamResponse
   where
   rnf ListTagsForDeliveryStreamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf hasMoreTags
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf hasMoreTags

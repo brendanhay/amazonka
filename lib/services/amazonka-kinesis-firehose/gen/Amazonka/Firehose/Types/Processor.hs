@@ -84,8 +84,8 @@ instance Prelude.Hashable Processor where
 
 instance Prelude.NFData Processor where
   rnf Processor' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON Processor where
   toJSON Processor' {..} =

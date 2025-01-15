@@ -255,16 +255,16 @@ instance
     ElasticsearchDestinationDescription
   where
   rnf ElasticsearchDestinationDescription' {..} =
-    Prelude.rnf bufferingHints
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf clusterEndpoint
-      `Prelude.seq` Prelude.rnf domainARN
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf indexRotationPeriod
-      `Prelude.seq` Prelude.rnf processingConfiguration
-      `Prelude.seq` Prelude.rnf retryOptions
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf s3BackupMode
-      `Prelude.seq` Prelude.rnf s3DestinationDescription
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf vpcConfigurationDescription
+    Prelude.rnf bufferingHints `Prelude.seq`
+      Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+        Prelude.rnf clusterEndpoint `Prelude.seq`
+          Prelude.rnf domainARN `Prelude.seq`
+            Prelude.rnf indexName `Prelude.seq`
+              Prelude.rnf indexRotationPeriod `Prelude.seq`
+                Prelude.rnf processingConfiguration `Prelude.seq`
+                  Prelude.rnf retryOptions `Prelude.seq`
+                    Prelude.rnf roleARN `Prelude.seq`
+                      Prelude.rnf s3BackupMode `Prelude.seq`
+                        Prelude.rnf s3DestinationDescription `Prelude.seq`
+                          Prelude.rnf typeName `Prelude.seq`
+                            Prelude.rnf vpcConfigurationDescription

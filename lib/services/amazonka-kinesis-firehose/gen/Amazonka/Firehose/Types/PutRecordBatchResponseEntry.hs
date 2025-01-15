@@ -95,6 +95,6 @@ instance Prelude.Hashable PutRecordBatchResponseEntry where
 
 instance Prelude.NFData PutRecordBatchResponseEntry where
   rnf PutRecordBatchResponseEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf recordId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf recordId

@@ -99,8 +99,8 @@ instance Prelude.Hashable Serializer where
 
 instance Prelude.NFData Serializer where
   rnf Serializer' {..} =
-    Prelude.rnf orcSerDe
-      `Prelude.seq` Prelude.rnf parquetSerDe
+    Prelude.rnf orcSerDe `Prelude.seq`
+      Prelude.rnf parquetSerDe
 
 instance Data.ToJSON Serializer where
   toJSON Serializer' {..} =

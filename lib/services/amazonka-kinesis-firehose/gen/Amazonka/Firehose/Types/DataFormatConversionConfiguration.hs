@@ -146,10 +146,10 @@ instance
     DataFormatConversionConfiguration
   where
   rnf DataFormatConversionConfiguration' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf inputFormatConfiguration
-      `Prelude.seq` Prelude.rnf outputFormatConfiguration
-      `Prelude.seq` Prelude.rnf schemaConfiguration
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf inputFormatConfiguration `Prelude.seq`
+        Prelude.rnf outputFormatConfiguration `Prelude.seq`
+          Prelude.rnf schemaConfiguration
 
 instance
   Data.ToJSON

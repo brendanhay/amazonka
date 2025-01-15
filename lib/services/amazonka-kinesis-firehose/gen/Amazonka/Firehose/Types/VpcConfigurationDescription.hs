@@ -269,7 +269,7 @@ instance Prelude.Hashable VpcConfigurationDescription where
 
 instance Prelude.NFData VpcConfigurationDescription where
   rnf VpcConfigurationDescription' {..} =
-    Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf subnetIds `Prelude.seq`
+      Prelude.rnf roleARN `Prelude.seq`
+        Prelude.rnf securityGroupIds `Prelude.seq`
+          Prelude.rnf vpcId

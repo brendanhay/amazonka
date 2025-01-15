@@ -158,12 +158,12 @@ instance Prelude.Hashable ParquetSerDe where
 
 instance Prelude.NFData ParquetSerDe where
   rnf ParquetSerDe' {..} =
-    Prelude.rnf blockSizeBytes
-      `Prelude.seq` Prelude.rnf compression
-      `Prelude.seq` Prelude.rnf enableDictionaryCompression
-      `Prelude.seq` Prelude.rnf maxPaddingBytes
-      `Prelude.seq` Prelude.rnf pageSizeBytes
-      `Prelude.seq` Prelude.rnf writerVersion
+    Prelude.rnf blockSizeBytes `Prelude.seq`
+      Prelude.rnf compression `Prelude.seq`
+        Prelude.rnf enableDictionaryCompression `Prelude.seq`
+          Prelude.rnf maxPaddingBytes `Prelude.seq`
+            Prelude.rnf pageSizeBytes `Prelude.seq`
+              Prelude.rnf writerVersion
 
 instance Data.ToJSON ParquetSerDe where
   toJSON ParquetSerDe' {..} =

@@ -116,6 +116,6 @@ instance
     KinesisStreamSourceDescription
   where
   rnf KinesisStreamSourceDescription' {..} =
-    Prelude.rnf deliveryStartTimestamp
-      `Prelude.seq` Prelude.rnf kinesisStreamARN
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf deliveryStartTimestamp `Prelude.seq`
+      Prelude.rnf kinesisStreamARN `Prelude.seq`
+        Prelude.rnf roleARN

@@ -260,19 +260,19 @@ instance
     ExtendedS3DestinationConfiguration
   where
   rnf ExtendedS3DestinationConfiguration' {..} =
-    Prelude.rnf bufferingHints
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf compressionFormat
-      `Prelude.seq` Prelude.rnf dataFormatConversionConfiguration
-      `Prelude.seq` Prelude.rnf dynamicPartitioningConfiguration
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf errorOutputPrefix
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf processingConfiguration
-      `Prelude.seq` Prelude.rnf s3BackupConfiguration
-      `Prelude.seq` Prelude.rnf s3BackupMode
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf bucketARN
+    Prelude.rnf bufferingHints `Prelude.seq`
+      Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+        Prelude.rnf compressionFormat `Prelude.seq`
+          Prelude.rnf dataFormatConversionConfiguration `Prelude.seq`
+            Prelude.rnf dynamicPartitioningConfiguration `Prelude.seq`
+              Prelude.rnf encryptionConfiguration `Prelude.seq`
+                Prelude.rnf errorOutputPrefix `Prelude.seq`
+                  Prelude.rnf prefix `Prelude.seq`
+                    Prelude.rnf processingConfiguration `Prelude.seq`
+                      Prelude.rnf s3BackupConfiguration `Prelude.seq`
+                        Prelude.rnf s3BackupMode `Prelude.seq`
+                          Prelude.rnf roleARN `Prelude.seq`
+                            Prelude.rnf bucketARN
 
 instance
   Data.ToJSON

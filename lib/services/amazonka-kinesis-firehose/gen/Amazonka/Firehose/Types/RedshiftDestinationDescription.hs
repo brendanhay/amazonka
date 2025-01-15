@@ -209,13 +209,13 @@ instance
     RedshiftDestinationDescription
   where
   rnf RedshiftDestinationDescription' {..} =
-    Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf processingConfiguration
-      `Prelude.seq` Prelude.rnf retryOptions
-      `Prelude.seq` Prelude.rnf s3BackupDescription
-      `Prelude.seq` Prelude.rnf s3BackupMode
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf clusterJDBCURL
-      `Prelude.seq` Prelude.rnf copyCommand
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf s3DestinationDescription
+    Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+      Prelude.rnf processingConfiguration `Prelude.seq`
+        Prelude.rnf retryOptions `Prelude.seq`
+          Prelude.rnf s3BackupDescription `Prelude.seq`
+            Prelude.rnf s3BackupMode `Prelude.seq`
+              Prelude.rnf roleARN `Prelude.seq`
+                Prelude.rnf clusterJDBCURL `Prelude.seq`
+                  Prelude.rnf copyCommand `Prelude.seq`
+                    Prelude.rnf username `Prelude.seq`
+                      Prelude.rnf s3DestinationDescription

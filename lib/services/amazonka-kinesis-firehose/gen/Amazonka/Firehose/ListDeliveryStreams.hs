@@ -168,9 +168,9 @@ instance Prelude.Hashable ListDeliveryStreams where
 
 instance Prelude.NFData ListDeliveryStreams where
   rnf ListDeliveryStreams' {..} =
-    Prelude.rnf deliveryStreamType
-      `Prelude.seq` Prelude.rnf exclusiveStartDeliveryStreamName
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf deliveryStreamType `Prelude.seq`
+      Prelude.rnf exclusiveStartDeliveryStreamName `Prelude.seq`
+        Prelude.rnf limit
 
 instance Data.ToHeaders ListDeliveryStreams where
   toHeaders =
@@ -260,6 +260,6 @@ listDeliveryStreamsResponse_hasMoreDeliveryStreams = Lens.lens (\ListDeliveryStr
 
 instance Prelude.NFData ListDeliveryStreamsResponse where
   rnf ListDeliveryStreamsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deliveryStreamNames
-      `Prelude.seq` Prelude.rnf hasMoreDeliveryStreams
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf deliveryStreamNames `Prelude.seq`
+        Prelude.rnf hasMoreDeliveryStreams

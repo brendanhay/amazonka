@@ -139,9 +139,9 @@ instance Prelude.Hashable DescribeDeliveryStream where
 
 instance Prelude.NFData DescribeDeliveryStream where
   rnf DescribeDeliveryStream' {..} =
-    Prelude.rnf exclusiveStartDestinationId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf deliveryStreamName
+    Prelude.rnf exclusiveStartDestinationId `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf deliveryStreamName
 
 instance Data.ToHeaders DescribeDeliveryStream where
   toHeaders =
@@ -225,5 +225,5 @@ instance
     DescribeDeliveryStreamResponse
   where
   rnf DescribeDeliveryStreamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deliveryStreamDescription
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf deliveryStreamDescription

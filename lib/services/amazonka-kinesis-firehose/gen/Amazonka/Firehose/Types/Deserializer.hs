@@ -114,8 +114,8 @@ instance Prelude.Hashable Deserializer where
 
 instance Prelude.NFData Deserializer where
   rnf Deserializer' {..} =
-    Prelude.rnf hiveJsonSerDe
-      `Prelude.seq` Prelude.rnf openXJsonSerDe
+    Prelude.rnf hiveJsonSerDe `Prelude.seq`
+      Prelude.rnf openXJsonSerDe
 
 instance Data.ToJSON Deserializer where
   toJSON Deserializer' {..} =

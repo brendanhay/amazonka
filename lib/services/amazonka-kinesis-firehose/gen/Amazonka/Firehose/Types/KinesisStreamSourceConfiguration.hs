@@ -95,8 +95,8 @@ instance
     KinesisStreamSourceConfiguration
   where
   rnf KinesisStreamSourceConfiguration' {..} =
-    Prelude.rnf kinesisStreamARN
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf kinesisStreamARN `Prelude.seq`
+      Prelude.rnf roleARN
 
 instance Data.ToJSON KinesisStreamSourceConfiguration where
   toJSON KinesisStreamSourceConfiguration' {..} =

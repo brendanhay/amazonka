@@ -106,8 +106,8 @@ instance Prelude.Hashable ElasticsearchBufferingHints where
 
 instance Prelude.NFData ElasticsearchBufferingHints where
   rnf ElasticsearchBufferingHints' {..} =
-    Prelude.rnf intervalInSeconds
-      `Prelude.seq` Prelude.rnf sizeInMBs
+    Prelude.rnf intervalInSeconds `Prelude.seq`
+      Prelude.rnf sizeInMBs
 
 instance Data.ToJSON ElasticsearchBufferingHints where
   toJSON ElasticsearchBufferingHints' {..} =

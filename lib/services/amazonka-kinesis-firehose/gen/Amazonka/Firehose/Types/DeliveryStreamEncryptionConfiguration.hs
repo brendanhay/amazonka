@@ -157,7 +157,7 @@ instance
     DeliveryStreamEncryptionConfiguration
   where
   rnf DeliveryStreamEncryptionConfiguration' {..} =
-    Prelude.rnf failureDescription
-      `Prelude.seq` Prelude.rnf keyARN
-      `Prelude.seq` Prelude.rnf keyType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureDescription `Prelude.seq`
+      Prelude.rnf keyARN `Prelude.seq`
+        Prelude.rnf keyType `Prelude.seq`
+          Prelude.rnf status

@@ -99,9 +99,9 @@ instance Prelude.Hashable HttpEndpointConfiguration where
 
 instance Prelude.NFData HttpEndpointConfiguration where
   rnf HttpEndpointConfiguration' {..} =
-    Prelude.rnf accessKey
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf accessKey `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf url
 
 instance Data.ToJSON HttpEndpointConfiguration where
   toJSON HttpEndpointConfiguration' {..} =

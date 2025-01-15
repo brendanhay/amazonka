@@ -101,5 +101,5 @@ instance Prelude.Hashable PackageVersionOrigin where
 
 instance Prelude.NFData PackageVersionOrigin where
   rnf PackageVersionOrigin' {..} =
-    Prelude.rnf domainEntryPoint
-      `Prelude.seq` Prelude.rnf originType
+    Prelude.rnf domainEntryPoint `Prelude.seq`
+      Prelude.rnf originType

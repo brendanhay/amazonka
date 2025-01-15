@@ -153,10 +153,10 @@ instance Prelude.Hashable PutDomainPermissionsPolicy where
 
 instance Prelude.NFData PutDomainPermissionsPolicy where
   rnf PutDomainPermissionsPolicy' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf policyRevision
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf policyRevision `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf policyDocument
 
 instance Data.ToHeaders PutDomainPermissionsPolicy where
   toHeaders =
@@ -233,5 +233,5 @@ instance
     PutDomainPermissionsPolicyResponse
   where
   rnf PutDomainPermissionsPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

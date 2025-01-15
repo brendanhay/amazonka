@@ -179,11 +179,11 @@ instance Prelude.Hashable RepositoryDescription where
 
 instance Prelude.NFData RepositoryDescription where
   rnf RepositoryDescription' {..} =
-    Prelude.rnf administratorAccount
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf externalConnections
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf upstreams
+    Prelude.rnf administratorAccount `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf domainOwner `Prelude.seq`
+              Prelude.rnf externalConnections `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf upstreams

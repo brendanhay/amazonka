@@ -158,11 +158,11 @@ instance Prelude.Hashable UpdateRepository where
 
 instance Prelude.NFData UpdateRepository where
   rnf UpdateRepository' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf upstreams
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf domainOwner `Prelude.seq`
+        Prelude.rnf upstreams `Prelude.seq`
+          Prelude.rnf domain `Prelude.seq`
+            Prelude.rnf repository
 
 instance Data.ToHeaders UpdateRepository where
   toHeaders =
@@ -236,5 +236,5 @@ updateRepositoryResponse_httpStatus = Lens.lens (\UpdateRepositoryResponse' {htt
 
 instance Prelude.NFData UpdateRepositoryResponse where
   rnf UpdateRepositoryResponse' {..} =
-    Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repository `Prelude.seq`
+      Prelude.rnf httpStatus

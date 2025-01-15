@@ -253,12 +253,12 @@ instance Core.AWSPager ListPackageVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPackageVersions_nextToken
-          Lens..~ rs
-          Lens.^? listPackageVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPackageVersions_nextToken
+              Lens..~ rs
+              Lens.^? listPackageVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPackageVersions where
   type
@@ -296,17 +296,17 @@ instance Prelude.Hashable ListPackageVersions where
 
 instance Prelude.NFData ListPackageVersions where
   rnf ListPackageVersions' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf originType
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf originType `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf domain `Prelude.seq`
+                    Prelude.rnf repository `Prelude.seq`
+                      Prelude.rnf format `Prelude.seq`
+                        Prelude.rnf package
 
 instance Data.ToHeaders ListPackageVersions where
   toHeaders =
@@ -487,10 +487,10 @@ listPackageVersionsResponse_httpStatus = Lens.lens (\ListPackageVersionsResponse
 
 instance Prelude.NFData ListPackageVersionsResponse where
   rnf ListPackageVersionsResponse' {..} =
-    Prelude.rnf defaultDisplayVersion
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf defaultDisplayVersion `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf package `Prelude.seq`
+              Prelude.rnf versions `Prelude.seq`
+                Prelude.rnf httpStatus

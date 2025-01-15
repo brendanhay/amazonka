@@ -145,7 +145,7 @@ instance Prelude.Hashable PackageSummary where
 
 instance Prelude.NFData PackageSummary where
   rnf PackageSummary' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf originConfiguration
-      `Prelude.seq` Prelude.rnf package
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf originConfiguration `Prelude.seq`
+          Prelude.rnf package

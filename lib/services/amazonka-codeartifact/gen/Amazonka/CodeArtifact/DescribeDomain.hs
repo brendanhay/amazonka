@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeDomain where
 
 instance Prelude.NFData DescribeDomain where
   rnf DescribeDomain' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf domain
 
 instance Data.ToHeaders DescribeDomain where
   toHeaders =
@@ -176,5 +176,5 @@ describeDomainResponse_httpStatus = Lens.lens (\DescribeDomainResponse' {httpSta
 
 instance Prelude.NFData DescribeDomainResponse where
   rnf DescribeDomainResponse' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf httpStatus

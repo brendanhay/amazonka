@@ -142,7 +142,7 @@ instance Prelude.Hashable PackageDependency where
 
 instance Prelude.NFData PackageDependency where
   rnf PackageDependency' {..} =
-    Prelude.rnf dependencyType
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf versionRequirement
+    Prelude.rnf dependencyType `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf package `Prelude.seq`
+          Prelude.rnf versionRequirement

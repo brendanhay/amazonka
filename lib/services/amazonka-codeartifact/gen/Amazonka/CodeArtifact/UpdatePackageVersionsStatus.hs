@@ -276,16 +276,16 @@ instance Prelude.Hashable UpdatePackageVersionsStatus where
 
 instance Prelude.NFData UpdatePackageVersionsStatus where
   rnf UpdatePackageVersionsStatus' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf expectedStatus
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf versionRevisions
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf targetStatus
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf expectedStatus `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf versionRevisions `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf repository `Prelude.seq`
+                Prelude.rnf format `Prelude.seq`
+                  Prelude.rnf package `Prelude.seq`
+                    Prelude.rnf versions `Prelude.seq`
+                      Prelude.rnf targetStatus
 
 instance Data.ToHeaders UpdatePackageVersionsStatus where
   toHeaders =
@@ -385,6 +385,6 @@ instance
     UpdatePackageVersionsStatusResponse
   where
   rnf UpdatePackageVersionsStatusResponse' {..} =
-    Prelude.rnf failedVersions
-      `Prelude.seq` Prelude.rnf successfulVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedVersions `Prelude.seq`
+      Prelude.rnf successfulVersions `Prelude.seq`
+        Prelude.rnf httpStatus

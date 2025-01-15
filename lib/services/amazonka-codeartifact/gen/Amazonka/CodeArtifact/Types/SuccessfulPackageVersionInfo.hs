@@ -85,5 +85,5 @@ instance
 
 instance Prelude.NFData SuccessfulPackageVersionInfo where
   rnf SuccessfulPackageVersionInfo' {..} =
-    Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf revision `Prelude.seq`
+      Prelude.rnf status

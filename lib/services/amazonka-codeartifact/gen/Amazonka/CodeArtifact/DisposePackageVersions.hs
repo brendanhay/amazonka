@@ -251,15 +251,15 @@ instance Prelude.Hashable DisposePackageVersions where
 
 instance Prelude.NFData DisposePackageVersions where
   rnf DisposePackageVersions' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf expectedStatus
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf versionRevisions
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf versions
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf expectedStatus `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf versionRevisions `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf repository `Prelude.seq`
+                Prelude.rnf format `Prelude.seq`
+                  Prelude.rnf package `Prelude.seq`
+                    Prelude.rnf versions
 
 instance Data.ToHeaders DisposePackageVersions where
   toHeaders =
@@ -390,6 +390,6 @@ instance
     DisposePackageVersionsResponse
   where
   rnf DisposePackageVersionsResponse' {..} =
-    Prelude.rnf failedVersions
-      `Prelude.seq` Prelude.rnf successfulVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedVersions `Prelude.seq`
+      Prelude.rnf successfulVersions `Prelude.seq`
+        Prelude.rnf httpStatus

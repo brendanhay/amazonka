@@ -251,12 +251,12 @@ instance Core.AWSPager ListPackages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPackages_nextToken
-          Lens..~ rs
-          Lens.^? listPackagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPackages_nextToken
+              Lens..~ rs
+              Lens.^? listPackagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPackages where
   type AWSResponse ListPackages = ListPackagesResponse
@@ -287,16 +287,16 @@ instance Prelude.Hashable ListPackages where
 
 instance Prelude.NFData ListPackages where
   rnf ListPackages' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf packagePrefix
-      `Prelude.seq` Prelude.rnf publish
-      `Prelude.seq` Prelude.rnf upstream
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf packagePrefix `Prelude.seq`
+                Prelude.rnf publish `Prelude.seq`
+                  Prelude.rnf upstream `Prelude.seq`
+                    Prelude.rnf domain `Prelude.seq`
+                      Prelude.rnf repository
 
 instance Data.ToHeaders ListPackages where
   toHeaders =
@@ -388,6 +388,6 @@ listPackagesResponse_httpStatus = Lens.lens (\ListPackagesResponse' {httpStatus}
 
 instance Prelude.NFData ListPackagesResponse where
   rnf ListPackagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf packages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf packages `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -263,16 +263,16 @@ instance Prelude.Hashable PackageVersionDescription where
 
 instance Prelude.NFData PackageVersionDescription where
   rnf PackageVersionDescription' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf homePage
-      `Prelude.seq` Prelude.rnf licenses
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf publishedTime
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf sourceCodeRepository
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf homePage `Prelude.seq`
+          Prelude.rnf licenses `Prelude.seq`
+            Prelude.rnf namespace `Prelude.seq`
+              Prelude.rnf origin `Prelude.seq`
+                Prelude.rnf packageName `Prelude.seq`
+                  Prelude.rnf publishedTime `Prelude.seq`
+                    Prelude.rnf revision `Prelude.seq`
+                      Prelude.rnf sourceCodeRepository `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf summary `Prelude.seq`
+                            Prelude.rnf version

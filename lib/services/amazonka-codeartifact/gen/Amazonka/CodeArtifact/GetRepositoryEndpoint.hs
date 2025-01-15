@@ -156,10 +156,10 @@ instance Prelude.Hashable GetRepositoryEndpoint where
 
 instance Prelude.NFData GetRepositoryEndpoint where
   rnf GetRepositoryEndpoint' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf repository `Prelude.seq`
+          Prelude.rnf format
 
 instance Data.ToHeaders GetRepositoryEndpoint where
   toHeaders =
@@ -225,5 +225,5 @@ getRepositoryEndpointResponse_httpStatus = Lens.lens (\GetRepositoryEndpointResp
 
 instance Prelude.NFData GetRepositoryEndpointResponse where
   rnf GetRepositoryEndpointResponse' {..} =
-    Prelude.rnf repositoryEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repositoryEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

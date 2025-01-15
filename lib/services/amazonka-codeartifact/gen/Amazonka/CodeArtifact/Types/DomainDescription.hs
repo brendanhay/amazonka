@@ -163,12 +163,12 @@ instance Prelude.Hashable DomainDescription where
 
 instance Prelude.NFData DomainDescription where
   rnf DomainDescription' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf assetSizeBytes
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf repositoryCount
-      `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf assetSizeBytes `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf encryptionKey `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf repositoryCount `Prelude.seq`
+                  Prelude.rnf s3BucketArn `Prelude.seq`
+                    Prelude.rnf status

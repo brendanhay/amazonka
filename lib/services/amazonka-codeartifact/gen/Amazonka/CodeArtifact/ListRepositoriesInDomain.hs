@@ -164,12 +164,12 @@ instance Core.AWSPager ListRepositoriesInDomain where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRepositoriesInDomain_nextToken
-          Lens..~ rs
-          Lens.^? listRepositoriesInDomainResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRepositoriesInDomain_nextToken
+              Lens..~ rs
+              Lens.^? listRepositoriesInDomainResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRepositoriesInDomain where
   type
@@ -198,12 +198,12 @@ instance Prelude.Hashable ListRepositoriesInDomain where
 
 instance Prelude.NFData ListRepositoriesInDomain where
   rnf ListRepositoriesInDomain' {..} =
-    Prelude.rnf administratorAccount
-      `Prelude.seq` Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf repositoryPrefix
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf administratorAccount `Prelude.seq`
+      Prelude.rnf domainOwner `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf repositoryPrefix `Prelude.seq`
+              Prelude.rnf domain
 
 instance Data.ToHeaders ListRepositoriesInDomain where
   toHeaders =
@@ -290,6 +290,6 @@ instance
     ListRepositoriesInDomainResponse
   where
   rnf ListRepositoriesInDomainResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf repositories
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf repositories `Prelude.seq`
+        Prelude.rnf httpStatus

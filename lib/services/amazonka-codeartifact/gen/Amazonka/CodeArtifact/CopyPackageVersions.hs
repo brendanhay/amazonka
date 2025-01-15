@@ -317,17 +317,17 @@ instance Prelude.Hashable CopyPackageVersions where
 
 instance Prelude.NFData CopyPackageVersions where
   rnf CopyPackageVersions' {..} =
-    Prelude.rnf allowOverwrite
-      `Prelude.seq` Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf includeFromUpstream
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf versionRevisions
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf sourceRepository
-      `Prelude.seq` Prelude.rnf destinationRepository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
+    Prelude.rnf allowOverwrite `Prelude.seq`
+      Prelude.rnf domainOwner `Prelude.seq`
+        Prelude.rnf includeFromUpstream `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf versionRevisions `Prelude.seq`
+              Prelude.rnf versions `Prelude.seq`
+                Prelude.rnf domain `Prelude.seq`
+                  Prelude.rnf sourceRepository `Prelude.seq`
+                    Prelude.rnf destinationRepository `Prelude.seq`
+                      Prelude.rnf format `Prelude.seq`
+                        Prelude.rnf package
 
 instance Data.ToHeaders CopyPackageVersions where
   toHeaders =
@@ -465,6 +465,6 @@ copyPackageVersionsResponse_httpStatus = Lens.lens (\CopyPackageVersionsResponse
 
 instance Prelude.NFData CopyPackageVersionsResponse where
   rnf CopyPackageVersionsResponse' {..} =
-    Prelude.rnf failedVersions
-      `Prelude.seq` Prelude.rnf successfulVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedVersions `Prelude.seq`
+      Prelude.rnf successfulVersions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -246,12 +246,12 @@ instance Core.AWSPager ListPackageVersionAssets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPackageVersionAssets_nextToken
-          Lens..~ rs
-          Lens.^? listPackageVersionAssetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPackageVersionAssets_nextToken
+              Lens..~ rs
+              Lens.^? listPackageVersionAssetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPackageVersionAssets where
   type
@@ -288,15 +288,15 @@ instance Prelude.Hashable ListPackageVersionAssets where
 
 instance Prelude.NFData ListPackageVersionAssets where
   rnf ListPackageVersionAssets' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf repository `Prelude.seq`
+                Prelude.rnf format `Prelude.seq`
+                  Prelude.rnf package `Prelude.seq`
+                    Prelude.rnf packageVersion
 
 instance Data.ToHeaders ListPackageVersionAssets where
   toHeaders =
@@ -472,11 +472,11 @@ instance
     ListPackageVersionAssetsResponse
   where
   rnf ListPackageVersionAssetsResponse' {..} =
-    Prelude.rnf assets
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf versionRevision
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assets `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf package `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf versionRevision `Prelude.seq`
+                  Prelude.rnf httpStatus

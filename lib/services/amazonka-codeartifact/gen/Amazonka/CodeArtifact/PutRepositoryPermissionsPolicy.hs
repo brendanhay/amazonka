@@ -184,11 +184,11 @@ instance
     PutRepositoryPermissionsPolicy
   where
   rnf PutRepositoryPermissionsPolicy' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf policyRevision
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf policyRevision `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf repository `Prelude.seq`
+            Prelude.rnf policyDocument
 
 instance
   Data.ToHeaders
@@ -272,5 +272,5 @@ instance
     PutRepositoryPermissionsPolicyResponse
   where
   rnf PutRepositoryPermissionsPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

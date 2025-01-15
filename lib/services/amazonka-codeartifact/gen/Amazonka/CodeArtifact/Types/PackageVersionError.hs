@@ -117,5 +117,5 @@ instance Prelude.Hashable PackageVersionError where
 
 instance Prelude.NFData PackageVersionError where
   rnf PackageVersionError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage

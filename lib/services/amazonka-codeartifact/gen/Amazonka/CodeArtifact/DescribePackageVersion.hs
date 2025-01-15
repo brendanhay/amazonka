@@ -212,13 +212,13 @@ instance Prelude.Hashable DescribePackageVersion where
 
 instance Prelude.NFData DescribePackageVersion where
   rnf DescribePackageVersion' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf repository `Prelude.seq`
+            Prelude.rnf format `Prelude.seq`
+              Prelude.rnf package `Prelude.seq`
+                Prelude.rnf packageVersion
 
 instance Data.ToHeaders DescribePackageVersion where
   toHeaders =
@@ -300,5 +300,5 @@ instance
     DescribePackageVersionResponse
   where
   rnf DescribePackageVersionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf packageVersion

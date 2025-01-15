@@ -71,8 +71,8 @@ instance Prelude.Hashable EndTimeRange where
 
 instance Prelude.NFData EndTimeRange where
   rnf EndTimeRange' {..} =
-    Prelude.rnf fromTime
-      `Prelude.seq` Prelude.rnf toTime
+    Prelude.rnf fromTime `Prelude.seq`
+      Prelude.rnf toTime
 
 instance Data.ToJSON EndTimeRange where
   toJSON EndTimeRange' {..} =

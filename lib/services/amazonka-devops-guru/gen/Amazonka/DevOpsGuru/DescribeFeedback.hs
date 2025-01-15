@@ -158,5 +158,5 @@ describeFeedbackResponse_httpStatus = Lens.lens (\DescribeFeedbackResponse' {htt
 
 instance Prelude.NFData DescribeFeedbackResponse where
   rnf DescribeFeedbackResponse' {..} =
-    Prelude.rnf insightFeedback
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf insightFeedback `Prelude.seq`
+      Prelude.rnf httpStatus

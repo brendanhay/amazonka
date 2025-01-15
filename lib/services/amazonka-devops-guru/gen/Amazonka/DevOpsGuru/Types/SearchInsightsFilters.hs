@@ -95,10 +95,10 @@ instance Prelude.Hashable SearchInsightsFilters where
 
 instance Prelude.NFData SearchInsightsFilters where
   rnf SearchInsightsFilters' {..} =
-    Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf serviceCollection
-      `Prelude.seq` Prelude.rnf severities
-      `Prelude.seq` Prelude.rnf statuses
+    Prelude.rnf resourceCollection `Prelude.seq`
+      Prelude.rnf serviceCollection `Prelude.seq`
+        Prelude.rnf severities `Prelude.seq`
+          Prelude.rnf statuses
 
 instance Data.ToJSON SearchInsightsFilters where
   toJSON SearchInsightsFilters' {..} =

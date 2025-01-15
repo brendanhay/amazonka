@@ -85,8 +85,8 @@ instance
     UpdateServiceIntegrationConfig
   where
   rnf UpdateServiceIntegrationConfig' {..} =
-    Prelude.rnf logsAnomalyDetection
-      `Prelude.seq` Prelude.rnf opsCenter
+    Prelude.rnf logsAnomalyDetection `Prelude.seq`
+      Prelude.rnf opsCenter
 
 instance Data.ToJSON UpdateServiceIntegrationConfig where
   toJSON UpdateServiceIntegrationConfig' {..} =

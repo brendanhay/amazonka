@@ -135,12 +135,12 @@ instance Core.AWSPager ListInsights where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInsights_nextToken
-          Lens..~ rs
-          Lens.^? listInsightsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInsights_nextToken
+              Lens..~ rs
+              Lens.^? listInsightsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInsights where
   type AWSResponse ListInsights = ListInsightsResponse
@@ -171,9 +171,9 @@ instance Prelude.Hashable ListInsights where
 
 instance Prelude.NFData ListInsights where
   rnf ListInsights' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusFilter
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf statusFilter
 
 instance Data.ToHeaders ListInsights where
   toHeaders =
@@ -263,7 +263,7 @@ listInsightsResponse_httpStatus = Lens.lens (\ListInsightsResponse' {httpStatus}
 
 instance Prelude.NFData ListInsightsResponse where
   rnf ListInsightsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf proactiveInsights
-      `Prelude.seq` Prelude.rnf reactiveInsights
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf proactiveInsights `Prelude.seq`
+        Prelude.rnf reactiveInsights `Prelude.seq`
+          Prelude.rnf httpStatus

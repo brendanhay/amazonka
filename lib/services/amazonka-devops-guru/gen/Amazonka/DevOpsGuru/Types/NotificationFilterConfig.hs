@@ -101,8 +101,8 @@ instance Prelude.Hashable NotificationFilterConfig where
 
 instance Prelude.NFData NotificationFilterConfig where
   rnf NotificationFilterConfig' {..} =
-    Prelude.rnf messageTypes
-      `Prelude.seq` Prelude.rnf severities
+    Prelude.rnf messageTypes `Prelude.seq`
+      Prelude.rnf severities
 
 instance Data.ToJSON NotificationFilterConfig where
   toJSON NotificationFilterConfig' {..} =

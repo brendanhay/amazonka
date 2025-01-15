@@ -81,8 +81,8 @@ instance Prelude.Hashable ListInsightsAnyStatusFilter where
 
 instance Prelude.NFData ListInsightsAnyStatusFilter where
   rnf ListInsightsAnyStatusFilter' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf startTimeRange
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf startTimeRange
 
 instance Data.ToJSON ListInsightsAnyStatusFilter where
   toJSON ListInsightsAnyStatusFilter' {..} =

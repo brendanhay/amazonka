@@ -355,6 +355,6 @@ instance
     PerformanceInsightsMetricDimensionGroup
   where
   rnf PerformanceInsightsMetricDimensionGroup' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf group' `Prelude.seq`
+        Prelude.rnf limit

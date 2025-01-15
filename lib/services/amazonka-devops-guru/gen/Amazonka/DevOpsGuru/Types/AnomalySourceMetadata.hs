@@ -93,6 +93,6 @@ instance Prelude.Hashable AnomalySourceMetadata where
 
 instance Prelude.NFData AnomalySourceMetadata where
   rnf AnomalySourceMetadata' {..} =
-    Prelude.rnf source
-      `Prelude.seq` Prelude.rnf sourceResourceName
-      `Prelude.seq` Prelude.rnf sourceResourceType
+    Prelude.rnf source `Prelude.seq`
+      Prelude.rnf sourceResourceName `Prelude.seq`
+        Prelude.rnf sourceResourceType

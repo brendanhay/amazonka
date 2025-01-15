@@ -181,6 +181,6 @@ describeAnomalyResponse_httpStatus = Lens.lens (\DescribeAnomalyResponse' {httpS
 
 instance Prelude.NFData DescribeAnomalyResponse where
   rnf DescribeAnomalyResponse' {..} =
-    Prelude.rnf proactiveAnomaly
-      `Prelude.seq` Prelude.rnf reactiveAnomaly
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf proactiveAnomaly `Prelude.seq`
+      Prelude.rnf reactiveAnomaly `Prelude.seq`
+        Prelude.rnf httpStatus

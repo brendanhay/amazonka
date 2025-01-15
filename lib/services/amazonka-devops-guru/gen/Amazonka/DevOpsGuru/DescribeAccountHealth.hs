@@ -214,9 +214,9 @@ describeAccountHealthResponse_resourceHours = Lens.lens (\DescribeAccountHealthR
 
 instance Prelude.NFData DescribeAccountHealthResponse where
   rnf DescribeAccountHealthResponse' {..} =
-    Prelude.rnf analyzedResourceCount
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf openReactiveInsights
-      `Prelude.seq` Prelude.rnf openProactiveInsights
-      `Prelude.seq` Prelude.rnf metricsAnalyzed
-      `Prelude.seq` Prelude.rnf resourceHours
+    Prelude.rnf analyzedResourceCount `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf openReactiveInsights `Prelude.seq`
+          Prelude.rnf openProactiveInsights `Prelude.seq`
+            Prelude.rnf metricsAnalyzed `Prelude.seq`
+              Prelude.rnf resourceHours

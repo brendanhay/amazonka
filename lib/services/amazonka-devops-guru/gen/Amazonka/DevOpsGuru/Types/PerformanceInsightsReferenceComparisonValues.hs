@@ -110,5 +110,5 @@ instance
     PerformanceInsightsReferenceComparisonValues
   where
   rnf PerformanceInsightsReferenceComparisonValues' {..} =
-    Prelude.rnf referenceMetric
-      `Prelude.seq` Prelude.rnf referenceScalar
+    Prelude.rnf referenceMetric `Prelude.seq`
+      Prelude.rnf referenceScalar

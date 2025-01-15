@@ -92,9 +92,9 @@ instance Prelude.Hashable ListInsightsStatusFilter where
 
 instance Prelude.NFData ListInsightsStatusFilter where
   rnf ListInsightsStatusFilter' {..} =
-    Prelude.rnf any
-      `Prelude.seq` Prelude.rnf closed
-      `Prelude.seq` Prelude.rnf ongoing
+    Prelude.rnf any `Prelude.seq`
+      Prelude.rnf closed `Prelude.seq`
+        Prelude.rnf ongoing
 
 instance Data.ToJSON ListInsightsStatusFilter where
   toJSON ListInsightsStatusFilter' {..} =

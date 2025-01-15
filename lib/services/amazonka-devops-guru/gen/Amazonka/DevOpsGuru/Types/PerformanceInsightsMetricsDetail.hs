@@ -175,9 +175,9 @@ instance
     PerformanceInsightsMetricsDetail
   where
   rnf PerformanceInsightsMetricsDetail' {..} =
-    Prelude.rnf metricDisplayName
-      `Prelude.seq` Prelude.rnf metricQuery
-      `Prelude.seq` Prelude.rnf referenceData
-      `Prelude.seq` Prelude.rnf statsAtAnomaly
-      `Prelude.seq` Prelude.rnf statsAtBaseline
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf metricDisplayName `Prelude.seq`
+      Prelude.rnf metricQuery `Prelude.seq`
+        Prelude.rnf referenceData `Prelude.seq`
+          Prelude.rnf statsAtAnomaly `Prelude.seq`
+            Prelude.rnf statsAtBaseline `Prelude.seq`
+              Prelude.rnf unit

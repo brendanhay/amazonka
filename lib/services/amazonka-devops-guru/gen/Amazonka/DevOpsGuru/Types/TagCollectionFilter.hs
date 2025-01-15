@@ -148,5 +148,5 @@ instance Prelude.Hashable TagCollectionFilter where
 
 instance Prelude.NFData TagCollectionFilter where
   rnf TagCollectionFilter' {..} =
-    Prelude.rnf appBoundaryKey
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf appBoundaryKey `Prelude.seq`
+      Prelude.rnf tagValues

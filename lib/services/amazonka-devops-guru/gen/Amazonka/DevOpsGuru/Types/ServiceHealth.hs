@@ -103,6 +103,6 @@ instance Prelude.Hashable ServiceHealth where
 
 instance Prelude.NFData ServiceHealth where
   rnf ServiceHealth' {..} =
-    Prelude.rnf analyzedResourceCount
-      `Prelude.seq` Prelude.rnf insight
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf analyzedResourceCount `Prelude.seq`
+      Prelude.rnf insight `Prelude.seq`
+        Prelude.rnf serviceName

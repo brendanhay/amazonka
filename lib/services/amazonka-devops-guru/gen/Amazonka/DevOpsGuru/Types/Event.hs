@@ -161,11 +161,11 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf eventClass
-      `Prelude.seq` Prelude.rnf eventSource
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf time
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf eventClass `Prelude.seq`
+        Prelude.rnf eventSource `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf resourceCollection `Prelude.seq`
+                Prelude.rnf resources `Prelude.seq`
+                  Prelude.rnf time

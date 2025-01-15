@@ -153,10 +153,10 @@ instance
 
 instance Prelude.NFData DescribeOrganizationOverview where
   rnf DescribeOrganizationOverview' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf organizationalUnitIds
-      `Prelude.seq` Prelude.rnf toTime
-      `Prelude.seq` Prelude.rnf fromTime
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf organizationalUnitIds `Prelude.seq`
+        Prelude.rnf toTime `Prelude.seq`
+          Prelude.rnf fromTime
 
 instance Data.ToHeaders DescribeOrganizationOverview where
   toHeaders =
@@ -254,6 +254,6 @@ instance
     DescribeOrganizationOverviewResponse
   where
   rnf DescribeOrganizationOverviewResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf reactiveInsights
-      `Prelude.seq` Prelude.rnf proactiveInsights
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf reactiveInsights `Prelude.seq`
+        Prelude.rnf proactiveInsights

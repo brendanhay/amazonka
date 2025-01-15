@@ -126,12 +126,12 @@ instance Prelude.Hashable ListEventsFilters where
 
 instance Prelude.NFData ListEventsFilters where
   rnf ListEventsFilters' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf eventClass
-      `Prelude.seq` Prelude.rnf eventSource
-      `Prelude.seq` Prelude.rnf eventTimeRange
-      `Prelude.seq` Prelude.rnf insightId
-      `Prelude.seq` Prelude.rnf resourceCollection
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf eventClass `Prelude.seq`
+        Prelude.rnf eventSource `Prelude.seq`
+          Prelude.rnf eventTimeRange `Prelude.seq`
+            Prelude.rnf insightId `Prelude.seq`
+              Prelude.rnf resourceCollection
 
 instance Data.ToJSON ListEventsFilters where
   toJSON ListEventsFilters' {..} =

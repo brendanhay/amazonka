@@ -100,12 +100,12 @@ instance Core.AWSPager ListNotificationChannels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNotificationChannels_nextToken
-          Lens..~ rs
-          Lens.^? listNotificationChannelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNotificationChannels_nextToken
+              Lens..~ rs
+              Lens.^? listNotificationChannelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNotificationChannels where
   type
@@ -210,6 +210,6 @@ instance
     ListNotificationChannelsResponse
   where
   rnf ListNotificationChannelsResponse' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channels `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

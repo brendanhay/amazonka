@@ -83,5 +83,5 @@ instance Prelude.Hashable InsightTimeRange where
 
 instance Prelude.NFData InsightTimeRange where
   rnf InsightTimeRange' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime

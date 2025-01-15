@@ -147,10 +147,10 @@ instance Prelude.Hashable Recommendation where
 
 instance Prelude.NFData Recommendation where
   rnf Recommendation' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf link
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf relatedAnomalies
-      `Prelude.seq` Prelude.rnf relatedEvents
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf link `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf reason `Prelude.seq`
+              Prelude.rnf relatedAnomalies `Prelude.seq`
+                Prelude.rnf relatedEvents

@@ -81,5 +81,5 @@ instance Prelude.Hashable TimestampMetricValuePair where
 
 instance Prelude.NFData TimestampMetricValuePair where
   rnf TimestampMetricValuePair' {..} =
-    Prelude.rnf metricValue
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf metricValue `Prelude.seq`
+      Prelude.rnf timestamp

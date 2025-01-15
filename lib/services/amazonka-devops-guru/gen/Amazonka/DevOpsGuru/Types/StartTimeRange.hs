@@ -71,8 +71,8 @@ instance Prelude.Hashable StartTimeRange where
 
 instance Prelude.NFData StartTimeRange where
   rnf StartTimeRange' {..} =
-    Prelude.rnf fromTime
-      `Prelude.seq` Prelude.rnf toTime
+    Prelude.rnf fromTime `Prelude.seq`
+      Prelude.rnf toTime
 
 instance Data.ToJSON StartTimeRange where
   toJSON StartTimeRange' {..} =

@@ -90,5 +90,5 @@ instance Prelude.Hashable AccountHealth where
 
 instance Prelude.NFData AccountHealth where
   rnf AccountHealth' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf insight
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf insight

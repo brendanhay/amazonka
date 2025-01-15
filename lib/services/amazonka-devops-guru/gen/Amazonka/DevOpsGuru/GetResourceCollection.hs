@@ -132,12 +132,12 @@ instance Core.AWSPager GetResourceCollection where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getResourceCollection_nextToken
-          Lens..~ rs
-          Lens.^? getResourceCollectionResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getResourceCollection_nextToken
+              Lens..~ rs
+              Lens.^? getResourceCollectionResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResourceCollection where
   type
@@ -162,8 +162,8 @@ instance Prelude.Hashable GetResourceCollection where
 
 instance Prelude.NFData GetResourceCollection where
   rnf GetResourceCollection' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceCollectionType
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceCollectionType
 
 instance Data.ToHeaders GetResourceCollection where
   toHeaders =
@@ -258,6 +258,6 @@ getResourceCollectionResponse_httpStatus = Lens.lens (\GetResourceCollectionResp
 
 instance Prelude.NFData GetResourceCollectionResponse where
   rnf GetResourceCollectionResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceCollection `Prelude.seq`
+        Prelude.rnf httpStatus

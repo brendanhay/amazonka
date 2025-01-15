@@ -204,8 +204,8 @@ instance
     CostEstimationResourceCollectionFilter
   where
   rnf CostEstimationResourceCollectionFilter' {..} =
-    Prelude.rnf cloudFormation
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf cloudFormation `Prelude.seq`
+      Prelude.rnf tags
 
 instance
   Data.ToJSON

@@ -148,10 +148,10 @@ instance Prelude.Hashable LogAnomalyClass where
 
 instance Prelude.NFData LogAnomalyClass where
   rnf LogAnomalyClass' {..} =
-    Prelude.rnf explanation
-      `Prelude.seq` Prelude.rnf logAnomalyToken
-      `Prelude.seq` Prelude.rnf logAnomalyType
-      `Prelude.seq` Prelude.rnf logEventId
-      `Prelude.seq` Prelude.rnf logEventTimestamp
-      `Prelude.seq` Prelude.rnf logStreamName
-      `Prelude.seq` Prelude.rnf numberOfLogLinesOccurrences
+    Prelude.rnf explanation `Prelude.seq`
+      Prelude.rnf logAnomalyToken `Prelude.seq`
+        Prelude.rnf logAnomalyType `Prelude.seq`
+          Prelude.rnf logEventId `Prelude.seq`
+            Prelude.rnf logEventTimestamp `Prelude.seq`
+              Prelude.rnf logStreamName `Prelude.seq`
+                Prelude.rnf numberOfLogLinesOccurrences

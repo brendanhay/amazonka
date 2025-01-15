@@ -194,12 +194,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeOrganizationResourceCollectionHealth_nextToken
-          Lens..~ rs
-          Lens.^? describeOrganizationResourceCollectionHealthResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeOrganizationResourceCollectionHealth_nextToken
+              Lens..~ rs
+              Lens.^? describeOrganizationResourceCollectionHealthResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -242,11 +242,11 @@ instance
     DescribeOrganizationResourceCollectionHealth
   where
   rnf DescribeOrganizationResourceCollectionHealth' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationalUnitIds
-      `Prelude.seq` Prelude.rnf organizationResourceCollectionType
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf organizationalUnitIds `Prelude.seq`
+            Prelude.rnf organizationResourceCollectionType
 
 instance
   Data.ToHeaders
@@ -488,9 +488,9 @@ instance
   where
   rnf
     DescribeOrganizationResourceCollectionHealthResponse' {..} =
-      Prelude.rnf account
-        `Prelude.seq` Prelude.rnf cloudFormation
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf service
-        `Prelude.seq` Prelude.rnf tags
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf account `Prelude.seq`
+        Prelude.rnf cloudFormation `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf service `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf httpStatus

@@ -94,6 +94,6 @@ instance Prelude.Hashable EventResource where
 
 instance Prelude.NFData EventResource where
   rnf EventResource' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type'

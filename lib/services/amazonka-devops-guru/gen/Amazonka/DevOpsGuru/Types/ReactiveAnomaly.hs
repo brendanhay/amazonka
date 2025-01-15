@@ -251,16 +251,16 @@ instance Prelude.Hashable ReactiveAnomaly where
 
 instance Prelude.NFData ReactiveAnomaly where
   rnf ReactiveAnomaly' {..} =
-    Prelude.rnf anomalyReportedTimeRange
-      `Prelude.seq` Prelude.rnf anomalyResources
-      `Prelude.seq` Prelude.rnf anomalyTimeRange
-      `Prelude.seq` Prelude.rnf associatedInsightId
-      `Prelude.seq` Prelude.rnf causalAnomalyId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf sourceDetails
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf anomalyReportedTimeRange `Prelude.seq`
+      Prelude.rnf anomalyResources `Prelude.seq`
+        Prelude.rnf anomalyTimeRange `Prelude.seq`
+          Prelude.rnf associatedInsightId `Prelude.seq`
+            Prelude.rnf causalAnomalyId `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf resourceCollection `Prelude.seq`
+                      Prelude.rnf severity `Prelude.seq`
+                        Prelude.rnf sourceDetails `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf type'

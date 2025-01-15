@@ -88,5 +88,5 @@ instance Prelude.Hashable AccountInsightHealth where
 
 instance Prelude.NFData AccountInsightHealth where
   rnf AccountInsightHealth' {..} =
-    Prelude.rnf openProactiveInsights
-      `Prelude.seq` Prelude.rnf openReactiveInsights
+    Prelude.rnf openProactiveInsights `Prelude.seq`
+      Prelude.rnf openReactiveInsights

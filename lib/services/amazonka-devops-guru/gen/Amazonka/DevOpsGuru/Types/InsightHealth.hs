@@ -93,6 +93,6 @@ instance Prelude.Hashable InsightHealth where
 
 instance Prelude.NFData InsightHealth where
   rnf InsightHealth' {..} =
-    Prelude.rnf meanTimeToRecoverInMilliseconds
-      `Prelude.seq` Prelude.rnf openProactiveInsights
-      `Prelude.seq` Prelude.rnf openReactiveInsights
+    Prelude.rnf meanTimeToRecoverInMilliseconds `Prelude.seq`
+      Prelude.rnf openProactiveInsights `Prelude.seq`
+        Prelude.rnf openReactiveInsights

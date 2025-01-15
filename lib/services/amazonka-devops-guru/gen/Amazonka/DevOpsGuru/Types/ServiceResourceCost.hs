@@ -145,8 +145,8 @@ instance Prelude.Hashable ServiceResourceCost where
 
 instance Prelude.NFData ServiceResourceCost where
   rnf ServiceResourceCost' {..} =
-    Prelude.rnf cost
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf unitCost
+    Prelude.rnf cost `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf unitCost

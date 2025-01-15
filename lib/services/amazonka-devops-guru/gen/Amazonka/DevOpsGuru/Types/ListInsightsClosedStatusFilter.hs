@@ -89,8 +89,8 @@ instance
     ListInsightsClosedStatusFilter
   where
   rnf ListInsightsClosedStatusFilter' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf endTimeRange
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf endTimeRange
 
 instance Data.ToJSON ListInsightsClosedStatusFilter where
   toJSON ListInsightsClosedStatusFilter' {..} =

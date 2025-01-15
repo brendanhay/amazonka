@@ -171,8 +171,8 @@ instance
     TagCostEstimationResourceCollectionFilter
   where
   rnf TagCostEstimationResourceCollectionFilter' {..} =
-    Prelude.rnf appBoundaryKey
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf appBoundaryKey `Prelude.seq`
+      Prelude.rnf tagValues
 
 instance
   Data.ToJSON

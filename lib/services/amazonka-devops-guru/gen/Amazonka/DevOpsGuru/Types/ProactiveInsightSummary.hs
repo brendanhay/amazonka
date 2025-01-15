@@ -174,12 +174,12 @@ instance Prelude.Hashable ProactiveInsightSummary where
 
 instance Prelude.NFData ProactiveInsightSummary where
   rnf ProactiveInsightSummary' {..} =
-    Prelude.rnf associatedResourceArns
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf insightTimeRange
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf predictionTimeRange
-      `Prelude.seq` Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf serviceCollection
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf associatedResourceArns `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf insightTimeRange `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf predictionTimeRange `Prelude.seq`
+              Prelude.rnf resourceCollection `Prelude.seq`
+                Prelude.rnf serviceCollection `Prelude.seq`
+                  Prelude.rnf severity `Prelude.seq`
+                    Prelude.rnf status

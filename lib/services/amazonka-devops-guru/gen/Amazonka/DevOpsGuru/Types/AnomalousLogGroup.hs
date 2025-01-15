@@ -124,8 +124,8 @@ instance Prelude.Hashable AnomalousLogGroup where
 
 instance Prelude.NFData AnomalousLogGroup where
   rnf AnomalousLogGroup' {..} =
-    Prelude.rnf impactEndTime
-      `Prelude.seq` Prelude.rnf impactStartTime
-      `Prelude.seq` Prelude.rnf logAnomalyShowcases
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf numberOfLogLinesScanned
+    Prelude.rnf impactEndTime `Prelude.seq`
+      Prelude.rnf impactStartTime `Prelude.seq`
+        Prelude.rnf logAnomalyShowcases `Prelude.seq`
+          Prelude.rnf logGroupName `Prelude.seq`
+            Prelude.rnf numberOfLogLinesScanned

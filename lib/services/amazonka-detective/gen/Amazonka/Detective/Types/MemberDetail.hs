@@ -457,19 +457,19 @@ instance Prelude.Hashable MemberDetail where
 
 instance Prelude.NFData MemberDetail where
   rnf MemberDetail' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf administratorId
-      `Prelude.seq` Prelude.rnf datasourcePackageIngestStates
-      `Prelude.seq` Prelude.rnf disabledReason
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf invitationType
-      `Prelude.seq` Prelude.rnf invitedTime
-      `Prelude.seq` Prelude.rnf masterId
-      `Prelude.seq` Prelude.rnf percentOfGraphUtilization
-      `Prelude.seq` Prelude.rnf percentOfGraphUtilizationUpdatedTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedTime
-      `Prelude.seq` Prelude.rnf volumeUsageByDatasourcePackage
-      `Prelude.seq` Prelude.rnf volumeUsageInBytes
-      `Prelude.seq` Prelude.rnf volumeUsageUpdatedTime
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf administratorId `Prelude.seq`
+        Prelude.rnf datasourcePackageIngestStates `Prelude.seq`
+          Prelude.rnf disabledReason `Prelude.seq`
+            Prelude.rnf emailAddress `Prelude.seq`
+              Prelude.rnf graphArn `Prelude.seq`
+                Prelude.rnf invitationType `Prelude.seq`
+                  Prelude.rnf invitedTime `Prelude.seq`
+                    Prelude.rnf masterId `Prelude.seq`
+                      Prelude.rnf percentOfGraphUtilization `Prelude.seq`
+                        Prelude.rnf percentOfGraphUtilizationUpdatedTime `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf updatedTime `Prelude.seq`
+                              Prelude.rnf volumeUsageByDatasourcePackage `Prelude.seq`
+                                Prelude.rnf volumeUsageInBytes `Prelude.seq`
+                                  Prelude.rnf volumeUsageUpdatedTime

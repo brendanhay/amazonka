@@ -105,8 +105,8 @@ instance Prelude.Hashable UpdateDatasourcePackages where
 
 instance Prelude.NFData UpdateDatasourcePackages where
   rnf UpdateDatasourcePackages' {..} =
-    Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf datasourcePackages
+    Prelude.rnf graphArn `Prelude.seq`
+      Prelude.rnf datasourcePackages
 
 instance Data.ToHeaders UpdateDatasourcePackages where
   toHeaders =

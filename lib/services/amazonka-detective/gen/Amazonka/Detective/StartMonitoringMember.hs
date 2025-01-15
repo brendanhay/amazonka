@@ -119,8 +119,8 @@ instance Prelude.Hashable StartMonitoringMember where
 
 instance Prelude.NFData StartMonitoringMember where
   rnf StartMonitoringMember' {..} =
-    Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf graphArn `Prelude.seq`
+      Prelude.rnf accountId
 
 instance Data.ToHeaders StartMonitoringMember where
   toHeaders =

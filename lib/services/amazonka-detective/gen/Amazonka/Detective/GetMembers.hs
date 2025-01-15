@@ -129,8 +129,8 @@ instance Prelude.Hashable GetMembers where
 
 instance Prelude.NFData GetMembers where
   rnf GetMembers' {..} =
-    Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf graphArn `Prelude.seq`
+      Prelude.rnf accountIds
 
 instance Data.ToHeaders GetMembers where
   toHeaders =
@@ -223,6 +223,6 @@ getMembersResponse_httpStatus = Lens.lens (\GetMembersResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetMembersResponse where
   rnf GetMembersResponse' {..} =
-    Prelude.rnf memberDetails
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf memberDetails `Prelude.seq`
+      Prelude.rnf unprocessedAccounts `Prelude.seq`
+        Prelude.rnf httpStatus

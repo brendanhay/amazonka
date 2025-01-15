@@ -83,5 +83,5 @@ instance Prelude.Hashable UnprocessedGraph where
 
 instance Prelude.NFData UnprocessedGraph where
   rnf UnprocessedGraph' {..} =
-    Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf graphArn `Prelude.seq`
+      Prelude.rnf reason

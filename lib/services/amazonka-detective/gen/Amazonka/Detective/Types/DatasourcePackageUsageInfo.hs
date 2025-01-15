@@ -90,5 +90,5 @@ instance Prelude.Hashable DatasourcePackageUsageInfo where
 
 instance Prelude.NFData DatasourcePackageUsageInfo where
   rnf DatasourcePackageUsageInfo' {..} =
-    Prelude.rnf volumeUsageInBytes
-      `Prelude.seq` Prelude.rnf volumeUsageUpdateTime
+    Prelude.rnf volumeUsageInBytes `Prelude.seq`
+      Prelude.rnf volumeUsageUpdateTime

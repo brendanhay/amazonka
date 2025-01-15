@@ -97,6 +97,6 @@ instance Prelude.Hashable MembershipDatasources where
 
 instance Prelude.NFData MembershipDatasources where
   rnf MembershipDatasources' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf datasourcePackageIngestHistory
-      `Prelude.seq` Prelude.rnf graphArn
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf datasourcePackageIngestHistory `Prelude.seq`
+        Prelude.rnf graphArn

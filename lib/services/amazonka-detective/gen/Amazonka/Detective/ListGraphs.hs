@@ -124,8 +124,8 @@ instance Prelude.Hashable ListGraphs where
 
 instance Prelude.NFData ListGraphs where
   rnf ListGraphs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGraphs where
   toHeaders =
@@ -208,6 +208,6 @@ listGraphsResponse_httpStatus = Lens.lens (\ListGraphsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListGraphsResponse where
   rnf ListGraphsResponse' {..} =
-    Prelude.rnf graphList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf graphList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -101,6 +101,6 @@ instance Prelude.Hashable Administrator where
 
 instance Prelude.NFData Administrator where
   rnf Administrator' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf delegationTime
-      `Prelude.seq` Prelude.rnf graphArn
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf delegationTime `Prelude.seq`
+        Prelude.rnf graphArn

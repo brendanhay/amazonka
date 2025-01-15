@@ -137,9 +137,9 @@ instance Prelude.Hashable CreateDeployment where
 
 instance Prelude.NFData CreateDeployment where
   rnf CreateDeployment' {..} =
-    Prelude.rnf fileMap
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf fileMap `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf branchName
 
 instance Data.ToHeaders CreateDeployment where
   toHeaders =
@@ -242,7 +242,7 @@ createDeploymentResponse_zipUploadUrl = Lens.lens (\CreateDeploymentResponse' {z
 
 instance Prelude.NFData CreateDeploymentResponse where
   rnf CreateDeploymentResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf fileUploadUrls
-      `Prelude.seq` Prelude.rnf zipUploadUrl
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf fileUploadUrls `Prelude.seq`
+          Prelude.rnf zipUploadUrl

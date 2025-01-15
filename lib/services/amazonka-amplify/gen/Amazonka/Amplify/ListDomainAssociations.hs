@@ -122,12 +122,12 @@ instance Core.AWSPager ListDomainAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDomainAssociations_nextToken
-          Lens..~ rs
-          Lens.^? listDomainAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDomainAssociations_nextToken
+              Lens..~ rs
+              Lens.^? listDomainAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomainAssociations where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListDomainAssociations where
 
 instance Prelude.NFData ListDomainAssociations where
   rnf ListDomainAssociations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appId
 
 instance Data.ToHeaders ListDomainAssociations where
   toHeaders =
@@ -241,6 +241,6 @@ instance
     ListDomainAssociationsResponse
   where
   rnf ListDomainAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainAssociations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf domainAssociations

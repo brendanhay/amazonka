@@ -123,9 +123,9 @@ instance Prelude.Hashable CreateWebhook where
 
 instance Prelude.NFData CreateWebhook where
   rnf CreateWebhook' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf branchName
 
 instance Data.ToHeaders CreateWebhook where
   toHeaders =
@@ -199,5 +199,5 @@ createWebhookResponse_webhook = Lens.lens (\CreateWebhookResponse' {webhook} -> 
 
 instance Prelude.NFData CreateWebhookResponse where
   rnf CreateWebhookResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf webhook
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf webhook

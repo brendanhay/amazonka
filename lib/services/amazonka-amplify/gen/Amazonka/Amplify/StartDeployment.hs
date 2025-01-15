@@ -144,10 +144,10 @@ instance Prelude.Hashable StartDeployment where
 
 instance Prelude.NFData StartDeployment where
   rnf StartDeployment' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf sourceUrl
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf sourceUrl `Prelude.seq`
+        Prelude.rnf appId `Prelude.seq`
+          Prelude.rnf branchName
 
 instance Data.ToHeaders StartDeployment where
   toHeaders =
@@ -226,5 +226,5 @@ startDeploymentResponse_jobSummary = Lens.lens (\StartDeploymentResponse' {jobSu
 
 instance Prelude.NFData StartDeploymentResponse where
   rnf StartDeploymentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobSummary

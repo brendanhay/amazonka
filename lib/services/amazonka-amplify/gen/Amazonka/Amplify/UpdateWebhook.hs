@@ -121,9 +121,9 @@ instance Prelude.Hashable UpdateWebhook where
 
 instance Prelude.NFData UpdateWebhook where
   rnf UpdateWebhook' {..} =
-    Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf webhookId
+    Prelude.rnf branchName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf webhookId
 
 instance Data.ToHeaders UpdateWebhook where
   toHeaders =
@@ -196,5 +196,5 @@ updateWebhookResponse_webhook = Lens.lens (\UpdateWebhookResponse' {webhook} -> 
 
 instance Prelude.NFData UpdateWebhookResponse where
   rnf UpdateWebhookResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf webhook
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf webhook

@@ -119,12 +119,12 @@ instance Core.AWSPager ListBranches where
         (rs Lens.^. listBranchesResponse_branches) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBranches_nextToken
-          Lens..~ rs
-          Lens.^? listBranchesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBranches_nextToken
+              Lens..~ rs
+              Lens.^? listBranchesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBranches where
   type AWSResponse ListBranches = ListBranchesResponse
@@ -148,9 +148,9 @@ instance Prelude.Hashable ListBranches where
 
 instance Prelude.NFData ListBranches where
   rnf ListBranches' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appId
 
 instance Data.ToHeaders ListBranches where
   toHeaders =
@@ -229,6 +229,6 @@ listBranchesResponse_branches = Lens.lens (\ListBranchesResponse' {branches} -> 
 
 instance Prelude.NFData ListBranchesResponse where
   rnf ListBranchesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf branches
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf branches

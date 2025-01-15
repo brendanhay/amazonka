@@ -314,24 +314,24 @@ instance Prelude.Hashable CreateBranch where
 
 instance Prelude.NFData CreateBranch where
   rnf CreateBranch' {..} =
-    Prelude.rnf backendEnvironmentArn
-      `Prelude.seq` Prelude.rnf basicAuthCredentials
-      `Prelude.seq` Prelude.rnf buildSpec
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf enableAutoBuild
-      `Prelude.seq` Prelude.rnf enableBasicAuth
-      `Prelude.seq` Prelude.rnf enableNotification
-      `Prelude.seq` Prelude.rnf enablePerformanceMode
-      `Prelude.seq` Prelude.rnf enablePullRequestPreview
-      `Prelude.seq` Prelude.rnf environmentVariables
-      `Prelude.seq` Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf pullRequestEnvironmentName
-      `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf backendEnvironmentArn `Prelude.seq`
+      Prelude.rnf basicAuthCredentials `Prelude.seq`
+        Prelude.rnf buildSpec `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf displayName `Prelude.seq`
+              Prelude.rnf enableAutoBuild `Prelude.seq`
+                Prelude.rnf enableBasicAuth `Prelude.seq`
+                  Prelude.rnf enableNotification `Prelude.seq`
+                    Prelude.rnf enablePerformanceMode `Prelude.seq`
+                      Prelude.rnf enablePullRequestPreview `Prelude.seq`
+                        Prelude.rnf environmentVariables `Prelude.seq`
+                          Prelude.rnf framework `Prelude.seq`
+                            Prelude.rnf pullRequestEnvironmentName `Prelude.seq`
+                              Prelude.rnf stage `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf ttl `Prelude.seq`
+                                    Prelude.rnf appId `Prelude.seq`
+                                      Prelude.rnf branchName
 
 instance Data.ToHeaders CreateBranch where
   toHeaders =
@@ -432,5 +432,5 @@ createBranchResponse_branch = Lens.lens (\CreateBranchResponse' {branch} -> bran
 
 instance Prelude.NFData CreateBranchResponse where
   rnf CreateBranchResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf branch
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf branch

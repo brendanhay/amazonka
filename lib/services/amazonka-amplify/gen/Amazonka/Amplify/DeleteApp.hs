@@ -155,5 +155,5 @@ deleteAppResponse_app = Lens.lens (\DeleteAppResponse' {app} -> app) (\s@DeleteA
 
 instance Prelude.NFData DeleteAppResponse where
   rnf DeleteAppResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf app
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf app

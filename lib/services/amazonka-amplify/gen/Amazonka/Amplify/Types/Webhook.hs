@@ -156,10 +156,10 @@ instance Prelude.Hashable Webhook where
 
 instance Prelude.NFData Webhook where
   rnf Webhook' {..} =
-    Prelude.rnf webhookArn
-      `Prelude.seq` Prelude.rnf webhookId
-      `Prelude.seq` Prelude.rnf webhookUrl
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf webhookArn `Prelude.seq`
+      Prelude.rnf webhookId `Prelude.seq`
+        Prelude.rnf webhookUrl `Prelude.seq`
+          Prelude.rnf branchName `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf createTime `Prelude.seq`
+                Prelude.rnf updateTime

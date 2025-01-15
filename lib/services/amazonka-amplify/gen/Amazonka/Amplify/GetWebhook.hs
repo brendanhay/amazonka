@@ -158,5 +158,5 @@ getWebhookResponse_webhook = Lens.lens (\GetWebhookResponse' {webhook} -> webhoo
 
 instance Prelude.NFData GetWebhookResponse where
   rnf GetWebhookResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf webhook
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf webhook

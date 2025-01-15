@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteBackendEnvironment where
 
 instance Prelude.NFData DeleteBackendEnvironment where
   rnf DeleteBackendEnvironment' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf environmentName
 
 instance Data.ToHeaders DeleteBackendEnvironment where
   toHeaders =
@@ -188,5 +188,5 @@ instance
     DeleteBackendEnvironmentResponse
   where
   rnf DeleteBackendEnvironmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf backendEnvironment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf backendEnvironment

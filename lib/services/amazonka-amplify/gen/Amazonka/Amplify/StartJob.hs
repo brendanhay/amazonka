@@ -193,14 +193,14 @@ instance Prelude.Hashable StartJob where
 
 instance Prelude.NFData StartJob where
   rnf StartJob' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf commitTime
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobReason
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf jobType
+    Prelude.rnf commitId `Prelude.seq`
+      Prelude.rnf commitMessage `Prelude.seq`
+        Prelude.rnf commitTime `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf jobReason `Prelude.seq`
+              Prelude.rnf appId `Prelude.seq`
+                Prelude.rnf branchName `Prelude.seq`
+                  Prelude.rnf jobType
 
 instance Data.ToHeaders StartJob where
   toHeaders =
@@ -283,5 +283,5 @@ startJobResponse_jobSummary = Lens.lens (\StartJobResponse' {jobSummary} -> jobS
 
 instance Prelude.NFData StartJobResponse where
   rnf StartJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobSummary

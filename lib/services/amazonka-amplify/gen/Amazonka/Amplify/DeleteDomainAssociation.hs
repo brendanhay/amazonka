@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteDomainAssociation where
 
 instance Prelude.NFData DeleteDomainAssociation where
   rnf DeleteDomainAssociation' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders DeleteDomainAssociation where
   toHeaders =
@@ -185,5 +185,5 @@ instance
     DeleteDomainAssociationResponse
   where
   rnf DeleteDomainAssociationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainAssociation
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf domainAssociation

@@ -110,8 +110,8 @@ instance Prelude.Hashable GetBranch where
 
 instance Prelude.NFData GetBranch where
   rnf GetBranch' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf branchName
 
 instance Data.ToHeaders GetBranch where
   toHeaders =
@@ -177,5 +177,5 @@ getBranchResponse_branch = Lens.lens (\GetBranchResponse' {branch} -> branch) (\
 
 instance Prelude.NFData GetBranchResponse where
   rnf GetBranchResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf branch
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf branch

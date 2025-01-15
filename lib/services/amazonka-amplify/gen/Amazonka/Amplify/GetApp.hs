@@ -153,5 +153,5 @@ getAppResponse_app = Lens.lens (\GetAppResponse' {app} -> app) (\s@GetAppRespons
 
 instance Prelude.NFData GetAppResponse where
   rnf GetAppResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf app
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf app

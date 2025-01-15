@@ -84,8 +84,8 @@ instance Prelude.Hashable SubDomainSetting where
 
 instance Prelude.NFData SubDomainSetting where
   rnf SubDomainSetting' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf prefix `Prelude.seq`
+      Prelude.rnf branchName
 
 instance Data.ToJSON SubDomainSetting where
   toJSON SubDomainSetting' {..} =

@@ -176,6 +176,6 @@ getArtifactUrlResponse_artifactUrl = Lens.lens (\GetArtifactUrlResponse' {artifa
 
 instance Prelude.NFData GetArtifactUrlResponse where
   rnf GetArtifactUrlResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf artifactId
-      `Prelude.seq` Prelude.rnf artifactUrl
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf artifactId `Prelude.seq`
+        Prelude.rnf artifactUrl

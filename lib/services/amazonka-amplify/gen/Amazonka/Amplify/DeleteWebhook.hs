@@ -159,5 +159,5 @@ deleteWebhookResponse_webhook = Lens.lens (\DeleteWebhookResponse' {webhook} -> 
 
 instance Prelude.NFData DeleteWebhookResponse where
   rnf DeleteWebhookResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf webhook
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf webhook

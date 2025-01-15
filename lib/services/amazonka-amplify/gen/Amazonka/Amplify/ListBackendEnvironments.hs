@@ -144,10 +144,10 @@ instance Prelude.Hashable ListBackendEnvironments where
 
 instance Prelude.NFData ListBackendEnvironments where
   rnf ListBackendEnvironments' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf environmentName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf appId
 
 instance Data.ToHeaders ListBackendEnvironments where
   toHeaders =
@@ -231,6 +231,6 @@ instance
     ListBackendEnvironmentsResponse
   where
   rnf ListBackendEnvironmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf backendEnvironments
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf backendEnvironments

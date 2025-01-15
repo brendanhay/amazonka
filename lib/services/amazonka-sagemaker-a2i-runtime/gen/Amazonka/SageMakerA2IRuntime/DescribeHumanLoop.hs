@@ -258,12 +258,12 @@ describeHumanLoopResponse_flowDefinitionArn = Lens.lens (\DescribeHumanLoopRespo
 
 instance Prelude.NFData DescribeHumanLoopResponse where
   rnf DescribeHumanLoopResponse' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf humanLoopOutput
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf humanLoopStatus
-      `Prelude.seq` Prelude.rnf humanLoopName
-      `Prelude.seq` Prelude.rnf humanLoopArn
-      `Prelude.seq` Prelude.rnf flowDefinitionArn
+    Prelude.rnf failureCode `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf humanLoopOutput `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf humanLoopStatus `Prelude.seq`
+                Prelude.rnf humanLoopName `Prelude.seq`
+                  Prelude.rnf humanLoopArn `Prelude.seq`
+                    Prelude.rnf flowDefinitionArn

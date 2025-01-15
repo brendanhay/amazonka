@@ -120,8 +120,8 @@ instance Prelude.Hashable HumanLoopSummary where
 
 instance Prelude.NFData HumanLoopSummary where
   rnf HumanLoopSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf flowDefinitionArn
-      `Prelude.seq` Prelude.rnf humanLoopName
-      `Prelude.seq` Prelude.rnf humanLoopStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf flowDefinitionArn `Prelude.seq`
+          Prelude.rnf humanLoopName `Prelude.seq`
+            Prelude.rnf humanLoopStatus

@@ -100,9 +100,9 @@ instance Prelude.Hashable PosixProfile where
 
 instance Prelude.NFData PosixProfile where
   rnf PosixProfile' {..} =
-    Prelude.rnf secondaryGids
-      `Prelude.seq` Prelude.rnf uid
-      `Prelude.seq` Prelude.rnf gid
+    Prelude.rnf secondaryGids `Prelude.seq`
+      Prelude.rnf uid `Prelude.seq`
+        Prelude.rnf gid
 
 instance Data.ToJSON PosixProfile where
   toJSON PosixProfile' {..} =

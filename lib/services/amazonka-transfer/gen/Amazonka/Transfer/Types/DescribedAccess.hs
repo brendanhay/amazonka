@@ -272,10 +272,10 @@ instance Prelude.Hashable DescribedAccess where
 
 instance Prelude.NFData DescribedAccess where
   rnf DescribedAccess' {..} =
-    Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf homeDirectory
-      `Prelude.seq` Prelude.rnf homeDirectoryMappings
-      `Prelude.seq` Prelude.rnf homeDirectoryType
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf posixProfile
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf externalId `Prelude.seq`
+      Prelude.rnf homeDirectory `Prelude.seq`
+        Prelude.rnf homeDirectoryMappings `Prelude.seq`
+          Prelude.rnf homeDirectoryType `Prelude.seq`
+            Prelude.rnf policy `Prelude.seq`
+              Prelude.rnf posixProfile `Prelude.seq`
+                Prelude.rnf role'

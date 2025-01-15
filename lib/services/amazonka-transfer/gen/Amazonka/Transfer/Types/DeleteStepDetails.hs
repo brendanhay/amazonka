@@ -107,8 +107,8 @@ instance Prelude.Hashable DeleteStepDetails where
 
 instance Prelude.NFData DeleteStepDetails where
   rnf DeleteStepDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceFileLocation
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf sourceFileLocation
 
 instance Data.ToJSON DeleteStepDetails where
   toJSON DeleteStepDetails' {..} =

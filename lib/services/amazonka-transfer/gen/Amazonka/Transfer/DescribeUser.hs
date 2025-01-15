@@ -123,8 +123,8 @@ instance Prelude.Hashable DescribeUser where
 
 instance Prelude.NFData DescribeUser where
   rnf DescribeUser' {..} =
-    Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf serverId `Prelude.seq`
+      Prelude.rnf userName
 
 instance Data.ToHeaders DescribeUser where
   toHeaders =
@@ -218,6 +218,6 @@ describeUserResponse_user = Lens.lens (\DescribeUserResponse' {user} -> user) (\
 
 instance Prelude.NFData DescribeUserResponse where
   rnf DescribeUserResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId `Prelude.seq`
+        Prelude.rnf user

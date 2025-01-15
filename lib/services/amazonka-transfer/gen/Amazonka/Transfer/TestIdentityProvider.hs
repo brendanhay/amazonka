@@ -203,11 +203,11 @@ instance Prelude.Hashable TestIdentityProvider where
 
 instance Prelude.NFData TestIdentityProvider where
   rnf TestIdentityProvider' {..} =
-    Prelude.rnf serverProtocol
-      `Prelude.seq` Prelude.rnf sourceIp
-      `Prelude.seq` Prelude.rnf userPassword
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf serverProtocol `Prelude.seq`
+      Prelude.rnf sourceIp `Prelude.seq`
+        Prelude.rnf userPassword `Prelude.seq`
+          Prelude.rnf serverId `Prelude.seq`
+            Prelude.rnf userName
 
 instance Data.ToHeaders TestIdentityProvider where
   toHeaders =
@@ -327,8 +327,8 @@ testIdentityProviderResponse_url = Lens.lens (\TestIdentityProviderResponse' {ur
 
 instance Prelude.NFData TestIdentityProviderResponse where
   rnf TestIdentityProviderResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf response
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf response `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf statusCode `Prelude.seq`
+            Prelude.rnf url

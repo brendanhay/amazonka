@@ -130,10 +130,10 @@ instance Prelude.Hashable UpdateCertificate where
 
 instance Prelude.NFData UpdateCertificate where
   rnf UpdateCertificate' {..} =
-    Prelude.rnf activeDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inactiveDate
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf activeDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf inactiveDate `Prelude.seq`
+          Prelude.rnf certificateId
 
 instance Data.ToHeaders UpdateCertificate where
   toHeaders =
@@ -213,5 +213,5 @@ updateCertificateResponse_certificateId = Lens.lens (\UpdateCertificateResponse'
 
 instance Prelude.NFData UpdateCertificateResponse where
   rnf UpdateCertificateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf certificateId

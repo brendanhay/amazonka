@@ -115,11 +115,11 @@ instance Prelude.Hashable DecryptStepDetails where
 
 instance Prelude.NFData DecryptStepDetails where
   rnf DecryptStepDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overwriteExisting
-      `Prelude.seq` Prelude.rnf sourceFileLocation
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf destinationFileLocation
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf overwriteExisting `Prelude.seq`
+        Prelude.rnf sourceFileLocation `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf destinationFileLocation
 
 instance Data.ToJSON DecryptStepDetails where
   toJSON DecryptStepDetails' {..} =

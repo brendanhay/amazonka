@@ -235,14 +235,14 @@ instance Prelude.Hashable UpdateAgreement where
 
 instance Prelude.NFData UpdateAgreement where
   rnf UpdateAgreement' {..} =
-    Prelude.rnf accessRole
-      `Prelude.seq` Prelude.rnf baseDirectory
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf localProfileId
-      `Prelude.seq` Prelude.rnf partnerProfileId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf agreementId
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf accessRole `Prelude.seq`
+      Prelude.rnf baseDirectory `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf localProfileId `Prelude.seq`
+            Prelude.rnf partnerProfileId `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf agreementId `Prelude.seq`
+                  Prelude.rnf serverId
 
 instance Data.ToHeaders UpdateAgreement where
   toHeaders =
@@ -327,5 +327,5 @@ updateAgreementResponse_agreementId = Lens.lens (\UpdateAgreementResponse' {agre
 
 instance Prelude.NFData UpdateAgreementResponse where
   rnf UpdateAgreementResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf agreementId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf agreementId

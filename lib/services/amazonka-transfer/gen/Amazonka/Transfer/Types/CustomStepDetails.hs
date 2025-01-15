@@ -129,10 +129,10 @@ instance Prelude.Hashable CustomStepDetails where
 
 instance Prelude.NFData CustomStepDetails where
   rnf CustomStepDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceFileLocation
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf timeoutSeconds
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf sourceFileLocation `Prelude.seq`
+        Prelude.rnf target `Prelude.seq`
+          Prelude.rnf timeoutSeconds
 
 instance Data.ToJSON CustomStepDetails where
   toJSON CustomStepDetails' {..} =

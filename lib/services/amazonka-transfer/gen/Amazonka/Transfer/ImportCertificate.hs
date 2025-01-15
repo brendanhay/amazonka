@@ -183,14 +183,14 @@ instance Prelude.Hashable ImportCertificate where
 
 instance Prelude.NFData ImportCertificate where
   rnf ImportCertificate' {..} =
-    Prelude.rnf activeDate
-      `Prelude.seq` Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inactiveDate
-      `Prelude.seq` Prelude.rnf privateKey
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf usage
-      `Prelude.seq` Prelude.rnf certificate
+    Prelude.rnf activeDate `Prelude.seq`
+      Prelude.rnf certificateChain `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf inactiveDate `Prelude.seq`
+            Prelude.rnf privateKey `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf usage `Prelude.seq`
+                  Prelude.rnf certificate
 
 instance Data.ToHeaders ImportCertificate where
   toHeaders =
@@ -277,5 +277,5 @@ importCertificateResponse_certificateId = Lens.lens (\ImportCertificateResponse'
 
 instance Prelude.NFData ImportCertificateResponse where
   rnf ImportCertificateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf certificateId

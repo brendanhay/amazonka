@@ -191,11 +191,11 @@ instance Prelude.Hashable CreateConnector where
 
 instance Prelude.NFData CreateConnector where
   rnf CreateConnector' {..} =
-    Prelude.rnf loggingRole
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf as2Config
-      `Prelude.seq` Prelude.rnf accessRole
+    Prelude.rnf loggingRole `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf url `Prelude.seq`
+          Prelude.rnf as2Config `Prelude.seq`
+            Prelude.rnf accessRole
 
 instance Data.ToHeaders CreateConnector where
   toHeaders =
@@ -275,5 +275,5 @@ createConnectorResponse_connectorId = Lens.lens (\CreateConnectorResponse' {conn
 
 instance Prelude.NFData CreateConnectorResponse where
   rnf CreateConnectorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf connectorId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf connectorId

@@ -726,19 +726,19 @@ instance Prelude.Hashable UpdateServer where
 
 instance Prelude.NFData UpdateServer where
   rnf UpdateServer' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf endpointDetails
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf hostKey
-      `Prelude.seq` Prelude.rnf identityProviderDetails
-      `Prelude.seq` Prelude.rnf loggingRole
-      `Prelude.seq` Prelude.rnf postAuthenticationLoginBanner
-      `Prelude.seq` Prelude.rnf preAuthenticationLoginBanner
-      `Prelude.seq` Prelude.rnf protocolDetails
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf securityPolicyName
-      `Prelude.seq` Prelude.rnf workflowDetails
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf endpointDetails `Prelude.seq`
+        Prelude.rnf endpointType `Prelude.seq`
+          Prelude.rnf hostKey `Prelude.seq`
+            Prelude.rnf identityProviderDetails `Prelude.seq`
+              Prelude.rnf loggingRole `Prelude.seq`
+                Prelude.rnf postAuthenticationLoginBanner `Prelude.seq`
+                  Prelude.rnf preAuthenticationLoginBanner `Prelude.seq`
+                    Prelude.rnf protocolDetails `Prelude.seq`
+                      Prelude.rnf protocols `Prelude.seq`
+                        Prelude.rnf securityPolicyName `Prelude.seq`
+                          Prelude.rnf workflowDetails `Prelude.seq`
+                            Prelude.rnf serverId
 
 instance Data.ToHeaders UpdateServer where
   toHeaders =
@@ -833,5 +833,5 @@ updateServerResponse_serverId = Lens.lens (\UpdateServerResponse' {serverId} -> 
 
 instance Prelude.NFData UpdateServerResponse where
   rnf UpdateServerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId

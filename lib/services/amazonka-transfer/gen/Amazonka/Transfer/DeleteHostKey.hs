@@ -104,8 +104,8 @@ instance Prelude.Hashable DeleteHostKey where
 
 instance Prelude.NFData DeleteHostKey where
   rnf DeleteHostKey' {..} =
-    Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf hostKeyId
+    Prelude.rnf serverId `Prelude.seq`
+      Prelude.rnf hostKeyId
 
 instance Data.ToHeaders DeleteHostKey where
   toHeaders =

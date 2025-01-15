@@ -118,8 +118,8 @@ instance Prelude.Hashable WorkflowDetails where
 
 instance Prelude.NFData WorkflowDetails where
   rnf WorkflowDetails' {..} =
-    Prelude.rnf onPartialUpload
-      `Prelude.seq` Prelude.rnf onUpload
+    Prelude.rnf onPartialUpload `Prelude.seq`
+      Prelude.rnf onUpload
 
 instance Data.ToJSON WorkflowDetails where
   toJSON WorkflowDetails' {..} =

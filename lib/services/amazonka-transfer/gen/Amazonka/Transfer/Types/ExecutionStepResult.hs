@@ -124,6 +124,6 @@ instance Prelude.Hashable ExecutionStepResult where
 
 instance Prelude.NFData ExecutionStepResult where
   rnf ExecutionStepResult' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf stepType
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf outputs `Prelude.seq`
+        Prelude.rnf stepType

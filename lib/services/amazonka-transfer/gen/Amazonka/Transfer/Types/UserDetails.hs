@@ -98,6 +98,6 @@ instance Prelude.Hashable UserDetails where
 
 instance Prelude.NFData UserDetails where
   rnf UserDetails' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf userName `Prelude.seq`
+        Prelude.rnf serverId

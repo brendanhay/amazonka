@@ -144,10 +144,10 @@ instance Prelude.Hashable ImportHostKey where
 
 instance Prelude.NFData ImportHostKey where
   rnf ImportHostKey' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf hostKeyBody
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf serverId `Prelude.seq`
+          Prelude.rnf hostKeyBody
 
 instance Data.ToHeaders ImportHostKey where
   toHeaders =
@@ -237,6 +237,6 @@ importHostKeyResponse_hostKeyId = Lens.lens (\ImportHostKeyResponse' {hostKeyId}
 
 instance Prelude.NFData ImportHostKeyResponse where
   rnf ImportHostKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf hostKeyId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId `Prelude.seq`
+        Prelude.rnf hostKeyId

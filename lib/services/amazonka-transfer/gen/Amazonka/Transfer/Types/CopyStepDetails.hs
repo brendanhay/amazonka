@@ -141,10 +141,10 @@ instance Prelude.Hashable CopyStepDetails where
 
 instance Prelude.NFData CopyStepDetails where
   rnf CopyStepDetails' {..} =
-    Prelude.rnf destinationFileLocation
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overwriteExisting
-      `Prelude.seq` Prelude.rnf sourceFileLocation
+    Prelude.rnf destinationFileLocation `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf overwriteExisting `Prelude.seq`
+          Prelude.rnf sourceFileLocation
 
 instance Data.ToJSON CopyStepDetails where
   toJSON CopyStepDetails' {..} =

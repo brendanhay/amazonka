@@ -184,5 +184,5 @@ instance
     DescribeSecurityPolicyResponse
   where
   rnf DescribeSecurityPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf securityPolicy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf securityPolicy

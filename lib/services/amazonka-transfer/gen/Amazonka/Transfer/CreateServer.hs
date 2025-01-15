@@ -803,21 +803,21 @@ instance Prelude.Hashable CreateServer where
 
 instance Prelude.NFData CreateServer where
   rnf CreateServer' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf endpointDetails
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf hostKey
-      `Prelude.seq` Prelude.rnf identityProviderDetails
-      `Prelude.seq` Prelude.rnf identityProviderType
-      `Prelude.seq` Prelude.rnf loggingRole
-      `Prelude.seq` Prelude.rnf postAuthenticationLoginBanner
-      `Prelude.seq` Prelude.rnf preAuthenticationLoginBanner
-      `Prelude.seq` Prelude.rnf protocolDetails
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf securityPolicyName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workflowDetails
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf endpointDetails `Prelude.seq`
+          Prelude.rnf endpointType `Prelude.seq`
+            Prelude.rnf hostKey `Prelude.seq`
+              Prelude.rnf identityProviderDetails `Prelude.seq`
+                Prelude.rnf identityProviderType `Prelude.seq`
+                  Prelude.rnf loggingRole `Prelude.seq`
+                    Prelude.rnf postAuthenticationLoginBanner `Prelude.seq`
+                      Prelude.rnf preAuthenticationLoginBanner `Prelude.seq`
+                        Prelude.rnf protocolDetails `Prelude.seq`
+                          Prelude.rnf protocols `Prelude.seq`
+                            Prelude.rnf securityPolicyName `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf workflowDetails
 
 instance Data.ToHeaders CreateServer where
   toHeaders =
@@ -912,5 +912,5 @@ createServerResponse_serverId = Lens.lens (\CreateServerResponse' {serverId} -> 
 
 instance Prelude.NFData CreateServerResponse where
   rnf CreateServerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId

@@ -118,6 +118,6 @@ instance Prelude.Hashable SshPublicKey where
 
 instance Prelude.NFData SshPublicKey where
   rnf SshPublicKey' {..} =
-    Prelude.rnf dateImported
-      `Prelude.seq` Prelude.rnf sshPublicKeyBody
-      `Prelude.seq` Prelude.rnf sshPublicKeyId
+    Prelude.rnf dateImported `Prelude.seq`
+      Prelude.rnf sshPublicKeyBody `Prelude.seq`
+        Prelude.rnf sshPublicKeyId

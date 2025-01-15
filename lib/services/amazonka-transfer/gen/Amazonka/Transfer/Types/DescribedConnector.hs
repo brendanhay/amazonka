@@ -179,10 +179,10 @@ instance Prelude.Hashable DescribedConnector where
 
 instance Prelude.NFData DescribedConnector where
   rnf DescribedConnector' {..} =
-    Prelude.rnf accessRole
-      `Prelude.seq` Prelude.rnf as2Config
-      `Prelude.seq` Prelude.rnf connectorId
-      `Prelude.seq` Prelude.rnf loggingRole
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf accessRole `Prelude.seq`
+      Prelude.rnf as2Config `Prelude.seq`
+        Prelude.rnf connectorId `Prelude.seq`
+          Prelude.rnf loggingRole `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf url `Prelude.seq`
+                Prelude.rnf arn

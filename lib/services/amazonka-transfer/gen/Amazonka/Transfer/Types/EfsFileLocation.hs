@@ -80,8 +80,8 @@ instance Prelude.Hashable EfsFileLocation where
 
 instance Prelude.NFData EfsFileLocation where
   rnf EfsFileLocation' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf path
 
 instance Data.ToJSON EfsFileLocation where
   toJSON EfsFileLocation' {..} =

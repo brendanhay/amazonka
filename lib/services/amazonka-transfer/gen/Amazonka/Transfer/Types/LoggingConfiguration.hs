@@ -93,5 +93,5 @@ instance Prelude.Hashable LoggingConfiguration where
 
 instance Prelude.NFData LoggingConfiguration where
   rnf LoggingConfiguration' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf loggingRole
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf loggingRole

@@ -124,12 +124,12 @@ instance Core.AWSPager ListAccesses where
         (rs Lens.^. listAccessesResponse_accesses) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccesses_nextToken
-          Lens..~ rs
-          Lens.^? listAccessesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccesses_nextToken
+              Lens..~ rs
+              Lens.^? listAccessesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccesses where
   type AWSResponse ListAccesses = ListAccessesResponse
@@ -154,9 +154,9 @@ instance Prelude.Hashable ListAccesses where
 
 instance Prelude.NFData ListAccesses where
   rnf ListAccesses' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serverId
 
 instance Data.ToHeaders ListAccesses where
   toHeaders =
@@ -264,7 +264,7 @@ listAccessesResponse_accesses = Lens.lens (\ListAccessesResponse' {accesses} -> 
 
 instance Prelude.NFData ListAccessesResponse where
   rnf ListAccessesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf accesses
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf serverId `Prelude.seq`
+          Prelude.rnf accesses

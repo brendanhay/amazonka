@@ -243,14 +243,14 @@ instance Prelude.Hashable CreateAgreement where
 
 instance Prelude.NFData CreateAgreement where
   rnf CreateAgreement' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf localProfileId
-      `Prelude.seq` Prelude.rnf partnerProfileId
-      `Prelude.seq` Prelude.rnf baseDirectory
-      `Prelude.seq` Prelude.rnf accessRole
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf serverId `Prelude.seq`
+            Prelude.rnf localProfileId `Prelude.seq`
+              Prelude.rnf partnerProfileId `Prelude.seq`
+                Prelude.rnf baseDirectory `Prelude.seq`
+                  Prelude.rnf accessRole
 
 instance Data.ToHeaders CreateAgreement where
   toHeaders =
@@ -338,5 +338,5 @@ createAgreementResponse_agreementId = Lens.lens (\CreateAgreementResponse' {agre
 
 instance Prelude.NFData CreateAgreementResponse where
   rnf CreateAgreementResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf agreementId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf agreementId

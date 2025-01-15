@@ -142,10 +142,10 @@ instance Prelude.Hashable ListedAgreement where
 
 instance Prelude.NFData ListedAgreement where
   rnf ListedAgreement' {..} =
-    Prelude.rnf agreementId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf localProfileId
-      `Prelude.seq` Prelude.rnf partnerProfileId
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf agreementId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf localProfileId `Prelude.seq`
+            Prelude.rnf partnerProfileId `Prelude.seq`
+              Prelude.rnf serverId `Prelude.seq`
+                Prelude.rnf status

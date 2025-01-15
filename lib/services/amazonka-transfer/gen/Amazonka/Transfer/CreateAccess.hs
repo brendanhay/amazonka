@@ -386,14 +386,14 @@ instance Prelude.Hashable CreateAccess where
 
 instance Prelude.NFData CreateAccess where
   rnf CreateAccess' {..} =
-    Prelude.rnf homeDirectory
-      `Prelude.seq` Prelude.rnf homeDirectoryMappings
-      `Prelude.seq` Prelude.rnf homeDirectoryType
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf posixProfile
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf externalId
+    Prelude.rnf homeDirectory `Prelude.seq`
+      Prelude.rnf homeDirectoryMappings `Prelude.seq`
+        Prelude.rnf homeDirectoryType `Prelude.seq`
+          Prelude.rnf policy `Prelude.seq`
+            Prelude.rnf posixProfile `Prelude.seq`
+              Prelude.rnf role' `Prelude.seq`
+                Prelude.rnf serverId `Prelude.seq`
+                  Prelude.rnf externalId
 
 instance Data.ToHeaders CreateAccess where
   toHeaders =
@@ -495,6 +495,6 @@ createAccessResponse_externalId = Lens.lens (\CreateAccessResponse' {externalId}
 
 instance Prelude.NFData CreateAccessResponse where
   rnf CreateAccessResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf externalId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId `Prelude.seq`
+        Prelude.rnf externalId

@@ -124,7 +124,7 @@ instance Prelude.Hashable ListedProfile where
 
 instance Prelude.NFData ListedProfile where
   rnf ListedProfile' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf as2Id
-      `Prelude.seq` Prelude.rnf profileId
-      `Prelude.seq` Prelude.rnf profileType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf as2Id `Prelude.seq`
+        Prelude.rnf profileId `Prelude.seq`
+          Prelude.rnf profileType

@@ -146,9 +146,9 @@ instance Prelude.Hashable DescribedSecurityPolicy where
 
 instance Prelude.NFData DescribedSecurityPolicy where
   rnf DescribedSecurityPolicy' {..} =
-    Prelude.rnf fips
-      `Prelude.seq` Prelude.rnf sshCiphers
-      `Prelude.seq` Prelude.rnf sshKexs
-      `Prelude.seq` Prelude.rnf sshMacs
-      `Prelude.seq` Prelude.rnf tlsCiphers
-      `Prelude.seq` Prelude.rnf securityPolicyName
+    Prelude.rnf fips `Prelude.seq`
+      Prelude.rnf sshCiphers `Prelude.seq`
+        Prelude.rnf sshKexs `Prelude.seq`
+          Prelude.rnf sshMacs `Prelude.seq`
+            Prelude.rnf tlsCiphers `Prelude.seq`
+              Prelude.rnf securityPolicyName

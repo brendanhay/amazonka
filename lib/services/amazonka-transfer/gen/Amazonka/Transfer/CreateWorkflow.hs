@@ -201,10 +201,10 @@ instance Prelude.Hashable CreateWorkflow where
 
 instance Prelude.NFData CreateWorkflow where
   rnf CreateWorkflow' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf onExceptionSteps
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf steps
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf onExceptionSteps `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf steps
 
 instance Data.ToHeaders CreateWorkflow where
   toHeaders =
@@ -281,5 +281,5 @@ createWorkflowResponse_workflowId = Lens.lens (\CreateWorkflowResponse' {workflo
 
 instance Prelude.NFData CreateWorkflowResponse where
   rnf CreateWorkflowResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workflowId

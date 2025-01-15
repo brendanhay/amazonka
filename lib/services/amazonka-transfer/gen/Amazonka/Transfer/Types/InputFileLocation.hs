@@ -84,8 +84,8 @@ instance Prelude.Hashable InputFileLocation where
 
 instance Prelude.NFData InputFileLocation where
   rnf InputFileLocation' {..} =
-    Prelude.rnf efsFileLocation
-      `Prelude.seq` Prelude.rnf s3FileLocation
+    Prelude.rnf efsFileLocation `Prelude.seq`
+      Prelude.rnf s3FileLocation
 
 instance Data.ToJSON InputFileLocation where
   toJSON InputFileLocation' {..} =

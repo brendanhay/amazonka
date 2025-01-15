@@ -192,12 +192,12 @@ instance Prelude.Hashable WorkflowStep where
 
 instance Prelude.NFData WorkflowStep where
   rnf WorkflowStep' {..} =
-    Prelude.rnf copyStepDetails
-      `Prelude.seq` Prelude.rnf customStepDetails
-      `Prelude.seq` Prelude.rnf decryptStepDetails
-      `Prelude.seq` Prelude.rnf deleteStepDetails
-      `Prelude.seq` Prelude.rnf tagStepDetails
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf copyStepDetails `Prelude.seq`
+      Prelude.rnf customStepDetails `Prelude.seq`
+        Prelude.rnf decryptStepDetails `Prelude.seq`
+          Prelude.rnf deleteStepDetails `Prelude.seq`
+            Prelude.rnf tagStepDetails `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON WorkflowStep where
   toJSON WorkflowStep' {..} =

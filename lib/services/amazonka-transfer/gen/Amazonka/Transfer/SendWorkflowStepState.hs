@@ -145,10 +145,10 @@ instance Prelude.Hashable SendWorkflowStepState where
 
 instance Prelude.NFData SendWorkflowStepState where
   rnf SendWorkflowStepState' {..} =
-    Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf workflowId `Prelude.seq`
+      Prelude.rnf executionId `Prelude.seq`
+        Prelude.rnf token `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders SendWorkflowStepState where
   toHeaders =

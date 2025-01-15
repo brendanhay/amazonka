@@ -380,14 +380,14 @@ instance Prelude.Hashable UpdateAccess where
 
 instance Prelude.NFData UpdateAccess where
   rnf UpdateAccess' {..} =
-    Prelude.rnf homeDirectory
-      `Prelude.seq` Prelude.rnf homeDirectoryMappings
-      `Prelude.seq` Prelude.rnf homeDirectoryType
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf posixProfile
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf externalId
+    Prelude.rnf homeDirectory `Prelude.seq`
+      Prelude.rnf homeDirectoryMappings `Prelude.seq`
+        Prelude.rnf homeDirectoryType `Prelude.seq`
+          Prelude.rnf policy `Prelude.seq`
+            Prelude.rnf posixProfile `Prelude.seq`
+              Prelude.rnf role' `Prelude.seq`
+                Prelude.rnf serverId `Prelude.seq`
+                  Prelude.rnf externalId
 
 instance Data.ToHeaders UpdateAccess where
   toHeaders =
@@ -489,6 +489,6 @@ updateAccessResponse_externalId = Lens.lens (\UpdateAccessResponse' {externalId}
 
 instance Prelude.NFData UpdateAccessResponse where
   rnf UpdateAccessResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf externalId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId `Prelude.seq`
+        Prelude.rnf externalId

@@ -182,11 +182,11 @@ instance Prelude.Hashable UpdateConnector where
 
 instance Prelude.NFData UpdateConnector where
   rnf UpdateConnector' {..} =
-    Prelude.rnf accessRole
-      `Prelude.seq` Prelude.rnf as2Config
-      `Prelude.seq` Prelude.rnf loggingRole
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf connectorId
+    Prelude.rnf accessRole `Prelude.seq`
+      Prelude.rnf as2Config `Prelude.seq`
+        Prelude.rnf loggingRole `Prelude.seq`
+          Prelude.rnf url `Prelude.seq`
+            Prelude.rnf connectorId
 
 instance Data.ToHeaders UpdateConnector where
   toHeaders =
@@ -263,5 +263,5 @@ updateConnectorResponse_connectorId = Lens.lens (\UpdateConnectorResponse' {conn
 
 instance Prelude.NFData UpdateConnectorResponse where
   rnf UpdateConnectorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf connectorId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf connectorId

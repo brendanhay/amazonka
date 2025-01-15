@@ -157,11 +157,11 @@ instance Prelude.Hashable CreateTable where
 
 instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
-    Prelude.rnf magneticStoreWriteProperties
-      `Prelude.seq` Prelude.rnf retentionProperties
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf magneticStoreWriteProperties `Prelude.seq`
+      Prelude.rnf retentionProperties `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf tableName
 
 instance Data.ToHeaders CreateTable where
   toHeaders =
@@ -238,5 +238,5 @@ createTableResponse_httpStatus = Lens.lens (\CreateTableResponse' {httpStatus} -
 
 instance Prelude.NFData CreateTableResponse where
   rnf CreateTableResponse' {..} =
-    Prelude.rnf table
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf table `Prelude.seq`
+      Prelude.rnf httpStatus

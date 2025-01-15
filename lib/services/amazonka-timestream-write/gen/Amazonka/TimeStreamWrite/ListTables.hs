@@ -132,9 +132,9 @@ instance Prelude.Hashable ListTables where
 
 instance Prelude.NFData ListTables where
   rnf ListTables' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTables where
   toHeaders =
@@ -219,6 +219,6 @@ listTablesResponse_httpStatus = Lens.lens (\ListTablesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTablesResponse where
   rnf ListTablesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tables
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tables `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -89,8 +89,8 @@ instance Prelude.Hashable RetentionProperties where
 
 instance Prelude.NFData RetentionProperties where
   rnf RetentionProperties' {..} =
-    Prelude.rnf memoryStoreRetentionPeriodInHours
-      `Prelude.seq` Prelude.rnf magneticStoreRetentionPeriodInDays
+    Prelude.rnf memoryStoreRetentionPeriodInHours `Prelude.seq`
+      Prelude.rnf magneticStoreRetentionPeriodInDays
 
 instance Data.ToJSON RetentionProperties where
   toJSON RetentionProperties' {..} =

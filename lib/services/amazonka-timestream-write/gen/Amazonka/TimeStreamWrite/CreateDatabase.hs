@@ -139,9 +139,9 @@ instance Prelude.Hashable CreateDatabase where
 
 instance Prelude.NFData CreateDatabase where
   rnf CreateDatabase' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf databaseName
 
 instance Data.ToHeaders CreateDatabase where
   toHeaders =
@@ -214,5 +214,5 @@ createDatabaseResponse_httpStatus = Lens.lens (\CreateDatabaseResponse' {httpSta
 
 instance Prelude.NFData CreateDatabaseResponse where
   rnf CreateDatabaseResponse' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf database `Prelude.seq`
+      Prelude.rnf httpStatus

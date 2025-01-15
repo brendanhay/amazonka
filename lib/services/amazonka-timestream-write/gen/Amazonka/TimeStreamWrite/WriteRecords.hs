@@ -198,10 +198,10 @@ instance Prelude.Hashable WriteRecords where
 
 instance Prelude.NFData WriteRecords where
   rnf WriteRecords' {..} =
-    Prelude.rnf commonAttributes
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf records
+    Prelude.rnf commonAttributes `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf records
 
 instance Data.ToHeaders WriteRecords where
   toHeaders =
@@ -277,5 +277,5 @@ writeRecordsResponse_httpStatus = Lens.lens (\WriteRecordsResponse' {httpStatus}
 
 instance Prelude.NFData WriteRecordsResponse where
   rnf WriteRecordsResponse' {..} =
-    Prelude.rnf recordsIngested
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recordsIngested `Prelude.seq`
+      Prelude.rnf httpStatus

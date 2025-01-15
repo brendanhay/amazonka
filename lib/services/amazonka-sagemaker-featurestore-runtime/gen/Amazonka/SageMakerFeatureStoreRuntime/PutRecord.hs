@@ -140,9 +140,9 @@ instance Prelude.Hashable PutRecord where
 
 instance Prelude.NFData PutRecord where
   rnf PutRecord' {..} =
-    Prelude.rnf targetStores
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf record
+    Prelude.rnf targetStores `Prelude.seq`
+      Prelude.rnf featureGroupName `Prelude.seq`
+        Prelude.rnf record
 
 instance Data.ToHeaders PutRecord where
   toHeaders =

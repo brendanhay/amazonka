@@ -103,6 +103,6 @@ instance Prelude.Hashable BatchGetRecordResultDetail where
 
 instance Prelude.NFData BatchGetRecordResultDetail where
   rnf BatchGetRecordResultDetail' {..} =
-    Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf recordIdentifierValueAsString
-      `Prelude.seq` Prelude.rnf record
+    Prelude.rnf featureGroupName `Prelude.seq`
+      Prelude.rnf recordIdentifierValueAsString `Prelude.seq`
+        Prelude.rnf record

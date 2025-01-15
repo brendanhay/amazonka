@@ -118,12 +118,12 @@ instance Core.AWSPager ListMemberAccounts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMemberAccounts_nextToken
-          Lens..~ rs
-          Lens.^? listMemberAccountsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMemberAccounts_nextToken
+              Lens..~ rs
+              Lens.^? listMemberAccountsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMemberAccounts where
   type
@@ -148,8 +148,8 @@ instance Prelude.Hashable ListMemberAccounts where
 
 instance Prelude.NFData ListMemberAccounts where
   rnf ListMemberAccounts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMemberAccounts where
   toHeaders =
@@ -246,6 +246,6 @@ listMemberAccountsResponse_httpStatus = Lens.lens (\ListMemberAccountsResponse' 
 
 instance Prelude.NFData ListMemberAccountsResponse where
   rnf ListMemberAccountsResponse' {..} =
-    Prelude.rnf memberAccounts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf memberAccounts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

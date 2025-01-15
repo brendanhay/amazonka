@@ -92,6 +92,6 @@ instance Prelude.Hashable FailedS3Resource where
 
 instance Prelude.NFData FailedS3Resource where
   rnf FailedS3Resource' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf failedItem
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf failedItem

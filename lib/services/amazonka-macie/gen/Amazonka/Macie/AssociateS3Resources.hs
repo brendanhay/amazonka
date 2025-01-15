@@ -121,8 +121,8 @@ instance Prelude.Hashable AssociateS3Resources where
 
 instance Prelude.NFData AssociateS3Resources where
   rnf AssociateS3Resources' {..} =
-    Prelude.rnf memberAccountId
-      `Prelude.seq` Prelude.rnf s3Resources
+    Prelude.rnf memberAccountId `Prelude.seq`
+      Prelude.rnf s3Resources
 
 instance Data.ToHeaders AssociateS3Resources where
   toHeaders =
@@ -202,5 +202,5 @@ associateS3ResourcesResponse_httpStatus = Lens.lens (\AssociateS3ResourcesRespon
 
 instance Prelude.NFData AssociateS3ResourcesResponse where
   rnf AssociateS3ResourcesResponse' {..} =
-    Prelude.rnf failedS3Resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedS3Resources `Prelude.seq`
+      Prelude.rnf httpStatus

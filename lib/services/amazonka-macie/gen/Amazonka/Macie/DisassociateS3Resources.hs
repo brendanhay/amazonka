@@ -121,8 +121,8 @@ instance Prelude.Hashable DisassociateS3Resources where
 
 instance Prelude.NFData DisassociateS3Resources where
   rnf DisassociateS3Resources' {..} =
-    Prelude.rnf memberAccountId
-      `Prelude.seq` Prelude.rnf associatedS3Resources
+    Prelude.rnf memberAccountId `Prelude.seq`
+      Prelude.rnf associatedS3Resources
 
 instance Data.ToHeaders DisassociateS3Resources where
   toHeaders =
@@ -208,5 +208,5 @@ instance
     DisassociateS3ResourcesResponse
   where
   rnf DisassociateS3ResourcesResponse' {..} =
-    Prelude.rnf failedS3Resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedS3Resources `Prelude.seq`
+      Prelude.rnf httpStatus

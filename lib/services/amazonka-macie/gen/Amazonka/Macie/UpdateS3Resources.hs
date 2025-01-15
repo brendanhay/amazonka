@@ -125,8 +125,8 @@ instance Prelude.Hashable UpdateS3Resources where
 
 instance Prelude.NFData UpdateS3Resources where
   rnf UpdateS3Resources' {..} =
-    Prelude.rnf memberAccountId
-      `Prelude.seq` Prelude.rnf s3ResourcesUpdate
+    Prelude.rnf memberAccountId `Prelude.seq`
+      Prelude.rnf s3ResourcesUpdate
 
 instance Data.ToHeaders UpdateS3Resources where
   toHeaders =
@@ -207,5 +207,5 @@ updateS3ResourcesResponse_httpStatus = Lens.lens (\UpdateS3ResourcesResponse' {h
 
 instance Prelude.NFData UpdateS3ResourcesResponse where
   rnf UpdateS3ResourcesResponse' {..} =
-    Prelude.rnf failedS3Resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedS3Resources `Prelude.seq`
+      Prelude.rnf httpStatus

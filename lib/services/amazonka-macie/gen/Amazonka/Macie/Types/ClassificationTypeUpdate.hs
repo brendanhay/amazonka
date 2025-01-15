@@ -87,8 +87,8 @@ instance Prelude.Hashable ClassificationTypeUpdate where
 
 instance Prelude.NFData ClassificationTypeUpdate where
   rnf ClassificationTypeUpdate' {..} =
-    Prelude.rnf continuous
-      `Prelude.seq` Prelude.rnf oneTime
+    Prelude.rnf continuous `Prelude.seq`
+      Prelude.rnf oneTime
 
 instance Data.ToJSON ClassificationTypeUpdate where
   toJSON ClassificationTypeUpdate' {..} =

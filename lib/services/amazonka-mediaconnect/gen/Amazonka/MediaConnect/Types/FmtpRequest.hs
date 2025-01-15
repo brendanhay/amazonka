@@ -133,13 +133,13 @@ instance Prelude.Hashable FmtpRequest where
 
 instance Prelude.NFData FmtpRequest where
   rnf FmtpRequest' {..} =
-    Prelude.rnf channelOrder
-      `Prelude.seq` Prelude.rnf colorimetry
-      `Prelude.seq` Prelude.rnf exactFramerate
-      `Prelude.seq` Prelude.rnf par
-      `Prelude.seq` Prelude.rnf range
-      `Prelude.seq` Prelude.rnf scanMode
-      `Prelude.seq` Prelude.rnf tcs
+    Prelude.rnf channelOrder `Prelude.seq`
+      Prelude.rnf colorimetry `Prelude.seq`
+        Prelude.rnf exactFramerate `Prelude.seq`
+          Prelude.rnf par `Prelude.seq`
+            Prelude.rnf range `Prelude.seq`
+              Prelude.rnf scanMode `Prelude.seq`
+                Prelude.rnf tcs
 
 instance Data.ToJSON FmtpRequest where
   toJSON FmtpRequest' {..} =

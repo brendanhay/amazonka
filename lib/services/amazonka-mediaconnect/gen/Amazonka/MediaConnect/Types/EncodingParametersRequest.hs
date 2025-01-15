@@ -104,8 +104,8 @@ instance Prelude.Hashable EncodingParametersRequest where
 
 instance Prelude.NFData EncodingParametersRequest where
   rnf EncodingParametersRequest' {..} =
-    Prelude.rnf encoderProfile
-      `Prelude.seq` Prelude.rnf compressionFactor
+    Prelude.rnf encoderProfile `Prelude.seq`
+      Prelude.rnf compressionFactor
 
 instance Data.ToJSON EncodingParametersRequest where
   toJSON EncodingParametersRequest' {..} =

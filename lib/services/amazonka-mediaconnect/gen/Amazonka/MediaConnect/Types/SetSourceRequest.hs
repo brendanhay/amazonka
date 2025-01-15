@@ -281,24 +281,24 @@ instance Prelude.Hashable SetSourceRequest where
 
 instance Prelude.NFData SetSourceRequest where
   rnf SetSourceRequest' {..} =
-    Prelude.rnf decryption
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf entitlementArn
-      `Prelude.seq` Prelude.rnf ingestPort
-      `Prelude.seq` Prelude.rnf maxBitrate
-      `Prelude.seq` Prelude.rnf maxLatency
-      `Prelude.seq` Prelude.rnf maxSyncBuffer
-      `Prelude.seq` Prelude.rnf mediaStreamSourceConfigurations
-      `Prelude.seq` Prelude.rnf minLatency
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf senderControlPort
-      `Prelude.seq` Prelude.rnf senderIpAddress
-      `Prelude.seq` Prelude.rnf sourceListenerAddress
-      `Prelude.seq` Prelude.rnf sourceListenerPort
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf vpcInterfaceName
-      `Prelude.seq` Prelude.rnf whitelistCidr
+    Prelude.rnf decryption `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf entitlementArn `Prelude.seq`
+          Prelude.rnf ingestPort `Prelude.seq`
+            Prelude.rnf maxBitrate `Prelude.seq`
+              Prelude.rnf maxLatency `Prelude.seq`
+                Prelude.rnf maxSyncBuffer `Prelude.seq`
+                  Prelude.rnf mediaStreamSourceConfigurations `Prelude.seq`
+                    Prelude.rnf minLatency `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf protocol `Prelude.seq`
+                          Prelude.rnf senderControlPort `Prelude.seq`
+                            Prelude.rnf senderIpAddress `Prelude.seq`
+                              Prelude.rnf sourceListenerAddress `Prelude.seq`
+                                Prelude.rnf sourceListenerPort `Prelude.seq`
+                                  Prelude.rnf streamId `Prelude.seq`
+                                    Prelude.rnf vpcInterfaceName `Prelude.seq`
+                                      Prelude.rnf whitelistCidr
 
 instance Data.ToJSON SetSourceRequest where
   toJSON SetSourceRequest' {..} =

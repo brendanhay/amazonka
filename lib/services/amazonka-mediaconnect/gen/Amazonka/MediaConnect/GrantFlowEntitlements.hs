@@ -112,8 +112,8 @@ instance Prelude.Hashable GrantFlowEntitlements where
 
 instance Prelude.NFData GrantFlowEntitlements where
   rnf GrantFlowEntitlements' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf entitlements
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf entitlements
 
 instance Data.ToHeaders GrantFlowEntitlements where
   toHeaders =
@@ -191,6 +191,6 @@ grantFlowEntitlementsResponse_httpStatus = Lens.lens (\GrantFlowEntitlementsResp
 
 instance Prelude.NFData GrantFlowEntitlementsResponse where
   rnf GrantFlowEntitlementsResponse' {..} =
-    Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitlements `Prelude.seq`
+      Prelude.rnf flowArn `Prelude.seq`
+        Prelude.rnf httpStatus

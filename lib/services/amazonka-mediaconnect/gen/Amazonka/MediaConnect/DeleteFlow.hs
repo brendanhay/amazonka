@@ -162,6 +162,6 @@ deleteFlowResponse_httpStatus = Lens.lens (\DeleteFlowResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteFlowResponse where
   rnf DeleteFlowResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

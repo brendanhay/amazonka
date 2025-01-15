@@ -123,8 +123,8 @@ instance Prelude.Hashable RemoveFlowVpcInterface where
 
 instance Prelude.NFData RemoveFlowVpcInterface where
   rnf RemoveFlowVpcInterface' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf vpcInterfaceName
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf vpcInterfaceName
 
 instance Data.ToHeaders RemoveFlowVpcInterface where
   toHeaders =
@@ -218,7 +218,7 @@ instance
     RemoveFlowVpcInterfaceResponse
   where
   rnf RemoveFlowVpcInterfaceResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf nonDeletedNetworkInterfaceIds
-      `Prelude.seq` Prelude.rnf vpcInterfaceName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf nonDeletedNetworkInterfaceIds `Prelude.seq`
+        Prelude.rnf vpcInterfaceName `Prelude.seq`
+          Prelude.rnf httpStatus

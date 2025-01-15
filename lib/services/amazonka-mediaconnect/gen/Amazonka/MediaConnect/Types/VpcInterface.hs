@@ -150,9 +150,9 @@ instance Prelude.Hashable VpcInterface where
 
 instance Prelude.NFData VpcInterface where
   rnf VpcInterface' {..} =
-    Prelude.rnf networkInterfaceType
-      `Prelude.seq` Prelude.rnf networkInterfaceIds
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf networkInterfaceType `Prelude.seq`
+      Prelude.rnf networkInterfaceIds `Prelude.seq`
+        Prelude.rnf subnetId `Prelude.seq`
+          Prelude.rnf securityGroupIds `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf name

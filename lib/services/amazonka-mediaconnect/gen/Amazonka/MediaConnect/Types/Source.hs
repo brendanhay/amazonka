@@ -253,17 +253,17 @@ instance Prelude.Hashable Source where
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
-    Prelude.rnf dataTransferSubscriberFeePercent
-      `Prelude.seq` Prelude.rnf decryption
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf entitlementArn
-      `Prelude.seq` Prelude.rnf ingestIp
-      `Prelude.seq` Prelude.rnf ingestPort
-      `Prelude.seq` Prelude.rnf mediaStreamSourceConfigurations
-      `Prelude.seq` Prelude.rnf senderControlPort
-      `Prelude.seq` Prelude.rnf senderIpAddress
-      `Prelude.seq` Prelude.rnf transport
-      `Prelude.seq` Prelude.rnf vpcInterfaceName
-      `Prelude.seq` Prelude.rnf whitelistCidr
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dataTransferSubscriberFeePercent `Prelude.seq`
+      Prelude.rnf decryption `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf entitlementArn `Prelude.seq`
+            Prelude.rnf ingestIp `Prelude.seq`
+              Prelude.rnf ingestPort `Prelude.seq`
+                Prelude.rnf mediaStreamSourceConfigurations `Prelude.seq`
+                  Prelude.rnf senderControlPort `Prelude.seq`
+                    Prelude.rnf senderIpAddress `Prelude.seq`
+                      Prelude.rnf transport `Prelude.seq`
+                        Prelude.rnf vpcInterfaceName `Prelude.seq`
+                          Prelude.rnf whitelistCidr `Prelude.seq`
+                            Prelude.rnf sourceArn `Prelude.seq`
+                              Prelude.rnf name

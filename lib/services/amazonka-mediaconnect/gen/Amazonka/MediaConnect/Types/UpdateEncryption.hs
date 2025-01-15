@@ -193,15 +193,15 @@ instance Prelude.Hashable UpdateEncryption where
 
 instance Prelude.NFData UpdateEncryption where
   rnf UpdateEncryption' {..} =
-    Prelude.rnf algorithm
-      `Prelude.seq` Prelude.rnf constantInitializationVector
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf keyType
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf algorithm `Prelude.seq`
+      Prelude.rnf constantInitializationVector `Prelude.seq`
+        Prelude.rnf deviceId `Prelude.seq`
+          Prelude.rnf keyType `Prelude.seq`
+            Prelude.rnf region `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf secretArn `Prelude.seq`
+                    Prelude.rnf url
 
 instance Data.ToJSON UpdateEncryption where
   toJSON UpdateEncryption' {..} =

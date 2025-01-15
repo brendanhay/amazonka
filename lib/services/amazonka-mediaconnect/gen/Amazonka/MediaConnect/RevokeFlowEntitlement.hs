@@ -114,8 +114,8 @@ instance Prelude.Hashable RevokeFlowEntitlement where
 
 instance Prelude.NFData RevokeFlowEntitlement where
   rnf RevokeFlowEntitlement' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf entitlementArn
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf entitlementArn
 
 instance Data.ToHeaders RevokeFlowEntitlement where
   toHeaders =
@@ -190,6 +190,6 @@ revokeFlowEntitlementResponse_httpStatus = Lens.lens (\RevokeFlowEntitlementResp
 
 instance Prelude.NFData RevokeFlowEntitlementResponse where
   rnf RevokeFlowEntitlementResponse' {..} =
-    Prelude.rnf entitlementArn
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitlementArn `Prelude.seq`
+      Prelude.rnf flowArn `Prelude.seq`
+        Prelude.rnf httpStatus

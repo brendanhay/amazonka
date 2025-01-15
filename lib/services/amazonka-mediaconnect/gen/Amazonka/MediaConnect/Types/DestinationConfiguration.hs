@@ -132,7 +132,7 @@ instance Prelude.Hashable DestinationConfiguration where
 
 instance Prelude.NFData DestinationConfiguration where
   rnf DestinationConfiguration' {..} =
-    Prelude.rnf destinationIp
-      `Prelude.seq` Prelude.rnf destinationPort
-      `Prelude.seq` Prelude.rnf interface
-      `Prelude.seq` Prelude.rnf outboundIp
+    Prelude.rnf destinationIp `Prelude.seq`
+      Prelude.rnf destinationPort `Prelude.seq`
+        Prelude.rnf interface `Prelude.seq`
+          Prelude.rnf outboundIp

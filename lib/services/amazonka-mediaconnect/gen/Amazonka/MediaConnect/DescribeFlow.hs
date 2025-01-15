@@ -162,6 +162,6 @@ describeFlowResponse_httpStatus = Lens.lens (\DescribeFlowResponse' {httpStatus}
 
 instance Prelude.NFData DescribeFlowResponse where
   rnf DescribeFlowResponse' {..} =
-    Prelude.rnf flow
-      `Prelude.seq` Prelude.rnf messages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flow `Prelude.seq`
+      Prelude.rnf messages `Prelude.seq`
+        Prelude.rnf httpStatus

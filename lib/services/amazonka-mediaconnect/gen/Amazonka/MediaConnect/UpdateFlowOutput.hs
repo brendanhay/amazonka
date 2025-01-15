@@ -321,23 +321,23 @@ instance Prelude.Hashable UpdateFlowOutput where
 
 instance Prelude.NFData UpdateFlowOutput where
   rnf UpdateFlowOutput' {..} =
-    Prelude.rnf cidrAllowList
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf maxLatency
-      `Prelude.seq` Prelude.rnf mediaStreamOutputConfigurations
-      `Prelude.seq` Prelude.rnf minLatency
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf remoteId
-      `Prelude.seq` Prelude.rnf senderControlPort
-      `Prelude.seq` Prelude.rnf senderIpAddress
-      `Prelude.seq` Prelude.rnf smoothingLatency
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf outputArn
+    Prelude.rnf cidrAllowList `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf encryption `Prelude.seq`
+            Prelude.rnf maxLatency `Prelude.seq`
+              Prelude.rnf mediaStreamOutputConfigurations `Prelude.seq`
+                Prelude.rnf minLatency `Prelude.seq`
+                  Prelude.rnf port `Prelude.seq`
+                    Prelude.rnf protocol `Prelude.seq`
+                      Prelude.rnf remoteId `Prelude.seq`
+                        Prelude.rnf senderControlPort `Prelude.seq`
+                          Prelude.rnf senderIpAddress `Prelude.seq`
+                            Prelude.rnf smoothingLatency `Prelude.seq`
+                              Prelude.rnf streamId `Prelude.seq`
+                                Prelude.rnf vpcInterfaceAttachment `Prelude.seq`
+                                  Prelude.rnf flowArn `Prelude.seq`
+                                    Prelude.rnf outputArn
 
 instance Data.ToHeaders UpdateFlowOutput where
   toHeaders =
@@ -439,6 +439,6 @@ updateFlowOutputResponse_httpStatus = Lens.lens (\UpdateFlowOutputResponse' {htt
 
 instance Prelude.NFData UpdateFlowOutputResponse where
   rnf UpdateFlowOutputResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf output `Prelude.seq`
+        Prelude.rnf httpStatus

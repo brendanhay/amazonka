@@ -154,10 +154,10 @@ instance Prelude.Hashable Entitlement where
 
 instance Prelude.NFData Entitlement where
   rnf Entitlement' {..} =
-    Prelude.rnf dataTransferSubscriberFeePercent
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf entitlementStatus
-      `Prelude.seq` Prelude.rnf entitlementArn
-      `Prelude.seq` Prelude.rnf subscribers
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dataTransferSubscriberFeePercent `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf encryption `Prelude.seq`
+          Prelude.rnf entitlementStatus `Prelude.seq`
+            Prelude.rnf entitlementArn `Prelude.seq`
+              Prelude.rnf subscribers `Prelude.seq`
+                Prelude.rnf name

@@ -127,10 +127,10 @@ instance
     MediaStreamOutputConfigurationRequest
   where
   rnf MediaStreamOutputConfigurationRequest' {..} =
-    Prelude.rnf destinationConfigurations
-      `Prelude.seq` Prelude.rnf encodingParameters
-      `Prelude.seq` Prelude.rnf mediaStreamName
-      `Prelude.seq` Prelude.rnf encodingName
+    Prelude.rnf destinationConfigurations `Prelude.seq`
+      Prelude.rnf encodingParameters `Prelude.seq`
+        Prelude.rnf mediaStreamName `Prelude.seq`
+          Prelude.rnf encodingName
 
 instance
   Data.ToJSON

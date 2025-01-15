@@ -141,13 +141,13 @@ instance Prelude.Hashable AddMediaStreamRequest where
 
 instance Prelude.NFData AddMediaStreamRequest where
   rnf AddMediaStreamRequest' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf clockRate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf videoFormat
-      `Prelude.seq` Prelude.rnf mediaStreamType
-      `Prelude.seq` Prelude.rnf mediaStreamId
-      `Prelude.seq` Prelude.rnf mediaStreamName
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf clockRate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf videoFormat `Prelude.seq`
+            Prelude.rnf mediaStreamType `Prelude.seq`
+              Prelude.rnf mediaStreamId `Prelude.seq`
+                Prelude.rnf mediaStreamName
 
 instance Data.ToJSON AddMediaStreamRequest where
   toJSON AddMediaStreamRequest' {..} =

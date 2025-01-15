@@ -241,16 +241,16 @@ instance Prelude.Hashable Transport where
 
 instance Prelude.NFData Transport where
   rnf Transport' {..} =
-    Prelude.rnf cidrAllowList
-      `Prelude.seq` Prelude.rnf maxBitrate
-      `Prelude.seq` Prelude.rnf maxLatency
-      `Prelude.seq` Prelude.rnf maxSyncBuffer
-      `Prelude.seq` Prelude.rnf minLatency
-      `Prelude.seq` Prelude.rnf remoteId
-      `Prelude.seq` Prelude.rnf senderControlPort
-      `Prelude.seq` Prelude.rnf senderIpAddress
-      `Prelude.seq` Prelude.rnf smoothingLatency
-      `Prelude.seq` Prelude.rnf sourceListenerAddress
-      `Prelude.seq` Prelude.rnf sourceListenerPort
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf cidrAllowList `Prelude.seq`
+      Prelude.rnf maxBitrate `Prelude.seq`
+        Prelude.rnf maxLatency `Prelude.seq`
+          Prelude.rnf maxSyncBuffer `Prelude.seq`
+            Prelude.rnf minLatency `Prelude.seq`
+              Prelude.rnf remoteId `Prelude.seq`
+                Prelude.rnf senderControlPort `Prelude.seq`
+                  Prelude.rnf senderIpAddress `Prelude.seq`
+                    Prelude.rnf smoothingLatency `Prelude.seq`
+                      Prelude.rnf sourceListenerAddress `Prelude.seq`
+                        Prelude.rnf sourceListenerPort `Prelude.seq`
+                          Prelude.rnf streamId `Prelude.seq`
+                            Prelude.rnf protocol

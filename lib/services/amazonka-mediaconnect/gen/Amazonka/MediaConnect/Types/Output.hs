@@ -246,16 +246,16 @@ instance Prelude.Hashable Output where
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf dataTransferSubscriberFeePercent
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf entitlementArn
-      `Prelude.seq` Prelude.rnf listenerAddress
-      `Prelude.seq` Prelude.rnf mediaLiveInputArn
-      `Prelude.seq` Prelude.rnf mediaStreamOutputConfigurations
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf transport
-      `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
-      `Prelude.seq` Prelude.rnf outputArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dataTransferSubscriberFeePercent `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf encryption `Prelude.seq`
+            Prelude.rnf entitlementArn `Prelude.seq`
+              Prelude.rnf listenerAddress `Prelude.seq`
+                Prelude.rnf mediaLiveInputArn `Prelude.seq`
+                  Prelude.rnf mediaStreamOutputConfigurations `Prelude.seq`
+                    Prelude.rnf port `Prelude.seq`
+                      Prelude.rnf transport `Prelude.seq`
+                        Prelude.rnf vpcInterfaceAttachment `Prelude.seq`
+                          Prelude.rnf outputArn `Prelude.seq`
+                            Prelude.rnf name

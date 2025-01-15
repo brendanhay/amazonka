@@ -143,12 +143,12 @@ instance Prelude.Hashable GrantEntitlementRequest where
 
 instance Prelude.NFData GrantEntitlementRequest where
   rnf GrantEntitlementRequest' {..} =
-    Prelude.rnf dataTransferSubscriberFeePercent
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf entitlementStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf subscribers
+    Prelude.rnf dataTransferSubscriberFeePercent `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf encryption `Prelude.seq`
+          Prelude.rnf entitlementStatus `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf subscribers
 
 instance Data.ToJSON GrantEntitlementRequest where
   toJSON GrantEntitlementRequest' {..} =

@@ -124,6 +124,6 @@ instance
     MediaStreamSourceConfiguration
   where
   rnf MediaStreamSourceConfiguration' {..} =
-    Prelude.rnf inputConfigurations
-      `Prelude.seq` Prelude.rnf mediaStreamName
-      `Prelude.seq` Prelude.rnf encodingName
+    Prelude.rnf inputConfigurations `Prelude.seq`
+      Prelude.rnf mediaStreamName `Prelude.seq`
+        Prelude.rnf encodingName

@@ -91,9 +91,9 @@ instance Prelude.Hashable UpdateMaintenance where
 
 instance Prelude.NFData UpdateMaintenance where
   rnf UpdateMaintenance' {..} =
-    Prelude.rnf maintenanceDay
-      `Prelude.seq` Prelude.rnf maintenanceScheduledDate
-      `Prelude.seq` Prelude.rnf maintenanceStartHour
+    Prelude.rnf maintenanceDay `Prelude.seq`
+      Prelude.rnf maintenanceScheduledDate `Prelude.seq`
+        Prelude.rnf maintenanceStartHour
 
 instance Data.ToJSON UpdateMaintenance where
   toJSON UpdateMaintenance' {..} =

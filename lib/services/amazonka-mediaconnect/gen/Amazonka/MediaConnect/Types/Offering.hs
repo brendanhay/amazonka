@@ -189,11 +189,11 @@ instance Prelude.Hashable Offering where
 
 instance Prelude.NFData Offering where
   rnf Offering' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf offeringArn
-      `Prelude.seq` Prelude.rnf offeringDescription
-      `Prelude.seq` Prelude.rnf durationUnits
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf pricePerUnit
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf priceUnits
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf offeringArn `Prelude.seq`
+        Prelude.rnf offeringDescription `Prelude.seq`
+          Prelude.rnf durationUnits `Prelude.seq`
+            Prelude.rnf duration `Prelude.seq`
+              Prelude.rnf pricePerUnit `Prelude.seq`
+                Prelude.rnf resourceSpecification `Prelude.seq`
+                  Prelude.rnf priceUnits

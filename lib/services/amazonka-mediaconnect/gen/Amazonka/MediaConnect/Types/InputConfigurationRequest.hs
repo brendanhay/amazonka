@@ -79,8 +79,8 @@ instance Prelude.Hashable InputConfigurationRequest where
 
 instance Prelude.NFData InputConfigurationRequest where
   rnf InputConfigurationRequest' {..} =
-    Prelude.rnf inputPort
-      `Prelude.seq` Prelude.rnf interface
+    Prelude.rnf inputPort `Prelude.seq`
+      Prelude.rnf interface
 
 instance Data.ToJSON InputConfigurationRequest where
   toJSON InputConfigurationRequest' {..} =

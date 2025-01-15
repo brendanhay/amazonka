@@ -248,21 +248,21 @@ instance Prelude.Hashable AddOutputRequest where
 
 instance Prelude.NFData AddOutputRequest where
   rnf AddOutputRequest' {..} =
-    Prelude.rnf cidrAllowList
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf maxLatency
-      `Prelude.seq` Prelude.rnf mediaStreamOutputConfigurations
-      `Prelude.seq` Prelude.rnf minLatency
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf remoteId
-      `Prelude.seq` Prelude.rnf senderControlPort
-      `Prelude.seq` Prelude.rnf smoothingLatency
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf cidrAllowList `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf encryption `Prelude.seq`
+            Prelude.rnf maxLatency `Prelude.seq`
+              Prelude.rnf mediaStreamOutputConfigurations `Prelude.seq`
+                Prelude.rnf minLatency `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf port `Prelude.seq`
+                      Prelude.rnf remoteId `Prelude.seq`
+                        Prelude.rnf senderControlPort `Prelude.seq`
+                          Prelude.rnf smoothingLatency `Prelude.seq`
+                            Prelude.rnf streamId `Prelude.seq`
+                              Prelude.rnf vpcInterfaceAttachment `Prelude.seq`
+                                Prelude.rnf protocol
 
 instance Data.ToJSON AddOutputRequest where
   toJSON AddOutputRequest' {..} =

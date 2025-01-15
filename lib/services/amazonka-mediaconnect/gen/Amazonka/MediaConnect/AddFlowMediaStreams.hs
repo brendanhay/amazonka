@@ -114,8 +114,8 @@ instance Prelude.Hashable AddFlowMediaStreams where
 
 instance Prelude.NFData AddFlowMediaStreams where
   rnf AddFlowMediaStreams' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf mediaStreams
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf mediaStreams
 
 instance Data.ToHeaders AddFlowMediaStreams where
   toHeaders =
@@ -193,6 +193,6 @@ addFlowMediaStreamsResponse_httpStatus = Lens.lens (\AddFlowMediaStreamsResponse
 
 instance Prelude.NFData AddFlowMediaStreamsResponse where
   rnf AddFlowMediaStreamsResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf mediaStreams
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf mediaStreams `Prelude.seq`
+        Prelude.rnf httpStatus

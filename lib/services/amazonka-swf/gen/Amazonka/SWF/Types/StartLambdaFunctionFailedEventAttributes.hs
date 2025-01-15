@@ -133,6 +133,6 @@ instance
     StartLambdaFunctionFailedEventAttributes
   where
   rnf StartLambdaFunctionFailedEventAttributes' {..} =
-    Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf scheduledEventId
+    Prelude.rnf cause `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf scheduledEventId

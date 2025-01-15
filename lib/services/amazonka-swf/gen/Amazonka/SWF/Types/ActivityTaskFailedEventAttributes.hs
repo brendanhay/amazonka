@@ -135,7 +135,7 @@ instance
     ActivityTaskFailedEventAttributes
   where
   rnf ActivityTaskFailedEventAttributes' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf scheduledEventId
-      `Prelude.seq` Prelude.rnf startedEventId
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf scheduledEventId `Prelude.seq`
+          Prelude.rnf startedEventId

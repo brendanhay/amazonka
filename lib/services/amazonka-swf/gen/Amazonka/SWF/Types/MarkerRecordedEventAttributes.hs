@@ -111,6 +111,6 @@ instance
 
 instance Prelude.NFData MarkerRecordedEventAttributes where
   rnf MarkerRecordedEventAttributes' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf markerName
-      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf markerName `Prelude.seq`
+        Prelude.rnf decisionTaskCompletedEventId

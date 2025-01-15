@@ -254,9 +254,9 @@ instance Prelude.Hashable ActivityTypeConfiguration where
 
 instance Prelude.NFData ActivityTypeConfiguration where
   rnf ActivityTypeConfiguration' {..} =
-    Prelude.rnf defaultTaskHeartbeatTimeout
-      `Prelude.seq` Prelude.rnf defaultTaskList
-      `Prelude.seq` Prelude.rnf defaultTaskPriority
-      `Prelude.seq` Prelude.rnf defaultTaskScheduleToCloseTimeout
-      `Prelude.seq` Prelude.rnf defaultTaskScheduleToStartTimeout
-      `Prelude.seq` Prelude.rnf defaultTaskStartToCloseTimeout
+    Prelude.rnf defaultTaskHeartbeatTimeout `Prelude.seq`
+      Prelude.rnf defaultTaskList `Prelude.seq`
+        Prelude.rnf defaultTaskPriority `Prelude.seq`
+          Prelude.rnf defaultTaskScheduleToCloseTimeout `Prelude.seq`
+            Prelude.rnf defaultTaskScheduleToStartTimeout `Prelude.seq`
+              Prelude.rnf defaultTaskStartToCloseTimeout

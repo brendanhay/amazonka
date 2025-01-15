@@ -240,12 +240,12 @@ instance Prelude.Hashable WorkflowExecutionInfo where
 
 instance Prelude.NFData WorkflowExecutionInfo where
   rnf WorkflowExecutionInfo' {..} =
-    Prelude.rnf cancelRequested
-      `Prelude.seq` Prelude.rnf closeStatus
-      `Prelude.seq` Prelude.rnf closeTimestamp
-      `Prelude.seq` Prelude.rnf parent
-      `Prelude.seq` Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf execution
-      `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf startTimestamp
-      `Prelude.seq` Prelude.rnf executionStatus
+    Prelude.rnf cancelRequested `Prelude.seq`
+      Prelude.rnf closeStatus `Prelude.seq`
+        Prelude.rnf closeTimestamp `Prelude.seq`
+          Prelude.rnf parent `Prelude.seq`
+            Prelude.rnf tagList `Prelude.seq`
+              Prelude.rnf execution `Prelude.seq`
+                Prelude.rnf workflowType `Prelude.seq`
+                  Prelude.rnf startTimestamp `Prelude.seq`
+                    Prelude.rnf executionStatus

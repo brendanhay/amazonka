@@ -137,9 +137,9 @@ instance
 
 instance Prelude.NFData StartTimerDecisionAttributes where
   rnf StartTimerDecisionAttributes' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf timerId
-      `Prelude.seq` Prelude.rnf startToFireTimeout
+    Prelude.rnf control `Prelude.seq`
+      Prelude.rnf timerId `Prelude.seq`
+        Prelude.rnf startToFireTimeout
 
 instance Data.ToJSON StartTimerDecisionAttributes where
   toJSON StartTimerDecisionAttributes' {..} =

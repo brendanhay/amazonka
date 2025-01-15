@@ -199,12 +199,12 @@ instance Core.AWSPager ListWorkflowTypes where
         (rs Lens.^. listWorkflowTypesResponse_typeInfos) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkflowTypes_nextPageToken
-          Lens..~ rs
-          Lens.^? listWorkflowTypesResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkflowTypes_nextPageToken
+              Lens..~ rs
+              Lens.^? listWorkflowTypesResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkflowTypes where
   type
@@ -233,12 +233,12 @@ instance Prelude.Hashable ListWorkflowTypes where
 
 instance Prelude.NFData ListWorkflowTypes where
   rnf ListWorkflowTypes' {..} =
-    Prelude.rnf maximumPageSize
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf registrationStatus
+    Prelude.rnf maximumPageSize `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf reverseOrder `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf registrationStatus
 
 instance Data.ToHeaders ListWorkflowTypes where
   toHeaders =
@@ -347,6 +347,6 @@ listWorkflowTypesResponse_typeInfos = Lens.lens (\ListWorkflowTypesResponse' {ty
 
 instance Prelude.NFData ListWorkflowTypesResponse where
   rnf ListWorkflowTypesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf typeInfos
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf typeInfos

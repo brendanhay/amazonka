@@ -133,8 +133,8 @@ instance Prelude.Hashable UndeprecateWorkflowType where
 
 instance Prelude.NFData UndeprecateWorkflowType where
   rnf UndeprecateWorkflowType' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf workflowType
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf workflowType
 
 instance Data.ToHeaders UndeprecateWorkflowType where
   toHeaders =

@@ -279,12 +279,12 @@ instance Core.AWSPager PollForDecisionTask where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& pollForDecisionTask_nextPageToken
-          Lens..~ rs
-          Lens.^? pollForDecisionTaskResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& pollForDecisionTask_nextPageToken
+              Lens..~ rs
+              Lens.^? pollForDecisionTaskResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest PollForDecisionTask where
   type
@@ -318,12 +318,12 @@ instance Prelude.Hashable PollForDecisionTask where
 
 instance Prelude.NFData PollForDecisionTask where
   rnf PollForDecisionTask' {..} =
-    Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf maximumPageSize
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf taskList
+    Prelude.rnf identity `Prelude.seq`
+      Prelude.rnf maximumPageSize `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf reverseOrder `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf taskList
 
 instance Data.ToHeaders PollForDecisionTask where
   toHeaders =
@@ -501,11 +501,11 @@ pollForDecisionTaskResponse_startedEventId = Lens.lens (\PollForDecisionTaskResp
 
 instance Prelude.NFData PollForDecisionTaskResponse where
   rnf PollForDecisionTaskResponse' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf previousStartedEventId
-      `Prelude.seq` Prelude.rnf taskToken
-      `Prelude.seq` Prelude.rnf workflowExecution
-      `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf startedEventId
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf previousStartedEventId `Prelude.seq`
+          Prelude.rnf taskToken `Prelude.seq`
+            Prelude.rnf workflowExecution `Prelude.seq`
+              Prelude.rnf workflowType `Prelude.seq`
+                Prelude.rnf httpStatus `Prelude.seq`
+                  Prelude.rnf startedEventId

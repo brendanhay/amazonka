@@ -242,12 +242,12 @@ instance Prelude.Hashable TerminateWorkflowExecution where
 
 instance Prelude.NFData TerminateWorkflowExecution where
   rnf TerminateWorkflowExecution' {..} =
-    Prelude.rnf childPolicy
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf childPolicy `Prelude.seq`
+      Prelude.rnf details `Prelude.seq`
+        Prelude.rnf reason `Prelude.seq`
+          Prelude.rnf runId `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf workflowId
 
 instance Data.ToHeaders TerminateWorkflowExecution where
   toHeaders =

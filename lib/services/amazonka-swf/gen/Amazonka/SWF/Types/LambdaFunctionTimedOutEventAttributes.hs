@@ -123,6 +123,6 @@ instance
     LambdaFunctionTimedOutEventAttributes
   where
   rnf LambdaFunctionTimedOutEventAttributes' {..} =
-    Prelude.rnf timeoutType
-      `Prelude.seq` Prelude.rnf scheduledEventId
-      `Prelude.seq` Prelude.rnf startedEventId
+    Prelude.rnf timeoutType `Prelude.seq`
+      Prelude.rnf scheduledEventId `Prelude.seq`
+        Prelude.rnf startedEventId

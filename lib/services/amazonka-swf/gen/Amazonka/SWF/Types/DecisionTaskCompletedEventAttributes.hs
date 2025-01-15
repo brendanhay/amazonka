@@ -124,6 +124,6 @@ instance
     DecisionTaskCompletedEventAttributes
   where
   rnf DecisionTaskCompletedEventAttributes' {..} =
-    Prelude.rnf executionContext
-      `Prelude.seq` Prelude.rnf scheduledEventId
-      `Prelude.seq` Prelude.rnf startedEventId
+    Prelude.rnf executionContext `Prelude.seq`
+      Prelude.rnf scheduledEventId `Prelude.seq`
+        Prelude.rnf startedEventId

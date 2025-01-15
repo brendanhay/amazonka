@@ -337,15 +337,15 @@ instance
   where
   rnf
     StartChildWorkflowExecutionInitiatedEventAttributes' {..} =
-      Prelude.rnf control
-        `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
-        `Prelude.seq` Prelude.rnf input
-        `Prelude.seq` Prelude.rnf lambdaRole
-        `Prelude.seq` Prelude.rnf tagList
-        `Prelude.seq` Prelude.rnf taskPriority
-        `Prelude.seq` Prelude.rnf taskStartToCloseTimeout
-        `Prelude.seq` Prelude.rnf workflowId
-        `Prelude.seq` Prelude.rnf workflowType
-        `Prelude.seq` Prelude.rnf taskList
-        `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
-        `Prelude.seq` Prelude.rnf childPolicy
+      Prelude.rnf control `Prelude.seq`
+        Prelude.rnf executionStartToCloseTimeout `Prelude.seq`
+          Prelude.rnf input `Prelude.seq`
+            Prelude.rnf lambdaRole `Prelude.seq`
+              Prelude.rnf tagList `Prelude.seq`
+                Prelude.rnf taskPriority `Prelude.seq`
+                  Prelude.rnf taskStartToCloseTimeout `Prelude.seq`
+                    Prelude.rnf workflowId `Prelude.seq`
+                      Prelude.rnf workflowType `Prelude.seq`
+                        Prelude.rnf taskList `Prelude.seq`
+                          Prelude.rnf decisionTaskCompletedEventId `Prelude.seq`
+                            Prelude.rnf childPolicy

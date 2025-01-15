@@ -147,11 +147,11 @@ instance
   where
   rnf
     SignalExternalWorkflowExecutionDecisionAttributes' {..} =
-      Prelude.rnf control
-        `Prelude.seq` Prelude.rnf input
-        `Prelude.seq` Prelude.rnf runId
-        `Prelude.seq` Prelude.rnf workflowId
-        `Prelude.seq` Prelude.rnf signalName
+      Prelude.rnf control `Prelude.seq`
+        Prelude.rnf input `Prelude.seq`
+          Prelude.rnf runId `Prelude.seq`
+            Prelude.rnf workflowId `Prelude.seq`
+              Prelude.rnf signalName
 
 instance
   Data.ToJSON

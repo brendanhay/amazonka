@@ -177,11 +177,11 @@ instance Prelude.Hashable SignalWorkflowExecution where
 
 instance Prelude.NFData SignalWorkflowExecution where
   rnf SignalWorkflowExecution' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf signalName
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf runId `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf workflowId `Prelude.seq`
+            Prelude.rnf signalName
 
 instance Data.ToHeaders SignalWorkflowExecution where
   toHeaders =

@@ -147,8 +147,8 @@ instance Prelude.Hashable DescribeActivityType where
 
 instance Prelude.NFData DescribeActivityType where
   rnf DescribeActivityType' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf activityType
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf activityType
 
 instance Data.ToHeaders DescribeActivityType where
   toHeaders =
@@ -269,6 +269,6 @@ describeActivityTypeResponse_configuration = Lens.lens (\DescribeActivityTypeRes
 
 instance Prelude.NFData DescribeActivityTypeResponse where
   rnf DescribeActivityTypeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf typeInfo
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf typeInfo `Prelude.seq`
+        Prelude.rnf configuration

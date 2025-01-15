@@ -131,7 +131,7 @@ instance Prelude.Hashable DomainInfo where
 
 instance Prelude.NFData DomainInfo where
   rnf DomainInfo' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status

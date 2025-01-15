@@ -133,11 +133,11 @@ instance
     ScheduleLambdaFunctionDecisionAttributes
   where
   rnf ScheduleLambdaFunctionDecisionAttributes' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf startToCloseTimeout
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf control `Prelude.seq`
+      Prelude.rnf input `Prelude.seq`
+        Prelude.rnf startToCloseTimeout `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name
 
 instance
   Data.ToJSON

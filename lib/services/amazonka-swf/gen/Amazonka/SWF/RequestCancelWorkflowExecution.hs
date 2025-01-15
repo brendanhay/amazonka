@@ -159,9 +159,9 @@ instance
     RequestCancelWorkflowExecution
   where
   rnf RequestCancelWorkflowExecution' {..} =
-    Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf runId `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf workflowId
 
 instance
   Data.ToHeaders

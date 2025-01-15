@@ -144,6 +144,6 @@ instance
     RecordMarkerFailedEventAttributes
   where
   rnf RecordMarkerFailedEventAttributes' {..} =
-    Prelude.rnf markerName
-      `Prelude.seq` Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+    Prelude.rnf markerName `Prelude.seq`
+      Prelude.rnf cause `Prelude.seq`
+        Prelude.rnf decisionTaskCompletedEventId

@@ -88,5 +88,5 @@ instance Prelude.Hashable PendingTaskCount where
 
 instance Prelude.NFData PendingTaskCount where
   rnf PendingTaskCount' {..} =
-    Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf truncated `Prelude.seq`
+      Prelude.rnf count

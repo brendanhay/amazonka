@@ -181,12 +181,12 @@ instance Core.AWSPager ListDomains where
         (rs Lens.^. listDomainsResponse_domainInfos) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDomains_nextPageToken
-          Lens..~ rs
-          Lens.^? listDomainsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDomains_nextPageToken
+              Lens..~ rs
+              Lens.^? listDomainsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
@@ -211,10 +211,10 @@ instance Prelude.Hashable ListDomains where
 
 instance Prelude.NFData ListDomains where
   rnf ListDomains' {..} =
-    Prelude.rnf maximumPageSize
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf registrationStatus
+    Prelude.rnf maximumPageSize `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf reverseOrder `Prelude.seq`
+          Prelude.rnf registrationStatus
 
 instance Data.ToHeaders ListDomains where
   toHeaders =
@@ -320,6 +320,6 @@ listDomainsResponse_domainInfos = Lens.lens (\ListDomainsResponse' {domainInfos}
 
 instance Prelude.NFData ListDomainsResponse where
   rnf ListDomainsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainInfos
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf domainInfos

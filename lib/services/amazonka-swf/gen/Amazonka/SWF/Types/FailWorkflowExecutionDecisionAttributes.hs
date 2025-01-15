@@ -99,8 +99,8 @@ instance
     FailWorkflowExecutionDecisionAttributes
   where
   rnf FailWorkflowExecutionDecisionAttributes' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf reason
 
 instance
   Data.ToJSON

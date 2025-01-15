@@ -90,5 +90,5 @@ instance Prelude.Hashable WorkflowExecutionCount where
 
 instance Prelude.NFData WorkflowExecutionCount where
   rnf WorkflowExecutionCount' {..} =
-    Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf truncated `Prelude.seq`
+      Prelude.rnf count

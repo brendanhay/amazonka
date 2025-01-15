@@ -165,7 +165,7 @@ instance
     ScheduleActivityTaskFailedEventAttributes
   where
   rnf ScheduleActivityTaskFailedEventAttributes' {..} =
-    Prelude.rnf activityType
-      `Prelude.seq` Prelude.rnf activityId
-      `Prelude.seq` Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+    Prelude.rnf activityType `Prelude.seq`
+      Prelude.rnf activityId `Prelude.seq`
+        Prelude.rnf cause `Prelude.seq`
+          Prelude.rnf decisionTaskCompletedEventId

@@ -334,12 +334,12 @@ instance Core.AWSPager ListClosedWorkflowExecutions where
         (rs Lens.^. workflowExecutionInfos_executionInfos) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listClosedWorkflowExecutions_nextPageToken
-          Lens..~ rs
-          Lens.^? workflowExecutionInfos_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listClosedWorkflowExecutions_nextPageToken
+              Lens..~ rs
+              Lens.^? workflowExecutionInfos_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClosedWorkflowExecutions where
   type
@@ -370,16 +370,16 @@ instance
 
 instance Prelude.NFData ListClosedWorkflowExecutions where
   rnf ListClosedWorkflowExecutions' {..} =
-    Prelude.rnf closeStatusFilter
-      `Prelude.seq` Prelude.rnf closeTimeFilter
-      `Prelude.seq` Prelude.rnf executionFilter
-      `Prelude.seq` Prelude.rnf maximumPageSize
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf startTimeFilter
-      `Prelude.seq` Prelude.rnf tagFilter
-      `Prelude.seq` Prelude.rnf typeFilter
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf closeStatusFilter `Prelude.seq`
+      Prelude.rnf closeTimeFilter `Prelude.seq`
+        Prelude.rnf executionFilter `Prelude.seq`
+          Prelude.rnf maximumPageSize `Prelude.seq`
+            Prelude.rnf nextPageToken `Prelude.seq`
+              Prelude.rnf reverseOrder `Prelude.seq`
+                Prelude.rnf startTimeFilter `Prelude.seq`
+                  Prelude.rnf tagFilter `Prelude.seq`
+                    Prelude.rnf typeFilter `Prelude.seq`
+                      Prelude.rnf domain
 
 instance Data.ToHeaders ListClosedWorkflowExecutions where
   toHeaders =

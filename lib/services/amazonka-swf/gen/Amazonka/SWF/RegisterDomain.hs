@@ -210,10 +210,10 @@ instance Prelude.Hashable RegisterDomain where
 
 instance Prelude.NFData RegisterDomain where
   rnf RegisterDomain' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workflowExecutionRetentionPeriodInDays
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf workflowExecutionRetentionPeriodInDays
 
 instance Data.ToHeaders RegisterDomain where
   toHeaders =

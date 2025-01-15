@@ -167,7 +167,7 @@ instance
     WorkflowExecutionTerminatedEventAttributes
   where
   rnf WorkflowExecutionTerminatedEventAttributes' {..} =
-    Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf childPolicy
+    Prelude.rnf cause `Prelude.seq`
+      Prelude.rnf details `Prelude.seq`
+        Prelude.rnf reason `Prelude.seq`
+          Prelude.rnf childPolicy

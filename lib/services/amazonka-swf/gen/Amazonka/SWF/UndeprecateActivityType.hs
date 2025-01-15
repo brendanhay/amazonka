@@ -134,8 +134,8 @@ instance Prelude.Hashable UndeprecateActivityType where
 
 instance Prelude.NFData UndeprecateActivityType where
   rnf UndeprecateActivityType' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf activityType
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf activityType
 
 instance Data.ToHeaders UndeprecateActivityType where
   toHeaders =

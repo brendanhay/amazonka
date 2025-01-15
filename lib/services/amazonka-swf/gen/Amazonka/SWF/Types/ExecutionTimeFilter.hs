@@ -76,8 +76,8 @@ instance Prelude.Hashable ExecutionTimeFilter where
 
 instance Prelude.NFData ExecutionTimeFilter where
   rnf ExecutionTimeFilter' {..} =
-    Prelude.rnf latestDate
-      `Prelude.seq` Prelude.rnf oldestDate
+    Prelude.rnf latestDate `Prelude.seq`
+      Prelude.rnf oldestDate
 
 instance Data.ToJSON ExecutionTimeFilter where
   toJSON ExecutionTimeFilter' {..} =

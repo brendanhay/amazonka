@@ -394,16 +394,16 @@ instance
     ScheduleActivityTaskDecisionAttributes
   where
   rnf ScheduleActivityTaskDecisionAttributes' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf heartbeatTimeout
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf scheduleToCloseTimeout
-      `Prelude.seq` Prelude.rnf scheduleToStartTimeout
-      `Prelude.seq` Prelude.rnf startToCloseTimeout
-      `Prelude.seq` Prelude.rnf taskList
-      `Prelude.seq` Prelude.rnf taskPriority
-      `Prelude.seq` Prelude.rnf activityType
-      `Prelude.seq` Prelude.rnf activityId
+    Prelude.rnf control `Prelude.seq`
+      Prelude.rnf heartbeatTimeout `Prelude.seq`
+        Prelude.rnf input `Prelude.seq`
+          Prelude.rnf scheduleToCloseTimeout `Prelude.seq`
+            Prelude.rnf scheduleToStartTimeout `Prelude.seq`
+              Prelude.rnf startToCloseTimeout `Prelude.seq`
+                Prelude.rnf taskList `Prelude.seq`
+                  Prelude.rnf taskPriority `Prelude.seq`
+                    Prelude.rnf activityType `Prelude.seq`
+                      Prelude.rnf activityId
 
 instance
   Data.ToJSON

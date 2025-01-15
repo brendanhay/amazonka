@@ -119,9 +119,9 @@ instance
   where
   rnf
     RequestCancelExternalWorkflowExecutionDecisionAttributes' {..} =
-      Prelude.rnf control
-        `Prelude.seq` Prelude.rnf runId
-        `Prelude.seq` Prelude.rnf workflowId
+      Prelude.rnf control `Prelude.seq`
+        Prelude.rnf runId `Prelude.seq`
+          Prelude.rnf workflowId
 
 instance
   Data.ToJSON

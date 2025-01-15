@@ -84,8 +84,8 @@ instance Prelude.Hashable WorkflowExecution where
 
 instance Prelude.NFData WorkflowExecution where
   rnf WorkflowExecution' {..} =
-    Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf runId
+    Prelude.rnf workflowId `Prelude.seq`
+      Prelude.rnf runId
 
 instance Data.ToJSON WorkflowExecution where
   toJSON WorkflowExecution' {..} =

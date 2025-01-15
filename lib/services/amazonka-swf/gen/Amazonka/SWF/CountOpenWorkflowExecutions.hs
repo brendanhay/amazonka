@@ -212,11 +212,11 @@ instance Prelude.Hashable CountOpenWorkflowExecutions where
 
 instance Prelude.NFData CountOpenWorkflowExecutions where
   rnf CountOpenWorkflowExecutions' {..} =
-    Prelude.rnf executionFilter
-      `Prelude.seq` Prelude.rnf tagFilter
-      `Prelude.seq` Prelude.rnf typeFilter
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf startTimeFilter
+    Prelude.rnf executionFilter `Prelude.seq`
+      Prelude.rnf tagFilter `Prelude.seq`
+        Prelude.rnf typeFilter `Prelude.seq`
+          Prelude.rnf domain `Prelude.seq`
+            Prelude.rnf startTimeFilter
 
 instance Data.ToHeaders CountOpenWorkflowExecutions where
   toHeaders =

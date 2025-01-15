@@ -194,12 +194,12 @@ instance Core.AWSPager GetWorkflowExecutionHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getWorkflowExecutionHistory_nextPageToken
-          Lens..~ rs
-          Lens.^? getWorkflowExecutionHistoryResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getWorkflowExecutionHistory_nextPageToken
+              Lens..~ rs
+              Lens.^? getWorkflowExecutionHistoryResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetWorkflowExecutionHistory where
   type
@@ -227,11 +227,11 @@ instance Prelude.Hashable GetWorkflowExecutionHistory where
 
 instance Prelude.NFData GetWorkflowExecutionHistory where
   rnf GetWorkflowExecutionHistory' {..} =
-    Prelude.rnf maximumPageSize
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf execution
+    Prelude.rnf maximumPageSize `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf reverseOrder `Prelude.seq`
+          Prelude.rnf domain `Prelude.seq`
+            Prelude.rnf execution
 
 instance Data.ToHeaders GetWorkflowExecutionHistory where
   toHeaders =
@@ -342,6 +342,6 @@ instance
     GetWorkflowExecutionHistoryResponse
   where
   rnf GetWorkflowExecutionHistoryResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf events

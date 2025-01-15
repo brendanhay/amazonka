@@ -217,9 +217,9 @@ instance
   where
   rnf
     StartChildWorkflowExecutionFailedEventAttributes' {..} =
-      Prelude.rnf control
-        `Prelude.seq` Prelude.rnf workflowType
-        `Prelude.seq` Prelude.rnf cause
-        `Prelude.seq` Prelude.rnf workflowId
-        `Prelude.seq` Prelude.rnf initiatedEventId
-        `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+      Prelude.rnf control `Prelude.seq`
+        Prelude.rnf workflowType `Prelude.seq`
+          Prelude.rnf cause `Prelude.seq`
+            Prelude.rnf workflowId `Prelude.seq`
+              Prelude.rnf initiatedEventId `Prelude.seq`
+                Prelude.rnf decisionTaskCompletedEventId

@@ -375,16 +375,16 @@ instance Prelude.Hashable RegisterActivityType where
 
 instance Prelude.NFData RegisterActivityType where
   rnf RegisterActivityType' {..} =
-    Prelude.rnf defaultTaskHeartbeatTimeout
-      `Prelude.seq` Prelude.rnf defaultTaskList
-      `Prelude.seq` Prelude.rnf defaultTaskPriority
-      `Prelude.seq` Prelude.rnf defaultTaskScheduleToCloseTimeout
-      `Prelude.seq` Prelude.rnf defaultTaskScheduleToStartTimeout
-      `Prelude.seq` Prelude.rnf defaultTaskStartToCloseTimeout
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf defaultTaskHeartbeatTimeout `Prelude.seq`
+      Prelude.rnf defaultTaskList `Prelude.seq`
+        Prelude.rnf defaultTaskPriority `Prelude.seq`
+          Prelude.rnf defaultTaskScheduleToCloseTimeout `Prelude.seq`
+            Prelude.rnf defaultTaskScheduleToStartTimeout `Prelude.seq`
+              Prelude.rnf defaultTaskStartToCloseTimeout `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf domain `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf version
 
 instance Data.ToHeaders RegisterActivityType where
   toHeaders =

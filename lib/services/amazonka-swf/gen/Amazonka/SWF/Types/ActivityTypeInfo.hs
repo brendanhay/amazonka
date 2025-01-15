@@ -128,8 +128,8 @@ instance Prelude.Hashable ActivityTypeInfo where
 
 instance Prelude.NFData ActivityTypeInfo where
   rnf ActivityTypeInfo' {..} =
-    Prelude.rnf deprecationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf activityType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf deprecationDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf activityType `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf creationDate

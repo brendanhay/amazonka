@@ -109,8 +109,8 @@ instance Prelude.Hashable ResourceCreationLimitPolicy where
 
 instance Prelude.NFData ResourceCreationLimitPolicy where
   rnf ResourceCreationLimitPolicy' {..} =
-    Prelude.rnf newGameSessionsPerCreator'
-      `Prelude.seq` Prelude.rnf policyPeriodInMinutes
+    Prelude.rnf newGameSessionsPerCreator' `Prelude.seq`
+      Prelude.rnf policyPeriodInMinutes
 
 instance Data.ToJSON ResourceCreationLimitPolicy where
   toJSON ResourceCreationLimitPolicy' {..} =

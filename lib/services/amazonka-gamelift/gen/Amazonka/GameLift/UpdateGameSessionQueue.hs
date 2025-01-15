@@ -257,14 +257,14 @@ instance Prelude.Hashable UpdateGameSessionQueue where
 
 instance Prelude.NFData UpdateGameSessionQueue where
   rnf UpdateGameSessionQueue' {..} =
-    Prelude.rnf customEventData
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf filterConfiguration
-      `Prelude.seq` Prelude.rnf notificationTarget
-      `Prelude.seq` Prelude.rnf playerLatencyPolicies
-      `Prelude.seq` Prelude.rnf priorityConfiguration
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf customEventData `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf filterConfiguration `Prelude.seq`
+          Prelude.rnf notificationTarget `Prelude.seq`
+            Prelude.rnf playerLatencyPolicies `Prelude.seq`
+              Prelude.rnf priorityConfiguration `Prelude.seq`
+                Prelude.rnf timeoutInSeconds `Prelude.seq`
+                  Prelude.rnf name
 
 instance Data.ToHeaders UpdateGameSessionQueue where
   toHeaders =
@@ -352,5 +352,5 @@ instance
     UpdateGameSessionQueueResponse
   where
   rnf UpdateGameSessionQueueResponse' {..} =
-    Prelude.rnf gameSessionQueue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameSessionQueue `Prelude.seq`
+      Prelude.rnf httpStatus

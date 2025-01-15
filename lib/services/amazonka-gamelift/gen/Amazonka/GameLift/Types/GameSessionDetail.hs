@@ -101,5 +101,5 @@ instance Prelude.Hashable GameSessionDetail where
 
 instance Prelude.NFData GameSessionDetail where
   rnf GameSessionDetail' {..} =
-    Prelude.rnf gameSession
-      `Prelude.seq` Prelude.rnf protectionPolicy
+    Prelude.rnf gameSession `Prelude.seq`
+      Prelude.rnf protectionPolicy

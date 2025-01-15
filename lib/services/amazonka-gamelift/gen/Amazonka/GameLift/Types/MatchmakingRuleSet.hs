@@ -161,7 +161,7 @@ instance Prelude.Hashable MatchmakingRuleSet where
 
 instance Prelude.NFData MatchmakingRuleSet where
   rnf MatchmakingRuleSet' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf ruleSetArn
-      `Prelude.seq` Prelude.rnf ruleSetName
-      `Prelude.seq` Prelude.rnf ruleSetBody
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf ruleSetArn `Prelude.seq`
+        Prelude.rnf ruleSetName `Prelude.seq`
+          Prelude.rnf ruleSetBody

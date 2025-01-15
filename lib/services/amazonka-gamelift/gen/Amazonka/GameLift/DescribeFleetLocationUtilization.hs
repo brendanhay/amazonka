@@ -148,8 +148,8 @@ instance
     DescribeFleetLocationUtilization
   where
   rnf DescribeFleetLocationUtilization' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf location
 
 instance
   Data.ToHeaders
@@ -235,5 +235,5 @@ instance
     DescribeFleetLocationUtilizationResponse
   where
   rnf DescribeFleetLocationUtilizationResponse' {..} =
-    Prelude.rnf fleetUtilization
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetUtilization `Prelude.seq`
+      Prelude.rnf httpStatus

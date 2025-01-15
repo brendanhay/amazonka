@@ -144,8 +144,8 @@ instance
 
 instance Prelude.NFData DeleteVpcPeeringAuthorization where
   rnf DeleteVpcPeeringAuthorization' {..} =
-    Prelude.rnf gameLiftAwsAccountId
-      `Prelude.seq` Prelude.rnf peerVpcId
+    Prelude.rnf gameLiftAwsAccountId `Prelude.seq`
+      Prelude.rnf peerVpcId
 
 instance Data.ToHeaders DeleteVpcPeeringAuthorization where
   toHeaders =

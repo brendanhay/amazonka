@@ -168,9 +168,9 @@ instance Prelude.Hashable CreateMatchmakingRuleSet where
 
 instance Prelude.NFData CreateMatchmakingRuleSet where
   rnf CreateMatchmakingRuleSet' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleSetBody
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ruleSetBody
 
 instance Data.ToHeaders CreateMatchmakingRuleSet where
   toHeaders =
@@ -251,5 +251,5 @@ instance
     CreateMatchmakingRuleSetResponse
   where
   rnf CreateMatchmakingRuleSetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf ruleSet
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf ruleSet

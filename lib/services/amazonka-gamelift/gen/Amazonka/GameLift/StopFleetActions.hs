@@ -153,9 +153,9 @@ instance Prelude.Hashable StopFleetActions where
 
 instance Prelude.NFData StopFleetActions where
   rnf StopFleetActions' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf actions
 
 instance Data.ToHeaders StopFleetActions where
   toHeaders =
@@ -248,6 +248,6 @@ stopFleetActionsResponse_httpStatus = Lens.lens (\StopFleetActionsResponse' {htt
 
 instance Prelude.NFData StopFleetActionsResponse where
   rnf StopFleetActionsResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf httpStatus

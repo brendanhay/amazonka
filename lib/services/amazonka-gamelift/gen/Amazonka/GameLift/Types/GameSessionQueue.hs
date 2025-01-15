@@ -245,12 +245,12 @@ instance Prelude.Hashable GameSessionQueue where
 
 instance Prelude.NFData GameSessionQueue where
   rnf GameSessionQueue' {..} =
-    Prelude.rnf customEventData
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf filterConfiguration
-      `Prelude.seq` Prelude.rnf gameSessionQueueArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notificationTarget
-      `Prelude.seq` Prelude.rnf playerLatencyPolicies
-      `Prelude.seq` Prelude.rnf priorityConfiguration
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+    Prelude.rnf customEventData `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf filterConfiguration `Prelude.seq`
+          Prelude.rnf gameSessionQueueArn `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf notificationTarget `Prelude.seq`
+                Prelude.rnf playerLatencyPolicies `Prelude.seq`
+                  Prelude.rnf priorityConfiguration `Prelude.seq`
+                    Prelude.rnf timeoutInSeconds

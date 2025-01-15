@@ -167,10 +167,10 @@ instance Prelude.Hashable FleetUtilization where
 
 instance Prelude.NFData FleetUtilization where
   rnf FleetUtilization' {..} =
-    Prelude.rnf activeGameSessionCount
-      `Prelude.seq` Prelude.rnf activeServerProcessCount
-      `Prelude.seq` Prelude.rnf currentPlayerSessionCount
-      `Prelude.seq` Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
+    Prelude.rnf activeGameSessionCount `Prelude.seq`
+      Prelude.rnf activeServerProcessCount `Prelude.seq`
+        Prelude.rnf currentPlayerSessionCount `Prelude.seq`
+          Prelude.rnf fleetArn `Prelude.seq`
+            Prelude.rnf fleetId `Prelude.seq`
+              Prelude.rnf location `Prelude.seq`
+                Prelude.rnf maximumPlayerSessionCount

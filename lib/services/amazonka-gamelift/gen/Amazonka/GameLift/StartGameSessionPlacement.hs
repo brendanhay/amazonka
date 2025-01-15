@@ -272,14 +272,14 @@ instance Prelude.Hashable StartGameSessionPlacement where
 
 instance Prelude.NFData StartGameSessionPlacement where
   rnf StartGameSessionPlacement' {..} =
-    Prelude.rnf desiredPlayerSessions
-      `Prelude.seq` Prelude.rnf gameProperties
-      `Prelude.seq` Prelude.rnf gameSessionData
-      `Prelude.seq` Prelude.rnf gameSessionName
-      `Prelude.seq` Prelude.rnf playerLatencies
-      `Prelude.seq` Prelude.rnf placementId
-      `Prelude.seq` Prelude.rnf gameSessionQueueName
-      `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
+    Prelude.rnf desiredPlayerSessions `Prelude.seq`
+      Prelude.rnf gameProperties `Prelude.seq`
+        Prelude.rnf gameSessionData `Prelude.seq`
+          Prelude.rnf gameSessionName `Prelude.seq`
+            Prelude.rnf playerLatencies `Prelude.seq`
+              Prelude.rnf placementId `Prelude.seq`
+                Prelude.rnf gameSessionQueueName `Prelude.seq`
+                  Prelude.rnf maximumPlayerSessionCount
 
 instance Data.ToHeaders StartGameSessionPlacement where
   toHeaders =
@@ -378,5 +378,5 @@ instance
     StartGameSessionPlacementResponse
   where
   rnf StartGameSessionPlacementResponse' {..} =
-    Prelude.rnf gameSessionPlacement
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameSessionPlacement `Prelude.seq`
+      Prelude.rnf httpStatus

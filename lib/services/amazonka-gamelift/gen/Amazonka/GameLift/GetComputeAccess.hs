@@ -142,8 +142,8 @@ instance Prelude.Hashable GetComputeAccess where
 
 instance Prelude.NFData GetComputeAccess where
   rnf GetComputeAccess' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf computeName
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf computeName
 
 instance Data.ToHeaders GetComputeAccess where
   toHeaders =
@@ -274,9 +274,9 @@ getComputeAccessResponse_httpStatus = Lens.lens (\GetComputeAccessResponse' {htt
 
 instance Prelude.NFData GetComputeAccessResponse where
   rnf GetComputeAccessResponse' {..} =
-    Prelude.rnf computeArn
-      `Prelude.seq` Prelude.rnf computeName
-      `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf computeArn `Prelude.seq`
+      Prelude.rnf computeName `Prelude.seq`
+        Prelude.rnf credentials `Prelude.seq`
+          Prelude.rnf fleetArn `Prelude.seq`
+            Prelude.rnf fleetId `Prelude.seq`
+              Prelude.rnf httpStatus

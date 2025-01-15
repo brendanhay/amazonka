@@ -134,8 +134,8 @@ instance Prelude.Hashable DeleteFleetLocations where
 
 instance Prelude.NFData DeleteFleetLocations where
   rnf DeleteFleetLocations' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf locations
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf locations
 
 instance Data.ToHeaders DeleteFleetLocations where
   toHeaders =
@@ -244,7 +244,7 @@ deleteFleetLocationsResponse_httpStatus = Lens.lens (\DeleteFleetLocationsRespon
 
 instance Prelude.NFData DeleteFleetLocationsResponse where
   rnf DeleteFleetLocationsResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf locationStates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf locationStates `Prelude.seq`
+          Prelude.rnf httpStatus

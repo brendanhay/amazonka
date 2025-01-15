@@ -164,8 +164,8 @@ instance Prelude.Hashable GameSessionConnectionInfo where
 
 instance Prelude.NFData GameSessionConnectionInfo where
   rnf GameSessionConnectionInfo' {..} =
-    Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf gameSessionArn
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf matchedPlayerSessions
-      `Prelude.seq` Prelude.rnf port
+    Prelude.rnf dnsName `Prelude.seq`
+      Prelude.rnf gameSessionArn `Prelude.seq`
+        Prelude.rnf ipAddress `Prelude.seq`
+          Prelude.rnf matchedPlayerSessions `Prelude.seq`
+            Prelude.rnf port

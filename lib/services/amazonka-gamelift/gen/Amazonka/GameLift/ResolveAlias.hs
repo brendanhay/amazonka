@@ -183,6 +183,6 @@ resolveAliasResponse_httpStatus = Lens.lens (\ResolveAliasResponse' {httpStatus}
 
 instance Prelude.NFData ResolveAliasResponse where
   rnf ResolveAliasResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf httpStatus

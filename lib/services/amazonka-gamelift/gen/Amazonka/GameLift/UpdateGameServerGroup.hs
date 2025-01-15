@@ -287,11 +287,11 @@ instance Prelude.Hashable UpdateGameServerGroup where
 
 instance Prelude.NFData UpdateGameServerGroup where
   rnf UpdateGameServerGroup' {..} =
-    Prelude.rnf balancingStrategy
-      `Prelude.seq` Prelude.rnf gameServerProtectionPolicy
-      `Prelude.seq` Prelude.rnf instanceDefinitions
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf gameServerGroupName
+    Prelude.rnf balancingStrategy `Prelude.seq`
+      Prelude.rnf gameServerProtectionPolicy `Prelude.seq`
+        Prelude.rnf instanceDefinitions `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf gameServerGroupName
 
 instance Data.ToHeaders UpdateGameServerGroup where
   toHeaders =
@@ -374,5 +374,5 @@ updateGameServerGroupResponse_httpStatus = Lens.lens (\UpdateGameServerGroupResp
 
 instance Prelude.NFData UpdateGameServerGroupResponse where
   rnf UpdateGameServerGroupResponse' {..} =
-    Prelude.rnf gameServerGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServerGroup `Prelude.seq`
+      Prelude.rnf httpStatus

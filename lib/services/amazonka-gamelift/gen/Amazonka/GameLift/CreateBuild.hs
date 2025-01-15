@@ -284,12 +284,12 @@ instance Prelude.Hashable CreateBuild where
 
 instance Prelude.NFData CreateBuild where
   rnf CreateBuild' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf serverSdkVersion
-      `Prelude.seq` Prelude.rnf storageLocation
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf operatingSystem `Prelude.seq`
+        Prelude.rnf serverSdkVersion `Prelude.seq`
+          Prelude.rnf storageLocation `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf version
 
 instance Data.ToHeaders CreateBuild where
   toHeaders =
@@ -402,7 +402,7 @@ createBuildResponse_httpStatus = Lens.lens (\CreateBuildResponse' {httpStatus} -
 
 instance Prelude.NFData CreateBuildResponse where
   rnf CreateBuildResponse' {..} =
-    Prelude.rnf build
-      `Prelude.seq` Prelude.rnf storageLocation
-      `Prelude.seq` Prelude.rnf uploadCredentials
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf build `Prelude.seq`
+      Prelude.rnf storageLocation `Prelude.seq`
+        Prelude.rnf uploadCredentials `Prelude.seq`
+          Prelude.rnf httpStatus

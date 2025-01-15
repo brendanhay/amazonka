@@ -148,8 +148,8 @@ instance Prelude.Hashable DescribeFleetPortSettings where
 
 instance Prelude.NFData DescribeFleetPortSettings where
   rnf DescribeFleetPortSettings' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf fleetId
 
 instance Data.ToHeaders DescribeFleetPortSettings where
   toHeaders =
@@ -285,9 +285,9 @@ instance
     DescribeFleetPortSettingsResponse
   where
   rnf DescribeFleetPortSettingsResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf inboundPermissions
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf updateStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf inboundPermissions `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf updateStatus `Prelude.seq`
+              Prelude.rnf httpStatus

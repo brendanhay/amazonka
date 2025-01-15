@@ -142,9 +142,9 @@ instance Prelude.Hashable UpdateFleetPortSettings where
 
 instance Prelude.NFData UpdateFleetPortSettings where
   rnf UpdateFleetPortSettings' {..} =
-    Prelude.rnf inboundPermissionAuthorizations
-      `Prelude.seq` Prelude.rnf inboundPermissionRevocations
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf inboundPermissionAuthorizations `Prelude.seq`
+      Prelude.rnf inboundPermissionRevocations `Prelude.seq`
+        Prelude.rnf fleetId
 
 instance Data.ToHeaders UpdateFleetPortSettings where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     UpdateFleetPortSettingsResponse
   where
   rnf UpdateFleetPortSettingsResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf httpStatus

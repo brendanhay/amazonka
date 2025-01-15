@@ -176,11 +176,11 @@ instance Prelude.Hashable UpdateGameSession where
 
 instance Prelude.NFData UpdateGameSession where
   rnf UpdateGameSession' {..} =
-    Prelude.rnf maximumPlayerSessionCount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf playerSessionCreationPolicy
-      `Prelude.seq` Prelude.rnf protectionPolicy
-      `Prelude.seq` Prelude.rnf gameSessionId
+    Prelude.rnf maximumPlayerSessionCount `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf playerSessionCreationPolicy `Prelude.seq`
+          Prelude.rnf protectionPolicy `Prelude.seq`
+            Prelude.rnf gameSessionId
 
 instance Data.ToHeaders UpdateGameSession where
   toHeaders =
@@ -258,5 +258,5 @@ updateGameSessionResponse_httpStatus = Lens.lens (\UpdateGameSessionResponse' {h
 
 instance Prelude.NFData UpdateGameSessionResponse where
   rnf UpdateGameSessionResponse' {..} =
-    Prelude.rnf gameSession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameSession `Prelude.seq`
+      Prelude.rnf httpStatus

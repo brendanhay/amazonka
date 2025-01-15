@@ -473,17 +473,17 @@ instance Prelude.Hashable ScalingPolicy where
 
 instance Prelude.NFData ScalingPolicy where
   rnf ScalingPolicy' {..} =
-    Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf evaluationPeriods
-      `Prelude.seq` Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf scalingAdjustment
-      `Prelude.seq` Prelude.rnf scalingAdjustmentType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetConfiguration
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf updateStatus
+    Prelude.rnf comparisonOperator `Prelude.seq`
+      Prelude.rnf evaluationPeriods `Prelude.seq`
+        Prelude.rnf fleetArn `Prelude.seq`
+          Prelude.rnf fleetId `Prelude.seq`
+            Prelude.rnf location `Prelude.seq`
+              Prelude.rnf metricName `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf policyType `Prelude.seq`
+                    Prelude.rnf scalingAdjustment `Prelude.seq`
+                      Prelude.rnf scalingAdjustmentType `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf targetConfiguration `Prelude.seq`
+                            Prelude.rnf threshold `Prelude.seq`
+                              Prelude.rnf updateStatus

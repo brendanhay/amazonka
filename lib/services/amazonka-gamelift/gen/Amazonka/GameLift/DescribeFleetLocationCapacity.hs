@@ -141,8 +141,8 @@ instance
 
 instance Prelude.NFData DescribeFleetLocationCapacity where
   rnf DescribeFleetLocationCapacity' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf location
 
 instance Data.ToHeaders DescribeFleetLocationCapacity where
   toHeaders =
@@ -221,5 +221,5 @@ instance
     DescribeFleetLocationCapacityResponse
   where
   rnf DescribeFleetLocationCapacityResponse' {..} =
-    Prelude.rnf fleetCapacity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetCapacity `Prelude.seq`
+      Prelude.rnf httpStatus

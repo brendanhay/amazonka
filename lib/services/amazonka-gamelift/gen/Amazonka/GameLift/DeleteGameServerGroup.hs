@@ -175,8 +175,8 @@ instance Prelude.Hashable DeleteGameServerGroup where
 
 instance Prelude.NFData DeleteGameServerGroup where
   rnf DeleteGameServerGroup' {..} =
-    Prelude.rnf deleteOption
-      `Prelude.seq` Prelude.rnf gameServerGroupName
+    Prelude.rnf deleteOption `Prelude.seq`
+      Prelude.rnf gameServerGroupName
 
 instance Data.ToHeaders DeleteGameServerGroup where
   toHeaders =
@@ -253,5 +253,5 @@ deleteGameServerGroupResponse_httpStatus = Lens.lens (\DeleteGameServerGroupResp
 
 instance Prelude.NFData DeleteGameServerGroupResponse where
   rnf DeleteGameServerGroupResponse' {..} =
-    Prelude.rnf gameServerGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServerGroup `Prelude.seq`
+      Prelude.rnf httpStatus

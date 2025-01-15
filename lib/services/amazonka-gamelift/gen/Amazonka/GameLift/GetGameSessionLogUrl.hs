@@ -189,5 +189,5 @@ getGameSessionLogUrlResponse_httpStatus = Lens.lens (\GetGameSessionLogUrlRespon
 
 instance Prelude.NFData GetGameSessionLogUrlResponse where
   rnf GetGameSessionLogUrlResponse' {..} =
-    Prelude.rnf preSignedUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf preSignedUrl `Prelude.seq`
+      Prelude.rnf httpStatus

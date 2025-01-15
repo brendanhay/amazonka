@@ -114,10 +114,10 @@ instance Prelude.Hashable AttributeValue where
 
 instance Prelude.NFData AttributeValue where
   rnf AttributeValue' {..} =
-    Prelude.rnf n
-      `Prelude.seq` Prelude.rnf s
-      `Prelude.seq` Prelude.rnf sdm
-      `Prelude.seq` Prelude.rnf sl
+    Prelude.rnf n `Prelude.seq`
+      Prelude.rnf s `Prelude.seq`
+        Prelude.rnf sdm `Prelude.seq`
+          Prelude.rnf sl
 
 instance Data.ToJSON AttributeValue where
   toJSON AttributeValue' {..} =

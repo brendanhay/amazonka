@@ -144,10 +144,10 @@ instance Prelude.Hashable UpdateAlias where
 
 instance Prelude.NFData UpdateAlias where
   rnf UpdateAlias' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf routingStrategy
-      `Prelude.seq` Prelude.rnf aliasId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf routingStrategy `Prelude.seq`
+          Prelude.rnf aliasId
 
 instance Data.ToHeaders UpdateAlias where
   toHeaders =
@@ -220,5 +220,5 @@ updateAliasResponse_httpStatus = Lens.lens (\UpdateAliasResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateAliasResponse where
   rnf UpdateAliasResponse' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf httpStatus

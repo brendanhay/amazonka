@@ -92,5 +92,5 @@ instance Prelude.Hashable LocationModel where
 
 instance Prelude.NFData LocationModel where
   rnf LocationModel' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationName
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf locationName

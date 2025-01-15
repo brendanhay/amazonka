@@ -177,12 +177,12 @@ instance Core.AWSPager DescribeFleetEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFleetEvents_nextToken
-          Lens..~ rs
-          Lens.^? describeFleetEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFleetEvents_nextToken
+              Lens..~ rs
+              Lens.^? describeFleetEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFleetEvents where
   type
@@ -210,11 +210,11 @@ instance Prelude.Hashable DescribeFleetEvents where
 
 instance Prelude.NFData DescribeFleetEvents where
   rnf DescribeFleetEvents' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf fleetId
 
 instance Data.ToHeaders DescribeFleetEvents where
   toHeaders =
@@ -308,6 +308,6 @@ describeFleetEventsResponse_httpStatus = Lens.lens (\DescribeFleetEventsResponse
 
 instance Prelude.NFData DescribeFleetEventsResponse where
   rnf DescribeFleetEventsResponse' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

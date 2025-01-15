@@ -100,9 +100,9 @@ instance Prelude.Hashable PlayerLatency where
 
 instance Prelude.NFData PlayerLatency where
   rnf PlayerLatency' {..} =
-    Prelude.rnf latencyInMilliseconds
-      `Prelude.seq` Prelude.rnf playerId
-      `Prelude.seq` Prelude.rnf regionIdentifier
+    Prelude.rnf latencyInMilliseconds `Prelude.seq`
+      Prelude.rnf playerId `Prelude.seq`
+        Prelude.rnf regionIdentifier
 
 instance Data.ToJSON PlayerLatency where
   toJSON PlayerLatency' {..} =

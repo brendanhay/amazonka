@@ -141,8 +141,8 @@ instance Prelude.Hashable SuspendGameServerGroup where
 
 instance Prelude.NFData SuspendGameServerGroup where
   rnf SuspendGameServerGroup' {..} =
-    Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf suspendActions
+    Prelude.rnf gameServerGroupName `Prelude.seq`
+      Prelude.rnf suspendActions
 
 instance Data.ToHeaders SuspendGameServerGroup where
   toHeaders =
@@ -223,5 +223,5 @@ instance
     SuspendGameServerGroupResponse
   where
   rnf SuspendGameServerGroupResponse' {..} =
-    Prelude.rnf gameServerGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServerGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -184,9 +184,9 @@ instance Prelude.Hashable CreateVpcPeeringConnection where
 
 instance Prelude.NFData CreateVpcPeeringConnection where
   rnf CreateVpcPeeringConnection' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf peerVpcAwsAccountId
-      `Prelude.seq` Prelude.rnf peerVpcId
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf peerVpcAwsAccountId `Prelude.seq`
+        Prelude.rnf peerVpcId
 
 instance Data.ToHeaders CreateVpcPeeringConnection where
   toHeaders =

@@ -191,10 +191,10 @@ instance Prelude.Hashable VpcPeeringConnection where
 
 instance Prelude.NFData VpcPeeringConnection where
   rnf VpcPeeringConnection' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf gameLiftVpcId
-      `Prelude.seq` Prelude.rnf ipV4CidrBlock
-      `Prelude.seq` Prelude.rnf peerVpcId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf gameLiftVpcId `Prelude.seq`
+          Prelude.rnf ipV4CidrBlock `Prelude.seq`
+            Prelude.rnf peerVpcId `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf vpcPeeringConnectionId

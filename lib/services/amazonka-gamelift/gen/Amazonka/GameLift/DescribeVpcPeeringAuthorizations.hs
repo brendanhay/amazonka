@@ -177,5 +177,5 @@ instance
     DescribeVpcPeeringAuthorizationsResponse
   where
   rnf DescribeVpcPeeringAuthorizationsResponse' {..} =
-    Prelude.rnf vpcPeeringAuthorizations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcPeeringAuthorizations `Prelude.seq`
+      Prelude.rnf httpStatus

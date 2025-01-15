@@ -227,15 +227,15 @@ instance Prelude.Hashable Compute where
 
 instance Prelude.NFData Compute where
   rnf Compute' {..} =
-    Prelude.rnf computeArn
-      `Prelude.seq` Prelude.rnf computeName
-      `Prelude.seq` Prelude.rnf computeStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf gameLiftServiceSdkEndpoint
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf computeArn `Prelude.seq`
+      Prelude.rnf computeName `Prelude.seq`
+        Prelude.rnf computeStatus `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf dnsName `Prelude.seq`
+              Prelude.rnf fleetArn `Prelude.seq`
+                Prelude.rnf fleetId `Prelude.seq`
+                  Prelude.rnf gameLiftServiceSdkEndpoint `Prelude.seq`
+                    Prelude.rnf ipAddress `Prelude.seq`
+                      Prelude.rnf location `Prelude.seq`
+                        Prelude.rnf operatingSystem `Prelude.seq`
+                          Prelude.rnf type'

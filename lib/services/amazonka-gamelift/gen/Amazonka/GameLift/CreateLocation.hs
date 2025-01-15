@@ -123,8 +123,8 @@ instance Prelude.Hashable CreateLocation where
 
 instance Prelude.NFData CreateLocation where
   rnf CreateLocation' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf locationName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf locationName
 
 instance Data.ToHeaders CreateLocation where
   toHeaders =
@@ -194,5 +194,5 @@ createLocationResponse_httpStatus = Lens.lens (\CreateLocationResponse' {httpSta
 
 instance Prelude.NFData CreateLocationResponse where
   rnf CreateLocationResponse' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf httpStatus

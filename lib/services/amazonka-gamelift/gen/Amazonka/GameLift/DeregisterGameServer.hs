@@ -120,8 +120,8 @@ instance Prelude.Hashable DeregisterGameServer where
 
 instance Prelude.NFData DeregisterGameServer where
   rnf DeregisterGameServer' {..} =
-    Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf gameServerId
+    Prelude.rnf gameServerGroupName `Prelude.seq`
+      Prelude.rnf gameServerId
 
 instance Data.ToHeaders DeregisterGameServer where
   toHeaders =

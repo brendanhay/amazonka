@@ -146,9 +146,9 @@ instance Prelude.Hashable CreatePlayerSession where
 
 instance Prelude.NFData CreatePlayerSession where
   rnf CreatePlayerSession' {..} =
-    Prelude.rnf playerData
-      `Prelude.seq` Prelude.rnf gameSessionId
-      `Prelude.seq` Prelude.rnf playerId
+    Prelude.rnf playerData `Prelude.seq`
+      Prelude.rnf gameSessionId `Prelude.seq`
+        Prelude.rnf playerId
 
 instance Data.ToHeaders CreatePlayerSession where
   toHeaders =
@@ -222,5 +222,5 @@ createPlayerSessionResponse_httpStatus = Lens.lens (\CreatePlayerSessionResponse
 
 instance Prelude.NFData CreatePlayerSessionResponse where
   rnf CreatePlayerSessionResponse' {..} =
-    Prelude.rnf playerSession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf playerSession `Prelude.seq`
+      Prelude.rnf httpStatus

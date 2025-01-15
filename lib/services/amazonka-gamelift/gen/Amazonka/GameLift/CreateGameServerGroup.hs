@@ -511,17 +511,17 @@ instance Prelude.Hashable CreateGameServerGroup where
 
 instance Prelude.NFData CreateGameServerGroup where
   rnf CreateGameServerGroup' {..} =
-    Prelude.rnf autoScalingPolicy
-      `Prelude.seq` Prelude.rnf balancingStrategy
-      `Prelude.seq` Prelude.rnf gameServerProtectionPolicy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcSubnets
-      `Prelude.seq` Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf instanceDefinitions
+    Prelude.rnf autoScalingPolicy `Prelude.seq`
+      Prelude.rnf balancingStrategy `Prelude.seq`
+        Prelude.rnf gameServerProtectionPolicy `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf vpcSubnets `Prelude.seq`
+              Prelude.rnf gameServerGroupName `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf minSize `Prelude.seq`
+                    Prelude.rnf maxSize `Prelude.seq`
+                      Prelude.rnf launchTemplate `Prelude.seq`
+                        Prelude.rnf instanceDefinitions
 
 instance Data.ToHeaders CreateGameServerGroup where
   toHeaders =
@@ -621,5 +621,5 @@ createGameServerGroupResponse_httpStatus = Lens.lens (\CreateGameServerGroupResp
 
 instance Prelude.NFData CreateGameServerGroupResponse where
   rnf CreateGameServerGroupResponse' {..} =
-    Prelude.rnf gameServerGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServerGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -173,5 +173,5 @@ describeAliasResponse_httpStatus = Lens.lens (\DescribeAliasResponse' {httpStatu
 
 instance Prelude.NFData DescribeAliasResponse where
   rnf DescribeAliasResponse' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf httpStatus

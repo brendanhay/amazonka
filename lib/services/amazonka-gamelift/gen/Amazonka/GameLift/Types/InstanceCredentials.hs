@@ -86,5 +86,5 @@ instance Prelude.Hashable InstanceCredentials where
 
 instance Prelude.NFData InstanceCredentials where
   rnf InstanceCredentials' {..} =
-    Prelude.rnf secret
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf secret `Prelude.seq`
+      Prelude.rnf userName

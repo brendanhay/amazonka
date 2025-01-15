@@ -459,21 +459,21 @@ instance Prelude.Hashable GameSessionPlacement where
 
 instance Prelude.NFData GameSessionPlacement where
   rnf GameSessionPlacement' {..} =
-    Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf gameProperties
-      `Prelude.seq` Prelude.rnf gameSessionArn
-      `Prelude.seq` Prelude.rnf gameSessionData
-      `Prelude.seq` Prelude.rnf gameSessionId
-      `Prelude.seq` Prelude.rnf gameSessionName
-      `Prelude.seq` Prelude.rnf gameSessionQueueName
-      `Prelude.seq` Prelude.rnf gameSessionRegion
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf matchmakerData
-      `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
-      `Prelude.seq` Prelude.rnf placedPlayerSessions
-      `Prelude.seq` Prelude.rnf placementId
-      `Prelude.seq` Prelude.rnf playerLatencies
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dnsName `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf gameProperties `Prelude.seq`
+          Prelude.rnf gameSessionArn `Prelude.seq`
+            Prelude.rnf gameSessionData `Prelude.seq`
+              Prelude.rnf gameSessionId `Prelude.seq`
+                Prelude.rnf gameSessionName `Prelude.seq`
+                  Prelude.rnf gameSessionQueueName `Prelude.seq`
+                    Prelude.rnf gameSessionRegion `Prelude.seq`
+                      Prelude.rnf ipAddress `Prelude.seq`
+                        Prelude.rnf matchmakerData `Prelude.seq`
+                          Prelude.rnf maximumPlayerSessionCount `Prelude.seq`
+                            Prelude.rnf placedPlayerSessions `Prelude.seq`
+                              Prelude.rnf placementId `Prelude.seq`
+                                Prelude.rnf playerLatencies `Prelude.seq`
+                                  Prelude.rnf port `Prelude.seq`
+                                    Prelude.rnf startTime `Prelude.seq`
+                                      Prelude.rnf status

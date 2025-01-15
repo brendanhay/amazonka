@@ -205,6 +205,6 @@ instance
     RequestUploadCredentialsResponse
   where
   rnf RequestUploadCredentialsResponse' {..} =
-    Prelude.rnf storageLocation
-      `Prelude.seq` Prelude.rnf uploadCredentials
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf storageLocation `Prelude.seq`
+      Prelude.rnf uploadCredentials `Prelude.seq`
+        Prelude.rnf httpStatus

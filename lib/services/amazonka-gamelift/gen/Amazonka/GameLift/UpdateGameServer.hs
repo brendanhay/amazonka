@@ -192,11 +192,11 @@ instance Prelude.Hashable UpdateGameServer where
 
 instance Prelude.NFData UpdateGameServer where
   rnf UpdateGameServer' {..} =
-    Prelude.rnf gameServerData
-      `Prelude.seq` Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf utilizationStatus
-      `Prelude.seq` Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf gameServerId
+    Prelude.rnf gameServerData `Prelude.seq`
+      Prelude.rnf healthCheck `Prelude.seq`
+        Prelude.rnf utilizationStatus `Prelude.seq`
+          Prelude.rnf gameServerGroupName `Prelude.seq`
+            Prelude.rnf gameServerId
 
 instance Data.ToHeaders UpdateGameServer where
   toHeaders =
@@ -273,5 +273,5 @@ updateGameServerResponse_httpStatus = Lens.lens (\UpdateGameServerResponse' {htt
 
 instance Prelude.NFData UpdateGameServerResponse where
   rnf UpdateGameServerResponse' {..} =
-    Prelude.rnf gameServer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServer `Prelude.seq`
+      Prelude.rnf httpStatus

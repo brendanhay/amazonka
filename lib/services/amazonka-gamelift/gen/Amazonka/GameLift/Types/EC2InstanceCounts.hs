@@ -150,10 +150,10 @@ instance Prelude.Hashable EC2InstanceCounts where
 
 instance Prelude.NFData EC2InstanceCounts where
   rnf EC2InstanceCounts' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf desired
-      `Prelude.seq` Prelude.rnf idle
-      `Prelude.seq` Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf terminating
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf desired `Prelude.seq`
+        Prelude.rnf idle `Prelude.seq`
+          Prelude.rnf maximum `Prelude.seq`
+            Prelude.rnf minimum `Prelude.seq`
+              Prelude.rnf pending `Prelude.seq`
+                Prelude.rnf terminating

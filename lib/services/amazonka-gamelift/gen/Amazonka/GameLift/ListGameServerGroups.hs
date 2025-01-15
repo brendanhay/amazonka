@@ -105,12 +105,12 @@ instance Core.AWSPager ListGameServerGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGameServerGroups_nextToken
-          Lens..~ rs
-          Lens.^? listGameServerGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGameServerGroups_nextToken
+              Lens..~ rs
+              Lens.^? listGameServerGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGameServerGroups where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListGameServerGroups where
 
 instance Prelude.NFData ListGameServerGroups where
   rnf ListGameServerGroups' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGameServerGroups where
   toHeaders =
@@ -224,6 +224,6 @@ listGameServerGroupsResponse_httpStatus = Lens.lens (\ListGameServerGroupsRespon
 
 instance Prelude.NFData ListGameServerGroupsResponse where
   rnf ListGameServerGroupsResponse' {..} =
-    Prelude.rnf gameServerGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServerGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

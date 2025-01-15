@@ -212,12 +212,12 @@ instance Core.AWSPager DescribeGameSessionDetails where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeGameSessionDetails_nextToken
-          Lens..~ rs
-          Lens.^? describeGameSessionDetailsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeGameSessionDetails_nextToken
+              Lens..~ rs
+              Lens.^? describeGameSessionDetailsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGameSessionDetails where
   type
@@ -250,13 +250,13 @@ instance Prelude.Hashable DescribeGameSessionDetails where
 
 instance Prelude.NFData DescribeGameSessionDetails where
   rnf DescribeGameSessionDetails' {..} =
-    Prelude.rnf aliasId
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf gameSessionId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusFilter
+    Prelude.rnf aliasId `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf gameSessionId `Prelude.seq`
+          Prelude.rnf limit `Prelude.seq`
+            Prelude.rnf location `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf statusFilter
 
 instance Data.ToHeaders DescribeGameSessionDetails where
   toHeaders =
@@ -355,6 +355,6 @@ instance
     DescribeGameSessionDetailsResponse
   where
   rnf DescribeGameSessionDetailsResponse' {..} =
-    Prelude.rnf gameSessionDetails
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameSessionDetails `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

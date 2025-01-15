@@ -193,5 +193,5 @@ instance
     DescribeVpcPeeringConnectionsResponse
   where
   rnf DescribeVpcPeeringConnectionsResponse' {..} =
-    Prelude.rnf vpcPeeringConnections
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcPeeringConnections `Prelude.seq`
+      Prelude.rnf httpStatus

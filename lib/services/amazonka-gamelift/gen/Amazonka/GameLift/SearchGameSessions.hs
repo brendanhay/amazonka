@@ -433,12 +433,12 @@ instance Core.AWSPager SearchGameSessions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchGameSessions_nextToken
-          Lens..~ rs
-          Lens.^? searchGameSessionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchGameSessions_nextToken
+              Lens..~ rs
+              Lens.^? searchGameSessionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchGameSessions where
   type
@@ -468,13 +468,13 @@ instance Prelude.Hashable SearchGameSessions where
 
 instance Prelude.NFData SearchGameSessions where
   rnf SearchGameSessions' {..} =
-    Prelude.rnf aliasId
-      `Prelude.seq` Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortExpression
+    Prelude.rnf aliasId `Prelude.seq`
+      Prelude.rnf filterExpression `Prelude.seq`
+        Prelude.rnf fleetId `Prelude.seq`
+          Prelude.rnf limit `Prelude.seq`
+            Prelude.rnf location `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortExpression
 
 instance Data.ToHeaders SearchGameSessions where
   toHeaders =
@@ -572,6 +572,6 @@ searchGameSessionsResponse_httpStatus = Lens.lens (\SearchGameSessionsResponse' 
 
 instance Prelude.NFData SearchGameSessionsResponse where
   rnf SearchGameSessionsResponse' {..} =
-    Prelude.rnf gameSessions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameSessions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

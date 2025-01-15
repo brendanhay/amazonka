@@ -121,7 +121,7 @@ instance Prelude.Hashable EC2InstanceLimit where
 
 instance Prelude.NFData EC2InstanceLimit where
   rnf EC2InstanceLimit' {..} =
-    Prelude.rnf currentInstances
-      `Prelude.seq` Prelude.rnf eC2InstanceType
-      `Prelude.seq` Prelude.rnf instanceLimit
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf currentInstances `Prelude.seq`
+      Prelude.rnf eC2InstanceType `Prelude.seq`
+        Prelude.rnf instanceLimit `Prelude.seq`
+          Prelude.rnf location

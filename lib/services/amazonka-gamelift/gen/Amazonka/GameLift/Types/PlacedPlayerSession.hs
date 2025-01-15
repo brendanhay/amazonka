@@ -87,5 +87,5 @@ instance Prelude.Hashable PlacedPlayerSession where
 
 instance Prelude.NFData PlacedPlayerSession where
   rnf PlacedPlayerSession' {..} =
-    Prelude.rnf playerId
-      `Prelude.seq` Prelude.rnf playerSessionId
+    Prelude.rnf playerId `Prelude.seq`
+      Prelude.rnf playerSessionId

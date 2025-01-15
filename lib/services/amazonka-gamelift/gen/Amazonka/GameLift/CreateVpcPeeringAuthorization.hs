@@ -175,8 +175,8 @@ instance
 
 instance Prelude.NFData CreateVpcPeeringAuthorization where
   rnf CreateVpcPeeringAuthorization' {..} =
-    Prelude.rnf gameLiftAwsAccountId
-      `Prelude.seq` Prelude.rnf peerVpcId
+    Prelude.rnf gameLiftAwsAccountId `Prelude.seq`
+      Prelude.rnf peerVpcId
 
 instance Data.ToHeaders CreateVpcPeeringAuthorization where
   toHeaders =
@@ -258,5 +258,5 @@ instance
     CreateVpcPeeringAuthorizationResponse
   where
   rnf CreateVpcPeeringAuthorizationResponse' {..} =
-    Prelude.rnf vpcPeeringAuthorization
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcPeeringAuthorization `Prelude.seq`
+      Prelude.rnf httpStatus

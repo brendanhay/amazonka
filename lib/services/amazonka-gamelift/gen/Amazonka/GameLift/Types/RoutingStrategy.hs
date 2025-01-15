@@ -126,9 +126,9 @@ instance Prelude.Hashable RoutingStrategy where
 
 instance Prelude.NFData RoutingStrategy where
   rnf RoutingStrategy' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON RoutingStrategy where
   toJSON RoutingStrategy' {..} =

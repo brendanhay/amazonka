@@ -185,5 +185,5 @@ instance
     DescribeGameSessionPlacementResponse
   where
   rnf DescribeGameSessionPlacementResponse' {..} =
-    Prelude.rnf gameSessionPlacement
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameSessionPlacement `Prelude.seq`
+      Prelude.rnf httpStatus

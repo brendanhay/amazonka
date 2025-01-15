@@ -427,20 +427,20 @@ instance
     UpdateMatchmakingConfiguration
   where
   rnf UpdateMatchmakingConfiguration' {..} =
-    Prelude.rnf acceptanceRequired
-      `Prelude.seq` Prelude.rnf acceptanceTimeoutSeconds
-      `Prelude.seq` Prelude.rnf additionalPlayerCount
-      `Prelude.seq` Prelude.rnf backfillMode
-      `Prelude.seq` Prelude.rnf customEventData
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf flexMatchMode
-      `Prelude.seq` Prelude.rnf gameProperties
-      `Prelude.seq` Prelude.rnf gameSessionData
-      `Prelude.seq` Prelude.rnf gameSessionQueueArns
-      `Prelude.seq` Prelude.rnf notificationTarget
-      `Prelude.seq` Prelude.rnf requestTimeoutSeconds
-      `Prelude.seq` Prelude.rnf ruleSetName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf acceptanceRequired `Prelude.seq`
+      Prelude.rnf acceptanceTimeoutSeconds `Prelude.seq`
+        Prelude.rnf additionalPlayerCount `Prelude.seq`
+          Prelude.rnf backfillMode `Prelude.seq`
+            Prelude.rnf customEventData `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf flexMatchMode `Prelude.seq`
+                  Prelude.rnf gameProperties `Prelude.seq`
+                    Prelude.rnf gameSessionData `Prelude.seq`
+                      Prelude.rnf gameSessionQueueArns `Prelude.seq`
+                        Prelude.rnf notificationTarget `Prelude.seq`
+                          Prelude.rnf requestTimeoutSeconds `Prelude.seq`
+                            Prelude.rnf ruleSetName `Prelude.seq`
+                              Prelude.rnf name
 
 instance
   Data.ToHeaders
@@ -541,5 +541,5 @@ instance
     UpdateMatchmakingConfigurationResponse
   where
   rnf UpdateMatchmakingConfigurationResponse' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf httpStatus

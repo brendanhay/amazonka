@@ -131,9 +131,9 @@ instance Prelude.Hashable ServerProcess where
 
 instance Prelude.NFData ServerProcess where
   rnf ServerProcess' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf launchPath
-      `Prelude.seq` Prelude.rnf concurrentExecutions
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf launchPath `Prelude.seq`
+        Prelude.rnf concurrentExecutions
 
 instance Data.ToJSON ServerProcess where
   toJSON ServerProcess' {..} =

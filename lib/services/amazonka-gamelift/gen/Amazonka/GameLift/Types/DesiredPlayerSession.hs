@@ -74,8 +74,8 @@ instance Prelude.Hashable DesiredPlayerSession where
 
 instance Prelude.NFData DesiredPlayerSession where
   rnf DesiredPlayerSession' {..} =
-    Prelude.rnf playerData
-      `Prelude.seq` Prelude.rnf playerId
+    Prelude.rnf playerData `Prelude.seq`
+      Prelude.rnf playerId
 
 instance Data.ToJSON DesiredPlayerSession where
   toJSON DesiredPlayerSession' {..} =

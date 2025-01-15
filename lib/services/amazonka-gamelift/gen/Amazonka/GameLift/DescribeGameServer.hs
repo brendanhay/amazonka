@@ -131,8 +131,8 @@ instance Prelude.Hashable DescribeGameServer where
 
 instance Prelude.NFData DescribeGameServer where
   rnf DescribeGameServer' {..} =
-    Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf gameServerId
+    Prelude.rnf gameServerGroupName `Prelude.seq`
+      Prelude.rnf gameServerId
 
 instance Data.ToHeaders DescribeGameServer where
   toHeaders =
@@ -206,5 +206,5 @@ describeGameServerResponse_httpStatus = Lens.lens (\DescribeGameServerResponse' 
 
 instance Prelude.NFData DescribeGameServerResponse where
   rnf DescribeGameServerResponse' {..} =
-    Prelude.rnf gameServer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServer `Prelude.seq`
+      Prelude.rnf httpStatus

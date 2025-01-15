@@ -148,10 +148,10 @@ instance Prelude.Hashable IpPermission where
 
 instance Prelude.NFData IpPermission where
   rnf IpPermission' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf ipRange
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf toPort `Prelude.seq`
+        Prelude.rnf ipRange `Prelude.seq`
+          Prelude.rnf protocol
 
 instance Data.ToJSON IpPermission where
   toJSON IpPermission' {..} =

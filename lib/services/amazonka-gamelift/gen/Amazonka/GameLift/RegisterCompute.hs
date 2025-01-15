@@ -182,12 +182,12 @@ instance Prelude.Hashable RegisterCompute where
 
 instance Prelude.NFData RegisterCompute where
   rnf RegisterCompute' {..} =
-    Prelude.rnf certificatePath
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf computeName
+    Prelude.rnf certificatePath `Prelude.seq`
+      Prelude.rnf dnsName `Prelude.seq`
+        Prelude.rnf ipAddress `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf fleetId `Prelude.seq`
+              Prelude.rnf computeName
 
 instance Data.ToHeaders RegisterCompute where
   toHeaders =
@@ -265,5 +265,5 @@ registerComputeResponse_httpStatus = Lens.lens (\RegisterComputeResponse' {httpS
 
 instance Prelude.NFData RegisterComputeResponse where
   rnf RegisterComputeResponse' {..} =
-    Prelude.rnf compute
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compute `Prelude.seq`
+      Prelude.rnf httpStatus

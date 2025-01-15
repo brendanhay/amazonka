@@ -153,9 +153,9 @@ instance Prelude.Hashable AcceptMatch where
 
 instance Prelude.NFData AcceptMatch where
   rnf AcceptMatch' {..} =
-    Prelude.rnf ticketId
-      `Prelude.seq` Prelude.rnf playerIds
-      `Prelude.seq` Prelude.rnf acceptanceType
+    Prelude.rnf ticketId `Prelude.seq`
+      Prelude.rnf playerIds `Prelude.seq`
+        Prelude.rnf acceptanceType
 
 instance Data.ToHeaders AcceptMatch where
   toHeaders =

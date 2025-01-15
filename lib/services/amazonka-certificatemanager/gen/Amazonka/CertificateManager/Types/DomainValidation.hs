@@ -184,9 +184,9 @@ instance Prelude.Hashable DomainValidation where
 
 instance Prelude.NFData DomainValidation where
   rnf DomainValidation' {..} =
-    Prelude.rnf resourceRecord
-      `Prelude.seq` Prelude.rnf validationDomain
-      `Prelude.seq` Prelude.rnf validationEmails
-      `Prelude.seq` Prelude.rnf validationMethod
-      `Prelude.seq` Prelude.rnf validationStatus
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf resourceRecord `Prelude.seq`
+      Prelude.rnf validationDomain `Prelude.seq`
+        Prelude.rnf validationEmails `Prelude.seq`
+          Prelude.rnf validationMethod `Prelude.seq`
+            Prelude.rnf validationStatus `Prelude.seq`
+              Prelude.rnf domainName

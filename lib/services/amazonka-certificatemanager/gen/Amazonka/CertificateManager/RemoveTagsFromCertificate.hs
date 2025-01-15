@@ -129,8 +129,8 @@ instance Prelude.Hashable RemoveTagsFromCertificate where
 
 instance Prelude.NFData RemoveTagsFromCertificate where
   rnf RemoveTagsFromCertificate' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders RemoveTagsFromCertificate where
   toHeaders =

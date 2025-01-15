@@ -125,8 +125,8 @@ instance Prelude.Hashable DomainValidationOption where
 
 instance Prelude.NFData DomainValidationOption where
   rnf DomainValidationOption' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf validationDomain
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf validationDomain
 
 instance Data.ToJSON DomainValidationOption where
   toJSON DomainValidationOption' {..} =

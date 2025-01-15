@@ -194,5 +194,5 @@ instance
     ListTagsForCertificateResponse
   where
   rnf ListTagsForCertificateResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus

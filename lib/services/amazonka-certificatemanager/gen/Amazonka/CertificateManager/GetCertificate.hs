@@ -203,6 +203,6 @@ getCertificateResponse_httpStatus = Lens.lens (\GetCertificateResponse' {httpSta
 
 instance Prelude.NFData GetCertificateResponse where
   rnf GetCertificateResponse' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf certificateChain `Prelude.seq`
+        Prelude.rnf httpStatus

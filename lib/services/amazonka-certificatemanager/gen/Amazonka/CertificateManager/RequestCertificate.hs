@@ -425,15 +425,15 @@ instance Prelude.Hashable RequestCertificate where
 
 instance Prelude.NFData RequestCertificate where
   rnf RequestCertificate' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf domainValidationOptions
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf keyAlgorithm
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf subjectAlternativeNames
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf validationMethod
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf domainValidationOptions `Prelude.seq`
+        Prelude.rnf idempotencyToken `Prelude.seq`
+          Prelude.rnf keyAlgorithm `Prelude.seq`
+            Prelude.rnf options `Prelude.seq`
+              Prelude.rnf subjectAlternativeNames `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf validationMethod `Prelude.seq`
+                    Prelude.rnf domainName
 
 instance Data.ToHeaders RequestCertificate where
   toHeaders =
@@ -527,5 +527,5 @@ requestCertificateResponse_httpStatus = Lens.lens (\RequestCertificateResponse' 
 
 instance Prelude.NFData RequestCertificateResponse where
   rnf RequestCertificateResponse' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf httpStatus

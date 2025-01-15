@@ -173,8 +173,8 @@ instance Prelude.Hashable ExportCertificate where
 
 instance Prelude.NFData ExportCertificate where
   rnf ExportCertificate' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf passphrase
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf passphrase
 
 instance Data.ToHeaders ExportCertificate where
   toHeaders =
@@ -275,7 +275,7 @@ exportCertificateResponse_httpStatus = Lens.lens (\ExportCertificateResponse' {h
 
 instance Prelude.NFData ExportCertificateResponse where
   rnf ExportCertificateResponse' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf privateKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf certificateChain `Prelude.seq`
+        Prelude.rnf privateKey `Prelude.seq`
+          Prelude.rnf httpStatus

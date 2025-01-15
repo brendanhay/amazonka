@@ -151,5 +151,5 @@ instance
     GetAccountConfigurationResponse
   where
   rnf GetAccountConfigurationResponse' {..} =
-    Prelude.rnf expiryEvents
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf expiryEvents `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -173,12 +173,12 @@ instance Core.AWSPager ListCertificates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCertificates_nextToken
-          Lens..~ rs
-          Lens.^? listCertificatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCertificates_nextToken
+              Lens..~ rs
+              Lens.^? listCertificatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCertificates where
   type
@@ -210,12 +210,12 @@ instance Prelude.Hashable ListCertificates where
 
 instance Prelude.NFData ListCertificates where
   rnf ListCertificates' {..} =
-    Prelude.rnf certificateStatuses
-      `Prelude.seq` Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf certificateStatuses `Prelude.seq`
+      Prelude.rnf includes `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListCertificates where
   toHeaders =
@@ -305,6 +305,6 @@ listCertificatesResponse_httpStatus = Lens.lens (\ListCertificatesResponse' {htt
 
 instance Prelude.NFData ListCertificatesResponse where
   rnf ListCertificatesResponse' {..} =
-    Prelude.rnf certificateSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

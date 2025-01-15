@@ -140,7 +140,7 @@ instance Prelude.Hashable RenewalSummary where
 
 instance Prelude.NFData RenewalSummary where
   rnf RenewalSummary' {..} =
-    Prelude.rnf renewalStatusReason
-      `Prelude.seq` Prelude.rnf renewalStatus
-      `Prelude.seq` Prelude.rnf domainValidationOptions
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf renewalStatusReason `Prelude.seq`
+      Prelude.rnf renewalStatus `Prelude.seq`
+        Prelude.rnf domainValidationOptions `Prelude.seq`
+          Prelude.rnf updatedAt

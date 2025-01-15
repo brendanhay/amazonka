@@ -87,5 +87,5 @@ instance
 
 instance Prelude.NFData AlertManagerDefinitionStatus where
   rnf AlertManagerDefinitionStatus' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf statusCode

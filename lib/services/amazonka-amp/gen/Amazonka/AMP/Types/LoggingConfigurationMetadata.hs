@@ -136,8 +136,8 @@ instance
 
 instance Prelude.NFData LoggingConfigurationMetadata where
   rnf LoggingConfigurationMetadata' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf modifiedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workspace
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf logGroupArn `Prelude.seq`
+        Prelude.rnf modifiedAt `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf workspace

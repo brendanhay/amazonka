@@ -135,9 +135,9 @@ instance Prelude.Hashable PutAlertManagerDefinition where
 
 instance Prelude.NFData PutAlertManagerDefinition where
   rnf PutAlertManagerDefinition' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf data' `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders PutAlertManagerDefinition where
   toHeaders =
@@ -220,5 +220,5 @@ instance
     PutAlertManagerDefinitionResponse
   where
   rnf PutAlertManagerDefinitionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

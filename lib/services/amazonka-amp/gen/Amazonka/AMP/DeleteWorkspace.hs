@@ -104,8 +104,8 @@ instance Prelude.Hashable DeleteWorkspace where
 
 instance Prelude.NFData DeleteWorkspace where
   rnf DeleteWorkspace' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf workspaceId
 
 instance Data.ToHeaders DeleteWorkspace where
   toHeaders =

@@ -154,10 +154,10 @@ instance Prelude.Hashable PutRuleGroupsNamespace where
 
 instance Prelude.NFData PutRuleGroupsNamespace where
   rnf PutRuleGroupsNamespace' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf data' `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf workspaceId
 
 instance Data.ToHeaders PutRuleGroupsNamespace where
   toHeaders =
@@ -274,8 +274,8 @@ instance
     PutRuleGroupsNamespaceResponse
   where
   rnf PutRuleGroupsNamespaceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status

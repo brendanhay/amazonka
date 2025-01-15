@@ -138,9 +138,9 @@ instance
 
 instance Prelude.NFData CreateAlertManagerDefinition where
   rnf CreateAlertManagerDefinition' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf data' `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders CreateAlertManagerDefinition where
   toHeaders =
@@ -223,5 +223,5 @@ instance
     CreateAlertManagerDefinitionResponse
   where
   rnf CreateAlertManagerDefinitionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

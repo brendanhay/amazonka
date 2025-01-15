@@ -84,5 +84,5 @@ instance Prelude.Hashable LoggingConfigurationStatus where
 
 instance Prelude.NFData LoggingConfigurationStatus where
   rnf LoggingConfigurationStatus' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf statusCode

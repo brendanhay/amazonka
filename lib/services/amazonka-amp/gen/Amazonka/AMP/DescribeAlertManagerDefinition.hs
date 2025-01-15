@@ -188,5 +188,5 @@ instance
     DescribeAlertManagerDefinitionResponse
   where
   rnf DescribeAlertManagerDefinitionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf alertManagerDefinition
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf alertManagerDefinition

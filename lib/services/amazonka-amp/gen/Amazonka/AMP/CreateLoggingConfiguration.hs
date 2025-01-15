@@ -132,9 +132,9 @@ instance Prelude.Hashable CreateLoggingConfiguration where
 
 instance Prelude.NFData CreateLoggingConfiguration where
   rnf CreateLoggingConfiguration' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf logGroupArn `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders CreateLoggingConfiguration where
   toHeaders =
@@ -214,5 +214,5 @@ instance
     CreateLoggingConfigurationResponse
   where
   rnf CreateLoggingConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

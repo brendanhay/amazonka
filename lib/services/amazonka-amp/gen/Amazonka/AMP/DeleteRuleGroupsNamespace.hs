@@ -119,9 +119,9 @@ instance Prelude.Hashable DeleteRuleGroupsNamespace where
 
 instance Prelude.NFData DeleteRuleGroupsNamespace where
   rnf DeleteRuleGroupsNamespace' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders DeleteRuleGroupsNamespace where
   toHeaders =

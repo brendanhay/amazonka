@@ -112,8 +112,8 @@ instance Prelude.Hashable DescribeRuleGroupsNamespace where
 
 instance Prelude.NFData DescribeRuleGroupsNamespace where
   rnf DescribeRuleGroupsNamespace' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf workspaceId
 
 instance Data.ToHeaders DescribeRuleGroupsNamespace where
   toHeaders =
@@ -189,5 +189,5 @@ instance
     DescribeRuleGroupsNamespaceResponse
   where
   rnf DescribeRuleGroupsNamespaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf ruleGroupsNamespace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf ruleGroupsNamespace

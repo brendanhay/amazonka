@@ -109,8 +109,8 @@ instance
 
 instance Prelude.NFData DeleteAlertManagerDefinition where
   rnf DeleteAlertManagerDefinition' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf workspaceId
 
 instance Data.ToHeaders DeleteAlertManagerDefinition where
   toHeaders =

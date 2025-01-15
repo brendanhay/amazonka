@@ -136,7 +136,7 @@ instance
     AlertManagerDefinitionDescription
   where
   rnf AlertManagerDefinitionDescription' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf modifiedAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf data' `Prelude.seq`
+        Prelude.rnf modifiedAt `Prelude.seq`
+          Prelude.rnf status

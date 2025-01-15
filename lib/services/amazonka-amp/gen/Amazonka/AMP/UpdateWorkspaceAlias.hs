@@ -115,9 +115,9 @@ instance Prelude.Hashable UpdateWorkspaceAlias where
 
 instance Prelude.NFData UpdateWorkspaceAlias where
   rnf UpdateWorkspaceAlias' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders UpdateWorkspaceAlias where
   toHeaders =

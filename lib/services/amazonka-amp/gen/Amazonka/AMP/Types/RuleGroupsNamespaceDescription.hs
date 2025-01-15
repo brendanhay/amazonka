@@ -171,10 +171,10 @@ instance
     RuleGroupsNamespaceDescription
   where
   rnf RuleGroupsNamespaceDescription' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf modifiedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf data' `Prelude.seq`
+            Prelude.rnf modifiedAt `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status

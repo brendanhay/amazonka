@@ -148,10 +148,10 @@ instance Prelude.Hashable WorkspaceDescription where
 
 instance Prelude.NFData WorkspaceDescription where
   rnf WorkspaceDescription' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf prometheusEndpoint
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf prometheusEndpoint `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf workspaceId

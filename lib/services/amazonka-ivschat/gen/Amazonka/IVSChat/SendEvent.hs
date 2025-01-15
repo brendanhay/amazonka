@@ -127,9 +127,9 @@ instance Prelude.Hashable SendEvent where
 
 instance Prelude.NFData SendEvent where
   rnf SendEvent' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf eventName
-      `Prelude.seq` Prelude.rnf roomIdentifier
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf eventName `Prelude.seq`
+        Prelude.rnf roomIdentifier
 
 instance Data.ToHeaders SendEvent where
   toHeaders =

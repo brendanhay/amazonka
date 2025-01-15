@@ -178,11 +178,11 @@ instance Prelude.Hashable LoggingConfigurationSummary where
 
 instance Prelude.NFData LoggingConfigurationSummary where
   rnf LoggingConfigurationSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf destinationConfiguration
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf destinationConfiguration `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf updateTime

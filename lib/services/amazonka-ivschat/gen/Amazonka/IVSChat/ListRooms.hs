@@ -145,11 +145,11 @@ instance Prelude.Hashable ListRooms where
 
 instance Prelude.NFData ListRooms where
   rnf ListRooms' {..} =
-    Prelude.rnf loggingConfigurationIdentifier
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf messageReviewHandlerUri
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf loggingConfigurationIdentifier `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf messageReviewHandlerUri `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRooms where
   toHeaders =
@@ -234,6 +234,6 @@ listRoomsResponse_rooms = Lens.lens (\ListRoomsResponse' {rooms} -> rooms) (\s@L
 
 instance Prelude.NFData ListRoomsResponse where
   rnf ListRoomsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf rooms
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf rooms

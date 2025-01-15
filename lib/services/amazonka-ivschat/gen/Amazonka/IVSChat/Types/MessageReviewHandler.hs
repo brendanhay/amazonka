@@ -103,8 +103,8 @@ instance Prelude.Hashable MessageReviewHandler where
 
 instance Prelude.NFData MessageReviewHandler where
   rnf MessageReviewHandler' {..} =
-    Prelude.rnf fallbackResult
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf fallbackResult `Prelude.seq`
+      Prelude.rnf uri
 
 instance Data.ToJSON MessageReviewHandler where
   toJSON MessageReviewHandler' {..} =

@@ -187,12 +187,12 @@ instance Prelude.Hashable UpdateRoom where
 
 instance Prelude.NFData UpdateRoom where
   rnf UpdateRoom' {..} =
-    Prelude.rnf loggingConfigurationIdentifiers
-      `Prelude.seq` Prelude.rnf maximumMessageLength
-      `Prelude.seq` Prelude.rnf maximumMessageRatePerSecond
-      `Prelude.seq` Prelude.rnf messageReviewHandler
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf loggingConfigurationIdentifiers `Prelude.seq`
+      Prelude.rnf maximumMessageLength `Prelude.seq`
+        Prelude.rnf maximumMessageRatePerSecond `Prelude.seq`
+          Prelude.rnf messageReviewHandler `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf identifier
 
 instance Data.ToHeaders UpdateRoom where
   toHeaders =
@@ -370,14 +370,14 @@ updateRoomResponse_httpStatus = Lens.lens (\UpdateRoomResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateRoomResponse where
   rnf UpdateRoomResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf loggingConfigurationIdentifiers
-      `Prelude.seq` Prelude.rnf maximumMessageLength
-      `Prelude.seq` Prelude.rnf maximumMessageRatePerSecond
-      `Prelude.seq` Prelude.rnf messageReviewHandler
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updateTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf loggingConfigurationIdentifiers `Prelude.seq`
+            Prelude.rnf maximumMessageLength `Prelude.seq`
+              Prelude.rnf maximumMessageRatePerSecond `Prelude.seq`
+                Prelude.rnf messageReviewHandler `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf updateTime `Prelude.seq`
+                        Prelude.rnf httpStatus

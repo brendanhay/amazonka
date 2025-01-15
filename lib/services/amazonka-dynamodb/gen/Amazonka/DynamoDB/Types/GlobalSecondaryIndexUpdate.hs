@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.CreateGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude

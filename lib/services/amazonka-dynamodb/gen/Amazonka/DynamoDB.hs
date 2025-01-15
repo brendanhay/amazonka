@@ -467,6 +467,7 @@ module Amazonka.DynamoDB
 
     -- ** Common
     module Amazonka.DynamoDB.Types.AttributeValue,
+    module Amazonka.DynamoDB.Types.TransactWriteItem,
     module Amazonka.DynamoDB.Types.WriteRequest,
 
     -- ** AttributeAction
@@ -953,10 +954,6 @@ module Amazonka.DynamoDB
     TransactGetItem (TransactGetItem'),
     newTransactGetItem,
 
-    -- ** TransactWriteItem
-    TransactWriteItem (TransactWriteItem'),
-    newTransactWriteItem,
-
     -- ** Update
     Update (Update'),
     newUpdate,
@@ -1018,6 +1015,7 @@ import Amazonka.DynamoDB.TransactGetItems
 import Amazonka.DynamoDB.TransactWriteItems
 import Amazonka.DynamoDB.Types
 import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import Amazonka.DynamoDB.UntagResource
 import Amazonka.DynamoDB.UpdateContinuousBackups

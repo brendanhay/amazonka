@@ -28,6 +28,7 @@ import Amazonka.DynamoDB.Types.BillingModeSummary
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription
 import Amazonka.DynamoDB.Types.ReplicaStatus
 import Amazonka.DynamoDB.Types.TableClassSummary
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 

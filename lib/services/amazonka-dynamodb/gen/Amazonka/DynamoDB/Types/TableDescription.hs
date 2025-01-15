@@ -36,6 +36,7 @@ import Amazonka.DynamoDB.Types.SSEDescription
 import Amazonka.DynamoDB.Types.StreamSpecification
 import Amazonka.DynamoDB.Types.TableClassSummary
 import Amazonka.DynamoDB.Types.TableStatus
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 

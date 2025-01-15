@@ -29,6 +29,7 @@ import Amazonka.DynamoDB.Types.GlobalSecondaryIndex
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.ProvisionedThroughput
 import Amazonka.DynamoDB.Types.SSESpecification
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 

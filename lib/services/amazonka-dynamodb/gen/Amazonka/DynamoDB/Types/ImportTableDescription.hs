@@ -29,6 +29,7 @@ import Amazonka.DynamoDB.Types.InputFormat
 import Amazonka.DynamoDB.Types.InputFormatOptions
 import Amazonka.DynamoDB.Types.S3BucketSource
 import Amazonka.DynamoDB.Types.TableCreationParameters
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 

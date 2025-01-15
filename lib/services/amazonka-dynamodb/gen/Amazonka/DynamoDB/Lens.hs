@@ -1048,12 +1048,6 @@ module Amazonka.DynamoDB.Lens
     -- ** TransactGetItem
     transactGetItem_get,
 
-    -- ** TransactWriteItem
-    transactWriteItem_conditionCheck,
-    transactWriteItem_delete,
-    transactWriteItem_put,
-    transactWriteItem_update,
-
     -- ** Update
     update_conditionExpression,
     update_expressionAttributeNames,
@@ -1214,7 +1208,6 @@ import Amazonka.DynamoDB.Types.Tag
 import Amazonka.DynamoDB.Types.TimeToLiveDescription
 import Amazonka.DynamoDB.Types.TimeToLiveSpecification
 import Amazonka.DynamoDB.Types.TransactGetItem
-import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.Update
 import Amazonka.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.UpdateReplicationGroupMemberAction

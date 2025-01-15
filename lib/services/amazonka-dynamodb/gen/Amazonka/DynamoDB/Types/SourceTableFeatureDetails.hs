@@ -28,6 +28,7 @@ import Amazonka.DynamoDB.Types.LocalSecondaryIndexInfo
 import Amazonka.DynamoDB.Types.SSEDescription
 import Amazonka.DynamoDB.Types.StreamSpecification
 import Amazonka.DynamoDB.Types.TimeToLiveDescription
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 

@@ -241,13 +241,10 @@ library
 
   build-depends:
     , aeson
-    , amazonka-core                     >=2.0     && <2.1
+    , amazonka-core                     >=2.0  && <2.1
     , amazonka-dynamodb-attributevalue
-    , base                              >=4.12    && <5
+    , base                              >=4.12 && <5
     , containers
-    , hashable                          >=1.3.4.0 && <1.5
-    , unordered-containers
-    , vector
 
 test-suite amazonka-dynamodb-test
   type:             exitcode-stdio-1.0

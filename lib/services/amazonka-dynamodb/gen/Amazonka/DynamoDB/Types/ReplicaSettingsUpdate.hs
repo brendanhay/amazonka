@@ -26,6 +26,7 @@ import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate
 import Amazonka.DynamoDB.Types.TableClass
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 

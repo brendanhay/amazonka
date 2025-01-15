@@ -26,6 +26,7 @@ import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ExportFormat
 import Amazonka.DynamoDB.Types.ExportStatus
 import Amazonka.DynamoDB.Types.S3SseAlgorithm
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 

@@ -95,7 +95,7 @@ instance Prelude.Hashable ComponentSummary where
 
 instance Prelude.NFData ComponentSummary where
   rnf ComponentSummary' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf componentId
-      `Prelude.seq` Prelude.rnf componentType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf componentId `Prelude.seq`
+        Prelude.rnf componentType `Prelude.seq`
+          Prelude.rnf tags

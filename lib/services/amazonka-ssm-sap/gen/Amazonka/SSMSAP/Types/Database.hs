@@ -160,14 +160,14 @@ instance Prelude.Hashable Database where
 
 instance Prelude.NFData Database where
   rnf Database' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentId
-      `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf databaseId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf databaseType
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf primaryHost
-      `Prelude.seq` Prelude.rnf sQLPort
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf componentId `Prelude.seq`
+          Prelude.rnf credentials `Prelude.seq`
+            Prelude.rnf databaseId `Prelude.seq`
+              Prelude.rnf databaseName `Prelude.seq`
+                Prelude.rnf databaseType `Prelude.seq`
+                  Prelude.rnf lastUpdated `Prelude.seq`
+                    Prelude.rnf primaryHost `Prelude.seq`
+                      Prelude.rnf sQLPort `Prelude.seq`
+                        Prelude.rnf status

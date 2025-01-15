@@ -120,9 +120,9 @@ instance Prelude.Hashable PutResourcePermission where
 
 instance Prelude.NFData PutResourcePermission where
   rnf PutResourcePermission' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf sourceResourceArn
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf actionType `Prelude.seq`
+      Prelude.rnf sourceResourceArn `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToHeaders PutResourcePermission where
   toHeaders =
@@ -191,5 +191,5 @@ putResourcePermissionResponse_httpStatus = Lens.lens (\PutResourcePermissionResp
 
 instance Prelude.NFData PutResourcePermissionResponse where
   rnf PutResourcePermissionResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

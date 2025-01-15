@@ -132,11 +132,11 @@ instance Prelude.Hashable Application where
 
 instance Prelude.NFData Application where
   rnf Application' {..} =
-    Prelude.rnf appRegistryArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf components
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf appRegistryArn `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf components `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lastUpdated `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusMessage `Prelude.seq`
+                  Prelude.rnf type'

@@ -105,8 +105,8 @@ instance Prelude.Hashable GetComponent where
 
 instance Prelude.NFData GetComponent where
   rnf GetComponent' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf componentId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf componentId
 
 instance Data.ToHeaders GetComponent where
   toHeaders =
@@ -173,5 +173,5 @@ getComponentResponse_httpStatus = Lens.lens (\GetComponentResponse' {httpStatus}
 
 instance Prelude.NFData GetComponentResponse where
   rnf GetComponentResponse' {..} =
-    Prelude.rnf component
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf component `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -95,7 +95,7 @@ instance Prelude.Hashable Host where
 
 instance Prelude.NFData Host where
   rnf Host' {..} =
-    Prelude.rnf hostIp
-      `Prelude.seq` Prelude.rnf hostName
-      `Prelude.seq` Prelude.rnf hostRole
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf hostIp `Prelude.seq`
+      Prelude.rnf hostName `Prelude.seq`
+        Prelude.rnf hostRole `Prelude.seq`
+          Prelude.rnf instanceId

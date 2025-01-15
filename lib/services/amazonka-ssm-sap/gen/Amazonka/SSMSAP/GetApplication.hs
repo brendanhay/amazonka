@@ -105,8 +105,8 @@ instance Prelude.Hashable GetApplication where
 
 instance Prelude.NFData GetApplication where
   rnf GetApplication' {..} =
-    Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf applicationArn `Prelude.seq`
+      Prelude.rnf applicationId
 
 instance Data.ToHeaders GetApplication where
   toHeaders =
@@ -181,6 +181,6 @@ getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpSta
 
 instance Prelude.NFData GetApplicationResponse where
   rnf GetApplicationResponse' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

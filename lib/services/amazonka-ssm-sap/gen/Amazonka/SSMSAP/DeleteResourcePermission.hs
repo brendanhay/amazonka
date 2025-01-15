@@ -114,9 +114,9 @@ instance Prelude.Hashable DeleteResourcePermission where
 
 instance Prelude.NFData DeleteResourcePermission where
   rnf DeleteResourcePermission' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf sourceResourceArn
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf actionType `Prelude.seq`
+      Prelude.rnf sourceResourceArn `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToHeaders DeleteResourcePermission where
   toHeaders =
@@ -188,5 +188,5 @@ instance
     DeleteResourcePermissionResponse
   where
   rnf DeleteResourcePermissionResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

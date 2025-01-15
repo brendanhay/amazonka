@@ -129,9 +129,9 @@ instance Prelude.Hashable DeleteSession where
 
 instance Prelude.NFData DeleteSession where
   rnf DeleteSession' {..} =
-    Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botAlias
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf botName `Prelude.seq`
+      Prelude.rnf botAlias `Prelude.seq`
+        Prelude.rnf userId
 
 instance Data.ToHeaders DeleteSession where
   toHeaders =
@@ -226,8 +226,8 @@ deleteSessionResponse_httpStatus = Lens.lens (\DeleteSessionResponse' {httpStatu
 
 instance Prelude.NFData DeleteSessionResponse where
   rnf DeleteSessionResponse' {..} =
-    Prelude.rnf botAlias
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botAlias `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf sessionId `Prelude.seq`
+          Prelude.rnf userId `Prelude.seq`
+            Prelude.rnf httpStatus

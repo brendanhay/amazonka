@@ -103,9 +103,9 @@ instance Prelude.Hashable ActiveContext where
 
 instance Prelude.NFData ActiveContext where
   rnf ActiveContext' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timeToLive
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf timeToLive `Prelude.seq`
+        Prelude.rnf parameters
 
 instance Data.ToJSON ActiveContext where
   toJSON ActiveContext' {..} =

@@ -99,6 +99,6 @@ instance Prelude.Hashable ResponseCard where
 
 instance Prelude.NFData ResponseCard where
   rnf ResponseCard' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf genericAttachments
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf genericAttachments `Prelude.seq`
+        Prelude.rnf version

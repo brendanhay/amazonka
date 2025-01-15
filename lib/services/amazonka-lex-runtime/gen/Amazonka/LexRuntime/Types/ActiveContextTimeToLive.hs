@@ -93,8 +93,8 @@ instance Prelude.Hashable ActiveContextTimeToLive where
 
 instance Prelude.NFData ActiveContextTimeToLive where
   rnf ActiveContextTimeToLive' {..} =
-    Prelude.rnf timeToLiveInSeconds
-      `Prelude.seq` Prelude.rnf turnsToLive
+    Prelude.rnf timeToLiveInSeconds `Prelude.seq`
+      Prelude.rnf turnsToLive
 
 instance Data.ToJSON ActiveContextTimeToLive where
   toJSON ActiveContextTimeToLive' {..} =

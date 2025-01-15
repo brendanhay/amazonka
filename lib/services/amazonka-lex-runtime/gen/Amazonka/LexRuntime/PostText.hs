@@ -370,13 +370,13 @@ instance Prelude.Hashable PostText where
 
 instance Prelude.NFData PostText where
   rnf PostText' {..} =
-    Prelude.rnf activeContexts
-      `Prelude.seq` Prelude.rnf requestAttributes
-      `Prelude.seq` Prelude.rnf sessionAttributes
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botAlias
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf inputText
+    Prelude.rnf activeContexts `Prelude.seq`
+      Prelude.rnf requestAttributes `Prelude.seq`
+        Prelude.rnf sessionAttributes `Prelude.seq`
+          Prelude.rnf botName `Prelude.seq`
+            Prelude.rnf botAlias `Prelude.seq`
+              Prelude.rnf userId `Prelude.seq`
+                Prelude.rnf inputText
 
 instance Data.ToHeaders PostText where
   toHeaders =
@@ -899,18 +899,18 @@ postTextResponse_httpStatus = Lens.lens (\PostTextResponse' {httpStatus} -> http
 
 instance Prelude.NFData PostTextResponse where
   rnf PostTextResponse' {..} =
-    Prelude.rnf activeContexts
-      `Prelude.seq` Prelude.rnf alternativeIntents
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf dialogState
-      `Prelude.seq` Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf messageFormat
-      `Prelude.seq` Prelude.rnf nluIntentConfidence
-      `Prelude.seq` Prelude.rnf responseCard
-      `Prelude.seq` Prelude.rnf sentimentResponse
-      `Prelude.seq` Prelude.rnf sessionAttributes
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf slotToElicit
-      `Prelude.seq` Prelude.rnf slots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activeContexts `Prelude.seq`
+      Prelude.rnf alternativeIntents `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf dialogState `Prelude.seq`
+            Prelude.rnf intentName `Prelude.seq`
+              Prelude.rnf message `Prelude.seq`
+                Prelude.rnf messageFormat `Prelude.seq`
+                  Prelude.rnf nluIntentConfidence `Prelude.seq`
+                    Prelude.rnf responseCard `Prelude.seq`
+                      Prelude.rnf sentimentResponse `Prelude.seq`
+                        Prelude.rnf sessionAttributes `Prelude.seq`
+                          Prelude.rnf sessionId `Prelude.seq`
+                            Prelude.rnf slotToElicit `Prelude.seq`
+                              Prelude.rnf slots `Prelude.seq`
+                                Prelude.rnf httpStatus

@@ -252,13 +252,13 @@ instance Prelude.Hashable DialogAction where
 
 instance Prelude.NFData DialogAction where
   rnf DialogAction' {..} =
-    Prelude.rnf fulfillmentState
-      `Prelude.seq` Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf messageFormat
-      `Prelude.seq` Prelude.rnf slotToElicit
-      `Prelude.seq` Prelude.rnf slots
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf fulfillmentState `Prelude.seq`
+      Prelude.rnf intentName `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf messageFormat `Prelude.seq`
+            Prelude.rnf slotToElicit `Prelude.seq`
+              Prelude.rnf slots `Prelude.seq`
+                Prelude.rnf type'
 
 instance Data.ToJSON DialogAction where
   toJSON DialogAction' {..} =

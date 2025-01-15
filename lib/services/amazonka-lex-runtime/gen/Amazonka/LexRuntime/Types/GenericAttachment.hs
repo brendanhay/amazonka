@@ -116,8 +116,8 @@ instance Prelude.Hashable GenericAttachment where
 
 instance Prelude.NFData GenericAttachment where
   rnf GenericAttachment' {..} =
-    Prelude.rnf attachmentLinkUrl
-      `Prelude.seq` Prelude.rnf buttons
-      `Prelude.seq` Prelude.rnf imageUrl
-      `Prelude.seq` Prelude.rnf subTitle
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf attachmentLinkUrl `Prelude.seq`
+      Prelude.rnf buttons `Prelude.seq`
+        Prelude.rnf imageUrl `Prelude.seq`
+          Prelude.rnf subTitle `Prelude.seq`
+            Prelude.rnf title

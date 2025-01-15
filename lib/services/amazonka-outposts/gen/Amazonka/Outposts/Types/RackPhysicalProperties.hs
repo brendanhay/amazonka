@@ -191,15 +191,15 @@ instance Prelude.Hashable RackPhysicalProperties where
 
 instance Prelude.NFData RackPhysicalProperties where
   rnf RackPhysicalProperties' {..} =
-    Prelude.rnf fiberOpticCableType
-      `Prelude.seq` Prelude.rnf maximumSupportedWeightLbs
-      `Prelude.seq` Prelude.rnf opticalStandard
-      `Prelude.seq` Prelude.rnf powerConnector
-      `Prelude.seq` Prelude.rnf powerDrawKva
-      `Prelude.seq` Prelude.rnf powerFeedDrop
-      `Prelude.seq` Prelude.rnf powerPhase
-      `Prelude.seq` Prelude.rnf uplinkCount
-      `Prelude.seq` Prelude.rnf uplinkGbps
+    Prelude.rnf fiberOpticCableType `Prelude.seq`
+      Prelude.rnf maximumSupportedWeightLbs `Prelude.seq`
+        Prelude.rnf opticalStandard `Prelude.seq`
+          Prelude.rnf powerConnector `Prelude.seq`
+            Prelude.rnf powerDrawKva `Prelude.seq`
+              Prelude.rnf powerFeedDrop `Prelude.seq`
+                Prelude.rnf powerPhase `Prelude.seq`
+                  Prelude.rnf uplinkCount `Prelude.seq`
+                    Prelude.rnf uplinkGbps
 
 instance Data.ToJSON RackPhysicalProperties where
   toJSON RackPhysicalProperties' {..} =

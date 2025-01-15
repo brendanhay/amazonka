@@ -163,13 +163,13 @@ instance Prelude.Hashable CreateOutpost where
 
 instance Prelude.NFData CreateOutpost where
   rnf CreateOutpost' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf supportedHardwareType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf siteId
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf supportedHardwareType `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf siteId
 
 instance Data.ToHeaders CreateOutpost where
   toHeaders =
@@ -244,5 +244,5 @@ createOutpostResponse_httpStatus = Lens.lens (\CreateOutpostResponse' {httpStatu
 
 instance Prelude.NFData CreateOutpostResponse where
   rnf CreateOutpostResponse' {..} =
-    Prelude.rnf outpost
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf outpost `Prelude.seq`
+      Prelude.rnf httpStatus

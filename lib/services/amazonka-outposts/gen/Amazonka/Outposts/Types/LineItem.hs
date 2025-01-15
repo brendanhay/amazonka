@@ -130,9 +130,9 @@ instance Prelude.Hashable LineItem where
 
 instance Prelude.NFData LineItem where
   rnf LineItem' {..} =
-    Prelude.rnf assetInformationList
-      `Prelude.seq` Prelude.rnf catalogItemId
-      `Prelude.seq` Prelude.rnf lineItemId
-      `Prelude.seq` Prelude.rnf quantity
-      `Prelude.seq` Prelude.rnf shipmentInformation
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assetInformationList `Prelude.seq`
+      Prelude.rnf catalogItemId `Prelude.seq`
+        Prelude.rnf lineItemId `Prelude.seq`
+          Prelude.rnf quantity `Prelude.seq`
+            Prelude.rnf shipmentInformation `Prelude.seq`
+              Prelude.rnf status

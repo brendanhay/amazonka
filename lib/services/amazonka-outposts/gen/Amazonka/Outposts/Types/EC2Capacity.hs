@@ -91,6 +91,6 @@ instance Prelude.Hashable EC2Capacity where
 
 instance Prelude.NFData EC2Capacity where
   rnf EC2Capacity' {..} =
-    Prelude.rnf family
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf family `Prelude.seq`
+      Prelude.rnf maxSize `Prelude.seq`
+        Prelude.rnf quantity

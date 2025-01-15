@@ -126,10 +126,10 @@ instance Prelude.Hashable UpdateSite where
 
 instance Prelude.NFData UpdateSite where
   rnf UpdateSite' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf siteId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf notes `Prelude.seq`
+          Prelude.rnf siteId
 
 instance Data.ToHeaders UpdateSite where
   toHeaders =
@@ -198,5 +198,5 @@ updateSiteResponse_httpStatus = Lens.lens (\UpdateSiteResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateSiteResponse where
   rnf UpdateSiteResponse' {..} =
-    Prelude.rnf site
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf site `Prelude.seq`
+      Prelude.rnf httpStatus

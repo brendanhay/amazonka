@@ -150,5 +150,5 @@ getOutpostResponse_httpStatus = Lens.lens (\GetOutpostResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetOutpostResponse where
   rnf GetOutpostResponse' {..} =
-    Prelude.rnf outpost
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf outpost `Prelude.seq`
+      Prelude.rnf httpStatus

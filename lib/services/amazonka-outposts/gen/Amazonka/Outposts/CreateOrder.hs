@@ -135,10 +135,10 @@ instance Prelude.Hashable CreateOrder where
 
 instance Prelude.NFData CreateOrder where
   rnf CreateOrder' {..} =
-    Prelude.rnf paymentTerm
-      `Prelude.seq` Prelude.rnf outpostIdentifier
-      `Prelude.seq` Prelude.rnf lineItems
-      `Prelude.seq` Prelude.rnf paymentOption
+    Prelude.rnf paymentTerm `Prelude.seq`
+      Prelude.rnf outpostIdentifier `Prelude.seq`
+        Prelude.rnf lineItems `Prelude.seq`
+          Prelude.rnf paymentOption
 
 instance Data.ToHeaders CreateOrder where
   toHeaders =
@@ -210,5 +210,5 @@ createOrderResponse_httpStatus = Lens.lens (\CreateOrderResponse' {httpStatus} -
 
 instance Prelude.NFData CreateOrderResponse where
   rnf CreateOrderResponse' {..} =
-    Prelude.rnf order
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf order `Prelude.seq`
+      Prelude.rnf httpStatus

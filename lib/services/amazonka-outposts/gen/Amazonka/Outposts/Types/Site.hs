@@ -181,14 +181,14 @@ instance Prelude.Hashable Site where
 
 instance Prelude.NFData Site where
   rnf Site' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf operatingAddressCity
-      `Prelude.seq` Prelude.rnf operatingAddressCountryCode
-      `Prelude.seq` Prelude.rnf operatingAddressStateOrRegion
-      `Prelude.seq` Prelude.rnf rackPhysicalProperties
-      `Prelude.seq` Prelude.rnf siteArn
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf notes `Prelude.seq`
+            Prelude.rnf operatingAddressCity `Prelude.seq`
+              Prelude.rnf operatingAddressCountryCode `Prelude.seq`
+                Prelude.rnf operatingAddressStateOrRegion `Prelude.seq`
+                  Prelude.rnf rackPhysicalProperties `Prelude.seq`
+                    Prelude.rnf siteArn `Prelude.seq`
+                      Prelude.rnf siteId `Prelude.seq`
+                        Prelude.rnf tags

@@ -116,8 +116,8 @@ instance Prelude.Hashable AssetInfo where
 
 instance Prelude.NFData AssetInfo where
   rnf AssetInfo' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf assetLocation
-      `Prelude.seq` Prelude.rnf assetType
-      `Prelude.seq` Prelude.rnf computeAttributes
-      `Prelude.seq` Prelude.rnf rackId
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf assetLocation `Prelude.seq`
+        Prelude.rnf assetType `Prelude.seq`
+          Prelude.rnf computeAttributes `Prelude.seq`
+            Prelude.rnf rackId

@@ -115,9 +115,9 @@ instance Prelude.Hashable ListOrders where
 
 instance Prelude.NFData ListOrders where
   rnf ListOrders' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf outpostIdentifierFilter
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf outpostIdentifierFilter
 
 instance Data.ToHeaders ListOrders where
   toHeaders =
@@ -190,6 +190,6 @@ listOrdersResponse_httpStatus = Lens.lens (\ListOrdersResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListOrdersResponse where
   rnf ListOrdersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf orders
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf orders `Prelude.seq`
+        Prelude.rnf httpStatus

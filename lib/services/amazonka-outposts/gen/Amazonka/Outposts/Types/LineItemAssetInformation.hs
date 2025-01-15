@@ -84,5 +84,5 @@ instance Prelude.Hashable LineItemAssetInformation where
 
 instance Prelude.NFData LineItemAssetInformation where
   rnf LineItemAssetInformation' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf macAddressList
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf macAddressList

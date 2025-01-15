@@ -404,16 +404,16 @@ instance
     UpdateSiteRackPhysicalProperties
   where
   rnf UpdateSiteRackPhysicalProperties' {..} =
-    Prelude.rnf fiberOpticCableType
-      `Prelude.seq` Prelude.rnf maximumSupportedWeightLbs
-      `Prelude.seq` Prelude.rnf opticalStandard
-      `Prelude.seq` Prelude.rnf powerConnector
-      `Prelude.seq` Prelude.rnf powerDrawKva
-      `Prelude.seq` Prelude.rnf powerFeedDrop
-      `Prelude.seq` Prelude.rnf powerPhase
-      `Prelude.seq` Prelude.rnf uplinkCount
-      `Prelude.seq` Prelude.rnf uplinkGbps
-      `Prelude.seq` Prelude.rnf siteId
+    Prelude.rnf fiberOpticCableType `Prelude.seq`
+      Prelude.rnf maximumSupportedWeightLbs `Prelude.seq`
+        Prelude.rnf opticalStandard `Prelude.seq`
+          Prelude.rnf powerConnector `Prelude.seq`
+            Prelude.rnf powerDrawKva `Prelude.seq`
+              Prelude.rnf powerFeedDrop `Prelude.seq`
+                Prelude.rnf powerPhase `Prelude.seq`
+                  Prelude.rnf uplinkCount `Prelude.seq`
+                    Prelude.rnf uplinkGbps `Prelude.seq`
+                      Prelude.rnf siteId
 
 instance
   Data.ToHeaders
@@ -507,5 +507,5 @@ instance
     UpdateSiteRackPhysicalPropertiesResponse
   where
   rnf UpdateSiteRackPhysicalPropertiesResponse' {..} =
-    Prelude.rnf site
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf site `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -164,12 +164,12 @@ instance Prelude.Hashable UpdateProfile where
 
 instance Prelude.NFData UpdateProfile where
   rnf UpdateProfile' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf managedPolicyArns
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArns
-      `Prelude.seq` Prelude.rnf sessionPolicy
-      `Prelude.seq` Prelude.rnf profileId
+    Prelude.rnf durationSeconds `Prelude.seq`
+      Prelude.rnf managedPolicyArns `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf roleArns `Prelude.seq`
+            Prelude.rnf sessionPolicy `Prelude.seq`
+              Prelude.rnf profileId
 
 instance Data.ToHeaders UpdateProfile where
   toHeaders =

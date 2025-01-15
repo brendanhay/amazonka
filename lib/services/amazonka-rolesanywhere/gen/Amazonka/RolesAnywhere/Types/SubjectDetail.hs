@@ -168,12 +168,12 @@ instance Prelude.Hashable SubjectDetail where
 
 instance Prelude.NFData SubjectDetail where
   rnf SubjectDetail' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf instanceProperties
-      `Prelude.seq` Prelude.rnf lastSeenAt
-      `Prelude.seq` Prelude.rnf subjectArn
-      `Prelude.seq` Prelude.rnf subjectId
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf x509Subject
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf credentials `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf instanceProperties `Prelude.seq`
+            Prelude.rnf lastSeenAt `Prelude.seq`
+              Prelude.rnf subjectArn `Prelude.seq`
+                Prelude.rnf subjectId `Prelude.seq`
+                  Prelude.rnf updatedAt `Prelude.seq`
+                    Prelude.rnf x509Subject

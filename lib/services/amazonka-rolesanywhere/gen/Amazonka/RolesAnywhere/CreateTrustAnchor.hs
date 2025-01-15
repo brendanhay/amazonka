@@ -136,10 +136,10 @@ instance Prelude.Hashable CreateTrustAnchor where
 
 instance Prelude.NFData CreateTrustAnchor where
   rnf CreateTrustAnchor' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf source
 
 instance Data.ToHeaders CreateTrustAnchor where
   toHeaders =

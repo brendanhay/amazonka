@@ -111,12 +111,12 @@ instance Core.AWSPager ListTrustAnchors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTrustAnchors_nextToken
-          Lens..~ rs
-          Lens.^? listTrustAnchorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTrustAnchors_nextToken
+              Lens..~ rs
+              Lens.^? listTrustAnchorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrustAnchors where
   type
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListTrustAnchors where
 
 instance Prelude.NFData ListTrustAnchors where
   rnf ListTrustAnchors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListTrustAnchors where
   toHeaders =
@@ -221,6 +221,6 @@ listTrustAnchorsResponse_httpStatus = Lens.lens (\ListTrustAnchorsResponse' {htt
 
 instance Prelude.NFData ListTrustAnchorsResponse where
   rnf ListTrustAnchorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trustAnchors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf trustAnchors `Prelude.seq`
+        Prelude.rnf httpStatus

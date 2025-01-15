@@ -92,8 +92,8 @@ instance Prelude.Hashable SourceData where
 
 instance Prelude.NFData SourceData where
   rnf SourceData' {..} =
-    Prelude.rnf acmPcaArn
-      `Prelude.seq` Prelude.rnf x509CertificateData
+    Prelude.rnf acmPcaArn `Prelude.seq`
+      Prelude.rnf x509CertificateData
 
 instance Data.ToJSON SourceData where
   toJSON SourceData' {..} =

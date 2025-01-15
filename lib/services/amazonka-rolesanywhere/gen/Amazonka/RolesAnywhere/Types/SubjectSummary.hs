@@ -148,10 +148,10 @@ instance Prelude.Hashable SubjectSummary where
 
 instance Prelude.NFData SubjectSummary where
   rnf SubjectSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf lastSeenAt
-      `Prelude.seq` Prelude.rnf subjectArn
-      `Prelude.seq` Prelude.rnf subjectId
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf x509Subject
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf lastSeenAt `Prelude.seq`
+          Prelude.rnf subjectArn `Prelude.seq`
+            Prelude.rnf subjectId `Prelude.seq`
+              Prelude.rnf updatedAt `Prelude.seq`
+                Prelude.rnf x509Subject

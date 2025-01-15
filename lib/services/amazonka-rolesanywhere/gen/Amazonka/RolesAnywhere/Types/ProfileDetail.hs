@@ -211,15 +211,15 @@ instance Prelude.Hashable ProfileDetail where
 
 instance Prelude.NFData ProfileDetail where
   rnf ProfileDetail' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf managedPolicyArns
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf profileId
-      `Prelude.seq` Prelude.rnf requireInstanceProperties
-      `Prelude.seq` Prelude.rnf roleArns
-      `Prelude.seq` Prelude.rnf sessionPolicy
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf durationSeconds `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf managedPolicyArns `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf profileArn `Prelude.seq`
+                  Prelude.rnf profileId `Prelude.seq`
+                    Prelude.rnf requireInstanceProperties `Prelude.seq`
+                      Prelude.rnf roleArns `Prelude.seq`
+                        Prelude.rnf sessionPolicy `Prelude.seq`
+                          Prelude.rnf updatedAt

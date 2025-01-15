@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateCrl where
 
 instance Prelude.NFData UpdateCrl where
   rnf UpdateCrl' {..} =
-    Prelude.rnf crlData
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf crlId
+    Prelude.rnf crlData `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf crlId
 
 instance Data.ToHeaders UpdateCrl where
   toHeaders =

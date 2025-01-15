@@ -115,12 +115,12 @@ instance Core.AWSPager ListManagedResources where
         (rs Lens.^. listManagedResourcesResponse_items) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listManagedResources_nextToken
-          Lens..~ rs
-          Lens.^? listManagedResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listManagedResources_nextToken
+              Lens..~ rs
+              Lens.^? listManagedResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListManagedResources where
   type
@@ -145,8 +145,8 @@ instance Prelude.Hashable ListManagedResources where
 
 instance Prelude.NFData ListManagedResources where
   rnf ListManagedResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListManagedResources where
   toHeaders =
@@ -231,6 +231,6 @@ listManagedResourcesResponse_items = Lens.lens (\ListManagedResourcesResponse' {
 
 instance Prelude.NFData ListManagedResourcesResponse where
   rnf ListManagedResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf items

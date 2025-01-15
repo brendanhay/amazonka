@@ -152,12 +152,12 @@ instance Core.AWSPager ListZonalShifts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listZonalShifts_nextToken
-          Lens..~ rs
-          Lens.^? listZonalShiftsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listZonalShifts_nextToken
+              Lens..~ rs
+              Lens.^? listZonalShiftsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListZonalShifts where
   type
@@ -183,9 +183,9 @@ instance Prelude.Hashable ListZonalShifts where
 
 instance Prelude.NFData ListZonalShifts where
   rnf ListZonalShifts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders ListZonalShifts where
   toHeaders =
@@ -270,6 +270,6 @@ listZonalShiftsResponse_httpStatus = Lens.lens (\ListZonalShiftsResponse' {httpS
 
 instance Prelude.NFData ListZonalShiftsResponse where
   rnf ListZonalShiftsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

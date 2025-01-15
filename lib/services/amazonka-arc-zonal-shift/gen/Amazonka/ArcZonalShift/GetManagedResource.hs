@@ -219,8 +219,8 @@ getManagedResourceResponse_zonalShifts = Lens.lens (\GetManagedResourceResponse'
 
 instance Prelude.NFData GetManagedResourceResponse where
   rnf GetManagedResourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf appliedWeights
-      `Prelude.seq` Prelude.rnf zonalShifts
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf appliedWeights `Prelude.seq`
+            Prelude.rnf zonalShifts

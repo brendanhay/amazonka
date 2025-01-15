@@ -104,6 +104,6 @@ instance Prelude.Hashable ManagedResourceSummary where
 
 instance Prelude.NFData ManagedResourceSummary where
   rnf ManagedResourceSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf availabilityZones
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf availabilityZones

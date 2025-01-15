@@ -234,10 +234,10 @@ instance Prelude.Hashable CreateLink where
 
 instance Prelude.NFData CreateLink where
   rnf CreateLink' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf labelTemplate
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf sinkIdentifier
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf labelTemplate `Prelude.seq`
+        Prelude.rnf resourceTypes `Prelude.seq`
+          Prelude.rnf sinkIdentifier
 
 instance Data.ToHeaders CreateLink where
   toHeaders =
@@ -374,11 +374,11 @@ createLinkResponse_httpStatus = Lens.lens (\CreateLinkResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateLinkResponse where
   rnf CreateLinkResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf labelTemplate
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf sinkArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf label `Prelude.seq`
+          Prelude.rnf labelTemplate `Prelude.seq`
+            Prelude.rnf resourceTypes `Prelude.seq`
+              Prelude.rnf sinkArn `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

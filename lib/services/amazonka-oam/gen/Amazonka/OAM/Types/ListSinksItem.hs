@@ -95,6 +95,6 @@ instance Prelude.Hashable ListSinksItem where
 
 instance Prelude.NFData ListSinksItem where
   rnf ListSinksItem' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

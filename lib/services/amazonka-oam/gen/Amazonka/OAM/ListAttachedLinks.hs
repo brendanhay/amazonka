@@ -122,12 +122,12 @@ instance Core.AWSPager ListAttachedLinks where
         (rs Lens.^. listAttachedLinksResponse_items) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttachedLinks_nextToken
-          Lens..~ rs
-          Lens.^? listAttachedLinksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttachedLinks_nextToken
+              Lens..~ rs
+              Lens.^? listAttachedLinksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedLinks where
   type
@@ -153,9 +153,9 @@ instance Prelude.Hashable ListAttachedLinks where
 
 instance Prelude.NFData ListAttachedLinks where
   rnf ListAttachedLinks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sinkIdentifier
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sinkIdentifier
 
 instance Data.ToHeaders ListAttachedLinks where
   toHeaders =
@@ -238,6 +238,6 @@ listAttachedLinksResponse_items = Lens.lens (\ListAttachedLinksResponse' {items}
 
 instance Prelude.NFData ListAttachedLinksResponse where
   rnf ListAttachedLinksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf items

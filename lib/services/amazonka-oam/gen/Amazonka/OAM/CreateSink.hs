@@ -239,8 +239,8 @@ createSinkResponse_httpStatus = Lens.lens (\CreateSinkResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateSinkResponse where
   rnf CreateSinkResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -102,12 +102,12 @@ instance Core.AWSPager ListSinks where
     | Core.stop (rs Lens.^. listSinksResponse_items) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSinks_nextToken
-          Lens..~ rs
-          Lens.^? listSinksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSinks_nextToken
+              Lens..~ rs
+              Lens.^? listSinksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSinks where
   type AWSResponse ListSinks = ListSinksResponse
@@ -130,8 +130,8 @@ instance Prelude.Hashable ListSinks where
 
 instance Prelude.NFData ListSinks where
   rnf ListSinks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSinks where
   toHeaders =
@@ -211,6 +211,6 @@ listSinksResponse_items = Lens.lens (\ListSinksResponse' {items} -> items) (\s@L
 
 instance Prelude.NFData ListSinksResponse where
   rnf ListSinksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf items

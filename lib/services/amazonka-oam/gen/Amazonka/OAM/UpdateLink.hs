@@ -134,8 +134,8 @@ instance Prelude.Hashable UpdateLink where
 
 instance Prelude.NFData UpdateLink where
   rnf UpdateLink' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf resourceTypes
+    Prelude.rnf identifier `Prelude.seq`
+      Prelude.rnf resourceTypes
 
 instance Data.ToHeaders UpdateLink where
   toHeaders =
@@ -267,11 +267,11 @@ updateLinkResponse_httpStatus = Lens.lens (\UpdateLinkResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateLinkResponse where
   rnf UpdateLinkResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf labelTemplate
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf sinkArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf label `Prelude.seq`
+          Prelude.rnf labelTemplate `Prelude.seq`
+            Prelude.rnf resourceTypes `Prelude.seq`
+              Prelude.rnf sinkArn `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

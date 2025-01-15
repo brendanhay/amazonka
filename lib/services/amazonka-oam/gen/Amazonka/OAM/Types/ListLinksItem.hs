@@ -120,8 +120,8 @@ instance Prelude.Hashable ListLinksItem where
 
 instance Prelude.NFData ListLinksItem where
   rnf ListLinksItem' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf sinkArn
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf label `Prelude.seq`
+          Prelude.rnf resourceTypes `Prelude.seq`
+            Prelude.rnf sinkArn
